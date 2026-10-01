@@ -1414,6 +1414,14 @@ class Character(StatusEffectMixin):
     #: at 5x their intended threshold.
     SECONDARY_RESOURCE_MAX_OVERRIDE = {
         "solar_power": 20,
+        # Runemaster's own documented design (see ResourceType.RUNES in
+        # combat/abilities.py: "up to 4 stored, cycles Frost/Fire/Arcane")
+        # was silently falling through to the generic 0-100 default before
+        # this existed - Glyphic Ruin/Thaumaturgy only cost 1 Rune each, so
+        # against an uncapped-in-practice 100 pool the class never felt
+        # the tight "bank a few, spend carefully" resource tension it was
+        # designed around. 4 matches the documented intent exactly.
+        "runes": 4,
     }
 
     #: Secondary resources that bleed away outside combat, and how fast per
