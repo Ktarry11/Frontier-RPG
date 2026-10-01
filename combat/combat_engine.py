@@ -306,6 +306,16 @@ class CombatEngine:
         threat_mult = 1.0
         if hasattr(actor, "get_talent_effect"):
             threat_mult = actor.get_talent_effect("threat_multiplier", default=1.0) or 1.0
+        # Temporary tank-stance BUFFS (CoA's "threat_generation_pct" stat_mod
+        # - Cultist's Twilight Domain, Primalist's Heart of the Mountain,
+        # Starcaller's Lunar Authority, etc) stack on top of the talent-based
+        # multiplier above the same way Earthen Guardian's permanent talent
+        # bonus does, just sourced from an active buff instead of a spent
+        # talent point. Same +N% MORE convention (200 -> 3x, not 2x) as the
+        # talent version, so both read identically in tooltips/JSON.
+        if hasattr(actor, "get_status_stat_mod"):
+            buff_pct = actor.get_status_stat_mod("threat_generation_pct") or 0.0
+            threat_mult *= (1.0 + buff_pct / 100.0)
 
         for enemy, amount, is_damage in events:
             if amount <= 0:

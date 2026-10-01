@@ -445,7 +445,8 @@
           "effect_value": 0
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "is_stun": true
     },
     {
       "ability_id": "stormbringer_storm_alert",
@@ -479,7 +480,8 @@
           "effect_value": 130
         }
       ],
-      "icon_id": "stormbringer_storm_alert"
+      "icon_id": "stormbringer_storm_alert",
+      "is_stun": true
     },
     {
       "ability_id": "stormbringer_crushing_pressure",
@@ -758,7 +760,8 @@
         }
       ],
       "icon_id": "stormbringer_arm_of_thorim",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "is_stun": true
     },
     {
       "ability_id": "stormbringer_forked_lightning",

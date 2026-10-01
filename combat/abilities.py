@@ -1000,6 +1000,36 @@ class Ability:
         # Apply effect
         result_msg = self._apply_effect(caster, target, cost=cost, party=party)
 
+        # "taunt" in stat_mods (CoA tank cooldowns: Dreadfall Tank, Test of
+        # Pride, Command, Injunction, Nature's Call, Vile Sting, Locust
+        # Swarm, ...) is a flag, not a real stat - no engine code ever read
+        # it as a stat_mod, so these abilities cast, applied a cosmetic
+        # effect, and never actually pulled threat (confirmed:
+        # CombatEngine.default_target_for only ever redirects off real
+        # threat-table entries). Handled here rather than inside
+        # _apply_effect's individual effect_type branches since "taunt" can
+        # appear on a damage-type ability (Dreadfall Tank) just as easily as
+        # a debuff (Test of Pride) - one place covers every effect_type.
+        # Appends to the SAME self._last_threat_events list _apply_effect
+        # just populated (see CombatEngine._generate_threat_from_ability,
+        # which consumes it right after use() returns), so a taunt stacks
+        # on top of whatever real damage/heal threat this same cast already
+        # generated rather than replacing it.
+        #
+        # Deliberately NOT scaled by effect_value - several of these (Test
+        # of Pride, Injunction) author effect_value=0 since they had no
+        # real numeric payload before this fix, and a taunt's whole job is
+        # "unconditionally top the threat table", not "deal a rank-scaled
+        # amount of threat". Scaled off the target's own level instead, so
+        # a taunt reliably overrides whatever threat a high-level pull has
+        # already built up rather than going stale as content level rises.
+        if (self.stat_mods or {}).get("taunt") and hasattr(self, "_hostile_recipients"):
+            TAUNT_THREAT_PER_LEVEL = 500
+            taunt_targets = self._hostile_recipients(target)
+            for t in taunt_targets:
+                taunt_amount = max(500, getattr(t, "level", 1) * TAUNT_THREAT_PER_LEVEL)
+                self._last_threat_events.append((t, taunt_amount, True))
+
         # Proc triggers - fired off the SAME _last_threat_events data
         # _apply_effect just populated (real damage/heal amounts per
         # recipient, already distinguishing damage from healing), so a
@@ -1941,7 +1971,7 @@ class Ability:
                     )
                     t.apply_status_effect(effect)
                 mod_text = ", ".join(f"{k.replace('_', ' ')} {v}"
-                                     for k, v in mods.items() if v)
+                                     for k, v in mods.items() if v and k != "taunt")
                 # Stun/incapacitate/fear/sleep debuffs (is_stun=True) carry
                 # no stat_mods at all - mod_text is empty for these, so the
                 # old "(...)" suffix rendered as a bare, empty "()" in the
