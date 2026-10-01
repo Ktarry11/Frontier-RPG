@@ -1,0 +1,1022 @@
+{
+  "class": "Stormbringer",
+  "_source_note": "Fully rebuilt (3rd pass, Sept 2026) from 36 real in-game tooltip screenshots pulled directly from Ascension by Kyle (StormmBringer.docx). This pass corrected several levels that earlier passes had wrong (Call of the Storm 4 not 6, Call of the Wind 14 not 6, Invigorating Surge 6 not 4, Razorwind 40 not 22) and added several class-wide abilities that were missing entirely: Stormbreaker, the 3-buff Aegis family (Whirlwind/Shocking/Tempest, mutually exclusive - one can be active at a time), and the 4-spell Pressure family (Barometric/Crushing/Atmospheric/Stabilizing, also mutually exclusive). IMPORTANT spec-lock correction: Aeroblast and Torrential Wrath are confirmed LIGHTNING-locked via their own 'Requires: ... Lightning (1)' tags, NOT Wind/Maelstrom as earlier passes assumed from name-vibes alone - ability names in this game do not reliably predict which spec they're locked to, the 'Requires' tag is the only trustworthy source.",
+  "abilities": [
+    {
+      "ability_id": "stormbringer_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic staff strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "stormbringer_shock",
+      "name": "Shock",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shock an enemy with raw current, dealing Nature damage plus a lingering 1-turn DoT worth 10% of the hit.",
+      "_source": "Confirmed screenshot: 18 Mana, 35yd, 1.5s cast, Generates 20 Static, '17 Nature damage, plus an additional 20% of the initial damage over 1 sec.' Lvl 1. Extended to 8 ranks (was 5) per Kyle: starting abilities rank up much further, up to Rank 8-10, matching the treatment given to Venomancer's Venom Bolt/Serpent's Fang.",
+      "applies_dot_pct": 0.1,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 18,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 25,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 33,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 41,
+          "effect_value": 108
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 49,
+          "effect_value": 134
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 57,
+          "effect_value": 162
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 65,
+          "effect_value": 192
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 73,
+          "effect_value": 224
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 20
+      },
+      "icon_id": "stormbringer_shock",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_discharge",
+      "name": "Discharge",
+      "resource_type": "static",
+      "cooldown": 3,
+      "effect_type": "damage_and_restore_mana",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Discharge electricity, restoring mana and dealing Nature damage to enemies in a small area around you.",
+      "_source": "Confirmed screenshot: Lvl 2 (was Lvl 4), Depletes 20 Static, 'restoring 15% of your maximum mana and dealing 18 Nature damage to enemies in a small area around you.' Extended to 8 ranks (was 5) - third core Static piece, matching Shock's rank tail.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 20,
+          "effect_value": 18,
+          "mana_restore_pct": 12
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 28,
+          "mana_restore_pct": 13
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 40,
+          "mana_restore_pct": 14
+        },
+        {
+          "rank": 4,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 54,
+          "mana_restore_pct": 15
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 70,
+          "mana_restore_pct": 17
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 88,
+          "mana_restore_pct": 18
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 20,
+          "effect_value": 108,
+          "mana_restore_pct": 19
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 130,
+          "mana_restore_pct": 20
+        }
+      ],
+      "icon_id": "stormbringer_discharge",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_call_of_the_storm",
+      "name": "Call of the Storm",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "intellect": 3
+      },
+      "description": "Call upon the power of the storm to empower an allied player, increasing their Intellect. Does not stack with Call of the Wind.",
+      "_source": "Confirmed screenshot: Lvl 4 (was Lvl 6), 'increasing their Intellect by 3 for 30 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 25,
+          "effect_value": 3
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 6
+        }
+      ],
+      "icon_id": "stormbringer_call_of_the_storm",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "stormbringer_electrocute",
+      "name": "Electrocute",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Electrocute an enemy with a surge of raw current. Only usable against targets below 35% health.",
+      "_source": "Confirmed screenshot: Lvl 4 (was Lvl 10), Generates 20 Static, '25 Nature damage,' 'Only usable on enemies below 35% health.' Extended to 8 ranks (was 5) - core Static payoff, matching Shock's rank tail.",
+      "execute_threshold_pct": 35,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 24,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 12,
+          "cost": 32,
+          "effect_value": 82
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 108
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 48,
+          "effect_value": 136
+        },
+        {
+          "rank": 5,
+          "level_req": 36,
+          "cost": 56,
+          "effect_value": 166
+        },
+        {
+          "rank": 6,
+          "level_req": 44,
+          "cost": 64,
+          "effect_value": 198
+        },
+        {
+          "rank": 7,
+          "level_req": 52,
+          "cost": 72,
+          "effect_value": 232
+        },
+        {
+          "rank": 8,
+          "level_req": 60,
+          "cost": 80,
+          "effect_value": 268
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 20
+      },
+      "icon_id": "stormbringer_electrocute",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_conjure_storm",
+      "name": "Conjure Storm",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Conjure a storm over a target area, instantly dealing Nature damage plus additional damage over time.",
+      "_source": "Confirmed screenshot: Lvl 8, Depletes 50 Static, '25 initial Nature damage. Deals an additional 102 Nature damage to enemies in the area over 12 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "stormbringer_conjure_storm",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_invigorating_surge",
+      "name": "Invigorating Surge",
+      "resource_type": "static",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shock an ally's body, revitalizing it and instantly healing them.",
+      "_source": "Confirmed screenshot: Lvl 6 (was Lvl 4), Depletes 25 Static, 'instantly healing them for 76.' Extended to 8 ranks (was 5) - core Static payoff (heal), matching Shock's rank tail.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 25,
+          "effect_value": 76
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 104
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 136
+        },
+        {
+          "rank": 4,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 172
+        },
+        {
+          "rank": 5,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 212
+        },
+        {
+          "rank": 6,
+          "level_req": 46,
+          "cost": 25,
+          "effect_value": 256
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 304
+        },
+        {
+          "rank": 8,
+          "level_req": 60,
+          "cost": 25,
+          "effect_value": 356
+        }
+      ],
+      "icon_id": "stormbringer_invigorating_surge"
+    },
+    {
+      "ability_id": "stormbringer_whirlwind_aegis",
+      "name": "Whirlwind Aegis",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "armor": 60,
+        "haste": 3
+      },
+      "description": "Increases your Armor and spell haste. Lasts 30 min. Only 1 Aegis can be up at a time.",
+      "_source": "Confirmed screenshot: Lvl 4, 'Increases your Armor by 60 and increases your spell haste by 3%.' Part of the mutually-exclusive Aegis family (Whirlwind/Shocking/Tempest) - implemented via exclusive_group like Tinker's Rounds.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "stormbringer_aegis"
+    },
+    {
+      "ability_id": "stormbringer_barometric_pressure",
+      "name": "Barometric Pressure",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "movement_speed": -20,
+        "cast_speed": -20
+      },
+      "description": "Thicken the air around you, slowing the movement speed of enemies and reducing their casting speed. Only 1 Pressure spell can be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 12, 'slowing the movement speed of enemies by 20% and reducing their casting speed by 20%.' Part of the mutually-exclusive Pressure family (Barometric/Crushing/Atmospheric/Stabilizing).",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 28,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff",
+      "exclusive_group": "stormbringer_pressure"
+    },
+    {
+      "ability_id": "stormbringer_call_of_the_wind",
+      "name": "Call of the Wind",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "mana_regen": 10
+      },
+      "description": "Call upon the power of the wind to empower an allied player, restoring mana over time. Does not stack with Call of the Storm.",
+      "_source": "Confirmed screenshot: Lvl 14 (was Lvl 6), 'restoring 10 mana every 5 seconds for 30 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 10
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 18
+        }
+      ],
+      "icon_id": "stormbringer_call_of_the_wind",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "stormbringer_gust_of_wind",
+      "name": "Gust of Wind",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "silenced": 1
+      },
+      "description": "Send forth a gust of wind in a frontal cone, knocking enemies back and interrupting their current spell cast.",
+      "_source": "Confirmed screenshot: Lvl 16, 'knocking enemies back and interrupting all enemies current spell cast, preventing any spell from that school from being cast for 5 sec.' Knockback translated to N/A in turn-based (no positioning system); interrupt+silence kept as the real mechanical payoff.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "stormbringer_storm_alert",
+      "name": "Storm Alert",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Disturb an enemy with a vision of the coming storm, stunning them.",
+      "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch) - real-time fear translated to turn-based stun per project convention.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 26,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 38,
+          "effect_value": 115
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 50,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": "stormbringer_storm_alert"
+    },
+    {
+      "ability_id": "stormbringer_crushing_pressure",
+      "name": "Crushing Pressure",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "cc_duration_taken_pct": 20
+      },
+      "description": "Embolden the air around you, increasing the duration of movement impairing and fear effects on enemies. Only 1 Pressure spell can be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 18, 'increasing the duration of movement impairing, fear, and horrify effects on enemies by 20%.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 32,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_debuff",
+      "exclusive_group": "stormbringer_pressure"
+    },
+    {
+      "ability_id": "stormbringer_static_lock",
+      "name": "Static Lock",
+      "resource_type": "static",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "spell_hit_reduction": 1
+      },
+      "description": "Lock an enemy's nerves with residual static, interfering with their next actions.",
+      "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch).",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 15,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "stormbringer_static_lock"
+    },
+    {
+      "ability_id": "stormbringer_stormbreaker",
+      "name": "Stormbreaker",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Call down a violent surge of thunder that shatters magic, removing 1 beneficial magic effect.",
+      "_source": "Confirmed screenshot: Lvl 20, '3 Charges, 12 sec recharge.' Charge system compressed to a shorter flat cooldown to fit this game's turn-based combat length.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 28,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "stormbringer_stormbreaker"
+    },
+    {
+      "ability_id": "stormbringer_shocking_aegis",
+      "name": "Shocking Aegis",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "crit_chance_spell": 5,
+        "crit_taken_reduction": 5
+      },
+      "description": "Increases your chance to critically strike and reduces your chance to be critically struck. Lasts 30 min. Only 1 Aegis can be up at a time.",
+      "_source": "Confirmed screenshot: Lvl 26, exact numbers verbatim. Part of the mutually-exclusive Aegis family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 22,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "stormbringer_shocking_aegis",
+      "buff_scope": "raid",
+      "exclusive_group": "stormbringer_aegis"
+    },
+    {
+      "ability_id": "stormbringer_atmospheric_pressure",
+      "name": "Atmospheric Pressure",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "spell_hit_taken_pct": 3
+      },
+      "description": "Destabilize the air around you, increasing the chance for enemies to be struck by spells and causing you to generate additional Static on damage taken. Only 1 Pressure spell can be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 22, exact numbers verbatim.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 34,
+          "effect_value": 3
+        }
+      ],
+      "icon_id": "ability_debuff",
+      "exclusive_group": "stormbringer_pressure"
+    },
+    {
+      "ability_id": "stormbringer_stabilizing_pressure",
+      "name": "Stabilizing Pressure",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "pushback_reduction_pct": 35
+      },
+      "description": "Stabilize the air around you, causing all raid and party members to lose less casting or channeling time when damaged. Only 1 Pressure spell can be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 30, exact numbers verbatim.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 35
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "stormbringer_pressure"
+    },
+    {
+      "ability_id": "stormbringer_razorwind",
+      "name": "Razorwind",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Destroys any damage absorption effects and damage immunity effects on an enemy.",
+      "_source": "Confirmed screenshot: Lvl 40 (was Lvl 22), exact mechanic verbatim.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 45,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "stormbringer_razorwind"
+    },
+    {
+      "ability_id": "stormbringer_tempest_aegis",
+      "name": "Tempest Aegis",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "nature_resist": 23,
+        "frost_resist": 23
+      },
+      "description": "Increases your spell power based on your Intellect and increases your Nature and Frost Resistance. Lasts 30 min. Only 1 Aegis can be up at a time.",
+      "_source": "Confirmed screenshot: Lvl 44, 'increases your spell power by 10% of your Intellect and increases your Nature and Frost Resistance by 23.' Part of the mutually-exclusive Aegis family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "stormbringer_aegis"
+    },
+    {
+      "ability_id": "stormbringer_freewind",
+      "name": "Freewind",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A line of wind and lightning tears through all enemies. Assigned Nature school matching the Lightning tree's confirmed pattern (Forked Lightning, Aeroblast, Arm of Thorim all confirmed Nature per screenshot) - this ability's own school wasn't re-confirmed in the most recent screenshot batch, so this is the best-match assignment, not a directly confirmed one like its Lightning-tree siblings.",
+      "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch).",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 44,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 56,
+          "cost": 58,
+          "effect_value": 150
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 15
+      },
+      "icon_id": "stormbringer_freewind",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_charge",
+      "name": "Charge",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "haste": 20
+      },
+      "description": "Charge your body with electricity, generating a surge of Static and gaining brief haste.",
+      "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 20
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 40
+      },
+      "icon_id": "stormbringer_charge"
+    },
+    {
+      "ability_id": "stormbringer_arm_of_thorim",
+      "name": "Arm of Thorim",
+      "resource_type": "static",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Call down a terrible beam of lightning upon an enemy, dealing Nature damage and stunning them.",
+      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 16 (Rank 2 shown), Depletes ALL Static, '167 Nature damage and stunning them for 1 sec. Damage and cast time increased based on Static level.' Rank 1 numbers extrapolated downward from the Rank 2 figure shown.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 11,
+          "cost": 30,
+          "effect_value": 95
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 167
+        }
+      ],
+      "icon_id": "stormbringer_arm_of_thorim",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_forked_lightning",
+      "name": "Forked Lightning",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shoot lightning at an enemy, bouncing to nearby enemies.",
+      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 22 (Rank 2 shown), 'dealing 142 Nature damage, bouncing to up to 4 enemies. Generates 5 Static for each enemy struck.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 15,
+          "cost": 35,
+          "effect_value": 80
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 45,
+          "effect_value": 142
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 5
+      },
+      "icon_id": "stormbringer_forked_lightning",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_volt",
+      "name": "Volt",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {
+        "movement_speed": -40
+      },
+      "description": "Fuse lightning into an enemy, dealing Nature damage over time and slowing them.",
+      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 22 (Rank 2 shown), '258 Nature damage over 18 sec and slowing them by 40%. Generates 2 Static per tick.' 18-second real-time DoT compressed to a 3-turn DoT for this engine.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 86
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 6
+      },
+      "icon_id": "stormbringer_volt",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_aeroblast",
+      "name": "Aeroblast",
+      "resource_type": "static",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Crush an enemy with the weight of the winds, dealing Nature damage now and additional damage shortly after.",
+      "_source": "Confirmed screenshot: Lightning-locked (despite the wind-sounding name), Requires Lvl 20, Depletes 50 Static, '207 Nature damage to them and then an additional time for 40% of the damage dealt after 1 sec.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 50,
+          "effect_value": 207
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "stormbringer_call_of_the_lightning",
+      "name": "Call of the Lightning",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "all_resist": 20
+      },
+      "description": "Call upon the power of storms to empower an allied player, increasing their resistances.",
+      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 50, 'increasing their resistances by 20 for 30 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "stormbringer_call_of_the_lightning",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "stormbringer_stormflow",
+      "name": "Stormflow",
+      "resource_type": "static",
+      "cooldown": 5,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Channel a storm beam upon an enemy. Shock can be instantly cast while channeling.",
+      "_source": "Confirmed screenshot: Maelstrom-locked, Requires Lvl 20, Depletes 20 Static, '152 Frost Damage over 8 sec, scaling with your spell haste. Shock can be instantly cast while channeling.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 76
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "stormbringer_drown",
+      "name": "Drown",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 1,
+      "stat_mods": {
+        "healing_taken_pct": -20
+      },
+      "description": "Attempt to drown an enemy, reducing their healing received, then unleash a creature from the depths.",
+      "_source": "Confirmed screenshot: Maelstrom-locked, Requires Lvl 24, 31 Mana, 'reducing their healing received by 20% for 8 sec. At the end of the duration, unleash a creature from the depths dealing 147 Frost Damage. Each stack of Conductive increases this effect's damage, stacking up to 8 times.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 31,
+          "effect_value": 147
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "stormbringer_summon_air_elemental",
+      "name": "Summon: Air Elemental",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Call an Air Elemental to aid you in combat.",
+      "_source": "Wind-locked pet summon, confirmed structurally via Tempest's Call talent tooltip earlier this session. Stubbed as a self-buff placeholder since no pet entity system exists yet (see _implementation_note on the Wind tree's tempests_call node).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "_implementation_note": "Real pet - stub only until the pet system Kyle mentioned is built. See Tinker's ZIGGI-6K and Venomancer's Air Elemental for the same pattern."
+    },
+    {
+      "ability_id": "stormbringer_raging_zephyr",
+      "name": "Raging Zephyr",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "hit_chance_taken": -15
+      },
+      "description": "A gust of wind that reduces an enemy's accuracy.",
+      "_source": "Wind-locked, level/numbers not yet confirmed via screenshot - placeholder values, flag for correction once Wind spec's own screenshots are reviewed.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 17,
+          "cost": 25,
+          "effect_value": 15
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "stormbringer_torrential_wrath",
+      "name": "Torrential Wrath",
+      "resource_type": "static",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast an enemy, triggering Conduction and dealing Frost damage, scaling with your haste rating.",
+      "_source": "Confirmed screenshot: 'Lightning (1)' tagged per its own Requires line (an earlier pass had this as Maelstrom-locked and it's staying there structurally per Kyle's 'skip the move' call - ability defined here regardless of which tree currently unlocks it). 35yd, 2.5s cast, Depletes 40 Static, '213 Frost damage, scaling with your haste rating,' plus Conduction: '11 Frost Damage, increased for each stack of Conductive.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 40,
+          "effect_value": 213
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "stormbringer_deluge",
+      "name": "Deluge",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 1,
+      "stat_mods": {
+        "movement_speed": -30
+      },
+      "description": "A wave of frost and water that damages and slows all nearby enemies.",
+      "_source": "Maelstrom-locked, level/numbers not yet confirmed via this screenshot batch (earlier pass had Lvl 27) - kept prior estimate, flag for correction once available.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 27,
+          "cost": 45,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "stormbringer_storm_ascendance",
+      "name": "Storm Ascendance",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "For a short time, your spell critical strikes have a chance to reset Electrocute's cooldown and grant Static.",
+      "_source": "Lightning capstone passive - the talent node ITSELF carries the mechanic text ('25% chance to reset Electrocute and grant 20 Static'), this ability entry exists mainly so unlock_ability has something real to point to. Since it's a passive proc rather than a cast player chooses to use, is_instant should probably be true and it may not need its own hotbar slot at all - flag for review once the proc-trigger pattern (like Rot Lich, Acidfang) gets a real shared implementation.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 60,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    }
+  ]
+}

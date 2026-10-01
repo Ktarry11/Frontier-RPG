@@ -1,0 +1,684 @@
+{
+  "class": "Priest",
+  "abilities": [
+    {
+      "ability_id": "priest_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A weak melee strike. The Light is your weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "priest_smite",
+      "name": "Smite",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Smites the target with holy energy.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 32,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 63
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 48,
+          "effect_value": 74
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 55,
+          "effect_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 62,
+          "effect_value": 94
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 70,
+          "effect_value": 105
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 78,
+          "effect_value": 116
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 85,
+          "effect_value": 126
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "priest_heal",
+      "name": "Heal",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Heals your wounds with the Light.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 40,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 64,
+          "effect_value": 82
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 88,
+          "effect_value": 110
+        },
+        {
+          "rank": 4,
+          "level_req": 36,
+          "cost": 112,
+          "effect_value": 138
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 136,
+          "effect_value": 166
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_shadow_word_pain",
+      "name": "Shadow Word: Pain",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Words of agony that torment the target over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 28,
+          "effect_value": 92
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 36,
+          "effect_value": 121
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 43,
+          "effect_value": 150
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 50,
+          "effect_value": 179
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 58,
+          "effect_value": 208
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 66,
+          "effect_value": 237
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 73,
+          "effect_value": 266
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 80,
+          "effect_value": 295
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 88,
+          "effect_value": 324
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "priest_renew",
+      "name": "Renew",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Heals you steadily over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 35,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 53,
+          "effect_value": 74
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 71,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 54,
+          "cost": 89,
+          "effect_value": 126
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_power_word_fortitude",
+      "name": "Power Word: Fortitude",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "stamina": 3,
+        "max_health_pct": 0
+      },
+      "description": "Fortifies the spirit, increasing Stamina.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 40,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 29,
+          "cost": 80,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 100,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "priest_mind_blast",
+      "name": "Mind Blast",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Assaults the target's mind with shadow energy.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 45,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 69,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 93,
+          "effect_value": 102
+        },
+        {
+          "rank": 4,
+          "level_req": 46,
+          "cost": 117,
+          "effect_value": 127
+        },
+        {
+          "rank": 5,
+          "level_req": 60,
+          "cost": 141,
+          "effect_value": 151
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "priest_power_word_shield",
+      "name": "Power Word: Shield",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": 140,
+        "magic_resistance": 50
+      },
+      "description": "A shield of Light absorbs incoming damage for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 45,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 69,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 93,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 52,
+          "cost": 117,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": null,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "priest_holy_fire",
+      "name": "Holy Fire",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Consumes the target in holy flame.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 50,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 76,
+          "effect_value": 83
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 102,
+          "effect_value": 110
+        }
+      ],
+      "icon_id": "ability_dot",
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "priest_penance",
+      "name": "Penance",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Penance talent in the Discipline tree. Real WOTLK Penance channels 3 bolts over 2 sec, healing an ally or damaging an enemy - this engine has no channel mechanic, so it resolves as a single strong heal instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 75,
+          "effect_value": 72
+        }
+      ],
+      "target_type": "ally",
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_circle_of_healing",
+      "name": "Circle of Healing",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Circle of Healing talent in the Holy tree. Instantly heals your entire party.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 39,
+          "cost": 90,
+          "effect_value": 82
+        }
+      ],
+      "target_type": "party",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_shadowform",
+      "name": "Shadowform",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Shadowform, increasing Spell Power against Shadow damage. Not learned from level alone - granted by the Shadowform talent in the Shadow tree.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null,
+      "shapeshift_form": "shadowform"
+    },
+    {
+      "ability_id": "priest_silence",
+      "name": "Silence",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "hit_chance_spell": -60
+      },
+      "description": "Not learned from level alone - granted by the Silence talent in the Shadow tree. PLACEHOLDER: real WOTLK Silence prevents spellcasting entirely for 3 sec - this engine has no cast-interrupt mechanic, so this instead heavily reduces the target's spell hit chance for 1 turn.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_mind_flay",
+      "name": "Mind Flay",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Mind Flay talent in the Shadow tree. Assaults the target's mind, dealing Shadow damage over time. Real WOTLK channels this over 3 sec instead of applying a DoT - simplified since this engine has no channel mechanic.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 25,
+          "cost": 40,
+          "effect_value": 50
+        }
+      ],
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_vampiric_touch",
+      "name": "Vampiric Touch",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 5,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Vampiric Touch talent in the Shadow tree. Afflicts the target with a Shadow damage-over-time effect.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 60,
+          "effect_value": 48
+        }
+      ],
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_mind_sear",
+      "name": "Mind Sear",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Mind Sear talent in the Shadow tree. A wave of shadow energy damages all enemies over time. Real WOTLK channels this over 5 sec instead of applying a DoT - simplified since this engine has no channel mechanic.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 100,
+          "effect_value": 64
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_fade",
+      "name": "Fade",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "damage_taken_pct": -0.4
+      },
+      "description": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Fade drops your threat significantly - here it's a temporary damage-reduction buff instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_psychic_scream",
+      "name": "Psychic Scream",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Fears all nearby enemies for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "priest_dispel_magic",
+      "name": "Dispel Magic",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Removes a beneficial Magic effect from an enemy, or a harmful Magic effect from an ally.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "ally",
+      "dispel_type": "magic",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_abolish_disease",
+      "name": "Abolish Disease",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Removes a Disease effect from an ally.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "ally",
+      "dispel_type": "disease",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_prayer_of_healing",
+      "name": "Prayer of Healing",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Heals your entire party.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 110,
+          "effect_value": 86
+        }
+      ],
+      "target_type": "party",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "priest_inner_fire",
+      "name": "Inner Fire",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "armor": 60,
+        "spell_power": 15
+      },
+      "description": "Increases your Armor and Spell Power for a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "buff_scope": "raid",
+      "is_instant": true,
+      "icon_id": null
+    }
+  ]
+}

@@ -1,0 +1,2364 @@
+"""
+Character class with full stat system, abilities, resources, leveling, and prestige.
+"""
+from combat.abilities import get_class_abilities
+from entities.equipment import Equipment, BASE_INVENTORY_CAPACITY
+
+
+from combat.status_effects import StatusEffectMixin, DamageSchool
+
+
+class Character(StatusEffectMixin):
+    """Complete character with stats, abilities, and resources."""
+    
+    def __init__(self, name, char_class, level=1):
+        self._init_status_effects()
+        self.name = name
+        self.char_class = char_class  # "Warrior", "Shaman", "Rogue", "Priest"
+        self.level = level
+        self.experience = 0
+        self.prestige_level = 0
+        self.prestige_points = 0
+
+        # Cosmetic appearance only - see world/race_registry.py for how
+        # these three resolve to an actual sprite folder. Purely visual:
+        # no stat, ability, or resource effect anywhere in the game reads
+        # these fields (unlike char_class). Defaults to a real, valid
+        # combination (human male, first variant) so a Character created
+        # anywhere in the codebase without explicitly setting these still
+        # resolves to a real sprite rather than None.
+        self.race = "human"
+        self.gender = "male"
+        self.appearance_variant = 0
+        
+        # Core Stats (5) - these are BASE stats only (no gear applied).
+        # Equipment bonuses are layered on top in _recalculate_derived_stats()
+        # and exposed separately so equip/unequip never has to touch these.
+        self.strength = 0
+        self.stamina = 0
+        self.intellect = 0
+        self.spirit = 0
+        self.agility = 0
+
+        # Effective stats (base + equipped gear bonuses). Populated by
+        # _recalculate_derived_stats(); this is what UI should display.
+        self.effective_strength = 0
+        self.effective_stamina = 0
+        self.effective_intellect = 0
+        self.effective_spirit = 0
+        self.effective_agility = 0
+        
+        # Derived Stats (10)
+        self.attack_power = 0
+        self.ranged_attack_power = 0
+        self.spell_power = 0
+        self.healing_power = 0
+        self.crit_chance_physical = 0.0
+        self.crit_chance_spell = 0.0
+        self.dodge = 0.0
+        self.block = 0.0
+        self.parry = 0.0
+        self.haste = 0.0
+
+        # New real gear-suffix stats (Kyle's Gear.docx suffix system,
+        # this session) that had no home on Character before now -
+        # mp5 (mana per 5 sec, see combat/status_effects.py's
+        # tick_out_of_combat_regen), spell_penetration (reduces a
+        # target's effective resistance - see combat resolution),
+        # and per-school spell power (on top of the existing generic
+        # spell_power, for suffixes like "of Fiery Wrath").
+        self.mp5 = 0
+        self.spell_penetration = 0
+        self.fire_spell_power = 0
+        self.frost_spell_power = 0
+        self.arcane_spell_power = 0
+        self.shadow_spell_power = 0
+        self.nature_spell_power = 0
+        self.holy_spell_power = 0
+
+        # Hit chance (Phase 5c): base miss chance that Hit Rating (a gear
+        # secondary stat, same family as Crit/Haste) reduces. Attacks that
+        # fail this roll deal 0 damage and log as a miss.
+        self.base_miss_chance_physical = 8.0   # WoW-classic-style baseline vs a same-level target
+        self.base_miss_chance_spell = 6.0       # Spells miss slightly less often than melee by convention
+        self.hit_chance_physical = 100.0 - self.base_miss_chance_physical
+        self.hit_chance_spell = 100.0 - self.base_miss_chance_spell
+        
+        # Defense Stats
+        self.health = 0
+        self.mana = 0
+        self.armor = 0
+        self.magic_resistance = 0
+
+        # Per-school resistances (real WotLK-style: Fire/Frost/Nature/
+        # Shadow/Arcane/Holy, each independent from Armor and from each
+        # other, mitigated through the same asymptotic mitigation_from()
+        # curve Armor already uses - see get_resistance() below for the
+        # single real lookup point, and DamageSchool in
+        # combat/status_effects.py for the school constants). Separate
+        # from magic_resistance (the old flat "all non-physical" stat,
+        # kept only as a legacy fallback for abilities not yet migrated
+        # to a real school - see DamageSchool.MAGIC's docstring). Default
+        # 0 here, real values computed in _recalculate_derived_stats from
+        # Spirit + gear/talent bonuses, same pattern as magic_resistance.
+        self.fire_resistance = 0
+        self.frost_resistance = 0
+        self.nature_resistance = 0
+        self.shadow_resistance = 0
+        self.arcane_resistance = 0
+        self.holy_resistance = 0
+
+        # Resources
+        self.max_rage = 100
+        self.max_energy = 100
+        
+        # Current State
+        self.current_health = 0
+        self.current_mana = 0
+        self.current_rage = 0
+        self.current_energy = 100
+
+        # One-shot flag set by Nature's Swiftness-style effects (see
+        # Ability's "enable_instant_cast" effect_type): True means the
+        # NEXT ability this character casts is treated as instant by
+        # CombatEngine.execute_ability, regardless of that ability's own
+        # is_instant flag, and is cleared the moment it's consumed. Not
+        # persisted across combat (there's no real-world reason a buff
+        # like this should survive a fight it wasn't used in).
+        self.next_cast_instant = False
+
+        # Warrior stance (see combat/stances.py). None for every other
+        # class - stances are Warrior-specific in real WOTLK, and nothing
+        # here assumes every character has one. Battle Stance is the
+        # default the moment a Warrior can act, matching real WOTLK where
+        # it's the stance you start in.
+        self.current_stance = "battle" if char_class == "Warrior" else None
+
+        # Persistent shapeshift form (see combat/forms.py) - Druid Bear/
+        # Cat/Dire Bear/Moonkin/Tree of Life, Priest Shadowform. None means
+        # "base Humanoid form" (Mana). Unlike current_stance, this is
+        # PERSISTENT per Kyle's direction - nothing resets it between
+        # fights or on zone transitions, it only changes via shift_form().
+        self.current_form = None
+
+        # Real Tinker Mechsuit state - see StatusEffectMixin.current_mechsuit
+        # (a derived property, not a plain attribute - there's no
+        # self.current_mechsuit assignment here on purpose, see that
+        # property's docstring for why).
+
+        # Real Scrap resource (Tinker's Makeshift Dynamite "Generates 10
+        # Scrap" - confirmed via real screenshot). A simple stacking
+        # currency, same pattern as Insanity/Static (int, capped, no
+        # decay) rather than a full ResourceType-bar (Tinker's PRIMARY
+        # resource is Mana per the class's existing real data - Scrap is
+        # a secondary spend-to-transform currency, same shape as
+        # Stormbringer's Static or Cultist's Insanity, gating entry into
+        # Mechsuit form specifically rather than fueling every ability).
+        self.current_scrap = 0
+        self.max_scrap = 100
+
+        # Earthen Guardian toggle (Shaman Tank, see combat/guardian_stance.py).
+        # PERSISTENT like current_form, not per-fight like current_stance -
+        # a Shaman turns it on and stays a tank across multiple fights until
+        # explicitly toggling off. False for every class by default; only
+        # ever set True via toggle_guardian_stance() and only meaningful for
+        # Shaman (mirrors current_form's "None for classes that don't use
+        # it" pattern rather than restricting the attribute's existence).
+        self.guardian_stance_active = False
+
+        # The one active pet (Hunter tame / Warlock summon - see
+        # entities/pet.py), or None. Only one pet can be active at a time
+        # for either class, matching real WoW - summoning/taming a new one
+        # replaces this reference rather than adding to a list.
+        self.active_pet = None
+
+        # Shaman totem loadout: element -> ability_id, up to 4 entries (one
+        # per real WoW element: earth/fire/water/air). Player-configured
+        # via the totem selection screen, then cast as a single action by
+        # Call of the Elements/Ancestors/Spirits (see the totem_loadout
+        # effect_type in combat/abilities.py). Empty dict for every
+        # non-Shaman - nothing else reads this for other classes.
+        self.totem_loadout = {}
+
+        # Secondary / CoA class resources (Static, Insanity, Deathfire, ...).
+        # Rage/Energy/Mana/Health have dedicated attributes for historical
+        # reasons; everything else lives in this dict so adding a new CoA
+        # resource never requires new Character attributes. Keyed by
+        # ResourceType.value (a plain string) so it serializes directly.
+        self.secondary_resources = {}
+        self.status_effects = []
+        
+        # Equipment (Phase 5) - 16 gear slots + 4 bag slots (bags added per
+        # Kyle's "WoW style with limited space" spec), stat bonuses summed
+        # at recalc time. See inventory_capacity / add_to_inventory below
+        # for how bag slots cap the backpack.
+        self.equipment = Equipment()
+        self.inventory = []  # List[Item] - unequipped items the player is carrying
+        
+        # Consumables (Phase 6) - separate inventory from gear
+        self.consumables = []  # List[Consumable] - potions, elixirs, food
+        self.consumable_cooldown = 0.0  # Shared potion cooldown (WoW-style)
+
+        # Gathering materials (Phase: Gathering/Crafting Phase 1) - separate
+        # from both gear and consumables, same reasoning that split
+        # Consumable off from Item: a raw material has no use() effect,
+        # it's inert until a future crafting system consumes it. Stacks
+        # by material_id via add_material(), same shape as add_consumable.
+        self.materials = []  # List[Material] - ore, herbs, (future) wood/hides/essence
+
+        # Gathering profession skill levels. Flat dict rather than one
+        # attribute per profession so adding Woodcutting/Skinning/Essence
+        # Harvesting later never touches this __init__ again - just a new
+        # key. 0 means "not learned" (Kyle hasn't decided yet whether
+        # professions are auto-known or must be learned from a trainer,
+        # so this defaults to a state that works either way: a character
+        # with 0 skill just can't gather anything above tier-0 nodes once
+        # node skill-gating is wired).
+        self.profession_skills = {
+            "herbalism": 0,
+            "mining": 0,
+        }
+        
+        # Buff slots (Phase 6) - 1 guardian, 1 battle, 1 food buff active at a time
+        self.guardian_buff = None  # (consumable, remaining_duration)
+        self.battle_buff = None    # (consumable, remaining_duration)
+        self.food_buff = None      # (consumable, remaining_duration)
+        
+        # Currency moved to Party.copper (shared party purse) - see the
+        # CURRENCY comment further down in this class for why.
+        
+        # Abilities
+        self.ability_book = get_class_abilities(char_class)
+        self.hotbar = [None] * 20  # 20 hotbar slots (2 rows of 10) - player fills these with abilities or consumables (Phase 6)
+        # Every ability_id _autofill_hotbar has EVER placed on the bar,
+        # regardless of whether it's still there now. Autofill checks
+        # this instead of "is it currently slotted" - otherwise removing
+        # an unwanted ability (Shoot/Wand with no matching weapon, say)
+        # only lasted until the next level-up, since _refresh_ability_ranks
+        # (called on every level-up) re-ran autofill, saw the slot was
+        # empty and the ability wasn't CURRENTLY on the bar, and put it
+        # right back (Kyle: "if I remove shoot and wand, level up, and
+        # it's forced back into my skill bar"). Once an ability has been
+        # auto-placed once, it's the player's call forever after whether
+        # it stays on the bar.
+        self.hotbar_autofilled_ids = set()
+        self.extra_slots = [None] * 8  # Click-only ability slots beyond the 20 keybound ones -
+        # no number-key binding (there's no key left to bind - 1-9,0 and
+        # Shift+1-9,0 are already spoken for), just mouse-click. Lives in
+        # the dead space next to the stance buttons on the combat screen.
+        # Kept as a separate list rather than extending hotbar to 28 so
+        # existing keybind math (_key_to_hotbar_slot, slot_ability's 0-19
+        # bound) never has to think about "which slots have no key".
+        self._refresh_ability_ranks()  # unlock whatever ranks self.level already qualifies for
+        
+        # Talent Trees (Phase 4.5) - will be populated by character creation screen
+        self.talent_trees = {}  # tree_id -> TalentTree (loaded from talent_manager)
+        self.talent_points_available = 0  # Points to spend (1 per level starting at level 5)
+        
+        # Combat
+        self.turn_meter = 0.0
+        self.turn_speed = 1.0
+
+        # Party identity. These were previously never declared here - they
+        # were bolted on ad-hoc by RecruitManager and read everywhere through
+        # getattr() fallbacks, which meant they also never serialized. A
+        # companion reloaded from a save came back spec-UNLOCKED and in the
+        # front row regardless of what they were recruited as.
+        #   row         - "front"/"back"; set properly when joining a Party
+        #   locked_spec - tree_id a companion may spend talent points in;
+        #                 None for the player, who keeps all three trees
+        #   recruit_id  - links back to the RecruitNPC definition
+        self.row = None
+        self.locked_spec = None
+        self.recruit_id = None
+        self.backstory = ""
+
+        # Real 4-part background (Before / Adjustment / Now / Looking
+        # Forward - per Kyle's ask for fleshed-out companion lore). Keys
+        # are fixed: "before", "adjustment", "now", "forward". Separate
+        # from self.backstory (kept as-is, unchanged, for save/recruit-
+        # manager compatibility - see BACKGROUND_SECTION_KEYS' docstring
+        # for the real migration rule: "now" falls back to self.backstory
+        # when not explicitly set, so every existing companion's current
+        # single-paragraph backstory keeps showing up exactly where it
+        # already does, just under the "Now" tab, with zero content
+        # rewriting required for this to work day one). Empty string for
+        # a key not yet written means "not written yet" - the UI shows a
+        # real "Not yet written" placeholder rather than blank space, so
+        # it doesn't look broken/missing.
+        self.background_sections = {}
+
+        # Initialize
+        self._initialize_class_stats()
+    
+    def _initialize_class_stats(self):
+        """Set base stats based on class."""
+        class_stats = {
+            "Warrior": {
+                "strength": 15, "stamina": 14, "intellect": 8, "spirit": 8, "agility": 10
+            },
+            "Shaman": {
+                "strength": 10, "stamina": 12, "intellect": 16, "spirit": 14, "agility": 10
+            },
+            "Rogue": {
+                "strength": 12, "stamina": 10, "intellect": 10, "spirit": 8, "agility": 18
+            },
+            "Priest": {
+                "strength": 8, "stamina": 11, "intellect": 16, "spirit": 16, "agility": 10
+            },
+            "Hunter": {
+                "strength": 10, "stamina": 12, "intellect": 12, "spirit": 10, "agility": 17
+            },
+            "Mage": {
+                "strength": 7, "stamina": 10, "intellect": 18, "spirit": 13, "agility": 9
+            },
+            "Warlock": {
+                "strength": 7, "stamina": 11, "intellect": 17, "spirit": 14, "agility": 9
+            },
+            "Druid": {
+                "strength": 10, "stamina": 11, "intellect": 14, "spirit": 13, "agility": 12
+            },
+            "Paladin": {
+                "strength": 14, "stamina": 13, "intellect": 13, "spirit": 11, "agility": 9
+            },
+
+            # ================================================================
+            # 21 CoA classes (resources/armor sourced - see
+            # COA_21_CLASS_RESOURCE_REFERENCE.md; stat spreads below are
+            # reasonable estimates following the same design logic as the
+            # original 9 - armor type informs Stamina lean, confirmed
+            # primary stat(s) get the highest allocation. No abilities exist
+            # for these yet per Kyle's direction - stats/resources only.
+            # ================================================================
+            "Necromancer": {  # Cloth, Intellect, Life Force
+                "strength": 7, "stamina": 10, "intellect": 18, "spirit": 12, "agility": 9
+            },
+            "Pyromancer": {  # Cloth, Intellect, Mana
+                "strength": 7, "stamina": 10, "intellect": 18, "spirit": 12, "agility": 9
+            },
+            "Cultist": {  # Cloth/Plate hybrid, Str/Int hybrid, Mana+Insanity
+                "strength": 12, "stamina": 13, "intellect": 15, "spirit": 9, "agility": 9
+            },
+            "Starcaller": {  # Leather, Agility (confirmed via handoff doc + screenshots), Mana+Energy
+                "strength": 8, "stamina": 12, "intellect": 12, "spirit": 9, "agility": 17
+            },
+            "Sun Cleric": {  # Plate, hybrid Int(Piety/Blessings/Seraphim)/Str(Valkyrie), Mana+Solar Power
+                "strength": 13, "stamina": 13, "intellect": 15, "spirit": 11, "agility": 8
+            },
+            "Tinker": {  # Mail, Agi/Int hybrid, Rounds
+                "strength": 8, "stamina": 12, "intellect": 14, "spirit": 9, "agility": 15
+            },
+            "Runemaster": {  # Cloth, hybrid Int(Glyphic)/Agi(Engravement/Riftblade), Mana+Runes
+                "strength": 8, "stamina": 11, "intellect": 15, "spirit": 10, "agility": 13
+            },
+            "Primalist": {  # Mail, Strength (melee) / Intellect (Geomancy) hybrid
+                "strength": 13, "stamina": 13, "intellect": 13, "spirit": 11, "agility": 10
+            },
+            "Reaper": {  # Mail, Agility/Stamina lead, Mana+Souls
+                "strength": 10, "stamina": 13, "intellect": 10, "spirit": 9, "agility": 16
+            },
+            "Venomancer": {  # Mail, Intellect/Stamina, Mana or Rage (spec-dependent)
+                "strength": 9, "stamina": 14, "intellect": 15, "spirit": 10, "agility": 10
+            },
+            "Chronomancer": {  # Cloth, Intellect, Mana
+                "strength": 7, "stamina": 10, "intellect": 18, "spirit": 12, "agility": 9
+            },
+            "Bloodmage": {  # Leather, Agility, Rage+Vitality
+                "strength": 10, "stamina": 12, "intellect": 11, "spirit": 9, "agility": 16
+            },
+            "Guardian": {  # Plate, Strength, Energy
+                "strength": 16, "stamina": 15, "intellect": 8, "spirit": 8, "agility": 9
+            },
+            "Stormbringer": {  # Cloth, Intellect, Static
+                "strength": 7, "stamina": 10, "intellect": 18, "spirit": 12, "agility": 9
+            },
+            "Felsworn": {  # Leather, Agi/Int hybrid, Felfury+Demon Form
+                "strength": 9, "stamina": 12, "intellect": 13, "spirit": 9, "agility": 15
+            },
+            "Barbarian": {  # Leather, Agility/Strength, Energy
+                "strength": 14, "stamina": 12, "intellect": 8, "spirit": 8, "agility": 15
+            },
+            "Witch Doctor": {  # Leather, Intellect/Agility, Mana
+                "strength": 8, "stamina": 11, "intellect": 15, "spirit": 11, "agility": 13
+            },
+            "Witch Hunter": {  # Mail, Agility, Focus
+                "strength": 9, "stamina": 12, "intellect": 9, "spirit": 8, "agility": 17
+            },
+            "Knight of Xoroth": {  # Plate, Str/Int hybrid, Rage+Deathfire
+                "strength": 15, "stamina": 14, "intellect": 12, "spirit": 8, "agility": 9
+            },
+            "Templar": {  # Leather, Agility, Combo chain
+                "strength": 10, "stamina": 11, "intellect": 8, "spirit": 8, "agility": 18
+            },
+            "Ranger": {  # Leather, Agility, Archery Points
+                "strength": 9, "stamina": 11, "intellect": 9, "spirit": 9, "agility": 18
+            },
+        }
+        
+        stats = class_stats.get(self.char_class, {})
+        self.strength = stats.get("strength", 10)
+        self.stamina = stats.get("stamina", 10)
+        self.intellect = stats.get("intellect", 10)
+        self.spirit = stats.get("spirit", 10)
+        self.agility = stats.get("agility", 10)
+
+        # Snapshot the level-1 class stats. _apply_level_scaling() recomputes
+        # from THIS every time rather than adding onto whatever the stats
+        # currently are, so it can safely be re-run on every level-up (and on
+        # prestige, and after a save load) without compounding.
+        self.class_base_stats = {
+            "strength": self.strength,
+            "stamina": self.stamina,
+            "intellect": self.intellect,
+            "spirit": self.spirit,
+            "agility": self.agility,
+        }
+
+        self._apply_level_scaling()
+        self._recalculate_derived_stats()
+        self._load_talent_trees()
+    
+    def _load_talent_trees(self):
+        """Load talent trees for this character's class from talent manager."""
+        from entities.talent_manager import get_talent_manager
+        from copy import deepcopy
+        
+        talent_manager = get_talent_manager()
+        class_trees = talent_manager.get_trees_for_class(self.char_class)
+        
+        # Make deep copies so each character has their own talent tree state
+        for tree_id, tree in class_trees.items():
+            import json
+            tree_dict = tree.to_dict()
+            from entities.talent_tree import TalentTree
+            copied_tree = TalentTree.from_dict(tree_dict)
+            self.talent_trees[tree_id] = copied_tree
+        
+        # Single source of truth for point totals (see _grant_talent_points).
+        self._grant_talent_points()
+    
+    def apply_status_effect(self, effect):
+        """Apply an effect, then recalculate derived stats so any stat_mods
+        the effect carries take hold immediately rather than next level-up."""
+        msg = super().apply_status_effect(effect)
+        self._recalculate_derived_stats()
+        return msg
+
+    def tick_status_effects(self):
+        """Tick effects, then recalculate - an expiring buff must actually
+        remove its bonus, otherwise buffs would be permanent once applied."""
+        messages = super().tick_status_effects()
+        self._recalculate_derived_stats()
+        return messages
+
+    def clear_status_effects(self):
+        super().clear_status_effects()
+        self._recalculate_derived_stats()
+
+    # ------------------------------------------------------------------
+    # TALENT EFFECT AGGREGATION (Phase 4.5b)
+    # ------------------------------------------------------------------
+    # Talents used to spend points and do literally nothing in combat - the
+    # engine tracked ranks and the JSON declared effects, but no consumer
+    # ever read them. These three methods are the bridge: every talent
+    # effect key from every tree this character owns is summed once and
+    # cached, then read by _recalculate_derived_stats() (for stat keys) and
+    # by combat/abilities.py (for per-ability damage/cost/cooldown keys).
+    #
+    # Effect key conventions:
+    #   Stat keys        - match derived stat attribute names exactly
+    #                      (crit_chance_physical, parry, dodge, block, haste,
+    #                      attack_power, spell_power, healing_power, armor,
+    #                      strength/stamina/intellect/spirit/agility, and the
+    #                      percentage keys max_health_pct / max_mana_pct)
+    #   Global combat    - all_damage, physical_damage, spell_damage,
+    #                      healing_done (all multipliers, e.g. 0.02 = +2%)
+    #   Per-ability      - ability_<ability_id>_damage   (multiplier)
+    #                      ability_<ability_id>_cost     (flat reduction)
+    #                      ability_<ability_id>_cooldown (flat turn reduction)
+    #                      where <ability_id> is the Ability.ability_id, e.g.
+    #                      "ability_warrior_mortal_strike_damage"
+    #   Unlocks          - unlock_ability: "<ability_id>" (non-numeric,
+    #                      passes through unscaled)
+
+    def get_talent_effects(self):
+        """Return the summed effects of every talent across all this
+        character's trees, PLUS the current stance's bonuses (see
+        combat/stances.py), as a dict of effect_key -> total value.
+
+        Stances live here rather than in a separate aggregation step
+        because every consumer of this method (_recalculate_derived_stats
+        for stat keys, combat/abilities.py for per-ability keys) already
+        trusts it as "every persistent bonus this character currently
+        has" - a stance is exactly that, just keyed off current_stance
+        instead of spent talent points.
+        """
+        totals = {}
+
+        if getattr(self, "current_stance", None):
+            from combat.stances import get_stance
+            stance = get_stance(self.current_stance)
+            if stance:
+                for key, value in stance["stat_mods"].items():
+                    totals[key] = totals.get(key, 0) + value
+
+        if getattr(self, "current_form", None):
+            from combat.forms import get_form
+            form = get_form(self.current_form)
+            if form:
+                for key, value in form["stat_mods"].items():
+                    totals[key] = totals.get(key, 0) + value
+
+        if getattr(self, "guardian_stance_active", False):
+            from combat.guardian_stance import get_guardian_stance
+            guardian = get_guardian_stance()
+            for key, value in guardian["stat_mods"].items():
+                totals[key] = totals.get(key, 0) + value
+            # threat_multiplier is multiplicative (3x), not additive like
+            # every other key here - folding it with += would be wrong the
+            # moment a second source of bonus threat existed. Set directly;
+            # Earthen Guardian is the only source of this key right now so
+            # there's nothing to stack against yet, but this stays correct
+            # if that changes rather than silently summing multipliers.
+            totals["threat_multiplier"] = guardian["threat_multiplier"]
+
+            # Earthen Attunement (Shaman Tank talent) only does anything
+            # while Earthen Guardian is active, per its own tooltip ("While
+            # Earthen Guardian is active you take X% less..."). Its ranks
+            # now live on the shaman_enhancement tree (Tank was merged into
+            # Enhancement's own hex grid, shifted right - see the Shaman
+            # Tank tree merge), same talent_id as always. Its bonus can't
+            # just be a normal always-on effects entry - it needs to vanish
+            # the instant the stance drops, which a plain
+            # talent_tree.get_total_effects() entry has no way to express
+            # (that path has no concept of "conditional on X"). Read
+            # directly off the node's own points_spent here instead, gated
+            # by the guardian_stance_active check this whole block is
+            # already inside.
+            shaman_enhancement = self.talent_trees.get("shaman_enhancement") if hasattr(self, "talent_trees") else None
+            if shaman_enhancement:
+                node = shaman_enhancement.get_node("shaman_tank_earthen_attunement")
+                if node and node.points_spent > 0:
+                    totals["physical_damage_taken_pct"] = (
+                        totals.get("physical_damage_taken_pct", 0)
+                        - 0.02 * node.points_spent
+                    )
+                    totals["magic_damage_taken_pct"] = (
+                        totals.get("magic_damage_taken_pct", 0)
+                        - 0.03 * node.points_spent
+                    )
+                    totals["earthen_attunement_ap_shred"] = 19.33 * node.points_spent
+
+        # self.talent_trees doesn't exist yet during the early part of
+        # __init__ (_refresh_ability_ranks() runs before the talent_trees
+        # assignment further down __init__ - a pre-existing ordering gap
+        # that stayed harmless until _sync_talent_unlocked_abilities()
+        # started calling this during that same early window). Treating
+        # "not set up yet" as "no talents spent yet" is correct either
+        # way: a character with zero talent trees loaded has zero talent
+        # effects, same as one whose trees are loaded but empty.
+        for tree in getattr(self, "talent_trees", {}).values():
+            for key, value in tree.get_total_effects().items():
+                if isinstance(value, (int, float)):
+                    totals[key] = totals.get(key, 0) + value
+                else:
+                    # Non-numeric (ability unlocks) - collect into a flat
+                    # list. TalentTree.get_total_effects() already
+                    # collects same-key values into a list WITHIN one
+                    # tree, so `value` arriving here can itself be a list
+                    # (multiple unlock_ability talents in the same tree)
+                    # or a bare string (a tree with only one such talent).
+                    # Treating both the same way - extend from an
+                    # iterable, append a bare scalar - is what avoids
+                    # nesting a list-inside-a-list, which used to make
+                    # the final result unhashable (crashed set() in
+                    # get_talent_unlocked_abilities the moment more than
+                    # one tree, or one multi-value tree, contributed to
+                    # the same key).
+                    totals.setdefault(key, [])
+                    incoming = value if isinstance(value, list) else [value]
+                    for v in incoming:
+                        if isinstance(totals[key], list) and v not in totals[key]:
+                            totals[key].append(v)
+        return totals
+
+    #: Fixed real section keys for the 4-part background system - see
+    #: self.background_sections' docstring in __init__.
+    BACKGROUND_SECTION_KEYS = ("before", "adjustment", "now", "forward")
+    BACKGROUND_SECTION_LABELS = {
+        "before": "Before",
+        "adjustment": "Adjustment",
+        "now": "Now",
+        "forward": "Looking Forward",
+    }
+
+    def get_background_section(self, key):
+        """Real text for one background section, or "" if genuinely
+        unwritten. "now" specifically falls back to self.backstory when
+        background_sections doesn't have an explicit "now" entry yet -
+        this is what lets every existing companion's current single-
+        paragraph backstory keep showing up correctly under the "Now"
+        tab without any data migration, the moment this system ships.
+        Every other key ("before"/"adjustment"/"forward") has no such
+        fallback - there's no prior data for those, so "" (rendered by
+        the UI as "Not yet written") is the honest answer until real
+        content is authored.
+        """
+        text = self.background_sections.get(key, "")
+        if text:
+            return text
+        if key == "now":
+            return self.backstory
+        return ""
+
+    def get_talent_effect(self, key, default=0.0):
+        """Look up a single summed talent effect value by key."""
+        return self.get_talent_effects().get(key, default)
+
+    def get_talent_unlocked_abilities(self):
+        """Return the list of ability_ids unlocked by spent talent points."""
+        unlocked = self.get_talent_effects().get("unlock_ability", [])
+        if isinstance(unlocked, str):
+            return [unlocked]
+        return list(unlocked)
+
+    def can_use_stance(self, stance_id):
+        """Whether this character currently qualifies for a given stance
+        (right class, right level). Does not check Rage - that's checked
+        separately by set_stance so the caller can distinguish "you don't
+        know this stance" from "you can't afford to switch right now"."""
+        if self.current_stance is None:
+            return False  # not a Warrior (or any future stance-using class)
+        from combat.stances import get_stance
+        stance = get_stance(stance_id)
+        return stance is not None and self.level >= stance["level_req"]
+
+    def set_stance(self, stance_id, free=False):
+        """Switch to a new stance. Returns (success, message).
+
+        Charges STANCE_SWITCH_COST Rage (real WOTLK: 10 Rage per switch,
+        see combat/stances.py) unless free=True - used for the initial
+        stance assignment at character creation, which shouldn't cost
+        anything since there's no "previous stance" to switch from.
+        Recalculates derived stats immediately, same pattern as talent
+        point spend/refund in talent_tree_screen.py, so the new stance's
+        bonuses (or Berserker's damage-taken penalty) apply to the very
+        next action rather than waiting for an unrelated recalc to notice.
+        """
+        if not self.can_use_stance(stance_id):
+            return False, f"{self.name} cannot use that stance."
+        if stance_id == self.current_stance:
+            return False, f"{self.name} is already in that stance."
+
+        from combat.stances import get_stance, STANCE_SWITCH_COST
+        if not free:
+            if self.current_rage < STANCE_SWITCH_COST:
+                return False, f"Not enough Rage to switch stances (needs {STANCE_SWITCH_COST})."
+            self.current_rage -= STANCE_SWITCH_COST
+
+        self.current_stance = stance_id
+        self._recalculate_derived_stats()
+        stance = get_stance(stance_id)
+        return True, f"{self.name} shifts into {stance['name']}."
+
+    def summon_pet(self, template_id, name=None):
+        """Summon/tame a pet, replacing any currently active one. Returns
+        (success, message_or_pet) - False and an error string if this
+        character doesn't meet the template's level_req, otherwise True
+        and the new Pet. Both Hunter taming and Warlock summoning funnel
+        through this single method - the two classes differ only in WHICH
+        template_ids their UI offers, not in how acquisition actually
+        works mechanically (see entities/pet.py's module docstring).
+
+        The level check lives HERE, not just in the UI that lists
+        available pets - a UI-only check is advisory, not enforcement;
+        anything that calls this method directly (a test, a future
+        console command, a bug in the screen's own click handling) could
+        otherwise hand a level 5 character a level-30-gated Felhunter.
+        Confirmed this was a real gap, not a hypothetical one: calling
+        summon_pet('felhunter') directly on a level 5 Warlock succeeded
+        before this check existed.
+        """
+        from combat.pet_templates import get_pet_template
+        template = get_pet_template(template_id)
+        if template is None:
+            return False, f"Unknown pet '{template_id}'."
+        level_req = template.get("level_req", 1)
+        if self.level < level_req:
+            return False, f"Requires level {level_req} to summon a {template['display_name']}."
+
+        from entities.pet import Pet
+        display_name = name or template["display_name"]
+        self.active_pet = Pet(name=display_name, template_id=template_id, owner=self)
+        return True, self.active_pet
+
+    def dismiss_pet(self):
+        """Release the active pet, if any. Real WoW: Hunters can only
+        dismiss between fights (no in-combat dismiss), which this engine
+        doesn't need to enforce itself since nothing currently calls this
+        mid-turn - documented here rather than added as an unused guard."""
+        self.active_pet = None
+
+    def set_totem(self, totem_ability_id):
+        """Slot a totem into the loadout, replacing whatever was in that
+        element's slot (matches real WoW: only one totem per element).
+        Returns (success, message)."""
+        from combat.totems import element_of
+        element = element_of(totem_ability_id)
+        if element is None:
+            return False, f"'{totem_ability_id}' is not a known totem."
+        self.totem_loadout[element] = totem_ability_id
+        return True, f"{self.name}'s {element} totem slot set."
+
+    def clear_totem(self, element):
+        self.totem_loadout.pop(element, None)
+
+    def can_use_form(self, form_id):
+        """Whether this character currently qualifies for a given form
+        (right class, right level)."""
+        from combat.forms import get_form
+        form = get_form(form_id)
+        return form is not None and form["class"] == self.char_class and self.level >= form["level_req"]
+
+    def shift_form(self, form_id):
+        """Enter a persistent shapeshift form. Returns (success, message).
+
+        PERSISTENT per Kyle's direction - nothing anywhere calls this
+        automatically, the player shifts once and stays shifted across
+        multiple fights until they explicitly revert_form() or shift
+        again.
+
+        Resets current_mana/rage/energy to 0 on shift, matching the real
+        WOTLK behavior confirmed via Druid form guides: "shifting resets
+        your current resource unless talented otherwise" - the "unless
+        talented" exception isn't modeled here (no such talent exists in
+        this engine's data yet), so every shift is a hard reset.
+        """
+        if not self.can_use_form(form_id):
+            return False, f"{self.name} cannot use that form."
+        if form_id == self.current_form:
+            return False, f"{self.name} is already in that form."
+
+        from combat.forms import get_form
+        form = get_form(form_id)
+        self.current_form = form_id
+        self.current_mana = 0
+        self.current_rage = 0
+        self.current_energy = 0
+        self._recalculate_derived_stats()
+        return True, f"{self.name} shifts into {form['name']}."
+
+    def revert_form(self):
+        """Return to base Humanoid form. Returns (success, message)."""
+        if self.current_form is None:
+            return False, f"{self.name} is not shapeshifted."
+        self.current_form = None
+        self.current_mana = 0
+        self.current_rage = 0
+        self.current_energy = 0
+        self._recalculate_derived_stats()
+        return True, f"{self.name} reverts to normal form."
+
+    def toggle_guardian_stance(self):
+        """Flip Earthen Guardian on/off (Shaman Tank). Returns (success,
+        message). Costs guardian_stance.EARTHEN_GUARDIAN['activation_cost']
+        Mana to turn ON; turning OFF is free, matching how the Warrior
+        stance-switch cost only ever gates ENTERING a stance in spirit
+        (real WOTLK doesn't charge Rage to stop tanking either). Does NOT
+        reset current_mana - unlike shift_form, Earthen Guardian doesn't
+        change resource pools, so there's nothing to reset (see
+        combat/guardian_stance.py's module docstring for why this isn't
+        just shift_form with a different table).
+        """
+        if self.char_class != "Shaman":
+            return False, f"{self.name} cannot use Earthen Guardian."
+
+        from combat.guardian_stance import get_guardian_stance
+        stance = get_guardian_stance()
+
+        if self.level < stance["level_req"]:
+            return False, f"Earthen Guardian requires level {stance['level_req']}."
+
+        if self.guardian_stance_active:
+            self.guardian_stance_active = False
+            self._recalculate_derived_stats()
+            return True, f"{self.name} drops Earthen Guardian."
+
+        cost = stance["activation_cost"]
+        if self.current_mana < cost:
+            return False, f"Not enough Mana to activate Earthen Guardian (needs {cost})."
+        self.current_mana -= cost
+        self.guardian_stance_active = True
+        self._recalculate_derived_stats()
+        return True, f"{self.name} becomes an Earthen Guardian!"
+
+    def _apply_level_scaling(self):
+        """Apply level-based stat scaling.
+
+        Recomputed from `self.class_base_stats` (the level-1 snapshot) every
+        call, NOT accumulated onto the current values. This is what makes it
+        safe to call on every level-up. Previously it only ran once at
+        character creation, which meant a character's core stats were frozen
+        for their entire life - levelling from 1 to 60 granted literally zero
+        Strength/Intellect/Stamina.
+        """
+        base = getattr(self, "class_base_stats", None)
+        if not base:
+            # Older save or a character built before the snapshot existed.
+            base = {
+                "strength": self.strength, "stamina": self.stamina,
+                "intellect": self.intellect, "spirit": self.spirit,
+                "agility": self.agility,
+            }
+            self.class_base_stats = dict(base)
+
+        self.strength = base["strength"]
+        self.stamina = base["stamina"]
+        self.intellect = base["intellect"]
+        self.spirit = base["spirit"]
+        self.agility = base["agility"]
+
+        level_bonus = self.level - 1
+        
+        if self.char_class == "Warrior":
+            self.strength += level_bonus * 1.0
+            self.stamina += level_bonus * 0.9
+            self.agility += level_bonus * 0.4
+        elif self.char_class == "Shaman":
+            self.intellect += level_bonus * 1.0
+            self.spirit += level_bonus * 0.9
+            self.stamina += level_bonus * 0.5
+        elif self.char_class == "Rogue":
+            self.agility += level_bonus * 1.0
+            self.strength += level_bonus * 0.8
+            self.stamina += level_bonus * 0.4
+        elif self.char_class == "Priest":
+            self.intellect += level_bonus * 1.0
+            self.spirit += level_bonus * 0.9
+            self.stamina += level_bonus * 0.5
+        elif self.char_class == "Hunter":
+            self.agility += level_bonus * 1.0
+            self.stamina += level_bonus * 0.6
+            self.intellect += level_bonus * 0.3
+        elif self.char_class == "Mage":
+            self.intellect += level_bonus * 1.0
+            self.spirit += level_bonus * 0.7
+            self.stamina += level_bonus * 0.3
+        elif self.char_class == "Warlock":
+            self.intellect += level_bonus * 1.0
+            self.stamina += level_bonus * 0.6
+            self.spirit += level_bonus * 0.5
+        elif self.char_class == "Druid":
+            self.intellect += level_bonus * 0.8
+            self.spirit += level_bonus * 0.7
+            self.stamina += level_bonus * 0.5
+            self.agility += level_bonus * 0.3
+        elif self.char_class == "Paladin":
+            self.strength += level_bonus * 0.9
+            self.intellect += level_bonus * 0.6
+            self.stamina += level_bonus * 0.8
+            self.spirit += level_bonus * 0.4
+        else:
+            # Generic fallback for the 21 CoA classes (no abilities exist for
+            # them yet per Kyle's direction, so hand-tuning 21 more bespoke
+            # scaling curves isn't worth it right now). Derives scaling
+            # proportionally from the class's own base stat ratios instead
+            # of a flat/arbitrary split - a class with high base Intellect
+            # naturally scales Intellect fastest, etc. Every base stat still
+            # grows somewhat (matching how every original-9 class grows a
+            # little in everything), just weighted toward what the class
+            # actually leans on.
+            base_total = self.strength + self.stamina + self.intellect + self.spirit + self.agility
+            if base_total > 0:
+                self.strength += level_bonus * 0.5 * (self.strength / base_total) * 5
+                self.stamina += level_bonus * 0.5 * (self.stamina / base_total) * 5
+                self.intellect += level_bonus * 0.5 * (self.intellect / base_total) * 5
+                self.spirit += level_bonus * 0.5 * (self.spirit / base_total) * 5
+                self.agility += level_bonus * 0.5 * (self.agility / base_total) * 5
+
+        # Core stats are whole numbers everywhere they're displayed or used;
+        # keeping fractional values here just leaks "15.6 Strength" into the
+        # character sheet.
+        self.strength = int(self.strength)
+        self.stamina = int(self.stamina)
+        self.intellect = int(self.intellect)
+        self.spirit = int(self.spirit)
+        self.agility = int(self.agility)
+    
+    def _recalculate_derived_stats(self):
+        """Recalculate all derived stats from base stats + equipped gear bonuses."""
+        bonuses = self.equipment.get_total_stat_bonuses()
+
+        # Fold talent stat effects into the same bonus pool as gear, so any
+        # talent granting a raw stat (+STR, +crit, +armor, ...) flows through
+        # the identical derived-stat maths as an equipped item would. Only
+        # keys the recalc below actually reads matter here; unrecognised keys
+        # (per-ability multipliers etc.) are simply ignored at this layer and
+        # get consumed by combat/abilities.py instead.
+        talent_effects = self.get_talent_effects() if self.talent_trees else {}
+        for _key, _value in talent_effects.items():
+            if isinstance(_value, (int, float)):
+                bonuses[_key] = bonuses.get(_key, 0) + _value
+
+        # Temporary combat buffs/debuffs (Battle Shout, Demoralizing Shout,
+        # Blessing of Kings, etc.) fold in through the exact same pool, so a
+        # +30 Attack Power buff and a +30 Attack Power item are indistinguish-
+        # able to every downstream formula. Recalc is re-triggered whenever an
+        # effect is applied or expires (see _on_status_effects_changed).
+        for _eff in self._effects():
+            for _key, _value in _eff.stat_mods.items():
+                bonuses[_key] = bonuses.get(_key, 0) + _value
+
+        # Elixir/food consumable buffs (guardian/battle/food slots) - same
+        # bonus pool as gear/talents/status effects, so "+8 Intellect, +4
+        # Spell Power" from a food buff feeds every downstream formula
+        # (spell_power calc below, crit, etc.) exactly like a ring with the
+        # same stats would. Previously get_active_buff_stats() existed but
+        # was never called from here, so consumable buffs did nothing to
+        # actual character stats - this wires it in for real.
+        for _key, _value in self.get_active_buff_stats().items():
+            bonuses[_key] = bonuses.get(_key, 0) + _value
+
+        # Effective core stats = base + gear (base stats themselves are never mutated).
+        # Stored as persistent attributes (not just locals) so UI screens like the
+        # character sheet can display "what you actually have" including gear,
+        # rather than reading the frozen base-only self.strength/self.intellect/etc.
+        eff_strength = self.strength + bonuses.get("strength", 0)
+        eff_stamina = self.stamina + bonuses.get("stamina", 0)
+        eff_intellect = self.intellect + bonuses.get("intellect", 0)
+        eff_spirit = self.spirit + bonuses.get("spirit", 0)
+        eff_agility = self.agility + bonuses.get("agility", 0)
+
+        self.effective_strength = eff_strength
+        self.effective_stamina = eff_stamina
+        self.effective_intellect = eff_intellect
+        self.effective_spirit = eff_spirit
+        self.effective_agility = eff_agility
+
+        # Attack Power
+        self.attack_power = int(eff_strength * 2 + eff_agility * 0.5) + int(bonuses.get("attack_power", 0))
+        self.ranged_attack_power = int(eff_agility * 2 + eff_strength * 0.5)
+        
+        # Spell Power / Healing Power: small per-point contribution from base
+        # stats (0.2 per INT for Spell Power; 0.2 per INT + 0.2 per Spirit for
+        # Healing Power), same philosophy as WoW - a level 60 naked caster's
+        # rank-1 spell hits almost the same as a level 1 naked caster's,
+        # because the stat contribution is small enough that leveling alone
+        # barely moves it. Real growth comes from gear (spell_power /
+        # healing_power secondary stat rolls). Spirit is intentionally not
+        # the ONLY path to Healing Power - not every healer build leans on it.
+        self.spell_power = int(eff_intellect * 0.2) + int(bonuses.get("spell_power", 0))
+        self.healing_power = int(eff_intellect * 0.2 + eff_spirit * 0.2) + int(bonuses.get("healing_power", 0))
+        
+        # Crits
+        self.crit_chance_physical = eff_agility * 0.5 + bonuses.get("crit_chance_physical", 0)
+        self.crit_chance_spell = eff_intellect * 0.5 + bonuses.get("crit_chance_spell", 0)
+
+        # Hit Rating (Phase 5c): gear-only secondary stat, 1 rating = 1% less
+        # miss chance, capped so it can't go negative (min 0% miss / 100% hit).
+        # No base-stat contribution (unlike Crit/Haste) - this is purely a
+        # gear stat, matching WoW's convention where Hit Rating has no
+        # baseline from STR/AGI/INT.
+        hit_rating = bonuses.get("hit_rating", 0)
+        self.base_miss_chance_physical = max(0.0, 8.0 - hit_rating)
+        self.base_miss_chance_spell = max(0.0, 6.0 - hit_rating)
+        self.hit_chance_physical = 100.0 - self.base_miss_chance_physical
+        self.hit_chance_spell = 100.0 - self.base_miss_chance_spell
+        
+        # Avoidance
+        # dodge_rating/parry_rating/block_rating (real gear suffix stats,
+        # see data/items/gear_suffixes.json) feed directly into these
+        # same existing %-stats, same convention hit_rating already uses
+        # for miss chance - Kyle's explicit call: no separate
+        # diminishing-returns rating system, just a direct additive feed.
+        # defense_rating is split evenly across dodge/parry as a broad
+        # "harder to hit overall" stat, since the doc pairs it with
+        # Dodge/Parry in suffixes like "of Eluding" rather than treating
+        # it as its own distinct mechanic.
+        defense_bonus = bonuses.get("defense_rating", 0) * 0.5
+        self.dodge = eff_agility * 0.25 + bonuses.get("dodge", 0) + bonuses.get("dodge_rating", 0) + defense_bonus
+        # spirit_guard_block_from_agility (Spirit Guard, Shaman Tank: "gain
+        # Block Rating equal to 33%/66%/100% of your Agility per rank") -
+        # an ADDITIONAL block source layered on top of the existing
+        # Strength-based formula below, not a replacement - real WoW block
+        # rating stacks from every source (gear, Strength conversion,
+        # talent conversions) rather than any one overriding another.
+        agility_block_bonus = eff_agility * bonuses.get("spirit_guard_block_from_agility", 0.0)
+        self.block = (eff_strength * 0.3 + self.equipment.get_total_block_value()
+                      + bonuses.get("block", 0) + bonuses.get("block_rating", 0) + agility_block_bonus)
+        avg_stat = (eff_agility + eff_strength) / 2
+        # Parry previously ignored the bonus pool entirely, so gear and
+        # talents rolling Parry did nothing. Now additive like Dodge.
+        self.parry = avg_stat * 0.2 + bonuses.get("parry", 0) + bonuses.get("parry_rating", 0) + defense_bonus
+        self.haste = (eff_intellect + eff_agility) * 0.1 + bonuses.get("haste", 0)
+
+        # New real gear-suffix stats - see Character.__init__ for what
+        # each does. Pure pass-through from gear bonuses; none of these
+        # have a base-stat-derived component the way dodge/parry/haste
+        # do, since nothing in the doc's suffixes scales them off Str/
+        # Agi/Int - they're gear-only stats.
+        self.mp5 = bonuses.get("mp5", 0)
+        self.spell_penetration = bonuses.get("spell_penetration", 0)
+        self.fire_spell_power = bonuses.get("fire_spell_power", 0)
+        self.frost_spell_power = bonuses.get("frost_spell_power", 0)
+        self.arcane_spell_power = bonuses.get("arcane_spell_power", 0)
+        self.shadow_spell_power = bonuses.get("shadow_spell_power", 0)
+        self.nature_spell_power = bonuses.get("nature_spell_power", 0)
+        self.holy_spell_power = bonuses.get("holy_spell_power", 0)
+        
+        # Resources (conservative scaling for long-term progression)
+        old_health_max = self.health
+        self.health = int((100 + eff_stamina * 8) * (1.0 + bonuses.get("max_health_pct", 0)))
+        old_mana_max = self.mana
+
+        # Only Mana-resource classes actually get a Mana pool. Rage/Energy
+        # classes (Warrior/Rogue) have no use for Mana in their kit at all -
+        # previously this ran unconditionally for every class, which meant a
+        # Warrior silently carried around a nonzero, unused Mana pool
+        # (computed from their small INT/Spirit stats) that never showed in
+        # the UI but existed in memory/save data for no reason.
+        from combat.abilities import get_class_resource, ResourceType
+        if get_class_resource(self.char_class, self) == ResourceType.MANA:
+            self.mana = int((100 + eff_intellect * 15 + eff_spirit * 5)
+                            * (1.0 + bonuses.get("max_mana_pct", 0)))
+        else:
+            self.mana = 0
+
+        # Preserve current HP/mana proportionally when recalculating due to gear changes,
+        # but full-heal on first init (old_health_max == 0) same as before Phase 5.
+        if old_health_max <= 0:
+            self.current_health = self.health
+        else:
+            self.current_health = min(self.current_health, self.health)
+
+        if old_mana_max <= 0:
+            self.current_mana = self.mana
+        else:
+            self.current_mana = min(self.current_mana, self.mana)
+        
+        # Defense (base armor from Stamina + gear armor value)
+        # shield_armor_pct (Shield Specialization, Shaman Tank: "+10% Armor
+        # from your equipped Shield per rank") scales ONLY the shield's own
+        # armor contribution (get_shield_armor), not the whole armor total -
+        # a rank of this talent shouldn't also boost armor from chest/legs.
+        # Applied as a separate additive bonus on top of the shield's base
+        # contribution (which is already counted once inside
+        # get_total_armor() above), matching how every other _pct bonus in
+        # this method adds a bonus rather than re-deriving the base value.
+        shield_bonus = int(self.equipment.get_shield_armor() * bonuses.get("shield_armor_pct", 0))
+        self.armor = (int(eff_stamina * 2) + self.equipment.get_total_armor()
+                      + int(bonuses.get("armor", 0)) + shield_bonus)
+        # Magic Resistance is talent/gear/buff-granted ONLY, same pattern
+        # as the per-school resistances just below (Kyle: "remove Spirit
+        # adding magic resistance, these will be talents only") - the old
+        # `eff_spirit * 2` term meant every caster carried a flat magic
+        # resist floor from Spirit alone with zero real resistance talents
+        # taken, which isn't the real WoW model and made the character
+        # sheet show a nonzero value that didn't come from anything the
+        # player actually did.
+        self.magic_resistance = int(bonuses.get("magic_resistance", 0))
+
+        # Per-school resistances: purely bonus-pool driven (talents, gear,
+        # buffs via the same `bonuses` dict every other derived stat reads
+        # here), NOT derived from a base stat like magic_resistance's
+        # Spirit-scaling - real WoW resistances come from gear/buffs, not
+        # a character attribute, and Kyle wants per-monster/per-class
+        # control here (a fire elemental with real Fire resistance, a
+        # frost elemental with real Frost resistance, distinct from each
+        # other) rather than every character sharing one formula. Defaults
+        # to 0 for anything that hasn't been given resistance via talents/
+        # gear/status effects - existing content is completely unaffected
+        # until something deliberately grants one of these.
+        self.fire_resistance = int(bonuses.get("fire_resistance", 0))
+        self.frost_resistance = int(bonuses.get("frost_resistance", 0))
+        self.nature_resistance = int(bonuses.get("nature_resistance", 0))
+        self.shadow_resistance = int(bonuses.get("shadow_resistance", 0))
+        self.arcane_resistance = int(bonuses.get("arcane_resistance", 0))
+        self.holy_resistance = int(bonuses.get("holy_resistance", 0))
+        
+        # Turn speed
+        self.turn_speed = 1.0 + (eff_agility / 100.0)
+    
+    def get_weapon_damage_roll(self, use_ranged=False, include_offhand=True):
+        """
+        Roll a random damage value from equipped weapon(s). Main Hand rolls
+        at full value; if include_offhand=True and an Off Hand weapon is
+        equipped (dual wield), it rolls too but at a 50% penalty, matching
+        WoW's dual-wield offhand damage convention. use_ranged=True checks
+        the Ranged slot (wand) instead, for caster auto-attacks - offhand
+        is irrelevant there.
+        """
+        import random
+
+        if use_ranged:
+            weapon = self.equipment.get_ranged_weapon()
+            if not weapon or weapon.weapon_damage_max <= 0:
+                return 0
+            return random.randint(weapon.weapon_damage_min, weapon.weapon_damage_max)
+
+        total = 0
+        main_hand = self.equipment.get_main_hand_weapon()
+        if main_hand and main_hand.weapon_damage_max > 0:
+            total += random.randint(main_hand.weapon_damage_min, main_hand.weapon_damage_max)
+
+        if include_offhand:
+            off_hand = self.equipment.slots.get("off_hand")
+            if off_hand and off_hand.weapon_damage_max > 0:
+                offhand_roll = random.randint(off_hand.weapon_damage_min, off_hand.weapon_damage_max)
+                total += int(offhand_roll * 0.5)  # Dual-wield offhand penalty (WoW convention)
+
+        return total
+
+    def get_weapon_dps(self, use_ranged=False):
+        """Return the DPS of the equipped main-hand (or ranged) weapon. 0 if unarmed."""
+        weapon = self.equipment.get_ranged_weapon() if use_ranged else self.equipment.get_main_hand_weapon()
+        if not weapon:
+            return 0.0
+        return weapon.get_dps()
+
+    def gain_experience(self, amount):
+        """
+        Gain XP and check level up. Uses a while loop (not a single if) so a
+        large XP reward that crosses multiple level thresholds at once
+        correctly cascades through each level, carrying the leftover XP
+        forward each time - rather than the old behavior of leveling up once
+        and discarding all overflow XP regardless of how much was earned
+        (which caused "went from level 2 to level 4 in one fight" style bugs
+        when a big reward landed).
+
+        Uses config.get_exp_needed_for_level() as the single source of truth
+        for the XP curve - character_sheet_screen.py must call the same
+        function for its EXP bar display, never a separately hardcoded
+        formula, to avoid the display/logic mismatch that caused confusing
+        "random" level jumps in earlier testing.
+
+        Returns the number of levels gained (0 if none), so callers (like
+        the combat log) can announce level-ups explicitly. The per-level stat
+        gains are aggregated into `self.last_level_gains` so the combat log
+        can also report what the level(s) actually granted.
+        """
+        from config import get_exp_needed_for_level
+
+        self.experience += amount
+        levels_gained = 0
+
+        totals = {}
+        exp_needed = get_exp_needed_for_level(self.level)
+        while self.experience >= exp_needed:
+            self.experience -= exp_needed
+            gains = self.level_up() or {}
+            for key, value in gains.items():
+                totals[key] = totals.get(key, 0) + value
+            levels_gained += 1
+            exp_needed = get_exp_needed_for_level(self.level)
+
+        self.last_level_gains = totals
+        return levels_gained
+    
+    def level_up(self):
+        """Level up character. Does NOT reset experience - gain_experience()
+        handles carrying over any leftover XP after subtracting the cost of
+        this level, so overflow XP from a big reward isn't lost.
+
+        Returns a dict of what was gained this level (core stat deltas, health/
+        mana deltas, talent points) so the combat log can report it.
+        """
+        before = {
+            "strength": self.strength, "stamina": self.stamina,
+            "intellect": self.intellect, "spirit": self.spirit,
+            "agility": self.agility,
+            "health": self.health, "mana": self.mana,
+        }
+
+        self.level += 1
+
+        # Core stats actually grow now. This never ran on level-up before, so
+        # a level 60 character had the exact core stats of a level 1 one.
+        self._apply_level_scaling()
+        self._recalculate_derived_stats()
+        self._refresh_ability_ranks()
+        self._grant_talent_points()
+
+        self.current_health = self.health
+        self.current_mana = self.mana
+
+        gains = {k: (getattr(self, k, None) if k not in ("health", "mana")
+                     else getattr(self, k)) - v for k, v in before.items()}
+        gains["talent_points"] = 1 if self.level >= 5 else 0
+        return gains
+
+    def _grant_talent_points(self):
+        """Keep talent points in sync with level: 1 per level from level 5 on.
+
+        Points available = (level - 4) minus whatever is already spent across
+        every tree. Derived rather than incremented so it can never drift out
+        of sync with the trees, and so it self-corrects on load.
+        """
+        if self.level < 5:
+            self.talent_points_available = 0
+            return
+        spent = sum(tree.total_points_spent()
+                    for tree in self.talent_trees.values())
+        self.talent_points_available = max(0, (self.level - 4) - spent)
+
+    def _sync_talent_procs(self):
+        """Apply/remove a permanent synthetic StatusEffect for every talent
+        node that carries a `proc` payload (see TalentNode.proc), based on
+        whether it currently has points_spent > 0.
+
+        Mirrors _sync_talent_unlocked_abilities' exact pattern (same call
+        sites: creation/level-up/load, plus talent_tree_screen.py's
+        spend/refund handlers) - talents that grant reactive behavior
+        (Seal of Command, Earth Shield's real proc-heal, Blade Twisting,
+        Shamanistic Rage's mana-return, Sudden Death, Fingers of Frost)
+        need this because get_talent_effects()'s pure numeric-summing
+        model has no way to express "do something when X happens," only
+        "add Y to stat Z" - see TalentNode.proc's docstring.
+
+        Uses a deterministic effect_id (talent_proc_<talent_id>) so
+        apply_status_effect's existing refresh-in-place-by-id behavior
+        naturally handles "already applied, still spent" as a no-op
+        refresh rather than stacking duplicates, and so removal here only
+        ever touches the ONE synthetic effect this exact talent node
+        owns - never a real cast-sourced buff, even one with a similar
+        name (e.g. Seal of Command's proc-buff is separate from Seal of
+        Righteousness's if a Paladin somehow had both talented, since
+        their talent_ids differ).
+
+        Applied as effect_type=BUFF, duration effectively permanent
+        (matches how raid-scope buffs already work - real_time_seconds=
+        None means it doesn't decay on its own; only removed here when
+        points_spent drops to 0), stat_mods={} (any REAL stat contribution
+        from this same talent already flows through get_talent_effects()
+        and _recalculate_derived_stats() as normal - this synthetic
+        effect exists ONLY to carry the proc, not to double up on stats).
+        """
+        from combat.status_effects import StatusEffect, EffectType
+
+        for tree in getattr(self, "talent_trees", {}).values():
+            for node in tree.nodes.values() if hasattr(tree, "nodes") else []:
+                proc = getattr(node, "proc", None)
+                if not proc:
+                    continue
+                synthetic_id = f"talent_proc_{node.talent_id}"
+                if node.points_spent > 0:
+                    effect = StatusEffect(
+                        effect_id=synthetic_id, name=node.name,
+                        effect_type=EffectType.BUFF, duration=999999,
+                        stat_mods={}, source_name=node.name,
+                        real_time_seconds=None,
+                        proc=proc,
+                    )
+                    self.apply_status_effect(effect)
+                else:
+                    self.active_effects = [
+                        e for e in self._effects() if e.effect_id != synthetic_id
+                    ]
+
+    def _refresh_ability_ranks(self):
+        """Unlock the correct rank of every ability for self.level. Called on
+        character creation, level-up, prestige reset, and after loading a
+        save (so an old save doesn't stay stuck on a stale rank)."""
+        self._sync_talent_unlocked_abilities()
+        self._sync_talent_procs()
+        self._sync_cryo_converted_abilities()
+        for ability in self.ability_book.get_all_abilities():
+            ability.refresh_rank_for_level(self.level)
+        self._autofill_hotbar()
+
+    def _sync_cryo_converted_abilities(self):
+        """Set cryo_converted=True on Frostbolt/Ice Lance once the matching
+        Cryobolt/Cryolance talent (Mage/Cryotherapist tree) has a point
+        spent, per Kyle: "the actual Frostbolt/Ice Lance just also heals" -
+        no new hotbar button, the existing spell's behavior changes.
+
+        Mirrors _sync_talent_unlocked_abilities immediately above (same
+        "flag read from get_talent_effects(), applied to a specific ability
+        by id" shape) rather than reusing unlock_ability - unlock_ability
+        means "this ability doesn't exist in the book until talented",
+        which is wrong here since Frostbolt/Ice Lance are already learned
+        from level alone. cryo_convert_frostbolt/cryo_convert_ice_lance are
+        a separate, purpose-built effect key for exactly this "mutate an
+        already-known ability's behavior" case, not read by anything else.
+
+        Called from the same place and same reasoning as
+        _sync_talent_unlocked_abilities: creation/level-up/load, plus
+        talent_tree_screen.py's spend/refund handlers.
+        """
+        effects = self.get_talent_effects()
+        frostbolt_on = bool(effects.get("cryo_convert_frostbolt"))
+        ice_lance_on = bool(effects.get("cryo_convert_ice_lance"))
+        for ability in self.ability_book.get_all_abilities():
+            if ability.ability_id == "mage_frostbolt":
+                ability.cryo_converted = frostbolt_on
+            elif ability.ability_id == "mage_ice_lance":
+                ability.cryo_converted = ice_lance_on
+
+    def _sync_talent_unlocked_abilities(self):
+        """Set talent_unlocked on every ability that has requires_talent=True,
+        based on the character's currently-spent talent points.
+
+        THE ACTUAL FEATURE THIS ADDS: WOTLK talent trees don't just buff
+        existing abilities - some talents grant entirely new spells (Wild
+        Growth, Nourish, Chimera Shot) that don't exist for the character
+        until that talent has at least 1 point spent. The read side of
+        this already existed (get_talent_unlocked_abilities() correctly
+        aggregates every "unlock_ability" effect across all trees into a
+        flat list of ability_ids) but nothing ever called it and applied
+        the result to the ability book - so a talent could claim to grant
+        an ability and nothing would happen. This is that missing write
+        side: for every ability flagged requires_talent=True, check
+        whether its own ability_id appears in that unlocked list.
+
+        Must run BEFORE refresh_rank_for_level() in _refresh_ability_ranks
+        (see above) since is_learned there is level_met AND
+        talent_unlocked - if this ran after, a freshly-unlocked talent
+        ability would still show as unlearned until the NEXT refresh.
+
+        Called here (creation/level-up/load) and also directly from
+        talent_tree_screen.py's spend/refund handlers, matching the
+        existing pattern there of calling _recalculate_derived_stats()
+        immediately after every point change rather than waiting for the
+        next level-up to notice.
+        """
+        unlocked_ids = set(self.get_talent_unlocked_abilities())
+        for ability in self.ability_book.get_all_abilities():
+            if not ability.requires_talent:
+                continue  # no talent gate on this ability - never touched here
+            ability.talent_unlocked = ability.ability_id in unlocked_ids
+
+    def get_learned_abilities(self):
+        """Every ability this character has actually reached the level
+        requirement for, in book order."""
+        return [a for a in self.ability_book.get_all_abilities()
+                if getattr(a, "is_learned", True)]
+
+    def _autofill_hotbar(self):
+        """Place newly-learned abilities into the first free hotbar slots,
+        exactly once per ability ever.
+
+        The hotbar previously started completely empty and had to be filled
+        by hand before the character could do anything, which was tolerable
+        with 3 abilities per class and tedious with 9. This only ever fills
+        EMPTY slots and never reorders what the player has arranged.
+
+        Gated on self.hotbar_autofilled_ids (has this ability EVER been
+        auto-placed), not on "is it currently in self.hotbar" - the latter
+        made a manual removal temporary, since _refresh_ability_ranks runs
+        on every level-up and would see the now-empty slot plus the
+        ability "not currently slotted" and put it right back next level.
+        Checking the seen-set instead means a deliberate removal (Kyle's
+        case: unslotting Shoot/Wand when no matching weapon is equipped)
+        sticks permanently - a level-up still auto-slots any ability
+        that's newly learned and has never been placed before, but never
+        re-adds one the player already made a call on.
+        """
+        if not hasattr(self, "hotbar"):
+            return
+        if not hasattr(self, "hotbar_autofilled_ids"):
+            # Loading an older save from before this field existed - seed
+            # it from whatever's currently slotted so existing bars don't
+            # get instantly re-flooded with everything already learned.
+            self.hotbar_autofilled_ids = {a for a in self.hotbar if a}
+        for ability in self.get_learned_abilities():
+            if ability.ability_id in self.hotbar_autofilled_ids:
+                continue
+            for i in range(len(self.hotbar)):
+                if self.hotbar[i] is None:
+                    self.hotbar[i] = ability.ability_id
+                    break
+            self.hotbar_autofilled_ids.add(ability.ability_id)
+    
+    def prestige(self):
+        """Prestige: reset level, gain prestige level."""
+        from config import PRESTIGE_LEVEL
+        if self.level >= PRESTIGE_LEVEL:
+            self.prestige_level += 1
+            self.prestige_points += 1
+            self.level = 1
+            self.experience = 0
+            # Re-derive core stats for level 1. Without this the character
+            # kept their level-60 Strength/Stamina/etc. after prestiging,
+            # since level scaling used to only ever run at creation.
+            self._apply_level_scaling()
+            self._recalculate_derived_stats()
+            self._refresh_ability_ranks()
+            self._grant_talent_points()
+            self.current_health = self.health
+            self.current_mana = self.mana
+            return True
+        return False
+    
+    # ------------------------------------------------------------------
+    # Generic resource access
+    # ------------------------------------------------------------------
+    #: Resources backed by dedicated attributes: type -> (current, maximum).
+    #: Everything else lives in self.secondary_resources.
+    _RESOURCE_ATTRS = {
+        "rage": ("current_rage", "max_rage"),
+        "energy": ("current_energy", "max_energy"),
+        "mana": ("current_mana", "mana"),
+        "health": ("current_health", "health"),
+    }
+
+    #: Default ceiling for dict-backed secondary resources. Most of CoA's
+    #: stacking resources (Static, Insanity, Deathfire, ...) are 0-100
+    #: scales - but NOT all of them. Per-resource overrides below take
+    #: priority over this default for anything that isn't actually 0-100.
+    SECONDARY_RESOURCE_MAX = 100
+
+    #: Per-resource cap overrides for dict-backed secondary resources whose
+    #: real max isn't the 0-100 default. Solar Power (Sun Cleric) is a real
+    #: 0-20 scale per Kyle's correction - it was silently capping at 100
+    #: before this existed, letting Solar Power-spending abilities be gated
+    #: at 5x their intended threshold.
+    SECONDARY_RESOURCE_MAX_OVERRIDE = {
+        "solar_power": 20,
+    }
+
+    #: Secondary resources that bleed away outside combat, and how fast per
+    #: overworld step. Static behaves like Rage: built in a fight, gone by
+    #: the next one, so you can't walk around permanently charged.
+    SECONDARY_DECAY_PER_STEP = {"static": 2}
+
+    @staticmethod
+    def _resource_key(resource_type):
+        """Accept either a ResourceType enum or its plain string value."""
+        return getattr(resource_type, "value", resource_type)
+
+    def get_resource(self, resource_type):
+        """Current amount of any resource, dedicated-attribute or dict-backed."""
+        key = self._resource_key(resource_type)
+        if key in self._RESOURCE_ATTRS:
+            return getattr(self, self._RESOURCE_ATTRS[key][0], 0)
+        return self.secondary_resources.get(key, 0)
+
+    def get_resource_max(self, resource_type):
+        """Maximum for any resource."""
+        key = self._resource_key(resource_type)
+        if key in self._RESOURCE_ATTRS:
+            return getattr(self, self._RESOURCE_ATTRS[key][1], 0)
+        return self.SECONDARY_RESOURCE_MAX_OVERRIDE.get(key, self.SECONDARY_RESOURCE_MAX)
+
+    def set_resource(self, resource_type, amount):
+        """Set a resource, clamped to [0, max]."""
+        key = self._resource_key(resource_type)
+        amount = max(0, min(self.get_resource_max(resource_type), amount))
+        if key in self._RESOURCE_ATTRS:
+            setattr(self, self._RESOURCE_ATTRS[key][0], amount)
+        else:
+            self.secondary_resources[key] = amount
+        return amount
+
+    def gain_resource(self, resource_type, amount):
+        """Add to a resource. Returns the amount actually gained (after cap)."""
+        before = self.get_resource(resource_type)
+        after = self.set_resource(resource_type, before + amount)
+        return after - before
+
+    def spend_resource(self, resource_type, amount):
+        """Deduct from a resource. Returns False if there wasn't enough."""
+        if self.get_resource(resource_type) < amount:
+            return False
+        self.set_resource(resource_type, self.get_resource(resource_type) - amount)
+        return True
+
+    def get_secondary_resource_type(self):
+        """This class's secondary ResourceType, or None."""
+        from combat.abilities import get_class_secondary_resource
+        return get_class_secondary_resource(self.char_class)
+
+    def get_stat_contributions(self, stat_name):
+        """
+        Human-readable list of what one core stat currently feeds into, for
+        character-sheet hover tooltips.
+
+        Derived from the SAME coefficients used in _recalculate_derived_stats.
+        If you change a formula there, change it here - these are deliberately
+        written as "per point" values so they stay readable, and the totals
+        shown come from the live derived stats rather than being recomputed.
+        """
+        from combat.abilities import get_class_resource, ResourceType
+        is_mana = get_class_resource(self.char_class, self) == ResourceType.MANA
+
+        stat_name = stat_name.lower()
+        if stat_name == "strength":
+            return [
+                "+2 Attack Power per point",
+                "+0.3% Block per point",
+                "+0.1% Parry per point",
+            ]
+        if stat_name == "stamina":
+            return [
+                "+8 Max Health per point",
+                "+2 Armor per point",
+                f"Armor {self.armor} = {self.get_physical_reduction_percent():.1f}% phys reduction",
+            ]
+        if stat_name == "intellect":
+            lines = [
+                "+0.2 Spell Power per point",
+                "+0.2 Healing Power per point",
+                "+0.5% Spell Crit per point",
+                "+0.1% Haste per point",
+            ]
+            if is_mana:
+                lines.insert(0, "+15 Max Mana per point")
+            return lines
+        if stat_name == "spirit":
+            lines = [
+                "+0.2 Healing Power per point",
+                "+2 Magic Resistance per point",
+                f"MR {self.magic_resistance} = {self.get_magic_reduction_percent():.1f}% magic reduction",
+            ]
+            if is_mana:
+                lines.insert(0, "+0.5 Mana regen per turn/step")
+                lines.insert(1, "+5 Max Mana per point")
+            return lines
+        if stat_name == "agility":
+            return [
+                "+0.5 Attack Power per point",
+                "+2 Ranged Attack Power per point",
+                "+0.5% Physical Crit per point",
+                "+0.25% Dodge per point",
+                "+0.1% Parry per point",
+                "+0.1% Haste per point",
+                "+1% Turn Speed per point",
+            ]
+        return []
+
+    #: Armor/resistance constant for the diminishing-returns curve. Higher
+    #: values mean armor is worth less. Kept as a named constant so the UI
+    #: and the damage maths can never disagree about the curve.
+    MITIGATION_CONSTANT = 100
+
+    @classmethod
+    def mitigation_from(cls, rating):
+        """Fraction of damage (0.0-1.0) mitigated by an armor/resistance rating.
+
+        Asymptotic: never reaches 100%, always diminishing returns. Single
+        source of truth - take_damage() and the tooltips both call this.
+        """
+        rating = max(0, rating)
+        return rating / (rating + cls.MITIGATION_CONSTANT)
+
+    def get_physical_reduction_percent(self):
+        """Current physical damage reduction from Armor, as a percentage."""
+        return self.mitigation_from(self.armor) * 100.0
+
+    def get_magic_reduction_percent(self):
+        """Current magic damage reduction from Magic Resistance, as a percentage."""
+        return self.mitigation_from(self.magic_resistance) * 100.0
+
+    def get_resistance(self, school):
+        """Real per-school resistance rating lookup - the single place
+        take_damage (and any tooltip/UI wanting to show a resistance
+        value) should go for a school's resistance, rather than reading
+        the fire_resistance/frost_resistance/... attributes directly.
+
+        school: a DamageSchool constant (combat/status_effects.py) - a
+        single string ("fire", "frost", ...) or a tuple of two for a
+        combined/hybrid school (e.g. ("shadow", "frost") for
+        Shadowfrost). PHYSICAL and MAGIC are NOT handled here - those
+        stay on the existing armor/magic_resistance stats and
+        take_damage's existing physical/magic branches, unchanged from
+        before this system existed.
+
+        Combined schools resolve to whichever component resistance is
+        LOWEST (Kyle's explicit call: a combined-school hit should be
+        harder to resist than either component alone, since hybrid
+        damage types are meant to be rare/exotic, not a defensive
+        loophole where a defender picks their best resist).
+
+        Returns 0 for PHYSICAL/MAGIC/an unrecognized school string,
+        rather than raising - a typo'd or not-yet-modeled school
+        gracefully falls back to "no resistance" instead of crashing
+        mid-combat.
+        """
+        if isinstance(school, (tuple, list)):
+            return min(self.get_resistance(s) for s in school) if school else 0
+
+        return {
+            "fire": self.fire_resistance,
+            "frost": self.frost_resistance,
+            "nature": self.nature_resistance,
+            "shadow": self.shadow_resistance,
+            "arcane": self.arcane_resistance,
+            "holy": self.holy_resistance,
+        }.get(school, 0)
+
+    def get_effective_spell_power(self, school):
+        """Real per-school spell power lookup - the single place every
+        damage-calculation call site should go for "how much spell power
+        applies to THIS cast" instead of reading self.spell_power
+        directly. Previously every school (Fire, Frost, Arcane, ...)
+        secretly used the exact same generic spell_power stat - gear
+        suffixes like "of Fiery Wrath" (pure Fire Spell Power, see
+        data/items/gear_suffixes.json) rolled a real stat that then did
+        nothing in combat, since nothing read fire_spell_power at all.
+
+        Returns generic spell_power PLUS whichever per-school bonus
+        applies - additive, not either/or, so a caster who stacks both
+        generic spell power (int_caster gear) and school-specific power
+        (Fire Wrath suffixes) gets the benefit of both, matching how real
+        WoW itemization layers "+Spell Power" and "+Fire Spell Power"
+        together rather than one overriding the other.
+
+        school: a DamageSchool constant - single string or a tuple for a
+        combined school (e.g. ("shadow","frost") for Shadowfrost), same
+        calling convention as get_resistance(). A combined school AVERAGES
+        its two component per-school powers (not min(), unlike
+        get_resistance's deliberate min() for defender-favors-nothing) -
+        an attacker's own hybrid itemization should get real, proportional
+        benefit from both schools they invested in, not be capped by
+        whichever they invested in less. PHYSICAL/MAGIC/unrecognized
+        schools return just the generic spell_power (no per-school
+        component exists for either).
+        """
+        if isinstance(school, (tuple, list)):
+            if not school:
+                return self.spell_power
+            per_school_avg = sum(self._per_school_spell_power(s) for s in school) / len(school)
+            return self.spell_power + per_school_avg
+
+        return self.spell_power + self._per_school_spell_power(school)
+
+    def _per_school_spell_power(self, school):
+        """Just the per-school COMPONENT (not including generic
+        spell_power) - split out so get_effective_spell_power can average
+        components for a combined school without double-counting the
+        generic spell_power term in the average."""
+        return {
+            "fire": self.fire_spell_power,
+            "frost": self.frost_spell_power,
+            "nature": self.nature_spell_power,
+            "shadow": self.shadow_spell_power,
+            "arcane": self.arcane_spell_power,
+            "holy": self.holy_spell_power,
+        }.get(school, 0)
+
+    def get_resistance_percent(self, school):
+        """Resistance for `school`, expressed as a mitigation percentage
+        (0-100) through the same asymptotic curve as
+        get_physical_reduction_percent/get_magic_reduction_percent -
+        for tooltips/character-sheet display."""
+        return self.mitigation_from(self.get_resistance(school)) * 100.0
+
+    def take_damage(self, amount, damage_type="physical", attacker_level=None):
+        """Take damage with resistance.
+
+        attacker_level (optional): the level of whatever dealt this damage.
+        When provided, applies the symmetric level-difference multiplier so
+        a big level gap either direction actually matters (see
+        combat/abilities.py level_diff_multiplier) - a level 25 mob should
+        flatten a level 5 player, not trade evenly with them.
+
+        AVOIDANCE (Dodge/Parry/Block): rolled here, defender-side, as a
+        second independent check AFTER the attacker's own hit/miss roll
+        already passed (see combat/abilities.py's hit_chance_physical roll,
+        which happens before take_damage is ever called) - matches real
+        WoW's two-stage resolution (did it land at all, then did the
+        defender avoid it) rather than folding avoidance into the
+        attacker's hit chance. Only applies to damage_type="physical":
+        Dodge/Parry/Block have never been magic-damage mechanics in WoW,
+        and this engine has no equivalent caster-side avoidance stat to
+        roll against spell damage. Order matches real WoW's own combat
+        table priority (dodge/parry checked before block - a Dodge/Parry
+        fully avoids the attack, so Block never gets a chance to apply on
+        top of one): Dodge and Parry each independently roll to negate the
+        hit entirely (return 0 damage, same shape as a miss); Block rolls
+        only if neither of those procs, and reduces (not negates) the
+        incoming amount by BLOCK_DAMAGE_REDUCTION - stacked with
+        block_bonus_reduction, the "reduce damage taken by blocked
+        attacks" pool Spirit Guard talents contribute to (see
+        get_talent_effect("block_bonus_reduction")). Parry requires a
+        melee weapon capable of parrying in real WoW (can't parry with a
+        ranged/caster kit) - not modeled here since this engine has no
+        such distinction on non-Warrior/Rogue/Paladin classes; every
+        Character rolls the same three checks off its own dodge/parry/
+        block stats regardless of class, same as every other avoidance
+        stat already being class-agnostic here.
+        """
+        BLOCK_DAMAGE_REDUCTION = 0.30  # WoW-classic-style: a block absorbs ~30% of the hit, not all of it
+
+        if damage_type == "physical":
+            import random
+            roll = random.uniform(0, 100)
+            if roll < self.dodge:
+                return 0
+            roll -= self.dodge
+            if roll < self.parry:
+                return 0
+            roll -= self.parry
+            blocked = roll < self.block
+        else:
+            blocked = False
+
+        if damage_type == "physical":
+            reduction = self.mitigation_from(self.armor)
+        elif damage_type == "magic":
+            reduction = self.mitigation_from(self.magic_resistance)
+        elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
+            # Real per-school resistance path (Fire/Frost/Nature/Shadow/
+            # Arcane/Holy, or a combined-school tuple - see get_resistance's
+            # docstring for the lowest-of-components rule on combined
+            # schools). Distinct from the legacy "magic" branch above:
+            # "magic" abilities haven't been migrated to a real school yet
+            # and keep using the old flat magic_resistance stat untouched;
+            # only abilities deliberately authored with a real
+            # DamageSchool value reach this branch.
+            reduction = self.mitigation_from(self.get_resistance(damage_type))
+        else:
+            reduction = 0
+        
+        # Party row positioning (soft rows): the front line absorbs more
+        # physical damage, the back line is exposed to spells instead. Applied
+        # AFTER armor so it modifies real incoming damage rather than being
+        # swallowed by the mitigation curve.
+        from entities.party import row_damage_multiplier
+        row = getattr(self, "row", None)
+        row_mult = row_damage_multiplier(row, damage_type) if row else 1.0
+
+        from combat.abilities import level_diff_multiplier
+        level_mult = level_diff_multiplier(attacker_level, self.level)
+
+        # Flat percentage modifier on ALL incoming damage, regardless of
+        # school - the general-purpose hook Defensive Stance's -10% (and
+        # any future "reduce damage taken" effect: Shield Wall, Ice
+        # Barrier-style cooldowns) needs. Distinct from armor/magic
+        # resistance (which only apply to their own damage school) and
+        # from row positioning (which is about WHERE the damage lands,
+        # not a flat scalar). Summed across talents + stat_mods the same
+        # way every other derived stat is, via the shared bonus pool.
+        taken_mult = 1.0 + self.get_talent_effect("damage_taken_pct", 0.0)
+        taken_mult += self.get_status_stat_mod("damage_taken_pct")
+
+        # School-specific companion to damage_taken_pct above (Earthen
+        # Attunement, Shaman Tank: "6% less physical / 9% less spell damage
+        # while Earthen Guardian is active" - real WOTLK splits physical vs
+        # spell reduction, which the flat damage_taken_pct key can't
+        # represent on its own). physical_damage_taken_pct stacks with
+        # damage_taken_pct on physical hits; magic_damage_taken_pct stacks
+        # with it on magic hits. Both default to 0 via get_talent_effect's
+        # own default, so every ability/talent that never sets them is
+        # completely unaffected by this addition.
+        if damage_type == "physical":
+            taken_mult += self.get_talent_effect("physical_damage_taken_pct", 0.0)
+        elif damage_type == "magic" or damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
+            # Broadened (Kyle's talent-overpass session, 2026-09-06):
+            # previously only fired on the LEGACY "magic" string, missing
+            # every ability using a real DamageSchool value (fire/frost/
+            # nature/shadow/arcane/holy - the majority of abilities now,
+            # per this session's balance pass). A generalist "resist all
+            # magic" talent (Elemental Warding, Iron Will, Stoicism,
+            # Unbreakable Will, Guarded by the Light - real WoW tank/
+            # defensive talents, not school-specific ones) needs to apply
+            # regardless of which real school the incoming hit uses, not
+            # just the old catch-all "magic" damage_type.
+            taken_mult += self.get_talent_effect("magic_damage_taken_pct", 0.0)
+
+        taken_mult = max(0.0, taken_mult)
+
+        actual = max(1, int(amount * (1.0 - reduction) * row_mult * level_mult * taken_mult))
+
+        if blocked:
+            block_mult = 1.0 - BLOCK_DAMAGE_REDUCTION
+            block_mult -= self.get_talent_effect("block_bonus_reduction", 0.0)
+            block_mult = max(0.0, block_mult)
+            actual = max(1, int(actual * block_mult))
+
+        self.current_health -= actual
+        
+        # Warriors generate rage from taking damage (reduced from 0.5 to 0.2)
+        if self.char_class == "Warrior":
+            self.current_rage = min(100, self.current_rage + (actual * 0.2))
+
+        # ON_DAMAGE_TAKEN procs (e.g. a defensive buff that grants a
+        # resource, or reflects damage, when hit). Fired here - after
+        # mitigation/avoidance/blocking are all resolved, off the real
+        # final `actual` amount, not the raw incoming `amount`, so a proc
+        # reading "amount" sees what genuinely landed.
+        #
+        # take_damage() has no combat_log handle of its own (Character
+        # doesn't own the engine's log), so any messages this produces are
+        # appended to self._pending_proc_messages rather than silently
+        # dropped - CombatEngine._apply_effect's threat/proc block (which
+        # DOES have combat_log) drains and clears that list right after
+        # every take_damage() call resolves. Starts as [] via getattr's
+        # default so this never crashes on an object that hasn't had it
+        # initialized yet.
+        if hasattr(self, "fire_proc_trigger"):
+            from combat.status_effects import ProcTrigger
+            proc_msgs = self.fire_proc_trigger(ProcTrigger.ON_DAMAGE_TAKEN, {"amount": actual})
+            if proc_msgs:
+                pending = getattr(self, "_pending_proc_messages", None)
+                if pending is None:
+                    pending = self._pending_proc_messages = []
+                pending.extend(proc_msgs)
+
+        return actual
+    
+    def heal(self, amount):
+        """Heal character."""
+        self.current_health = min(self.health, self.current_health + amount)
+    
+    def restore_mana(self, amount):
+        """Restore mana."""
+        self.current_mana = min(self.mana, self.current_mana + amount)
+    
+    def is_alive(self):
+        """Check if alive."""
+        return self.current_health > 0
+    
+    def update_combat(self, dt):
+        """Update resources and abilities in combat (TURN-BASED ONLY).
+        Resources only regen between turns, not during wait time."""
+        # Update ability cooldowns (NOW DONE AT END OF TURN VIA decrement_all_cooldowns)
+        pass
+    
+    def restore_resources_between_turns(self):
+        """Restore resources when turn ends (for next turn)."""
+        from combat.abilities import get_class_resource, ResourceType
+        resource = get_class_resource(self.char_class, self)
+
+        # Energy regen - only Energy-resource classes (Rogue) actually spend
+        # from this pool, so only they regen it. Previously every other
+        # class also got +20 Energy/turn despite having zero abilities that
+        # could ever spend it - harmless in practice but pointless busywork
+        # and confusing if surfaced in UI/debugging later.
+        if resource == ResourceType.ENERGY:
+            self.current_energy = min(self.max_energy, self.current_energy + 25)
+
+        # Mana regen tied to Spirit (0.5 mana per point of effective Spirit,
+        # so 10 Spirit = 5 mana/turn). Only Mana-resource classes have a
+        # nonzero self.mana pool to regen into (see _recalculate_derived_stats).
+        if resource == ResourceType.MANA:
+            self.current_mana = min(self.mana, self.current_mana + (self.effective_spirit * 0.5))
+
+    def restore_resources_out_of_combat_step(self):
+        """
+        Called once per overworld tile moved (not a time tick).
+          - Energy (Rogue only): 15 per step
+          - Rage: decays by 2 per step (Rage has no out-of-combat source,
+            so a Warrior shouldn't be able to wander around perpetually
+            primed for a fight - it bleeds off between fights, matching WoW).
+
+        Mana regen moved OFF this step-based path and onto
+        StatusEffectMixin.tick_out_of_combat_regen (a real per-second
+        tick, not per-tile-stepped) - see that method's docstring for why:
+        Kyle wanted regen that works while STANDING STILL too (at half
+        rate), which a "only while moving" step-based system could never
+        support no matter how the numbers were tuned.
+        """
+        from combat.abilities import get_class_resource, ResourceType
+        resource = get_class_resource(self.char_class, self)
+
+        if resource == ResourceType.ENERGY:
+            self.current_energy = min(self.max_energy, self.current_energy + 15)
+
+        if self.current_rage > 0:
+            self.current_rage = max(0, self.current_rage - 2)
+
+        # Secondary resources that decay (currently Static). Same reasoning
+        # as Rage: these are built during a fight and shouldn't carry over.
+        for key, rate in self.SECONDARY_DECAY_PER_STEP.items():
+            if self.secondary_resources.get(key, 0) > 0:
+                self.set_resource(key, self.secondary_resources[key] - rate)
+    
+    def get_stat_sheet(self):
+        """Return formatted stat sheet. core_stats shows EFFECTIVE values (base + gear),
+        matching what the character actually has in combat. base_stats is included
+        separately so UI can optionally show "12 (+4 from gear)" style breakdowns."""
+        return {
+            "name": self.name,
+            "class": self.char_class,
+            "level": self.level,
+            "prestige": self.prestige_level,
+            "experience": self.experience,
+            "core_stats": {
+                "strength": self.effective_strength,
+                "stamina": self.effective_stamina,
+                "intellect": self.effective_intellect,
+                "spirit": self.effective_spirit,
+                "agility": self.effective_agility,
+            },
+            "base_stats": {
+                "strength": self.strength,
+                "stamina": self.stamina,
+                "intellect": self.intellect,
+                "spirit": self.spirit,
+                "agility": self.agility,
+            },
+            "derived_stats": {
+                "attack_power": self.attack_power,
+                "ranged_attack_power": self.ranged_attack_power,
+                "spell_power": self.spell_power,
+                "healing_power": self.healing_power,
+                "crit_physical": f"{self.crit_chance_physical:.1f}%",
+                "crit_spell": f"{self.crit_chance_spell:.1f}%",
+                "dodge": f"{self.dodge:.1f}%",
+                "block": f"{self.block:.1f}%",
+                "parry": f"{self.parry:.1f}%",
+                "haste": f"{self.haste:.1f}%",
+            },
+            "defense": {
+                # display_health rounds the real internal float (Kyle:
+                # "keep HP whole numbers") - current_health itself stays
+                # exact so out-of-combat regen's fractional per-frame
+                # ticks aren't lossy, only the UI-facing dict rounds.
+                "health": self.display_health,
+                "health_max": round(self.health),
+                "mana": int(self.current_mana),
+                "mana_max": round(self.mana),
+                "armor": self.armor,
+                "magic_resistance": self.magic_resistance,
+            }
+        }
+    
+    def to_dict(self):
+        """Serialize to dict."""
+        return {
+            "name": self.name,
+            "class": self.char_class,
+            "level": self.level,
+            # Talent spend (save v4). Stored sparsely - only nodes with at
+            # least one point are written, so the save stays small and adding
+            # new talents to a tree later doesn't invalidate old saves.
+            "talents": {
+                tree_id: {
+                    tid: node.points_spent
+                    for tid, node in tree.nodes.items()
+                    if node.points_spent > 0
+                }
+                for tree_id, tree in self.talent_trees.items()
+                if tree.total_points_spent() > 0
+            },
+            "talent_points_available": self.talent_points_available,
+            "prestige_level": self.prestige_level,
+            "prestige_points": self.prestige_points,
+            "experience": self.experience,
+            "strength": self.strength,
+            "stamina": self.stamina,
+            "intellect": self.intellect,
+            "spirit": self.spirit,
+            "agility": self.agility,
+            "current_health": self.current_health,
+            "current_mana": self.current_mana,
+            "current_rage": self.current_rage,
+            "current_energy": self.current_energy,
+            "hotbar": self.hotbar,
+            "hotbar_autofilled_ids": sorted(self.hotbar_autofilled_ids),
+            "extra_slots": self.extra_slots,
+            "race": self.race,
+            "gender": self.gender,
+            "appearance_variant": self.appearance_variant,
+            "equipment": self.equipment.to_dict(),
+            "inventory": [item.to_dict() for item in self.inventory],
+            "consumables": [c.to_dict() for c in self.consumables],
+            "materials": [m.to_dict() for m in self.materials],
+            "profession_skills": dict(self.profession_skills),
+            "consumable_cooldown": self.consumable_cooldown,
+            "guardian_buff": self.guardian_buff,
+            "battle_buff": self.battle_buff,
+            "food_buff": self.food_buff,
+            "class_base_stats": self.class_base_stats,
+            "secondary_resources": self.secondary_resources,
+            # Party identity (save v6). Without these a loaded companion lost
+            # their spec lock and their row assignment.
+            "row": self.row,
+            "locked_spec": self.locked_spec,
+            "recruit_id": self.recruit_id,
+            "backstory": self.backstory,
+            "background_sections": self.background_sections,
+        }
+    
+    @classmethod
+    def from_dict(cls, data):
+        """Deserialize from dict."""
+        from entities.item import Item
+        from entities.consumable import Consumable
+        char = cls(data["name"], data["class"], data["level"])
+        char.prestige_level = data.get("prestige_level", 0)
+        char.prestige_points = data.get("prestige_points", 0)
+        char.experience = data.get("experience", 0)
+        char.strength = data["strength"]
+        char.stamina = data["stamina"]
+        char.intellect = data["intellect"]
+        char.spirit = data["spirit"]
+        char.agility = data["agility"]
+        # Level-1 class stat snapshot. Older saves predate this field; the
+        # constructor already set a correct one for this class, so fall back
+        # to that rather than deriving a wrong baseline from levelled stats.
+        char.class_base_stats = data.get("class_base_stats", char.class_base_stats)
+        # Party identity (save v6); absent in v5 and earlier, where the
+        # defaults set by __init__ are the correct fallback.
+        char.row = data.get("row") or None
+        char.locked_spec = data.get("locked_spec")
+        char.recruit_id = data.get("recruit_id")
+        char.backstory = data.get("backstory", "")
+        char.background_sections = dict(data.get("background_sections", {}))
+        char.secondary_resources = dict(data.get("secondary_resources", {}))
+        char.current_rage = data.get("current_rage", 0)
+        char.current_energy = data.get("current_energy", 100)
+        char.hotbar = data.get("hotbar", [None] * 20)
+        # Asher Coleman's ability_book must be rebuilt from his fixed kit
+        # right after his hotbar is restored above - bug fix
+        # (AttributeError: 'NoneType' object has no attribute
+        # 'is_usable_by', on his combat turn after a save/load). The `cls`
+        # constructor call at the top of this method runs the NORMAL
+        # Character.__init__, which hands him a generic Paladin
+        # ability_book - his saved hotbar (just restored above) still
+        # points at "asher_wrath"/"asher_resignation", ability_ids that
+        # only exist in his real hand-built book, never the generic one.
+        # See RecruitNPC.build_asher_ability_book's docstring for the full
+        # chain. Calling it here both rebuilds the correct ability_book
+        # AND re-stamps hotbar slots 0/1 to those same two ids (a no-op
+        # if the save already had them there, a real fix if an older/
+        # corrupted save didn't). Deliberately NOT calling the full
+        # RecruitNPC._build_asher_kit here - that also regenerates his
+        # permanent gear with fresh random item_ids on every call, which
+        # would silently discard whatever gear state this save actually
+        # has.
+        if char.recruit_id == "asher_coleman":
+            from world.recruit_manager import RecruitNPC
+            RecruitNPC.build_asher_ability_book(char)
+        # Missing key = pre-fix save; seed from whatever's currently
+        # slotted (matches the same fallback _autofill_hotbar itself
+        # does) so an old save doesn't get its whole spellbook re-dumped
+        # onto the bar the first time it's loaded post-fix.
+        char.hotbar_autofilled_ids = set(data.get(
+            "hotbar_autofilled_ids", [a for a in char.hotbar if a]))
+        char.extra_slots = data.get("extra_slots", [None] * 8)
+        char.race = data.get("race", "human")
+        char.gender = data.get("gender", "male")
+        char.appearance_variant = data.get("appearance_variant", 0)
+
+        # Restore equipment/inventory BEFORE recalculating derived stats,
+        # so gear bonuses are correctly folded into health/mana/armor/etc.
+        char.equipment = Equipment.from_dict(data.get("equipment"))
+        char.inventory = [Item.from_dict(i) for i in data.get("inventory", [])]
+        
+        # Restore consumables (Phase 6). Currency is no longer stored on
+        # Character (see Party.copper) - but a legacy save's "copper" key
+        # is kept readable via getattr(player, "copper", 0) in
+        # Party.from_dict's one-time migration, so an old save's money
+        # isn't lost on first load under the new shared-purse model. This
+        # attribute is transient (not re-saved by to_dict above) and only
+        # meaningful immediately after loading an old save, before the
+        # migration reads it.
+        char.copper = data.get("copper", 0)
+        char.consumables = [Consumable.from_dict(c) for c in data.get("consumables", [])]
+        from entities.material import Material
+        char.materials = [Material.from_dict(m) for m in data.get("materials", [])]
+        char.profession_skills = data.get("profession_skills", {"herbalism": 0, "mining": 0})
+        char.consumable_cooldown = data.get("consumable_cooldown", 0.0)
+        char.guardian_buff = data.get("guardian_buff")
+        char.battle_buff = data.get("battle_buff")
+        char.food_buff = data.get("food_buff")
+
+        # Restore talent point spend (save v4). The character was constructed
+        # with fresh trees and a level-derived point pool by __init__; here we
+        # overwrite the per-node ranks with what was actually saved, then
+        # restore the leftover pool. Without this, every talent point a player
+        # spent was silently refunded on load - the trees reset to empty and
+        # talent_points_available went back to (level - 4).
+        saved_talents = data.get("talents")
+        if saved_talents:
+            for tree_id, node_ranks in saved_talents.items():
+                tree = char.talent_trees.get(tree_id)
+                if not tree:
+                    continue  # tree renamed/removed since this save was made
+                for talent_id, points in node_ranks.items():
+                    node = tree.get_node(talent_id)
+                    if node:
+                        node.points_spent = min(points, node.max_points)
+            char.talent_points_available = data.get(
+                "talent_points_available", char.talent_points_available)
+
+        char._recalculate_derived_stats()
+        char.current_health = data.get("current_health", char.health)
+        char.current_mana = data.get("current_mana", char.mana)
+        return char
+    
+    def equip_item(self, item):
+        """
+        Equip an item from inventory. Moves any displaced item(s) back to
+        inventory. Returns True if equipped successfully.
+
+        Refuses items the class isn't proficient with (see
+        entities/proficiency.py) - a Priest can't wear plate. Wearing armor
+        LIGHTER than your class's type is allowed but weaker, matching WoW.
+        """
+        if item not in self.inventory:
+            return False
+
+        # Asher Coleman's gear is fixed and permanent - see
+        # world/recruit_manager.py's _build_asher_kit and Kyle's explicit
+        # spec ("You won't be able to change his equipment or his skills").
+        # Hard-blocked here rather than just hidden in the UI, matching the
+        # same "the real enforcement point every path funnels through, not
+        # just a cosmetic UI restriction" approach used for Shoot/Wand's
+        # ranged-weapon gate in combat/combat_engine.py.
+        if getattr(self, "recruit_id", None) == "asher_coleman":
+            return False
+
+        from entities.proficiency import can_equip
+        allowed, _reason = can_equip(self, item)
+        if not allowed:
+            return False
+
+        result = self.equipment.equip(item)
+        previous, displaced_offhand = result if isinstance(result, tuple) else (result, None)
+
+        self.inventory.remove(item)
+        if previous:
+            self.inventory.append(previous)
+        if displaced_offhand:
+            self.inventory.append(displaced_offhand)
+
+        self._recalculate_derived_stats()
+        return True
+
+    def unequip_item(self, slot):
+        """Unequip an item from a slot back into inventory."""
+        # Same lock as equip_item above - Asher's gear can't be removed
+        # either, not just "can't be replaced".
+        if getattr(self, "recruit_id", None) == "asher_coleman":
+            return False
+        item = self.equipment.unequip(slot)
+        if item:
+            self.inventory.append(item)
+            self._recalculate_derived_stats()
+            return True
+        return False
+
+    @property
+    def inventory_capacity(self):
+        """Total backpack slots: BASE_INVENTORY_CAPACITY (24, Kyle's spec)
+        plus whatever the 4 equipped bags add on top. Recomputed live off
+        currently-equipped bags rather than cached, so unequipping a bag
+        immediately shrinks capacity - same "live off equipment" pattern
+        as armor/stat totals elsewhere in this class."""
+        return BASE_INVENTORY_CAPACITY + self.equipment.get_bag_capacity()
+
+    def add_to_inventory(self, item):
+        """Add a looted/generated item to inventory. Returns True if it
+        fit, False if the backpack is full (inventory_capacity reached) -
+        callers (combat loot, vendor buy, recruit gear) MUST check this
+        return value rather than assuming success, since a full bag is now
+        a real possible outcome instead of an unlimited list."""
+        if len(self.inventory) >= self.inventory_capacity:
+            return False
+        self.inventory.append(item)
+        return True
+
+    def slot_ability(self, hotbar_slot, ability_id):
+        """Slot an ability into the hotbar (0-19). Returns True if successful."""
+        if 0 <= hotbar_slot < 20:
+            ability = self.ability_book.get_ability(ability_id)
+            if ability:
+                self.hotbar[hotbar_slot] = ability_id
+                return True
+        return False
+    
+    def unslot_ability(self, hotbar_slot):
+        """Remove ability from hotbar slot."""
+        if 0 <= hotbar_slot < 20:
+            self.hotbar[hotbar_slot] = None
+
+    def slot_extra_ability(self, extra_slot, ability_id):
+        """Slot an ability into one of the click-only extra slots (0-7).
+        Same validation as slot_ability, separate list - see __init__."""
+        if 0 <= extra_slot < len(self.extra_slots):
+            ability = self.ability_book.get_ability(ability_id)
+            if ability:
+                self.extra_slots[extra_slot] = ability_id
+                return True
+        return False
+
+    def unslot_extra_ability(self, extra_slot):
+        """Remove ability from an extra (click-only) slot."""
+        if 0 <= extra_slot < len(self.extra_slots):
+            self.extra_slots[extra_slot] = None
+    
+    # =========== CURRENCY - MOVED TO Party (Phase "real people" refactor) ===========
+    # Currency used to live here per-Character, which worked by accident
+    # since only the player ever spent/earned it. Now that gear/consumables
+    # are per-character, money is the one thing that stays SHARED across
+    # the party - see entities/party.py's add_currency/remove_currency/
+    # get_currency_string/self.copper. Every call site now goes through
+    # state_manager.get_party() instead of state_manager.player directly.
+    
+    # =========== CONSUMABLE METHODS (Phase 6) ===========
+    
+    def add_consumable(self, consumable):
+        """
+        Add a consumable to inventory. If a stack of the same consumable_id
+        exists and has room, add to that stack. Otherwise add as new stack.
+        """
+        for existing in self.consumables:
+            if existing.consumable_id == consumable.consumable_id:
+                if existing.quantity < existing.stack_limit:
+                    existing.quantity += consumable.quantity
+                    return True
+        # No existing stack or all stacks full, add new
+        self.consumables.append(consumable)
+        return True
+    
+    def remove_consumable(self, consumable):
+        """Remove a consumable from inventory."""
+        if consumable in self.consumables:
+            self.consumables.remove(consumable)
+            return True
+        return False
+
+    # =========== MATERIAL METHODS (Gathering Phase 1) ===========
+
+    def add_material(self, material):
+        """Add a gathered material to inventory. If a stack of the same
+        material_id exists and has room, add to that stack. Otherwise add
+        as a new stack. Identical shape to add_consumable - see that
+        method's docstring for the stacking rationale."""
+        for existing in self.materials:
+            if existing.material_id == material.material_id:
+                if existing.quantity < existing.stack_limit:
+                    existing.quantity += material.quantity
+                    return True
+        self.materials.append(material)
+        return True
+
+    def remove_material(self, material):
+        """Remove a material stack from inventory."""
+        if material in self.materials:
+            self.materials.remove(material)
+            return True
+        return False
+
+    def get_material_quantity(self, material_id):
+        """Total quantity of a material_id across all stacks (there
+        should only ever be one stack per material_id per add_material's
+        own stacking logic, but this sums defensively rather than assumes
+        that invariant always holds)."""
+        return sum(m.quantity for m in self.materials if m.material_id == material_id)
+
+    def has_materials(self, requirements):
+        """requirements: dict of material_id -> quantity needed. Returns
+        True only if EVERY requirement is met at its full quantity -
+        used by smelting/crafting to validate before attempting a craft,
+        so a recipe never partially consumes materials on a craft that
+        was always going to fail partway through."""
+        return all(self.get_material_quantity(mid) >= qty for mid, qty in requirements.items())
+
+    def consume_material(self, material_id, quantity):
+        """Remove `quantity` of material_id from inventory, across one or
+        more stacks if needed (draining a stack fully before moving to
+        the next, order otherwise unspecified). Returns True if the full
+        quantity was removed, False if there wasn't enough (in which case
+        NOTHING is removed - this is all-or-nothing, not a partial drain,
+        so a failed consume never leaves inventory in a half-consumed
+        state). Callers that need to consume several different materials
+        atomically (e.g. a smelting recipe with 2 inputs) should call
+        has_materials() first to check ALL requirements before consuming
+        ANY of them - this method only guarantees atomicity for a single
+        material_id, not across multiple consume_material() calls."""
+        if self.get_material_quantity(material_id) < quantity:
+            return False
+
+        remaining = quantity
+        # Iterate over a copy since stacks may be removed from
+        # self.materials mid-loop (emptied stacks are deleted, not left
+        # behind at quantity 0 - matches how a real inventory slot would
+        # free up rather than showing a ghost "x0" stack).
+        for stack in list(self.materials):
+            if remaining <= 0:
+                break
+            if stack.material_id != material_id:
+                continue
+            take = min(stack.quantity, remaining)
+            stack.quantity -= take
+            remaining -= take
+            if stack.quantity <= 0:
+                self.materials.remove(stack)
+        return True
+
+    def gain_profession_skill(self, profession, amount=1, cap=None):
+        """Increase a gathering profession's skill level, clamped to cap
+        if given (see world.gathering_manager.TIER_SKILL_CAPS - 75 for
+        early tier, the only tier that currently exists). No cap passed
+        means uncapped, same as before this existed - callers that care
+        about the real WoW-style tier cap should pass one explicitly
+        rather than this method reaching into gathering_manager itself,
+        which would put a world/ import inside entities/ and invert the
+        codebase's existing dependency direction (entities are lower-
+        level than world, not the other way around)."""
+        if profession not in self.profession_skills:
+            self.profession_skills[profession] = 0
+        new_value = self.profession_skills[profession] + amount
+        if cap is not None:
+            new_value = min(new_value, cap)
+        self.profession_skills[profession] = new_value
+        return False
+    
+    def apply_consumable_buff(self, buff_category, consumable):
+        """
+        Apply a buff from a consumable (elixir or food).
+        buff_category: "guardian", "battle", or "food"
+        """
+        buff_tuple = (consumable, consumable.effect_duration)
+        
+        if buff_category == "guardian":
+            self.guardian_buff = buff_tuple
+        elif buff_category == "battle":
+            self.battle_buff = buff_tuple
+        elif buff_category == "food":
+            self.food_buff = buff_tuple
+    
+    def get_active_buff_stats(self):
+        """
+        Return the total stat bonuses from active buffs.
+        Returns a dict like {'intellect': 12, 'spell_power': 4, ...} - keys are
+        whatever each active consumable's stat_bonuses dict specifies (see
+        Consumable docstring), summed across all three buff slots. Not
+        hardcoded to a fixed stat set, so a food that grants Intellect+Spirit
+        and an elixir that grants Stamina compose naturally, and any future
+        consumable can target any stat _recalculate_derived_stats() reads
+        from its bonus pool without touching this method.
+        """
+        buff_stats = {}
+
+        for buff in (self.guardian_buff, self.battle_buff, self.food_buff):
+            if buff is None:
+                continue
+            consumable, _ = buff
+            for stat_name, amount in consumable.stat_bonuses.items():
+                buff_stats[stat_name] = buff_stats.get(stat_name, 0) + amount
+
+        return buff_stats
+    
+    def update_buff_timers(self, dt):
+        """
+        Update consumable buff timers (call once per frame/turn).
+        dt: delta time in seconds
+        """
+        if self.guardian_buff is not None:
+            consumable, duration = self.guardian_buff
+            new_duration = duration - dt
+            if new_duration <= 0:
+                self.guardian_buff = None
+            else:
+                self.guardian_buff = (consumable, new_duration)
+        
+        if self.battle_buff is not None:
+            consumable, duration = self.battle_buff
+            new_duration = duration - dt
+            if new_duration <= 0:
+                self.battle_buff = None
+            else:
+                self.battle_buff = (consumable, new_duration)
+        
+        if self.food_buff is not None:
+            consumable, duration = self.food_buff
+            new_duration = duration - dt
+            if new_duration <= 0:
+                self.food_buff = None
+            else:
+                self.food_buff = (consumable, new_duration)

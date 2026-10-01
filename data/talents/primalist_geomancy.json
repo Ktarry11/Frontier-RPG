@@ -1,0 +1,414 @@
+{
+  "spec_name": "Primalist Geomancy",
+  "tree_id": "primalist_geomancy",
+  "description": "Elemental caster DPS - earth and fire spells channeled through Geode Barrage and Earthquake.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 10 confirmed Geomancy nodes expanded to a 12-node tree (2 class-wide-flavored additions, matching the Storm Ascendance/Vizier precedent) since this was the smallest of the 4 real spec lists. Earthshaping confirmed as capstone: 'Casting Geode Barrage and your Seismic abilities now generate Earthshaping. Empowers some of your abilities and increases your spell haste by 1% for 20 seconds, stacking 15 times.'",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "primalist_geomancy_magmatism",
+      "name": "Magmatism",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_therazanes_might",
+      "name": "Therazane's Might",
+      "description": "Increases Geode Barrage damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_primalist_geode_barrage_damage": 0.03
+      },
+      "connected_to": [
+        "primalist_geomancy_primal_shamans_mask"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_one_with_the_earth",
+      "name": "One With The Earth",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "primalist_geomancy_magma_fissure"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_cave_dweller",
+      "name": "Cave Dweller",
+      "description": "Learn Golem Form, a shapeshift into an earthen golem that increases Armor and reduces spell cast time.",
+      "node_type": "active",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "unlock_ability": "primalist_golem_form"
+      },
+      "connected_to": [
+        "primalist_geomancy_earths_embrace"
+      ],
+      "_source": "CoA tags this 'Specialization' - a form-flavored capstone-tier ability, but unlike Venomancer's forms it doesn't change resource type (still Mana+Rage), so implemented as a strong self-buff via is_instant rather than the full forms.py shapeshift system."
+    },
+    {
+      "talent_id": "primalist_geomancy_heavy_earth",
+      "name": "Heavy Earth",
+      "description": "Reduces the Mana cost of Geode Barrage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_geode_barrage_cost_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_geomancy_magmatism"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_primal_shamans_mask",
+      "name": "Primal Shaman's Mask",
+      "description": "Increases Earthquake damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_earthquake_damage": 0.06
+      },
+      "connected_to": [
+        "primalist_geomancy_therazanes_might"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_magma_fissure",
+      "name": "Magma Fissure",
+      "description": "Learn Magma Fissure, a Fire damage spell that leaves a burning DoT.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "primalist_magma_fissure"
+      },
+      "connected_to": [
+        "primalist_geomancy_one_with_the_earth"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_earths_embrace",
+      "name": "Earth's Embrace",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_geomancy_cave_dweller"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_eruption",
+      "name": "Eruption",
+      "description": "Increases Magma Fissure damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_magma_fissure_damage": 0.08
+      },
+      "connected_to": [
+        "primalist_geomancy_magma_fissure",
+        "primalist_geomancy_golem_might"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_golem_might",
+      "name": "Golem Might",
+      "description": "Increases all Nature and Fire spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "nature_fire_spell_damage": 0.02
+      },
+      "connected_to": [
+        "primalist_geomancy_eruption",
+        "primalist_geomancy_earthshaping"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_earthshaping",
+      "name": "Earthshaping",
+      "description": "Casting Geode Barrage or Earthquake now generates Earthshaping, increasing spell haste by 1% for 20 seconds, stacking 15 times.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "earthshaping_stacks"
+      },
+      "connected_to": [
+        "primalist_geomancy_golem_might"
+      ],
+      "_source": "CoA tooltip confirmed verbatim, kept as the Geomancy capstone."
+    },
+    {
+      "talent_id": "primalist_geomancy_molten_core",
+      "name": "Molten Core",
+      "description": "Increases Spell Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 4
+      },
+      "connected_to": [
+        "primalist_geomancy_magmatism"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_stone_skin",
+      "name": "Stone Skin",
+      "description": "Increases Armor by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "armor_pct": 0.03
+      },
+      "connected_to": [
+        "primalist_geomancy_earths_embrace"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_seismic_focus",
+      "name": "Seismic Focus",
+      "description": "Reduces the cast time of Geode Barrage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_geode_barrage_cast_time_pct": -0.03
+      },
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_igneous_rock",
+      "name": "Igneous Rock",
+      "description": "Increases Stamina by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "stamina": 3
+      },
+      "connected_to": [
+        "primalist_geomancy_one_with_the_earth"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_tectonic_shift",
+      "name": "Tectonic Shift",
+      "description": "Increases Earthquake radius by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "ability_primalist_earthquake_radius_pct": 0.08
+      },
+      "connected_to": [
+        "primalist_geomancy_primal_shamans_mask"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_magma_flow",
+      "name": "Magma Flow",
+      "description": "Increases Magma Fissure's DoT damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_magma_fissure_dot_damage": 0.06
+      },
+      "connected_to": [
+        "primalist_geomancy_eruption"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_earthen_will",
+      "name": "Earthen Will",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_geomancy_golem_might"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_volcanic_surge",
+      "name": "Volcanic Surge",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "primalist_geomancy_primal_shamans_mask"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_basalt_ward",
+      "name": "Basalt Ward",
+      "description": "Reduces Fire and Nature damage taken by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "fire_nature_resist_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_geomancy_earthshaping"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_cave_dwellers_focus",
+      "name": "Cave Dweller's Focus",
+      "description": "Increases Golem Form's Armor bonus by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_golem_form_armor_pct": 0.08
+      },
+      "connected_to": [
+        "primalist_geomancy_eruption"
+      ]
+    },
+    {
+      "talent_id": "primalist_geomancy_quake",
+      "name": "Quake",
+      "description": "Learn Quake, stomping the ground to damage and slow nearby enemies.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "primalist_quake"
+      },
+      "connected_to": [
+        "primalist_geomancy_magma_fissure"
+      ],
+      "_source": "Confirmed screenshot: Geomancy-locked (not Mountain King as an earlier pass guessed from the name), Lvl 20 (Rank 1 shown), 2 Charges, 8 sec recharge, 'Stomp the ground, dealing Weapon Damage plus 28 Nature damage to enemies within 8 yds and reducing their melee and ranged haste by 20% for 10 sec.'"
+    },
+    {
+      "talent_id": "primalist_geomancy_seismic_tremor",
+      "name": "Seismic Tremor",
+      "description": "Learn Seismic Tremor, sending an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "primalist_seismic_tremor"
+      },
+      "connected_to": [
+        "primalist_geomancy_golem_might"
+      ],
+      "_source": "Confirmed screenshot: Geomancy-locked, Lvl 26, '157 Physical damage, plus an additional 1080 over 24 sec. Damage is dealt slowly at first, and builds up over time. Damage dealt generates 1 Rage.'"
+    }
+  ]
+}

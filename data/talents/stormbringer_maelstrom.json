@@ -1,0 +1,484 @@
+{
+  "spec_name": "Stormbringer Maelstrom",
+  "tree_id": "stormbringer_maelstrom",
+  "description": "Builder/spender mastery - stacks Conductive off Shock and unleashes it through devastating finishers.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026). 19 real Maelstrom-tagged nodes, condensed and rebalanced to Mage Fire's essence budget. Conductive's real tooltip ('Shock now grants Conductive, stacking 6 times. Torrential Wrath consumes all stacks... 202*1+SPFR*0.585 Frost Damage, +25% per stack') is the confirmed source for this spec's proc-and-consume identity - numbers rescaled to this game's power budget.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "stormbringer_maelstrom_kinetic_energy",
+      "name": "Kinetic Energy",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_conduit"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_amped_flow",
+      "name": "Amped Flow",
+      "description": "Increases Static generated from all sources by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "static_generation_pct": 0.05
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_conductive"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_bursting",
+      "name": "Bursting",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_flow_of_wrath"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_disciple_of_thorim",
+      "name": "Disciple of Thorim",
+      "description": "Increases Shock damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_stormbringer_shock_damage": 0.03
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_undertow"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_conduit",
+      "name": "Conduit",
+      "description": "Increases maximum Static by 10 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "static_max": 10
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_kinetic_energy"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_conductive",
+      "name": "Conductive",
+      "description": "Shock now also grants Conductive, a stacking buff (up to 6 stacks) that empowers your next Torrential Wrath.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_mechanic": "conductive_stacks"
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_amped_flow",
+        "stormbringer_maelstrom_torrential_wrath"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Shock now grants Conductive for 1 minute, stacking 6 times. Torrential Wrath consumes all stacks of Conductive to trigger Conduction.' This is the spec's defining proc-and-consume loop."
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_flow_of_wrath",
+      "name": "Flow of Wrath",
+      "description": "Increases Electrocute damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_stormbringer_electrocute_damage": 0.04
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_bursting"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_undertow",
+      "name": "Undertow",
+      "description": "Reduces the Mana cost of Shock by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_stormbringer_shock_cost_pct": 0.03
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_disciple_of_thorim"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_torrential_wrath",
+      "name": "Torrential Wrath",
+      "description": "Learn Torrential Wrath, a Frost damage finisher that consumes all Conductive stacks for a devastating hit.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "stormbringer_torrential_wrath"
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_conductive",
+        "stormbringer_maelstrom_lethal_current"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_stormflow",
+      "name": "Stormflow",
+      "description": "Learn Stormflow, a channeled torrent of Nature damage.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "stormbringer_stormflow"
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_cloudsurfer"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_lethal_current",
+      "name": "Lethal Current",
+      "description": "Increases Torrential Wrath damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_stormbringer_torrential_wrath_damage": 0.08
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_torrential_wrath",
+        "stormbringer_maelstrom_stormcloud"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_cloudsurfer",
+      "name": "Cloudsurfer",
+      "description": "Increases Stormflow damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_stormbringer_stormflow_damage": 0.08
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_stormflow"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_stormcloud",
+      "name": "Stormcloud",
+      "description": "Marks your Torrential Wrath target, increasing damage they take from your next Shock by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "post_finisher_debuff_pct": 0.2
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_lethal_current",
+        "stormbringer_maelstrom_deluge"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_prodigy_of_lei_shen",
+      "name": "Prodigy of Lei Shen",
+      "description": "Increases all spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_cloudsurfer"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_deluge",
+      "name": "Deluge",
+      "description": "Learn Deluge, a wave of frost and water that damages and briefly slows all enemies.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "stormbringer_deluge"
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_stormcloud",
+        "stormbringer_maelstrom_whirling_maelstrom"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_drown",
+      "name": "Drown",
+      "description": "Learn Drown, a heavy single-target Frost strike with a high critical strike chance.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "stormbringer_drown"
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_prodigy_of_lei_shen"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_whirling_maelstrom",
+      "name": "Whirling Maelstrom",
+      "description": "Torrential Wrath now hits up to 2 additional nearby enemies for 50% damage.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ability_stormbringer_torrential_wrath_cleave_pct": 0.5
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_deluge"
+      ],
+      "_source": "CoA tags this 'Specialization' (a keystone-style capstone), matching this tree's tier-6 payoff slot."
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_static_overload",
+      "name": "Static Overload",
+      "description": "Increases Spell Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 4
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_kinetic_energy"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_maelstrom_flow",
+      "name": "Maelstrom Flow",
+      "description": "Increases maximum Static by 8 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "static_max": 8
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_conduit"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_charged_current",
+      "name": "Charged Current",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_bursting"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_relentless_tide",
+      "name": "Relentless Tide",
+      "description": "Increases Haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_amped_flow"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_frost_conduction",
+      "name": "Frost Conduction",
+      "description": "Increases Torrential Wrath damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "ability_stormbringer_torrential_wrath_damage": 0.05
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_conductive"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_undertow_focus",
+      "name": "Undertow Focus",
+      "description": "Reduces the Mana cost of Electrocute by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_stormbringer_electrocute_cost_pct": 0.03
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_flow_of_wrath"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_brine_soaked",
+      "name": "Brine-Soaked",
+      "description": "Increases Stormflow damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "ability_stormbringer_stormflow_damage": 0.05
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_lethal_current"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_tidal_ward",
+      "name": "Tidal Ward",
+      "description": "Reduces Frost damage taken by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "frost_resist_pct": 0.03
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_cloudsurfer"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_deluge_mastery",
+      "name": "Deluge Mastery",
+      "description": "Increases Deluge and Drown damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "ability_stormbringer_deluge_damage": 0.05,
+        "ability_stormbringer_drown_damage": 0.05
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_prodigy_of_lei_shen"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_maelstroms_fury",
+      "name": "Maelstrom's Fury",
+      "description": "Increases all spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_whirling_maelstrom"
+      ]
+    }
+  ]
+}

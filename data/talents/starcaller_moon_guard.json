@@ -1,0 +1,417 @@
+{
+  "spec_name": "Starcaller Moon Guard",
+  "tree_id": "starcaller_moon_guard",
+  "description": "Protection Paladin-style tank - two parallel builder/spender pairs (Starburst/Starsweep for AoE, Starsunder/Lunar Lance for single target), with every block/parry/dodge feeding the kit.",
+  "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers where available (Command, Eclipse of Fury, Lunar Authority, Celestial Aegis confirmed via screenshot). Real mechanic per handoff: blocking seeds Scattered Stars (Nebula), avoiding attacks calls unavoidable Moonflares, parrying refunds Energy and hits back - tanking well IS dealing damage.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "starcaller_moon_guard_moon_guard_passive",
+      "name": "Moon Guard",
+      "description": "Grants Intellect equal to your Strength.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "intellect_from_strength": 1
+      },
+      "connected_to": [
+        "starcaller_moon_guard_crystal_shield"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Grants Intellect equal to Strength.'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_virtue",
+      "name": "Virtue",
+      "description": "Increases Attack Power scaling from Agility by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ap_from_agility_pct": 0.03
+      },
+      "connected_to": [
+        "starcaller_moon_guard_endless_sky"
+      ],
+      "_source": "CoA handoff doc: 'AP from Agility.'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_starburst_invigoration",
+      "name": "Starburst Invigoration",
+      "description": "Increases Energy regeneration by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "energy_regen_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_moon_guard_starlord_mandate"
+      ]
+    },
+    {
+      "talent_id": "starcaller_moon_guard_endless_sky",
+      "name": "Endless Sky",
+      "description": "Increases Stamina and maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "stamina_pct": 0.02,
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_moon_guard_virtue"
+      ]
+    },
+    {
+      "talent_id": "starcaller_moon_guard_crystal_shield",
+      "name": "Crystal Shield",
+      "description": "Increases Stamina and spell damage scaling from Attack Power by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "stamina_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_moon_guard_moon_guard_passive"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 30 Passive. Boosts Stamina + spell damage from AP.'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_starlord_mandate",
+      "name": "Starlord's Mandate",
+      "description": "Increases Celestial Strike damage and reduces its Energy cost by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_starcaller_celestial_strike_damage": 0.02,
+        "ability_starcaller_celestial_strike_cost_pct": -0.02
+      },
+      "connected_to": [
+        "starcaller_moon_guard_starburst_invigoration"
+      ]
+    },
+    {
+      "talent_id": "starcaller_moon_guard_starburst",
+      "name": "Starburst",
+      "description": "Learn Starburst, smashing up to 8 enemies for Arcane damage that scales with block value and maximum mana, reducing their attack speed. Applies 1 Scattered Star per hit.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "starcaller_starburst"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_chosen_of_the_moon"
+      ],
+      "_source": "CoA handoff doc confirmed as Moon Guard's real AoE builder: 'Smashes up to 8 enemies for Arcane damage (scaling with block value + max mana), reduces attack speed; consuming a star reduces cooldown.'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_nebula",
+      "name": "Nebula",
+      "description": "Blocking applies Scattered Stars to the attacker.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "block_applies_scattered_stars": 1
+      },
+      "connected_to": [
+        "starcaller_moon_guard_endless_sky"
+      ],
+      "_source": "CoA handoff doc confirmed as this spec's real Scattered-Star-off-tanking mechanic: 'Blocking applies Scattered Stars to the attacker.'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_chosen_of_the_moon",
+      "name": "Chosen of the Moon",
+      "description": "Learn Chosen of the Moon, reducing your physical damage taken and taunting nearby enemies.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "starcaller_chosen_of_the_moon"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_starburst",
+        "starcaller_moon_guard_moonlit_bulwark"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Reduces physical damage taken + AoE taunt.' Real named strength - flat physical reduction plus a real AoE taunt in one button."
+    },
+    {
+      "talent_id": "starcaller_moon_guard_blanket_of_stars",
+      "name": "Blanket of Stars",
+      "description": "Increases block chance and block value.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "block_chance": 1.0,
+        "block_value_pct": 0.03
+      },
+      "connected_to": [
+        "starcaller_moon_guard_starlord_mandate"
+      ],
+      "_source": "CoA handoff doc confirmed as core mitigation: 'shield-gated block burst,' referenced repeatedly as this spec's primary defensive layer."
+    },
+    {
+      "talent_id": "starcaller_moon_guard_moonlit_bulwark",
+      "name": "Moonlit Bulwark",
+      "description": "Learn Moonlit Bulwark, shielding for an amount equal to your maximum mana. Usable while stunned.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "starcaller_moonlit_bulwark"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_chosen_of_the_moon",
+        "starcaller_moon_guard_astral_reconstitution"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Shields for an amount equal to max mana. Usable while stunned.' Analogous to Ardent Defender/Guardian of Ancient Kings per the handoff's retail comparison."
+    },
+    {
+      "talent_id": "starcaller_moon_guard_astral_reconstitution",
+      "name": "Astral Reconstitution",
+      "description": "Converts a percentage of damage taken into mana.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "damage_taken_to_mana_pct": 0.03
+      },
+      "connected_to": [
+        "starcaller_moon_guard_moonlit_bulwark",
+        "starcaller_moon_guard_guarded_by_the_moon"
+      ]
+    },
+    {
+      "talent_id": "starcaller_moon_guard_guarded_by_the_moon",
+      "name": "Guarded by the Moon",
+      "description": "Consuming a Scattered Star increases your block chance for a duration, stacking.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_mechanic": "star_consume_block_stack"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_astral_reconstitution",
+        "starcaller_moon_guard_vengeance_of_elune"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Consuming a Scattered Star boosts block chance (stacking).'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_vengeance_of_elune",
+      "name": "Vengeance of Elune",
+      "description": "Learn Vengeance of Elune, an unavoidable AoE Arcane hit that scales with Attack Power and Intellect, usable only after parrying.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "starcaller_vengeance_of_elune"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_guarded_by_the_moon"
+      ],
+      "_source": "CoA handoff doc confirmed: 'AoE Arcane damage (scales with AP + Intellect), unavoidable; only after parrying.' Real parry-punish payoff button."
+    },
+    {
+      "talent_id": "starcaller_moon_guard_asteroid_belt",
+      "name": "Asteroid Belt",
+      "description": "Periodically grants the Asteroid Belt buff, increasing hit rating and expertise.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "asteroid_belt_buff"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_vengeance_of_elune"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Periodically grants Asteroid Belt buff; boosts hit rating (from Int) + expertise.' Handoff doc calls this a built-in duty cycle rather than a flat stance."
+    },
+    {
+      "talent_id": "starcaller_moon_guard_celestial_impact",
+      "name": "Celestial Impact",
+      "description": "Learn Celestial Impact, a ground stomp dealing Arcane AoE damage and stunning nearby enemies.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "starcaller_celestial_impact"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_asteroid_belt"
+      ],
+      "_source": "CoA handoff doc: 'Ground stomp: Arcane AoE + stun.' Moon Guard's capstone AoE control tool."
+    },
+    {
+      "talent_id": "starcaller_moon_guard_starlight_duelist",
+      "name": "Starlight Duelist",
+      "description": "Blocking or parrying increases your damage dealt for a duration.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "block_parry_damage_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_moon_guard_chosen_of_the_moon",
+        "starcaller_moon_guard_blanket_of_stars"
+      ]
+    },
+    {
+      "talent_id": "starcaller_moon_guard_shrouded_stars",
+      "name": "Shrouded Stars",
+      "description": "Grants the party and raid a damage reduction buff. Does not stack with similar effects.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "starcaller_shrouded_stars"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_moonlit_bulwark",
+        "starcaller_moon_guard_astral_reconstitution"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar).'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_dancing_in_the_moonlight",
+      "name": "Dancing in the Moonlight",
+      "description": "Parrying refunds Energy and strikes back at the attacker.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_mechanic": "parry_refund_and_retaliate"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_guarded_by_the_moon",
+        "starcaller_moon_guard_vengeance_of_elune"
+      ],
+      "_source": "CoA handoff doc confirmed: 'parrying refunds Energy + hits back (Dancing in the Moonlight).'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_star_pupil",
+      "name": "Star Pupil",
+      "description": "Damaging critical strikes grant a stack of Star Pupil, increasing your critical strike chance.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "star_pupil_crit_stack": 0.01
+      },
+      "connected_to": [
+        "starcaller_moon_guard_asteroid_belt"
+      ]
+    },
+    {
+      "talent_id": "starcaller_moon_guard_second_moon",
+      "name": "Second Moon",
+      "description": "Every 10th Scattered Star consumed launches a comet, dealing Arcane damage.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "second_moon_comet"
+      },
+      "connected_to": [
+        "starcaller_moon_guard_celestial_impact"
+      ],
+      "_source": "CoA handoff doc confirmed as a real burst payoff: 'Every 10th Scattered Star consumed launches a comet.' Called out in the rotation writeup: 'the spender IS your burst too.'"
+    },
+    {
+      "talent_id": "starcaller_moon_guard_starbound",
+      "name": "Starbound",
+      "description": "Increases healing done and received, doubled while below 20% health.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "healing_done_received_pct": 0.03
+      },
+      "connected_to": [
+        "starcaller_moon_guard_star_pupil"
+      ],
+      "_source": "CoA handoff doc: 'Boosts healing done + received, doubled below 20% health.' Called out as one of Moon Guard's only real heal-facing tools alongside Touch of Moonlight."
+    }
+  ]
+}

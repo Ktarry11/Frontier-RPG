@@ -1,0 +1,646 @@
+{
+  "class": "Warlock",
+  "abilities": [
+    {
+      "ability_id": "warlock_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A weak melee strike. Your power lies in shadow.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "warlock_shadow_bolt",
+      "name": "Shadow Bolt",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Sends a bolt of dark magic at the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 30,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 39,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 48,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 57,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 66,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 75,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 84,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 93,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 102,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "warlock_corruption",
+      "name": "Corruption",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Corrupts the target, dealing shadow damage over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 95
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 32,
+          "effect_value": 125
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 39,
+          "effect_value": 155
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 46,
+          "effect_value": 185
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 53,
+          "effect_value": 215
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 60,
+          "effect_value": 245
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 67,
+          "effect_value": 275
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 74,
+          "effect_value": 305
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 81,
+          "effect_value": 335
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "warlock_immolate",
+      "name": "Immolate",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Engulfs the target in flame, burning them over 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 30,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 11,
+          "cost": 46,
+          "effect_value": 86
+        },
+        {
+          "rank": 3,
+          "level_req": 23,
+          "cost": 62,
+          "effect_value": 118
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 78,
+          "effect_value": 150
+        },
+        {
+          "rank": 5,
+          "level_req": 51,
+          "cost": 94,
+          "effect_value": 182
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "warlock_curse_of_weakness",
+      "name": "Curse of Weakness",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power": -40
+      },
+      "description": "Curses the target, reducing its Attack Power for 4 turns.",
+      "dispel_type": "curse",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 25,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 37,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 49,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 61,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "warlock_drain_life",
+      "name": "Drain Life",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Siphons the target's life force into raw shadow damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 40,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 60,
+          "effect_value": 71
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 80,
+          "effect_value": 95
+        },
+        {
+          "rank": 4,
+          "level_req": 60,
+          "cost": 100,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "warlock_demon_armor",
+      "name": "Demon Armor",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "armor": 120,
+        "stamina": 3
+      },
+      "description": "Demonic wards increase your Armor and Stamina.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 45,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 67,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 89,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 66,
+          "cost": 111,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "warlock_unstable_affliction",
+      "name": "Unstable Affliction",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Unstable Affliction talent in the Affliction tree, matching real WOTLK where this is talent-exclusive, not baseline. Afflicts the target with an unstable curse dealing Shadow damage over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 50,
+          "effect_value": 64
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 76,
+          "effect_value": 99
+        },
+        {
+          "rank": 3,
+          "level_req": 54,
+          "cost": 102,
+          "effect_value": 134
+        }
+      ],
+      "icon_id": null,
+      "requires_talent": true
+    },
+    {
+      "ability_id": "warlock_shadowburn",
+      "name": "Shadowburn",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Shadowburn talent in the Destruction tree, matching real WOTLK where this is talent-exclusive, not baseline. Deals Shadow damage, dealing extra damage to targets below 20% health.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 55,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 48,
+          "cost": 83,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_dot",
+      "requires_talent": true,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "warlock_dark_pact",
+      "name": "Dark Pact",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Dark Pact talent in the Affliction tree. PLACEHOLDER (no pet/mana-drain-from-pet mechanic exists): real WOTLK Dark Pact drains your demon's Mana and returns it to you - here it instantly restores a flat amount of Mana instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null,
+      "generates": {
+        "resource": "mana",
+        "amount": 220
+      }
+    },
+    {
+      "ability_id": "warlock_metamorphosis",
+      "name": "Metamorphosis",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": 60,
+        "armor": 50
+      },
+      "description": "Not learned from level alone - granted by the Metamorphosis talent in the Demonology tree. REQUIRES_FORM (not yet enforced - no forms system): real WOTLK Metamorphosis transforms you into a demon with a new ability set - placeholder grants a temporary Attack Power + Armor buff instead until forms exist.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warlock_conflagrate",
+      "name": "Conflagrate",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 45,
+          "effect_value": 56
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warlock_chaos_bolt",
+      "name": "Chaos Bolt",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Chaos Bolt talent in the Destruction tree. Deals massive Chaos damage that cannot be resisted.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 90,
+          "effect_value": 80
+        }
+      ],
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warlock_shadowfury",
+      "name": "Shadowfury",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Stuns all enemies in the target area for 1 turn.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "warlock_fear",
+      "name": "Fear",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Causes the target to flee in fear for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "warlock_life_tap",
+      "name": "Life Tap",
+      "resource_type": "health",
+      "cooldown": 3,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Converts Health into Mana.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 80,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "generates": {
+        "resource": "mana",
+        "amount": 150
+      },
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warlock_health_funnel",
+      "name": "Health Funnel",
+      "resource_type": "health",
+      "cooldown": 2,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Channels your own Health into your pet, healing it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 60,
+          "effect_value": 55
+        }
+      ],
+      "target_type": "ally",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warlock_searing_pain",
+      "name": "Searing Pain",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A quick-casting bolt of Fire damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 35,
+          "effect_value": 42
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warlock_curse_of_agony",
+      "name": "Curse of Agony",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Curses the target, dealing Shadow damage over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 40,
+          "effect_value": 46
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "warlock_curse_of_recklessness",
+      "name": "Curse of Recklessness",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "debuff",
+      "duration": 4,
+      "stat_mods": {
+        "armor": -50
+      },
+      "description": "Curses the target, reducing their Armor.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warlock_banish",
+      "name": "Banish",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Incapacitates an Elemental or Demon target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 25,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    }
+  ]
+}

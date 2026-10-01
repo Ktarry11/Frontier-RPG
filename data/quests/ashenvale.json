@@ -1,0 +1,606 @@
+{
+  "quests": [
+    {
+      "quest_id": "ashenvale_grizzly_problem",
+      "title": "The Grizzly Problem",
+      "description": "Sentinel Maestra has watched the Ashenvale Grizzlies grow bolder around the watchpost's lake, no longer content to stay deep in the woods. She wants their numbers thinned before one wanders into Astranaar itself.",
+      "giver_npc_id": "maestras_post_sentinel",
+      "zone": "ashenvale_west",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ashenvale Grizzly",
+          "count": 8,
+          "zone": "Ashenvale West"
+        }
+      ],
+      "reward_exp": 700,
+      "reward_gold": 2800,
+      "accept_text": "They used to keep their distance. Something's pushed them toward the post, and I don't like not knowing what.",
+      "turn_in_text": "Good. The lake trail's safe again, for now. Keep your eyes on the Highlands - that's where the real trouble's brewing.",
+      "level_min": 10,
+      "level_max": 13
+    },
+    {
+      "quest_id": "ashenvale_timberling_bark",
+      "title": "Bark and Sap",
+      "description": "Sentinel Maestra needs Timberling heartwood for the watchpost's wards, the same old night elf craft that's kept this post standing for centuries. The animated trees nearby carry enough in their trunks, if you can bring one down.",
+      "giver_npc_id": "maestras_post_sentinel",
+      "zone": "ashenvale_west",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "timberling_heartwood",
+          "count": 5
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2400,
+      "accept_text": "The wards are failing. I don't love asking you to cut down something that was alive a moment before, but the post needs them.",
+      "turn_in_text": "This'll hold the wards another season. Thank you - I know that wasn't a pleasant errand.",
+      "level_min": 10,
+      "level_max": 12,
+      "gear_reward_gear_level": 11,
+      "unique_item_defs": [
+        {
+          "name": "Maestra's Warded Charm",
+          "slot": "trinket",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 2
+          },
+          "flavor_text": "A sliver of the watchpost's own ward-wood, carved into a keepsake."
+        }
+      ]
+    },
+    {
+      "quest_id": "ashenvale_ursal_the_mauler",
+      "title": "Ursal the Mauler",
+      "description": "One grizzly in particular has grown too large and too smart to be ordinary - Sentinel Maestra calls it Ursal the Mauler, and says it's been deliberately herding smaller bears toward the lake trail like a pack. She wants it dead before it teaches the behavior to the rest.",
+      "giver_npc_id": "maestras_post_sentinel",
+      "zone": "ashenvale_west",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ursal the Mauler",
+          "count": 1,
+          "zone": "Ashenvale West"
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 5000,
+      "accept_text": "It's not just big - it's organizing the others. I've never seen a grizzly do that. Kill it before the behavior spreads.",
+      "turn_in_text": "Good. Whatever was making it act like that died with it. The lake trail's yours again.",
+      "level_min": 14,
+      "level_max": 16,
+      "gear_reward_gear_level": 15,
+      "unique_item_defs": [
+        {
+          "name": "Ursal's Broken Claw",
+          "slot": "main_hand",
+          "weapon_type": "fist_weapon",
+          "item_level": 15,
+          "rarity": "rare",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 4
+          },
+          "flavor_text": "Still curved like it was mid-swing when it stopped moving.",
+          "secondary_stats": {
+            "attack_power": 6
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "ashenvale_sentinel_scouts_report",
+      "title": "The Scout's Report",
+      "description": "Sentinel Shalasyr has lost contact with two scouts sent toward the Ragged Highlands. She wants someone to retrace their patrol route and find out what happened.",
+      "giver_npc_id": "astranaar_sentinel_liaison",
+      "zone": "astranaar",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": null,
+          "zone": "Ragged Highlands"
+        }
+      ],
+      "reward_exp": 650,
+      "reward_gold": 2600,
+      "accept_text": "Two scouts, three days overdue. The Highlands have never been friendly, but they've never swallowed a patrol whole before either.",
+      "turn_in_text": "No bodies, no gear, nothing. Whatever's up there, it's thorough. I need more than a report - I need it handled.",
+      "level_min": 10,
+      "level_max": 13
+    },
+    {
+      "quest_id": "ashenvale_furbolg_ravagers",
+      "title": "What Turned the Furbolg",
+      "description": "Following the scouts' last known route, Sentinel Shalasyr wants the Furbolg Ravagers in the Ragged Highlands pushed back before they come down off the hills entirely. Furbolg were never this aggressive before.",
+      "giver_npc_id": "astranaar_sentinel_liaison",
+      "zone": "astranaar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Furbolg Ravager",
+          "alt_targets": [
+            "Furbolg Den Watcher"
+          ],
+          "count": 10,
+          "zone": "Ashenvale West"
+        }
+      ],
+      "reward_exp": 1050,
+      "reward_gold": 4800,
+      "accept_text": "Furbolg used to be territorial, not feral. Something changed that, and I want it stopped before it reaches Astranaar's gates.",
+      "turn_in_text": "That'll buy us time. Not an answer, but time. Keep pushing if you're willing - I don't think the Ravagers are the root of it.",
+      "level_min": 12,
+      "level_max": 15,
+      "gear_reward_gear_level": 14,
+      "unique_item_defs": [
+        {
+          "name": "Sentinel Patrol Leathers",
+          "slot": "chest",
+          "armor_type": "leather",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 3
+          },
+          "armor_value": 38,
+          "flavor_text": "Shalasyr's own spare set, offered without ceremony. 'Bring it back in one piece, if you can.'"
+        }
+      ]
+    },
+    {
+      "quest_id": "ashenvale_furbolg_shaman_totems",
+      "title": "The Shaman's Totems",
+      "description": "Shalasyr believes the Furbolg Shamans in the Highlands are the ones actually directing the aggression - their totems carry a corrupting influence she wants examined. Bring back what you can recover intact.",
+      "giver_npc_id": "astranaar_sentinel_liaison",
+      "zone": "astranaar",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "corrupted_furbolg_totem",
+          "count": 4
+        }
+      ],
+      "reward_exp": 950,
+      "reward_gold": 4200,
+      "accept_text": "The shamans are carrying something that isn't natural furbolg craft. I want to know what, and I want it out of their hands.",
+      "turn_in_text": "This confirms it - something's been feeding corruption into the Highlands through these totems. We need to find the source.",
+      "level_min": 13,
+      "level_max": 16
+    },
+    {
+      "quest_id": "ashenvale_keeper_rustveil",
+      "title": "Keeper Rustveil",
+      "description": "Grove Warden Pennarin has identified the source Shalasyr's been chasing: Keeper Rustveil, once a guardian spirit of Moonwhisper Grove, now twisted into something that's been quietly corrupting the Highlands for months. The Grove wants it ended, not studied.",
+      "giver_npc_id": "astranaar_grove_warden",
+      "zone": "astranaar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Keeper Rustveil",
+          "count": 1,
+          "zone": "Ashenvale West"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "Rustveil was ours once - a keeper of the Grove, sworn to the same oaths I carry. Whatever it is now, it isn't that anymore. End it.",
+      "turn_in_text": "The Grove feels lighter already. I won't pretend that was easy to ask of you. Thank you.",
+      "level_min": 15,
+      "level_max": 16,
+      "gear_reward_gear_level": 16,
+      "unique_item_defs": [
+        {
+          "name": "Rustveil's Last Branch",
+          "slot": "main_hand",
+          "weapon_type": "staff",
+          "item_level": 16,
+          "rarity": "rare",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11,
+            "spirit": 5
+          },
+          "flavor_text": "Still growing, slowly, even broken off from whatever it used to be.",
+          "secondary_stats": {
+            "spell_power": 7
+          }
+        },
+        {
+          "name": "Grove Warden's Oath Ring",
+          "slot": "ring",
+          "item_level": 16,
+          "rarity": "rare",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 3
+          },
+          "flavor_text": "Pennarin's own ring, offered in thanks. 'Rustveil wore one just like it, once.'",
+          "secondary_stats": {
+            "healing_power": 5
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "ashenvale_wisp_lights",
+      "title": "Lights in the Grove",
+      "description": "Grove Warden Pennarin asks for nothing more than company on a quiet task: gathering wisp-light essence from Moonwhisper Grove's dryads, used in the Grove's own healing rites. Peaceful work, for once.",
+      "giver_npc_id": "astranaar_grove_warden",
+      "zone": "astranaar",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "wisp_light_essence",
+          "count": 6
+        }
+      ],
+      "reward_exp": 550,
+      "reward_gold": 2200,
+      "accept_text": "Not everything in Ashenvale needs killing. The dryads shed this freely, if you ask politely and take only what you need.",
+      "turn_in_text": "Gently gathered, I can tell. The Grove remembers kindness. Thank you for this.",
+      "level_min": 10,
+      "level_max": 12
+    },
+    {
+      "quest_id": "ashenvale_refugees_belongings",
+      "title": "What Was Left Behind",
+      "description": "Thessaly Windrunner fled the eastern coast with nothing but her family and the clothes she wore. She's heard Nightsaber Stalkers near Maestra's Post have been dragging off travelers' abandoned packs - hers might still be out there.",
+      "giver_npc_id": "astranaar_refugee",
+      "zone": "astranaar",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "windrunner_family_locket",
+          "count": 1
+        }
+      ],
+      "reward_exp": 500,
+      "reward_gold": 3000,
+      "accept_text": "It's not worth much to anyone else. It's worth everything to me. Please - if it's still out there, I need it back.",
+      "turn_in_text": "You found it. I thought I'd never - thank you. Thank you, truly.",
+      "level_min": 10,
+      "level_max": 13,
+      "gear_reward_gear_level": 11,
+      "unique_item_defs": [
+        {
+          "name": "Windrunner Family Locket (Keepsake)",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3,
+            "stamina": 1
+          },
+          "flavor_text": "Thessaly insisted you keep a second one she'd had made, 'so someone carries the memory too.'"
+        }
+      ]
+    },
+    {
+      "quest_id": "ashenvale_nightsaber_thinning",
+      "title": "Thinning the Stalkers",
+      "description": "With her locket recovered, Thessaly still worries for other refugees passing through. She asks that the Nightsaber Stalkers near the post be thinned so fewer travelers lose everything the way she almost did.",
+      "giver_npc_id": "astranaar_refugee",
+      "zone": "astranaar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Nightsaber Stalker",
+          "count": 7,
+          "zone": "Ashenvale West"
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 3600,
+      "accept_text": "I don't want anyone else going through what I did. If you're willing, thin their numbers near the trail.",
+      "turn_in_text": "You've made the road safer for the next family that comes through. That matters more than you know.",
+      "level_min": 11,
+      "level_max": 14
+    },
+    {
+      "quest_id": "splintertree_burning_blade_scouts",
+      "title": "Burning Blade Scouts",
+      "description": "War Mage Grimtotem has spotted Burning Blade Cultists probing the perimeter near Satyr's Throne, testing the outpost's patrols. She wants them cut down before they report back with anything useful.",
+      "giver_npc_id": "splintertree_war_mage",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Burning Blade Cultist",
+          "count": 8,
+          "zone": "Ashenvale East"
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 4000,
+      "accept_text": "Cultists don't scout for no reason. Gorada wants eyes on them - I want them dead before they finish looking.",
+      "turn_in_text": "Good. That buys the outpost some quiet. It won't last - it never does near the Throne.",
+      "level_min": 12,
+      "level_max": 15
+    },
+    {
+      "quest_id": "splintertree_charred_wolves",
+      "title": "The Charred Pack",
+      "description": "Grunt Bloodfang says the Charred Wolves roaming near the Demon Wastes weren't always like this - fel-touched, burning from the inside. He wants their numbers cut before the pack grows large enough to threaten the outpost directly.",
+      "giver_npc_id": "splintertree_grunt",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Charred Wolf",
+          "count": 9,
+          "zone": "Ashenvale East"
+        }
+      ],
+      "reward_exp": 950,
+      "reward_gold": 4200,
+      "accept_text": "They used to be normal wolves. The Wastes did something to them, same as it does to everything that wanders too close.",
+      "turn_in_text": "Fewer burning wolves is always a good day's work. Thanks for this - truly.",
+      "level_min": 13,
+      "level_max": 16,
+      "gear_reward_gear_level": 14,
+      "unique_item_defs": [
+        {
+          "name": "Charred Pack Mantle",
+          "slot": "shoulder",
+          "armor_type": "mail",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 3
+          },
+          "armor_value": 25,
+          "flavor_text": "Still smells faintly of smoke no matter how long it airs out."
+        }
+      ]
+    },
+    {
+      "quest_id": "splintertree_fel_imp_cache",
+      "title": "The Imp's Hoard",
+      "description": "Grunt Bloodfang has heard the Fel Imps skittering around the Demon Wastes hoard scavenged scrap in their dens - some of it might be salvageable outpost equipment lost to earlier raids.",
+      "giver_npc_id": "splintertree_grunt",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "fel_imp_hoard_scrap",
+          "count": 5
+        }
+      ],
+      "reward_exp": 700,
+      "reward_gold": 3200,
+      "accept_text": "Little bastards hoard anything shiny. Some of what they've got used to be ours. Go take it back.",
+      "turn_in_text": "Half of this is actually useful. The other half's just shiny junk, but I'm not surprised.",
+      "level_min": 13,
+      "level_max": 16
+    },
+    {
+      "quest_id": "splintertree_satyr_ritual",
+      "title": "Disrupting the Ritual",
+      "description": "Interrogator Vashj has confirmed the Satyr Tricksters at Satyr's Throne are preparing something - a ritual, by the pattern of their movements. She wants their numbers broken before whatever they're summoning arrives.",
+      "giver_npc_id": "splintertree_interrogator",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Satyr Trickster",
+          "alt_targets": [
+            "Satyr Soulstealer"
+          ],
+          "count": 10,
+          "zone": "Ashenvale East"
+        }
+      ],
+      "reward_exp": 1150,
+      "reward_gold": 5200,
+      "accept_text": "Every prisoner I've questioned says the same thing - something's coming through at the Throne. I want it stopped before it arrives.",
+      "turn_in_text": "The ritual's broken, for now. Lord Malgan is still out there orchestrating this, and he won't take the setback quietly.",
+      "level_min": 14,
+      "level_max": 17,
+      "gear_reward_gear_level": 15,
+      "unique_item_defs": [
+        {
+          "name": "Interrogator's Confiscated Blade",
+          "slot": "main_hand",
+          "weapon_type": "dagger",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "flavor_text": "Vashj took this off a satyr who talked eventually. Most of them do.",
+          "secondary_stats": {
+            "crit_chance_physical": 2
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "splintertree_lord_malgan",
+      "title": "Lord Malgan",
+      "description": "With the ritual broken, Interrogator Vashj wants Lord Malgan himself dealt with before he can rally the satyrs for a second attempt. He holds Satyr's Throne by fear more than strength - remove him and the rest may scatter.",
+      "giver_npc_id": "splintertree_interrogator",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lord Malgan",
+          "count": 1,
+          "zone": "Ashenvale East"
+        }
+      ],
+      "reward_exp": 1600,
+      "reward_gold": 7500,
+      "accept_text": "Cut the head off and the rest of them panic. Malgan's the head. Go prove it.",
+      "turn_in_text": "The Throne's gone quiet. It won't stay that way forever, but today, it's quiet. Well done.",
+      "level_min": 17,
+      "level_max": 18,
+      "gear_reward_gear_level": 18,
+      "unique_item_defs": [
+        {
+          "name": "Malgan's Ritual Dagger",
+          "slot": "main_hand",
+          "weapon_type": "dagger",
+          "item_level": 18,
+          "rarity": "rare",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12,
+            "spirit": 5
+          },
+          "flavor_text": "Still humming faintly with whatever it was meant to channel.",
+          "secondary_stats": {
+            "spell_power": 8
+          }
+        },
+        {
+          "name": "Satyr Lord's Warhide",
+          "slot": "chest",
+          "armor_type": "leather",
+          "item_level": 18,
+          "rarity": "rare",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 5
+          },
+          "armor_value": 56,
+          "flavor_text": "Malgan wore this through a dozen raids on the outpost. It's seen better days.",
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "splintertree_twilight_acolytes",
+      "title": "Voices from the Barrow",
+      "description": "War Mage Grimtotem has intercepted chanting from the Twilight Barrow - Twilight Acolytes performing something that unsettles even the outpost's own war mages. She wants their numbers reduced and their chanting silenced.",
+      "giver_npc_id": "splintertree_war_mage",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Twilight Acolyte",
+          "alt_targets": [
+            "Twilight Geomancer"
+          ],
+          "count": 9,
+          "zone": "Ashenvale East"
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 5000,
+      "accept_text": "I've felt a lot of dark magic in my time. The Barrow is worse. Go quiet them before I have to.",
+      "turn_in_text": "The chanting's stopped, at least for now. The Barrow still feels wrong. I don't think silence fixes that.",
+      "level_min": 15,
+      "level_max": 17
+    },
+    {
+      "quest_id": "splintertree_twilight_overseer",
+      "title": "The Twilight Overseer",
+      "description": "Grimtotem has pinpointed the source of the Barrow's corruption: a Twilight Overseer directing the acolytes' rituals from deep within. She wants it dead and whatever it's been building disrupted for good.",
+      "giver_npc_id": "splintertree_war_mage",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Twilight Overseer",
+          "count": 1,
+          "zone": "Ashenvale East"
+        }
+      ],
+      "reward_exp": 1650,
+      "reward_gold": 7800,
+      "accept_text": "Kill the Overseer and the ritual dies with it. I'd do this myself if Gorada would let me leave the post undefended.",
+      "turn_in_text": "I felt that die from here. Whatever the Barrow was building, it's unraveling now. Good work.",
+      "level_min": 17,
+      "level_max": 18,
+      "gear_reward_gear_level": 18,
+      "unique_item_defs": [
+        {
+          "name": "Overseer's Void-Touched Staff",
+          "slot": "main_hand",
+          "weapon_type": "staff",
+          "item_level": 18,
+          "rarity": "rare",
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7,
+            "stamina": 4
+          },
+          "flavor_text": "The wood is void-black clear through, like it was never really wood at all.",
+          "secondary_stats": {
+            "spell_power": 9
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "splintertree_pit_lord_emissary",
+      "title": "The Emissary's Demand",
+      "description": "A Pit Lord Emissary has been spotted at the edge of the Demon Wastes, delivering what War Mage Grimtotem believes is an ultimatum to whatever remains of Satyr's Throne's leadership. She wants it dead before that message is received.",
+      "giver_npc_id": "splintertree_war_mage",
+      "zone": "splintertree_post",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Pit Lord Emissary",
+          "count": 1,
+          "zone": "Ashenvale East"
+        }
+      ],
+      "reward_exp": 1900,
+      "reward_gold": 9000,
+      "accept_text": "An emissary means something bigger is paying attention to Ashenvale. I'd much rather it didn't get the chance to report back.",
+      "turn_in_text": "That's the quietest I've ever seen the Wastes. Whatever was coming, you just delayed it. I'll take delayed.",
+      "level_min": 18,
+      "level_max": 18,
+      "gear_reward_gear_level": 19,
+      "unique_item_defs": [
+        {
+          "name": "Emissary's Fel-Forged Axe",
+          "slot": "main_hand",
+          "weapon_type": "axe_2h",
+          "item_level": 19,
+          "rarity": "rare",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 6
+          },
+          "flavor_text": "Too hot to hold bare-handed even now, days after it stopped moving.",
+          "secondary_stats": {
+            "attack_power": 10
+          }
+        },
+        {
+          "name": "Pit Lord's Binding Seal",
+          "slot": "trinket",
+          "item_level": 19,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 5,
+            "intellect": 5,
+            "stamina": 3
+          },
+          "flavor_text": "Whatever it was meant to bind, it isn't bound anymore.",
+          "secondary_stats": {
+            "hit_rating": 4
+          }
+        }
+      ]
+    }
+  ]
+}

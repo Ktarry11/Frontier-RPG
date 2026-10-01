@@ -1,0 +1,440 @@
+{
+  "spec_name": "Warrior Arms",
+  "tree_id": "warrior_arms",
+  "description": "Master of two-handed weapons, bleeds, and the killing blow.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "warrior_arms_improved_heroic_strike",
+      "name": "Improved Heroic Strike",
+      "description": "Reduces the Rage cost of Heroic Strike by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_warrior_heroic_strike_cost": 1
+      },
+      "connected_to": [
+        "warrior_arms_tactical_mastery"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_deflection",
+      "name": "Deflection",
+      "description": "Increases your Parry chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "parry": 1.0
+      },
+      "connected_to": [
+        "warrior_arms_anger_management"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_improved_rend",
+      "name": "Improved Rend",
+      "description": "Increases the damage of Rend by 10% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_warrior_rend_damage": 0.1
+      },
+      "connected_to": [
+        "warrior_arms_deep_wounds"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_iron_will",
+      "name": "Iron Will",
+      "description": "Hardened resolve grants 2 Stamina per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "stamina": 2
+      },
+      "connected_to": [
+        "warrior_arms_cruelty"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_tactical_mastery",
+      "name": "Tactical Mastery",
+      "description": "Increases Heroic Strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_warrior_heroic_strike_damage": 0.04
+      },
+      "connected_to": [
+        "warrior_arms_improved_heroic_strike",
+        "warrior_arms_improved_thunder_clap"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_anger_management",
+      "name": "Anger Management",
+      "description": "Controlled fury grants 3% Health and 10 Attack Power.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.03,
+        "attack_power": 10
+      },
+      "connected_to": [
+        "warrior_arms_deflection",
+        "warrior_arms_blood_frenzy"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_deep_wounds",
+      "name": "Deep Wounds",
+      "description": "Your bleeds cut deeper, increasing Rend damage by 15% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_warrior_rend_damage": 0.15
+      },
+      "connected_to": [
+        "warrior_arms_improved_rend",
+        "warrior_arms_impale"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_cruelty",
+      "name": "Cruelty",
+      "description": "Increases your melee critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "warrior_arms_iron_will",
+        "warrior_arms_poleaxe_specialization"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_improved_thunder_clap",
+      "name": "Improved Thunder Clap",
+      "description": "Reduces the Rage cost of Thunder Clap by 2 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_warrior_thunder_clap_cost": 2
+      },
+      "connected_to": [
+        "warrior_arms_tactical_mastery",
+        "warrior_arms_weapon_mastery"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_blood_frenzy",
+      "name": "Blood Frenzy",
+      "description": "Increases all physical damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "warrior_arms_anger_management",
+        "warrior_arms_mortal_strike"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_impale",
+      "name": "Impale",
+      "description": "Increases the critical strike chance of your attacks by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_physical": 2.0
+      },
+      "connected_to": [
+        "warrior_arms_deep_wounds",
+        "warrior_arms_improved_overpower"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_poleaxe_specialization",
+      "name": "Poleaxe Specialization",
+      "description": "Weapon mastery grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "attack_power": 6
+      },
+      "connected_to": [
+        "warrior_arms_cruelty",
+        "warrior_arms_second_wind"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_mortal_strike",
+      "name": "Mortal Strike",
+      "description": "Grants Mortal Strike, a vicious strike that deals heavy weapon damage.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "warrior_mortal_strike"
+      },
+      "connected_to": [
+        "warrior_arms_blood_frenzy",
+        "warrior_arms_sweeping_strikes"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_improved_overpower",
+      "name": "Improved Overpower",
+      "description": "Reduces the cooldown of Heroic Strike by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_warrior_heroic_strike_cooldown": 1
+      },
+      "connected_to": [
+        "warrior_arms_impale",
+        "warrior_arms_trauma"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_second_wind",
+      "name": "Second Wind",
+      "description": "Increases maximum Health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "max_health_pct": 0.03
+      },
+      "connected_to": [
+        "warrior_arms_poleaxe_specialization",
+        "warrior_arms_last_stand"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_weapon_mastery",
+      "name": "Weapon Mastery",
+      "description": "Reduces your chance to miss by 1% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "warrior_arms_improved_thunder_clap"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_sweeping_strikes",
+      "name": "Sweeping Strikes",
+      "description": "Your swings carry through, increasing physical damage by 5%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "physical_damage": 0.05
+      },
+      "connected_to": [
+        "warrior_arms_mortal_strike",
+        "warrior_arms_endless_rage"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_trauma",
+      "name": "Trauma",
+      "description": "Increases Rend damage by an additional 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_warrior_rend_damage": 0.2
+      },
+      "connected_to": [
+        "warrior_arms_improved_overpower",
+        "warrior_arms_executioner"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_last_stand",
+      "name": "Last Stand",
+      "description": "Grants 10% maximum Health and 40 Armor.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "max_health_pct": 0.1,
+        "armor": 40
+      },
+      "connected_to": [
+        "warrior_arms_second_wind"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_endless_rage",
+      "name": "Endless Rage",
+      "description": "Reduces the Rage cost of Heroic Strike by 2 and Rend by 1 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_warrior_heroic_strike_cost": 2,
+        "ability_warrior_rend_cost": 1
+      },
+      "connected_to": [
+        "warrior_arms_sweeping_strikes",
+        "warrior_arms_bladestorm"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_executioner",
+      "name": "Executioner",
+      "description": "Increases physical damage by 3% and crit chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "physical_damage": 0.03,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "warrior_arms_trauma",
+        "warrior_arms_arms_mastery"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_bladestorm",
+      "name": "Bladestorm",
+      "description": "Grants Bladestorm, a whirling storm of steel that strikes all nearby enemies.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "warrior_bladestorm"
+      },
+      "connected_to": [
+        "warrior_arms_endless_rage"
+      ]
+    },
+    {
+      "talent_id": "warrior_arms_arms_mastery",
+      "name": "Sudden Death",
+      "description": "Real proc: melee hits have a chance to make your next Execute usable regardless of the target's health - matches Sudden Death's actual WOTLK identity as a genuine HP-gate bypass, now that Execute has a real 20% health requirement to bypass (previously Execute had no HP gate at all).",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {},
+      "connected_to": [
+        "warrior_arms_executioner"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 6,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "sudden_death_bypass",
+          "name": "Sudden Death",
+          "effect_type": "buff",
+          "duration": 10,
+          "stat_mods": {},
+          "on_target": false,
+          "proc": {
+            "bypass_execute_threshold": true
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "stat_templates": {
+    "str_physical": {
+      "display_name": "Strength",
+      "primary_stats": {
+        "strength": 0.7,
+        "stamina": 0.3
+      }
+    },
+    "agi_physical": {
+      "display_name": "Agility",
+      "primary_stats": {
+        "agility": 0.7,
+        "stamina": 0.3
+      }
+    },
+    "int_caster": {
+      "display_name": "Intellect",
+      "primary_stats": {
+        "intellect": 0.7,
+        "spirit": 0.3
+      }
+    },
+    "str_int_hybrid": {
+      "display_name": "Strength/Intellect",
+      "primary_stats": {
+        "strength": 0.4,
+        "intellect": 0.4,
+        "stamina": 0.2
+      }
+    },
+    "agi_int_hybrid": {
+      "display_name": "Agility/Intellect",
+      "primary_stats": {
+        "agility": 0.4,
+        "intellect": 0.4,
+        "stamina": 0.2
+      }
+    }
+  },
+  "class_stat_template_map": {
+    "Warrior": "str_physical",
+    "Shaman": "int_caster",
+    "Rogue": "agi_physical",
+    "Priest": "int_caster",
+    "Hunter": "agi_physical",
+    "Mage": "int_caster",
+    "Warlock": "int_caster",
+    "Druid": "int_caster",
+    "Paladin": "str_int_hybrid",
+    "Necromancer": "int_caster",
+    "Pyromancer": "int_caster",
+    "Runemaster": "int_caster",
+    "Chronomancer": "int_caster",
+    "Stormbringer": "int_caster",
+    "Starcaller": "int_caster",
+    "Cultist": "str_int_hybrid",
+    "Sun Cleric": "str_int_hybrid",
+    "Primalist": "str_int_hybrid",
+    "Knight of Xoroth": "str_int_hybrid",
+    "Tinker": "agi_int_hybrid",
+    "Felsworn": "agi_int_hybrid",
+    "Witch Doctor": "agi_int_hybrid",
+    "Venomancer": "agi_int_hybrid",
+    "Reaper": "agi_physical",
+    "Bloodmage": "agi_physical",
+    "Witch Hunter": "agi_physical",
+    "Templar": "agi_physical",
+    "Ranger": "agi_physical",
+    "Guardian": "str_physical",
+    "Barbarian": "str_physical"
+  },
+  "secondary_stat_pool": [
+    "crit_chance_physical",
+    "crit_chance_spell",
+    "haste",
+    "dodge",
+    "spell_power",
+    "attack_power",
+    "healing_power",
+    "hit_rating"
+  ]
+}

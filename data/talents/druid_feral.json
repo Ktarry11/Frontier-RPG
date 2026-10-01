@@ -1,0 +1,446 @@
+{
+  "spec_name": "Druid Feral",
+  "tree_id": "druid_feral",
+  "description": "Shapeshifted predator - claws, teeth, and thick hide.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "druid_feral_ferocity",
+      "name": "Ferocity",
+      "description": "Grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "attack_power": 6
+      },
+      "connected_to": [
+        "druid_feral_sharpened_claws"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_feral_aggression",
+      "name": "Feral Aggression",
+      "description": "Increases physical damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "druid_feral_shredding_attacks"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_thick_hide",
+      "name": "Thick Hide",
+      "description": "Increases Armor by 14 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "armor": 14
+      },
+      "connected_to": [
+        "druid_feral_predatory_strikes"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_feral_instinct",
+      "name": "Feral Instinct",
+      "description": "Increases Agility by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "agility": 2
+      },
+      "connected_to": [
+        "druid_feral_savage_fury"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_sharpened_claws",
+      "name": "Sharpened Claws",
+      "description": "Increases critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_physical": 2.0
+      },
+      "connected_to": [
+        "druid_feral_ferocity",
+        "druid_feral_primal_fury"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_shredding_attacks",
+      "name": "Shredding Attacks",
+      "description": "Increases basic attack damage by 10% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_druid_attack_damage": 0.1
+      },
+      "connected_to": [
+        "druid_feral_feral_aggression",
+        "druid_feral_survival_of_the_fittest"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_predatory_strikes",
+      "name": "Predatory Strikes",
+      "description": "Grants 8 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "attack_power": 8
+      },
+      "connected_to": [
+        "druid_feral_thick_hide",
+        "druid_feral_heart_of_the_wild"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_savage_fury",
+      "name": "Savage Fury",
+      "description": "Increases physical damage dealt by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "physical_damage": 0.03
+      },
+      "connected_to": [
+        "druid_feral_feral_instinct",
+        "druid_feral_natural_reaction"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_primal_fury",
+      "name": "Primal Fury",
+      "description": "Increases critical strike chance by 2.5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_physical": 2.5
+      },
+      "connected_to": [
+        "druid_feral_sharpened_claws",
+        "druid_feral_brutal_impact"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_survival_of_the_fittest",
+      "name": "Survival of the Fittest",
+      "description": "Increases Stamina by 3 and Armor by 12 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "stamina": 3,
+        "armor": 12
+      },
+      "connected_to": [
+        "druid_feral_shredding_attacks",
+        "druid_feral_mangle"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_heart_of_the_wild",
+      "name": "Heart of the Wild",
+      "description": "Increases Agility by 3 and Stamina by 2 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "agility": 3,
+        "stamina": 2
+      },
+      "connected_to": [
+        "druid_feral_predatory_strikes",
+        "druid_feral_leader_of_the_pack"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_natural_reaction",
+      "name": "Natural Reaction",
+      "description": "Increases Dodge chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "dodge": 2.0
+      },
+      "connected_to": [
+        "druid_feral_savage_fury",
+        "druid_feral_protector_of_the_pack"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_mangle",
+      "name": "Mangle",
+      "description": "Increases physical damage dealt by 6%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "physical_damage": 0.06
+      },
+      "connected_to": [
+        "druid_feral_survival_of_the_fittest",
+        "druid_feral_rend_and_tear"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_leader_of_the_pack",
+      "name": "Leader of the Pack",
+      "description": "REQUIRES_FORM (not yet enforced - no forms system): While shapeshifted into Cat, Bear, or Dire Bear Form, increases your party's melee and ranged critical strike chance by 5%. Currently applied to self only, always-on.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_physical": 5.0
+      },
+      "connected_to": [
+        "druid_feral_heart_of_the_wild",
+        "druid_feral_infected_wounds"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_protector_of_the_pack",
+      "name": "Protector of the Pack",
+      "description": "Increases maximum Health by 3% and Armor by 15 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "max_health_pct": 0.03,
+        "armor": 15
+      },
+      "connected_to": [
+        "druid_feral_natural_reaction",
+        "druid_feral_king_of_the_jungle"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_brutal_impact",
+      "name": "Brutal Impact",
+      "description": "Grants 12 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "attack_power": 12
+      },
+      "connected_to": [
+        "druid_feral_primal_fury"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_rend_and_tear",
+      "name": "Rend and Tear",
+      "description": "Increases physical damage by 2% and crit chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "physical_damage": 0.02,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "druid_feral_mangle",
+        "druid_feral_nurturing_instinct"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_infected_wounds",
+      "name": "Infected Wounds",
+      "description": "Increases all damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "druid_feral_leader_of_the_pack",
+        "druid_feral_improved_bear_form"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_king_of_the_jungle",
+      "name": "King of the Jungle",
+      "description": "Grants 12 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "attack_power": 12
+      },
+      "connected_to": [
+        "druid_feral_protector_of_the_pack"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_nurturing_instinct",
+      "name": "Nurturing Instinct",
+      "description": "Increases Agility by 4 and grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "agility": 4,
+        "attack_power": 6
+      },
+      "connected_to": [
+        "druid_feral_rend_and_tear",
+        "druid_feral_berserk"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_improved_bear_form",
+      "name": "Improved Bear Form",
+      "description": "Increases Armor by 25 and maximum Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "armor": 25,
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "druid_feral_infected_wounds",
+        "druid_feral_feral_mastery"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_berserk",
+      "name": "Berserk",
+      "description": "For a short time, your melee damage is greatly increased.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "druid_berserk"
+      },
+      "connected_to": [
+        "druid_feral_nurturing_instinct"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_feral_mastery",
+      "name": "Predatory Instincts",
+      "description": "REQUIRES_FORM (not yet enforced - no forms system): While in Cat Form, increases damage from melee critical strikes by 10% and reduces AoE damage taken by 30%. Placeholder below applies a flat +10% all-damage bonus unconditionally until forms exist and the real crit-damage-bonus mechanic can be modeled.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "druid_feral_improved_bear_form"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_dire_bear_form",
+      "name": "Dire Bear Form",
+      "description": "Learn Dire Bear Form, an improved Bear Form with more Armor, Stamina, and Attack Power.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "druid_dire_bear_form"
+      },
+      "connected_to": [
+        "druid_feral_improved_bear_form"
+      ],
+      "_source": "Real castable shapeshift upgrade over base Bear Form, matching combat/forms.py's 'dire_bear' entry (Lvl 40, more Armor/Stamina/AP). Was previously entirely unbuilt - forms.py had the data but no talent or ability ever unlocked it."
+    }
+  ]
+}

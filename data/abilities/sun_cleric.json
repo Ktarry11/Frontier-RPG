@@ -1,0 +1,1146 @@
+{
+  "class": "Sun Cleric",
+  "_source_note": "New class built (Sept 2026) from 46 real Ascension screenshots (Sun_Cleric.docx) plus the big CoA handoff doc for structure/spec identity/passive filler. 4 specs confirmed: Piety (Intellect ranged DPS, Balance Druid/Fire Mage hybrid), Blessings (Intellect healer, Holy Paladin/Disc Priest hybrid), Valkyrie (Strength melee DPS, Fistweaver/Ret Paladin hybrid), Seraphim (Intellect tank, Prot Paladin/Disc Priest hybrid). Pure Mana + Solar Power resource confirmed - a pre-existing code comment wrongly said 'also uses Rage', corrected this session. Real core mechanics: Vow family (Light/Grace/Radiance/Dawn/Eclipse, 5 variants, only 1 active, each with a 'Fulfillment' bonus effect triggered by Dawn), Devotion family (Grace/Dawn/Radiance/Emperors, 4 variants, 1 per Sun Cleric, class-wide not spec-locked despite spec tags on individual tooltips), Gavel family (shared-cooldown melee strikes, spec-flavored), Solar Invocation family (shared-cooldown utility spells). Valkyrie's Valkyr's Grip talent enables dual-wielding two-handed weapons (mace/sword/polearm), a real class mechanic per Kyle.",
+  "abilities": [
+    {
+      "ability_id": "sun_cleric_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic weapon strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "sun_cleric_illumination",
+      "name": "Illumination",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Illuminate an ally, healing them.",
+      "_source": "Confirmed screenshot: 18 Mana, 40yd, 2s cast, '39 healing' at Rank 1, confirmed up to Rank 9 ('1229 healing' at level 60). Core level-1 heal, extended to 8 ranks per Kyle's starting-ability rank-up direction (the doc itself shows a real Rank 9, but 8 keeps this consistent with every other class's spammable curve).",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 18,
+          "effect_value": 39
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 28,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 38,
+          "effect_value": 128
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 48,
+          "effect_value": 190
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 58,
+          "effect_value": 264
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 68,
+          "effect_value": 350
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 78,
+          "effect_value": 448
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 88,
+          "effect_value": 558
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_sunflare",
+      "name": "Sunflare",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast an enemy with the light of the sun.",
+      "_source": "Confirmed screenshot: 6 Mana, 30yd, 2s cast, '27 to 31 Holy damage.' Core level-1 damage spell, extended to 8 ranks.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 12,
+          "effect_value": 29
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 18,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 24,
+          "effect_value": 80
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 112
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 36,
+          "effect_value": 148
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 42,
+          "effect_value": 188
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 48,
+          "effect_value": 232
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 54,
+          "effect_value": 280
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "sun_cleric_devotion_of_grace",
+      "name": "Devotion of Grace",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "mana_regen": 6
+      },
+      "description": "Place a Devotion on the friendly target, restoring mana over time and reducing their costs. Only one Devotion per Sun Cleric active at a time.",
+      "_source": "Confirmed screenshot: Lvl 4, 'restoring 6 mana every 5 seconds and reducing their costs by 5% for 30 min.' Part of the mutually-exclusive Devotion family (Grace/Dawn/Radiance/Emperors).",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 20,
+          "effect_value": 6
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "sun_cleric_devotion"
+    },
+    {
+      "ability_id": "sun_cleric_vow_of_light",
+      "name": "Vow of Light",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Direct damage taken or direct healing taken by you generates Solar Power and heals the nearest ally. Fulfillment doubles the amount of healing done. Only 1 Vow active at a time.",
+      "_source": "Confirmed screenshot: 9 Mana, instant, 'generates 1 Solar Power and heals the nearest nearby ally equal to 10% of the amount. Fulfillment: Doubles the amount of healing done.' Part of the mutually-exclusive Vow family (Light/Grace/Radiance/Dawn/Eclipse).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 9,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "sun_cleric_vow",
+      "generates": {
+        "resource": "solar_power",
+        "amount": 1
+      }
+    },
+    {
+      "ability_id": "sun_cleric_vow_of_grace",
+      "name": "Vow of Grace",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Generate Solar Power periodically, and direct ability damage or healing regenerates missing mana. Fulfillment halves the mana cost of all spells and abilities. Only 1 Vow active at a time.",
+      "_source": "Confirmed screenshot: 9 Mana, instant, 'generate 2 Solar Power every 2 sec and direct ability damage or healing now regenerates 5% of your missing mana plus 10. Fulfillment: Halves the mana cost of all spells and abilities.' Part of the Vow family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 9,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "sun_cleric_vow",
+      "generates": {
+        "resource": "solar_power",
+        "amount": 2
+      }
+    },
+    {
+      "ability_id": "sun_cleric_sanctify",
+      "name": "Sanctify",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Sanctify a friendly target, dispelling a magic, poison, and disease effect from them.",
+      "_source": "Confirmed screenshot: Lvl 14, 'dispelling 1 magic, poison, and disease effect from them.' Real triple-dispel.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 22,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_shine",
+      "name": "Shine",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shine holy light upon an ally, healing them.",
+      "_source": "Confirmed screenshot: Lvl 16, '136 healing.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 136
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 44,
+          "effect_value": 224
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 58,
+          "effect_value": 320
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_dawn",
+      "name": "Dawn",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Allows you to fulfill your Vows. Your next 10 damaging or healing abilities will trigger the Fulfillment effect of your active Vow.",
+      "_source": "Confirmed screenshot: Lvl 2, 'Your next 10 damaging or healing abilities will trigger the Fulfillment effect of your Vow. Can only occur once per sec. Lasts 1 min.' The class's core Vow-empowerment mechanic.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "_implementation_note": "The real mechanic empowers the next 10 casts over a 1-min window, once per sec - this engine doesn't have a 'next N casts' counter primitive, modeled as a short flat self-buff window instead. Same class of gap as Runemaster's Lunar Eclipse."
+    },
+    {
+      "ability_id": "sun_cleric_vow_of_radiance",
+      "name": "Vow of Radiance",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Direct ability damage or healing generates Solar Power and deals or heals for additional damage. Fulfillment doubles the damage or healing done. Only 1 Vow active at a time.",
+      "_source": "Confirmed screenshot: Lvl 2, 9 Mana, instant, 'generates 2 Solar Power and damages or heals for an additional 25% of the amount. Fulfillment: Doubles the damage or healing done.' Part of the Vow family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 9,
+          "effect_value": 25
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "sun_cleric_vow",
+      "generates": {
+        "resource": "solar_power",
+        "amount": 2
+      }
+    },
+    {
+      "ability_id": "sun_cleric_glare",
+      "name": "Glare",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Flash powerful light that deals Holy damage and stuns nearby enemies.",
+      "_source": "Confirmed screenshot: Lvl 40, '32 Holy damage and stuns enemies within 8 yds for 5 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 32
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "sun_cleric_devotion_of_dawn",
+      "name": "Devotion of Dawn",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "attack_power": 35
+      },
+      "description": "Place a Devotion on the friendly target, increasing their Attack Power. Only one Devotion per Sun Cleric active at a time.",
+      "_source": "Confirmed screenshot: Lvl 12, '+35 Attack Power for 30 min.' Part of the Devotion family.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 22,
+          "effect_value": 35
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "sun_cleric_devotion"
+    },
+    {
+      "ability_id": "sun_cleric_judgement_day",
+      "name": "Judgement Day",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1,
+        "damage_taken_pct": 50
+      },
+      "description": "Bring judgement upon all nearby enemies, incapacitating them. Damage dealt ends this effect early but increases their damage taken from your next hit.",
+      "_source": "Confirmed screenshot: Lvl 6, 'incapacitating them for 30 sec (8 sec vs players). Damage dealt will end this effect. Affected enemies take 50% increased damage from your next instance of damage.' Modeled as a stun for turn-based combat.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 26,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "sun_cleric_justice",
+      "name": "Justice",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spin and strike with both weapons, dealing Physical damage with your main-hand and Fire damage with your off-hand.",
+      "_source": "Confirmed screenshot: Lvl 20, '50% Weapon Damage plus 6 to up to 5 enemies within 5 yds. Your main-hand strike will deal Physical damage and your off-hand strike will deal Fire damage.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 28,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "sun_cleric_devotion_of_radiance",
+      "name": "Devotion of Radiance",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "spell_power": 28
+      },
+      "description": "Place a Devotion on the friendly target, increasing their Spell Power. Only one Devotion per Sun Cleric active at a time.",
+      "_source": "Confirmed screenshot: Lvl 28, '+28 Spell Power.' Part of the Devotion family.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 24,
+          "effect_value": 28
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "sun_cleric_devotion"
+    },
+    {
+      "ability_id": "sun_cleric_vow_of_dawn",
+      "name": "Vow of Dawn",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Direct ability damage or healing generates Solar Power and bounces to nearby targets for reduced value. Fulfillment doubles the amount of targets struck. Only 1 Vow active at a time.",
+      "_source": "Confirmed screenshot: '1 Solar Power and bounces to 2 additional nearby targets with less value per target struck. Fulfillment: Doubles the amount of targets struck.' Part of the Vow family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 9,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "sun_cleric_vow",
+      "generates": {
+        "resource": "solar_power",
+        "amount": 1
+      }
+    },
+    {
+      "ability_id": "sun_cleric_gavel_of_wrath",
+      "name": "Gavel of Wrath",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Smash an enemy for weapon damage and dispel a beneficial magic effect from them. Shares a cooldown with other Gavels.",
+      "_source": "Confirmed screenshot: Lvl 26, '100% Weapon Damage plus 45 and dispel 1 beneficial magic effect from them.' Part of the shared-cooldown Gavel family (Grace/Wrath/Light).",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 28,
+          "effect_value": 55
+        }
+      ],
+      "icon_id": "ability_melee",
+      "exclusive_group": "sun_cleric_gavel"
+    },
+    {
+      "ability_id": "sun_cleric_sunslam",
+      "name": "Sunslam",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Slam an enemy repeatedly with the might of the sun, dealing Holy damage and stunning them each hit. Only usable while Dawn is active. Usable while moving.",
+      "_source": "Confirmed screenshot: Lvl 26, 'dealing 47 Holy damage and stunning them for 1 sec. Lasts 4 sec. Only usable while Dawn is active. Usable while moving.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 47
+        }
+      ],
+      "icon_id": "ability_melee",
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "sun_cleric_devotion_of_emperors",
+      "name": "Devotion of Emperors",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "all_stats_pct": 10
+      },
+      "description": "Place a Devotion on the friendly target, increasing their total stats. Only one Devotion per Sun Cleric active at a time.",
+      "_source": "Confirmed screenshot: Lvl 44, 3 Mana, instant, '+10% total stats. Lasts 30 min.' Part of the Devotion family.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 3,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "sun_cleric_devotion"
+    },
+    {
+      "ability_id": "sun_cleric_vow_of_the_eclipse",
+      "name": "Vow of the Eclipse",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 18,
+      "stat_mods": {},
+      "description": "Direct ability damage or effective healing generates Solar Power and burns for a percentage of the amount over time, stacking. Fulfillment increases damage or healing done to affected targets. Only 1 Vow active at a time.",
+      "_source": "Confirmed screenshot: 9 Mana, instant, 'generates 1 Solar Power and burns for 5% of the damage or healing done every 3 sec for 18 sec. Each trigger increases the damage of this effect. Fulfillment: Direct ability damage or healing done by you is increased by 10% on targets affected by Vow of the Eclipse.' Part of the Vow family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 9,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "sun_cleric_vow",
+      "generates": {
+        "resource": "solar_power",
+        "amount": 1
+      }
+    },
+    {
+      "ability_id": "sun_cleric_dawnsear",
+      "name": "Dawnsear",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast an enemy with burning light.",
+      "_source": "Confirmed screenshot: Lvl 18, '114 Fire damage.' Piety's real Sunset-side primary nuke.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 22,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "sun_cleric_rapture",
+      "name": "Rapture",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Call down a streak of sunlight to smite your target, piercing all immunities and dealing less damage per enemy struck.",
+      "_source": "Confirmed screenshot: Lvl 22, '144 Fire damage to them and nearby enemies, piercing all immunities, but dealing less damage with each enemy struck.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 32,
+          "effect_value": 144
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "sun_cleric_radiant_flame",
+      "name": "Radiant Flame",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "A channeled repeating Holyflame damage spell.",
+      "_source": "Confirmed screenshot: Lvl 20, '44 Holyflame Damage, repeating every 1 sec for 4 sec.' Piety's sustained-damage channel.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 44
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": [
+        "holy",
+        "fire"
+      ]
+    },
+    {
+      "ability_id": "sun_cleric_sun_gate",
+      "name": "Sun Gate",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "A forward blink that removes root effects and leaves a gate allies can use once.",
+      "_source": "CoA handoff doc: 'Forward blink, removes root; leaves a gate allies can use once.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_daybreak",
+      "name": "Daybreak",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Make a prayer, healing an ally.",
+      "_source": "Confirmed screenshot: Lvl 24, '2 Charges, 10 sec recharge, healing an ally for 273.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 28,
+          "effect_value": 273
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_bless",
+      "name": "Bless",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 6,
+      "stat_mods": {},
+      "description": "Place a heal-over-time on an ally, unlocking the Blessing spell family for them. Only one Bless active at a time.",
+      "_source": "CoA handoff doc confirmed: 'HoT on an ally, one target at a time.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 22,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_blessing_of_purity",
+      "name": "Blessing of Purity",
+      "resource_type": "mana",
+      "cooldown": 20,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -100,
+        "damage_dealt_pct": -50,
+        "healing_done_pct": -50
+      },
+      "description": "The Blessed ally becomes immune to all damage for a window, but their own damage and healing done is reduced. Only usable on the Blessed ally.",
+      "_source": "CoA handoff doc confirmed: 'Blessed ally immune to all damage for a window, but their own damage+healing reduced. Only on Blessed ally.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_blessing_of_retribution",
+      "name": "Blessing of Retribution",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Deflect the next harmful spell cast on the Blessed ally within a window.",
+      "_source": "CoA handoff doc confirmed: 'Deflects the next harmful spell on Blessed ally within a window. Only on Blessed ally.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_blessing_of_triumph",
+      "name": "Blessing of Triumph",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": 20,
+        "damage_dealt_pct": 15
+      },
+      "description": "The Blessed ally gains Haste and damage. If they drop below 35% health while active, they heal for a percentage of direct damage dealt for the remainder.",
+      "_source": "CoA handoff doc confirmed: 'Blessed ally: +haste, +damage; if they drop below 35%, heals them for % of direct damage dealt for remainder. Only on Blessed ally.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 32,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_blessing_of_absolution",
+      "name": "Blessing of Absolution",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Empower a Blessed ally to unleash a burst of holy energy in a frontal cone, generating additional threat. Only usable on your ally with Bless active.",
+      "_source": "Confirmed screenshot: Lvl 22, '66 Holy damage to enemies in a 10 yd frontal cone and generating additional threat.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 10,
+          "effect_value": 66
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "sun_cleric_radiant_cascade",
+      "name": "Radiant Cascade",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Refract light into a restorative beam, healing an ally, then jumping to additional allies for reduced value.",
+      "_source": "Confirmed screenshot: Lvl 30, 'healing an ally for 207, and then jumps to up to 4 additional allies, healing for less with each bounce.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 34,
+          "effect_value": 207
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_sunshine",
+      "name": "Sunshine",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "A heal-over-time on an ally.",
+      "_source": "CoA handoff doc: 'Ally HoT.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 60,
+          "cost": 30,
+          "effect_value": 200
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_revivify",
+      "name": "Revivify",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Battle-resurrect a fallen ally. Usable only out of combat.",
+      "_source": "CoA handoff doc: 'Battle-rez. Out of combat.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 45,
+          "effect_value": 999
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "sun_cleric_glorious_execution",
+      "name": "Glorious Execution",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strike with both weapons, regenerating mana equal to a percentage of the damage dealt.",
+      "_source": "Confirmed screenshot: Lvl 20, 'Weapon Damage plus 13 Physical damage and regenerate mana equal to 5% of the damage dealt.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "sun_cleric_champion_of_the_sun",
+      "name": "Champion of the Sun",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "holy_damage_bonus_pct": 20
+      },
+      "description": "Empower your autoattacks with bonus Holy damage for a window.",
+      "_source": "CoA handoff doc: 'Boosts auto attacks with bonus Holy damage, for a window.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_march_of_the_valkyr",
+      "name": "March of the Valkyr",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "damage_pct": 5,
+        "parry_chance": 5
+      },
+      "description": "Grant the party and raid a damage buff, and increase your parry chance. Does not stack with similar effects.",
+      "_source": "CoA handoff doc: 'Party/raid damage buff (no stacking with similar); boosts your parry chance.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 32,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "sun_cleric_valkyrs_calling",
+      "name": "Valkyr's Calling",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Leap at a target, immune to physical and spell damage during flight, then land dealing AoE Holy damage.",
+      "_source": "CoA handoff doc confirmed: 'Leaps at a target, immune to physical + spell during flight; lands for AoE Holy damage.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "sun_cleric_scrying_orb",
+      "name": "Scrying Orb",
+      "resource_type": "mana",
+      "cooldown": 20,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Summon a controllable scrying orb for reconnaissance.",
+      "_source": "CoA handoff doc: 'Summons a controllable scrying orb.' Utility, not combat-relevant.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_gavel_of_light",
+      "name": "Gavel of Light",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Smash an enemy and heal yourself for a percentage of the damage dealt. Shares a cooldown with other Gavels.",
+      "_source": "Confirmed screenshot: Lvl 4, '100% Weapon Damage plus 12 and heal yourself equal to 50% of the damage dealt.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 20,
+          "effect_value": 55
+        }
+      ],
+      "icon_id": "ability_melee",
+      "exclusive_group": "sun_cleric_gavel"
+    },
+    {
+      "ability_id": "sun_cleric_seraphic_bulwark",
+      "name": "Seraphic Bulwark",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "block_value_pct": 30
+      },
+      "description": "Increase block value for a number of blocks or a duration.",
+      "_source": "CoA handoff doc confirmed: '2 charges, 25-sec recharge. Boosts block value for a number of blocks or duration.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_scroll_of_hope",
+      "name": "Scroll of Hope",
+      "resource_type": "mana",
+      "cooldown": 20,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "magic_damage_taken_pct": -20
+      },
+      "description": "Reduce party and raid Magic damage taken. Anyone below 35% health during it receives a one-time heal.",
+      "_source": "CoA handoff doc confirmed: 'Reduces party/raid Magic damage taken; anyone below 35% health during it gets a one-time heal.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 55,
+          "cost": 45,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "sun_cleric_justicars_wrath",
+      "name": "Justicar's Wrath",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {
+        "threat_generation_pct": 100
+      },
+      "description": "High-threat Holy damage that increases the target's spell damage taken.",
+      "_source": "CoA handoff doc confirmed: 'High-threat Holy damage + boosts target's spell damage taken.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 24,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "sun_cleric_dawnbreak_talent",
+      "name": "Dawnbreak",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 15,
+      "stat_mods": {},
+      "description": "Bring down the light of An'she at the target location for a duration. Allies inside receive increased healing, enemies inside take increased damage and periodic Solar Flare.",
+      "_source": "Confirmed screenshot: 15 Mana, 30yd, 2 min cooldown, 'While inside, allies receive 15% increased healing from all sources and enemies take 15% increased damage from you and are struck by a Solar Flare every 1 sec.' Note: this class-wide entry is identical to Piety's shared Dawnfall - separate ability_id since Seraphim's own tree unlocks a talent-tier version.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 15,
+          "effect_value": 51
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "sun_cleric_hammer_of_kings",
+      "name": "Hammer of Kings",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "An encircling aura that repeatedly deals Holyfire damage to nearby enemies.",
+      "_source": "CoA handoff doc confirmed: 'Encircling aura: repeating Holyfire damage to nearby enemies.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 35,
+          "effect_value": 50
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": [
+        "holy",
+        "fire"
+      ]
+    },
+    {
+      "ability_id": "sun_cleric_solar_nova",
+      "name": "Solar Nova",
+      "resource_type": "mana",
+      "cooldown": 20,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Emit a powerful holy light, damaging nearby enemies. Reduces Solar Invocation cooldown per target struck. Guaranteed critical strike against Undead or Demons.",
+      "_source": "Confirmed screenshot: 15 Mana, instant, 20 sec cooldown, '168 Holy damage to all nearby enemies. Reduces the cooldown of your Solar Invocation spells by 1 sec for each target struck. Guaranteed to critically strike against Undead or Demons.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 15,
+          "effect_value": 168
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "sun_cleric_injunction",
+      "name": "Injunction",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "taunt": 1
+      },
+      "description": "Taunt a target enemy.",
+      "_source": "CoA handoff doc: 'Taunts a target.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    }
+  ]
+}

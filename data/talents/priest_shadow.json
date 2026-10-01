@@ -1,0 +1,425 @@
+{
+  "spec_name": "Priest Shadow",
+  "tree_id": "priest_shadow",
+  "description": "Forbidden shadow magic traded for devastating offensive power.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "priest_shadow_spirit_tap",
+      "name": "Spirit Tap",
+      "description": "Increases Spirit by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spirit": 3
+      },
+      "connected_to": [
+        "priest_shadow_shadow_focus"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_improved_shadow_word_pain",
+      "name": "Improved Shadow Word: Pain",
+      "description": "Increases Shadow Word: Pain damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_priest_shadow_word_pain_damage": 0.05
+      },
+      "connected_to": [
+        "priest_shadow_improved_mind_blast"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_shadow_affinity",
+      "name": "Shadow Affinity",
+      "description": "Increases Shadow Resistance by 10 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "shadow_resistance": 10
+      },
+      "connected_to": [
+        "priest_shadow_blackout"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_darkness",
+      "name": "Darkness",
+      "description": "Increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "priest_shadow_shadow_weaving"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_shadow_focus",
+      "name": "Shadow Focus",
+      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "priest_shadow_spirit_tap",
+        "priest_shadow_shadowform"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_improved_mind_blast",
+      "name": "Improved Mind Blast",
+      "description": "Increases Smite damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_priest_smite_damage": 0.04
+      },
+      "connected_to": [
+        "priest_shadow_improved_shadow_word_pain",
+        "priest_shadow_silence"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_blackout",
+      "name": "Blackout",
+      "description": "Increases spell critical strike chance by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_spell": 1.5
+      },
+      "connected_to": [
+        "priest_shadow_shadow_affinity",
+        "priest_shadow_vampiric_embrace"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_shadow_weaving",
+      "name": "Shadow Weaving",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "priest_shadow_darkness",
+        "priest_shadow_focused_mind"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_shadowform",
+      "name": "Shadowform",
+      "description": "Learn Shadowform, a real shapeshift that boosts Spell Power against Shadow damage.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "priest_shadowform"
+      },
+      "connected_to": [
+        "priest_shadow_shadow_focus",
+        "priest_shadow_improved_psychic_scream"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_silence",
+      "name": "Silence",
+      "description": "Grants Silence, heavily reducing the target's spell hit chance for 1 turn.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "priest_silence"
+      },
+      "connected_to": [
+        "priest_shadow_improved_mind_blast",
+        "priest_shadow_mind_flay"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_vampiric_embrace",
+      "name": "Vampiric Embrace",
+      "description": "Increases maximum Health by 5%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "max_health_pct": 0.05
+      },
+      "connected_to": [
+        "priest_shadow_blackout",
+        "priest_shadow_shadow_power"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_focused_mind",
+      "name": "Focused Mind",
+      "description": "Reduces the Mana cost of Shadow Word: Pain by 4 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_priest_shadow_word_pain_cost": 4
+      },
+      "connected_to": [
+        "priest_shadow_shadow_weaving",
+        "priest_shadow_misery"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_mind_flay",
+      "name": "Mind Flay",
+      "description": "Grants Mind Flay, a Shadow damage-over-time spell.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "priest_mind_flay"
+      },
+      "connected_to": [
+        "priest_shadow_silence",
+        "priest_shadow_vampiric_touch"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_shadow_power",
+      "name": "Shadow Power",
+      "description": "Increases spell critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_spell": 2.0
+      },
+      "connected_to": [
+        "priest_shadow_vampiric_embrace",
+        "priest_shadow_pain_and_suffering"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_misery",
+      "name": "Misery",
+      "description": "Increases Spell Power by 9 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "spell_power": 9
+      },
+      "connected_to": [
+        "priest_shadow_focused_mind",
+        "priest_shadow_twisted_faith"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_improved_psychic_scream",
+      "name": "Improved Psychic Scream",
+      "description": "Increases Shadow Resistance by 12 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "shadow_resistance": 12
+      },
+      "connected_to": [
+        "priest_shadow_shadowform"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_vampiric_touch",
+      "name": "Vampiric Touch",
+      "description": "Grants Vampiric Touch, a Shadow damage-over-time spell.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "priest_vampiric_touch"
+      },
+      "connected_to": [
+        "priest_shadow_mind_flay",
+        "priest_shadow_dispersion"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_pain_and_suffering",
+      "name": "Pain and Suffering",
+      "description": "Increases Shadow Word: Pain damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_priest_shadow_word_pain_damage": 0.08
+      },
+      "connected_to": [
+        "priest_shadow_shadow_power",
+        "priest_shadow_shadowy_insight"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_twisted_faith",
+      "name": "Twisted Faith",
+      "description": "Increases Spell Power by 6 and Spirit by 2 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "spell_power": 6,
+        "spirit": 2
+      },
+      "connected_to": [
+        "priest_shadow_misery"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_dispersion",
+      "name": "Dispersion",
+      "description": "Increases Shadow Resistance by 15 per rank and Health by 2%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "max_health_pct": 0.02,
+        "shadow_resistance": 15
+      },
+      "connected_to": [
+        "priest_shadow_vampiric_touch",
+        "priest_shadow_mind_sear"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_shadowy_insight",
+      "name": "Shadowy Insight",
+      "description": "Increases spell damage by 3% and Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage": 0.03,
+        "haste": 2.0
+      },
+      "connected_to": [
+        "priest_shadow_pain_and_suffering",
+        "priest_shadow_shadow_mastery_capstone"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_mind_sear",
+      "name": "Mind Sear",
+      "description": "Grants Mind Sear, damaging all enemies over time.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "priest_mind_sear"
+      },
+      "connected_to": [
+        "priest_shadow_dispersion"
+      ]
+    },
+    {
+      "talent_id": "priest_shadow_shadow_mastery_capstone",
+      "name": "Improved Devouring Plague",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "priest_shadow_shadowy_insight"
+      ]
+    }
+  ]
+}

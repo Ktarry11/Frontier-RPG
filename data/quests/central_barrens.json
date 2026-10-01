@@ -1,0 +1,432 @@
+{
+  "quests": [
+    {
+      "quest_id": "taurajo_two_tribes",
+      "title": "Two Tribes, One Grudge",
+      "description": "Tanner Mosswalker has heard the old stories about the Bristleback and Razormane quilboar warring over territory north of the camp - Agama'gor and Bramblescar, facing each other across the same stretch of road. She wants confirmation the old rivalry still holds, since a distracted enemy is easier to manage than a unified one.",
+      "giver_npc_id": "taurajo_hide_tanner",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "central_barrens",
+          "target_x": 170,
+          "target_y": 250,
+          "radius": 20
+        }
+      ],
+      "reward_exp": 750,
+      "reward_gold": 3300,
+      "accept_text": "Agama'gor and Bramblescar, north of here. Bristleback and Razormane, still at each other's throats last I heard. Go look - if they're still fighting each other, that's one less thing fighting us.",
+      "turn_in_text": "Still at war, good. Let them bleed each other. Saves us the trouble, for now.",
+      "next_quest_id": "taurajo_bristleback_advance",
+      "level_min": 13,
+      "level_max": 15
+    },
+    {
+      "quest_id": "taurajo_bristleback_advance",
+      "title": "The Bristleback Advance",
+      "description": "Word from Agama'gor is the Bristlebacks are winning their war against the Razormane and growing bold enough to raid toward Camp Taurajo itself. Tanner Mosswalker wants their advance blunted before it reaches the camp's grazing lands.",
+      "giver_npc_id": "taurajo_hide_tanner",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bristleback Raider",
+          "alt_targets": [
+            "Bristleback Raider Shaman"
+          ],
+          "count": 8,
+          "zone": "central_barrens"
+        }
+      ],
+      "reward_exp": 1050,
+      "reward_gold": 5000,
+      "accept_text": "Bristlebacks are winning their little war and it's making them bold. Eight of them, thinned out, and maybe they remember to fear something other than the Razormane.",
+      "turn_in_text": "Eight down. The grazing lands are safe a while longer. Thank you for this.",
+      "level_min": 14,
+      "level_max": 17,
+      "gear_reward_gear_level": 17,
+      "unique_item_defs": [
+        {
+          "name": "Mosswalker's Tanned Cuirass",
+          "slot": "chest",
+          "armor_type": "leather",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 4
+          },
+          "armor_value": 40,
+          "flavor_text": "Tanner Mosswalker worked through the night on this one. He won't say why it mattered so much."
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_hides_of_war",
+      "title": "Hides of War",
+      "description": "Trader Bloodhorn has a standing interest in quilboar hide - tough, useful material regardless of which tribe it came from. He doesn't much care about the rivalry, only the hides.",
+      "giver_npc_id": "taurajo_hide_trader",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "quilboar_battle_hide",
+          "count": 6
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 4000,
+      "accept_text": "Bristleback or Razormane, doesn't matter to me - their hide's the same tough leather either way. Six, and I'll pay fair.",
+      "turn_in_text": "Good hide. Battle-scarred, but that just means it's proven itself. This'll make something worth having.",
+      "level_min": 13,
+      "level_max": 16,
+      "gear_reward_gear_level": 16,
+      "unique_item_defs": [
+        {
+          "name": "Bloodhorn's Trade Belt",
+          "slot": "waist",
+          "armor_type": "mail",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 3
+          },
+          "armor_value": 23,
+          "flavor_text": "Bloodhorn doesn't care whose hides these were. The belt's good regardless."
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_the_stronger_tribe",
+      "title": "The Stronger Tribe",
+      "description": "Liaison Grukdar has taken an interest in which quilboar tribe actually wins the Agama'gor-Bramblescar war - Orgrimmar wants to know which one will need dealing with once the fighting's over, and he needs firsthand intelligence to report back.",
+      "giver_npc_id": "taurajo_orc_liaison",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razormane Veteran",
+          "alt_targets": [
+            "Razormane Warcaller"
+          ],
+          "count": 8,
+          "zone": "central_barrens"
+        }
+      ],
+      "reward_exp": 1050,
+      "reward_gold": 5000,
+      "accept_text": "Orgrimmar wants to know which tribe survives this war. Weaken the Razormane and we'll see how the Bristlebacks handle winning outright.",
+      "turn_in_text": "Noted. The Razormane won't recover from this quickly. Orgrimmar will want to hear it.",
+      "level_min": 14,
+      "level_max": 17
+    },
+    {
+      "quest_id": "taurajo_earthsongs_warning",
+      "title": "Earthsong's Warning",
+      "description": "Earthsong Mara senses something wrong in the land north of the camp - not the quilboar war itself, but something the fighting has disturbed. She wants to talk it through with someone willing to listen before deciding whether to act on it.",
+      "giver_npc_id": "taurajo_healer",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "what_she_senses",
+            "the_quilboar_war",
+            "should_we_intervene"
+          ]
+        }
+      ],
+      "reward_exp": 950,
+      "reward_gold": 4200,
+      "accept_text": "Sit with me a moment. Something's stirring north of here, and it isn't just quilboar spears.",
+      "turn_in_text": "You've helped me think it through. Whatever's coming, at least I'm not carrying the worry alone anymore.",
+      "level_min": 14,
+      "level_max": 16
+    },
+    {
+      "quest_id": "ratchet_farm_supply_run",
+      "title": "The Farm Needs Supplies",
+      "description": "Cargo Master Blix has a standing contract to keep Grol'dom Farm stocked, but the caravans keep getting harassed along the way. He wants someone to make the run safer, or at least prove it's still possible.",
+      "giver_npc_id": "ratchet_shipping_trader",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "central_barrens",
+          "target_x": 85,
+          "target_y": 145,
+          "radius": 20
+        }
+      ],
+      "reward_exp": 750,
+      "reward_gold": 3300,
+      "accept_text": "Grol'dom Farm, out past Lushwater. Kranal Fiss runs it, holds the road between Orgrimmar and Crossroads together more than people realize. Make sure the route's still walkable.",
+      "turn_in_text": "Good. Kranal's farm keeps the caravans fed and the road worth using. That matters more than people give it credit for.",
+      "next_quest_id": "ratchet_bandits_and_bristlebacks",
+      "level_min": 13,
+      "level_max": 15
+    },
+    {
+      "quest_id": "ratchet_bandits_and_bristlebacks",
+      "title": "Bandits and Bristlebacks",
+      "description": "With the route to Grol'dom Farm confirmed open, Cargo Master Blix wants the stragglers along it cleared - bandits and quilboar alike have been picking off supply runs headed for the farm.",
+      "giver_npc_id": "ratchet_shipping_trader",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bandit Outrider",
+          "alt_targets": [
+            "Kolkar Drudge"
+          ],
+          "count": 8,
+          "zone": "central_barrens"
+        }
+      ],
+      "reward_exp": 1050,
+      "reward_gold": 5000,
+      "accept_text": "Bandits, Kolkar stragglers, whatever's picking off the supply runs near the farm - eight of them, and Kranal stops losing wagons.",
+      "turn_in_text": "That's a real dent. The farm's caravans should move easier now.",
+      "level_min": 14,
+      "level_max": 17,
+      "gear_reward_gear_level": 17,
+      "unique_item_defs": [
+        {
+          "name": "Blix's Confiscated Cleaver",
+          "slot": "main_hand",
+          "weapon_type": "axe_1h",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 4
+          },
+          "flavor_text": "Cargo Master Blix took this off a bandit who won't be ambushing supply runs again.",
+          "secondary_stats": {
+            "attack_power": 5
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_fintans_other_favor",
+      "title": "A Fence's Other Interest",
+      "description": "Gazlowe's Cousin Nixx has heard the Burning Blade cultists on Dreadmist Peak are sitting on real valuables, looted from caravans over the years. He's not above paying for someone else to do the looting for him this time.",
+      "giver_npc_id": "ratchet_trader",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "cultist_hoarded_coin",
+          "count": 5
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 4000,
+      "accept_text": "Cultists on Dreadmist Peak have been robbing caravans for their little rituals. Might as well rob them back. Five pouches of hoarded coin, and I'll make it worth the trip.",
+      "turn_in_text": "Cultist gold spends the same as anyone's. Pleasure doing business.",
+      "level_min": 13,
+      "level_max": 16
+    },
+    {
+      "quest_id": "ratchet_barnacles_barrens_tale",
+      "title": "Barnacle Bill's Barrens Tale",
+      "description": "Barnacle Bill claims he once wandered into the Barrens and stumbled onto a shrine dedicated to a fallen hero - though nobody believes his stories usually. He wants proof he's not making it up this time.",
+      "giver_npc_id": "ratchet_dock_laborer",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "central_barrens",
+          "target_x": 50,
+          "target_y": 140,
+          "radius": 15
+        }
+      ],
+      "reward_exp": 700,
+      "reward_gold": 3000,
+      "accept_text": "There's a shrine out there, southwest of the Crossroads - some memorial to a fallen warrior. Bill swears he's seen it. Prove him right, or wrong, either's fine by me.",
+      "turn_in_text": "So he wasn't lying for once. Wonders never cease. Thanks for settling the argument.",
+      "level_min": 13,
+      "level_max": 15
+    },
+    {
+      "quest_id": "org_dreadmist_rumors",
+      "title": "Rumors from Dreadmist",
+      "description": "Elder Torgun has heard old warnings about Dreadmist Peak - a fel taint that never fully faded, and cultists who never fully left. Orgrimmar wants confirmation before committing real resources to the problem.",
+      "giver_npc_id": "org_elder_2",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "central_barrens",
+          "target_x": 40,
+          "target_y": 35,
+          "radius": 30
+        }
+      ],
+      "reward_exp": 750,
+      "reward_gold": 3300,
+      "accept_text": "Dreadmist Peak, northwest of the Crossroads. The old stories say the fog up there isn't natural. Go see for yourself - I want to know if the stories are still true.",
+      "turn_in_text": "Still true, then. I was hoping age had exaggerated the memory. It hadn't.",
+      "next_quest_id": "org_cultists_of_dreadmist",
+      "level_min": 13,
+      "level_max": 15
+    },
+    {
+      "quest_id": "org_cultists_of_dreadmist",
+      "title": "Cultists of Dreadmist",
+      "description": "With the fel taint on Dreadmist Peak confirmed, Elder Torgun wants the Burning Blade presence there thinned before they grow bold enough to threaten the Gold Road itself.",
+      "giver_npc_id": "org_elder_2",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dreadmist Cultist",
+          "alt_targets": [
+            "Dreadmist Warlock"
+          ],
+          "count": 9,
+          "zone": "central_barrens"
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 5300,
+      "accept_text": "Nine cultists, whichever rank you find on the Peak. They won't stop what they're doing on their own - somebody has to make them stop.",
+      "turn_in_text": "Nine fewer voices chanting up there. It won't end the Burning Blade's hold on that mountain, but it's a real wound.",
+      "next_quest_id": "org_seed_and_seal",
+      "level_min": 14,
+      "level_max": 17,
+      "gear_reward_gear_level": 17,
+      "unique_item_defs": [
+        {
+          "name": "Fel-Touched Cultist's Dagger",
+          "slot": "main_hand",
+          "weapon_type": "dagger",
+          "item_level": 17,
+          "rarity": "rare",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 4
+          },
+          "flavor_text": "Elder Torgun wanted it burned. You convinced him it was more useful intact.",
+          "secondary_stats": {
+            "spell_power": 6
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "org_seed_and_seal",
+      "title": "The Seed and the Seal",
+      "description": "Elder Torgun's research confirms the old legends - the Burning Blade guards a fel artifact called the Demon Seed deep in Dreadmist Den, watched over by their leader Rathorian and a felguard named Xelnaz. He wants both of them dead and the Seed's location confirmed before deciding what to do about it.",
+      "giver_npc_id": "org_elder_2",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Rathorian",
+          "count": 1,
+          "zone": "central_barrens"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Xelnaz",
+          "count": 1,
+          "zone": "central_barrens"
+        }
+      ],
+      "reward_exp": 1650,
+      "reward_gold": 8800,
+      "accept_text": "Rathorian leads them. Xelnaz guards whatever they're protecting - a demon, I'd wager, given the company he keeps. Kill them both. I need to know what we're truly dealing with before this becomes Orgrimmar's problem instead of just a rumor.",
+      "turn_in_text": "Both dead, and the Seed's location confirmed. That's not the end of this - a thing like that doesn't just sit quiet once its guardians are gone - but it's a start, and a start is more than I had yesterday.",
+      "level_min": 16,
+      "level_max": 18,
+      "gear_reward_gear_level": 17,
+      "unique_item_defs": [
+        {
+          "name": "Demon Seed Breastplate",
+          "slot": "chest",
+          "armor_type": "plate",
+          "item_level": 17,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_value": 104,
+          "flavor_text": "Forged from plate Rathorian never got the chance to consecrate. It resists the taint it was meant to hold."
+        }
+      ]
+    },
+    {
+      "quest_id": "org_grokkas_curiosity",
+      "title": "Grokka's Curiosity",
+      "description": "Grokka Fireforge trades in oddities as much as goods, and she's heard the quilboar at Agama'gor carry ceremonial tusks worth more to a collector than to a quilboar. She wants a few, no questions asked about how they were acquired.",
+      "giver_npc_id": "org_market_trader_1",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "ceremonial_bristleback_tusk",
+          "count": 5
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 4000,
+      "accept_text": "Bristleback quilboar at Agama'gor carry carved tusks, ceremonial things. Collectors pay well for the genuine article. Five, however you come by them.",
+      "turn_in_text": "Beautiful work, for quilboar craftsmanship. These'll sell well. Thank you for not asking what I'm selling them for.",
+      "level_min": 15,
+      "level_max": 18,
+      "gear_reward_gear_level": 18,
+      "unique_item_defs": [
+        {
+          "name": "Grokka's Appraised Tusk Pendant",
+          "slot": "neck",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 5,
+            "intellect": 5,
+            "stamina": 2
+          },
+          "flavor_text": "Grokka paid double once she saw it up close. 'Collector's piece. Don't ask who collected it.'",
+          "secondary_stats": {
+            "haste": 2
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "org_kranals_thanks",
+      "title": "Kranal's Thanks",
+      "description": "Word has reached Orgrimmar that Grol'dom Farm has held the caravan route steady despite everything the Barrens throws at it. Quartermaster Grosh wants that effort formally recognized, and Kranal Fiss himself has requests for anyone willing to carry them.",
+      "giver_npc_id": "orgrimmar_quartermaster",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_farms_history",
+            "the_road_between",
+            "what_kranal_needs"
+          ]
+        }
+      ],
+      "reward_exp": 850,
+      "reward_gold": 3800,
+      "accept_text": "Kranal Fiss has kept that farm running since before most of us were born. Go talk to him - see what the farm actually needs, beyond what we assume.",
+      "turn_in_text": "Good. Now we actually know what to send instead of guessing. Small farms hold up big roads more than the capital ever gives them credit for.",
+      "level_min": 13,
+      "level_max": 16
+    }
+  ]
+}

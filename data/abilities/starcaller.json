@@ -1,0 +1,1446 @@
+{
+  "class": "Starcaller",
+  "_source_note": "New class built (Sept 2026) from 52 real Ascension screenshots (Starcaller.docx) plus the big CoA handoff doc for structure/spec identity/passive filler. 4 specs confirmed: Moon Guard (Agility tank, Protection Paladin analog), Sentinel (Agility ranged DPS, Hunter/Elemental hybrid), Moon Priest (Agility healer, Resto Shaman/Disc Priest hybrid), Warden (Agility melee DPS, Havoc DH analog). Mana + Energy dual-resource confirmed via screenshots (Celestial Strike costs Energy; most other spells drain % max Mana). Corrected 2 pre-existing wrong stubs: primary stat was wrongly Intellect (real: Agility), resource was wrongly Mana-only (real: Mana+Energy). Real core mechanic: Scattered Stars, a stacking consumable resource (builds via Starsunder/Huntress Shot/Fan of Knives, consumed by Lunar Lance/Starsweep/Starfire Shot/Trueshot/Umbral Blade for bonus Arcane damage) - not fully modeled as a real stack-count system yet (engine has no generic stacking-buff primitive), flagged per-ability.",
+  "abilities": [
+    {
+      "ability_id": "starcaller_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic weapon strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "starcaller_starsunder",
+      "name": "Starsunder",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strike an enemy with weapon and Arcane damage, applying a Scattered Star.",
+      "_source": "Confirmed screenshot: 39 Mana, melee range, instant, 'Drains 20% Maximum Mana. Applies 1 Scattered Star. 40% Weapon Damage plus 11 Arcane Damage, increased further based on your maximum mana.' Core level-1 melee generator, extended to 8 ranks per Kyle's rank-up direction.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 18,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 26,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 34,
+          "effect_value": 118
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 42,
+          "effect_value": 162
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 50,
+          "effect_value": 210
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 58,
+          "effect_value": 262
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 66,
+          "effect_value": 318
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 74,
+          "effect_value": 378
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_implementation_note": "Applies 1 Scattered Star per the tooltip - stacking resource not fully modeled yet, see class _source_note."
+    },
+    {
+      "ability_id": "starcaller_lunar_lance",
+      "name": "Lunar Lance",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Unleash a lunar lance on an enemy, consuming Scattered Stars for bonus Arcane damage.",
+      "_source": "Confirmed screenshot: 45yd, instant, 'Consumes Scattered Stars. Unleash a lunar lance on an enemy, dealing 11 Spellfire damage.' Consume effect per Scattered Star: '7 Arcane Damage and restores 8% maximum mana for each Scattered Star.' The class's real Scattered-Star spender/finisher.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 16,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 24,
+          "effect_value": 68
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 32,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 40,
+          "effect_value": 136
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 48,
+          "effect_value": 176
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_celestial_strike",
+      "name": "Celestial Strike",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strike an enemy with celestial fury, regenerating mana.",
+      "_source": "Confirmed screenshot: 40 Energy, melee range, instant, 'Requires Melee Weapon', '65% Weapon Damage plus 9 and regenerate 10% of your maximum mana plus 20.' Core Energy filler and Mana battery.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 40,
+          "effect_value": 50
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "starcaller_celestial_cleave",
+      "name": "Celestial Cleave",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Cleave nearby enemies for Arcane damage, regenerating mana per enemy struck.",
+      "_source": "Confirmed screenshot: Lvl 12, 'Cleave up to 5 nearby enemies in front of you for 55% Weapon Damage as Arcane Damage. Regenerates 2% maximum mana for each enemy struck.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 22,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 34,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 46,
+          "effect_value": 148
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_command",
+      "name": "Command",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "taunt": 1
+      },
+      "description": "Taunt an enemy to attack you. If the target is a player, they are unable to stop moving.",
+      "_source": "Confirmed screenshot: Lvl 12, 'Taunt an enemy to attack you for 3 sec. If the target is a player, they are unable to stop moving for 3 sec.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_eclipse_of_fury",
+      "name": "Eclipse of Fury",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": -35
+      },
+      "description": "Shroud the area in lunar shadow, reducing enemy Attack Power.",
+      "_source": "Confirmed screenshot: Lvl 14, 'Drains 10% Maximum Mana. Reducing enemy attack power by 35 for 30 sec' (compressed to 3 turns).",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 22,
+          "effect_value": 35
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_lunar_authority",
+      "name": "Lunar Authority",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "threat_generation_pct": 120
+      },
+      "description": "Your presence intimidates enemies, increasing threat generated, doubled for Arcane spells and abilities.",
+      "_source": "Confirmed screenshot: Lvl 14, '+120% threat generated, doubled for Arcane spells and abilities.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 24,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "starcaller_starsweep",
+      "name": "Starsweep",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Sweep an enemy and all nearby enemies with your astral blade, consuming Scattered Stars to reduce this spell's cooldown.",
+      "_source": "Confirmed screenshot: Lvl 20, 4 Mana, melee range, instant, 20 sec cooldown, 'Consumes Scattered Stars. Sweep an enemy and all nearby enemies with your astral blade, dealing 57 Arcane damage. Every Scattered Star consumed reduces the cooldown of this spell by 3 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 4,
+          "effect_value": 57
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 6,
+          "effect_value": 96
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 8,
+          "effect_value": 142
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_celestial_aegis",
+      "name": "Celestial Aegis",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -25
+      },
+      "description": "Envelop yourself with celestial magic, reducing damage taken. Only 1 Aegis spell can be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 30, 'Drains 30% Maximum Mana. Reducing your damage taken by 25% for 10 sec.' Part of the mutually-exclusive Aegis family shared across specs.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 25
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "starcaller_aegis"
+    },
+    {
+      "ability_id": "starcaller_celestial_mind",
+      "name": "Celestial Mind",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "intellect": 3
+      },
+      "description": "Enhance an ally with a blessing from Elune, increasing their Intellect.",
+      "_source": "Confirmed screenshot: Lvl 4, '+3 Intellect for 30 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 22,
+          "effect_value": 3
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 22,
+          "effect_value": 6
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "starcaller_aspect_of_the_moonwell",
+      "name": "Aspect of the Moonwell",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "While active, doubles the damage dealt and mana gained from consuming Scattered Stars. Only 1 Aspect can be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 6, 4 Mana, instant, 10 sec cooldown, 'Doubles the damage dealt and mana gained from consuming Scattered Stars.' Part of the mutually-exclusive Aspect family (Moonwell/Huntress/Stars/Warden/Cosmos), shares its own cooldown separate from Aegis.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "starcaller_aspect"
+    },
+    {
+      "ability_id": "starcaller_lunar_eclipse",
+      "name": "Lunar Eclipse",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Activate this to cause your next Lunar Phase spell to trigger its Lunar effect. Usable while casting or channeling.",
+      "_source": "Confirmed screenshot: Lvl 8, real Balance-Druid-style Eclipse toggle - empowers the next 'Lunar Eclipse:' tagged effect on spells like Moonwell Splash, Silverstream, Starfire Shot, and Moonflow.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 18,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "_implementation_note": "The real mechanic empowers the NEXT 'Lunar Phase' spell cast, not a flat self-buff - this engine doesn't have a 'next-cast-consumes-this' primitive shared cleanly across many different spells yet, modeled as a short self-buff window instead."
+    },
+    {
+      "ability_id": "starcaller_huntress_shot",
+      "name": "Huntress Shot",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire an enchanted arrow, dealing Ranged and Arcane damage and applying a Scattered Star.",
+      "_source": "Confirmed screenshot: Lvl 2, 'Drains 20% Maximum Mana. Applies 1 Scattered Star. Fire an enchanted arrow, dealing 40% Ranged Weapon Damage plus 9 as Arcane damage, increased further based on your maximum mana.' Ranged parallel to Starsunder's melee generator role, extended to 8 ranks.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 18,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 26,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 34,
+          "effect_value": 118
+        },
+        {
+          "rank": 4,
+          "level_req": 26,
+          "cost": 42,
+          "effect_value": 162
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 50,
+          "effect_value": 210
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 58,
+          "effect_value": 262
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 66,
+          "effect_value": 318
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 74,
+          "effect_value": 378
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "starcaller_moon_arrow",
+      "name": "Moon Arrow",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire an enchanted arrow, restoring mana. Scales with ranged attack power, spell power, and Intellect.",
+      "_source": "Confirmed screenshot: Lvl 2, '13 Physical damage and restoring 10% of your maximum mana plus 10.' Ranged Energy filler and Mana battery, matching Celestial Strike's melee role.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 25,
+          "effect_value": 22
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "starcaller_moonwell_splash",
+      "name": "Moonwell Splash",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Envelop an ally in moonwell waters, healing them.",
+      "_source": "Confirmed screenshot: Lvl 8, Moon Priest-locked, '76 healing.' The class's core direct heal.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 24,
+          "effect_value": 76
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 36,
+          "effect_value": 130
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 48,
+          "effect_value": 190
+        },
+        {
+          "rank": 4,
+          "level_req": 44,
+          "cost": 60,
+          "effect_value": 254
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 72,
+          "effect_value": 322
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_elunes_purification",
+      "name": "Elune's Purification",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Call down Elune's cleansing waters on an ally, removing a poison and disease effect.",
+      "_source": "Confirmed screenshot: Lvl 16, 'removing 1 poison and disease effect from them.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 22,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_hand_of_elune",
+      "name": "Hand of Elune",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Envelop an ally in Elune's grace, healing them, scaling with maximum mana. Usable while moving.",
+      "_source": "Confirmed screenshot: Lvl 16, 'Drains 20% Maximum Mana. Healing them, scaling with maximum mana.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 26,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_moonflow",
+      "name": "Moonflow",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Send forth moonwell waters to all nearby party and raid members, healing them.",
+      "_source": "Confirmed screenshot: Lvl 20ish, 12 Mana, instant, 10 sec cooldown, '140 healing.' Party-wide heal.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 12,
+          "effect_value": 140
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 20,
+          "effect_value": 230
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_tidal_rebirth",
+      "name": "Tidal Rebirth",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Instantly bring a dead ally back to life. Usable in combat.",
+      "_source": "Confirmed screenshot: Lvl 40, '400 health and 635 mana. This spell is usable in combat.' Real in-combat battle-rez, unusual for the archetype.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 999
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_starfire_shot",
+      "name": "Starfire Shot",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire an enchanted arrow, consuming Scattered Stars for bonus Arcane damage.",
+      "_source": "Confirmed screenshot: Lvl 18, 'Consumes Scattered Stars. Fire an enchanted arrow, dealing 120% Ranged Weapon Damage plus 80 Arcane damage, scaling further based on your maximum mana.' Sentinel's real ranged finisher.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 24,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 34,
+          "effect_value": 156
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 44,
+          "effect_value": 218
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_aspect_of_the_huntress",
+      "name": "Aspect of the Huntress",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "damage_dealt_pct": -25
+      },
+      "description": "Melee and ranged autoattacks now have a chance to drain mana and apply Scattered Stars, but your damage is reduced while active. Only 1 Aspect active at a time.",
+      "_source": "Confirmed screenshot: Lvl 26, 4 Mana, instant, 10 sec cooldown, 'a 35% chance to drain the target's mana equal to 25% of the damage dealt and apply Scattered Stars, but your damage is reduced by 25% while this is active.' Real risk/reward Aspect.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 22,
+          "effect_value": 25
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "starcaller_aspect"
+    },
+    {
+      "ability_id": "starcaller_starcall",
+      "name": "Starcall",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast the target enemy and all enemies near them with lunar fire, applying Scattered Stars.",
+      "_source": "Confirmed screenshot: Sentinel-locked, Lvl 26, 9 Mana, 45yd, 2s cast, 12 sec cooldown, '231 Arcane damage, applying Scattered Stars. Consuming a Scattered Star reduces the remaining cooldown by 1.5 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 9,
+          "effect_value": 231
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_trueshot",
+      "name": "Trueshot",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire at your target and nearby enemies, consuming Scattered Stars for bonus Arcane damage.",
+      "_source": "Confirmed screenshot: Lvl 36, 2 Charges, 18 sec recharge, 'Drains 20% Maximum Mana. Consumes Scattered Stars. Ranged Weapon Damage plus 57 Arcane damage, scaling with maximum mana.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 26,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_aspect_of_the_stars",
+      "name": "Aspect of the Stars",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Melee and ranged autoattacks now have a chance to apply Scattered Stars and deal bonus Arcane damage. Only 1 Aspect active at a time.",
+      "_source": "Confirmed screenshot: Lvl 4, '25% chance to apply Scattered Stars and deal 6 Arcane damage.' Part of the Aspect family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 20,
+          "effect_value": 25
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "starcaller_aspect"
+    },
+    {
+      "ability_id": "starcaller_aspect_of_the_warden",
+      "name": "Aspect of the Warden",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Melee and ranged autoattacks have a chance to strike 3 additional times for bonus Arcane damage and apply Scattered Stars. Only 1 Aspect active at a time.",
+      "_source": "Confirmed screenshot: Lvl 20, '10% chance to strike 3 additional times for 100% of the damage as Arcane damage and apply Scattered Stars. This damage cannot critically strike.' Part of the Aspect family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "starcaller_aspect"
+    },
+    {
+      "ability_id": "starcaller_fan_of_knives",
+      "name": "Fan of Knives",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Unleash hidden blades upon nearby enemies, applying a Scattered Star per hit.",
+      "_source": "Confirmed screenshot: Warden-locked, melee range, instant, 15 sec cooldown, 'dealing 25 Arcane damage scaling with maximum mana, applying 1 Scattered Star per hit. Consuming a Scattered Star reduces the remaining cooldown by 2 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 21,
+          "cost": 20,
+          "effect_value": 25
+        }
+      ],
+      "icon_id": "ability_melee",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_umbral_blade",
+      "name": "Umbral Blade",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Slash an enemy, consuming Scattered Stars for bonus Arcane damage that also hits nearby enemies for reduced damage.",
+      "_source": "Confirmed screenshot: Warden-locked, Lvl 25, 'dealing 178 Arcane damage to them and nearby enemies. Each additional enemy beyond the first takes 20% less damage.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 25,
+          "cost": 26,
+          "effect_value": 178
+        }
+      ],
+      "icon_id": "ability_melee",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_wardens_blade",
+      "name": "Warden's Blade",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Attack with celestial fervor, dealing weapon damage and triggering a unique effect based on your active Aspect.",
+      "_source": "Confirmed screenshot: Warden-locked, Lvl 20, 34 Mana, melee range, instant, 20 sec cooldown, '160% Weapon Damage and triggering a unique effect based on your active Aspect' - real per-Aspect effects: Moonwell=30% mana regen, Warden=40% healing-received reduction on target for 8s, Stars=+25% Lunar Lance damage, Cosmos=8s root trap, Huntress=10% mana drain, Goddess=party HoT around target.",
+      "target_type": "enemy",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 34,
+          "effect_value": 160
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_implementation_note": "The per-Aspect unique effect isn't dynamically modeled yet (this ability's effect always resolves as flat weapon damage regardless of which Aspect is active) - real per-Aspect branching needs a proper conditional-effect dispatch, same class of gap as the Weapon Engraving procs on Runemaster."
+    },
+    {
+      "ability_id": "starcaller_starburst",
+      "name": "Starburst",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Smash up to 8 enemies for Arcane damage, scaling with block value and maximum mana, reducing their attack speed. Applies 1 Scattered Star per hit.",
+      "_source": "CoA handoff doc confirmed as Moon Guard's real AoE builder. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": "ability_melee",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_chosen_of_the_moon",
+      "name": "Chosen of the Moon",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "taunt": 1,
+        "physical_damage_taken_pct": -15
+      },
+      "description": "Reduce your physical damage taken and taunt nearby enemies.",
+      "_source": "CoA handoff doc confirmed: 'Reduces physical damage taken + AoE taunt.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 26,
+          "effect_value": 15
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_moonlit_bulwark",
+      "name": "Moonlit Bulwark",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Shield yourself for an amount equal to your maximum mana. Usable while stunned.",
+      "_source": "CoA handoff doc confirmed: 'Shields for an amount equal to max mana. Usable while stunned.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 400
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "starcaller_vengeance_of_elune",
+      "name": "Vengeance of Elune",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "An unavoidable AoE Arcane hit that scales with Attack Power and Intellect. Usable only after parrying.",
+      "_source": "CoA handoff doc confirmed: 'AoE Arcane damage (scales with AP + Intellect), unavoidable; only after parrying.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_celestial_impact",
+      "name": "Celestial Impact",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "A ground stomp dealing Arcane AoE damage and stunning nearby enemies.",
+      "_source": "CoA handoff doc: 'Ground stomp: Arcane AoE + stun.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 45,
+          "effect_value": 140
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_shrouded_stars",
+      "name": "Shrouded Stars",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "damage_reduction_pct": 5
+      },
+      "description": "Grant the party and raid a damage reduction buff. Does not stack with similar effects.",
+      "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "starcaller_aspect_of_the_cosmos",
+      "name": "Aspect of the Cosmos",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Melee and ranged damage has a chance to slow the target, stacking, and apply Scattered Stars. Only 1 Aspect active at a time.",
+      "_source": "CoA tooltip confirmed (class-wide list): 'Melee/ranged damage chance to slow target (stacking) + apply Scattered Stars. Shares Aspect cooldown.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "starcaller_aspect"
+    },
+    {
+      "ability_id": "starcaller_huntress_saber",
+      "name": "Huntress Saber",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "movement_speed": 60,
+        "slow_immune": 1
+      },
+      "description": "Summon a mount granting increased movement speed, slow immunity, and the ability to cast offensive spells while moving.",
+      "_source": "CoA handoff doc: 'Mount: +movement speed, slow immunity, cast offensive spells while moving/without dismounting.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 60
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "starcaller_starlight",
+      "name": "Starlight",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {
+        "movement_speed": -25
+      },
+      "description": "A beam that repeatedly deals Arcane damage and slows enemies passing through.",
+      "_source": "CoA handoff doc: 'Beam: repeating Arcane damage + slows enemies passing through.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 32,
+          "effect_value": 50
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_rain_of_comets",
+      "name": "Rain of Comets",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A repeating AoE Arcane damage effect at a target area.",
+      "_source": "CoA handoff doc: 'Repeating AoE Arcane damage at target area.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 40,
+          "effect_value": 60
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_stellar_drift",
+      "name": "Stellar Drift",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "movement_speed": -30
+      },
+      "description": "Slow nearby enemies, then knock them back.",
+      "_source": "CoA handoff doc: 'Slows nearby enemies, then knocks them back.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 28,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_flow_of_waters",
+      "name": "Flow of Waters",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "crit_chance_spell": 5
+      },
+      "description": "Increase party and self critical strike chance. Does not stack with similar effects.",
+      "_source": "CoA handoff doc: 'Party/raid + self crit chance buff (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 22,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "starcaller_prayer_of_elune",
+      "name": "Prayer of Elune",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Heal up to several allies and dispel harmful magic from them.",
+      "_source": "Confirmed screenshot: Lvl 30, Sentinel(1) tag, 'healing up to 12 allies within 40 yds for 173, and dispel 1 harmful magic effect from them.' Moon Priest's real party heal+cleanse (tag conflict noted but mechanic clearly belongs here per the handoff doc).",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 173
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_aspect_of_the_goddess",
+      "name": "Aspect of the Goddess",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "healing_power_pct": 15
+      },
+      "description": "Increase healing done, guarantee your spells and abilities cannot miss, and cause consuming Scattered Stars to heal nearby allies. Only 1 Aspect active at a time.",
+      "_source": "CoA handoff doc confirmed as Moon Priest's signature identity mechanic. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 24,
+          "effect_value": 15
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "starcaller_aspect"
+    },
+    {
+      "ability_id": "starcaller_moonlit_slumber",
+      "name": "Moonlit Slumber",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Put an enemy to sleep and drain their mana over time. Damage ends the effect.",
+      "_source": "CoA handoff doc: 'Sleep + mana drain over time; damage ends it.' Modeled as a stun per the project's turn-based CC convention. Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 34,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_cosmic_shift",
+      "name": "Cosmic Shift",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "stealthed": 1
+      },
+      "description": "Phase a target ally into improved stealth. Does not break on damage.",
+      "_source": "CoA handoff doc: 'Phases target ally into improved stealth; doesn't break on damage.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "starcaller_celestial_form",
+      "name": "Celestial Form",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "crit_chance_spell": 20
+      },
+      "description": "Increase critical strike chance. Critical strikes reduce healing spell cooldowns and apply a Scattered Star to nearby targets, for a window.",
+      "_source": "CoA handoff doc confirmed as Moon Priest's real burst-healing cooldown. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "starcaller_celestial_awakening",
+      "name": "Celestial Awakening",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Battle-resurrect a fallen ally, restoring health, mana, and boosted mana regeneration. Usable out of combat.",
+      "_source": "CoA handoff doc: 'Battle-rez with health + mana + boosted mana regen. Out of combat.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 45,
+          "effect_value": 999
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_moonwater_blessing",
+      "name": "Moonwater Blessing",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {
+        "armor": 30
+      },
+      "description": "Heal an ally and increase their Armor while reducing their costs, scaling with Lunar Phase stacks.",
+      "_source": "CoA handoff doc: 'Heal + boosts target's Armor + reduces their costs; scales with Lunar Phase stacks.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 28,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "starcaller_stellar_convergence",
+      "name": "Stellar Convergence",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Apply Eclipsing Arrows to the party and raid, letting a Sentinel's Huntress Shot heal them.",
+      "_source": "CoA handoff doc: 'Applies Eclipsing Arrows to party/raid.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "starcaller_vigil_of_the_watchers",
+      "name": "Vigil of the Watchers",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "crit_chance_physical": 5
+      },
+      "description": "Grant the party and raid a critical strike chance buff. Does not stack with similar effects.",
+      "_source": "CoA handoff doc: 'Party/raid crit chance buff (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 24,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "starcaller_sentinel_glaive",
+      "name": "Sentinel Glaive",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A thrown weapon dealing Arcane damage that scales with maximum mana and increases the target's resource costs.",
+      "_source": "CoA handoff doc confirmed: 'Thrown weapon + Arcane damage, scales with max mana; boosts target's resource costs.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 22,
+          "effect_value": 65
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_astral_blade",
+      "name": "Astral Blade",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Deal Arcane damage that scales with maximum mana and increases the target's damage taken from you.",
+      "_source": "CoA handoff doc confirmed as Warden's real mana-scaled burst button. Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "starcaller_bonds_of_justice",
+      "name": "Bonds of Justice",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Tether an enemy. When the tether breaks, they are gripped back to you with Arcane damage.",
+      "_source": "CoA handoff doc confirmed: 'Tethers an enemy; break (expiry or 10+ yds distance) grips them back with Arcane damage.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 80
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_halt",
+      "name": "Halt",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "silenced": 1
+      },
+      "description": "Interrupt and school-lock an enemy's current cast.",
+      "_source": "CoA handoff doc confirmed as Warden's real interrupt/AoE-silence teleport. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 26,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_shooting_star",
+      "name": "Shooting Star",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "movement_speed": 70,
+        "slow_immune": 1
+      },
+      "description": "A burst of movement speed. Cannot be slowed and cannot stop moving while active.",
+      "_source": "CoA handoff doc confirmed: 'Movement speed burst; can't be slowed, can't stop moving while active.' Warden's only real defensive/disengage tool. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 20,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "starcaller_vigil_of_the_moon",
+      "name": "Vigil of the Moon",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Reveal stealthed and invisible enemies in an area.",
+      "_source": "CoA handoff doc: 'Reveals stealthed/invisible enemies in an area.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 18,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "starcaller_avatar_of_vengeance",
+      "name": "Avatar of Vengeance",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "intellect": 30
+      },
+      "description": "Transform, teleporting to your target and increasing your Intellect. Extends Astral Blade's range and teleports you to the target while active.",
+      "_source": "CoA handoff doc confirmed as Warden's real capstone transform, analogous to Metamorphosis. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 45,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "ability_buff"
+    }
+  ]
+}

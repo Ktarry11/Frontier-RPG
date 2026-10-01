@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""
+*** DEPRECATED - DO NOT RUN ***
+
+This was the original seed script for Ragefire Chasm and Plague Depths
+creature/encounter data. Its RFC content is now WRONG and superseded:
+
+  - The RFC boss roster here (Taragaman, Earthborer, Magmus, Pyromancer
+    Loregrain, "Ragefire Shaman Overlord") includes three invented
+    bosses that don't exist in real WoW - Magmus, Pyromancer Loregrain,
+    and Ragefire Shaman Overlord were never real RFC content. Earthborer
+    is a real RFC mob but is TRASH, not a boss - it was miscoded here.
+  - The RFC trash roster (Fire Imp, Magma Elemental, Corrupted Shaman,
+    Lava Lurker, Fire Cultist, Magma Seeker, Flame Guardian, Lava
+    Sentinel) is entirely fabricated. The real RFC trash is Ragefire
+    Trogg, Ragefire Shaman, Searing Blade Cultist, Searing Blade
+    Warlock, Voidwalker Minion, Molten Elemental, and Earthborer.
+  - This script writes directly to creatures.json/encounters.json via
+    save_json() - running it again would silently overwrite the
+    corrected RFC data with this old fabricated version.
+
+RFC's real roster, geometry, and pinned boss chambers now live in:
+  - tools/orgrimmar_undercity_expansion.py (generate_ragefire_chasm)
+  - tools/monster_kits.py (TROGG_KITS, CULTIST_KITS searing_blade_*,
+    RAGEFIRE_BOSS_KITS)
+  - data/creatures/creatures.json / ability_kits.json / encounters.json
+    (zones.Orgrimmar.caves["Ragefire Chasm"])
+
+This file's Plague Depths section has NOT been audited or corrected -
+it may have the same kind of fabricated-content problem as RFC did, but
+that dungeon hasn't had its real-mob pass yet. Do not trust it as a
+source without the same verification RFC just got. Kept only as
+historical reference for what Plague Depths' seed data used to look
+like; do not run add_creatures()/add_encounters() from here again.
+
+Original docstring:
+Ragefire Chasm: 5 bosses + 8 trash types
+Plague Depths: 5 bosses + 10 trash types
+"""
+
+import json
+import os
+
+DATA_DIR = "data/creatures"
+
+def load_json(filename):
+    with open(os.path.join(DATA_DIR, filename)) as f:
+        return json.load(f)
+
+def save_json(filename, data):
+    with open(os.path.join(DATA_DIR, filename), 'w') as f:
+        json.dump(data, f, indent=2)
+
+def add_creatures():
+    """Add massive creature roster."""
+    creatures = load_json("creatures.json")
+    
+    # ===== RAGEFIRE CHASM (5 bosses + 8 trash types) =====
+    ragefire = {
+        # Trash types (8 varieties)
+        "Fire Imp": {"template": "humanoid_caster", "level_range": [13, 15], "is_boss": False},
+        "Magma Elemental": {"template": "elemental_basic", "level_range": [14, 16], "is_boss": False, "stat_overrides": {"stamina": 1.3}},
+        "Corrupted Shaman": {"template": "humanoid_caster", "level_range": [15, 17], "is_boss": False},
+        "Lava Lurker": {"template": "beast_basic", "level_range": [14, 16], "is_boss": False},
+        "Fire Cultist": {"template": "humanoid_melee", "level_range": [13, 15], "is_boss": False},
+        "Magma Seeker": {"template": "beast_basic", "level_range": [15, 16], "is_boss": False},
+        "Flame Guardian": {"template": "humanoid_melee", "level_range": [16, 17], "is_boss": False},
+        "Lava Sentinel": {"template": "elemental_basic", "level_range": [15, 17], "is_boss": False},
+        
+        # Bosses (5 total)
+        "Taragaman the Hungerer": {"template": "beast_basic", "level_range": [15, 15], "is_boss": True, "boss_multiplier": 2.2},
+        "Earthborer": {"template": "elemental_basic", "level_range": [16, 16], "is_boss": True, "boss_multiplier": 2.3, "stat_overrides": {"stamina": 1.4}},
+        "Magmus": {"template": "elemental_basic", "level_range": [16, 16], "is_boss": True, "boss_multiplier": 2.4},
+        "Pyromancer Loregrain": {"template": "humanoid_caster", "level_range": [17, 17], "is_boss": True, "boss_multiplier": 2.5},
+        "Ragefire Shaman Overlord": {"template": "humanoid_caster", "level_range": [17, 17], "is_boss": True, "boss_multiplier": 2.6},
+    }
+    
+    # ===== PLAGUE DEPTHS (5 bosses + 10 trash types) =====
+    plague = {
+        # Trash types (10 varieties)
+        "Plagued Rat": {"template": "beast_basic", "level_range": [23, 24], "is_boss": False},
+        "Plague Zombie": {"template": "undead_melee", "level_range": [23, 25], "is_boss": False, "stat_overrides": {"stamina": 1.4}},
+        "Blight Cultist": {"template": "humanoid_caster", "level_range": [24, 25], "is_boss": False},
+        "Plagued Hound": {"template": "beast_basic", "level_range": [23, 24], "is_boss": False},
+        "Forsaken Traitor": {"template": "humanoid_melee", "level_range": [24, 25], "is_boss": False, "stat_overrides": {"strength": 1.2}},
+        "Plague Abomination": {"template": "undead_melee", "level_range": [24, 25], "is_boss": False, "stat_overrides": {"stamina": 1.3}},
+        "Plague Spore": {"template": "vermin_sneaky", "level_range": [22, 23], "is_boss": False},
+        "Rot Worm": {"template": "beast_basic", "level_range": [23, 24], "is_boss": False},
+        "Forsaken Witch": {"template": "humanoid_caster", "level_range": [24, 25], "is_boss": False},
+        "Plague Surgeon": {"template": "humanoid_caster", "level_range": [24, 26], "is_boss": False},
+        
+        # Bosses (5 total)
+        "Plagueweaver Vex": {"template": "humanoid_caster", "level_range": [25, 25], "is_boss": True, "boss_multiplier": 2.4},
+        "The Infected Noble": {"template": "humanoid_melee", "level_range": [25, 25], "is_boss": True, "boss_multiplier": 2.5},
+        "Plague Keeper Voss": {"template": "humanoid_caster", "level_range": [26, 26], "is_boss": True, "boss_multiplier": 2.6},
+        "Vile Plague Abomination": {"template": "undead_melee", "level_range": [26, 26], "is_boss": True, "boss_multiplier": 2.8, "stat_overrides": {"stamina": 1.5, "strength": 1.3}},
+        "Dark Sorcerer Zul'keth": {"template": "humanoid_caster", "level_range": [26, 26], "is_boss": True, "boss_multiplier": 3.0},
+    }
+    
+    creatures.update(ragefire)
+    creatures.update(plague)
+    save_json("creatures.json", creatures)
+    print("✓ Added 33 total creatures (5 RFC + 10 Plague + 5 RFC bosses + 5 Plague bosses + 3 RFC bosses)")
+
+def add_encounters():
+    """Add encounter tables with multiple boss pools."""
+    encounters = load_json("encounters.json")
+    
+    encounters["Ragefire Chasm"] = {
+        "open_zone": [
+            {"creature": "Fire Imp", "weight": 3},
+            {"creature": "Magma Elemental", "weight": 2},
+            {"creature": "Corrupted Shaman", "weight": 2},
+            {"creature": "Lava Lurker", "weight": 2},
+            {"creature": "Fire Cultist", "weight": 2},
+            {"creature": "Magma Seeker", "weight": 2},
+            {"creature": "Flame Guardian", "weight": 2},
+            {"creature": "Lava Sentinel", "weight": 1},
+        ],
+        "boss": [
+            {"creature": "Taragaman the Hungerer", "weight": 1},
+            {"creature": "Earthborer", "weight": 1},
+            {"creature": "Magmus", "weight": 1},
+            {"creature": "Pyromancer Loregrain", "weight": 1},
+            {"creature": "Ragefire Shaman Overlord", "weight": 1},
+        ]
+    }
+    
+    encounters["Plague Depths"] = {
+        "open_zone": [
+            {"creature": "Plagued Rat", "weight": 2},
+            {"creature": "Plague Zombie", "weight": 3},
+            {"creature": "Blight Cultist", "weight": 2},
+            {"creature": "Plagued Hound", "weight": 2},
+            {"creature": "Forsaken Traitor", "weight": 2},
+            {"creature": "Plague Abomination", "weight": 2},
+            {"creature": "Plague Spore", "weight": 1},
+            {"creature": "Rot Worm", "weight": 2},
+            {"creature": "Forsaken Witch", "weight": 2},
+            {"creature": "Plague Surgeon", "weight": 1},
+        ],
+        "boss": [
+            {"creature": "Plagueweaver Vex", "weight": 1},
+            {"creature": "The Infected Noble", "weight": 1},
+            {"creature": "Plague Keeper Voss", "weight": 1},
+            {"creature": "Vile Plague Abomination", "weight": 1},
+            {"creature": "Dark Sorcerer Zul'keth", "weight": 1},
+        ]
+    }
+    
+    save_json("encounters.json", encounters)
+    print("✓ Added encounter tables (5 boss pools each, 8-10 trash pools each)")
+
+if __name__ == "__main__":
+    print("Adding MASSIVE dungeon data...\n")
+    add_creatures()
+    add_encounters()
+    print("\n✓ All dungeon data added successfully!")

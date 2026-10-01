@@ -1,0 +1,179 @@
+{
+  "_notes": "Per-creature drops for non-gear LootItems (quest/material/trash) - checked in combat/combat_engine.py's _resolve_victory alongside the existing gear roll. Each entry is a list of possible drops; each drop rolls independently against its own chance, so a creature can drop more than one thing from one kill.",
+  "drops": {
+    "Sagewood Sprite": [
+      {
+        "item_id": "sagewood_petal",
+        "name": "Sagewood Petal",
+        "category": "quest",
+        "description": "A fragrant petal, still cool to the touch. Old Marta wants these fresh.",
+        "chance": 0.6
+      }
+    ],
+    "Jungle Panther": [
+      {
+        "item_id": "sturdy_reef_coral",
+        "name": "Sturdy Reef Coral",
+        "category": "quest",
+        "description": "Deep-red reef coral, tougher than the decorative kind - good for binding a palisade together.",
+        "chance": 0.45
+      }
+    ],
+    "Voodoo Troll": [
+      {
+        "item_id": "hexed_darkspear_totem",
+        "name": "Hexed Darkspear Totem",
+        "category": "quest",
+        "description": "A Darkspear fetish, twisted by Zalazane's hex but not beyond recognizing. Still warm with old magic.",
+        "chance": 0.5
+      }
+    ],
+    "Hex Troll": [
+      {
+        "item_id": "hexed_darkspear_totem",
+        "name": "Hexed Darkspear Totem",
+        "category": "quest",
+        "description": "A Darkspear fetish, twisted by Zalazane's hex but not beyond recognizing. Still warm with old magic.",
+        "chance": 0.5
+      }
+    ],
+    "Sunbaked Vulture": [
+      {
+        "item_id": "sunbaked_vulture_feather",
+        "name": "Sunbaked Vulture Feather",
+        "category": "quest",
+        "description": "A long, sun-bleached feather, remarkably free of scorch marks.",
+        "chance": 0.55
+      }
+    ],
+    "Kolkar Raider": [
+      {
+        "item_id": "salvaged_caravan_crate",
+        "name": "Salvaged Caravan Crate",
+        "category": "quest",
+        "description": "A battered supply crate, contents mostly intact despite everything.",
+        "chance": 0.4
+      },
+      {
+        "item_id": "trampled_grain_sack",
+        "name": "Trampled Grain Sack",
+        "category": "quest",
+        "description": "A grain sack torn from a raided supply wagon, dirty but the grain inside is still good.",
+        "chance": 0.5
+      }
+    ],
+    "Kolkar Marauder": [
+      {
+        "item_id": "sunworn_horn",
+        "name": "Sunworn Horn",
+        "category": "quest",
+        "description": "A centaur's horn, bleached pale by years under the Barrens sun. Good carving material.",
+        "chance": 0.45
+      }
+    ],
+    "Southsea Brigand": [
+      {
+        "item_id": "waterlogged_strongbox",
+        "name": "Waterlogged Strongbox",
+        "category": "quest",
+        "description": "A small strongbox, swollen shut with seawater. Whatever's inside survived the crossing.",
+        "chance": 0.4
+      }
+    ],
+    "Witchwing Harpy": [
+      {
+        "item_id": "witchwing_feather",
+        "name": "Witchwing Feather",
+        "category": "quest",
+        "description": "A long, dark feather still crackling faintly with residual magic.",
+        "chance": 0.5
+      }
+    ],
+    "Bristleback Raider": [
+      {
+        "item_id": "quilboar_battle_hide",
+        "name": "Quilboar Battle Hide",
+        "category": "quest",
+        "description": "Tough, scarred hide from a quilboar warrior - good material regardless of which tribe it came from.",
+        "chance": 0.45
+      },
+      {
+        "item_id": "ceremonial_bristleback_tusk",
+        "name": "Ceremonial Bristleback Tusk",
+        "category": "quest",
+        "description": "A carved tusk, worn as a mark of status among the Bristleback. Worth real money to the right collector.",
+        "chance": 0.3
+      }
+    ],
+    "Razormane Veteran": [
+      {
+        "item_id": "quilboar_battle_hide",
+        "name": "Quilboar Battle Hide",
+        "category": "quest",
+        "description": "Tough, scarred hide from a quilboar warrior - good material regardless of which tribe it came from.",
+        "chance": 0.45
+      }
+    ],
+    "Dreadmist Cultist": [
+      {
+        "item_id": "cultist_hoarded_coin",
+        "name": "Cultist Hoarded Coin",
+        "category": "quest",
+        "description": "A pouch of coin, looted from caravans over the years and never spent.",
+        "chance": 0.35
+      }
+    ],
+    "Dreadmist Warlock": [
+      {
+        "item_id": "cultist_hoarded_coin",
+        "name": "Cultist Hoarded Coin",
+        "category": "quest",
+        "description": "A pouch of coin, looted from caravans over the years and never spent.",
+        "chance": 0.35
+      }
+    ],
+    "Silithid Guardian": [
+      {
+        "item_id": "hardened_silithid_chitin",
+        "name": "Hardened Silithid Chitin",
+        "category": "quest",
+        "description": "Tough plated chitin, useful for armor crafting.",
+        "chance": 0.4
+      }
+    ],
+    "Silithid Stinger": [
+      {
+        "item_id": "silithid_stinger_barb",
+        "name": "Silithid Stinger Barb",
+        "category": "quest",
+        "description": "A venomous barb, still faintly toxic.",
+        "chance": 0.4
+      }
+    ],
+    "Sunscale Lashtail": [
+      {
+        "item_id": "sunscale_raptor_hide",
+        "name": "Sunscale Raptor Hide",
+        "category": "quest",
+        "description": "Tough scaled hide, prized by leatherworkers.",
+        "chance": 0.5
+      },
+      {
+        "item_id": "sunscale_raptor_egg",
+        "name": "Sunscale Raptor Egg",
+        "category": "quest",
+        "description": "A warm, speckled egg, carefully carried.",
+        "chance": 0.25
+      }
+    ],
+    "Sunscale Screecher": [
+      {
+        "item_id": "sunscale_raptor_hide",
+        "name": "Sunscale Raptor Hide",
+        "category": "quest",
+        "description": "Tough scaled hide, prized by leatherworkers.",
+        "chance": 0.4
+      }
+    ]
+  }
+}

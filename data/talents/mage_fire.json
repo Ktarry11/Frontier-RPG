@@ -1,0 +1,423 @@
+{
+  "spec_name": "Mage Fire",
+  "tree_id": "mage_fire",
+  "description": "Devastating burn damage built on critical strikes and lingering flame.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "mage_fire_improved_fireball",
+      "name": "Improved Fireball",
+      "description": "Increases Fireball damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_mage_fireball_damage": 0.05
+      },
+      "connected_to": [
+        "mage_fire_incineration"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_impact",
+      "name": "Impact",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "mage_fire_burning_soul"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_ignite",
+      "name": "Ignite",
+      "description": "Your fires linger, increasing spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "mage_fire_improved_scorch"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_flame_throwing",
+      "name": "Flame Throwing",
+      "description": "Increases Spell Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 6
+      },
+      "connected_to": [
+        "mage_fire_master_of_elements"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_incineration",
+      "name": "Incineration",
+      "description": "Increases Arcane Explosion damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_mage_arcane_explosion_damage": 0.08
+      },
+      "connected_to": [
+        "mage_fire_improved_fireball",
+        "mage_fire_playing_with_fire"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_burning_soul",
+      "name": "Burning Soul",
+      "description": "Increases Fire Resistance by 10 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "fire_resistance": 10
+      },
+      "connected_to": [
+        "mage_fire_impact",
+        "mage_fire_critical_mass"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_improved_scorch",
+      "name": "Improved Scorch",
+      "description": "Increases spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "spell_damage": 0.03
+      },
+      "connected_to": [
+        "mage_fire_ignite",
+        "mage_fire_blast_wave"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_master_of_elements",
+      "name": "Master of Elements",
+      "description": "Increases maximum Mana by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.03
+      },
+      "connected_to": [
+        "mage_fire_flame_throwing",
+        "mage_fire_fire_power"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_playing_with_fire",
+      "name": "Playing with Fire",
+      "description": "Increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "mage_fire_incineration",
+        "mage_fire_pyromaniac"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_critical_mass",
+      "name": "Critical Mass",
+      "description": "Increases spell critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_spell": 2.0
+      },
+      "connected_to": [
+        "mage_fire_burning_soul",
+        "mage_fire_combustion"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_blast_wave",
+      "name": "Blast Wave",
+      "description": "Reduces the cooldown of Arcane Explosion by 1 turn.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "ability_mage_arcane_explosion_cooldown": 1
+      },
+      "connected_to": [
+        "mage_fire_improved_scorch",
+        "mage_fire_molten_fury"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_fire_power",
+      "name": "Fire Power",
+      "description": "Increases Spell Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "spell_power": 6
+      },
+      "connected_to": [
+        "mage_fire_master_of_elements",
+        "mage_fire_empowered_fireball"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_combustion",
+      "name": "Combustion",
+      "description": "Grants Combustion, greatly increasing your Spell Critical Strike chance for a short time.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "mage_combustion"
+      },
+      "connected_to": [
+        "mage_fire_critical_mass",
+        "mage_fire_dragons_breath"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_molten_fury",
+      "name": "Molten Fury",
+      "description": "Increases spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "spell_damage": 0.03
+      },
+      "connected_to": [
+        "mage_fire_blast_wave",
+        "mage_fire_hot_streak"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_empowered_fireball",
+      "name": "Empowered Fireball",
+      "description": "Increases Fireball damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_mage_fireball_damage": 0.04
+      },
+      "connected_to": [
+        "mage_fire_fire_power",
+        "mage_fire_burnout"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_pyromaniac",
+      "name": "Pyromaniac",
+      "description": "Reduces the Mana cost of Fireball by 4 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_mage_fireball_cost": 4
+      },
+      "connected_to": [
+        "mage_fire_playing_with_fire"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_dragons_breath",
+      "name": "Dragon's Breath",
+      "description": "Increases spell damage by 5%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.05
+      },
+      "connected_to": [
+        "mage_fire_combustion",
+        "mage_fire_living_bomb"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_hot_streak",
+      "name": "Hot Streak",
+      "description": "Increases spell crit chance by 2% and Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "crit_chance_spell": 2.0,
+        "spell_power": 5
+      },
+      "connected_to": [
+        "mage_fire_molten_fury",
+        "mage_fire_firestarter"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_burnout",
+      "name": "Burnout",
+      "description": "Increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "mage_fire_empowered_fireball"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_living_bomb",
+      "name": "Living Bomb",
+      "description": "Increases Fireball damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_mage_fireball_damage": 0.06
+      },
+      "connected_to": [
+        "mage_fire_dragons_breath",
+        "mage_fire_pyroblast"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_firestarter",
+      "name": "Firestarter",
+      "description": "Increases Spell Power by 10 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "spell_power": 10
+      },
+      "connected_to": [
+        "mage_fire_hot_streak",
+        "mage_fire_fire_mastery"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_pyroblast",
+      "name": "Pyroblast",
+      "description": "Grants Pyroblast, a massive fiery boulder dealing devastating Fire damage.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "mage_pyroblast"
+      },
+      "connected_to": [
+        "mage_fire_living_bomb"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_fire_mastery",
+      "name": "Improved Flamestrike",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "mage_fire_firestarter"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,670 @@
+{
+  "quests": [
+    {
+      "quest_id": "taurajo_centaur_wind",
+      "title": "Centaur on the Wind",
+      "description": "Scout Ashhoof has watched the Kolkar raiding parties grow bolder along the eastern approach to Camp Taurajo. They strike the road near Far Watch Post, hit fast, and scatter before a proper warband can answer. She wants their numbers thinned before it becomes a real problem instead of a nuisance.",
+      "giver_npc_id": "taurajo_warband_scout",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Raider",
+          "count": 8,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 950,
+      "reward_gold": 4000,
+      "accept_text": "Eight of them, out past Far Watch Post. They ride in small bands, hit a wagon or a scout, and vanish before we can pin them down. Thin their numbers and maybe they'll think twice before the next raid.",
+      "turn_in_text": "Eight down. Good. The road's quieter already, though I doubt it'll stay that way for long. Kolkar don't give up territory easy.",
+      "next_quest_id": "taurajo_scout_outposts",
+      "level_min": 12,
+      "level_max": 15,
+      "gear_reward_gear_level": 15,
+      "unique_item_defs": [
+        {
+          "name": "Ashhoof's Broken Lance",
+          "slot": "main_hand",
+          "weapon_type": "polearm",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "flavor_text": "Scout Ashhoof had it reforged once already. It won't survive a second break.",
+          "secondary_stats": {
+            "attack_power": 5
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_scout_outposts",
+      "title": "Scout the Outposts",
+      "description": "With the raiders thinned near Far Watch Post, Scout Ashhoof wants eyes on the outpost itself - Camp Taurajo needs to know it's still standing and still Horde.",
+      "giver_npc_id": "taurajo_warband_scout",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_barrens",
+          "target_x": 258,
+          "target_y": 130,
+          "radius": 18
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 3000,
+      "accept_text": "Far Watch Post sits east, right where the road bends toward Durotar. Walk it yourself - I want to know it's still standing, still ours.",
+      "turn_in_text": "Still standing. Good. Outrider Kelsara's holding that post with fewer grunts than I'd like, but she's holding it.",
+      "next_quest_id": "taurajo_outriders_warning",
+      "level_min": 12,
+      "level_max": 14
+    },
+    {
+      "quest_id": "taurajo_outriders_warning",
+      "title": "The Outriders' Warning",
+      "description": "Word from Far Watch Post is grim - the Kolkar aren't just raiding anymore, they're massing near Mor'shan Base Camp. Scout Ashhoof wants that buildup broken before it turns into a real assault on the checkpoint.",
+      "giver_npc_id": "taurajo_warband_scout",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Raider",
+          "alt_targets": [
+            "Kolkar Marauder"
+          ],
+          "count": 9,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1150,
+      "reward_gold": 5500,
+      "accept_text": "Mor'shan Base Camp's seeing more Kolkar than usual, and not just raiders - Marauders too, which means they're serious about it. Break it up before it becomes a siege.",
+      "turn_in_text": "That's a real dent in their numbers. Warsong Outrider Dask owes you a drink, if orcs drank anything but blackrock ale.",
+      "level_min": 13,
+      "level_max": 16,
+      "gear_reward_gear_level": 14,
+      "unique_item_defs": [
+        {
+          "name": "Kolkar Hunter's Legguards",
+          "slot": "legs",
+          "armor_type": "mail",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4
+          },
+          "armor_value": 43,
+          "flavor_text": "Taken off a raider who won't be riding again."
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_salvage_wagons",
+      "title": "Salvage from the Wagons",
+      "description": "Grainkeeper Yura has lost more than one supply wagon to Kolkar raiders along the eastern road. She doesn't expect the wagons back, but the grain sacks the centaur scatter when they raid are still good, if someone's willing to collect them.",
+      "giver_npc_id": "taurajo_provisioner",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "trampled_grain_sack",
+          "count": 6
+        }
+      ],
+      "reward_exp": 850,
+      "reward_gold": 3500,
+      "accept_text": "Kolkar don't eat grain, far as I know. They just scatter it when they hit a wagon, out of spite more than anything. Six sacks, wherever you find them, and the camp eats a little better this week.",
+      "turn_in_text": "Six sacks. Dirty, but the grain's fine underneath. The camp thanks you, even if the wagons don't.",
+      "level_min": 12,
+      "level_max": 14
+    },
+    {
+      "quest_id": "taurajo_carvers_materials",
+      "title": "A Carver's Materials",
+      "description": "Carver Ahonen works centaur horn into totems when he can get it, though he won't say why he prefers it to plain wood. Kolkar Marauders carry sun-bleached horns worth collecting, if the Marauders can be convinced to part with them.",
+      "giver_npc_id": "taurajo_totem_carver",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sunworn_horn",
+          "count": 5
+        }
+      ],
+      "reward_exp": 850,
+      "reward_gold": 3500,
+      "accept_text": "Kolkar Marauders, not the Raiders - their horns are worth something, carved right. Five, and don't ask me what I'm making. You'll see it eventually.",
+      "turn_in_text": "Good horn. Clean break, no cracks. This'll carve into something worth having.",
+      "level_min": 13,
+      "level_max": 15,
+      "gear_reward_gear_level": 15,
+      "unique_item_defs": [
+        {
+          "name": "Sunworn Totem Guard",
+          "slot": "wrist",
+          "armor_type": "mail",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 3
+          },
+          "armor_value": 24,
+          "flavor_text": "Carved by Ahonen from the same horn you brought him. He kept one strap for himself."
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_old_grudges",
+      "title": "Old Grudges",
+      "description": "Elder Longtread remembers a Barrens before the Kolkar pressed this far east. He's willing to talk about it, if someone's willing to listen.",
+      "giver_npc_id": "taurajo_elder",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_kolkar",
+            "the_old_barrens",
+            "why_it_matters"
+          ]
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Sit a while. You're fighting the Kolkar out there - might as well know why they fight us back.",
+      "turn_in_text": "Now you understand it isn't just territory. It's memory, on both sides. That's worth carrying with you.",
+      "level_min": 14,
+      "level_max": 16
+    },
+    {
+      "quest_id": "taurajo_windhoofs_ledger",
+      "title": "Windhoof's Ledger",
+      "description": "Hela Windhoof keeps Camp Taurajo's supply ledger, and the losses from Kolkar raids are piling up faster than she can write them off. She wants the raiding parties dealt with directly - enough to make a real dent in the numbers, not just a token thinning.",
+      "giver_npc_id": "taurajo_quartermaster",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Raider",
+          "alt_targets": [
+            "Kolkar Marauder",
+            "Kolkar Drudge"
+          ],
+          "count": 12,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 7000,
+      "accept_text": "Twelve. I know that's a lot to ask, but the ledger doesn't lie - we're losing more to raids than the camp can absorb. Whichever Kolkar you find, Raider, Marauder, Drudge, it all counts against the same problem.",
+      "turn_in_text": "Twelve down. The ledger breathes a little easier, and so do I. Thank you for this.",
+      "level_min": 15,
+      "level_max": 18,
+      "gear_reward_gear_level": 17,
+      "unique_item_defs": [
+        {
+          "name": "Windhoof's Battle Harness",
+          "slot": "chest",
+          "armor_type": "leather",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_value": 33,
+          "flavor_text": "Fitted by Hela Windhoof herself - she doesn't fit just anyone."
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_trouble_coast",
+      "title": "Trouble on the Coast",
+      "description": "Customs Officer Prynn has heard reports of pirate activity along Merchant Coast, north of Ratchet's usual patrol routes. She wants confirmation before she takes it to Gazlowe.",
+      "giver_npc_id": "ratchet_customs_officer",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_barrens",
+          "target_x": 247,
+          "target_y": 227,
+          "radius": 25
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 3000,
+      "accept_text": "Merchant Coast, north of here. Sailors are talking about pirate sails again. I need someone to actually go look before I file a report that turns out to be fishermen's gossip.",
+      "turn_in_text": "So it's real. Southsea colors, you said? Gazlowe's not going to like hearing that.",
+      "next_quest_id": "ratchet_cutting_supply_lines",
+      "level_min": 12,
+      "level_max": 14
+    },
+    {
+      "quest_id": "ratchet_cutting_supply_lines",
+      "title": "Cutting the Supply Lines",
+      "description": "With pirate presence confirmed on Merchant Coast, Customs Officer Prynn wants their numbers cut down before they set up a permanent camp and start raiding Ratchet's shipping in earnest.",
+      "giver_npc_id": "ratchet_customs_officer",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Southsea Brigand",
+          "count": 8,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Eight Brigands, and don't be gentle about it. Every one you drop is one less problem for Ratchet's trade.",
+      "turn_in_text": "That'll slow them down. Won't stop them, but it'll slow them down, and right now I'll take it.",
+      "level_min": 13,
+      "level_max": 16
+    },
+    {
+      "quest_id": "ratchet_silence_guns",
+      "title": "Silence the Guns",
+      "description": "Fuzzek Boomwick doesn't like competition, and the Southsea Cannoneers dug in on Merchant Coast are exactly that - amateur artillery aimed at Ratchet's harbor. He wants them gone, partly for Ratchet's sake and partly out of professional pride.",
+      "giver_npc_id": "ratchet_explosives_dealer",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Southsea Cannoneer",
+          "count": 6,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1150,
+      "reward_gold": 5500,
+      "accept_text": "Cannoneers, on the coast. Their aim's terrible but their powder's real, and I don't like anyone playing with explosives who isn't me. Six of them, gone.",
+      "turn_in_text": "Six fewer amateurs with gunpowder. The harbor's safer, and so is my professional reputation.",
+      "level_min": 14,
+      "level_max": 17,
+      "gear_reward_gear_level": 17,
+      "unique_item_defs": [
+        {
+          "name": "Cannoneer's Confiscated Gun",
+          "slot": "ranged",
+          "weapon_type": "gun",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 3
+          },
+          "flavor_text": "Boomwick stripped the Southsea markings off himself. 'Good gun. Bad owner.'",
+          "secondary_stats": {
+            "crit_chance_physical": 2
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_recovered_cargo",
+      "title": "Recovered Cargo",
+      "description": "The Fence deals in things that fell off a ship, no questions asked - and the Southsea Brigands on Merchant Coast are sitting on strongboxes worth recovering, if someone's willing to take them by force.",
+      "giver_npc_id": "ratchet_black_market_fence",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "waterlogged_strongbox",
+          "count": 5
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 4000,
+      "accept_text": "Strongboxes, off the Brigands on the coast. I don't care how you get them off their bodies, just bring me five, still locked.",
+      "turn_in_text": "Still locked, just how I like them. Don't ask what's inside. You wouldn't get a cut anyway.",
+      "level_min": 13,
+      "level_max": 15,
+      "gear_reward_gear_level": 15,
+      "unique_item_defs": [
+        {
+          "name": "Fence's Honest Ring",
+          "slot": "ring",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4,
+            "stamina": 2
+          },
+          "flavor_text": "The Fence swears this one's clean. He swears that about everything.",
+          "secondary_stats": {
+            "hit_rating": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_loose_lips",
+      "title": "Loose Lips",
+      "description": "Smuggler Fintan hears things he probably shouldn't, and lately what he's hearing about the Southsea Freebooters' plans is making him nervous enough to actually share it.",
+      "giver_npc_id": "ratchet_smuggler",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_freebooters",
+            "the_maidens_dagger",
+            "what_happens_next"
+          ]
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "I hear things at the docks. Lately what I'm hearing has me looking over my shoulder more than usual. Ask me what you want to know, quietly.",
+      "turn_in_text": "That's everything I know, and now I'm going to pretend I never said any of it. Good luck out there.",
+      "level_min": 13,
+      "level_max": 16
+    },
+    {
+      "quest_id": "ratchet_bounty_saltspray",
+      "title": "Bounty: Captain Saltspray",
+      "description": "Bounty Hunter Drask has taken a contract on Captain Saltspray, the Southsea officer holding The Maiden's Dagger on Merchant Coast. The bounty's real, and so is the danger - Saltspray didn't get to captain by being careless.",
+      "giver_npc_id": "ratchet_bounty_hunter",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Saltspray",
+          "count": 1,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1600,
+      "reward_gold": 8500,
+      "accept_text": "Saltspray's the one holding that fort together. Take the head off the operation and the rest scatters. This won't be easy - contract wouldn't pay this well if it was.",
+      "turn_in_text": "Saltspray's done. I'll collect my contract fee, you collect yours. Fair trade.",
+      "level_min": 16,
+      "level_max": 18,
+      "gear_reward_gear_level": 18,
+      "unique_item_defs": [
+        {
+          "name": "Saltspray's Boarding Dagger",
+          "slot": "weapon",
+          "weapon_type": "dagger",
+          "item_level": 18,
+          "rarity": "rare",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 51,
+          "flavor_text": "Still smells like the sea. Still sharp enough to matter.",
+          "stat_template": "agi_physical"
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_barnacle_bet",
+      "title": "Barnacle Bill's Bet",
+      "description": "Barnacle Bill missed his ship again, and in typical Bill fashion he's turned it into a bet - he's wagered a drinking buddy that adventurers passing through can clear out a few Southsea stragglers faster than he can finish his tankard.",
+      "giver_npc_id": "ratchet_drunk_sailor",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Southsea Brigand",
+          "alt_targets": [
+            "Southsea Cannoneer"
+          ],
+          "count": 5,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 3000,
+      "accept_text": "Five pirates, any kind, before I finish this tankard. I've got coin riding on it. Probably shouldn't have bet against someone who wasn't even standing here yet, but here we are.",
+      "turn_in_text": "You actually did it! I owe Grizzik a round now, but I owe you more. Here.",
+      "level_min": 12,
+      "level_max": 14,
+      "gear_reward_gear_level": 14,
+      "unique_item_defs": [
+        {
+          "name": "Barnacle Bill's Lucky Boots",
+          "slot": "feet",
+          "armor_type": "leather",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 3
+          },
+          "armor_value": 24,
+          "flavor_text": "Bill lost the bet and the boots both. Mostly he's upset about the boots."
+        }
+      ]
+    },
+    {
+      "quest_id": "org_word_from_road",
+      "title": "Word from the Road",
+      "description": "Scout Windrider's reports on the Gold Road have gone quiet longer than they should. Orgrimmar wants someone to walk the road itself and confirm it's still passable.",
+      "giver_npc_id": "org_scout",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_barrens",
+          "target_x": 155,
+          "target_y": 160,
+          "radius": 40
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 3000,
+      "accept_text": "The Gold Road runs from Mor'shan Rampart down toward the Crossroads. My last few reports from caravan masters have been thin. Walk it, see what's slowing them down.",
+      "turn_in_text": "Bandits, you say. That tracks. The road's held worse, but it needs clearing before it holds much more.",
+      "next_quest_id": "org_keep_road_clear",
+      "level_min": 12,
+      "level_max": 14
+    },
+    {
+      "quest_id": "org_keep_road_clear",
+      "title": "Keep the Road Clear",
+      "description": "With bandit activity confirmed on the Gold Road, Scout Windrider wants their numbers cut - caravans need to move, and they can't do that with highwaymen picking them off one wagon at a time.",
+      "giver_npc_id": "org_scout",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Road Bandit",
+          "count": 8,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Eight bandits, wherever they're staging their ambushes along the road. The caravans need it clear, and clear means fewer bandits, not zero patience for them.",
+      "turn_in_text": "Eight down. The road's breathing easier, and so is every caravan master who runs it.",
+      "next_quest_id": "org_escalation",
+      "level_min": 13,
+      "level_max": 16
+    },
+    {
+      "quest_id": "org_escalation",
+      "title": "Escalation",
+      "description": "The bandits on the Gold Road aren't just highwaymen anymore - Scout Windrider's reports now mention organized Cutthroats and mounted Outriders, which means someone is running this operation with real coordination.",
+      "giver_npc_id": "org_scout",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bandit Cutthroat",
+          "alt_targets": [
+            "Bandit Outrider"
+          ],
+          "count": 9,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1300,
+      "reward_gold": 6500,
+      "accept_text": "This isn't random banditry anymore - Cutthroats and Outriders don't organize themselves. Break up whatever this is before it gets worse.",
+      "turn_in_text": "Nine down, and no sign of who's running them - yet. That's a problem for another day. Today, the road's clear.",
+      "level_min": 15,
+      "level_max": 18,
+      "gear_reward_gear_level": 16,
+      "unique_item_defs": [
+        {
+          "name": "Gold Road Gauntlets",
+          "slot": "hands",
+          "armor_type": "plate",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "strength": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "block_rating": 0.4
+          },
+          "armor_value": 37,
+          "flavor_text": "Bandit blood doesn't wash out. Scout Windrider says that's a feature."
+        }
+      ]
+    },
+    {
+      "quest_id": "org_feathers_fury",
+      "title": "Feathers and Fury",
+      "description": "Rethok the Hunter collects harpy feathers for reasons he doesn't fully explain, but he pays well and the Witchwing Harpies in Dry Hills have plenty to spare.",
+      "giver_npc_id": "org_hunter",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "witchwing_feather",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Witchwing Harpies, out in the Dry Hills. Nasty things, but their feathers are worth something to the right buyer. Six, and don't ask who the buyer is.",
+      "turn_in_text": "Good feathers. Still humming with a little magic. Exactly what I needed.",
+      "next_quest_id": "org_slayers_ring",
+      "level_min": 13,
+      "level_max": 16,
+      "gear_reward_gear_level": 16,
+      "unique_item_defs": [
+        {
+          "name": "Witchwing-Trimmed Mantle",
+          "slot": "shoulder",
+          "armor_type": "cloth",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 3
+          },
+          "armor_value": 20,
+          "flavor_text": "Rethok's own design. He won't say what he actually wanted the feathers for."
+        }
+      ]
+    },
+    {
+      "quest_id": "org_slayers_ring",
+      "title": "The Slayers' Ring",
+      "description": "The Witchwing Slayers are no ordinary harpies - they're Serena Bloodfeather's lieutenants, marked by the rings they carry, and Rethok wants them dealt with before going after Serena herself.",
+      "giver_npc_id": "org_hunter",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Witchwing Slayer",
+          "count": 4,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1250,
+      "reward_gold": 6000,
+      "accept_text": "The Slayers lead the underlings in Dry Hills - you can tell them by the rings they carry. Four of them, and Serena loses her chain of command.",
+      "turn_in_text": "Four rings, four Slayers. Serena's down to just herself now. That's exactly where I want her.",
+      "next_quest_id": "org_serenas_head",
+      "level_min": 16,
+      "level_max": 19,
+      "gear_reward_gear_level": 19,
+      "unique_item_defs": [
+        {
+          "name": "Bloodfeather Lieutenant's Talon",
+          "slot": "main_hand",
+          "weapon_type": "fist_weapon",
+          "item_level": 19,
+          "rarity": "rare",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 5
+          },
+          "flavor_text": "Still stained. Rethok says that's a feature, not a flaw.",
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "org_serenas_head",
+      "title": "Serena's Head",
+      "description": "With her lieutenants dead, Serena Bloodfeather stands alone in the Dry Hills - still attacking Horde caravans out of grief and revenge for her sister's death at Rexxar's hands. Rethok wants it ended, cleanly and for good.",
+      "giver_npc_id": "org_hunter",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Serena Bloodfeather",
+          "count": 1,
+          "zone": "northern_barrens"
+        }
+      ],
+      "reward_exp": 1700,
+      "reward_gold": 9000,
+      "accept_text": "Serena's alone now. She won't stop - grief doesn't stop just because the people you sent to spare you the fight are all dead. End it. She deserves better than to keep bleeding for a sister who isn't coming back, and the caravans deserve to stop paying for it.",
+      "turn_in_text": "It's done. I won't pretend that's a clean kind of victory. But the road's safer, and sometimes that has to be enough.",
+      "level_min": 18,
+      "level_max": 20,
+      "gear_reward_gear_level": 19,
+      "unique_item_defs": [
+        {
+          "name": "Bloodfeather's Talon Staff",
+          "slot": "weapon",
+          "weapon_type": "staff",
+          "item_level": 19,
+          "rarity": "rare",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "spell_power": 3,
+            "haste": 0.1
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 33,
+          "flavor_text": "A harpy's talon, still bound to the staff she carved it into. It hums with grief.",
+          "stat_template": "int_caster"
+        }
+      ]
+    }
+  ]
+}

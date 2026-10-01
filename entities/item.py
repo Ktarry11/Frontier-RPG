@@ -1,0 +1,179 @@
+"""
+Item class. Represents a single equippable item instance.
+Items are generated procedurally by loot_generator.py using JSON-defined
+armor types, weapon types, stat templates, rarity tiers, and slot weights
+(see data/items/*.json and docs/EQUIPMENT_SYSTEM_DESIGN.md).
+"""
+
+
+class Item:
+    """A single equippable item instance."""
+
+    def __init__(self, item_id, name, slot, item_level, rarity,
+                 armor_type=None, weapon_type=None, stat_template=None,
+                 primary_stats=None, secondary_stats=None, armor_value=0,
+                 required_level=1, sell_price=0, flavor_text="",
+                 set_id=None, sockets=None, enchant_id=None,
+                 weapon_damage_min=0, weapon_damage_max=0, attack_speed=0.0,
+                 block_value=0, bag_capacity=0, icon_id=None):
+        self.item_id = item_id
+        self.name = name
+        self.slot = slot  # e.g. "chest", "main_hand", "ring1", "bag1"-"bag4"
+        self.item_level = item_level
+        self.rarity = rarity  # "common", "uncommon", "rare", "epic", (poor/legendary reserved)
+
+        # Armor items carry armor_type; weapons carry weapon_type. One will be None.
+        # Bag items use armor_type="bag" - not on ARMOR_LADDER, so
+        # can_wear_armor_type() in proficiency.py fails open and any class
+        # can equip any bag, same as accessories. See entities/equipment.py
+        # BAG_SLOTS docstring for the rest of the bag system.
+        self.armor_type = armor_type
+        self.weapon_type = weapon_type
+
+        # stat_template determines which core stats this item rolls
+        # (e.g. "str_physical", "int_caster") - independent of armor_type/weapon_type
+        self.stat_template = stat_template
+
+        self.primary_stats = primary_stats or {}      # {"strength": 4, "stamina": 3}
+        self.secondary_stats = secondary_stats or {}   # {"crit_chance_physical": 1.5}
+        self.armor_value = armor_value
+
+        # Weapon combat stats (0 for non-weapons and shields).
+        # weapon_damage_min/max is the per-hit damage roll range at 1.0x speed;
+        # attack_speed is seconds-per-hit (WoW convention: lower = faster, e.g. Dagger 1.7, 2H 3.4).
+        # DPS = ((min+max)/2) / attack_speed
+        self.weapon_damage_min = weapon_damage_min
+        self.weapon_damage_max = weapon_damage_max
+        self.attack_speed = attack_speed
+
+        # Shields only: contributes directly to Character.block derived stat
+        self.block_value = block_value
+
+        # Bags only (armor_type="bag"): how many extra backpack slots this
+        # bag adds while equipped. 0 for every non-bag item. See
+        # Character.inventory_capacity for how this gets summed.
+        self.bag_capacity = bag_capacity
+
+        # Optional: real icon art (assets/icons/bags/<icon_id>.png,
+        # IconRenderer.BAG_ICON_DIR). Procedural armor/weapons don't set
+        # this - they render as rarity-colored boxes with text (see
+        # InventoryScreen). Bags are the one hand-authored item category
+        # with real per-item art (Kyle's 13-bag icon sheet), so this field
+        # exists specifically for them; None elsewhere is correctly a
+        # no-op (nothing else looks it up yet).
+        self.icon_id = icon_id
+
+        self.required_level = required_level
+        self.sell_price = sell_price
+        self.flavor_text = flavor_text
+
+        # Scaffolding for later phases (Section 9/10 of design doc) - unused in Phase 5
+        self.set_id = set_id
+        self.sockets = sockets or []
+        self.enchant_id = enchant_id
+
+    def get_dps(self):
+        """Damage per second for weapons. Returns 0 for non-weapons/shields.
+
+        Not currently used anywhere (2026-09-06) - combat is turn-based
+        and attack_speed never gates swing frequency, so a real "damage
+        per SECOND" figure doesn't correspond to anything that happens in
+        actual combat; the inventory tooltip that used to show this was
+        removed (see ui/screens/inventory_screen.py) because two items
+        dealing IDENTICAL damage (same damage_tier - see
+        data/items/weapon_types.json) could still show different "DPS"
+        purely from a leftover attack_speed value, which is misleading
+        now that speed doesn't affect anything. Kept rather than deleted
+        in case a real per-second stat becomes meaningful again later
+        (e.g. if auto-attacks ever get real-time pacing).
+        """
+        if self.attack_speed <= 0:
+            return 0.0
+        avg_damage = (self.weapon_damage_min + self.weapon_damage_max) / 2
+        return round(avg_damage / self.attack_speed, 1)
+
+    def get_all_stat_bonuses(self):
+        """Merge primary + secondary stats into a single dict for equip application."""
+        merged = dict(self.primary_stats)
+        for stat, value in self.secondary_stats.items():
+            merged[stat] = merged.get(stat, 0) + value
+        return merged
+
+    def get_rarity_color(self):
+        """Return the RGB color tuple for this item's rarity (for UI)."""
+        from pathlib import Path
+        import json
+        rarity_file = Path(__file__).parent.parent / "data" / "items" / "rarity.json"
+        with open(rarity_file, 'r') as f:
+            rarity_data = json.load(f)["rarity_tiers"]
+        tier = rarity_data.get(self.rarity, rarity_data["common"])
+        return tuple(tier["color"])
+
+    def is_weapon(self):
+        return self.weapon_type is not None
+
+    def is_armor(self):
+        return self.armor_type is not None and self.armor_type not in ("accessory", "weapon")
+
+    def is_bag(self):
+        return self.armor_type == "bag"
+
+    def to_dict(self):
+        """Serialize for save system."""
+        return {
+            "item_id": self.item_id,
+            "name": self.name,
+            "slot": self.slot,
+            "item_level": self.item_level,
+            "rarity": self.rarity,
+            "armor_type": self.armor_type,
+            "weapon_type": self.weapon_type,
+            "stat_template": self.stat_template,
+            "primary_stats": self.primary_stats,
+            "secondary_stats": self.secondary_stats,
+            "armor_value": self.armor_value,
+            "weapon_damage_min": self.weapon_damage_min,
+            "weapon_damage_max": self.weapon_damage_max,
+            "attack_speed": self.attack_speed,
+            "block_value": self.block_value,
+            "bag_capacity": self.bag_capacity,
+            "icon_id": self.icon_id,
+            "required_level": self.required_level,
+            "sell_price": self.sell_price,
+            "flavor_text": self.flavor_text,
+            "set_id": self.set_id,
+            "sockets": self.sockets,
+            "enchant_id": self.enchant_id,
+        }
+
+    @classmethod
+    def from_dict(cls, data):
+        """Deserialize from save data."""
+        return cls(
+            item_id=data["item_id"],
+            name=data["name"],
+            slot=data["slot"],
+            item_level=data["item_level"],
+            rarity=data["rarity"],
+            armor_type=data.get("armor_type"),
+            weapon_type=data.get("weapon_type"),
+            stat_template=data.get("stat_template"),
+            primary_stats=data.get("primary_stats", {}),
+            secondary_stats=data.get("secondary_stats", {}),
+            armor_value=data.get("armor_value", 0),
+            weapon_damage_min=data.get("weapon_damage_min", 0),
+            weapon_damage_max=data.get("weapon_damage_max", 0),
+            attack_speed=data.get("attack_speed", 0.0),
+            block_value=data.get("block_value", 0),
+            bag_capacity=data.get("bag_capacity", 0),
+            icon_id=data.get("icon_id"),
+            required_level=data.get("required_level", 1),
+            sell_price=data.get("sell_price", 0),
+            flavor_text=data.get("flavor_text", ""),
+            set_id=data.get("set_id"),
+            sockets=data.get("sockets", []),
+            enchant_id=data.get("enchant_id"),
+        )
+
+    def __repr__(self):
+        return f"<Item {self.name} (ilvl {self.item_level}, {self.rarity}, {self.slot})>"

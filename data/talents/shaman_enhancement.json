@@ -1,0 +1,530 @@
+{
+  "spec_name": "Shaman Enhancement",
+  "tree_id": "shaman_enhancement",
+  "description": "Melee warrior with weapons wreathed in elemental fury.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "shaman_enhancement_ancestral_knowledge",
+      "name": "Ancestral Knowledge",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "shaman_enhancement_improved_ghost_wolf"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_shield_specialization",
+      "name": "Shield Specialization",
+      "description": "Increases Block value by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "block": 2.0
+      },
+      "connected_to": [
+        "shaman_enhancement_enhancing_totems"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_guardian_totems",
+      "name": "Guardian Totems",
+      "description": "Increases Armor by 15 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "armor": 15
+      },
+      "connected_to": [
+        "shaman_enhancement_shamanistic_focus"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_thundering_strikes",
+      "name": "Thundering Strikes",
+      "description": "Increases critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "shaman_enhancement_flurry"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_improved_ghost_wolf",
+      "name": "Improved Ghost Wolf",
+      "description": "Increases Agility by 3 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "agility": 3
+      },
+      "connected_to": [
+        "shaman_enhancement_ancestral_knowledge",
+        "shaman_enhancement_toughness"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_enhancing_totems",
+      "name": "Enhancing Totems",
+      "description": "Increases Strength by 3 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "strength": 3
+      },
+      "connected_to": [
+        "shaman_enhancement_shield_specialization",
+        "shaman_enhancement_improved_windfury_totem"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_shamanistic_focus",
+      "name": "Shamanistic Focus",
+      "description": "Reduces the Mana cost of Earth Shock by 8.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_shaman_earth_shock_cost": 8
+      },
+      "connected_to": [
+        "shaman_enhancement_guardian_totems",
+        "shaman_enhancement_elemental_weapons"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_flurry",
+      "name": "Flurry",
+      "description": "Increases Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "shaman_enhancement_thundering_strikes",
+        "shaman_enhancement_spirit_weapons"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_toughness",
+      "name": "Toughness",
+      "description": "Increases Stamina by 3 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "stamina": 3
+      },
+      "connected_to": [
+        "shaman_enhancement_improved_ghost_wolf",
+        "shaman_enhancement_mental_dexterity"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_improved_windfury_totem",
+      "name": "Improved Windfury Totem",
+      "description": "Grants 10 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "attack_power": 10
+      },
+      "connected_to": [
+        "shaman_enhancement_enhancing_totems",
+        "shaman_enhancement_stormstrike"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_elemental_weapons",
+      "name": "Elemental Weapons",
+      "description": "Increases physical damage dealt by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.03
+      },
+      "connected_to": [
+        "shaman_enhancement_shamanistic_focus",
+        "shaman_enhancement_unleashed_rage"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_spirit_weapons",
+      "name": "Spirit Weapons",
+      "description": "Grants 3% Parry chance.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "parry": 3.0
+      },
+      "connected_to": [
+        "shaman_enhancement_flurry",
+        "shaman_enhancement_weapon_mastery"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_stormstrike",
+      "name": "Stormstrike",
+      "description": "Grants Stormstrike: an instant dual-weapon attack that weakens the target's resistance to your Nature damage.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "shaman_stormstrike"
+      },
+      "connected_to": [
+        "shaman_enhancement_improved_windfury_totem",
+        "shaman_enhancement_shamanistic_rage"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_unleashed_rage",
+      "name": "Unleashed Rage",
+      "description": "Grants 12 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "attack_power": 12
+      },
+      "connected_to": [
+        "shaman_enhancement_elemental_weapons",
+        "shaman_enhancement_dual_wield_specialization"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_weapon_mastery",
+      "name": "Weapon Mastery",
+      "description": "Increases physical damage dealt by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "physical_damage": 0.03
+      },
+      "connected_to": [
+        "shaman_enhancement_spirit_weapons",
+        "shaman_enhancement_static_shock"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_mental_dexterity",
+      "name": "Mental Dexterity",
+      "description": "Increases Intellect by 3 and grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "intellect": 3,
+        "attack_power": 6
+      },
+      "connected_to": [
+        "shaman_enhancement_toughness"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_shamanistic_rage",
+      "name": "Shamanistic Rage",
+      "description": "Grants Shamanistic Rage, reducing all damage taken by 30% and giving your melee attacks a chance to restore Mana, for a short time.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "shaman_shamanistic_rage"
+      },
+      "connected_to": [
+        "shaman_enhancement_stormstrike",
+        "shaman_enhancement_maelstrom_weapon"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_dual_wield_specialization",
+      "name": "Dual Wield Specialization",
+      "description": "Reduces your chance to miss by 1% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "shaman_enhancement_unleashed_rage",
+        "shaman_enhancement_improved_stormstrike"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_static_shock",
+      "name": "Static Shock",
+      "description": "Increases all damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "shaman_enhancement_weapon_mastery"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_maelstrom_weapon",
+      "name": "Maelstrom Weapon",
+      "description": "Increases Haste by 2 and grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "haste": 2.0,
+        "attack_power": 6
+      },
+      "connected_to": [
+        "shaman_enhancement_shamanistic_rage",
+        "shaman_enhancement_feral_spirit"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_improved_stormstrike",
+      "name": "Improved Stormstrike",
+      "description": "Increases critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_physical": 2.0
+      },
+      "connected_to": [
+        "shaman_enhancement_dual_wield_specialization",
+        "shaman_enhancement_enhancement_mastery"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_feral_spirit",
+      "name": "Feral Spirit",
+      "description": "Grants Feral Spirit, temporarily increasing your Attack Power.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "shaman_feral_spirit"
+      },
+      "connected_to": [
+        "shaman_enhancement_maelstrom_weapon"
+      ]
+    },
+    {
+      "talent_id": "shaman_enhancement_enhancement_mastery",
+      "name": "Frozen Power",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "shaman_enhancement_improved_stormstrike"
+      ]
+    },
+    {
+      "talent_id": "shaman_tank_toughness",
+      "name": "Toughness",
+      "description": "Increases your maximum Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": -6,
+      "effects": {
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "shaman_tank_guardian_totems"
+      ]
+    },
+    {
+      "talent_id": "shaman_tank_guardian_totems",
+      "name": "Guardian Totems",
+      "description": "Increases the amount of Armor increased by your Stoneskin Totem by 10% per rank and reduces the cooldown of your Grounding Totem by 1 sec per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": -4,
+      "effects": {
+        "ability_shaman_stoneskin_totem_potency": 0.1,
+        "ability_shaman_grounding_totem_cooldown": 1
+      },
+      "connected_to": [
+        "shaman_tank_earthen_attunement"
+      ]
+    },
+    {
+      "talent_id": "shaman_tank_earthen_attunement",
+      "name": "Earthen Attunement",
+      "description": "While Earthen Guardian is active you take 2% less physical damage and 3% less spell damage per rank. In addition, dealing physical damage reduces the target's Attack Power.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage_taken_pct_while_guardian": -0.02,
+        "magic_damage_taken_pct_while_guardian": -0.03,
+        "earthen_attunement_ap_shred": 19.33
+      },
+      "connected_to": [
+        "shaman_tank_totemic_bond"
+      ]
+    },
+    {
+      "talent_id": "shaman_tank_totemic_bond",
+      "name": "Totemic Bond",
+      "description": "Using Stoneclaw Totem while Earthen Guardian is active has a 33%/66%/100% chance to reduce all damage taken by 20% for 6 seconds. In addition, your threat generation while Earthen Guardian is active is further increased.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": 0,
+      "effects": {
+        "totemic_bond_proc_chance": 0.3333,
+        "totemic_bond_threat_bonus": 0.15
+      },
+      "connected_to": [
+        "shaman_tank_shield_specialization"
+      ]
+    },
+    {
+      "talent_id": "shaman_tank_shield_specialization",
+      "name": "Shield Specialization",
+      "description": "Increases your Armor value from your equipped Shield by 10% per rank and reduces the chance you'll be critically hit by melee attacks by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": 2,
+      "effects": {
+        "shield_armor_pct": 0.1,
+        "crit_taken_reduction": 2.0
+      },
+      "connected_to": [
+        "shaman_tank_spirit_guard"
+      ]
+    },
+    {
+      "talent_id": "shaman_tank_spirit_guard",
+      "name": "Spirit Guard",
+      "description": "You gain Block Rating equal to 33% of your Agility per rank. Ancestral spirits strengthen your shield, further reducing damage taken by blocked attacks by 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": 4,
+      "effects": {
+        "spirit_guard_block_from_agility": 0.33,
+        "block_bonus_reduction": 0.05
+      },
+      "connected_to": []
+    }
+  ]
+}

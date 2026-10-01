@@ -1,0 +1,424 @@
+{
+  "spec_name": "Priest Holy",
+  "tree_id": "priest_holy",
+  "description": "Pure restorative power channeled through the Light.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "priest_holy_healing_focus",
+      "name": "Healing Focus",
+      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "priest_holy_desperate_prayer"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_improved_renew",
+      "name": "Improved Renew",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "healing_done": 0.02
+      },
+      "connected_to": [
+        "priest_holy_blessed_recovery"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_holy_specialization",
+      "name": "Holy Specialization",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "priest_holy_spiritual_guidance"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_divine_fury",
+      "name": "Divine Fury",
+      "description": "Increases Smite damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_priest_smite_damage": 0.04
+      },
+      "connected_to": [
+        "priest_holy_inspiration"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_desperate_prayer",
+      "name": "Desperate Prayer",
+      "description": "Increases maximum Health by 5%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.05
+      },
+      "connected_to": [
+        "priest_holy_healing_focus",
+        "priest_holy_holy_reach"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_blessed_recovery",
+      "name": "Blessed Recovery",
+      "description": "Increases Healing Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "healing_power": 6
+      },
+      "connected_to": [
+        "priest_holy_improved_renew",
+        "priest_holy_improved_healing"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_spiritual_guidance",
+      "name": "Spiritual Guidance",
+      "description": "Increases Spirit by 3 and Healing Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "spirit": 3,
+        "healing_power": 4
+      },
+      "connected_to": [
+        "priest_holy_holy_specialization",
+        "priest_holy_searing_light"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_inspiration",
+      "name": "Inspiration",
+      "description": "Increases Armor by 15 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "armor": 15
+      },
+      "connected_to": [
+        "priest_holy_divine_fury",
+        "priest_holy_healing_prayers"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_holy_reach",
+      "name": "Holy Reach",
+      "description": "Increases Spell Power by 8 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "spell_power": 8
+      },
+      "connected_to": [
+        "priest_holy_desperate_prayer",
+        "priest_holy_empowered_healing"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_improved_healing",
+      "name": "Improved Healing",
+      "description": "Reduces the Mana cost of Heal by 5 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_priest_heal_cost": 5
+      },
+      "connected_to": [
+        "priest_holy_blessed_recovery",
+        "priest_holy_circle_of_healing"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_searing_light",
+      "name": "Searing Light",
+      "description": "Increases spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "spell_damage": 0.03
+      },
+      "connected_to": [
+        "priest_holy_spiritual_guidance",
+        "priest_holy_blessed_resilience"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_healing_prayers",
+      "name": "Healing Prayers",
+      "description": "Increases Healing Power by 8 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "healing_power": 8
+      },
+      "connected_to": [
+        "priest_holy_inspiration",
+        "priest_holy_spirit_of_redemption"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_circle_of_healing",
+      "name": "Circle of Healing",
+      "description": "Grants Circle of Healing, instantly healing your entire party.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "priest_circle_of_healing"
+      },
+      "connected_to": [
+        "priest_holy_improved_healing",
+        "priest_holy_serendipity"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_blessed_resilience",
+      "name": "Blessed Resilience",
+      "description": "Increases maximum Health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "max_health_pct": 0.03
+      },
+      "connected_to": [
+        "priest_holy_searing_light",
+        "priest_holy_body_and_soul"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_spirit_of_redemption",
+      "name": "Spirit of Redemption",
+      "description": "Grants 10 Spirit.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "spirit": 10
+      },
+      "connected_to": [
+        "priest_holy_healing_prayers",
+        "priest_holy_empowered_renew"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_empowered_healing",
+      "name": "Empowered Healing",
+      "description": "Increases the effect of Heal by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_priest_heal_damage": 0.05
+      },
+      "connected_to": [
+        "priest_holy_holy_reach"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_serendipity",
+      "name": "Serendipity",
+      "description": "Increases Haste by 3 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "haste": 3.0
+      },
+      "connected_to": [
+        "priest_holy_circle_of_healing",
+        "priest_holy_test_of_faith"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_body_and_soul",
+      "name": "Body and Soul",
+      "description": "Increases Stamina by 4 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "stamina": 4
+      },
+      "connected_to": [
+        "priest_holy_blessed_resilience",
+        "priest_holy_divine_providence"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_empowered_renew",
+      "name": "Empowered Renew",
+      "description": "Increases Healing Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "healing_power": 6
+      },
+      "connected_to": [
+        "priest_holy_spirit_of_redemption"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_test_of_faith",
+      "name": "Test of Faith",
+      "description": "Increases healing done by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "healing_done": 0.04
+      },
+      "connected_to": [
+        "priest_holy_serendipity",
+        "priest_holy_guardian_spirit"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_divine_providence",
+      "name": "Divine Providence",
+      "description": "Increases Healing Power by 7 and maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "healing_power": 7,
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "priest_holy_body_and_soul",
+        "priest_holy_holy_mastery"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_guardian_spirit",
+      "name": "Guardian Spirit",
+      "description": "Grants 40 Healing Power.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "healing_power": 40
+      },
+      "connected_to": [
+        "priest_holy_test_of_faith"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_holy_mastery",
+      "name": "Renewed Hope",
+      "description": "Increases all healing you do by 12%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "healing_done": 0.12
+      },
+      "connected_to": [
+        "priest_holy_divine_providence"
+      ]
+    }
+  ]
+}

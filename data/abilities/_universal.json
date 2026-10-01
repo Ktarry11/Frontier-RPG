@@ -1,0 +1,47 @@
+{
+  "abilities": [
+    {
+      "ability_id": "universal_shoot",
+      "name": "Shoot",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic ranged attack using your equipped ranged weapon (bow/gun/thrown). Requires a ranged weapon.",
+      "_source": "Placeholder scaling (Kyle's call, 2026-09-05): flat effect_value + Ranged Attack Power*0.5 + ranged weapon roll, mirroring the existing melee Attack formula. Revisit alongside the OG9 base-ability balance patch, not before.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "universal_shoot",
+      "requires_ranged_weapon": ["thrown", "bow", "gun", "crossbow"]
+    },
+    {
+      "ability_id": "universal_wand",
+      "name": "Wand",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic ranged attack using your equipped wand. Requires a wand.",
+      "_source": "Placeholder scaling (Kyle's call, 2026-09-05): reuses the existing spell_damage formula (effect_value + spell_power*1.5 + wand roll), fixed Arcane school since items don't carry a damage_school field yet. Revisit alongside the OG9 base-ability balance patch, not before.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "universal_wand",
+      "damage_school": "arcane",
+      "requires_ranged_weapon": "wand"
+    }
+  ]
+}

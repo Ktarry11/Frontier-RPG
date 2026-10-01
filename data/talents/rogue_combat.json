@@ -1,0 +1,442 @@
+{
+  "spec_name": "Rogue Combat",
+  "tree_id": "rogue_combat",
+  "description": "Toe-to-toe duelist relying on sustained damage and weapon skill.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "rogue_combat_improved_sinister_strike",
+      "name": "Improved Sinister Strike",
+      "description": "Reduces the Energy cost of Sinister Strike by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_rogue_sinister_strike_cost": 3
+      },
+      "connected_to": [
+        "rogue_combat_precision"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_lightning_reflexes",
+      "name": "Lightning Reflexes",
+      "description": "Increases Dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "dodge": 1.0
+      },
+      "connected_to": [
+        "rogue_combat_endurance"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_improved_gouge",
+      "name": "Improved Gouge",
+      "description": "Increases Agility by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "agility": 2
+      },
+      "connected_to": [
+        "rogue_combat_riposte"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_deflection",
+      "name": "Deflection",
+      "description": "Increases Parry chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "parry": 1.0
+      },
+      "connected_to": [
+        "rogue_combat_improved_slice_and_dice"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_precision",
+      "name": "Precision",
+      "description": "Reduces your chance to miss by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "rogue_combat_improved_sinister_strike",
+        "rogue_combat_dagger_specialization"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_endurance",
+      "name": "Endurance",
+      "description": "Increases maximum Health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.03
+      },
+      "connected_to": [
+        "rogue_combat_lightning_reflexes",
+        "rogue_combat_dual_wield_specialization"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_riposte",
+      "name": "Evasion",
+      "description": "Grants Evasion, greatly increasing your dodge chance for a short time.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "rogue_evasion"
+      },
+      "connected_to": [
+        "rogue_combat_improved_gouge",
+        "rogue_combat_blade_flurry"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_improved_slice_and_dice",
+      "name": "Improved Slice and Dice",
+      "description": "Increases Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "rogue_combat_deflection",
+        "rogue_combat_mace_specialization"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_dagger_specialization",
+      "name": "Dagger Specialization",
+      "description": "Increases critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "rogue_combat_precision",
+        "rogue_combat_vitality"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_dual_wield_specialization",
+      "name": "Dual Wield Specialization",
+      "description": "Increases physical damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "rogue_combat_endurance",
+        "rogue_combat_adrenaline_rush"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_blade_flurry",
+      "name": "Blade Flurry",
+      "description": "Grants 5 Haste and 4% physical damage.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "haste": 5.0,
+        "physical_damage": 0.04
+      },
+      "connected_to": [
+        "rogue_combat_riposte",
+        "rogue_combat_weapon_expertise"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_mace_specialization",
+      "name": "Mace Specialization",
+      "description": "Grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "attack_power": 6
+      },
+      "connected_to": [
+        "rogue_combat_improved_slice_and_dice",
+        "rogue_combat_aggression"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_adrenaline_rush",
+      "name": "Adrenaline Rush",
+      "description": "Grants Adrenaline Rush, doubling your Energy regeneration for a short time.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "rogue_adrenaline_rush"
+      },
+      "connected_to": [
+        "rogue_combat_dual_wield_specialization",
+        "rogue_combat_combat_potency"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_weapon_expertise",
+      "name": "Weapon Expertise",
+      "description": "Reduces your chance to miss by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "hit_rating": 1.5
+      },
+      "connected_to": [
+        "rogue_combat_blade_flurry",
+        "rogue_combat_surprise_attacks"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_aggression",
+      "name": "Aggression",
+      "description": "Increases Sinister Strike and Eviscerate damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_rogue_sinister_strike_damage": 0.05,
+        "ability_rogue_eviscerate_damage": 0.05
+      },
+      "connected_to": [
+        "rogue_combat_mace_specialization",
+        "rogue_combat_savage_combat"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_vitality",
+      "name": "Vitality",
+      "description": "Increases Agility by 3 and Stamina by 2 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "agility": 3,
+        "stamina": 2
+      },
+      "connected_to": [
+        "rogue_combat_dagger_specialization"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_combat_potency",
+      "name": "Combat Potency",
+      "description": "Grants 8 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "attack_power": 8
+      },
+      "connected_to": [
+        "rogue_combat_adrenaline_rush",
+        "rogue_combat_prey_on_the_weak"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_surprise_attacks",
+      "name": "Surprise Attacks",
+      "description": "Increases physical damage dealt by 5%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "physical_damage": 0.05
+      },
+      "connected_to": [
+        "rogue_combat_weapon_expertise",
+        "rogue_combat_killing_spree"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_savage_combat",
+      "name": "Savage Combat",
+      "description": "Increases all damage by 2% and grants 10 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "all_damage": 0.02,
+        "attack_power": 10
+      },
+      "connected_to": [
+        "rogue_combat_aggression"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_prey_on_the_weak",
+      "name": "Prey on the Weak",
+      "description": "Increases critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_physical": 2.0
+      },
+      "connected_to": [
+        "rogue_combat_combat_potency",
+        "rogue_combat_bandits_guile"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_killing_spree",
+      "name": "Killing Spree",
+      "description": "Increases Sinister Strike damage by 10% and Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_rogue_sinister_strike_damage": 0.1,
+        "haste": 2.0
+      },
+      "connected_to": [
+        "rogue_combat_surprise_attacks",
+        "rogue_combat_combat_mastery"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_bandits_guile",
+      "name": "Bandit's Guile",
+      "description": "Grants 8% physical damage and 25 Attack Power.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "physical_damage": 0.08,
+        "attack_power": 25
+      },
+      "connected_to": [
+        "rogue_combat_prey_on_the_weak"
+      ]
+    },
+    {
+      "talent_id": "rogue_combat_combat_mastery",
+      "name": "Blade Twisting",
+      "description": "Your melee attacks have a chance to reduce the target's chance to hit for a short time.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {},
+      "connected_to": [
+        "rogue_combat_killing_spree"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 50,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "blade_twisting_debuff",
+          "name": "Blade Twisting",
+          "effect_type": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "hit_chance_physical": -5,
+            "hit_chance_spell": -5
+          },
+          "on_target": true
+        }
+      }
+    }
+  ]
+}

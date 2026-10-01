@@ -1,0 +1,989 @@
+{
+  "class": "Druid",
+  "abilities": [
+    {
+      "ability_id": "druid_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic claw attack.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "druid_wrath",
+      "name": "Wrath",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Calls upon nature to strike the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 32,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 48,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 55,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 62,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 70,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 78,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 85,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "druid_moonfire",
+      "name": "Moonfire",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Burns the target with lunar fire over 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 38,
+          "effect_value": 126
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 46,
+          "effect_value": 156
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 54,
+          "effect_value": 186
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 62,
+          "effect_value": 216
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 70,
+          "effect_value": 246
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 78,
+          "effect_value": 276
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 86,
+          "effect_value": 306
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 94,
+          "effect_value": 336
+        }
+      ],
+      "icon_id": "ability_dot"
+    },
+    {
+      "ability_id": "druid_rejuvenation",
+      "name": "Rejuvenation",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Nature's energy restores your health over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 35,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 55,
+          "effect_value": 71
+        },
+        {
+          "rank": 3,
+          "level_req": 25,
+          "cost": 75,
+          "effect_value": 95
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 95,
+          "effect_value": 120
+        },
+        {
+          "rank": 5,
+          "level_req": 53,
+          "cost": 115,
+          "effect_value": 144
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_mark_of_the_wild",
+      "name": "Mark of the Wild",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "strength": 2,
+        "agility": 2,
+        "intellect": 2,
+        "spirit": 2,
+        "stamina": 2,
+        "fire_resistance": 10,
+        "frost_resistance": 10,
+        "nature_resistance": 10,
+        "shadow_resistance": 10,
+        "arcane_resistance": 10
+      },
+      "description": "Blesses you with the wild's favor, increasing all attributes and granting resistance to Fire, Frost, Nature, Shadow, and Arcane damage - matches Mark of the Wild's real WOTLK identity as a core party utility buff, not just a stat buff (previously had no resistance component at all since the engine had no school-resistance stats to grant).",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 40,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 29,
+          "cost": 80,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 100,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "druid_mangle",
+      "name": "Mangle",
+      "resource_type": "rage",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Mangles the target with savage claws. Requires Bear or Dire Bear Form - matches real WOTLK where Mangle literally cannot be cast without being shapeshifted.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 71
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 30,
+          "effect_value": 94
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 117
+        }
+      ],
+      "icon_id": null,
+      "requires_form": [
+        "bear",
+        "dire_bear"
+      ]
+    },
+    {
+      "ability_id": "druid_entangling_roots",
+      "name": "Entangling Roots",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": -18,
+        "dodge": -12
+      },
+      "description": "Roots ensnare the target, slowing it for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 35,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 53,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 71,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "druid_starfire",
+      "name": "Starfire",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Calls down a burst of stellar energy.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 50,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 76,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 102,
+          "effect_value": 106
+        }
+      ],
+      "icon_id": "ability_dot",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "druid_healing_touch",
+      "name": "Healing Touch",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A powerful healing spell drawn from nature.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 55,
+          "effect_value": 68
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 85,
+          "effect_value": 101
+        },
+        {
+          "rank": 3,
+          "level_req": 29,
+          "cost": 115,
+          "effect_value": 134
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "druid_wild_growth",
+      "name": "Wild Growth",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Wild Growth talent in the Restoration tree. Blankets the party with rapid, powerful healing that fades as it winds down. Heals up to 5 allies over 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 130,
+          "effect_value": 450
+        }
+      ],
+      "target_type": "party",
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_swiftmend",
+      "name": "Swiftmend",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Swiftmend talent in the Restoration tree. Consumes an active Rejuvenation on the target, instantly healing them for the remainder of that effect. Requires Rejuvenation to already be active on the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 110,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "ally",
+      "requires_talent": true,
+      "is_instant": true,
+      "consumes_hot": true,
+      "consumable_hot_ids": [
+        "druid_rejuvenation"
+      ],
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_natures_swiftness",
+      "name": "Nature's Swiftness",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "enable_instant_cast",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Nature's Swiftness talent in the Restoration tree. Your next Nature spell becomes instant. Does not consume a turn to cast.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_insect_swarm",
+      "name": "Insect Swarm",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Insect Swarm talent in the Balance tree. Swarms the target with insects, dealing Nature damage over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 45,
+          "effect_value": 46
+        }
+      ],
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_starfall",
+      "name": "Starfall",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Starfall talent in the Balance tree. Calls down a rain of stars, dealing Arcane damage to all enemies over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 150,
+          "effect_value": 78
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_typhoon",
+      "name": "Typhoon",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Typhoon talent in the Balance tree. A violent gust of wind blasts all enemies for Nature damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 45,
+          "cost": 120,
+          "effect_value": 70
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_talent": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_berserk",
+      "name": "Berserk",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "attack_power": 40
+      },
+      "description": "Not learned from level alone - granted by the Berserk talent in the Feral tree. PLACEHOLDER: real WOTLK Berserk makes Mangle hit 3 targets with no cooldown and halves Cat Form Energy costs for 15 sec - this engine has no forms/bleed-amplification system yet, so this is a temporary Attack Power buff instead until that exists.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_claw",
+      "name": "Claw",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Cat Form. Rends the target with sharp claws.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 40
+        }
+      ],
+      "requires_form": [
+        "cat"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_rake",
+      "name": "Rake",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Requires Cat Form. Rakes the target, dealing damage over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 40,
+          "effect_value": 44
+        }
+      ],
+      "requires_form": [
+        "cat"
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "druid_shred",
+      "name": "Shred",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Cat Form. A powerful attack dealing heavy damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 60,
+          "effect_value": 44
+        }
+      ],
+      "requires_form": [
+        "cat"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_ferocious_bite",
+      "name": "Ferocious Bite",
+      "resource_type": "energy",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Cat Form. A vicious finishing bite dealing heavy damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 35,
+          "effect_value": 48
+        }
+      ],
+      "requires_form": [
+        "cat"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_ravage",
+      "name": "Ravage",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Cat Form. PLACEHOLDER (no stealth system exists): real WOTLK Ravage requires stealth and deals massive bonus damage from behind - here it's simply a strong Cat Form attack on its own cooldown.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 60,
+          "effect_value": 54
+        }
+      ],
+      "requires_form": [
+        "cat"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_swipe_cat",
+      "name": "Swipe",
+      "resource_type": "energy",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Cat or Bear Form. A sweeping strike hitting all nearby enemies.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 45,
+          "effect_value": 46
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_form": [
+        "cat",
+        "bear",
+        "dire_bear"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_maul",
+      "name": "Maul",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Bear or Dire Bear Form. A powerful melee strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 42
+        }
+      ],
+      "requires_form": [
+        "bear",
+        "dire_bear"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_bash",
+      "name": "Bash",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Requires Bear or Dire Bear Form. Stuns the target for 1 turn.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 15,
+          "effect_value": 100
+        }
+      ],
+      "requires_form": [
+        "bear",
+        "dire_bear"
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "druid_regrowth",
+      "name": "Regrowth",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Heals the target and continues healing over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 60,
+          "effect_value": 52
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_thorns",
+      "name": "Thorns",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "physical_damage": 0.03
+      },
+      "description": "Real WOTLK Thorns causes enemies who melee the target to take Nature damage - no reflect-damage-on-being-hit mechanic exists, so this is approximated as a flat physical-damage buff on the target instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "buff_scope": "raid",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_barkskin",
+      "name": "Barkskin",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -0.2
+      },
+      "description": "Reduces all damage taken for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_enrage",
+      "name": "Enrage",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Bear or Dire Bear Form. Instantly generates Rage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_form": [
+        "bear",
+        "dire_bear"
+      ],
+      "generates": {
+        "resource": "rage",
+        "amount": 20
+      },
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_innervate",
+      "name": "Innervate",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Grants the target a large burst of Mana.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "generates": {
+        "resource": "mana",
+        "amount": 350
+      },
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "druid_hibernate",
+      "name": "Hibernate",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Puts a Beast or Dragonkin target to sleep for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "druid_bear_form",
+      "name": "Bear Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Bear Form, trading your Mana pool for Rage and increasing Armor and Stamina.",
+      "_source": "Real castable shapeshift, per Kyle's direction that forms should be actual spells rather than a separate menu (form_screen.py + its H-keybind are being retired). Class-wide baseline per real WoW - any Druid can Bear Form. Uses the existing combat/forms.py 'bear' form data (Lvl 10, Rage resource).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "bear"
+    },
+    {
+      "ability_id": "druid_cat_form",
+      "name": "Cat Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Cat Form, trading your Mana pool for Energy and increasing Agility and critical strike chance.",
+      "_source": "Real castable shapeshift, class-wide baseline per real WoW. Uses the existing combat/forms.py 'cat' form data (Lvl 20, Energy resource).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "cat"
+    },
+    {
+      "ability_id": "druid_moonkin_form",
+      "name": "Moonkin Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Moonkin Form, increasing Armor and spell critical strike chance.",
+      "_source": "Real castable shapeshift, unlocked by the Balance capstone talent. Uses the existing combat/forms.py 'moonkin' form data (Lvl 40, Mana resource - no resource change, just stat bonuses). Was previously a fake always-on passive stat bundle rather than a real toggleable form.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "moonkin"
+    },
+    {
+      "ability_id": "druid_tree_of_life",
+      "name": "Tree of Life",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Tree of Life, increasing healing done and reducing heal-over-time Mana costs.",
+      "_source": "Real castable shapeshift, unlocked by the Restoration capstone talent. Uses the existing combat/forms.py 'tree_of_life' form data (Lvl 50, Mana resource). Was previously a fake always-on passive stat bundle rather than a real toggleable form.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "tree_of_life"
+    },
+    {
+      "ability_id": "druid_dire_bear_form",
+      "name": "Dire Bear Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Dire Bear Form, an improved Bear Form with more Armor, Stamina, and Attack Power.",
+      "_source": "Real castable shapeshift, unlocked by the Feral capstone talent. Uses the existing combat/forms.py 'dire_bear' form data (Lvl 40, Rage resource).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "dire_bear"
+    }
+  ]
+}

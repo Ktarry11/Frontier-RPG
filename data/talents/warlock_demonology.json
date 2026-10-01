@@ -1,0 +1,426 @@
+{
+  "spec_name": "Warlock Demonology",
+  "tree_id": "warlock_demonology",
+  "description": "Demonic pacts granting durability and empowered minions.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "warlock_demonology_improved_healthstone",
+      "name": "Improved Healthstone",
+      "description": "Increases maximum Health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "max_health_pct": 0.03
+      },
+      "connected_to": [
+        "warlock_demonology_improved_voidwalker"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_embrace",
+      "name": "Demonic Embrace",
+      "description": "Increases Stamina by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "stamina": 3
+      },
+      "connected_to": [
+        "warlock_demonology_fel_intellect"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_improved_imp",
+      "name": "Improved Imp",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_aegis"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_fel_vitality",
+      "name": "Fel Vitality",
+      "description": "Increases maximum Mana by 3% and Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.03,
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "warlock_demonology_unholy_power"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_improved_voidwalker",
+      "name": "Improved Voidwalker",
+      "description": "Increases Armor by 15 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "armor": 15
+      },
+      "connected_to": [
+        "warlock_demonology_improved_healthstone",
+        "warlock_demonology_master_summoner"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_fel_intellect",
+      "name": "Fel Intellect",
+      "description": "Increases Intellect by 3 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "intellect": 3
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_embrace",
+        "warlock_demonology_demonic_sacrifice"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_aegis",
+      "name": "Demonic Aegis",
+      "description": "Increases Shadow Resistance by 10 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "shadow_resistance": 10
+      },
+      "connected_to": [
+        "warlock_demonology_improved_imp",
+        "warlock_demonology_master_demonologist"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_unholy_power",
+      "name": "Unholy Power",
+      "description": "Increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "warlock_demonology_fel_vitality",
+        "warlock_demonology_demonic_resilience"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_master_summoner",
+      "name": "Master Summoner",
+      "description": "Reduces the Mana cost of Shadow Bolt by 5 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_warlock_shadow_bolt_cost": 5
+      },
+      "connected_to": [
+        "warlock_demonology_improved_voidwalker",
+        "warlock_demonology_improved_felhunter"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_sacrifice",
+      "name": "Demonic Sacrifice",
+      "description": "Increases spell damage by 5%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "spell_damage": 0.05
+      },
+      "connected_to": [
+        "warlock_demonology_fel_intellect",
+        "warlock_demonology_soul_link"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_master_demonologist",
+      "name": "Master Demonologist",
+      "description": "Increases Spell Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "spell_power": 6
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_aegis",
+        "warlock_demonology_demonic_knowledge"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_resilience",
+      "name": "Demonic Resilience",
+      "description": "Increases Armor by 18 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "armor": 18
+      },
+      "connected_to": [
+        "warlock_demonology_unholy_power",
+        "warlock_demonology_demonic_tactics"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_soul_link",
+      "name": "Soul Link",
+      "description": "Grants 6% maximum Health and 30 Armor.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "max_health_pct": 0.06,
+        "armor": 30
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_sacrifice",
+        "warlock_demonology_demonic_empowerment"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_knowledge",
+      "name": "Demonic Knowledge",
+      "description": "Increases Intellect by 4 and Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "intellect": 4,
+        "spell_power": 5
+      },
+      "connected_to": [
+        "warlock_demonology_master_demonologist",
+        "warlock_demonology_molten_core"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_tactics",
+      "name": "Demonic Tactics",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_resilience",
+        "warlock_demonology_demonic_pact"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_improved_felhunter",
+      "name": "Improved Felhunter",
+      "description": "Increases maximum Mana by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "max_mana_pct": 0.04
+      },
+      "connected_to": [
+        "warlock_demonology_master_summoner"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_empowerment",
+      "name": "Demonic Empowerment",
+      "description": "Grants 25 Spell Power.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "spell_power": 25
+      },
+      "connected_to": [
+        "warlock_demonology_soul_link",
+        "warlock_demonology_decimation"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_molten_core",
+      "name": "Molten Core",
+      "description": "Increases Immolate damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_warlock_immolate_damage": 0.08
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_knowledge",
+        "warlock_demonology_demonic_brutality"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_pact",
+      "name": "Demonic Pact",
+      "description": "Increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_tactics"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_decimation",
+      "name": "Decimation",
+      "description": "Increases Shadow Bolt damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_warlock_shadow_bolt_damage": 0.06
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_empowerment",
+        "warlock_demonology_metamorphosis"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonic_brutality",
+      "name": "Demonic Brutality",
+      "description": "Increases Stamina by 4 and Spell Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "stamina": 4,
+        "spell_power": 6
+      },
+      "connected_to": [
+        "warlock_demonology_molten_core",
+        "warlock_demonology_demonology_mastery"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_metamorphosis",
+      "name": "Metamorphosis",
+      "description": "Grants Metamorphosis, temporarily increasing your Attack Power and Armor.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "warlock_metamorphosis"
+      },
+      "connected_to": [
+        "warlock_demonology_decimation"
+      ]
+    },
+    {
+      "talent_id": "warlock_demonology_demonology_mastery",
+      "name": "Nemesis",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "warlock_demonology_demonic_brutality"
+      ]
+    }
+  ]
+}

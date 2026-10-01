@@ -1,0 +1,397 @@
+{
+  "spec_name": "Primalist Grovekeeper",
+  "tree_id": "primalist_grovekeeper",
+  "description": "Nature's caretaker - grove magic and rejuvenating rituals.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 17 confirmed Grovekeeper nodes trimmed to a lean 12-node tree. Grove Training confirmed as capstone: 'All melee damage or healing done now has a 10% chance to grant you Aftershock for 15 seconds. Aftershock: your next Geode Barrage or Earthquake within 15 seconds is now instant cast and costs -75% less.'",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "primalist_grovekeeper_primal_power",
+      "name": "Primal Power",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_flourishing_growth"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_keeper_of_the_grove",
+      "name": "Keeper of the Grove",
+      "description": "Reduces the Rage cost of Hand of the Earthmother by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.03
+      },
+      "connected_to": [
+        "primalist_grovekeeper_grove_tender"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_primordial_earth",
+      "name": "Primordial Earth",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_eternally_chosen"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_grove_training",
+      "name": "Grove Training",
+      "description": "Learn Grove Tender, a moderate heal-over-time spell.",
+      "node_type": "active",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "unlock_ability": "primalist_grove_tender"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ring_of_life"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_flourishing_growth",
+      "name": "Flourishing Growth",
+      "description": "Increases Hand of the Earthmother healing by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_hand_of_the_earthmother_healing": 0.04
+      },
+      "connected_to": [
+        "primalist_grovekeeper_primal_power"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_grove_tender",
+      "name": "Grove Tender",
+      "description": "Increases Grove Tender's healing over time by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_grove_tender_healing": 0.06
+      },
+      "connected_to": [
+        "primalist_grovekeeper_keeper_of_the_grove"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_eternally_chosen",
+      "name": "Eternally Chosen",
+      "description": "Learn Blessing of Neptulon, a party-wide heal-over-time spell.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "primalist_blessing_of_neptulon"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_primordial_earth"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_ring_of_life",
+      "name": "Ring of Life",
+      "description": "Learn Sacred Grove, a ward that heals the party each turn while active.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "primalist_sacred_grove"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_grove_training",
+        "primalist_grovekeeper_earthmothers_binding"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_earthmothers_binding",
+      "name": "Earthmother's Binding",
+      "description": "Increases Blessing of Neptulon healing by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_blessing_of_neptulon_healing": 0.08
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ring_of_life",
+        "primalist_grovekeeper_shaman_training"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_shaman_training",
+      "name": "Shaman Training",
+      "description": "Increases Sacred Grove healing by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "ability_primalist_sacred_grove_healing": 0.08
+      },
+      "connected_to": [
+        "primalist_grovekeeper_earthmothers_binding",
+        "primalist_grovekeeper_ancient_of_lore"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_ancient_of_lore",
+      "name": "Ancient of Lore",
+      "description": "Increases all healing done by 2% per rank while below 50% Mana.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "low_mana_healing_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_shaman_training",
+        "primalist_grovekeeper_grove_training_capstone"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_grove_training_capstone",
+      "name": "Aftershock",
+      "description": "All melee damage or healing done now has a 10% chance to grant Aftershock: your next Geode Barrage or Earthquake within 15 seconds is instant cast and costs 75% less.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "aftershock_proc"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ancient_of_lore"
+      ],
+      "_source": "CoA tooltip confirmed verbatim as 'Grove Training' - renamed to 'Aftershock' here since that's the actual proc effect's name and 'Grove Training' was already used for the earlier Grove Tender unlock node, avoiding a duplicate node name."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_verdant_touch",
+      "name": "Verdant Touch",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_primal_power"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_nature_reserve",
+      "name": "Nature Reserve",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_primordial_earth"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_grove_wisdom",
+      "name": "Grove Wisdom",
+      "description": "Reduces the Rage cost of Hand of the Earthmother by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.03
+      },
+      "connected_to": [
+        "primalist_grovekeeper_keeper_of_the_grove"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_living_roots",
+      "name": "Living Roots",
+      "description": "Increases the potency of your heal-over-time effects by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "hot_potency_pct": 0.04
+      },
+      "connected_to": [
+        "primalist_grovekeeper_grove_training"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_earthmothers_gift",
+      "name": "Earthmother's Gift",
+      "description": "Increases Blessing of Neptulon healing by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "ability_primalist_blessing_of_neptulon_healing": 0.05
+      },
+      "connected_to": [
+        "primalist_grovekeeper_eternally_chosen"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_sacred_bloom",
+      "name": "Sacred Bloom",
+      "description": "Increases Sacred Grove's healing by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_sacred_grove_healing": 0.05
+      },
+      "connected_to": [
+        "primalist_grovekeeper_shaman_training"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_communal_growth",
+      "name": "Communal Growth",
+      "description": "Increases party-wide heals by 3% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "party_heal_pct": 0.03
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ancient_of_lore"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_resilient_roots",
+      "name": "Resilient Roots",
+      "description": "Reduces the Mana cost of all heals by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "heal_cost_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ring_of_life"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_natures_swiftness",
+      "name": "Nature's Swiftness",
+      "description": "Increases healing done by 2% per rank while above 70% Mana.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "high_mana_healing_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_grove_training_capstone"
+      ]
+    },
+    {
+      "talent_id": "primalist_grovekeeper_seismic_wave",
+      "name": "Seismic Wave",
+      "description": "Learn Seismic Wave, creating a wave of healing water around you that also damages enemies. Shares a cooldown with other Seismic spells.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "primalist_seismic_wave"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ring_of_life"
+      ],
+      "_source": "Confirmed screenshot: Grovekeeper-locked, Lvl 22, '111 healing to up to 8 allies in a 25 yd radius and 68 Nature damage in a 10 yd radius around you.'"
+    }
+  ]
+}

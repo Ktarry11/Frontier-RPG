@@ -1,0 +1,1073 @@
+{
+  "class": "Primalist",
+  "_source_note": "Fully rebuilt (2nd pass, Sept 2026) from 35 real in-game tooltip screenshots pulled directly from Ascension by Kyle (Priimalist.docx). Major corrections: Geode Barrage is 10 Mana/16 Physical dmg at Rank 1 (was modeled with Nature-ish flavor and higher numbers); Wildclaw is 30 Rage (was 20); Earthquake is Lvl 16 and a Nature DoT+slow (was Lvl 10 flat Physical AoE); Hand of the Earthmother is Lvl 6 (was 4); Mountain Hammer moved to Mountain King spec tree (was wrongly class-wide) and corrected to Lvl 26. Added the Seismic spell family (Geode Barrage/Seismic Crash/Seismic Spike/Seismic Tremor/Seismic Wave, shared cooldown), the Boon family (Turtle/Bear/Wolf/Hawk/Lion, mutually exclusive via exclusive_group), and the Instinct family (Grove/Primal, mutually exclusive). Rank-1 starting-ability values from this batch supersede the earlier session's guessed numbers.",
+  "abilities": [
+    {
+      "ability_id": "primalist_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic weapon strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "primalist_geode_barrage",
+      "name": "Geode Barrage",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fling stones at an enemy, dealing Physical damage and generating Rage. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_source": "Confirmed screenshot: 10 Mana, 30yd, 1.8s cast, '16 Physical Damage and generating Rage' at Rank 1. Core level-1 Rage generator, extended to 8 ranks per Kyle's rank-up direction.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 10,
+          "effect_value": 16
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 15,
+          "effect_value": 28
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 44
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 62
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 82
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 35,
+          "effect_value": 104
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 128
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 45,
+          "effect_value": 154
+        }
+      ],
+      "generates": {
+        "resource": "rage",
+        "amount": 20
+      },
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "primalist_wildclaw",
+      "name": "Wildclaw",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strike with both weapons at once.",
+      "_source": "Confirmed screenshot: 30 Rage (was 20), melee range, instant, 'Requires Melee Weapon', 'Weapon Damage plus 4' at Rank 1. Core level-1 Rage spender, extended to 8 ranks.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 30,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 30,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 108
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 134
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 162
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 192
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 224
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "primalist_seismic_crash",
+      "name": "Seismic Crash",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Create stalactites that strike your enemy 3 times, generating Rage. Real physical damage (was previously miscategorized as spell_damage, which incorrectly scaled it off Spell Power - fixed to match its own confirmed screenshot data: '90 Physical damage', and Primalist's real Strength/melee-hybrid identity per the class resource reference). Shares a cooldown with other Seismic spells.",
+      "_source": "Confirmed screenshot: Lvl 2, '90 Physical damage over 1 sec. Generates 20 Rage.' Second Rage generator alongside Geode Barrage, part of the Seismic family.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 12,
+          "effect_value": 90
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 20,
+          "effect_value": 140
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 28,
+          "effect_value": 196
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 36,
+          "effect_value": 258
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 44,
+          "effect_value": 326
+        }
+      ],
+      "generates": {
+        "resource": "rage",
+        "amount": 20
+      },
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "primalist_stoneshard",
+      "name": "Stoneshard",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launch a sharpened stone at an enemy. Deals additional damage per Earthshaping stack. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_source": "Confirmed screenshot: Lvl 4, '60 Physical damage. Deals 5% additional damage for each Earthshaping stack.' Earthshaping stack-scaling not yet modeled dynamically.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 16,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 104
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 36,
+          "effect_value": 152
+        },
+        {
+          "rank": 4,
+          "level_req": 52,
+          "cost": 46,
+          "effect_value": 204
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "primalist_hand_of_the_earthmother",
+      "name": "Hand of the Earthmother",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Rejuvenate an ally.",
+      "_source": "Confirmed screenshot: Lvl 6 (was Lvl 4), 'healing them for 66' at Rank 1. Extended to 8 ranks.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 25,
+          "effect_value": 66
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 96
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 130
+        },
+        {
+          "rank": 4,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 168
+        },
+        {
+          "rank": 5,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 210
+        },
+        {
+          "rank": 6,
+          "level_req": 46,
+          "cost": 25,
+          "effect_value": 256
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 306
+        },
+        {
+          "rank": 8,
+          "level_req": 60,
+          "cost": 25,
+          "effect_value": 360
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "primalist_boon_of_the_turtle",
+      "name": "Boon of the Turtle",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "damage_taken_pct": -10
+      },
+      "description": "Reduce your damage taken and cause you to deal Nature damage to melee attackers. Only 1 Boon may be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 4, '-10% damage taken, 4 to 3 Nature damage to melee attackers.' Part of the mutually-exclusive Boon family (Turtle/Bear/Wolf/Hawk/Lion).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 20,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "primalist_boon"
+    },
+    {
+      "ability_id": "primalist_boon_of_the_bear",
+      "name": "Boon of the Bear",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "attack_power_pct": 10,
+        "haste": 10
+      },
+      "description": "Increase melee attack power, melee haste, and Rage generated from auto attacks. Only 1 Boon may be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 8, all +10%.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 20,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "primalist_boon"
+    },
+    {
+      "ability_id": "primalist_primal_instinct",
+      "name": "Primal Instinct",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "attack_power": 30
+      },
+      "description": "Invoke a savage instinct on an ally, increasing Attack Power. Players may only have one Instinct on them at a time.",
+      "_source": "Confirmed screenshot: Lvl 8, '+30 Attack Power. Lasts 30 min.' Part of the mutually-exclusive Instinct family (Grove/Primal).",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 20,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "primalist_instinct"
+    },
+    {
+      "ability_id": "primalist_therazanes_rage",
+      "name": "Therazane's Rage",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Generate a burst of Mana and Rage, then continue generating both for a short time.",
+      "_source": "Confirmed screenshot: Lvl 10, 'Generates 10% maximum mana and 20 Rage, plus an additional 2 Rage and 3 mana every 2 sec for 10 sec.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 20
+        }
+      ],
+      "generates": {
+        "resource": "rage",
+        "amount": 20
+      },
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "primalist_heart_of_the_mountain",
+      "name": "Heart of the Mountain",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "threat_generation_pct": 150
+      },
+      "description": "Therazane favors you, greatly increasing your threat generated.",
+      "_source": "Confirmed screenshot: Lvl 14, '+150% threat generated.' Real tank cooldown.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "primalist_natures_call",
+      "name": "Nature's Call",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "taunt": 1
+      },
+      "description": "Call upon the aggressive nature within, taunting up to 3 enemies to attack you.",
+      "_source": "Confirmed screenshot: Lvl 16, 'leading up to 3 enemies attacking the ally target to attack the Primalist instead for 3 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 28,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "primalist_boon_of_the_wolf",
+      "name": "Boon of the Wolf",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "movement_speed": 25,
+        "dodge_chance": 8
+      },
+      "description": "Increase movement speed and Dodge chance. Only 1 Boon may be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 20, '+25% movement speed, +8% dodge.' Part of the Boon family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "primalist_boon"
+    },
+    {
+      "ability_id": "primalist_ursocs_bellow",
+      "name": "Ursoc's Bellow",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": -32
+      },
+      "description": "Bellow with the might of Ursoc, reducing the Attack Power of nearby enemies.",
+      "_source": "Confirmed screenshot: Lvl 20, '-32 Attack Power to enemies within 10 yds for 30 sec' (compressed to 3 turns here).",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "primalist_soothing_touch",
+      "name": "Soothing Touch",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bring the Earthmother's grace to an ally, removing a poison or disease effect.",
+      "_source": "Confirmed screenshot: Lvl 22, 'removing 1 poison and disease effect from them.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 22,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "primalist_fae_dust",
+      "name": "Fae Dust",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 15,
+      "stat_mods": {
+        "nature_arcane_resist_pct": 3
+      },
+      "description": "Sprinkle an ally with Fae Dust, reducing Nature and Arcane damage taken.",
+      "_source": "Confirmed screenshot: Lvl 28, '-3% Nature and Arcane damage taken. Lasts 15 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 24,
+          "effect_value": 3
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "primalist_earthen_endurance",
+      "name": "Earthen Endurance",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "armor": 150,
+        "all_stats": 6,
+        "all_resist": 5
+      },
+      "description": "Increase the friendly target's Armor, all stats, and all resistances.",
+      "_source": "Confirmed screenshot: Lvl 30, '+150 Armor, +6 all stats, +5 all resistances. Lasts 30 min.' A major raid buff.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "primalist_boon_of_the_lion",
+      "name": "Boon of the Lion",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "cc_resist": 40
+      },
+      "description": "Increase your chance to resist fear, charm, and sleep effects, and periodically dispel them from nearby party members. Only 1 Boon may be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 30, '+40% resist fear/charm/sleep, dispel 1 such effect from party members within 30 yds every 3 sec.' Part of the Boon family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 26,
+          "effect_value": 40
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "primalist_boon"
+    },
+    {
+      "ability_id": "primalist_essence_of_nature",
+      "name": "Essence of Nature",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 10,
+      "stat_mods": {
+        "nature_resist": 45
+      },
+      "description": "Increase the Nature Resistance of a targeted party member.",
+      "_source": "Confirmed screenshot: Lvl 44, '+45 Nature Resistance. Lasts 10 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 28,
+          "effect_value": 45
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "primalist_grove_instinct",
+      "name": "Grove Instinct",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "mana_regen": 5
+      },
+      "description": "Invoke a calm and earthly instinct on an ally, restoring mana over time. Players may only have one Instinct on them at a time.",
+      "_source": "Confirmed screenshot: Lvl 2, 'restoring 5 mana every 5 seconds.' Part of the mutually-exclusive Instinct family.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 18,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "primalist_instinct"
+    },
+    {
+      "ability_id": "primalist_boon_of_the_hawk",
+      "name": "Boon of the Hawk",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "haste": 12,
+        "cost_reduction_pct": 10
+      },
+      "description": "Increase your spell haste, reduce ability costs, and regenerate health over time. Only 1 Boon may be active at a time.",
+      "_source": "Confirmed screenshot: Lvl 6, '+12% spell haste, -10% spell/ability cost, regenerate 1% max health every 5 sec.' Part of the Boon family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 12
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "primalist_boon"
+    },
+    {
+      "ability_id": "primalist_mountain_hammer",
+      "name": "Mountain Hammer",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Throw a hammer at an enemy, dealing Physical damage and stunning them.",
+      "_source": "Confirmed screenshot: Mountain King-locked (was wrongly class-wide), Lvl 26 (was 20), '80 Physical damage and stunning them for 5 sec.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 35,
+          "effect_value": 80
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "primalist_quake",
+      "name": "Quake",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 2,
+      "stat_mods": {
+        "haste_taken_pct": -20
+      },
+      "description": "Stomp the ground, damaging and slowing nearby enemies.",
+      "_source": "Confirmed screenshot: Geomancy-locked, 2 Charges, 8 sec recharge, 'Weapon Damage plus 28 Nature damage to enemies within 8 yds and reducing their melee and ranged haste by 20% for 10 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 95
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "primalist_seismic_tremor",
+      "name": "Seismic Tremor",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Send an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_source": "Confirmed screenshot: Geomancy-locked, Lvl 26, '157 Physical damage, plus an additional 1080 over 24 sec, dealt slowly at first and building over time. Damage dealt generates 1 Rage.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 270
+        }
+      ],
+      "generates": {
+        "resource": "rage",
+        "amount": 1
+      },
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "primalist_seismic_wave",
+      "name": "Seismic Wave",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Create a seismic wave of healing water around you, healing allies and damaging nearby enemies. Shares a cooldown with other Seismic spells.",
+      "_source": "Confirmed screenshot: Grovekeeper-locked, Lvl 22, 'healing for 111 to up to 8 allies in a 25 yd radius and 68 Nature damage in a 10 yd radius around you.'",
+      "heal_scope": 8,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 28,
+          "effect_value": 68,
+          "heal_value": 111
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "primalist_terrasurge",
+      "name": "Terrasurge",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 2,
+      "stat_mods": {
+        "armor_pct_taken": -50
+      },
+      "description": "Unleash a globe of earth at an enemy, piercing defensive effects and reducing their Armor. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_source": "Confirmed screenshot: Mountain King-locked, 45 Rage, 30yd, 2.5s cast, 20 sec cooldown, '271 Physical damage and reducing their Armor by 50% for 10 sec. Pierces through absorption, deflection, and reflection effects.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 45,
+          "effect_value": 271
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "primalist_primal_rush",
+      "name": "Primal Rush",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Rush forward through enemies in a line, generating Rage.",
+      "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 18, '102 Nature damage. Generates 20 Rage.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 102
+        }
+      ],
+      "generates": {
+        "resource": "rage",
+        "amount": 20
+      },
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "primalist_rylaks_bite",
+      "name": "Rylak's Bite",
+      "resource_type": "rage",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Rush an enemy alongside your pet to strike them.",
+      "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 20, 2 Charges, 10 sec recharge, '120% Weapon Damage plus 14.' Real pet-combo ability.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "primalist_totemic_smash",
+      "name": "Totemic Smash",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A heavy weapon strike that also hits nearby enemies.",
+      "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 22, '140% Weapon Damage plus 51. Deals an additional 30 damage to up to 5 enemies within 8 yds.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 35,
+          "effect_value": 160
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "primalist_primal_shred",
+      "name": "Primal Shred",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Command your pet to shred nearby enemies, causing them to bleed. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 20, 'command your pet to shred up to 5 enemies within 8 yds, causing them to bleed, dealing 82 Physical damage over 21 sec.' Real pet-command ability.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 27
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "primalist_raptor_talons",
+      "name": "Raptor Talons",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A leaping strike that deals bonus damage to a wounded target.",
+      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
+      "execute_threshold_pct": 50,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 30,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "primalist_spirit_beast_master",
+      "name": "Spirit Beast Master",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "You may now tame beasts to aid you as a companion.",
+      "_source": "Confirmed structurally via Rylak's Bite/Primal Shred both referencing 'your pet' - stubbed as a self-buff placeholder since no pet entity system exists yet.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "_implementation_note": "Real pet system needed - see Stormbringer's Air Elemental and Tinker's ZIGGI-6K for the same stub pattern."
+    },
+    {
+      "ability_id": "primalist_bring_me_their_bones",
+      "name": "Bring Me Their Bones",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A devastating execute against a heavily wounded enemy. Real physical damage - was previously miscategorized as spell_damage despite being Rage-costing (its own resource_type) with a real execute_threshold_pct field, both strong signals this is a physical execute like Warrior's Execute, not a spell.",
+      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
+      "execute_threshold_pct": 25,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 220
+        }
+      ],
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "primalist_magma_fissure",
+      "name": "Magma Fissure",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Stomp the ground and unleash a wave of earth and stone in a line, piercing absorption effects.",
+      "_source": "Confirmed screenshot: Geomancy-locked (Rank 2 shown), Lvl 40, '878 Fire damage. Your next spell within 6 sec is instant cast.' Instant-cast proc not yet modeled.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 45,
+          "effect_value": 550
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 55,
+          "effect_value": 878
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "primalist_grove_tender",
+      "name": "Grove Tender",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 6,
+      "stat_mods": {},
+      "description": "A moderate heal-over-time spell.",
+      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 26,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "primalist_blessing_of_neptulon",
+      "name": "Blessing of Neptulon",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 8,
+      "stat_mods": {},
+      "description": "A party-wide heal-over-time spell.",
+      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 200
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "primalist_sacred_grove",
+      "name": "Sacred Grove",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 6,
+      "stat_mods": {},
+      "description": "A ward that heals the party each turn while active.",
+      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 45,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "primalist_judgement_of_the_three_hammers",
+      "name": "Judgement of the Three Hammers",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "While active, dealing direct damage has a chance to hurl 3 hammers at the target over time.",
+      "_source": "Confirmed screenshot (earlier session): 'dealing direct damage has a 20% chance to hurl 3 hammers over 2 seconds, each dealing 100 + 32.5% SP + 27.8% AP Physical damage.' Proc mechanic not fully modeled - implemented as a self-buff window.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 57,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "primalist_golem_form",
+      "name": "Golem Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "armor_pct": 20,
+        "cast_time_reduction_pct": 10
+      },
+      "description": "Shapeshift into an earthen golem, increasing Armor and reducing spell cast time.",
+      "_source": "Structurally referenced from Geomancy tree - not yet confirmed via a dedicated screenshot in this batch. Not a real resource-swap form like Venomancer's (Primalist stays Mana+Rage), modeled as a strong self-buff.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 25,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff"
+    }
+  ]
+}

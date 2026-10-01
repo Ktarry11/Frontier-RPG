@@ -1,0 +1,429 @@
+{
+  "spec_name": "Warrior Protection",
+  "tree_id": "warrior_protection",
+  "description": "Shield-bearing bulwark built to absorb punishment and hold the line.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "warrior_protection_shield_specialization",
+      "name": "Shield Specialization",
+      "description": "Increases your Block value by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "block": 2.0
+      },
+      "connected_to": [
+        "warrior_protection_iron_will"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_anticipation",
+      "name": "Anticipation",
+      "description": "Increases your Dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "dodge": 1.0
+      },
+      "connected_to": [
+        "warrior_protection_last_stand"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_toughness",
+      "name": "Toughness",
+      "description": "Increases your Armor by 12 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "armor": 12
+      },
+      "connected_to": [
+        "warrior_protection_improved_shield_block"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_improved_bloodrage",
+      "name": "Improved Bloodrage",
+      "description": "Reduces the Rage cost of Heroic Strike by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_warrior_heroic_strike_cost": 1
+      },
+      "connected_to": [
+        "warrior_protection_defiance"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_iron_will",
+      "name": "Iron Will",
+      "description": "Reduces Magic damage taken by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "magic_damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "warrior_protection_shield_specialization",
+        "warrior_protection_improved_sunder_armor"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_last_stand",
+      "name": "Last Stand",
+      "description": "Increases maximum Health by 8%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.08
+      },
+      "connected_to": [
+        "warrior_protection_anticipation",
+        "warrior_protection_shield_mastery"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_improved_shield_block",
+      "name": "Improved Shield Block",
+      "description": "Increases Block value by 3 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "block": 3.0
+      },
+      "connected_to": [
+        "warrior_protection_toughness",
+        "warrior_protection_one_handed_specialization"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_defiance",
+      "name": "Defiance",
+      "description": "Increases Parry chance by 1% and Stamina by 2 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "parry": 1.0,
+        "stamina": 2
+      },
+      "connected_to": [
+        "warrior_protection_improved_bloodrage",
+        "warrior_protection_vitality"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_improved_sunder_armor",
+      "name": "Improved Sunder Armor",
+      "description": "Reduces the Rage cost of Thunder Clap by 2 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_warrior_thunder_clap_cost": 2
+      },
+      "connected_to": [
+        "warrior_protection_iron_will",
+        "warrior_protection_shield_discipline"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_shield_mastery",
+      "name": "Shield Mastery",
+      "description": "Increases Block value by 4 and Armor by 10 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "block": 4.0,
+        "armor": 10
+      },
+      "connected_to": [
+        "warrior_protection_last_stand",
+        "warrior_protection_shield_wall"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_one_handed_specialization",
+      "name": "One-Handed Weapon Specialization",
+      "description": "Increases physical damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "warrior_protection_improved_shield_block",
+        "warrior_protection_improved_revenge"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_vitality",
+      "name": "Vitality",
+      "description": "Increases Stamina by 3 and Strength by 1 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "stamina": 3,
+        "strength": 1
+      },
+      "connected_to": [
+        "warrior_protection_defiance",
+        "warrior_protection_concussion_blow"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_shield_wall",
+      "name": "Shield Wall",
+      "description": "Grants 60 Armor and 10 Block value.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "armor": 60,
+        "block": 10.0
+      },
+      "connected_to": [
+        "warrior_protection_shield_mastery",
+        "warrior_protection_devastate"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_improved_revenge",
+      "name": "Improved Revenge",
+      "description": "Increases Heroic Strike damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_warrior_heroic_strike_damage": 0.08
+      },
+      "connected_to": [
+        "warrior_protection_one_handed_specialization",
+        "warrior_protection_critical_block"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_concussion_blow",
+      "name": "Concussion Blow",
+      "description": "Grants Concussion Blow, dealing damage to the target.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "warrior_concussion_blow"
+      },
+      "connected_to": [
+        "warrior_protection_vitality",
+        "warrior_protection_warbringer"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_shield_discipline",
+      "name": "Shield Discipline",
+      "description": "Increases Parry chance by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "parry": 1.5
+      },
+      "connected_to": [
+        "warrior_protection_improved_sunder_armor"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_devastate",
+      "name": "Devastate",
+      "description": "Grants Devastate, dealing damage to the target.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "warrior_devastate"
+      },
+      "connected_to": [
+        "warrior_protection_shield_wall",
+        "warrior_protection_sword_and_board"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_critical_block",
+      "name": "Critical Block",
+      "description": "Increases Block value by 5 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "block": 5.0
+      },
+      "connected_to": [
+        "warrior_protection_improved_revenge",
+        "warrior_protection_damage_shield"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_warbringer",
+      "name": "Warbringer",
+      "description": "Increases maximum Health by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "max_health_pct": 0.04
+      },
+      "connected_to": [
+        "warrior_protection_concussion_blow"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_sword_and_board",
+      "name": "Sword and Board",
+      "description": "Reduces Heroic Strike Rage cost by 2 and grants 3 Block value per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_warrior_heroic_strike_cost": 2,
+        "block": 3.0
+      },
+      "connected_to": [
+        "warrior_protection_devastate",
+        "warrior_protection_shockwave"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_damage_shield",
+      "name": "Damage Shield",
+      "description": "Grants 25 Armor and 3% physical damage per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "armor": 25,
+        "physical_damage": 0.03
+      },
+      "connected_to": [
+        "warrior_protection_critical_block",
+        "warrior_protection_protection_mastery"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_shockwave",
+      "name": "Shockwave",
+      "description": "Grants Shockwave, dealing damage to all enemies in front of you.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "warrior_shockwave"
+      },
+      "connected_to": [
+        "warrior_protection_sword_and_board"
+      ]
+    },
+    {
+      "talent_id": "warrior_protection_protection_mastery",
+      "name": "Safeguard",
+      "description": "Increases your Armor by 50 and maximum Health by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "armor": 50,
+        "max_health_pct": 0.1
+      },
+      "connected_to": [
+        "warrior_protection_damage_shield"
+      ]
+    }
+  ]
+}

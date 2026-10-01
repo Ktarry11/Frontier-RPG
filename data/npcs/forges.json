@@ -1,0 +1,19 @@
+{
+  "_comment": "Forges are fixed interaction-tile world objects, same pattern as vendors.json - real WoW convention (Warcraft Tavern, confirmed via web search 2026-09-12): 'Smelting can only be done at a Forge.' Positions confirmed walkable and unoccupied via a headless is_walkable()/get_tile() check before being placed here (Valley of Trials near the existing valley_vendor at (60,20); Durotar near durotar_vendor at (68,108)) - placed near existing town infrastructure rather than a random empty tile, same as how vendors cluster near town centers.",
+  "forges": [
+    {
+      "forge_id": "valley_of_trials_forge",
+      "name": "Valley of Trials Forge",
+      "zone": "valley_of_trials",
+      "x": 63,
+      "y": 20
+    },
+    {
+      "forge_id": "durotar_forge",
+      "name": "Durotar Forge",
+      "zone": "durotar",
+      "x": 71,
+      "y": 108
+    }
+  ]
+}

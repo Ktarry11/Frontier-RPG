@@ -1,0 +1,434 @@
+{
+  "spec_name": "Venomancer Vizier",
+  "tree_id": "venomancer_vizier",
+  "description": "Restorative caster - mends allies with venom-born medicine. Tree of Life-equivalent spec; Vizier Form is this spec's shapeshift.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 10 confirmed Vizier nodes expanded slightly to a 12-node tree (a couple class-wide-flavored 'Other' bucket abilities folded in, matching Storm Ascendance's precedent from Stormbringer) since Vizier's real source list was noticeably smaller than the other 3 specs. Shadra's Vigil confirmed via tooltip as the capstone: 'Healing done by Serpent's Fang now applies Shadra's Vigil to allies. The next 5 instances of periodic healing by you on this target will heal them for an additional 10% of the value.'",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "venomancer_vizier_worship",
+      "name": "Worship",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_vizier_venom_glands"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_extraction",
+      "name": "Extraction",
+      "description": "Reduces the Mana cost of Serpent's Fang and Green Salve by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_serpents_fang_cost_pct": 0.03,
+        "ability_venomancer_green_salve_cost_pct": 0.03
+      },
+      "connected_to": [
+        "venomancer_vizier_mending_mist"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_shadras_presence",
+      "name": "Shadra's Presence",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_vizier_blight_antidote"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_venom_glands",
+      "name": "Venom Glands",
+      "description": "Increases Serpent's Fang healing by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_venomancer_serpents_fang_healing": 0.04
+      },
+      "connected_to": [
+        "venomancer_vizier_worship"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_mending_mist",
+      "name": "Mending Mist",
+      "description": "Learn Mending Mist, a party-wide heal-over-time cloud.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_mending_mist"
+      },
+      "connected_to": [
+        "venomancer_vizier_extraction",
+        "venomancer_vizier_serpent_lords_ritual"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_blight_antidote",
+      "name": "Blight Antidote",
+      "description": "Learn Blight Antidote, removing a Poison or Disease effect from an ally.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_blight_antidote"
+      },
+      "connected_to": [
+        "venomancer_vizier_shadras_presence"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_serpent_lords_ritual",
+      "name": "Serpent Lord's Ritual",
+      "description": "Learn Vizier Form, a shapeshift that increases healing done and reduces healing costs.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "venomancer_vizier_form_ability"
+      },
+      "connected_to": [
+        "venomancer_vizier_mending_mist",
+        "venomancer_vizier_widows_watch"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_widows_watch",
+      "name": "Widow's Watch",
+      "description": "Increases Mending Mist healing by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_venomancer_mending_mist_healing": 0.08
+      },
+      "connected_to": [
+        "venomancer_vizier_serpent_lords_ritual",
+        "venomancer_vizier_alkahest"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_alkahest",
+      "name": "Shadra's Grace",
+      "description": "Increases all healing done by 2% per rank while Vizier Form is active.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "conditional_vizier_healing_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_vizier_widows_watch",
+        "venomancer_vizier_shadras_vigil"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_shadras_vigil",
+      "name": "Shadra's Vigil",
+      "description": "Healing done by Serpent's Fang now applies Shadra's Vigil to the target: the next 5 instances of periodic healing on them heal for an additional 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "shadras_vigil_stacks"
+      },
+      "connected_to": [
+        "venomancer_vizier_alkahest"
+      ],
+      "_source": "CoA tooltip confirmed verbatim, kept as the Vizier capstone."
+    },
+    {
+      "talent_id": "venomancer_vizier_green_salve_mastery",
+      "name": "Green Salve Mastery",
+      "description": "Increases Green Salve healing by 6% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_green_salve_healing": 0.06
+      },
+      "connected_to": [
+        "venomancer_vizier_blight_antidote"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_lifeblood_mastery",
+      "name": "Lifeblood Mastery",
+      "description": "Increases Lifeblood's Stamina bonus by 15% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_venomancer_lifeblood_potency": 0.15
+      },
+      "connected_to": [
+        "venomancer_vizier_green_salve_mastery"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_mending_venom",
+      "name": "Mending Venom",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_vizier_worship"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_restorative_glands",
+      "name": "Restorative Glands",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_vizier_shadras_presence"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_swift_mending",
+      "name": "Swift Mending",
+      "description": "Reduces the cast time of your heals by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "heal_cast_time_reduction_pct": 0.03
+      },
+      "connected_to": [
+        "venomancer_vizier_extraction"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_venom_ward",
+      "name": "Venom Ward",
+      "description": "Increases resistance to Poison and Disease by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "poison_disease_resist_pct": 0.05
+      },
+      "connected_to": [
+        "venomancer_vizier_venom_glands"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_attuned_mending",
+      "name": "Attuned Mending",
+      "description": "Increases Mending Mist's tick frequency by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_mending_mist_tick_pct": 0.05
+      },
+      "connected_to": [
+        "venomancer_vizier_mending_mist"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_shadras_grace",
+      "name": "Shadra's Grace",
+      "description": "Reduces Mana cost of your heals by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "heal_cost_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_vizier_widows_watch"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_communal_healing",
+      "name": "Communal Healing",
+      "description": "Increases party-wide heals by 3% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "party_heal_pct": 0.03
+      },
+      "connected_to": [
+        "venomancer_vizier_alkahest"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_venom_transmutation",
+      "name": "Venom Transmutation",
+      "description": "Increases healing done by 2% per rank while below 50% Mana.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "low_mana_healing_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_vizier_blight_antidote"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_serpents_grace",
+      "name": "Serpent's Grace",
+      "description": "Increases the healing of Serpent's Fang by 4% per rank while in Vizier Form.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "conditional_serpents_fang_healing_pct": 0.04
+      },
+      "connected_to": [
+        "venomancer_vizier_shadras_vigil"
+      ]
+    },
+    {
+      "talent_id": "venomancer_vizier_shadras_prayer",
+      "name": "Shadra's Prayer",
+      "description": "Learn Shadra's Prayer, bringing the glory of Shadra to an ally, healing them immediately and over time.",
+      "node_type": "active",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "unlock_ability": "venomancer_shadras_prayer"
+      },
+      "connected_to": [
+        "venomancer_vizier_worship"
+      ],
+      "_source": "Confirmed screenshot: Lvl 2, Vizier(1), 'healing them for 32, plus 5 every 3 sec for 24 sec.' Moved here from the class-wide kit - confirmed Vizier-locked, not class-wide as an earlier pass assumed. Vizier's real early-game heal."
+    },
+    {
+      "talent_id": "venomancer_vizier_alkahest_active",
+      "name": "Alkahest",
+      "description": "Learn Alkahest, blessing an ally with Shadra's grace, healing them and extending Shadra's Prayer.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "venomancer_alkahest"
+      },
+      "connected_to": [
+        "venomancer_vizier_serpent_lords_ritual"
+      ],
+      "_source": "Confirmed screenshot: Lvl 20, 2 Charges, 12 sec recharge, 'healing them for 152 and extending the duration of Shadra's Prayer on them by 9 sec.'"
+    },
+    {
+      "talent_id": "venomancer_vizier_shadras_balm",
+      "name": "Shadra's Balm",
+      "description": "Learn Shadra's Balm, enveloping an ally with a restorative balm that heals them over time.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "venomancer_shadras_balm"
+      },
+      "connected_to": [
+        "venomancer_vizier_widows_watch"
+      ],
+      "_source": "Confirmed screenshot: Lvl 24, 'healing them for 41 every 3 sec for 21 sec.'"
+    }
+  ]
+}

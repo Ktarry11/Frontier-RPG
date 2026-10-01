@@ -1,0 +1,424 @@
+{
+  "spec_name": "Druid Balance",
+  "tree_id": "druid_balance",
+  "description": "Caster form drawing on the raw power of sun, moon, and stars.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "druid_balance_starlight_wrath",
+      "name": "Starlight Wrath",
+      "description": "Increases Wrath damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_druid_wrath_damage": 0.05
+      },
+      "connected_to": [
+        "druid_balance_improved_moonfire"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_genesis",
+      "name": "Genesis",
+      "description": "Increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "druid_balance_brambles"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_moonglow",
+      "name": "Moonglow",
+      "description": "Reduces the Mana cost of Moonfire by 4 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_druid_moonfire_cost": 4
+      },
+      "connected_to": [
+        "druid_balance_natures_grace"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_natures_majesty",
+      "name": "Nature's Majesty",
+      "description": "Increases spell critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 2.0
+      },
+      "connected_to": [
+        "druid_balance_celestial_focus"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_improved_moonfire",
+      "name": "Improved Moonfire",
+      "description": "Increases Moonfire damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_druid_moonfire_damage": 0.08
+      },
+      "connected_to": [
+        "druid_balance_starlight_wrath",
+        "druid_balance_lunar_guidance"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_brambles",
+      "name": "Brambles",
+      "description": "Increases Armor by 15 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "armor": 15
+      },
+      "connected_to": [
+        "druid_balance_genesis",
+        "druid_balance_insect_swarm"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_natures_grace",
+      "name": "Nature's Grace",
+      "description": "Increases Haste by 3 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "haste": 3.0
+      },
+      "connected_to": [
+        "druid_balance_moonglow",
+        "druid_balance_dreamstate"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_celestial_focus",
+      "name": "Celestial Focus",
+      "description": "Increases Spell Power by 7 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "spell_power": 7
+      },
+      "connected_to": [
+        "druid_balance_natures_majesty",
+        "druid_balance_moonfury"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_lunar_guidance",
+      "name": "Lunar Guidance",
+      "description": "Increases Intellect by 4 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "intellect": 4
+      },
+      "connected_to": [
+        "druid_balance_improved_moonfire",
+        "druid_balance_natures_reach"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_insect_swarm",
+      "name": "Insect Swarm",
+      "description": "Grants Insect Swarm, a Nature damage-over-time spell.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "druid_insect_swarm"
+      },
+      "connected_to": [
+        "druid_balance_brambles",
+        "druid_balance_starfall"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_dreamstate",
+      "name": "Dreamstate",
+      "description": "Increases maximum Mana by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "max_mana_pct": 0.03
+      },
+      "connected_to": [
+        "druid_balance_natures_grace",
+        "druid_balance_balance_of_power"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_moonfury",
+      "name": "Moonfury",
+      "description": "Increases Spell Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "spell_power": 6
+      },
+      "connected_to": [
+        "druid_balance_celestial_focus",
+        "druid_balance_vengeance"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_starfall",
+      "name": "Starfall",
+      "description": "Grants Starfall, calling down a rain of stars that damages all enemies over time.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "druid_starfall"
+      },
+      "connected_to": [
+        "druid_balance_insect_swarm",
+        "druid_balance_eclipse"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_balance_of_power",
+      "name": "Balance of Power",
+      "description": "Reduces spell miss chance by 1% and increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "hit_rating": 1.0,
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "druid_balance_dreamstate",
+        "druid_balance_gale_winds"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_vengeance",
+      "name": "Vengeance",
+      "description": "Increases spell critical strike chance by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_spell": 1.5
+      },
+      "connected_to": [
+        "druid_balance_moonfury",
+        "druid_balance_earth_and_moon"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_natures_reach",
+      "name": "Nature's Reach",
+      "description": "Increases Spell Power by 9 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "spell_power": 9
+      },
+      "connected_to": [
+        "druid_balance_lunar_guidance"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_eclipse",
+      "name": "Eclipse",
+      "description": "Increases spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.03
+      },
+      "connected_to": [
+        "druid_balance_starfall",
+        "druid_balance_wrath_of_cenarius"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_gale_winds",
+      "name": "Gale Winds",
+      "description": "Increases Moonfire damage by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_druid_moonfire_damage": 0.1
+      },
+      "connected_to": [
+        "druid_balance_balance_of_power",
+        "druid_balance_owlkin_frenzy"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_earth_and_moon",
+      "name": "Earth and Moon",
+      "description": "Increases Spell Power by 10 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "spell_power": 10
+      },
+      "connected_to": [
+        "druid_balance_vengeance"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_wrath_of_cenarius",
+      "name": "Wrath of Cenarius",
+      "description": "Increases Wrath damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_druid_wrath_damage": 0.04
+      },
+      "connected_to": [
+        "druid_balance_eclipse",
+        "druid_balance_moonkin_form"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_owlkin_frenzy",
+      "name": "Owlkin Frenzy",
+      "description": "Increases Intellect by 4 and Spell Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "intellect": 4,
+        "spell_power": 6
+      },
+      "connected_to": [
+        "druid_balance_gale_winds",
+        "druid_balance_balance_mastery"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_moonkin_form",
+      "name": "Moonkin Form",
+      "description": "Learn Moonkin Form, a real shapeshift that increases Armor and spell critical strike chance.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "druid_moonkin_form"
+      },
+      "connected_to": [
+        "druid_balance_wrath_of_cenarius"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_balance_mastery",
+      "name": "Typhoon",
+      "description": "Grants Typhoon, a violent gust of wind that damages all enemies.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "druid_typhoon"
+      },
+      "connected_to": [
+        "druid_balance_owlkin_frenzy"
+      ]
+    }
+  ]
+}

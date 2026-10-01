@@ -1,0 +1,1046 @@
+"""
+Status effects: damage-over-time, heal-over-time, and temporary stat
+buffs/debuffs.
+
+WHY THIS EXISTS
+---------------
+Before this module, `effect_type` supported only "damage", "spell_damage",
+"heal" and a stub "buff" that did literally nothing. That meant every
+nominally-DoT ability in the game - Rend, Corruption, Immolate, Shadow Word:
+Pain, Moonfire, Rejuvenation - resolved as a single instant hit. Roughly half
+the class roster is built around damage over time, so those classes had no
+actual identity in combat.
+
+DESIGN
+------
+Effects are owned by the combatant they're applied TO, in an `active_effects`
+list. `tick_effects()` is called once per turn from CombatEngine._end_turn(),
+which is the same place cooldowns decrement - so "1 turn" means exactly the
+same thing everywhere.
+
+Ticking order is deliberate: the effect deals/heals first, THEN decrements
+its remaining duration. A 3-turn DoT therefore ticks 3 times, which is what
+a player reading "deals X damage over 3 turns" expects.
+
+Both Character and Monster get this via `StatusEffectMixin`, so the engine
+never has to branch on which class it's holding.
+
+STACKING
+--------
+Re-applying an effect with the same `effect_id` REFRESHES it (duration resets
+to full, potency updated to the new value) rather than adding a second copy.
+This matches WoW and prevents the degenerate "spam Corruption 8 times" case.
+Effects from different abilities have different ids and stack normally.
+"""
+
+
+class DamageSchool:
+    """Real WotLK-style spell schools, plus PHYSICAL. Used by Ability.
+    damage_school and Character.take_damage's damage_type parameter to
+    select which resistance stat (see Character's *_resistance attributes
+    and get_resistance()) mitigates a given hit.
+
+    MAGIC is kept as a legacy alias for abilities that haven't been
+    assigned a real school yet (every spell_damage/dot/hot ability
+    predates this system) - it resolves through get_resistance() to the
+    OLD flat magic_resistance stat, not a new school, so nothing that
+    already worked changes behavior until an ability is deliberately
+    migrated to a real school (FIRE, FROST, ...). Don't author NEW
+    content against MAGIC; it exists only so 100+ pre-existing
+    "magic"-typed abilities keep working unmodified.
+
+    Combined/hybrid schools (Shadowfrost, Plague = Nature+Shadow, ...)
+    aren't separate constants here - they're expressed as a tuple of two
+    base schools wherever an ability's damage_school is set (e.g.
+    ("shadow", "frost")), and get_resistance() resolves a tuple to
+    whichever component resistance is LOWEST (Kyle's call: combined
+    schools should be harder to resist, not easier, since they're
+    intentionally rare/exotic damage types).
+    """
+    PHYSICAL = "physical"
+    FIRE = "fire"
+    FROST = "frost"
+    NATURE = "nature"
+    SHADOW = "shadow"
+    ARCANE = "arcane"
+    HOLY = "holy"
+    MAGIC = "magic"  # legacy alias - see docstring
+
+    #: Sentinel for Runemaster's real Frost/Fire/Arcane Attunement cycle
+    #: (see StatusEffectMixin.RUNEMASTER_ATTUNEMENT_CYCLE/_tick_attunement).
+    #: An ability with damage_school=ATTUNEMENT doesn't deal a fixed
+    #: school - it resolves to whatever caster.current_attunement is at
+    #: the moment it's cast (see Ability._apply_effect's real resolution:
+    #: it substitutes the live attunement value before calling
+    #: take_damage, so resistance mitigation, the combat log's school
+    #: name, and everything else downstream sees a real concrete school
+    #: like "fire", never this sentinel itself). Falls back to "arcane"
+    #: if the caster has no current_attunement (e.g. a non-Runemaster
+    #: somehow granted an attunement-schooled ability, or before the
+    #: first _tick_attunement call has run) - matches this project's
+    #: existing collapsed-simplification default from before the real
+    #: cycle was built.
+    ATTUNEMENT = "attunement"
+
+    ALL_SCHOOLS = (FIRE, FROST, NATURE, SHADOW, ARCANE, HOLY)
+
+
+class EffectType:
+    DOT = "dot"          # damage each turn
+    HOT = "hot"          # healing each turn
+    BUFF = "buff"        # temporary stat modifier on self
+    DEBUFF = "debuff"    # temporary stat modifier on enemy
+
+
+class ProcTrigger:
+    """Real event names a StatusEffect's `proc` dict can react to.
+
+    Each is fired from an ACTUAL point in the engine where that event
+    already resolves - not an imagined hook - so a proc always reacts to
+    something that genuinely just happened:
+
+      ON_CAST                 - any ability successfully used by the actor
+                                 carrying this effect (Ability.use, after
+                                 cost is paid). Fires regardless of
+                                 effect_type - a buff, a heal, a nuke, all
+                                 count as "a cast."
+      ON_DAMAGE_CAST           - specifically a cast that dealt damage to at
+                                 least one target (subset of ON_CAST).
+                                 Covers ALL damage - spells included. Do
+                                 NOT use this for weapon-imbue-style procs
+                                 (Windfury/Flametongue/Rockbiter/Frostbrand)
+                                 - use ON_WEAPON_SWING instead, or the proc
+                                 fires off spell damage too (a real bug
+                                 caught in Rockbiter: it was proccing off
+                                 Healing Wave and every other spell cast,
+                                 since ON_DAMAGE_CAST doesn't distinguish
+                                 "your basic weapon attack" from "any
+                                 damage source at all").
+      ON_WEAPON_SWING           - specifically the caster's own basic
+                                 attack ability (ability_id ending in
+                                 "_attack", the same real "<class_prefix>_
+                                 attack" convention extra_attack already
+                                 relies on - see fire_proc_trigger). This
+                                 is what real WoW weapon imbues actually
+                                 proc off - never spells, never DoTs
+                                 ticking, only your own melee/ranged swing
+                                 landing. A subset of ON_DAMAGE_CAST, but
+                                 fired as its OWN separate trigger name so
+                                 imbue-style procs can listen for exactly
+                                 this and nothing broader.
+      ON_HEAL_CAST              - specifically a cast that landed a heal on
+                                 at least one target (subset of ON_CAST).
+      ON_DAMAGE_OR_HEAL_CAST     - either of the above two - the shape most
+                                 CoA "Vow"/"Devotion"-style effects actually
+                                 need (Vow of Radiance procs off ANY damage
+                                 or healing cast, not just one or the other).
+      ON_CRIT                  - the cast that triggered this event landed
+                                 at least one crit (fired alongside
+                                 ON_DAMAGE_CAST/ON_HEAL_CAST for the same
+                                 cast, not instead of it).
+      ON_DAMAGE_TAKEN            - the carrier took damage (fired from
+                                 Character.take_damage, after mitigation).
+      ON_KILL                   - the carrier's action killed a target
+                                 (fired from CombatEngine's death check).
+
+    context (passed to fire_proc_trigger) always includes at least
+    {"amount": int}, the real damage/heal amount from the event that fired
+    it - what makes bonus_pct procs (see StatusEffectMixin.fire_proc_trigger)
+    able to add real extra damage to the SAME hit, WoW-style, rather than
+    logging a description of an effect that never mechanically happens.
+    """
+    ON_CAST = "on_cast"
+    ON_DAMAGE_CAST = "on_damage_cast"
+    ON_WEAPON_SWING = "on_weapon_swing"
+    ON_HEAL_CAST = "on_heal_cast"
+    ON_DAMAGE_OR_HEAL_CAST = "on_damage_or_heal_cast"
+    ON_CRIT = "on_crit"
+    ON_DAMAGE_TAKEN = "on_damage_taken"
+    ON_KILL = "on_kill"
+
+    ALL = (ON_CAST, ON_DAMAGE_CAST, ON_WEAPON_SWING, ON_HEAL_CAST,
+           ON_DAMAGE_OR_HEAL_CAST, ON_CRIT, ON_DAMAGE_TAKEN, ON_KILL)
+
+
+class DispelType:
+    """WoW's real dispel-school categories. A debuff/DoT tagged with one of
+    these can be removed by a cleanse/dispel ability that targets that
+    specific school - e.g. a Shaman's Cleanse Spirit only removes Curse,
+    not Poison or Disease. NONE means "not dispellable by anything" (most
+    plain combat debuffs, e.g. a rogue's Expose Armor).
+    """
+    NONE = None
+    MAGIC = "magic"
+    CURSE = "curse"
+    POISON = "poison"
+    DISEASE = "disease"
+
+    ALL = (MAGIC, CURSE, POISON, DISEASE)
+
+
+#: How long a buff/debuff lasts in the real world, in seconds - 30 minutes,
+#: matching WoW's standard raid-buff duration (Fortitude, Might, Mark of the
+#: Wild, etc all last 30 min there). DoTs/HoTs are unaffected; they keep
+#: their turn-based duration since they only make sense inside a fight.
+BUFF_DURATION_SECONDS = 30 * 60
+
+#: Sentinel distinguishing "caller didn't pass real_time_seconds at all" (use
+#: the 30-min default) from "caller explicitly passed None" (stay turn-based,
+#: like a DoT/HoT). Before this existed both cases looked identical from
+#: inside __init__, so monster.py's `real_time_seconds=None` - written
+#: specifically to keep combat buffs like Frenzy turn-based - was silently
+#: indistinguishable from omitting the argument and got the 30-minute clock
+#: anyway. A monster's 3-turn self-buff was therefore active for the entire
+#: fight (and would have bled into the next one too), never visibly ticking
+#: down. See monster.py's buff/debuff branch for the actual opt-out.
+_UNSET = object()
+
+
+class StatusEffect:
+    """A single active effect on a combatant."""
+
+    def __init__(self, effect_id, name, effect_type, duration,
+                 potency=0, damage_school="physical", stat_mods=None,
+                 source_name="", real_time_seconds=_UNSET, dispel_type=None,
+                 exclusive_group=None, proc=None, is_stun=False):
+        """
+        effect_id: stable id used for refresh-vs-stack decisions
+                   (e.g. "warrior_rend"). Same id = refresh.
+        duration:  number of TURNS the effect lasts. Used as-is for DOT/HOT.
+                   For BUFF/DEBUFF, this is what's used when
+                   real_time_seconds is explicitly None (i.e. stays
+                   turn-based) - e.g. a monster's Frenzy with duration=3.
+        potency:   damage or healing applied per turn (DOT/HOT only).
+        damage_school: "physical" or "magic" - routed to take_damage() so
+                   Armor vs Magic Resistance is applied correctly.
+        stat_mods: dict of stat_name -> delta, applied while active
+                   (BUFF/DEBUFF only), e.g. {"attack_power": -20}.
+        real_time_seconds: for BUFF/DEBUFF only. Three states:
+                   - omitted entirely -> defaults to BUFF_DURATION_SECONDS
+                     (30 min), correct for long-lasting player buffs like
+                     Fortitude that should survive outside combat.
+                   - explicit None -> stays turn-based using `duration`,
+                     correct for short combat buffs like a monster's Frenzy
+                     that should never outlast the fight it was cast in.
+                   - explicit number -> counts down in real seconds via
+                     tick_seconds(dt).
+        dispel_type: one of DispelType's constants (or None). Tags this
+                   effect with a real WoW dispel school so a cleanse/dispel
+                   ability that specifically targets that school (e.g.
+                   Cleanse Spirit -> Curse) can find and remove it. Most
+                   ordinary combat debuffs (a rogue's Expose Armor, a
+                   monster's Frenzy) should leave this as None - "not
+                   dispellable."
+        exclusive_group: optional string tag. Applying a new effect with the
+                   same exclusive_group as an existing one on the target
+                   REMOVES the old one first, even if effect_id differs -
+                   e.g. Tinker's Rounds ("armor_pen_round", "mana_round",
+                   "medic_round"...) all share exclusive_group="tinker_round"
+                   so loading a new Round always replaces whichever one was
+                   active, matching a single ammo-loadout slot rather than
+                   the normal same-id-refreshes / different-id-stacks rule.
+                   None (the default) keeps every existing effect's
+                   behavior unchanged.
+        proc:      optional dict describing a reactive trigger this
+                   BUFF/DEBUFF carries, e.g. Vow of Radiance's real
+                   mechanic:
+                       {"trigger": "on_cast_damage_or_heal",
+                        "chance": 100, "icd": 0,
+                        "grant_resource": {"resource": "solar_power", "amount": 2},
+                        "bonus_pct": 0.25}
+                   See ProcTrigger/StatusEffectMixin.fire_proc_trigger for
+                   the full field list and valid trigger names. None (the
+                   default) means this effect is a plain passive stat_mods
+                   buff/debuff with no reactive behavior - every effect
+                   authored before this system existed keeps working
+                   completely unchanged.
+        is_stun:   DEBUFF only. True marks this as a real stun/incapacitate -
+                   TurnMeter.update() (combat/turn_meter.py) checks
+                   StatusEffectMixin.is_stunned (a derived property, same
+                   pattern as current_mechsuit) and refuses to accumulate
+                   turn meter for a stunned combatant, so they're
+                   genuinely skipped rather than getting a turn that does
+                   nothing. False (the default) for every ordinary DEBUFF
+                   - ~8 talents (Concussion Blow, Shockwave, Shadowfury,
+                   Wyvern Sting, Repentance, Silence, and others) that
+                   were flat Haste-debuff placeholders standing in for a
+                   missing stun mechanic now use this for real (Kyle,
+                   2026-09-06: "we will need stuns built").
+        """
+        self.effect_id = effect_id
+        self.name = name
+        self.effect_type = effect_type
+        self.duration = duration
+        self.max_duration = duration
+        self.potency = potency
+        self.damage_school = damage_school
+        self.stat_mods = stat_mods or {}
+        self.source_name = source_name
+        self.dispel_type = dispel_type
+        self.exclusive_group = exclusive_group
+        self.proc = proc or None
+        self.is_stun = is_stun
+        # Internal-cooldown tracker for this specific effect instance, in
+        # turns remaining before its proc can fire again. Lives on the
+        # effect (not the ability) since the same ability's buff could in
+        # theory be applied by two different sources with independent
+        # timers - though in practice same-effect_id refresh (see
+        # apply_status_effect) means there's only ever one copy active.
+        # Decremented once per turn in tick_status_effects, alongside
+        # duration - see fire_proc_trigger for the actual chance/ICD gate.
+        self.proc_icd_remaining = 0
+
+        if effect_type in (EffectType.BUFF, EffectType.DEBUFF):
+            if real_time_seconds is _UNSET:
+                self.real_time_seconds = BUFF_DURATION_SECONDS
+            else:
+                # Explicit None (or an explicit number) is respected as-is -
+                # None means "turn-based", handled by is_expired() falling
+                # through to the `duration` check below.
+                self.real_time_seconds = real_time_seconds
+        else:
+            self.real_time_seconds = None
+
+    def is_expired(self):
+        if self.real_time_seconds is not None:
+            return self.real_time_seconds <= 0
+        return self.duration <= 0
+
+    def to_dict(self):
+        return {
+            "effect_id": self.effect_id,
+            "name": self.name,
+            "effect_type": self.effect_type,
+            "duration": self.duration,
+            "max_duration": self.max_duration,
+            "potency": self.potency,
+            "damage_school": self.damage_school,
+            "stat_mods": self.stat_mods,
+            "source_name": self.source_name,
+            "real_time_seconds": self.real_time_seconds,
+            "dispel_type": self.dispel_type,
+            "exclusive_group": self.exclusive_group,
+            "proc": self.proc,
+        }
+
+    @staticmethod
+    def from_dict(data):
+        eff = StatusEffect(
+            data["effect_id"], data["name"], data["effect_type"],
+            data["duration"], data.get("potency", 0),
+            data.get("damage_school", "physical"),
+            data.get("stat_mods", {}), data.get("source_name", ""),
+            data.get("real_time_seconds"),
+            data.get("dispel_type"),
+            data.get("exclusive_group"),
+            data.get("proc"),
+        )
+        eff.max_duration = data.get("max_duration", eff.duration)
+        return eff
+
+    def __repr__(self):
+        return f"<StatusEffect {self.name} {self.duration}/{self.max_duration}>"
+
+
+class StatusEffectMixin:
+    """Mixed into Character and Monster so both handle effects identically.
+
+    Anything using this must call `_init_status_effects()` in its __init__
+    (or tolerate `active_effects` being created lazily by apply_effect).
+    """
+
+    @property
+    def display_health(self):
+        """Whole-number HP for UI display (Kyle: "keep HP whole numbers").
+
+        current_health itself stays a real float internally - out-of-combat
+        regen (tick_out_of_combat_regen) adds fractional HP every frame
+        (spirit * rate * dt), and rounding that raw value on every tick
+        would either lose sub-1 gains entirely at low regen rates or cause
+        visible stutter-stepping as the displayed number repeatedly rounds
+        the same way. Rounding only at the display boundary keeps the real
+        underlying math exact while every UI read gets a clean int. Uses
+        round() rather than int() truncation so 205.9 displays as 206, not
+        205 - matches how a player would expect an HP bar to read.
+        """
+        return round(self.current_health)
+
+    @property
+    def display_mana(self):
+        """Whole-number Mana for UI display - same rationale and same
+        underlying cause as display_health: tick_out_of_combat_regen adds
+        a real float (spirit * OUT_OF_COMBAT_MANA_REGEN_PER_SPIRIT * mult
+        * dt) to current_mana every frame, so current_mana itself is
+        legitimately fractional between casts. Rounds only at the display
+        boundary, same as display_health, for the same reason (exact
+        internal math, clean UI number)."""
+        return round(getattr(self, "current_mana", 0))
+
+    @property
+    def display_rage(self):
+        """Whole-number Rage for UI display. Rage doesn't tick per-frame
+        the way Mana/HP do, but combat's rage-on-damage-taken gain
+        (Character.take_damage: `actual * 0.2`) multiplies real damage by
+        a decimal, so current_rage can end up fractional too (e.g. 7
+        damage taken -> +1.4 Rage). Same round()-at-display-boundary
+        pattern as display_health/display_mana - kept for consistency
+        even though the fractional drift here is smaller and rarer."""
+        return round(getattr(self, "current_rage", 0))
+
+    @property
+    def display_energy(self):
+        """Whole-number Energy for UI display. Energy currently only
+        changes in fixed integer chunks (see Character's +25/+15/-2 Energy
+        adjustments), so this is a no-op today, but it exists so every
+        resource pool has the same real display_* accessor rather than
+        Energy being the one pool UI code reads raw - if a per-tick or
+        percentage-based Energy gain gets added later, display code
+        already calling display_energy won't need to change."""
+        return round(getattr(self, "current_energy", 0))
+
+    #: Human-readable labels for stat_mods keys, so combat log messages can
+    #: actually say what a buff/debuff does ("+8 Agility") instead of just
+    #: naming the ability and leaving the mechanical effect invisible to the
+    #: player. Falls back to a title-cased version of the raw key for any
+    #: stat not listed here, so a new stat added later never prints as a
+    #: silent no-op description.
+    STAT_LABELS = {
+        "attack_power": "Attack Power",
+        "spell_power": "Spell Power",
+        "healing_power": "Healing Power",
+        "armor": "Armor",
+        "magic_resistance": "Magic Resistance",
+        "strength": "Strength",
+        "stamina": "Stamina",
+        "intellect": "Intellect",
+        "spirit": "Spirit",
+        "agility": "Agility",
+        "crit_chance_physical": "Physical Crit",
+        "crit_chance_spell": "Spell Crit",
+        "hit_rating": "Hit Rating",
+        "hit_chance_physical": "Physical Hit",
+        "hit_chance_spell": "Spell Hit",
+        "parry": "Parry",
+        "dodge": "Dodge",
+        "block": "Block",
+        "haste": "Haste",
+        "max_health_pct": "Max Health %",
+        "max_mana_pct": "Max Mana %",
+    }
+
+    @classmethod
+    def _describe_stat_mods(cls, stat_mods):
+        """Turn {'agility': 8, 'armor': -10} into '+8 Agility, -10 Armor'."""
+        if not stat_mods:
+            return ""
+        parts = []
+        for stat, value in stat_mods.items():
+            label = cls.STAT_LABELS.get(stat, stat.replace("_", " ").title())
+            sign = "+" if value >= 0 else ""
+            parts.append(f"{sign}{value} {label}")
+        return ", ".join(parts)
+
+    def _init_status_effects(self):
+        self.active_effects = []
+        # Drained by CombatEngine/Ability.use() right after take_damage()
+        # calls - see Character.take_damage's ON_DAMAGE_TAKEN proc-firing
+        # comment for why this exists instead of take_damage() logging
+        # directly (it has no combat_log handle of its own).
+        self._pending_proc_messages = []
+
+    def _effects(self):
+        """Lazily create the list so old saves / partially-constructed
+        objects never blow up with AttributeError."""
+        if not hasattr(self, "active_effects") or self.active_effects is None:
+            self.active_effects = []
+        return self.active_effects
+
+    def apply_status_effect(self, effect):
+        """Add an effect, refreshing in place if one with the same id exists.
+
+        Returns a short log line describing what happened, including the
+        actual mechanical effect (e.g. "+8 Agility") rather than just the
+        ability name - previously a buff/debuff's stat_mods were applied
+        correctly but never surfaced anywhere, so "Cave Skitterer uses
+        Skitter" told the player nothing about what Skitter actually did.
+        """
+        effects = self._effects()
+        stat_desc = self._describe_stat_mods(effect.stat_mods)
+        suffix = f" ({stat_desc})" if stat_desc else ""
+
+        # Exclusive-group replacement (e.g. Tinker's Rounds): applying a new
+        # effect in the same group removes any other member of that group
+        # first, even if effect_id differs - a single ammo-loadout slot
+        # rather than the normal same-id-refreshes/different-id-stacks rule.
+        # Must run BEFORE the same-id refresh check below so re-loading the
+        # SAME Round still refreshes normally instead of removing-then-
+        # re-adding itself.
+        replaced_name = None
+        if effect.exclusive_group:
+            for existing in list(effects):
+                if (existing.exclusive_group == effect.exclusive_group
+                        and existing.effect_id != effect.effect_id):
+                    replaced_name = existing.name
+                    effects.remove(existing)
+
+        for existing in effects:
+            if existing.effect_id == effect.effect_id:
+                existing.duration = effect.duration
+                existing.max_duration = effect.max_duration
+                existing.potency = effect.potency
+                existing.stat_mods = effect.stat_mods
+                existing.real_time_seconds = effect.real_time_seconds
+                self._on_status_effects_changed()
+                return f"{effect.name} refreshed on {self.name}{suffix}."
+
+        effects.append(effect)
+        self._on_status_effects_changed()
+        if replaced_name:
+            return f"{effect.name} replaces {replaced_name} on {self.name}{suffix}."
+        if effect.effect_type == EffectType.BUFF:
+            return f"{self.name} gains {effect.name}{suffix}."
+        elif effect.effect_type == EffectType.DEBUFF:
+            return f"{self.name} is afflicted by {effect.name}{suffix}!"
+        return f"{self.name} is afflicted by {effect.name}!"
+
+    def _on_status_effects_changed(self):
+        """Recompute derived stats (max HP/Mana/etc) after any effect is
+        applied, refreshed, or removed.
+
+        THE ACTUAL BUG THIS FIXES: a stamina buff like Power Word:
+        Fortitude was supposed to raise max HP through the SAME bonus pool
+        gear uses (see _recalculate_derived_stats's stat_mods loop) - and
+        that plumbing was correct - but nothing ever actually CALLED
+        _recalculate_derived_stats() when a buff was applied or expired.
+        _recalculate_derived_stats already had a comment claiming this
+        hook existed ("Recalc is re-triggered whenever an effect is
+        applied or expires (see _on_status_effects_changed)") but the
+        method itself was never written. Max HP only got recomputed on
+        level-up/gear-change, so it silently went stale the moment a
+        stamina buff landed or fell off mid-session - producing exactly
+        the "current HP exceeds max HP" displays users found in the party
+        screen and combat target picker (e.g. a Shaman showing 364/204
+        after Fortitude wore off: current_health was legitimately raised
+        while the buff was active, but max never followed it back down).
+
+        Monster shares this mixin and has no _recalculate_derived_stats
+        (its stats are template-driven, not gear/stamina-derived), so this
+        is a no-op there rather than an error.
+        """
+        if hasattr(self, "_recalculate_derived_stats"):
+            self._recalculate_derived_stats()
+
+    def has_status_effect(self, effect_id):
+        return any(e.effect_id == effect_id for e in self._effects())
+
+    @property
+    def is_stunned(self):
+        """True while any active DEBUFF with is_stun=True is on this
+        combatant - derived from live status effects (same pattern as
+        current_mechsuit below), never a plain attribute set/cleared by
+        hand, so it can't go stale if a stun expires or gets dispelled
+        through a path that forgot to flip a separate bool.
+
+        Checked by TurnMeter.update() to withhold turn-meter
+        accumulation entirely while stunned, so a stunned combatant is
+        genuinely skipped rather than getting a turn that does nothing -
+        see combat/turn_meter.py."""
+        return any(getattr(e, "is_stun", False) for e in self._effects())
+
+    @property
+    def current_mechsuit(self):
+        """Real Tinker Mechsuit state - True while the real screenshot-
+        confirmed timed transform buff ("tinker_mechsuit_form") is active.
+        Kyle: "we can do it as a kind of like metamorphosis style" for
+        Mechsuit: Laser Beam/Combustion (both real screenshots say "Shares
+        a cooldown with other Mechsuit abilities"), gated by requires_form
+        =["mechsuit"] in their JSON (see Ability.is_form_ready).
+
+        A DERIVED property reading has_status_effect, not a plain bool
+        attribute set/cleared by hand at apply/expire time - this is
+        deliberate: current_form/current_stance are set imperatively
+        because they're truly persistent state with no natural expiry to
+        hook into, but Mechsuit already has a perfect real signal (the
+        StatusEffect's own is_expired()/tick_status_effects lifecycle)
+        that a plain attribute could only ever shadow and risk drifting
+        out of sync with (e.g. if a future dispel or clear_status_effects
+        call removed the buff through a path that forgot to also flip a
+        separate bool). Deriving it means it is definitionally always
+        correct - it can't be checked while stale.
+        """
+        return self.has_status_effect("tinker_mechsuit_form")
+
+    def has_dispellable_effect(self, dispel_type):
+        """True if this combatant has at least one active effect tagged
+        with the given DispelType, regardless of whether it's a
+        BUFF/HOT or a DEBUFF/DOT (see dispel_effect for why both
+        directions matter - Devour Magic-style "purge a buff off an
+        enemy" is just as real as Cleanse Spirit-style "remove a curse
+        from an ally"). Used by cleanse/dispel abilities to check
+        castability before spending resources on a target with nothing
+        to remove."""
+        return any(e.dispel_type == dispel_type for e in self._effects())
+
+    def dispel_effect(self, dispel_type):
+        """Remove the first active effect matching the given DispelType
+        (e.g. DispelType.CURSE), regardless of whether it's harmful or
+        beneficial. Real WoW dispels work both directions depending on
+        who you target - Devour Magic purges a beneficial Magic buff off
+        an ENEMY, while Cleanse Spirit removes a harmful Curse DEBUFF off
+        an ALLY. Both are "remove one matching effect," just aimed at
+        different targets - this method doesn't need to know which
+        direction it's being used for, only find and remove a match.
+
+        Originally restricted to EffectType.DEBUFF/DOT only, which meant
+        an ability like Devour Magic (purge a beneficial buff from an
+        enemy) could never find anything to remove even when the enemy
+        genuinely had a dispellable buff active - confirmed by testing
+        Felhunter's Devour Magic against a tagged enemy buff and getting
+        "nothing to dispel" when there plainly was.
+
+        Real WoW dispels remove one matching effect per cast, not all of
+        them - matched here (only the first hit is removed).
+
+        Returns the removed StatusEffect, or None if nothing matched (the
+        caller should treat None as "nothing to dispel" and can refund the
+        cast the same way Swiftmend's consumes_hot path does for a missing
+        HoT - see Ability._apply_effect's heal branch).
+        """
+        effects = self._effects()
+        for effect in effects:
+            if effect.dispel_type == dispel_type:
+                effects.remove(effect)
+                self._on_status_effects_changed()
+                return effect
+        return None
+
+    def get_status_stat_mod(self, stat_name):
+        """Sum all active buff/debuff modifiers for a given stat."""
+        total = 0
+        for e in self._effects():
+            if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF):
+                total += e.stat_mods.get(stat_name, 0)
+        return total
+
+    def tick_status_effects(self):
+        """Advance DOT/HOT/turn-based-BUFF/DEBUFF effects by one turn.
+        Returns a list of log messages.
+
+        Called from CombatEngine._end_turn() for the combatant whose turn
+        just ended (NOT for both combatants every turn). Damage/healing is
+        applied BEFORE the duration decrements, so an N-turn effect ticks
+        exactly N times.
+
+        BUFF/DEBUFF effects only decrement here when they're turn-based
+        (real_time_seconds is None - a "combat" scope buff_scope, e.g. a
+        monster's Frenzy or a short player cooldown like Ice Barrier).
+        "raid" scope buffs (Fortitude, Mark of the Wild, ...) have a real
+        real_time_seconds value and are left alone here - they only run
+        down via tick_seconds(), so a 30-minute buff cast before a 3-turn
+        fight doesn't lose 3 turns of its real-world duration just because
+        combat happened.
+
+        THREAT GAP (Shaman Tank / Earthen Guardian, Phase 6): DoT/HoT ticks
+        here do NOT generate threat. This method runs on the TARGET
+        (self.take_damage/self.heal) with no reference to who originally
+        cast the effect or which CombatEngine/enemy to credit - status
+        effects only store potency/duration/school, not a caster or engine
+        handle. Every other damage/heal path (Ability._apply_effect,
+        called with caster+engine both in scope) DOES generate threat - see
+        CombatEngine.gain_threat and Ability._last_threat_events. None of
+        the initial Shaman Tank talent kit depends on DoT/HoT threat, so
+        this is a documented gap rather than a blocker; closing it would
+        mean threading a (caster, combat_engine) reference through every
+        StatusEffect, which is a bigger change than this pass needs.
+        """
+        messages = []
+        for effect in list(self._effects()):
+            if effect.proc_icd_remaining > 0:
+                effect.proc_icd_remaining -= 1
+            if effect.effect_type == EffectType.DOT:
+                dealt = self.take_damage(effect.potency, effect.damage_school)
+                messages.append(f"{self.name} suffers {dealt} damage from {effect.name}.")
+                effect.duration -= 1
+                if effect.is_expired():
+                    self._effects().remove(effect)
+                    messages.append(f"{effect.name} fades from {self.name}.")
+            elif effect.effect_type == EffectType.HOT:
+                self.heal(effect.potency)
+                messages.append(f"{self.name} is healed {effect.potency} by {effect.name}.")
+                effect.duration -= 1
+                if effect.is_expired():
+                    self._effects().remove(effect)
+                    messages.append(f"{effect.name} fades from {self.name}.")
+            elif effect.effect_type in (EffectType.BUFF, EffectType.DEBUFF):
+                if effect.real_time_seconds is not None:
+                    continue  # "raid" scope - only tick_seconds() touches this
+                effect.duration -= 1
+                if effect.is_expired():
+                    self._effects().remove(effect)
+                    messages.append(f"{effect.name} fades from {self.name}.")
+                    # A buff/debuff carrying stat_mods (e.g. Frenzy's
+                    # +attack_power) just left the bonus pool
+                    # _recalculate_derived_stats() folds effects into -
+                    # recompute now or derived stats (including max HP for
+                    # anything with a stamina mod) stay stale until the
+                    # next unrelated recalc. See _on_status_effects_changed.
+                    self._on_status_effects_changed()
+        return messages
+
+    def fire_proc_trigger(self, trigger, context=None, engine=None):
+        """React to a real combat event on behalf of every active effect
+        carrying a matching `proc`. Called from the real points those
+        events already resolve (Ability._apply_effect for casts/damage/
+        heals, Character.take_damage for damage taken, CombatEngine for
+        kills) - see ProcTrigger's docstring for the exact call sites.
+
+        context: dict with event data. "amount" (the real damage/heal
+        number just dealt) is what bonus_pct reads to add real extra
+        damage to the SAME hit - WoW-style "instant" procs, not a phantom
+        follow-up attack. "target" (optional) is who the triggering cast
+        hit, used as the default target for apply_effect payloads that
+        don't specify their own. "is_crit" (optional bool) gates ON_CRIT
+        matching.
+
+        engine: the live CombatEngine, only needed so grant_resource/
+        apply_effect payloads that log or generate threat can do so
+        correctly. None is safe for anything running outside combat
+        (e.g. an out-of-combat cast_panel heal) - those payloads just
+        skip threat generation, exactly like every other out-of-combat
+        cast already does.
+
+        Returns a list of log message strings for whatever fired, exactly
+        like tick_status_effects() - callers append these to combat_log.
+
+        Each effect's own proc_icd_remaining gates repeat-fires: a proc
+        that just fired sets its ICD from proc["icd"] (turns) and won't
+        re-check its chance roll again until that many of the CARRIER's
+        own turns have ended (decremented in tick_status_effects, same
+        place duration already ticks) - this is why an effect with icd=1
+        can't proc twice in the same turn from two different triggers
+        (e.g. ON_DAMAGE_CAST then ON_CRIT off the same hit), matching how
+        real WoW proc ICDs work.
+        """
+        context = context or {}
+        amount = context.get("amount", 0)
+        target = context.get("target")
+        is_crit = bool(context.get("is_crit", False))
+        messages = []
+
+        # Re-entrancy guard: extra_attack re-invokes Ability.use(), which
+        # itself calls fire_proc_trigger() again on the SAME caster for
+        # that swing. Without this, an extra_attack proc with icd=0 would
+        # trigger its own extra attack, which triggers another, forever.
+        # Real WoW doesn't let Windfury proc off its own bonus swing
+        # either - the bonus attack is explicitly excluded from
+        # re-triggering itself - so this isn't a simplification, it's
+        # matching the real mechanic. Sets a flag for the duration of this
+        # call only; the extra_attack branch below checks it before
+        # invoking basic_attack.use() and the recursive call sees it set.
+        if getattr(self, "_proc_reentry_guard", False):
+            return messages
+        self._proc_reentry_guard = True
+        try:
+            return self._fire_proc_trigger_inner(trigger, amount, target, is_crit, engine)
+        finally:
+            self._proc_reentry_guard = False
+
+    def _fire_proc_trigger_inner(self, trigger, amount, target, is_crit, engine):
+        messages = []
+
+        # ON_CRIT only matters alongside a real hit; if this event wasn't
+        # actually a crit, effects listening for ON_CRIT specifically have
+        # nothing to do, and effects listening for the underlying damage/
+        # heal trigger should still fire normally regardless of crit status
+        # (crit is additive information about the SAME event, not a
+        # separate one) - so ON_CRIT is only ever passed in as `trigger`
+        # itself when the caller explicitly fires it as its own event
+        # (see Ability._apply_effect), never inferred here.
+
+        for effect in list(self._effects()):
+            proc = getattr(effect, "proc", None)
+            if not proc:
+                continue
+
+            proc_trigger = proc.get("trigger")
+            matches = (
+                proc_trigger == trigger
+                or (proc_trigger == ProcTrigger.ON_DAMAGE_OR_HEAL_CAST
+                    and trigger in (ProcTrigger.ON_DAMAGE_CAST, ProcTrigger.ON_HEAL_CAST))
+            )
+            if not matches:
+                continue
+
+            if effect.proc_icd_remaining > 0:
+                continue
+
+            chance = proc.get("chance", 100)
+            if chance < 100:
+                import random
+                if random.uniform(0, 100) > chance:
+                    continue
+
+            fired_something = False
+
+            # heal_flat: a fixed-amount heal on the CARRIER, independent
+            # of the triggering event's amount - Earth Shield's real
+            # mechanic (heals for a flat number whenever the target takes
+            # damage, NOT a percentage of the hit taken - unlike bonus_pct
+            # below, which scales off the triggering amount). Distinct
+            # payload from bonus_pct because "flat regardless of hit size"
+            # and "percentage of hit size" are genuinely different proc
+            # shapes in real WoW (Earth Shield vs. e.g. a life-steal proc).
+            heal_flat = proc.get("heal_flat")
+            if heal_flat and hasattr(self, "heal"):
+                self.heal(heal_flat)
+                messages.append(f"{effect.name} heals {self.name} for {heal_flat}!")
+                fired_something = True
+
+            # grant_resource: e.g. Vow of Radiance's "+2 Solar Power".
+            # Uses the same gain_resource() every builder/spender ability
+            # already goes through, so caps (see Character.
+            # SECONDARY_RESOURCE_MAX_OVERRIDE) are respected automatically.
+            grant = proc.get("grant_resource")
+            if grant and hasattr(self, "gain_resource"):
+                resource = grant.get("resource")
+                grant_amt = grant.get("amount", 0)
+                if resource and grant_amt > 0:
+                    gained = self.gain_resource(resource, grant_amt)
+                    if gained:
+                        messages.append(
+                            f"{self.name} gains {gained} {resource.replace('_', ' ').title()} from {effect.name}!")
+                        fired_something = True
+
+            # bonus_pct: real WoW-style "instant" proc - adds extra damage
+            # or healing to the SAME hit that triggered it, applied
+            # directly here via take_damage/heal on whichever side this
+            # trigger concerns, rather than queuing a second attack. Only
+            # meaningful when the triggering event actually had a real
+            # amount attached (a pure self-buff ON_CAST has amount=0 and
+            # nothing to scale off).
+            bonus_pct = proc.get("bonus_pct")
+            if bonus_pct and amount > 0:
+                bonus_amt = max(1, int(amount * bonus_pct))
+                if trigger in (ProcTrigger.ON_HEAL_CAST,) and self is target:
+                    # Bonus healing lands on whoever the triggering heal
+                    # actually healed (the carrier, since this fired via
+                    # self.fire_proc_trigger on the recipient's own effect).
+                    self.heal(bonus_amt)
+                    messages.append(f"{effect.name} adds {bonus_amt} bonus healing to {self.name}!")
+                    fired_something = True
+                elif target is not None and hasattr(target, "take_damage"):
+                    dealt = target.take_damage(bonus_amt, effect.damage_school)
+                    messages.append(f"{effect.name} adds {dealt} bonus damage to {target.name}!")
+                    fired_something = True
+                    if engine is not None and hasattr(engine, "gain_threat"):
+                        engine.gain_threat(self, target, dealt)
+
+            # apply_effect: proc applies a fresh StatusEffect (its own
+            # spec dict, same shape as any other StatusEffect kwargs) onto
+            # the trigger's target, or the carrier itself if no target is
+            # relevant (e.g. a self-buff proc). Lets a proc chain into a
+            # real DoT/debuff/extra buff rather than only ever touching
+            # resources/damage.
+            apply_spec = proc.get("apply_effect")
+            if apply_spec:
+                recipient = target if (apply_spec.get("on_target", True) and target is not None) else self
+                if hasattr(recipient, "apply_status_effect"):
+                    new_effect = StatusEffect(**{k: v for k, v in apply_spec.items() if k != "on_target"})
+                    recipient.apply_status_effect(new_effect)
+                    messages.append(f"{effect.name} triggers {new_effect.name} on {recipient.name}!")
+                    fired_something = True
+
+            # extra_attack: Windfury Weapon/Totem's real mechanic - a
+            # genuine SECOND independent swing against the same target,
+            # not bonus damage folded into the current hit. Re-invokes the
+            # caster's own basic-attack Ability (found via ability_book,
+            # by the real "<class_prefix>_attack" convention every class's
+            # data file uses - see combat/abilities.py's
+            # _class_file_prefix), so the extra swing rolls its own real
+            # hit/miss/crit/avoidance exactly like any other attack, with
+            # its own combat log line - not a copy of the triggering hit's
+            # number. Requires the carrier to actually have an
+            # ability_book (Character does; Monster's own attack path
+            # doesn't run through Ability.use() yet, so this safely no-ops
+            # for monsters until that's built later).
+            #
+            # This proc's own "chance" field (checked at the top of this
+            # loop) already gates whether we get here at all - a monster's
+            # Windfury-style ability just sets a lower chance (e.g. 20 for
+            # WoW's real ~20% Windfury proc rate) rather than needing a
+            # second roll here.
+            if proc.get("extra_attack") and target is not None and hasattr(self, "ability_book"):
+                book = self.ability_book
+                prefix = getattr(self, "char_class", "").lower().replace(" ", "_")
+                basic_attack = book.get_ability(f"{prefix}_attack") if book else None
+                if basic_attack is not None and target is not None and hasattr(target, "is_alive") and target.is_alive():
+                    _ok, extra_msg = basic_attack.use(self, target, in_combat=True)
+                    if _ok:
+                        messages.append(f"{effect.name} triggers an extra attack! {extra_msg}")
+                        fired_something = True
+
+            if fired_something:
+                icd = proc.get("icd", 0)
+                if icd > 0:
+                    effect.proc_icd_remaining = icd
+
+        return messages
+
+    #: Real WoW-style attunement cycle order for Runemaster (see
+    #: current_attunement below). Frost -> Fire -> Arcane -> repeat, every
+    #: RUNEMASTER_ATTUNEMENT_PERIOD real-world seconds - matches the
+    #: class's actual identity (frontier_rpg_handoff.md: "cycles Frost/
+    #: Fire/Arcane every 8s"), not a guessed simplification.
+    RUNEMASTER_ATTUNEMENT_CYCLE = ("frost", "fire", "arcane")
+    RUNEMASTER_ATTUNEMENT_PERIOD = 8.0
+
+    def tick_seconds(self, dt):
+        """
+        Advance BUFF/DEBUFF effects by dt real-world seconds. Call this
+        every frame, in combat AND in the overworld/menus, so a 30-minute
+        buff counts down at the same rate no matter what screen the player
+        is on. Returns a list of log messages for anything that expired.
+        """
+        messages = []
+        for effect in list(self._effects()):
+            if effect.effect_type not in (EffectType.BUFF, EffectType.DEBUFF):
+                continue
+            if effect.real_time_seconds is None:
+                continue
+            effect.real_time_seconds -= dt
+            if effect.is_expired():
+                self._effects().remove(effect)
+                messages.append(f"{effect.name} fades from {self.name}.")
+                # Same reasoning as the turn-based path above: a raid buff
+                # like Fortitude expiring after its real 30 minutes must
+                # drop max HP (and anything else its stat_mods touched)
+                # back down immediately, or current HP can be left sitting
+                # above the new, lower max until something unrelated
+                # happens to trigger a recalc.
+                self._on_status_effects_changed()
+        self._tick_attunement(dt)
+        return messages
+
+    #: Real out-of-combat regen rates, per point of effective Spirit, per
+    #: REAL SECOND (not per tile moved, and not per turn - see
+    #: tick_out_of_combat_regen below). Kyle's real numbers, replacing the
+    #: old flat "0.5 mana per Spirit per tile stepped" rate: that old rate
+    #: only ever applied while walking (see overworld_screen.py's
+    #: restore_resources_out_of_combat_step, called only inside `if
+    #: moved:`) and had no HP-regen component at all. STANDING_STILL_MULT
+    #: halves both rates while the player hasn't moved recently, matching
+    #: Kyle's "half of that when standing still" - inverted from the old
+    #: system, which required movement to regen anything at all and gave
+    #: zero benefit to standing still.
+    OUT_OF_COMBAT_MANA_REGEN_PER_SPIRIT = 0.1
+    OUT_OF_COMBAT_HP_REGEN_PER_SPIRIT = 0.05
+    STANDING_STILL_MULT = 0.5
+
+    #: Real seconds of no movement before "standing still" regen kicks in,
+    #: rather than flipping the instant a key is released - matches how
+    #: real WoW's rested-state/regen distinctions work on a several-
+    #: second threshold, not an instant one.
+    STANDING_STILL_THRESHOLD = 3.0
+
+    def tick_out_of_combat_regen(self, dt, is_moving):
+        """Real time-based HP/Mana regen while out of combat, replacing
+        the old per-tile-stepped system (see OUT_OF_COMBAT_MANA_REGEN_
+        PER_SPIRIT's docstring for why). Runs unconditionally for every
+        StatusEffectMixin user, same pattern as _tick_attunement - cheap
+        no-op for anything with no mana pool or already at full HP.
+
+        is_moving: real signal from the caller (overworld_screen.py
+        tracks real seconds since the last tile step, NOT the raw per-
+        tile movement_cooldown - that flag is tuned for tile-step
+        throttling, ~100ms, which would make regen flicker between rates
+        constantly during ordinary walking rather than reflecting genuine
+        "standing still").
+
+        Only regens MANA-resource classes' mana pool (mirrors the old
+        step-based system - Rage/Energy have their own separate real
+        out-of-combat behavior already, untouched by this) and HP for
+        EVERY class (real WoW: Spirit contributes to HP regen regardless
+        of your resource type, not just casters).
+        """
+        spirit = getattr(self, "effective_spirit", 0)
+        if spirit <= 0:
+            return
+
+        mult = 1.0 if is_moving else self.STANDING_STILL_MULT
+
+        from combat.abilities import get_class_resource, ResourceType
+        resource = get_class_resource(getattr(self, "char_class", None), self)
+        if resource == ResourceType.MANA and hasattr(self, "current_mana"):
+            gain = spirit * self.OUT_OF_COMBAT_MANA_REGEN_PER_SPIRIT * mult * dt
+            # mp5 (real gear suffix stat, "Mana Per 5 Seconds" - see
+            # data/items/gear_suffixes.json's "of the Restorer"/"of the
+            # Seer"/etc) - a flat regen source layered on top of the
+            # Spirit-based formula, converted from its native "per 5
+            # seconds" unit to "per second" to match this method's dt-based
+            # tick. Previously stored on Character (see mp5 field) but
+            # never actually consumed anywhere - gear rolling it did
+            # nothing.
+            mp5_bonus = getattr(self, "mp5", 0)
+            if mp5_bonus:
+                gain += (mp5_bonus / 5.0) * mult * dt
+            self.current_mana = min(self.mana, self.current_mana + gain)
+
+        if hasattr(self, "current_health") and hasattr(self, "health"):
+            hp_gain = spirit * self.OUT_OF_COMBAT_HP_REGEN_PER_SPIRIT * mult * dt
+            self.current_health = min(self.health, self.current_health + hp_gain)
+
+    def _tick_attunement(self, dt):
+        """Advance Runemaster's real Frost/Fire/Arcane attunement cycle by
+        dt real-world seconds. Runs unconditionally for every
+        StatusEffectMixin user (Character/Monster/Pet), same as
+        tick_seconds itself - cheap for non-Runemasters since
+        current_attunement simply sits unused if nothing ever reads it
+        (an "attunement"-schooled ability - see DamageSchool's docstring
+        for the sentinel - is the only thing that looks at this).
+
+        current_attunement_elapsed tracks real seconds since the last
+        cycle step; when it crosses RUNEMASTER_ATTUNEMENT_PERIOD, advances
+        to the next school in RUNEMASTER_ATTUNEMENT_CYCLE and resets the
+        counter (using modulo-style carryover, not a hard reset to 0, so
+        a large dt - e.g. a slow frame, or time skipped while alt-tabbed -
+        can't silently eat multiple real cycle steps).
+
+        Lazily initializes current_attunement to the cycle's first entry
+        on first tick, so a freshly-created Character always starts in a
+        real, valid attunement rather than None.
+        """
+        if not hasattr(self, "current_attunement") or self.current_attunement is None:
+            self.current_attunement = self.RUNEMASTER_ATTUNEMENT_CYCLE[0]
+            self.current_attunement_elapsed = 0.0
+
+        self.current_attunement_elapsed = getattr(self, "current_attunement_elapsed", 0.0) + dt
+        period = self.RUNEMASTER_ATTUNEMENT_PERIOD
+        while self.current_attunement_elapsed >= period:
+            self.current_attunement_elapsed -= period
+            cycle = self.RUNEMASTER_ATTUNEMENT_CYCLE
+            idx = cycle.index(self.current_attunement) if self.current_attunement in cycle else 0
+            self.current_attunement = cycle[(idx + 1) % len(cycle)]
+
+    def clear_status_effects(self):
+        """
+        Wipe ALL effects, including buffs. Used only for hard resets (e.g.
+        character death/respawn) - NOT called on ordinary combat exit any
+        more, since buffs are meant to persist across fights on their own
+        30-minute timer, the way WoW's Fortitude/Might do.
+        """
+        self.active_effects = []
+
+    def clear_combat_effects(self):
+        """
+        Clear only DOT/HOT effects when combat ends. BUFF/DEBUFF effects
+        are left alone - they expire on their own real-time clock via
+        tick_seconds(), independent of whether a fight is happening.
+        """
+        self.active_effects = [
+            e for e in self._effects()
+            if e.effect_type not in (EffectType.DOT, EffectType.HOT)
+        ]
+
+    def get_effects_summary(self):
+        """Compact list for UI display: [(name, turns_left, type), ...]"""
+        return [(e.name, e.duration, e.effect_type) for e in self._effects()]

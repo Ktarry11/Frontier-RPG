@@ -1,0 +1,495 @@
+{
+  "quests": [
+    {
+      "quest_id": "vot_first_blood",
+      "title": "First Blood",
+      "description": "You woke up in this valley with sand in your mouth and no memory of the fall. Farseer Nakhtar found you first - orc, older than he looks, the kind of calm that comes from having seen worse mornings than this one. He didn't ask where you came from. He asked if you could still hold a weapon. That's the only question that matters to him right now. The valley is thick with Mottled Boars - stupid, aggressive, and exactly the right size of problem for someone who doesn't yet know what their own arms can do. Kill five of them. Not for the valley's sake. For yours.",
+      "giver_npc_id": "vot_greeter",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mottled Boar",
+          "count": 5
+        }
+      ],
+      "reward_exp": 150,
+      "reward_gold": 500,
+      "accept_text": "Oh - another one from that blue planet everyone keeps talking about. Don't worry about it, it happens more than you'd think. What matters is whether you can still fight, whatever you were before. Boars won't kill you if you're paying attention. They'll certainly try. Go find out which kind of person you still are.",
+      "turn_in_text": "Five down, and you're still standing without a limp. Good - your body remembers things your head hasn't caught up to yet. That happens to all of you, the ones who fall into this valley instead of walking into it. Rest here a moment if you need it. There's more work, if you want it, and I think you do.",
+      "next_quest_id": "vot_scorpid_trouble",
+      "level_min": 1,
+      "level_max": 3,
+      "gear_reward_gear_level": 3,
+      "unique_item_defs": [
+        {
+          "name": "Sandworn Fang",
+          "slot": "main_hand",
+          "item_level": 2,
+          "rarity": "uncommon",
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 1
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 12,
+          "attack_speed": 1.7,
+          "flavor_text": "Smaller than a kitchen knife, yet infinitely more dangerous.",
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Novice's Kindling Rod",
+          "slot": "main_hand",
+          "item_level": 2,
+          "rarity": "uncommon",
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 2
+          },
+          "weapon_damage_min": 5,
+          "weapon_damage_max": 7,
+          "attack_speed": 3.0,
+          "flavor_text": "Back home magic didn't exist, but now you harness it freely.",
+          "label": "Staff (Int)"
+        },
+        {
+          "name": "First Light Shortblade",
+          "slot": "main_hand",
+          "item_level": 2,
+          "rarity": "uncommon",
+          "weapon_type": "sword_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 12,
+          "attack_speed": 2.4,
+          "flavor_text": "You've never swung a blade before, but in your hands, this feels right.",
+          "label": "Sword (Str)"
+        }
+      ]
+    },
+    {
+      "quest_id": "vot_scorpid_trouble",
+      "title": "Scorpid Trouble",
+      "description": "The scorpid nest south of camp has been unusually restless for three days running, and Nakhtar doesn't believe in coincidence. Something's stirred them - could be nothing, could be the same wrongness that's been creeping into this valley since before you arrived. Either way, six fewer Scorpid Workers means six fewer things trying to sting a recruit half to death on the road. He's not sending you in blind - scorpids are slow, predictable, easy to read once you've seen the pattern. This is the last easy lesson he's got for you.",
+      "giver_npc_id": "vot_greeter",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scorpid Worker",
+          "count": 6
+        }
+      ],
+      "reward_exp": 200,
+      "reward_gold": 750,
+      "gear_reward_gear_level": 5,
+      "accept_text": "The scorpids have been pushing further from the nest than they should, and I don't like things that change their habits for no reason. Thin them out - six workers, no more chasing that's needed. Watch their tails, not their claws. That's where the lesson is.",
+      "turn_in_text": "That'll keep them honest a while. You watched the tails, like I said - good, you listen. That's rarer than it should be. Now. You've done real work for this valley, twice now, and I don't say that lightly. Take something for it - pick whatever suits how you fight. You've earned the choice, not just the reward.",
+      "next_quest_id": "vot_graduation",
+      "level_min": 2,
+      "level_max": 5,
+      "unique_item_defs": [
+        {
+          "name": "Carapace-Splitter",
+          "slot": "main_hand",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "weapon_type": "mace_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 16,
+          "attack_speed": 2.4,
+          "flavor_text": "Back home this was a museum exhibit; here, it's a problem solver.",
+          "label": "Mace (Str)"
+        },
+        {
+          "name": "Chitin-Bound Wand",
+          "slot": "ranged",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "weapon_type": "wand",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 1
+          },
+          "weapon_damage_min": 10,
+          "weapon_damage_max": 13,
+          "attack_speed": 1.9,
+          "flavor_text": "You used to think these were just plastic toys at theme parks, until spark came out the tip.",
+          "label": "Wand (Int)"
+        },
+        {
+          "name": "Chitin-Cleaver",
+          "slot": "main_hand",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "weapon_type": "axe_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 21,
+          "weapon_damage_max": 29,
+          "attack_speed": 3.2,
+          "flavor_text": "It lacks the clean balance of a golf club, but it certainly gets the message across.",
+          "label": "2H Axe (Str)"
+        }
+      ]
+    },
+    {
+      "quest_id": "vot_den_scout",
+      "title": "Into the Den",
+      "description": "Elder Kuraw has no patience for Nakhtar's gentler approach to newcomers. In his experience, the valley teaches best when you're standing in it, not being told about it. The Den is a shallow cave just north of camp - nothing in there should kill a careful person, which is exactly why he wants you to go first, before anywhere that could. He's not interested in a report of what you fought. He wants to know what you noticed: the sound of water somewhere you didn't expect it, a draft where there shouldn't be one, the shape of a room before you're standing in the middle of it with something already swinging. That's the difference between someone who survives this valley and someone who gets remembered by it.",
+      "giver_npc_id": "vot_elder",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_den",
+          "target_x": 42,
+          "target_y": 23,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 100,
+      "reward_gold": 300,
+      "accept_text": "Nakhtar talks. I'd rather you see something with your own eyes and tell me what you found. The Den is close, shallow, forgiving - as caves go. And that's the other thing: caves aren't like open ground. Tight rooms, narrow tunnels - you step into the wrong corner and you'll have two or three of them on you at once instead of one. It's not a warning to scare you off. It's just how caves fight. Go in. Look around properly - not just at what's trying to kill you. Come back and tell me what you noticed.",
+      "turn_in_text": "You're still in one piece, and better - you came back describing a place, not just a fight. That instinct is worth more than any weapon I could hand you. Most people who wake up in this valley never learn to look past what's directly in front of them. You're already ahead of most.",
+      "next_quest_id": "vot_nest_guardian",
+      "level_min": 1,
+      "level_max": 3
+    },
+    {
+      "quest_id": "vot_nest_guardian",
+      "title": "The Nest Guardian",
+      "description": "The Den's guardian creature has grown territorial enough that it's no longer content to lurk - it's started patrolling, which in Kuraw's estimation makes it either a genuine problem or a very useful lesson, and possibly both. He's not sugarcoating this one: it's not the worst thing in this valley, not close, but it is the first thing that can actually kill you if you get sloppy. Everything before this has been boars and scorpids - creatures that punish carelessness with a scar. This will punish carelessness with your life, if you let it. He wants you to feel that difference now, on his terms, in a fight he's confident you can win, rather than discovering it later somewhere he isn't.",
+      "giver_npc_id": "vot_elder",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Nest Guardian",
+          "count": 1,
+          "zone": "the_den"
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 1000,
+      "gear_reward_gear_level": 6,
+      "accept_text": "It's a soft boss, as these things go in this valley. But it's still a boss, and you haven't fought one yet. Don't get comfortable just because I called it soft. Go find out what your hands do when the stakes are real.",
+      "turn_in_text": "You did it. However your hands are shaking right now, if they are - remember exactly how this felt. That was your first real fight in this world, and it will not be your last. The next one won't announce itself as a lesson the way this one did. Carry that with you.",
+      "next_quest_id": null,
+      "level_min": 2,
+      "level_max": 4,
+      "unique_item_defs": [
+        {
+          "name": "Guardian's Broken Tusk",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "weapon_type": "axe_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 2.6,
+          "flavor_text": "You've only ever used one of these on firewood, but targets are targets.",
+          "label": "Axe (Str)"
+        },
+        {
+          "name": "Denwalker's Greatblade",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 23,
+          "weapon_damage_max": 32,
+          "attack_speed": 3.4,
+          "flavor_text": "In movie props this would weigh forty pounds, but here you lift it like a feather.",
+          "label": "2H Sword (Str)"
+        },
+        {
+          "name": "Guardian-Cracked Maul",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "weapon_type": "mace_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 2
+          },
+          "weapon_damage_min": 23,
+          "weapon_damage_max": 32,
+          "attack_speed": 3.3,
+          "flavor_text": "You used to struggle with heavy groceries - now you're swinging a cinder block on a stick.",
+          "label": "2H Mace (Str)"
+        }
+      ]
+    },
+    {
+      "quest_id": "vot_vile_familiars",
+      "title": "Fel Taint",
+      "description": "The Valley Grunt keeping watch near the Burning Blade Coven doesn't bother hiding how much he hates this posting. Demons don't belong in a valley this young - he's served three seasons on this line and never once saw so much as a whiff of fel energy until last week. Now there's a cave full of it, crawling with Vile Familiars that answer to something worse still inside. He's not asking you to solve the whole problem. He's asking you to thin the herd - four familiars, enough to buy the valley some breathing room while whoever's actually in charge figures out what opened that door and why it opened here, of all places. Don't go past the familiars alone. That part matters.",
+      "giver_npc_id": "vot_guard_1",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Vile Familiar",
+          "count": 4,
+          "zone": "burning_blade_coven"
+        }
+      ],
+      "reward_exp": 250,
+      "reward_gold": 800,
+      "accept_text": "Demons. In this valley, of all places. I've stood this watch three seasons and never seen one before last week - now there's a cave full of them. Whatever's in there isn't from around here either, kind of like you, maybe, though I doubt it's as friendly. Start with the familiars. Don't go deeper without backup.",
+      "turn_in_text": "Four down, and the cave's gone quiet - for now. Quiet isn't the same as safe, and I want you to remember that before you get comfortable. Whatever's still in there commanding them hasn't so much as flinched. That's the part that keeps me up at night, if orcs still dreamed the way you people do.",
+      "next_quest_id": "vot_yarrog_baneshadow",
+      "level_min": 3,
+      "level_max": 5,
+      "gear_reward_gear_level": 5,
+      "unique_item_defs": [
+        {
+          "name": "Coven-Forged Cleaver",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "weapon_type": "sword_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 2.4,
+          "flavor_text": "The fel-etched edge still hasn't cooled all the way down, even wrapped in the sheath.",
+          "label": "Sword (Str)"
+        },
+        {
+          "name": "Familiar-Hide Grips",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "weapon_type": "fist_weapon",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 1.8,
+          "flavor_text": "Still faintly warm. You try very hard not to think about why.",
+          "label": "Fist Weapon (Agi)"
+        }
+      ]
+    },
+    {
+      "quest_id": "vot_yarrog_baneshadow",
+      "title": "Baneshadow",
+      "description": "Whatever commands the Burning Blade Coven's demons has a name now, dragged out of a captured familiar before it stopped answering questions entirely: Yarrog Baneshadow. The Grunt has seen what happens to careless fighters who go looking for cave bosses without a plan, and he won't send you in blind. Baneshadow doesn't fight fair - he'll keep summoning familiars the longer the fight drags on, building a crowd around himself while you're still trying to reach him. The trick, such as it is, isn't cleverness. It's discipline: ignore the noise, focus the head of the snake, and don't let the fight turn into a war of attrition you can't win. Kill him, and whatever foothold the fel has carved into this valley dies with him.",
+      "giver_npc_id": "vot_guard_1",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Yarrog Baneshadow",
+          "count": 1,
+          "zone": "burning_blade_coven"
+        }
+      ],
+      "reward_exp": 500,
+      "reward_gold": 2000,
+      "gear_reward_gear_level": 8,
+      "accept_text": "He summons more of them the longer the fight runs - don't let them stack up on you, or you'll be fighting the whole coven at once. Focus him, finish it fast. I'd go myself if the valley could spare the watch. It can't. So it's you.",
+      "turn_in_text": "Baneshadow is dead, and the valley is a little less wrong than it was this morning. I watched that fight end from the ridge - you didn't hesitate once. Whatever you were before you fell into this world, you fight like someone who's done this before, in some life or another. Maybe that's just how it works for people like you. Well fought, all the same. Truly.",
+      "next_quest_id": null,
+      "level_min": 4,
+      "level_max": 6,
+      "gear_reward_slot": "weapon",
+      "unique_item_defs": [
+        {
+          "name": "Baneshadow's Edge",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "rare",
+          "weapon_type": "sword_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 25,
+          "attack_speed": 2.4,
+          "flavor_text": "Still warm with fel heat. It shouldn't be - he's been dead a full minute.",
+          "label": "Sword (Str)"
+        },
+        {
+          "name": "Yarrog's Last Fang",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "rare",
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 25,
+          "attack_speed": 1.7,
+          "flavor_text": "Curved like a fang, and about as friendly.",
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Coven-Marked Staff",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "rare",
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 4
+          },
+          "weapon_damage_min": 10,
+          "weapon_damage_max": 13,
+          "attack_speed": 3.0,
+          "flavor_text": "The fel sigils are already fading now that he's gone. Small mercies.",
+          "label": "Staff (Int)"
+        }
+      ]
+    },
+    {
+      "quest_id": "vot_sagewood_petals",
+      "title": "Sagewood Petals",
+      "description": "Old Marta has tended more disoriented strangers through this valley than she can count, and she's long past the point of prying into where any of them came from. What she needs right now is practical: five Sagewood Petals, gathered fresh from the sprites that guard Sagewood Grove, for a remedy she's been brewing for the recruits who keep stumbling back into camp half-poisoned by scorpid venom. The sprites don't give the petals up easily - they startle and scatter the moment anything gets close, dropping what they're carrying only in the panic of the moment. It's not dangerous work, just patient work, and you look steady enough on your feet to manage both.",
+      "giver_npc_id": "valley_vendor",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sagewood_petal",
+          "count": 5
+        }
+      ],
+      "reward_exp": 120,
+      "reward_gold": 400,
+      "accept_text": "You've got that look - the one they all have when they first wake up here, like the ground itself doesn't feel quite real yet. It passes, given time. In the meantime, the sagewood sprites drop petals when they're startled badly enough to run. Bring me five, fresh as you can manage - they wilt fast.",
+      "turn_in_text": "Still fragrant - you were careful with these, good. Most recruits crush half of what they bring me without noticing. You'll do fine here, better than fine maybe, if you keep paying that kind of attention to the small things. It's usually the small things that keep people alive out here.",
+      "next_quest_id": null,
+      "level_min": 1,
+      "level_max": 3
+    },
+    {
+      "quest_id": "vot_felstalkers",
+      "title": "Hounds of the Coven",
+      "description": "The demons infesting the Burning Blade Coven brought hounds with them - Felstalker Whelps and their smaller cousins, Fel Pups, both quick, both vicious, both bred for exactly one purpose. The Valley Grunt wants their numbers thinned alongside the familiars, and he doesn't much care which of the two you find first - a dead hound is a dead hound, whelp or pup. Kill 6 of either, in any combination, while you're already in there dealing with the rest.",
+      "giver_npc_id": "vot_guard_1",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Felstalker Whelp",
+          "alt_targets": [
+            "Fel Pup"
+          ],
+          "count": 6,
+          "zone": "burning_blade_coven"
+        }
+      ],
+      "reward_exp": 220,
+      "reward_gold": 700,
+      "accept_text": "You'll see the hounds before you see the familiars, most likely - whelps and pups both, running in packs. Doesn't matter which you kill. Six dead hounds is six dead hounds, whichever kind they are.",
+      "turn_in_text": "Good. Fewer teeth in that cave now. Between you and whoever else the valley sends in, maybe we actually clear it out before something worse decides to move in behind the demons.",
+      "next_quest_id": null,
+      "level_min": 3,
+      "level_max": 5,
+      "gear_reward_gear_level": 5,
+      "unique_item_defs": [
+        {
+          "name": "Whelp-Fang Dirk",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 1.7,
+          "flavor_text": "Filed down from something that used to have teeth of its own.",
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Coven-Hound Sling",
+          "slot": "ranged",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "weapon_type": "thrown",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 1
+          },
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 15,
+          "attack_speed": 2.0,
+          "flavor_text": "Every pack has a runt that breaks off from the others. This is what you use to make sure it doesn't get back up.",
+          "label": "Thrown (Agi)"
+        }
+      ]
+    },
+    {
+      "quest_id": "vot_graduation",
+      "title": "Beyond the Valley",
+      "description": "Farseer Nakhtar has watched you long enough to know the valley doesn't have much left to teach you. The boars, the scorpid, even the coven's demons - you've handled what this place can throw at a green recruit, and there's a wider world waiting past the ridge that won't wait forever. Razor Hill sits at the heart of Durotar, the real town where real orcs make their real lives, and Nakhtar says it's time you saw it. Weapons Trainer Grokk holds court there and takes in every recruit who graduates out of this valley - find him, and your training truly begins.",
+      "giver_npc_id": "vot_greeter",
+      "zone": "valley_of_trials",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "razor_hill",
+          "target_x": 35,
+          "target_y": 20,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 1000,
+      "accept_text": "Follow the road north out of the valley and keep it under your feet the whole way - Durotar doesn't forgive wandering off it, not yet, not for someone as green as you still are underneath everything you've survived here. Razor Hill sits at the heart of it. Find Grokk. Tell him Nakhtar sent you, though I suspect he'll know the second he sees you carry yourself.",
+      "turn_in_text": "You made it. Of course you made it - I wouldn't have sent you otherwise. This is farther than most of you get, in either direction of what that means. Go find Grokk properly now. What happens from here isn't mine to teach you anymore.",
+      "next_quest_id": null,
+      "level_min": 3,
+      "level_max": 6
+    }
+  ]
+}

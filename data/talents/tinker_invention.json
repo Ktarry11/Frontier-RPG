@@ -1,0 +1,487 @@
+{
+  "spec_name": "Tinker Invention",
+  "tree_id": "tinker_invention",
+  "description": "Field medic - gadgets and bots that keep the party alive.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 13 confirmed Invention nodes trimmed to a lean 12-node tree per Kyle's bloat direction. Build: ZIGGI-6K confirmed via tooltip as a real healing-bot summon ('the latest in regenerative technology, to aid you in healing allies until dismissed') - kept as the capstone since this matches Kyle's own played experience (Healing Tinkerer). Stubbed as a strong party-wide HoT rather than a full pet entity since the pet system doesn't exist yet - revisit once it does.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "tinker_invention_scientific_nature",
+      "name": "Scientific Nature",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_invention_healing_radiator"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_bandage_gun",
+      "name": "Bandage Gun",
+      "description": "Reduces the Mana cost of Repair Shot by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_tinker_repair_shot_cost_pct": 0.03
+      },
+      "connected_to": [
+        "tinker_invention_cybernetic_revival"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_self_sustaining_tech",
+      "name": "Self-Sustaining Tech",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_invention_combat_symbiosis"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_rejuvenating_gadgetry",
+      "name": "Rejuvenating Gadgetry",
+      "description": "Increases Repair Shot healing by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_tinker_repair_shot_healing": 0.04
+      },
+      "connected_to": [
+        "tinker_invention_nanobot_swarm"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_healing_radiator",
+      "name": "Healing Radiator",
+      "description": "Learn Healing Radiator, deploying a small device that heals the whole party for a moderate amount over several turns.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "tinker_healing_radiator"
+      },
+      "connected_to": [
+        "tinker_invention_scientific_nature",
+        "tinker_invention_nanobot_cleanser"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_cybernetic_revival",
+      "name": "Cybernetic Revival",
+      "description": "Reduces the cooldown of Defibrillate by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_tinker_defibrillate_cooldown": -1
+      },
+      "connected_to": [
+        "tinker_invention_bandage_gun"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_combat_symbiosis",
+      "name": "Combat Symbiosis",
+      "description": "Increases your armor by 3% per rank while a party member is below 50% health.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "conditional_armor_pct": 0.03
+      },
+      "connected_to": [
+        "tinker_invention_self_sustaining_tech"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_nanobot_swarm",
+      "name": "Nanobot Swarm",
+      "description": "Learn Nanobot Swarm, releasing nanobots that heal the lowest-health ally over time.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "tinker_nanobot_swarm"
+      },
+      "connected_to": [
+        "tinker_invention_rejuvenating_gadgetry"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_nanobot_cleanser",
+      "name": "Nanobot Cleanser",
+      "description": "Learn Nanobot Cleanser, removing a harmful Poison or Disease effect from an ally.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "tinker_nanobot_cleanser"
+      },
+      "connected_to": [
+        "tinker_invention_healing_radiator",
+        "tinker_invention_stim_rounds"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_nanobot_reconstruction",
+      "name": "Nanobot Reconstruction",
+      "description": "Learn Nanobot Reconstruction. Send Nanobots to an ally, healing them for 600 over 1 min. Can only be sent to 1 target at a time and cannot be dispelled.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "tinker_nanobot_reconstruction"
+      },
+      "connected_to": [
+        "tinker_invention_nanobot_cleanser"
+      ],
+      "_source": "Real screenshot: Requires Level 16, Nanobot Reconstruction (Rank 1) - real self-rank gate, Kyle-confirmed."
+    },
+    {
+      "talent_id": "tinker_invention_stim_rounds",
+      "name": "Stim Rounds",
+      "description": "Learn Stim Rounds. Load Stim Rounds, causing Repair Shot to also heal the 2 lowest-HP party members for 30% of the amount healed.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "tinker_stim_rounds"
+      },
+      "connected_to": [
+        "tinker_invention_nanobot_cleanser"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_med_pack",
+      "name": "Med Pack",
+      "description": "Learn Med Pack. Toss a med pack to an ally, healing for 354 over 6 sec and cleanses all bleed, poison and disease effects.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "tinker_med_pack"
+      },
+      "connected_to": [
+        "tinker_invention_nanobot_reconstruction",
+        "tinker_invention_stim_rounds"
+      ],
+      "_source": "Real screenshot: Requires Level 26, Med Pack (Rank 1) - real self-rank gate, Kyle-confirmed."
+    },
+    {
+      "talent_id": "tinker_invention_build_battery_reclaimer",
+      "name": "Build: Battery Reclaimer",
+      "description": "Learn Battery Reclaimer, a device that restores mana to the party over several turns.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_battery_reclaimer"
+      },
+      "connected_to": [
+        "tinker_invention_stim_rounds",
+        "tinker_invention_build_restorative_field"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_zap",
+      "name": "Zap!",
+      "description": "Learn Zap! Fires a long range zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_zap"
+      },
+      "connected_to": [
+        "tinker_invention_med_pack"
+      ],
+      "_source": "Real screenshot: Requires Level 38, Zap! (Rank 1) - real self-rank gate, Kyle-confirmed."
+    },
+    {
+      "talent_id": "tinker_invention_build_restorative_field",
+      "name": "Build: Restorative Field",
+      "description": "Increases Repair Shot's healing by 10% while Battery Reclaimer is active.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "conditional_repair_shot_healing_pct": 0.1
+      },
+      "connected_to": [
+        "tinker_invention_build_battery_reclaimer",
+        "tinker_invention_build_ziggi_6k"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_my_greatest_invention",
+      "name": "My Greatest Invention",
+      "description": "Learn My Greatest Invention, instantly healing your entire party for a massive amount.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "tinker_my_greatest_invention"
+      },
+      "connected_to": [
+        "tinker_invention_stim_rounds"
+      ],
+      "_source": "Kyle: 'basically an end game talent unlock... on par with shit like wild growth or circle of healing', 'unlocks around lvl 50 (in talent tree - so near the very bottom)'. Placed at tier 5 rather than displacing the tree's real screenshot-confirmed tier-6 capstone (Build: ZIGGI-6K, 'matches Kyle's own Healing Tinkerer experience'). Previously modeled as a passive Nanobot Swarm/Healing Radiator healing-boost at tier 3 - real correction, it's a standalone AoE heal ability."
+    },
+    {
+      "talent_id": "tinker_invention_build_ziggi_6k",
+      "name": "Build: ZIGGI-6K",
+      "description": "Deploy ZIGGI-6K, a regenerative healing bot that heals the party each turn until dismissed.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "tinker_build_ziggi_6k"
+      },
+      "connected_to": [
+        "tinker_invention_build_restorative_field"
+      ],
+      "_source": "CoA tooltip confirmed: 'Teaches you Build: ZIGGI-6K, the latest in regenerative technology, to aid you in healing allies until dismissed.' The Invention capstone - matches Kyle's own Healing Tinkerer experience."
+    },
+    {
+      "talent_id": "tinker_invention_field_medicine",
+      "name": "Field Medicine",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_invention_scientific_nature"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_stabilizing_agents",
+      "name": "Stabilizing Agents",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_invention_self_sustaining_tech"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_triage_protocol",
+      "name": "Triage Protocol",
+      "description": "Increases healing done to targets below 35% health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "low_health_healing_pct": 0.03
+      },
+      "connected_to": [
+        "tinker_invention_bandage_gun"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_efficient_dosing",
+      "name": "Efficient Dosing",
+      "description": "Reduces Mana cost of Repair Shot by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_tinker_repair_shot_cost_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_invention_rejuvenating_gadgetry"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_field_repair",
+      "name": "Field Repair",
+      "description": "Increases Armor of the target of your heals by 2% per rank for 10 seconds.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "heal_target_armor_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_invention_healing_radiator"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_rocket_launcher",
+      "name": "Rocket Launcher",
+      "description": "Learn Rocket Launcher, a heavy single-target Fire nuke.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "tinker_rocket_launcher"
+      },
+      "connected_to": [
+        "tinker_invention_nanobot_swarm"
+      ],
+      "_source": "Real screenshot: Rocket Launcher's real requirement text reads 'Invention (1)' despite the ability's own Demolition-adjacent Fire-nuke flavor - real cross-tree case, Kyle-confirmed. Moved here from tinker_demolition.json where it previously (incorrectly) lived."
+    },
+    {
+      "talent_id": "tinker_invention_gadgeteer",
+      "name": "Gadgeteer",
+      "description": "Reduces the cooldown of your Build: abilities by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "build_cooldown_pct": 0.05
+      },
+      "connected_to": [
+        "tinker_invention_antitoxin_coating"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_antitoxin_coating",
+      "name": "Antitoxin Coating",
+      "description": "Increases resistance to Poison and Disease by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "poison_disease_resist_pct": 0.05
+      },
+      "connected_to": [
+        "tinker_invention_nanobot_cleanser"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_battery_efficiency",
+      "name": "Battery Efficiency",
+      "description": "Increases mana regeneration by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "mana_regen_pct": 0.03
+      },
+      "connected_to": [
+        "tinker_invention_build_restorative_field"
+      ]
+    },
+    {
+      "talent_id": "tinker_invention_surge_protector",
+      "name": "Surge Protector",
+      "description": "Increases healing done by 3% per rank while above 80% Mana.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "high_mana_healing_pct": 0.03
+      },
+      "connected_to": [
+        "tinker_invention_build_restorative_field"
+      ]
+    }
+  ]
+}

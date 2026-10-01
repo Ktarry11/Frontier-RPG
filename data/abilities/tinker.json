@@ -1,0 +1,961 @@
+{
+  "class": "Tinker",
+  "_source_note": "Rebuilt from real Tinkerer leveling-guide screenshots (Kyle: 'This document is RIGHT from wow when I logged in. It's 100% accurate.', level-1 character). Every ability below traces to one specific screenshot. Real gating rule confirmed by Kyle: level/SpecName(N) text in a tooltip is NOT a real requirement (cosmetic UI chrome for whichever spec tab was open on a level-1 character with 0 points everywhere) - the ONLY real requirement signal is a '(Rank N)' suffix in an ability's own displayed name, and only for the specific abilities Kyle confirmed directly: Bomb Toss, Rocket Launcher, Nanobot Reconstruction, Stim Rounds, Med Pack, My Greatest Invention, Zap!, Nanobot Swarm, Makeshift Dynamite, Mechsuit: Laser Beam, Mechsuit: Combustion - these carry requires_talent=true and are granted by a real talent node (see data/talents/tinker_*.json), everything else is a plain level-gated class ability. Rocket Launcher's talent lives in Invention despite Rocket Launcher itself reading as a Demolition-flavored ability - real cross-tree case, screenshot-confirmed.",
+  "abilities": [
+    {
+      "ability_id": "tinker_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic wrench strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "tinker_scrap_shot",
+      "name": "Scrap Shot",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shoot an enemy with scrap debris, dealing 100% Ranged Weapon Damage plus 3.",
+      "_source": "Real screenshot: 5 Mana, 1.88 sec cast, 35 yd range, Requires Guns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 5,
+          "effect_value": 3
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": null
+    },
+    {
+      "ability_id": "tinker_build_sentry_turret",
+      "name": "Build: Sentry Turret",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "summon",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Build a Sentry Turret for 5 min that shoots bullets at enemies, dealing 4 Physical damage. Activate again to deconstruct your Sentry Turret. Can only have 1 Sentry Turret up at a time.",
+      "_source": "Real screenshot: 4 Mana, instant cast, 3 sec cooldown.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 4,
+          "effect_value": 4
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_spanner_smash",
+      "name": "Spanner Smash",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Smash an enemy with your spanner, dealing 110% Weapon Damage plus 14. Guaranteed to critically strike against Mechanicals.",
+      "_source": "Real screenshot: 4 Mana, melee range, instant, 6 sec cooldown (compressed to 1 turn CD per project convention), Requires Melee Weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 4,
+          "effect_value": 14
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "tinker_repair_shot",
+      "name": "Repair Shot",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire a healing stimshot at an ally, healing them for 38.",
+      "_source": "Real screenshot: Requires Level 2. 5 Mana.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 5,
+          "effect_value": 38
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "tinker_sticky_bomb",
+      "name": "Sticky Bomb",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Throw a bomb that sticks to the enemy for 5 sec. At the end of the duration the bomb explodes, dealing 20 Fire damage to the target and 4 enemies within 8 yds of the target.",
+      "_source": "Real screenshot: Requires Level 4. Demolition leveling sequence.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 15,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "tinker_discombobulate",
+      "name": "Discombobulate!",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Discombobulate an enemy, disorienting them for 4 sec. Damage dealt will end the effect.",
+      "_source": "Real screenshot: Requires Level 8. Demolition leveling sequence.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 18,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "tinker_piercing_augmentation",
+      "name": "Piercing Augmentation",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "armor_penetration_pct": 25,
+        "spell_penetration": 20
+      },
+      "description": "Add a Piercing Augmentation to your gun for 1 hour, causing an additional 3 Physical damage with each shot. Allows your attacks to ignore 25% of your target's armor and grants you 20 spell penetration.",
+      "_source": "Real screenshot: Requires Level 16. Demolition leveling sequence.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 3
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "tinker_round"
+    },
+    {
+      "ability_id": "tinker_bomb_toss",
+      "name": "Bomb Toss",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Lob a bomb at an enemy, dealing 67 Fire damage and reducing their armor by 5% for 15 sec, stacking 4 times.",
+      "_source": "Real screenshot: Requires Level 18, Bomb Toss (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by a Demolition talent node, not learned from level alone.",
+      "requires_talent": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 26,
+          "effect_value": 67
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "tinker_explosive_augmentation",
+      "name": "Explosive Augmentation",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {},
+      "description": "Add an Explosive Augmentation to your gun for 1 hour, causing your ranged attacks to explode on your target dealing 1 Fire damage to them and nearby enemies. Can only occur once per sec.",
+      "_source": "Real screenshot: Requires Level 22. Demolition leveling sequence.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 22,
+          "effect_value": 1
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "tinker_round"
+    },
+    {
+      "ability_id": "tinker_rocket_launcher",
+      "name": "Rocket Launcher",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire a powerful rocket at an enemy that deals 174 Fire damage.",
+      "_source": "Real screenshot: Requires Level 24, Rocket Launcher (Rank 1) - real self-rank gate, Kyle-confirmed. Screenshot shows this at the END of the Demolition leveling sequence but the real unlock requirement text reads 'Invention (1)' not 'Demolition (1)' - real cross-tree case, granted by an Invention talent node despite the ability's own Demolition-adjacent flavor.",
+      "requires_talent": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 32,
+          "effect_value": 174
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "tinker_magic_augmentation",
+      "name": "Magic Augmentation",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "ranged_ability_range": 5
+      },
+      "description": "Add a Magic Augmentation to your gun for 1 hour, causing an additional 2 Magic damage with each shot. Increases the range of your ranged abilities by 5 yds.",
+      "_source": "Real screenshot: Requires Level 6. Invention leveling sequence.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 14,
+          "effect_value": 2
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "tinker_round"
+    },
+    {
+      "ability_id": "tinker_build_shield_beacon",
+      "name": "Build: Shield Beacon",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": 220
+      },
+      "description": "Throw down a shield beacon for 15 sec which projects a force field in a 10 yd radius, increasing the Armor of nearby allies by 220. 3 Charges, 15 sec recharge. Shares a cooldown with other Beacons.",
+      "_source": "Real screenshot: Requires Level 14. Invention leveling sequence.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 28,
+          "effect_value": 220
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "tinker_beacon"
+    },
+    {
+      "ability_id": "tinker_mana_module",
+      "name": "Mana Module",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "mana_regen_flat": 10
+      },
+      "description": "Empower an ally with a mana module, restoring 10 mana every 5 seconds for 30 min. Only one Module per Tinker can be active.",
+      "_source": "Real screenshot: Requires Level 16. Invention leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention same as other 1hr/30min Tinker buffs.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "tinker_module"
+    },
+    {
+      "ability_id": "tinker_nanobot_reconstruction",
+      "name": "Nanobot Reconstruction",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "hot",
+      "duration": 6,
+      "stat_mods": {},
+      "description": "Send Nanobots to an ally, healing them for 600 over 1 min. Nanobot Reconstruction can only be sent to 1 target at a time and cannot be dispelled.",
+      "_source": "Real screenshot: Requires Level 16, Nanobot Reconstruction (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
+      "requires_talent": true,
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "tinker_nanobot_recharger",
+      "name": "Nanobot Recharger",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 6,
+      "stat_mods": {
+        "mana_regen_flat": 13
+      },
+      "description": "Send Nanobots to an ally, regenerating 13 mana every 5 sec for 1 min. Nanobot Recharger can only be sent to 1 target at a time and cannot be dispelled.",
+      "_source": "Real screenshot: Requires Level 20. Invention leveling sequence.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 13
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_emergency_heal",
+      "name": "Emergency Heal",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launch a quick healing stimshot at an ally, healing them for 116.",
+      "_source": "Real screenshot: Requires Level 20. Invention leveling sequence.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 24,
+          "effect_value": 116
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "tinker_aether_augmentation",
+      "name": "Aether Augmentation",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "crit_pct_vs_mechanical": 25,
+        "magic_damage_taken_pct": -10
+      },
+      "description": "Add an Aether Augmentation to your gun for 1 hour, causing an additional 1 Arcane damage with each shot. Increases your damage and critical strike chance against Mechanicals by 25% and reduces your Magic damage taken by 10%.",
+      "_source": "Real screenshot: Requires Level 22. Invention leveling sequence.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 22,
+          "effect_value": 1
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "tinker_round"
+    },
+    {
+      "ability_id": "tinker_build_replenishment_beacon",
+      "name": "Build: Replenishment Beacon",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Throw down a replenishment beacon for 15 sec which projects a force field restoring 5 Rage, Energy, Focus, Runic Power and 5% base mana every 2.50 sec to allies. 3 Charges, 15 sec recharge.",
+      "_source": "Real screenshot: Requires Level 24. Invention leveling sequence.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "tinker_beacon"
+    },
+    {
+      "ability_id": "tinker_med_pack",
+      "name": "Med Pack",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "hot",
+      "duration": 6,
+      "stat_mods": {},
+      "description": "Toss a med pack to an ally, healing for 354 over 6 sec and cleanses all bleed, poison and disease effects.",
+      "_source": "Real screenshot: Requires Level 26, Med Pack (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
+      "requires_talent": true,
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 34,
+          "effect_value": 59
+        }
+      ],
+      "icon_id": "ability_heal",
+      "dispel_type": "poison_disease_bleed"
+    },
+    {
+      "ability_id": "tinker_round_armor_pen",
+      "name": "Armor-Piercing Rounds",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "armor_penetration": 15
+      },
+      "description": "Load Armor-Piercing Rounds, increasing your Armor Penetration.",
+      "_source": "Kept from the previous session's real data - Kyle confirmed 'Armor piercing is [real]' when asked whether Armor-Piercing/Overcharged Rounds were real. Not in the leveling doc screenshots, real duration is ~1hr per Kyle, modeled as 60-turn buff per project convention. Same exclusive_group as the Augmentation family it's now unified with per Kyle's 'Rename the augmentation as rounds' direction.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 15
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "tinker_round"
+    },
+    {
+      "ability_id": "tinker_stim_rounds",
+      "name": "Stim Rounds",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {},
+      "description": "Load Stim Rounds, causing Repair Shot to also heal the 2 lowest-HP party members for 30% of the amount healed.",
+      "_source": "Kyle, confirmed from real playtime as a Tinker healer (not in the leveling doc screenshots - doc author didn't play Invention healer far enough to record it). Real self-rank gate per Kyle's gated-abilities list, granted by an Invention talent node (tier 3).",
+      "requires_talent": true,
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "tinker_round"
+    },
+    {
+      "ability_id": "tinker_nanobot_swarm",
+      "name": "Nanobot Swarm",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 6,
+      "stat_mods": {},
+      "description": "Send Nanobots to an ally, dealing 19 damage to nearby enemies every 4 sec for 1 min. All threat generated by you is redirected to the target. Nanobot Swarm can only be sent to 1 target at a time and cannot be dispelled.",
+      "_source": "Real screenshot: Requires Level 32, Nanobot Swarm (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
+      "requires_talent": true,
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 19
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "tinker_zap",
+      "name": "Zap!",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fires a long range zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
+      "_source": "Real screenshot: Requires Level 38, Zap! (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
+      "requires_talent": true,
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 40,
+          "effect_value": 332
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "tinker_my_greatest_invention",
+      "name": "My Greatest Invention",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Instantly heals your entire party for a massive amount.",
+      "_source": "Kyle: 'basically an end game talent unlock... on par with shit like wild growth or circle of healing', unlocks near the bottom of the Invention tree (~L50 real-world equivalent). Not in the leveling doc screenshots. Real self-rank gate per Kyle's gated-abilities list. Numbers modeled above Priest's real Circle of Healing (310 heal / 90 mana / L39) per Kyle's 'bigger burst... genuinely stronger' direction.",
+      "requires_talent": true,
+      "is_instant": true,
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 110,
+          "effect_value": 520
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "tinker_power_module",
+      "name": "Power Module",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "attack_power": 19
+      },
+      "description": "Activates power module on an allied player, increasing attack power by 19 for 30 min. Only one Module per Tinker can be active.",
+      "_source": "Real screenshot: Requires Level 4. Mechanics leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 15,
+          "effect_value": 19
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "tinker_module"
+    },
+    {
+      "ability_id": "tinker_build_clockwork_assistant",
+      "name": "Build: Clockwork Assistant",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Construct a Clockwork Assistant to accompany the Tinker until dismissed.",
+      "_source": "Real screenshot: Requires Level 8. Mechanics leveling sequence (real pet summon, first of 4 real Tinker pets - Clockwork Assistant/Mechano-Bear/Rusthound/Battle Turret X-13).",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_build_mechano_bear",
+      "name": "Build: Mechano-Bear",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Construct a Mechano-Bear to accompany the Tinker until dismissed.",
+      "_source": "Real screenshot: Requires Level 14. Mechanics leveling sequence.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 24,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_makeshift_dynamite",
+      "name": "Makeshift Dynamite",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Load dynamite into your gun and launch it at an enemy, dealing 100% Ranged Weapon Damage plus 20 as Fire damage. 2 Charges, 8 sec recharge.",
+      "_source": "Real screenshot: Requires Level 18, Makeshift Dynamite (Rank 1) - real self-rank gate, Kyle-confirmed ('ANY MECH STUFF are gated', Makeshift Dynamite explicitly named too). Generates 10 Scrap - see Character.current_scrap, spent on Mechsuit Form (combat/status_effects.py real 'tinker_mechsuit_form' timed buff). Granted by a Mechanics talent node.",
+      "requires_talent": true,
+      "generates": {
+        "resource": "scrap",
+        "amount": 10
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 26,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "tinker_mechsuit_laser_beam",
+      "name": "Mechsuit: Laser Beam",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast an enemy with a laser, dealing 100% Ranged Weapon Damage plus 39 as Fire Damage and forcing your pet to charge to the enemy for 24 Physical Damage. Shares a cooldown with other Mechsuit abilities.",
+      "_source": "Real screenshot: Requires Level 22, Mechsuit: Laser Beam (Rank 1) - real self-rank gate, Kyle-confirmed. Only usable during real Mechsuit Form (see requires_form). Granted by a Mechanics talent node.",
+      "requires_talent": true,
+      "requires_form": ["mechsuit"],
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 34,
+          "effect_value": 39
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire",
+      "exclusive_group": "tinker_mechsuit_action"
+    },
+    {
+      "ability_id": "tinker_mechsuit_combustion",
+      "name": "Mechsuit: Combustion",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launch a massive ball of fire at an enemy that also damages nearby enemies, dealing 91 Fire damage. Usable while moving. Shares a cooldown with other Mechsuit abilities.",
+      "_source": "Real screenshot: Requires Level 24, Mechsuit: Combustion (Rank 1) - real self-rank gate, Kyle-confirmed. Only usable during real Mechsuit Form (see requires_form). Granted by a Mechanics talent node.",
+      "requires_talent": true,
+      "requires_form": ["mechsuit"],
+      "is_aoe": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 38,
+          "effect_value": 91
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire",
+      "exclusive_group": "tinker_mechsuit_action"
+    },
+    {
+      "ability_id": "tinker_build_rusthound",
+      "name": "Build: Rusthound",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Construct a Rusthound to accompany the Tinker until dismissed.",
+      "_source": "Real screenshot: Requires Level 30. Mechanics leveling sequence.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 36,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_build_battle_turret_x13",
+      "name": "Build: Battle Turret X-13",
+      "resource_type": "mana",
+      "cooldown": 60,
+      "effect_type": "buff",
+      "duration": 6,
+      "stat_mods": {
+        "summon_damage_pct": 10
+      },
+      "description": "Create the latest in turret technology, the Battle Turret X-13 for 30 sec that emanates an aura that increases the damage of your summons by 10%. Allies can enter the turret giving them access to unique abilities and the turret's health pool for the duration.",
+      "_source": "Real screenshot: Requires Level 40. Mechanics leveling sequence.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_arcane_bionics",
+      "name": "Arcane Bionics",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "spell_damage_taken_pct": -3,
+        "healing_taken_pct": -3
+      },
+      "description": "Augment a party member with the essence of arcane, decreasing damage taken from spells by up to 3% and healing spells by up to 3%. Lasts 5 min.",
+      "_source": "Real screenshot: Requires Level 46. Mechanics leveling sequence.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 40,
+          "effect_value": 3
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_strength_bionics",
+      "name": "Strength Bionics",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "debuff",
+      "duration": 10,
+      "stat_mods": {
+        "spell_damage_taken_pct": 75,
+        "healing_taken_pct": 80
+      },
+      "description": "Amplifies magic used against the targeted party member, increasing damage taken from spells by up to 75 and healing spells by up to 80. Lasts 10 min.",
+      "_source": "Real screenshot: Requires Level 56. Mechanics leveling sequence.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 56,
+          "cost": 46,
+          "effect_value": 75
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "tinker_mechsuit_form",
+      "name": "Build: Mechsuit",
+      "resource_type": "mana",
+      "cooldown": 30,
+      "effect_type": "buff",
+      "duration": 15,
+      "stat_mods": {
+        "damage_dealt_pct": 10,
+        "armor": 800,
+        "movement_speed_pct": 15
+      },
+      "description": "Don a powered Mechsuit for 15 sec: gain +10% damage dealt, +800 Armor, and +15% movement speed, and gain access to Mechsuit: Laser Beam and Mechsuit: Combustion.",
+      "_source": "Real screenshot-adjacent - the leveling doc doesn't show this activation ability directly, but Mechsuit: Laser Beam/Combustion both explicitly require an active Mechsuit state ('Shares a cooldown with other Mechsuit abilities'). Real CoA tooltip (earlier session): 'Activate your Mechsuit, draining 5 Scrap every sec... If you run out of Scrap while active, you are ejected.' Scrap-per-turn drain not yet wired (see _implementation_note) - modeled as a flat 15-turn duration for now. Granted by a Mechanics talent node (tier 3). Kyle: 'we can just make them form locked, likely easier' - this ability's real StatusEffect (effect_id = its own ability_id, \"tinker_mechsuit_form\") is exactly what Character.current_mechsuit checks for.",
+      "_implementation_note": "Real Scrap-per-turn drain (5/turn, early-eject if it hits 0) is not yet wired into the combat tick loop - flagging rather than silently dropping. Needs a per-turn hook similar to tick_out_of_combat_regen that decrements current_scrap while this buff is active and force-expires it early if current_scrap reaches 0.",
+      "requires_talent": true,
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "tinker_healing_radiator",
+      "name": "Build: Healing Beacon",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Throw down a healing beacon for 15 sec which projects a force field in a 10 yd radius, healing nearby allies for a moderate amount every few seconds. 3 Charges, 15 sec recharge. Shares a cooldown with other Beacons.",
+      "_source": "Kyle's real correction: 'healing radiator is basically healing beacon, an ability we have' - rebuilt as the real 3rd member of Tinker's Beacon family (Shield Beacon/Replenishment Beacon/Healing Beacon), same shape and exclusive_group. Talent-granted by tinker_invention_healing_radiator (tier 1).",
+      "requires_talent": true,
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 26,
+          "effect_value": 24
+        }
+      ],
+      "icon_id": "ability_heal",
+      "exclusive_group": "tinker_beacon"
+    },
+    {
+      "ability_id": "tinker_nanobot_cleanser",
+      "name": "Nanobot Cleanser",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Removes a harmful Poison or Disease effect from an ally.",
+      "_source": "Kyle's real correction: 'Nanobot cleanser removes disease and poison' - confirmed real dispel_type. Talent-granted by tinker_invention_nanobot_cleanser (tier 2).",
+      "requires_talent": true,
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 12,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "dispel_type": "poison_disease"
+    },
+    {
+      "ability_id": "tinker_battery_reclaimer",
+      "name": "Build: Battery Reclaimer",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Instantly restores mana to your entire party.",
+      "_source": "Kyle's real correction: 'Battery reclaimer is an AoE mana heal (so it restores party mana)' - real instant party-wide mana restore, not a HoT. Talent-granted by tinker_invention_build_battery_reclaimer (tier 4).",
+      "requires_talent": true,
+      "is_instant": true,
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 0,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_build_ziggi_6k",
+      "name": "Build: ZIGGI-6K",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Deploy ZIGGI-6K, a pet that helps heal with Wrench Toss, dealing small damage and smart-healing the lowest-HP ally, until dismissed.",
+      "_source": "Kyle's real correction: 'ZIGGI-6K is a pet (like an imp) that helps heal with wrench toss (deals small damage and smart heals ally)' - real pet summon, Invention's capstone (tier 6, 'matches Kyle's own Healing Tinkerer experience'). Wrench Toss itself (the pet's real attack) isn't separately modeled yet - same real gap as other pet-ability-kit work elsewhere in the project (Monster/Pet AI), flagging rather than silently dropping.",
+      "requires_talent": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 50,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "tinker_spider_bomb",
+      "name": "Build: Spider Bomb",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Deploy a crawling explosive that seeks out the nearest enemy before detonating for heavy Fire damage to all enemies nearby.",
+      "_source": "Kyle's real correction: 'spider bomb is just an aoe explosive.' Talent-granted by tinker_demolition_build_spider_bomb (tier 3).",
+      "requires_talent": true,
+      "is_aoe": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 28,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "tinker_napalm_proc",
+      "name": "Napalm",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 5,
+      "stat_mods": {},
+      "description": "Your direct Fire damage now also applies Napalm, a stacking DoT dealing Fire damage over time (up to 10 stacks).",
+      "_source": "Real gap-fill stub - talent-granted by tinker_demolition_napalm (tier 6, Demolition's real capstone), never had a real ability entry. This is a passive proc effect rather than a directly-cast ability - stubbed as a real DoT-application entry so unlock_ability resolves, but likely needs proper on-hit-proc wiring (same real gap as the earlier session's Weapon Engravings/Presences/Aspects work) rather than being cast from the hotbar directly.",
+      "requires_talent": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 8
+        }
+      ],
+      "icon_id": "ability_debuff",
+      "damage_school": "fire"
+    }
+  ]
+}

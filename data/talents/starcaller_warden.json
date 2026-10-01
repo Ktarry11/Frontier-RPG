@@ -1,0 +1,416 @@
+{
+  "spec_name": "Starcaller Warden",
+  "tree_id": "starcaller_warden",
+  "description": "Havoc Demon Hunter-style melee - weaves Energy fillers with mana-draining Starsunder/Astral Blade bursts. Aspect of the Warden layers a bonus-attack proc, Shadowsong's Mandate chains crits into Warden's Blade.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Warden's Blade, Fan of Knives, Umbral Blade confirmed via screenshot). Real mechanic per handoff: Starsunder and Astral Blade each drain a large chunk of max mana as their real cost/power source (mana-scaled burst), reclaimed through Celestial Strike, Aspect of the Warden's proc layer, and Rally the Sentinels.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "starcaller_warden_maievs_discipline",
+      "name": "Maiev's Discipline",
+      "description": "Grants critical strike rating and expertise from Intellect at 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "crit_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_warden_celestial_glaives"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Crit rating + expertise from Intellect.'"
+    },
+    {
+      "talent_id": "starcaller_warden_deadly_precision",
+      "name": "Deadly Precision",
+      "description": "Increases Attack Power by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "attack_power_pct": 0.03
+      },
+      "connected_to": [
+        "starcaller_warden_vigil_of_the_watchers"
+      ]
+    },
+    {
+      "talent_id": "starcaller_warden_swift_glaives",
+      "name": "Swift Glaives",
+      "description": "Increases Haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "starcaller_warden_warden_training"
+      ]
+    },
+    {
+      "talent_id": "starcaller_warden_arcane_focus",
+      "name": "Arcane Focus",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_warden_magic_mark"
+      ]
+    },
+    {
+      "talent_id": "starcaller_warden_celestial_glaives",
+      "name": "Celestial Glaives",
+      "description": "Allows Scattered Stars to stack additional times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "scattered_star_extra_stacks": 2
+      },
+      "connected_to": [
+        "starcaller_warden_maievs_discipline"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 30 Passive. Allows extra Scattered Star stacking.'"
+    },
+    {
+      "talent_id": "starcaller_warden_vigil_of_the_watchers",
+      "name": "Vigil of the Watchers",
+      "description": "Learn Vigil of the Watchers, a party and raid critical strike chance buff. Does not stack with similar effects.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "starcaller_vigil_of_the_watchers"
+      },
+      "connected_to": [
+        "starcaller_warden_deadly_precision"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid crit chance buff (no stacking with similar).' Called out as real raid-wide value alongside Halt/Bonds of Justice."
+    },
+    {
+      "talent_id": "starcaller_warden_warden_training",
+      "name": "Warden Training",
+      "description": "Starsunder critical strikes apply an extra Scattered Star stack.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "starsunder_crit_extra_star": 1
+      },
+      "connected_to": [
+        "starcaller_warden_swift_glaives"
+      ],
+      "_source": "CoA handoff doc: 'Starsunder crits apply an extra Scattered Star stack.'"
+    },
+    {
+      "talent_id": "starcaller_warden_magic_mark",
+      "name": "Magic Mark",
+      "description": "Each Scattered Star stack increases the target's Arcane damage taken.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "scattered_star_target_damage_taken_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_warden_arcane_focus"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 40 Passive. Scattered Stars boost target's Arcane damage taken per stack.'"
+    },
+    {
+      "talent_id": "starcaller_warden_sentinel_glaive",
+      "name": "Sentinel Glaive",
+      "description": "Learn Sentinel Glaive, a thrown weapon dealing Arcane damage that scales with maximum mana and increases the target's resource costs.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "starcaller_sentinel_glaive"
+      },
+      "connected_to": [
+        "starcaller_warden_celestial_glaives",
+        "starcaller_warden_shadowsongs_mandate"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Thrown weapon + Arcane damage, scales with max mana; boosts target's resource costs.' Real gap-closer/poke tool."
+    },
+    {
+      "talent_id": "starcaller_warden_astral_blade",
+      "name": "Astral Blade",
+      "description": "Learn Astral Blade, dealing Arcane damage that scales with maximum mana and increases the target's damage taken from you.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "starcaller_astral_blade"
+      },
+      "connected_to": [
+        "starcaller_warden_magic_mark"
+      ],
+      "_source": "CoA handoff doc confirmed as Warden's real mana-scaled burst button: 'Arcane damage, scales with max mana; boosts target's damage taken from you.'"
+    },
+    {
+      "talent_id": "starcaller_warden_shadowsongs_mandate",
+      "name": "Shadowsong's Mandate",
+      "description": "Increases critical strike chance and movement speed. Damaging critical strikes have a chance to trigger a free Warden's Blade.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "wardens_blade_crit_proc"
+      },
+      "connected_to": [
+        "starcaller_warden_sentinel_glaive",
+        "starcaller_warden_rally_the_sentinels"
+      ],
+      "_source": "CoA handoff doc confirmed as this spec's real burst-window mechanic: 'Boosts crit chance + movement speed; damaging crits chance to trigger Warden's Blade.'"
+    },
+    {
+      "talent_id": "starcaller_warden_rally_the_sentinels",
+      "name": "Rally The Sentinels",
+      "description": "Sentinel Glaive now restores mana and applies a Scattered Star.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_starcaller_sentinel_glaive_mana_return_pct": 0.05
+      },
+      "connected_to": [
+        "starcaller_warden_shadowsongs_mandate",
+        "starcaller_warden_astral_blade"
+      ],
+      "_source": "CoA handoff doc: 'Sentinel Glaive restores mana + applies a Scattered Star.' A key mana-sustain lever for this spec's heavy Astral Blade/Starsunder drains."
+    },
+    {
+      "talent_id": "starcaller_warden_bonds_of_justice",
+      "name": "Bonds of Justice",
+      "description": "Learn Bonds of Justice, tethering an enemy. When the tether breaks, they are gripped back to you with Arcane damage.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "starcaller_bonds_of_justice"
+      },
+      "connected_to": [
+        "starcaller_warden_rally_the_sentinels"
+      ],
+      "_source": "CoA handoff doc confirmed as a real group-value control tool: 'Tethers an enemy; break (expiry or 10+ yds distance) grips them back with Arcane damage.'"
+    },
+    {
+      "talent_id": "starcaller_warden_halt",
+      "name": "Halt",
+      "description": "Learn Halt, interrupting and school-locking an enemy's current cast.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "starcaller_halt"
+      },
+      "connected_to": [
+        "starcaller_warden_bonds_of_justice"
+      ],
+      "_source": "CoA handoff doc confirmed as Warden's real interrupt: 'Interrupts + school-locks an enemy's current cast.' Handoff describes it as a teleport-and-silence, real AoE-lockout when landed on a cluster."
+    },
+    {
+      "talent_id": "starcaller_warden_shooting_star",
+      "name": "Shooting Star",
+      "description": "Learn Shooting Star, a burst of movement speed. Cannot be slowed and cannot stop moving while active.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "starcaller_shooting_star"
+      },
+      "connected_to": [
+        "starcaller_warden_halt"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Movement speed burst; can't be slowed, can't stop moving while active.' The spec's only real defensive/disengage tool."
+    },
+    {
+      "talent_id": "starcaller_warden_avatar_of_vengeance",
+      "name": "Avatar of Vengeance",
+      "description": "Transform, teleporting to your target and increasing your Intellect. Extends Astral Blade's range and makes it teleport you to the target for the duration.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "starcaller_avatar_of_vengeance"
+      },
+      "connected_to": [
+        "starcaller_warden_shooting_star"
+      ],
+      "_source": "CoA handoff doc confirmed as Warden's real capstone transform, analogous to Metamorphosis per the retail comparison: 'Transform: teleports to target, boosts Intellect; extends Astral Blade's range + makes it teleport you to target for the duration.'"
+    },
+    {
+      "talent_id": "starcaller_warden_infused_blades",
+      "name": "Infused Blades",
+      "description": "Astral Blade has a chance to reset its cooldown or fully refund its mana cost.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_starcaller_astral_blade_reset_chance": 0.05
+      },
+      "connected_to": [
+        "starcaller_warden_shadowsongs_mandate",
+        "starcaller_warden_rally_the_sentinels"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Astral Blade on cooldown (Infused Blades can reset/refund it).' Real burst-sustain lever mentioned throughout the rotation writeup."
+    },
+    {
+      "talent_id": "starcaller_warden_stellar_amplification",
+      "name": "Stellar Amplification",
+      "description": "Scattered Star damage has a chance to make your next Astral Blade free.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "scattered_star_free_astral_blade_chance": 0.05
+      },
+      "connected_to": [
+        "starcaller_warden_sentinel_glaive",
+        "starcaller_warden_astral_blade"
+      ],
+      "_source": "CoA handoff doc: 'Scattered Star damage chance to free the next Astral Blade.'"
+    },
+    {
+      "talent_id": "starcaller_warden_vigil_of_the_moon",
+      "name": "Vigil of the Moon",
+      "description": "Learn Vigil of the Moon, revealing stealthed and invisible enemies in an area.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "starcaller_vigil_of_the_moon"
+      },
+      "connected_to": [
+        "starcaller_warden_halt"
+      ],
+      "_source": "CoA handoff doc: 'Reveals stealthed/invisible enemies in an area.'"
+    },
+    {
+      "talent_id": "starcaller_warden_reckless_glaives",
+      "name": "Reckless Glaives",
+      "description": "Increases Sentinel Glaive and Astral Blade damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_starcaller_sentinel_glaive_damage": 0.04
+      },
+      "connected_to": [
+        "starcaller_warden_swift_glaives",
+        "starcaller_warden_arcane_focus"
+      ]
+    },
+    {
+      "talent_id": "starcaller_warden_precision_of_the_watchers",
+      "name": "Precision of the Watchers",
+      "description": "Increases critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "crit_damage_physical": 0.04,
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [
+        "starcaller_warden_sentinel_glaive",
+        "starcaller_warden_astral_blade"
+      ]
+    },
+    {
+      "talent_id": "starcaller_warden_unwavering_focus",
+      "name": "Unwavering Focus",
+      "description": "Reduces the Mana cost of Astral Blade and Starsunder by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_starcaller_astral_blade_cost_pct": -0.02
+      },
+      "connected_to": [
+        "starcaller_warden_shadowsongs_mandate",
+        "starcaller_warden_rally_the_sentinels"
+      ]
+    }
+  ]
+}

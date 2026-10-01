@@ -1,0 +1,416 @@
+{
+  "spec_name": "Venomancer Venom",
+  "tree_id": "venomancer_venom",
+  "description": "Caster DPS - rot, decay, and fungal spreading damage. Also known as \"Rot\". Moonkin-equivalent spec; Weaver Form is this spec's shapeshift.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 16 confirmed Venom nodes trimmed to a lean 13-node tree per the established bloat-trim pattern from Stormbringer/Tinker. Rot Lich capstone confirmed via tooltip: 'Direct damage dealt now has a 20% chance to reset the cooldown of Serpent's Fang and grant you Rot Lich... your next Serpent's Fang within 15 seconds is free of cost.'",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "venomancer_venom_venomancy_expert",
+      "name": "Venomancy Expert",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "venomancer_venom_fungal_growth"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_venom_saturation",
+      "name": "Venom Saturation",
+      "description": "Increases Serpent's Fang damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_serpents_fang_damage": 0.03
+      },
+      "connected_to": [
+        "venomancer_venom_cycle_of_decay"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_mycosis",
+      "name": "Mycosis",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "venomancer_venom_spore"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_fungal_growth",
+      "name": "Fungal Growth",
+      "description": "Reduces the Mana cost of Serpent's Fang by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_venomancer_serpents_fang_cost_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_venom_venomancy_expert"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_cycle_of_decay",
+      "name": "Cycle of Decay",
+      "description": "Learn Decay, a Nature damage-over-time spell that spreads to nearby enemies when it expires.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_decay"
+      },
+      "connected_to": [
+        "venomancer_venom_venom_saturation",
+        "venomancer_venom_infestation"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_spore",
+      "name": "Spore",
+      "description": "Learn Spore, an area Nature damage spell that also weakens enemy Armor.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_spore"
+      },
+      "connected_to": [
+        "venomancer_venom_mycosis"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_infestation",
+      "name": "Infestation",
+      "description": "Increases Decay damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_decay_damage": 0.06
+      },
+      "connected_to": [
+        "venomancer_venom_cycle_of_decay",
+        "venomancer_venom_fungal_assailant"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_fungal_assailant",
+      "name": "Fungal Assailant",
+      "description": "Increases Spore damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_venomancer_spore_damage": 0.08
+      },
+      "connected_to": [
+        "venomancer_venom_infestation",
+        "venomancer_venom_mycelial_ring"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_mycelial_ring",
+      "name": "Mycelial Ring",
+      "description": "Increases all Nature spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "nature_spell_damage": 0.02
+      },
+      "connected_to": [
+        "venomancer_venom_fungal_assailant",
+        "venomancer_venom_sporelord"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_sporelord",
+      "name": "Sporelord",
+      "description": "Learn Weaver Form, a shapeshift that reduces spell pushback and grants periodic mana return.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "venomancer_weaver_form"
+      },
+      "connected_to": [
+        "venomancer_venom_mycelial_ring",
+        "venomancer_venom_rot_lich"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_rot_lich",
+      "name": "Rot Lich",
+      "description": "Direct damage dealt now has a 20% chance to reset the cooldown of Serpent's Fang and make your next cast free.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "serpents_fang_reset_chance": 0.2
+      },
+      "connected_to": [
+        "venomancer_venom_sporelord"
+      ],
+      "_source": "CoA tooltip confirmed verbatim, kept as the Venom capstone."
+    },
+    {
+      "talent_id": "venomancer_venom_wilt",
+      "name": "Wilt",
+      "description": "Learn Wilt, a Nature damage spell that reduces the target's healing received.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "venomancer_wilt"
+      },
+      "connected_to": [
+        "venomancer_venom_mycosis"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_a_pit_of_snakes",
+      "name": "A Pit of Snakes",
+      "description": "Increases Wilt damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_venomancer_wilt_damage": 0.08
+      },
+      "connected_to": [
+        "venomancer_venom_wilt"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_spore_cloud",
+      "name": "Spore Cloud",
+      "description": "Increases Spell Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 4
+      },
+      "connected_to": [
+        "venomancer_venom_venomancy_expert"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_toxic_bloom",
+      "name": "Toxic Bloom",
+      "description": "Increases Nature damage-over-time effects by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "nature_dot_damage": 0.03
+      },
+      "connected_to": [
+        "venomancer_venom_fungal_growth"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_patient_rot",
+      "name": "Patient Rot",
+      "description": "Increases the duration of your DoT effects by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "dot_duration_pct": 0.05
+      },
+      "connected_to": [
+        "venomancer_venom_cycle_of_decay"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_mycotoxin",
+      "name": "Mycotoxin",
+      "description": "Increases spell critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [
+        "venomancer_venom_mycosis"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_spreading_rot",
+      "name": "Spreading Rot",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "venomancer_venom_infestation"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_fungal_resilience",
+      "name": "Fungal Resilience",
+      "description": "Reduces Nature damage taken by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "nature_resist_pct": 0.03
+      },
+      "connected_to": [
+        "venomancer_venom_fungal_assailant"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_necrotic_focus",
+      "name": "Necrotic Focus",
+      "description": "Increases Wilt and Decay damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "ability_venomancer_wilt_damage": 0.04,
+        "ability_venomancer_decay_damage": 0.04
+      },
+      "connected_to": [
+        "venomancer_venom_mycelial_ring"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_spore_burst",
+      "name": "Spore Burst",
+      "description": "Increases Spore's radius by 10% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_spore_radius_pct": 0.1
+      },
+      "connected_to": [
+        "venomancer_venom_spore"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_virulence",
+      "name": "Virulence",
+      "description": "Increases all Nature spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "nature_spell_damage": 0.02
+      },
+      "connected_to": [
+        "venomancer_venom_sporelord"
+      ]
+    },
+    {
+      "talent_id": "venomancer_venom_spindlebind",
+      "name": "Spindlebind",
+      "description": "Learn Spindlebind, emitting webs at all enemies behind you to root and damage them.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "venomancer_spindlebind"
+      },
+      "connected_to": [
+        "venomancer_venom_mycelial_ring"
+      ],
+      "_source": "Confirmed screenshot: Lvl 24, 'rooting them for 4 sec and inflicting 83 Nature damage.'"
+    }
+  ]
+}

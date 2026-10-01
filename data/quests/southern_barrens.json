@@ -1,0 +1,579 @@
+{
+  "quests": [
+    {
+      "quest_id": "taurajo_word_from_bael_modan",
+      "title": "Word from Bael Modan",
+      "description": "Wrangler Tull has heard the dwarves at Bael Modan have built a proper fortress - Bael'dun Keep - overlooking their dig site. He wants confirmation before Camp Taurajo commits any real attention south.",
+      "giver_npc_id": "taurajo_kodo_wrangler",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_barrens",
+          "target_x": 115,
+          "target_y": 35,
+          "radius": 25
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 5500,
+      "accept_text": "Dwarves have been digging at Bael Modan for years. Word is they've built a real fortress over it now - Bael'dun Keep. Go see for yourself.",
+      "turn_in_text": "A whole keep, just for digging up old bones and ore. Dwarves. Still, good to know what we're dealing with.",
+      "next_quest_id": "taurajo_dwarven_excavation",
+      "level_min": 18,
+      "level_max": 20
+    },
+    {
+      "quest_id": "taurajo_dwarven_excavation",
+      "title": "The Dwarven Excavation",
+      "description": "With Bael'dun Keep confirmed, Wrangler Tull wants the dwarves' excavation crews thinned - they've been expanding their dig further into Tauren-claimed ground with every passing season.",
+      "giver_npc_id": "taurajo_kodo_wrangler",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dwarf Miner",
+          "alt_targets": [
+            "Dwarf Engineer"
+          ],
+          "count": 9,
+          "zone": "southern_barrens"
+        }
+      ],
+      "reward_exp": 1350,
+      "reward_gold": 6500,
+      "accept_text": "Nine of their diggers, whichever kind you find. Miners, engineers, doesn't matter - just fewer dwarves expanding that dig.",
+      "turn_in_text": "Nine down. That'll slow their digging a season, at least. Thank you.",
+      "level_min": 19,
+      "level_max": 21,
+      "gear_reward_gear_level": 21,
+      "unique_item_defs": [
+        {
+          "name": "Bael'dun Excavator's Harness",
+          "slot": "chest",
+          "armor_type": "mail",
+          "item_level": 21,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8,
+            "stamina": 4
+          },
+          "armor_value": 78,
+          "flavor_text": "Dwarven engineering, tauren-sized alterations. The stitching doesn't quite match.",
+          "secondary_stats": {
+            "spell_power": 4
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_general_twinbraids_folly",
+      "title": "General Twinbraid's Folly",
+      "description": "Elder Longtread has watched Bael'dun Keep's General Twinbraid grow bolder with every dig site he claims. He wants the general dealt with directly - not as vengeance, but because Twinbraid has stopped respecting any boundary at all.",
+      "giver_npc_id": "taurajo_elder",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "General Twinbraid",
+          "count": 1,
+          "zone": "southern_barrens"
+        }
+      ],
+      "reward_exp": 1900,
+      "reward_gold": 9500,
+      "accept_text": "Twinbraid doesn't dig for ore anymore, not really. He digs for territory and calls it prospecting. Someone needs to remind him where Bael'dun Keep's walls actually end.",
+      "turn_in_text": "Twinbraid's dead, and the digging stops for a while. It'll start again eventually - it always does - but this bought the land some peace.",
+      "level_min": 21,
+      "level_max": 23,
+      "gear_reward_gear_level": 23,
+      "unique_item_defs": [
+        {
+          "name": "Twinbraid's Rally Plate",
+          "slot": "chest",
+          "armor_type": "plate",
+          "item_level": 23,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.5
+          },
+          "armor_value": 140,
+          "flavor_text": "Dented from a hundred cave-ins the general walked away from. This is the one he didn't."
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_raptor_hides",
+      "title": "Raptor Hides for the Docks",
+      "description": "Fishmonger Gribble has a side trade in raptor hide, and the Sunscale raptors east of Ratchet are the closest real supply. He'll pay well for hides brought back intact.",
+      "giver_npc_id": "ratchet_fishmonger",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sunscale_raptor_hide",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 5000,
+      "accept_text": "Raptors out at the Grounds have the best hide on this coast. Six, whole as you can manage, and I'll make it worth your trip.",
+      "turn_in_text": "Good hide, barely torn. This'll fetch a real price at the docks.",
+      "level_min": 18,
+      "level_max": 20,
+      "gear_reward_gear_level": 20,
+      "unique_item_defs": [
+        {
+          "name": "Sunscale-Lined Gloves",
+          "slot": "hands",
+          "armor_type": "leather",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 4
+          },
+          "armor_value": 26,
+          "flavor_text": "Gribble cured these himself. The smell never fully comes out."
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_thinning_the_grounds",
+      "title": "Thinning the Grounds",
+      "description": "Dockmaster Brindle has had one too many shipments delayed by raptors straying too close to the coast road. He wants their numbers cut back from the Grounds itself.",
+      "giver_npc_id": "ratchet_dockmaster",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunscale Lashtail",
+          "alt_targets": [
+            "Sunscale Screecher"
+          ],
+          "count": 10,
+          "zone": "southern_barrens"
+        }
+      ],
+      "reward_exp": 1350,
+      "reward_gold": 6500,
+      "accept_text": "Ten raptors, thinned out from the Grounds. My shipments can't keep dodging claws on the coast road.",
+      "turn_in_text": "Ten fewer raptors between here and the Grounds. The road's clear, for now.",
+      "next_quest_id": "ratchet_brontus",
+      "level_min": 19,
+      "level_max": 22,
+      "gear_reward_gear_level": 22,
+      "unique_item_defs": [
+        {
+          "name": "Lashtail-Carved Spear",
+          "slot": "main_hand",
+          "weapon_type": "polearm",
+          "item_level": 22,
+          "rarity": "rare",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 6
+          },
+          "flavor_text": "The shaft is raptor bone, sanded smooth. Brindle calls it 'bad for business, good for raptors.'",
+          "secondary_stats": {
+            "attack_power": 7
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_brontus",
+      "title": "The One They Call Brontus",
+      "description": "Dockmaster Brindle has heard sailors talk about an ancient, elite kodo that roams Blackthorn Ridge - Brontus, a beast old enough to have its own reputation. He wants it hunted, both for the story and for the very real danger it poses.",
+      "giver_npc_id": "ratchet_dockmaster",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Brontus",
+          "count": 1,
+          "zone": "southern_barrens"
+        }
+      ],
+      "reward_exp": 1900,
+      "reward_gold": 9500,
+      "accept_text": "Brontus. Every sailor who's been inland has a story about that kodo, and half of them are probably true. Bring back proof, and I'll believe the rest.",
+      "turn_in_text": "You actually did it. I'll be telling this story myself now. Well earned.",
+      "level_min": 22,
+      "level_max": 24,
+      "gear_reward_gear_level": 24,
+      "unique_item_defs": [
+        {
+          "name": "Brontus's Trailtreads",
+          "slot": "feet",
+          "armor_type": "leather",
+          "item_level": 24,
+          "rarity": "rare",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.1
+          },
+          "armor_value": 30,
+          "flavor_text": "Made from hide too thick for any blade but the one that finally ended him."
+        }
+      ]
+    },
+    {
+      "quest_id": "ratchet_zulrakas_toll",
+      "title": "Zulraka's Toll",
+      "description": "Zulraka has heard the silithid dig-tunnels southeast of Ratchet have been growing, and he's worried it'll eventually undermine the coast road he walks every week. He wants firsthand word of how bad it's gotten.",
+      "giver_npc_id": "ratchet_troll_dockhand",
+      "zone": "ratchet",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_broodspiral",
+          "target_x": 152,
+          "target_y": 220,
+          "radius": 15
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 5500,
+      "accept_text": "There's a silithid dig southeast of here, spiraling down into the earth. If it keeps growing, it'll undermine the road I walk every week. Go look. Tell me how deep it goes.",
+      "turn_in_text": "Deeper than I hoped, not as deep as I feared. Thank you for checking - I sleep easier walking that road now.",
+      "level_min": 19,
+      "level_max": 21
+    },
+    {
+      "quest_id": "org_quilboar_territories",
+      "title": "The Quilboar Territories",
+      "description": "Krunk Anvilfist has heard the Razormane tribe holds a ridge north of Razorfen Kraul in real numbers now - Blackthorn Ridge. Orgrimmar wants a survey before deciding whether it's worth real military attention.",
+      "giver_npc_id": "org_smith",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_barrens",
+          "target_x": 55,
+          "target_y": 103,
+          "radius": 25
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 5500,
+      "accept_text": "Blackthorn Ridge, north of Razorfen Kraul. Razormane country, and thick with them if the reports are right. Confirm it before I waste a warband on a rumor.",
+      "turn_in_text": "Confirmed, then. Thick with quilboar and at least one real threat worth naming. I'll pass this up the chain.",
+      "next_quest_id": "org_razormane_incursion",
+      "level_min": 18,
+      "level_max": 20
+    },
+    {
+      "quest_id": "org_razormane_incursion",
+      "title": "Razormane Incursion",
+      "description": "With Blackthorn Ridge's Razormane presence confirmed, Krunk Anvilfist wants their numbers cut before the tribe grows bold enough to threaten trade along the southern routes.",
+      "giver_npc_id": "org_smith",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razormane Stalker",
+          "alt_targets": [
+            "Razormane Seer"
+          ],
+          "count": 9,
+          "zone": "southern_barrens"
+        }
+      ],
+      "reward_exp": 1350,
+      "reward_gold": 6500,
+      "accept_text": "Nine Razormane off that ridge, whichever rank you find. Bleed them enough and maybe they reconsider testing us.",
+      "turn_in_text": "Nine down. The ridge won't forget this raid, and neither will they forget to think twice next time.",
+      "next_quest_id": "org_hagg_taurenbane",
+      "level_min": 19,
+      "level_max": 22,
+      "gear_reward_gear_level": 22,
+      "unique_item_defs": [
+        {
+          "name": "Anvilfist-Forged Legplates",
+          "slot": "legs",
+          "armor_type": "plate",
+          "item_level": 22,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 6
+          },
+          "armor_value": 96,
+          "flavor_text": "Krunk forged these between Razormane raids. 'Didn't have time to make them pretty.'",
+          "secondary_stats": {
+            "attack_power": 6
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "org_hagg_taurenbane",
+      "title": "Hagg Taurenbane",
+      "description": "Reports from Blackthorn Ridge mention a Razormane champion - Hagg Taurenbane - devastating enough that solo warbands have stopped patrolling that stretch entirely. Krunk Anvilfist wants him dead before the Razormane rally around his reputation.",
+      "giver_npc_id": "org_smith",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Hagg Taurenbane",
+          "count": 1,
+          "zone": "southern_barrens"
+        }
+      ],
+      "reward_exp": 1900,
+      "reward_gold": 9500,
+      "accept_text": "Taurenbane's earned his name the hard way - ask any patrol that's crossed him and lived. Kill him before the whole ridge starts believing he's unkillable.",
+      "turn_in_text": "He bled like anything else. The stories will outlive him anyway, but at least they're just stories now.",
+      "level_min": 21,
+      "level_max": 23,
+      "gear_reward_gear_level": 22,
+      "unique_item_defs": [
+        {
+          "name": "Taurenbane's Mending Mantle",
+          "slot": "shoulder",
+          "armor_type": "cloth",
+          "item_level": 22,
+          "rarity": "rare",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 3,
+            "mp5": 0.8
+          },
+          "armor_value": 21,
+          "flavor_text": "Taken from a healer who tried, and failed, to save him. The mantle remembers the effort."
+        }
+      ]
+    },
+    {
+      "quest_id": "org_snizzles_curiosity",
+      "title": "Snizzle's Silithid Curiosity",
+      "description": "Snizzle Boltcrank has heard reports of a genuinely new silithid tunnel network southeast of Ratchet - one deep enough to be interesting, dangerous enough to be worth real caution. He wants samples of the chitin for study.",
+      "giver_npc_id": "org_engineer",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "hardened_silithid_chitin",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 6000,
+      "accept_text": "Silithid chitin, hardened - the kind that comes off something that's actually fought for its life, not just trash-tier vermin. Six pieces, from that new tunnel network southeast of Ratchet.",
+      "turn_in_text": "Fascinating structure. This'll keep me occupied for weeks. Thank you - genuinely.",
+      "level_min": 19,
+      "level_max": 22
+    },
+    {
+      "quest_id": "org_into_the_broodspiral",
+      "title": "Into the Broodspiral",
+      "description": "Apothecary Zurm has grown concerned about what's actually at the center of the silithid tunnel network southeast of Ratchet - concerned enough to want it confirmed properly, not just rumored about.",
+      "giver_npc_id": "orgrimmar_alchemist",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Silithid Guardian",
+          "alt_targets": [
+            "Silithid Stinger"
+          ],
+          "count": 10,
+          "zone": "the_broodspiral"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 7000,
+      "accept_text": "Whatever's spiraling down under that hill, it's not a small nest anymore. Ten of whatever's guarding the outer tunnels, and we'll know if this is worth Orgrimmar's real attention.",
+      "turn_in_text": "Ten down, and the tunnels keep going deeper than that. Whatever's at the center of that spiral, it's not finished growing.",
+      "next_quest_id": "org_the_broodkeeper",
+      "level_min": 19,
+      "level_max": 21,
+      "gear_reward_gear_level": 20,
+      "unique_item_defs": [
+        {
+          "name": "Chitin-Forged Broadsword",
+          "slot": "weapon",
+          "weapon_type": "sword_1h",
+          "item_level": 20,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 7
+          },
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 55,
+          "flavor_text": "The edge was ground from a broodguard's own mandible. It still bites.",
+          "stat_template": "str_physical"
+        }
+      ]
+    },
+    {
+      "quest_id": "org_the_broodkeeper",
+      "title": "The Broodkeeper",
+      "description": "With the outer tunnels confirmed dangerous, Apothecary Zurm wants the Broodkeeper itself dealt with - a silithid caster tending the egg chambers deeper in the spiral. Leave it alive and the hive only grows faster.",
+      "giver_npc_id": "orgrimmar_alchemist",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Broodkeeper",
+          "count": 1,
+          "zone": "the_broodspiral"
+        }
+      ],
+      "reward_exp": 1700,
+      "reward_gold": 8500,
+      "accept_text": "The Broodkeeper tends the eggs deeper in that spiral. Every day it lives, the hive gets bigger. Kill it, and buy the surface world some real time.",
+      "turn_in_text": "The egg chambers have gone quiet, for now. It won't stay that way forever, but it'll stay that way long enough.",
+      "level_min": 20,
+      "level_max": 22,
+      "gear_reward_gear_level": 23,
+      "unique_item_defs": [
+        {
+          "name": "Broodkeeper's Chitinous Staff",
+          "slot": "main_hand",
+          "weapon_type": "staff",
+          "item_level": 23,
+          "rarity": "rare",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 7
+          },
+          "flavor_text": "Still faintly warm, like the eggs it was guarding never stopped incubating.",
+          "secondary_stats": {
+            "spell_power": 9
+          }
+        },
+        {
+          "name": "Silithid Queen's Carapace Band",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "rare",
+          "primary_stats": {
+            "intellect": 11,
+            "spirit": 5
+          },
+          "flavor_text": "Zurm wanted this destroyed. You're keeping it instead.",
+          "secondary_stats": {
+            "spell_power": 4
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "org_the_queens_silence",
+      "title": "The Queen's Silence",
+      "description": "Apothecary Zurm has confirmed what he feared - something massive rules the center of the Broodspiral. He wants it dead before the hive organizes into something no warband can handle alone.",
+      "giver_npc_id": "orgrimmar_alchemist",
+      "zone": "orgrimmar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Broodspiral Queen",
+          "count": 1,
+          "zone": "the_broodspiral"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 11000,
+      "accept_text": "There's a Queen at the center of that spiral, and everything else down there answers to her. Kill her, and the whole hive loses its reason to keep growing. This is the real fight - everything before it was just the approach.",
+      "turn_in_text": "The Broodspiral is silent now. It won't stay empty - nothing in the Barrens ever does - but for now, it's quiet. You did something genuinely difficult here. Don't let anyone tell you otherwise.",
+      "level_min": 22,
+      "level_max": 24,
+      "gear_reward_gear_level": 25,
+      "unique_item_defs": [
+        {
+          "name": "Ring of the Silenced Hive",
+          "slot": "ring",
+          "item_level": 25,
+          "rarity": "rare",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3,
+            "crit_chance_spell": 0.2
+          },
+          "flavor_text": "Cooling now, the way everything in the Broodspiral is cooling. It still hums, faintly, like a memory of her voice."
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_beastcallers_request",
+      "title": "The Beastcaller's Request",
+      "description": "Beastcaller Nira has a professional interest in raptor eggs, specifically the ones guarded by Sunscale Lashtails at the Grounds - she believes she can hatch and tame one if given the chance.",
+      "giver_npc_id": "taurajo_beast_trainer",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sunscale_raptor_egg",
+          "count": 3
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 5500,
+      "accept_text": "Sunscale eggs, from the Grounds east of here. Three, unbroken if you can manage it - a hatched raptor's worth more to me than a dozen hides.",
+      "turn_in_text": "Still warm! This might actually work. Thank you - truly, this is rare work.",
+      "level_min": 18,
+      "level_max": 20,
+      "gear_reward_gear_level": 20,
+      "unique_item_defs": [
+        {
+          "name": "Beastcaller's Hatchling Charm",
+          "slot": "trinket",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 4
+          },
+          "flavor_text": "Nira pressed this into your hand before you'd even set the egg down. 'For luck. Mostly its luck.'",
+          "secondary_stats": {
+            "crit_chance_physical": 2
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "taurajo_spiritcarvers_balance",
+      "title": "Spiritcarver's Balance",
+      "description": "Spiritcarver Dennok has grown troubled watching the quilboar war spread south into dwarf territory and the silithid hive grow beneath it all - he wants to talk through what it means for the balance of the land before deciding what, if anything, Camp Taurajo should do.",
+      "giver_npc_id": "taurajo_totem_crafter",
+      "zone": "camp_taurajo",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_three_wars",
+            "what_it_means",
+            "the_path_forward"
+          ]
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 5000,
+      "accept_text": "Quilboar against quilboar. Dwarves digging where they shouldn't. Something ancient waking in the earth. Sit with me. I need to think this through with someone who's seen it firsthand.",
+      "turn_in_text": "You've given me a clearer picture than I had. Whatever comes of it, at least I'm not guessing anymore. Thank you.",
+      "level_min": 19,
+      "level_max": 21
+    }
+  ]
+}

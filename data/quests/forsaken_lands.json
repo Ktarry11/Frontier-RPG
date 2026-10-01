@@ -1,0 +1,1313 @@
+{
+  "quests": [
+    {
+      "quest_id": "dk_first_steps",
+      "title": "First Steps in Undeath",
+      "description": "Overseer Krell says the dead don't get to rest on their first day either. The Mangy Duskbats roosting near the village treeline are an easy enough start - prove the body still answers, even if the mind's still catching up.",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mangy Duskbat",
+          "count": 6,
+          "zone": "Deathknell"
+        }
+      ],
+      "reward_exp": 150,
+      "reward_gold": 300,
+      "accept_text": "You woke up dead. Congratulations. Now go prove the rest of you still works - the duskbats won't test you hard.",
+      "turn_in_text": "Still standing. Good. That's most of the battle, this early.",
+      "level_min": 1,
+      "level_max": 3
+    },
+    {
+      "quest_id": "dk_scavenger_scraps",
+      "title": "Scavenger Scraps",
+      "description": "The Ragged Scavengers picking through Deathknell's refuse have gotten bold enough to carry off supplies the village actually needs. Krell wants their stolen scraps recovered.",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "stolen_village_scrap",
+          "count": 5
+        }
+      ],
+      "reward_exp": 180,
+      "reward_gold": 350,
+      "accept_text": "Scavengers took more than their share again. Doesn't matter that we're all dead here - we still eat, after a fashion.",
+      "turn_in_text": "Good. Every scrap counts when the whole village is held together with rust and spite.",
+      "level_min": 1,
+      "level_max": 4
+    },
+    {
+      "quest_id": "dk_newly_risen_memory",
+      "title": "A Face I Almost Remember",
+      "description": "The Newly Risen doesn't remember her own name, only a fading sense that she had a life near the Overrun Claim. She asks you to look there - not for treasure, just for anything that might jog the memory loose.",
+      "giver_npc_id": "dk_risen",
+      "zone": "deathknell",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": null,
+          "zone": "The Overrun Claim"
+        }
+      ],
+      "reward_exp": 150,
+      "reward_gold": 250,
+      "accept_text": "I keep thinking I lived near there. Or died there. The two feel the same lately.",
+      "turn_in_text": "Nothing came back to me. Maybe nothing will. Thank you for looking anyway - that's more than most would do.",
+      "level_min": 1,
+      "level_max": 3
+    },
+    {
+      "quest_id": "dk_claim_spiders",
+      "title": "Clearing the Claim",
+      "description": "Overseer Krell wants the Claim Spiders infesting the Overrun Claim's old goldmine thinned - the village has tried to reclaim that mine for longer than anyone currently alive-again can remember.",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Claim Spider",
+          "count": 8,
+          "zone": "Deathknell"
+        }
+      ],
+      "reward_exp": 220,
+      "reward_gold": 400,
+      "accept_text": "That mine was ours before the spiders. It can be ours again, one dead spider at a time.",
+      "turn_in_text": "Progress. Real progress. Keep this up and we might actually get that mine running again someday.",
+      "level_min": 2,
+      "level_max": 5
+    },
+    {
+      "quest_id": "dk_shadow_grave_wights",
+      "title": "Wights of Shadow Grave",
+      "description": "Krell's tone turns graver here: the Shadow Grave Wights are a different kind of dead - the kind that never got the Dark Lady's gift of will, just hunger. He wants them put down before they wander into the village proper.",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shadow Grave Wight",
+          "alt_targets": [
+            "Rattlecage Skeleton"
+          ],
+          "count": 8,
+          "zone": "Deathknell"
+        }
+      ],
+      "reward_exp": 250,
+      "reward_gold": 450,
+      "accept_text": "Those things in the Grave aren't like us. No will behind the eyes. Just hunger wearing a corpse. Put them down.",
+      "turn_in_text": "That's the kind of mercy they can't thank you for, but it's mercy all the same.",
+      "level_min": 3,
+      "level_max": 6,
+      "gear_reward_gear_level": 5,
+      "unique_item_defs": [
+        {
+          "name": "Shadow Grave Wraps",
+          "slot": "hands",
+          "armor_type": "cloth",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 2
+          },
+          "armor_value": 7,
+          "flavor_text": "Taken off a wight that had no more use for hands."
+        }
+      ]
+    },
+    {
+      "quest_id": "dk_nights_webs_hollow",
+      "title": "Into Night Web's Hollow",
+      "description": "Krell has heard the spiders in Night Web's Hollow answer to something bigger than scouting parties should have to handle alone. He wants a scout sent in to confirm it before Deathknell commits real numbers.",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": null,
+          "zone": "Night Web's Hollow"
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 500,
+      "accept_text": "Something's nesting deep in that cave, something bigger than the spiders we've already dealt with. Go confirm it.",
+      "turn_in_text": "A broodmother, you say. That's a problem for stronger hands than most of Deathknell's. But now we know. Thank you.",
+      "level_min": 4,
+      "level_max": 6
+    },
+    {
+      "quest_id": "et_solliden_rot",
+      "title": "The Rot at Solliden",
+      "description": "Envoy Sorren says Solliden Farmstead's Rotting Dead have grown aggressive enough to threaten the road between Brill and the Scarlet Watch. He wants their numbers cut.",
+      "giver_npc_id": "et_agamand_envoy",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rotting Dead",
+          "alt_targets": [
+            "Blighted Grain Thresher"
+          ],
+          "count": 8,
+          "zone": "Eastern Tirisfal"
+        }
+      ],
+      "reward_exp": 400,
+      "reward_gold": 700,
+      "accept_text": "Solliden's dead don't serve the Dark Lady - they just rot and lash out. Cut their numbers before the road closes.",
+      "turn_in_text": "The road's clear again, for now. Solliden was good farmland once. It's just a graveyard with crops now.",
+      "level_min": 4,
+      "level_max": 7
+    },
+    {
+      "quest_id": "et_solliden_farmhands",
+      "title": "What's Left of the Farmhands",
+      "description": "Sorren asks that any Solliden Farmhands still shambling the fields be put to rest properly - they were innocent before the blight took them, and he doesn't want them mistaken for simple Scourge fodder.",
+      "giver_npc_id": "et_agamand_envoy",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Solliden Farmhand",
+          "count": 6,
+          "zone": "Eastern Tirisfal"
+        }
+      ],
+      "reward_exp": 380,
+      "reward_gold": 650,
+      "accept_text": "They were tenant farmers. They didn't choose this. Give them the only kindness left - an ending.",
+      "turn_in_text": "Rest, finally. Small mercy, but it's the only kind this land has left to give.",
+      "level_min": 4,
+      "level_max": 7
+    },
+    {
+      "quest_id": "et_agamand_servants",
+      "title": "The Agamand Servants",
+      "description": "Sorren wants the Agamand Servants and their Family Ghouls thinned at Agamand Mills - the family's household staff, animated and set loose by whatever happened to the Agamands themselves.",
+      "giver_npc_id": "et_agamand_envoy",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Agamand Servant",
+          "alt_targets": [
+            "Agamand Family Ghoul"
+          ],
+          "count": 9,
+          "zone": "Eastern Tirisfal"
+        }
+      ],
+      "reward_exp": 500,
+      "reward_gold": 850,
+      "accept_text": "The Agamands kept a full household staff. Now it's a full household of corpses. Thin them before the Mills overflow.",
+      "turn_in_text": "Good work. The Mills are quieter. Thurman Agamand himself is still unaccounted for, if you're willing to look further.",
+      "level_min": 5,
+      "level_max": 8
+    },
+    {
+      "quest_id": "et_captured_farmers",
+      "title": "The Captured Farmers",
+      "description": "Sorren has learned that some of Agamand Mills' Captured Farmers are still alive, held for reasons he doesn't fully understand. He wants them freed before whatever's keeping them changes its mind.",
+      "giver_npc_id": "et_agamand_envoy",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "captured_farmer_shackle_key",
+          "count": 3
+        }
+      ],
+      "reward_exp": 450,
+      "reward_gold": 800,
+      "accept_text": "Living prisoners, at the Mills. I don't know why they're being kept, and I'd rather not find out the hard way. Free them.",
+      "turn_in_text": "Freed, and alive. Whatever the Agamands wanted with them, they'll never get the chance now.",
+      "level_min": 5,
+      "level_max": 8,
+      "gear_reward_gear_level": 7,
+      "unique_item_defs": [
+        {
+          "name": "Liberator's Mace",
+          "slot": "main_hand",
+          "weapon_type": "mace_1h",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "flavor_text": "Taken off the thing guarding the shackle keys. It won't need it anymore.",
+          "secondary_stats": {
+            "attack_power": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "et_thurman_agamand",
+      "title": "Thurman Agamand",
+      "description": "With the servants thinned and the farmers freed, Sorren has confirmed Thurman Agamand himself still walks the Mills - the family patriarch, now something far worse than he was in life. He wants Thurman ended.",
+      "giver_npc_id": "et_agamand_envoy",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Thurman Agamand",
+          "count": 1,
+          "zone": "Eastern Tirisfal"
+        }
+      ],
+      "reward_exp": 750,
+      "reward_gold": 1400,
+      "accept_text": "Thurman ruled that estate alive and apparently still thinks he rules it dead. Disabuse him of the notion.",
+      "turn_in_text": "The Mills are truly quiet now, for the first time since the blight. Thurman's reign, such as it was, is over.",
+      "level_min": 8,
+      "level_max": 9,
+      "gear_reward_gear_level": 9,
+      "unique_item_defs": [
+        {
+          "name": "Agamand Patriarch's Signet Ring",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 4,
+            "intellect": 4,
+            "stamina": 2
+          },
+          "flavor_text": "Thurman wore this through life and undeath both. It still feels like it belongs to someone important.",
+          "secondary_stats": {
+            "spell_power": 3
+          }
+        },
+        {
+          "name": "Thurman's Walking Cane",
+          "slot": "main_hand",
+          "weapon_type": "mace_1h",
+          "item_level": 9,
+          "rarity": "rare",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 2
+          },
+          "flavor_text": "More ceremonial than practical, until it isn't.",
+          "secondary_stats": {
+            "spell_power": 4
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "et_scarlet_zealots",
+      "title": "Scarlet Zealots",
+      "description": "Scout Hollowmere wants the Scarlet Zealots patrolling the Scarlet Watch cut down before their numbers grow into something the Watch can't ignore.",
+      "giver_npc_id": "et_scarlet_watch_scout",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Zealot",
+          "alt_targets": [
+            "Scarlet Bowman"
+          ],
+          "count": 10,
+          "zone": "Eastern Tirisfal"
+        }
+      ],
+      "reward_exp": 650,
+      "reward_gold": 1100,
+      "accept_text": "The Crusade thinks burning us once wasn't enough. They're welcome to keep trying. Thin their patrols.",
+      "turn_in_text": "Fewer zealots on the road today. There will be more tomorrow. There always are.",
+      "level_min": 8,
+      "level_max": 11,
+      "gear_reward_gear_level": 10,
+      "unique_item_defs": [
+        {
+          "name": "Scarlet Patrol Leathers",
+          "slot": "chest",
+          "armor_type": "leather",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 3
+          },
+          "armor_value": 32,
+          "flavor_text": "Stripped off a zealot who won't be patrolling again."
+        }
+      ]
+    },
+    {
+      "quest_id": "et_scarlet_preacher_sermons",
+      "title": "Silence the Sermons",
+      "description": "Hollowmere says the Scarlet Preachers' sermons are starting to turn captured Forsaken scouts against their own. She wants the preachers silenced before the Watch loses anyone else to Crusade rhetoric.",
+      "giver_npc_id": "et_scarlet_watch_scout",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Preacher",
+          "count": 6,
+          "zone": "Eastern Tirisfal"
+        }
+      ],
+      "reward_exp": 700,
+      "reward_gold": 1200,
+      "accept_text": "Their words are as dangerous as their blades, sometimes more. Silence the preachers before they silence more of us.",
+      "turn_in_text": "Quieter out there now. The Crusade will send more. They always do. But today, we won this ground.",
+      "level_min": 9,
+      "level_max": 12
+    },
+    {
+      "quest_id": "et_interrogator_vishas",
+      "title": "Interrogator Vishas",
+      "description": "Hollowmere has confirmed Interrogator Vishas is personally overseeing the Scarlet Watch's interrogations of captured Forsaken. She wants Vishas dead and whatever intelligence she's extracted recovered.",
+      "giver_npc_id": "et_scarlet_watch_scout",
+      "zone": "eastern_tirisfal",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Interrogator Vishas",
+          "count": 1,
+          "zone": "Eastern Tirisfal"
+        }
+      ],
+      "reward_exp": 950,
+      "reward_gold": 1700,
+      "accept_text": "Vishas has personally broken three scouts I know of. I'd like her to understand what that feels like, briefly, before she stops existing.",
+      "turn_in_text": "The Watch's interrogations end with her. That's more scouts who'll come home because of what you did today.",
+      "level_min": 12,
+      "level_max": 13,
+      "gear_reward_gear_level": 13,
+      "unique_item_defs": [
+        {
+          "name": "Vishas's Interrogation Blade",
+          "slot": "main_hand",
+          "weapon_type": "dagger",
+          "item_level": 13,
+          "rarity": "rare",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "flavor_text": "Designed to extract information, not just end a fight.",
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "wt_manor_reapers",
+      "title": "Reapers of Cold Hearth",
+      "description": "Watcher Pell has had enough of Cold Hearth Manor's Manor Reapers wandering into the road - they're Scourge remnants, not Forsaken, and she wants them put down on sight.",
+      "giver_npc_id": "wt_coldhearth_watcher",
+      "zone": "western_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Manor Reaper",
+          "alt_targets": [
+            "Wretched Zombie"
+          ],
+          "count": 8,
+          "zone": "Western Tirisfal"
+        }
+      ],
+      "reward_exp": 320,
+      "reward_gold": 550,
+      "accept_text": "The Manor's never been fully ours. The Reapers see to that. Thin them whenever you pass through.",
+      "turn_in_text": "Good. Cold Hearth's a little colder for the Reapers today.",
+      "level_min": 5,
+      "level_max": 8
+    },
+    {
+      "quest_id": "wt_balnir_worgen",
+      "title": "Trouble at Balnir Farmstead",
+      "description": "Deathguard Rennick in Brill mentioned worgen trouble at Balnir Farmstead - or something wearing a worgen's shape. He asks that it be investigated before the farmstead's own dead start wandering loose.",
+      "giver_npc_id": "brill_deathguard",
+      "zone": "brill",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bleak Worg",
+          "alt_targets": [
+            "Vicious Night Web Spider"
+          ],
+          "count": 8,
+          "zone": "Western Tirisfal"
+        }
+      ],
+      "reward_exp": 400,
+      "reward_gold": 700,
+      "accept_text": "Balnir's had trouble again. Worgen, or something close enough to pass for one in bad light. Go look into it.",
+      "turn_in_text": "Fewer worgen prowling the farmstead now. Whatever it really was, it's thinned out considerably.",
+      "level_min": 5,
+      "level_max": 9,
+      "gear_reward_gear_level": 7,
+      "unique_item_defs": [
+        {
+          "name": "Balnir Farmhand's Coat",
+          "slot": "chest",
+          "armor_type": "leather",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 2
+          },
+          "armor_value": 18,
+          "flavor_text": "Found hanging on a fence post. The farmhand it belonged to wasn't so lucky."
+        }
+      ]
+    },
+    {
+      "quest_id": "wt_stableboys_warning",
+      "title": "The Stableboy's Warning",
+      "description": "Balnir Stableboy - one of the few Balnir Farmstead workers still coherent - warns that something is directing the Bleak Worgs with real intent. He asks that whatever's leading them be identified before it organizes a real raid on Brill.",
+      "giver_npc_id": "brill_deathguard",
+      "zone": "brill",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_worg_pack",
+            "whos_leading_them",
+            "what_brill_should_do"
+          ]
+        }
+      ],
+      "reward_exp": 350,
+      "reward_gold": 600,
+      "accept_text": "The stableboy swears something's directing the pack. I'd normally dismiss that, but he's been right before.",
+      "turn_in_text": "Worth looking into further, if you're willing. For now, at least we know to watch Balnir more closely.",
+      "level_min": 5,
+      "level_max": 8
+    },
+    {
+      "quest_id": "wt_bulwark_deserters",
+      "title": "Deserters at the Bulwark",
+      "description": "Quartermaster Dresden wants the Forsaken Deserters harassing the Bulwark's supply lines dealt with - former Forsaken soldiers who abandoned their posts and now raid whoever's left.",
+      "giver_npc_id": "wt_bulwark_quartermaster",
+      "zone": "western_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Forsaken Deserter",
+          "count": 10,
+          "zone": "Western Tirisfal"
+        }
+      ],
+      "reward_exp": 700,
+      "reward_gold": 1200,
+      "accept_text": "Deserters are worse than enemies, in some ways. They know exactly how we operate. Hunt them down.",
+      "turn_in_text": "Good. The supply lines are safer. Deserters never really get to rest easy, even twice-dead.",
+      "level_min": 13,
+      "level_max": 16,
+      "gear_reward_gear_level": 15,
+      "unique_item_defs": [
+        {
+          "name": "Deserter's Confiscated Blade",
+          "slot": "main_hand",
+          "weapon_type": "sword_1h",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 4
+          },
+          "flavor_text": "Dresden stripped the Bulwark's own insignia off before handing this over.",
+          "secondary_stats": {
+            "attack_power": 6
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "wt_bulwark_sentinels",
+      "title": "The Bulwark's Own",
+      "description": "Dresden says a handful of Bulwark Sentinels have themselves turned feral - the fortress's own garrison, lost to whatever creeping rot the Bulwark was built to hold back in the first place. He wants them put down with the same mercy shown at Deathknell.",
+      "giver_npc_id": "wt_bulwark_quartermaster",
+      "zone": "western_tirisfal",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bulwark Sentinel",
+          "count": 7,
+          "zone": "Western Tirisfal"
+        }
+      ],
+      "reward_exp": 750,
+      "reward_gold": 1300,
+      "accept_text": "They stood this wall for years. Now the wall's turned on itself. End it for them - it's the least they're owed.",
+      "turn_in_text": "Done. The Bulwark holds again, even if it's missing hands that used to hold it.",
+      "level_min": 13,
+      "level_max": 16
+    },
+    {
+      "quest_id": "wt_couriers_route",
+      "title": "The Courier's Route",
+      "description": "Courier Beth asks for an escort along the relay route between Brill and the Bulwark - it's grown too dangerous to run alone since the deserters started raiding in earnest.",
+      "giver_npc_id": "wt_relay_courier",
+      "zone": "western_tirisfal",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": null,
+          "zone": "The Bulwark"
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 1000,
+      "accept_text": "I just need someone to walk the route with me once, make sure it's still clear. Dying once was plenty of excitement.",
+      "turn_in_text": "Made it in one piece. Relatively speaking. Thank you - truly.",
+      "level_min": 9,
+      "level_max": 13,
+      "gear_reward_gear_level": 11,
+      "unique_item_defs": [
+        {
+          "name": "Courier's Fleetfoot Band",
+          "slot": "ring",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 2
+          },
+          "flavor_text": "Beth insisted you take it. 'Running messages taught me a thing or two about good boots and good rings.'",
+          "secondary_stats": {
+            "haste": 2
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "sp_raven_hill_risen",
+      "title": "What Won't Stay Buried",
+      "description": "Keeper Oswin has buried the same Risen Husks three times this month at Raven Hill Cemetery. He'd like them to stay down this time, however that needs to happen.",
+      "giver_npc_id": "sp_north_cemetery_keeper",
+      "zone": "silverpine_north",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Risen Husk",
+          "alt_targets": [
+            "Grave Moss Creeper"
+          ],
+          "count": 10,
+          "zone": "Silverpine North"
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 1400,
+      "accept_text": "I've buried the same corpse three times this month. I'd appreciate it staying buried this time.",
+      "turn_in_text": "Quiet, for now. Raven Hill's never fully quiet, but this is as close as it gets.",
+      "level_min": 11,
+      "level_max": 14
+    },
+    {
+      "quest_id": "sp_forsaken_watchman",
+      "title": "The Forsaken Watchman",
+      "description": "Oswin says a Forsaken Watchman - once one of ours - now guards Raven Hill's deepest graves for reasons that died with whatever turned it. He wants it ended and the grave it guards finally opened.",
+      "giver_npc_id": "sp_north_cemetery_keeper",
+      "zone": "silverpine_north",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Forsaken Watchman",
+          "count": 1,
+          "zone": "Silverpine North"
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 1900,
+      "accept_text": "It was Forsaken once, like us. Whatever's guarding that grave now isn't anyone's ally. End it.",
+      "turn_in_text": "The grave's finally open. I don't know what we'll find in it, but at least the Watchman won't stop us from looking.",
+      "level_min": 15,
+      "level_max": 16,
+      "gear_reward_gear_level": 16,
+      "unique_item_defs": [
+        {
+          "name": "Forsaken Watchman's Plate",
+          "slot": "chest",
+          "armor_type": "plate",
+          "item_level": 16,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 4
+          },
+          "armor_value": 92,
+          "flavor_text": "Still bears the old Forsaken sigil, scratched half-away.",
+          "secondary_stats": {
+            "attack_power": 7
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "sp_pyrewood_worgen",
+      "title": "The Worgen of Pyrewood",
+      "description": "Warden Yaelis wants the Worgen Ambushers lurking around Pyrewood Village's ruins thinned - the village burned once already, and she'd rather it not become a staging ground for a second tragedy.",
+      "giver_npc_id": "sp_north_pools_warden",
+      "zone": "silverpine_north",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Worgen Ambusher",
+          "alt_targets": [
+            "Feral Worgen"
+          ],
+          "count": 10,
+          "zone": "Silverpine North"
+        }
+      ],
+      "reward_exp": 850,
+      "reward_gold": 1500,
+      "accept_text": "Pyrewood burned once. The worgen there now are what's left of the people who couldn't run. Thin them, if you can stand it.",
+      "turn_in_text": "Fewer of them prowling the ruins now. I wish that felt like more of a victory than it does.",
+      "level_min": 12,
+      "level_max": 15,
+      "gear_reward_gear_level": 14,
+      "unique_item_defs": [
+        {
+          "name": "Pyrewood Ambusher's Claws",
+          "slot": "main_hand",
+          "weapon_type": "fist_weapon",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "flavor_text": "Still sharp enough to worry about, even separated from what carried them.",
+          "secondary_stats": {
+            "crit_chance_physical": 2
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "sp_lord_godfreys_remnant",
+      "title": "Lord Godfrey's Remnant",
+      "description": "Yaelis has confirmed something calling itself Lord Godfrey's Remnant commands the Pyrewood worgen with real cunning, not just feral instinct. She wants it destroyed before it organizes the ruins into something worse.",
+      "giver_npc_id": "sp_north_pools_warden",
+      "zone": "silverpine_north",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lord Godfrey's Remnant",
+          "count": 1,
+          "zone": "Silverpine North"
+        }
+      ],
+      "reward_exp": 1250,
+      "reward_gold": 2200,
+      "accept_text": "It remembers being a man, I think, which makes it worse. Whatever's left of Godfrey in there, it has to go.",
+      "turn_in_text": "Pyrewood's worgen scattered without it to direct them. Took something that still half-remembers being a lord to hold them together.",
+      "level_min": 17,
+      "level_max": 17,
+      "gear_reward_gear_level": 17,
+      "unique_item_defs": [
+        {
+          "name": "Godfrey's Last Pistol",
+          "slot": "ranged",
+          "weapon_type": "gun",
+          "item_level": 17,
+          "rarity": "rare",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 5
+          },
+          "flavor_text": "A gentleman's weapon, badly out of place in a worgen's claws.",
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          }
+        },
+        {
+          "name": "Remnant's Tattered Cloak",
+          "slot": "back",
+          "armor_type": "accessory",
+          "item_level": 17,
+          "rarity": "rare",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 3
+          },
+          "armor_value": 8,
+          "flavor_text": "Still cut in a style decades out of fashion.",
+          "secondary_stats": {
+            "hit_rating": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "sp_shadowspring_bog",
+      "title": "The Bog's Hunger",
+      "description": "Hollis the gravedigger passed word to Reader Cass that Shadowspring Pools' Bog Beasts have been dragging gravediggers under. Cass wants the marsh's creatures thinned before the Sepulcher loses anyone else to it.",
+      "giver_npc_id": "sepulcher_gravestone_reader",
+      "zone": "sepulcher",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bog Beast",
+          "alt_targets": [
+            "Rot Hide Slitherer"
+          ],
+          "count": 10,
+          "zone": "Silverpine North"
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 1600,
+      "accept_text": "The pools have taken two of our own this month. I read their stones same as everyone else's, but I'd rather stop writing new ones.",
+      "turn_in_text": "The marsh is quieter. Small comfort, but I'll take it over another stone to read.",
+      "level_min": 12,
+      "level_max": 15
+    },
+    {
+      "quest_id": "sp_muckmaw",
+      "title": "Muckmaw",
+      "description": "Relic Hunter Darne has tracked the source of Shadowspring's missing gravediggers to something the locals call Muckmaw - an ancient crocolisk grown far too large on far too much Forsaken misfortune. He wants it dead.",
+      "giver_npc_id": "sepulcher_relic_hunter",
+      "zone": "sepulcher",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Muckmaw",
+          "count": 1,
+          "zone": "Silverpine North"
+        }
+      ],
+      "reward_exp": 1300,
+      "reward_gold": 2300,
+      "accept_text": "I've tracked the missing gravediggers to something in the deep pools. Old, and well-fed on us. End it.",
+      "turn_in_text": "Muckmaw's done terrorizing the pools. Whatever else is down there, it's not wearing that crocolisk's shape anymore.",
+      "level_min": 16,
+      "level_max": 16,
+      "gear_reward_gear_level": 16,
+      "unique_item_defs": [
+        {
+          "name": "Muckmaw's Fang",
+          "slot": "main_hand",
+          "weapon_type": "dagger",
+          "item_level": 16,
+          "rarity": "rare",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 4
+          },
+          "flavor_text": "Pried loose from the thing that nearly took your arm with it.",
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "sp_forsaken_march",
+      "title": "The Forsaken March",
+      "description": "Sergeant Dallow wants the Forsaken Deserters and Diseased Wolves harassing the March thinned - the road to Ambermill needs to stay open, deserters or no.",
+      "giver_npc_id": "sp_south_march_sergeant",
+      "zone": "silverpine_south",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Diseased Wolf",
+          "alt_targets": [
+            "Rot Hound"
+          ],
+          "count": 10,
+          "zone": "Silverpine South"
+        }
+      ],
+      "reward_exp": 950,
+      "reward_gold": 1700,
+      "accept_text": "Keeping this road open is a full-time fight most days. Thin whatever's prowling it and I'll owe you a drink, metaphorically.",
+      "turn_in_text": "The March is passable again. Ambermill's supply lines thank you, even if they don't know it.",
+      "level_min": 14,
+      "level_max": 17,
+      "gear_reward_gear_level": 16,
+      "unique_item_defs": [
+        {
+          "name": "March Sergeant's Warplate",
+          "slot": "legs",
+          "armor_type": "plate",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 4
+          },
+          "armor_value": 88,
+          "flavor_text": "Dallow's own spare set. 'Bring it back in better shape than I usually do.'"
+        }
+      ]
+    },
+    {
+      "quest_id": "sp_deathguard_captain",
+      "title": "The Deathguard Captain",
+      "description": "Dallow has learned a Deathguard Captain - once one of the March's own - has gone rogue, commanding Skeletal Sentries against Forsaken patrols instead of the living. He wants it ended before it costs more soldiers.",
+      "giver_npc_id": "sp_south_march_sergeant",
+      "zone": "silverpine_south",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Deathguard Captain",
+          "count": 1,
+          "zone": "Silverpine South"
+        }
+      ],
+      "reward_exp": 1350,
+      "reward_gold": 2400,
+      "accept_text": "It wore our uniform once. Now it's turned the Sentries against us. I don't care what broke in it - just end it.",
+      "turn_in_text": "The March's own turncoat is dealt with. I wish that made it easier to think about.",
+      "level_min": 18,
+      "level_max": 18,
+      "gear_reward_gear_level": 18,
+      "unique_item_defs": [
+        {
+          "name": "Deathguard Captain's Blade",
+          "slot": "main_hand",
+          "weapon_type": "sword_1h",
+          "item_level": 18,
+          "rarity": "rare",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 5
+          },
+          "flavor_text": "Still bears the March's own insignia, however little that means now.",
+          "secondary_stats": {
+            "attack_power": 8
+          }
+        },
+        {
+          "name": "Captain's Service Medal",
+          "slot": "trinket",
+          "item_level": 18,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "flavor_text": "Awarded for service that no longer means what it used to.",
+          "secondary_stats": {
+            "hit_rating": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "sp_rotting_marshes",
+      "title": "The Rotting Marshes",
+      "description": "Bone-Carver Yseult wants Marsh Oozes and Bloated Corpses from the Rotting Marshes brought to her intact where possible - there's a grim art to what the marsh does to a body, and she means to study it.",
+      "giver_npc_id": "sepulcher_bone_carver",
+      "zone": "sepulcher",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Marsh Ooze",
+          "alt_targets": [
+            "Bloated Corpse"
+          ],
+          "count": 9,
+          "zone": "Silverpine South"
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 1600,
+      "accept_text": "The marsh does things to a body that even I don't fully understand. I'd like specimens, if you're willing.",
+      "turn_in_text": "Fascinating, in a thoroughly unpleasant way. Thank you - the carvings will be worth the smell, eventually.",
+      "level_min": 14,
+      "level_max": 17
+    },
+    {
+      "quest_id": "sp_the_bloated_one",
+      "title": "The Bloated One",
+      "description": "Yseult has identified the source of the Marshes' worst specimens: something the locals call The Bloated One, a corpse grown grotesquely large on the marsh's own corruption. She wants it destroyed, not studied - some things shouldn't be preserved.",
+      "giver_npc_id": "sepulcher_bone_carver",
+      "zone": "sepulcher",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Bloated One",
+          "count": 1,
+          "zone": "Silverpine South"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 2500,
+      "accept_text": "Some specimens teach you something. This one just needs to stop existing. Go end it.",
+      "turn_in_text": "Good. Even I don't want that particular lesson preserved. The Marshes are better for its absence.",
+      "level_min": 18,
+      "level_max": 18,
+      "gear_reward_gear_level": 18,
+      "unique_item_defs": [
+        {
+          "name": "The Bloated One's Hide",
+          "slot": "chest",
+          "armor_type": "leather",
+          "item_level": 18,
+          "rarity": "rare",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 5
+          },
+          "armor_value": 62,
+          "flavor_text": "Yseult asked for a sample. You gave her the whole hide instead.",
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "fenris_cursed_shore",
+      "title": "The Cursed Shore",
+      "description": "Elder Gravemoss says Bloodmoon Village is the only safe ground left on Fenris Isle, and even that's generous. He wants the Feral Worgen Stalkers prowling the shore thinned before they find the village's own walls.",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Feral Worgen Stalker",
+          "alt_targets": [
+            "Rabid Wolf"
+          ],
+          "count": 10,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 2600,
+      "accept_text": "This isle doesn't forgive carelessness. The Stalkers are testing our walls more each night. Thin them.",
+      "turn_in_text": "The shore's quieter tonight. It won't last - nothing here lasts - but take the credit while it's yours.",
+      "level_min": 17,
+      "level_max": 19
+    },
+    {
+      "quest_id": "fenris_isle_banshees",
+      "title": "Voices on the Wind",
+      "description": "Gravemoss says the Isle Banshees' wailing has been driving villagers to the shoreline at night, drawn by voices that aren't really calling them. He wants the banshees silenced before someone walks into the surf and doesn't come back.",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Isle Banshee",
+          "count": 8,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 1450,
+      "reward_gold": 2700,
+      "accept_text": "They call out names. Real names, people's real names, and whoever hears theirs just walks toward the water. Stop them.",
+      "turn_in_text": "Quieter nights ahead, I hope. Thank you - I was running out of names to cross off the missing list.",
+      "level_min": 18,
+      "level_max": 20,
+      "gear_reward_gear_level": 19,
+      "unique_item_defs": [
+        {
+          "name": "Banshee-Touched Wand",
+          "slot": "ranged",
+          "weapon_type": "wand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 4
+          },
+          "flavor_text": "Still carries a faint, mournful hum.",
+          "secondary_stats": {
+            "spell_power": 6
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "fenris_ancient_curse_beast",
+      "title": "The Ancient Curse-Beast",
+      "description": "Huntsman Corwell says the banshees' wailing and the worgen's aggression both trace back to something far older - an Ancient Curse-Beast bound to the isle since before Fenris Proper had a name. He wants it ended, if that's even possible.",
+      "giver_npc_id": "fenris_village_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ancient Curse-Beast",
+          "count": 1,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 1900,
+      "reward_gold": 3400,
+      "accept_text": "This isle was cursed before anyone here was born, dead or alive. The Beast is the reason. End it, if you can.",
+      "turn_in_text": "The curse hasn't lifted - I don't think it can, not really. But the Beast is gone, and that's more than anyone's managed in a generation.",
+      "level_min": 21,
+      "level_max": 21,
+      "gear_reward_gear_level": 21,
+      "unique_item_defs": [
+        {
+          "name": "Curse-Beast's Petrified Fang",
+          "slot": "main_hand",
+          "weapon_type": "axe_1h",
+          "item_level": 21,
+          "rarity": "rare",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 6
+          },
+          "flavor_text": "Stone clear through, yet it still draws blood.",
+          "secondary_stats": {
+            "attack_power": 9
+          }
+        },
+        {
+          "name": "Shard of the Old Curse",
+          "slot": "trinket",
+          "item_level": 21,
+          "rarity": "rare",
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 4
+          },
+          "flavor_text": "Corwell says keeping it is either very wise or very foolish. He hasn't decided which.",
+          "secondary_stats": {
+            "spell_power": 5
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "fenris_drowned_docks",
+      "title": "What the Tide Brought In",
+      "description": "Corwell wants the Drowned Sailors haunting the Docks put to rest - old shipwreck victims, still re-living the wreck that killed them, long after anyone could help.",
+      "giver_npc_id": "fenris_village_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Sailor",
+          "alt_targets": [
+            "Waterlogged Wretch"
+          ],
+          "count": 9,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 1500,
+      "reward_gold": 2800,
+      "accept_text": "They're still drowning, in a sense, over and over. The only help left for them is an ending.",
+      "turn_in_text": "Rest, at last, for sailors who've been dying the same death for longer than either of us wants to think about.",
+      "level_min": 18,
+      "level_max": 20
+    },
+    {
+      "quest_id": "fenris_captains_ghost",
+      "title": "The Captain's Ghost",
+      "description": "Corwell says the Drowned Docks' wreck still has a captain, bound to the ship that killed him and furious about it. He wants the Captain's Ghost put to rest before its fury drags more sailors into the wreck with it.",
+      "giver_npc_id": "fenris_village_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain's Ghost",
+          "count": 1,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 1950,
+      "reward_gold": 3500,
+      "accept_text": "He went down with that ship and he's never forgiven it. Or anyone. End his watch, one way or another.",
+      "turn_in_text": "The wreck's quiet now. I almost feel for him - almost. He can rest now, whether he wanted to or not.",
+      "level_min": 22,
+      "level_max": 22,
+      "gear_reward_gear_level": 22,
+      "unique_item_defs": [
+        {
+          "name": "The Captain's Lost Cutlass",
+          "slot": "main_hand",
+          "weapon_type": "sword_1h",
+          "item_level": 22,
+          "rarity": "rare",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 6
+          },
+          "flavor_text": "Rusted by decades underwater, still sharp enough to matter.",
+          "secondary_stats": {
+            "crit_chance_physical": 4
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "fenris_curs_grave",
+      "title": "Cur's Grave",
+      "description": "Gravemoss wants the Grave Worgs and their Bone-Strewn Curs thinned at Cur's Grave - a burial site that's become more kennel than cemetery, and he'd like it to go back to just being the latter.",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Grave Worg",
+          "alt_targets": [
+            "Bone-Strewn Cur"
+          ],
+          "count": 10,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 1550,
+      "reward_gold": 2900,
+      "accept_text": "Cur's Grave was a burial site before it was a kennel. I'd like it back to being the former, if you're willing.",
+      "turn_in_text": "Fewer curs prowling the graves tonight. Whatever's running that pack, it's lost a lot of teeth today.",
+      "level_min": 18,
+      "level_max": 20,
+      "gear_reward_gear_level": 19,
+      "unique_item_defs": [
+        {
+          "name": "Grave-Worg Hide Mantle",
+          "slot": "shoulder",
+          "armor_type": "mail",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 4
+          },
+          "armor_value": 34,
+          "flavor_text": "Still smells like the grave it was taken from."
+        }
+      ]
+    },
+    {
+      "quest_id": "fenris_alpha_cur",
+      "title": "The Alpha Cur",
+      "description": "Gravemoss has confirmed something is directing Cur's Grave's pack with real intelligence - an Alpha Cur, grown huge and cunning on generations of lesser worgs. He wants it dead before it breeds a second generation just as bad.",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Alpha Cur",
+          "count": 1,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 2000,
+      "reward_gold": 3600,
+      "accept_text": "It's been breeding that pack for longer than anyone's tracked. End the Alpha and the rest scatter. Probably.",
+      "turn_in_text": "The pack's scattered, just as you'd hope. Cur's Grave might actually be a graveyard again, for a while.",
+      "level_min": 22,
+      "level_max": 22,
+      "gear_reward_gear_level": 22,
+      "unique_item_defs": [
+        {
+          "name": "Alpha Cur's Rending Claws",
+          "slot": "main_hand",
+          "weapon_type": "fist_weapon",
+          "item_level": 22,
+          "rarity": "rare",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 6
+          },
+          "flavor_text": "Still warm, somehow, long after the rest of it went cold.",
+          "secondary_stats": {
+            "crit_chance_physical": 4
+          }
+        },
+        {
+          "name": "Alpha's Thick Pelt",
+          "slot": "chest",
+          "armor_type": "mail",
+          "item_level": 22,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 6
+          },
+          "armor_value": 128,
+          "flavor_text": "The pack's bloodline ends with this pelt. Wear it as a warning or a trophy.",
+          "secondary_stats": {
+            "attack_power": 8
+          }
+        }
+      ]
+    },
+    {
+      "quest_id": "fenris_baron_ashbury",
+      "title": "Baron Ashbury",
+      "description": "Elder Gravemoss delivers the request everyone on Fenris Isle has been avoiding: Baron Ashbury, who ruled this isle alive and rules it worse dead, holding Fenris Proper under a curse of his own making. He wants it finished, for good.",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Baron Ashbury",
+          "count": 1,
+          "zone": "Fenris Isle"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 4000,
+      "accept_text": "Ashbury ruled this isle in life and refuses to stop in death. Every villager here has avoided saying his name out loud for a reason. End him.",
+      "turn_in_text": "You said his name and he's still gone. Fenris Proper feels lighter already - I didn't think that was still possible here.",
+      "level_min": 22,
+      "level_max": 22,
+      "gear_reward_gear_level": 23,
+      "unique_item_defs": [
+        {
+          "name": "Baron Ashbury's Signet Blade",
+          "slot": "main_hand",
+          "weapon_type": "sword_1h",
+          "item_level": 23,
+          "rarity": "rare",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 6
+          },
+          "flavor_text": "A noble's dueling sword, still bearing the Ashbury crest.",
+          "secondary_stats": {
+            "spell_power": 5
+          }
+        },
+        {
+          "name": "Ashbury's Cursed Ring",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "rare",
+          "primary_stats": {
+            "strength": 6,
+            "intellect": 6,
+            "stamina": 3
+          },
+          "flavor_text": "The curse that bound him to this isle might still linger in the band. You wear it anyway.",
+          "secondary_stats": {
+            "healing_power": 5
+          }
+        }
+      ]
+    }
+  ]
+}

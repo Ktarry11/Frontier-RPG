@@ -1,0 +1,47 @@
+{
+  "_notes": "Asher Coleman's unique kit (Kyle, 2026-09-07). NOT loaded through the normal per-class ability pipeline (combat/abilities.py's get_class_abilities/_load_class_ability_data) - Asher is a fixed-level, unchangeable companion whose entire kit is exactly these two abilities, nothing else from the normal Paladin/Retribution list. See world/recruit_manager.py's build_character() override for how this file gets loaded directly into a standalone AbilityBook instead. Single rank each (rank 1 only) since he's permanently level 5 and never levels up or re-specs - there's no rank progression to author.",
+  "abilities": [
+    {
+      "ability_id": "asher_wrath",
+      "name": "Asher's Wrath",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "damage_school": "holy",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Free. Holy damage to all enemies.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 5,
+          "cost": 0,
+          "effect_value": 65
+        }
+      ],
+      "icon_id": "asher_wrath"
+    },
+    {
+      "ability_id": "asher_resignation",
+      "name": "Asher's Resignation",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "damage_school": "holy",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Holy healing to the whole party.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 5,
+          "cost": 45,
+          "effect_value": 75
+        }
+      ],
+      "icon_id": "asher_resignation"
+    }
+  ]
+}

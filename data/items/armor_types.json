@@ -1,0 +1,90 @@
+{
+  "armor_types": {
+    "cloth": {
+      "display_name": "Cloth",
+      "armor_multiplier": 0.5,
+      "launch_classes": [
+        "Priest"
+      ],
+      "icon_id": "rarity_common"
+    },
+    "leather": {
+      "display_name": "Leather",
+      "armor_multiplier": 1.0,
+      "launch_classes": [
+        "Rogue"
+      ],
+      "icon_id": "rarity_common"
+    },
+    "mail": {
+      "display_name": "Mail",
+      "armor_multiplier": 1.6,
+      "launch_classes": [
+        "Shaman"
+      ],
+      "icon_id": "rarity_common"
+    },
+    "plate": {
+      "display_name": "Plate",
+      "armor_multiplier": 2.4,
+      "launch_classes": [
+        "Warrior"
+      ],
+      "icon_id": "rarity_common"
+    },
+    "accessory": {
+      "display_name": "Accessory",
+      "armor_multiplier": 0.0,
+      "launch_classes": [
+        "Warrior",
+        "Shaman",
+        "Rogue",
+        "Priest"
+      ],
+      "icon_id": "rarity_common"
+    },
+    "weapon": {
+      "display_name": "Weapon",
+      "armor_multiplier": 0.0,
+      "launch_classes": [
+        "Warrior",
+        "Shaman",
+        "Rogue",
+        "Priest"
+      ],
+      "icon_id": "rarity_common"
+    }
+  },
+  "class_armor_map": {
+    "Warrior": "plate",
+    "Shaman": "mail",
+    "Rogue": "leather",
+    "Priest": "cloth",
+    "Hunter": "mail",
+    "Mage": "cloth",
+    "Warlock": "cloth",
+    "Druid": "leather",
+    "Paladin": "plate",
+    "Necromancer": "cloth",
+    "Pyromancer": "cloth",
+    "Runemaster": "cloth",
+    "Chronomancer": "cloth",
+    "Stormbringer": "cloth",
+    "Barbarian": "leather",
+    "Witch Doctor": "leather",
+    "Felsworn": "leather",
+    "Witch Hunter": "mail",
+    "Templar": "leather",
+    "Bloodmage": "leather",
+    "Ranger": "leather",
+    "Tinker": "mail",
+    "Venomancer": "mail",
+    "Reaper": "mail",
+    "Primalist": "mail",
+    "Knight of Xoroth": "plate",
+    "Guardian": "plate",
+    "Cultist": "plate",
+    "Starcaller": "plate",
+    "Sun Cleric": "plate"
+  }
+}

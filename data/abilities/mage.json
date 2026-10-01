@@ -1,0 +1,685 @@
+{
+  "class": "Mage",
+  "abilities": [
+    {
+      "ability_id": "mage_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A weak melee strike. You are a Mage - use your spells.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "mage_fireball",
+      "name": "Fireball",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hurls a fiery ball that burns the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 30,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 39,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 48,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 57,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 66,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 75,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 84,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 93,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 102,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "mage_frostbolt",
+      "name": "Frostbolt",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launches a bolt of frost, chilling the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 32,
+          "effect_value": 53
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 48,
+          "effect_value": 74
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 55,
+          "effect_value": 85
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 62,
+          "effect_value": 96
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 70,
+          "effect_value": 106
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 78,
+          "effect_value": 117
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 85,
+          "effect_value": 128
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "mage_arcane_explosion",
+      "name": "Arcane Explosion",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Detonates arcane energy around you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 45,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 69,
+          "effect_value": 77
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 93,
+          "effect_value": 101
+        },
+        {
+          "rank": 4,
+          "level_req": 60,
+          "cost": 117,
+          "effect_value": 126
+        }
+      ],
+      "icon_id": "ability_spell",
+      "target_type": "enemy_aoe",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "mage_living_flame",
+      "name": "Living Flame",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Sets the target ablaze, burning them over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 30,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 46,
+          "effect_value": 89
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 62,
+          "effect_value": 124
+        },
+        {
+          "rank": 4,
+          "level_req": 52,
+          "cost": 78,
+          "effect_value": 159
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "mage_arcane_intellect",
+      "name": "Arcane Intellect",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "intellect": 3,
+        "spell_power": 25
+      },
+      "description": "Sharpens the mind, increasing Intellect and Spell Power.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 40,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 29,
+          "cost": 80,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 100,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "mage_frost_nova",
+      "name": "Frost Nova",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": -20,
+        "dodge": -10
+      },
+      "description": "Freezes the target in place, slowing it for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 35,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 53,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 71,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff",
+      "target_type": "enemy_aoe",
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "mage_pyroblast",
+      "name": "Pyroblast",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Pyroblast talent in the Fire tree, matching real WOTLK where this is talent-exclusive to Fire, not a baseline ability. A massive fiery boulder that deals devastating damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 60,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 92,
+          "effect_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 124,
+          "effect_value": 117
+        }
+      ],
+      "icon_id": null,
+      "requires_talent": true,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "mage_ice_barrier",
+      "name": "Ice Barrier",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "armor": 150,
+        "magic_resistance": 60
+      },
+      "description": "Not learned from level alone - granted by the Ice Barrier talent in the Frost tree, matching real WOTLK where this is talent-exclusive to Frost, not a baseline ability. Surrounds you with ice, absorbing incoming damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 50,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 76,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": "ability_buff",
+      "buff_scope": "combat",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "mage_presence_of_mind",
+      "name": "Presence of Mind",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "enable_instant_cast",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Presence of Mind talent in the Arcane tree. Your next spell becomes instant, costing no turn to cast.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "mage_icy_veins",
+      "name": "Icy Veins",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 20
+      },
+      "description": "Not learned from level alone - granted by the Icy Veins talent in the Frost tree. Increases your casting speed for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "mage_combustion",
+      "name": "Combustion",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "crit_chance_spell": 20
+      },
+      "description": "Not learned from level alone - granted by the Combustion talent in the Fire tree. Real WOTLK stacks crit chance per Fire hit until 3 crits land - simplified here to a flat Spell Crit buff for a few turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "mage_cold_snap",
+      "name": "Cold Snap",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "reset_cooldowns",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Cold Snap talent in the Frost tree. Real WOTLK resets only Frost ability cooldowns - this engine has no per-ability school tag, so this resets ALL of your ability cooldowns instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "mage_cone_of_cold",
+      "name": "Cone of Cold",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A frontal cone of frost, damaging and slowing all enemies.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 60,
+          "effect_value": 58
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "is_instant": true,
+      "icon_id": null,
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "mage_fire_blast",
+      "name": "Fire Blast",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "An instant burst of Fire damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 55,
+          "effect_value": 58
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "mage_mage_armor",
+      "name": "Mage Armor",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "magic_resistance": 40
+      },
+      "description": "Increases Magic Resistance for a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "mage_mana_shield",
+      "name": "Mana Shield",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -0.25
+      },
+      "description": "PLACEHOLDER (no absorb-shield mechanic exists): real WOTLK Mana Shield absorbs incoming damage using Mana instead of Health - here it's a temporary damage-reduction buff instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "mage_counterspell",
+      "name": "Counterspell",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "hit_chance_spell": -80
+      },
+      "description": "PLACEHOLDER (no cast-interrupt mechanic exists): real WOTLK Counterspell interrupts casting and locks out the school for 8 sec - here it heavily reduces the target's spell hit chance for 1 turn instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "mage_polymorph",
+      "name": "Polymorph",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Transforms the target into a sheep for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "mage_ice_lance",
+      "name": "Ice Lance",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launches a shard of ice at the enemy, dealing Frost damage. Instant cast.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 40,
+          "heal_value": 14
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 60,
+          "heal_value": 21
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 81,
+          "heal_value": 28
+        }
+      ],
+      "is_instant": true,
+      "icon_id": "mage_ice_lance",
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "mage_icy_penance",
+      "name": "Icy Penance",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launches a burst of frozen light at an enemy, dealing Frost damage while smart-healing your 3 neediest allies. Damage gained from Spell Power is doubled while your Primary Stat is Spirit.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 167,
+          "effect_value": 502,
+          "heal_value": 140
+        }
+      ],
+      "icon_id": "mage_icy_penance_ability",
+      "requires_talent": true,
+      "heal_scope": 3,
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "mage_frostfall",
+      "name": "Frostfall",
+      "resource_type": "mana",
+      "cooldown": 90,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Unleash a flurry of icy stars from the sky, damaging all enemies and healing your entire party. The final star grants Fingers of Frost.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 60,
+          "cost": 367,
+          "effect_value": 130,
+          "heal_value": 90
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "icon_id": "mage_frostfall_ability",
+      "requires_talent": true,
+      "heal_scope": "party",
+      "damage_school": "frost"
+    }
+  ]
+}

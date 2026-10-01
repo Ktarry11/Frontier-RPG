@@ -1,0 +1,427 @@
+{
+  "spec_name": "Paladin Retribution",
+  "tree_id": "paladin_retribution",
+  "description": "Righteous vengeance delivered with two-handed force.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "paladin_retribution_improved_blessing_of_might",
+      "name": "Improved Blessing of Might",
+      "description": "Grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "attack_power": 6
+      },
+      "connected_to": [
+        "paladin_retribution_vindication"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_benediction",
+      "name": "Benediction",
+      "description": "Reduces the Mana cost of Crusader Strike by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_paladin_crusader_strike_cost": 3
+      },
+      "connected_to": [
+        "paladin_retribution_conviction"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_improved_judgements",
+      "name": "Improved Judgements",
+      "description": "Reduces the cooldown of Judgement by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_paladin_judgement_cooldown": 1
+      },
+      "connected_to": [
+        "paladin_retribution_seal_of_command"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_heart_of_the_crusader",
+      "name": "Heart of the Crusader",
+      "description": "Increases critical strike chance by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.5
+      },
+      "connected_to": [
+        "paladin_retribution_pursuit_of_justice"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_vindication",
+      "name": "Vindication",
+      "description": "Increases physical damage dealt by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "physical_damage": 0.03
+      },
+      "connected_to": [
+        "paladin_retribution_improved_blessing_of_might",
+        "paladin_retribution_eye_for_an_eye"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_conviction",
+      "name": "Conviction",
+      "description": "Increases critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "paladin_retribution_benediction",
+        "paladin_retribution_sanctity_of_battle"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_seal_of_command",
+      "name": "Seal of Command",
+      "description": "Grants Seal of Command, giving your melee attacks a chance to deal a burst of Holy damage, with a stronger Judgement.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "paladin_seal_of_command"
+      },
+      "connected_to": [
+        "paladin_retribution_improved_judgements",
+        "paladin_retribution_crusade"
+      ],
+      "proc": null
+    },
+    {
+      "talent_id": "paladin_retribution_pursuit_of_justice",
+      "name": "Pursuit of Justice",
+      "description": "Reduces your chance to miss by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "hit_rating": 1.5
+      },
+      "connected_to": [
+        "paladin_retribution_heart_of_the_crusader",
+        "paladin_retribution_two_handed_specialization"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_eye_for_an_eye",
+      "name": "Eye for an Eye",
+      "description": "Increases Armor by 18 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "armor": 18
+      },
+      "connected_to": [
+        "paladin_retribution_vindication",
+        "paladin_retribution_divine_purpose"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_sanctity_of_battle",
+      "name": "Sanctity of Battle",
+      "description": "Increases all damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "paladin_retribution_conviction",
+        "paladin_retribution_repentance"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_crusade",
+      "name": "Crusade",
+      "description": "Increases physical damage dealt by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.03
+      },
+      "connected_to": [
+        "paladin_retribution_seal_of_command",
+        "paladin_retribution_sanctified_retribution"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_two_handed_specialization",
+      "name": "Two-Handed Weapon Specialization",
+      "description": "Grants 10 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "attack_power": 10
+      },
+      "connected_to": [
+        "paladin_retribution_pursuit_of_justice",
+        "paladin_retribution_vengeance"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_repentance",
+      "name": "Repentance",
+      "description": "Grants Repentance, heavily reducing the target's Haste for 2 turns.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "paladin_repentance"
+      },
+      "connected_to": [
+        "paladin_retribution_sanctity_of_battle",
+        "paladin_retribution_fanaticism"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_sanctified_retribution",
+      "name": "Sanctified Retribution",
+      "description": "Grants 12 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "attack_power": 12
+      },
+      "connected_to": [
+        "paladin_retribution_crusade",
+        "paladin_retribution_swift_retribution"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_vengeance",
+      "name": "Vengeance",
+      "description": "Increases all damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "paladin_retribution_two_handed_specialization",
+        "paladin_retribution_crusader_strike_mastery"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_divine_purpose",
+      "name": "Divine Purpose",
+      "description": "Increases Strength by 3 and Stamina by 2 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "strength": 3,
+        "stamina": 2
+      },
+      "connected_to": [
+        "paladin_retribution_eye_for_an_eye"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_fanaticism",
+      "name": "Fanaticism",
+      "description": "Increases critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "crit_chance_physical": 2.0
+      },
+      "connected_to": [
+        "paladin_retribution_repentance",
+        "paladin_retribution_sheath_of_light"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_swift_retribution",
+      "name": "Swift Retribution",
+      "description": "Increases Haste by 3 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "haste": 3.0
+      },
+      "connected_to": [
+        "paladin_retribution_sanctified_retribution",
+        "paladin_retribution_righteous_vengeance"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_crusader_strike_mastery",
+      "name": "Crusader's Zeal",
+      "description": "Increases Crusader Strike damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_paladin_crusader_strike_damage": 0.05
+      },
+      "connected_to": [
+        "paladin_retribution_vengeance"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_sheath_of_light",
+      "name": "Sheath of Light",
+      "description": "Grants 12 Attack Power and 6 Spell Power per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "attack_power": 12,
+        "spell_power": 6
+      },
+      "connected_to": [
+        "paladin_retribution_fanaticism",
+        "paladin_retribution_divine_storm"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_righteous_vengeance",
+      "name": "Righteous Vengeance",
+      "description": "Increases physical damage by 3% and crit chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "physical_damage": 0.03,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "paladin_retribution_swift_retribution",
+        "paladin_retribution_retribution_capstone"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_divine_storm",
+      "name": "Divine Storm",
+      "description": "Grants Divine Storm, an instant weapon attack against all nearby enemies.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "paladin_divine_storm"
+      },
+      "connected_to": [
+        "paladin_retribution_sheath_of_light"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_retribution_capstone",
+      "name": "Judgements of the Just",
+      "description": "Increases your Attack Power and Physical damage dealt.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "attack_power": 40,
+        "physical_damage": 0.05
+      },
+      "connected_to": [
+        "paladin_retribution_righteous_vengeance"
+      ]
+    }
+  ]
+}

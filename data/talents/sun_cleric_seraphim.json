@@ -1,0 +1,502 @@
+{
+  "spec_name": "Sun Cleric Seraphim",
+  "tree_id": "sun_cleric_seraphim",
+  "description": "Protection-Paladin-with-Discipline-flavor tank - one-hand-and-shield block chassis, sustained by Justicar's Wrath self-healing, The Chosen's Illumination-fed shields, and avoidance/crit procs rather than active button-mashing.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Chosen of the Light, Sol Invictus, Dawnbreak, Dawnfall, Solar Nova confirmed via screenshot). Real mechanic per handoff: Solar Power spikes from Gavel strikes, Dawnbreak, crits (Sun Warrior's Guidance), and Vow fulfillment (Dawnguard), gating recurring empowered Dawn effects via Angelic Presence. Defense is mostly resource-free and automatic - block, avoidance procs, Justicar's Wrath self-heal, The Chosen shields off Illumination.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "sun_cleric_seraphim_sun_touched_armor",
+      "name": "Sun-Touched Armor",
+      "description": "Grants Armor from Strength and Intellect, and increases total Stamina by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "armor_from_str_int_pct": 0.02,
+        "stamina_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_seraphim_20"
+      ],
+      "_source": "CoA handoff doc: 'Level 20 Passive. Armor from Strength+Intellect; boosts total Stamina.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_battle_priest",
+      "name": "Battle Priest",
+      "description": "Grants Armor contribution from Spirit, increases block value, and reduces Magic damage taken by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "armor_from_spirit_pct": 0.02,
+        "magic_damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_gavel_of_light"
+      ],
+      "_source": "CoA handoff doc: 'Armor contribution from Spirit; boosts block value; reduces Magic damage taken.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_holy_strength",
+      "name": "Holy Strength",
+      "description": "Increases spell power from Strength by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "spell_power_from_strength_pct": 0.03
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_justicars_wrath"
+      ],
+      "_source": "CoA handoff doc: 'Level 30 Passive. Spell power from Strength.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_gavel_of_light",
+      "name": "Gavel of Light",
+      "description": "Learn Gavel of Light, a weapon strike that self-heals for a percentage of the damage dealt.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "sun_cleric_gavel_of_light"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_battle_priest",
+        "sun_cleric_seraphim_bulwark_of_the_sun"
+      ],
+      "_source": "Confirmed screenshot: 'Smash an enemy for 100% Weapon Damage plus 12 and heal yourself equal to 50% of the damage dealt. Shares a cooldown with other Gavels.' Seraphim's real self-sustain generator."
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_bulwark_of_the_sun",
+      "name": "Bulwark of the Sun",
+      "description": "Increases block value by 4% per rank, and teaches Sun Shield.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "block_value_pct": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_gavel_of_light",
+        "sun_cleric_seraphim_seraphic_bulwark"
+      ],
+      "_source": "CoA handoff doc: 'Boosts block value; teaches Sun Shield.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_seraphic_bulwark",
+      "name": "Seraphic Bulwark",
+      "description": "Learn Seraphic Bulwark, a cooldown that boosts block value for a number of blocks or duration.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "sun_cleric_seraphic_bulwark"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_bulwark_of_the_sun",
+        "sun_cleric_seraphim_clarity_of_the_heavens"
+      ],
+      "_source": "CoA handoff doc confirmed: '2 charges, 25-sec recharge. Boosts block value for a number of blocks or duration.' Seraphim's real burst-mitigation cooldown."
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_clarity_of_the_heavens",
+      "name": "Clarity of the Heavens",
+      "description": "Increases block value from Intellect by 3% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "block_value_from_intellect_pct": 0.03
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_seraphic_bulwark"
+      ],
+      "_source": "CoA handoff doc: 'Level 50 Passive. Boosts block value from Intellect.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_stand_against_darkness",
+      "name": "Stand Against Darkness",
+      "description": "Reduces spell damage taken by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage_taken_pct": -0.03
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_clarity_of_the_heavens"
+      ]
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_scroll_of_hope",
+      "name": "Scroll of Hope",
+      "description": "Reduces party and raid Magic damage taken. Anyone below 35% health during it receives a one-time heal.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_scroll_of_hope"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_stand_against_darkness"
+      ],
+      "_source": "CoA handoff doc confirmed as Seraphim's capstone raid-utility cooldown: 'Reduces party/raid Magic damage taken; anyone below 35% health during it gets a one-time heal.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_justicars_wrath",
+      "name": "Justicar's Wrath",
+      "description": "Learn Justicar's Wrath, high-threat Holy damage that increases the target's spell damage taken.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "sun_cleric_justicars_wrath"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_holy_strength",
+        "sun_cleric_seraphim_adjudicator"
+      ],
+      "_source": "CoA handoff doc confirmed: 'High-threat Holy damage + boosts target's spell damage taken.' Seraphim's core threat generator."
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_adjudicator",
+      "name": "Adjudicator",
+      "description": "Justicar's Wrath deals bonus damage to the target and nearby enemies, and heals you for a percentage of damage dealt.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_mechanic": "adjudicator_self_heal"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_justicars_wrath",
+        "sun_cleric_seraphim_angelic_presence"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Justicar's Wrath deals bonus damage to target+nearby, heals you (10% of damage dealt).' Seraphim's real self-sustain engine."
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_angelic_presence",
+      "name": "Angelic Presence",
+      "description": "Avoiding an attack has a chance to grant a defensive buff.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "angelic_presence_proc"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_adjudicator",
+        "sun_cleric_seraphim_the_chosen"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Avoiding an attack chance to grant a buff.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_the_chosen",
+      "name": "The Chosen",
+      "description": "Illumination shields you for a percentage of the amount healed.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_mechanic": "the_chosen_shield"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_angelic_presence",
+        "sun_cleric_seraphim_bastion_of_hope"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Illumination shields you (% of amount healed).' Real Discipline-Atonement-flavored self-shield off self-healing."
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_bastion_of_hope",
+      "name": "Bastion of Hope",
+      "description": "Critical strikes regenerate mana and increase all primary stats for a duration.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "bastion_of_hope_proc"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_the_chosen"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Crits regen mana + boost all primary stats.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_hammer_of_kings",
+      "name": "Hammer of Kings",
+      "description": "Learn Hammer of Kings, an encircling aura that repeatedly deals Holyfire damage to nearby enemies.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_hammer_of_kings"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_bastion_of_hope"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Encircling aura: repeating Holyfire damage to nearby enemies.' Seraphim's real multi-mob threat/damage tool."
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_seraphim_20",
+      "name": "Seraphim",
+      "description": "Reduces the cooldown of Gavel of Light, Horusath Blast, and Dawnbreak by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_sun_cleric_dawnbreak_cooldown_pct": -0.04
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_sun_touched_armor",
+        "sun_cleric_seraphim_dawnbreak"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 20 Passive. Reduces Gavel of Light/Horusath Blast/Dawnbreak cooldowns.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_dawnbreak",
+      "name": "Dawnbreak",
+      "description": "Learn Dawnbreak, a frontal shield-radiated Holyfire damage spell that scales with block value.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "sun_cleric_dawnbreak_talent"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_seraphim_20",
+        "sun_cleric_seraphim_sol_invictus"
+      ],
+      "_source": "Confirmed screenshot (class-wide entry, but functionally Seraphim's real AoE identity per the handoff doc): 'Radiate holy light from your shield on enemies in front of you, dealing Holyfire Damage, scaling with your block value.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_sol_invictus",
+      "name": "Sol Invictus",
+      "description": "Increases threat generated, with additional threat from Holy and Fire spells and abilities.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "sol_invictus_threat"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_dawnbreak",
+        "sun_cleric_seraphim_devoted"
+      ],
+      "_source": "Confirmed screenshot: 'Your devotion to the sun knows no bounds, increasing your threat generated by 85% plus an additional 90% from Holy and Fire spells and abilities.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_devoted",
+      "name": "Devoted",
+      "description": "Dawnbreak and Gavel of Light strike 2 additional nearby enemies.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "dawnbreak_gavel_extra_targets": 2
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_sol_invictus",
+        "sun_cleric_seraphim_solar_eclipse"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 50 Passive. Dawnbreak/Gavel of Light strike 2 extra nearby enemies.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_solar_eclipse",
+      "name": "Solar Eclipse",
+      "description": "Dawnbreak unleashes a delayed Holy burst on all struck enemies.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "solar_eclipse_delayed_burst"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_devoted"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Dawnbreak unleashes a delayed Holy burst.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_solar_nova",
+      "name": "Solar Nova",
+      "description": "Learn Solar Nova, an AoE Holy burst guaranteed to critically strike Undead or Demons, reducing Solar Invocation cooldown per target struck.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_solar_nova"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_solar_eclipse"
+      ],
+      "_source": "Confirmed screenshot: 'Emit a powerful holy light in an 8 yd radius, dealing 168 Holy damage to all nearby enemies. Reduces the cooldown of your Solar Invocation spells by 1 sec for each target struck. This ability is guaranteed to critically strike against Undead or Demons.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_shining_shield",
+      "name": "Shining Shield",
+      "description": "Increases Armor contribution from your shield by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "shield_armor_contribution_pct": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_gavel_of_light",
+        "sun_cleric_seraphim_justicars_wrath"
+      ],
+      "_source": "CoA handoff doc: 'Boosts Armor contribution from shield.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_gleaming_armor",
+      "name": "Gleaming Armor",
+      "description": "Reduces spell damage taken by 3% per rank, with an additional reduction above 80% health.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "spell_damage_taken_pct": -0.03
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_sol_invictus",
+        "sun_cleric_seraphim_angelic_presence"
+      ],
+      "_source": "CoA handoff doc: 'Reduces spell damage taken (extra above 80% health).'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_sun_warriors_guidance",
+      "name": "Sun Warrior's Guidance",
+      "description": "Increases Gavel and Dawnbreak critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "gavel_dawnbreak_crit_chance": 2.0
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_devoted",
+        "sun_cleric_seraphim_the_chosen"
+      ],
+      "_source": "CoA handoff doc: 'Boosts Gavels/Dawnbreak crit chance.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_guarded_by_the_light",
+      "name": "Guarded By The Light",
+      "description": "Direct magic damage taken has a chance to restore health periodically.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "magic_damage_heal_proc_chance": 0.1
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_solar_eclipse",
+        "sun_cleric_seraphim_bastion_of_hope"
+      ],
+      "_source": "CoA handoff doc: 'Direct magic damage taken chance to restore health periodically.'"
+    },
+    {
+      "talent_id": "sun_cleric_seraphim_injunction",
+      "name": "Injunction",
+      "description": "Learn Injunction, taunting a target enemy.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "sun_cleric_injunction"
+      },
+      "connected_to": [
+        "sun_cleric_seraphim_battle_priest",
+        "sun_cleric_seraphim_holy_strength"
+      ],
+      "_source": "CoA handoff doc: 'Taunts a target.'"
+    }
+  ]
+}

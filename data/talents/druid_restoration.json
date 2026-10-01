@@ -1,0 +1,426 @@
+{
+  "spec_name": "Druid Restoration",
+  "tree_id": "druid_restoration",
+  "description": "Life magic and regrowth, healing wounds over time.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "druid_restoration_improved_mark_of_the_wild",
+      "name": "Improved Mark of the Wild",
+      "description": "Increases Spirit and Intellect by 2 each per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spirit": 2,
+        "intellect": 2
+      },
+      "connected_to": [
+        "druid_restoration_improved_rejuvenation"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_furor",
+      "name": "Furor",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "druid_restoration_natures_focus"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_naturalist",
+      "name": "Naturalist",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "healing_done": 0.02
+      },
+      "connected_to": [
+        "druid_restoration_subtlety"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_intensity",
+      "name": "Intensity",
+      "description": "Increases Spirit by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spirit": 3
+      },
+      "connected_to": [
+        "druid_restoration_tranquil_spirit"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_improved_rejuvenation",
+      "name": "Improved Rejuvenation",
+      "description": "Increases the effect of Rejuvenation by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_druid_rejuvenation_damage": 0.08
+      },
+      "connected_to": [
+        "druid_restoration_improved_mark_of_the_wild",
+        "druid_restoration_improved_regrowth"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_natures_focus",
+      "name": "Nature's Focus",
+      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "druid_restoration_furor",
+        "druid_restoration_swiftmend"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_subtlety",
+      "name": "Subtlety",
+      "description": "Increases Healing Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "healing_power": 6
+      },
+      "connected_to": [
+        "druid_restoration_naturalist",
+        "druid_restoration_gift_of_nature"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_tranquil_spirit",
+      "name": "Tranquil Spirit",
+      "description": "Reduces the Mana cost of Rejuvenation by 4 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_druid_rejuvenation_cost": 4
+      },
+      "connected_to": [
+        "druid_restoration_intensity",
+        "druid_restoration_living_spirit"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_improved_regrowth",
+      "name": "Improved Regrowth",
+      "description": "Increases Healing Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "healing_power": 5
+      },
+      "connected_to": [
+        "druid_restoration_improved_rejuvenation",
+        "druid_restoration_natures_bounty"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_swiftmend",
+      "name": "Swiftmend",
+      "description": "Consumes a Rejuvenation effect on the target to instantly heal them for its remaining value. Grants the Swiftmend ability.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "druid_swiftmend"
+      },
+      "connected_to": [
+        "druid_restoration_natures_focus",
+        "druid_restoration_tree_of_life"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_gift_of_nature",
+      "name": "Gift of Nature",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "healing_done": 0.02
+      },
+      "connected_to": [
+        "druid_restoration_subtlety",
+        "druid_restoration_empowered_touch"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_living_spirit",
+      "name": "Living Spirit",
+      "description": "Increases Spirit by 4 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "spirit": 4
+      },
+      "connected_to": [
+        "druid_restoration_tranquil_spirit",
+        "druid_restoration_natural_perfection"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_tree_of_life",
+      "name": "Tree of Life",
+      "description": "Learn Tree of Life, a real shapeshift that increases healing done and reduces heal-over-time Mana costs.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "druid_tree_of_life"
+      },
+      "connected_to": [
+        "druid_restoration_swiftmend",
+        "druid_restoration_wild_growth"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_empowered_touch",
+      "name": "Empowered Touch",
+      "description": "Increases Healing Power by 8 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "healing_power": 8
+      },
+      "connected_to": [
+        "druid_restoration_gift_of_nature",
+        "druid_restoration_improved_tranquility"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_natural_perfection",
+      "name": "Natural Perfection",
+      "description": "Increases spell critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_spell": 2.0
+      },
+      "connected_to": [
+        "druid_restoration_living_spirit",
+        "druid_restoration_living_seed"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_natures_bounty",
+      "name": "Nature's Bounty",
+      "description": "Increases Healing Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "healing_power": 6
+      },
+      "connected_to": [
+        "druid_restoration_improved_regrowth"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_wild_growth",
+      "name": "Wild Growth",
+      "description": "Grants Wild Growth, healing up to 5 injured allies over 3 turns.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "druid_wild_growth"
+      },
+      "connected_to": [
+        "druid_restoration_tree_of_life",
+        "druid_restoration_gift_of_the_earthmother"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_improved_tranquility",
+      "name": "Improved Tranquility",
+      "description": "Increases maximum Mana by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "max_mana_pct": 0.04
+      },
+      "connected_to": [
+        "druid_restoration_empowered_touch",
+        "druid_restoration_revitalize"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_living_seed",
+      "name": "Living Seed",
+      "description": "Increases Healing Power by 9 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "healing_power": 9
+      },
+      "connected_to": [
+        "druid_restoration_natural_perfection"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_gift_of_the_earthmother",
+      "name": "Gift of the Earthmother",
+      "description": "Increases Haste by 2 and Healing Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "haste": 2.0,
+        "healing_power": 4
+      },
+      "connected_to": [
+        "druid_restoration_wild_growth",
+        "druid_restoration_natures_swiftness"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_revitalize",
+      "name": "Revitalize",
+      "description": "Increases Spirit by 4 and maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "spirit": 4,
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "druid_restoration_improved_tranquility",
+        "druid_restoration_restoration_mastery"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_natures_swiftness",
+      "name": "Nature's Swiftness",
+      "description": "Your next Nature spell becomes instant, costing no turn to cast. Grants the Nature's Swiftness ability.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "druid_natures_swiftness"
+      },
+      "connected_to": [
+        "druid_restoration_gift_of_the_earthmother"
+      ]
+    },
+    {
+      "talent_id": "druid_restoration_restoration_mastery",
+      "name": "Empowered Rejuvenation",
+      "description": "Increases the healing done by your Rejuvenation and Wild Growth by 12%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "ability_druid_rejuvenation_damage": 0.12,
+        "ability_druid_wild_growth_damage": 0.12
+      },
+      "connected_to": [
+        "druid_restoration_revitalize"
+      ]
+    }
+  ]
+}

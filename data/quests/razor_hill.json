@@ -1,0 +1,459 @@
+{
+  "quests": [
+    {
+      "quest_id": "razorhill_welcome",
+      "title": "A Real Town",
+      "description": "Weapons Trainer Grokk has seen a hundred valley recruits walk up this same road, dust-covered and a little too pleased with themselves over five dead boars. He doesn't hold that against you - everyone starts somewhere, and the valley is exactly as gentle as it needs to be. Razor Hill is not the valley. Real orcs live here, real quilboar raid the farms south of town, real centaur ride the crags to the west, and something washed-up and wrong still holds the old ruins at Tiragarde Keep on the coast. Grokk wants you to understand the shape of the place before he sends you off to bleed in it.",
+      "giver_npc_id": "razorhill_trainer",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "durotar",
+            "razor_hill",
+            "orgrimmar"
+          ]
+        }
+      ],
+      "reward_exp": 150,
+      "reward_gold": 500,
+      "accept_text": "Nakhtar's recruits always have that look - like the valley was the whole world until about an hour ago. It wasn't. Ask me what you want to know. Durotar, this town, Orgrimmar - whatever you're standing in the middle of and don't understand yet, I've got time for a few questions. Then I'll let you get on with it.",
+      "turn_in_text": "Good. Now you actually know where you're standing, instead of just knowing you're not in the valley anymore. That's worth more than it sounds like. Go pick a fight with Durotar. It's been waiting.",
+      "next_quest_id": null,
+      "level_min": 3,
+      "level_max": 6
+    },
+    {
+      "quest_id": "razorhill_rocktusk_farm",
+      "title": "The Rocktusk Problem",
+      "description": "Rocktusk Farm sits south of Razor Hill, and it used to be farmland before the Razormane quilboar dug in and made it theirs. Grokk doesn't dress this up as anything more than it is: territory, contested, and currently losing ground to tusked raiders who've gotten bold enough to hit supply wagons on the open road. He wants their numbers thinned - battleguards, scouts, the shaman-geomancers who keep patching the others back up mid-fight. Kill enough of them and the farm quiets down for a season, maybe two.",
+      "giver_npc_id": "razorhill_trainer",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razormane Battleguard",
+          "alt_targets": [
+            "Razormane Scout",
+            "Razormane Geomancer"
+          ],
+          "count": 10
+        }
+      ],
+      "reward_exp": 480,
+      "reward_gold": 1600,
+      "accept_text": "Ten of them - battleguard, scout, geomancer, doesn't matter which order you meet them in, they're all the same problem wearing different gear. Kill the geomancer first if you can reach it. It'll keep healing the others just to spite you otherwise.",
+      "turn_in_text": "Ten down. The farm won't stay quiet forever - it never does - but that buys the road some breathing room, and the wagons stop getting hit for a while. Good work.",
+      "next_quest_id": null,
+      "level_min": 5,
+      "level_max": 8,
+      "unique_item_defs": [
+        {
+          "name": "Rocktusk Farmer's Pick",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "weapon_type": "mace_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.5,
+          "label": "Mace (Str)"
+        },
+        {
+          "name": "Quilboar-Tusk Skinning Knife",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Geomancer's Broken Totem-Rod",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "weapon_type": "wand",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 1
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 1.9,
+          "label": "Wand (Int)"
+        }
+      ]
+    },
+    {
+      "quest_id": "razorhill_thunder_ridge_approach",
+      "title": "Thunder on the Ridge",
+      "description": "Thunder Ridge rises northeast of Razor Hill, a plateau where the thunder lizards nest and the air itself seems to crackle before a storm that never quite arrives. Grokk has sent recruits up there before - the ones who come back talk about how slow the lizards are right up until the moment their tail connects with something. Thin the herd. It's good practice for a fight where speed doesn't save you, only positioning does.",
+      "giver_npc_id": "razorhill_trainer",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thunder Lizard",
+          "alt_targets": [
+            "Crackling Thunderhide"
+          ],
+          "count": 8
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 1800,
+      "accept_text": "They're slow. That's the trap. Everyone who's died up there died because they got comfortable with slow and forgot to respect what happens when the hit actually lands. Watch the windup, not the lizard.",
+      "turn_in_text": "Eight down and you're still walking without a limp. That's more than I can say for half the recruits I've sent up there. There's something bigger on that ridge, if you're not done yet - a patriarch, old and mean, the kind that's outlived every hunting party that's gone after it so far.",
+      "next_quest_id": "razorhill_stormhide_patriarch",
+      "level_min": 7,
+      "level_max": 10,
+      "unique_item_defs": [
+        {
+          "name": "Ridgewalker's Warhammer",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "weapon_type": "mace_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 3
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 43,
+          "attack_speed": 3.3,
+          "label": "2H Mace (Str)"
+        },
+        {
+          "name": "Thunderhide Bow-Grip Gloves",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 2,
+            "stamina": 1
+          },
+          "armor_value": 22,
+          "label": "Leather (Agi)"
+        },
+        {
+          "name": "Storm-Charged Focus",
+          "slot": "off_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 3
+          },
+          "label": "Off-Hand (Int)"
+        }
+      ]
+    },
+    {
+      "quest_id": "razorhill_stormhide_patriarch",
+      "title": "The Old Thunder",
+      "description": "The Stormhide Patriarch has ruled Thunder Ridge longer than anyone in Razor Hill has been alive to remember it arriving. Grokk's own trainer sent a hunting party after it once, back when he was young enough to go himself. Three came back. He doesn't say what happened to the rest, and you get the sense he'd rather not be asked. It roams the ridge rather than guarding a den, so there's no cave to corner it in - just open ground, its size, and whatever nerve you can hold onto when something that big decides to charge.",
+      "giver_npc_id": "razorhill_trainer",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Stormhide Patriarch",
+          "count": 1
+        }
+      ],
+      "reward_exp": 950,
+      "reward_gold": 3400,
+      "accept_text": "It's not clever. It doesn't need to be. It's old and it's huge and it hits like the ridge itself decided to fall on you. Don't get greedy with your own hits - patience beats size, eventually. I believe that. I have to.",
+      "turn_in_text": "You actually did it. I'm going to be honest with you - I wasn't sure I'd be having this conversation. That thing has outlasted better fighters than either of us. Thunder Ridge is just a ridge now, not a graveyard with good scenery. Take what it was carrying. You earned every piece of it.",
+      "next_quest_id": null,
+      "level_min": 9,
+      "level_max": 11,
+      "unique_item_defs": [
+        {
+          "name": "Patriarch's Last Roar",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "weapon_type": "axe_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 3.4,
+          "flavor_text": "It still smells faintly of ozone, like the storm that never quite broke over the ridge finally did, once, all at once.",
+          "label": "2H Axe (Str)"
+        },
+        {
+          "name": "Stormhide Mantle",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 4
+          },
+          "armor_value": 30,
+          "label": "Mail (Agi)"
+        },
+        {
+          "name": "Thunder-Cracked Grimoire",
+          "slot": "off_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 4,
+            "intellect": 4,
+            "stamina": 2
+          },
+          "label": "Off-Hand (Int)"
+        }
+      ]
+    },
+    {
+      "quest_id": "razorhill_kolkar_approach",
+      "title": "Centaur Toll",
+      "description": "Kravel Coinsnatch runs numbers on everything, and lately the numbers on the western caravan route are bad. Kolkar centaur have turned Kolkar Crag into a toll booth nobody agreed to, and every wagon that doesn't make it through comes straight out of Kravel's margins. He's not sentimental about it. He wants the centaur numbers down and the road profitable again, in roughly that order of priority, and he's honest enough to admit it.",
+      "giver_npc_id": "razorhill_goblin_trader",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Raider",
+          "alt_targets": [
+            "Kolkar Outrunner",
+            "Kolkar Wrangler",
+            "Kolkar Pack Runner",
+            "Kolkar Windchaser"
+          ],
+          "count": 10
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2200,
+      "accept_text": "Ten centaur, any flavor - I'm not paying by the subspecies, just the body count. Every wagon that gets through instead of getting looted is money I don't have to explain to my cousin Gazlowe, and trust me, you do not want to be the reason I have to explain anything to Gazlowe.",
+      "turn_in_text": "Ten fewer problems on the road. This is good work, the kind I'd pay for twice if the first payment weren't already covering it. There's still a warlord out there running the whole operation, if you want the real bonus.",
+      "next_quest_id": "razorhill_warlord_krellian",
+      "level_min": 5,
+      "level_max": 8,
+      "unique_item_defs": [
+        {
+          "name": "Tollbooth Cleaver",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "weapon_type": "axe_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.5,
+          "label": "Axe (Str)"
+        },
+        {
+          "name": "Outrunner's Own Bowstring Knife",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 1
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        }
+      ]
+    },
+    {
+      "quest_id": "razorhill_warlord_krellian",
+      "title": "The Krellian Contract",
+      "description": "Warlord Krellian holds Kolkar Crag together through sheer reputation, and Kravel has done the math on this one carefully. Kill the warlord, the centaur operation fragments into raiding bands too disorganized to hit a moving wagon - or it doesn't, and a new warlord takes over in a week. Kravel thinks the odds favor fragmentation. He's willing to bet quite a lot of gold on that math being right.",
+      "giver_npc_id": "razorhill_goblin_trader",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Warlord Krellian",
+          "count": 1
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4000,
+      "accept_text": "Krellian is exactly what a decade of successfully robbing caravans buys a centaur - confidence, mostly, and the gear to back it up. Kill him fast if you can. Every second you spend fighting fair is a second his lieutenants have to regroup.",
+      "turn_in_text": "Done. Beautiful. I already have three caravans queued up for the western route that were sitting idle waiting for exactly this news. You want to know the secret to profit? It's paying the right person exactly once for a problem that would've cost you ten times as much left alone. Here. You earned every coin of this.",
+      "next_quest_id": null,
+      "level_min": 7,
+      "level_max": 9,
+      "unique_item_defs": [
+        {
+          "name": "Krellian's Broken Lance",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 3
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 43,
+          "attack_speed": 3.3,
+          "flavor_text": "Snapped clean at the haft when he fell. The head's still good, and it's worth more broken than most weapons are whole.",
+          "label": "2H Sword (Str)"
+        },
+        {
+          "name": "Warlord's Coinpurse Wrap",
+          "slot": "waist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "stat_template": "spirit_healer",
+          "primary_stats": {
+            "spirit": 4,
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_value": 18,
+          "label": "Leather (Agi)"
+        }
+      ]
+    },
+    {
+      "quest_id": "razorhill_scuttle_coast",
+      "title": "The Drowned Road",
+      "description": "Sylthressa Windmourne makes her living moving goods between Razor Hill and the coast, and Scuttle Coast has become something between an inconvenience and a genuine liability. Murlocs have claimed the shallows, and something worse washed up with them: drowned deckhands, walking wrong, that she refuses to look at directly for longer than necessary. She's not asking out of civic duty. Her supply chain runs directly through that water.",
+      "giver_npc_id": "durotar_beltelf_merchant",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Murloc Tidehunter",
+          "alt_targets": [
+            "Coastal Murloc",
+            "Murloc Oracle",
+            "Drowned Deckhand"
+          ],
+          "count": 10
+        }
+      ],
+      "reward_exp": 460,
+      "reward_gold": 2000,
+      "accept_text": "Ten of them, and no, I won't split hairs over which - the murlocs are vermin, beneath my notice except for how many of my shipments they've ruined, and the deckhands are worse: drowned sailors who forgot they were supposed to stay drowned. Neither deserves a separate contract. Kill ten between them and the road stays open. That's the whole of it.",
+      "turn_in_text": "The shallows are passable again, which is worth more to me than you likely realize - every day that coast stays blocked is a day my margins suffer for it. You have my gratitude, such as it is, and considerably more usefully, my gold.",
+      "next_quest_id": null,
+      "level_min": 5,
+      "level_max": 8,
+      "unique_item_defs": [
+        {
+          "name": "Tideworn Harpoon",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "weapon_type": "fist_weapon",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 1.8,
+          "label": "Fist Weapon (Agi)"
+        },
+        {
+          "name": "Oracle-Bone Focus",
+          "slot": "off_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3,
+            "stamina": 1
+          },
+          "label": "Off-Hand (Int)"
+        }
+      ]
+    },
+    {
+      "quest_id": "razorhill_supply_run",
+      "title": "What the Kolkar Left Behind",
+      "description": "Kravel Coinsnatch is still tallying losses from before the Kolkar centaur got dealt with, and there's salvageable cargo scattered along the old caravan route that never got recovered - crates, bolts of cloth, the kind of thing that's worth real money if someone bothers to go collect it before it rots or gets picked over by scavengers.",
+      "giver_npc_id": "razorhill_goblin_trader",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "salvaged_caravan_crate",
+          "count": 5
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 1600,
+      "accept_text": "Five crates, wherever you find them along the western route. I'm not proud of how long I let this sit unclaimed - let's just say I've been busy - but money left on the ground is still money, and I'd rather it be mine.",
+      "turn_in_text": "Five crates of pure profit I'd already written off. This is exactly the kind of margin that makes a bad week into a good one. Pleasure doing business, genuinely.",
+      "next_quest_id": null,
+      "level_min": 6,
+      "level_max": 9
+    },
+    {
+      "quest_id": "razorhill_troll_refuge",
+      "title": "Word From the Isles",
+      "description": "Tal'rashi reached Razor Hill before the Darkspear camp at Echo Isles had fully taken shape, and he's carried the guilt of that timing ever since - kin still lost to Zalazane's hex while he found relatively safe ground on the mainland. He can't go back himself; an old injury from the crossing never healed right. But he can point someone capable toward the isles, and ask them to check on his people the way he no longer can himself.",
+      "giver_npc_id": "razorhill_troll_refugee",
+      "zone": "razor_hill",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "echo_isles",
+          "target_x": 70,
+          "target_y": 52,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 320,
+      "reward_gold": 1000,
+      "accept_text": "Find Elder Kang'ari at da camp on Echo Isles. Tell him Tal'rashi still thinks about dem every day. Dat's all I can send in my place - words, and hope dey're worth somethin' when dey arrive.",
+      "turn_in_text": "You found dem. You actually found dem, and dey're still standin'. I don't got da words for what dat means to hear, mon. Whatever's happenin' out dere now, at least I know dey're not alone in it anymore.",
+      "next_quest_id": null,
+      "level_min": 5,
+      "level_max": 9
+    }
+  ]
+}

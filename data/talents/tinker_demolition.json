@@ -1,0 +1,381 @@
+{
+  "spec_name": "Tinker Demolition",
+  "tree_id": "tinker_demolition",
+  "description": "Explosives specialist - bombs, rockets, and burst Fire damage.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 11 confirmed Demolition nodes (Bomb Toss, Build: Spider Bomb, Explosives Expert, Gazlowe's Wisdom, Hyperblast Barrage, Napalm, Rockadier, Rocket Barrage, Rocket Launcher, Sparked and Ready, The BIG Guns) trimmed to a lean 12-node tree per Kyle's bloat direction - duplicate rocket/bomb variants folded into rank scaling on fewer distinct abilities rather than kept as separate nodes. Napalm capstone confirmed via tooltip: 'direct Fire damage now applies Napalm... stacks 10 times' - a real DoT-stacking payoff kept as the tier-6 capstone.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "tinker_demolition_explosives_expert",
+      "name": "Explosives Expert",
+      "description": "Increases Fire spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "fire_spell_damage": 0.03
+      },
+      "connected_to": [
+        "tinker_demolition_bomb_toss"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_gazlowes_wisdom",
+      "name": "Gazlowe's Wisdom",
+      "description": "Reduces the Mana cost of Scrap Shot by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_tinker_scrap_shot_cost_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_demolition_rockadier"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_sparked_and_ready",
+      "name": "Sparked and Ready",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "tinker_demolition_rocket_barrage"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_the_big_guns",
+      "name": "The BIG Guns!",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "tinker_demolition_rocket_barrage"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_bomb_toss",
+      "name": "Bomb Toss",
+      "description": "Learn Bomb Toss, a lobbed explosive that deals Fire damage to a small area.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "tinker_bomb_toss"
+      },
+      "connected_to": [
+        "tinker_demolition_explosives_expert",
+        "tinker_demolition_hyperblast_barrage"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_rockadier",
+      "name": "Rockadier",
+      "description": "Increases Bomb Toss damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_tinker_bomb_toss_damage": 0.06
+      },
+      "connected_to": [
+        "tinker_demolition_gazlowes_wisdom"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_rocket_barrage",
+      "name": "Rocket Barrage",
+      "description": "Reduces the cooldown of Remote Detonation by 1 turn.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_tinker_remote_detonation_cooldown": -1
+      },
+      "connected_to": [
+        "tinker_demolition_sparked_and_ready"
+      ]
+    },
+
+    {
+      "talent_id": "tinker_demolition_hyperblast_barrage",
+      "name": "Hyperblast Barrage",
+      "description": "Increases Remote Detonation damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_tinker_remote_detonation_damage": 0.08
+      },
+      "connected_to": [
+        "tinker_demolition_bomb_toss",
+        "tinker_demolition_build_spider_bomb"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_build_spider_bomb",
+      "name": "Build: Spider Bomb",
+      "description": "Learn Spider Bomb, a crawling explosive you deploy that seeks out an enemy before detonating for heavy Fire damage.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "tinker_spider_bomb"
+      },
+      "connected_to": [
+        "tinker_demolition_hyperblast_barrage",
+        "tinker_demolition_rocket_barrage"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_scrapyard_reserves",
+      "name": "Scrapyard Reserves",
+      "description": "Increases Spider Bomb damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "ability_tinker_spider_bomb_damage": 0.08
+      },
+      "connected_to": [
+        "tinker_demolition_build_spider_bomb",
+        "tinker_demolition_napalm"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_napalm",
+      "name": "Napalm",
+      "description": "Your direct Fire damage now also applies Napalm, a stacking DoT dealing Fire damage over time (up to 10 stacks).",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "tinker_napalm_proc"
+      },
+      "connected_to": [
+        "tinker_demolition_scrapyard_reserves"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Dealing direct Fire damage now applies Napalm to your target. Napalm (Damage) Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.' Kept the DoT-stacking payoff for the target; the self-debuff-on-you clause in the raw tooltip looks like it may be a data error in CoA's own tool (a Fire spec talent shouldn't punish the caster for using their own damage) - implemented as enemy-only Napalm stacks, drop a note if CoA's intent was actually a self-debuff."
+    },
+    {
+      "talent_id": "tinker_demolition_blast_radius",
+      "name": "Blast Radius",
+      "description": "Increases AoE damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "aoe_damage": 0.03
+      },
+      "connected_to": [
+        "tinker_demolition_explosives_expert"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_combustible_lenses",
+      "name": "Combustible Lenses",
+      "description": "Increases Spell Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "spell_power": 4
+      },
+      "connected_to": [
+        "tinker_demolition_gazlowes_wisdom"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_shrapnel_coating",
+      "name": "Shrapnel Coating",
+      "description": "Increases critical strike chance with Fire spells by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "tinker_demolition_sparked_and_ready"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_volatile_chemistry",
+      "name": "Volatile Chemistry",
+      "description": "Reduces cooldowns of Demolition abilities by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "demolition_cooldown_pct": 0.03
+      },
+      "connected_to": [
+        "tinker_demolition_hyperblast_barrage"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_overpressure",
+      "name": "Overpressure",
+      "description": "Increases maximum Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_demolition_build_spider_bomb"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_detonation_sequence",
+      "name": "Detonation Sequence",
+      "description": "Increases Bomb Toss and Rocket Launcher damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "ability_tinker_bomb_toss_damage": 0.04,
+        "ability_tinker_rocket_launcher_damage": 0.04
+      },
+      "connected_to": [
+        "tinker_demolition_scrapyard_reserves"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_thermal_lining",
+      "name": "Thermal Lining",
+      "description": "Reduces Fire damage taken by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "fire_resist_pct": 0.03
+      },
+      "connected_to": [
+        "tinker_demolition_hyperblast_barrage"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_scrap_recycling",
+      "name": "Scrap Recycling",
+      "description": "Reduces Mana cost of all Demolition abilities by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "demolition_cost_pct": 0.02
+      },
+      "connected_to": [
+        "tinker_demolition_scrapyard_reserves"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_blast_furnace",
+      "name": "Blast Furnace",
+      "description": "Increases Napalm stack duration by 1 second per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "napalm_duration": 1
+      },
+      "connected_to": [
+        "tinker_demolition_scrapyard_reserves"
+      ]
+    },
+    {
+      "talent_id": "tinker_demolition_chain_reaction",
+      "name": "Chain Reaction",
+      "description": "Increases the radius of your AoE abilities by 10% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "aoe_radius_pct": 0.1
+      },
+      "connected_to": [
+        "tinker_demolition_rockadier"
+      ]
+    }
+  ]
+}

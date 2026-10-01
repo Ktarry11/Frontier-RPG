@@ -1,0 +1,1813 @@
+{
+  "class": "Cultist",
+  "_source_note": "New class built (Sept 2026) from 65 real Ascension screenshots (Cultist.docx, exact levels/numbers/costs) plus the big CoA handoff doc for structure, spec identity, and passive filler (same two-source pattern as Runemaster). 4 specs confirmed: Godblade (Strength melee DPS, Enhancement Shaman/Ret Paladin analog), Corruption (Intellect ranged DPS, Shadow Priest analog), Dreadnought (Strength tank, Blood DK analog), Heretic (Intellect healer, Discipline Priest analog - damage-that-heals loop). Mana + Insanity dual-resource confirmed via screenshots (Blade of the Empire generates, Wrath of the Black Empire/Entropic Slam/Hammer of Twilight spend, Sanity Tap converts Insanity->Mana). 5 mutually-exclusive Presences (C'Thun/Y'Shaarj/N'Zoth/Yogg-Saron/Horrifying) and 4 mutually-exclusive Whispers (C'Thun/Y'shaarj/N'Zoth/Yogg-Saron) confirmed, each with a base + Greater (raid) version like Stormbringer's Call of the Wind/Storm.",
+  "abilities": [
+    {
+      "ability_id": "cultist_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic weapon strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_blade_of_the_empire",
+      "name": "Blade of the Empire",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strike an enemy with Shadow-infused steel.",
+      "_source": "Confirmed screenshot: 7 Mana, melee range, instant, 'Requires Melee Weapon', 3 Charges/6 sec recharge, 'Generates 20 Insanity. Strike an enemy, dealing 31 Shadow damage.' Core level-1 melee generator - charge system compressed to a short flat cooldown, extended to 8 ranks per Kyle's starting-ability direction.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 7,
+          "effect_value": 31
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 12,
+          "effect_value": 54
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 17,
+          "effect_value": 82
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 22,
+          "effect_value": 114
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 27,
+          "effect_value": 150
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 32,
+          "effect_value": 190
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 37,
+          "effect_value": 234
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 42,
+          "effect_value": 282
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 20
+      },
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_horrorbolt",
+      "name": "Horrorbolt",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Inflict Shadow damage upon an enemy.",
+      "_source": "Confirmed screenshot: Lvl 2, Generates 10 Insanity, '22 Shadow damage.' Core ranged generator, extended to 8 ranks.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 14,
+          "effect_value": 22
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 40
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 26,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 26,
+          "cost": 32,
+          "effect_value": 88
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 38,
+          "effect_value": 118
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 44,
+          "effect_value": 152
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 50,
+          "effect_value": 190
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 56,
+          "effect_value": 232
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 10
+      },
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_wrath_of_the_black_empire",
+      "name": "Wrath of the Black Empire",
+      "resource_type": "insanity",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast an enemy with overwhelming void power.",
+      "_source": "Confirmed screenshot: 30yd, 2s cast, 'Requires 20 Insanity', drains it, '27 Shadow damage.' The class's real Insanity spender/finisher.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 20,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 148
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 204
+        },
+        {
+          "rank": 5,
+          "level_req": 52,
+          "cost": 20,
+          "effect_value": 268
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_sanity_tap",
+      "name": "Sanity Tap",
+      "resource_type": "insanity",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Regain your sanity, reducing Insanity and restoring a portion of missing mana. Usable while casting or channeling.",
+      "_source": "Confirmed screenshot: Lvl 14, 'reducing your Insanity by 20 and restoring 20% of your missing mana.' The class's core Insanity->Mana relief valve, matching Discharge's role for Stormbringer.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 20,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_gaze_of_cthun",
+      "name": "Gaze of C'Thun",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Set C'Thun's Gaze upon an enemy or ally, damaging enemies or healing allies, jumping to a nearby target.",
+      "_source": "Confirmed screenshot: Lvl 8, 'dealing 28 Shadow damage to enemies or healing allies for 25, jumping to 1 additional nearby target.' Real dual-purpose spell usable on either side - uses damage_and_heal like Serpent's Fang/Seismic Wave from earlier sessions.",
+      "heal_scope": 2,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 18,
+          "effect_value": 28,
+          "heal_value": 25
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 28,
+          "effect_value": 52,
+          "heal_value": 46
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 38,
+          "effect_value": 80,
+          "heal_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 48,
+          "effect_value": 112,
+          "heal_value": 98
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_presence_of_cthun",
+      "name": "Presence of C'Thun",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Assume an unholy Presence: damage dealt has a chance to increase your haste. Only 1 Presence active at a time.",
+      "_source": "Confirmed screenshot: Lvl 4, 'giving damage dealt a 20% chance to increase your haste by 20% for 6 sec.' Part of the mutually-exclusive Presence family (C'Thun/Y'Shaarj/N'Zoth/Yogg-Saron/Horrifying).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 20,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "cultist_presence"
+    },
+    {
+      "ability_id": "cultist_hammer_of_twilight",
+      "name": "Hammer of Twilight",
+      "resource_type": "insanity",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Smash an enemy, ignoring absorption effects.",
+      "_source": "Confirmed screenshot: Lvl 6, '195% Weapon Damage plus 14 Shadow damage, ignoring absorption effects, draining 40 Insanity.' A heavier alternate spender to Wrath of the Black Empire.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 40,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_entropic_slam",
+      "name": "Entropic Slam",
+      "resource_type": "insanity",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Crush enemies in front of you.",
+      "_source": "Confirmed screenshot: Lvl 12, '130% Weapon Damage plus 16 as Shadow damage and draining 40 Insanity.' The class's AoE Insanity spender.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 60
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_twilight_domain",
+      "name": "Twilight Domain",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "threat_generation_pct": 180
+      },
+      "description": "Become enveloped with twilight magic, greatly increasing your threat generated, doubled for Shadow spells and abilities.",
+      "_source": "Confirmed screenshot: Lvl 14, '+180% threat generated, doubled for Shadow spells and abilities.' Real tank cooldown, class-wide though most relevant to Dreadnought.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_whispers_of_yshaarj",
+      "name": "Whispers of Y'shaarj",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "mana_regen": 10
+      },
+      "description": "Gift an ally with the madness of Y'shaarj, restoring mana over time. Only one Whisper per Cultist active.",
+      "_source": "Confirmed screenshot: Lvl 14, 'restoring 10 mana every 5 seconds for 30 min. Players may only have one Whisper on them per Cultist at any one time.' Part of the mutually-exclusive Whispers family.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 22,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "cultist_whispers"
+    },
+    {
+      "ability_id": "cultist_sermon_of_dread",
+      "name": "Sermon of Dread",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": -35
+      },
+      "description": "Induce dread upon nearby enemies, reducing their Attack Power.",
+      "_source": "Confirmed screenshot: Lvl 16, '-35 Attack Power to all enemies within 10 yds for 30 sec' (compressed to 3 turns).",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 26,
+          "effect_value": 35
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_horrifying_presence",
+      "name": "Horrifying Presence",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "taunt": 1,
+        "threat_generation_pct": 200
+      },
+      "description": "Taunt nearby enemies and significantly increase your threat generation.",
+      "_source": "Confirmed screenshot: Lvl 18, 'Taunts enemies within 8 yds for 5 sec, and significantly increases threat generation for 5 sec.' Real AoE taunt, part of the Presence family by name but functions as an activated cooldown here.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 28,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_netherstrike",
+      "name": "Netherstrike",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strike an enemy quickly, purging a beneficial magic effect. Only usable on targets below 35% health.",
+      "_source": "Confirmed screenshot: Lvl 20, Generates 20 Insanity, '125% Weapon Damage plus 62 Shadow damage, purging 1 beneficial magic effect from them. Only usable on enemies below 35% health.' Real execute + dispel hybrid.",
+      "execute_threshold_pct": 35,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 120
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 20
+      },
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_void_resilience",
+      "name": "Void Resilience",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "shadow_resist": 30
+      },
+      "description": "Grant all party and raid members within range additional Shadow resistance. Does not stack with similar effects.",
+      "_source": "Confirmed screenshot: Lvl 28, '+30 Shadow resistance to all party and raid members within 40 yards.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 26,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "cultist_whispers_of_cthun",
+      "name": "Whispers of C'thun",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "spell_power": 37
+      },
+      "description": "Gift an ally with the madness of C'thun, increasing Spell Power. Only one Whisper per Cultist active.",
+      "_source": "Confirmed screenshot: Lvl 38, '+37 Spell Power. Lasts 30 min.' Part of the mutually-exclusive Whispers family.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 30,
+          "effect_value": 37
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "cultist_whispers"
+    },
+    {
+      "ability_id": "cultist_greater_whispers_of_cthun",
+      "name": "Greater Whispers of C'thun",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "spell_power": 62
+      },
+      "description": "Gift nearby allies with the madness of C'thun, increasing Spell Power. Raid-wide rank of Whispers of C'thun.",
+      "_source": "Confirmed screenshot: Lvl 58, '+62 Spell Power. Lasts 30 min.' The raid-wide rank-up, same 'Greater' pattern as Stormbringer's Call of the Wind/Storm.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 58,
+          "cost": 45,
+          "effect_value": 62
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "cultist_whispers"
+    },
+    {
+      "ability_id": "cultist_presence_of_yshaarj",
+      "name": "Presence of Y'Shaarj",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Assume a powerful Presence: damage dealt has a chance to curse the ground beneath your target. Only 1 Presence active at a time.",
+      "_source": "Confirmed screenshot: Lvl 30, 'giving damage dealt a 20% chance to curse the ground for 12 sec, dealing 14 Shadow damage every 3 sec to enemies within.' Part of the Presence family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 26,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "cultist_presence"
+    },
+    {
+      "ability_id": "cultist_dreadnought_shield",
+      "name": "Dreadnought",
+      "resource_type": "insanity",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "movement_speed_floor_pct": 80
+      },
+      "description": "Absorb damage, scaling with Intellect and Stamina, and protect your movement speed from falling too low.",
+      "_source": "Confirmed screenshot: Lvl 20, 'Absorbs 395 damage, scaling with Intellect and Stamina. Protects movement speed from going below 80% of normal speed. Lasts 20 sec. Depletes all Insanity upon expiration.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 200
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_twilight_shieldtoss",
+      "name": "Twilight Shieldtoss",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hurl a cursed shield that bounces between enemies, dealing more damage the more Insanity you hold.",
+      "_source": "Confirmed screenshot: Lvl 18, 'Hurl a cursed shield, dealing 129 Shadow damage to up to 3 enemies, reduced by 20% with each jump. Damage increased by 1% for each stack of Insanity.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 22,
+          "effect_value": 129
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_presence_of_nzoth",
+      "name": "Presence of N'Zoth",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Assume a dark Presence: damage dealt has a chance to summon Tentacles that attack a nearby enemy. Only 1 Presence active at a time.",
+      "_source": "Confirmed screenshot: Lvl 20, 'giving damage dealt a 20% chance to summon Tentacles on your back that attack a nearby enemy for 8 sec.' Part of the Presence family. Pet summon not fully modeled, see _implementation_note.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "cultist_presence",
+      "_implementation_note": "Real pet-summon proc - no pet entity system exists yet, same gap as every other class's tentacle/beast/elemental summons this session."
+    },
+    {
+      "ability_id": "cultist_whispers_of_nzoth",
+      "name": "Whispers of N'Zoth",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "all_stats_pct": 10
+      },
+      "description": "Gift an ally with the madness of N'Zoth, increasing total stats. Only one Whisper per Cultist active.",
+      "_source": "Confirmed screenshot: Lvl 24, '+10% total stats. Lasts 30 min.' Part of the mutually-exclusive Whispers family.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 28,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "cultist_whispers"
+    },
+    {
+      "ability_id": "cultist_eldritch_mending",
+      "name": "Eldritch Mending",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Envelop an ally in eldritch magic, healing them.",
+      "_source": "Confirmed screenshot: Lvl 2, 'healing for 45.' Heretic's core direct heal.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 20,
+          "effect_value": 45
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 32,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 44,
+          "effect_value": 120
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 56,
+          "effect_value": 164
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 68,
+          "effect_value": 212
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_devour_magic",
+      "name": "Devour Magic",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Devour a harmful magic effect on a friendly target, dispelling it and healing yourself.",
+      "_source": "Confirmed screenshot: Lvl 26, 'dispelling it and healing you for 174.' Real dispel-and-self-heal.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 26,
+          "effect_value": 174
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_tentacle_of_yoggsaron",
+      "name": "Tentacle of Yogg-Saron",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "healing_received_pct": 6,
+        "pushback_reduction_pct": 50
+      },
+      "description": "Summon a Tentacle of Yogg-Saron near you: allies within range receive increased healing and reduced spell pushback. Only 1 Old God Tentacle active at a time.",
+      "_source": "Confirmed screenshot: 27 Mana, instant, Lvl 26, 'Allies within 15 yds receive 6% increased healing and 50% reduced spell pushback. You may only have 1 Old God Tentacle active at a time.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 27,
+          "effect_value": 6
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid",
+      "exclusive_group": "cultist_tentacle",
+      "_implementation_note": "Real ground summon per the tooltip - modeled as a self-buff proxy since the summon itself isn't a real pet entity yet."
+    },
+    {
+      "ability_id": "cultist_satiate",
+      "name": "Satiate",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Channel to generate Insanity and regenerate mana, but increase damage taken.",
+      "_source": "Confirmed screenshot: Lvl 32, 'Channel for 6 sec, generating 5 Insanity and regenerating 5% of your maximum mana every 0.50 sec, but increase damage taken by 20%.' Real risk/reward dual-resource channel.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 5
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 5
+      },
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_whispers_of_yoggsaron",
+      "name": "Whispers of Yogg-Saron",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 30,
+      "stat_mods": {
+        "spell_damage_taken_pct": -5,
+        "healing_taken_pct": -5
+      },
+      "description": "Destabilize magic used against the targeted party member, reducing spell damage and healing they take. Only one Whisper per Cultist active.",
+      "_source": "Confirmed screenshot: Lvl 32, 'Reduces all spell damage taken by 5% and reduces all healing taken by 5%.' A real trade-off buff on an ally - part of the mutually-exclusive Whispers family, but the negative healing clause makes it situational (defensive-cooldown flavor).",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 28,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_debuff",
+      "exclusive_group": "cultist_whispers"
+    },
+    {
+      "ability_id": "cultist_eldritch_shock",
+      "name": "Eldritch Shock",
+      "resource_type": "insanity",
+      "cooldown": 3,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Unleash eldritch power at the target, damaging an enemy or healing an ally.",
+      "_source": "Confirmed screenshot: Lvl 36, 'dealing 340 Shadow damage to an enemy or healing an ally for 375, draining 20 Insanity.' Second real dual-purpose spell alongside Gaze of C'Thun.",
+      "heal_scope": 1,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 340,
+          "heal_value": 375
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_presence_of_yoggsaron",
+      "name": "Presence of Yogg-Saron",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Assume a crazed Presence: damage dealt has a chance to deal bonus Shadow damage and reduce the target's casting speed. Only 1 Presence active at a time.",
+      "_source": "Confirmed screenshot: Lvl 40, 'giving damage dealt a 30% chance to deal 16 Shadow damage to your target and reduce their casting speed by 30% for 6 sec.' Part of the Presence family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "cultist_presence"
+    },
+    {
+      "ability_id": "cultist_dark_infusion",
+      "name": "Dark Infusion",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Infuse an ally with dark energy, healing them the next time they take damage. Spreads to the two lowest-health nearby allies on trigger.",
+      "_source": "Confirmed screenshot: Lvl 44, 18 Mana, 40yd, instant, '3 Charges, 30 sec recharge. Infuse an ally with dark energy, healing them for 143 the next time they take damage. When the heal occurs, Dark Infusion is consumed and expands to the two lowest-health nearby party or raid members.' Chain-heal-on-damage mechanic not fully modeled - see _implementation_note.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 18,
+          "effect_value": 143
+        }
+      ],
+      "icon_id": "ability_heal",
+      "_implementation_note": "Modeled as a direct heal for now rather than a real pre-heal-on-next-damage trigger, since this engine doesn't have a 'heal on next damage taken' status effect primitive yet."
+    },
+    {
+      "ability_id": "cultist_voidforged_edge",
+      "name": "Voidforged Edge",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Your autoattacks now deal bonus Shadow damage and generate Insanity.",
+      "_source": "CoA handoff doc: 'Autos deal bonus Shadow damage.' Godblade's core Insanity generator.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 15
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 5
+      },
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_netherstrike_talent",
+      "name": "Netherstrike",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strike an enemy quickly, purging a beneficial magic effect. Only usable on targets below 35% health.",
+      "_source": "Same real ability as the class-wide cultist_netherstrike, confirmed via screenshot. Separate ability_id for Godblade's own talent-tree unlock node.",
+      "execute_threshold_pct": 35,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 26,
+          "effect_value": 120
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 20
+      },
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_rift",
+      "name": "Rift",
+      "resource_type": "insanity",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Buff your next Hammer of Twilight's damage and create a rift absorbing the next healing an enemy near you would receive.",
+      "_source": "CoA handoff doc: 'Buffs next Hammer of Twilight's damage; creates a rift absorbing next enemy healing near you.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_empires_grasp",
+      "name": "Empire's Grasp",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "movement_speed": -50
+      },
+      "description": "Teleport an enemy to you and slow them.",
+      "_source": "CoA handoff doc: 'Teleports an enemy to you + slows.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_voidborne",
+      "name": "Voidborne",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_pct": 15,
+        "crit_chance": 10,
+        "stun_immune": 1
+      },
+      "description": "Increase damage dealt and critical strike chance, grant stun immunity, and generate Insanity each second.",
+      "_source": "CoA handoff doc confirmed: 'Boosts damage dealt + crit chance, stun immunity; generates 1 Insanity/sec.' Godblade's real burst/survival cooldown - real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 45,
+          "cost": 40,
+          "effect_value": 15
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 1
+      },
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_dreadfall",
+      "name": "Dreadfall",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A charge strike dealing Shadow damage to enemies passed through, generating extra threat.",
+      "_source": "CoA handoff doc: 'Charge strike: Shadow damage to enemies passed through, generates extra threat.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 22,
+          "effect_value": 65
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_entropic_strike",
+      "name": "Entropic Strike",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A weapon strike that applies Seething Void and generates Void Runes. Simplification note: real CoA Entropic Strike has a weapon-damage component alongside its Shadow-tagged Seething Void effect - this engine models it as pure Shadow school for now (matching the named Void effect, since there's no mechanism yet for a single ability to deal a physical hit AND apply a separately-schooled debuff in one action). Matches Cultist's real Strength/Intellect hybrid identity as a case where a future split-damage-source mechanic would be more accurate.",
+      "_source": "CoA handoff doc: 'Weapon damage + applies Seething Void + generates 2 Void Runes.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 24,
+          "effect_value": 30
+        }
+      ],
+      "icon_id": "ability_melee",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_tentacle_of_nzoth",
+      "name": "Tentacle of N'Zoth",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "debuff",
+      "duration": 30,
+      "stat_mods": {
+        "silenced": 1
+      },
+      "description": "Summon a ground Tentacle of N'Zoth that silences and repeatedly damages the target, re-targeting if they flee range.",
+      "_source": "CoA handoff doc: 'Ground summon: silences + repeats damage on target; re-targets if target flees range.' Real numbers not confirmed via a dedicated screenshot; pet summon stubbed as a direct debuff.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_eldritch_obelisk",
+      "name": "Eldritch Obelisk",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "movement_speed": 15
+      },
+      "description": "Summon a ground Eldritch Obelisk that boosts nearby Tentacle damage and ally movement speed.",
+      "_source": "CoA handoff doc: 'Ground summon: boosts nearby Tentacle damage + ally movement speed.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 35,
+          "effect_value": 15
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "cultist_darkwither",
+      "name": "Darkwither",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A Shadow DoT that reduces the target's periodic healing taken, stacking.",
+      "_source": "Confirmed screenshot: Lvl 18, Generates 10 Insanity, '190 Shadow damage over 15 sec. Each instance of damage reduces their periodic healing taken by 5%, stacking up to 4 times.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 24,
+          "effect_value": 63
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 10
+      },
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_obliteration_beam",
+      "name": "Obliteration Beam",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Unleash a beam of eldritch energy at an enemy and all nearby enemies. Empowered above 60 Insanity.",
+      "_source": "Confirmed screenshot: Lvl 22, Generates 10 Insanity, '181 Shadow damage to an enemy and all nearby enemies. While above 60 Insanity, deals 20% more damage.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 181
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 10
+      },
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_eldritch_devastation",
+      "name": "Eldritch Devastation",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Channel upon an enemy, chaining to nearby enemies, dealing Shadow damage over time. Deals less damage with each enemy struck.",
+      "_source": "Confirmed screenshot: Lvl 24, '120 Shadow damage over 4 sec, dealing less damage with each enemy struck.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 32,
+          "effect_value": 60
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_visions",
+      "name": "Visions",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "haste": 10,
+        "shadow_damage_pct": 5
+      },
+      "description": "Grant the party a spell haste buff and increase your Shadow damage. Does not stack with similar effects.",
+      "_source": "CoA handoff doc: 'Party/raid spell haste buff (no stacking with similar); boosts your Shadow damage.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "cultist_ancient_curse",
+      "name": "Ancient Curse",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A Shadow curse dealing damage and increasing the target's Shadow damage taken from you, with extra damage on expiry.",
+      "_source": "CoA tooltip confirmed: Generates 20 Insanity, 'Curse: Shadow damage + boosts target's Shadow damage taken from you; extra damage at expiry.' Real numbers not fully confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 34,
+          "effect_value": 80
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 20
+      },
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_psychic_suppression",
+      "name": "Psychic Suppression",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Launch an enemy airborne with a stun and repeating Shadow damage. Target takes more spell damage while channeled.",
+      "_source": "CoA handoff doc confirmed as Corruption's hard control signature: 'Airborne stun + repeating Shadow damage; target takes more spell damage while channeled.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 40,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_dreadfall_tank",
+      "name": "Dreadfall",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {
+        "taunt": 1
+      },
+      "description": "A shield charge dealing Shadow damage to enemies passed through, generating extra threat.",
+      "_source": "Same real ability as Godblade's Dreadfall (shared name/flavor per handoff doc), separate ability_id for Dreadnought's own talent-tree unlock. Threat-focused version.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 22,
+          "effect_value": 65
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_crushing_dissonance",
+      "name": "Crushing Dissonance",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "silenced": 1
+      },
+      "description": "Interrupt and school-lock all nearby enemy spellcasts.",
+      "_source": "CoA handoff doc confirmed as a real AoE interrupt: 'Interrupts + school-locks all nearby enemy casts.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_void_strikes",
+      "name": "Void Strikes",
+      "resource_type": "insanity",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A heavy Shadow-infused weapon strike, spending Insanity.",
+      "_source": "CoA handoff doc confirmed as Dreadnought's core Insanity spender. Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "cultist_bulwark_of_shadow",
+      "name": "Bulwark of Shadow",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -25
+      },
+      "description": "A defensive cooldown that reduces damage taken for a duration.",
+      "_source": "CoA handoff doc: real named defensive cooldown, layered with Eldritch Bastion. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 35,
+          "effect_value": 25
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_eldritch_bastion",
+      "name": "Eldritch Bastion",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "An emergency cooldown that grants a massive shield in a moment of crisis.",
+      "_source": "CoA handoff doc confirmed as Dreadnought's capstone panic button/last-ditch mitigation. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 45,
+          "effect_value": 400
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_armageddon",
+      "name": "Armageddon",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Repeating AoE Shadow damage that heals you and reduces nearby damage taken for you and allies.",
+      "_source": "CoA handoff doc confirmed: 'Repeating AoE Shadow damage; heals you (% of damage dealt); reduces nearby damage taken (self+allies).' Real numbers not confirmed via a dedicated screenshot.",
+      "heal_scope": 1,
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 38,
+          "effect_value": 50,
+          "heal_value": 60
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_devour_curse",
+      "name": "Devour Curse",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Dispel a curse from an ally and heal yourself.",
+      "_source": "CoA handoff doc: 'Dispels curses from an ally, heals you.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 22,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_greater_void_blessing",
+      "name": "Greater Void Blessing",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "mana_regen": 8
+      },
+      "description": "A party-wide mana regeneration buff.",
+      "_source": "CoA handoff doc: 'Party/raid mana regen buff.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 8
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "cultist_malevolence",
+      "name": "Malevolence",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage_and_heal",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Smash an enemy with eldritch force and apply Black Blood, a repeating heal-over-time to nearby allies. Usable while moving.",
+      "_source": "Confirmed screenshot: Lvl 18, Generates 10 Insanity, '56 Shadow damage and applying Black Blood to 5 nearby allies, healing them for 40, repeating every 3 sec for 12 sec.' Heretic's core throughput ability.",
+      "heal_scope": 5,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 24,
+          "effect_value": 56,
+          "heal_value": 40
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 10
+      },
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_void_shield",
+      "name": "Void Shield",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Shield an ally, absorbing damage. Applies Wracked Mind, preventing another Void Shield on them for a duration.",
+      "_source": "Confirmed screenshot: Lvl 20, 'absorbing 241 damage for 30 sec and applying Wracked Mind... cannot be affected by Void Shield. Lasts for 15 sec.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 28,
+          "effect_value": 241
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_forbidden_ritual",
+      "name": "Forbidden Ritual",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 10,
+      "stat_mods": {},
+      "description": "Chant a forbidden ritual that shields all nearby party and raid members.",
+      "_source": "Confirmed screenshot: Lvl 24, 'places a shield on all nearby party and raid members that absorbs 308 damage for 10 sec.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 308
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "cultist_abyssal_covenant",
+      "name": "Abyssal Covenant",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Link to an ally, transferring a percentage of their damage taken to you and converting a percentage of your damage into healing for them. Only one ally at a time.",
+      "_source": "CoA handoff doc confirmed as Heretic's signature link mechanic. Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 20
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_dark_veil",
+      "name": "Dark Veil",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "stun_immune": 1,
+        "silence_immune": 1
+      },
+      "description": "Channel a stacking shield on you and a target ally, granting stun and silence immunity while channeling.",
+      "_source": "CoA handoff doc confirmed: 'Channeled shield: you+target absorb damage (stacking, periodic); at end, shield holds + you teleport to them. Grants immunity while channeling.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 40,
+          "effect_value": 200
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_void_embrace",
+      "name": "Void Embrace",
+      "resource_type": "insanity",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Consume a large amount of Insanity to repeatedly heal nearby allies, applying Void-Touched with each tick.",
+      "_source": "CoA handoff doc confirmed: 'Consumes 60 Insanity. Repeating heal to nearby allies, applies Void-Touched with each tick.' Heretic's capstone Insanity spender.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 60,
+          "effect_value": 300
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_dark_infusion_talent",
+      "name": "Dark Infusion",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Infuse an ally with dark energy, healing them the next time they take damage.",
+      "_source": "Same real ability as the class-wide cultist_dark_infusion, confirmed via screenshot. Separate ability_id for Heretic's own talent-tree unlock.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 18,
+          "effect_value": 143
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_entropic_host",
+      "name": "Entropic Host",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A repeating heal-over-time that jumps to another ally when it expires, up to 2 jumps.",
+      "_source": "CoA handoff doc: 'Repeating HoT; at expiry jumps to another ally; after 2 jumps, target can't be affected again.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_isolate",
+      "name": "Isolate",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "threat_generation_pct": -100
+      },
+      "description": "Reduce a target's threat, causing enemies to stop attacking them and cancelling their current casts.",
+      "_source": "CoA handoff doc confirmed: 'Reduces threat, causes enemies to stop attacking target + cancels current casts on them.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 32,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_test_of_pride",
+      "name": "Test of Pride",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "taunt": 1
+      },
+      "description": "Taunt a target enemy.",
+      "_source": "CoA handoff doc: 'Taunts a target.' Real numbers not confirmed via a dedicated screenshot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 18,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_summon_faceless_destroyer",
+      "name": "Summon: Faceless Destroyer",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Summon an ally-fighting Faceless Destroyer for a duration.",
+      "_source": "CoA handoff doc: 'Summons an ally-fighting destroyer for a duration.' Real pet summon - no pet system yet, stubbed as a self-buff placeholder.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "_implementation_note": "Real pet summon, stubbed pending a real pet entity system - same gap as every other class's summon abilities this session."
+    },
+    {
+      "ability_id": "cultist_enslave",
+      "name": "Enslave",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "A Polymorph-style crowd control on an enemy, removing harmful magic from them. Damage may break it.",
+      "_source": "CoA handoff doc: 'Polymorph-style CC on an enemy; removes harmful magic. Damage may break it.' Real numbers not confirmed via a dedicated screenshot; modeled as a stun for turn-based combat.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "cultist_summon_faceless_servant",
+      "name": "Summon: Faceless Servant",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "crit_chance_physical": 5
+      },
+      "description": "Summon a minion that buffs nearby party and raid critical strike chance.",
+      "_source": "CoA handoff doc: 'Summons a minion buffing nearby party/raid crit chance.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 35,
+          "effect_value": 5
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "cultist_shatter_void_rune",
+      "name": "Shatter Void Rune",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Consume a Void Rune to deal AoE Shadow damage and knock back nearby enemies.",
+      "_source": "CoA handoff doc: 'Consumes 1 Void Rune. AoE Shadow damage + knockback.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 28,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "cultist_doomcloak",
+      "name": "Doomcloak",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "magic_damage_taken_pct": -20
+      },
+      "description": "An absorb shield that reduces Magic damage taken while active.",
+      "_source": "CoA handoff doc: 'Absorb shield; reduces Magic damage taken while active.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 28,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_eldritch_force",
+      "name": "Eldritch Force",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "movement_speed": -30
+      },
+      "description": "A frontal wave of Shadow damage that slows enemies hit.",
+      "_source": "CoA tooltip confirmed: Generates 30 Insanity, 'Frontal wave: Shadow damage + slow.' Real numbers not fully confirmed via a dedicated screenshot.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 55
+        }
+      ],
+      "generates": {
+        "resource": "insanity",
+        "amount": 30
+      },
+      "icon_id": "ability_spell"
+    },
+    {
+      "ability_id": "cultist_ritual_of_awakening",
+      "name": "Ritual of Awakening",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Battle-resurrect a fallen ally. Usable only out of combat.",
+      "_source": "CoA handoff doc: 'Battle-rez. Out of combat.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 40,
+          "effect_value": 999
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "cultist_protection_from_light",
+      "name": "Protection From Light",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "holy_fire_resist_pct": 10
+      },
+      "description": "Reduce Holy and Fire damage taken for an ally, and periodically heal them while active.",
+      "_source": "CoA handoff doc: 'Reduces Holy+Fire damage taken for an ally; periodic heal while active.' Real numbers not confirmed via a dedicated screenshot.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 10
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "cultist_summon_mindbender",
+      "name": "Summon: Mindbender",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Summon a minion that periodically heals nearby allies.",
+      "_source": "CoA handoff doc: 'Summons a minion that periodically heals nearby allies.' Real pet summon - stubbed as a self-buff placeholder.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 42,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "_implementation_note": "Real pet summon, stubbed pending a real pet entity system."
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "_notes": "Fixed/curated boss loot for The Broodspiral (home-brew 3->4-boss silithid dungeon, Kyle's ask 2026-09-11). Same mechanism as data/loot/sunken_grotto_boss_loot.json - read by entities/boss_loot.py's get_fixed_boss_loot(), one random item per boss kill from its own pool, not all at once. Every stat/armor/damage number computed from the REAL formulas in entities/loot_generator.py (STAT_BUDGET_BASE_MULT=0.36, weight_tiers, armor_types.json's armor_multiplier, stat_budget_costs from gear_suffixes.json) at 'rare' rarity (1.7x) - not hand-guessed. Kyle's explicit ask: 'dungeon loot can be slightly higher than standard rares' - item_level is boss_level+3 throughout (no existing multiplier precedent for a dungeon bonus elsewhere in the loot system, so this follows real WoW's own convention of dungeon-drop item level sitting a few points above the mobs guarding it, rather than inventing a new constant). Stat combos deliberately pull from gear_suffixes.json's REAL named suffixes ('of the Archmage', 'of the Tactician', 'of the Champion', etc.) rather than defaulting to flat single-template splits - Kyle's explicit pushback: 'why is everything int/spirit and agi/stam' - every item mixes a primary stat with a genuine secondary (spell_power, healing_power, attack_power, crit, hit, haste, defense, mp5), and no two items repeat the same combo. Secondary-stat amounts are budget divided by that stat's real cost from stat_budget_costs (e.g. crit/hit cost 10.0, haste costs 12.0, spell_power/healing_power cost 1.25) - NOT an equal split - matching how _roll_stats() actually works, which is why fractional amounts like 0.3% crit appear at this item level exactly like the rest of the game's gear does. NO trinkets per Kyle's explicit call (save that slot's rarity for later/special drops). Two weapons included per Kyle's ask: a gun (Larval Broodguard) and a 1H mace (Broodspiral Queen) - the gun deliberately carries Intellect/Healing Power instead of the procedural generator's hardcoded gun->agi_physical-only constraint (data/items/weapon_types.json's valid_stat_templates), because Kyle flagged that rigidity as actively hurting the CoA custom classes' weapon options; hand-authored loot bypasses generate_weapon() entirely (same as every item in this file bypasses the procedural path), so there's no code constraint being violated, just a deliberately wider design choice for this one drop.",
+
+  "Carapace Warden": [
+    {
+      "name": "Cracked Carapace Mantle",
+      "slot": "shoulder",
+      "armor_type": "leather",
+      "item_level": 22,
+      "rarity": "rare",
+      "primary_stats": {"agility": 4},
+      "secondary_stats": {"hit_rating": 0.3, "crit_chance_physical": 0.3},
+      "armor_value": 36,
+      "flavor_text": "Still faintly warm from the kill that cracked it loose."
+    },
+    {
+      "name": "Warden's Chitin Bands",
+      "slot": "wrist",
+      "armor_type": "cloth",
+      "item_level": 22,
+      "rarity": "rare",
+      "primary_stats": {"intellect": 2},
+      "secondary_stats": {"spell_power": 3, "crit_chance_spell": 0.1},
+      "armor_value": 12,
+      "flavor_text": "The chitin hums faintly when magic is drawn through it."
+    },
+    {
+      "name": "Burrower's Girdle",
+      "slot": "waist",
+      "armor_type": "mail",
+      "item_level": 22,
+      "rarity": "rare",
+      "primary_stats": {"agility": 2, "intellect": 2},
+      "secondary_stats": {"attack_power": 4},
+      "armor_value": 38,
+      "flavor_text": "Segmented plating, flexible enough to strike from any angle."
+    }
+  ],
+
+  "The Broodkeeper": [
+    {
+      "name": "Broodkeeper's Vestments",
+      "slot": "chest",
+      "armor_type": "cloth",
+      "item_level": 24,
+      "rarity": "rare",
+      "primary_stats": {"intellect": 4},
+      "secondary_stats": {"spell_power": 6, "mp5": 1.2},
+      "armor_value": 26,
+      "flavor_text": "Stained deep green with the ichor of a thousand hatchlings."
+    },
+    {
+      "name": "Caustic-Woven Leggings",
+      "slot": "legs",
+      "armor_type": "leather",
+      "item_level": 24,
+      "rarity": "rare",
+      "primary_stats": {"agility": 5, "stamina": 7},
+      "secondary_stats": {"hit_rating": 0.3},
+      "armor_value": 53,
+      "flavor_text": "Woven from silk that dissolves anything but the wearer's own skin."
+    },
+    {
+      "name": "Chitinguard Gauntlets",
+      "slot": "hands",
+      "armor_type": "plate",
+      "item_level": 24,
+      "rarity": "rare",
+      "primary_stats": {"strength": 3},
+      "secondary_stats": {"hit_rating": 0.2, "crit_chance_physical": 0.2},
+      "armor_value": 64,
+      "flavor_text": "Fused from carapace plates too thick for anything but a smith's press."
+    }
+  ],
+
+  "Larval Broodguard": [
+    {
+      "name": "Venomspitter Rifle",
+      "slot": "weapon",
+      "weapon_type": "gun",
+      "item_level": 24,
+      "rarity": "rare",
+      "primary_stats": {"intellect": 3},
+      "secondary_stats": {"healing_power": 2},
+      "weapon_damage_min": 40,
+      "weapon_damage_max": 54,
+      "flavor_text": "Fires a distilled venom round that somehow, impossibly, mends flesh instead of rotting it."
+    },
+    {
+      "name": "Screenwarden's Helm",
+      "slot": "head",
+      "armor_type": "mail",
+      "item_level": 24,
+      "rarity": "rare",
+      "primary_stats": {"strength": 4, "stamina": 5},
+      "secondary_stats": {"defense_rating": 0.3},
+      "armor_value": 68,
+      "flavor_text": "Every dent tells you it stopped something it wasn't supposed to survive."
+    },
+    {
+      "name": "Broodguard's Signet",
+      "slot": "ring",
+      "item_level": 24,
+      "rarity": "rare",
+      "primary_stats": {"spirit": 3},
+      "secondary_stats": {"mp5": 1.0, "healing_power": 2},
+      "flavor_text": "A ring of chitin, still faintly slick with venom that never dries."
+    }
+  ],
+
+  "Broodspiral Queen": [
+    {
+      "name": "Queen's Bulwark",
+      "slot": "chest",
+      "armor_type": "plate",
+      "item_level": 27,
+      "rarity": "rare",
+      "primary_stats": {"strength": 6, "stamina": 7},
+      "secondary_stats": {"defense_rating": 0.4},
+      "armor_value": 143,
+      "flavor_text": "Taken from the Queen's own throne-shell. It has never once cracked."
+    },
+    {
+      "name": "Hivemind Legguards",
+      "slot": "legs",
+      "armor_type": "mail",
+      "item_level": 27,
+      "rarity": "rare",
+      "primary_stats": {"intellect": 5},
+      "secondary_stats": {"hit_rating": 0.4, "spell_power": 6},
+      "armor_value": 95,
+      "flavor_text": "Wearing them, you can almost hear the hive's thoughts. Almost."
+    },
+    {
+      "name": "Queenmother's Mace",
+      "slot": "weapon",
+      "weapon_type": "mace_1h",
+      "item_level": 27,
+      "rarity": "rare",
+      "primary_stats": {"strength": 5},
+      "secondary_stats": {"crit_chance_physical": 0.4},
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "flavor_text": "Grown, not forged - a spur torn living from the Queen's own foreleg."
+    },
+    {
+      "name": "Broodspiral Cloak",
+      "slot": "back",
+      "armor_type": "accessory",
+      "item_level": 27,
+      "rarity": "rare",
+      "primary_stats": {"intellect": 2, "spirit": 2},
+      "secondary_stats": {"healing_power": 2},
+      "armor_value": 0,
+      "flavor_text": "Spun from the Queen's own molt. It still moves like something alive."
+    }
+  ]
+}

@@ -1,0 +1,1144 @@
+{
+  "class": "Venomancer",
+  "_source_note": "Fully rebuilt (3rd pass, Sept 2026) from 43 real in-game tooltip screenshots pulled directly from Ascension by Kyle (Veenomancer.docx). Major corrections from earlier passes: Serpent's Fang is Lvl 2 not Lvl 1 (35 dmg/45 heal at rank 1, not the higher-rank 72/62 numbers seen before); Shadra's Prayer is VIZIER-LOCKED, not class-wide - moved out of this file into the Vizier spec tree; Spider Form is Lvl 4, not Lvl 6 (screenshot straight from the live game takes priority over Skills_3.docx's outline); Venom Fang added as its own real Lvl 4 ability (flat 24 Nature dmg), separate from Venom Bolt. Per Kyle: starting abilities rank up much further than a 4-5 rank cap (up to Rank 8-10) - Venom Bolt/Serpent's Fang/Venom Fang given longer rank tails accordingly, unlike the shorter curves used for other classes' spammables so far.",
+  "abilities": [
+    {
+      "ability_id": "venomancer_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic claw strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "venomancer_venom_bolt",
+      "name": "Venom Bolt",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spew poison on an enemy.",
+      "_source": "Confirmed screenshot: 11 Mana, 30yd, 2s cast, '19 Nature damage' at Rank 1. Core level-1 spammer - per Kyle, starting abilities get a long rank tail (up to Rank 8-10), not the 5-rank cap used elsewhere.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 11,
+          "effect_value": 19
+        },
+        {
+          "rank": 2,
+          "level_req": 8,
+          "cost": 16,
+          "effect_value": 32
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 22,
+          "effect_value": 50
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 28,
+          "effect_value": 70
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 34,
+          "effect_value": 92
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 116
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 46,
+          "effect_value": 142
+        },
+        {
+          "rank": 8,
+          "level_req": 56,
+          "cost": 52,
+          "effect_value": 170
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_serpents_fang",
+      "name": "Serpent's Fang",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launch vile poison at an enemy, dealing Nature damage and healing up to 5 allies near them.",
+      "_source": "Confirmed screenshot: Lvl 2 (was Lvl 1), instant, '35 Nature damage and healing up to 5 allies near them for 45' at Rank 1. Uses damage_and_heal with heal_scope=5, same mechanism as before, corrected level and rank-1 numbers.",
+      "heal_scope": 5,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 18,
+          "effect_value": 35,
+          "heal_value": 45
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 26,
+          "effect_value": 58,
+          "heal_value": 72
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 34,
+          "effect_value": 85,
+          "heal_value": 102
+        },
+        {
+          "rank": 4,
+          "level_req": 26,
+          "cost": 42,
+          "effect_value": 115,
+          "heal_value": 135
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 50,
+          "effect_value": 148,
+          "heal_value": 170
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 58,
+          "effect_value": 184,
+          "heal_value": 208
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 66,
+          "effect_value": 223,
+          "heal_value": 249
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 74,
+          "effect_value": 265,
+          "heal_value": 293
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_venom_fang",
+      "name": "Venom Fang",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bite an enemy with venomous fangs.",
+      "_source": "Confirmed screenshot: Lvl 4, '24 Nature damage' at Rank 1. Flat single-target melee-ish bite, distinct from Venom Bolt (Mana caster spell) and Claw Strike (Beetle-locked cleave) - this is the base-kit bite attack.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 10,
+          "effect_value": 24
+        },
+        {
+          "rank": 2,
+          "level_req": 12,
+          "cost": 16,
+          "effect_value": 42
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 22,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 28,
+          "effect_value": 84
+        },
+        {
+          "rank": 5,
+          "level_req": 36,
+          "cost": 34,
+          "effect_value": 108
+        },
+        {
+          "rank": 6,
+          "level_req": 44,
+          "cost": 40,
+          "effect_value": 134
+        },
+        {
+          "rank": 7,
+          "level_req": 52,
+          "cost": 46,
+          "effect_value": 162
+        },
+        {
+          "rank": 8,
+          "level_req": 60,
+          "cost": 52,
+          "effect_value": 192
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "venomancer_vile_sting",
+      "name": "Vile Sting",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "taunt": 1
+      },
+      "description": "Taunt an enemy to attack you. If the target isn't currently targeting you, triggers your active Venoms.",
+      "_source": "Confirmed screenshot: Lvl 12, 'Taunts an enemy target to attack you for 3 sec. If the target is tauntable and not currently targeting you, you trigger your current Venoms.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "venomancer_spider_pheromones",
+      "name": "Spider Pheromones",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "agility": 6
+      },
+      "description": "Inject an ally with spider pheromones, increasing their Agility.",
+      "_source": "Confirmed screenshot: Lvl 10, '+6 Agility. Lasts 30 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 6
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "venomancer_emerald_veil",
+      "name": "Emerald Veil",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Envelop an ally in an emerald veil, healing them and shielding them from damage.",
+      "_source": "Confirmed screenshot: Lvl 14, 'healing them for 416 and shielding them, absorbing up to 36 damage. Lasts 20 sec.' Shield component not yet modeled (heal-only for now) - see _implementation_note.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 30,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_heal",
+      "_implementation_note": "Real tooltip also grants a 20-sec damage-absorb shield alongside the heal - this engine doesn't have a generic 'shield' status effect yet (only heal/hot/buff/debuff/dot). Flagging rather than half-implementing; revisit once a shield mechanic exists."
+    },
+    {
+      "ability_id": "venomancer_antivenom",
+      "name": "Antivenom",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Cure a poison effect on the target, repeating over several seconds.",
+      "_source": "Confirmed screenshot: Lvl 16, 'Cure 1 poison effect on the target, repeating every 4 seconds for 12 sec.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 24,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "venomancer_green_salve",
+      "name": "Green Salve",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 6,
+      "stat_mods": {},
+      "description": "Rapidly heal an ally over time, then seek out another low-health ally to heal.",
+      "_source": "Confirmed screenshot: Lvl 16, tagged 'Venomancer (1)' - a generic talent-point gate (any 1 point spent, not spec-specific), 'heal an ally for 60 over 6 sec. At the end of the duration, seek another nearby ally with the lowest health and heal them for 72.' The chain-to-another-target clause isn't modeled (single-target hot only) - flag for a follow-up.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 28,
+          "effect_value": 60
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "venomancer_beetle_pheromones",
+      "name": "Beetle Pheromones",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "armor": 105,
+        "all_stats": 4
+      },
+      "description": "Increase the friendly target's Armor and all primary stats. Does not stack with similar effects.",
+      "_source": "Confirmed screenshot: Lvl 20, '+105 Armor and all primary stats by 4. Lasts 30 min.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 24,
+          "effect_value": 4
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "venomancer_nullifying_toxin",
+      "name": "Nullifying Toxin",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "silenced": 1
+      },
+      "description": "Inject an enemy with nullifying toxin, interrupting their cast and preventing that school from being cast.",
+      "_source": "Confirmed screenshot: Lvl 22, 'interrupting them and preventing any spell from that school from being cast for 3 sec.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 26,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "venomancer_chitin_rush",
+      "name": "Chitin Rush",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Rush forward and strike enemies in your path. Generates increased threat.",
+      "_source": "Confirmed screenshot: Lvl 28, '38 Nature damage. Damage dealt generates increased threat.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 26,
+          "effect_value": 38
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "venomancer_toxic_pheromones",
+      "name": "Toxic Pheromones",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "spell_power": 28
+      },
+      "description": "Create a magic edict with an ally, increasing their Spell Power.",
+      "_source": "Confirmed screenshot: Lvl 28, '+28 Spell Power.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 28
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "venomancer_venom_shield",
+      "name": "Venom Shield",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "poison_duration_taken_pct": -10,
+        "periodic_magic_damage_taken_pct": -5
+      },
+      "description": "Reduce the duration of poison effects used on you and reduce periodic Magic damage taken.",
+      "_source": "Confirmed screenshot: Lvl 40, exact numbers verbatim.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "venomancer_shadras_boon",
+      "name": "Shadra's Boon",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "nature_resist": 1
+      },
+      "description": "Increase the Nature Resistance of all party and raid members. Does not stack with similar effects.",
+      "_source": "Confirmed screenshot: Lvl 50, '+1 Nature Resistance.'",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 32,
+          "effect_value": 1
+        }
+      ],
+      "icon_id": "ability_buff",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "venomancer_debilitating_venom",
+      "name": "Debilitating Venom",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Activate Debilitating Venom for 2 hrs: your casts have a chance to inject a target and nearby enemies with a crippling venom that slows movement speed. Maximum 2 unique Venoms active at a time.",
+      "_source": "Confirmed screenshot: Lvl 8, 'giving your casts a 30% chance to inject a target and enemies around them with a crippling venom that slows their movement speed by 40% for 8 sec.' Part of the Venom family (Debilitating/Rejuvenating/Nullifying/Blight) - max 2 active. 2hr real-world duration modeled as a 30-min WoW-buff-style duration per project convention (matches Rounds/other long buffs).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 22,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "venomancer_venom_slot_a"
+    },
+    {
+      "ability_id": "venomancer_rejuvenating_venom",
+      "name": "Rejuvenating Venom",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Activate Rejuvenating Venom for 2 hrs: your casts have a chance to heal a random nearby ally. Maximum 2 unique Venoms active at a time.",
+      "_source": "Confirmed screenshot: Lvl 14 (was Lvl 1), 'giving your casts a 20% chance to heal a random ally within 30 yds of your target for 2 over 6 sec.' Part of the Venom family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 22,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "venomancer_venom_slot_a"
+    },
+    {
+      "ability_id": "venomancer_nullifying_venom",
+      "name": "Nullifying Venom",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Activate Nullifying Venom for 2 hrs: your casts have a chance to reduce an enemy's casting speed. Maximum 2 unique Venoms active at a time.",
+      "_source": "Confirmed screenshot: Lvl 18, 'giving your casts a 30% chance to reduce an enemy's casting speed by 30% for 8 sec.' Part of the Venom family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 22,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "venomancer_venom_slot_a"
+    },
+    {
+      "ability_id": "venomancer_blight_venom",
+      "name": "Blight Venom",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {},
+      "description": "Activate Blight Venom for 2 hrs: your harmful spells and abilities have a chance to poison an enemy. Maximum 2 unique Venoms active at a time.",
+      "_source": "Confirmed screenshot: level not shown in this tooltip crop, estimated. 'giving your harmful spells and abilities a 30% chance to poison an enemy dealing 26 Shadow Damage over 6 sec.' Part of the Venom family.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 22,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff",
+      "exclusive_group": "venomancer_venom_slot_a",
+      "_implementation_note": "'Maximum 2 unique Venoms active at a time' means this family should really allow 2 simultaneous picks, not 1 like Tinker's Rounds. exclusive_group as built only supports 'exactly 1 at a time' - this is modeled as 1-at-a-time for now (undertuned vs the real 2-at-a-time), flag for a proper multi-slot exclusive-group mechanic if this matters for gameplay feel."
+    },
+    {
+      "ability_id": "venomancer_shadras_prayer",
+      "name": "Shadra's Prayer",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 8,
+      "stat_mods": {},
+      "description": "Bring the glory of Shadra to an ally, healing them immediately and over time.",
+      "_source": "Confirmed screenshot: Lvl 2, Vizier-locked, 65 Mana, 40yd, 2s cast, '48 healing, plus 9 every 3 sec for 24 sec' (higher-rank numbers - rank 1 is '32 healing, plus 5 every 3 sec').",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 24,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 40,
+          "effect_value": 108
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 56,
+          "effect_value": 154
+        },
+        {
+          "rank": 4,
+          "level_req": 44,
+          "cost": 72,
+          "effect_value": 200
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 88,
+          "effect_value": 246
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "venomancer_alkahest",
+      "name": "Alkahest",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bless an ally with Shadra's grace, healing them and extending Shadra's Prayer.",
+      "_source": "Confirmed screenshot: Lvl 20, 2 Charges, 12 sec recharge, '152 healing, extending Shadra's Prayer duration by 9 sec.' Duration-extension clause not yet modeled.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "venomancer_mending_mist",
+      "name": "Mending Mist",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "hot",
+      "duration": 10,
+      "stat_mods": {},
+      "description": "Spread a mist across the party, healing them over time then again shortly after.",
+      "_source": "Confirmed screenshot: Lvl 22, 'heal for 15 every 1 sec for 10 sec. After 1.6 sec, an additional 149.' Party-wide (up to 8 allies) - target_type party not currently supported cleanly for hot, modeled single-target for now.",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 40,
+          "effect_value": 300
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "venomancer_shadras_balm",
+      "name": "Shadra's Balm",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 7,
+      "stat_mods": {},
+      "description": "Envelop an ally with a restorative balm, healing them over time.",
+      "_source": "Confirmed screenshot: Lvl 24, 'healing them for 41 every 3 sec for 21 sec.'",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 287
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "venomancer_blight_antidote",
+      "name": "Blight Antidote",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Cull 2 curse effects from an ally.",
+      "_source": "Referenced in earlier extraction ('pulling 2 curse effects from them') - Vizier-locked dispel.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 24,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "venomancer_carapace_crash",
+      "name": "Carapace Crash",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Slam your body against the ground, damaging nearby enemies. Requires Beetle Form.",
+      "_source": "Confirmed screenshot: Lvl 10/16 (Rank 1/2), 'dealing 33/45 Nature damage to enemies within 8 yds.'",
+      "requires_form": "beetle",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 33
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 45
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "venomancer_hivebreak",
+      "name": "Hivebreak",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Pierce an enemy with your front leg. Requires Beetle Form.",
+      "_source": "Confirmed screenshot: Lvl 10, '33 Nature damage.'",
+      "requires_form": "beetle",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 33
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "venomancer_expulsion",
+      "name": "Expulsion",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Clear your Exposed Flesh stacks to poison nearby enemies.",
+      "_source": "Confirmed screenshot: Lvl 18, 'poison nearby enemies for 5 sec plus 1 sec per cleared stack, dealing 18 Nature damage every 1 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 18
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_venomtip_poison",
+      "name": "Venomtip Poison",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 2,
+      "stat_mods": {
+        "attack_speed": -20
+      },
+      "description": "Spray poison on an enemy and nearby enemies, reducing their attack speed.",
+      "_source": "Confirmed screenshot: Lvl 34, '38 Nature damage and reducing attack speed by 20% for 15 sec.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 38
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_harden",
+      "name": "Harden",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_reduction_pct": 45
+      },
+      "description": "Harden your carapace, reducing damage taken. Decays over time. Requires Beetle Form.",
+      "_source": "Confirmed screenshot: Lvl 30, 3 min cooldown, 'reducing damage taken by 45%, decaying quickly over 10 sec and healing for 1% max health each time a stack is removed. Leaving Beetle Form cancels this effect.' Fortitude's real capstone defensive cooldown.",
+      "requires_form": "beetle",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 45
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "venomancer_locust_swarm",
+      "name": "Locust Swarm",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "taunt": 1
+      },
+      "description": "A swarm of locusts taunts all nearby enemies. Requires Beetle Form.",
+      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
+      "requires_form": "beetle",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "venomancer_nerubian_sting",
+      "name": "Nerubian Sting",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Sting an enemy with a stacking Shadow poison, applying a Brood Mark.",
+      "_source": "Confirmed screenshot: Lvl 20, 'dealing 32 Shadow damage and an additional 35 over 15 sec, stacking up to 3 times. Applies 1 Brood Mark.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 22
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "venomancer_withering_venom",
+      "name": "Withering Venom",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Inject an enemy with a devastating, escalating venom, applying a Brood Mark.",
+      "_source": "Confirmed screenshot: 'dealing 24 Nature damage every 3 sec for 21 sec, damage increasing over time. Applies 1 Brood Mark.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 24
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_widowmaker",
+      "name": "Widowmaker",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {
+        "healing_taken_pct": -50
+      },
+      "description": "Inject shadow venom into an enemy, consuming Brood Marks for damage and reducing their healing received. Requires Spider Form.",
+      "_source": "Confirmed screenshot: 20 Energy, melee range, instant, Requires Spider Form, Consumes Brood Marks. Full per-Mark table: 1 Mark 95, 2:122, 3:156, 4:198, 5:266 Shadow damage, plus 'reducing healing received by 50% for 8 sec.' Scaling with Marks not yet dynamically modeled - uses a flat mid-tier value.",
+      "requires_form": "spider",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 156
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "venomancer_facemelter",
+      "name": "Facemelter",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spray poison upon an enemy and nearby enemies, consuming Brood Marks. Requires Spider Form.",
+      "_source": "Confirmed screenshot: 30 Energy, 20yd, instant, Requires Spider Form, Consumes Brood Marks. Full per-Mark table: 1 Mark 144, 2:184, 3:236, 4:299, 5:403 Nature damage over 15 sec.",
+      "requires_form": "spider",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 236
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_rotfang",
+      "name": "Rotfang",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Inject venom that rots an enemy from the inside out, piercing resistances. Real Plague damage (Nature+Shadow combined school - resolves against whichever of the target's Nature/Shadow resistances is LOWER, matching real WoW's Plague damage type and Kyle's combined-school design: combined types are harder to resist, not easier). Requires Spider Form. Consumes Brood Marks (per-Mark scaling not yet dynamically modeled - uses a flat mid-tier value, per the original source note).",
+      "_source": "Confirmed screenshot: 25 Energy, melee range, instant, Requires Spider Form, Consumes Brood Marks. Full per-Mark table: 1 Mark 320, 2:410, 3:525, 4:666, 5:896 Plague damage over 24 sec, 'pierces resistances.' Stalking's real capstone finisher.",
+      "requires_form": "spider",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 131
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": [
+        "nature",
+        "shadow"
+      ]
+    },
+    {
+      "ability_id": "venomancer_spore",
+      "name": "Spore",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Inject an enemy with parasitic spores, dealing Shadow damage over time, then dropping a delayed-detonation mushroom.",
+      "_source": "Confirmed screenshot: Lvl 20, 11 Mana, 30yd, 1.5s cast, '50 Shadow damage, plus 308-329 over 21 sec. After 10 sec, drops a Mushroom that explodes after 2 sec for 10 Nature damage to nearby enemies.' Mushroom-drop clause not yet modeled.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 11,
+          "effect_value": 106
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "venomancer_wilt",
+      "name": "Wilt",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Wilt the life from an enemy with vile poison.",
+      "_source": "Confirmed screenshot: Lvl 20, '234 Nature damage over 18 sec.'",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 24,
+          "effect_value": 78
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_mycosis",
+      "name": "Mycosis",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {
+        "healing_absorb": 160
+      },
+      "description": "Fungus grows throughout an enemy's body, dealing Nature damage and shielding them from healing.",
+      "_source": "Confirmed screenshot: Lvl 24, 11 Mana, 30yd, 2.5s cast, 15s CD, '202 Nature damage and applying a shield that absorbs the next 160 healing for 8 sec. Deals 20% increased damage per stack of Fungal Growth.' Healing-absorb shield not yet modeled as a real mechanic.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 22,
+          "effect_value": 202
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_spindlebind",
+      "name": "Spindlebind",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "rooted": 1
+      },
+      "description": "Emit webs at all enemies, rooting them and dealing Nature damage.",
+      "_source": "Confirmed screenshot: Lvl 24, 'rooting them for 4 sec and inflicting 83 Nature damage.'",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 28,
+          "effect_value": 83
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "venomancer_decay",
+      "name": "Decay",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A creeping Nature damage-over-time spell that spreads to nearby enemies when it expires.",
+      "_source": "Referenced in earlier tooltip extraction (Cycle of Decay talent). Real numbers not yet confirmed via a dedicated screenshot for this specific batch.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 40
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "venomancer_spider_form",
+      "name": "Spider Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Spider Form, allowing the use of claw-based abilities and increasing movement speed.",
+      "_source": "Real castable shapeshift, per Kyle's direction that forms should be actual spells rather than a separate menu. Uses the existing combat/forms.py 'spider' form data (Lvl 6, Energy resource) - this ability is the cast button, the mechanical details still live in forms.py.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "spider"
+    },
+    {
+      "ability_id": "venomancer_beetle_form",
+      "name": "Beetle Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Beetle Form, allowing the use of claw-based abilities and increasing Armor and Stamina.",
+      "_source": "Real castable shapeshift. Uses the existing combat/forms.py 'beetle' form data (Lvl 10, Rage resource).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "beetle"
+    },
+    {
+      "ability_id": "venomancer_weaver_form",
+      "name": "Weaver Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Weaver Form, reducing spell pushback and granting periodic mana return.",
+      "_source": "Real castable shapeshift. Uses the existing combat/forms.py 'weaver' form data (Lvl 30, Mana resource, no resource-type change since Weaver stays Mana).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "weaver"
+    },
+    {
+      "ability_id": "venomancer_vizier_form_ability",
+      "name": "Vizier Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Vizier Form, increasing healing done and reducing healing costs. Also enables Serpent's Fang to heal instead of damage.",
+      "_source": "Real castable shapeshift. Uses the existing combat/forms.py 'vizier_form' form data (Lvl 40, Mana resource). Named venomancer_vizier_form_ability (not venomancer_vizier_form) to avoid colliding with the forms.py dict key 'vizier_form' itself.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_buff",
+      "shapeshift_form": "vizier_form"
+    }
+  ]
+}

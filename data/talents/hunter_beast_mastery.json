@@ -1,0 +1,425 @@
+{
+  "spec_name": "Hunter Beast Mastery",
+  "tree_id": "hunter_beast_mastery",
+  "description": "Bonded with the wild, drawing power from a savage companion.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "hunter_beast_mastery_improved_aspect_of_the_hawk",
+      "name": "Improved Aspect of the Hawk",
+      "description": "Increases Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "hunter_beast_mastery_thick_hide"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_endurance_training",
+      "name": "Endurance Training",
+      "description": "Increases Stamina by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "stamina": 2
+      },
+      "connected_to": [
+        "hunter_beast_mastery_unleashed_fury"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_focused_fire",
+      "name": "Focused Fire",
+      "description": "Increases all damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "hunter_beast_mastery_improved_mend_pet"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_improved_revive_pet",
+      "name": "Improved Revive Pet",
+      "description": "Increases maximum Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "hunter_beast_mastery_ferocity"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_thick_hide",
+      "name": "Thick Hide",
+      "description": "Increases Armor by 12 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "armor": 12
+      },
+      "connected_to": [
+        "hunter_beast_mastery_improved_aspect_of_the_hawk",
+        "hunter_beast_mastery_bestial_discipline"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_unleashed_fury",
+      "name": "Unleashed Fury",
+      "description": "Grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ranged_attack_power": 6,
+        "attack_power": 6
+      },
+      "connected_to": [
+        "hunter_beast_mastery_endurance_training",
+        "hunter_beast_mastery_animal_handler"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_improved_mend_pet",
+      "name": "Improved Mend Pet",
+      "description": "Increases Spirit by 3 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "spirit": 3
+      },
+      "connected_to": [
+        "hunter_beast_mastery_focused_fire",
+        "hunter_beast_mastery_frenzy"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_ferocity",
+      "name": "Ferocity",
+      "description": "Increases critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "hunter_beast_mastery_improved_revive_pet",
+        "hunter_beast_mastery_spirit_bond"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_bestial_discipline",
+      "name": "Bestial Discipline",
+      "description": "Reduces the Mana cost of Steady Shot by 3 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_hunter_steady_shot_cost": 3
+      },
+      "connected_to": [
+        "hunter_beast_mastery_thick_hide",
+        "hunter_beast_mastery_longevity"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_animal_handler",
+      "name": "Animal Handler",
+      "description": "Reduces your chance to miss by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "hit_rating": 1.5
+      },
+      "connected_to": [
+        "hunter_beast_mastery_unleashed_fury",
+        "hunter_beast_mastery_bestial_wrath"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_frenzy",
+      "name": "Frenzy",
+      "description": "Increases Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "hunter_beast_mastery_improved_mend_pet",
+        "hunter_beast_mastery_catlike_reflexes"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_spirit_bond",
+      "name": "Spirit Bond",
+      "description": "Increases maximum Health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "max_health_pct": 0.03
+      },
+      "connected_to": [
+        "hunter_beast_mastery_ferocity",
+        "hunter_beast_mastery_serpents_swiftness"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_bestial_wrath",
+      "name": "Bestial Wrath",
+      "description": "Unleashed savagery increases all damage dealt by 5%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "all_damage": 0.05
+      },
+      "connected_to": [
+        "hunter_beast_mastery_animal_handler",
+        "hunter_beast_mastery_the_beast_within"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_catlike_reflexes",
+      "name": "Catlike Reflexes",
+      "description": "Increases Dodge chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "dodge": 2.0
+      },
+      "connected_to": [
+        "hunter_beast_mastery_frenzy",
+        "hunter_beast_mastery_cobra_strikes"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_serpents_swiftness",
+      "name": "Serpent's Swiftness",
+      "description": "Increases Haste by 3 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "haste": 3.0
+      },
+      "connected_to": [
+        "hunter_beast_mastery_spirit_bond",
+        "hunter_beast_mastery_kindred_spirits"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_longevity",
+      "name": "Longevity",
+      "description": "Reduces the cooldown of Multi-Shot by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_hunter_multi_shot_cooldown": 1
+      },
+      "connected_to": [
+        "hunter_beast_mastery_bestial_discipline"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_the_beast_within",
+      "name": "The Beast Within",
+      "description": "Grants 6% damage and 20 Attack Power.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "all_damage": 0.06,
+        "attack_power": 20
+      },
+      "connected_to": [
+        "hunter_beast_mastery_bestial_wrath",
+        "hunter_beast_mastery_invigoration"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_cobra_strikes",
+      "name": "Cobra Strikes",
+      "description": "Increases critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "crit_chance_physical": 2.0
+      },
+      "connected_to": [
+        "hunter_beast_mastery_catlike_reflexes",
+        "hunter_beast_mastery_beast_mastery"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_kindred_spirits",
+      "name": "Kindred Spirits",
+      "description": "Grants 8 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "attack_power": 8
+      },
+      "connected_to": [
+        "hunter_beast_mastery_serpents_swiftness"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_invigoration",
+      "name": "Invigoration",
+      "description": "Increases maximum Mana by 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "max_mana_pct": 0.05
+      },
+      "connected_to": [
+        "hunter_beast_mastery_the_beast_within",
+        "hunter_beast_mastery_marked_for_death"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_beast_mastery",
+      "name": "Beast Mastery",
+      "description": "Increases physical damage by 3% and grants 10 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "physical_damage": 0.03,
+        "attack_power": 10
+      },
+      "connected_to": [
+        "hunter_beast_mastery_cobra_strikes",
+        "hunter_beast_mastery_bm_mastery"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_marked_for_death",
+      "name": "Marked for Death",
+      "description": "Increases Steady Shot damage by 25%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "ability_hunter_steady_shot_damage": 0.25
+      },
+      "connected_to": [
+        "hunter_beast_mastery_invigoration"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_bm_mastery",
+      "name": "Ferocious Inspiration",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "hunter_beast_mastery_beast_mastery"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "spec_name": "Stormbringer Wind",
+  "tree_id": "stormbringer_wind",
+  "description": "Support and mobility - calls elemental allies and keeps the party moving and topped up.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026). 22 real Wind-tagged nodes, condensed and rebalanced to Mage Fire's essence budget. Air Elemental kept as a real summon per Kyle's confirmation pets/forms are coming to the project; stubbed with a simple summon effect for now, ready to extend once the pet system exists.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "stormbringer_wind_aeromancy",
+      "name": "Aeromancy",
+      "description": "Increases Spirit by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spirit": 3
+      },
+      "connected_to": [
+        "stormbringer_wind_gift_of_air"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_gift_of_air",
+      "name": "Gift of Air",
+      "description": "Increases healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "stormbringer_wind_aeromancy",
+        "stormbringer_wind_clear_skies"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_comforting_winds",
+      "name": "Comforting Winds",
+      "description": "Increases Invigorating Surge healing by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_stormbringer_invigorating_surge_healing": 0.05
+      },
+      "connected_to": [
+        "stormbringer_wind_clear_skies"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_quickdraft",
+      "name": "Quickdraft",
+      "description": "Reduces the cooldown of Invigorating Surge by 1 turn at rank 2.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_stormbringer_invigorating_surge_cooldown": -1
+      },
+      "connected_to": [
+        "stormbringer_wind_nimbus"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_master_airbender",
+      "name": "Master Airbender",
+      "description": "Increases Haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "stormbringer_wind_tailwind"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_clear_skies",
+      "name": "Clear Skies",
+      "description": "Increases Discharge's mana restored by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_stormbringer_discharge_mana_restore_pct": 0.03
+      },
+      "connected_to": [
+        "stormbringer_wind_comforting_winds",
+        "stormbringer_wind_gift_of_air"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_nimbus",
+      "name": "Nimbus",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "stormbringer_wind_quickdraft"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_tailwind",
+      "name": "Tailwind",
+      "description": "Learn Raging Zephyr, a gust of wind that reduces an enemy's accuracy.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "stormbringer_raging_zephyr"
+      },
+      "connected_to": [
+        "stormbringer_wind_master_airbender",
+        "stormbringer_wind_windsurf"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_windsurf",
+      "name": "Windsurf",
+      "description": "Increases movement-related utility - reduces the cooldown of Freewind by 1 turn.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_stormbringer_freewind_cooldown": -1
+      },
+      "connected_to": [
+        "stormbringer_wind_tailwind",
+        "stormbringer_wind_unrelenting_winds"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_child_of_the_storm",
+      "name": "Child of the Storm",
+      "description": "Increases your Dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "dodge_chance": 1.0
+      },
+      "connected_to": [
+        "stormbringer_wind_clearsky_pendant"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_clearsky_pendant",
+      "name": "Clearsky Pendant",
+      "description": "Increases Call of the Wind's mana regen by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_stormbringer_call_of_the_wind_potency": 0.05
+      },
+      "connected_to": [
+        "stormbringer_wind_child_of_the_storm",
+        "stormbringer_wind_storm_clouds"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_storm_clouds",
+      "name": "Storm Clouds",
+      "description": "Your spell criticals have a 3% chance per rank to grant 15 Static.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "crit_static_proc_chance": 0.03
+      },
+      "connected_to": [
+        "stormbringer_wind_clearsky_pendant",
+        "stormbringer_wind_tempests_call"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_unrelenting_winds",
+      "name": "Unrelenting Winds",
+      "description": "Increases spell hit chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "hit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "stormbringer_wind_windsurf"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_tempests_call",
+      "name": "Tempest's Call",
+      "description": "Learn Summon: Air Elemental, calling an air elemental ally to fight at your side.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "stormbringer_summon_air_elemental"
+      },
+      "connected_to": [
+        "stormbringer_wind_storm_clouds",
+        "stormbringer_wind_master_elementalist"
+      ],
+      "_implementation_note": "Real pet summon per Kyle - pets/forms system not built yet. Stub as a self-buff for now (matches Air Elemental's real 'grants Invigoration stacks' tooltip flavor) and revisit with a real pet entity once that system exists."
+    },
+    {
+      "talent_id": "stormbringer_wind_master_elementalist",
+      "name": "Master Elementalist",
+      "description": "Increases Nature spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "nature_spell_damage": 0.02
+      },
+      "connected_to": [
+        "stormbringer_wind_tempests_call"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_lexicon_of_servitude",
+      "name": "Lexicon of Servitude",
+      "description": "Increases your Air Elemental's damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "pet_damage": 0.06
+      },
+      "connected_to": [
+        "stormbringer_wind_tempests_call",
+        "stormbringer_wind_wind_gate"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_wind_gate",
+      "name": "Wind Gate",
+      "description": "Once per encounter, instantly restore 15% of your maximum Mana when you fall below 20% Mana.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "emergency_mana_restore_pct": 0.15
+      },
+      "connected_to": [
+        "stormbringer_wind_lexicon_of_servitude"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_gale_force",
+      "name": "Gale Force",
+      "description": "Increases Haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "stormbringer_wind_aeromancy"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_wind_shear",
+      "name": "Wind Shear",
+      "description": "Increases Spell Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "spell_power": 4
+      },
+      "connected_to": [
+        "stormbringer_wind_gift_of_air"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_zephyr_step",
+      "name": "Zephyr Step",
+      "description": "Increases Dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "dodge_chance": 1.0
+      },
+      "connected_to": [
+        "stormbringer_wind_master_airbender"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_tailwinds_favor",
+      "name": "Tailwind's Favor",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "stormbringer_wind_quickdraft"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_stormcaller",
+      "name": "Stormcaller",
+      "description": "Increases Freewind damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "ability_stormbringer_freewind_damage": 0.04
+      },
+      "connected_to": [
+        "stormbringer_wind_windsurf"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_air_current",
+      "name": "Air Current",
+      "description": "Reduces the cooldown of Raging Zephyr by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_stormbringer_raging_zephyr_cooldown": -1
+      },
+      "connected_to": [
+        "stormbringer_wind_tailwind"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_resonant_winds",
+      "name": "Resonant Winds",
+      "description": "Increases healing done by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "healing_power_pct": 0.03
+      },
+      "connected_to": [
+        "stormbringer_wind_storm_clouds"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_gusting_focus",
+      "name": "Gusting Focus",
+      "description": "Increases spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "stormbringer_wind_unrelenting_winds"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_skybound",
+      "name": "Skybound",
+      "description": "Increases Air Elemental's damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "pet_damage": 0.06
+      },
+      "connected_to": [
+        "stormbringer_wind_tempests_call"
+      ]
+    },
+    {
+      "talent_id": "stormbringer_wind_cyclonic_ward",
+      "name": "Cyclonic Ward",
+      "description": "Reduces Nature damage taken by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "nature_resist_pct": 0.03
+      },
+      "connected_to": [
+        "stormbringer_wind_lexicon_of_servitude"
+      ]
+    }
+  ]
+}

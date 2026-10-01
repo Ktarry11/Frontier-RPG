@@ -1,0 +1,533 @@
+{
+  "spec_name": "Runemaster Engravement",
+  "tree_id": "runemaster_engravement",
+  "description": "Enhancement-style melee weaver - weaves autoattacks and Fist of the Ancients to proc Elemental Carvings and Runic Brand detonations.",
+  "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers where available (Runic Brand, Fist of the Ancients confirmed via screenshot). Real mechanic per handoff: Fist of the Ancients procs a random Elemental Carving (Fire=armor pen, Water=mana, Earth=HoT, Air=haste); Runic Brand stacks a magic-damage-taken mark cashed in by its detonation.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "runemaster_engravement_primordial_strength",
+      "name": "Primordial Strength",
+      "description": "Increases spell damage scaling from Attack Power by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_ap_pct": 0.03
+      },
+      "connected_to": [
+        "runemaster_engravement_elementalist"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_engraved_and_ready",
+      "name": "Engraved and Ready",
+      "description": "Increases Weapon Engraving trigger chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "weapon_engraving_proc_chance": 1.0
+      },
+      "connected_to": [
+        "runemaster_engravement_fists_of_power"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_ley_focus",
+      "name": "Ley Focus",
+      "description": "Increases haste and critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "runemaster_engravement_focusing_crystals"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_engravement_15",
+      "name": "Attuned Efficiency",
+      "description": "Reduces the Mana cost of Runic Tattoos by 3% per rank and increases Runic Tattoos: Water's mana restore.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "runic_tattoo_cost_pct": 0.03
+      },
+      "connected_to": [
+        "runemaster_engravement_leystone_springs"
+      ],
+      "_source": "CoA handoff doc: 'Engravement Level 15 Passive - Reduces Runic Tattoo mana cost; boosts Runic Tattoos: Water's mana restore.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_elementalist",
+      "name": "Elementalist",
+      "description": "Increases Weapon Engraving proc damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "weapon_engraving_damage": 0.04
+      },
+      "connected_to": [
+        "runemaster_engravement_primordial_strength"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_fists_of_power",
+      "name": "Fists of Power",
+      "description": "Runeblade strikes an extra time with your off-hand weapon.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_runemaster_runeblade_extra_strike": 1
+      },
+      "connected_to": [
+        "runemaster_engravement_engraved_and_ready"
+      ],
+      "_source": "CoA handoff doc: 'Fists of Power (Level 10 Passive) - Runeblade strikes an extra time (off-hand %).'"
+    },
+    {
+      "talent_id": "runemaster_engravement_focusing_crystals",
+      "name": "Focusing Crystals",
+      "description": "Increases Magic damage by 2% per rank and grants partial in-combat mana regen.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "magic_damage_pct": 0.02
+      },
+      "connected_to": [
+        "runemaster_engravement_ley_focus"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_leystone_springs",
+      "name": "Leystone Springs",
+      "description": "Auto attacks have a chance to restore mana.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "autoattack_mana_return_chance": 0.05
+      },
+      "connected_to": [
+        "runemaster_engravement_engravement_15"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_fist_of_the_ancients",
+      "name": "Fist of the Ancients",
+      "description": "Learn Fist of the Ancients, striking your target and a nearby enemy for Elemental damage, triggering Weapon Engravings and a random Elemental Carving.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_fist_of_the_ancients"
+      },
+      "connected_to": [
+        "runemaster_engravement_elementalist",
+        "runemaster_engravement_runic_brand"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 24, 'Smash an enemy and 1 nearby enemy with your rune-engraved fists, dealing 74 Elemental Damage and triggering your Weapon Engraving.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_runic_brand",
+      "name": "Runic Brand",
+      "description": "Learn Runic Brand, branding an enemy with a stacking magic-damage-taken mark. Runeblade detonates the mark for bonus damage.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_runic_brand"
+      },
+      "connected_to": [
+        "runemaster_engravement_leystone_springs"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 18, Engravement(1), 4 Mana, melee range, instant, 12 sec cooldown, 'Requires One-Handed Melee Weapon. Brand an enemy, dealing 23 Fire damage with each weapon, and marking the enemy for 8 sec... Your next Runeblade on the enemy causes a Runic Explosion, dealing an additional 167 Spellfire Damage to nearby enemies.' The class's real Engravement generator/spender identity."
+    },
+    {
+      "talent_id": "runemaster_engravement_elemental_carvings",
+      "name": "Elemental Carvings",
+      "description": "Fist of the Ancients unleashes a random Elemental Carving: Fire grants Armor Penetration, Water restores mana, Earth heals you.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "elemental_carving_procs"
+      },
+      "connected_to": [
+        "runemaster_engravement_fist_of_the_ancients",
+        "runemaster_engravement_runic_brand"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Elemental Carvings (Level 30 Passive) - Fist of the Ancients unleashes a random Elemental Carving (Fire: armor pen. Water: mana regen. Earth: % missing health restore).' This spec's core proc-reward loop."
+    },
+    {
+      "talent_id": "runemaster_engravement_power_overwhelming",
+      "name": "Power Overwhelming",
+      "description": "Runeblade and Primordial Blast have a chance to reset Runic Brand's cooldown.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "runic_brand_reset_chance": 0.1
+      },
+      "connected_to": [
+        "runemaster_engravement_elemental_carvings",
+        "runemaster_engravement_leyline_disturbance"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_leyline_disturbance",
+      "name": "Leyline Disturbance",
+      "description": "Learn Leyline Disturbance, a party-wide melee and ranged haste aura that also reduces stun duration on you.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "runemaster_leyline_disturbance"
+      },
+      "connected_to": [
+        "runemaster_engravement_power_overwhelming",
+        "runemaster_engravement_guarding_rune"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_guarding_rune",
+      "name": "Guarding Rune",
+      "description": "Learn Guarding Rune, dropping a ground zone that reduces Magic damage taken by nearby allies.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "runemaster_guarding_rune"
+      },
+      "connected_to": [
+        "runemaster_engravement_leyline_disturbance",
+        "runemaster_engravement_zenith"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_zenith",
+      "name": "Zenith",
+      "description": "A burst cooldown that greatly increases Weapon Engraving trigger chance for a duration.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "runemaster_zenith"
+      },
+      "connected_to": [
+        "runemaster_engravement_guarding_rune"
+      ],
+      "_source": "CoA handoff doc confirmed as Engravement's burst capstone: 'Boosts Weapon Engraving trigger chance, for a duration.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_runic_tempest",
+      "name": "Runic Tempest",
+      "description": "Learn Runic Tempest, resetting Fist of the Ancients' cooldown.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_runic_tempest"
+      },
+      "connected_to": [
+        "runemaster_engravement_elemental_carvings"
+      ],
+      "_source": "CoA handoff doc: 'Runic Tempest - Resets Fist of the Ancients cooldown; enables Runeshroud-required abilities + castable while moving.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_magic_etchings",
+      "name": "Magic Etchings",
+      "description": "Primordial Blast damage reduces the target's Armor by 3% per rank, stacking.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_runemaster_primordial_blast_armor_shred_pct": 0.03
+      },
+      "connected_to": [
+        "runemaster_engravement_fist_of_the_ancients",
+        "runemaster_engravement_runic_brand"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_leyline_disturbance_boost",
+      "name": "Runes of Quickness",
+      "description": "Grants the party a spell haste buff and increases Glyphic spell range. Does not stack with similar effects.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_runes_of_quickness"
+      },
+      "connected_to": [
+        "runemaster_engravement_elemental_carvings"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid spell haste buff (no stacking with similar); boosts Glyphic spell range.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_leyborn",
+      "name": "Leyborn",
+      "description": "Runic Brand's mark now stacks up to 3 times.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "runic_brand_max_stacks": 3
+      },
+      "connected_to": [
+        "runemaster_engravement_magic_etchings"
+      ],
+      "_source": "CoA handoff doc: 'Marked: Runic Brand stacks 3 times.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_swift_etching",
+      "name": "Swift Etching",
+      "description": "After Hurricane ends, increases your melee attack speed and critical strike chance.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "post_hurricane_haste_crit": 0.05
+      },
+      "connected_to": [
+        "runemaster_engravement_leyline_disturbance"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_steam_conjurer",
+      "name": "Steam Conjurer",
+      "description": "Weapon Engraving: Earth damage has a chance to cast Wild Steam.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "earth_engraving_wild_steam_chance": 0.1
+      },
+      "connected_to": [
+        "runemaster_engravement_leyborn",
+        "runemaster_engravement_leyline_disturbance_boost"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_resonance_rune",
+      "name": "Resonance Rune",
+      "description": "Learn Resonance Rune, a ground rune that dispels harmful magic from allies and purges beneficial magic from enemies in radius.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "runemaster_resonance_rune"
+      },
+      "connected_to": [
+        "runemaster_engravement_guarding_rune"
+      ],
+      "_source": "CoA handoff doc: 'Ground rune: dispels harmful magic from allies, purges beneficial magic from enemies in radius.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_rune_of_the_elder_magus",
+      "name": "Rune of the Elder Magus",
+      "description": "Increases Primordial Blast critical strike damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_runemaster_primordial_blast_crit_damage": 0.08
+      },
+      "connected_to": [
+        "runemaster_engravement_runic_tempest"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_power_engraving",
+      "name": "Power Engraving",
+      "description": "Learn Power Engraving, a ground zone that grants allies increased Magic damage and critical strike chance.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "runemaster_power_engraving"
+      },
+      "connected_to": [
+        "runemaster_engravement_zenith"
+      ],
+      "_source": "CoA handoff doc, called out as a group DPS cooldown to save for the kill in Engravement's dungeon writeup: 'Ground zone: allies get Magic damage + crit chance boost.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_rune_of_the_kirin_tor",
+      "name": "Rune of the Kirin Tor",
+      "description": "Power Engraving also periodically restores mana to affected allies.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "ability_runemaster_power_engraving_mana_return": 1
+      },
+      "connected_to": [
+        "runemaster_engravement_power_engraving"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_protective_warding",
+      "name": "Protective Warding",
+      "description": "Taking a critical hit reduces the cooldown of Guarding Rune.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "crit_taken_guarding_rune_cdr": 1.0
+      },
+      "connected_to": [
+        "runemaster_engravement_resonance_rune",
+        "runemaster_engravement_power_engraving"
+      ]
+    },
+    {
+      "talent_id": "runemaster_engravement_granite_resolve",
+      "name": "Granite Resolve",
+      "description": "Reduces Physical damage taken. Usable while stunned.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "runemaster_granite_resolve"
+      },
+      "connected_to": [
+        "runemaster_engravement_fists_of_power",
+        "runemaster_engravement_focusing_crystals"
+      ],
+      "_source": "CoA handoff doc: 'Reduces Physical damage taken. Usable while stunned.' Real on-demand physical mitigation cooldown."
+    },
+    {
+      "talent_id": "runemaster_engravement_ley_power",
+      "name": "Ley Power",
+      "description": "Increases your damage per nearby enemy, up to a cap, and increases melee/spell haste while active.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "runemaster_ley_power"
+      },
+      "connected_to": [
+        "runemaster_engravement_protective_warding"
+      ],
+      "_source": "CoA handoff doc, called out as a Strength: 'Ley Power ramps damage per nearby enemy... being outnumbered is the shape this spec wants.'"
+    },
+    {
+      "talent_id": "runemaster_engravement_decoder",
+      "name": "Decoder",
+      "description": "Elemental Burst and Runeblade have a chance to instantly trigger a Weapon Engraving.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "instant_weapon_engraving_chance": 0.08
+      },
+      "connected_to": [
+        "runemaster_engravement_elementalist"
+      ]
+    }
+  ]
+}

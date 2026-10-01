@@ -1,0 +1,3773 @@
+{
+  "creatures": {
+    "Mottled Boar": {
+      "template": "beast_basic",
+      "level_range": [
+        1,
+        3
+      ],
+      "is_boss": false,
+      "ability_kit": "boar"
+    },
+    "Dire Mottled Boar": {
+      "template": "beast_basic",
+      "level_range": [
+        3,
+        3
+      ],
+      "stat_overrides": {
+        "strength": 1.15,
+        "stamina": 1.15
+      },
+      "is_boss": false
+    },
+    "Elder Mottled Boar": {
+      "template": "beast_basic",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "boar"
+    },
+    "Scorpid Worker": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        1,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "scorpid"
+    },
+    "Venomtail Scorpid": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        2,
+        5
+      ],
+      "stat_overrides": {
+        "intellect": 1.2
+      },
+      "is_boss": false,
+      "ability_kit": "scorpid"
+    },
+    "Armored Scorpid": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        5,
+        9
+      ],
+      "stat_overrides": {
+        "stamina": 1.3
+      },
+      "ability_kit": "scorpid",
+      "is_boss": false
+    },
+    "Cave Scorpid": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        4,
+        8
+      ],
+      "stat_overrides": {
+        "intellect": 1.3
+      },
+      "ability_kit": "scorpid",
+      "is_boss": false
+    },
+    "Broodmother Sarrix": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "broodmother_sarrix"
+    },
+    "Cave Skitterer": {
+      "template": "vermin_swarm",
+      "level_range": [
+        2,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "swarm"
+    },
+    "Nest Guardian": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.5,
+      "ability_kit": "nest_guardian"
+    },
+    "Gorge the Corpsegrinder": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        8,
+        8
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "gorge_the_corpsegrinder"
+    },
+    "Sand Skitterling": {
+      "template": "vermin_swarm",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "swarm"
+    },
+    "Burning Blade Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "burning_blade_cultist_east"
+    },
+    "Burning Blade Initiate": {
+      "template": "humanoid_caster",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "burning_blade_initiate"
+    },
+    "Vile Familiar": {
+      "template": "demon_caster",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "demon_imp"
+    },
+    "Felstalker Whelp": {
+      "template": "demon_hound",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "demon_hound"
+    },
+    "Fel Pup": {
+      "template": "beast_fast",
+      "level_range": [
+        3,
+        5
+      ],
+      "ability_kit": "felhound"
+    },
+    "Felhound": {
+      "template": "beast_fast",
+      "level_range": [
+        7,
+        11
+      ],
+      "ability_kit": "felhound"
+    },
+    "Greater Felhound": {
+      "template": "beast_fast",
+      "level_range": [
+        19,
+        23
+      ],
+      "kit": "felhound"
+    },
+    "Yarrog Baneshadow": {
+      "template": "demon_caster",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "yarrog_baneshadow"
+    },
+    "Razormane Quilboar": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_warrior"
+    },
+    "Razormane Scout": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_scout"
+    },
+    "Razormane Geomancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_shaman"
+    },
+    "Razormane Battleguard": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        4,
+        8
+      ],
+      "stat_overrides": {
+        "strength": 1.2,
+        "stamina": 1.15
+      },
+      "ability_kit": "quilboar_battleguard",
+      "is_boss": false
+    },
+    "Durotar Prowler": {
+      "template": "beast_fast",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "prowler"
+    },
+    "Bloodtalon Raptor": {
+      "template": "beast_fast",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "raptor"
+    },
+    "Bloodtalon Scythemaw": {
+      "template": "beast_fast",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "raptor"
+    },
+    "Elder Bloodtalon": {
+      "template": "beast_fast",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "raptor"
+    },
+    "Jungle Panther": {
+      "template": "beast_fast",
+      "level_range": [
+        9,
+        12
+      ],
+      "stat_overrides": {
+        "strength": 1.15
+      },
+      "is_boss": false,
+      "ability_kit": "prowler"
+    },
+    "Sunbaked Vulture": {
+      "template": "beast_fast",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "vulture"
+    },
+    "Thunder Lizard": {
+      "template": "beast_large",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "thunder_lizard"
+    },
+    "Crackling Thunderhide": {
+      "template": "beast_large",
+      "level_range": [
+        7,
+        11
+      ],
+      "stat_overrides": {
+        "intellect": 1.3
+      },
+      "ability_kit": "crackling_thunderhide",
+      "is_boss": false
+    },
+    "Stormhide Patriarch": {
+      "template": "beast_large",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "stormhide_patriarch"
+    },
+    "Southfury Crocolisk": {
+      "template": "beast_large",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "crocolisk"
+    },
+    "Searing Blade Enforcer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "searing_blade_fanatic"
+    },
+    "Searing Blade Warlock": {
+      "template": "humanoid_caster",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "searing_blade_invoker"
+    },
+    "Neru Fireblade": {
+      "template": "humanoid_caster",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "neru_fireblade"
+    },
+    "Gazz'uz": {
+      "template": "demon_caster",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "gazzuz"
+    },
+    "Stranded Marine": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "kul_tiras_sailor"
+    },
+    "Stranded Deckhand": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "kul_tiras_sailor"
+    },
+    "Kul Tiras Sharpshooter": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "marksman"
+    },
+    "Captain Thalenvorde": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        8,
+        8
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "captain_thalenvorde"
+    },
+    "Kolkar Outrunner": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "centaur_archer"
+    },
+    "Kolkar Marauder": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "centaur_lancer"
+    },
+    "Kolkar Raider": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "centaur_lancer"
+    },
+    "Kolkar Wrangler": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "centaur_wrangler"
+    },
+    "Kolkar Pack Runner": {
+      "template": "beast_fast",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "centaur_wrangler"
+    },
+    "Kolkar Windchaser": {
+      "template": "humanoid_caster",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "centaur_windchaser"
+    },
+    "Warlord Krellian": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        8,
+        8
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "warlord_krellian"
+    },
+    "Dustwind Harpy": {
+      "template": "beast_fast",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "dustwind_harpy"
+    },
+    "Dustwind Savage": {
+      "template": "beast_fast",
+      "level_range": [
+        7,
+        11
+      ],
+      "stat_overrides": {
+        "strength": 1.2
+      },
+      "ability_kit": "dustwind_savage",
+      "is_boss": false
+    },
+    "Dustwind Storm-Witch": {
+      "template": "humanoid_caster",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "dustwind_storm_witch"
+    },
+    "Matriarch Vess'ra": {
+      "template": "humanoid_caster",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "matriarch_vessra"
+    },
+    "Coastal Murloc": {
+      "template": "aquatic_basic",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "murloc_hunter"
+    },
+    "Murloc Tidehunter": {
+      "template": "aquatic_basic",
+      "level_range": [
+        4,
+        8
+      ],
+      "stat_overrides": {
+        "strength": 1.15
+      },
+      "ability_kit": "murloc_hunter",
+      "is_boss": false
+    },
+    "Murloc Oracle": {
+      "template": "humanoid_caster",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "murloc_oracle"
+    },
+    "Drowned Deckhand": {
+      "template": "undead_basic",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_sailor"
+    },
+    "Voodoo Troll": {
+      "template": "humanoid_caster",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "voodoo_troll"
+    },
+    "Hex Troll": {
+      "template": "humanoid_caster",
+      "level_range": [
+        9,
+        12
+      ],
+      "stat_overrides": {
+        "agility": 1.1
+      },
+      "is_boss": false,
+      "ability_kit": "hex_troll"
+    },
+    "Zalazane Berserker": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "zalazane_berserker"
+    },
+    "Isle Headhunter": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "isle_headhunter"
+    },
+    "Isle Serpent": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "serpent"
+    },
+    "Grotto Murloc": {
+      "template": "aquatic_basic",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "grotto_murloc"
+    },
+    "Tidal Elemental": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "tidal_elemental"
+    },
+    "Drowned Troll": {
+      "template": "undead_basic",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_troll"
+    },
+    "Tidelord Gharesh": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "tidelord_gharesh"
+    },
+    "Hexed Thrall": {
+      "template": "undead_basic",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "hexed_thrall"
+    },
+    "Voodoo Adept": {
+      "template": "humanoid_caster",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "voodoo_troll"
+    },
+    "Shadowfang Guardian": {
+      "template": "demon_hound",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "shadowfang_guardian"
+    },
+    "Zalazane": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "zalazane"
+    },
+    "Plainstrider": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "plainstrider"
+    },
+    "Greater Plainstrider": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "plainstrider"
+    },
+    "Zhevra Runner": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "zhevra"
+    },
+    "Zhevra Courser": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "zhevra"
+    },
+    "Savannah Prowler": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "prowler"
+    },
+    "Savannah Huntress": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "prowler"
+    },
+    "Savannah Patriarch": {
+      "template": "beast_large",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "savannah_patriarch"
+    },
+    "Barrens Giraffe": {
+      "template": "beast_large",
+      "level_range": [
+        12,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "giraffe"
+    },
+    "Sunscale Screecher": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "raptor"
+    },
+    "Silithid Swarmer": {
+      "template": "vermin_swarm",
+      "level_range": [
+        12,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "silithid_swarmer"
+    },
+    "Silithid Creeper": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        12,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "silithid_creeper"
+    },
+    "Bristleback Quilboar": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "bristleback_quilboar"
+    },
+    "Bristleback Shaman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "bristleback_shaman"
+    },
+    "Bristleback Thornweaver": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "bristleback_thornweaver"
+    },
+    "Bristleback Geomancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_geomancer"
+    },
+    "Bristleback Water Seeker": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "bristleback_water_seeker"
+    },
+    "Charlga's Enforcer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "charlgas_enforcer"
+    },
+    "Kolkar Stormer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "centaur_windchaser"
+    },
+    "Kolkar Drudge": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "kolkar_drudge"
+    },
+    "Verog the Dervish": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.0,
+      "ability_kit": "verog_the_dervish"
+    },
+    "Deviate Adder": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "deviate_adder"
+    },
+    "Deviate Lasher": {
+      "template": "beast_fast",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "deviate_lasher"
+    },
+    "Deviate Crocolisk": {
+      "template": "beast_large",
+      "level_range": [
+        16,
+        20
+      ],
+      "kit": "deviate_crocolisk"
+    },
+    "Deviate Ravager": {
+      "template": "beast_fast",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "deviate_ravager"
+    },
+    "Druid of the Fang": {
+      "template": "humanoid_caster",
+      "level_range": [
+        16,
+        20
+      ],
+      "kit": "druid_fang"
+    },
+    "Nightmare Ectoplasm": {
+      "template": "elemental_caster",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false
+    },
+    "Skum": {
+      "template": "beast_large",
+      "level_range": [
+        24,
+        24
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.0,
+      "ability_kit": "skum"
+    },
+    "Venture Co. Miner": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "venture_co_miner"
+    },
+    "Venture Co. Overseer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "venture_co_overseer"
+    },
+    "Venture Co. Tinkerer": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "venture_co_tinkerer"
+    },
+    "Cavern Rock Elemental": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "cavern_rock_elemental"
+    },
+    "Foreman Grills": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.0,
+      "ability_kit": "foreman_grills"
+    },
+    "Barrens Kodo": {
+      "template": "beast_large",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "kodo"
+    },
+    "Aged Kodo": {
+      "template": "beast_large",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "kodo"
+    },
+    "Sunscale Lashtail": {
+      "template": "beast_large",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "sunscale_lashtail"
+    },
+    "Witchwing Harpy": {
+      "template": "beast_fast",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false
+    },
+    "Witchwing Windcaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false
+    },
+    "Hezrul Bloodmark": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        25,
+        25
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.0
+    },
+    "Pool Murloc": {
+      "template": "aquatic_basic",
+      "level_range": [
+        12,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "pool_murloc"
+    },
+    "Murloc Flesheater": {
+      "template": "aquatic_basic",
+      "level_range": [
+        12,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "murloc_flesheater"
+    },
+    "Water Elemental": {
+      "template": "elemental_caster",
+      "level_range": [
+        10,
+        17
+      ],
+      "kit": "water_elemental"
+    },
+    "Gaharrz the Drowned": {
+      "template": "aquatic_basic",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.0,
+      "ability_kit": "gaharrz_the_drowned"
+    },
+    "Mangy Duskbat": {
+      "template": "beast_fast",
+      "level_range": [
+        1,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "bat"
+    },
+    "Ragged Scavenger": {
+      "template": "beast_fast",
+      "level_range": [
+        1,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "carrion_bird"
+    },
+    "Rattlecage Skeleton": {
+      "template": "undead_basic",
+      "level_range": [
+        1,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_skeleton"
+    },
+    "Wretched Zombie": {
+      "template": "undead_basic",
+      "level_range": [
+        1,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_zombie"
+    },
+    "Young Nightcrawler": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        1,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "young_nightcrawler"
+    },
+    "Scarlet Convert": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        1,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_recruit"
+    },
+    "Darkeye Bonecaster": {
+      "template": "humanoid_caster",
+      "level_range": [
+        1,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "darkeye_bonecaster"
+    },
+    "Rotting Dead": {
+      "template": "undead_basic",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_zombie"
+    },
+    "Blighted Grain Thresher": {
+      "template": "vermin_swarm",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "swarm"
+    },
+    "Solliden Farmhand": {
+      "template": "undead_basic",
+      "level_range": [
+        4,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "solliden_farmhand"
+    },
+    "Agamand Servant": {
+      "template": "undead_basic",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "rotting_ghoul"
+    },
+    "Agamand Family Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_ghoul"
+    },
+    "Thurman Agamand": {
+      "template": "undead_basic",
+      "level_range": [
+        9,
+        9
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "thurman_agamand"
+    },
+    "Captured Farmer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "captured_farmer"
+    },
+    "Bleak Worg": {
+      "template": "beast_fast",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "bleak_worg"
+    },
+    "Vicious Night Web Spider": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "night_web_spider"
+    },
+    "Balnir Stableboy": {
+      "template": "undead_basic",
+      "level_range": [
+        5,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "balnir_stableboy"
+    },
+    "Vile Fin Murloc": {
+      "template": "aquatic_basic",
+      "level_range": [
+        5,
+        7
+      ],
+      "is_boss": false
+    },
+    "Vile Fin Tidehunter": {
+      "template": "aquatic_basic",
+      "level_range": [
+        7,
+        9
+      ],
+      "hp_mult": 1.15,
+      "is_boss": false
+    },
+    "Drowned Fisherman": {
+      "template": "undead_basic",
+      "level_range": [
+        6,
+        8
+      ],
+      "is_boss": false
+    },
+    "Scarlet Zealot": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        8,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_zealot"
+    },
+    "Scarlet Preacher": {
+      "template": "humanoid_caster",
+      "level_range": [
+        8,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_inquisitor"
+    },
+    "Scarlet Bowman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        8,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_marksman"
+    },
+    "Interrogator Vishas": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.4,
+      "ability_kit": "interrogator_vishas"
+    },
+    "Night Web Spider": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        6,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "night_web_spider"
+    },
+    "Night Web Matriarch": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        6,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "night_web_matriarch"
+    },
+    "Web Wrapped Corpse": {
+      "template": "undead_basic",
+      "level_range": [
+        6,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_zombie"
+    },
+    "Ravenclaw Drudger": {
+      "template": "undead_basic",
+      "level_range": [
+        6,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_zombie"
+    },
+    "Broodmother Nesh'ka": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.3,
+      "ability_kit": "broodmother_neshka"
+    },
+    "Crypt Crawler": {
+      "template": "vermin_swarm",
+      "level_range": [
+        9,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "silithid"
+    },
+    "Scarlet Initiate": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        9,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_recruit"
+    },
+    "Scarlet Chaplain": {
+      "template": "humanoid_caster",
+      "level_range": [
+        9,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_chaplain"
+    },
+    "Restless Crypt Fiend": {
+      "template": "undead_basic",
+      "level_range": [
+        9,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_plaguebearer"
+    },
+    "High Inquisitor Fairbanks": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "high_inquisitor_fairbanks"
+    },
+    "Deviate Raptor": {
+      "template": "beast_fast",
+      "level_range": [
+        16,
+        20
+      ],
+      "kit": "deviate_raptor"
+    },
+    "Deviate Python": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        16,
+        20
+      ],
+      "kit": "deviate_python"
+    },
+    "Deviate Ooze": {
+      "template": "elemental_caster",
+      "level_range": [
+        16,
+        20
+      ],
+      "kit": "deviate_ooze"
+    },
+    "Dreadfang": {
+      "template": "beast_basic",
+      "level_range": [
+        16,
+        20
+      ],
+      "kit": "dreadfang"
+    },
+    "Scourge Warrior": {
+      "template": "undead_basic",
+      "level_range": [
+        8,
+        13
+      ],
+      "ability_kit": "scourge_warrior"
+    },
+    "Scourge Necromancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        8,
+        13
+      ],
+      "ability_kit": "scourge_necromancer"
+    },
+    "Scourge Abomination": {
+      "template": "undead_basic",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "scourge_abomination"
+    },
+    "Dwarf Miner": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        19,
+        24
+      ],
+      "kit": "dwarf_miner"
+    },
+    "Dwarf Engineer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        19,
+        24
+      ],
+      "kit": "dwarf_engineer"
+    },
+    "Dwarf Explosives Expert": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        19,
+        24
+      ],
+      "kit": "dwarf_explosives"
+    },
+    "Harpy Matriarch": {
+      "template": "beast_fast",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "kit": "harpy_matriarch"
+    },
+    "Harpy Windcaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        20
+      ],
+      "kit": "harpy_windcaller"
+    },
+    "Troll Axe Thrower": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        20,
+        22
+      ],
+      "kit": "troll_axe_thrower"
+    },
+    "Troll Hex Master": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        23
+      ],
+      "kit": "troll_hex_master"
+    },
+    "Scarlet Inquisitor": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        22
+      ],
+      "kit": "scarlet_inquisitor"
+    },
+    "Scarlet Marksman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        19,
+        21
+      ],
+      "kit": "scarlet_marksman"
+    },
+    "Quilboar Shaman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        25,
+        30
+      ],
+      "kit": "quilboar_shaman"
+    },
+    "Quilboar Priestess": {
+      "template": "humanoid_caster",
+      "level_range": [
+        26,
+        28
+      ],
+      "is_boss": true,
+      "kit": "quilboar_priestess"
+    },
+    "Slug": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        14,
+        19
+      ],
+      "kit": "slug"
+    },
+    "Bog Creature": {
+      "template": "beast_basic",
+      "level_range": [
+        14,
+        19
+      ],
+      "kit": "bog_creature"
+    },
+    "Furbolg Guardian": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        22,
+        25
+      ],
+      "kit": "furbolg_guardian"
+    },
+    "Furbolg Warrior": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        22,
+        25
+      ],
+      "kit": "furbolg_warrior"
+    },
+    "Furbolg Shaman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "furbolg_shaman"
+    },
+    "Ancient Treant": {
+      "template": "beast_large",
+      "level_range": [
+        25,
+        27
+      ],
+      "kit": "ancient_treant"
+    },
+    "Shadow Corruption": {
+      "template": "humanoid_caster",
+      "level_range": [
+        25,
+        27
+      ],
+      "kit": "shadow_corruption"
+    },
+    "Twisted Sapling": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        19,
+        22
+      ],
+      "kit": "twisted_sapling"
+    },
+    "Ghamoo-ra": {
+      "template": "beast_large",
+      "level_range": [
+        26,
+        26
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.6,
+      "ability_kit": "ghamoo_ra"
+    },
+    "Lady Sarevess": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        26,
+        26
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.6,
+      "ability_kit": "lady_sarevess"
+    },
+    "Gelihast": {
+      "template": "humanoid_caster",
+      "level_range": [
+        26,
+        26
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.5,
+      "ability_kit": "gelihast"
+    },
+    "Twilight Lord Kelris": {
+      "template": "humanoid_caster",
+      "level_range": [
+        26,
+        26
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.0,
+      "ability_kit": "twilight_lord_kelris"
+    },
+    "Old Serra'kis": {
+      "template": "beast_large",
+      "level_range": [
+        26,
+        26
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.5,
+      "ability_kit": "old_serrakis"
+    },
+    "Aku'mai": {
+      "template": "beast_large",
+      "level_range": [
+        26,
+        26
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "akumai"
+    },
+    "Naga Warrior": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        25
+      ],
+      "ability_kit": "naga_warrior"
+    },
+    "Murloc Hydra": {
+      "template": "beast_fast",
+      "level_range": [
+        22,
+        25
+      ],
+      "ability_kit": "murloc_hydra"
+    },
+    "Satyr": {
+      "template": "humanoid_caster",
+      "level_range": [
+        19,
+        23
+      ],
+      "kit": "satyr"
+    },
+    "Satyr Warrior": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        19,
+        23
+      ],
+      "kit": "satyr_warrior"
+    },
+    "Twilight Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        24
+      ],
+      "kit": "twilight_cultist"
+    },
+    "Void Construct": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        24
+      ],
+      "kit": "void_construct"
+    },
+    "Imp": {
+      "template": "humanoid_caster",
+      "level_range": [
+        19,
+        23
+      ],
+      "kit": "imp"
+    },
+    "Satyr Warlord": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "kit": "satyr_warlord"
+    },
+    "Dread Mage Malik": {
+      "template": "humanoid_caster",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "kit": "dread_mage_malik"
+    },
+    "Possessed Oracle": {
+      "template": "humanoid_caster",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "kit": "possessed_oracle"
+    },
+    "Lord Nightmare": {
+      "template": "humanoid_caster",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "kit": "lord_nightmare"
+    },
+    "Skeleton Archer": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        10,
+        16
+      ],
+      "kit": "skeleton_archer"
+    },
+    "Ghost": {
+      "template": "humanoid_caster",
+      "level_range": [
+        10,
+        16
+      ],
+      "kit": "ghost"
+    },
+    "Zombie": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        16
+      ],
+      "kit": "zombie"
+    },
+    "Giant Spider": {
+      "template": "beast_fast",
+      "level_range": [
+        11,
+        17
+      ],
+      "kit": "giant_spider"
+    },
+    "Spider Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        11,
+        17
+      ],
+      "kit": "spider_cultist"
+    },
+    "Ash Zombie": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        16
+      ],
+      "kit": "ash_zombie"
+    },
+    "Rotting Kobold": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        16
+      ],
+      "kit": "rotting_kobold"
+    },
+    "Forsaken Warrior": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        15,
+        23
+      ],
+      "kit": "forsaken_warrior"
+    },
+    "Forsaken Mage": {
+      "template": "humanoid_caster",
+      "level_range": [
+        22,
+        23
+      ],
+      "kit": "forsaken_mage"
+    },
+    "Forsaken Knight": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        15,
+        23
+      ],
+      "kit": "forsaken_knight"
+    },
+    "Zombie Bear": {
+      "template": "beast_basic",
+      "level_range": [
+        15,
+        20
+      ],
+      "kit": "zombie_bear"
+    },
+    "Rotting Ghoul": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        15,
+        20
+      ],
+      "kit": "rotting_ghoul"
+    },
+    "Carrion Bird": {
+      "template": "beast_fast",
+      "level_range": [
+        15,
+        20
+      ],
+      "kit": "carrion_bird"
+    },
+    "Kirin Tor Mage": {
+      "template": "humanoid_caster",
+      "level_range": [
+        22,
+        23
+      ],
+      "kit": "kirin_tor_mage"
+    },
+    "Rethilgore": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "rethilgore"
+    },
+    "Razorclaw the Butcher": {
+      "template": "beast_fast",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "razorclaw"
+    },
+    "Baron Silverlaine": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "baron_silverlaine"
+    },
+    "Fenrus the Devourer": {
+      "template": "beast_fast",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "fenrus_devourer"
+    },
+    "Archmage Arugal": {
+      "template": "humanoid_caster",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "archmage_arugal"
+    },
+    "Magister Hawren": {
+      "template": "humanoid_caster",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "magister_hawren"
+    },
+    "Apothecary Helbrim": {
+      "template": "humanoid_caster",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "apothecary_helbrim"
+    },
+    "Archmage Atiesh": {
+      "template": "humanoid_caster",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "kit": "archmage_atiesh"
+    },
+    "Worgen Beast": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        24
+      ],
+      "kit": "worgen_beast"
+    },
+    "Worgen Warrior": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        24
+      ],
+      "kit": "worgen_warrior"
+    },
+    "Cursed Spirit": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        24
+      ],
+      "kit": "cursed_spirit"
+    },
+    "Sea Hag": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        22
+      ],
+      "kit": "sea_hag"
+    },
+    "Drowned Sailor": {
+      "template": "undead_basic",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_sailor"
+    },
+    "Curse Keeper Tael": {
+      "template": "humanoid_caster",
+      "level_range": [
+        24,
+        24
+      ],
+      "is_boss": true,
+      "kit": "curse_keeper_tael"
+    },
+    "Alpha Fenris": {
+      "template": "beast_fast",
+      "level_range": [
+        24,
+        24
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.0,
+      "kit": "alpha_fenris"
+    },
+    "Fire Imp": {
+      "template": "humanoid_caster",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "fire_imp"
+    },
+    "Magma Elemental": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "stat_overrides": {
+        "stamina": 1.3
+      },
+      "ability_kit": "magma_elemental"
+    },
+    "Corrupted Shaman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "corrupted_shaman"
+    },
+    "Lava Lurker": {
+      "template": "beast_large",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "lava_lurker"
+    },
+    "Apprentice Plagueweaver": {
+      "template": "humanoid_caster",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.0
+    },
+    "Plagued Rat": {
+      "template": "beast_basic",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "plagued_rat"
+    },
+    "Plague Zombie": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "stat_overrides": {
+        "stamina": 1.4
+      },
+      "ability_kit": "plague_zombie"
+    },
+    "Blight Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "blight_cultist"
+    },
+    "Plagued Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "plagued_hound"
+    },
+    "Forsaken Traitor": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "stat_overrides": {
+        "strength": 1.2
+      },
+      "ability_kit": "forsaken_traitor"
+    },
+    "Plagueweaver Vex": {
+      "template": "humanoid_caster",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.4,
+      "ability_kit": "plagueweaver_vex"
+    },
+    "The Infected Noble": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "the_infected_noble"
+    },
+    "Plague Keeper Voss": {
+      "template": "humanoid_caster",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.6,
+      "ability_kit": "plague_keeper_voss"
+    },
+    "Vile Plague Abomination": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.8,
+      "stat_overrides": {
+        "stamina": 1.5,
+        "strength": 1.3
+      },
+      "ability_kit": "vile_plague_abomination"
+    },
+    "Dark Sorcerer Zul'keth": {
+      "template": "humanoid_caster",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "boss_multiplier": 3.0,
+      "ability_kit": "dark_sorcerer_zulketh"
+    },
+    "Fire Cultist": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "fire_cultist"
+    },
+    "Magma Seeker": {
+      "template": "beast_fast",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "magma_seeker"
+    },
+    "Flame Guardian": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "flame_guardian"
+    },
+    "Lava Sentinel": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        10,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "lava_sentinel"
+    },
+    "Taragaman the Hungerer": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "taragaman_the_hungerer"
+    },
+    "Earthborer": {
+      "template": "beast_fast",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "earthborer"
+    },
+    "Magmus": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.4,
+      "ability_kit": "magmus"
+    },
+    "Pyromancer Loregrain": {
+      "template": "humanoid_caster",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "pyromancer_loregrain"
+    },
+    "Ragefire Shaman Overlord": {
+      "template": "humanoid_caster",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.6,
+      "ability_kit": "ragefire_shaman_overlord"
+    },
+    "Plague Abomination": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "stat_overrides": {
+        "stamina": 1.3
+      },
+      "ability_kit": "plague_abomination"
+    },
+    "Plague Spore": {
+      "template": "vermin_swarm",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "plague_spore"
+    },
+    "Rot Worm": {
+      "template": "beast_basic",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "rot_worm"
+    },
+    "Forsaken Witch": {
+      "template": "humanoid_caster",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "forsaken_witch"
+    },
+    "Plague Surgeon": {
+      "template": "humanoid_caster",
+      "level_range": [
+        28,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "plague_surgeon"
+    },
+    "Corrupted Felhound": {
+      "template": "beast_fast",
+      "level_range": [
+        26,
+        30
+      ],
+      "kit": "felhound"
+    },
+    "Ancient Mottled Boar": {
+      "template": "beast_basic",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "boar"
+    },
+    "Elder Bloodtalon Scythemaw": {
+      "template": "beast_large",
+      "level_range": [
+        18,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "elder_scythemaw"
+    },
+    "Dread Imp": {
+      "template": "humanoid_caster",
+      "level_range": [
+        26,
+        30
+      ],
+      "kit": "imp"
+    },
+    "Arcane-Bound Imp": {
+      "template": "humanoid_caster",
+      "level_range": [
+        22,
+        23
+      ],
+      "kit": "imp"
+    },
+    "Feral Rotting Kobold": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        15,
+        20
+      ],
+      "kit": "rotting_kobold"
+    },
+    "Savage Rotting Kobold": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        22
+      ],
+      "kit": "rotting_kobold"
+    },
+    "Corrupted Void Construct": {
+      "template": "humanoid_caster",
+      "level_range": [
+        26,
+        30
+      ],
+      "kit": "void_construct"
+    },
+    "Harpy": {
+      "template": "beast_fast",
+      "level_range": [
+        14,
+        19
+      ],
+      "ability_kit": "harpy_melee"
+    },
+    "Quilboar Warrior": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        25,
+        30
+      ],
+      "kit": "quilboar_warrior"
+    },
+    "Satyr Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        26,
+        30
+      ],
+      "kit": "satyr"
+    },
+    "Small Spiders": {
+      "template": "vermin_swarm",
+      "level_range": [
+        2,
+        5
+      ],
+      "ability_kit": "spider"
+    },
+    "Spider Boss": {
+      "template": "beast_fast",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.6,
+      "ability_kit": "spider"
+    },
+    "Searing Blade Scout": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_scout"
+    },
+    "Searing Blade Raider": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "searing_blade_fanatic"
+    },
+    "Coastal Harpy": {
+      "template": "beast_fast",
+      "level_range": [
+        7,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "harpy_melee"
+    },
+    "Bandit Outrider": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        16,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "bandit_outrider"
+    },
+    "Bandit Cutthroat": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        16,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "bandit_cutthroat"
+    },
+    "Watering Hole Crocolisk": {
+      "template": "beast_large",
+      "level_range": [
+        15,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "crocolisk"
+    },
+    "Ashenvale Grizzly": {
+      "template": "beast_large",
+      "level_range": [
+        10,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "large_beast"
+    },
+    "Timberling": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        10,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "timberling"
+    },
+    "Forest Spider": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        10,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "spider"
+    },
+    "Nightsaber Stalker": {
+      "template": "beast_fast",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "nightsaber_stalker"
+    },
+    "Elder Timberling": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "elder_timberling"
+    },
+    "Furbolg Ravager": {
+      "template": "beast_large",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "furbolg_guardian"
+    },
+    "Furbolg Den Watcher": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "furbolg_warrior"
+    },
+    "Ursal the Mauler": {
+      "template": "beast_large",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "ursal_the_mauler"
+    },
+    "Wisp": {
+      "template": "elemental_caster",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "wisp"
+    },
+    "Dryad Sentinel": {
+      "template": "humanoid_caster",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "dryad_sentinel"
+    },
+    "Ancient Protector": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "ancient_treant"
+    },
+    "Keeper Rustveil": {
+      "template": "humanoid_caster",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "keeper_rustveil"
+    },
+    "Charred Wolf": {
+      "template": "beast_fast",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Twilight Adept": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "twilight_cultist"
+    },
+    "Ashenvale Wraith": {
+      "template": "undead_basic",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "ghost"
+    },
+    "Felstalker": {
+      "template": "demon_hound",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.3,
+      "ability_kit": "felstalker_boss"
+    },
+    "Satyr Trickster": {
+      "template": "demon_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "satyr"
+    },
+    "Satyr Soulstealer": {
+      "template": "demon_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "satyr"
+    },
+    "Satyr Ravager": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "satyr_warrior"
+    },
+    "Lord Malgan": {
+      "template": "demon_caster",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "lord_malgan"
+    },
+    "Twilight Acolyte": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "twilight_cultist"
+    },
+    "Twilight Geomancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "twilight_geomancer"
+    },
+    "Buried Revenant": {
+      "template": "undead_basic",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_skeleton"
+    },
+    "Twilight Overseer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "twilight_overseer"
+    },
+    "Fel Imp": {
+      "template": "demon_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "demon_imp"
+    },
+    "Voidwalker Remnant": {
+      "template": "demon_hound",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "demon_hound"
+    },
+    "Demonspawn Grunt": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "demon_felguard"
+    },
+    "Pit Lord Emissary": {
+      "template": "demon_hound",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.6,
+      "ability_kit": "pit_lord_emissary"
+    },
+    "Silverpine Spider": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "spider"
+    },
+    "Corrupted Treant": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "corrupted_treant"
+    },
+    "Feral Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_ghoul"
+    },
+    "Worg Prowler": {
+      "template": "beast_fast",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Fen Creeper": {
+      "template": "vermin_swarm",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.3,
+      "ability_kit": "swarm"
+    },
+    "Risen Husk": {
+      "template": "undead_basic",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "rotting_ghoul"
+    },
+    "Grave Moss Creeper": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "bog_creature"
+    },
+    "Skeletal Groundskeeper": {
+      "template": "undead_basic",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_skeleton"
+    },
+    "The Forsaken Watchman": {
+      "template": "undead_basic",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "forsaken_knight"
+    },
+    "Bog Beast": {
+      "template": "beast_large",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "bog_creature"
+    },
+    "Murky Crocolisk": {
+      "template": "beast_large",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "murky_crocolisk"
+    },
+    "Rot Hide Slitherer": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "giant_spider"
+    },
+    "Muckmaw": {
+      "template": "beast_large",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "muckmaw"
+    },
+    "Worgen Ambusher": {
+      "template": "beast_fast",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Feral Worgen": {
+      "template": "beast_fast",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Pyrewood Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "pyrewood_cultist"
+    },
+    "Lord Godfrey's Remnant": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "lord_godfreys_remnant"
+    },
+    "Forsaken Deserter": {
+      "template": "undead_basic",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "forsaken_warrior"
+    },
+    "Diseased Wolf": {
+      "template": "beast_fast",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Plague Rat Swarm": {
+      "template": "vermin_swarm",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "swarm"
+    },
+    "Rot Hound": {
+      "template": "demon_hound",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_ghoul"
+    },
+    "Blighted Bear": {
+      "template": "beast_large",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.4,
+      "ability_kit": "zombie_bear"
+    },
+    "Forsaken Patrol": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "forsaken_patrol"
+    },
+    "Skeletal Sentry": {
+      "template": "undead_basic",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "skeleton_archer"
+    },
+    "Plagued Courier": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "plagued_courier"
+    },
+    "Deathguard Captain": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "deathguard_captain"
+    },
+    "Marsh Ooze": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "marsh_ooze"
+    },
+    "Bloated Corpse": {
+      "template": "undead_basic",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "scourge_abomination"
+    },
+    "Swamp Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "rotting_ghoul"
+    },
+    "The Bloated One": {
+      "template": "undead_basic",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "the_bloated_one"
+    },
+    "Feral Worgen Stalker": {
+      "template": "beast_fast",
+      "level_range": [
+        17,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Cursed Villager": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "cursed_villager"
+    },
+    "Rabid Wolf": {
+      "template": "beast_fast",
+      "level_range": [
+        17,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Isle Banshee": {
+      "template": "undead_basic",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_banshee"
+    },
+    "Ancient Curse-Beast": {
+      "template": "beast_large",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.6,
+      "ability_kit": "zombie_bear"
+    },
+    "Worgen Keeper": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "worgen_keeper"
+    },
+    "Fenris Guardian": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "shield_soldier"
+    },
+    "Cursed Noble": {
+      "template": "undead_basic",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_bonecaster"
+    },
+    "Baron Ashbury": {
+      "template": "undead_basic",
+      "level_range": [
+        22,
+        22
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.7,
+      "ability_kit": "baron_ashbury"
+    },
+    "Bilge Rat Swarm": {
+      "template": "vermin_swarm",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "swarm"
+    },
+    "Waterlogged Wretch": {
+      "template": "undead_basic",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "zombie"
+    },
+    "Captain's Ghost": {
+      "template": "undead_basic",
+      "level_range": [
+        22,
+        22
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.6,
+      "ability_kit": "cursed_spirit"
+    },
+    "Grave Worg": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Bone-Strewn Cur": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "wolf"
+    },
+    "Feral Packmaster": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "feral_packmaster"
+    },
+    "The Alpha Cur": {
+      "template": "beast_fast",
+      "level_range": [
+        22,
+        22
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.7,
+      "ability_kit": "the_alpha_cur"
+    },
+    "Sentinel Scout": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "sentinel_scout"
+    },
+    "Lake Naiad": {
+      "template": "elemental_caster",
+      "level_range": [
+        11,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "water_elemental"
+    },
+    "Oggleflint": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        15,
+        16
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "oggleflint"
+    },
+    "Jergosh the Invoker": {
+      "template": "humanoid_caster",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.6,
+      "ability_kit": "jergosh_the_invoker"
+    },
+    "Bazzalan": {
+      "template": "demon_caster",
+      "level_range": [
+        16,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.0,
+      "ability_kit": "bazzalan"
+    },
+    "Lady Anacondra": {
+      "template": "humanoid_caster",
+      "level_range": [
+        19,
+        20
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "fanglord_druid"
+    },
+    "Lord Cobrahn": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "fanglord_druid"
+    },
+    "Kresh": {
+      "template": "beast_large",
+      "level_range": [
+        20,
+        21
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.5,
+      "ability_kit": "kresh"
+    },
+    "Lord Pythas": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.9,
+      "ability_kit": "fanglord_druid"
+    },
+    "Lord Serpentis": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "fanglord_druid"
+    },
+    "Verdan the Everliving": {
+      "template": "beast_large",
+      "level_range": [
+        21,
+        22
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.0,
+      "ability_kit": "verdan_the_everliving"
+    },
+    "Mutanus the Devourer": {
+      "template": "beast_large",
+      "level_range": [
+        23,
+        24
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "mutanus_the_devourer"
+    },
+    "Roogug": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        28
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.3,
+      "ability_kit": "roogug"
+    },
+    "Aggem Thorncurse": {
+      "template": "humanoid_caster",
+      "level_range": [
+        30,
+        30
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "aggem_thorncurse"
+    },
+    "Death Speaker Jargba": {
+      "template": "humanoid_caster",
+      "level_range": [
+        30,
+        30
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.9,
+      "ability_kit": "death_speaker_jargba"
+    },
+    "Overlord Ramtusk": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        32,
+        32
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.1,
+      "ability_kit": "overlord_ramtusk"
+    },
+    "Agathelos the Raging": {
+      "template": "beast_large",
+      "level_range": [
+        31,
+        32
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.0,
+      "ability_kit": "agathelos_the_raging"
+    },
+    "Charlga Razorflank": {
+      "template": "humanoid_caster",
+      "level_range": [
+        33,
+        34
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.3,
+      "ability_kit": "charlga_razorflank"
+    },
+    "Lorgus Jett": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        26,
+        26
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.5,
+      "ability_kit": "lorgus_jett"
+    },
+    "Giant Crab": {
+      "template": "beast_large",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.7,
+      "ability_kit": "crab_giant"
+    },
+    "Naga Shrine Guardian": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "naga_shrine_guardian"
+    },
+    "Naga Myrmidon": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "naga_warrior"
+    },
+    "Naga Siren": {
+      "template": "humanoid_caster",
+      "level_range": [
+        9,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "sea_hag"
+    },
+    "Undead Pirate Captain": {
+      "template": "undead_basic",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.7,
+      "ability_kit": "undead_pirate_captain"
+    },
+    "Ragefire Trogg": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "ragefire_trogg"
+    },
+    "Ragefire Shaman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "ragefire_shaman"
+    },
+    "Searing Blade Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "cultist_shadow"
+    },
+    "Searing Blade Fanatic": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "searing_blade_fanatic"
+    },
+    "Searing Blade Invoker": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "searing_blade_invoker"
+    },
+    "Voidwalker Minion": {
+      "template": "demon_caster",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "void_construct"
+    },
+    "Molten Elemental": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "molten_elemental"
+    },
+    "Deviate Viper": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "deviate_viper"
+    },
+    "Deviate Shambler": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "deviate_shambler"
+    },
+    "Deviate Faerie Dragon": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "deviate_faerie_dragon"
+    },
+    "Supervisor Lugwizzle": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.6,
+      "ability_kit": "supervisor_lugwizzle"
+    },
+    "Engineer Whirleygig": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.7,
+      "ability_kit": "engineer_whirleygig"
+    },
+    "Trailwater Toad": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        1,
+        3
+      ],
+      "is_boss": false,
+      "ability_kit": "trailwater_toad"
+    },
+    "Sagewood Sprite": {
+      "template": "vermin_swarm",
+      "level_range": [
+        1,
+        3
+      ],
+      "is_boss": false,
+      "ability_kit": "sagewood_sprite"
+    },
+    "Claim Spider": {
+      "template": "vermin_swarm",
+      "level_range": [
+        2,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "claim_spider"
+    },
+    "Restless Grave-Dweller": {
+      "template": "undead_basic",
+      "level_range": [
+        1,
+        4
+      ],
+      "is_boss": false,
+      "ability_kit": "restless_grave_dweller"
+    },
+    "Bulwark Sentinel": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "bulwark_sentinel"
+    },
+    "Rampart Watchman": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        14,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "rampart_watchman"
+    },
+    "Shadow Grave Wight": {
+      "template": "undead_basic",
+      "level_range": [
+        2,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "shadow_grave_wight"
+    },
+    "Manor Reaper": {
+      "template": "undead_basic",
+      "level_range": [
+        2,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "manor_reaper"
+    },
+    "Witchwing Slayer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "harpy_melee"
+    },
+    "Serena Bloodfeather": {
+      "template": "beast_fast",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "serena_bloodfeather"
+    },
+    "Southsea Brigand": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        12,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "southsea_brigand"
+    },
+    "Southsea Cannoneer": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        13,
+        17
+      ],
+      "is_boss": false
+    },
+    "Captain Saltspray": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.0,
+      "ability_kit": "captain_saltspray"
+    },
+    "Road Bandit": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        12,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "road_bandit"
+    },
+    "Bristleback Raider": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        15,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "bristleback_quilboar"
+    },
+    "Bristleback Raider Shaman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "bristleback_shaman"
+    },
+    "Dreadmist Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "burning_blade_cultist_east"
+    },
+    "Dreadmist Warlock": {
+      "template": "humanoid_caster",
+      "level_range": [
+        15,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "burning_blade_cultist_east"
+    },
+    "Rathorian": {
+      "template": "humanoid_caster",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.3,
+      "ability_kit": "rathorian"
+    },
+    "Xelnaz": {
+      "template": "demon_hound",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.3,
+      "ability_kit": "xelnaz"
+    },
+    "Razormane Veteran": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_battleguard"
+    },
+    "Razormane Warcaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_shaman"
+    },
+    "Silithid Guardian": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        18,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "silithid_guardian"
+    },
+    "Silithid Stinger": {
+      "template": "vermin_swarm",
+      "level_range": [
+        19,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "silithid_stinger"
+    },
+    "Carapace Warden": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        19,
+        19
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "carapace_warden"
+    },
+    "The Broodkeeper": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.0,
+      "ability_kit": "the_broodkeeper"
+    },
+    "Broodspiral Queen": {
+      "template": "beast_large",
+      "level_range": [
+        24,
+        24
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.6,
+      "ability_kit": "broodspiral_queen"
+    },
+    "Larval Broodguard": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        22,
+        22
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "larval_broodguard"
+    },
+    "Razormane Stalker": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        18,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_battleguard"
+    },
+    "Razormane Seer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        19,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "quilboar_shaman"
+    },
+    "Hagg Taurenbane": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        22,
+        22
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.4,
+      "ability_kit": "hagg_taurenbane"
+    },
+    "Brontus": {
+      "template": "beast_large",
+      "level_range": [
+        24,
+        24
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.3,
+      "ability_kit": "brontus"
+    },
+    "General Twinbraid": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "general_twinbraid"
+    },
+    "Cinderjaw Skitterling": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        1,
+        4
+      ],
+      "is_boss": false,
+      "ability_kit": "scorpid"
+    },
+    "Ashback Basilisk": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        3,
+        6
+      ],
+      "stat_overrides": {
+        "stamina": 1.2
+      },
+      "is_boss": false,
+      "ability_kit": "cavern_rock_elemental"
+    }
+  }
+}

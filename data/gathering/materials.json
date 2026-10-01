@@ -1,0 +1,358 @@
+{
+  "_comment": "skill_range is [orange_ends, yellow_ends, green_ends, grey_at] - WoW's real profession skill-up convention. Below orange_ends: guaranteed skill-up (100%). Between orange_ends and yellow_ends: high chance. Between yellow_ends and green_ends: low chance. At/above grey_at: no skill-up at all - the material has nothing left to teach you. All 4 numbers are against the profession's OWN skill level (0-75 for early tier), not against character level. Common/cheap materials (Peacebloom, Copper, Weakstone) grey out early since they're meant to be quickly outgrown; the pricier/rarer early materials (Mageroyal, Rough Iron) stay relevant closer to the 75 cap.",
+  "materials": {
+    "herb_peacebloom": {
+      "name": "Peacebloom",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "early",
+      "description": "A small red flower found in grassy plains. The most common herb around.",
+      "stack_limit": 20,
+      "sell_price": 5,
+      "icon_id": "peacebloom",
+      "skill_range": [
+        10,
+        25,
+        40,
+        50
+      ]
+    },
+    "herb_silverleaf": {
+      "name": "Silverleaf",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "early",
+      "description": "A common herb with pale, silvery leaves.",
+      "stack_limit": 20,
+      "sell_price": 5,
+      "icon_id": "silverleaf",
+      "skill_range": [
+        10,
+        25,
+        40,
+        50
+      ]
+    },
+    "herb_earthroot": {
+      "name": "Earthroot",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "early",
+      "description": "A gnarled root that grows just beneath the surface.",
+      "stack_limit": 20,
+      "sell_price": 6,
+      "icon_id": "earthroot",
+      "skill_range": [
+        15,
+        30,
+        45,
+        55
+      ]
+    },
+    "herb_mageroyal": {
+      "name": "Mageroyal",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "early",
+      "description": "A small blue flower favored by those who dabble in the arcane.",
+      "stack_limit": 20,
+      "sell_price": 8,
+      "icon_id": "mageroyal",
+      "skill_range": [
+        30,
+        50,
+        65,
+        75
+      ]
+    },
+    "herb_fadeleaf": {
+      "name": "Fadeleaf",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "early",
+      "description": "Broad green leaves with a faint shimmer.",
+      "stack_limit": 20,
+      "sell_price": 7,
+      "icon_id": "fadeleaf",
+      "skill_range": [
+        20,
+        40,
+        55,
+        65
+      ]
+    },
+    "herb_dewgrass": {
+      "name": "Dewgrass",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "early",
+      "description": "Tall grass that stays perpetually damp with dew.",
+      "stack_limit": 20,
+      "sell_price": 6,
+      "icon_id": "dewgrass",
+      "skill_range": [
+        15,
+        30,
+        45,
+        55
+      ]
+    },
+    "ore_copper": {
+      "name": "Copper Ore",
+      "material_type": "ore",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A soft, reddish-brown ore. The most basic metal around.",
+      "stack_limit": 20,
+      "sell_price": 5,
+      "icon_id": "copper",
+      "skill_range": [
+        10,
+        25,
+        40,
+        50
+      ]
+    },
+    "ore_tin": {
+      "name": "Tin Ore",
+      "material_type": "ore",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A dull grey ore, often found alongside copper.",
+      "stack_limit": 20,
+      "sell_price": 5,
+      "icon_id": "tin",
+      "skill_range": [
+        20,
+        35,
+        50,
+        60
+      ]
+    },
+    "ore_rough_iron": {
+      "name": "Rough Iron Ore",
+      "material_type": "ore",
+      "profession": "mining",
+      "tier": "early",
+      "description": "Unrefined iron ore, still rich with impurities.",
+      "stack_limit": 20,
+      "sell_price": 7,
+      "icon_id": "rough_iron",
+      "skill_range": [
+        30,
+        50,
+        65,
+        75
+      ]
+    },
+    "ore_weakstone": {
+      "name": "Weakstone",
+      "material_type": "ore",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A brittle, crumbling stone. Barely worth the effort to mine.",
+      "stack_limit": 20,
+      "sell_price": 3,
+      "icon_id": "weakstone",
+      "skill_range": [
+        5,
+        15,
+        25,
+        35
+      ]
+    },
+    "herb_briarthorn": {
+      "name": "Briarthorn",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "mid",
+      "description": "A thorny shrub with small purple blossoms, tougher to find than the common early herbs.",
+      "stack_limit": 20,
+      "sell_price": 12,
+      "icon_id": "briarthorn",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "ore_silver": {
+      "name": "Silver Ore",
+      "material_type": "ore",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "A gleaming, valuable ore prized by jewelers and blacksmiths alike.",
+      "stack_limit": 20,
+      "sell_price": 14,
+      "icon_id": "silver",
+      "skill_range": [
+        50,
+        70,
+        85,
+        100
+      ]
+    },
+    "ore_iron": {
+      "name": "Iron Ore",
+      "material_type": "ore",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Sturdy ore that forms the backbone of proper weapons and armor.",
+      "stack_limit": 20,
+      "sell_price": 10,
+      "icon_id": "iron",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "ore_coal": {
+      "name": "Coal",
+      "material_type": "ore",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Blackened chunks of fuel. Not much use on its own, but blacksmiths prize it for smelting steel.",
+      "stack_limit": 20,
+      "sell_price": 4,
+      "icon_id": "coal",
+      "skill_range": [
+        35,
+        55,
+        70,
+        85
+      ]
+    },
+    "bar_copper": {
+      "name": "Copper Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A refined bar of copper, ready for the forge.",
+      "stack_limit": 20,
+      "sell_price": 8,
+      "icon_id": "copper",
+      "skill_range": [
+        10,
+        25,
+        40,
+        50
+      ]
+    },
+    "bar_tin": {
+      "name": "Tin Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A refined bar of tin.",
+      "stack_limit": 20,
+      "sell_price": 8,
+      "icon_id": "tin",
+      "skill_range": [
+        10,
+        25,
+        40,
+        50
+      ]
+    },
+    "bar_rough_iron": {
+      "name": "Rough Iron Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A crudely refined iron bar, still workable.",
+      "stack_limit": 20,
+      "sell_price": 10,
+      "icon_id": "rough_iron",
+      "skill_range": [
+        15,
+        30,
+        45,
+        55
+      ]
+    },
+    "bar_weakstone": {
+      "name": "Weakstone Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A brittle refined bar. Barely holds together.",
+      "stack_limit": 20,
+      "sell_price": 5,
+      "icon_id": "weakstone",
+      "skill_range": [
+        5,
+        15,
+        25,
+        35
+      ]
+    },
+    "bar_silver": {
+      "name": "Silver Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "A gleaming refined bar, valuable to jewelers.",
+      "stack_limit": 20,
+      "sell_price": 18,
+      "icon_id": "silver",
+      "skill_range": [
+        55,
+        75,
+        90,
+        105
+      ]
+    },
+    "bar_iron": {
+      "name": "Iron Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "A sturdy refined iron bar.",
+      "stack_limit": 20,
+      "sell_price": 14,
+      "icon_id": "iron",
+      "skill_range": [
+        45,
+        65,
+        80,
+        95
+      ]
+    },
+    "bar_bronze": {
+      "name": "Bronze Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "An alloy of copper and tin, prized for its durability.",
+      "stack_limit": 20,
+      "sell_price": 20,
+      "icon_id": "bronze",
+      "skill_range": [
+        30,
+        50,
+        65,
+        80
+      ]
+    },
+    "bar_steel": {
+      "name": "Steel Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Iron tempered with coal, far stronger than raw iron alone.",
+      "stack_limit": 20,
+      "sell_price": 24,
+      "icon_id": "iron",
+      "_icon_note": "No dedicated 'Steel Bar' sprite exists in the cropped bars set (only tier-variant names like Ashen Steel/Dreamsteel/Titansteel/Sunderedsteel were on the source sheet) - reusing Iron Bar's icon as a placeholder. Flag this for a real icon whenever a plain Steel Bar sprite gets added.",
+      "skill_range": [
+        50,
+        70,
+        85,
+        100
+      ]
+    }
+  }
+}

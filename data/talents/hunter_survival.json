@@ -1,0 +1,427 @@
+{
+  "spec_name": "Hunter Survival",
+  "tree_id": "hunter_survival",
+  "description": "Traps, toxins, and hard-won instinct for surviving anything.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "hunter_survival_improved_tracking",
+      "name": "Improved Tracking",
+      "description": "Increases all damage dealt by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "all_damage": 0.01
+      },
+      "connected_to": [
+        "hunter_survival_clever_traps"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_savage_strikes",
+      "name": "Savage Strikes",
+      "description": "Increases critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 2.0
+      },
+      "connected_to": [
+        "hunter_survival_survivalist"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_deflection",
+      "name": "Deflection",
+      "description": "Increases Parry chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "parry": 1.0
+      },
+      "connected_to": [
+        "hunter_survival_deterrence"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_entrapment",
+      "name": "Entrapment",
+      "description": "Increases Agility by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "agility": 2
+      },
+      "connected_to": [
+        "hunter_survival_trap_mastery"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_clever_traps",
+      "name": "Clever Traps",
+      "description": "Increases Multi-Shot damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_hunter_multi_shot_damage": 0.08
+      },
+      "connected_to": [
+        "hunter_survival_improved_tracking",
+        "hunter_survival_surefooted"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_survivalist",
+      "name": "Survivalist",
+      "description": "Increases maximum Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "hunter_survival_savage_strikes",
+        "hunter_survival_survival_instincts"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_deterrence",
+      "name": "Deterrence",
+      "description": "Increases Dodge by 2% and Parry by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "dodge": 2.0,
+        "parry": 1.0
+      },
+      "connected_to": [
+        "hunter_survival_deflection",
+        "hunter_survival_killer_instinct"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_trap_mastery",
+      "name": "Trap Mastery",
+      "description": "Grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "attack_power": 6
+      },
+      "connected_to": [
+        "hunter_survival_entrapment",
+        "hunter_survival_resourcefulness"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_surefooted",
+      "name": "Surefooted",
+      "description": "Reduces your chance to miss by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "hunter_survival_clever_traps",
+        "hunter_survival_hunter_vs_wild"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_survival_instincts",
+      "name": "Survival Instincts",
+      "description": "Grants 20 Armor and 2% maximum Health per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "armor": 20,
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "hunter_survival_survivalist",
+        "hunter_survival_wyvern_sting"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_killer_instinct",
+      "name": "Killer Instinct",
+      "description": "Increases critical strike chance by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_physical": 1.5
+      },
+      "connected_to": [
+        "hunter_survival_deterrence",
+        "hunter_survival_thrill_of_the_hunt"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_resourcefulness",
+      "name": "Resourcefulness",
+      "description": "Reduces the Mana cost of Steady Shot by 3 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_hunter_steady_shot_cost": 3
+      },
+      "connected_to": [
+        "hunter_survival_trap_mastery",
+        "hunter_survival_expose_weakness"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_wyvern_sting",
+      "name": "Wyvern Sting",
+      "description": "Grants Wyvern Sting, heavily reducing the target's Haste for 2 turns.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "hunter_wyvern_sting"
+      },
+      "connected_to": [
+        "hunter_survival_survival_instincts",
+        "hunter_survival_black_arrow"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_thrill_of_the_hunt",
+      "name": "Thrill of the Hunt",
+      "description": "Increases maximum Mana by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "max_mana_pct": 0.04
+      },
+      "connected_to": [
+        "hunter_survival_killer_instinct",
+        "hunter_survival_lock_and_load"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_expose_weakness",
+      "name": "Expose Weakness",
+      "description": "Grants 10 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "attack_power": 10
+      },
+      "connected_to": [
+        "hunter_survival_resourcefulness",
+        "hunter_survival_noxious_stings"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_hunter_vs_wild",
+      "name": "Hunter vs. Wild",
+      "description": "Increases Stamina by 3 and Agility by 2 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "stamina": 3,
+        "agility": 2
+      },
+      "connected_to": [
+        "hunter_survival_surefooted"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_black_arrow",
+      "name": "Black Arrow",
+      "description": "Grants Black Arrow, dealing Shadow damage over time.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "hunter_black_arrow"
+      },
+      "connected_to": [
+        "hunter_survival_wyvern_sting",
+        "hunter_survival_sniper_training"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_lock_and_load",
+      "name": "Lock and Load",
+      "description": "Reduces the cooldown of Multi-Shot by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_hunter_multi_shot_cooldown": 1
+      },
+      "connected_to": [
+        "hunter_survival_thrill_of_the_hunt",
+        "hunter_survival_hunting_party"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_noxious_stings",
+      "name": "Noxious Stings",
+      "description": "Increases all damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "hunter_survival_expose_weakness"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_sniper_training",
+      "name": "Sniper Training",
+      "description": "Increases physical damage by 3% and crit chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "physical_damage": 0.03,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "hunter_survival_black_arrow",
+        "hunter_survival_explosive_shot"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_hunting_party",
+      "name": "Hunting Party",
+      "description": "Increases Agility by 3 and grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "agility": 3,
+        "attack_power": 6
+      },
+      "connected_to": [
+        "hunter_survival_lock_and_load",
+        "hunter_survival_survival_mastery"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_explosive_shot",
+      "name": "Explosive Shot",
+      "description": "Grants Explosive Shot, dealing Fire damage over time.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "hunter_explosive_shot"
+      },
+      "connected_to": [
+        "hunter_survival_sniper_training"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_survival_mastery",
+      "name": "Master Tactician",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "hunter_survival_hunting_party"
+      ]
+    }
+  ]
+}

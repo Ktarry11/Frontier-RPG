@@ -1,0 +1,32 @@
+{
+  "slots": {
+    "head": {"weight_tier": "medium", "armor_slot": true},
+    "neck": {"weight_tier": "accessory", "armor_slot": false},
+    "shoulder": {"weight_tier": "medium", "armor_slot": true},
+    "back": {"weight_tier": "accessory", "armor_slot": true, "armor_type_override": "accessory"},
+    "chest": {"weight_tier": "major", "armor_slot": true},
+    "wrist": {"weight_tier": "minor", "armor_slot": true},
+    "hands": {"weight_tier": "minor", "armor_slot": true},
+    "waist": {"weight_tier": "minor", "armor_slot": true},
+    "legs": {"weight_tier": "major", "armor_slot": true},
+    "feet": {"weight_tier": "minor", "armor_slot": true},
+    "ring1": {"weight_tier": "accessory", "armor_slot": false},
+    "ring2": {"weight_tier": "accessory", "armor_slot": false},
+    "ring": {"weight_tier": "accessory", "armor_slot": false},
+    "trinket1": {"weight_tier": "trinket", "armor_slot": false},
+    "trinket2": {"weight_tier": "trinket", "armor_slot": false},
+    "trinket": {"weight_tier": "trinket", "armor_slot": false},
+    "main_hand": {"weight_tier": "weapon_medium", "armor_slot": false},
+    "off_hand": {"weight_tier": "weapon_medium", "armor_slot": false},
+    "ranged": {"weight_tier": "weapon_medium", "armor_slot": false}
+  },
+  "weight_tiers": {
+    "major": 1.0,
+    "medium": 0.75,
+    "minor": 0.5,
+    "accessory": 0.4,
+    "trinket": 0.4,
+    "weapon_medium": 0.75,
+    "weapon_two_hand": 1.5
+  }
+}

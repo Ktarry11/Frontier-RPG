@@ -1,0 +1,681 @@
+{
+  "class": "Paladin",
+  "abilities": [
+    {
+      "ability_id": "paladin_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic melee attack.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "paladin_crusader_strike",
+      "name": "Crusader Strike",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A holy-infused melee strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 32,
+          "effect_value": 53
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 48,
+          "effect_value": 75
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 55,
+          "effect_value": 86
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 62,
+          "effect_value": 98
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 70,
+          "effect_value": 109
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 78,
+          "effect_value": 120
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 85,
+          "effect_value": 131
+        }
+      ],
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_holy_light",
+      "name": "Holy Light",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A burst of holy light that heals your wounds.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 45,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 71,
+          "effect_value": 79
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 97,
+          "effect_value": 107
+        },
+        {
+          "rank": 4,
+          "level_req": 36,
+          "cost": 123,
+          "effect_value": 134
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 149,
+          "effect_value": 162
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "ability_heal"
+    },
+    {
+      "ability_id": "paladin_judgement",
+      "name": "Judgement",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Consumes your active Seal, detonating it against the target for holy damage plus the Seal's own Judgement bonus. Requires an active Seal - matches real WoW: Judgement with no Seal up cannot be cast.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 30,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 48,
+          "effect_value": 75
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 66,
+          "effect_value": 102
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 84,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": "ability_spell",
+      "consumes_seal": true,
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "paladin_consecration",
+      "name": "Consecration",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Consecrates the ground, burning the target over 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 60,
+          "effect_value": 89
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 80,
+          "effect_value": 122
+        },
+        {
+          "rank": 4,
+          "level_req": 66,
+          "cost": 100,
+          "effect_value": 155
+        }
+      ],
+      "icon_id": "ability_spell",
+      "target_type": "enemy_aoe"
+    },
+    {
+      "ability_id": "paladin_blessing_of_might",
+      "name": "Blessing of Might",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "attack_power": 40,
+        "strength": 3
+      },
+      "description": "Blesses you with might, increasing Attack Power and Strength.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 35,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 53,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 71,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 89,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "paladin_hammer_of_justice",
+      "name": "Hammer of Justice",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -25,
+        "attack_power": -30
+      },
+      "description": "Stuns the target with a hammer of Light for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 35,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 53,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 71,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "paladin_divine_shield",
+      "name": "Divine Shield",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": 180,
+        "magic_resistance": 80
+      },
+      "description": "The Light shields you from harm for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 50,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 50,
+          "cost": 76,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 70,
+          "cost": 102,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": null,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "paladin_hammer_of_wrath",
+      "name": "Hammer of Wrath",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hurls a hammer of holy energy at a wounded foe.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 45,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 56,
+          "cost": 69,
+          "effect_value": 85
+        },
+        {
+          "rank": 3,
+          "level_req": 72,
+          "cost": 93,
+          "effect_value": 111
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "holy"
+    },
+    {
+      "ability_id": "paladin_holy_shock",
+      "name": "Holy Shock",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Holy Shock talent in the Holy tree. Blasts an ally with Holy energy, healing them instantly.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 25,
+          "cost": 45,
+          "effect_value": 60
+        }
+      ],
+      "target_type": "ally",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_avengers_shield",
+      "name": "Avenger's Shield",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Avenger's Shield talent in the Protection tree. Hurls a holy shield at the target, dealing damage. Real WOTLK also jumps to nearby enemies - simplified to single-target since no chaining-attack mechanic exists.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 56
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_divine_storm",
+      "name": "Divine Storm",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Divine Storm talent in the Retribution tree. An instant weapon attack against all nearby enemies. Real WOTLK also heals your party for a share of the damage dealt - not modeled here since damage+party-heal combos aren't supported yet.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 72
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_repentance",
+      "name": "Repentance",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Incapacitates the target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "paladin_flash_of_light",
+      "name": "Flash of Light",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A fast, efficient heal.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 50,
+          "effect_value": 50
+        }
+      ],
+      "target_type": "ally",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_cleanse",
+      "name": "Cleanse",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Removes a Poison, Disease, or Magic effect from the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "ally",
+      "dispel_type": "poison",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_blessing_of_wisdom",
+      "name": "Blessing of Wisdom",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "max_mana_pct": 0.06
+      },
+      "description": "Increases the target's max Mana over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "buff_scope": "raid",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_blessing_of_kings",
+      "name": "Blessing of Kings",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "strength": 3,
+        "agility": 3,
+        "intellect": 3,
+        "stamina": 3,
+        "spirit": 3
+      },
+      "description": "Increases all primary stats for the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "ally",
+      "buff_scope": "raid",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_exorcism",
+      "name": "Exorcism",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Deals Holy damage to the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 45,
+          "effect_value": 50
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_seal_of_righteousness",
+      "name": "Seal of Righteousness",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {},
+      "description": "Real proc: melee attacks deal bonus Holy damage on the same hit. Judgement (paladin_judgement) consumes this Seal for a burst detonation - matches Seal of Righteousness's actual WOTLK on-hit + Judgement identity, rather than a flat physical-damage buff approximation.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "bonus_pct": 0.1,
+        "on_judgement": {
+          "damage": 40
+        }
+      }
+    },
+    {
+      "ability_id": "paladin_turn_evil",
+      "name": "Turn Evil",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Fears an Undead or Demon target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "paladin_redemption",
+      "name": "Redemption",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "PLACEHOLDER (no revive-a-fallen-ally mechanic exists): real WOTLK Redemption resurrects a dead party member outside combat - here it's a very strong emergency heal on a living ally instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 500
+        }
+      ],
+      "target_type": "ally",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_lay_on_hands",
+      "name": "Lay on Hands",
+      "resource_type": "mana",
+      "cooldown": 20,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "An emergency heal that restores a huge amount of health, at no Mana cost.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 800
+        }
+      ],
+      "target_type": "ally",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "paladin_seal_of_command",
+      "name": "Seal of Command",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Seal of Command talent in the Retribution tree. Real proc: your melee attacks have a chance to deal a burst of Holy damage on the same hit. Judgement consumes this Seal for a bigger detonation than Seal of Righteousness, matching Seal of Command's real WOTLK identity as the harder-hitting, lower-uptime Retribution Seal.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "requires_talent": true,
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 30,
+        "icd": 1,
+        "bonus_pct": 0.35,
+        "on_judgement": {
+          "damage": 70
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "class": "Rogue",
+  "abilities": [
+    {
+      "ability_id": "rogue_attack",
+      "name": "Attack",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic melee attack.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "rogue_sinister_strike",
+      "name": "Sinister Strike",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A vicious strike with your main hand weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 40,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 40,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 63
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 40,
+          "effect_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 40,
+          "effect_value": 94
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 104
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 115
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 40,
+          "effect_value": 125
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "rogue_backstab",
+      "name": "Backstab",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Drives a dagger into the target's back for heavy damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 60,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 60,
+          "effect_value": 77
+        },
+        {
+          "rank": 3,
+          "level_req": 25,
+          "cost": 60,
+          "effect_value": 101
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 60,
+          "effect_value": 126
+        },
+        {
+          "rank": 5,
+          "level_req": 53,
+          "cost": 60,
+          "effect_value": 151
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "rogue_eviscerate",
+      "name": "Eviscerate",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A brutal finishing move that tears into the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 35,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 11,
+          "cost": 35,
+          "effect_value": 79
+        },
+        {
+          "rank": 3,
+          "level_req": 23,
+          "cost": 35,
+          "effect_value": 104
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 35,
+          "effect_value": 128
+        },
+        {
+          "rank": 5,
+          "level_req": 51,
+          "cost": 35,
+          "effect_value": 153
+        }
+      ],
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_rupture",
+      "name": "Rupture",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Tears open the target, causing bleed damage over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 95
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 132
+        },
+        {
+          "rank": 4,
+          "level_req": 66,
+          "cost": 25,
+          "effect_value": 169
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "rogue_evasion",
+      "name": "Evasion",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "dodge": 25,
+        "parry": 10
+      },
+      "description": "Not learned from level alone - granted by the Evasion talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. The rogue's dodge chance will increase for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 15,
+          "cost": 20,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": "ability_buff",
+      "buff_scope": "combat",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "rogue_expose_armor",
+      "name": "Expose Armor",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -120
+      },
+      "description": "Exposes a weak spot, reducing the enemy's Armor for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "rogue_adrenaline_rush",
+      "name": "Adrenaline Rush",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": 45,
+        "haste": 15
+      },
+      "description": "Not learned from level alone - granted by the Adrenaline Rush talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. Doubles your Energy regeneration for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": "ability_buff",
+      "buff_scope": "combat",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "rogue_mutilate",
+      "name": "Mutilate",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Mutilate talent in the Assassination tree. A vicious double-dagger strike, requiring daggers in both hands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 44
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_cold_blood",
+      "name": "Cold Blood",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "crit_chance_physical": 100
+      },
+      "description": "Not learned from level alone - granted by the Cold Blood talent in the Assassination tree. Your next attack is guaranteed to critically strike.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_hemorrhage",
+      "name": "Hemorrhage",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Hemorrhage talent in the Subtlety tree. A vicious strike that deals damage and causes the target to bleed.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 35,
+          "effect_value": 44
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null,
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "rogue_shadow_dance",
+      "name": "Shadow Dance",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "crit_chance_physical": 15
+      },
+      "description": "Not learned from level alone - granted by the Shadow Dance talent in the Subtlety tree. PLACEHOLDER (no stealth-window mechanic exists): real WOTLK Shadow Dance lets you use stealth-only abilities without being stealthed for 6 sec - here it grants a temporary Physical Crit buff instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_slice_and_dice",
+      "name": "Slice and Dice",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 30
+      },
+      "description": "Increases your attack speed for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_sap",
+      "name": "Sap",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Incapacitates an unaware target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "rogue_sprint",
+      "name": "Sprint",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": 40
+      },
+      "description": "Greatly increases your speed for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_kick",
+      "name": "Kick",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "hit_chance_spell": -70
+      },
+      "description": "PLACEHOLDER (no cast-interrupt mechanic exists): real WOTLK Kick interrupts spellcasting and locks out the school for 5 sec - here it heavily reduces the target's spell hit chance for 1 turn instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_gouge",
+      "name": "Gouge",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Incapacitates the target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "rogue_feint",
+      "name": "Feint",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "damage_taken_pct": -0.3
+      },
+      "description": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Feint drops threat and reduces AoE damage taken - here it's a temporary damage-reduction buff instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_vanish",
+      "name": "Vanish",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "damage_taken_pct": -0.6
+      },
+      "description": "PLACEHOLDER (no stealth system exists): real WOTLK Vanish drops you into stealth, removing all threat and most negative effects - here it's a very strong temporary damage-reduction buff instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    }
+  ]
+}

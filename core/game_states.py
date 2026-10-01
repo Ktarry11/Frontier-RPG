@@ -1,0 +1,30 @@
+"""
+Game state enum. Separated to avoid circular imports.
+"""
+from enum import Enum
+
+
+class GameState(Enum):
+    MENU = "menu"
+    CHARACTER_CREATION = "character_creation"
+    CHARACTER_SHEET = "character_sheet"
+    SKILLS = "skills"
+    PROFESSIONS = "professions"
+    MAP = "map"
+    INVENTORY = "inventory"
+    VENDOR = "vendor"
+    TALENTS = "talents"
+    OVERWORLD = "overworld"
+    PARTY = "party"
+    BACKGROUND = "background"
+    CAST = "cast"
+    COMBAT = "combat"
+    PET = "pet"
+    TOTEM = "totem"
+    FORM = "form"
+    GUARDIAN = "guardian"
+    QUEST_DIALOG = "quest_dialog"
+    QUEST_JOURNAL = "quest_journal"
+    RECRUIT_DIALOG = "recruit_dialog"
+    PAUSED = "paused"
+    QUIT = "quit"

@@ -1,0 +1,673 @@
+"""
+Combat engine. Full ability system with resources and turn-based cooldowns.
+Handles Character (player) vs Monster (enemy) - two DIFFERENT class systems.
+"""
+import random
+from enum import Enum
+from combat.turn_meter import TurnMeter
+from entities.loot_generator import LootGenerator
+from entities.boss_loot import get_fixed_boss_loot
+
+
+class CombatAction(Enum):
+    ABILITY = "ability"
+    DEFEND = "defend"
+    ITEM = "item"
+    FLEE = "flee"
+
+
+class CombatEngine:
+    """Combat system with abilities and resources."""
+    
+    def __init__(self, player, enemy, party=None, enemies=None, zone=None):
+        """
+        Multi-combatant turn-based encounter.
+
+        Backwards compatible with the old 1v1 signature: passing a single
+        `player` and `enemy` still works and simply creates a one-member
+        party against a one-member enemy group. `party` (an entities.Party)
+        and `enemies` (a list of Monsters) are the multi-combatant path.
+
+        The player controls EVERY ally, FF-style - there is no companion AI.
+        Allies and enemies share one turn meter, so a fast Rogue really does
+        act more often than a slow Thunder Lizard.
+
+        zone: the real zone-key string combat is happening in (e.g.
+        "valley_of_trials" or a cave name like "burning_blade_coven") -
+        used only to feed QuestManager.record_kill's zone-restricted
+        objectives (see _resolve_victory). None is fine for any test/
+        script path that doesn't care about quest tracking - it just
+        means zone-gated kill objectives won't advance from that fight,
+        same as if the fight happened somewhere with no matching quest.
+        """
+        from entities.party import Party
+
+        self.player = player
+        self.party = party if party is not None else Party(player)
+        self.zone = zone
+
+        # Keep .enemy pointing at a live enemy for any legacy caller, but the
+        # real list is self.enemies.
+        self.enemies = list(enemies) if enemies else ([enemy] if enemy else [])
+        self.enemy = self.enemies[0] if self.enemies else None
+
+        self.allies = self.party.members
+
+        # Active pets ride alongside their owner as extra allies, but are
+        # NOT party members (see entities/pet.py's module docstring for
+        # why - party.members is capped at 5 recruited Characters, and a
+        # pet is neither recruited nor a Character). Built fresh from
+        # whichever party members currently have an active_pet, in the
+        # same order as their owners, so a pet always sits right after
+        # its owner in turn-order previews and UI lists.
+        self.pets = [m.active_pet for m in self.allies if getattr(m, "active_pet", None)]
+
+        self.combatants = self.allies + self.pets + self.enemies
+
+        # Combat state
+        self.turn_meter = TurnMeter(self.combatants)
+        self.current_actor = None
+        self.combat_log = []
+        self.is_active = True
+        self.combat_phase = "action"
+        self.loot_generator = LootGenerator()
+        self.loot_dropped = None   # last Item dropped, for the victory screen
+        self.exp_earned = 0        # total XP awarded this fight, for the victory screen
+        self.loot_gained = []      # every Item dropped this fight
+        self.victory = False
+
+        # Threat table: {enemy: {ally: threat_value}}. Per-enemy rather than
+        # one shared pool, since two different monsters in the same fight
+        # can (and in real WoW do) end up focused on different party
+        # members - a table shared across all enemies would force them to
+        # always agree on one target. Populated lazily (see gain_threat/
+        # get_threat) so fights with no tank-style abilities in play never
+        # allocate anything and default_target_for's random-choice fallback
+        # below is untouched for them - existing non-tank content keeps
+        # working exactly as it did before this system existed.
+        self.threat_tables = {}
+
+    # ------------------------------------------------------------------
+    # Combatant queries
+    # ------------------------------------------------------------------
+
+    def living_allies(self):
+        """Every living party member AND active pet - pets are allies for
+        targeting purposes (buffs/heals can reach them, enemy_aoe never
+        does), even though they're excluded from self.allies/party.members
+        itself (see the pets-are-not-party-members note in __init__)."""
+        return [a for a in self.allies + self.pets if a.is_alive()]
+
+    def living_enemies(self):
+        return [e for e in self.enemies if e.is_alive()]
+
+    def is_ally(self, combatant):
+        return combatant in self.allies or combatant in self.pets
+
+    def gain_threat(self, ally, enemy, amount):
+        """Add `amount` threat from `ally` on `enemy`'s table. Negative
+        amounts are allowed (e.g. a future threat-reduction effect) but
+        floor at 0 - real WoW threat never goes negative, it just stops
+        being subtracted once it hits the floor.
+        """
+        if enemy is None or ally is None or amount == 0:
+            return
+        table = self.threat_tables.setdefault(enemy, {})
+        table[ally] = max(0, table.get(ally, 0) + amount)
+
+    def get_threat(self, enemy, ally):
+        """Current threat `ally` has on `enemy`'s table (0 if never generated any)."""
+        return self.threat_tables.get(enemy, {}).get(ally, 0)
+
+    def highest_threat_target(self, enemy):
+        """Living ally with the most threat on `enemy`'s table, or None if
+        that enemy has no threat table yet (nobody's generated any threat
+        against it) or everyone on its table has since died - callers
+        should fall back to the existing random/front-row pick in that
+        case, exactly as if no threat system were present.
+        """
+        table = self.threat_tables.get(enemy)
+        if not table:
+            return None
+        living_entries = [(a, t) for a, t in table.items() if a.is_alive()]
+        if not living_entries:
+            return None
+        return max(living_entries, key=lambda pair: pair[1])[0]
+
+    def default_target_for(self, actor):
+        """
+        Sensible auto-target: enemies attack allies, allies attack enemies.
+
+        Enemies prefer whoever holds highest threat on them, if any threat
+        has been generated against them at all (see highest_threat_target) -
+        this is what makes tank-style threat generation (Earthen Guardian,
+        Defensive Stance, etc) actually redirect attacks rather than being a
+        number nobody reads. Falls back to the original front-row-preferred
+        random pick when there's no threat data for this enemy yet, so
+        every fight that never touches threat behaves exactly as before.
+        """
+        if self.is_ally(actor):
+            living = self.living_enemies()
+            return living[0] if living else None
+
+        from entities.party import FRONT_ROW
+        living = self.living_allies()
+        if not living:
+            return None
+
+        threat_target = self.highest_threat_target(actor)
+        if threat_target is not None and threat_target in living:
+            return threat_target
+
+        front = [a for a in living if getattr(a, "row", FRONT_ROW) == FRONT_ROW]
+        pool = front or living
+        return random.choice(pool)
+
+    def update(self, dt):
+        """Update combat state."""
+        if not self.is_active:
+            return
+
+        # Only look for a new actor if nobody is currently mid-turn. Without
+        # this gate, current_actor stays stale after an action resolves and
+        # resets its own meter to 0 - the very next frame would see
+        # current_actor still equal to the actor who just went, and the
+        # screen's "if current_actor is an enemy: act" check would fire
+        # again, causing combatants to act multiple times per actual turn.
+        if self.current_actor is None:
+            actor = self.turn_meter.update(dt)
+            if actor and actor.is_alive():
+                self.current_actor = actor
+                self.combat_phase = "action"
+
+        # A combatant who died to a DoT between turns must not keep the turn.
+        if self.current_actor is not None and not self.current_actor.is_alive():
+            self.current_actor = None
+
+        # Check win/loss
+        self._check_combat_end()
+
+    def execute_ability(self, actor, ability_id, target):
+        """Execute a PLAYER ability (Character only - uses ability_book)."""
+        ability = actor.ability_book.get_ability(ability_id)
+        if not ability:
+            return False, "Ability not found"
+
+        # Form-gated abilities (Mangle etc - see Ability.requires_form)
+        # are hard-blocked here, not just visually flagged on the hotbar -
+        # the button coloring in combat_screen.py is a courtesy, this is
+        # the actual enforcement every cast path (hotbar, cast panel, any
+        # future caller) funnels through.
+        if hasattr(ability, "is_form_ready") and not ability.is_form_ready(actor):
+            return False, f"{ability.name} requires a different form."
+
+        # Ranged-weapon-gated abilities (universal Shoot/Wand - see
+        # Ability.requires_ranged_weapon) get the same hard block. Before
+        # this check existed, is_ranged_weapon_ready only affected the
+        # hotbar button's grey-out color in combat_screen.py - nothing
+        # actually stopped the ability from firing, so a Paladin with no
+        # Ranged-slot item equipped could still use both Shoot AND Wand
+        # (Kyle: "my paladin without a wand or a gun actually just used
+        # both"). This is the real enforcement point every cast path
+        # funnels through, same as the form check above it.
+        if hasattr(ability, "is_ranged_weapon_ready") and not ability.is_ranged_weapon_ready(actor):
+            return False, f"{ability.name} requires the right weapon equipped."
+
+        # enemy_aoe abilities (Arcane Explosion, Chain Lightning,
+        # Consecration, Multi-Shot, ...) hit every living enemy regardless
+        # of which single target the player had selected - the selection
+        # still matters for aiming single-target abilities, but an AoE
+        # ability shouldn't be limited to whichever one enemy happened to
+        # be highlighted.
+        if getattr(ability, "target_type", None) == "enemy_aoe":
+            target = self.living_enemies()
+
+        # Nature's Swiftness-style effects: a buff that makes the CASTER'S
+        # NEXT cast instant, rather than the triggering ability itself
+        # being instant. next_cast_instant is a one-shot flag on the
+        # actor (see Character.next_cast_instant), set by whatever grants
+        # it and consumed here on the very next ability use - regardless
+        # of what that ability is, matching how Nature's Swiftness works
+        # in real WoW (it doesn't care what spell benefits, just that the
+        # next one does).
+        consumed_free_cast = False
+        if getattr(actor, "next_cast_instant", False) and ability.effect_type != "enable_instant_cast":
+            consumed_free_cast = True
+            actor.next_cast_instant = False
+
+        # Use ability. `party` is only consulted by damage_and_heal abilities
+        # (Cryotherapist) to find the caster's lowest-HP ally to smart-heal -
+        # every other effect_type ignores it. Passed as the actor's own
+        # living allies (mirrors living_allies() usage a few lines up for
+        # AoE targeting), so it naturally includes the actor's whole party
+        # regardless of who's currently selected as the enemy target.
+        success, message = ability.use(actor, target, party=self.living_allies())
+        
+        if success:
+            self.combat_log.append(message)
+            self._generate_threat_from_ability(actor, ability)
+            
+            # Warrior Rage generation on basic attack
+            if getattr(actor, "char_class", None) == "Warrior" and ability_id == "warrior_attack":
+                actor.current_rage = min(100, actor.current_rage + 10)
+                self.combat_log.append(f"{actor.name} gains 10 Rage!")
+
+            if consumed_free_cast:
+                self.combat_log.append(f"{ability.name} was instant!")
+
+            # Turn-based translation of WoW's "instant cast": an ability
+            # marked is_instant (Swiftmend, by its own nature) or one that
+            # just consumed a pending next_cast_instant buff (Nature's
+            # Swiftness -> anything) does NOT end the actor's turn -
+            # current_actor stays set and combat_phase stays "action", so
+            # the very next update() tick re-prompts the SAME actor for
+            # another action instead of handing the turn meter to whoever
+            # is next. Cooldowns/resource-restore/status-ticks for this
+            # actor are deliberately skipped here too (see _end_turn) -
+            # those only make sense once per real turn, not once per
+            # instant cast within it.
+            if not (ability.is_instant or consumed_free_cast):
+                self._end_turn(actor)
+        
+        return success, message
+
+    def _generate_threat_from_ability(self, actor, ability):
+        """Convert the damage/healing an ability's cast actually dealt
+        (Ability._last_threat_events, populated by _apply_effect) into real
+        threat table entries.
+
+        Threat model (documented rather than hidden in a magic constant):
+          - Damage generates threat 1:1 with the amount dealt, credited to
+            the specific enemy that was hit (multiple enemies from an AoE
+            each get their own entry, off their own damage taken).
+          - Healing generates threat at HEAL_THREAT_RATIO (0.5x the amount
+            healed - real WoW's actual ratio, roughly), split against
+            EVERY living enemy in the fight rather than one specific
+            target, since a heal has no single enemy to attribute it to
+            and real threat-from-healing works the same way (it threatens
+            whoever's currently fighting you, not a chosen target).
+          - Earthen Guardian's "+200% threat generated" (Shaman Tank) is
+            read here as a flat 3x multiplier on the actor's own outgoing
+            threat from this cast (200% MORE = 3x total), via the
+            "threat_multiplier" talent-effect key - see
+            Character.get_talent_effect. Anyone without that talent gets
+            the multiplier's default of 1.0, so this is a no-op for every
+            class that isn't tank-specced.
+
+        No-ops entirely if this combat has no living enemies or the
+        ability generated no threat events (e.g. a self-buff) - existing
+        fights that never touch threat stay exactly as fast as before.
+        """
+        events = getattr(ability, "_last_threat_events", None)
+        if not events:
+            return
+
+        HEAL_THREAT_RATIO = 0.5
+        threat_mult = 1.0
+        if hasattr(actor, "get_talent_effect"):
+            threat_mult = actor.get_talent_effect("threat_multiplier", default=1.0) or 1.0
+
+        for enemy, amount, is_damage in events:
+            if amount <= 0:
+                continue
+            if is_damage:
+                if enemy is not None and enemy.is_alive():
+                    self.gain_threat(actor, enemy, amount * threat_mult)
+            else:
+                # Heals have no single target enemy - threaten everyone
+                # currently in the fight, same amount each.
+                heal_threat = amount * HEAL_THREAT_RATIO * threat_mult
+                for e in self.living_enemies():
+                    self.gain_threat(actor, e, heal_threat)
+
+    def execute_monster_action(self):
+        """Execute the current enemy's turn using Monster's own AI/abilities."""
+        enemy = self.current_actor
+        if not enemy or self.is_ally(enemy) or not enemy.is_alive():
+            return
+
+        target = self.default_target_for(enemy)
+        if target is None:
+            self._end_turn(enemy)
+            return
+
+        chosen_ability = enemy.choose_action(target)
+        # AoE monster abilities (Cleave, Whirlwind, Tail Sweep, breath
+        # attacks, ...) hit every living ally at once - pass the full list
+        # rather than just whichever single target choose_action() picked,
+        # matching the player-side enemy_aoe handling in execute_ability().
+        if getattr(chosen_ability, "is_aoe", False):
+            success, message = chosen_ability.use(enemy, self.living_allies())
+        else:
+            success, message = chosen_ability.use(enemy, target)
+
+        if success:
+            self.combat_log.append(message)
+        else:
+            # Shouldn't normally happen (basic attack always available), but
+            # fall back safely rather than stalling the turn meter forever.
+            self.combat_log.append(f"{enemy.name} hesitates.")
+
+        if not target.is_alive():
+            self.combat_log.append(f"{target.name} has fallen!")
+
+        self._end_turn(enemy)
+
+    def execute_pet_action(self):
+        """Execute the current pet's turn using Pet.choose_action - real
+        autonomous pet AI (Kyle, 2026-09-06: "SHOULD have pets"), same
+        overall shape as execute_monster_action but a pet always attacks
+        ENEMIES (it's an ally, per is_ally) rather than picking from
+        living_allies() the way Monster AI does. A pet targets whatever
+        its owner's own default target would be, not a target it picks
+        independently - matches real WoW pet behavior (a Hunter's pet
+        attacks what the Hunter is fighting, not its own separate pick).
+        """
+        pet = self.current_actor
+        if not pet or pet not in self.pets or not pet.is_alive():
+            return
+
+        owner = getattr(pet, "owner", None)
+        target = self.default_target_for(owner) if owner is not None else self.default_target_for(pet)
+        if target is None:
+            self._end_turn(pet)
+            return
+
+        chosen_ability = pet.choose_action(target)
+        if chosen_ability is None:
+            self.combat_log.append(f"{pet.name} has no action to take.")
+            self._end_turn(pet)
+            return
+
+        if getattr(chosen_ability, "is_aoe", False):
+            success, message = chosen_ability.use(pet, self.living_enemies())
+        else:
+            success, message = chosen_ability.use(pet, target)
+
+        if success:
+            self.combat_log.append(message)
+        else:
+            self.combat_log.append(f"{pet.name} hesitates.")
+
+        if not target.is_alive():
+            self.combat_log.append(f"{target.name} has fallen!")
+
+        self._end_turn(pet)
+
+    def execute_defend(self, actor):
+        """Execute defend action."""
+        log_entry = f"{actor.name} takes a defensive stance!"
+        self.combat_log.append(log_entry)
+        self._end_turn(actor)
+    
+    def _end_turn(self, actor):
+        """Shared turn-end logic: consume turn, decrement cooldowns, restore resources."""
+        self.turn_meter.consume_turn(actor)
+        self.current_actor = None
+        self.combat_phase = "resolution"
+        
+        # Cooldowns and status effects both advance ONLY for the actor whose
+        # turn just ended - "1 turn" means one of YOUR turns, not one of
+        # anybody's. Previously both combatants were advanced on every single
+        # turn, so a 4-turn Rejuvenation on the player lost 2 turns per round
+        # (one on the player's turn, one on the enemy's) and a 4-turn DoT on
+        # the enemy did the same. Every duration in the game was effectively
+        # halved, and worse, it was halved unevenly once the turn meter let a
+        # fast combatant act twice in a row.
+        if hasattr(actor, "ability_book"):
+            actor.ability_book.decrement_all_cooldowns()
+        elif hasattr(actor, "decrement_all_cooldowns"):
+            actor.decrement_all_cooldowns()
+
+        # Restore resources for next turn (Characters only - monsters don't
+        # use mana/rage/energy pools).
+        if hasattr(actor, "restore_resources_between_turns"):
+            actor.restore_resources_between_turns()
+
+        # Tick DoTs/HoTs/buffs riding on the actor who just acted.
+        if hasattr(actor, "tick_status_effects"):
+            for msg in actor.tick_status_effects():
+                self.combat_log.append(msg)
+
+    def _check_combat_end(self):
+        """Check for victory (all enemies down) or defeat (party wiped)."""
+        if not self.living_enemies():
+            self._resolve_victory()
+        elif not self.living_allies():
+            self.is_active = False
+            self.victory = False
+            self.combat_log.append("Defeat! The party has been wiped out!")
+
+    _loot_item_drop_table = None  # class-level cache, loaded once across all CombatEngine instances
+
+    @classmethod
+    def _get_loot_item_drops(cls, creature_name):
+        """LootItem drop entries for a creature, from
+        data/creatures/quest_drops.json. Cached at the class level after
+        first load - this file doesn't change during a play session, so
+        re-parsing it on every single kill in every fight would be pure
+        waste. Returns [] for a creature with no entries (the overwhelming
+        majority), never raises on a missing/malformed file."""
+        if cls._loot_item_drop_table is None:
+            import json
+            from pathlib import Path
+            path = Path(__file__).parent.parent / "data" / "creatures" / "quest_drops.json"
+            try:
+                with open(path, "r") as f:
+                    cls._loot_item_drop_table = json.load(f).get("drops", {})
+            except (OSError, json.JSONDecodeError):
+                cls._loot_item_drop_table = {}
+        return cls._loot_item_drop_table.get(creature_name, [])
+
+    def _resolve_victory(self):
+        """Award XP, loot and currency once every enemy is down."""
+        self.is_active = False
+        self.victory = True
+
+        # Clear lingering DoTs/HoTs/buffs on the whole party so nothing leaks
+        # into the next fight (a Rejuvenation ticking through the overworld,
+        # or an enemy debuff still stuck on someone two encounters later).
+        self.party.restore_after_combat()
+
+        defeated = ", ".join(e.name for e in self.enemies)
+        self.combat_log.append(f"Victory! The party defeated {defeated}!")
+
+        # Advance any active quest tracking these kills - real
+        # QuestManager.record_kill call per enemy, not a batch, since
+        # each enemy could independently be a boss (is_boss varies per
+        # enemy in a mixed pull, e.g. a boss with trash adds).
+        from world.quest_manager import get_quest_manager
+        quest_mgr = get_quest_manager()
+        for e in self.enemies:
+            quest_mgr.record_kill(e.name, self.zone, is_boss=getattr(e, "is_boss", False))
+
+        # XP is summed across every enemy, then awarded to the whole roster.
+        # Active members get full value, benched get a reduced share.
+        exp_reward = sum(self._calculate_exp_reward(e) for e in self.enemies)
+        self.combat_log.append(f"Gained {exp_reward} experience!")
+        # Stored as an attribute (not just logged) so the victory screen can
+        # show a clean "+X EXP" line without scraping combat_log text.
+        self.exp_earned = exp_reward
+
+        for member, levels in self.party.award_experience(exp_reward):
+            if levels == 1:
+                self.combat_log.append(
+                    f"{member.name} leveled up! Now level {member.level}!")
+            else:
+                self.combat_log.append(
+                    f"{member.name} gained {levels} levels! (now {member.level})")
+            if member is self.player:
+                for line in self._format_level_gains():
+                    self.combat_log.append(line)
+
+        # Loot rolls once per enemy, always into the PLAYER's own bag
+        # specifically (per Kyle: kill loot always goes to the active
+        # player character, even though every character - including
+        # companions - now has their own independent inventory). Gear for
+        # a companion is assigned by equipping it onto them afterward from
+        # the party/inventory screen, moving it out of the player's bag.
+        #
+        # Bosses use generate_boss_loot() instead of the trash roll: a
+        # guaranteed drop, floored at Rare ("blue") rarity, so killing a
+        # boss is reliably worth it rather than rolling the identical table
+        # a wolf rolls. Trash keeps the normal 35% chance / unfloored rarity.
+        #
+        # Fixed/curated boss loot (entities/boss_loot.py) is checked FIRST,
+        # ahead of the procedural roll - a small, growing set of dungeon
+        # bosses (Sunken Grotto's three, so far) have hand-authored drop
+        # pools instead of a fully-random item, so their loot can be
+        # designed around their theme (Kyle: "crab will have int/sp
+        # shield, str/sp boots, and tank trinket", etc). Any boss not in
+        # that table falls through to generate_boss_loot() exactly as
+        # before - this never changes behavior for bosses without a
+        # fixed table.
+        for enemy in self.enemies:
+            if getattr(enemy, "is_boss", False):
+                loot = get_fixed_boss_loot(enemy.name)
+                if loot is None:
+                    loot = self.loot_generator.generate_boss_loot(
+                        creature_level=enemy.level,
+                        char_class=self.player.char_class,
+                        player_level=self.player.level,
+                    )
+            else:
+                loot = self.loot_generator.generate_loot_for_creature(
+                    creature_level=enemy.level,
+                    char_class=self.player.char_class,
+                    player_level=self.player.level,
+                )
+            if loot:
+                if self.player.add_to_inventory(loot):
+                    self.loot_dropped = loot
+                    self.loot_gained.append(loot)
+                    self.combat_log.append(f"{enemy.name} dropped: {loot.name}!")
+                else:
+                    # Bag full - the kill still happened and XP/currency
+                    # below is unaffected, but the item itself never enters
+                    # inventory. Silently eating the drop would just look
+                    # like a missing-loot bug, so it's called out in the log.
+                    self.combat_log.append(
+                        f"{enemy.name} dropped {loot.name}, but your bags are full!")
+
+            # Per-creature LootItem drops (quest items, materials, trash)
+            # - a real drop table, separate from the gear roll above.
+            # Added specifically to close the Sagewood Petal gap Kyle
+            # found (a fetch quest referencing an item nothing dropped) -
+            # data/creatures/quest_drops.json is the real source of
+            # truth, keyed by the same creature-name string Monster.name
+            # already carries.
+            for drop_def in self._get_loot_item_drops(enemy.name):
+                import random as _random
+                if _random.random() > drop_def.get("chance", 1.0):
+                    continue
+                # Quest-category items stop dropping once the player
+                # already has enough for every active quest that wants
+                # them (Kyle's bug report - quest items are never
+                # sellable, so over-dropping them left dead weight
+                # permanently stuck in the bag with no way to clear it).
+                # Materials/trash aren't quest-gated at all and always
+                # pass this check.
+                item_id = drop_def["item_id"]
+                if drop_def.get("category", "quest") == "quest":
+                    from world.quest_manager import get_quest_manager
+                    if not get_quest_manager().still_needs_item(self.player, item_id):
+                        continue
+                from entities.loot_item import add_loot_item
+                fit = add_loot_item(
+                    self.player, item_id, drop_def["name"],
+                    category=drop_def.get("category", "quest"),
+                    amount=drop_def.get("amount", 1),
+                    description=drop_def.get("description", ""),
+                    icon_id=drop_def.get("icon_id"),
+                    sell_price=drop_def.get("sell_price", 0),
+                    rarity=drop_def.get("rarity"),
+                )
+                if fit:
+                    self.combat_log.append(f"{enemy.name} dropped: {drop_def['name']}!")
+                else:
+                    self.combat_log.append(
+                        f"{enemy.name} dropped {drop_def['name']}, but your bags are full!")
+
+        # Currency drop: base copper = enemy level * 10, plus 0-50% bonus.
+        # Goes to the party's shared purse (Party.copper), not the player
+        # individually - see entities/party.py's CURRENCY comment.
+        total_copper = 0
+        for enemy in self.enemies:
+            base_copper = enemy.level * 10
+            total_copper += base_copper + int(base_copper * random.random() * 0.5)
+        self.party.add_currency(total_copper)
+        self.combat_log.append(f"Looted: {self.party.get_currency_string()}")
+
+    def _format_level_gains(self):
+        """Turn the player's aggregated level-up gains into combat log lines."""
+        gains = getattr(self.player, "last_level_gains", None) or {}
+        lines = []
+
+        stat_labels = [
+            ("strength", "STR"), ("stamina", "STA"), ("intellect", "INT"),
+            ("spirit", "SPI"), ("agility", "AGI"),
+        ]
+        stat_parts = [f"+{gains[key]} {label}"
+                      for key, label in stat_labels if gains.get(key, 0) > 0]
+        if stat_parts:
+            lines.append("  " + "  ".join(stat_parts))
+
+        pool_parts = []
+        if gains.get("health", 0) > 0:
+            pool_parts.append(f"+{gains['health']} HP")
+        if gains.get("mana", 0) > 0:
+            pool_parts.append(f"+{gains['mana']} Mana")
+        if pool_parts:
+            lines.append("  " + "  ".join(pool_parts))
+
+        if gains.get("talent_points", 0) > 0:
+            points = gains["talent_points"]
+            lines.append(f"  +{points} talent point{'s' if points != 1 else ''}!")
+
+        return lines
+
+    def _calculate_exp_reward(self, enemy=None):
+        """
+        Calculate XP from enemy, scaled by monster level, with bonuses for:
+          - Fighting above your level (existing level_diff scaling)
+          - Boss/elite creatures (is_boss flag, set by CreatureManager)
+          - Cave/subzone encounters (location_type tag, set by CreatureManager) -
+            NOTE: currently only ever fires for "open_zone" in practice, since
+            cave/subzone tilemap traversal isn't built yet. The multiplier is
+            wired in now so it activates automatically once that traversal
+            exists, without needing to touch this method again.
+        """
+        enemy = enemy or self.enemy
+        base_exp = enemy.get_exp_reward()
+        level_diff = self.player.level - enemy.level
+        
+        if level_diff > 5:
+            reward = max(10, int(base_exp * 0.5))
+        elif level_diff < -5:
+            # Fighting well above your level - bigger bonus than the old flat 1.5x,
+            # scaling a bit further with how far above you the enemy actually is
+            reward = int(base_exp * (1.5 + min(1.0, (-level_diff - 5) * 0.1)))
+        else:
+            reward = base_exp
+
+        # Boss/elite bonus - a beefed-up cave/subzone boss should feel like a
+        # real event, not just "a slightly tankier trash mob"
+        if getattr(enemy, "is_boss", False):
+            reward = int(reward * 1.75)
+
+        # Dungeon/cave bonus - see docstring note above on current activation status
+        location_type = getattr(enemy, "location_type", "open_zone")
+        if location_type == "cave":
+            reward = int(reward * 1.5)
+        elif location_type == "subzone":
+            reward = int(reward * 1.2)
+
+        return reward
+    
+    def get_recent_log(self, count=5):
+        """Get last N log entries."""
+        return self.combat_log[-count:]
+    
+    def get_player_abilities(self):
+        """Get all player abilities for hotbar display."""
+        return self.player.ability_book.get_all_abilities()

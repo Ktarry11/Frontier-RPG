@@ -1,0 +1,516 @@
+{
+  "spec_name": "Cultist Godblade",
+  "tree_id": "cultist_godblade",
+  "description": "Melee-weapon-gated Shadow bruiser - builds Insanity off Voidforged Edge and Netherstrike, dumps into Obliteration for a big Weapon+Shadow smash. Stay above 40 Insanity for Shadow of the Void's stacking damage buff.",
+  "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers where available (Netherstrike, Hammer of Twilight, Entropic Slam confirmed via screenshot). Real mechanic per handoff: Voidforged Edge (autoattack proc) + Netherstrike generate Insanity, Obliteration dumps it, crits refund 20 via Twilight's Call, and staying above 40 Insanity triggers Shadow of the Void (stacking Shadow damage/crit buff) - this spec's core identity.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "cultist_godblade_void_strength",
+      "name": "Void Strength",
+      "description": "Increases Shadow spell damage and spell hit scaling from Strength by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_strength_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_godblade_voidforged_edge"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 40 Passive - Shadow spell damage + spell hit from Strength.'"
+    },
+    {
+      "talent_id": "cultist_godblade_voidguard",
+      "name": "Voidguard",
+      "description": "Grants parry rating from Intellect and hit rating from Strength, at 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "parry_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_godblade_adaptive_combatant"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_nzoths_rage",
+      "name": "N'Zoth's Rage",
+      "description": "Passively generates Insanity every second while in combat.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "passive_insanity_per_sec": 2
+      },
+      "connected_to": [
+        "cultist_godblade_voidforged_edge_2"
+      ],
+      "_source": "CoA handoff doc: 'Passively generates 10 Insanity/sec in combat.' Reduced here to 2/sec to avoid trivializing the class-wide Blade of the Empire generator's role."
+    },
+    {
+      "talent_id": "cultist_godblade_maker_of_miseries",
+      "name": "Maker of Miseries",
+      "description": "Reduces all spell and ability Mana costs by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "all_ability_cost_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_godblade_hysterical_momentum"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_voidforged_edge",
+      "name": "Voidforged Edge",
+      "description": "Learn Voidforged Edge: your autoattacks now deal bonus Shadow damage and generate Insanity.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "cultist_voidforged_edge"
+      },
+      "connected_to": [
+        "cultist_godblade_void_strength"
+      ],
+      "_source": "CoA handoff doc confirmed as this spec's main generator: 'Autos deal bonus Shadow damage.'"
+    },
+    {
+      "talent_id": "cultist_godblade_adaptive_combatant",
+      "name": "Adaptive Combatant",
+      "description": "Increases Parry chance and Dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "parry_chance": 1.0,
+        "dodge_chance": 1.0
+      },
+      "connected_to": [
+        "cultist_godblade_voidguard"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_voidforged_edge_2",
+      "name": "Bulwark of Horror",
+      "description": "Avoiding an attack has a chance to refresh a Blade of the Empire charge.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "avoid_refreshes_blade_charge_chance": 0.1
+      },
+      "connected_to": [
+        "cultist_godblade_nzoths_rage"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_hysterical_momentum",
+      "name": "Hysterical Momentum",
+      "description": "Spending Insanity increases attack and movement speed for a duration, stacking.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "insanity_spend_haste_stack": 0.02
+      },
+      "connected_to": [
+        "cultist_godblade_maker_of_miseries"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_netherstrike",
+      "name": "Netherstrike",
+      "description": "Learn Netherstrike, a weapon strike that purges a beneficial magic effect. Usable only against targets below 35% health.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_netherstrike_talent"
+      },
+      "connected_to": [
+        "cultist_godblade_voidforged_edge",
+        "cultist_godblade_shadow_of_the_void"
+      ],
+      "_source": "This talent-tree copy of Netherstrike exists so Godblade's tier gating works correctly; the class-wide version (cultist_netherstrike, confirmed Lvl 20 via screenshot) is the same real ability."
+    },
+    {
+      "talent_id": "cultist_godblade_rift",
+      "name": "Rift",
+      "description": "Learn Rift, buffing your next Hammer of Twilight's damage and creating a rift that absorbs the next healing an enemy near you would receive.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_rift"
+      },
+      "connected_to": [
+        "cultist_godblade_hysterical_momentum"
+      ],
+      "_source": "CoA handoff doc: 'Buffs next Hammer of Twilight's damage; creates a rift absorbing next enemy healing near you.' Sets up a guaranteed Obliteration/Hammer crit per the rotation writeup."
+    },
+    {
+      "talent_id": "cultist_godblade_shadow_of_the_void",
+      "name": "Shadow of the Void",
+      "description": "While above 40 Insanity, your melee attacks and abilities trigger Shadow of the Void, a stacking Shadow damage and critical strike buff.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "shadow_of_the_void_stacks"
+      },
+      "connected_to": [
+        "cultist_godblade_netherstrike",
+        "cultist_godblade_touch_of_the_void"
+      ],
+      "_source": "CoA handoff doc confirmed as Godblade's core identity mechanic: 'Level 20 Passive. Above 40 Insanity, melee attacks/abilities trigger Shadow of the Void.' Once in the pocket, damage snowballs - the whole spec is built around holding this threshold."
+    },
+    {
+      "talent_id": "cultist_godblade_touch_of_the_void",
+      "name": "Touch of the Void",
+      "description": "Increases Magic damage dealt. Hammer of Twilight increases the target's spell damage taken.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "magic_damage_pct": 0.03
+      },
+      "connected_to": [
+        "cultist_godblade_shadow_of_the_void"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_empires_grasp",
+      "name": "Empire's Grasp",
+      "description": "Learn Empire's Grasp, teleporting an enemy to you and slowing them.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "cultist_empires_grasp"
+      },
+      "connected_to": [
+        "cultist_godblade_touch_of_the_void",
+        "cultist_godblade_voidborne"
+      ],
+      "_source": "CoA handoff doc: 'Teleports an enemy to you + slows.' Real gap-closer/pull tool, called out repeatedly as answering the spec's biggest weakness (kiting)."
+    },
+    {
+      "talent_id": "cultist_godblade_voidborne",
+      "name": "Voidborne",
+      "description": "Increases damage dealt and critical strike chance, grants stun immunity, and generates Insanity each second.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_voidborne"
+      },
+      "connected_to": [
+        "cultist_godblade_empires_grasp",
+        "cultist_godblade_shadow_of_the_void_capstone"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Boosts damage dealt + crit chance, stun immunity; generates 1 Insanity/sec.' Godblade's real burst-and-survival cooldown - 'damage, crit, and stun immunity in one button.'"
+    },
+    {
+      "talent_id": "cultist_godblade_shadow_of_the_void_capstone",
+      "name": "Nutcase",
+      "description": "Shadow of the Void also increases your critical strike damage dealt.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "shadow_of_the_void_crit_damage": 0.15
+      },
+      "connected_to": [
+        "cultist_godblade_voidborne"
+      ],
+      "_source": "CoA handoff doc confirmed as the capstone extension of the spec's core identity mechanic: 'Shadow of the Void also boosts crit damage dealt.'"
+    },
+    {
+      "talent_id": "cultist_godblade_dreadfall",
+      "name": "Dreadfall",
+      "description": "Learn Dreadfall, a charge strike dealing Shadow damage to enemies passed through and generating extra threat.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "cultist_dreadfall"
+      },
+      "connected_to": [
+        "cultist_godblade_void_strength"
+      ],
+      "_source": "CoA handoff doc: 'Charge strike: Shadow damage to enemies passed through, generates extra threat.'"
+    },
+    {
+      "talent_id": "cultist_godblade_entropic_strike",
+      "name": "Entropic Strike",
+      "description": "Learn Entropic Strike, a weapon strike that applies Seething Void and generates Void Runes.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_entropic_strike"
+      },
+      "connected_to": [
+        "cultist_godblade_netherstrike",
+        "cultist_godblade_rift"
+      ],
+      "_source": "CoA handoff doc: 'Weapon damage + applies Seething Void + generates 2 Void Runes.'"
+    },
+    {
+      "talent_id": "cultist_godblade_seething_void",
+      "name": "Seething Void",
+      "description": "Entropic Strike's curse now deals repeating Eldritch damage. Melee crits refresh it and spread it to a nearby enemy.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "seething_void_damage": 0.06
+      },
+      "connected_to": [
+        "cultist_godblade_entropic_strike"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_twilights_call",
+      "name": "Twilight's Call",
+      "description": "Critical strikes with Obliteration refund Insanity.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "obliteration_crit_insanity_refund": 20
+      },
+      "connected_to": [
+        "cultist_godblade_touch_of_the_void"
+      ],
+      "_source": "CoA handoff doc confirmed as a core rotation piece: 'Crits refund 20 via Twilight's Call.'"
+    },
+    {
+      "talent_id": "cultist_godblade_who_needs_sanity",
+      "name": "Who Needs Sanity?",
+      "description": "Netherstrike critical strikes stack a bonus to your critical strike damage.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "netherstrike_crit_stack": 0.03
+      },
+      "connected_to": [
+        "cultist_godblade_rift"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_voidseeker",
+      "name": "Voidseeker",
+      "description": "Netherstrike resets, becoming usable regardless of the target's health.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "netherstrike_execute_reset": 1
+      },
+      "connected_to": [
+        "cultist_godblade_empires_grasp"
+      ],
+      "_source": "CoA handoff doc: 'Netherstrike also purges a magic buff and, via Voidseeker, resets to become an any-health execute.'"
+    },
+    {
+      "talent_id": "cultist_godblade_tentacle_of_nzoth",
+      "name": "Tentacle of N'Zoth",
+      "description": "Learn Tentacle of N'Zoth, a ground summon that silences and repeatedly damages the target, re-targeting if they flee.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_tentacle_of_nzoth"
+      },
+      "connected_to": [
+        "cultist_godblade_voidborne"
+      ],
+      "_source": "CoA handoff doc: 'Ground summon: silences + repeats damage on target; re-targets if target flees range.' Real caster-lockdown tool."
+    },
+    {
+      "talent_id": "cultist_godblade_eldritch_obelisk",
+      "name": "Eldritch Obelisk",
+      "description": "Learn Eldritch Obelisk, a ground summon that boosts nearby Tentacle damage and ally movement speed.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_eldritch_obelisk"
+      },
+      "connected_to": [
+        "cultist_godblade_tentacle_of_nzoth"
+      ],
+      "_source": "CoA handoff doc: 'Ground summon: boosts nearby Tentacle damage + ally movement speed.' Sustained-fight support tool."
+    },
+    {
+      "talent_id": "cultist_godblade_broken_mind",
+      "name": "Broken Mind",
+      "description": "Reduces the duration of fear and charm effects used against you by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "fear_charm_duration_reduction_pct": 0.05
+      },
+      "connected_to": [
+        "cultist_godblade_dreadfall"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_summon_faceless_destroyer",
+      "name": "Summon: Faceless Destroyer",
+      "description": "Learn Summon: Faceless Destroyer, summoning an ally that fights alongside you for a duration.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "cultist_summon_faceless_destroyer"
+      },
+      "connected_to": [
+        "cultist_godblade_touch_of_the_void"
+      ],
+      "_source": "CoA handoff doc: 'Summons an ally-fighting destroyer for a duration.' Real pet-summon burst tool."
+    },
+    {
+      "talent_id": "cultist_godblade_cosmic_horror",
+      "name": "Cosmic Horror",
+      "description": "Umbral Voyage horrifies enemies at its landing spot, and increases your damage to them for the duration.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "umbral_voyage_damage_pct": 0.06
+      },
+      "connected_to": [
+        "cultist_godblade_empires_grasp"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_encroaching_presence",
+      "name": "Encroaching Presence",
+      "description": "Melee critical strikes reduce the cooldown of Rift and Gaze of C'Thun.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "melee_crit_reduces_rift_gaze_cd": 1.0
+      },
+      "connected_to": [
+        "cultist_godblade_tentacle_of_nzoth"
+      ]
+    },
+    {
+      "talent_id": "cultist_godblade_abyssal_command",
+      "name": "Abyssal Command",
+      "description": "Nearby Crusher Tentacles deal AoE Shadow damage, scaling with Intellect, and knock enemies airborne.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "crusher_tentacle_aoe": 1
+      },
+      "connected_to": [
+        "cultist_godblade_shadow_of_the_void_capstone"
+      ],
+      "_source": "CoA handoff doc: 'AoE Shadow damage from nearby Crusher Tentacles (scales with Intellect); knocks enemies airborne.'"
+    }
+  ]
+}

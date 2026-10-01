@@ -1,0 +1,745 @@
+{
+  "class": "Warrior",
+  "abilities": [
+    {
+      "ability_id": "warrior_attack",
+      "name": "Attack",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic melee attack.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "warrior_heroic_strike",
+      "name": "Heroic Strike",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A powerful melee strike that deals additional damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 20,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "warrior_rend",
+      "name": "Rend",
+      "resource_type": "rage",
+      "cooldown": 2,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Wounds the target, causing bleed damage over 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 10,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 15,
+          "cost": 10,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 31,
+          "cost": 10,
+          "effect_value": 115
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 10,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_dot",
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "warrior_thunder_clap",
+      "name": "Thunder Clap",
+      "resource_type": "rage",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blasts nearby enemies with a concussive shockwave.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 75
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 101
+        }
+      ],
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_battle_shout",
+      "name": "Battle Shout",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power": 30
+      },
+      "description": "A rallying cry that increases your Attack Power for 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 10,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 10,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 29,
+          "cost": 10,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 10,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "party",
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_overpower",
+      "name": "Overpower",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Exploits an opening, striking with unavoidable force.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 5,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 5,
+          "effect_value": 84
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 5,
+          "effect_value": 112
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 5,
+          "effect_value": 140
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "warrior_demoralizing_shout",
+      "name": "Demoralizing Shout",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": -35
+      },
+      "description": "Reduces the enemy's Attack Power for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 10,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 10,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 10,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_buff"
+    },
+    {
+      "ability_id": "warrior_mortal_strike",
+      "name": "Mortal Strike",
+      "resource_type": "rage",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Mortal Strike talent in the Arms tree, matching real WOTLK where this is talent-exclusive to Arms, not a baseline ability. A vicious strike that deals heavy weapon damage and wounds the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 86
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 112
+        }
+      ],
+      "icon_id": "ability_melee",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "warrior_execute",
+      "name": "Execute",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Attempts to finish off a wounded foe with devastating force. Only usable against targets below 20% health, unless a Sudden Death proc has granted a one-time bypass.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 15,
+          "effect_value": 68
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 15,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": "ability_spell",
+      "execute_threshold_pct": 20
+    },
+    {
+      "ability_id": "warrior_bladestorm",
+      "name": "Bladestorm",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Bladestorm talent in the Arms tree. A whirling storm of steel, striking all nearby enemies.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 82
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_devastate",
+      "name": "Devastate",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Devastate talent in the Protection tree. Deals damage to the target. Real WOTLK Devastate also applies a stacking Armor-reduction debuff (Sunder Armor) - not modeled here since combining a damage hit with a persistent debuff in one ability isn't supported yet, so this is damage-only.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 15,
+          "effect_value": 42
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_concussion_blow",
+      "name": "Concussion Blow",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Concussion Blow talent in the Protection tree. Deals damage to the target. Real WOTLK Concussion Blow also stuns for 5 sec - no stun mechanic exists yet, so this is damage-only.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 70
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_shockwave",
+      "name": "Shockwave",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Shockwave talent in the Protection tree. Deals damage to all enemies in front of you. Real WOTLK Shockwave also stuns for 4 sec - no stun mechanic exists yet, so this is damage-only.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 72
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_bloodthirst",
+      "name": "Bloodthirst",
+      "resource_type": "rage",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Bloodthirst talent in the Fury tree. Instantly attacks the target based on your Attack Power.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 58
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_bloodrage",
+      "name": "Bloodrage",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Instantly generates Rage, then a bit more each turn briefly.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "generates": {
+        "resource": "rage",
+        "amount": 20
+      },
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_cleave",
+      "name": "Cleave",
+      "resource_type": "rage",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A sweeping attack hitting all nearby enemies.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 48
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_disarm",
+      "name": "Disarm",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "attack_power": -60
+      },
+      "description": "Requires Defensive Stance. Reduces the target's damage by removing their weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "requires_form": [
+        "defensive"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_retaliation",
+      "name": "Retaliation",
+      "resource_type": "rage",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "crit_chance_physical": 15
+      },
+      "description": "A brief flurry of counter-attacks against anyone who strikes you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_intimidating_shout",
+      "name": "Intimidating Shout",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "attack_power": -80
+      },
+      "description": "A terrifying shout that weakens all nearby enemies.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_shield_wall",
+      "name": "Shield Wall",
+      "resource_type": "rage",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -0.4
+      },
+      "description": "Requires Defensive Stance. Drastically reduces damage taken for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "requires_form": [
+        "defensive"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_charge",
+      "name": "Charge",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Battle Stance. Charges the target, dealing damage and generating Rage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        }
+      ],
+      "requires_form": [
+        "battle"
+      ],
+      "generates": {
+        "resource": "rage",
+        "amount": 15
+      },
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_intercept",
+      "name": "Intercept",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Berserker Stance. Charges the target, dealing damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 10,
+          "effect_value": 66
+        }
+      ],
+      "requires_form": [
+        "berserker"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_berserker_rage",
+      "name": "Berserker Rage",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Generates Rage and grants immunity to Fear for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "generates": {
+        "resource": "rage",
+        "amount": 15
+      },
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_whirlwind",
+      "name": "Whirlwind",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Berserker Stance. A spinning attack that hits all nearby enemies.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 58
+        }
+      ],
+      "target_type": "enemy_aoe",
+      "requires_form": [
+        "berserker"
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_pummel",
+      "name": "Pummel",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "hit_chance_spell": -70
+      },
+      "description": "PLACEHOLDER (no cast-interrupt mechanic exists): real WOTLK Pummel silences spellcasting for 4 sec - here it heavily reduces the target's spell hit chance for 1 turn instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 10,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_recklessness",
+      "name": "Recklessness",
+      "resource_type": "rage",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "crit_chance_physical": 100,
+        "damage_taken_pct": 0.2
+      },
+      "description": "Guarantees critical strikes for a short time, at the cost of taking more damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "warrior_sunder_armor",
+      "name": "Sunder Armor",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "debuff",
+      "duration": 4,
+      "stat_mods": {
+        "armor": -60
+      },
+      "description": "Weakens the target's Armor for a short time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 15,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    }
+  ]
+}

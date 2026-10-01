@@ -1,0 +1,569 @@
+{
+  "spec_name": "Runemaster Glyphic",
+  "tree_id": "runemaster_glyphic",
+  "description": "Arcane-caster-style burst mage - builds a Frost/Fire/Arcane Glyph chain off Elemental Burst and Primordial Blast, then detonates it with Glyphic Ruin or Thaumaturgy.",
+  "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers where available. Real mechanic per the handoff: sequential glyph chain (cast while Frost Glyph active -> Flame Glyph; cast while Flame Glyph active -> Arcane Glyph), detonated via Glyphic Ruin (bigger hit) or Thaumaturgy (cheap instant). Glyphic Ruin and Thaumaturgy confirmed via screenshot; the glyph-chain-sequencing mechanic itself isn't dynamically modeled yet (Runes resource tracks a count, not which element is active) - see _implementation_note on the capstone.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "runemaster_glyphic_wizardry",
+      "name": "Wizardry",
+      "description": "Increases Intellect by 3 per rank, and increases Mana gained per point of Intellect.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "intellect": 3
+      },
+      "connected_to": [
+        "runemaster_glyphic_expert_elementalist"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_cosmic_impact",
+      "name": "Cosmic Impact",
+      "description": "Increases spell critical strike chance and spell haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0,
+        "haste": 1.0
+      },
+      "connected_to": [
+        "runemaster_glyphic_glyph_seeker"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_well_educated",
+      "name": "Well Educated",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "runemaster_glyphic_concentrated_magic"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_ley_magician",
+      "name": "Ley Magician",
+      "description": "Increases spell damage scaling from Spirit by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_spirit_pct": 0.02
+      },
+      "connected_to": [
+        "runemaster_glyphic_mana_runes"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_expert_elementalist",
+      "name": "Expert Elementalist",
+      "description": "Reduces the cast time of Elemental Burst and Glyphic Ruin by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_runemaster_elemental_burst_cast_time_pct": -0.03
+      },
+      "connected_to": [
+        "runemaster_glyphic_wizardry"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_glyph_seeker",
+      "name": "Glyph Seeker",
+      "description": "Increases Primordial Blast and Thaumaturgy damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_runemaster_primordial_blast_damage": 0.04
+      },
+      "connected_to": [
+        "runemaster_glyphic_cosmic_impact"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_concentrated_magic",
+      "name": "Concentrated Magic",
+      "description": "Increases Spirit by 2% per rank and reduces cast pushback taken.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "spirit_pct": 0.02
+      },
+      "connected_to": [
+        "runemaster_glyphic_well_educated"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_mana_runes",
+      "name": "Mana Runes",
+      "description": "Increases maximum Mana and spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.01,
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "runemaster_glyphic_ley_magician"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_frigid_blast",
+      "name": "Frigid Blast",
+      "description": "Learn Frigid Blast, a delayed-release Frost nuke that accumulates damage before detonating.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_frigid_blast"
+      },
+      "connected_to": [
+        "runemaster_glyphic_expert_elementalist",
+        "runemaster_glyphic_glyphic_ruin"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_primordial_pulse",
+      "name": "Primordial Pulse",
+      "description": "Learn Primordial Pulse, inscribing an area with runes that repeatedly damage enemies inside.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_primordial_pulse"
+      },
+      "connected_to": [
+        "runemaster_glyphic_mana_runes"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_glyphic_ruin",
+      "name": "Glyphic Ruin",
+      "description": "Learn Glyphic Ruin, unleashing your active Glyph's effect for a burst of Elemental damage.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_glyphic_ruin"
+      },
+      "connected_to": [
+        "runemaster_glyphic_frigid_blast",
+        "runemaster_glyphic_eye_of_the_beholder"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 20, 'Unleash your active Glyph effect on an enemy and deal 153 Elemental Damage.'"
+    },
+    {
+      "talent_id": "runemaster_glyphic_thaumaturgy",
+      "name": "Thaumaturgy",
+      "description": "Learn Thaumaturgy, a cheap instant Arcane blast that also unleashes your active Glyph.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_thaumaturgy"
+      },
+      "connected_to": [
+        "runemaster_glyphic_primordial_pulse"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 36, '99 Arcane damage and unleash your active Glyph effect.'"
+    },
+    {
+      "talent_id": "runemaster_glyphic_unleashed_power",
+      "name": "Unleashed Power",
+      "description": "Increases spell power scaling on Glyph unleash effects by 3% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "glyph_unleash_spell_power_pct": 0.03
+      },
+      "connected_to": [
+        "runemaster_glyphic_glyphic_ruin",
+        "runemaster_glyphic_eye_of_the_beholder"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_eye_of_the_beholder",
+      "name": "Eye of the Beholder",
+      "description": "Increases spell critical strike chance and empowers Glyphic Ruin/Primordial Blast damage for a short window.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "runemaster_eye_of_the_beholder"
+      },
+      "connected_to": [
+        "runemaster_glyphic_glyphic_ruin",
+        "runemaster_glyphic_glyphic_overload"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_manuscription",
+      "name": "Manuscription",
+      "description": "Learn Manuscription, a strong Arcane DoT that envelops the target and nearby enemies.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "runemaster_manuscription"
+      },
+      "connected_to": [
+        "runemaster_glyphic_unleashed_power",
+        "runemaster_glyphic_glyphic_overload"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_glyphic_overload",
+      "name": "Glyphic Overload",
+      "description": "Instantly grants all 3 Glyphs and empowers their next unleash. Usable while stealthed.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "runemaster_glyphic_overload"
+      },
+      "connected_to": [
+        "runemaster_glyphic_eye_of_the_beholder",
+        "runemaster_glyphic_manuscription"
+      ],
+      "_source": "CoA handoff doc confirmed as the Glyphic burst capstone: 'Instantly grants all 3 Glyphs + overload: their next unleash gets a bonus effect.' The sequential Frost->Flame->Arcane glyph-chain mechanic this spec is built around isn't dynamically modeled in this engine yet (RUNES resource tracks a count, not which element is currently active) - flag for a real implementation pass before this spec is played seriously."
+    },
+    {
+      "talent_id": "runemaster_glyphic_devour_mana",
+      "name": "Devour Mana",
+      "description": "Learn Devour Mana, destroying an enemy's mana and dealing Arcane damage based on the amount burned.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_devour_mana"
+      },
+      "connected_to": [
+        "runemaster_glyphic_frigid_blast",
+        "runemaster_glyphic_primordial_pulse"
+      ],
+      "_source": "CoA handoff doc: 'Destroys enemy mana; each point burned deals Arcane damage.'"
+    },
+    {
+      "talent_id": "runemaster_glyphic_kirin_tor_adept",
+      "name": "Kirin Tor Adept",
+      "description": "Increases the effectiveness of Eye of the Beholder by 8% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "ability_runemaster_eye_of_the_beholder_potency": 0.08
+      },
+      "connected_to": [
+        "runemaster_glyphic_eye_of_the_beholder"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_runic_obliteration",
+      "name": "Runic Obliteration",
+      "description": "Learn Runic Obliteration, a repeating Elemental-damage missile barrage where each missile grants a Glyph.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_runic_obliteration"
+      },
+      "connected_to": [
+        "runemaster_glyphic_frigid_blast",
+        "runemaster_glyphic_primordial_pulse"
+      ],
+      "_source": "CoA handoff doc: 'Repeating Elemental damage; each missile grants a Glyph.' Short-CD instant filler that both hits and feeds the glyph chain, per the playstyle writeup."
+    },
+    {
+      "talent_id": "runemaster_glyphic_silencing_rune",
+      "name": "Silencing Rune",
+      "description": "Learn Silencing Rune, a ground area that activates after a delay and silences enemies inside.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_silencing_rune"
+      },
+      "connected_to": [
+        "runemaster_glyphic_thaumaturgy"
+      ],
+      "_source": "CoA handoff doc confirmed as a real school-lock/AoE-silence tool: 'Ground area, activates after a delay: silences enemies inside.'"
+    },
+    {
+      "talent_id": "runemaster_glyphic_rune_master",
+      "name": "Rune Master",
+      "description": "Empower your casting, increasing haste and damage but raising costs, while draining mana. Cannot move while active.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "runemaster_rune_master"
+      },
+      "connected_to": [
+        "runemaster_glyphic_manuscription"
+      ],
+      "_source": "CoA handoff doc: 'Empowers casting (haste+damage up, cost up) while draining mana; can't move; scales with active-cast dealing damage.' A real channel-style burst cooldown."
+    },
+    {
+      "talent_id": "runemaster_glyphic_scroll_of_magic",
+      "name": "Scroll of Magic",
+      "description": "Unleashing a Glyph increases your next Unleashed Glyph's damage, stacking.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "glyph_unleash_stack_damage_pct": 0.03
+      },
+      "connected_to": [
+        "runemaster_glyphic_unleashed_power"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_primordial_salvos",
+      "name": "Primordial Salvos",
+      "description": "Unleashing a Glyph now deals extra same-school damage to nearby enemies.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "glyph_unleash_splash": 1
+      },
+      "connected_to": [
+        "runemaster_glyphic_eye_of_the_beholder"
+      ],
+      "_source": "CoA handoff doc: 'Unleashing a Glyph deals extra same-school damage to nearby enemies.' Confirmed as the mechanism behind Arcane Unleash's AoE splash in the playstyle writeup."
+    },
+    {
+      "talent_id": "runemaster_glyphic_kirin_tor_agent",
+      "name": "Kirin Tor Agent",
+      "description": "While Eye of the Beholder is active, your Rune spell and Phase Out cooldowns are rapidly reduced.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "conditional_rune_cooldown_pct": 0.15
+      },
+      "connected_to": [
+        "runemaster_glyphic_rune_master",
+        "runemaster_glyphic_unmaker"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_unmaker",
+      "name": "Unmaker",
+      "description": "Increases Glyphic Ruin's critical strike damage and grants Cosmic Impact.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "ability_runemaster_glyphic_ruin_crit_damage_pct": 0.3
+      },
+      "connected_to": [
+        "runemaster_glyphic_kirin_tor_agent",
+        "runemaster_glyphic_glyphic_overload"
+      ],
+      "_source": "CoA handoff doc: 'Boosts Glyphic Ruin crit damage; grants Cosmic Impact.'"
+    },
+    {
+      "talent_id": "runemaster_glyphic_mind_wrath",
+      "name": "Mind Wrath",
+      "description": "Ley Lock now interrupts an additional nearby enemy.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_runemaster_ley_lock_extra_target": 1
+      },
+      "connected_to": [
+        "runemaster_glyphic_devour_mana"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_glyphs_of_power",
+      "name": "Glyphs of Power",
+      "description": "Direct damage has a chance to restore mana.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "direct_damage_mana_return_chance": 0.05
+      },
+      "connected_to": [
+        "runemaster_glyphic_glyphic_ruin",
+        "runemaster_glyphic_thaumaturgy"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_ley_walker",
+      "name": "Ley Walker",
+      "description": "Warpdagger's cast and reactivation remove root and snare effects from you.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "warpdagger_cc_cleanse": 1
+      },
+      "connected_to": [
+        "runemaster_glyphic_unleashed_power",
+        "runemaster_glyphic_scroll_of_magic"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_phase_rush",
+      "name": "Phase Rush",
+      "description": "Casting Thaumaturgy grants a burst of movement speed.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_runemaster_thaumaturgy_speed_proc": 1
+      },
+      "connected_to": [
+        "runemaster_glyphic_glyphs_of_power"
+      ]
+    },
+    {
+      "talent_id": "runemaster_glyphic_arcane_student",
+      "name": "Arcane Student",
+      "description": "Guarantees Glyphic Ruin critically strikes while Eye of the Beholder is active.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "conditional_glyphic_ruin_guaranteed_crit": 1
+      },
+      "connected_to": [
+        "runemaster_glyphic_unmaker"
+      ],
+      "_source": "CoA handoff doc, referenced in Glyphic's Strengths writeup: 'Arcane Student guaranteeing the Glyphic Ruin crit' when layered with Eye of the Beholder + Glyphic Overload for burst."
+    },
+    {
+      "talent_id": "runemaster_glyphic_cold_elements",
+      "name": "Cold Elements",
+      "description": "Elemental Burst and Primordial Blast have a chance to reset and instant-cast your next Frigid Blast.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "frigid_blast_reset_chance": 0.08
+      },
+      "connected_to": [
+        "runemaster_glyphic_runic_obliteration"
+      ],
+      "_source": "CoA handoff doc, Glyphic's Strengths/Weaknesses writeup: 'Cold Elements resets/instant-casts Frigid Blast' - keeps a hard Frost nuke available alongside the glyph chain."
+    }
+  ]
+}

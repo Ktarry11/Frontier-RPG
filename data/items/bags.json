@@ -1,0 +1,148 @@
+{
+  "_notes": "Hand-authored bag catalog - the exception to this project's usual procedural-item rule (see LootGenerator). Bags are a small, fixed, named set, not something that benefits from procedural stat rolls the way armor/weapons do - a bag's only stat is bag_capacity. slot is the generic 'bag' PAIRED_SLOTS key (entities/equipment.py) so any of these fills whichever of bag1-bag4 is open, same convention as 'ring'/'trinket'. icon_id points at assets/icons/bags/<icon_id>.png (IconRenderer.BAG_ICON_DIR) - real WoW Classic icon art (Kyle's 'WoW Vanilla/Classic Icon Pack' upload, INV_Misc_Bag_* series), replacing an earlier hand-cropped fan-art sheet. Capacity/rarity/required_level tiered low-to-high roughly matching WoW's own bag progression, assigned by each icon's visual grandeur - plain sacks read as starter tier, the rune-etched/locked ones read as top tier.",
+  "bags": [
+    {
+      "item_id": "small_burlap_sack",
+      "name": "Small Burlap Sack",
+      "icon_id": "bag_inv_misc_bag_09",
+      "bag_capacity": 4,
+      "rarity": "poor",
+      "required_level": 1,
+      "sell_price": 5,
+      "vendor_price": 20,
+      "flavor_text": "Held together by hope and a drawstring."
+    },
+    {
+      "item_id": "green_dyed_sack",
+      "name": "Green-Dyed Sack",
+      "icon_id": "bag_inv_misc_bag_09_green",
+      "bag_capacity": 4,
+      "rarity": "poor",
+      "required_level": 1,
+      "sell_price": 5,
+      "vendor_price": 20,
+      "flavor_text": "Dyed to hide the grass stains."
+    },
+    {
+      "item_id": "worn_leather_satchel",
+      "name": "Worn Leather Satchel",
+      "icon_id": "bag_inv_misc_bag_07",
+      "bag_capacity": 6,
+      "rarity": "common",
+      "required_level": 1,
+      "sell_price": 15,
+      "vendor_price": 60,
+      "flavor_text": "Seen a few roads. Still holds together."
+    },
+    {
+      "item_id": "buckled_saddlebag",
+      "name": "Buckled Saddlebag",
+      "icon_id": "bag_inv_misc_bag_08",
+      "bag_capacity": 6,
+      "rarity": "common",
+      "required_level": 1,
+      "sell_price": 15,
+      "vendor_price": 60,
+      "flavor_text": "Simple stitching, a reliable buckle."
+    },
+    {
+      "item_id": "clasped_traveling_bag",
+      "name": "Clasped Traveling Bag",
+      "icon_id": "bag_inv_misc_bag_01",
+      "bag_capacity": 8,
+      "rarity": "common",
+      "required_level": 5,
+      "sell_price": 30,
+      "vendor_price": 120,
+      "flavor_text": "A jeweled clasp, more decorative than it looks."
+    },
+    {
+      "item_id": "rose_clasped_bag",
+      "name": "Rose-Clasped Bag",
+      "icon_id": "bag_inv_misc_bag_02",
+      "bag_capacity": 8,
+      "rarity": "common",
+      "required_level": 5,
+      "sell_price": 30,
+      "vendor_price": 120,
+      "flavor_text": "Dyed a deep, even red - someone's craft, not mass work."
+    },
+    {
+      "item_id": "sage_clasped_bag",
+      "name": "Sage-Clasped Bag",
+      "icon_id": "bag_inv_misc_bag_03",
+      "bag_capacity": 10,
+      "rarity": "uncommon",
+      "required_level": 10,
+      "sell_price": 55,
+      "vendor_price": 220,
+      "flavor_text": "Smells faintly of the forest floor."
+    },
+    {
+      "item_id": "violet_clasped_bag",
+      "name": "Violet-Clasped Bag",
+      "icon_id": "bag_inv_misc_bag_04",
+      "bag_capacity": 10,
+      "rarity": "uncommon",
+      "required_level": 10,
+      "sell_price": 55,
+      "vendor_price": 220,
+      "flavor_text": "Reinforced seams, built to actually carry a load."
+    },
+    {
+      "item_id": "locked_drawstring_pack",
+      "name": "Locked Drawstring Pack",
+      "icon_id": "bag_inv_misc_bag_13",
+      "bag_capacity": 12,
+      "rarity": "uncommon",
+      "required_level": 14,
+      "sell_price": 80,
+      "vendor_price": 320,
+      "flavor_text": "Nobody's picking that lock without the key."
+    },
+    {
+      "item_id": "frostward_pack",
+      "name": "Frostward Pack",
+      "icon_id": "bag_inv_misc_bag_14",
+      "bag_capacity": 12,
+      "rarity": "uncommon",
+      "required_level": 14,
+      "sell_price": 80,
+      "vendor_price": 320,
+      "flavor_text": "The lock never quite thaws."
+    },
+    {
+      "item_id": "runeforged_strongbox",
+      "name": "Runeforged Strongbox",
+      "icon_id": "bag_inv_misc_bag_12",
+      "bag_capacity": 16,
+      "rarity": "rare",
+      "required_level": 22,
+      "sell_price": 180,
+      "vendor_price": 720,
+      "flavor_text": "The lightning bolt etching isn't just decoration."
+    },
+    {
+      "item_id": "flameward_coffer",
+      "name": "Flameward Coffer",
+      "icon_id": "bag_inv_misc_bag_11",
+      "bag_capacity": 18,
+      "rarity": "rare",
+      "required_level": 26,
+      "sell_price": 240,
+      "vendor_price": 960,
+      "flavor_text": "Warm to the touch, even in the dead of winter."
+    },
+    {
+      "item_id": "verdant_reagent_case",
+      "name": "Verdant Reagent Case",
+      "icon_id": "bag_inv_misc_bag_18",
+      "bag_capacity": 20,
+      "rarity": "epic",
+      "required_level": 30,
+      "sell_price": 350,
+      "vendor_price": 1400,
+      "flavor_text": "Still smells like the last apothecary who packed it."
+    }
+  ]
+}

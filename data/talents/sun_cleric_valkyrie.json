@@ -1,0 +1,494 @@
+{
+  "spec_name": "Sun Cleric Valkyrie",
+  "tree_id": "sun_cleric_valkyrie",
+  "description": "Fistweaver-flavored melee hybrid - autoattacks and Justice/Glorious Execution build Solar Power toward a Dawn window that auto-crits Horusath Blast and unlocks Sunslam.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Judgement Day, Justice, Gavel of Wrath, Sunslam, Vow of Dawn confirmed via screenshot as class-wide/shared). Real mechanic per handoff: Valkyr's Grip enables dual-wielding two-handed maces/swords/polearms (per Kyle's direction), Vow of Radiance transforms into Vow of the Valkyr at Lvl 15, autos + melee-damage stacks (Sunwalker) build Solar Power that culminates in Champion of the Sun into Judgement Day's disorient-and-detonate.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "sun_cleric_valkyrie_valorous_champion",
+      "name": "Valorous Champion",
+      "description": "Grants Attack Power and spell hit rating from Strength at 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "ap_from_strength_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_valkyrie_15"
+      ],
+      "_source": "CoA handoff doc: 'Level 20 Passive. AP + spell hit rating from Strength.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_angelic",
+      "name": "Angelic",
+      "description": "Reduces fall damage taken by 20% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "fall_damage_reduction_pct": 0.2
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_valkyrs_grip"
+      ]
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_solar_crusader",
+      "name": "Solar Crusader",
+      "description": "Increases Dawn's damage and healing bonus by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "dawn_effectiveness_pct": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_champion_of_the_sun"
+      ],
+      "_source": "CoA handoff doc: 'Boosts Dawn's damage + healing.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_valkyrs_grip",
+      "name": "Valkyr's Grip",
+      "description": "Enables dual-wielding two-handed maces, swords, or polearms, and increases hit chance while dual-wielding.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "unlock_mechanic": "two_hand_dual_wield"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_angelic",
+        "sun_cleric_valkyrie_glorious_execution"
+      ],
+      "_source": "CoA handoff doc confirmed, per Kyle's direction: 'Enables dual-wield or two-hand mace/sword/polearm in each hand; boosts hit chance.' Valkyrie's signature two-hander dual-wield mechanic."
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_valkyrie_15",
+      "name": "Valkyrie",
+      "description": "Transforms Vow of Radiance into Vow of the Valkyr.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "unlock_mechanic": "vow_of_the_valkyr_transform"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_valorous_champion",
+        "sun_cleric_valkyrie_glorious_execution"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 15 Passive. Transforms Vow of Radiance into Vow of the Valkyr.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_champion_of_the_sun",
+      "name": "Champion of the Sun",
+      "description": "Learn Champion of the Sun, empowering autoattacks with bonus Holy damage for a window.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "sun_cleric_champion_of_the_sun"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_solar_crusader"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Boosts auto attacks with bonus Holy damage, for a window.' Valkyrie's real burst-window opener."
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_glorious_execution",
+      "name": "Glorious Execution",
+      "description": "Learn Glorious Execution, a dual-weapon strike that regenerates mana equal to a percentage of the damage dealt.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "sun_cleric_glorious_execution"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_valkyrs_grip",
+        "sun_cleric_valkyrie_valkyrie_15",
+        "sun_cleric_valkyrie_sunsworn"
+      ],
+      "_source": "Confirmed screenshot: 'Strike with both weapons dealing Weapon Damage plus 13 Physical damage and regenerate mana equal to 5% of the damage dealt.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_sunsworn",
+      "name": "Sunsworn",
+      "description": "Increases Physical damage dealt by 3% per rank, and autoattacks have a chance to restore mana.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "physical_damage_pct": 0.03
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_glorious_execution",
+        "sun_cleric_valkyrie_judgement_day"
+      ]
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_sun_gift",
+      "name": "Sun's Gift",
+      "description": "Horusath Blast deals bonus Attack-Power-scaling damage and grants allies Replenishment.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_mechanic": "sun_gift_horusath"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_sunsworn"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 30 Passive. Horusath Blast deals bonus AP-scaling damage + grants allies Replenishment.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_divine_retribution",
+      "name": "Divine Retribution",
+      "description": "Banks a percentage of damage dealt to a target, unleashing it as AoE Holy damage after a delay.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "divine_retribution_bank"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_sun_gift"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Banks 25% of damage dealt to a target, unleashing it as AoE Holy damage after a delay.' Valkyrie's real stored-damage burst payoff."
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_valkyrs_calling",
+      "name": "Valkyr's Calling",
+      "description": "Leap at a target, immune to physical and spell damage in flight, then land for AoE Holy damage.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_valkyrs_calling"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_divine_retribution"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Leaps at a target, immune to physical + spell during flight; lands for AoE Holy damage.' Valkyrie's real escape-and-reset capstone."
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_judgement_day",
+      "name": "Judgement Day",
+      "description": "Learn Judgement Day, an AoE disorient. Damage dealt ends the effect but increases their damage taken from your next hit.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_mechanic": "judgement_day_talent"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_sunsworn"
+      ],
+      "_source": "Confirmed screenshot (class-wide entry): AoE disorient with damage-taken bonus. Valkyrie's real Repentance-into-finisher setup."
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_march_of_the_valkyr",
+      "name": "March of the Valkyr",
+      "description": "Grants the party and raid a damage buff, and increases your parry chance. Does not stack with similar effects.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "sun_cleric_march_of_the_valkyr"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_judgement_day",
+        "sun_cleric_valkyrie_pendant_of_the_sun"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid damage buff (no stacking with similar); boosts your parry chance.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_pendant_of_the_sun",
+      "name": "Pendant of the Sun",
+      "description": "Refreshes Dawn's duration and charges.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_mechanic": "pendant_of_the_sun_refresh"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_march_of_the_valkyr"
+      ],
+      "_source": "CoA handoff doc: 'Refreshes Dawn's duration + charges.' Keeps the Dawn empowered window rolling."
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_its_always_sunny",
+      "name": "It's Always Sunny",
+      "description": "Dawn activation reduces the cooldowns of Radiance, Valkyr's Calling, and Sunslam.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "dawn_cooldown_reduction"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_pendant_of_the_sun"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Dawn activation reduces Radiance/Valkyr's Calling/Sunslam cooldowns.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_holy_giant",
+      "name": "Holy Giant",
+      "description": "Doubles the effectiveness of Vow of the Valkyr.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "vow_of_the_valkyr_effectiveness_pct": 1.0
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_its_always_sunny"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 50 Passive. Doubles Vow of the Valkyr's effectiveness.' Valkyrie's real Solar Power engine capstone."
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_solar_might",
+      "name": "Solar Might",
+      "description": "Increases Strength and Intellect by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "strength_pct": 0.02,
+        "intellect_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_valorous_champion"
+      ],
+      "_source": "CoA handoff doc: 'Solar Might (T) - Boosts Strength + Intellect.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_warriors_light",
+      "name": "Warrior's Light",
+      "description": "Increases Sunflare and Justice damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_sun_cleric_justice_damage": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_glorious_execution",
+        "sun_cleric_valkyrie_judgement_day"
+      ],
+      "_source": "CoA handoff doc: 'Boosts Sunflare/Justice damage.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_path_to_glory",
+      "name": "Path To Glory",
+      "description": "Reduces the cooldown of Justice and Glorious Execution by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_sun_cleric_justice_cooldown_pct": -0.04
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_sunsworn"
+      ],
+      "_source": "CoA handoff doc: 'Reduces Justice/Glorious Execution cooldown.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_knight_of_dawn",
+      "name": "Knight of Dawn",
+      "description": "Glorious Execution has a chance to strike an additional time.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_sun_cleric_glorious_execution_extra_strike_chance": 0.03
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_sun_gift"
+      ],
+      "_source": "CoA handoff doc: 'Glorious Execution chance to strike an extra time.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_light_of_the_sun",
+      "name": "Light of the Sun",
+      "description": "Parrying restores health and increases your next parry chance.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "parry_heal": 0.03
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_divine_retribution"
+      ],
+      "_source": "CoA handoff doc: 'Parrying restores health + boosts next parry chance.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_vindicator",
+      "name": "Vindicator",
+      "description": "Glorious Execution ignores the target's Armor while Vow of the Valkyr is active.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "vindicator_armor_ignore"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_holy_giant"
+      ],
+      "_source": "CoA handoff doc: 'Glorious Execution ignores target's armor while Vow of the Valkyr active.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_impartial",
+      "name": "Impartial",
+      "description": "Increases Strength, maximum Mana, and expertise by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "strength_pct": 0.02,
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_valkyrs_grip",
+        "sun_cleric_valkyrie_valorous_champion"
+      ],
+      "_source": "CoA handoff doc: 'Boosts Strength + max mana + expertise.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_scrying_orb",
+      "name": "Scrying Orb",
+      "description": "Learn Scrying Orb, summoning a controllable scrying orb for reconnaissance.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "sun_cleric_scrying_orb"
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_judgement_day"
+      ],
+      "_source": "CoA handoff doc: 'Summons a controllable scrying orb.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_valkyries_watch",
+      "name": "Valkyrie's Watch",
+      "description": "Reduces damage that would drop you below 35% health, and reduces damage taken while below it.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.03
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_holy_giant"
+      ],
+      "_source": "CoA handoff doc: 'Reduces damage that would drop you below 35% health, and damage taken below it.'"
+    },
+    {
+      "talent_id": "sun_cleric_valkyrie_solar_might_2",
+      "name": "Faith Militant",
+      "description": "Increases melee attack speed per Sunwalker stack held.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "sunwalker_haste_per_stack": 0.01
+      },
+      "connected_to": [
+        "sun_cleric_valkyrie_its_always_sunny",
+        "sun_cleric_valkyrie_pendant_of_the_sun"
+      ],
+      "_source": "CoA handoff doc: 'Sunsworn also boosts melee attack speed per stack.'"
+    }
+  ]
+}

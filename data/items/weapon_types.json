@@ -1,0 +1,428 @@
+{
+  "weapon_types": {
+    "sword_1h": {
+      "display_name": "Sword",
+      "hand": "main_or_off",
+      "valid_stat_templates": [
+        "str_physical",
+        "agi_physical",
+        "int_caster"
+      ],
+      "budget_multiplier": 1.0,
+      "base_attack_speed": 2.4,
+      "icon_id": "rarity_common",
+      "damage_tier": "one_hand"
+    },
+    "sword_2h": {
+      "display_name": "Two-Handed Sword",
+      "hand": "two_hand",
+      "valid_stat_templates": [
+        "str_physical",
+        "agi_physical"
+      ],
+      "budget_multiplier": 1.8,
+      "base_attack_speed": 3.4,
+      "icon_id": "rarity_common",
+      "damage_tier": "two_hand"
+    },
+    "axe_1h": {
+      "display_name": "Axe",
+      "hand": "main_or_off",
+      "valid_stat_templates": [
+        "str_physical",
+        "agi_physical"
+      ],
+      "budget_multiplier": 1.0,
+      "base_attack_speed": 2.6,
+      "icon_id": "rarity_common",
+      "damage_tier": "one_hand"
+    },
+    "axe_2h": {
+      "display_name": "Two-Handed Axe",
+      "hand": "two_hand",
+      "valid_stat_templates": [
+        "str_physical"
+      ],
+      "budget_multiplier": 1.8,
+      "base_attack_speed": 3.6,
+      "icon_id": "rarity_common",
+      "damage_tier": "two_hand"
+    },
+    "mace_1h": {
+      "display_name": "Mace",
+      "hand": "main_or_off",
+      "valid_stat_templates": [
+        "str_physical",
+        "agi_physical",
+        "int_caster"
+      ],
+      "budget_multiplier": 1.0,
+      "base_attack_speed": 2.6,
+      "icon_id": "rarity_common",
+      "damage_tier": "one_hand"
+    },
+    "mace_2h": {
+      "display_name": "Two-Handed Mace",
+      "hand": "two_hand",
+      "valid_stat_templates": [
+        "str_physical",
+        "int_caster"
+      ],
+      "budget_multiplier": 1.8,
+      "base_attack_speed": 3.6,
+      "icon_id": "rarity_common",
+      "damage_tier": "two_hand"
+    },
+    "dagger": {
+      "display_name": "Dagger",
+      "hand": "main_or_off",
+      "valid_stat_templates": [
+        "agi_physical",
+        "int_caster"
+      ],
+      "budget_multiplier": 0.85,
+      "base_attack_speed": 1.7,
+      "icon_id": "rarity_common",
+      "damage_tier": "one_hand"
+    },
+    "fist_weapon": {
+      "display_name": "Fist Weapon",
+      "hand": "main_or_off",
+      "valid_stat_templates": [
+        "str_physical",
+        "agi_physical"
+      ],
+      "budget_multiplier": 0.85,
+      "base_attack_speed": 1.8,
+      "icon_id": "rarity_common",
+      "damage_tier": "one_hand"
+    },
+    "staff": {
+      "display_name": "Staff",
+      "hand": "two_hand",
+      "valid_stat_templates": [
+        "int_caster",
+        "str_int_hybrid"
+      ],
+      "budget_multiplier": 1.8,
+      "base_attack_speed": 3.2,
+      "icon_id": "rarity_common",
+      "damage_tier": "staff"
+    },
+    "wand": {
+      "display_name": "Wand",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "int_caster"
+      ],
+      "budget_multiplier": 0.5,
+      "base_attack_speed": 1.9,
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged"
+    },
+    "thrown": {
+      "display_name": "Throwing Knife",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "agi_physical"
+      ],
+      "budget_multiplier": 0.5,
+      "base_attack_speed": 1.8,
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged"
+    },
+    "totem": {
+      "display_name": "Totem",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "int_caster"
+      ],
+      "budget_multiplier": 0.4,
+      "base_attack_speed": 0.0,
+      "class_restriction": [
+        "Shaman"
+      ],
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged"
+    },
+    "shield": {
+      "display_name": "Shield",
+      "hand": "off_hand",
+      "valid_stat_templates": [],
+      "budget_multiplier": 0.75,
+      "base_attack_speed": 0.0,
+      "icon_id": "rarity_common"
+    },
+    "bow": {
+      "display_name": "Bow",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "agi_physical"
+      ],
+      "budget_multiplier": 0.5,
+      "base_attack_speed": 2.8,
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged"
+    },
+    "gun": {
+      "display_name": "Gun",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "agi_physical"
+      ],
+      "budget_multiplier": 0.5,
+      "base_attack_speed": 2.6,
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged"
+    },
+    "crossbow": {
+      "display_name": "Crossbow",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "agi_physical"
+      ],
+      "budget_multiplier": 0.5,
+      "base_attack_speed": 2.4,
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged"
+    },
+    "polearm": {
+      "display_name": "Polearm",
+      "hand": "two_hand",
+      "valid_stat_templates": [
+        "str_physical",
+        "agi_physical"
+      ],
+      "budget_multiplier": 1.8,
+      "base_attack_speed": 3.3,
+      "icon_id": "rarity_common",
+      "damage_tier": "two_hand"
+    }
+  },
+  "class_weapon_map": {
+    "Warrior": [
+      "sword_1h",
+      "sword_2h",
+      "axe_1h",
+      "axe_2h",
+      "mace_1h",
+      "mace_2h",
+      "dagger",
+      "fist_weapon",
+      "thrown",
+      "shield",
+      "gun",
+      "crossbow"
+    ],
+    "Paladin": [
+      "sword_1h",
+      "sword_2h",
+      "mace_1h",
+      "mace_2h",
+      "shield"
+    ],
+    "Hunter": [
+      "sword_1h",
+      "axe_1h",
+      "axe_2h",
+      "dagger",
+      "fist_weapon",
+      "staff",
+      "thrown",
+      "bow",
+      "gun",
+      "crossbow"
+    ],
+    "Rogue": [
+      "sword_1h",
+      "axe_1h",
+      "mace_1h",
+      "dagger",
+      "fist_weapon",
+      "thrown",
+      "gun",
+      "crossbow"
+    ],
+    "Priest": [
+      "mace_1h",
+      "dagger",
+      "staff",
+      "wand"
+    ],
+    "Shaman": [
+      "mace_1h",
+      "mace_2h",
+      "axe_1h",
+      "axe_2h",
+      "dagger",
+      "staff",
+      "fist_weapon",
+      "totem",
+      "shield"
+    ],
+    "Mage": [
+      "sword_1h",
+      "dagger",
+      "staff",
+      "wand"
+    ],
+    "Warlock": [
+      "sword_1h",
+      "dagger",
+      "staff",
+      "wand"
+    ],
+    "Druid": [
+      "mace_1h",
+      "dagger",
+      "staff",
+      "fist_weapon",
+      "mace_2h"
+    ],
+    "Necromancer": [
+      "dagger",
+      "staff",
+      "wand"
+    ],
+    "Pyromancer": [
+      "staff",
+      "wand",
+      "dagger"
+    ],
+    "Runemaster": [
+      "staff",
+      "wand",
+      "mace_1h"
+    ],
+    "Chronomancer": [
+      "staff",
+      "wand",
+      "dagger"
+    ],
+    "Stormbringer": [
+      "staff",
+      "mace_1h",
+      "totem"
+    ],
+    "Barbarian": [
+      "axe_1h",
+      "axe_2h",
+      "mace_2h",
+      "sword_2h",
+      "fist_weapon",
+      "thrown",
+      "gun",
+      "crossbow"
+    ],
+    "Witch Doctor": [
+      "staff",
+      "totem",
+      "dagger",
+      "fist_weapon"
+    ],
+    "Felsworn": [
+      "axe_1h",
+      "sword_1h",
+      "dagger",
+      "fist_weapon"
+    ],
+    "Witch Hunter": [
+      "sword_1h",
+      "axe_1h",
+      "thrown",
+      "shield",
+      "gun",
+      "crossbow"
+    ],
+    "Templar": [
+      "sword_1h",
+      "mace_1h",
+      "shield"
+    ],
+    "Bloodmage": [
+      "dagger",
+      "sword_1h",
+      "staff"
+    ],
+    "Ranger": [
+      "sword_1h",
+      "dagger",
+      "fist_weapon",
+      "thrown",
+      "bow",
+      "gun",
+      "crossbow"
+    ],
+    "Tinker": [
+      "mace_1h",
+      "mace_2h",
+      "dagger",
+      "staff",
+      "shield",
+      "polearm",
+      "gun"
+    ],
+    "Venomancer": [
+      "dagger",
+      "fist_weapon",
+      "thrown",
+      "gun",
+      "crossbow"
+    ],
+    "Reaper": [
+      "sword_2h",
+      "axe_2h",
+      "mace_2h"
+    ],
+    "Primalist": [
+      "mace_1h",
+      "staff",
+      "totem",
+      "fist_weapon"
+    ],
+    "Knight of Xoroth": [
+      "sword_1h",
+      "sword_2h",
+      "mace_1h",
+      "shield"
+    ],
+    "Guardian": [
+      "sword_1h",
+      "mace_1h",
+      "shield"
+    ],
+    "Cultist": [
+      "dagger",
+      "mace_1h",
+      "staff"
+    ],
+    "Starcaller": [
+      "staff",
+      "wand",
+      "mace_1h"
+    ],
+    "Sun Cleric": [
+      "mace_1h",
+      "mace_2h",
+      "shield"
+    ]
+  },
+  "damage_tiers": {
+    "two_hand": {
+      "display_name": "Two-Handed",
+      "dps_multiplier": 1.8
+    },
+    "one_hand": {
+      "display_name": "One-Handed",
+      "dps_multiplier": 1.0
+    },
+    "ranged": {
+      "display_name": "Ranged",
+      "dps_multiplier": 0.85
+    },
+    "staff": {
+      "display_name": "Staff",
+      "dps_multiplier": 0.55
+    }
+  }
+}

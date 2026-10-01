@@ -1,0 +1,432 @@
+{
+  "spec_name": "Cultist Dreadnought",
+  "tree_id": "cultist_dreadnought",
+  "description": "Sword-and-board Shadow tank - blocking and strikes build Insanity, spent through Void Strikes. Twilight Shieldtoss is the engine, hitting harder and healing more the higher your Insanity.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Twilight Shieldtoss, Dreadnought shield, Twilight Domain, Horrifying Presence, Sermon of Dread confirmed via screenshot). Real mechanic per handoff: Insanity builds mainly from blocking (Inner Darkness), drains through Void Strikes, and feeds Twilight Shieldtoss's damage/heal scaling plus Void-Enhanced Shield's absorb above 60-80 Insanity.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "cultist_dreadnought_strength_of_the_sha",
+      "name": "Strength of the Sha",
+      "description": "Increases spell damage scaling from Strength and spell hit from Intellect by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_strength_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_reaver"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Spell damage from Strength; spell hit from Intellect.'"
+    },
+    {
+      "talent_id": "cultist_dreadnought_thick_skin",
+      "name": "Thick Skin",
+      "description": "Increases Armor and Stamina by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "armor_pct": 0.02,
+        "stamina_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_dreadnought_inner_darkness"
+      ]
+    },
+    {
+      "talent_id": "cultist_dreadnought_dreadnought_passive",
+      "name": "Dreadnought",
+      "description": "Reaching 100 Insanity no longer causes Total Madness.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "remove_total_madness": 1
+      },
+      "connected_to": [
+        "cultist_dreadnought_test_of_pride"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Reaching 100 Insanity no longer causes Total Madness. Teaches Dreadnought.' Removes the class-wide overload risk for the tank spec that naturally sits high on Insanity."
+    },
+    {
+      "talent_id": "cultist_dreadnought_voidwarding",
+      "name": "Voidwarding",
+      "description": "Increases party and raid damage reduction, and increases your resistances. Does not stack with similar effects.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "party_damage_reduction_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_resilience"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar); boosts your resistances (scales with level).'"
+    },
+    {
+      "talent_id": "cultist_dreadnought_void_reaver",
+      "name": "Void Reaver",
+      "description": "Avoiding or absorbing an attack has a chance to boost your next Blade of the Empire's damage and hit an extra enemy.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "avoid_boosts_next_blade_chance": 0.1
+      },
+      "connected_to": [
+        "cultist_dreadnought_strength_of_the_sha"
+      ]
+    },
+    {
+      "talent_id": "cultist_dreadnought_inner_darkness",
+      "name": "Inner Darkness",
+      "description": "Blocking generates Insanity.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "block_generates_insanity": 8
+      },
+      "connected_to": [
+        "cultist_dreadnought_thick_skin"
+      ],
+      "_source": "CoA handoff doc confirmed as this spec's primary Insanity generator: 'Blocking generates Insanity.' The shield is the whole engine here."
+    },
+    {
+      "talent_id": "cultist_dreadnought_entropic_retaliation",
+      "name": "Entropic Retaliation",
+      "description": "Blocking increases your critical strike chance for a duration, stacking.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "block_crit_stack": 0.01
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_resilience"
+      ]
+    },
+    {
+      "talent_id": "cultist_dreadnought_void_resilience",
+      "name": "Void Resilience",
+      "description": "Increases your Shadow resistance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "shadow_resist_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_dreadnought_voidwarding",
+        "cultist_dreadnought_entropic_retaliation"
+      ]
+    },
+    {
+      "talent_id": "cultist_dreadnought_dreadfall",
+      "name": "Dreadfall",
+      "description": "Learn Dreadfall, a shield charge dealing Shadow damage to enemies passed through and generating extra threat.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_dreadfall_tank"
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_reaver"
+      ],
+      "_source": "CoA handoff doc, Dreadnought's opener: 'Charge in with Dreadfall...' Real gap-closer/pull tool shared conceptually with Godblade's Dreadfall."
+    },
+    {
+      "talent_id": "cultist_dreadnought_shadowy_symbiosis",
+      "name": "Shadowy Symbiosis",
+      "description": "Critical blocks reduce the cooldown of Void Strikes.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "crit_block_void_strikes_cdr": 1.0
+      },
+      "connected_to": [
+        "cultist_dreadnought_entropic_retaliation"
+      ]
+    },
+    {
+      "talent_id": "cultist_dreadnought_void_strikes",
+      "name": "Void Strikes",
+      "description": "Learn Void Strikes, spending Insanity for a heavy Shadow weapon strike.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "cultist_void_strikes"
+      },
+      "connected_to": [
+        "cultist_dreadnought_dreadfall",
+        "cultist_dreadnought_deep_secrets"
+      ],
+      "_source": "CoA handoff doc confirmed as Dreadnought's core Insanity spender: 'spends with Void Strikes.'"
+    },
+    {
+      "talent_id": "cultist_dreadnought_deep_secrets",
+      "name": "Deep Secrets",
+      "description": "Each point of Insanity you hold reduces the Mana cost of your instant spells and abilities.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "insanity_reduces_instant_cost": 1
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_strikes",
+        "cultist_dreadnought_void_enhanced_shield"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 30 Passive. Each Insanity point reduces instant spell/ability mana cost.' This spec's mana-sustain solution."
+    },
+    {
+      "talent_id": "cultist_dreadnought_void_enhanced_shield",
+      "name": "Void-Enhanced Shield",
+      "description": "Above 60-80 Insanity, your block value and absorb effects scale up further.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "conditional_high_insanity_block_pct": 0.05
+      },
+      "connected_to": [
+        "cultist_dreadnought_deep_secrets",
+        "cultist_dreadnought_bulwark_of_shadow"
+      ],
+      "_source": "CoA handoff doc confirmed as Dreadnought's core defensive scaling: 'above 60-80 Insanity, Void-Enhanced Shield's absorb+block value scale up.'"
+    },
+    {
+      "talent_id": "cultist_dreadnought_bulwark_of_shadow",
+      "name": "Bulwark of Shadow",
+      "description": "Learn Bulwark of Shadow, a defensive cooldown that reduces damage taken for a duration.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_bulwark_of_shadow"
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_enhanced_shield"
+      ],
+      "_source": "CoA handoff doc: real named defensive cooldown, layered with Eldritch Bastion as the last-ditch mitigation per the playstyle writeup."
+    },
+    {
+      "talent_id": "cultist_dreadnought_eldritch_bastion",
+      "name": "Eldritch Bastion",
+      "description": "An emergency cooldown that grants a massive shield in a moment of crisis.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "cultist_eldritch_bastion"
+      },
+      "connected_to": [
+        "cultist_dreadnought_bulwark_of_shadow"
+      ],
+      "_source": "CoA handoff doc confirmed as the last-ditch mitigation cooldown, Dreadnought's capstone panic button."
+    },
+    {
+      "talent_id": "cultist_dreadnought_crushing_dissonance",
+      "name": "Crushing Dissonance",
+      "description": "Learn Crushing Dissonance, interrupting and school-locking all nearby enemy spellcasts.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_crushing_dissonance"
+      },
+      "connected_to": [
+        "cultist_dreadnought_dreadfall",
+        "cultist_dreadnought_shadowy_symbiosis"
+      ],
+      "_source": "CoA handoff doc confirmed as a real AoE interrupt: 'Interrupts + school-locks all nearby enemy casts.' Rare shutdown tool for a bruiser tank."
+    },
+    {
+      "talent_id": "cultist_dreadnought_armageddon",
+      "name": "Armageddon",
+      "description": "Learn Armageddon, repeating AoE Shadow damage that heals you and reduces nearby damage taken for you and allies.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_armageddon"
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_enhanced_shield"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Repeating AoE Shadow damage; heals you (% of damage dealt); reduces nearby damage taken (self+allies).' Real sustained-fight tool."
+    },
+    {
+      "talent_id": "cultist_dreadnought_test_of_pride",
+      "name": "Test of Pride",
+      "description": "Learn Test of Pride, taunting a target enemy.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "cultist_test_of_pride"
+      },
+      "connected_to": [
+        "cultist_dreadnought_dreadnought_passive"
+      ],
+      "_source": "CoA handoff doc: 'Taunts a target.' Single-target taunt tool alongside Horrifying Presence's AoE version."
+    },
+    {
+      "talent_id": "cultist_dreadnought_doomcloak",
+      "name": "Doomcloak",
+      "description": "Learn Doomcloak, an absorb shield that reduces Magic damage taken while active.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_doomcloak"
+      },
+      "connected_to": [
+        "cultist_dreadnought_dreadfall",
+        "cultist_dreadnought_shadowy_symbiosis"
+      ],
+      "_source": "CoA handoff doc: 'Absorb shield; reduces Magic damage taken while active.'"
+    },
+    {
+      "talent_id": "cultist_dreadnought_embodiment_of_yshaarj",
+      "name": "Embodiment of Y'Shaarj",
+      "description": "Increases Void Shield's absorb amount. Absorbing damage grants spell power based on the value absorbed.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "void_shield_absorb_pct": 0.05
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_strikes"
+      ]
+    },
+    {
+      "talent_id": "cultist_dreadnought_strength_of_the_black_empire",
+      "name": "Strength of the Black Empire",
+      "description": "Shed your mortal form into a void monstrosity, reducing damage taken.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_mechanic": "void_monstrosity_form"
+      },
+      "connected_to": [
+        "cultist_dreadnought_void_enhanced_shield"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 40 Passive. Sheds mortal form into a void monstrosity, reducing damage taken.'"
+    },
+    {
+      "talent_id": "cultist_dreadnought_blessing_of_yshaarj",
+      "name": "Blessing of Y'Shaarj",
+      "description": "While transformed into the void monstrosity, increases damage dealt further.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "conditional_transformed_damage_pct": 0.05
+      },
+      "connected_to": [
+        "cultist_dreadnought_strength_of_the_black_empire"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 50 Passive. While transformed into void monstrosity, boosts damage dealt further.'"
+    },
+    {
+      "talent_id": "cultist_dreadnought_eldritch_force",
+      "name": "Eldritch Force",
+      "description": "Learn Eldritch Force, a frontal wave of Shadow damage that slows enemies hit.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "cultist_eldritch_force"
+      },
+      "connected_to": [
+        "cultist_dreadnought_inner_darkness"
+      ],
+      "_source": "CoA tooltip confirmed: 'Generates 30 Insanity. Frontal wave: Shadow damage + slow.'"
+    }
+  ]
+}

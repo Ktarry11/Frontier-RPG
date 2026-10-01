@@ -1,0 +1,96 @@
+{
+  "rarity_tiers": {
+    "poor": {
+      "display_name": "Poor",
+      "color": [
+        150,
+        150,
+        150
+      ],
+      "stat_budget_multiplier": 0.5,
+      "bonus_stat_rolls": 0,
+      "drop_weight": 18,
+      "min_level": 1,
+      "enabled": true
+    },
+    "common": {
+      "display_name": "Common",
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stat_budget_multiplier": 1.0,
+      "bonus_stat_rolls": 0,
+      "drop_weight": 48,
+      "min_level": 1,
+      "enabled": true
+    },
+    "uncommon": {
+      "display_name": "Uncommon",
+      "color": [
+        30,
+        200,
+        30
+      ],
+      "stat_budget_multiplier": 1.3,
+      "bonus_stat_rolls": 1,
+      "drop_weight": 25,
+      "min_level": 1,
+      "enabled": true
+    },
+    "rare": {
+      "display_name": "Rare",
+      "color": [
+        50,
+        120,
+        220
+      ],
+      "stat_budget_multiplier": 1.7,
+      "bonus_stat_rolls": 2,
+      "drop_weight": 12,
+      "min_level": 10,
+      "enabled": true
+    },
+    "epic": {
+      "display_name": "Epic",
+      "color": [
+        160,
+        60,
+        220
+      ],
+      "stat_budget_multiplier": 2.2,
+      "bonus_stat_rolls": 3,
+      "drop_weight": 3,
+      "min_level": 30,
+      "enabled": true
+    },
+    "legendary": {
+      "display_name": "Legendary",
+      "color": [
+        230,
+        140,
+        30
+      ],
+      "stat_budget_multiplier": 3.0,
+      "bonus_stat_rolls": 4,
+      "drop_weight": 0,
+      "min_level": 40,
+      "enabled": false
+    },
+    "quest": {
+      "display_name": "Quest Item",
+      "color": [
+        200,
+        30,
+        45
+      ],
+      "stat_budget_multiplier": 0.0,
+      "bonus_stat_rolls": 0,
+      "drop_weight": 0,
+      "min_level": 1,
+      "enabled": false
+    }
+  },
+  "notes": "Poor is now ENABLED - the vendor/currency system exists, so grey items have their purpose (vendor fodder). Legendary stays disabled, reserved for hand-authored items later. min_level gates which tiers can drop for a given player level (e.g. Epic requires level 30+) - see LootGenerator.roll_rarity(player_level). Bosses guarantee at least Rare via generate_boss_loot()'s min_rarity floor, so a level 30+ boss kill can still roll Epic instead of Rare - the floor only raises the minimum, not the ceiling."
+}

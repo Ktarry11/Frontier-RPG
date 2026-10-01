@@ -1,0 +1,424 @@
+{
+  "spec_name": "Warrior Fury",
+  "tree_id": "warrior_fury",
+  "description": "Dual-wielding berserker who trades defense for relentless damage.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "warrior_fury_booming_voice",
+      "name": "Booming Voice",
+      "description": "Your battle cries steel you, granting 2 Stamina per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "stamina": 2
+      },
+      "connected_to": [
+        "warrior_fury_improved_cleave"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_cruelty",
+      "name": "Cruelty",
+      "description": "Increases your melee critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "warrior_fury_piercing_howl"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_improved_demoralizing_shout",
+      "name": "Improved Demoralizing Shout",
+      "description": "Grants 5 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "attack_power": 5
+      },
+      "connected_to": [
+        "warrior_fury_blood_craze"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_unbridled_wrath",
+      "name": "Unbridled Wrath",
+      "description": "Reduces the Rage cost of Heroic Strike by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_warrior_heroic_strike_cost": 1
+      },
+      "connected_to": [
+        "warrior_fury_commanding_presence"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_improved_cleave",
+      "name": "Improved Cleave",
+      "description": "Increases Thunder Clap damage by 15% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_warrior_thunder_clap_damage": 0.15
+      },
+      "connected_to": [
+        "warrior_fury_booming_voice",
+        "warrior_fury_dual_wield_specialization"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_piercing_howl",
+      "name": "Piercing Howl",
+      "description": "Increases all physical damage dealt by 3%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "physical_damage": 0.03
+      },
+      "connected_to": [
+        "warrior_fury_cruelty",
+        "warrior_fury_improved_execute"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_blood_craze",
+      "name": "Blood Craze",
+      "description": "Increases maximum Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "warrior_fury_improved_demoralizing_shout",
+        "warrior_fury_enrage"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_commanding_presence",
+      "name": "Commanding Presence",
+      "description": "Grants 6 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "attack_power": 6
+      },
+      "connected_to": [
+        "warrior_fury_unbridled_wrath",
+        "warrior_fury_precision"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_dual_wield_specialization",
+      "name": "Dual Wield Specialization",
+      "description": "Increases physical damage dealt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "warrior_fury_improved_cleave",
+        "warrior_fury_flurry"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_improved_execute",
+      "name": "Improved Execute",
+      "description": "Increases Heroic Strike damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_warrior_heroic_strike_damage": 0.08
+      },
+      "connected_to": [
+        "warrior_fury_piercing_howl",
+        "warrior_fury_bloodthirst"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_enrage",
+      "name": "Enrage",
+      "description": "Being wounded stokes your fury, granting 8 Attack Power per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "attack_power": 8
+      },
+      "connected_to": [
+        "warrior_fury_blood_craze",
+        "warrior_fury_improved_whirlwind"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_precision",
+      "name": "Precision",
+      "description": "Reduces your chance to miss by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "warrior_fury_commanding_presence",
+        "warrior_fury_armored_to_the_teeth"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_bloodthirst",
+      "name": "Bloodthirst",
+      "description": "Grants Bloodthirst, an instant attack that scales with Attack Power.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "warrior_bloodthirst"
+      },
+      "connected_to": [
+        "warrior_fury_improved_execute",
+        "warrior_fury_rampage"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_improved_whirlwind",
+      "name": "Improved Whirlwind",
+      "description": "Increases Thunder Clap damage by 12% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_warrior_thunder_clap_damage": 0.12
+      },
+      "connected_to": [
+        "warrior_fury_enrage",
+        "warrior_fury_bloodsurge"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_armored_to_the_teeth",
+      "name": "Armored to the Teeth",
+      "description": "Increases Armor by 15 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "armor": 15
+      },
+      "connected_to": [
+        "warrior_fury_precision",
+        "warrior_fury_intensify_rage"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_flurry",
+      "name": "Flurry",
+      "description": "Increases your Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "warrior_fury_dual_wield_specialization"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_rampage",
+      "name": "Rampage",
+      "description": "Increases critical strike chance by 4%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "crit_chance_physical": 4.0
+      },
+      "connected_to": [
+        "warrior_fury_bloodthirst",
+        "warrior_fury_furious_attacks"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_bloodsurge",
+      "name": "Bloodsurge",
+      "description": "Reduces the Rage cost of Heroic Strike by 2 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_warrior_heroic_strike_cost": 2
+      },
+      "connected_to": [
+        "warrior_fury_improved_whirlwind",
+        "warrior_fury_bloodbath"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_intensify_rage",
+      "name": "Intensify Rage",
+      "description": "Reduces the cooldown of Rend by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_warrior_rend_cooldown": 1
+      },
+      "connected_to": [
+        "warrior_fury_armored_to_the_teeth"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_furious_attacks",
+      "name": "Furious Attacks",
+      "description": "Increases physical damage dealt by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "physical_damage": 0.04
+      },
+      "connected_to": [
+        "warrior_fury_rampage",
+        "warrior_fury_titans_grip"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_bloodbath",
+      "name": "Bloodbath",
+      "description": "Grants 12 Attack Power and 1% crit chance per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "attack_power": 12,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "warrior_fury_bloodsurge",
+        "warrior_fury_fury_mastery"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_titans_grip",
+      "name": "Titan's Grip",
+      "description": "Increases your Attack Power and Physical damage dealt.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "attack_power": 40,
+        "physical_damage": 0.06
+      },
+      "connected_to": [
+        "warrior_fury_furious_attacks"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_fury_mastery",
+      "name": "Wrecking Crew",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "warrior_fury_bloodbath"
+      ]
+    }
+  ]
+}

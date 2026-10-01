@@ -1,0 +1,571 @@
+{
+  "spec_name": "Runemaster Riftblade",
+  "tree_id": "runemaster_riftblade",
+  "description": "Two-handed elemental melee - weaves Runeblade with elemental weapon strikes (Smolder, Fracture, Hoarfrost, Hurricane) and cooldown detonations.",
+  "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers (Smolder, Hoarfrost, Ice Rune confirmed via screenshot). Real mechanic per handoff: Primordial Blast/Smolder refresh Runeblade charges, every third Runeblade cast pays back resources and hits harder via Runic Omen/Surging Slash.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "runemaster_riftblade_elemental_assassin",
+      "name": "Elemental Assassin",
+      "description": "Increases spell damage, spell critical strike chance, and hit rating scaling from Agility by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_agility_pct": 0.02
+      },
+      "connected_to": [
+        "runemaster_riftblade_frost_spectre"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_tempo",
+      "name": "Tempo",
+      "description": "Increases Runeblade damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_runemaster_runeblade_damage": 0.03
+      },
+      "connected_to": [
+        "runemaster_riftblade_augurs_shield"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_swift_etching",
+      "name": "Swift Etching",
+      "description": "Increases melee attack speed and critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "runemaster_riftblade_frost_blade"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_augurs_shield_passive",
+      "name": "Mana Ward",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "runemaster_riftblade_fire_blade"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_frost_spectre",
+      "name": "Frost Spectre",
+      "description": "Increases Smolder and Primordial Blast critical strike chance and damage against Frozen targets by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "frozen_target_damage_pct": 0.04
+      },
+      "connected_to": [
+        "runemaster_riftblade_elemental_assassin"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_augurs_shield",
+      "name": "Augur's Shield",
+      "description": "Learn Augur's Shield, regenerating Mana and reducing damage taken for a duration.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "runemaster_augurs_shield"
+      },
+      "connected_to": [
+        "runemaster_riftblade_tempo"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_frost_blade",
+      "name": "Frost Blade",
+      "description": "Learn Frost Blade, dealing Frost damage and generating a Frost Sigil.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "runemaster_frost_blade"
+      },
+      "connected_to": [
+        "runemaster_riftblade_swift_etching"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_fire_blade",
+      "name": "Fire Blade",
+      "description": "Learn Fire Blade, dealing Fire damage and generating a Fire Sigil.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "runemaster_fire_blade"
+      },
+      "connected_to": [
+        "runemaster_riftblade_augurs_shield_passive"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_smolder",
+      "name": "Smolder",
+      "description": "Learn Smolder, igniting your blade to strike an enemy for Fire damage.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_smolder"
+      },
+      "connected_to": [
+        "runemaster_riftblade_frost_spectre",
+        "runemaster_riftblade_fracture"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 18, Riftblade(1), '140% Weapon Damage plus 37 Fire Damage.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_fracture",
+      "name": "Fracture",
+      "description": "Learn Fracture, dealing Frost damage and burning the target's mana. Guaranteed critical against Frozen targets.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_fracture"
+      },
+      "connected_to": [
+        "runemaster_riftblade_frost_blade"
+      ],
+      "_source": "CoA handoff doc: 'Fracture - Frost damage + burns target's mana. Guaranteed crit vs. Frozen targets.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_hoarfrost",
+      "name": "Hoarfrost",
+      "description": "Learn Hoarfrost, a frontal cleave that deals Frost damage now and over time, freezing enemies hit.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_hoarfrost"
+      },
+      "connected_to": [
+        "runemaster_riftblade_smolder",
+        "runemaster_riftblade_echo_rune"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 24, Riftblade(1), '42 Frost Damage to up to 3 nearby enemies, plus an additional 42 every 3 sec for 21 sec. Enemies hit by the initial strike are frozen in place for 3 sec.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_hurricane",
+      "name": "Hurricane",
+      "description": "Learn Hurricane, a multi-strike Nature channel.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_hurricane"
+      },
+      "connected_to": [
+        "runemaster_riftblade_fracture"
+      ],
+      "_source": "CoA handoff doc: 'Hurricane (multi-strike Nature channel).' Keep Hurricane rolling for its multi-strike + Swift Etching's haste/crit window after it ends."
+    },
+    {
+      "talent_id": "runemaster_riftblade_echo_rune",
+      "name": "Echo Rune",
+      "description": "Learn Echo Rune, marking your location so you can warp back and heal when it expires or is reactivated.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "runemaster_echo_rune"
+      },
+      "connected_to": [
+        "runemaster_riftblade_hoarfrost",
+        "runemaster_riftblade_genesis"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_genesis",
+      "name": "Genesis",
+      "description": "Learn Genesis, branding an enemy to bank a percentage of your damage, unleashing it as Elemental damage after a delay.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "runemaster_genesis"
+      },
+      "connected_to": [
+        "runemaster_riftblade_hurricane",
+        "runemaster_riftblade_turbulence"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_turbulence",
+      "name": "Turbulence",
+      "description": "Learn Turbulence, dropping a Nature-damage AoE zone.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "runemaster_turbulence"
+      },
+      "connected_to": [
+        "runemaster_riftblade_genesis",
+        "runemaster_riftblade_primordial_fury"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_primordial_fury",
+      "name": "Primordial Fury",
+      "description": "A burst cooldown that flares your Runic Tattoo to cleave extra enemies and pumps Runeblade.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "runemaster_primordial_fury"
+      },
+      "connected_to": [
+        "runemaster_riftblade_turbulence"
+      ],
+      "_source": "CoA handoff doc confirmed as Riftblade's burst capstone alongside Zenith: 'flares runic tattoos to cleave extra enemies + pump Runeblade.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_magebreaker",
+      "name": "Magebreaker",
+      "description": "Hurricane strikes have a chance to shed a harmful magic effect from you.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "hurricane_self_dispel_chance": 0.1
+      },
+      "connected_to": [
+        "runemaster_riftblade_smolder",
+        "runemaster_riftblade_fracture"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_runic_omen",
+      "name": "Runic Omen",
+      "description": "Every third Runeblade cast returns resources and deals bonus damage.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_runemaster_runeblade_third_cast_bonus": 0.06
+      },
+      "connected_to": [
+        "runemaster_riftblade_hoarfrost",
+        "runemaster_riftblade_hurricane"
+      ],
+      "_source": "CoA handoff doc: 'every third Runeblade restores resources + hits harder via Runic Omen/Surging Slash.' This spec's core resource-return identity."
+    },
+    {
+      "talent_id": "runemaster_riftblade_windsage",
+      "name": "Windsage",
+      "description": "Smolder wraps you in wind: your next 3 Runeblades strike an extra time for Nature damage.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_runemaster_smolder_windsage_proc": 1
+      },
+      "connected_to": [
+        "runemaster_riftblade_echo_rune",
+        "runemaster_riftblade_genesis"
+      ],
+      "_source": "CoA handoff doc: 'Smolder wraps you in wind: next 3 Runeblades strike an extra time (Nature damage, % of damage dealt).'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_spellfire_runes",
+      "name": "Spellfire Runes",
+      "description": "Runeblade and Warpdagger have a chance to reset Smolder's cooldown and boost its next hit.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "smolder_reset_chance": 0.1
+      },
+      "connected_to": [
+        "runemaster_riftblade_hoarfrost",
+        "runemaster_riftblade_runic_omen"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_surging_slash",
+      "name": "Surging Slash",
+      "description": "Every third Runeblade cast transforms your next Runeblade into a stronger Surging Slash.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_runemaster_runeblade_surging_slash": 1
+      },
+      "connected_to": [
+        "runemaster_riftblade_runic_omen",
+        "runemaster_riftblade_turbulence"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Every 3rd Runeblade transforms next Runeblade into Surging Slash.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_aspect_of_the_rune_knight",
+      "name": "Aspect of the Rune Knight",
+      "description": "Reduces damage taken and increases maximum Mana. Only one Aspect active.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "runemaster_aspect_of_the_rune_knight"
+      },
+      "connected_to": [
+        "runemaster_riftblade_augurs_shield"
+      ],
+      "_source": "CoA handoff doc: 'Reduces damage taken; boosts max mana. One Aspect active.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_ley_power",
+      "name": "Ley Power",
+      "description": "Increases your damage per nearby enemy, up to a cap, and increases melee/spell haste while active.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "runemaster_ley_power_riftblade"
+      },
+      "connected_to": [
+        "runemaster_riftblade_surging_slash"
+      ],
+      "_source": "CoA handoff doc, Riftblade Strengths writeup: 'Turbulence's AoE zone pays for being surrounded' - Ley Power is the same shared mechanic seen in Engravement."
+    },
+    {
+      "talent_id": "runemaster_riftblade_pierce_resistances",
+      "name": "Pierce Resistances",
+      "description": "Your Fragmentation effects reduce enemy magic resistance.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "magic_resist_shred_pct": 0.03
+      },
+      "connected_to": [
+        "runemaster_riftblade_fracture"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_elder_magi_rune",
+      "name": "Elder Magi Rune",
+      "description": "Learn Elder Magi Rune, dealing Arcane damage to nearby enemies and increasing the target's Arcane damage taken.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "runemaster_elder_magi_rune"
+      },
+      "connected_to": [
+        "runemaster_riftblade_frost_blade"
+      ],
+      "_source": "CoA handoff doc: 'Nearby Arcane damage; boosts target's Arcane damage taken.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_prismatic_knight",
+      "name": "Prismatic Knight",
+      "description": "Gain Armor from Intellect, reduce damage done, and gain a chance on parry to generate an Inscribed Rune and boost melee speed. Requires Two-Handed weapon.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "armor_from_intellect_pct": 0.15
+      },
+      "connected_to": [
+        "runemaster_riftblade_ley_power"
+      ],
+      "_source": "CoA handoff doc: 'Armor from Intellect; reduces damage done; parry generates an Inscribed Rune + boosts melee speed. Requires Two-Handed weapon.' A real defensive stance-style capstone alongside Primordial Fury."
+    },
+    {
+      "talent_id": "runemaster_riftblade_frost_spectre_bonus",
+      "name": "Melting Runes",
+      "description": "Weapon Engraving: Fire deals bonus damage against Frozen enemies.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "fire_engraving_frozen_bonus_pct": 0.05
+      },
+      "connected_to": [
+        "runemaster_riftblade_fire_blade"
+      ]
+    },
+    {
+      "talent_id": "runemaster_riftblade_ice_rune_talent",
+      "name": "Ice Rune",
+      "description": "Learn Ice Rune, freezing an enemy via a stun. Requires the target already be Frozen.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "runemaster_ice_rune"
+      },
+      "connected_to": [
+        "runemaster_riftblade_hurricane"
+      ],
+      "_source": "Confirmed screenshot: Lvl 12, 'Requires Frozen Target. Unleash a frost rune at an enemy, stunning them for 4 sec. Affected enemies are considered Frozen.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_runecarve",
+      "name": "Runecarve",
+      "description": "Clear your active Sigils. Doesn't break Runeshroud.",
+      "node_type": "active",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "unlock_ability": "runemaster_runecarve"
+      },
+      "connected_to": [
+        "runemaster_riftblade_tempo"
+      ],
+      "_source": "CoA handoff doc: 'Clears active Sigils. Doesn't break Runeshroud.' Utility reset tool."
+    },
+    {
+      "talent_id": "runemaster_riftblade_runic_power",
+      "name": "Runic Power",
+      "description": "Grants the party a damage buff, and your critical strikes increase the target's chance to be critically struck. Does not stack with similar effects.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "runemaster_runic_power"
+      },
+      "connected_to": [
+        "runemaster_riftblade_echo_rune",
+        "runemaster_riftblade_genesis"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid damage buff (no stacking with similar); crits boost target's crit-taken chance.'"
+    },
+    {
+      "talent_id": "runemaster_riftblade_runic_knowledge",
+      "name": "Runic Knowledge",
+      "description": "Increases spell power scaling from Intellect by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "spell_power_from_intellect_pct": 0.03
+      },
+      "connected_to": [
+        "runemaster_riftblade_swift_etching"
+      ]
+    }
+  ]
+}

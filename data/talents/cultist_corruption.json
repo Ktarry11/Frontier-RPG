@@ -1,0 +1,461 @@
+{
+  "spec_name": "Cultist Corruption",
+  "tree_id": "cultist_corruption",
+  "description": "Shadow Priest-style ranged caster - builds Insanity with Horrorbolt/Darkwither/Gaze, spends on Wrath of the Black Empire and an empowered Obliteration Beam above 60 Insanity.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Darkwither, Obliteration Beam, Eldritch Devastation, Whispers of C'thun/Greater confirmed via screenshot). Real mechanic per handoff: nearly every spell GENERATES Insanity (not spends) - it's a hover-near-the-top loop rewarding Corrupting Whispers procs and an Insanity-threshold Obliteration Beam upgrade, not a spend-to-zero rotation.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "cultist_corruption_corruption_15",
+      "name": "Shadow Focus",
+      "description": "Increases spell damage and spell haste rating from Intellect by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_corruption_feeding_darkness"
+      ],
+      "_source": "CoA tooltip confirmed: 'Corruption - Level 15 Passive. Spell damage + spell haste rating from Intellect.'"
+    },
+    {
+      "talent_id": "cultist_corruption_terror",
+      "name": "Terror",
+      "description": "Increases Horrorbolt and Wrath of the Black Empire damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_cultist_horrorbolt_damage": 0.03
+      },
+      "connected_to": [
+        "cultist_corruption_horrorbolt_volley"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_lightbreaker",
+      "name": "Lightbreaker",
+      "description": "Increases spell critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [
+        "cultist_corruption_occultism"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_writhing_mass",
+      "name": "Writhing Mass",
+      "description": "Reduces Shadow damage taken by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "shadow_resist_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_corruption_voidborn_affliction"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_feeding_darkness",
+      "name": "Feeding Darkness",
+      "description": "Increases Corruption spell range and critical strike chance.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "cultist_corruption_corruption_15"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_horrorbolt_volley",
+      "name": "Horrorbolt Volley",
+      "description": "After 3 Horrorbolt casts, your next Horrorbolt transforms into Horrorbolt Volley, hitting nearby enemies too.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_cultist_horrorbolt_volley_proc": 1
+      },
+      "connected_to": [
+        "cultist_corruption_terror"
+      ],
+      "_source": "CoA handoff doc confirmed: 'After 3 Horrorbolts, transforms into Horrorbolt Volley.'"
+    },
+    {
+      "talent_id": "cultist_corruption_occultism",
+      "name": "Occultism",
+      "description": "Increases Wrath of the Black Empire critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_cultist_wrath_of_the_black_empire_crit": 1.0
+      },
+      "connected_to": [
+        "cultist_corruption_lightbreaker"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_voidborn_affliction",
+      "name": "Voidborn Affliction",
+      "description": "Your periodic damage effects benefit from Haste.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "periodic_damage_from_haste": 1
+      },
+      "connected_to": [
+        "cultist_corruption_writhing_mass"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_darkwither",
+      "name": "Darkwither",
+      "description": "Learn Darkwither, a Shadow DoT that reduces the target's periodic healing taken, stacking.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_darkwither"
+      },
+      "connected_to": [
+        "cultist_corruption_feeding_darkness",
+        "cultist_corruption_dark_revelation"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 18, Generates 10 Insanity, '190 Shadow damage over 15 sec. Each instance of damage reduces their periodic healing taken by 5%, stacking up to 4 times.'"
+    },
+    {
+      "talent_id": "cultist_corruption_obliteration_beam",
+      "name": "Obliteration Beam",
+      "description": "Learn Obliteration Beam, dealing Shadow damage to your target and nearby enemies. Empowered above 60 Insanity.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_obliteration_beam"
+      },
+      "connected_to": [
+        "cultist_corruption_occultism"
+      ],
+      "_source": "CoA tooltip confirmed: Lvl 22, Generates 10 Insanity, '181 Shadow damage to an enemy and all nearby enemies. While above 60 Insanity, deals 20% more damage.' Corruption's real AoE spender/generator."
+    },
+    {
+      "talent_id": "cultist_corruption_dark_revelation",
+      "name": "Dark Revelation",
+      "description": "Periodic and direct damage has a chance to reset Gaze of C'Thun's cooldown and generate Insanity.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "dark_revelation_proc"
+      },
+      "connected_to": [
+        "cultist_corruption_darkwither",
+        "cultist_corruption_glimpse_of_madness"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 40 Passive. Periodic/direct damage chance to reset Gaze of C'Thun + generate 5 Insanity.' Keeps Gaze available as a free-cast filler alongside Horrorbolt."
+    },
+    {
+      "talent_id": "cultist_corruption_glimpse_of_madness",
+      "name": "Glimpse of Madness",
+      "description": "Reduces Obliteration Beam's cooldown and applies Madness (a group damage-taken debuff) to all enemies struck.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_cultist_obliteration_beam_cooldown_pct": -0.1,
+        "obliteration_applies_madness": 1
+      },
+      "connected_to": [
+        "cultist_corruption_obliteration_beam",
+        "cultist_corruption_dark_revelation"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_eldritch_devastation",
+      "name": "Eldritch Devastation",
+      "description": "Learn Eldritch Devastation, a channeled chain of Shadow damage over time that hits nearby enemies for reduced damage per target struck.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "cultist_eldritch_devastation"
+      },
+      "connected_to": [
+        "cultist_corruption_glimpse_of_madness",
+        "cultist_corruption_corrupting_whispers"
+      ],
+      "_source": "Confirmed screenshot: Lvl 24, 'Channel upon an enemy, chaining to nearby enemies, dealing 120 Shadow damage over 4 sec, dealing less damage with each enemy struck.'"
+    },
+    {
+      "talent_id": "cultist_corruption_corrupting_whispers",
+      "name": "Corrupting Whispers",
+      "description": "Dealing damage has a chance to grant Corrupting Whispers, a stacking Magic-damage proc.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "corrupting_whispers_proc_chance": 0.05
+      },
+      "connected_to": [
+        "cultist_corruption_eldritch_devastation"
+      ],
+      "_source": "CoA handoff doc confirmed as Corruption's core Insanity-height reward: 'Damage dealt chance to grant Corrupting Whispers.' Nearly every spell feeds Insanity, and staying high keeps this proccing."
+    },
+    {
+      "talent_id": "cultist_corruption_ancient_curse",
+      "name": "Ancient Curse",
+      "description": "Learn Ancient Curse, a Shadow curse dealing damage and increasing the target's Shadow damage taken from you, with extra damage on expiry.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_ancient_curse"
+      },
+      "connected_to": [
+        "cultist_corruption_corrupting_whispers"
+      ],
+      "_source": "CoA tooltip confirmed: 'Generates 20 Insanity. Curse: Shadow damage + boosts target's Shadow damage taken from you; extra damage at expiry.' The spec's biggest single burst of Insanity."
+    },
+    {
+      "talent_id": "cultist_corruption_embrace_the_void",
+      "name": "Embrace the Void",
+      "description": "Reaching 60 Insanity grants a flat bonus to Magic damage dealt.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "conditional_high_insanity_magic_damage_pct": 0.1
+      },
+      "connected_to": [
+        "cultist_corruption_ancient_curse"
+      ],
+      "_source": "CoA handoff doc: 'Above 60 Insanity, the Corruption tree's Embrace the Void adds a flat damage buff.' NOTE per the handoff doc, this is deliberately NOT a cheat-death - Corruption's own Embrace the Void is a damage buff; the defensive cheat-death version of the same name lives in the shared class kit as a separate talent."
+    },
+    {
+      "talent_id": "cultist_corruption_visions",
+      "name": "Visions",
+      "description": "Learn Visions, a party-wide spell haste buff that also increases your Shadow damage.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_visions"
+      },
+      "connected_to": [
+        "cultist_corruption_darkwither",
+        "cultist_corruption_obliteration_beam"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid spell haste buff (no stacking with similar); boosts your Shadow damage.'"
+    },
+    {
+      "talent_id": "cultist_corruption_unrelenting_void",
+      "name": "Unrelenting Void",
+      "description": "Periodic and channeled damage increases the target's damage taken from you, stacking.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "unrelenting_void_stack_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_corruption_ancient_curse"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_terror_of_the_old_gods",
+      "name": "Terror of the Old Gods",
+      "description": "Your next Horrorbolt becomes instant and hits additional enemies for a duration.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "horrorbolt_instant_aoe_window": 1
+      },
+      "connected_to": [
+        "cultist_corruption_glimpse_of_madness"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_psychic_suppression",
+      "name": "Psychic Suppression",
+      "description": "Learn Psychic Suppression, launching an enemy airborne with a stun and repeating Shadow damage. Target takes more spell damage while channeled.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "cultist_psychic_suppression"
+      },
+      "connected_to": [
+        "cultist_corruption_corrupting_whispers"
+      ],
+      "_source": "CoA handoff doc confirmed as Corruption's hard control signature (retail Psychic Horror analog): 'Airborne stun + repeating Shadow damage; target takes more spell damage while channeled.'"
+    },
+    {
+      "talent_id": "cultist_corruption_swift_blasts",
+      "name": "Swift Blasts",
+      "description": "Reduces the cast time of your Shadow bolt spells by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "shadow_bolt_cast_time_pct": -0.03
+      },
+      "connected_to": [
+        "cultist_corruption_terror"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_enslave",
+      "name": "Enslave",
+      "description": "Learn Enslave, a Polymorph-style crowd control on an enemy that also removes harmful magic. Damage may break it.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_enslave"
+      },
+      "connected_to": [
+        "cultist_corruption_obliteration_beam"
+      ],
+      "_source": "CoA handoff doc: 'Polymorph-style CC on an enemy; removes harmful magic. Damage may break it.'"
+    },
+    {
+      "talent_id": "cultist_corruption_mind_rot",
+      "name": "Mind Rot",
+      "description": "Periodic and channeled damage has a chance to curse the target with Mind Rot.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "mind_rot_proc_chance": 0.06
+      },
+      "connected_to": [
+        "cultist_corruption_glimpse_of_madness"
+      ]
+    },
+    {
+      "talent_id": "cultist_corruption_summon_faceless_servant",
+      "name": "Summon: Faceless Servant",
+      "description": "Learn Summon: Faceless Servant, a minion that buffs nearby party and raid critical strike chance.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "cultist_summon_faceless_servant"
+      },
+      "connected_to": [
+        "cultist_corruption_corrupting_whispers"
+      ],
+      "_source": "CoA handoff doc: 'Summons a minion buffing nearby party/raid crit chance.'"
+    },
+    {
+      "talent_id": "cultist_corruption_shatter_void_rune",
+      "name": "Shatter Void Rune",
+      "description": "Consume a Void Rune to deal AoE Shadow damage and knock enemies back.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_shatter_void_rune"
+      },
+      "connected_to": [
+        "cultist_corruption_unrelenting_void"
+      ]
+    }
+  ]
+}

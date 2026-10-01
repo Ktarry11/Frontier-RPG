@@ -1,0 +1,451 @@
+{
+  "spec_name": "Venomancer Stalking",
+  "tree_id": "venomancer_stalking",
+  "description": "Ambush predator - burst poison damage from stealth. Cat-equivalent spec; Spider Form is this spec's shapeshift, trading Mana for Energy.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 14 confirmed Stalking nodes trimmed to a lean 12-node tree. Brood Marks confirmed via tooltip as the proc-and-consume identity: 'Your Venom Fang now applies a Brood Mark, stacking 5 times. Some abilities will consume them for an additional effect.' Acidfang confirmed as capstone: 'Periodic damage dealt now has a 40% chance, and critical strikes 100% chance, to grant a stack of Acidfang... next Rotfang, Withering Venom, or Facemelter within 15 seconds has -1% reduced duration and ticks -2% faster, stacking 10 times.'",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "venomancer_stalking_cunning_of_the_nerubar",
+      "name": "Cunning of the Nerub'ar",
+      "description": "Increases Agility by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "agility": 3
+      },
+      "connected_to": [
+        "venomancer_stalking_bugging"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_glory_to_shadra",
+      "name": "Glory To Shadra!",
+      "description": "Increases physical critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "venomancer_stalking_blistering_fangs"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_noxious_empowerment",
+      "name": "Noxious Empowerment",
+      "description": "Reduces the Energy cost of Venom Fang by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_venom_fang_cost_pct": 0.03
+      },
+      "connected_to": [
+        "venomancer_stalking_boding_dread"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_virulent_resonance",
+      "name": "Virulent Resonance",
+      "description": "Increases poison damage-over-time effects by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "poison_dot_damage": 0.04
+      },
+      "connected_to": [
+        "venomancer_stalking_nerubian_sting"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_bugging",
+      "name": "Bugging",
+      "description": "Learn Prowler, a shapeshift into Spider Form, increasing Agility and critical strike chance while trading Mana for Energy.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_spider_form"
+      },
+      "connected_to": [
+        "venomancer_stalking_cunning_of_the_nerubar",
+        "venomancer_stalking_brood_marks"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_blistering_fangs",
+      "name": "Blistering Fangs",
+      "description": "Increases Venom Fang damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_venomancer_venom_fang_damage": 0.03
+      },
+      "connected_to": [
+        "venomancer_stalking_glory_to_shadra"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_boding_dread",
+      "name": "Boding Dread",
+      "description": "Learn Widowmaker, a heavy single-target poison strike usable only from Spider Form.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_widowmaker"
+      },
+      "connected_to": [
+        "venomancer_stalking_noxious_empowerment"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_nerubian_sting",
+      "name": "Nerubian Sting",
+      "description": "Learn Nerubian Sting, a fast poison bolt with a short cooldown.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_nerubian_sting"
+      },
+      "connected_to": [
+        "venomancer_stalking_virulent_resonance"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_brood_marks",
+      "name": "Brood Marks",
+      "description": "Your Venom Fang now applies a Brood Mark, stacking up to 5 times. Widowmaker consumes all stacks for bonus damage.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_mechanic": "brood_mark_stacks"
+      },
+      "connected_to": [
+        "venomancer_stalking_bugging",
+        "venomancer_stalking_cunning_predator"
+      ],
+      "_source": "CoA tooltip confirmed verbatim - this spec's defining proc-and-consume loop, same design role as Stormbringer Maelstrom's Conductive."
+    },
+    {
+      "talent_id": "venomancer_stalking_cunning_predator",
+      "name": "Cunning Predator",
+      "description": "Increases Widowmaker damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_venomancer_widowmaker_damage": 0.08
+      },
+      "connected_to": [
+        "venomancer_stalking_brood_marks",
+        "venomancer_stalking_black_widow"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_black_widow",
+      "name": "Black Widow",
+      "description": "Your Venom Fang now costs 20% less Energy while Widow's Kiss is active.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "conditional_venom_fang_cost_pct": -0.2
+      },
+      "connected_to": [
+        "venomancer_stalking_cunning_predator",
+        "venomancer_stalking_acidfang"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_acidfang",
+      "name": "Acidfang",
+      "description": "Periodic damage has a 40% chance, and critical strikes a 100% chance, to grant a stack of Acidfang. Your next Nerubian Sting or Widowmaker within 15 seconds ticks and casts faster, stacking 10 times.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "acidfang_stacks"
+      },
+      "connected_to": [
+        "venomancer_stalking_black_widow"
+      ],
+      "_source": "CoA tooltip confirmed, referenced Rotfang/Withering Venom/Facemelter which don't have a confirmed source in this trimmed kit - retargeted to this tree's actual abilities (Nerubian Sting, Widowmaker) rather than inventing 3 more spells to match the original names, per Kyle's bloat-trim direction."
+    },
+    {
+      "talent_id": "venomancer_stalking_keen_fangs",
+      "name": "Keen Fangs",
+      "description": "Increases Agility by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "agility": 3
+      },
+      "connected_to": [
+        "venomancer_stalking_cunning_of_the_nerubar"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_swift_venom",
+      "name": "Swift Venom",
+      "description": "Increases Haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "venomancer_stalking_blistering_fangs"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_nerubian_reflexes",
+      "name": "Nerubian Reflexes",
+      "description": "Increases Dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "dodge_chance": 1.0
+      },
+      "connected_to": [
+        "venomancer_stalking_noxious_empowerment"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_silken_step",
+      "name": "Silken Step",
+      "description": "Increases maximum Energy by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "energy_max": 5
+      },
+      "connected_to": [
+        "venomancer_stalking_virulent_resonance"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_web_snare",
+      "name": "Web Snare",
+      "description": "Increases physical critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "crit_damage_physical": 0.04
+      },
+      "connected_to": [
+        "venomancer_stalking_bugging"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_shadow_venom",
+      "name": "Shadow Venom",
+      "description": "Increases poison damage-over-time effects by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "poison_dot_damage": 0.03
+      },
+      "connected_to": [
+        "venomancer_stalking_cunning_predator"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_predators_instinct",
+      "name": "Predator's Instinct",
+      "description": "Increases critical strike chance while stealthed by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "stealth_crit_chance": 2.0
+      },
+      "connected_to": [
+        "venomancer_stalking_black_widow"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_venom_gland_efficiency",
+      "name": "Venom Gland Efficiency",
+      "description": "Reduces Energy cost of Widowmaker by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_widowmaker_cost_pct": 0.05
+      },
+      "connected_to": [
+        "venomancer_stalking_boding_dread"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_lethal_precision",
+      "name": "Lethal Precision",
+      "description": "Increases physical critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "venomancer_stalking_black_widow"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_brood_efficiency",
+      "name": "Brood Efficiency",
+      "description": "Widowmaker consumes 1 fewer Brood Mark stack per rank for its full effect.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "brood_mark_consume_reduction": 1
+      },
+      "connected_to": [
+        "venomancer_stalking_cunning_predator"
+      ]
+    },
+    {
+      "talent_id": "venomancer_stalking_withering_venom",
+      "name": "Withering Venom",
+      "description": "Learn Withering Venom, injecting an enemy with an escalating venom DoT that applies a Brood Mark.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "venomancer_withering_venom"
+      },
+      "connected_to": [
+        "venomancer_stalking_blistering_fangs"
+      ],
+      "_source": "Confirmed screenshot: 'Applies 1 Brood Mark. Inject an enemy with a devastating venom, dealing 24 Nature damage every 3 sec for 21 sec. Damage dealt increases over time.' Second Brood Mark generator alongside Nerubian Sting."
+    },
+    {
+      "talent_id": "venomancer_stalking_facemelter",
+      "name": "Facemelter",
+      "description": "Learn Facemelter, spraying poison on an enemy and nearby enemies, consuming Brood Marks. Requires Spider Form.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "venomancer_facemelter"
+      },
+      "connected_to": [
+        "venomancer_stalking_black_widow"
+      ],
+      "_source": "Confirmed screenshot: Lvl 34, 20 Energy, 20yd, 'Requires Spider Form, Consumes Brood Marks. Spray poison upon an enemy and nearby enemies, dealing Nature damage over 15 sec.' Full per-Mark table: 1 Mark 144, 2:184, 3:236, 4:299, 5:403."
+    },
+    {
+      "talent_id": "venomancer_stalking_rotfang",
+      "name": "Rotfang",
+      "description": "Learn Rotfang, injecting an enemy with armor-piercing plague damage, consuming Brood Marks. Requires Spider Form.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "venomancer_rotfang"
+      },
+      "connected_to": [
+        "venomancer_stalking_acidfang"
+      ],
+      "_source": "Confirmed screenshot: Lvl 36, 25 Energy, melee range, 'Requires Spider Form, Consumes Brood Marks. Inject venom into an enemy that rots them from the inside out, dealing Plague damage over 24 sec. Damage dealt pierces resistances.' Full per-Mark table: 1 Mark 320, 2:410, 3:525, 4:666, 5:896. Stalking's real capstone-tier finisher."
+    }
+  ]
+}

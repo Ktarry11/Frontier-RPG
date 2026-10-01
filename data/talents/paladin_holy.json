@@ -1,0 +1,424 @@
+{
+  "spec_name": "Paladin Holy",
+  "tree_id": "paladin_holy",
+  "description": "Devoted healer wielding the Light to mend and protect.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "paladin_holy_spiritual_focus",
+      "name": "Spiritual Focus",
+      "description": "Increases Spirit by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spirit": 3
+      },
+      "connected_to": [
+        "paladin_holy_aura_mastery"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_healing_light",
+      "name": "Healing Light",
+      "description": "Increases the effect of Holy Light by 8% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_paladin_holy_light_damage": 0.08
+      },
+      "connected_to": [
+        "paladin_holy_illumination"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_divine_intellect",
+      "name": "Divine Intellect",
+      "description": "Increases Intellect by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "intellect": 3
+      },
+      "connected_to": [
+        "paladin_holy_improved_lay_on_hands"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_improved_seal_of_righteousness",
+      "name": "Improved Seal of Righteousness",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "paladin_holy_improved_concentration_aura"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_aura_mastery",
+      "name": "Aura Mastery",
+      "description": "Reduces Magic damage taken by 2%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "magic_damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "paladin_holy_spiritual_focus",
+        "paladin_holy_blessed_hands"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_illumination",
+      "name": "Illumination",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "paladin_holy_healing_light",
+        "paladin_holy_pure_of_heart"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_improved_lay_on_hands",
+      "name": "Improved Lay on Hands",
+      "description": "Increases Armor by 20 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "armor": 20
+      },
+      "connected_to": [
+        "paladin_holy_divine_intellect",
+        "paladin_holy_divine_favor"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_improved_concentration_aura",
+      "name": "Improved Concentration Aura",
+      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "paladin_holy_improved_seal_of_righteousness",
+        "paladin_holy_sanctified_light"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_blessed_hands",
+      "name": "Blessed Hands",
+      "description": "Increases Healing Power by 8 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "healing_power": 8
+      },
+      "connected_to": [
+        "paladin_holy_aura_mastery",
+        "paladin_holy_purifying_power"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_pure_of_heart",
+      "name": "Pure of Heart",
+      "description": "Reduces Magic damage taken by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "magic_damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "paladin_holy_illumination",
+        "paladin_holy_holy_shock"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_divine_favor",
+      "name": "Divine Favor",
+      "description": "Grants 5% spell critical strike chance.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_spell": 5.0
+      },
+      "connected_to": [
+        "paladin_holy_improved_lay_on_hands",
+        "paladin_holy_holy_power"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_sanctified_light",
+      "name": "Sanctified Light",
+      "description": "Increases Healing Power by 7 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "healing_power": 7
+      },
+      "connected_to": [
+        "paladin_holy_improved_concentration_aura",
+        "paladin_holy_light_grace"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_holy_shock",
+      "name": "Holy Shock",
+      "description": "Grants Holy Shock, instantly healing an ally.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "paladin_holy_shock"
+      },
+      "connected_to": [
+        "paladin_holy_pure_of_heart",
+        "paladin_holy_divine_illumination"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_holy_power",
+      "name": "Holy Power",
+      "description": "Increases spell crit chance by 1% and Healing Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_spell": 1.0,
+        "healing_power": 4
+      },
+      "connected_to": [
+        "paladin_holy_divine_favor",
+        "paladin_holy_judgements_of_the_pure"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_light_grace",
+      "name": "Light's Grace",
+      "description": "Reduces the Mana cost of Holy Light by 5 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_paladin_holy_light_cost": 5
+      },
+      "connected_to": [
+        "paladin_holy_sanctified_light",
+        "paladin_holy_enlightened_judgements"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_purifying_power",
+      "name": "Purifying Power",
+      "description": "Increases Spell Power by 9 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "spell_power": 9
+      },
+      "connected_to": [
+        "paladin_holy_blessed_hands"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_divine_illumination",
+      "name": "Divine Illumination",
+      "description": "Increases maximum Mana by 6%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "max_mana_pct": 0.06
+      },
+      "connected_to": [
+        "paladin_holy_holy_shock",
+        "paladin_holy_infusion_of_light"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_judgements_of_the_pure",
+      "name": "Judgements of the Pure",
+      "description": "Increases Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "paladin_holy_holy_power",
+        "paladin_holy_sacred_cleansing"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_enlightened_judgements",
+      "name": "Enlightened Judgements",
+      "description": "Increases Judgement damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_paladin_judgement_damage": 0.08
+      },
+      "connected_to": [
+        "paladin_holy_light_grace"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_infusion_of_light",
+      "name": "Infusion of Light",
+      "description": "Increases Healing Power by 10 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "healing_power": 10
+      },
+      "connected_to": [
+        "paladin_holy_divine_illumination",
+        "paladin_holy_beacon_of_light"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_sacred_cleansing",
+      "name": "Sacred Cleansing",
+      "description": "Increases healing done by 3% and Spirit by 3 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "healing_done": 0.03,
+        "spirit": 3
+      },
+      "connected_to": [
+        "paladin_holy_judgements_of_the_pure",
+        "paladin_holy_holy_capstone"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_beacon_of_light",
+      "name": "Beacon of Light",
+      "description": "Increases your Healing Power.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "healing_power": 40
+      },
+      "connected_to": [
+        "paladin_holy_infusion_of_light"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_holy_capstone",
+      "name": "Sacred Shield",
+      "description": "Increases all healing you do by 12%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "healing_done": 0.12
+      },
+      "connected_to": [
+        "paladin_holy_sacred_cleansing"
+      ]
+    }
+  ]
+}

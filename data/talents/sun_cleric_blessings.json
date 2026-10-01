@@ -1,0 +1,508 @@
+{
+  "spec_name": "Sun Cleric Blessings",
+  "tree_id": "sun_cleric_blessings",
+  "description": "Holy-Paladin-with-Discipline-flavor healer - Bless tags one ally to unlock a dedicated Blessing line (Purity/Retribution/Triumph/Absolution), while Illumination/Shine/Daybreak/Radiant Cascade cover the rest of the group.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Vow of Grace, Devotion of Grace confirmed as class-wide; Daybreak, Radiant Cascade confirmed via screenshot as Blessings-locked). Real mechanic per handoff: Bless tags one ally (never yourself), unlocking the Blessing family of protection spells - Purity is full damage immunity, Retribution deflects the next harmful spell, Triumph is an enrage-with-safety-net, Absolution lets the Blessed ally unleash a Holy burst.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "sun_cleric_blessings_blessings_15",
+      "name": "Blessings",
+      "description": "Increases healing power from Intellect by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_blessings_sun_worship"
+      ],
+      "_source": "CoA tooltip confirmed: 'Blessings - Level 15 Passive. Healing power from Intellect.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_ancient_rites",
+      "name": "Ancient Rites",
+      "description": "Increases Intellect by 3 per rank and periodically regenerates mana.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "intellect": 3
+      },
+      "connected_to": [
+        "sun_cleric_blessings_daybreak"
+      ],
+      "_source": "CoA handoff doc: 'Boosts Intellect; periodic mana regen (% of max).'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_sunlight_refraction",
+      "name": "Sunlight Refraction",
+      "description": "Increases Illumination healing by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "ability_sun_cleric_illumination_healing": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_blessings_ancient_rites",
+        "sun_cleric_blessings_daybreak"
+      ]
+    },
+    {
+      "talent_id": "sun_cleric_blessings_daybreak",
+      "name": "Daybreak",
+      "description": "Learn Daybreak, a charge-based heal.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "sun_cleric_daybreak"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_sunlight_refraction",
+        "sun_cleric_blessings_bless"
+      ],
+      "_source": "Confirmed screenshot: Lvl 24, '2 Charges, 10 sec recharge, healing an ally for 273.' Covers instant-heal gaps between GCDs."
+    },
+    {
+      "talent_id": "sun_cleric_blessings_sunwalker",
+      "name": "Sunwalker",
+      "description": "Reduces Shine's cast time and mana cost, stacking.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "sunwalker_stacks"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_daybreak",
+        "sun_cleric_blessings_radiant_cascade"
+      ],
+      "_source": "CoA handoff doc: 'Reduces next Shine's cast time + mana cost, stacking.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_luminary_mendicant",
+      "name": "Luminary Mendicant",
+      "description": "Reduces the Mana cost of Illumination by 3% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "ability_sun_cleric_illumination_cost_pct": -0.03
+      },
+      "connected_to": [
+        "sun_cleric_blessings_sunwalker"
+      ]
+    },
+    {
+      "talent_id": "sun_cleric_blessings_heat_wave",
+      "name": "Heat Wave",
+      "description": "Illumination and Shine healing splashes to the target's nearby allies.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "heat_wave_splash"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_luminary_mendicant"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Illumination/Shine healing splashes to target's nearby allies.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_sunshine",
+      "name": "Sunshine",
+      "description": "Learn Sunshine, a heal-over-time on an ally.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_sunshine"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_heat_wave"
+      ],
+      "_source": "CoA handoff doc: 'Ally HoT.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_bless",
+      "name": "Bless",
+      "description": "Place Bless on an ally (never yourself), applying a heal-over-time and unlocking the Blessing spell family for them.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "sun_cleric_bless"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_sun_worship",
+        "sun_cleric_blessings_blessing_of_purity"
+      ],
+      "_source": "CoA handoff doc confirmed as this spec's signature mechanic: 'HoT on an ally, one target at a time.' The Blessed ally is who Purity/Retribution/Triumph/Absolution can target."
+    },
+    {
+      "talent_id": "sun_cleric_blessings_blessing_of_purity",
+      "name": "Blessing of Purity",
+      "description": "The Blessed ally becomes immune to all damage for a window, but their own damage and healing done is reduced. Only usable on the Blessed ally.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "sun_cleric_blessing_of_purity"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_bless",
+        "sun_cleric_blessings_blessing_of_retribution"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Blessed ally immune to all damage for a window, but their own damage+healing reduced. Only on Blessed ally.' Real full-immunity cooldown."
+    },
+    {
+      "talent_id": "sun_cleric_blessings_blessing_of_retribution",
+      "name": "Blessing of Retribution",
+      "description": "Deflects the next harmful spell cast on the Blessed ally within a window.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "sun_cleric_blessing_of_retribution"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_blessing_of_purity",
+        "sun_cleric_blessings_blessing_of_triumph"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Deflects the next harmful spell on Blessed ally within a window. Only on Blessed ally.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_blessing_of_triumph",
+      "name": "Blessing of Triumph",
+      "description": "The Blessed ally gains Haste and damage. If they drop below 35% health while active, they heal for a percentage of direct damage dealt for the remainder.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "sun_cleric_blessing_of_triumph"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_blessing_of_retribution"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Blessed ally: +haste, +damage; if they drop below 35%, heals them for % of direct damage dealt for remainder. Only on Blessed ally.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_blessing_of_absolution",
+      "name": "Blessing of Absolution",
+      "description": "The Blessed ally unleashes a frontal Holy burst and generates threat. Only usable on the Blessed ally.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_blessing_of_absolution"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_blessing_of_triumph"
+      ],
+      "_source": "Confirmed screenshot: Lvl 22, 'Empower a Blessed ally to unleash a burst of holy energy in front of them, dealing 66 Holy damage to enemies in a 10 yd frontal cone and generating additional threat. Only usable on your ally with Bless active.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_sun_worship",
+      "name": "Sun Worship",
+      "description": "Increases healing power and spell haste rating from Intellect by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "healing_power_from_intellect_pct": 0.02,
+        "haste_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_blessings_blessings_15",
+        "sun_cleric_blessings_bless"
+      ],
+      "_source": "CoA handoff doc: 'Level 20 Passive. Healing power + spell haste rating from Intellect.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_sunlight",
+      "name": "Sunlight",
+      "description": "Fulfilling a Vow unleashes healing to the lowest-health nearby allies.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_mechanic": "sunlight_fulfillment"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_radiant_cascade"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 10 Passive. Fulfilling Vow unleashes healing to lowest-health nearby allies.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_radiant_cascade",
+      "name": "Radiant Cascade",
+      "description": "Learn Radiant Cascade, a beam heal that bounces to additional allies for reduced value per bounce.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "sun_cleric_radiant_cascade"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_sunlight",
+        "sun_cleric_blessings_sunwalker"
+      ],
+      "_source": "Confirmed screenshot: Lvl 30, 'Refract light into a restorative beam, healing an ally for 207, and then jumps to up to 4 additional allies, healing for less with each bounce.' Blessings' real spread-heal tool."
+    },
+    {
+      "talent_id": "sun_cleric_blessings_cultivate_divinity",
+      "name": "Cultivate Divinity",
+      "description": "An effective Radiant Cascade heal has a chance to boost your next Illumination, and vice versa.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "cultivate_divinity_proc_chance": 0.06
+      },
+      "connected_to": [
+        "sun_cleric_blessings_radiant_cascade"
+      ]
+    },
+    {
+      "talent_id": "sun_cleric_blessings_hope",
+      "name": "Hope",
+      "description": "Critical heals have a chance to reduce your Solar Invocation cooldown.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "hope_invocation_cdr"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_cultivate_divinity"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Crit heals reduce Solar Invocation cooldown (limited frequency).'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_the_redeemer",
+      "name": "The Redeemer",
+      "description": "A critical heal grants the target a delayed heal that triggers on their next damage taken.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "redeemer_delayed_heal"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_hope"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 50 Passive. Crit heal grants target a delayed heal-on-next-damage (30% of original).' Real Atonement-adjacent capstone."
+    },
+    {
+      "talent_id": "sun_cleric_blessings_angelic_touch",
+      "name": "Angelic Touch",
+      "description": "Increases all healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_blessings_sunlight"
+      ],
+      "_source": "CoA handoff doc: 'Boosts healing done.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_lead_me_not_astray",
+      "name": "Lead Me Not Astray",
+      "description": "Increases Bless's healing-over-time effectiveness by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_sun_cleric_bless_healing": 0.08
+      },
+      "connected_to": [
+        "sun_cleric_blessings_angelic_touch",
+        "sun_cleric_blessings_sunlight"
+      ],
+      "_source": "CoA handoff doc: 'Doubles Bless healing' (scaled down to a percentage rank-up here rather than a flat double, to fit the standard rank-scaling pattern used across every other class this session)."
+    },
+    {
+      "talent_id": "sun_cleric_blessings_savior",
+      "name": "Savior",
+      "description": "Increases healing done to targets below 20% health by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "low_health_healing_pct": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_blessings_blessing_of_purity"
+      ]
+    },
+    {
+      "talent_id": "sun_cleric_blessings_vitality",
+      "name": "Vitality",
+      "description": "Effective healing done increases your Stamina and Spirit for a duration, stacking.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "effective_heal_stat_stack": 0.01
+      },
+      "connected_to": [
+        "sun_cleric_blessings_blessing_of_retribution"
+      ],
+      "_source": "CoA handoff doc: 'Effective healing boosts your Stamina + Spirit, stacking.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_stalwart",
+      "name": "Stalwart",
+      "description": "A melee critical strike against you briefly prevents you from being critically struck again.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "stalwart_crit_immunity"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_vitality"
+      ],
+      "_source": "CoA handoff doc: 'Melee crits against you prevent being crit again (briefly).'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_revivify",
+      "name": "Revivify",
+      "description": "Learn Revivify, a battle resurrection. Usable only out of combat.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_revivify"
+      },
+      "connected_to": [
+        "sun_cleric_blessings_stalwart"
+      ],
+      "_source": "CoA handoff doc: 'Battle-rez. Out of combat.'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_solar_priest",
+      "name": "Solar Priest",
+      "description": "Reduces the cooldown of Solar Invigoration by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "solar_invigoration_cooldown_pct": -0.04
+      },
+      "connected_to": [
+        "sun_cleric_blessings_sun_worship"
+      ],
+      "_source": "CoA handoff doc: 'Reduces Solar Invigoration cooldown; Shine effective-heal casts Illumination (limited frequency).'"
+    },
+    {
+      "talent_id": "sun_cleric_blessings_harmonious_bells",
+      "name": "Harmonious Bells",
+      "description": "Sanctify affects additional allies near the primary target.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_sun_cleric_sanctify_extra_targets": 1
+      },
+      "connected_to": [
+        "sun_cleric_blessings_solar_priest"
+      ]
+    }
+  ]
+}

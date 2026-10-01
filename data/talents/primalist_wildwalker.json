@@ -1,0 +1,468 @@
+{
+  "spec_name": "Primalist Wildwalker",
+  "tree_id": "primalist_wildwalker",
+  "description": "Feral melee DPS - dual-wielding beast-fury damage, with a tamed companion.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 18 confirmed Wildwalker nodes trimmed to a lean 13-node tree. Spirit Beast Master confirmed via tooltip: 'Level 10 Passive. You may now tame beasts in Azeroth to aid you as a companion.' Stubbed as a self-buff rather than a full pet-taming system (no pet entity system to hook into yet - see Stormbringer's Air Elemental / Tinker's ZIGGI-6K for the same pattern).",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "primalist_wildwalker_rexxars_might",
+      "name": "Rexxar's Might",
+      "description": "Increases Attack Power by 4 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "attack_power": 4
+      },
+      "connected_to": [
+        "primalist_wildwalker_rips_and_tears"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_killers_path",
+      "name": "Killer's Path",
+      "description": "Increases physical critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "primalist_wildwalker_spinebreaker"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_fury_of_the_wild",
+      "name": "Fury of the Wild",
+      "description": "Increases Wildclaw damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_primalist_wildclaw_damage": 0.03
+      },
+      "connected_to": [
+        "primalist_wildwalker_raptor_talons"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_legacy_of_rexxar",
+      "name": "Legacy of Rexxar",
+      "description": "Reduces the Rage cost of Wildclaw by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_primalist_wildclaw_cost_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_wildwalker_totem_warrior"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_rips_and_tears",
+      "name": "Rips and Tears",
+      "description": "Learn Primal Shred, a bleeding melee strike that deals extra damage over time.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "primalist_primal_shred"
+      },
+      "connected_to": [
+        "primalist_wildwalker_rexxars_might",
+        "primalist_wildwalker_torn_to_shreds"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_spinebreaker",
+      "name": "Spinebreaker",
+      "description": "Learn Raptor Talons, a leaping strike that deals bonus damage to a target below 50% health.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "primalist_raptor_talons"
+      },
+      "connected_to": [
+        "primalist_wildwalker_killers_path"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_raptor_talons",
+      "name": "Rylak's Bite",
+      "description": "Increases Raptor Talons damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_raptor_talons_damage": 0.08
+      },
+      "connected_to": [
+        "primalist_wildwalker_fury_of_the_wild"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_totem_warrior",
+      "name": "Totem Warrior",
+      "description": "Learn Spirit Beast Master, allowing you to tame a beast companion.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "primalist_spirit_beast_master"
+      },
+      "connected_to": [
+        "primalist_wildwalker_legacy_of_rexxar"
+      ],
+      "_source": "CoA tooltip confirmed: 'You may now tame beasts in Azeroth to aid you as a companion.'"
+    },
+    {
+      "talent_id": "primalist_wildwalker_torn_to_shreds",
+      "name": "Torn to Shreds",
+      "description": "Increases Primal Shred damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_primalist_primal_shred_damage": 0.08
+      },
+      "connected_to": [
+        "primalist_wildwalker_rips_and_tears",
+        "primalist_wildwalker_savage_frenzy"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_savage_frenzy",
+      "name": "Savage Frenzy",
+      "description": "Increases Haste by 1% per rank for 6 seconds after using Wildclaw.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "wildclaw_haste_proc": 1.0
+      },
+      "connected_to": [
+        "primalist_wildwalker_torn_to_shreds",
+        "primalist_wildwalker_son_of_ursoc"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_son_of_ursoc",
+      "name": "Son of Ursoc",
+      "description": "Increases all physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "primalist_wildwalker_savage_frenzy",
+        "primalist_wildwalker_frenzied_roar"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_frenzied_roar",
+      "name": "Frenzied Roar",
+      "description": "Learn Bring Me Their Bones, a devastating execute usable against targets below 25% health.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "primalist_bring_me_their_bones"
+      },
+      "connected_to": [
+        "primalist_wildwalker_son_of_ursoc",
+        "primalist_wildwalker_elemental_berserker"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_elemental_berserker",
+      "name": "Elemental Berserker",
+      "description": "Increases Bring Me Their Bones damage by 12% per rank.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ability_primalist_bring_me_their_bones_damage": 0.12
+      },
+      "connected_to": [
+        "primalist_wildwalker_frenzied_roar"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_primal_ferocity",
+      "name": "Primal Ferocity",
+      "description": "Increases Attack Power by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "attack_power": 3
+      },
+      "connected_to": [
+        "primalist_wildwalker_rexxars_might"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_beast_reflexes",
+      "name": "Beast Reflexes",
+      "description": "Increases Dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "dodge_chance": 1.0
+      },
+      "connected_to": [
+        "primalist_wildwalker_killers_path"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_savage_instincts",
+      "name": "Savage Instincts",
+      "description": "Increases Haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "primalist_wildwalker_fury_of_the_wild"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_thick_fur",
+      "name": "Thick Fur",
+      "description": "Increases Stamina by 3 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "stamina": 3
+      },
+      "connected_to": [
+        "primalist_wildwalker_legacy_of_rexxar"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_rending_claws",
+      "name": "Rending Claws",
+      "description": "Increases bleed damage-over-time effects by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -2,
+      "effects": {
+        "bleed_dot_damage": 0.04
+      },
+      "connected_to": [
+        "primalist_wildwalker_rips_and_tears"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_hunters_focus",
+      "name": "Hunter's Focus",
+      "description": "Increases physical critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 0,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "primalist_wildwalker_torn_to_shreds"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_packmaster",
+      "name": "Packmaster",
+      "description": "Increases your beast companion's damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 2,
+      "effects": {
+        "pet_damage": 0.06
+      },
+      "connected_to": [
+        "primalist_wildwalker_son_of_ursoc"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_bloodscent",
+      "name": "Bloodscent",
+      "description": "Increases damage against targets below 30% health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "low_health_target_damage_pct": 0.03
+      },
+      "connected_to": [
+        "primalist_wildwalker_spinebreaker"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_relentless_assault",
+      "name": "Relentless Assault",
+      "description": "Reduces the Rage cost of Raptor Talons by 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": 4,
+      "effects": {
+        "ability_primalist_raptor_talons_cost_pct": 0.05
+      },
+      "connected_to": [
+        "primalist_wildwalker_elemental_berserker"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_wild_vigor",
+      "name": "Wild Vigor",
+      "description": "Increases maximum Health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_wildwalker_torn_to_shreds"
+      ]
+    },
+    {
+      "talent_id": "primalist_wildwalker_primal_rush",
+      "name": "Primal Rush",
+      "description": "Learn Primal Rush, rushing forward through enemies in a line.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "primalist_primal_rush"
+      },
+      "connected_to": [
+        "primalist_wildwalker_torn_to_shreds"
+      ],
+      "_source": "Confirmed screenshot: Lvl 18, 'Rush forward 20 yd through enemies in a line, dealing 102 Nature damage. Generates 20 Rage.'"
+    },
+    {
+      "talent_id": "primalist_wildwalker_rylaks_bite",
+      "name": "Rylak's Bite",
+      "description": "Learn Rylak's Bite, rushing an enemy alongside your pet to strike them.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "primalist_rylaks_bite"
+      },
+      "connected_to": [
+        "primalist_wildwalker_son_of_ursoc"
+      ],
+      "_source": "Confirmed screenshot: Lvl 20, 2 Charges, 10 sec recharge, 'you and your pet rush towards an enemy and strike them, dealing 120% Weapon Damage plus 14.' Real pet-combo ability."
+    },
+    {
+      "talent_id": "primalist_wildwalker_totemic_smash",
+      "name": "Totemic Smash",
+      "description": "Learn Totemic Smash, a heavy weapon strike that also hits nearby enemies.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "primalist_totemic_smash"
+      },
+      "connected_to": [
+        "primalist_wildwalker_frenzied_roar"
+      ],
+      "_source": "Confirmed screenshot: Lvl 22, '140% Weapon Damage plus 51. Deals an additional 30 damage to up to 5 enemies within 8 yds.'"
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "spec_name": "Mage Arcane",
+  "tree_id": "mage_arcane",
+  "description": "Raw magical force, deep mana reserves, and burst potential.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "mage_arcane_arcane_subtlety",
+      "name": "Arcane Subtlety",
+      "description": "Increases Arcane Resistance by 8 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "arcane_resistance": 8
+      },
+      "connected_to": [
+        "mage_arcane_magic_absorption"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_focus",
+      "name": "Arcane Focus",
+      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "connected_to": [
+        "mage_arcane_arcane_concentration"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_improved_arcane_explosion",
+      "name": "Improved Arcane Explosion",
+      "description": "Reduces the Mana cost of Arcane Explosion by 6 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_mage_arcane_explosion_cost": 6
+      },
+      "connected_to": [
+        "mage_arcane_magic_attunement"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_wand_specialization",
+      "name": "Wand Specialization",
+      "description": "Increases Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "mage_arcane_arcane_impact"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_magic_absorption",
+      "name": "Magic Absorption",
+      "description": "Increases Arcane Resistance by 6 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "arcane_resistance": 6
+      },
+      "connected_to": [
+        "mage_arcane_arcane_subtlety",
+        "mage_arcane_arcane_mind"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_concentration",
+      "name": "Arcane Concentration",
+      "description": "Increases maximum Mana by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "max_mana_pct": 0.03
+      },
+      "connected_to": [
+        "mage_arcane_arcane_focus",
+        "mage_arcane_presence_of_mind"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_magic_attunement",
+      "name": "Magic Attunement",
+      "description": "Increases Spell Power by 8 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "spell_power": 8
+      },
+      "connected_to": [
+        "mage_arcane_improved_arcane_explosion",
+        "mage_arcane_arcane_instability"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_impact",
+      "name": "Arcane Impact",
+      "description": "Increases spell critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_spell": 2.0
+      },
+      "connected_to": [
+        "mage_arcane_wand_specialization",
+        "mage_arcane_student_of_the_mind"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_mind",
+      "name": "Arcane Mind",
+      "description": "Increases Intellect by 3 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "intellect": 3
+      },
+      "connected_to": [
+        "mage_arcane_magic_absorption",
+        "mage_arcane_improved_counterspell"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_presence_of_mind",
+      "name": "Presence of Mind",
+      "description": "Grants Presence of Mind: your next spell becomes instant, costing no turn to cast.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "mage_presence_of_mind"
+      },
+      "connected_to": [
+        "mage_arcane_arcane_concentration",
+        "mage_arcane_arcane_power"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_instability",
+      "name": "Arcane Instability",
+      "description": "Increases spell damage by 2% and spell crit chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "spell_damage": 0.02,
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "mage_arcane_magic_attunement",
+        "mage_arcane_mind_mastery"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_student_of_the_mind",
+      "name": "Student of the Mind",
+      "description": "Increases Spirit by 3 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "spirit": 3
+      },
+      "connected_to": [
+        "mage_arcane_arcane_impact",
+        "mage_arcane_torment_the_weak"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_power",
+      "name": "Arcane Power",
+      "description": "Raw arcane force increases spell damage by 6%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "spell_damage": 0.06
+      },
+      "connected_to": [
+        "mage_arcane_presence_of_mind",
+        "mage_arcane_arcane_barrage"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_mind_mastery",
+      "name": "Mind Mastery",
+      "description": "Increases Spell Power by 6 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "spell_power": 6
+      },
+      "connected_to": [
+        "mage_arcane_arcane_instability",
+        "mage_arcane_netherwind_presence"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_torment_the_weak",
+      "name": "Torment the Weak",
+      "description": "Increases spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "connected_to": [
+        "mage_arcane_student_of_the_mind",
+        "mage_arcane_spell_power_mastery"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_improved_counterspell",
+      "name": "Improved Counterspell",
+      "description": "Increases Arcane Resistance by 12 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "arcane_resistance": 12
+      },
+      "connected_to": [
+        "mage_arcane_arcane_mind"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_barrage",
+      "name": "Arcane Barrage",
+      "description": "Increases Arcane Explosion damage by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_mage_arcane_explosion_damage": 0.2
+      },
+      "connected_to": [
+        "mage_arcane_arcane_power",
+        "mage_arcane_missile_barrage"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_netherwind_presence",
+      "name": "Netherwind Presence",
+      "description": "Increases Haste by 3 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "haste": 3.0
+      },
+      "connected_to": [
+        "mage_arcane_mind_mastery",
+        "mage_arcane_potent_spirit"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_spell_power_mastery",
+      "name": "Spell Power",
+      "description": "Increases Spell Power by 12 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "spell_power": 12
+      },
+      "connected_to": [
+        "mage_arcane_torment_the_weak"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_missile_barrage",
+      "name": "Missile Barrage",
+      "description": "Increases spell damage by 3% and Haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage": 0.03,
+        "haste": 2.0
+      },
+      "connected_to": [
+        "mage_arcane_arcane_barrage",
+        "mage_arcane_arcane_blast"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_potent_spirit",
+      "name": "Potent Spirit",
+      "description": "Increases Intellect by 4 and Spell Power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "intellect": 4,
+        "spell_power": 5
+      },
+      "connected_to": [
+        "mage_arcane_netherwind_presence",
+        "mage_arcane_arcane_mastery"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_blast",
+      "name": "Arcane Blast",
+      "description": "Channeled arcane mastery grants 40 Spell Power.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 6,
+      "effects": {
+        "spell_power": 40
+      },
+      "connected_to": [
+        "mage_arcane_missile_barrage"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_mastery",
+      "name": "Slow",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 6,
+      "effects": {
+        "all_damage": 0.1
+      },
+      "connected_to": [
+        "mage_arcane_potent_spirit"
+      ]
+    }
+  ]
+}

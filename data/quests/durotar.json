@@ -1,0 +1,324 @@
+{
+  "quests": [
+    {
+      "quest_id": "durotar_tiragarde_approach",
+      "title": "The Stranded Garrison",
+      "description": "Watchwarden Kelgrim has held this post at the edge of Tiragarde Keep for longer than he likes to admit. The humans washed up here years back - Kul Tiras sailors, shipwrecked or marooned, nobody's ever gotten a straight answer out of the survivors before putting them down. They dug in. Built walls out of the ruin's old stones. Now they raid the coast road when they're hungry, which is often. Kelgrim doesn't call them monsters - he's careful about that word, more careful than you'd expect from an orc who's killed his share of them. He calls them 'the stranded' and he says it like it costs him something. Thin their numbers at the outer wall - marines, deckhands, whoever's standing watch. Leave their captain for later. Kelgrim wants to talk about him separately, and he made that very clear.",
+      "giver_npc_id": "durotar_tiragarde_scout",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Stranded Marine",
+          "alt_targets": [
+            "Stranded Deckhand",
+            "Kul Tiras Sharpshooter"
+          ],
+          "count": 8,
+          "zone": "tiragarde_keep"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1400,
+      "accept_text": "Eight of them, whichever kind you find first - marines, deckhands, the ones with the long rifles up on the wall. They'll fight like people who know they're already dead men walking, because in every way that matters to them, they are. Don't mistake desperate for weak. And don't go near the one who commands them. Not yet. We'll talk about him when you're done here.",
+      "turn_in_text": "Eight down. Good. You didn't hesitate, which tells me something about you, though I couldn't say what yet. Sit a moment before you go back in. There's still the matter of their captain, and that conversation deserves more than me shouting it at you between sword-swings.",
+      "next_quest_id": "durotar_tiragarde_captain",
+      "level_min": 6,
+      "level_max": 9,
+      "gear_reward_gear_level": 8,
+      "gear_reward_slot": "chest",
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "durotar_tiragarde_captain",
+      "title": "The Line You Cross",
+      "description": "Captain Thalenvorde commands what's left of the Tiragarde garrison, and Kelgrim has been putting off this conversation since you first walked up to his post. Thalenvorde is a person. Not a boar, not a demon summoned out of some tear in the world's fabric that was never going to have a name if you hadn't asked - a person, with a rank and a crew and, however he ended up here, a life before this island that Kelgrim suspects looked ordinary once. Kelgrim has killed enough of the stranded to stop feeling the weight of it years ago. He watches you carefully as he says this next part, like he's trying to remember what it was like the first time, for him. Killing a beast doesn't ask anything of you. Killing a person does, whether or not you asked to fall into a world where the second one is suddenly on the table. He isn't going to talk you out of it. The garrison won't stop raiding while Thalenvorde commands it, and that's reason enough by the only math that matters out here. But he wanted you to walk in understanding exactly what you're about to do, instead of finding out after. That's the only kindness he has to offer you today.",
+      "giver_npc_id": "durotar_tiragarde_scout",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Thalenvorde",
+          "count": 1,
+          "zone": "tiragarde_keep"
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 3200,
+      "accept_text": "I won't pretend this is the same as the boars in the valley, or the demons in that cave you cleared out as a green recruit. Thalenvorde bleeds like you do. He probably has people somewhere who'd grieve him, the way people back on your blue planet would grieve you, if news like that could even reach them anymore. None of that changes what has to happen. It just means you should know what you're carrying afterward. Go. Finish it. And however it sits with you when it's done - that's not weakness. That's just what it costs, the first time. Every time after this one gets a little quieter. I'm not sure if that's supposed to be a comfort.",
+      "turn_in_text": "It's done, then. I can see it on you, the particular quiet that comes after - I remember mine, if you can believe an orc admitting that. Thalenvorde won't be leading raids on the coast road anymore, and the valley's a little safer for it. That part's true, and it matters. Keep what you took off him. Wear it. Not as a trophy - as a reminder, if you need one, of exactly where you stand now. You crossed a line today that doesn't uncross. Most people out here crossed it a long time before you fell into this world. Now you know what it actually weighs. That's not nothing, and I won't pretend it is.",
+      "next_quest_id": null,
+      "level_min": 8,
+      "level_max": 11,
+      "unique_item_defs": [
+        {
+          "name": "Blood-Soaked Wraps",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 2
+          },
+          "armor_value": 10,
+          "flavor_text": "No amount of scrubbing will truly clean these threads, but you tighten the wraps anyway\u2014there is no turning back now.",
+          "label": "Cloth (Int)"
+        },
+        {
+          "name": "Blood-Soaked Grips",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 2
+          },
+          "armor_value": 18,
+          "flavor_text": "The warmth of their life faded against your palm, leaving behind a cold grip and a steel-hardened resolve.",
+          "label": "Leather (Agi)"
+        },
+        {
+          "name": "Blood-Soaked Handguards",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4,
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_value": 28,
+          "flavor_text": "Iron rings absorb the crimson stain, a silent armor for hands that have crossed a line they can never uncross.",
+          "label": "Mail (Agi/Str)"
+        },
+        {
+          "name": "Blood-Soaked Gauntlets",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 3
+          },
+          "armor_value": 42,
+          "flavor_text": "Steel conceals the blood on your fingers, armoring not just your hands, but the quiet resolve growing within you.",
+          "label": "Plate (Str)"
+        }
+      ]
+    },
+    {
+      "quest_id": "durotar_skullrock_approach",
+      "title": "Ashgrym's Old Enemy",
+      "description": "Bloodwarden Ashgrym has been watching Skull Rock for longer than he's willing to put a number on. The Burning Blade Coven cut into back in the valley wasn't the whole cult - just the part that wandered too far from its real nest. Skull Rock is the nest. Searing Blade scouts and raiders patrol the approach, and Ashgrym wants them cleared before anyone goes near the cave mouth. He's fought this cult before. He doesn't talk about how that went.",
+      "giver_npc_id": "durotar_burning_blade_warden",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Searing Blade Scout",
+          "alt_targets": [
+            "Searing Blade Raider",
+            "Coastal Harpy"
+          ],
+          "count": 10
+        }
+      ],
+      "reward_exp": 500,
+      "reward_gold": 2000,
+      "accept_text": "Clear the approach first. I mean that as an order, not a suggestion - the cave itself is worse, and I'd rather you walk in without half the patrol already alerted. Ten of them. Don't rush it.",
+      "turn_in_text": "The approach is quiet. It won't stay that way once you go into the cave itself - nothing about Skull Rock stays quiet for long - but you've earned the right to try. Two names matter once you're inside: Neru Fireblade and Gazz'uz. Neither of them will make this easy.",
+      "next_quest_id": "durotar_skullrock_neru",
+      "level_min": 7,
+      "level_max": 10,
+      "unique_item_defs": [
+        {
+          "name": "Approach-Warden's Blade",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "weapon_type": "sword_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 2
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.4,
+          "label": "Sword (Str)"
+        },
+        {
+          "name": "Cultwatch Grimoire",
+          "slot": "off_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 2
+          },
+          "label": "Off-Hand (Int)"
+        }
+      ]
+    },
+    {
+      "quest_id": "durotar_skullrock_neru",
+      "title": "Fireblade",
+      "description": "Neru Fireblade holds rank inside Skull Rock through fire and force of will, in roughly that order. Ashgrym describes her the way you'd describe a wound that never fully closed - present tense, personal, unresolved. She commands the Searing Blade enforcers and warlocks who guard the cave's outer chambers, and she will not be reasoned with.",
+      "giver_npc_id": "durotar_burning_blade_warden",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Neru Fireblade",
+          "count": 1,
+          "zone": "skull_rock"
+        }
+      ],
+      "reward_exp": 850,
+      "reward_gold": 3200,
+      "accept_text": "She fights with fire and she fights smart, which is a worse combination than either alone. Don't stand still. Whatever else you do in that fight, don't stand still.",
+      "turn_in_text": "Neru's gone. I won't pretend that's simple for me to hear - old business, older than you'd guess to look at me. Gazz'uz is still down there, and he's the real reason this cave has never actually closed for good. He's not orc, or troll, or anything that bleeds the way we do. Be ready for that.",
+      "next_quest_id": "durotar_skullrock_gazzuz",
+      "level_min": 9,
+      "level_max": 11,
+      "unique_item_defs": [
+        {
+          "name": "Fireblade's Cooling Ember",
+          "slot": "off_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 3
+          },
+          "flavor_text": "Still warm to the touch, days later. You suspect it always will be.",
+          "label": "Off-Hand (Int)"
+        },
+        {
+          "name": "Searing Blade Warguard",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 5
+          },
+          "armor_value": 34,
+          "label": "Mail (Str)"
+        }
+      ]
+    },
+    {
+      "quest_id": "durotar_skullrock_gazzuz",
+      "title": "What the Cave Was Guarding",
+      "description": "Gazz'uz is a demon, and Ashgrym is very deliberate about using that word instead of any softer one. Not a person who crossed a line, not a beast that got too big - something summoned, tearing at the world from somewhere that isn't supposed to touch it. This is the real reason Skull Rock has never fully closed. Kill it, and the cave is finally just a cave again.",
+      "giver_npc_id": "durotar_burning_blade_warden",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gazz'uz",
+          "count": 1,
+          "zone": "skull_rock"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4200,
+      "accept_text": "This one doesn't bleed the way Neru did, and it won't stop the way a person stops. Everything about it is wrong in a way I don't have good words for. Kill it anyway. That's the job, whether or not I can explain what it actually is.",
+      "turn_in_text": "It's over. Skull Rock is just rock now, no cult, no demon, nothing left down there but the echo of what used to be. I've wanted this day for longer than you've been in this world, and I mean that far more literally than you probably assume. Whatever that thing was carrying is yours. Take it and don't look back at that cave mouth on your way out.",
+      "next_quest_id": null,
+      "level_min": 10,
+      "level_max": 11,
+      "unique_item_defs": [
+        {
+          "name": "Gazz'uz's Unmaking",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "rare",
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 4
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 3.0,
+          "flavor_text": "It doesn't feel like a weapon so much as a wound in the shape of one. You're not entirely sure the demon is done with it.",
+          "label": "Staff (Int)"
+        },
+        {
+          "name": "Warden's Closure",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "rare",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "flavor_text": "Ashgrym pressed this into your hand himself, and didn't say anything else. He didn't need to.",
+          "label": "Neck (Str/Sta)"
+        }
+      ]
+    },
+    {
+      "quest_id": "durotar_vulture_feathers",
+      "title": "Feathers for the Ledger",
+      "description": "Gazlowe's Cousin Fitz has a buyer back in Orgrimmar who pays well for sunbaked vulture feathers - something about fletching contracts, though Fitz admits he's never actually asked what they're for. He just knows the going rate, and the going rate is good enough that he's willing to pay a finder's cut to anyone willing to brave the Red Wastes and actually collect them.",
+      "giver_npc_id": "durotar_goblin_prospector",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sunbaked_vulture_feather",
+          "count": 8
+        }
+      ],
+      "reward_exp": 340,
+      "reward_gold": 1400,
+      "accept_text": "Eight feathers, good condition, no scorch marks - the buyer's picky about scorch marks for some reason I've genuinely never asked about. Just bring me eight and I'll cut you in fair.",
+      "turn_in_text": "Perfect condition, all eight. I don't know what a fletcher in Orgrimmar wants with this many vulture feathers and honestly at this point I've stopped wondering. Here's your cut.",
+      "next_quest_id": null,
+      "level_min": 5,
+      "level_max": 8
+    },
+    {
+      "quest_id": "durotar_prowler_den",
+      "title": "Scouting the Prowler Den",
+      "description": "Borka the Watchful has noticed the Durotar prowlers denning closer to the road than usual, and he'd rather know exactly where before Razor Hill sends anyone in after them properly. He's not asking for a fight yet - just eyes on the den itself, confirmed and reported back.",
+      "giver_npc_id": "durotar_rocktusk_scout",
+      "zone": "durotar",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "durotar",
+          "target_x": 48,
+          "target_y": 72,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 260,
+      "reward_gold": 850,
+      "accept_text": "Southwest of here, past the ridge. Get close enough to confirm the den and get out. I'd rather have a live scout with an answer than a dead hero with a guess.",
+      "turn_in_text": "Good. Now we actually know where they've dug in instead of guessing from droppings and torn-up ground. That's worth more to me than another dead prowler would've been.",
+      "next_quest_id": null,
+      "level_min": 5,
+      "level_max": 8
+    }
+  ]
+}

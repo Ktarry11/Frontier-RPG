@@ -1,0 +1,505 @@
+{
+  "spec_name": "Cultist Heretic",
+  "tree_id": "cultist_heretic",
+  "description": "Discipline-style damage-that-heals loop - Malevolence and Gaze of C'Thun hit an enemy while healing allies off the same cast. Mana funds nearly every heal, Insanity is a separate spend for Sanity Tap top-ups.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Eldritch Mending, Void Shield, Forbidden Ritual, Devour Magic, Tentacle of Yogg-Saron, Satiate, Dark Infusion confirmed via screenshot). Real mechanic per handoff: Malevolence applies Black Blood (a HoT that jumps to nearby allies) as its main throughput, Gaze of C'Thun banks direct heals into Void-Touched stacks then cashes them in - healing comes out of damage, standing in the fight is part of the model.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "cultist_heretic_shadow_training",
+      "name": "Shadow Training",
+      "description": "Increases Eldritch Mending and Gaze of C'Thun healing. Your heals cannot be parried or dodged.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_cultist_eldritch_mending_healing": 0.03
+      },
+      "connected_to": [
+        "cultist_heretic_abyssal_guard"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Boosts Eldritch Mending + Gaze of C'Thun healing; guaranteed hit, can't be parried/dodged.'"
+    },
+    {
+      "talent_id": "cultist_heretic_void_power",
+      "name": "Void Power",
+      "description": "Increases healing power gained from main-hand weapon damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_from_weapon_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_heretic_devour_curse"
+      ],
+      "_source": "CoA handoff doc: 'Healing power from main-hand weapon damage.' Confirms melee-weapon-gated healing, the class's signature no-retail-analog trait."
+    },
+    {
+      "talent_id": "cultist_heretic_well_educated",
+      "name": "Well Educated",
+      "description": "Increases maximum Mana by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "max_mana_pct": 0.02
+      },
+      "connected_to": [
+        "cultist_heretic_greater_void_blessing"
+      ]
+    },
+    {
+      "talent_id": "cultist_heretic_sanity",
+      "name": "Sanity",
+      "description": "Passively drains a small amount of Insanity periodically.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "passive_insanity_drain": 1
+      },
+      "connected_to": [
+        "cultist_heretic_herald_of_the_depths"
+      ],
+      "_source": "CoA handoff doc: 'Passively drains Insanity periodically.' Helps prevent Total Madness for a spec that generates Insanity as a side effect of healing."
+    },
+    {
+      "talent_id": "cultist_heretic_abyssal_guard",
+      "name": "Abyssal Guard",
+      "description": "Increases Eldritch Mending critical heal chance and critical healing.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_cultist_eldritch_mending_crit_chance": 1.0
+      },
+      "connected_to": [
+        "cultist_heretic_shadow_training"
+      ]
+    },
+    {
+      "talent_id": "cultist_heretic_devour_curse",
+      "name": "Devour Curse",
+      "description": "Learn Devour Curse, dispelling a curse from an ally and healing yourself.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "cultist_devour_curse"
+      },
+      "connected_to": [
+        "cultist_heretic_void_power"
+      ],
+      "_source": "CoA handoff doc: 'Dispels curses from an ally, heals you.'"
+    },
+    {
+      "talent_id": "cultist_heretic_greater_void_blessing",
+      "name": "Greater Void Blessing",
+      "description": "Learn Greater Void Blessing, a party-wide mana regeneration buff.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "cultist_greater_void_blessing"
+      },
+      "connected_to": [
+        "cultist_heretic_well_educated"
+      ],
+      "_source": "CoA handoff doc: 'Party/raid mana regen buff.'"
+    },
+    {
+      "talent_id": "cultist_heretic_herald_of_the_depths",
+      "name": "Herald of the Depths",
+      "description": "Reaching 100 Insanity no longer causes Total Madness. Instead, grants a temporary self-buff.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "remove_total_madness_free_buff": 1
+      },
+      "connected_to": [
+        "cultist_heretic_sanity"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Level 10 Passive. Reaching 100 Insanity no longer causes Total Madness. Teaches Herald of the Depths.' Also unlocks the active window that amplifies output and stretches HoTs/shields."
+    },
+    {
+      "talent_id": "cultist_heretic_malevolence",
+      "name": "Malevolence",
+      "description": "Learn Malevolence, dealing Shadow damage and applying Black Blood, a repeating heal-over-time to nearby allies. Usable while moving.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_malevolence"
+      },
+      "connected_to": [
+        "cultist_heretic_devour_curse",
+        "cultist_heretic_blade_of_yoggsaron"
+      ],
+      "_source": "Confirmed screenshot: Lvl 18, Generates 10 Insanity, '56 Shadow damage and applying Black Blood to 5 nearby allies, healing them for 40, repeating every 3 sec for 12 sec.' Heretic's real main-throughput ability."
+    },
+    {
+      "talent_id": "cultist_heretic_void_shield",
+      "name": "Void Shield",
+      "description": "Learn Void Shield, shielding an ally and applying Wracked Mind, preventing another Void Shield on them for a duration.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_void_shield"
+      },
+      "connected_to": [
+        "cultist_heretic_greater_void_blessing"
+      ],
+      "_source": "Confirmed screenshot: Lvl 20, 'Shields an ally, absorbing 241 damage for 30 sec and applying Wracked Mind. Wracked Mind: Cannot be affected by Void Shield. Lasts for 15 sec.'"
+    },
+    {
+      "talent_id": "cultist_heretic_blade_of_yoggsaron",
+      "name": "Blade of Yogg-Saron",
+      "description": "Blade of the Empire's damage now heals the lowest-health ally, scaling with the damage dealt.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "blade_of_yoggsaron_heal"
+      },
+      "connected_to": [
+        "cultist_heretic_malevolence",
+        "cultist_heretic_forbidden_ritual"
+      ],
+      "_source": "CoA handoff doc confirmed as a core Strength: 'Blade of the Empire damage heals lowest-health ally (% of damage + flat bonus).' Turns the class-wide melee generator into a real heal for this spec."
+    },
+    {
+      "talent_id": "cultist_heretic_forbidden_ritual",
+      "name": "Forbidden Ritual",
+      "description": "Learn Forbidden Ritual, chanting a ritual that shields all nearby party and raid members.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "cultist_forbidden_ritual"
+      },
+      "connected_to": [
+        "cultist_heretic_void_shield",
+        "cultist_heretic_blade_of_yoggsaron"
+      ],
+      "_source": "Confirmed screenshot: Lvl 24, 'Chant a forbidden ritual that places a shield on all nearby party and raid members that absorbs 308 damage for 10 sec.'"
+    },
+    {
+      "talent_id": "cultist_heretic_abyssal_covenant",
+      "name": "Abyssal Covenant",
+      "description": "Link to an ally, transferring a percentage of their damage taken to you and converting a percentage of your damage into healing for them. Only one ally at a time.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "cultist_abyssal_covenant"
+      },
+      "connected_to": [
+        "cultist_heretic_blade_of_yoggsaron"
+      ],
+      "_source": "CoA handoff doc confirmed as Heretic's signature link mechanic: 'Links to an ally: transfers a % of their damage taken to you; a % of your damage converts to their healing. One ally at a time.' Referenced repeatedly as the spec's standout tank-protection tool."
+    },
+    {
+      "talent_id": "cultist_heretic_dark_veil",
+      "name": "Dark Veil",
+      "description": "Channel a stacking shield on you and a target ally, granting stun and silence immunity while channeling.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_dark_veil"
+      },
+      "connected_to": [
+        "cultist_heretic_abyssal_covenant"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Channeled shield: you+target absorb damage (stacking, periodic); at end, shield holds + you teleport to them. Grants immunity while channeling.' Real protect-a-focus-target tool."
+    },
+    {
+      "talent_id": "cultist_heretic_void_embrace",
+      "name": "Void Embrace",
+      "description": "Consume a large amount of Insanity to repeatedly heal nearby allies, applying Void-Touched with each tick.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "cultist_void_embrace"
+      },
+      "connected_to": [
+        "cultist_heretic_dark_veil"
+      ],
+      "_source": "CoA handoff doc confirmed: 'Consumes 60 Insanity. Repeating heal to nearby allies, applies Void-Touched with each tick.' Heretic's real capstone Insanity spender."
+    },
+    {
+      "talent_id": "cultist_heretic_dark_infusion_talent",
+      "name": "Dark Infusion",
+      "description": "Learn Dark Infusion, pre-loading a heal on an ally's next damage taken, which then spreads to the two lowest-health nearby allies.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "cultist_dark_infusion_talent"
+      },
+      "connected_to": [
+        "cultist_heretic_abyssal_covenant"
+      ],
+      "_source": "Confirmed screenshot (class-wide entry, also referenced as a spec-relevant pre-shield tool): 3 charges, 30 sec recharge, pre-heal spreading to the two lowest-health allies."
+    },
+    {
+      "talent_id": "cultist_heretic_entropic_host",
+      "name": "Entropic Host",
+      "description": "Learn Entropic Host, a repeating heal-over-time that jumps to another ally when it expires.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "cultist_entropic_host"
+      },
+      "connected_to": [
+        "cultist_heretic_forbidden_ritual"
+      ],
+      "_source": "CoA handoff doc: 'Repeating HoT; at expiry jumps to another ally; after 2 jumps, target can't be affected again.'"
+    },
+    {
+      "talent_id": "cultist_heretic_dark_matter",
+      "name": "Dark Matter",
+      "description": "Your Satiate channel now also heals nearby allies periodically.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_cultist_satiate_heal_pct": 0.04
+      },
+      "connected_to": [
+        "cultist_heretic_malevolence",
+        "cultist_heretic_void_shield"
+      ],
+      "_source": "CoA handoff doc: 'Satiate channel heals nearby allies periodically.'"
+    },
+    {
+      "talent_id": "cultist_heretic_isolate",
+      "name": "Isolate",
+      "description": "Learn Isolate, reducing a target's threat, causing enemies to stop attacking them and cancelling their current casts.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_isolate"
+      },
+      "connected_to": [
+        "cultist_heretic_dark_veil"
+      ],
+      "_source": "CoA handoff doc confirmed as real threat-drop utility, called out for never using on the tank: 'Reduces threat, causes enemies to stop attacking target + cancels current casts on them.'"
+    },
+    {
+      "talent_id": "cultist_heretic_ritual_of_awakening",
+      "name": "Ritual of Awakening",
+      "description": "Learn Ritual of Awakening, a battle resurrection usable only out of combat.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "cultist_ritual_of_awakening"
+      },
+      "connected_to": [
+        "cultist_heretic_devour_curse"
+      ],
+      "_source": "CoA handoff doc: 'Battle-rez. Out of combat.'"
+    },
+    {
+      "talent_id": "cultist_heretic_protection_from_light",
+      "name": "Protection From Light",
+      "description": "Reduces Holy and Fire damage taken for a target ally, and periodically heals them while active.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "cultist_protection_from_light"
+      },
+      "connected_to": [
+        "cultist_heretic_void_shield",
+        "cultist_heretic_malevolence"
+      ],
+      "_source": "CoA handoff doc: 'Reduces Holy+Fire damage taken for an ally; periodic heal while active.'"
+    },
+    {
+      "talent_id": "cultist_heretic_saronite_mind",
+      "name": "Saronite Mind",
+      "description": "Adds a charge to Eldritch Eye.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "eldritch_eye_extra_charge": 1
+      },
+      "connected_to": [
+        "cultist_heretic_blade_of_yoggsaron"
+      ]
+    },
+    {
+      "talent_id": "cultist_heretic_instill_despair",
+      "name": "Instill Despair",
+      "description": "Defile an ally's weapon: increases their Haste and grants a chance to steal health on damage dealt, healing them for half the amount stolen.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "instill_despair_leech_pct": 0.05
+      },
+      "connected_to": [
+        "cultist_heretic_abyssal_covenant"
+      ],
+      "_source": "CoA handoff doc: 'Ally weapon defiled: boosts haste + steal-health-on-damage chance (heals for half stolen).'"
+    },
+    {
+      "talent_id": "cultist_heretic_summon_mindbender",
+      "name": "Summon: Mindbender",
+      "description": "Learn Summon: Mindbender, a minion that periodically heals nearby allies.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "cultist_summon_mindbender"
+      },
+      "connected_to": [
+        "cultist_heretic_dark_veil"
+      ],
+      "_source": "CoA handoff doc: 'Summons a minion that periodically heals nearby allies.'"
+    },
+    {
+      "talent_id": "cultist_heretic_hymn_of_hope",
+      "name": "Hymn of Hope",
+      "description": "Increases the healing power of Malevolence's Black Blood effect by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_cultist_malevolence_healing": 0.04
+      },
+      "connected_to": [
+        "cultist_heretic_malevolence",
+        "cultist_heretic_void_shield"
+      ]
+    },
+    {
+      "talent_id": "cultist_heretic_faith_unbroken",
+      "name": "Faith Unbroken",
+      "description": "Reduces the Mana cost of your healing spells by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "healing_spell_cost_pct": -0.02
+      },
+      "connected_to": [
+        "cultist_heretic_greater_void_blessing",
+        "cultist_heretic_devour_curse"
+      ]
+    },
+    {
+      "talent_id": "cultist_heretic_grace_of_the_deep",
+      "name": "Grace of the Deep",
+      "description": "Increases healing done to targets below 50% health by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "low_health_healing_pct": 0.03
+      },
+      "connected_to": [
+        "cultist_heretic_blade_of_yoggsaron",
+        "cultist_heretic_forbidden_ritual"
+      ]
+    }
+  ]
+}

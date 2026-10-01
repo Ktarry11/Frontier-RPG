@@ -1,0 +1,376 @@
+{
+  "spec_name": "Starcaller Sentinel",
+  "tree_id": "starcaller_sentinel",
+  "description": "Ranged arcane hunter - spam Huntress Shot and Moon Arrow to build Scattered Stars and mana, cash stacks through Starfire Shot/Lunar Lance/Trueshot. Starcall tags packs and slows.",
+  "_source_note": "Built from CoA handoff doc + confirmed screenshot numbers (Starcall, Starfire Shot, Trueshot, Aspect of the Huntress confirmed via screenshot). Real mechanic per handoff: almost every action refunds mana (Moon Arrow's Ishnu-alah, Aspect of the Huntress off autos, star-consuming finishers), so the spec rarely sits down to drink while actively fighting.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "starcaller_sentinel_sentinel_15",
+      "name": "Keen Sight",
+      "description": "Increases ranged Attack Power and hit rating from Intellect by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ranged_ap_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_sentinel_explosive_moonlight"
+      ],
+      "_source": "CoA tooltip confirmed: 'Sentinel - Level 15 Passive. Ranged AP + hit rating from Intellect.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_huntress_training",
+      "name": "Huntress Training",
+      "description": "Grants haste rating from Intellect at 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "haste_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_sentinel_true_aim"
+      ]
+    },
+    {
+      "talent_id": "starcaller_sentinel_eye_of_elune",
+      "name": "Eye of Elune",
+      "description": "Increases critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0,
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "starcaller_sentinel_starfury"
+      ]
+    },
+    {
+      "talent_id": "starcaller_sentinel_lunar_focus",
+      "name": "Lunar Focus",
+      "description": "Increases movement speed by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "movement_speed_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_sentinel_astral_quickness"
+      ]
+    },
+    {
+      "talent_id": "starcaller_sentinel_explosive_moonlight",
+      "name": "Explosive Moonlight",
+      "description": "Grants ranged Attack Power and hit rating from Intellect.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ranged_ap_pct": 0.02
+      },
+      "connected_to": [
+        "starcaller_sentinel_sentinel_15"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 30 Passive. Ranged AP + hit rating from Intellect.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_true_aim",
+      "name": "True Aim",
+      "description": "Reduces the cost of Moon Arrow by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_starcaller_moon_arrow_cost_pct": -0.03
+      },
+      "connected_to": [
+        "starcaller_sentinel_huntress_training"
+      ]
+    },
+    {
+      "talent_id": "starcaller_sentinel_astral_quickness",
+      "name": "Astral Quickness",
+      "description": "Moon Arrow critical strikes increase melee and ranged haste for a duration.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_starcaller_moon_arrow_crit_haste_proc": 1
+      },
+      "connected_to": [
+        "starcaller_sentinel_lunar_focus"
+      ]
+    },
+    {
+      "talent_id": "starcaller_sentinel_starfury",
+      "name": "Starfury",
+      "description": "Increases critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "crit_damage_physical": 0.04,
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [
+        "starcaller_sentinel_eye_of_elune"
+      ]
+    },
+    {
+      "talent_id": "starcaller_sentinel_arrows_in_the_night",
+      "name": "Arrows In The Night",
+      "description": "Huntress Shots strike additional enemies and explode for Arcane damage. Starcall damage reduces this ability's cooldown.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_starcaller_huntress_shot_extra_targets": 1
+      },
+      "connected_to": [
+        "starcaller_sentinel_explosive_moonlight",
+        "starcaller_sentinel_aspect_of_the_cosmos"
+      ],
+      "_source": "CoA handoff doc: 'Huntress Shots strike extra enemies + explode for Arcane damage; Starcall damage reduces this ability's cooldown.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_aspect_of_the_cosmos",
+      "name": "Aspect of the Cosmos",
+      "description": "Melee and ranged damage has a chance to slow the target, stacking, and apply Scattered Stars. Only 1 Aspect active at a time.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "starcaller_aspect_of_the_cosmos"
+      },
+      "connected_to": [
+        "starcaller_sentinel_astral_quickness"
+      ],
+      "_source": "CoA tooltip confirmed (class-wide list): 'Melee/ranged damage chance to slow target (stacking) + apply Scattered Stars. Shares Aspect cooldown.' Sentinel's real kite/control tool."
+    },
+    {
+      "talent_id": "starcaller_sentinel_lunar_splinters",
+      "name": "Lunar Splinters",
+      "description": "Increases Scattered Star consumption damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "scattered_star_consume_damage_pct": 0.05
+      },
+      "connected_to": [
+        "starcaller_sentinel_arrows_in_the_night",
+        "starcaller_sentinel_celestial_shot"
+      ]
+    },
+    {
+      "talent_id": "starcaller_sentinel_celestial_shot",
+      "name": "Celestial Shot",
+      "description": "Increases Scattered Star consumption effectiveness.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "conditional_scattered_star_effectiveness": 0.1
+      },
+      "connected_to": [
+        "starcaller_sentinel_lunar_splinters",
+        "starcaller_sentinel_aspect_of_the_cosmos"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 40 Passive. Boosts Scattered Star consumption effectiveness.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_lo_sho_amplification",
+      "name": "Lo'sho Amplification",
+      "description": "Scattered Stars burn enemy mana when consumed.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "scattered_star_mana_burn": 1
+      },
+      "connected_to": [
+        "starcaller_sentinel_celestial_shot"
+      ],
+      "_source": "CoA tooltip confirmed: 'Level 50 Passive. Scattered Stars burn enemy mana.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_drawstring_of_elune",
+      "name": "Drawstring of Elune",
+      "description": "Huntress Shot and Starcall apply an extra Scattered Star stack, and increase your ability range.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "extra_scattered_star_stack": 1
+      },
+      "connected_to": [
+        "starcaller_sentinel_lo_sho_amplification"
+      ],
+      "_source": "CoA handoff doc: 'Huntress Shot/Starcall apply extra Scattered Star stack; boosts ability range to 50 yds.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_star_guided_arrows",
+      "name": "Star-Guided Arrows",
+      "description": "Scattered Star damage has a chance to refresh a Trueshot charge.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "ability_starcaller_trueshot_charge_refresh_chance": 0.15
+      },
+      "connected_to": [
+        "starcaller_sentinel_drawstring_of_elune"
+      ],
+      "_source": "CoA handoff doc: 'Scattered Star damage chance to refresh a Trueshot charge.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_cascade",
+      "name": "Cascade",
+      "description": "Every 8th Scattered Star consumed increases the damage of your next Starcall.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_mechanic": "cascade_starcall_buff"
+      },
+      "connected_to": [
+        "starcaller_sentinel_star_guided_arrows"
+      ],
+      "_source": "CoA handoff doc confirmed as Sentinel's real capstone payoff: 'Every 8th consumed star boosts next Starcall's damage.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_huntress_saber",
+      "name": "Huntress Saber",
+      "description": "Learn Huntress Saber, a mount granting increased movement speed, slow immunity, and the ability to cast offensive spells while moving.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "starcaller_huntress_saber"
+      },
+      "connected_to": [
+        "starcaller_sentinel_arrows_in_the_night",
+        "starcaller_sentinel_aspect_of_the_cosmos"
+      ],
+      "_source": "CoA handoff doc confirmed as Sentinel's real mobility/repositioning tool: 'Mount: +movement speed, slow immunity, cast offensive spells while moving/without dismounting.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_starlight",
+      "name": "Starlight",
+      "description": "Learn Starlight, a beam that repeatedly deals Arcane damage and slows enemies passing through.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "starcaller_starlight"
+      },
+      "connected_to": [
+        "starcaller_sentinel_lunar_splinters",
+        "starcaller_sentinel_celestial_shot"
+      ],
+      "_source": "CoA handoff doc: 'Beam: repeating Arcane damage + slows enemies passing through.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_rain_of_comets",
+      "name": "Rain of Comets",
+      "description": "Learn Rain of Comets, a repeating AoE Arcane damage effect at a target area.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "starcaller_rain_of_comets"
+      },
+      "connected_to": [
+        "starcaller_sentinel_star_guided_arrows"
+      ],
+      "_source": "CoA handoff doc: 'Repeating AoE Arcane damage at target area.'"
+    },
+    {
+      "talent_id": "starcaller_sentinel_stellar_drift",
+      "name": "Stellar Drift",
+      "description": "Slows nearby enemies, then knocks them back.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "starcaller_stellar_drift"
+      },
+      "connected_to": [
+        "starcaller_sentinel_lo_sho_amplification"
+      ]
+    }
+  ]
+}

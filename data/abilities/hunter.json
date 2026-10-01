@@ -1,0 +1,573 @@
+{
+  "class": "Hunter",
+  "abilities": [
+    {
+      "ability_id": "hunter_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A basic ranged attack.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee"
+    },
+    {
+      "ability_id": "hunter_steady_shot",
+      "name": "Steady Shot",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A steady, well-aimed shot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 20,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 25,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 35,
+          "effect_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 83
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 45,
+          "effect_value": 93
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 104
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 55,
+          "effect_value": 114
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 60,
+          "effect_value": 124
+        }
+      ],
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_multi_shot",
+      "name": "Multi-Shot",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fires several shots in rapid succession.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 35,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 53,
+          "effect_value": 76
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 71,
+          "effect_value": 101
+        },
+        {
+          "rank": 4,
+          "level_req": 64,
+          "cost": 89,
+          "effect_value": 125
+        }
+      ],
+      "icon_id": "ability_spell",
+      "target_type": "enemy_aoe"
+    },
+    {
+      "ability_id": "hunter_aimed_shot",
+      "name": "Aimed Shot",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A carefully aimed shot that deals heavy damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 40,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 62,
+          "effect_value": 84
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 84,
+          "effect_value": 110
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 106,
+          "effect_value": 136
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 128,
+          "effect_value": 162
+        }
+      ],
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_serpent_sting",
+      "name": "Serpent Sting",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Poisons the target, dealing nature damage over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 25,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 39,
+          "effect_value": 86
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 53,
+          "effect_value": 120
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 67,
+          "effect_value": 153
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "hunter_hunters_mark",
+      "name": "Hunter's Mark",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 4,
+      "stat_mods": {
+        "armor": -90,
+        "dodge": -8
+      },
+      "description": "Marks the target, reducing its Armor and Dodge for 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": "ability_debuff"
+    },
+    {
+      "ability_id": "hunter_aspect_of_the_hawk",
+      "name": "Aspect of the Hawk",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power": 40,
+        "haste": 8
+      },
+      "description": "Assumes the Hawk's aspect, increasing Attack Power and Haste.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 45,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 75,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": null,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "hunter_explosive_trap",
+      "name": "Explosive Trap",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Sets a fire trap that burns the target over 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 45,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 50,
+          "cost": 69,
+          "effect_value": 93
+        }
+      ],
+      "icon_id": "ability_spell",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "hunter_chimera_shot",
+      "name": "Chimera Shot",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Chimera Shot talent in the Marksmanship tree. A powerful instant shot. Real WOTLK's effect changes based on which Sting is active on the target and refreshes it - simplified here to a strong flat-damage shot since sting-conditional branching isn't modeled.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 60,
+          "effect_value": 78
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_explosive_shot",
+      "name": "Explosive Shot",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Explosive Shot talent in the Survival tree. Lodges an explosive charge in the target, dealing Fire damage over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 55,
+          "effect_value": 60
+        }
+      ],
+      "requires_talent": true,
+      "icon_id": null,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "hunter_black_arrow",
+      "name": "Black Arrow",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 5,
+      "stat_mods": {},
+      "description": "Not learned from level alone - granted by the Black Arrow talent in the Survival tree. Fires a black arrow that deals Shadow damage over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 66
+        }
+      ],
+      "requires_talent": true,
+      "icon_id": null,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "hunter_wyvern_sting",
+      "name": "Wyvern Sting",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Puts the target to sleep for 2 turns, then deals Nature damage over time when it wakes.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "requires_talent": true,
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "hunter_mend_pet",
+      "name": "Mend Pet",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Heals your pet over time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 35,
+          "effect_value": 40
+        }
+      ],
+      "target_type": "ally",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_revive_pet",
+      "name": "Revive Pet",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Instantly revives your fallen pet with a portion of its health. KNOWN UI GAP: the normal target picker pulls from living_allies(), which correctly excludes dead combatants - a dead pet currently has no way to be selected as this ability's target through the UI, even though the underlying mechanic works correctly when cast directly on the pet object. Needs a small target-picker special case for this one ability.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 40,
+          "effect_value": 999
+        }
+      ],
+      "target_type": "ally",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_concussive_shot",
+      "name": "Concussive Shot",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -50
+      },
+      "description": "An instant shot that slows the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_disengage",
+      "name": "Disengage",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "damage_taken_pct": -0.3
+      },
+      "description": "PLACEHOLDER (no positioning/repositioning mechanic exists): real WOTLK Disengage leaps you backward out of melee range - here it's a temporary reduced-damage-taken buff instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_freezing_trap",
+      "name": "Freezing Trap",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Incapacitates the target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "hunter_feign_death",
+      "name": "Feign Death",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "damage_taken_pct": -0.5
+      },
+      "description": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Feign Death drops all threat by playing dead - here it's a temporary heavy damage-reduction buff instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null
+    },
+    {
+      "ability_id": "hunter_scare_beast",
+      "name": "Scare Beast",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Fears a Beast target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "is_stun": true
+    },
+    {
+      "ability_id": "hunter_aspect_of_the_wild",
+      "name": "Aspect of the Wild",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "nature_resistance": 60,
+        "crit_chance_physical": 5
+      },
+      "description": "Assumes the Wild's aspect, granting Nature resistance and increased critical strike chance - matches Aspect of the Wild's real WOTLK identity, previously missing entirely since the engine had no Nature resistance stat to grant.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": null,
+      "buff_scope": "combat"
+    }
+  ]
+}
