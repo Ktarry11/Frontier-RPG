@@ -362,12 +362,12 @@
       },
       "description": "Gift an ally with the madness of Y'shaarj, restoring mana over time. Only one Whisper per Cultist active.",
       "_source": "Confirmed screenshot: Lvl 14, 'restoring 10 mana every 5 seconds for 30 min. Players may only have one Whisper on them per Cultist at any one time.' Part of the mutually-exclusive Whispers family.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 14,
-          "cost": 22,
+          "cost": 33,
           "effect_value": 100
         }
       ],
@@ -483,12 +483,12 @@
       },
       "description": "Gift an ally with the madness of C'thun, increasing Spell Power. Only one Whisper per Cultist active.",
       "_source": "Confirmed screenshot: Lvl 38, '+37 Spell Power. Lasts 30 min.' Part of the mutually-exclusive Whispers family.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 38,
-          "cost": 30,
+          "cost": 45,
           "effect_value": 100
         }
       ],
@@ -623,12 +623,12 @@
       },
       "description": "Gift an ally with the madness of N'Zoth, increasing total stats. Only one Whisper per Cultist active.",
       "_source": "Confirmed screenshot: Lvl 24, '+10% total stats. Lasts 30 min.' Part of the mutually-exclusive Whispers family.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 28,
+          "cost": 42,
           "effect_value": 100
         }
       ],
@@ -1779,12 +1779,12 @@
       },
       "description": "Reduce Holy and Fire damage taken for an ally, and periodically heal them while active.",
       "_source": "CoA handoff doc: 'Reduces Holy+Fire damage taken for an ally; periodic heal while active.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 26,
+          "cost": 39,
           "effect_value": 100
         }
       ],

@@ -159,12 +159,12 @@
       },
       "description": "Place a Devotion on the friendly target, restoring mana over time and reducing their costs. Only one Devotion per Sun Cleric active at a time.",
       "_source": "Confirmed screenshot: Lvl 4, 'restoring 6 mana every 5 seconds and reducing their costs by 5% for 30 min.' Part of the mutually-exclusive Devotion family (Grace/Dawn/Radiance/Emperors).",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 20,
+          "cost": 30,
           "effect_value": 100
         }
       ],
@@ -362,12 +362,12 @@
       },
       "description": "Place a Devotion on the friendly target, increasing their Attack Power. Only one Devotion per Sun Cleric active at a time.",
       "_source": "Confirmed screenshot: Lvl 12, '+35 Attack Power for 30 min.' Part of the Devotion family.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 22,
+          "cost": 33,
           "effect_value": 100
         }
       ],
@@ -433,12 +433,12 @@
       },
       "description": "Place a Devotion on the friendly target, increasing their Spell Power. Only one Devotion per Sun Cleric active at a time.",
       "_source": "Confirmed screenshot: Lvl 28, '+28 Spell Power.' Part of the Devotion family.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 28,
-          "cost": 24,
+          "cost": 36,
           "effect_value": 100
         }
       ],
@@ -529,12 +529,12 @@
       },
       "description": "Place a Devotion on the friendly target, increasing their total stats. Only one Devotion per Sun Cleric active at a time.",
       "_source": "Confirmed screenshot: Lvl 44, 3 Mana, instant, '+10% total stats. Lasts 30 min.' Part of the Devotion family.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 44,
-          "cost": 3,
+          "cost": 4,
           "effect_value": 100
         }
       ],

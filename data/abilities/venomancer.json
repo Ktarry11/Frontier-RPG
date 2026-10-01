@@ -252,12 +252,12 @@
       },
       "description": "Inject an ally with spider pheromones, increasing their Agility.",
       "_source": "Confirmed screenshot: Lvl 10, '+6 Agility. Lasts 30 min.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 20,
+          "cost": 30,
           "effect_value": 100
         }
       ],
@@ -345,12 +345,12 @@
       },
       "description": "Increase the friendly target's Armor and all primary stats. Does not stack with similar effects.",
       "_source": "Confirmed screenshot: Lvl 20, '+105 Armor and all primary stats by 4. Lasts 30 min.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 24,
+          "cost": 36,
           "effect_value": 100
         }
       ],
@@ -413,12 +413,12 @@
       },
       "description": "Create a magic edict with an ally, increasing their Spell Power.",
       "_source": "Confirmed screenshot: Lvl 28, '+28 Spell Power.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 28,
-          "cost": 30,
+          "cost": 45,
           "effect_value": 100
         }
       ],

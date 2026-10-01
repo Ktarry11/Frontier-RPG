@@ -173,18 +173,18 @@
       },
       "description": "Call upon the power of the storm to empower an allied player, increasing their Intellect. Does not stack with Call of the Wind.",
       "_source": "Confirmed screenshot: Lvl 4 (was Lvl 6), 'increasing their Intellect by 3 for 30 min.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 25,
+          "cost": 38,
           "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 25,
+          "cost": 38,
           "effect_value": 100
         }
       ],
@@ -405,18 +405,18 @@
       },
       "description": "Call upon the power of the wind to empower an allied player, restoring mana over time. Does not stack with Call of the Storm.",
       "_source": "Confirmed screenshot: Lvl 14 (was Lvl 6), 'restoring 10 mana every 5 seconds for 30 min.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 14,
-          "cost": 25,
+          "cost": 38,
           "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 36,
-          "cost": 25,
+          "cost": 38,
           "effect_value": 100
         }
       ],
@@ -858,12 +858,12 @@
       },
       "description": "Call upon the power of storms to empower an allied player, increasing their resistances.",
       "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 50, 'increasing their resistances by 20 for 30 min.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 50,
-          "cost": 30,
+          "cost": 45,
           "effect_value": 100
         }
       ],

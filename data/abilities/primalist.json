@@ -359,12 +359,12 @@
       },
       "description": "Invoke a savage instinct on an ally, increasing Attack Power. Players may only have one Instinct on them at a time.",
       "_source": "Confirmed screenshot: Lvl 8, '+30 Attack Power. Lasts 30 min.' Part of the mutually-exclusive Instinct family (Grove/Primal).",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 8,
-          "cost": 20,
+          "cost": 30,
           "effect_value": 100
         }
       ],
@@ -524,12 +524,12 @@
       },
       "description": "Sprinkle an ally with Fae Dust, reducing Nature and Arcane damage taken.",
       "_source": "Confirmed screenshot: Lvl 28, '-3% Nature and Arcane damage taken. Lasts 15 min.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 28,
-          "cost": 24,
+          "cost": 36,
           "effect_value": 100
         }
       ],
@@ -558,12 +558,12 @@
       },
       "description": "Increase the friendly target's Armor, all stats, and all resistances.",
       "_source": "Confirmed screenshot: Lvl 30, '+150 Armor, +6 all stats, +5 all resistances. Lasts 30 min.' A major raid buff.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 30,
+          "cost": 45,
           "effect_value": 100
         }
       ],
@@ -606,12 +606,12 @@
       },
       "description": "Increase the Nature Resistance of a targeted party member.",
       "_source": "Confirmed screenshot: Lvl 44, '+45 Nature Resistance. Lasts 10 min.'",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 44,
-          "cost": 28,
+          "cost": 42,
           "effect_value": 100
         }
       ],
@@ -630,12 +630,12 @@
       },
       "description": "Invoke a calm and earthly instinct on an ally, restoring mana over time. Players may only have one Instinct on them at a time.",
       "_source": "Confirmed screenshot: Lvl 2, 'restoring 5 mana every 5 seconds.' Part of the mutually-exclusive Instinct family.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 2,
-          "cost": 18,
+          "cost": 27,
           "effect_value": 100
         }
       ],

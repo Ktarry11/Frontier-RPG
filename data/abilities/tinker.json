@@ -457,12 +457,12 @@
       },
       "description": "Empower an ally with a mana module, restoring 10 mana every 5 seconds for 30 min. Only one Module per Tinker can be active.",
       "_source": "Real screenshot: Requires Level 16. Invention leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention same as other 1hr/30min Tinker buffs.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 20,
+          "cost": 30,
           "effect_value": 100
         }
       ],
@@ -515,12 +515,12 @@
       },
       "description": "Send Nanobots to an ally, regenerating 13 mana every 5 sec for 1 min. Nanobot Recharger can only be sent to 1 target at a time and cannot be dispelled.",
       "_source": "Real screenshot: Requires Level 20. Invention leveling sequence.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 26,
+          "cost": 39,
           "effect_value": 100
         }
       ],
@@ -776,12 +776,12 @@
       },
       "description": "Activates power module on an allied player, increasing attack power by 19 for 30 min. Only one Module per Tinker can be active.",
       "_source": "Real screenshot: Requires Level 4. Mechanics leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 15,
+          "cost": 22,
           "effect_value": 100
         }
       ],
@@ -998,12 +998,12 @@
       },
       "description": "Augment a party member with the essence of arcane, decreasing damage taken from spells by up to 3% and healing spells by up to 3%. Lasts 5 min.",
       "_source": "Real screenshot: Requires Level 46. Mechanics leveling sequence.",
-      "target_type": "ally",
+      "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 46,
-          "cost": 40,
+          "cost": 60,
           "effect_value": 100
         }
       ],
