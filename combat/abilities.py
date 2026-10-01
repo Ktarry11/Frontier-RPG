@@ -629,13 +629,31 @@ class Ability:
 
     def is_usable_by(self, character):
         """True if the character has learned this ability, it's off
-        cooldown, AND (for form-gated abilities like Mangle) they're
-        currently in a form that allows it. Cheaper for callers than
-        checking all three separately."""
+        cooldown, they can currently AFFORD its resource cost, AND (for
+        form-gated abilities like Mangle) they're currently in a form
+        that allows it. Cheaper for callers than checking all these
+        separately.
+
+        The resource-affordability check was missing here until now -
+        is_usable_by only ever checked learned/cooldown/form/ranged-
+        weapon, never whether the caster could actually PAY for the
+        ability. That made the hotbar button render bright green
+        ("ready") for an ability the caster had 0 chance of successfully
+        casting - worst case, a Static/Insanity/Runes-style secondary-
+        resource spender (Stormbringer's Torrential Wrath, Cultist's
+        Wrath of the Black Empire, ...) that's NEVER affordable until a
+        separate builder ability has been cast first. A player sees a
+        green "ready" button, clicks it, gets a text-log failure message
+        with no visual warning beforehand - exactly the "my skills don't
+        work" confusion this exists to fix. Uses the real
+        talented_cost()/_has_resource() pair use() itself calls, so this
+        can never disagree with what an actual cast would do.
+        """
         return (getattr(self, "is_learned", True)
                 and self.is_available()
                 and self.is_form_ready(character)
-                and self.is_ranged_weapon_ready(character))
+                and self.is_ranged_weapon_ready(character)
+                and self._has_resource(character, self.talented_cost(character)))
 
     @property
     def current_rank(self):
@@ -712,19 +730,41 @@ class Ability:
 
         cost_bits = []
         if self.cost:
-            from combat.abilities import get_class_resource
-            # Generic "Cost: N" - the specific resource name (Mana/Rage/
-            # Energy/...) isn't known to a bare Ability (that's a
-            # Character-level concept via get_class_resource), so callers
-            # with a real caster in hand may prefer to relabel this line;
-            # "Cost" alone is still meaningful without one.
-            cost_bits.append(f"Cost: {int(self.cost)}")
+            # Real resource name (Mana/Rage/Energy/Static/Insanity/...)
+            # instead of a bare "Cost: N" - the old generic wording made
+            # a secondary-resource spender (Stormbringer's Torrential
+            # Wrath costing Static, Cultist's Wrath of the Black Empire
+            # costing Insanity, ...) look exactly like an ordinary Mana
+            # ability in its own tooltip, with nothing telling the player
+            # WHICH pool to watch or that it's a different pool from the
+            # class's main bar. self.resource_type is always a real
+            # ResourceType on every ability (set at construction), so
+            # this never needs a caster in hand the way the old comment
+            # claimed - "Cost: 40 Static" reads the same whether or not
+            # the player has 40 Static banked right now.
+            resource_label = self.resource_type.value.replace("_", " ").title()
+            cost_bits.append(f"Cost: {int(self.cost)} {resource_label}")
         if self.is_instant:
             cost_bits.append("Instant")
         if self.cooldown:
             cost_bits.append(f"{self.cooldown} turn cooldown")
         if cost_bits:
             lines.append("  |  ".join(cost_bits))
+
+        # Builder/spender callout (Stormbringer Shock->Static,
+        # Cultist's Insanity builders, ...): without this line, nothing
+        # in the ability's OWN tooltip tells a player it's quietly
+        # banking a second resource their payoff ability needs - the
+        # secondary resource bar (combat_screen._draw_secondary_resource)
+        # shows the pool exists, but not which button fills it. This is
+        # the single biggest real fix for "my best ability is never
+        # castable" confusion on every builder/spender CoA class.
+        if self.generates:
+            gen_resource = self.generates.get("resource")
+            gen_amount = self.generates.get("amount", 0)
+            if gen_resource and gen_amount:
+                gen_label = str(gen_resource).replace("_", " ").title()
+                lines.append(f"Generates {int(gen_amount)} {gen_label}")
 
         # Real base-value line(s), phrased per effect_type - the actual
         # "before modifiers" numbers Kyle asked for.
