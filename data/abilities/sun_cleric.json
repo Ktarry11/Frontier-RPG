@@ -82,7 +82,7 @@
           "effect_value": 558
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_sunflare",
@@ -98,53 +98,53 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 12,
+          "cost": 20,
           "effect_value": 29
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 18,
+          "cost": 36,
           "effect_value": 52
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 24,
+          "cost": 56,
           "effect_value": 80
         },
         {
           "rank": 4,
           "level_req": 24,
-          "cost": 30,
+          "cost": 78,
           "effect_value": 112
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 36,
+          "cost": 104,
           "effect_value": 148
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 42,
+          "cost": 132,
           "effect_value": 188
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 48,
+          "cost": 162,
           "effect_value": 232
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 54,
+          "cost": 196,
           "effect_value": 280
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "holy"
     },
     {
@@ -168,7 +168,7 @@
           "effect_value": 6
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "sun_cleric_devotion"
     },
@@ -191,7 +191,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "sun_cleric_vow",
       "generates": {
         "resource": "solar_power",
@@ -217,7 +217,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "sun_cleric_vow",
       "generates": {
         "resource": "solar_power",
@@ -243,7 +243,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_shine",
@@ -276,7 +276,7 @@
           "effect_value": 320
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_dawn",
@@ -297,7 +297,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "_implementation_note": "The real mechanic empowers the next 10 casts over a 1-min window, once per sec - this engine doesn't have a 'next N casts' counter primitive, modeled as a short flat self-buff window instead. Same class of gap as Runemaster's Lunar Eclipse."
     },
     {
@@ -319,7 +319,7 @@
           "effect_value": 25
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "sun_cleric_vow",
       "generates": {
         "resource": "solar_power",
@@ -347,7 +347,7 @@
           "effect_value": 32
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_devotion_of_dawn",
@@ -370,7 +370,7 @@
           "effect_value": 35
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "sun_cleric_devotion"
     },
@@ -396,7 +396,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_justice",
@@ -413,7 +413,7 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 28,
+          "cost": 49,
           "effect_value": 70
         }
       ],
@@ -440,7 +440,7 @@
           "effect_value": 28
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "sun_cleric_devotion"
     },
@@ -463,7 +463,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "sun_cleric_vow",
       "generates": {
         "resource": "solar_power",
@@ -535,7 +535,7 @@
           "effect_value": 10
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "sun_cleric_devotion"
     },
@@ -558,7 +558,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "sun_cleric_vow",
       "generates": {
         "resource": "solar_power",
@@ -579,11 +579,11 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 22,
+          "cost": 84,
           "effect_value": 120
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "fire"
     },
     {
@@ -601,11 +601,11 @@
         {
           "rank": 1,
           "level_req": 22,
-          "cost": 32,
+          "cost": 101,
           "effect_value": 144
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "fire"
     },
     {
@@ -626,7 +626,7 @@
           "effect_value": 44
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": [
         "holy",
         "fire"
@@ -651,7 +651,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_daybreak",
@@ -672,7 +672,7 @@
           "effect_value": 273
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_bless",
@@ -693,7 +693,7 @@
           "effect_value": 90
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_blessing_of_purity",
@@ -718,7 +718,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_blessing_of_retribution",
@@ -739,7 +739,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_blessing_of_triumph",
@@ -763,7 +763,7 @@
           "effect_value": 20
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_blessing_of_absolution",
@@ -780,11 +780,11 @@
         {
           "rank": 1,
           "level_req": 22,
-          "cost": 10,
+          "cost": 46,
           "effect_value": 66
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "holy"
     },
     {
@@ -806,7 +806,7 @@
           "effect_value": 207
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_sunshine",
@@ -827,7 +827,7 @@
           "effect_value": 200
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_revivify",
@@ -848,7 +848,7 @@
           "effect_value": 999
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_glorious_execution",
@@ -864,7 +864,7 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 25,
+          "cost": 49,
           "effect_value": 70
         }
       ],
@@ -891,7 +891,7 @@
           "effect_value": 20
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_march_of_the_valkyr",
@@ -915,7 +915,7 @@
           "effect_value": 5
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -933,11 +933,11 @@
         {
           "rank": 1,
           "level_req": 50,
-          "cost": 40,
+          "cost": 105,
           "effect_value": 150
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "holy"
     },
     {
@@ -959,7 +959,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_gavel_of_light",
@@ -975,7 +975,7 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 20,
+          "cost": 38,
           "effect_value": 55
         }
       ],
@@ -1003,7 +1003,7 @@
           "effect_value": 30
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_scroll_of_hope",
@@ -1026,7 +1026,7 @@
           "effect_value": 20
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -1045,11 +1045,11 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 24,
+          "cost": 63,
           "effect_value": 90
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "holy"
     },
     {
@@ -1071,7 +1071,7 @@
           "effect_value": 51
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "sun_cleric_hammer_of_kings",
@@ -1092,7 +1092,7 @@
           "effect_value": 50
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": [
         "holy",
         "fire"
@@ -1113,11 +1113,11 @@
         {
           "rank": 1,
           "level_req": 42,
-          "cost": 15,
+          "cost": 118,
           "effect_value": 168
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "holy"
     },
     {
@@ -1140,7 +1140,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     }
   ]
 }

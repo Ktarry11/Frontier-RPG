@@ -36,49 +36,49 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 18,
+          "cost": 31,
           "effect_value": 44
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 25,
+          "cost": 43,
           "effect_value": 62
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 33,
+          "cost": 59,
           "effect_value": 84
         },
         {
           "rank": 4,
           "level_req": 24,
-          "cost": 41,
+          "cost": 76,
           "effect_value": 108
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 49,
+          "cost": 94,
           "effect_value": 134
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 57,
+          "cost": 113,
           "effect_value": 162
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 65,
+          "cost": 134,
           "effect_value": 192
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 73,
+          "cost": 157,
           "effect_value": 224
         }
       ],
@@ -206,49 +206,49 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 24,
+          "cost": 41,
           "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 12,
-          "cost": 32,
+          "cost": 57,
           "effect_value": 82
         },
         {
           "rank": 3,
           "level_req": 20,
-          "cost": 40,
+          "cost": 76,
           "effect_value": 108
         },
         {
           "rank": 4,
           "level_req": 28,
-          "cost": 48,
+          "cost": 95,
           "effect_value": 136
         },
         {
           "rank": 5,
           "level_req": 36,
-          "cost": 56,
+          "cost": 116,
           "effect_value": 166
         },
         {
           "rank": 6,
           "level_req": 44,
-          "cost": 64,
+          "cost": 139,
           "effect_value": 198
         },
         {
           "rank": 7,
           "level_req": 52,
-          "cost": 72,
+          "cost": 162,
           "effect_value": 232
         },
         {
           "rank": 8,
           "level_req": 60,
-          "cost": 80,
+          "cost": 188,
           "effect_value": 268
         }
       ],
@@ -366,7 +366,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "stormbringer_aegis"
     },
@@ -391,7 +391,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_debuff",
+      "icon_id": null,
       "exclusive_group": "stormbringer_pressure"
     },
     {
@@ -445,7 +445,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "stormbringer_storm_alert",
@@ -501,7 +501,7 @@
           "effect_value": 20
         }
       ],
-      "icon_id": "ability_debuff",
+      "icon_id": null,
       "exclusive_group": "stormbringer_pressure"
     },
     {
@@ -598,7 +598,7 @@
           "effect_value": 3
         }
       ],
-      "icon_id": "ability_debuff",
+      "icon_id": null,
       "exclusive_group": "stormbringer_pressure"
     },
     {
@@ -622,7 +622,7 @@
           "effect_value": 35
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "stormbringer_pressure"
     },
@@ -668,7 +668,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "stormbringer_aegis"
     },
@@ -687,13 +687,13 @@
         {
           "rank": 1,
           "level_req": 46,
-          "cost": 44,
+          "cost": 70,
           "effect_value": 100
         },
         {
           "rank": 2,
           "level_req": 56,
-          "cost": 58,
+          "cost": 105,
           "effect_value": 150
         }
       ],
@@ -775,13 +775,13 @@
         {
           "rank": 1,
           "level_req": 15,
-          "cost": 35,
+          "cost": 56,
           "effect_value": 80
         },
         {
           "rank": 2,
           "level_req": 22,
-          "cost": 45,
+          "cost": 99,
           "effect_value": 142
         }
       ],
@@ -837,7 +837,7 @@
           "effect_value": 207
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "nature"
     },
     {
@@ -882,7 +882,7 @@
           "effect_value": 76
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "frost"
     },
     {
@@ -905,7 +905,7 @@
           "effect_value": 147
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "frost"
     },
     {
@@ -927,7 +927,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "_implementation_note": "Real pet - stub only until the pet system Kyle mentioned is built. See Tinker's ZIGGI-6K and Venomancer's Air Elemental for the same pattern."
     },
     {
@@ -950,7 +950,7 @@
           "effect_value": 15
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "stormbringer_torrential_wrath",
@@ -970,7 +970,7 @@
           "effect_value": 213
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "frost"
     },
     {
@@ -990,11 +990,11 @@
         {
           "rank": 1,
           "level_req": 27,
-          "cost": 45,
+          "cost": 63,
           "effect_value": 90
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "frost"
     },
     {
@@ -1016,7 +1016,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     }
   ]
 }

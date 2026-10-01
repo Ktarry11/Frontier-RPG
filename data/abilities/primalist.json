@@ -35,49 +35,49 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 10,
+          "cost": 11,
           "effect_value": 16
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 15,
+          "cost": 20,
           "effect_value": 28
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 20,
+          "cost": 31,
           "effect_value": 44
         },
         {
           "rank": 4,
           "level_req": 24,
-          "cost": 25,
+          "cost": 43,
           "effect_value": 62
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 30,
+          "cost": 57,
           "effect_value": 82
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 35,
+          "cost": 73,
           "effect_value": 104
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 40,
+          "cost": 90,
           "effect_value": 128
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 45,
+          "cost": 108,
           "effect_value": 154
         }
       ],
@@ -85,7 +85,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_wildclaw",
@@ -163,31 +163,31 @@
         {
           "rank": 1,
           "level_req": 2,
-          "cost": 12,
+          "cost": 63,
           "effect_value": 90
         },
         {
           "rank": 2,
           "level_req": 14,
-          "cost": 20,
+          "cost": 98,
           "effect_value": 140
         },
         {
           "rank": 3,
           "level_req": 26,
-          "cost": 28,
+          "cost": 137,
           "effect_value": 196
         },
         {
           "rank": 4,
           "level_req": 38,
-          "cost": 36,
+          "cost": 181,
           "effect_value": 258
         },
         {
           "rank": 5,
           "level_req": 50,
-          "cost": 44,
+          "cost": 228,
           "effect_value": 326
         }
       ],
@@ -195,7 +195,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_stoneshard",
@@ -211,29 +211,29 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 16,
+          "cost": 42,
           "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 20,
-          "cost": 26,
+          "cost": 73,
           "effect_value": 104
         },
         {
           "rank": 3,
           "level_req": 36,
-          "cost": 36,
+          "cost": 106,
           "effect_value": 152
         },
         {
           "rank": 4,
           "level_req": 52,
-          "cost": 46,
+          "cost": 143,
           "effect_value": 204
         }
       ],
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_hand_of_the_earthmother",
@@ -296,7 +296,7 @@
           "effect_value": 360
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_boon_of_the_turtle",
@@ -319,7 +319,7 @@
           "effect_value": 10
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "primalist_boon"
     },
     {
@@ -344,7 +344,7 @@
           "effect_value": 10
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "primalist_boon"
     },
     {
@@ -368,7 +368,7 @@
           "effect_value": 30
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "primalist_instinct"
     },
@@ -395,7 +395,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_heart_of_the_mountain",
@@ -418,7 +418,7 @@
           "effect_value": 150
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_natures_call",
@@ -441,7 +441,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_boon_of_the_wolf",
@@ -465,7 +465,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "primalist_boon"
     },
     {
@@ -489,7 +489,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_soothing_touch",
@@ -510,7 +510,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_fae_dust",
@@ -533,7 +533,7 @@
           "effect_value": 3
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -559,7 +559,7 @@
           "effect_value": 150
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -583,7 +583,7 @@
           "effect_value": 40
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "primalist_boon"
     },
     {
@@ -607,7 +607,7 @@
           "effect_value": 45
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -631,7 +631,7 @@
           "effect_value": 5
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "primalist_instinct"
     },
@@ -657,7 +657,7 @@
           "effect_value": 12
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "primalist_boon"
     },
     {
@@ -680,7 +680,7 @@
           "effect_value": 80
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_quake",
@@ -709,7 +709,7 @@
           "effect_value": 95
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "nature"
     },
     {
@@ -734,7 +734,7 @@
         "resource": "rage",
         "amount": 1
       },
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_seismic_wave",
@@ -756,7 +756,7 @@
           "heal_value": 111
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "nature"
     },
     {
@@ -779,7 +779,7 @@
           "effect_value": 271
         }
       ],
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_primal_rush",
@@ -796,7 +796,7 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 20,
+          "cost": 71,
           "effect_value": 102
         }
       ],
@@ -804,7 +804,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "nature"
     },
     {
@@ -909,7 +909,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "_implementation_note": "Real pet system needed - see Stormbringer's Air Elemental and Tinker's ZIGGI-6K for the same stub pattern."
     },
     {
@@ -931,7 +931,7 @@
           "effect_value": 220
         }
       ],
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_magma_fissure",
@@ -948,17 +948,17 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 45,
+          "cost": 385,
           "effect_value": 550
         },
         {
           "rank": 2,
           "level_req": 40,
-          "cost": 55,
+          "cost": 615,
           "effect_value": 878
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "fire"
     },
     {
@@ -980,7 +980,7 @@
           "effect_value": 120
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_blessing_of_neptulon",
@@ -1001,7 +1001,7 @@
           "effect_value": 200
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_sacred_grove",
@@ -1022,7 +1022,7 @@
           "effect_value": 180
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_judgement_of_the_three_hammers",
@@ -1043,7 +1043,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "primalist_golem_form",
@@ -1067,7 +1067,7 @@
           "effect_value": 20
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     }
   ]
 }

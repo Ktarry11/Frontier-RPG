@@ -35,49 +35,49 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 18,
+          "cost": 31,
           "effect_value": 44
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 26,
+          "cost": 55,
           "effect_value": 78
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 34,
+          "cost": 83,
           "effect_value": 118
         },
         {
           "rank": 4,
           "level_req": 24,
-          "cost": 42,
+          "cost": 113,
           "effect_value": 162
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 50,
+          "cost": 147,
           "effect_value": 210
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 58,
+          "cost": 183,
           "effect_value": 262
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 66,
+          "cost": 223,
           "effect_value": 318
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 74,
+          "cost": 265,
           "effect_value": 378
         }
       ],
@@ -98,35 +98,35 @@
         {
           "rank": 1,
           "level_req": 2,
-          "cost": 16,
+          "cost": 28,
           "effect_value": 40
         },
         {
           "rank": 2,
           "level_req": 14,
-          "cost": 24,
+          "cost": 48,
           "effect_value": 68
         },
         {
           "rank": 3,
           "level_req": 26,
-          "cost": 32,
+          "cost": 70,
           "effect_value": 100
         },
         {
           "rank": 4,
           "level_req": 38,
-          "cost": 40,
+          "cost": 95,
           "effect_value": 136
         },
         {
           "rank": 5,
           "level_req": 50,
-          "cost": 48,
+          "cost": 123,
           "effect_value": 176
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -164,23 +164,23 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 22,
+          "cost": 42,
           "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 28,
-          "cost": 34,
+          "cost": 70,
           "effect_value": 100
         },
         {
           "rank": 3,
           "level_req": 44,
-          "cost": 46,
+          "cost": 104,
           "effect_value": 148
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -203,7 +203,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_eclipse_of_fury",
@@ -226,7 +226,7 @@
           "effect_value": 35
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_lunar_authority",
@@ -249,7 +249,7 @@
           "effect_value": 120
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_starsweep",
@@ -266,23 +266,23 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 4,
+          "cost": 40,
           "effect_value": 57
         },
         {
           "rank": 2,
           "level_req": 36,
-          "cost": 6,
+          "cost": 67,
           "effect_value": 96
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 8,
+          "cost": 99,
           "effect_value": 142
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -306,7 +306,7 @@
           "effect_value": 25
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "starcaller_aegis"
     },
     {
@@ -336,7 +336,7 @@
           "effect_value": 6
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -358,7 +358,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "starcaller_aspect"
     },
     {
@@ -380,7 +380,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "_implementation_note": "The real mechanic empowers the NEXT 'Lunar Phase' spell cast, not a flat self-buff - this engine doesn't have a 'next-cast-consumes-this' primitive shared cleanly across many different spells yet, modeled as a short self-buff window instead."
     },
     {
@@ -397,53 +397,53 @@
         {
           "rank": 1,
           "level_req": 2,
-          "cost": 18,
+          "cost": 31,
           "effect_value": 44
         },
         {
           "rank": 2,
           "level_req": 10,
-          "cost": 26,
+          "cost": 55,
           "effect_value": 78
         },
         {
           "rank": 3,
           "level_req": 18,
-          "cost": 34,
+          "cost": 83,
           "effect_value": 118
         },
         {
           "rank": 4,
           "level_req": 26,
-          "cost": 42,
+          "cost": 113,
           "effect_value": 162
         },
         {
           "rank": 5,
           "level_req": 34,
-          "cost": 50,
+          "cost": 147,
           "effect_value": 210
         },
         {
           "rank": 6,
           "level_req": 42,
-          "cost": 58,
+          "cost": 183,
           "effect_value": 262
         },
         {
           "rank": 7,
           "level_req": 50,
-          "cost": 66,
+          "cost": 223,
           "effect_value": 318
         },
         {
           "rank": 8,
           "level_req": 58,
-          "cost": 74,
+          "cost": 265,
           "effect_value": 378
         }
       ],
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_moon_arrow",
@@ -463,7 +463,7 @@
           "effect_value": 22
         }
       ],
-      "icon_id": "ability_spell"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_moonwell_splash",
@@ -508,7 +508,7 @@
           "effect_value": 322
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_elunes_purification",
@@ -529,7 +529,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_hand_of_elune",
@@ -550,7 +550,7 @@
           "effect_value": 130
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_moonflow",
@@ -577,7 +577,7 @@
           "effect_value": 230
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_tidal_rebirth",
@@ -598,7 +598,7 @@
           "effect_value": 999
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_starfire_shot",
@@ -614,23 +614,23 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 24,
+          "cost": 70,
           "effect_value": 100
         },
         {
           "rank": 2,
           "level_req": 34,
-          "cost": 34,
+          "cost": 109,
           "effect_value": 156
         },
         {
           "rank": 3,
           "level_req": 50,
-          "cost": 44,
+          "cost": 153,
           "effect_value": 218
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -654,7 +654,7 @@
           "effect_value": 25
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "starcaller_aspect"
     },
     {
@@ -672,11 +672,11 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 9,
+          "cost": 162,
           "effect_value": 231
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -694,11 +694,11 @@
         {
           "rank": 1,
           "level_req": 36,
-          "cost": 26,
+          "cost": 63,
           "effect_value": 90
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -720,7 +720,7 @@
           "effect_value": 25
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "starcaller_aspect"
     },
     {
@@ -742,7 +742,7 @@
           "effect_value": 10
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "starcaller_aspect"
     },
     {
@@ -760,7 +760,7 @@
         {
           "rank": 1,
           "level_req": 21,
-          "cost": 20,
+          "cost": 18,
           "effect_value": 25
         }
       ],
@@ -782,7 +782,7 @@
         {
           "rank": 1,
           "level_req": 25,
-          "cost": 26,
+          "cost": 125,
           "effect_value": 178
         }
       ],
@@ -804,7 +804,7 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 34,
+          "cost": 112,
           "effect_value": 160
         }
       ],
@@ -826,7 +826,7 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 30,
+          "cost": 49,
           "effect_value": 70
         }
       ],
@@ -855,7 +855,7 @@
           "effect_value": 15
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_moonlit_bulwark",
@@ -876,7 +876,7 @@
           "effect_value": 400
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_vengeance_of_elune",
@@ -897,7 +897,7 @@
           "effect_value": 120
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -921,7 +921,7 @@
           "effect_value": 140
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_shrouded_stars",
@@ -944,7 +944,7 @@
           "effect_value": 5
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -966,7 +966,7 @@
           "effect_value": 20
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "starcaller_aspect"
     },
     {
@@ -991,7 +991,7 @@
           "effect_value": 60
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_starlight",
@@ -1014,7 +1014,7 @@
           "effect_value": 50
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -1036,7 +1036,7 @@
           "effect_value": 60
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -1060,7 +1060,7 @@
           "effect_value": 30
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_flow_of_waters",
@@ -1083,7 +1083,7 @@
           "effect_value": 5
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -1105,7 +1105,7 @@
           "effect_value": 173
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_aspect_of_the_goddess",
@@ -1128,7 +1128,7 @@
           "effect_value": 15
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "exclusive_group": "starcaller_aspect"
     },
     {
@@ -1151,7 +1151,7 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_cosmic_shift",
@@ -1174,7 +1174,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_celestial_form",
@@ -1197,7 +1197,7 @@
           "effect_value": 20
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_celestial_awakening",
@@ -1218,7 +1218,7 @@
           "effect_value": 999
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_moonwater_blessing",
@@ -1241,7 +1241,7 @@
           "effect_value": 120
         }
       ],
-      "icon_id": "ability_heal"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_stellar_convergence",
@@ -1262,7 +1262,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -1286,7 +1286,7 @@
           "effect_value": 5
         }
       ],
-      "icon_id": "ability_buff",
+      "icon_id": null,
       "buff_scope": "raid"
     },
     {
@@ -1303,11 +1303,11 @@
         {
           "rank": 1,
           "level_req": 22,
-          "cost": 22,
+          "cost": 46,
           "effect_value": 65
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -1324,11 +1324,11 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 40,
+          "cost": 105,
           "effect_value": 150
         }
       ],
-      "icon_id": "ability_spell",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -1349,7 +1349,7 @@
           "effect_value": 80
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_halt",
@@ -1372,7 +1372,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_shooting_star",
@@ -1396,7 +1396,7 @@
           "effect_value": 70
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_vigil_of_the_moon",
@@ -1417,7 +1417,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_debuff"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_avatar_of_vengeance",
@@ -1440,7 +1440,7 @@
           "effect_value": 30
         }
       ],
-      "icon_id": "ability_buff"
+      "icon_id": null
     }
   ]
 }
