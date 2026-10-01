@@ -929,6 +929,22 @@ class Character(StatusEffectMixin):
         eff_spirit = self.spirit + bonuses.get("spirit", 0)
         eff_agility = self.agility + bonuses.get("agility", 0)
 
+        # all_stats_pct (CoA buffs like Whispers of N'Zoth, Devotion of
+        # Emperors, Etching of the Leylines: "+10% all stats") - a flat %
+        # multiplier on top of the additive strength/stamina/intellect/
+        # spirit/agility bonuses just computed above, same two-layer shape
+        # real WoW uses (flat stat items, then a multiplicative "all stats"
+        # cooldown on top). Applied here, before every downstream formula
+        # (attack_power, spell_power, armor, crit, ...) derives from these
+        # eff_* values, so a +10% all-stats buff actually ripples through
+        # every stat it should rather than only existing on paper.
+        all_stats_mult = 1.0 + bonuses.get("all_stats_pct", 0) / 100.0
+        eff_strength *= all_stats_mult
+        eff_stamina *= all_stats_mult
+        eff_intellect *= all_stats_mult
+        eff_spirit *= all_stats_mult
+        eff_agility *= all_stats_mult
+
         self.effective_strength = eff_strength
         self.effective_stamina = eff_stamina
         self.effective_intellect = eff_intellect
@@ -936,9 +952,14 @@ class Character(StatusEffectMixin):
         self.effective_agility = eff_agility
 
         # Attack Power
-        self.attack_power = int(eff_strength * 2 + eff_agility * 0.5) + int(bonuses.get("attack_power", 0))
+        # attack_power_pct (CoA's Boon of the Bear: "+10% Attack Power") is
+        # a straight multiplier on the final value, same two-layer pattern
+        # as all_stats_pct above (flat bonus first, then a % cooldown on
+        # top) rather than feeding into the strength/agility formula itself.
+        self.attack_power = int((int(eff_strength * 2 + eff_agility * 0.5) + int(bonuses.get("attack_power", 0)))
+                                 * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0))
         self.ranged_attack_power = int(eff_agility * 2 + eff_strength * 0.5)
-        
+
         # Spell Power / Healing Power: small per-point contribution from base
         # stats (0.2 per INT for Spell Power; 0.2 per INT + 0.2 per Spirit for
         # Healing Power), same philosophy as WoW - a level 60 naked caster's
@@ -948,7 +969,10 @@ class Character(StatusEffectMixin):
         # healing_power secondary stat rolls). Spirit is intentionally not
         # the ONLY path to Healing Power - not every healer build leans on it.
         self.spell_power = int(eff_intellect * 0.2) + int(bonuses.get("spell_power", 0))
-        self.healing_power = int(eff_intellect * 0.2 + eff_spirit * 0.2) + int(bonuses.get("healing_power", 0))
+        # healing_power_pct (Starcaller's Aspect of the Goddess: "+15%
+        # Healing Power") - same final-multiplier shape as attack_power_pct.
+        self.healing_power = int((int(eff_intellect * 0.2 + eff_spirit * 0.2) + int(bonuses.get("healing_power", 0)))
+                                  * (1.0 + bonuses.get("healing_power_pct", 0) / 100.0))
         
         # Crits
         self.crit_chance_physical = eff_agility * 0.5 + bonuses.get("crit_chance_physical", 0)
@@ -1046,8 +1070,26 @@ class Character(StatusEffectMixin):
         # get_total_armor() above), matching how every other _pct bonus in
         # this method adds a bonus rather than re-deriving the base value.
         shield_bonus = int(self.equipment.get_shield_armor() * bonuses.get("shield_armor_pct", 0))
-        self.armor = (int(eff_stamina * 2) + self.equipment.get_total_armor()
-                      + int(bonuses.get("armor", 0)) + shield_bonus)
+        # armor_pct (Primalist's Golem Form: "+20% Armor"; Primalist's
+        # Terrasurge debuff: "-50% Armor" via the same key, negative value)
+        # is a final multiplier on the whole armor total, same shape as
+        # every other _pct bonus in this method.
+        self.armor = int((int(eff_stamina * 2) + self.equipment.get_total_armor()
+                          + int(bonuses.get("armor", 0)) + shield_bonus)
+                          * (1.0 + bonuses.get("armor_pct", 0) / 100.0))
+        # armor_penetration / armor_penetration_pct (Tinker's Round Armor
+        # Pen, Piercing Augmentation) - computed here as real derived stats
+        # so they exist on the Character the moment something needs them,
+        # but NOT YET CONSUMED anywhere: take_damage()/mitigation_from()
+        # only take attacker_level today, not the full attacker object, so
+        # actually ignoring a slice of the DEFENDER's armor on a hit would
+        # mean threading an attacker-stats parameter through take_damage's
+        # signature and every call site (Character/Monster/Pet, combat_engine,
+        # abilities.py) - too invasive to do safely as a drive-by here.
+        # Tracked as a real gap (see learnings/gaps doc) rather than silently
+        # left dead like the stat_mods bugs this whole pass fixed.
+        self.armor_penetration = int(bonuses.get("armor_penetration", 0))
+        self.armor_penetration_pct = bonuses.get("armor_penetration_pct", 0) / 100.0
         # Magic Resistance is talent/gear/buff-granted ONLY, same pattern
         # as the per-school resistances just below (Kyle: "remove Spirit
         # adding magic resistance, these will be talents only") - the old
@@ -1806,8 +1848,19 @@ class Character(StatusEffectMixin):
         return actual
     
     def heal(self, amount):
-        """Heal character."""
-        self.current_health = min(self.health, self.current_health + amount)
+        """Heal character.
+
+        healing_taken_pct (recipient-side; CoA's Drown, Widowmaker,
+        Inscription of the Leyline, Tentacle of Yog-Saron/healing_received_pct
+        - merged into this one key during the stat-vocabulary cleanup since
+        both names meant the exact same thing) scales the amount actually
+        received, same "defender-side modifier on an already-rolled number"
+        shape take_damage's damage_taken_pct already uses - a positive value
+        is a healing-received buff, negative is the much more common
+        anti-heal debuff (most of this engine's uses are the latter).
+        """
+        mult = 1.0 + (self.get_status_stat_mod("healing_taken_pct") if hasattr(self, "get_status_stat_mod") else 0.0) / 100.0
+        self.current_health = min(self.health, self.current_health + amount * max(0.0, mult))
     
     def restore_mana(self, amount):
         """Restore mana."""

@@ -316,7 +316,7 @@
           "rank": 1,
           "level_req": 4,
           "cost": 20,
-          "effect_value": 10
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -341,7 +341,7 @@
           "rank": 1,
           "level_req": 8,
           "cost": 20,
-          "effect_value": 10
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -365,7 +365,7 @@
           "rank": 1,
           "level_req": 8,
           "cost": 20,
-          "effect_value": 30
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -415,7 +415,7 @@
           "rank": 1,
           "level_req": 14,
           "cost": 25,
-          "effect_value": 150
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -451,7 +451,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "movement_speed": 25,
+        "haste": 25,
         "dodge_chance": 8
       },
       "description": "Increase movement speed and Dodge chance. Only 1 Boon may be active at a time.",
@@ -530,7 +530,7 @@
           "rank": 1,
           "level_req": 28,
           "cost": 24,
-          "effect_value": 3
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -545,8 +545,16 @@
       "duration": 30,
       "stat_mods": {
         "armor": 150,
-        "all_stats": 6,
-        "all_resist": 5
+        "strength": 6,
+        "agility": 6,
+        "intellect": 6,
+        "spirit": 6,
+        "stamina": 6,
+        "fire_resistance": 5,
+        "frost_resistance": 5,
+        "nature_resistance": 5,
+        "shadow_resistance": 5,
+        "arcane_resistance": 5
       },
       "description": "Increase the friendly target's Armor, all stats, and all resistances.",
       "_source": "Confirmed screenshot: Lvl 30, '+150 Armor, +6 all stats, +5 all resistances. Lasts 30 min.' A major raid buff.",
@@ -556,7 +564,7 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 150
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -580,7 +588,7 @@
           "rank": 1,
           "level_req": 30,
           "cost": 26,
-          "effect_value": 40
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -594,7 +602,7 @@
       "effect_type": "buff",
       "duration": 10,
       "stat_mods": {
-        "nature_resist": 45
+        "nature_resistance": 45
       },
       "description": "Increase the Nature Resistance of a targeted party member.",
       "_source": "Confirmed screenshot: Lvl 44, '+45 Nature Resistance. Lasts 10 min.'",
@@ -604,7 +612,7 @@
           "rank": 1,
           "level_req": 44,
           "cost": 28,
-          "effect_value": 45
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -618,7 +626,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "mana_regen": 5
+        "mp5": 5
       },
       "description": "Invoke a calm and earthly instinct on an ally, restoring mana over time. Players may only have one Instinct on them at a time.",
       "_source": "Confirmed screenshot: Lvl 2, 'restoring 5 mana every 5 seconds.' Part of the mutually-exclusive Instinct family.",
@@ -628,7 +636,7 @@
           "rank": 1,
           "level_req": 2,
           "cost": 18,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -654,7 +662,7 @@
           "rank": 1,
           "level_req": 6,
           "cost": 20,
-          "effect_value": 12
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -677,7 +685,7 @@
           "rank": 1,
           "level_req": 26,
           "cost": 35,
-          "effect_value": 80
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -691,7 +699,7 @@
       "effect_type": "spell_damage",
       "duration": 2,
       "stat_mods": {
-        "haste_taken_pct": -20
+        "haste": -20
       },
       "description": "Stomp the ground, damaging and slowing nearby enemies.",
       "_source": "Confirmed screenshot: Geomancy-locked, 2 Charges, 8 sec recharge, 'Weapon Damage plus 28 Nature damage to enemies within 8 yds and reducing their melee and ranged haste by 20% for 10 sec.'",
@@ -768,7 +776,7 @@
       "effect_type": "damage",
       "duration": 2,
       "stat_mods": {
-        "armor_pct_taken": -50
+        "armor_pct": -50
       },
       "description": "Unleash a globe of earth at an enemy, piercing defensive effects and reducing their Armor. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
       "_source": "Confirmed screenshot: Mountain King-locked, 45 Rage, 30yd, 2.5s cast, 20 sec cooldown, '271 Physical damage and reducing their Armor by 50% for 10 sec. Pierces through absorption, deflection, and reflection effects.'",
@@ -1055,7 +1063,7 @@
       "duration": 30,
       "stat_mods": {
         "armor_pct": 20,
-        "cast_time_reduction_pct": 10
+        "haste": 10
       },
       "description": "Shapeshift into an earthen golem, increasing Armor and reducing spell cast time.",
       "_source": "Structurally referenced from Geomancy tree - not yet confirmed via a dedicated screenshot in this batch. Not a real resource-swap form like Venomancer's (Primalist stays Mana+Rage), modeled as a strong self-buff.",
@@ -1065,7 +1073,7 @@
           "rank": 1,
           "level_req": 8,
           "cost": 25,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null

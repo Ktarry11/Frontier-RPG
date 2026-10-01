@@ -258,7 +258,7 @@
           "rank": 1,
           "level_req": 10,
           "cost": 20,
-          "effect_value": 6
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -337,7 +337,11 @@
       "duration": 30,
       "stat_mods": {
         "armor": 105,
-        "all_stats": 4
+        "strength": 4,
+        "agility": 4,
+        "intellect": 4,
+        "spirit": 4,
+        "stamina": 4
       },
       "description": "Increase the friendly target's Armor and all primary stats. Does not stack with similar effects.",
       "_source": "Confirmed screenshot: Lvl 20, '+105 Armor and all primary stats by 4. Lasts 30 min.'",
@@ -347,7 +351,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 24,
-          "effect_value": 4
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -370,7 +374,7 @@
           "rank": 1,
           "level_req": 22,
           "cost": 26,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -415,7 +419,7 @@
           "rank": 1,
           "level_req": 28,
           "cost": 30,
-          "effect_value": 28
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -453,7 +457,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "nature_resist": 1
+        "nature_resistance": 1
       },
       "description": "Increase the Nature Resistance of all party and raid members. Does not stack with similar effects.",
       "_source": "Confirmed screenshot: Lvl 50, '+1 Nature Resistance.'",
@@ -463,7 +467,7 @@
           "rank": 1,
           "level_req": 50,
           "cost": 32,
-          "effect_value": 1
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -766,7 +770,7 @@
       "effect_type": "spell_damage",
       "duration": 2,
       "stat_mods": {
-        "attack_speed": -20
+        "haste": -20
       },
       "description": "Spray poison on an enemy and nearby enemies, reducing their attack speed.",
       "_source": "Confirmed screenshot: Lvl 34, '38 Nature damage and reducing attack speed by 20% for 15 sec.'",
@@ -790,7 +794,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {
-        "damage_reduction_pct": 45
+        "damage_taken_pct": -45
       },
       "description": "Harden your carapace, reducing damage taken. Decays over time. Requires Beetle Form.",
       "_source": "Confirmed screenshot: Lvl 30, 3 min cooldown, 'reducing damage taken by 45%, decaying quickly over 10 sec and healing for 1% max health each time a stack is removed. Leaving Beetle Form cancels this effect.' Fortitude's real capstone defensive cooldown.",
@@ -801,7 +805,7 @@
           "rank": 1,
           "level_req": 30,
           "cost": 0,
-          "effect_value": 45
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1027,7 +1031,7 @@
           "rank": 1,
           "level_req": 24,
           "cost": 28,
-          "effect_value": 83
+          "effect_value": 100
         }
       ],
       "icon_id": null,

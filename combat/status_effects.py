@@ -465,6 +465,21 @@ class StatusEffectMixin:
         Skitter" told the player nothing about what Skitter actually did.
         """
         effects = self._effects()
+
+        # cc_immune (CoA's Voidborne "stun immune", Dark Veil "stun +
+        # silence immune" - stun_immune/silence_immune were originally two
+        # separate stat_mods keys, merged into this one during the stat-
+        # vocabulary cleanup since this engine has exactly one incapacitate
+        # mechanic, is_stun, with no separate silence/root category to be
+        # immune to individually - see StatusEffect's is_stun docstring).
+        # Blocks the incoming incapacitate outright rather than applying it
+        # and relying on is_stunned to ignore it, so the immunity is visible
+        # in the combat log as a real resisted effect instead of a silent
+        # no-op stun that still occupies a status-effect slot.
+        if effect.effect_type == EffectType.DEBUFF and effect.is_stun:
+            if self.get_status_stat_mod("cc_immune") > 0:
+                return f"{self.name} is immune to {effect.name}!"
+
         stat_desc = self._describe_stat_mods(effect.stat_mods)
         suffix = f" ({stat_desc})" if stat_desc else ""
 

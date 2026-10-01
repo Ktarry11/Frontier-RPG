@@ -916,7 +916,27 @@ class Ability:
         else:
             global_key = (self._talent(caster, "physical_damage")
                           + self._talent(caster, "all_damage"))
-        return (1.0 + per_ability) * (1.0 + global_key)
+
+        # Temporary BUFF-granted damage/healing-done cooldowns (CoA's
+        # damage_dealt_pct / healing_done_pct - Voidborne, Blessing of
+        # Triumph, March of the Valkyr, Runic Power, Champion of the Sun,
+        # Visions, ...) stack on top of the talent-based multiplier the
+        # same way the threat_generation_pct buff fix stacks on top of
+        # Earthen Guardian's talent - sourced from an active status effect
+        # instead of a spent talent point, same +N% MORE convention.
+        # damage_dealt_pct is school-agnostic here (one generic "your
+        # outgoing damage" buff, not separate physical/spell pools) -
+        # several CoA abilities originally used school-specific names
+        # (magic_damage_pct, spell_damage_pct, shadow_damage_pct,
+        # holy_damage_bonus_pct) that got folded into this single key
+        # during the stat-vocabulary cleanup, since this engine has no
+        # separate physical-dealt-% buff distinct from the generic one.
+        buff_key = "healing_done_pct" if school == "healing" else "damage_dealt_pct"
+        buff_pct = 0.0
+        if hasattr(caster, "get_status_stat_mod"):
+            buff_pct = caster.get_status_stat_mod(buff_key) or 0.0
+
+        return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0)
 
     def is_available(self):
         """Check if ability is off cooldown."""

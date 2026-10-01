@@ -345,7 +345,7 @@
           "rank": 1,
           "level_req": 14,
           "cost": 25,
-          "effect_value": 180
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -358,7 +358,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "mana_regen": 10
+        "mp5": 10
       },
       "description": "Gift an ally with the madness of Y'shaarj, restoring mana over time. Only one Whisper per Cultist active.",
       "_source": "Confirmed screenshot: Lvl 14, 'restoring 10 mana every 5 seconds for 30 min. Players may only have one Whisper on them per Cultist at any one time.' Part of the mutually-exclusive Whispers family.",
@@ -368,7 +368,7 @@
           "rank": 1,
           "level_req": 14,
           "cost": 22,
-          "effect_value": 10
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -393,7 +393,7 @@
           "rank": 1,
           "level_req": 16,
           "cost": 26,
-          "effect_value": 35
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -455,7 +455,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "shadow_resist": 30
+        "shadow_resistance": 30
       },
       "description": "Grant all party and raid members within range additional Shadow resistance. Does not stack with similar effects.",
       "_source": "Confirmed screenshot: Lvl 28, '+30 Shadow resistance to all party and raid members within 40 yards.'",
@@ -465,7 +465,7 @@
           "rank": 1,
           "level_req": 28,
           "cost": 26,
-          "effect_value": 30
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -489,7 +489,7 @@
           "rank": 1,
           "level_req": 38,
           "cost": 30,
-          "effect_value": 37
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -514,7 +514,7 @@
           "rank": 1,
           "level_req": 58,
           "cost": 45,
-          "effect_value": 62
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -561,7 +561,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 0,
-          "effect_value": 200
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -629,7 +629,7 @@
           "rank": 1,
           "level_req": 24,
           "cost": 28,
-          "effect_value": 10
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -710,7 +710,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "healing_received_pct": 6,
+        "healing_taken_pct": 6,
         "pushback_reduction_pct": 50
       },
       "description": "Summon a Tentacle of Yogg-Saron near you: allies within range receive increased healing and reduced spell pushback. Only 1 Old God Tentacle active at a time.",
@@ -721,7 +721,7 @@
           "rank": 1,
           "level_req": 26,
           "cost": 27,
-          "effect_value": 6
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -762,7 +762,7 @@
       "effect_type": "debuff",
       "duration": 30,
       "stat_mods": {
-        "spell_damage_taken_pct": -5,
+        "magic_damage_taken_pct": -5,
         "healing_taken_pct": -5
       },
       "description": "Destabilize magic used against the targeted party member, reducing spell damage and healing they take. Only one Whisper per Cultist active.",
@@ -773,7 +773,7 @@
           "rank": 1,
           "level_req": 32,
           "cost": 28,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -925,7 +925,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {
-        "movement_speed": -50
+        "haste": -50
       },
       "description": "Teleport an enemy to you and slow them.",
       "_source": "CoA handoff doc: 'Teleports an enemy to you + slows.' Real numbers not confirmed via a dedicated screenshot.",
@@ -947,9 +947,9 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {
-        "damage_pct": 15,
-        "crit_chance": 10,
-        "stun_immune": 1
+        "damage_dealt_pct": 15,
+        "crit_chance_spell": 10,
+        "cc_immune": 1
       },
       "description": "Increase damage dealt and critical strike chance, grant stun immunity, and generate Insanity each second.",
       "_source": "CoA handoff doc confirmed: 'Boosts damage dealt + crit chance, stun immunity; generates 1 Insanity/sec.' Godblade's real burst/survival cooldown - real numbers not confirmed via a dedicated screenshot.",
@@ -959,7 +959,7 @@
           "rank": 1,
           "level_req": 45,
           "cost": 40,
-          "effect_value": 15
+          "effect_value": 100
         }
       ],
       "generates": {
@@ -1027,7 +1027,7 @@
           "rank": 1,
           "level_req": 46,
           "cost": 35,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1041,7 +1041,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "movement_speed": 15
+        "haste": 15
       },
       "description": "Summon a ground Eldritch Obelisk that boosts nearby Tentacle damage and ally movement speed.",
       "_source": "CoA handoff doc: 'Ground summon: boosts nearby Tentacle damage + ally movement speed.' Real numbers not confirmed via a dedicated screenshot.",
@@ -1051,7 +1051,7 @@
           "rank": 1,
           "level_req": 46,
           "cost": 35,
-          "effect_value": 15
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1139,7 +1139,7 @@
       "duration": 30,
       "stat_mods": {
         "haste": 10,
-        "shadow_damage_pct": 5
+        "damage_dealt_pct": 5
       },
       "description": "Grant the party a spell haste buff and increase your Shadow damage. Does not stack with similar effects.",
       "_source": "CoA handoff doc: 'Party/raid spell haste buff (no stacking with similar); boosts your Shadow damage.' Real numbers not confirmed via a dedicated screenshot.",
@@ -1149,7 +1149,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 30,
-          "effect_value": 10
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1197,7 +1197,7 @@
           "rank": 1,
           "level_req": 42,
           "cost": 40,
-          "effect_value": 70
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1244,7 +1244,7 @@
           "rank": 1,
           "level_req": 22,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1288,7 +1288,7 @@
           "rank": 1,
           "level_req": 38,
           "cost": 35,
-          "effect_value": 25
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1367,7 +1367,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "mana_regen": 8
+        "mp5": 8
       },
       "description": "A party-wide mana regeneration buff.",
       "_source": "CoA handoff doc: 'Party/raid mana regen buff.' Real numbers not confirmed via a dedicated screenshot.",
@@ -1377,7 +1377,7 @@
           "rank": 1,
           "level_req": 12,
           "cost": 30,
-          "effect_value": 8
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1482,8 +1482,7 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {
-        "stun_immune": 1,
-        "silence_immune": 1
+        "cc_immune": 2
       },
       "description": "Channel a stacking shield on you and a target ally, granting stun and silence immunity while channeling.",
       "_source": "CoA handoff doc confirmed: 'Channeled shield: you+target absorb damage (stacking, periodic); at end, shield holds + you teleport to them. Grants immunity while channeling.' Real numbers not confirmed via a dedicated screenshot.",
@@ -1493,7 +1492,7 @@
           "rank": 1,
           "level_req": 42,
           "cost": 40,
-          "effect_value": 200
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1579,7 +1578,7 @@
           "rank": 1,
           "level_req": 46,
           "cost": 32,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1601,7 +1600,7 @@
           "rank": 1,
           "level_req": 8,
           "cost": 18,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1669,7 +1668,7 @@
           "rank": 1,
           "level_req": 26,
           "cost": 35,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1715,7 +1714,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 28,
-          "effect_value": 150
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1728,7 +1727,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {
-        "movement_speed": -30
+        "haste": -30
       },
       "description": "A frontal wave of Shadow damage that slows enemies hit.",
       "_source": "CoA tooltip confirmed: Generates 30 Insanity, 'Frontal wave: Shadow damage + slow.' Real numbers not fully confirmed via a dedicated screenshot.",
@@ -1738,7 +1737,7 @@
           "rank": 1,
           "level_req": 16,
           "cost": 30,
-          "effect_value": 55
+          "effect_value": 100
         }
       ],
       "generates": {
@@ -1786,7 +1785,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 26,
-          "effect_value": 10
+          "effect_value": 100
         }
       ],
       "icon_id": null

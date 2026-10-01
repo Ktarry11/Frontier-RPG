@@ -223,7 +223,7 @@
           "rank": 1,
           "level_req": 14,
           "cost": 22,
-          "effect_value": 35
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -246,7 +246,7 @@
           "rank": 1,
           "level_req": 14,
           "cost": 24,
-          "effect_value": 120
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -303,7 +303,7 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 25
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -327,13 +327,13 @@
           "rank": 1,
           "level_req": 4,
           "cost": 22,
-          "effect_value": 3
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 22,
-          "effect_value": 6
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -651,7 +651,7 @@
           "rank": 1,
           "level_req": 26,
           "cost": 22,
-          "effect_value": 25
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -852,7 +852,7 @@
           "rank": 1,
           "level_req": 22,
           "cost": 26,
-          "effect_value": 15
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -918,7 +918,7 @@
           "rank": 1,
           "level_req": 50,
           "cost": 45,
-          "effect_value": 140
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -932,7 +932,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "damage_reduction_pct": 5
+        "damage_taken_pct": -5
       },
       "description": "Grant the party and raid a damage reduction buff. Does not stack with similar effects.",
       "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot.",
@@ -942,7 +942,7 @@
           "rank": 1,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -978,8 +978,8 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "movement_speed": 60,
-        "slow_immune": 1
+        "haste": 60,
+        "cc_immune": 1
       },
       "description": "Summon a mount granting increased movement speed, slow immunity, and the ability to cast offensive spells while moving.",
       "_source": "CoA handoff doc: 'Mount: +movement speed, slow immunity, cast offensive spells while moving/without dismounting.' Real numbers not confirmed via a dedicated screenshot.",
@@ -989,7 +989,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 60
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1002,7 +1002,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {
-        "movement_speed": -25
+        "haste": -25
       },
       "description": "A beam that repeatedly deals Arcane damage and slows enemies passing through.",
       "_source": "CoA handoff doc: 'Beam: repeating Arcane damage + slows enemies passing through.' Real numbers not confirmed via a dedicated screenshot.",
@@ -1048,7 +1048,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {
-        "movement_speed": -30
+        "haste": -30
       },
       "description": "Slow nearby enemies, then knock them back.",
       "_source": "CoA handoff doc: 'Slows nearby enemies, then knocks them back.' Real numbers not confirmed via a dedicated screenshot.",
@@ -1058,7 +1058,7 @@
           "rank": 1,
           "level_req": 38,
           "cost": 28,
-          "effect_value": 30
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1081,7 +1081,7 @@
           "rank": 1,
           "level_req": 4,
           "cost": 22,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1126,7 +1126,7 @@
           "rank": 1,
           "level_req": 12,
           "cost": 24,
-          "effect_value": 15
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1173,7 +1173,7 @@
           "rank": 1,
           "level_req": 34,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1196,7 +1196,7 @@
           "rank": 1,
           "level_req": 50,
           "cost": 40,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1285,7 +1285,7 @@
           "rank": 1,
           "level_req": 10,
           "cost": 24,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1371,7 +1371,7 @@
           "rank": 1,
           "level_req": 38,
           "cost": 26,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1385,8 +1385,8 @@
       "effect_type": "buff",
       "duration": 1,
       "stat_mods": {
-        "movement_speed": 70,
-        "slow_immune": 1
+        "haste": 70,
+        "cc_immune": 1
       },
       "description": "A burst of movement speed. Cannot be slowed and cannot stop moving while active.",
       "_source": "CoA handoff doc confirmed: 'Movement speed burst; can't be slowed, can't stop moving while active.' Warden's only real defensive/disengage tool. Real numbers not confirmed via a dedicated screenshot.",
@@ -1396,7 +1396,7 @@
           "rank": 1,
           "level_req": 44,
           "cost": 20,
-          "effect_value": 70
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -1440,7 +1440,7 @@
           "rank": 1,
           "level_req": 50,
           "cost": 45,
-          "effect_value": 30
+          "effect_value": 100
         }
       ],
       "icon_id": null

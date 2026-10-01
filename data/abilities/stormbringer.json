@@ -179,13 +179,13 @@
           "rank": 1,
           "level_req": 4,
           "cost": 25,
-          "effect_value": 3
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 6
+          "effect_value": 100
         }
       ],
       "icon_id": "stormbringer_call_of_the_storm",
@@ -378,8 +378,7 @@
       "effect_type": "debuff",
       "duration": 3,
       "stat_mods": {
-        "movement_speed": -20,
-        "cast_speed": -20
+        "haste": -40
       },
       "description": "Thicken the air around you, slowing the movement speed of enemies and reducing their casting speed. Only 1 Pressure spell can be active at a time.",
       "_source": "Confirmed screenshot: Lvl 12, 'slowing the movement speed of enemies by 20% and reducing their casting speed by 20%.' Part of the mutually-exclusive Pressure family (Barometric/Crushing/Atmospheric/Stabilizing).",
@@ -402,7 +401,7 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "mana_regen": 10
+        "mp5": 10
       },
       "description": "Call upon the power of the wind to empower an allied player, restoring mana over time. Does not stack with Call of the Storm.",
       "_source": "Confirmed screenshot: Lvl 14 (was Lvl 6), 'restoring 10 mana every 5 seconds for 30 min.'",
@@ -412,13 +411,13 @@
           "rank": 1,
           "level_req": 14,
           "cost": 25,
-          "effect_value": 10
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 18
+          "effect_value": 100
         }
       ],
       "icon_id": "stormbringer_call_of_the_wind",
@@ -442,7 +441,7 @@
           "rank": 1,
           "level_req": 16,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -500,7 +499,7 @@
           "rank": 1,
           "level_req": 18,
           "cost": 32,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -523,7 +522,7 @@
           "rank": 1,
           "level_req": 18,
           "cost": 15,
-          "effect_value": 100
+          "effect_value": 60
         },
         {
           "rank": 2,
@@ -597,7 +596,7 @@
           "rank": 1,
           "level_req": 22,
           "cost": 34,
-          "effect_value": 3
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -621,7 +620,7 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 35
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -656,8 +655,8 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "nature_resist": 23,
-        "frost_resist": 23
+        "nature_resistance": 23,
+        "frost_resistance": 23
       },
       "description": "Increases your spell power based on your Intellect and increases your Nature and Frost Resistance. Lasts 30 min. Only 1 Aegis can be up at a time.",
       "_source": "Confirmed screenshot: Lvl 44, 'increases your spell power by 10% of your Intellect and increases your Nature and Frost Resistance by 23.' Part of the mutually-exclusive Aegis family.",
@@ -724,7 +723,7 @@
           "rank": 1,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "generates": {
@@ -803,7 +802,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {
-        "movement_speed": -40
+        "haste": -40
       },
       "description": "Fuse lightning into an enemy, dealing Nature damage over time and slowing them.",
       "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 22 (Rank 2 shown), '258 Nature damage over 18 sec and slowing them by 40%. Generates 2 Static per tick.' 18-second real-time DoT compressed to a 3-turn DoT for this engine.",
@@ -851,7 +850,11 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "all_resist": 20
+        "fire_resistance": 20,
+        "frost_resistance": 20,
+        "nature_resistance": 20,
+        "shadow_resistance": 20,
+        "arcane_resistance": 20
       },
       "description": "Call upon the power of storms to empower an allied player, increasing their resistances.",
       "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 50, 'increasing their resistances by 20 for 30 min.'",
@@ -861,7 +864,7 @@
           "rank": 1,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": "stormbringer_call_of_the_lightning",
@@ -950,7 +953,7 @@
           "rank": 1,
           "level_req": 17,
           "cost": 25,
-          "effect_value": 15
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -984,7 +987,7 @@
       "effect_type": "spell_damage",
       "duration": 1,
       "stat_mods": {
-        "movement_speed": -30
+        "haste": -30
       },
       "description": "A wave of frost and water that damages and slows all nearby enemies.",
       "_source": "Maelstrom-locked, level/numbers not yet confirmed via this screenshot batch (earlier pass had Lvl 27) - kept prior estimate, flag for correction once available.",
