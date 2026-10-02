@@ -24,7 +24,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "armor_pct": 0.03
+        "armor_pct": 3.0
       },
       "connected_to": [
         "primalist_mountain_king_mountain_mover"
@@ -58,9 +58,9 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "parry_chance": 3.0,
-        "dodge_chance": 3.0,
-        "armor_from_gear_pct": 0.125
+        "parry": 3.0,
+        "dodge": 3.0,
+        "armor_pct": 12.5
       },
       "connected_to": [
         "primalist_mountain_king_mountain_hammer_mastery"
@@ -219,7 +219,7 @@
       "hex_x": -6,
       "hex_y": -6,
       "effects": {
-        "armor_pct": 0.03
+        "armor_pct": 3.0
       },
       "connected_to": [
         "primalist_mountain_king_earthmothers_protection"
@@ -304,7 +304,7 @@
       "hex_x": -6,
       "hex_y": 0,
       "effects": {
-        "nature_resist_pct": 0.03
+        "nature_damage_taken_pct": -0.03
       },
       "connected_to": [
         "primalist_mountain_king_mountain_hammer_mastery"

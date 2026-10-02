@@ -945,6 +945,23 @@ class Character(StatusEffectMixin):
         eff_spirit *= all_stats_mult
         eff_agility *= all_stats_mult
 
+        # Single-stat percentage companions to all_stats_pct above, for
+        # talents/buffs that boost exactly ONE stat rather than all five
+        # (Cultist's Thick Skin: "+2%/rank Armor AND Stamina" - the Stamina
+        # half needs its own key since all_stats_pct would wrongly also
+        # boost Strength/Agility/Intellect/Spirit for a talent that only
+        # ever mentions Armor+Stamina). Applied multiplicatively on top of
+        # all_stats_pct, same layering convention (flat bonus, then %
+        # multiplier) used throughout this method. Added as a full set
+        # (not just stamina_pct) so the same convention is available to
+        # any future strength_pct/agility_pct/intellect_pct/spirit_pct
+        # talent or buff without another one-off key needing to be invented.
+        eff_strength *= 1.0 + bonuses.get("strength_pct", 0) / 100.0
+        eff_stamina *= 1.0 + bonuses.get("stamina_pct", 0) / 100.0
+        eff_intellect *= 1.0 + bonuses.get("intellect_pct", 0) / 100.0
+        eff_spirit *= 1.0 + bonuses.get("spirit_pct", 0) / 100.0
+        eff_agility *= 1.0 + bonuses.get("agility_pct", 0) / 100.0
+
         self.effective_strength = eff_strength
         self.effective_stamina = eff_stamina
         self.effective_intellect = eff_intellect
@@ -1793,6 +1810,23 @@ class Character(StatusEffectMixin):
         # completely unaffected by this addition.
         if damage_type == "physical":
             taken_mult += self.get_talent_effect("physical_damage_taken_pct", 0.0)
+            # Buff/debuff-sourced companion to the talent-sourced line above
+            # (Runemaster's Granite Resolve: "-20% physical damage taken"
+            # self-buff; Starcaller's Chosen of the Moon taunt-debuff carries
+            # the same key on the enemy it's cast on). THE ACTUAL BUG THIS
+            # FIXES: get_status_stat_mod("damage_taken_pct") (the flat,
+            # school-agnostic key) was already being read a few lines above,
+            # but nothing anywhere ever read the school-specific buff/debuff
+            # version of this key - every ability authored with
+            # physical_damage_taken_pct/magic_damage_taken_pct in a REAL
+            # buff or debuff's stat_mods (as opposed to a talent's) was a
+            # complete no-op cooldown, the exact "correctly authored,
+            # silently inert" failure mode found elsewhere this session.
+            # get_status_stat_mod returns a plain percentage number (e.g.
+            # -20 for -20%), same convention get_talent_effect's own
+            # physical_damage_taken_pct/magic_damage_taken_pct values use, so
+            # it divides by 100 here to match taken_mult's 0.0-1.0 scale.
+            taken_mult += self.get_status_stat_mod("physical_damage_taken_pct") / 100.0
         elif damage_type == "magic" or damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             # Broadened (Kyle's talent-overpass session, 2026-09-06):
             # previously only fired on the LEGACY "magic" string, missing
@@ -1805,6 +1839,37 @@ class Character(StatusEffectMixin):
             # regardless of which real school the incoming hit uses, not
             # just the old catch-all "magic" damage_type.
             taken_mult += self.get_talent_effect("magic_damage_taken_pct", 0.0)
+            # Same buff/debuff-sourced companion as the physical branch
+            # above (Cultist's Doomcloak, Sun Cleric's Scroll of Hope,
+            # Tinker's Aether/Arcane Bionics self- or party-buffs; Cultist's
+            # Whispers of Yog-Saron, Runemaster's Inscription: Leyline, and
+            # Tinker's Strength Bionics debuffs that INCREASE magic damage
+            # taken on an enemy, same key, positive value) - identical bug,
+            # identical fix: get_status_stat_mod was never read for this
+            # key, so every one of these real buffs/debuffs was a no-op.
+            taken_mult += self.get_status_stat_mod("magic_damage_taken_pct") / 100.0
+
+            # Per-school companion to the catch-all magic_damage_taken_pct
+            # above (Primalist's Stone Ward: "reduces Nature damage taken by
+            # 3% per rank" - a school-SPECIFIC defensive talent, not a
+            # generalist "resist all magic" one, so it needs its own key
+            # rather than piggybacking on magic_damage_taken_pct, which
+            # would also wrongly reduce Fire/Frost/Shadow/Arcane/Holy hits).
+            # Key convention: "<school>_damage_taken_pct", e.g.
+            # "nature_damage_taken_pct", "fire_damage_taken_pct" - reads
+            # ONLY the single real school a hit actually carries (not a
+            # combined-school tuple average/min; a combined-school hit gets
+            # no per-school-specific reduction here, same as it gets no
+            # per-school-specific resistance stacking beyond get_resistance's
+            # existing min-of-components rule - a hybrid hit is deliberately
+            # the hard case to defend against). Checked via both
+            # get_talent_effect (talent trees) and get_status_stat_mod
+            # (buffs/debuffs), same dual-source pattern as every other
+            # damage_taken_pct key in this method.
+            school_key = f"{damage_type}_damage_taken_pct" if isinstance(damage_type, str) else None
+            if school_key:
+                taken_mult += self.get_talent_effect(school_key, 0.0)
+                taken_mult += self.get_status_stat_mod(school_key) / 100.0
 
         taken_mult = max(0.0, taken_mult)
 
