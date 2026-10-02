@@ -1198,12 +1198,12 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Deploy ZIGGI-6K, a pet that helps heal with Wrench Toss, dealing small damage and smart-healing the lowest-HP ally, until dismissed.",
-      "_source": "Kyle's real correction: 'ZIGGI-6K is a pet (like an imp) that helps heal with wrench toss (deals small damage and smart heals ally)' - real pet summon, Invention's capstone (tier 6, 'matches Kyle's own Healing Tinkerer experience'). Wired onto the real pet system built this session (Oct 2026): effect_type changed from the dead 'summon' stub (never a real dispatch branch in Ability._apply_effect, would have silently no-op'd) to 'summon_pet', pointing at the new 'ziggi_6k' pet_templates.py entry. Wrench Toss itself (the pet's real attack+heal) is now a real damage_and_heal ability on that template, same mechanic Mage's Cryotherapist talents already use - no longer an unmodeled gap.",
+      "_source": "Kyle's real correction: 'ZIGGI-6K is a pet (like an imp) that helps heal with wrench toss (deals small damage and smart heals ally)' - real pet summon, built as Invention's capstone (tier 6, 'matches Kyle's own Healing Tinkerer experience'). Wired onto the real pet system built this session (Oct 2026): effect_type changed from the dead 'summon' stub (never a real dispatch branch in Ability._apply_effect, would have silently no-op'd) to 'summon_pet', pointing at the new 'ziggi_6k' pet_templates.py entry. Wrench Toss itself (the pet's real attack+heal) is now a real damage_and_heal ability on that template, same mechanic Mage's Cryotherapist talents already use - no longer an unmodeled gap. level_req LOWERED from 50 to 10 and the granting talent MOVED from tier 6 to tier 1 of Invention per Kyle's explicit direction: 'Ziggi should unlock at lvl 10 since tinkerer has weaker natural heals' - deliberate divergence from the real game's confirmed tier-6 capstone placement, not a correction (see tinker_invention.json's own _source on the moved node). My Greatest Invention promoted to the vacated tier-6 capstone slot.",
       "requires_talent": true,
       "ranks": [
         {
           "rank": 1,
-          "level_req": 50,
+          "level_req": 10,
           "cost": 50,
           "effect_value": 100
         }

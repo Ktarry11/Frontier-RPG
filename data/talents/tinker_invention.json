@@ -89,7 +89,7 @@
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "tinker_healing_radiator"
@@ -107,7 +107,7 @@
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -4,
       "effects": {
         "ability_tinker_defibrillate_cooldown": 1
@@ -125,7 +125,7 @@
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 4,
       "hex_y": -4,
       "effects": {
         "conditional_armor_pct": 0.03
@@ -142,7 +142,7 @@
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 5,
+      "hex_x": 6,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "tinker_nanobot_swarm"
@@ -274,7 +274,7 @@
       },
       "connected_to": [
         "tinker_invention_build_battery_reclaimer",
-        "tinker_invention_build_ziggi_6k"
+        "tinker_invention_my_greatest_invention"
       ]
     },
     {
@@ -293,25 +293,25 @@
       "connected_to": [
         "tinker_invention_stim_rounds"
       ],
-      "_source": "Kyle: 'basically an end game talent unlock... on par with shit like wild growth or circle of healing', 'unlocks around lvl 50 (in talent tree - so near the very bottom)'. Placed at tier 5 rather than displacing the tree's real screenshot-confirmed tier-6 capstone (Build: ZIGGI-6K, 'matches Kyle's own Healing Tinkerer experience'). Previously modeled as a passive Nanobot Swarm/Healing Radiator healing-boost at tier 3 - real correction, it's a standalone AoE heal ability."
+      "_source": "Kyle: 'basically an end game talent unlock... on par with shit like wild growth or circle of healing', 'unlocks around lvl 50 (in talent tree - so near the very bottom)'. PROMOTED to the tree's tier-6 capstone slot (Oct 2026, pet-system push) after Build: ZIGGI-6K was moved down to tier 1 - see that node's own _source for why. My Greatest Invention's own 'near the very bottom' framing already fit a capstone slot even before this move."
     },
     {
       "talent_id": "tinker_invention_build_ziggi_6k",
       "name": "Build: ZIGGI-6K",
-      "description": "Deploy ZIGGI-6K, a regenerative healing bot that heals the party each turn until dismissed.",
+      "description": "Deploy ZIGGI-6K, a pet that helps heal with Wrench Toss - small damage plus a smart heal - until dismissed.",
       "node_type": "active",
-      "tier": 6,
+      "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 6,
+      "hex_x": -6,
+      "hex_y": -4,
       "effects": {
         "unlock_ability": "tinker_build_ziggi_6k"
       },
       "connected_to": [
-        "tinker_invention_build_restorative_field"
+        "tinker_invention_healing_radiator"
       ],
-      "_source": "CoA tooltip confirmed: 'Teaches you Build: ZIGGI-6K, the latest in regenerative technology, to aid you in healing allies until dismissed.' The Invention capstone - matches Kyle's own Healing Tinkerer experience."
+      "_source": "CoA tooltip confirmed: 'Teaches you Build: ZIGGI-6K, the latest in regenerative technology, to aid you in healing allies until dismissed.' Originally modeled as the tree's real screenshot-confirmed tier-6 capstone - matches Kyle's own Healing Tinkerer experience. MOVED to tier 1 (Oct 2026, pet-system push) per Kyle's explicit direction: 'Ziggi should unlock at lvl 10 since tinkerer has weaker natural heals' - a deliberate divergence from the confirmed real-game capstone placement for this game's own balance reasons, not a correction of a mistake. My Greatest Invention promoted to the vacated tier-6 slot. The pet's own kit (Wrench Toss at tame, a party-wide heal and an Evocation-like resource-restore added as the owner levels) is still gated at the ability level - see tinker.json."
     },
     {
       "talent_id": "tinker_invention_field_medicine",
@@ -338,7 +338,7 @@
       "tier": 1,
       "max_points": 4,
       "cost_per_point": 1,
-      "hex_x": -5,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {
         "max_mana_pct": 0.02
@@ -355,7 +355,7 @@
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {
         "low_health_healing_pct": 0.03

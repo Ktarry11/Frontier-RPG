@@ -2380,6 +2380,29 @@ class Ability:
                 return result
             return f"{caster.name} summons {result.name}!"
 
+        elif self.effect_type == "restore_resource":
+            # Evocation-like self-only resource restore (Tinker Invention's
+            # ZIGGI-6K, lvl 30: Kyle - "evocation like skill at 30"). Unlike
+            # damage_and_restore_mana (Stormbringer's Discharge - restores
+            # the CASTER's mana as a side effect of hitting an ENEMY), this
+            # has no target at all: it's a pure self-buff that instantly
+            # refills a % of whichever resource pool the caster actually
+            # uses (mana/rage/energy - reads caster.resource_type generically
+            # rather than hardcoding Mana, so this isn't ZIGGI-6K-specific
+            # plumbing). Reuses mana_restore_pct's existing rank key rather
+            # than inventing a second "restore percent" field - the name is
+            # slightly stale for a non-mana resource, but the field already
+            # exists, already means "% of max resource restored", and
+            # adding a near-duplicate field just to rename it isn't worth
+            # the churn for one ability.
+            if not hasattr(caster, "gain_resource") or not hasattr(caster, "get_resource_max"):
+                return f"{caster.name} has no resource pool to restore."
+            resource_type = getattr(caster, "resource_type", "mana")
+            max_resource = caster.get_resource_max(resource_type)
+            restore_amt = int(max_resource * (self.mana_restore_pct / 100.0))
+            restored = caster.gain_resource(resource_type, restore_amt)
+            return f"{caster.name} channels {self.name}, restoring {restored} {resource_type}!"
+
         elif self.effect_type == "totem_loadout":
             # Call of the Elements/Ancestors/Spirits: casts every totem
             # currently slotted in the caster's totem_loadout (see

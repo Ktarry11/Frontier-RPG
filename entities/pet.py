@@ -136,25 +136,59 @@ class Pet(StatusEffectMixin):
 
     def sync_to_owner_level(self):
         """Call when the owner levels up so the pet doesn't fall behind -
-        real WoW pets level up automatically alongside their Hunter/Warlock."""
+        real WoW pets level up automatically alongside their Hunter/Warlock.
+
+        REAL BUG THIS FIXES: this method refreshed every ability's own
+        is_learned flag via refresh_rank_for_level, but never re-ran
+        _autofill_hotbar - so a pet whose kit grows with level (ZIGGI-6K:
+        Wrench Toss at 1, a party heal at 20, an Evocation-like resource
+        restore at 30 - Kyle, Oct 2026) would newly satisfy is_learned on
+        level-up but sit in hotbar=[None]*10 forever, since the only
+        autofill call happens once in __init__ before any later ability
+        could possibly be learned yet. choose_action() reads straight from
+        self.hotbar, so the pet's AI would never even consider an ability
+        it had technically already learned. Every pet before ZIGGI-6K
+        happened to learn its entire kit at construction time (summoned
+        already at the owner's current level), so this never surfaced
+        until a pet template had abilities gated to a LATER level_req.
+        """
         if self.level != getattr(self.owner, "level", self.level):
             self.level = self.owner.level
             self._apply_template_stats()
             for ability in self.ability_book.get_all_abilities():
                 ability.refresh_rank_for_level(self.level)
+            self._autofill_hotbar()
 
     def _autofill_hotbar(self):
         """Slot every learned ability into the first empty hotbar spots,
         same convention as Character._autofill_hotbar - a pet with unbound
-        abilities would be uncastable from the UI."""
-        learned = [a for a in self.ability_book.get_all_abilities() if a.is_learned]
-        i = 0
+        abilities would be uncastable from the UI.
+
+        REAL BUG FIXED HERE: the original version used one shared index `i`
+        for both "which hotbar slot to check" and "whether to advance",
+        checking only `hotbar[i]` for each ability in turn instead of
+        scanning forward for the next empty slot. That's correct the FIRST
+        time this runs against an all-None hotbar (every ability lands in
+        the next slot in order), but calling it again after some slots are
+        already filled (sync_to_owner_level now does this - see its own
+        docstring) breaks completely: once hotbar[0] is already occupied,
+        `i` never advances past 0, so every already-learned ability's
+        already-occupied check fails forever and a genuinely new ability
+        learned later never gets placed at all, even though empty slots
+        exist further down the bar. Already-bound abilities (by
+        ability_id, not slot index) are now skipped explicitly, and the
+        empty-slot search scans the WHOLE hotbar for each unbound ability
+        rather than assuming slots fill in lockstep with the learned list.
+        """
+        bound_ids = {aid for aid in self.hotbar if aid is not None}
+        learned = [a for a in self.ability_book.get_all_abilities()
+                   if a.is_learned and a.ability_id not in bound_ids]
         for ability in learned:
-            if i >= len(self.hotbar):
+            try:
+                empty_slot = self.hotbar.index(None)
+            except ValueError:
                 break
-            if self.hotbar[i] is None:
-                self.hotbar[i] = ability.ability_id
-                i += 1
+            self.hotbar[empty_slot] = ability.ability_id
 
     # ------------------------------------------------------------------
     # Combat interface - mirrors the subset of Character/Monster that
@@ -221,6 +255,26 @@ class Pet(StatusEffectMixin):
             "mana": getattr(self, "current_mana", 0),
             "rage": getattr(self, "current_rage", 0),
             "energy": getattr(self, "current_energy", 0),
+        }.get(rt, 0)
+
+    def get_resource_max(self, resource_type):
+        """Mirrors Character.get_resource_max's shape - added alongside
+        ZIGGI-6K's Overcharge (effect_type=restore_resource, pet-system
+        push, Oct 2026), the first pet ability to need "% of max resource"
+        math. REAL BUG this fixes: Pet had max_mana/max_rage/max_energy
+        set directly on self (see _apply_template_stats) but no generic
+        get_resource_max accessor - restore_resource's dispatch branch in
+        combat/abilities.py calls caster.get_resource_max(resource_type)
+        exactly like it does for Character, and silently produced 0%
+        restores for any pet (hasattr check made it skip entirely, so this
+        wasn't a crash either) until this existed. Returns 0 for an
+        unrecognized resource_type rather than raising, matching
+        get_resource's own convention above."""
+        rt = resource_type.value if hasattr(resource_type, "value") else resource_type
+        return {
+            "mana": getattr(self, "max_mana", 0),
+            "rage": getattr(self, "max_rage", 0),
+            "energy": getattr(self, "max_energy", 0),
         }.get(rt, 0)
 
     def gain_resource(self, resource_type, amount):

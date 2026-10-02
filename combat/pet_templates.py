@@ -176,8 +176,8 @@ PET_TEMPLATES = {
         "resource_type": "mana",
         "crit_chance": 5.0,
         "speed": 1.0,
-        "level_req": 50,
-        "_source": "Tinker Invention's capstone, built during the pet-system push (Oct 2026, Kyle: 'ZIGGI-6K is a pet (like an imp) that helps heal with wrench toss (deals small damage and smart heals ally)'). Same pattern as Stormbringer's Air Elemental: never passed to pets_for_class (Tinker summons it directly by casting tinker_build_ziggi_6k, not through a taming/summon screen). Wrench Toss itself uses effect_type=damage_and_heal (same real mechanic Mage's Cryotherapist talents already use) so one cast both hits the enemy AND smart-heals the owner's lowest-HP party member - fixed a real bug alongside this (combat/combat_engine.py's execute_pet_action wasn't passing `party` to a pet's ability.use() at all, so this would have silently healed only the pet itself, never a real ally, before this fix).",
+        "level_req": 10,
+        "_source": "Tinker Invention's capstone, built during the pet-system push (Oct 2026, Kyle: 'ZIGGI-6K is a pet (like an imp) that helps heal with wrench toss (deals small damage and smart heals ally)'). Same pattern as Stormbringer's Air Elemental: never passed to pets_for_class (Tinker summons it directly by casting tinker_build_ziggi_6k, not through a taming/summon screen). Wrench Toss itself uses effect_type=damage_and_heal (same real mechanic Mage's Cryotherapist talents already use) so one cast both hits the enemy AND smart-heals the owner's lowest-HP party member - fixed a real bug alongside this (combat/combat_engine.py's execute_pet_action wasn't passing `party` to a pet's ability.use() at all, so this would have silently healed only the pet itself, never a real ally, before this fix). Two more abilities added at pet levels 20/30 (Kyle: 'ziggi gets an expensive aoe heal at lvl 20 and evocation like skill at 30') - these level_req values are the PET's own level (synced 1:1 to the owner's character level via Character.summon_pet/sync_to_owner_level), not a separate pet-rank system, same as every other pet template's abilities. Learning a new ability at a LATER level than the pet's own tame-time level is a first for this template set, and surfaced a real bug in entities/pet.py's sync_to_owner_level/_autofill_hotbar (fixed alongside this - see that file's own comments): newly-learned abilities were never added to the hotbar after construction. This template's own level_req LOWERED from 50 to 10 to match tinker_build_ziggi_6k's own ability-level_req drop and the talent's move to tier 1 - Character.summon_pet checks THIS field separately from the ability's own level_req, so both had to move together or the ability would have been castable at 10 while still failing the pet's own gate underneath it.",
         "abilities": [
             {
                 "ability_id": "pet_ziggi_6k_wrench_toss",
@@ -188,11 +188,45 @@ PET_TEMPLATES = {
                 "duration": 0,
                 "damage_school": "physical",
                 "stat_mods": {},
-                "description": "ZIGGI-6K's only action - tosses a wrench at an enemy for small damage while smart-healing the lowest-HP ally.",
+                "description": "ZIGGI-6K's basic action - tosses a wrench at an enemy for small damage while smart-healing the lowest-HP ally.",
                 "ranks": [
                     {"rank": 1, "level_req": 1, "cost": 25, "effect_value": 18, "heal_value": 45}
                 ],
                 "icon_id": "ability_melee",
+            },
+            {
+                "ability_id": "pet_ziggi_6k_regenerative_field",
+                "name": "Regenerative Field",
+                "resource_type": "mana",
+                "cooldown": 4,
+                "effect_type": "heal",
+                "target_type": "party",
+                "duration": 0,
+                "damage_school": "physical",
+                "stat_mods": {},
+                "description": "An expensive but powerful heal to the whole party, learned once ZIGGI-6K reaches level 20.",
+                "_source": "Kyle: 'ziggi gets an expensive aoe heal at lvl 20'. Real target_type=party heal (same mechanic as Asher's Resignation/Circle of Healing) - the engine's real AOE_DAMAGE_MULTIPLIER heal-parity penalty already applies automatically to any multi-recipient heal (see Ability._apply_heal_effect), so this doesn't need its own AoE discount logic. Costly (90 of ZIGGI-6K's 160 max mana at this level) and on a real cooldown to match 'expensive' rather than being a spammable party heal.",
+                "ranks": [
+                    {"rank": 1, "level_req": 20, "cost": 90, "effect_value": 70}
+                ],
+                "icon_id": "ability_heal",
+            },
+            {
+                "ability_id": "pet_ziggi_6k_overcharge",
+                "name": "Overcharge",
+                "resource_type": "mana",
+                "cooldown": 6,
+                "effect_type": "restore_resource",
+                "target_type": "self",
+                "is_instant": True,
+                "duration": 0,
+                "stat_mods": {},
+                "description": "Channels raw power into ZIGGI-6K's own battery, instantly restoring a large chunk of its Mana. Learned at level 30.",
+                "_source": "Kyle: 'evocation like skill at 30' - an Evocation-like self-only resource-restore, new effect_type=restore_resource built for this (combat/abilities.py), since no existing effect_type was a pure self-buff resource refill with no attached damage/heal (damage_and_restore_mana - Stormbringer's Discharge - always also hits an enemy). Reuses the existing mana_restore_pct rank key (already used by Discharge) rather than adding a near-duplicate field.",
+                "ranks": [
+                    {"rank": 1, "level_req": 30, "cost": 0, "mana_restore_pct": 60}
+                ],
+                "icon_id": "ability_buff",
             },
         ],
     },
