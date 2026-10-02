@@ -203,10 +203,28 @@
       "effects": {
         "unlock_mechanic": "mountain_avatar_proc"
       },
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 5,
+        "ability_filter": ["primalist_geode_barrage", "primalist_quake"],
+        "apply_effect": {
+          "on_target": false,
+          "effect_id": "primalist_earthen_avatar",
+          "name": "Earthen Avatar",
+          "effect_type": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 15,
+            "damage_taken_pct": -0.15,
+            "haste": 20,
+            "cc_immune": 1
+          }
+        }
+      },
       "connected_to": [
         "primalist_mountain_king_mountain_giant"
       ],
-      "_source": "CoA tooltip confirmed verbatim, kept as the Mountain King capstone - a strong proc-triggered defensive/offensive cooldown with real hard-CC immunity."
+      "_source": "CoA tooltip confirmed verbatim, kept as the Mountain King capstone - a strong proc-triggered defensive/offensive cooldown with real hard-CC immunity. Wired as a real proc: ability_filter restricts the chance to Geode Barrage/Quake specifically (Quake is this engine's real built ability standing in for the tooltip's 'Earthquake' - no separately-named Earthquake ability exists in data/abilities/primalist.json, and Quake is the closest real Primalist ground-slam AoE). 'Usable while stunned' needs no separate mechanic: nothing in this engine currently blocks a specific ability while stunned (TurnMeter.update() only withholds the TURN itself), and Earthen Avatar's own cc_immune stat_mod keeps the carrier from ever being stunned in the first place while it's up, which already satisfies the tooltip's intent."
     },
     {
       "talent_id": "primalist_mountain_king_granite_hide",

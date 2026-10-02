@@ -1091,9 +1091,26 @@ class Character(StatusEffectMixin):
         # Terrasurge debuff: "-50% Armor" via the same key, negative value)
         # is a final multiplier on the whole armor total, same shape as
         # every other _pct bonus in this method.
+        #
+        # conditional_avatar_armor_pct (Mountain King's Earthen Bulwark:
+        # "+4% Armor per rank while Mountain Avatar is active") is a
+        # DIFFERENT shape from every other _pct key above - those all come
+        # from get_talent_effects()'s static per-rank sum, but this one is
+        # genuinely conditional on live combat state (whether the carrier
+        # currently has the Earthen Avatar buff up), which bonuses (a pure
+        # numeric dict) has no way to express. Checked directly via
+        # has_status_effect against Mountain Avatar's real synthetic
+        # buff id (see primalist_mountain_king.json's mountain_avatar proc
+        # - apply_effect's effect_id), not read from bonuses at all. Safe
+        # to call unconditionally even on classes/mobs with no talent in
+        # this tree: get_talent_effect defaults to 0 and has_status_effect
+        # is always defined on StatusEffectMixin.
+        avatar_armor_bonus = 0.0
+        if hasattr(self, "has_status_effect") and self.has_status_effect("primalist_earthen_avatar"):
+            avatar_armor_bonus = self.get_talent_effect("conditional_avatar_armor_pct", 0.0) if hasattr(self, "get_talent_effect") else 0.0
         self.armor = int((int(eff_stamina * 2) + self.equipment.get_total_armor()
                           + int(bonuses.get("armor", 0)) + shield_bonus)
-                          * (1.0 + bonuses.get("armor_pct", 0) / 100.0))
+                          * (1.0 + bonuses.get("armor_pct", 0) / 100.0 + avatar_armor_bonus))
         # armor_penetration / armor_penetration_pct (Tinker's Round Armor
         # Pen, Piercing Augmentation) - computed here as real derived stats
         # so they exist on the Character the moment something needs them,
