@@ -131,6 +131,15 @@ SHEETS = {
     "cave_water_pool_real": "assets/tiles/caves/cave_water_pool.png",
     "cave_moss_clump_real": "assets/tiles/caves/cave_moss_clump.png",
     "cave_rubble_floor": "assets/tiles/caves/rubble_strewn_floor.png",
+    # Scourge Cave's real bone_hall art (ashenvale_corruption folder) -
+    # registered for the per-tile "cave_scourge_bone" biome below, so the
+    # carved-floor "dirt"/"stone" tile_ids and collision "wall"/"rock"
+    # tile_ids match the SAME chunk art generate_scourge_cave() already
+    # draws (add_ground_chunk/add_obstacle_chunk), instead of falling
+    # through to DEFAULT_BIOME="grassland" wherever a chunk doesn't fully
+    # cover a tile (chunk edges, any tile a clipped obstacle chunk skips).
+    "bone_hall_floor": "assets/tiles/ashenvale_corruption/bone_hall_floor.png",
+    "bone_hall_wall": "assets/tiles/ashenvale_corruption/bone_hall_wall.png",
     # The Den's real wall art (this session) - was cave_wall_1/2, an
     # 83x132 tall narrow stalactite-formation crop force-squashed into a
     # 32x32 square, producing a visible vertical cross-hatch/aliasing
@@ -406,6 +415,17 @@ CAVE_BIOME = {
     # gray rock walls + dense bramble, matching the Razorfen Approach
     # overworld subzone it connects from (savanna_thornscrub).
     "Razorfen Kraul": "cave_thornscrub",
+
+    # Night Web's Hollow, Scarlet Crypt, Scourge Cave - this session's EK
+    # cave rebuilds, all missing here until now (see the cave_scourge_bone
+    # biome's comment above for the real bug this fixes). Matched to each
+    # cave's own already-wired chunk floor/wall art: Night Web's Hollow
+    # reuses The Den's cave_mossy look, Scarlet Crypt reuses Tiragarde
+    # Keep's dressed stone (cave_dark), Scourge Cave gets its own
+    # dedicated bone_hall-matched biome.
+    "Night Web's Hollow": "cave_mossy",
+    "Scarlet Crypt": "cave_dark",
+    "Scourge Cave": "cave_scourge_bone",
 }
 
 DEFAULT_BIOME = "grassland"
@@ -1138,6 +1158,10 @@ BIOME_TILES = {
         "bones_3": ("cave_bones_3", (0, 0, 32, 32), False),
         "crystal": ("cave_crystal_1", (0, 0, 64, 64), False),
         "crystal_2": ("cave_crystal_2", (0, 0, 64, 64), False),
+        # Real cave_rubble_floor crop - Scarlet Crypt's _scatter(small_rocks)
+        # call had no entry here at all (silent gray-box fallback, same
+        # bug class as the missing CAVE_BIOME entries above).
+        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
         # Widow's Lair, Shadowfang Keep, Tiragarde Keep. Same missing
         # "caves" sheet bug as cave_warm - this is the biome for the keep
         # SE of Razor Hill (Kyle's named example for "large empty space
@@ -1161,6 +1185,29 @@ BIOME_TILES = {
             ("cave_wall_1", (0, 0, 83, 132), True),
         ],
         "cliff": ("cave_wall_1", (0, 0, 83, 132), True),
+    },
+    # Night Web's Hollow, Scarlet Crypt, Scourge Cave - this session's 3
+    # EK cave rebuilds (generate_night_webs_hollow/generate_scarlet_crypt/
+    # generate_scourge_cave in world/zone_generator.py) were never added
+    # to CAVE_BIOME below, so all 3 silently fell through to
+    # DEFAULT_BIOME="grassland" for every per-tile base/visual lookup
+    # (the carved floor tiles' "dirt"/"stone" tile_id, and small_rocks
+    # scatter) even though their chunk-layer floor/wall art was correctly
+    # wired. Real, confirmed bug (Kyle screenshot of Night Web's Hollow:
+    # gray small_rocks fallback boxes everywhere - grassland has no
+    # small_rocks entry at all - plus visible green jungle-tileset bleed
+    # at chunk edges instead of the cave's own real floor art). Night
+    # Web's Hollow and Scarlet Crypt reuse existing biomes that already
+    # match their chunk art (cave_mossy, cave_dark); Scourge Cave's
+    # bone_hall art (ashenvale_corruption folder) had no existing biome
+    # pointed at it at all, so it gets this dedicated one.
+    "cave_scourge_bone": {
+        "stone": ("bone_hall_floor", (0, 0, 616, 618), True),
+        "dirt": ("bone_hall_floor", (0, 0, 616, 618), True),
+        "rock": ("bone_hall_wall", (0, 0, 614, 618), True),
+        "wall": ("bone_hall_wall", (0, 0, 614, 618), True),
+        "cliff": ("bone_hall_wall", (0, 0, 614, 618), True),
+        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
     },
     # Sunken Temple Grotto - genuinely flooded, not just "cave with some
     # water tiles" (Kyle: "its in the name"). Same floor/wall as cave_mossy

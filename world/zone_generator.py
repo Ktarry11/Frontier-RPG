@@ -4624,8 +4624,16 @@ class ZoneGenerator:
         # already matches them tonally) instead of the shared generic
         # "stone" fallback.
         # ------------------------------------------------------------------
+        # mossy_cave_floor.png dropped from this rotation (Kyle, after
+        # seeing a render: bright saturated green moss read as jungle
+        # grass against the gray stone walls, clashing hard rather than
+        # reading as "damp cave floor"). cave_floor_rock_1/2 alone keep
+        # the whole cave on one consistent gray-brown stone palette - the
+        # same 2 variants cave_mossy's own "dirt" BIOME_TILES entry
+        # already resolves to, so the carved corridor tiles (which use
+        # these per-tile textures, not chunk art, at chunk edges) match
+        # the chunk art instead of clashing with it either.
         floor_variants = [
-            "assets/tiles/caves/mossy_cave_floor.png",
             "assets/tiles/caves/cave_floor_rock_1.png",
             "assets/tiles/caves/cave_floor_rock_2.png",
         ]
