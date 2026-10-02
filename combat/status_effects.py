@@ -937,6 +937,19 @@ class StatusEffectMixin:
             if require_form and getattr(self, "current_form", None) != require_form:
                 continue
 
+            # require_mechsuit: like require_form above, but gated on the
+            # Tinker's Mechsuit instead of a shapeshift form (Build:
+            # Scrapmaw: "While your Mechsuit is active, your basic
+            # attacks have a 10% chance to..."). Mechsuit is deliberately
+            # NOT tracked via current_form (see StatusEffectMixin.
+            # current_mechsuit's docstring - it's a timed buff derived
+            # from a real StatusEffect, not persistent imperative state
+            # like a shapeshift), so it needs its own gate rather than
+            # reusing require_form against the wrong field. None/absent
+            # is unrestricted, same default as every other proc gate.
+            if proc.get("require_mechsuit") and not getattr(self, "current_mechsuit", False):
+                continue
+
             if effect.proc_icd_remaining > 0:
                 continue
 
@@ -1077,6 +1090,30 @@ class StatusEffectMixin:
                     _ok, extra_msg = basic_attack.use(self, target, in_combat=True)
                     if _ok:
                         messages.append(f"{effect.name} triggers an extra attack! {extra_msg}")
+                        fired_something = True
+
+            # cast_ability: like extra_attack above, but for a SPECIFIC
+            # named ability instead of always the caster's own basic
+            # attack (Tinker's Build: Scrapmaw: "...basic attacks have a
+            # 10% chance to fire an additional Scrap Shot at no Mana
+            # cost" - a real secondary ability, not the basic attack
+            # again). Looked up by ability_id via the carrier's own
+            # ability_book (same requirement as extra_attack - safely
+            # no-ops for anything without one, e.g. a monster). Always
+            # cast with free=True (Ability.use's new parameter - skips
+            # resource check/consume and cooldown check/set entirely),
+            # matching "at no Mana cost" being the actual mechanic, not a
+            # discount - a proc firing a secondary ability should never
+            # be gated by that ability's own cooldown or cost just because
+            # this specific cast didn't choose to pay for it.
+            cast_ability_id = proc.get("cast_ability")
+            if cast_ability_id and target is not None and hasattr(self, "ability_book"):
+                book = self.ability_book
+                cast_ability = book.get_ability(cast_ability_id) if book else None
+                if cast_ability is not None and hasattr(target, "is_alive") and target.is_alive():
+                    _ok, cast_msg = cast_ability.use(self, target, in_combat=True, free=True)
+                    if _ok:
+                        messages.append(f"{effect.name} triggers {cast_ability.name}! {cast_msg}")
                         fired_something = True
 
             if fired_something:

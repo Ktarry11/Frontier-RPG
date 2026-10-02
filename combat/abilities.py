@@ -965,7 +965,7 @@ class Ability:
         """Check if ability is off cooldown."""
         return self.turns_remaining <= 0
     
-    def use(self, caster, target=None, party=None, in_combat=True):
+    def use(self, caster, target=None, party=None, in_combat=True, free=False):
         """Use the ability. Returns success and message.
 
         `party` is an optional list of the caster's living allies, supplied
@@ -983,6 +983,16 @@ class Ability:
         a cooldown already running FROM a fight, but never SET one of their
         own. Defaults True so every combat/monster call site (combat_engine,
         totem summon-through-use, etc) is untouched by this change.
+
+        `free` (new): True skips the resource check/consume AND cooldown-
+        check/set entirely - a genuine "no Mana cost" proc-triggered cast
+        (Tinker's Build: Scrapmaw: "...your basic attacks have a 10%
+        chance to fire an additional Scrap Shot at no Mana cost"), not a
+        player action. Defaults False so every existing caller (which all
+        want real resource/cooldown rules enforced) is completely
+        unaffected. Still respects is_learned and the stun/execute-
+        threshold gates just above - "free" means the resource is waived,
+        not that every other cast requirement is skipped too.
         """
         # Refuse unlearned abilities outright - a hotbar left over from a
         # prestige reset (level 60 -> 1) would otherwise still fire them.
@@ -992,7 +1002,11 @@ class Ability:
         # Check cooldown - still respected out of combat (a heal cast mid-
         # fight and still ticking down shouldn't be free to spam the second
         # you step out of combat), just never SET by an out-of-combat cast.
-        if not self.is_available():
+        # A free=True proc cast skips this check entirely (Scrap Shot has
+        # its own cooldown of 0 anyway, but a future free-proc ability
+        # with a real cooldown shouldn't be blocked by its own cooldown
+        # clock just because this specific cast didn't start it).
+        if not free and not self.is_available():
             return False, f"{self.name} is on cooldown ({self.turns_remaining} turns remaining)"
 
         # Execute-style HP gate (Warrior Execute's real 20%, Stormbringer
@@ -1026,18 +1040,27 @@ class Ability:
                     if not (getattr(e, "proc", None) and e.proc.get("bypass_execute_threshold"))
                 ]
 
-        # Check resource (talent-reduced cost)
-        cost = self.talented_cost(caster)
-        if not self._has_resource(caster, cost):
-            return False, f"Not enough {self.resource_type.value} (need {cost})"
+        # Check resource (talent-reduced cost) - entirely skipped for a
+        # free=True proc cast ("at no Mana cost" is the literal tooltip
+        # wording, not "at a discounted cost"), cost reported as 0 to
+        # _apply_effect/the return message rather than this ability's
+        # real cost, since nothing was actually spent.
+        if free:
+            cost = 0
+        else:
+            cost = self.talented_cost(caster)
+            if not self._has_resource(caster, cost):
+                return False, f"Not enough {self.resource_type.value} (need {cost})"
 
-        # Consume resource
-        self._consume_resource(caster, cost)
+            # Consume resource
+            self._consume_resource(caster, cost)
 
         # Apply cooldown (in turns, not seconds; talent-reduced) - only
         # for in-combat casts. Buffs/heals used to prep before a pull
         # shouldn't lock the button for the fight that's about to start.
-        if in_combat:
+        # Also skipped for free=True (a proc firing this ability isn't
+        # the player choosing to use their own cooldown-gated action).
+        if in_combat and not free:
             self.turns_remaining = self.talented_cooldown(caster)
         
         # Apply effect

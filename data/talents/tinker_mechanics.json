@@ -255,9 +255,16 @@
       "effects": {
         "mechsuit_proc_chance": 0.1
       },
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "require_mechsuit": true,
+        "cast_ability": "tinker_scrap_shot"
+      },
       "connected_to": [
         "tinker_mechanics_upgrade_mechsuit"
-      ]
+      ],
+      "_source": "Real screenshot: 'While your Mechsuit is active, your basic attacks have a 10% chance to fire an additional Scrap Shot at no Mana cost.' max_points=1 so no rank-scaling needed on chance. Wired as a real proc (require_mechsuit + cast_ability='tinker_scrap_shot', free=True under the hood in Ability.use) rather than the dead mechsuit_proc_chance effects key, which is kept here only as flavor/legacy data."
     },
     {
       "talent_id": "tinker_mechanics_plated_joints",
