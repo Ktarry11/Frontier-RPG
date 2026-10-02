@@ -346,6 +346,22 @@ class CombatEngine:
             buff_pct = actor.get_status_stat_mod("threat_generation_pct") or 0.0
             threat_mult *= (1.0 + buff_pct / 100.0)
 
+        # low_health_threat_pct (Tinker's Battle Engineer: "+10%/rank
+        # threat generated while below 50% health" - same "while below X%
+        # health" shape as low_health_damage_reduction_pct in
+        # Character.take_damage, just for threat instead of mitigation,
+        # and read here rather than there since threat generation lives
+        # entirely in this method). Shares that key's threshold-pairing
+        # convention (low_health_threshold_pct on the same talent node) so
+        # a future talent using a different threshold doesn't collide with
+        # Battle Engineer's own 50%.
+        if hasattr(actor, "get_talent_effect") and hasattr(actor, "health") and actor.health > 0:
+            low_threat_pct = actor.get_talent_effect("low_health_threat_pct", 0.0)
+            if low_threat_pct > 0:
+                threshold = actor.get_talent_effect("low_health_threshold_pct", 0.5)
+                if (actor.current_health / actor.health) < threshold:
+                    threat_mult *= (1.0 + low_threat_pct)
+
         for enemy, amount, is_damage in events:
             if amount <= 0:
                 continue
