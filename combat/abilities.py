@@ -259,7 +259,8 @@ class Ability:
                  shapeshift_form_id=None, consumes_seal=False, proc=None,
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
-                 dispel_count=1, consumes_stacks_of=None, duration_per_stack=0):
+                 dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
+                 max_targets=None):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
             and "effect_value" keys (from combat/rank_generator.py's
@@ -526,6 +527,21 @@ class Ability:
         if target_type not in self.TARGET_TYPES:
             target_type = self.DEFAULT_TARGET_TYPE.get(effect_type, "enemy")
         self.target_type = target_type
+
+        # max_targets: caps an "enemy_aoe" hit to N targets instead of
+        # every living enemy in the fight - a real, distinct mechanic from
+        # the flat AOE_DAMAGE_MULTIPLIER penalty. Several abilities are
+        # tooltip-explicit about a SPECIFIC target count rather than true
+        # unlimited AoE (Runemaster's Fist of the Ancients: "your target
+        # and A nearby enemy" = 2; Stormbringer's Forked Lightning: "arcs
+        # to strike up to 3 enemies"), which target_type="enemy_aoe" alone
+        # can't express - before this field existed, authoring one of
+        # these as enemy_aoe silently over-hit every enemy in the fight,
+        # the exact bug this fixes for Fist of the Ancients. None (the
+        # default) means genuinely unlimited, matching every enemy_aoe
+        # ability authored before this field existed. Only meaningful
+        # when target_type == "enemy_aoe"; ignored otherwise.
+        self.max_targets = max_targets
 
         self.current_rank_index = 0  # index into self.ranks; refreshed by refresh_rank_for_level()
         # Set properly by refresh_rank_for_level(); defaults True so any
@@ -1303,8 +1319,19 @@ class Ability:
         """
         if self.target_type == "enemy_aoe":
             if isinstance(target, (list, tuple)):
-                return [t for t in target if t is not None and t.is_alive()]
-            return [target] if target is not None else []
+                living = [t for t in target if t is not None and t.is_alive()]
+            else:
+                living = [target] if target is not None else []
+            # max_targets (see Ability.__init__) caps a limited-cleave
+            # ability to its real target count instead of hitting every
+            # living enemy - the explicitly-targeted unit (whichever
+            # element the caller put first, by convention "your target")
+            # is always included, with the cap applied to the whole list
+            # afterward so a 2-target cleave against a single remaining
+            # enemy still just hits that one enemy rather than erroring.
+            if self.max_targets and len(living) > self.max_targets:
+                living = living[:self.max_targets]
+            return living
 
         if isinstance(target, (list, tuple)):
             return [target[0]] if target else []
@@ -2399,6 +2426,7 @@ def _ability_from_data(entry):
         dispel_count=entry.get("dispel_count", 1),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         duration_per_stack=entry.get("duration_per_stack", 0),
+        max_targets=entry.get("max_targets"),
         requires_form=_normalize_requires_form(entry.get("requires_form")),
         heal_scope=entry.get("heal_scope", "lowest_ally"),
         exclusive_group=entry.get("exclusive_group"),

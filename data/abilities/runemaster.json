@@ -855,8 +855,9 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Smash your target and a nearby enemy with your rune-engraved fists, triggering Weapon Engraving.",
-      "_source": "Confirmed screenshot: Engravement-locked, Lvl 24, '74 Elemental Damage and triggering your Weapon Engraving.'",
+      "_source": "Confirmed screenshot: Engravement-locked, Lvl 24, '74 Elemental Damage and triggering your Weapon Engraving.' Fixed during DPS niche audit (Oct 2026): was tagged plain enemy_aoe, which hits EVERY living enemy in the fight at the flat 0.6x AoE penalty - the tooltip is explicit about exactly 2 targets ('your target AND a nearby enemy'), not unlimited AoE. Added the new max_targets=2 field (see Ability.__init__/_hostile_recipients in combat/abilities.py) rather than leaving it as unlimited or reverting to single-target - this is a real 2-target cleave, mechanically distinct from both.",
       "target_type": "enemy_aoe",
+      "max_targets": 2,
       "ranks": [
         {
           "rank": 1,
