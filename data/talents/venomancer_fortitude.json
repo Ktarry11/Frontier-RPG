@@ -38,7 +38,7 @@
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 1,
       "hex_y": -6,
       "effects": {
         "armor_pct": 3.0
@@ -55,7 +55,7 @@
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 3,
       "hex_y": -6,
       "effects": {
         "dodge": 1.0
@@ -72,7 +72,7 @@
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 5,
       "hex_y": -6,
       "effects": {
         "threat_generation_pct": 0.05
@@ -89,21 +89,27 @@
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {},
       "proc": {
         "trigger": "on_damage_taken",
         "chance": 50,
         "icd": 0,
-        "grant_resource": {"resource": "rage", "amount": 10, "scale_talent_key": "exposed_flesh_rage_pct"},
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 10,
+          "scale_talent_key": "exposed_flesh_rage_pct"
+        },
         "apply_effect": {
           "effect_id": "exposed_flesh_stack",
           "name": "Exposed Flesh",
           "effect_type": "debuff",
           "duration": 20,
           "real_time_seconds": 20,
-          "stat_mods": {"physical_damage_taken_pct": 3},
+          "stat_mods": {
+            "physical_damage_taken_pct": 3
+          },
           "max_stacks": 10,
           "dispel_type": null,
           "on_target": false
@@ -124,7 +130,7 @@
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "venomancer_beetle_form"
@@ -161,7 +167,7 @@
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 4,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "venomancer_hivebreak"
@@ -179,7 +185,7 @@
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 6,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "venomancer_locust_swarm"
@@ -196,7 +202,7 @@
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 4,
       "hex_y": -2,
       "effects": {
         "ability_venomancer_beetle_armor_pct": 0.1
@@ -214,7 +220,7 @@
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": -2,
       "effects": {
         "ability_venomancer_barbed_stinger_damage": 0.08
@@ -231,7 +237,7 @@
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": 1,
       "hex_y": 2,
       "effects": {
         "low_health_damage_reduction_pct": 0.02,
@@ -250,7 +256,7 @@
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -1,
       "hex_y": 6,
       "effects": {},
       "proc": {
@@ -258,7 +264,10 @@
         "chance": 100,
         "icd": 0,
         "require_form": "beetle",
-        "grant_resource": {"resource": "rage", "amount": 2}
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 2
+        }
       },
       "connected_to": [
         "venomancer_fortitude_unbreakable"
@@ -273,7 +282,7 @@
       "tier": 0,
       "max_points": 4,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
         "armor_pct": 3.0
@@ -307,7 +316,7 @@
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {
         "physical_damage_taken_pct": -0.02
@@ -324,7 +333,7 @@
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -1,
       "hex_y": -6,
       "effects": {},
       "proc": {
@@ -355,7 +364,7 @@
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -4,
       "hex_y": -2,
       "effects": {
         "ability_venomancer_barbed_stinger_threat_pct": 0.08
@@ -372,7 +381,7 @@
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
         "stun_duration_reduction_pct": 0.05
@@ -389,7 +398,7 @@
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -1,
       "hex_y": 2,
       "effects": {
         "conditional_beetle_max_health_pct": 0.02
@@ -406,7 +415,7 @@
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -2,
       "effects": {
         "exposed_flesh_rage_pct": 0.1
@@ -423,7 +432,7 @@
       "tier": 5,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -1,
       "hex_y": 4,
       "effects": {
         "death_threat_retention_pct": 0.05
@@ -440,7 +449,7 @@
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": 0,
       "effects": {
         "ability_venomancer_locust_swarm_threat_pct": 0.1
@@ -457,7 +466,7 @@
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": -2,
       "effects": {
         "unlock_ability": "venomancer_carapace_crash"
@@ -475,7 +484,7 @@
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": 0,
       "effects": {
         "unlock_ability": "venomancer_expulsion"
@@ -494,7 +503,7 @@
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 1,
       "hex_y": 4,
       "effects": {
         "unlock_ability": "venomancer_venomtip_poison"

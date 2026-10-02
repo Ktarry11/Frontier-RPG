@@ -21,7 +21,7 @@
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -1,
       "hex_y": -6,
       "effects": {
         "armor_pct": 3.0
@@ -38,7 +38,7 @@
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 1,
       "hex_y": -6,
       "effects": {
         "stamina": 3
@@ -55,7 +55,7 @@
       "tier": 0,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 3,
       "hex_y": -6,
       "effects": {
         "parry": 3.0,
@@ -75,7 +75,7 @@
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 5,
       "hex_y": -6,
       "effects": {
         "threat_generation_pct": 0.05
@@ -109,7 +109,7 @@
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 1,
       "hex_y": -4,
       "effects": {
         "ability_primalist_quake_threat_pct": 0.1
@@ -127,7 +127,7 @@
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 3,
       "hex_y": -4,
       "effects": {
         "ability_primalist_mountain_hammer_damage": 0.08
@@ -144,7 +144,7 @@
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 5,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "primalist_judgement_of_the_three_hammers"
@@ -162,7 +162,7 @@
       "tier": 3,
       "max_points": 4,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": 2,
       "hex_y": 0,
       "effects": {
         "ability_primalist_judgement_of_the_three_hammers_cooldown": 4,
@@ -208,7 +208,10 @@
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 5,
-        "ability_filter": ["primalist_geode_barrage", "primalist_quake"],
+        "ability_filter": [
+          "primalist_geode_barrage",
+          "primalist_quake"
+        ],
         "apply_effect": {
           "on_target": false,
           "effect_id": "primalist_earthen_avatar",
@@ -236,7 +239,7 @@
       "tier": 0,
       "max_points": 4,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
         "armor_pct": 3.0
@@ -253,7 +256,7 @@
       "tier": 1,
       "max_points": 4,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -5,
       "hex_y": -4,
       "effects": {
         "stamina": 3
@@ -270,7 +273,7 @@
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -1,
       "hex_y": -4,
       "effects": {
         "physical_damage_taken_pct": -0.02
@@ -304,7 +307,7 @@
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -1,
       "hex_y": -2,
       "effects": {
         "ability_primalist_mountain_hammer_stun_duration": 0.5
@@ -321,7 +324,7 @@
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
         "nature_damage_taken_pct": -0.03
@@ -338,7 +341,7 @@
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 1,
       "hex_y": -2,
       "effects": {
         "attack_power": 3
@@ -355,7 +358,7 @@
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": -2,
       "hex_y": 2,
       "effects": {
         "ability_primalist_judgement_of_the_three_hammers_proc_pct": 0.03
@@ -372,7 +375,7 @@
       "tier": 5,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -6,
+      "hex_x": 0,
       "hex_y": 4,
       "effects": {
         "stun_duration_reduction_pct": 0.05
@@ -389,7 +392,7 @@
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": 0,
       "effects": {
         "conditional_avatar_armor_pct": 0.04
@@ -406,7 +409,7 @@
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": 2,
       "hex_y": 2,
       "effects": {
         "unlock_ability": "primalist_terrasurge"
