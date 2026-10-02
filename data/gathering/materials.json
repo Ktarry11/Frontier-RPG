@@ -161,6 +161,54 @@
         35
       ]
     },
+    "wood_ashwood": {
+      "name": "Ashwood",
+      "material_type": "wood",
+      "profession": "woodcutting",
+      "tier": "early",
+      "description": "A sturdy, pale hardwood from a common ash tree. The most reliable timber around.",
+      "stack_limit": 20,
+      "sell_price": 5,
+      "icon_id": "ashwood",
+      "skill_range": [10, 25, 40, 50],
+      "_source": "Woodcutting's first material - Kyle, Oct 2026, provided real art/naming for a 40-wood, 4-tier (Early/Mid/Late/End-game) progression chart (assets/gathering_nodes/wood/). Only the 4 Early Woods are wired as real gatherable materials for now - 'we will only add first 4' - the rest of the chart (Mid/Late/End-game tiers, and items roughly #21+ of Early/Mid) is staged art/naming for later, same as how Herbalism/Mining only have early+mid tier caps implemented today. skill_range matches Peacebloom/Copper Ore's own baseline-common early-tier curve."
+    },
+    "wood_oakheart_stump": {
+      "name": "Oakheart Stump",
+      "material_type": "wood",
+      "profession": "woodcutting",
+      "tier": "early",
+      "description": "The dense, heavy stump of an old oak. Harder to work than Ashwood, but worth it.",
+      "stack_limit": 20,
+      "sell_price": 7,
+      "icon_id": "oakheart_stump",
+      "skill_range": [15, 30, 45, 55],
+      "_source": "Second Early Wood - pricier/denser than plain Ashwood, skill_range shifted slightly later to match Earthroot/Rough Iron's own 'second-tier early material' curve."
+    },
+    "wood_softpine": {
+      "name": "Softpine",
+      "material_type": "wood",
+      "profession": "woodcutting",
+      "tier": "early",
+      "description": "Light, easily-worked pine. Common in evergreen stands, a favorite for beginners.",
+      "stack_limit": 20,
+      "sell_price": 4,
+      "icon_id": "softpine",
+      "skill_range": [5, 20, 35, 45],
+      "_source": "Third Early Wood - the cheapest/softest of the four, skill_range shifted earlier (greys out sooner) matching Weakstone's own 'cheapest early material' curve."
+    },
+    "wood_driftwood_stump": {
+      "name": "Driftwood Stump",
+      "material_type": "wood",
+      "profession": "woodcutting",
+      "tier": "early",
+      "description": "A weathered stump, bleached and hardened by sun and salt. Found where water meets shore.",
+      "stack_limit": 20,
+      "sell_price": 8,
+      "icon_id": "driftwood_stump",
+      "skill_range": [20, 35, 50, 60],
+      "_source": "Fourth Early Wood - the richest/rarest of the four (coastal-only flavor), skill_range stays relevant latest into the early bracket, matching Mageroyal/Rough Iron's own 'priciest early material' curve."
+    },
     "herb_briarthorn": {
       "name": "Briarthorn",
       "material_type": "herb",

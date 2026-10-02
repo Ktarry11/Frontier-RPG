@@ -363,13 +363,20 @@ MATERIAL_TYPE_FOLDERS = {
     "herb": "herbs",
     "bar": "bars",
     # No real sprite art exists for upgrade kits yet (Oct 2026,
-    # Blacksmithing's upgrade_kit_copper/upgrade_kit_silver) - mapped here
+    # Blacksmithing's upgrade_kit_copper/upgrade_kit_bronze) - mapped here
     # anyway so the lookup has a defined destination the moment art is
     # added, rather than silently falling back to "upgrade_kit" as a
     # folder name (the .get() fallback elsewhere in this codebase doesn't
     # crash on a missing folder, but a real entry here is one less thing
     # to remember to add later).
     "upgrade_kit": "upgrade_kits",
+    # Woodcutting (Oct 2026) - real art already exists on disk at
+    # assets/gathering_nodes/wood/ (all 40 named woods from Kyle's
+    # reference chart, staged ahead of the data - only the 4 Early Woods
+    # are wired as real materials.json entries so far). Folder is
+    # singular "wood" on disk, matching "ore" staying singular rather
+    # than the "herb"->"herbs" pluralization.
+    "wood": "wood",
 }
 
 #: Skill cap per profession TIER, not an absolute profession cap - "early"

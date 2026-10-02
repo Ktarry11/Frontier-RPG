@@ -217,6 +217,7 @@ class Character(StatusEffectMixin):
         self.profession_skills = {
             "herbalism": 0,
             "mining": 0,
+            "woodcutting": 0,
         }
         
         # Buff slots (Phase 6) - 1 guardian, 1 battle, 1 food buff active at a time
@@ -2279,7 +2280,7 @@ class Character(StatusEffectMixin):
         char.consumables = [Consumable.from_dict(c) for c in data.get("consumables", [])]
         from entities.material import Material
         char.materials = [Material.from_dict(m) for m in data.get("materials", [])]
-        char.profession_skills = data.get("profession_skills", {"herbalism": 0, "mining": 0})
+        char.profession_skills = data.get("profession_skills", {"herbalism": 0, "mining": 0, "woodcutting": 0})
         char.consumable_cooldown = data.get("consumable_cooldown", 0.0)
         char.guardian_buff = data.get("guardian_buff")
         char.battle_buff = data.get("battle_buff")

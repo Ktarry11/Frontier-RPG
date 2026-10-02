@@ -35,6 +35,7 @@ from world.upgrade_manager import get_kit_for_item, can_upgrade, upgrade_item, n
 PROFESSION_DISPLAY_ORDER = [
     ("herbalism", "Herbalism"),
     ("mining", "Mining"),
+    ("woodcutting", "Woodcutting"),
 ]
 
 PANEL_X = 20
@@ -380,7 +381,7 @@ class ProfessionsScreen(BaseScreen):
         y += 30
         self.renderer.draw_text(
             screen,
-            "Herbalism recipes unlock once Alchemy is added. Mining recipes are under the Smelting tab above.",
+            "Herbalism recipes unlock once Alchemy is added. Mining recipes are under the Smelting tab above. Woodcutting recipes unlock once Carpentry/Bowyer-style crafting is added.",
             (PANEL_X, y), color=(150, 150, 150))
 
     def _render_smelting_tab(self, screen):
