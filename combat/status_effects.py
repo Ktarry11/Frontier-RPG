@@ -844,6 +844,19 @@ class StatusEffectMixin:
             if ability_filter and ability_id not in ability_filter:
                 continue
 
+            # require_form: optional shapeshift-form id this proc only
+            # works in (Venomancer's Spider Lord talent: "While in Beetle
+            # Form, generate 2 additional Rage whenever you deal damage" -
+            # a real WoW mechanic gated on the carrier's CURRENT form, not
+            # always-on just because the talent point is spent). Checked
+            # against self.current_form (set by Character.set_form, see
+            # combat/forms.py) - None/absent on an effect means
+            # unrestricted, same backward-compatible default as
+            # ability_filter above.
+            require_form = proc.get("require_form")
+            if require_form and getattr(self, "current_form", None) != require_form:
+                continue
+
             if effect.proc_icd_remaining > 0:
                 continue
 

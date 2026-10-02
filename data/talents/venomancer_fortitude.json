@@ -216,12 +216,18 @@
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "beetle_rage_on_damage": 2
+      "effects": {},
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "require_form": "beetle",
+        "grant_resource": {"resource": "rage", "amount": 2}
       },
       "connected_to": [
         "venomancer_fortitude_unbreakable"
-      ]
+      ],
+      "_source": "beetle_rage_on_damage was a dead stat_mods key never read anywhere - converted to a real talent-level proc (TalentNode.proc, synced to a permanent synthetic StatusEffect by Character._sync_talent_procs), the same reactive-behavior mechanism Seal of Command/Earth Shield/Shamanistic Rage already use, since 'generate Rage whenever you deal damage' is a reactive trigger, not a passive stat bonus get_talent_effects() can express."
     },
     {
       "talent_id": "venomancer_fortitude_hardened_carapace",
