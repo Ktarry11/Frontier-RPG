@@ -699,18 +699,30 @@ def generate_northern_barrens():
     # whole 280x260 map rendered on before now.
     # ------------------------------------------------------------------
     barrens = "assets/tiles/barrens"
+    # REAL BUG FIXED this session (Kyle: "god the barrens water is
+    # ugly"/general art complaints, confirmed directly - every
+    # barrens/grass/* variant previously used here shares a rust-orange/
+    # scorched-earth palette that reads as lava/ember rather than dry
+    # savanna). "savanna_dry_grass.png" is genuine Kyle-approved tan/
+    # olive savanna art - now the dominant ground texture everywhere in
+    # this zone. Kept sparse_grass (real but not orange-saturated) for
+    # trodden camp interiors where a flatter/more worn look fits, and
+    # grass_with_flowers for Dry Hills' own greener lore - both still
+    # real variety, per Kyle's "keep some of the grasslands stuff...but
+    # we need more variation", not just a single flat texture everywhere.
+    savanna = f"{barrens}/grass/savanna_dry_grass.png"
     subzone_terrain = [
-        {"rect": (55, 95, 85, 70), "variants": [f"{barrens}/grass/overgrown_brush.png"]},        # Slug Fens - wet/muddy
-        {"rect": (180, 15, 70, 70), "variants": [f"{barrens}/grass/windswept_grass.png"]},        # Harpy Roost - rocky cliffs
+        {"rect": (55, 95, 85, 70), "variants": [savanna]},                                        # Slug Fens - wet/muddy
+        {"rect": (180, 15, 70, 70), "variants": [savanna]},                                        # Harpy Roost - rocky cliffs
         {"rect": (136, 20, 28, 20), "variants": [f"{barrens}/grass/sparse_grass.png"]},           # Mor'shan Rampart - checkpoint, trodden
-        {"rect": (209, 41, 32, 28), "variants": [f"{barrens}/grass/dry_grass_dense.png"]},        # Sludge Fen - industrial
+        {"rect": (209, 41, 32, 28), "variants": [savanna]},                                        # Sludge Fen - industrial
         {"rect": (10, 10, 60, 60), "variants": [f"{barrens}/grass/grass_with_flowers.png"]},      # Dry Hills - greener per its own lore
         {"rect": (240, 114, 36, 32), "variants": [f"{barrens}/grass/sparse_grass.png"]},          # Far Watch Post - camp, trodden
         {"rect": (129, 51, 32, 28), "variants": [f"{barrens}/grass/sparse_grass.png"]},           # Mor'shan Base Camp - camp, trodden
-        {"rect": (220, 200, 55, 55), "variants": [f"{barrens}/grass/dry_grass_sparse.png"]},      # Merchant Coast
-        {"rect": (140, 95, 30, 130), "variants": [f"{barrens}/grass/sparse_grass.png"]},          # Gold Road
+        {"rect": (220, 200, 55, 55), "variants": [savanna]},                                        # Merchant Coast
+        {"rect": (140, 95, 30, 130), "variants": [savanna]},                                        # Gold Road
     ]
-    default_variants = [f"{barrens}/grass/windswept_grass.png", f"{barrens}/grass/mixed_grass_sage.png"]
+    default_variants = [savanna]
 
     def chunk_variants_for(cx, cy, cs):
         for region in subzone_terrain:

@@ -298,6 +298,14 @@ SHEETS = {
     "barrens_overgrown_brush": "assets/tiles/barrens/grass/overgrown_brush.png",
     "barrens_grass_with_flowers": "assets/tiles/barrens/grass/grass_with_flowers.png",
     "barrens_windswept_grass": "assets/tiles/barrens/grass/windswept_grass.png",
+    # Real savanna-toned replacement (Kyle: every other barrens_grass_*
+    # variant above shares a rust-orange/scorched-earth palette that
+    # reads as lava/ember rather than dry grassland - checked directly,
+    # confirmed across several of them, not just one bad file). This one
+    # is genuine tan/olive dry savanna, Kyle-approved art. Not yet
+    # swapped in to replace any of the above - see zone_expansion_
+    # generators.py's subzone_terrain list for where it's actually used.
+    "barrens_savanna_dry_grass": "assets/tiles/barrens/grass/savanna_dry_grass.png",
     "barrens_acacia_tree": "assets/tiles/barrens/props/acacia_tree.png",
     "barrens_cactus": "assets/tiles/barrens/props/barrens_cactus.png",
     "barrens_kodo_skull": "assets/tiles/barrens/props/kodo_skull.png",
@@ -824,22 +832,24 @@ BIOME_TILES = {
         # variant deterministically per-tile so the ground reads as real
         # terrain variety instead of a visible repeating grid (same
         # mechanism Durotar's cracked_red_earth_a/b/c already uses).
+        # REAL BUG FIXED this session (Kyle: "the barrens water is
+        # ugly...for some reason the only two blocks" / general "ugly"
+        # complaints plus direct confirmation every barrens_grass_*
+        # variant below shares a rust-orange/scorched-earth palette,
+        # checked directly across several). "barrens_savanna_dry_grass"
+        # is genuine Kyle-approved tan/olive savanna art, weighted
+        # heaviest in the pool; kept 3 of the least-orange existing
+        # variants (sparse/dry_sparse/grass_with_rocks) for real texture
+        # variety per Kyle's "keep some of the grasslands stuff...but we
+        # need more variation" - dropped thorny_brush/red_grass_mix/
+        # overgrown_brush/tall_dry (the most saturated-orange ones).
         "grass": [
+            ("barrens_savanna_dry_grass", (0, 0, 900, 900), False),
+            ("barrens_savanna_dry_grass", (0, 0, 900, 900), False),
+            ("barrens_savanna_dry_grass", (0, 0, 900, 900), False),
             ("barrens_grass_dry_sparse", (0, 0, 251, 251), False),
-            ("barrens_grass_dry_dense", (0, 0, 251, 251), False),
-            ("barrens_grass_low_bushes", (0, 0, 250, 250), False),
-            ("barrens_scrub_brush", (0, 0, 251, 251), False),
-            ("barrens_grass_tall_dry", (0, 0, 251, 251), False),
-            ("barrens_grass_with_rocks", (0, 0, 251, 251), False),
-            ("barrens_thorny_brush", (0, 0, 251, 251), False),
-            ("barrens_red_grass_mix", (0, 0, 250, 250), False),
-            ("barrens_low_scrub_bushes", (0, 0, 251, 251), False),
             ("barrens_sparse_grass", (0, 0, 251, 251), False),
-            ("barrens_grass_clumps", (0, 0, 251, 251), False),
-            ("barrens_mixed_grass_sage", (0, 0, 251, 251), False),
-            ("barrens_overgrown_brush", (0, 0, 250, 250), False),
-            ("barrens_grass_with_flowers", (0, 0, 251, 251), False),
-            ("barrens_windswept_grass", (0, 0, 251, 251), False),
+            ("barrens_grass_with_rocks", (0, 0, 251, 251), False),
         ],
         "grass_tuft": ("barrens_grass_dry_sparse", (0, 0, 251, 251), False),
         # REAL BUG FOUND + FIXED: "stone" pointed at "undead_ground" ->
