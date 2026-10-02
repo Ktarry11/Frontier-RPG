@@ -212,29 +212,24 @@ class OrgrimmarMassive:
         # isn't just Valley of Strength's overflow), plus Miwana's
         # Longhouse as the district's inn - reusing crossroads_inn.png
         # since there's no dedicated Orgrimmar inn sprite.
+        # Density pass (Kyle: "the rest of the districts are cramped" -
+        # confirmed via direct collision-grid measurement: every district
+        # sat at 52-71% solid collision, avg ~61%, vs Camp Taurajo's 27.5%
+        # (the layout Kyle explicitly called the gold standard). Root
+        # cause was building footprint alone eating 55-78% of each
+        # district's real interior, before walls. Every building below is
+        # scaled down (~0.7-0.8x per dimension, recentered on its old
+        # footprint so NPC placements and the general layout shape don't
+        # drift) to bring each district down near Camp Taurajo's density -
+        # verified overlap/wall-margin/NPC-burial clean via a direct
+        # rect-overlap check before landing, same discipline as the
+        # citywide overlap-resolve pass that came before this one.
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/warchiefs_hall.png", 26, 33, 18, 15),      # Grommash Hold - Thrall's seat
-            ("assets/buildings/crossroads_inn.png", 32, 17, 12, 12),      # inn (stand-in for Miwana's Longhouse)
-            ("assets/buildings/trainers_lodge.png", 16, 17, 12, 9),      # near Kardris/Sagorne
-            ("assets/buildings/auction_house.png", 13, 31, 12, 9),       # Valley of Wisdom's own AH
-            ("assets/buildings/shamans_hut.png", 13, 41, 12, 9),
-            # Real building-overlap pass this session (Kyle: "ensure the
-            # buildings are not so big they clip into each other" -
-            # confirmed 52 real overlapping pairs citywide via a direct
-            # footprint check, Grommash Hold alone had Trainers Lodge
-            # drawn 2/3 on top of it). Coordinates below are resolved,
-            # non-overlapping placements, verified via the same check -
-            # not hand-eyeballed. Wisdom was the single most overcrowded
-            # district (11 buildings in a 36x36 real interior once the
-            # 2-tile wall margin is accounted for), so per Kyle's call
-            # ("reduce buildings slightly... or move some to the
-            # outskirts") plain_orc_house_a is dropped entirely here
-            # (a duplicate filler - plain_orc_house_b already covers the
-            # same "generic house" role in this district) and the rest
-            # genuinely didn't fit inside the walls at all, relocated to
-            # a real open street pocket just outside Wisdom's own gate
-            # (near its breach-to-plaza connection) rather than forced
-            # into an even-worse overlap.
+            ("assets/buildings/warchiefs_hall.png", 28, 34, 14, 12),      # Grommash Hold - Thrall's seat
+            ("assets/buildings/crossroads_inn.png", 34, 19, 9, 9),        # inn (stand-in for Miwana's Longhouse)
+            ("assets/buildings/trainers_lodge.png", 18, 19, 9, 7),       # near Kardris/Sagorne
+            ("assets/buildings/auction_house.png", 14, 32, 9, 7),        # Valley of Wisdom's own AH
+            ("assets/buildings/shamans_hut.png", 14, 42, 9, 7),
         ]:
             zone.add_landmark(sprite_key, anchor_x, anchor_y, w, h)
 
@@ -265,18 +260,18 @@ class OrgrimmarMassive:
                 zone.collision_layer[y][x] = None
 
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/outpost_barracks.png", 176, 42, 15, 9),
-            ("assets/buildings/watchtower.png", 157, 17, 9, 12),
-            ("assets/buildings/crossroads_stable.png", 157, 38, 12, 9),
-            ("assets/buildings/taurajo_granary.png", 182, 19, 9, 12),
-            ("assets/buildings/plain_orc_house_b.png", 167, 26, 9, 9),
-            ("assets/buildings/generic_house_a.png", 177, 32, 9, 9),
-            ("assets/buildings/generic_house_b.png", 158, 29, 9, 9),
+            ("assets/buildings/outpost_barracks.png", 178, 43, 11, 7),
+            ("assets/buildings/watchtower.png", 159, 19, 7, 9),
+            ("assets/buildings/crossroads_stable.png", 159, 39, 9, 7),
+            ("assets/buildings/taurajo_granary.png", 183, 20, 7, 9),
+            ("assets/buildings/plain_orc_house_b.png", 168, 27, 7, 7),
+            ("assets/buildings/generic_house_a.png", 178, 33, 7, 7),
+            ("assets/buildings/generic_house_b.png", 159, 30, 7, 7),
             # plain_orc_house_c was previously at (152,28) - OUTSIDE this
             # district's own west wall (x=155 is the wall start), a
             # separate real pre-existing bug the overlap-resolve pass
             # caught incidentally.
-            ("assets/buildings/plain_orc_house_c.png", 167, 17, 9, 6),
+            ("assets/buildings/plain_orc_house_c.png", 168, 19, 7, 5),
         ]:
             zone.add_landmark(sprite_key, anchor_x, anchor_y, w, h)
 
@@ -298,14 +293,14 @@ class OrgrimmarMassive:
                 zone.collision_layer[y][x] = None
 
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/watchtower.png", 82, 12, 9, 12),
-            ("assets/buildings/supply_cache_shed.png", 82, 30, 12, 9),
-            ("assets/buildings/crossroads_town_hall.png", 106, 21, 12, 9),
-            ("assets/buildings/mixed_trading_post.png", 95, 31, 12, 9),
-            ("assets/buildings/plain_orc_house_b.png", 92, 12, 9, 9),
-            ("assets/buildings/generic_hut_a.png", 108, 31, 9, 9),
-            ("assets/buildings/generic_hut_b.png", 101, 12, 9, 9),
-            ("assets/buildings/well_house.png", 95, 24, 6, 6),
+            ("assets/buildings/watchtower.png", 84, 14, 7, 9),
+            ("assets/buildings/supply_cache_shed.png", 84, 31, 9, 7),
+            ("assets/buildings/crossroads_town_hall.png", 107, 22, 9, 7),
+            ("assets/buildings/mixed_trading_post.png", 96, 32, 9, 7),
+            ("assets/buildings/plain_orc_house_b.png", 93, 14, 7, 7),
+            ("assets/buildings/generic_hut_a.png", 109, 32, 7, 7),
+            ("assets/buildings/generic_hut_b.png", 102, 14, 7, 7),
+            ("assets/buildings/well_house.png", 96, 24, 5, 5),
             # generic_shack_b and trial_hut dropped entirely - Magic
             # Quarter's real interior (36x31 once the wall margin is
             # accounted for) genuinely couldn't fit all 10 original
@@ -333,15 +328,15 @@ class OrgrimmarMassive:
                 zone.collision_layer[y][x] = None
 
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/grand_forge.png", 26, 77, 15, 15),          # smith flavor, matches Krunk Anvilfist
-            ("assets/buildings/taurajo_lodge.png", 21, 101, 15, 12),
-            ("assets/buildings/valley_bank.png", 12, 77, 12, 12),          # Bank of Orgrimmar
-            ("assets/buildings/auction_house.png", 12, 90, 12, 9),        # main Auction House
-            ("assets/buildings/watchtower.png", 37, 93, 9, 12),
-            ("assets/buildings/plain_orc_house_a.png", 26, 92, 9, 9),    # filler housing
-            ("assets/buildings/generic_house_a.png", 12, 99, 9, 9),
-            ("assets/buildings/plain_orc_house_b.png", 37, 106, 9, 6),
-            ("assets/buildings/well_house.png", 42, 77, 6, 6),
+            ("assets/buildings/grand_forge.png", 28, 80, 10, 10),          # smith flavor, matches Krunk Anvilfist
+            ("assets/buildings/taurajo_lodge.png", 24, 103, 10, 8),
+            ("assets/buildings/valley_bank.png", 14, 79, 8, 8),          # Bank of Orgrimmar
+            ("assets/buildings/auction_house.png", 14, 92, 8, 6),        # main Auction House
+            ("assets/buildings/watchtower.png", 38, 95, 6, 8),
+            ("assets/buildings/plain_orc_house_a.png", 28, 94, 6, 6),    # filler housing
+            ("assets/buildings/generic_house_a.png", 14, 100, 6, 6),
+            ("assets/buildings/plain_orc_house_b.png", 38, 106, 6, 5),
+            ("assets/buildings/well_house.png", 41, 79, 5, 5),
         ]:
             zone.add_landmark(sprite_key, anchor_x, anchor_y, w, h)
 
@@ -365,13 +360,13 @@ class OrgrimmarMassive:
                 zone.collision_layer[y][x] = None
 
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/clan_hall.png", 178, 77, 15, 12),
-            ("assets/buildings/trading_post.png", 178, 93, 15, 9),
-            ("assets/buildings/watchtower.png", 157, 77, 9, 12),
-            ("assets/buildings/shamans_hut.png", 174, 103, 12, 9),
-            ("assets/buildings/plain_orc_house_b.png", 167, 86, 9, 9),
-            ("assets/buildings/generic_hut_b.png", 164, 99, 9, 9),
-            ("assets/buildings/generic_shack_a.png", 158, 89, 9, 9),
+            ("assets/buildings/clan_hall.png", 180, 79, 11, 9),
+            ("assets/buildings/trading_post.png", 180, 94, 11, 7),
+            ("assets/buildings/watchtower.png", 159, 79, 7, 9),
+            ("assets/buildings/shamans_hut.png", 176, 104, 9, 7),
+            ("assets/buildings/plain_orc_house_b.png", 168, 87, 7, 7),
+            ("assets/buildings/generic_hut_b.png", 165, 100, 7, 7),
+            ("assets/buildings/generic_shack_a.png", 159, 90, 7, 7),
         ]:
             zone.add_landmark(sprite_key, anchor_x, anchor_y, w, h)
 
@@ -399,14 +394,14 @@ class OrgrimmarMassive:
                 zone.collision_layer[y][x] = None
 
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/clan_hall.png", 31, 147, 15, 12),
-            ("assets/buildings/watchtower.png", 12, 147, 9, 12),
-            ("assets/buildings/hide_tanners_hut.png", 12, 171, 12, 9),
-            ("assets/buildings/plain_orc_house_b.png", 12, 160, 9, 9),
-            ("assets/buildings/generic_shack_a.png", 23, 161, 9, 9),
-            ("assets/buildings/generic_shack_b.png", 33, 160, 9, 9),
-            ("assets/buildings/trial_hut.png", 33, 170, 9, 9),
-            ("assets/buildings/guard_post.png", 24, 171, 9, 9),
+            ("assets/buildings/clan_hall.png", 33, 149, 11, 9),
+            ("assets/buildings/watchtower.png", 14, 149, 7, 9),
+            ("assets/buildings/hide_tanners_hut.png", 14, 172, 9, 7),
+            ("assets/buildings/plain_orc_house_b.png", 14, 161, 7, 7),
+            ("assets/buildings/generic_shack_a.png", 24, 162, 7, 7),
+            ("assets/buildings/generic_shack_b.png", 34, 161, 7, 7),
+            ("assets/buildings/trial_hut.png", 34, 171, 7, 7),
+            ("assets/buildings/guard_post.png", 25, 172, 7, 7),
         ]:
             zone.add_landmark(sprite_key, anchor_x, anchor_y, w, h)
 
@@ -428,16 +423,16 @@ class OrgrimmarMassive:
                 zone.collision_layer[y][x] = None
 
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/outpost_barracks.png", 103, 148, 15, 9),
-            ("assets/buildings/watchtower.png", 82, 147, 9, 12),
-            ("assets/buildings/taurajo_stables.png", 104, 164, 12, 9),
-            ("assets/buildings/mixed_trading_post.png", 82, 160, 12, 9),
-            ("assets/buildings/supply_cache_shed.png", 82, 170, 12, 9),
-            ("assets/buildings/plain_orc_house_b.png", 95, 174, 9, 9),
-            ("assets/buildings/generic_house_a.png", 105, 174, 9, 9),
-            ("assets/buildings/generic_hut_a.png", 94, 156, 9, 9),
-            ("assets/buildings/plain_orc_house_a.png", 92, 149, 9, 6),
-            ("assets/buildings/plain_orc_house_c.png", 94, 166, 9, 6),
+            ("assets/buildings/outpost_barracks.png", 106, 150, 10, 6),
+            ("assets/buildings/watchtower.png", 84, 149, 6, 8),
+            ("assets/buildings/taurajo_stables.png", 106, 166, 8, 6),
+            ("assets/buildings/mixed_trading_post.png", 84, 162, 8, 6),
+            ("assets/buildings/supply_cache_shed.png", 84, 172, 8, 6),
+            ("assets/buildings/plain_orc_house_b.png", 96, 175, 6, 6),
+            ("assets/buildings/generic_house_a.png", 106, 175, 6, 6),
+            ("assets/buildings/generic_hut_a.png", 96, 158, 6, 6),
+            ("assets/buildings/plain_orc_house_a.png", 94, 150, 6, 5),
+            ("assets/buildings/plain_orc_house_c.png", 96, 166, 6, 5),
         ]:
             zone.add_landmark(sprite_key, anchor_x, anchor_y, w, h)
 
@@ -452,13 +447,13 @@ class OrgrimmarMassive:
                 zone.collision_layer[y][x] = None
 
         for sprite_key, anchor_x, anchor_y, w, h in [
-            ("assets/buildings/taurajo_lodge.png", 172, 149, 15, 12),
-            ("assets/buildings/watchtower.png", 157, 147, 9, 12),
-            ("assets/buildings/taurajo_stables.png", 164, 171, 12, 9),
-            ("assets/buildings/crossroads_stable.png", 181, 170, 12, 9),
-            ("assets/buildings/watchers_perch.png", 157, 159, 9, 12),
-            ("assets/buildings/plain_orc_house_b.png", 171, 161, 9, 9),
-            ("assets/buildings/elders_tent.png", 180, 161, 9, 9),
+            ("assets/buildings/taurajo_lodge.png", 174, 150, 11, 9),
+            ("assets/buildings/watchtower.png", 159, 149, 7, 9),
+            ("assets/buildings/taurajo_stables.png", 166, 172, 9, 7),
+            ("assets/buildings/crossroads_stable.png", 182, 171, 9, 7),
+            ("assets/buildings/watchers_perch.png", 159, 160, 7, 9),
+            ("assets/buildings/plain_orc_house_b.png", 172, 162, 7, 7),
+            ("assets/buildings/elders_tent.png", 181, 162, 7, 7),
         ]:
             zone.add_landmark(sprite_key, anchor_x, anchor_y, w, h)
 
