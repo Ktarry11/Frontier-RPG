@@ -119,7 +119,7 @@
     {
       "talent_id": "hunter_marksmanship_improved_arcane_shot",
       "name": "Improved Arcane Shot",
-      "description": "Reduces the cooldown of Multi-Shot by 1 turn per rank.",
+      "description": "Reduces the cooldown of Arcane Shot by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -127,8 +127,9 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_hunter_multi_shot_cooldown": 1
+        "ability_hunter_arcane_shot_cooldown": 1
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): this talent was named 'Improved Arcane Shot' but reduced Multi-Shot's cooldown instead - no Arcane Shot ability existed anywhere in data/abilities/hunter.json for it to improve. No _source citation on the original, same templated-filler pattern as Mage's Blast Wave/Improved Blizzard. Arcane Shot added as a real baseline ability; this talent now correctly targets it.",
       "connected_to": [
         "hunter_marksmanship_improved_hunters_mark",
         "hunter_marksmanship_efficiency"

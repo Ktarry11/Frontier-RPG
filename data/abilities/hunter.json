@@ -88,6 +88,45 @@
       "icon_id": null
     },
     {
+      "ability_id": "hunter_arcane_shot",
+      "name": "Arcane Shot",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "An instant shot that deals Arcane damage to the target.",
+      "_source": "Real Classic WoW Hunter spell: an instant-cast, low-cooldown Arcane-damage shot, one of the earliest-learned Hunter abilities. Built during the DPS niche audit (Oct 2026): Marksmanship's 'Improved Arcane Shot' talent was reducing Multi-Shot's cooldown instead, with no Arcane Shot ability existing anywhere in this file to improve - the same 'talent named after a spell it doesn't actually touch' bug as Mage's Blast Wave/Improved Blizzard. Added as a baseline (not talent-gated) ability, available to all 3 Hunter specs the same way Steady Shot is, since 'Improved Arcane Shot' assuming a pre-existing baseline (unlike Blizzard, which had none) is accurate to the real talent's design.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 25,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 35,
+          "effect_value": 68
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 45,
+          "effect_value": 88
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 55,
+          "effect_value": 108
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "arcane"
+    },
+    {
       "ability_id": "hunter_multi_shot",
       "name": "Multi-Shot",
       "resource_type": "mana",
