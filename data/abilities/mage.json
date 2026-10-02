@@ -196,6 +196,52 @@
       "damage_school": "arcane"
     },
     {
+      "ability_id": "mage_blast_wave",
+      "name": "Blast Wave",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A wave of flame radiates outward from the caster, dealing heavy Fire damage to all nearby enemies.",
+      "_source": "Real Classic WoW Fire talent: 'A wave of flame radiates outward from the caster, dealing X to Y Fire damage to all enemies within 10 yards.' Built during the DPS niche audit (Oct 2026) to replace the dead version of the Blast Wave talent, which was literally named after this real spell but only trimmed Arcane Explosion's cooldown instead of being its own ability - the exact 'templated filler, no _source citation' pattern flagged by the audit. Gives Fire Mage its own instant AoE nuke, mechanically distinct from Arcane Explosion (shared baseline) and from the new Blizzard DoT (Frost) below.",
+      "requires_talent": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 62,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": null,
+      "target_type": "enemy_aoe",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "mage_blizzard",
+      "name": "Blizzard",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Ice shards pelt the target area, dealing Frost damage over time to all enemies within it.",
+      "_source": "Real Classic WoW Frost spell (trained, with 'Improved Blizzard' as a real talent upgrade). Built during the DPS niche audit (Oct 2026) to replace the dead 'Improved Blizzard' talent, which assumed a baseline Blizzard ability that never existed in this game and only buffed Arcane Explosion instead - the same 'templated filler, no _source citation' pattern as Blast Wave above. Renamed the talent to grant Blizzard itself directly (same requires_talent/unlock_ability shape as Priest's Mind Sear), rather than half-building an 'Improved' upgrade on top of a baseline that still wouldn't exist. Real WoW channels this over 8 sec with no separate cast - simplified to a spell_dot here, same simplification Mind Sear already uses for this engine's lack of a channel mechanic. Gives Frost Mage a sustained AoE DoT identity, distinct from Fire's instant Blast Wave nuke and from the shared baseline Arcane Explosion.",
+      "requires_talent": true,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 70,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": null,
+      "target_type": "enemy_aoe",
+      "damage_school": "frost"
+    },
+    {
       "ability_id": "mage_living_flame",
       "name": "Living Flame",
       "resource_type": "mana",

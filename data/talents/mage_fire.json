@@ -191,16 +191,17 @@
     {
       "talent_id": "mage_fire_blast_wave",
       "name": "Blast Wave",
-      "description": "Reduces the cooldown of Arcane Explosion by 1 turn.",
-      "node_type": "passive",
+      "description": "Learn Blast Wave, a wave of flame that deals heavy Fire damage to all nearby enemies.",
+      "node_type": "active",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "ability_mage_arcane_explosion_cooldown": 1
+        "unlock_ability": "mage_blast_wave"
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): this talent was literally named after the real Classic WoW Fire spell Blast Wave but only trimmed Arcane Explosion's cooldown instead of being its own ability - no _source citation on the original, a templated-filler artifact from the bulk 621-talent pass (see HANDOFF_MASTER.md). Now actually grants the real Blast Wave as a new ability (data/abilities/mage.json), giving Fire its own instant AoE nuke distinct from Arcane Explosion (shared with Arcane/Frost) and Frost's new Blizzard DoT.",
       "connected_to": [
         "mage_fire_improved_scorch",
         "mage_fire_molten_fury"

@@ -95,7 +95,7 @@
       },
       "connected_to": [
         "mage_frost_frostbite",
-        "mage_frost_improved_blizzard"
+        "mage_frost_blizzard"
       ]
     },
     {
@@ -153,18 +153,19 @@
       ]
     },
     {
-      "talent_id": "mage_frost_improved_blizzard",
-      "name": "Improved Blizzard",
-      "description": "Increases Arcane Explosion damage by 8% per rank.",
-      "node_type": "passive",
+      "talent_id": "mage_frost_blizzard",
+      "name": "Blizzard",
+      "description": "Learn Blizzard, calling down ice shards that deal Frost damage over time to all enemies in the target area.",
+      "node_type": "active",
       "tier": 2,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_mage_arcane_explosion_damage": 0.08
+        "unlock_ability": "mage_blizzard"
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): this talent was named 'Improved Blizzard' (the real Classic WoW Frost talent that upgrades an existing baseline Blizzard spell) but no baseline Blizzard ability ever existed in this game's data, and the talent only buffed Arcane Explosion instead - another templated-filler artifact with no _source citation, same pattern as Fire's Blast Wave. Renamed to just 'Blizzard' and changed to grant the real spell directly (data/abilities/mage.json), same requires_talent/unlock_ability shape Priest's Mind Sear already uses, rather than half-building an 'Improved' upgrade on a baseline that still wouldn't exist. Gives Frost its own sustained AoE DoT, distinct from Fire's instant Blast Wave nuke and the shared baseline Arcane Explosion. max_points reduced from 3 to 1 (rank-up-a-flat-%-buff no longer applies; this is now a learn-the-spell unlock talent, same single-rank shape as every other unlock_ability talent in the game).",
       "connected_to": [
         "mage_frost_frost_warding",
         "mage_frost_frozen_core"
@@ -292,7 +293,7 @@
         "frost_resistance": 12
       },
       "connected_to": [
-        "mage_frost_improved_blizzard"
+        "mage_frost_blizzard"
       ]
     },
     {
