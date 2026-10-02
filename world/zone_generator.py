@@ -3856,6 +3856,155 @@ class ZoneGenerator:
         return cave
 
     @staticmethod
+    def generate_dustwind_cave():
+        """Generate Dustwind Cave (80x65) - Durotar's scorpid burrow,
+        entrance at (40,61) per world/portal_manager.py's hardcoded link
+        back to Durotar (40,130); own portal at (40,61) for the return
+        trip (checked directly, same coordinate both directions).
+
+        FULL DEDICATED REBUILD (Kyle's "Still ahead" list, item 2: real
+        insect-cave floor/wall tiles instead of the shared generic
+        generate_cave() table it was using before - theme="rock",
+        layout="chain", feature="bones", which renders with zero chunked
+        art at all, just a flat per-tile "rock"/biome-fallback texture).
+        Real roster per data/creatures/encounters.json: Cave Scorpid,
+        Sand Skitterling, boss Gorge the Corpsegrinder - a scorpion/
+        skitterling burrow, not a classic rock cavern or a spider den.
+
+        No dedicated sandy-burrow art exists yet (checked assets/tiles/
+        directly). Reuses assets/tiles/broodspiral/ (built for the
+        Broodspiral dungeon, unused anywhere else) - Kyle's call after
+        flagging the thematic mismatch: hive_floor.png (cracked tan/
+        brown ground with shell-fragment debris baked in) reads fine as
+        sandy burrow floor on its own merits even outside its original
+        spider-hive context, and chitin_wall.png (carapace plating) is
+        exactly as plausible for a scorpid-shell burrow wall as a spider
+        one. resin_floor.png/resin_wall.png were tried and rejected -
+        too amber/web-pooled, doesn't read as sand. carapace_pile.png
+        and egg_sac_cluster.png (broodspiral props) double as scorpid
+        shell debris / skitterling nest dressing; skull_rock's
+        bone_pile.png adds prey-remains scatter, same as other caves.
+        """
+        width, height = 80, 65
+        cave = Tilemap("Dustwind Cave", width, height, "A sandy scorpid burrow beneath Durotar.")
+        cave.region = "Durotar"
+
+        cave.fill("stone", "base")
+        for y in range(height):
+            for x in range(width):
+                cave.set_tile(x, y, "rock", "collision")
+
+        def carve(cx, cy, rw, rh):
+            for dy in range(-rh, rh + 1):
+                for dx in range(-rw, rw + 1):
+                    x, y = cx + dx, cy + dy
+                    if 1 <= x < width - 1 and 1 <= y < height - 1:
+                        if ((dx / max(rw, 1)) ** 2 + (dy / max(rh, 1)) ** 2) ** 0.5 <= 1.0:
+                            cave.collision_layer[y][x] = None
+                            cave.set_tile(x, y, "dirt", "base")
+
+        # Hub-and-spoke scorpid-nest layout: entrance south, a wide
+        # central nest chamber, 2 side burrow pockets (skitterling nests),
+        # boss chamber (Gorge the Corpsegrinder) north - same proven
+        # geometry family as Skull Rock/Burning Blade Coven, scaled to
+        # this cave's 80x65 footprint.
+        entrance = (40, 58)
+        carve(*entrance, 8, 5)
+
+        nest_hub = (40, 38)
+        carve(*nest_hub, 14, 10)
+
+        w_pocket = (14, 30)
+        carve(*w_pocket, 8, 7)
+
+        e_pocket = (64, 30)
+        carve(*e_pocket, 8, 7)
+
+        boss = (40, 12)
+        carve(*boss, 10, 7)
+
+        ZoneGenerator._carve_path(cave, *entrance, *nest_hub, width=2)
+        ZoneGenerator._carve_path(cave, *nest_hub, *w_pocket, width=2)
+        ZoneGenerator._carve_path(cave, *nest_hub, *e_pocket, width=2)
+        ZoneGenerator._carve_path(cave, *nest_hub, *boss, width=2)
+
+        # Carapace-pile dressing in the central nest and both side
+        # pockets - real scorpid shell debris, not just flavor scatter.
+        cave.add_landmark("assets/tiles/broodspiral/props/carapace_pile.png",
+                           nest_hub[0] - 10, nest_hub[1] + 4, 5, 4)
+        cave.add_landmark("assets/tiles/broodspiral/props/carapace_pile.png",
+                           nest_hub[0] + 6, nest_hub[1] - 6, 5, 4)
+
+        # Skitterling nests - egg-sac clusters in each side pocket,
+        # offset from room center (same "don't re-solidify the room
+        # you're decorating" discipline as The Den's egg clusters - a
+        # solid landmark centered exactly on a small carved room can eat
+        # most of its own walkable interior).
+        cave.add_landmark("assets/tiles/broodspiral/props/egg_sac_cluster.png",
+                           w_pocket[0] + 1, w_pocket[1] - 4, 6, 5)
+        cave.add_landmark("assets/tiles/broodspiral/props/egg_sac_cluster.png",
+                           e_pocket[0] - 7, e_pocket[1] - 4, 6, 5)
+
+        # Prey-remains bone scatter (skull_rock's prop, reused - matches
+        # this cave's "bones" feature theme from the old generic table).
+        cave.add_landmark("assets/tiles/skull_rock/props/bone_pile.png",
+                           boss[0] - 7, boss[1] + 3, 4, 3)
+        cave.add_landmark("assets/tiles/skull_rock/props/bone_pile.png",
+                           entrance[0] + 4, entrance[1] - 3, 4, 3)
+
+        ZoneGenerator._scatter(cave, "small_rocks", 0.03)
+
+        # exit_pos MUST be exactly (40,61) - world/portal_manager.py
+        # hardcodes this coordinate both directions (Durotar (40,130) ->
+        # Dustwind Cave (40,61), and Dustwind Cave (40,61) -> Durotar
+        # (40,130)). entrance is (40,58); the real portal tile sits a
+        # few rows south of the carved entrance room, same offset
+        # pattern as The Den.
+        exit_pos = (40, 61)
+        ZoneGenerator._carve_landing(cave, *exit_pos, radius=2)
+        ZoneGenerator._carve_path(cave, *exit_pos, *entrance, width=2)
+        cave.set_tile(exit_pos[0], exit_pos[1], "portal", "interaction")
+
+        cave.set_tile(boss[0], boss[1] - 2, "chest", "interaction")
+        cave.set_tile(boss[0], boss[1], "boss_marker", "interaction")
+        cave.boss_position = boss
+
+        cave.is_cave = True
+        cave.fixed_spawns = False
+        cave.add_subzone("Dustwind Cave", 0, 0, width, height)
+
+        # ------------------------------------------------------------------
+        # CHUNKED FLOOR + WALL ART
+        # ------------------------------------------------------------------
+        floor_variants = [
+            "assets/tiles/broodspiral/hive_floor.png",
+        ]
+        chunk_size = 20
+        variant_i = 0
+        for cy in range(0, cave.height, chunk_size):
+            for cx in range(0, cave.width, chunk_size):
+                cw = min(chunk_size, cave.width - cx)
+                ch = min(chunk_size, cave.height - cy)
+                sprite = floor_variants[variant_i % len(floor_variants)]
+                cave.add_ground_chunk(sprite, cx, cy, cw, ch)
+                variant_i += 1
+
+        wall_variants = [
+            "assets/tiles/broodspiral/chitin_wall.png",
+        ]
+        wall_variant_i = 0
+        obstacle_chunk_size = 4
+        for cy in range(0, cave.height, obstacle_chunk_size):
+            for cx in range(0, cave.width, obstacle_chunk_size):
+                cw = min(obstacle_chunk_size, cave.width - cx)
+                ch = min(obstacle_chunk_size, cave.height - cy)
+                sprite = wall_variants[wall_variant_i % len(wall_variants)]
+                cave.add_obstacle_chunk(sprite, cx, cy, cw, ch)
+                wall_variant_i += 1
+
+        return cave
+
+    @staticmethod
     @staticmethod
     def generate_burning_blade_coven():
         """Generate Burning Blade Coven (100x85) - VoT's Horde raider
@@ -5363,7 +5512,10 @@ def create_all_zones():
         # below near zones["The Den"]) - real fortress rooms against a
         # Kul Tiras reference, not the shared generic "cavern/ruins"
         # open-arena table anymore.
-        ("Dustwind Cave", "Durotar", (80, 65), "rock", "chain", "bones"),
+        # Dustwind Cave now has its own dedicated generator (see note
+        # below near zones["The Den"]) - real scorpid-burrow hub-and-
+        # spoke layout with chunked sandy floor/chitin wall art, not the
+        # shared generic "rock/chain/bones" table anymore.
         # Sunken Temple Grotto now has its own dedicated generator (see
         # note below near zones["The Den"]) - real winding water-channel
         # layout against Kyle's reference map, not the shared generic
@@ -5409,6 +5561,7 @@ def create_all_zones():
     zones["Boulder Lode Mine"] = ZoneGenerator.generate_boulder_lode_mine()
     zones["Serena's Hollow"] = ZoneGenerator.generate_serenas_hollow()
     zones["The Den"] = ZoneGenerator.generate_the_den()
+    zones["Dustwind Cave"] = ZoneGenerator.generate_dustwind_cave()
     zones["Thunder Ridge"] = ZoneGenerator.generate_thunder_ridge()
     zones["Burning Blade Coven"] = ZoneGenerator.generate_burning_blade_coven()
     zones["Tiragarde Keep"] = ZoneGenerator.generate_tiragarde_keep()
