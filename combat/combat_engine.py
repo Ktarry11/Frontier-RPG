@@ -246,7 +246,36 @@ class CombatEngine:
         if success:
             self.combat_log.append(message)
             self._generate_threat_from_ability(actor, ability)
-            
+
+            # death_threat_retention_pct (Venomancer's Unyielding Will:
+            # "reduces threat lost on death by 5%/rank") - a real talent
+            # that previously had nothing to apply to, since this engine
+            # had no resurrection mechanic at all. Ability._apply_effect's
+            # new "revive" branch sets a one-shot _reviving_this_cast flag
+            # on the target right after bringing them back to life (it has
+            # no engine reference to touch threat_tables itself); this is
+            # the one place that flag is read and cleared, since
+            # threat_tables genuinely lives on the engine. The TARGET's own
+            # talent applies (their own resilience against losing their
+            # aggro), not the reviver's - a retention of 0 (no talent
+            # spent) drops the revived character's threat entries
+            # entirely, matching how a real death already behaves today
+            # (highest_threat_target filters a dead ally out via
+            # is_alive(), so their old threat was already functionally
+            # zero the instant they died; this just makes that explicit in
+            # the table itself rather than leaving a stale, since-dead
+            # entry sitting there to be revived into).
+            if getattr(target, "_reviving_this_cast", False):
+                target._reviving_this_cast = False
+                retention = target.get_talent_effect("death_threat_retention_pct", 0.0) if hasattr(target, "get_talent_effect") else 0.0
+                for table in self.threat_tables.values():
+                    if target not in table:
+                        continue
+                    if retention > 0:
+                        table[target] = max(0, int(table[target] * retention))
+                    else:
+                        table.pop(target, None)
+
             # Warrior Rage generation on basic attack
             if getattr(actor, "char_class", None) == "Warrior" and ability_id == "warrior_attack":
                 actor.current_rage = min(100, actor.current_rage + 10)

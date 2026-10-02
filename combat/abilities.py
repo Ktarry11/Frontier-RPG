@@ -2124,6 +2124,48 @@ class Ability:
                 return f"{target.name} has no {dispel_label} effect to remove!"
             return f"{caster.name} dispels {', '.join(removed_names)} from {target.name}!"
 
+        elif self.effect_type == "revive":
+            # Battle-resurrection-style ability: brings a DEAD ally back to
+            # a percentage of their max HP. New effect_type - no engine
+            # mechanism for reviving anyone existed before this (is_alive()
+            # is purely current_health > 0, so "coming back" just means
+            # setting current_health positive again; nothing else in the
+            # engine caches a dead-list - turn_meter/combat_engine's
+            # targeting/turn-order all re-check is_alive() live every time,
+            # so a revived character is immediately eligible for turns and
+            # targeting with no other state to untangle). Built specifically
+            # so Venomancer's Unyielding Will ("reduces threat lost on
+            # death by 5%/rank") has something real to apply to - see the
+            # death_threat_retention_pct read below.
+            #
+            # target must be a SPECIFIC dead ally, not auto-picked - the
+            # normal heal-target helpers (_lowest_hp_ally, etc) all filter
+            # to LIVING allies by design and would never select a corpse,
+            # so this intentionally bypasses them and requires the caller
+            # (UI/AI) to have chosen a specific dead party member.
+            if not target or not hasattr(target, "is_alive"):
+                self._refund_failed_cast(caster, cost=cost)
+                return f"{self.name} requires a fallen ally to target!"
+            if target.is_alive():
+                self._refund_failed_cast(caster, cost=cost)
+                return f"{target.name} is not dead!"
+
+            revive_pct = max(0.0, min(1.0, self.effect_value / 100.0))
+            revive_hp = max(1, int(target.health * revive_pct))
+
+            # death_threat_retention_pct (Venomancer's Unyielding Will) is
+            # applied by CombatEngine right after this use() call returns,
+            # not here - threat_tables live on the engine, not on Ability/
+            # Character, and _apply_effect has no engine reference to read
+            # them through (unlike fire_proc_trigger's proc payloads, which
+            # DO thread one in from a different call site). See
+            # CombatEngine's post-use revive handling for the actual
+            # threat-table mutation; this branch only resolves the HP
+            # change, which is all it has the context to do correctly.
+            target.current_health = revive_hp
+            target._reviving_this_cast = True  # one-shot flag CombatEngine reads and clears right after use()
+            return f"{caster.name} revives {target.name}, restoring {revive_hp} health!"
+
         elif self.effect_type == "reset_cooldowns":
             # Cold Snap: instantly resets cooldowns. Real WOTLK only resets
             # Frost-school abilities specifically - this engine has no
