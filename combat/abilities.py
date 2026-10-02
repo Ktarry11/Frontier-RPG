@@ -1416,6 +1416,26 @@ class Ability:
         # normalization correctly for hot/buff; reuse it here instead
         # of hand-rolling a second copy of that logic.
         recipients = self._recipients(caster, target)
+
+        # THE ACTUAL BUG THIS FIXES: every party-wide heal applied its
+        # FULL effect_value to every recipient with zero reduction, unlike
+        # AoE damage which has always had a real per-target penalty
+        # (AOE_DAMAGE_MULTIPLIER, 0.6x) - so an AoE heal on a 5-person
+        # party delivered 5x the total HP of a single-target heal for
+        # roughly the same mana, a straight exploit confirmed by directly
+        # comparing cost-per-point-healed across ST vs AoE heals of the
+        # same class (Circle of Healing/Wild Growth/Mending Mist etc were
+        # all at parity with their own class's ST heals, not a real
+        # throughput tradeoff). Reuses the EXACT SAME multiplier AoE
+        # damage already uses, applied only when this cast actually has
+        # more than one recipient - a heal authored as "party" but cast
+        # with a 1-person party (solo play, or only one person needs it)
+        # still heals for full value, matching how enemy_aoe damage
+        # against a single remaining enemy isn't penalized either.
+        is_aoe_heal = len(recipients) > 1
+        if is_aoe_heal:
+            heal_amt = int(heal_amt * self.AOE_DAMAGE_MULTIPLIER)
+
         for r in recipients:
             r.heal(heal_amt)
             self._last_threat_events.append((None, heal_amt, False))
@@ -1898,6 +1918,16 @@ class Ability:
             per_turn = max(1, int(total / duration))
 
             recipients = self._recipients(caster, target)
+            # Same per-target AoE reduction as the "heal" branch above and
+            # as AoE damage has always had (AOE_DAMAGE_MULTIPLIER, 0.6x) -
+            # a party-wide HoT (Wild Growth, Mending Mist, etc) was applying
+            # its FULL per-turn potency to every recipient with zero
+            # reduction, the same exploit just for heal-over-time instead of
+            # direct heals. Only kicks in when this cast actually lands on
+            # more than one recipient, so a "party" HoT cast while solo (or
+            # with only one person needing it) still ticks for full value.
+            if len(recipients) > 1:
+                per_turn = max(1, int(per_turn * self.AOE_DAMAGE_MULTIPLIER))
             for recipient in recipients:
                 effect = StatusEffect(
                     effect_id=self.ability_id, name=self.name,
