@@ -620,10 +620,33 @@ class StatusEffectMixin:
         caller should treat None as "nothing to dispel" and can refund the
         cast the same way Swiftmend's consumes_hot path does for a missing
         HoT - see Ability._apply_effect's heal branch).
+
+        dispel_type may be a single DispelType value OR a tuple/list of
+        them (real Paladin Cleanse: "Poison, Disease, or Magic" in one
+        cast, not three separate spells) - matches the FIRST active effect
+        whose dispel_type is any of the given ones, same single-removal-
+        per-cast rule either way.
+
+        dispel_type=None (DispelType.NONE, "an ability authored with no
+        real dispel type configured") is a GUARANTEED no-match, never a
+        wildcard - THE ACTUAL BUG THIS FIXES: the naive `in (dispel_type,)`
+        version treated an ability's own missing dispel_type as "remove
+        anything tagged None", and almost every ordinary combat debuff
+        defaults to dispel_type=None too (see StatusEffect.__init__) -
+        confirmed via a real cast: Elune's Purification (authored with no
+        dispel_type) against a target carrying both an ordinary Haste
+        debuff AND a real tagged Poison effect incorrectly stripped the
+        ordinary Haste debuff and left the actual Poison untouched. A
+        cleanse/dispel ability with no configured dispel_type now finds
+        nothing, full stop, which is the correct "not wired up yet"
+        failure mode instead of a silent wrong-target removal.
         """
+        if dispel_type is None:
+            return None
+        wanted = dispel_type if isinstance(dispel_type, (tuple, list)) else (dispel_type,)
         effects = self._effects()
         for effect in effects:
-            if effect.dispel_type == dispel_type:
+            if effect.dispel_type is not None and effect.dispel_type in wanted:
                 effects.remove(effect)
                 self._on_status_effects_changed()
                 return effect

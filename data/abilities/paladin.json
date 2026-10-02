@@ -477,7 +477,11 @@
         }
       ],
       "target_type": "ally",
-      "dispel_type": "poison",
+      "dispel_type": [
+        "poison",
+        "disease",
+        "magic"
+      ],
       "is_instant": true,
       "icon_id": null
     },

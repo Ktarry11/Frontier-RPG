@@ -258,7 +258,8 @@ class Ability:
                  exclusive_group=None, heal_in_form=None, applies_dot_pct=None,
                  shapeshift_form_id=None, consumes_seal=False, proc=None,
                  execute_threshold_pct=None, damage_school=None,
-                 requires_ranged_weapon=None, is_stun=False, icon_id=None):
+                 requires_ranged_weapon=None, is_stun=False, icon_id=None,
+                 dispel_count=1):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
             and "effect_value" keys (from combat/rank_generator.py's
@@ -418,6 +419,13 @@ class Ability:
         # Poison or Disease - matching WoW's actual dispel-school system
         # rather than a generic "remove all debuffs" button.
         self.dispel_type = dispel_type
+
+        # How many matching effects one cast removes - almost always 1 (a
+        # real single-target cleanse), but Venomancer's Blight Antidote is
+        # authored as "Cull 2 curse effects from an ally" - a genuine
+        # mechanical distinction (a double-dispel) from every other
+        # single-removal cleanse in the game, not just a bigger number.
+        self.dispel_count = max(1, int(dispel_count))
 
         # True marks this ability's DEBUFF as a real stun/incapacitate -
         # threaded straight to StatusEffect.is_stun when the debuff is
@@ -2020,20 +2028,35 @@ class Ability:
 
         elif self.effect_type == "dispel":
             # Cleanse Spirit / Remove Curse / Purify-style abilities:
-            # removes ONE active debuff or DoT on the target matching this
-            # ability's dispel_type (see StatusEffect.dispel_type and
-            # StatusEffectMixin.dispel_effect). If nothing on the target
-            # matches, the cast fails and refunds - same all-or-nothing
-            # pattern as Swiftmend's consumes_hot branch above, since a
-            # dispel that removes nothing shouldn't cost a turn or mana.
+            # removes up to self.dispel_count active debuffs/DoTs on the
+            # target matching this ability's dispel_type (see
+            # StatusEffect.dispel_type and StatusEffectMixin.dispel_effect -
+            # dispel_type itself may be one DispelType or a tuple of them,
+            # e.g. real Paladin Cleanse's "Poison, Disease, or Magic" in
+            # one cast). If NOTHING was removed, the cast fails and
+            # refunds - same all-or-nothing pattern as Swiftmend's
+            # consumes_hot branch above, since a dispel that removes
+            # nothing shouldn't cost a turn or mana. A multi-count dispel
+            # that removes 1-of-2 still succeeds (partial credit, matching
+            # how a real cast that finds fewer matching effects than its
+            # max still goes off) - only a full zero refunds.
             if not target:
                 return f"{caster.name} casts {self.name}!"
-            removed = target.dispel_effect(self.dispel_type)
-            if removed is None:
+            removed_names = []
+            for _ in range(self.dispel_count):
+                removed = target.dispel_effect(self.dispel_type)
+                if removed is None:
+                    break
+                removed_names.append(removed.name)
+            if not removed_names:
                 self._refund_failed_cast(caster, cost=cost)
-                dispel_label = (self.dispel_type or "effect").capitalize()
+                dispel_label = (self.dispel_type or "effect")
+                if isinstance(dispel_label, (tuple, list)):
+                    dispel_label = "/".join(d.capitalize() for d in dispel_label if d)
+                else:
+                    dispel_label = dispel_label.capitalize()
                 return f"{target.name} has no {dispel_label} effect to remove!"
-            return f"{caster.name} dispels {removed.name} from {target.name}!"
+            return f"{caster.name} dispels {', '.join(removed_names)} from {target.name}!"
 
         elif self.effect_type == "reset_cooldowns":
             # Cold Snap: instantly resets cooldowns. Real WOTLK only resets
@@ -2242,6 +2265,7 @@ def _ability_from_data(entry):
         consumes_hot=entry.get("consumes_hot", False),
         consumable_hot_ids=entry.get("consumable_hot_ids"),
         dispel_type=entry.get("dispel_type"),
+        dispel_count=entry.get("dispel_count", 1),
         requires_form=_normalize_requires_form(entry.get("requires_form")),
         heal_scope=entry.get("heal_scope", "lowest_ally"),
         exclusive_group=entry.get("exclusive_group"),
