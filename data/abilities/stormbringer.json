@@ -772,8 +772,9 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Shoot lightning at an enemy, bouncing to nearby enemies.",
-      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 22 (Rank 2 shown), 'dealing 142 Nature damage, bouncing to up to 4 enemies. Generates 5 Static for each enemy struck.'",
+      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 22 (Rank 2 shown), 'dealing 142 Nature damage, bouncing to up to 4 enemies. Generates 5 Static for each enemy struck.' Fixed during DPS niche audit (Oct 2026): was plain enemy_aoe, hitting every living enemy in the fight rather than the tooltip's real 'up to 4 enemies' cap - added max_targets=4 (see combat/abilities.py's Ability.max_targets/_hostile_recipients). NOTE left unfixed/deferred: 'Generates 5 Static for each enemy struck' is a true per-target scaling that this ability does not currently have - generates (see Ability._generate_resource) fires once per CAST, flat, before targets are even resolved, so this grants a flat 5 Static regardless of how many of the up to 4 enemies were actually hit. Fixing that needs generates to scale with the real resolved-target count at _apply_effect time, a structural change to how `generates` works for every ability using it, not a one-line fix bundled here - flagged in claude/dps_niche_audit.md for a deliberate follow-up pass rather than built silently.",
       "target_type": "enemy_aoe",
+      "max_targets": 4,
       "ranks": [
         {
           "rank": 1,
