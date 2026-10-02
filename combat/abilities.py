@@ -259,7 +259,7 @@ class Ability:
                  shapeshift_form_id=None, consumes_seal=False, proc=None,
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
-                 dispel_count=1):
+                 dispel_count=1, consumes_stacks_of=None, duration_per_stack=0):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
             and "effect_value" keys (from combat/rank_generator.py's
@@ -426,6 +426,21 @@ class Ability:
         # mechanical distinction (a double-dispel) from every other
         # single-removal cleanse in the game, not just a bigger number.
         self.dispel_count = max(1, int(dispel_count))
+
+        # consumes_stacks_of / duration_per_stack: Venomancer's Expulsion
+        # ("Clear your Exposed Flesh stacks to poison nearby enemies for
+        # 5 sec plus 1 sec per cleared stack") - the ONLY ability in the
+        # game whose DoT duration scales off a stacking buff/debuff the
+        # CASTER is carrying, consumed on cast. consumes_stacks_of names
+        # the effect_id to look for and remove from the caster (None, the
+        # default, means this ability doesn't touch any stacks - every
+        # other DoT-type ability is completely unaffected).
+        # duration_per_stack is the EXTRA seconds/turns added per stack
+        # consumed, on top of this ability's own base `duration` - see the
+        # "dot"/"spell_dot" branch of _apply_effect, which reads the
+        # caster's current stack count before building the DoT's duration.
+        self.consumes_stacks_of = consumes_stacks_of
+        self.duration_per_stack = duration_per_stack
 
         # True marks this ability's DEBUFF as a real stun/incapacitate -
         # threaded straight to StatusEffect.is_stun when the debuff is
@@ -1875,7 +1890,28 @@ class Ability:
                          else caster.attack_power * 0.3)
                 total = (self.effect_value + power) * self._damage_multiplier(
                     caster, "spell" if school_for_stats == "magic" else "physical") * aoe_mult
-                duration = max(1, self.duration)
+
+                # consumes_stacks_of (Venomancer's Expulsion: "...for 5 sec
+                # PLUS 1 sec per cleared stack" - the ONLY DoT in the game
+                # whose duration scales off a stacking effect the CASTER is
+                # carrying, consumed on cast). Reads the current stack
+                # count BEFORE removing the effect (there's nothing to read
+                # once it's gone), extends this cast's duration by
+                # duration_per_stack per stack, then clears the stacks -
+                # "clear your Exposed Flesh stacks," not "lose one stack."
+                # Every other dot/spell_dot ability has consumes_stacks_of
+                # None and is completely unaffected by this block.
+                consumed_stacks = 0
+                if self.consumes_stacks_of:
+                    consumed_effect = next(
+                        (e for e in caster._effects() if e.effect_id == self.consumes_stacks_of),
+                        None)
+                    if consumed_effect is not None:
+                        consumed_stacks = getattr(consumed_effect, "stacks", 1)
+                        caster._effects().remove(consumed_effect)
+                        caster._on_status_effects_changed()
+
+                duration = max(1, self.duration + int(consumed_stacks * self.duration_per_stack))
                 per_turn = max(1, int(total / duration))
 
                 hit_names = []
@@ -2296,6 +2332,8 @@ def _ability_from_data(entry):
         consumable_hot_ids=entry.get("consumable_hot_ids"),
         dispel_type=entry.get("dispel_type"),
         dispel_count=entry.get("dispel_count", 1),
+        consumes_stacks_of=entry.get("consumes_stacks_of"),
+        duration_per_stack=entry.get("duration_per_stack", 0),
         requires_form=_normalize_requires_form(entry.get("requires_form")),
         heal_scope=entry.get("heal_scope", "lowest_ally"),
         exclusive_group=entry.get("exclusive_group"),

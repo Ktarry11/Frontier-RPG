@@ -91,13 +91,29 @@
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
-      "effects": {
-        "unlock_mechanic": "exposed_flesh_stacks"
+      "effects": {},
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 50,
+        "icd": 0,
+        "grant_resource": {"resource": "rage", "amount": 10, "scale_talent_key": "exposed_flesh_rage_pct"},
+        "apply_effect": {
+          "effect_id": "exposed_flesh_stack",
+          "name": "Exposed Flesh",
+          "effect_type": "debuff",
+          "duration": 20,
+          "real_time_seconds": 20,
+          "stat_mods": {"physical_damage_taken_pct": 3},
+          "max_stacks": 10,
+          "dispel_type": null,
+          "on_target": false
+        }
       },
       "connected_to": [
         "venomancer_fortitude_regenerative_properties",
         "venomancer_fortitude_molt"
       ],
+      "_source2": "unlock_mechanic was a dead flag never read anywhere (the real 'exposed_flesh_stacks' mechanic it was meant to unlock didn't exist in the engine at all) - rebuilt as a real talent-level proc using the new generic stacking support (StatusEffect.max_stacks/stacks, see combat/status_effects.py). on_target=false applies the stacking debuff to the CARRIER (the Venomancer), not the attacker - this is a self-debuff representing exposed armor plating, unlike Venomous Retort's on_target=true poison which hits the attacker. real_time_seconds=20 (an explicit number, not the turn-based-None convention) matches Kyle's tooltip ('for 20 seconds' - a real-world timer, not turn count) - each new stack refreshes this same 20-second window, matching real WoW stacking-debuff behavior where the timer resets off the MOST RECENT application, not the first.",
       "_source": "CoA tooltip confirmed: 'Hostile attacks against you now have a 50% chance to grant a stack of Exposed Flesh. Exposed Flesh Generates 10 Rage and increases your Physical Damage taken 3% for 20 seconds, stacking 10 times.' This spec's core Rage-generation mechanic - the damage-taken-increase risk/reward clause is kept since it matches real WoW tank Rage generation (taking hits fuels your kit)."
     },
     {

@@ -749,11 +749,14 @@
       "resource_type": "rage",
       "cooldown": 5,
       "effect_type": "spell_dot",
-      "duration": 2,
+      "duration": 5,
       "stat_mods": {},
       "description": "Clear your Exposed Flesh stacks to poison nearby enemies.",
       "_source": "Confirmed screenshot: Lvl 18, 'poison nearby enemies for 5 sec plus 1 sec per cleared stack, dealing 18 Nature damage every 1 sec.'",
+      "_source2": "duration was flatly 2 (not matching the tooltip's base 5 sec at all) and nothing ever actually cleared Exposed Flesh stacks or scaled this ability's duration by them - consumes_stacks_of/duration_per_stack (see combat/abilities.py's dot/spell_dot branch) are the real fix: reads the caster's current exposed_flesh_stack count, adds 1 turn of duration per stack on top of this ability's own base 5, then clears the stacks, matching 'poison nearby enemies for 5 sec PLUS 1 sec per cleared stack' exactly.",
       "target_type": "enemy_aoe",
+      "consumes_stacks_of": "exposed_flesh_stack",
+      "duration_per_stack": 1,
       "ranks": [
         {
           "rank": 1,

@@ -202,10 +202,25 @@ class StatusEffect:
     def __init__(self, effect_id, name, effect_type, duration,
                  potency=0, damage_school="physical", stat_mods=None,
                  source_name="", real_time_seconds=_UNSET, dispel_type=None,
-                 exclusive_group=None, proc=None, is_stun=False):
+                 exclusive_group=None, proc=None, is_stun=False,
+                 max_stacks=1):
         """
         effect_id: stable id used for refresh-vs-stack decisions
                    (e.g. "warrior_rend"). Same id = refresh.
+        max_stacks: real WoW-style stacking debuff/buff support (Venomancer's
+                   Exposed Flesh: "...stacking 10 times"). 1 (the default)
+                   means ordinary refresh-in-place behavior, completely
+                   unchanged from every effect authored before this existed.
+                   >1 means re-applying the SAME effect_id increments
+                   `stacks` (capped at max_stacks) instead of just resetting
+                   duration - see apply_status_effect's stacking branch.
+                   stat_mods on a stacking effect are PER-STACK (like a
+                   talent's per-rank effects): the actual bonus pool
+                   contribution is stat_mods multiplied by current `stacks`,
+                   not the flat dict - see StatusEffectMixin.get_status_
+                   stat_mod, which already needs to read this correctly for
+                   stacking to mean anything mechanically rather than just
+                   changing a number in the UI.
         duration:  number of TURNS the effect lasts. Used as-is for DOT/HOT.
                    For BUFF/DEBUFF, this is what's used when
                    real_time_seconds is explicitly None (i.e. stays
@@ -280,6 +295,11 @@ class StatusEffect:
         self.exclusive_group = exclusive_group
         self.proc = proc or None
         self.is_stun = is_stun
+        self.max_stacks = max(1, int(max_stacks))
+        # Starts at 1 (a freshly-applied effect is already "one stack"),
+        # not 0 - matches how a normal non-stacking effect (max_stacks=1)
+        # is simply "active," never "active with zero copies of itself."
+        self.stacks = 1
         # Internal-cooldown tracker for this specific effect instance, in
         # turns remaining before its proc can fire again. Lives on the
         # effect (not the ability) since the same ability's buff could in
@@ -321,6 +341,17 @@ class StatusEffect:
             "dispel_type": self.dispel_type,
             "exclusive_group": self.exclusive_group,
             "proc": self.proc,
+            "max_stacks": self.max_stacks,
+            "stacks": self.stacks,
+            # is_stun was never serialized here despite from_dict being
+            # ABLE to read it as an "is_stun" key once passed through -
+            # a real pre-existing save/load gap, caught incidentally while
+            # adding max_stacks/stacks support: saving mid-fight while
+            # stunned and reloading would have silently dropped the stun
+            # flag (the effect itself persisted, just not its incapacitate
+            # behavior). Fixed alongside rather than left for later, since
+            # it's the exact same two-line shape as the fields just added.
+            "is_stun": self.is_stun,
         }
 
     @staticmethod
@@ -334,8 +365,11 @@ class StatusEffect:
             data.get("dispel_type"),
             data.get("exclusive_group"),
             data.get("proc"),
+            data.get("is_stun", False),
+            data.get("max_stacks", 1),
         )
         eff.max_duration = data.get("max_duration", eff.duration)
+        eff.stacks = data.get("stacks", 1)
         return eff
 
     def __repr__(self):
@@ -527,6 +561,24 @@ class StatusEffectMixin:
                 existing.potency = effect.potency
                 existing.stat_mods = effect.stat_mods
                 existing.real_time_seconds = effect.real_time_seconds
+                # Stacking (max_stacks > 1): re-applying the SAME effect_id
+                # adds a stack instead of just refreshing duration at the
+                # same strength, matching real WoW stacking debuffs
+                # (Venomancer's Exposed Flesh: "...stacking 10 times" -
+                # each hostile attack that procs it should make the stack
+                # count go UP, not just reset the 20-second timer back to
+                # a single stack's worth). Capped at existing.max_stacks
+                # (itself refreshed from the incoming effect in case a
+                # talent changed it, though no current content does that).
+                # max_stacks=1 (the default, every effect before this
+                # existed) always takes this branch but stacks stays 1,
+                # so behavior is identical to before stacking existed.
+                existing.max_stacks = effect.max_stacks
+                if existing.max_stacks > 1:
+                    existing.stacks = min(existing.max_stacks, existing.stacks + 1)
+                    self._on_status_effects_changed()
+                    return (f"{effect.name} stacks on {self.name} "
+                            f"({existing.stacks}/{existing.max_stacks}){suffix}.")
                 self._on_status_effects_changed()
                 return f"{effect.name} refreshed on {self.name}{suffix}."
 
@@ -675,11 +727,21 @@ class StatusEffectMixin:
         return None
 
     def get_status_stat_mod(self, stat_name):
-        """Sum all active buff/debuff modifiers for a given stat."""
+        """Sum all active buff/debuff modifiers for a given stat.
+
+        Multiplies by `stacks` for a stacking effect (max_stacks > 1) -
+        stat_mods on a stacking effect are authored PER STACK (same
+        per-rank convention a talent's effects dict already uses), so 4
+        stacks of Exposed Flesh's "+3% physical damage taken" means +12%,
+        not +3% regardless of stack count. Non-stacking effects always
+        have stacks == 1, so this multiply is a no-op for every effect
+        authored before stacking existed.
+        """
         total = 0
         for e in self._effects():
             if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF):
-                total += e.stat_mods.get(stat_name, 0)
+                stack_mult = getattr(e, "stacks", 1)
+                total += e.stat_mods.get(stat_name, 0) * stack_mult
         return total
 
     def tick_status_effects(self):
@@ -890,6 +952,22 @@ class StatusEffectMixin:
             if grant and hasattr(self, "gain_resource"):
                 resource = grant.get("resource")
                 grant_amt = grant.get("amount", 0)
+                # scale_talent_key (optional): a get_talent_effect key
+                # whose value is a PERCENTAGE bonus multiplier on this
+                # specific grant (Venomancer's Adrenal Carapace: "+10%/rank
+                # Rage generated from Exposed Flesh" - a talent that boosts
+                # a DIFFERENT talent's own resource grant, not a flat
+                # amount increase, so it can't be folded into Exposed
+                # Flesh's own `amount` field). Read live every time this
+                # fires (not baked into the synthetic effect once), so
+                # spending/unspending Adrenal Carapace ranks takes effect
+                # on the very next proc with no re-sync needed. None/absent
+                # (the default) leaves grant_amt untouched, exactly as
+                # before this field existed.
+                scale_key = grant.get("scale_talent_key")
+                if scale_key and hasattr(self, "get_talent_effect"):
+                    grant_amt = grant_amt * (1.0 + self.get_talent_effect(scale_key, 0.0))
+                grant_amt = int(round(grant_amt))
                 if resource and grant_amt > 0:
                     gained = self.gain_resource(resource, grant_amt)
                     if gained:
