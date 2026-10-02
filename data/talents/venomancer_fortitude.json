@@ -134,6 +134,26 @@
       ]
     },
     {
+      "talent_id": "venomancer_fortitude_barbed_stinger",
+      "name": "Barbed Stinger",
+      "description": "Learn Barbed Stinger, a taunt that forces your active Venom to proc against the target.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "venomancer_barbed_stinger"
+      },
+      "connected_to": [
+        "venomancer_fortitude_regenerative_properties",
+        "venomancer_fortitude_molt",
+        "venomancer_fortitude_staggering_blow"
+      ],
+      "_source": "Built during the DPS niche audit (Oct 2026) - no talent anywhere unlocked Barbed Stinger even though 2 tier-2 talents (Molt, Staggering Blow) already named it as if it existed. Placed at tier 1 so both of its tier-2 modifiers can sit downstream of it, same shape as Impale (tier 1, unlocks Beetle Form) feeding Hivebreak (tier 1, Beetle-Form-gated) one column over. requires_talent=true on the ability itself (see data/abilities/venomancer.json) means this node is the ONLY way to ever learn Barbed Stinger - without it the ability would be permanently unlearnable, the same mistake caught and fixed for Tinker's Defibrillate earlier this session."
+    },
+    {
       "talent_id": "venomancer_fortitude_hivebreak",
       "name": "Hivebreak",
       "description": "Learn Hivebreak, piercing an enemy with your front leg for Nature damage. Requires Beetle Form.",

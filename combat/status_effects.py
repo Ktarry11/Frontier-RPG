@@ -1030,6 +1030,35 @@ class StatusEffectMixin:
                     if engine is not None and hasattr(engine, "gain_threat"):
                         engine.gain_threat(self, target, dealt)
 
+            # smart_heal: proc heals the single neediest living party
+            # member (by HP%), same "always finds the worst-off ally"
+            # logic Cryotherapist's Ability._lowest_hp_ally already uses -
+            # ported here rather than imported since that's a method on
+            # Ability, not reachable from a StatusEffect proc firing on
+            # the Character side. Venomancer's Rejuvenating Venom is the
+            # first real use: "your casts have a chance to heal a random
+            # ally" is modeled as a smart/lowest-HP heal instead of a
+            # true random pick (Kyle, Oct 2026: wants this to work like
+            # Cryotherapist's smart heals, which is also just a more
+            # useful version of "heals someone nearby" for actual
+            # gameplay). engine.allies is the live party roster
+            # (CombatEngine.allies, set from Party.members); with no
+            # engine (an out-of-combat proc, or a monster with no party
+            # concept) this safely falls back to healing the carrier.
+            smart_heal_amt = proc.get("smart_heal")
+            if smart_heal_amt and hasattr(self, "heal"):
+                candidates = [self]
+                allies = getattr(engine, "allies", None) if engine is not None else None
+                if allies:
+                    candidates = [a for a in allies
+                                  if a is not None and getattr(a, "is_alive", lambda: True)()] or [self]
+                recipient = min(
+                    candidates,
+                    key=lambda c: getattr(c, "current_health", 0) / max(1, getattr(c, "health", 1)))
+                recipient.heal(smart_heal_amt)
+                messages.append(f"{effect.name} smart-heals {recipient.name} for {smart_heal_amt}!")
+                fired_something = True
+
             # apply_effect: proc applies a fresh StatusEffect (its own
             # spec dict, same shape as any other StatusEffect kwargs) onto
             # the trigger's target, or the carrier itself if no target is

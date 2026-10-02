@@ -260,7 +260,7 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
-                 max_targets=None):
+                 max_targets=None, force_proc_group=None):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
             and "effect_value" keys (from combat/rank_generator.py's
@@ -542,6 +542,22 @@ class Ability:
         # ability authored before this field existed. Only meaningful
         # when target_type == "enemy_aoe"; ignored otherwise.
         self.max_targets = max_targets
+        # force_proc_group: Venomancer's Barbed Stinger - a taunt that
+        # "forces" whichever single Venom buff (Debilitating/Rejuvenating/
+        # Nullifying/Blight, all sharing exclusive_group=
+        # "venomancer_venom_slot_a") is currently active to fire its proc
+        # immediately on this cast, bypassing that Venom's normal ~20-30%
+        # chance roll entirely (Kyle, Oct 2026: "the venom barb forces
+        # both venoms to proc... usually in the form of a dot on the
+        # enemy when used by tank" - "both" referred to real WoW's 2-slot
+        # Venom system; Kyle separately decided to keep this engine at
+        # 1-Venom-at-a-time, so here it forces the one active Venom).
+        # None (the default) means no forcing - every ability authored
+        # before this field existed is unaffected. See the debuff branch
+        # of use() for where this actually looks up and fires the active
+        # Venom's proc; a value is only acted on when effect_type ==
+        # "debuff", since Barbed Stinger's own effect is the taunt itself.
+        self.force_proc_group = force_proc_group
 
         self.current_rank_index = 0  # index into self.ranks; refreshed by refresh_rank_for_level()
         # Set properly by refresh_rank_for_level(); defaults True so any
@@ -1180,6 +1196,20 @@ class Ability:
 
             for msg in proc_msgs:
                 result_msg += f" {msg}"
+
+        # force_proc_group restore (Barbed Stinger): the debuff branch of
+        # _apply_effect above left the active Venom's proc dict mutated
+        # to guaranteed-fire values so the taunt-threat-driven
+        # ON_DAMAGE_CAST firing just above would hit it for real exactly
+        # once. Restore the Venom's actual stored proc (its real chance/
+        # icd) now that firing is done, so the Venomancer's normal
+        # passive chance-based proccing on every future cast is
+        # completely unaffected by this one forced cast.
+        forced_effect = getattr(self, "_forced_proc_effect", None)
+        if forced_effect is not None:
+            forced_effect.proc = self._forced_proc_original
+            self._forced_proc_effect = None
+            self._forced_proc_original = None
 
         return True, result_msg
     
@@ -2114,6 +2144,48 @@ class Ability:
                         is_stun=self.is_stun,
                     )
                     t.apply_status_effect(effect)
+                    # force_proc_group (Barbed Stinger): find whichever
+                    # active effect on the CASTER shares this
+                    # exclusive_group - i.e. the one Venom currently
+                    # loaded - and guarantee its proc fires THIS cast,
+                    # bypassing the Venom's own chance roll.
+                    #
+                    # Does NOT call fire_proc_trigger directly here - a
+                    # taunt debuff already generates a synthetic threat
+                    # "damage" event (see the taunt-threat block a few
+                    # hundred lines down in use(), which runs AFTER
+                    # _apply_effect returns) that independently fires a
+                    # real ON_DAMAGE_CAST proc check via the engine's own
+                    # normal cast-completion path. Calling
+                    # fire_proc_trigger a second time here would double-
+                    # fire the SAME Venom off the SAME cast (caught via a
+                    # direct test: Debilitating/Nullifying Venom's forced
+                    # message appeared twice - this ability's own taunt-
+                    # threat roll independently also matched). Instead,
+                    # this only mutates the live effect's proc dict to
+                    # guaranteed-fire values (chance=100, icd=0) and
+                    # leaves it set - use()'s own taunt-driven
+                    # ON_DAMAGE_CAST firing (which matches
+                    # ON_DAMAGE_OR_HEAL_CAST-declared procs, see
+                    # _fire_proc_trigger_inner) does the actual firing
+                    # exactly once, using its real message. Restored back
+                    # to the stored real proc dict in use() right after
+                    # that firing happens (see the restore block below the
+                    # taunt-threat/proc-trigger section), so the
+                    # Venomancer's normal passive chance-based proccing on
+                    # every OTHER cast is completely unaffected.
+                    if self.force_proc_group and hasattr(caster, "_effects"):
+                        active = next(
+                            (e for e in caster._effects()
+                             if getattr(e, "exclusive_group", None) == self.force_proc_group
+                             and getattr(e, "proc", None)),
+                            None)
+                        if active is not None:
+                            self._forced_proc_effect = active
+                            self._forced_proc_original = dict(active.proc)
+                            active.proc = dict(active.proc)
+                            active.proc["chance"] = 100
+                            active.proc["icd"] = 0
                 mod_text = ", ".join(f"{k.replace('_', ' ')} {v}"
                                      for k, v in mods.items() if v and k != "taunt")
                 # Stun/incapacitate/fear/sleep debuffs (is_stun=True) carry
@@ -2121,10 +2193,24 @@ class Ability:
                 # old "(...)" suffix rendered as a bare, empty "()" in the
                 # combat log. Use dedicated stun-flavored phrasing instead
                 # of a generic "weakens" message with nothing to show.
+                # force_proc_group abilities (Barbed Stinger) get dedicated
+                # taunt-flavored phrasing instead of the generic "weakens"
+                # line, same reasoning as the is_stun branch above: its
+                # only stat_mods entry is taunt (filtered out of mod_text
+                # on purpose), so the generic line would render as a bare,
+                # contentless "weakens X with Barbed Stinger ()". The real
+                # forced-proc message (e.g. "Debilitating Venom triggers
+                # Debilitating Venom on Dummy!") is NOT appended here - it
+                # arrives separately, appended to this whole return value
+                # by use()'s own taunt-driven ON_DAMAGE_CAST proc firing
+                # (see the proc_msgs loop and force_proc_group restore
+                # block further down in use()), so it isn't duplicated.
                 if self.is_stun:
                     if is_aoe and len(recipients) > 1:
                         return f"{caster.name} incapacitates all enemies with {self.name}!"
                     return f"{caster.name} incapacitates {recipients[0].name} with {self.name}!"
+                if self.force_proc_group:
+                    return f"{caster.name} taunts {recipients[0].name} with {self.name}!"
                 if is_aoe and len(recipients) > 1:
                     return f"{caster.name} weakens all enemies with {self.name} ({mod_text})!"
                 return f"{caster.name} weakens {recipients[0].name} with {self.name} ({mod_text})!"
@@ -2427,6 +2513,7 @@ def _ability_from_data(entry):
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         duration_per_stack=entry.get("duration_per_stack", 0),
         max_targets=entry.get("max_targets"),
+        force_proc_group=entry.get("force_proc_group"),
         requires_form=_normalize_requires_form(entry.get("requires_form")),
         heal_scope=entry.get("heal_scope", "lowest_ally"),
         exclusive_group=entry.get("exclusive_group"),
