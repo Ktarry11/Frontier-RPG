@@ -1769,6 +1769,35 @@ class Character(StatusEffectMixin):
         """
         BLOCK_DAMAGE_REDUCTION = 0.30  # WoW-classic-style: a block absorbs ~30% of the hit, not all of it
 
+        # Absorb shields (StatusEffect.absorb - see its docstring; Tinker's
+        # Reactive Plating is the first real user) soak the RAW incoming
+        # amount first, before dodge/parry/block/armor/resistance/%
+        # reductions - a shield should block the full hit, not a hit
+        # already discounted by every other defensive stat, and applies
+        # to every damage_type (physical or any school), unlike avoidance
+        # which is physical-only. Drains the oldest-applied shield(s)
+        # first (list order = application order) until either the
+        # incoming amount is fully absorbed or every shield is spent;
+        # removes a shield outright once its pool hits 0 rather than
+        # leaving a dead 0-absorb buff sitting active. A character with no
+        # absorb shields active takes this whole block as a cheap no-op
+        # loop over zero matching effects, identical to before this
+        # existed.
+        if hasattr(self, "_effects") and amount > 0:
+            for effect in list(self._effects()):
+                if amount <= 0:
+                    break
+                if getattr(effect, "absorb", 0) <= 0:
+                    continue
+                soaked = min(effect.absorb, amount)
+                effect.absorb -= soaked
+                amount -= soaked
+                if effect.absorb <= 0:
+                    self._effects().remove(effect)
+            if amount <= 0:
+                self._on_status_effects_changed()
+                return 0
+
         if damage_type == "physical":
             import random
             roll = random.uniform(0, 100)

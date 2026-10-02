@@ -423,12 +423,26 @@
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
-      "effects": {
-        "reactive_shield_chance": 0.05
+      "effects": {},
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 5,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "reactive_plating_shield",
+          "name": "Reactive Plating",
+          "effect_type": "buff",
+          "duration": 3,
+          "real_time_seconds": null,
+          "stat_mods": {},
+          "absorb_pct_max_health": 0.08,
+          "on_target": false
+        }
       },
       "connected_to": [
         "tinker_mechanics_junker"
-      ]
+      ],
+      "_source": "reactive_shield_chance was a dead stat_mods key - converted to a real talent-level proc using the new generic absorb-shield support (StatusEffect.absorb, see combat/status_effects.py and Character.take_damage's new absorb-consumption step). chance is the PER-RANK value (5), scaled by Character._sync_talent_procs to the rank spent (5/10% across 2 ranks - same rank-scaling this method already does for Venomous Retort). Shield sized at 8% of the Tinker's own max HP via the new absorb_pct_max_health convenience field (the real tooltip gives no fixed number, and a flat value would be trivial at level 60 or overpowered at level 10). icd=3 (a short internal cooldown) keeps this from re-triggering every single hit once the chance roll succeeds a few times in a row, matching how a real WoW proc shield isn't meant to be permanently up."
     }
   ]
 }

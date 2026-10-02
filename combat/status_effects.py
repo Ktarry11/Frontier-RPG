@@ -203,7 +203,7 @@ class StatusEffect:
                  potency=0, damage_school="physical", stat_mods=None,
                  source_name="", real_time_seconds=_UNSET, dispel_type=None,
                  exclusive_group=None, proc=None, is_stun=False,
-                 max_stacks=1):
+                 max_stacks=1, absorb=0):
         """
         effect_id: stable id used for refresh-vs-stack decisions
                    (e.g. "warrior_rend"). Same id = refresh.
@@ -221,6 +221,21 @@ class StatusEffect:
                    stat_mod, which already needs to read this correctly for
                    stacking to mean anything mechanically rather than just
                    changing a number in the UI.
+        absorb:    BUFF only. A flat HP pool that soaks incoming damage
+                   before it touches current_health (Tinker's Reactive
+                   Plating: "chance to grant a shield absorbing damage" -
+                   a genuine WoW-style damage shield, distinct from every
+                   existing defensive stat here: armor/resistance reduce
+                   damage by a PERCENTAGE forever; absorb soaks a FIXED
+                   amount once, then is gone). 0 (the default) means this
+                   effect carries no shield - every effect authored before
+                   this existed is completely unaffected. See
+                   Character.take_damage's absorb-consumption step, which
+                   runs BEFORE armor/resistance/pct reductions (a shield
+                   should soak the full raw hit, not a discounted one) and
+                   removes the effect outright once its pool hits 0,
+                   matching how a real WoW shield "breaks" rather than
+                   lingering at 0 HP as a dead buff.
         duration:  number of TURNS the effect lasts. Used as-is for DOT/HOT.
                    For BUFF/DEBUFF, this is what's used when
                    real_time_seconds is explicitly None (i.e. stays
@@ -300,6 +315,7 @@ class StatusEffect:
         # not 0 - matches how a normal non-stacking effect (max_stacks=1)
         # is simply "active," never "active with zero copies of itself."
         self.stacks = 1
+        self.absorb = max(0, int(absorb))
         # Internal-cooldown tracker for this specific effect instance, in
         # turns remaining before its proc can fire again. Lives on the
         # effect (not the ability) since the same ability's buff could in
@@ -352,6 +368,7 @@ class StatusEffect:
             # behavior). Fixed alongside rather than left for later, since
             # it's the exact same two-line shape as the fields just added.
             "is_stun": self.is_stun,
+            "absorb": self.absorb,
         }
 
     @staticmethod
@@ -367,6 +384,7 @@ class StatusEffect:
             data.get("proc"),
             data.get("is_stun", False),
             data.get("max_stacks", 1),
+            data.get("absorb", 0),
         )
         eff.max_duration = data.get("max_duration", eff.duration)
         eff.stacks = data.get("stacks", 1)
@@ -1009,7 +1027,25 @@ class StatusEffectMixin:
             if apply_spec:
                 recipient = target if (apply_spec.get("on_target", True) and target is not None) else self
                 if hasattr(recipient, "apply_status_effect"):
-                    new_effect = StatusEffect(**{k: v for k, v in apply_spec.items() if k != "on_target"})
+                    spec_kwargs = {k: v for k, v in apply_spec.items()
+                                   if k not in ("on_target", "absorb_pct_max_health")}
+                    # absorb_pct_max_health: convenience field for a shield
+                    # sized relative to the RECIPIENT's own max HP rather
+                    # than a flat number baked into the talent's JSON
+                    # (Tinker's Reactive Plating: the real tooltip gives no
+                    # fixed shield size, and a flat number would be either
+                    # trivial at level 60 or overpowered at level 10 - a %
+                    # of max HP scales naturally the same way every other
+                    # level-scaling stat in this engine already does).
+                    # Computed here, at the moment the proc actually fires,
+                    # using the RECIPIENT's health (self, since this is a
+                    # self-shield - on_target defaults True for most procs
+                    # but Reactive Plating's is explicitly False), not
+                    # baked into the static proc dict.
+                    pct = apply_spec.get("absorb_pct_max_health")
+                    if pct and hasattr(recipient, "health"):
+                        spec_kwargs["absorb"] = max(1, int(recipient.health * pct))
+                    new_effect = StatusEffect(**spec_kwargs)
                     recipient.apply_status_effect(new_effect)
                     messages.append(f"{effect.name} triggers {new_effect.name} on {recipient.name}!")
                     fired_something = True
