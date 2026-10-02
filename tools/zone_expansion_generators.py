@@ -701,6 +701,29 @@ def generate_northern_barrens():
             zone.add_ground_chunk(sprite, cx, cy, cw, ch)
             variant_i += 1
 
+    # Real water chunk art - same gap as Central Barrens (Kyle: "tiny
+    # little water blocks"). Slug Fens, Sludge Fen, Stagnant Oasis, and
+    # the whole east coastline above all painted real shallow_water/
+    # deep_water base tiles but never got any chunk art, so every one of
+    # them fell through to the small per-tile fallback crop. Same real
+    # tropical water art as Central Barrens for consistency.
+    vot = "assets/tiles/valley_of_trials"
+    for wy in range(0, zone.height, chunk_size):
+        for wx in range(0, zone.width, chunk_size):
+            ww = min(chunk_size, zone.width - wx)
+            wh = min(chunk_size, zone.height - wy)
+            has_deep = any(zone.base_layer[wy + dy][wx + dx] == "deep_water"
+                           for dy in range(0, wh, 4) for dx in range(0, ww, 4)
+                           if wy + dy < zone.height and wx + dx < zone.width)
+            has_any_water = has_deep or any(
+                zone.base_layer[wy + dy][wx + dx] == "shallow_water"
+                for dy in range(0, wh, 4) for dx in range(0, ww, 4)
+                if wy + dy < zone.height and wx + dx < zone.width)
+            if not has_any_water:
+                continue
+            sprite = f"{vot}/oasis_deep_water.png" if has_deep else f"{vot}/oasis_shallow_water.png"
+            zone.add_water_chunk(sprite, wx, wy, ww, wh)
+
     # Rock/tree props scattered through the real mountain-adjacent
     # subzones (Harpy Roost's cliffs, Sludge Fen's industrial rubble)
     # using the real Barrens prop art instead of the generic "rock"
@@ -865,6 +888,12 @@ def generate_northern_barrens():
     # real subzone identity instead of being unlabeled road tiles.
     zone.add_subzone("Gold Road", 140, 95, 30, 130)
 
+    # Strip stray grass_tuft/etc left floating over water by the base
+    # terrain roll at the top of this function, which runs before any of
+    # the water above (Slug Fens, Sludge Fen, Stagnant Oasis, east coast)
+    # is carved in.
+    ZoneGenerator._clear_visual_over_water(zone)
+
     return zone
 
 
@@ -990,27 +1019,24 @@ def generate_central_barrens():
 
     # Scattered acacia trees and barrens cacti, interspersed rather than
     # trees-only - Kyle: "interspace the trees and cacti to make it
-    # exciting." Loose clustering (a handful of small multi-plant
-    # clumps rather than pure uniform scatter) reads more like real
-    # savanna vegetation patterns than an evenly-spaced grid, while
-    # staying sparse enough not to choke off movement across 300x300.
-    for _ in range(70):
-        cx = random.randint(5, zone.width - 5)
-        cy = random.randint(5, zone.height - 5)
-        cluster_is_cactus = random.random() < 0.35  # cacti rarer than trees
-        for _ in range(random.randint(2, 5)):
-            x = cx + random.randint(-6, 6)
-            y = cy + random.randint(-6, 6)
-            if not (0 <= x < zone.width and 0 <= y < zone.height):
-                continue
-            if zone.base_layer[y][x] not in ("dirt", "grass"):
-                continue
-            tile_id = "cactus" if cluster_is_cactus else "tree"
-            zone.set_tile(x, y, tile_id, "collision")
-    # Plus a lighter fully-random scatter on top so the plains don't read
-    # as only clumped - same 400-tree density as before, just now mixed
-    # ~80/20 tree/cactus instead of tree-only.
-    for _ in range(400):
+    # exciting." Same real-size fix Northern Barrens already got this
+    # session (Kyle playtest: "the trees and props in barrens are too
+    # small") - acacia_tree.png/barrens_cactus.png are real multi-tile-
+    # scale art, squashed to one 32px tile by the old pure
+    # set_tile(..., "tree"/"cactus", "collision") scatter. Most of the
+    # density now goes through _scatter_big_props (real 2-4 tile
+    # add_landmark props), with a much lighter single-tile scatter kept
+    # on top purely for background fill between the real landmark trees.
+    # (Uses the literal path, not the "barrens" local - that's not
+    # defined until the chunked-ground-art section later in this
+    # function.)
+    ZoneGenerator._scatter_big_props(
+        zone, ["assets/tiles/barrens/props/acacia_tree.png"],
+        count=160, size_range=(2, 4), area=(0, 0, zone.width, zone.height))
+    ZoneGenerator._scatter_big_props(
+        zone, ["assets/tiles/barrens/props/barrens_cactus.png"],
+        count=70, size_range=(2, 3), area=(0, 0, zone.width, zone.height))
+    for _ in range(150):
         x = random.randint(0, zone.width - 1)
         y = random.randint(0, zone.height - 1)
         if zone.base_layer[y][x] in ("dirt", "grass"):
@@ -1316,8 +1342,54 @@ def generate_central_barrens():
                 continue
             variants = chunk_variants_for(cx, cy, chunk_size)
             sprite = variants[variant_i % len(variants)]
-            zone.add_ground_chunk(sprite, cx, cy, cw, ch)
+            # thorny_brush.png is only 251x251 natively - stretched to a
+            # full 20-tile (640px) chunk like every other variant here, it
+            # blows up ~2.5x and reads as a blurry, oversized background
+            # (Kyle: "the tile background is massive... too stretched" -
+            # this is what he was standing in, right at the Durotar
+            # entrance near Agama'gor/Bramblescar). Those 2 subzones paint
+            # in 10-tile (320px) sub-chunks instead, much closer to native
+            # res, while everything else keeps the normal 20-tile chunks.
+            if sprite == f"{barrens}/grass/thorny_brush.png":
+                sub = 10
+                for sy in range(cy, cy + ch, sub):
+                    for sx in range(cx, cx + cw, sub):
+                        sw = min(sub, cx + cw - sx)
+                        sh = min(sub, cy + ch - sy)
+                        zone.add_ground_chunk(sprite, sx, sy, sw, sh)
+            else:
+                zone.add_ground_chunk(sprite, cx, cy, cw, ch)
             variant_i += 1
+
+    # Real water chunk art - was missing entirely, every water tile (both
+    # the 3 oases and the full-height east coastline) fell through to the
+    # per-tile fallback crop (83x132, tiled edge-to-edge with no chunk
+    # art), which is what read as "tiny little water blocks" (Kyle,
+    # standing right in the east-coast water near the Durotar entrance).
+    # Real high-res tropical water art (already used successfully for
+    # Valley of Trials' own oasis), properly chunked like everywhere else.
+    vot = "assets/tiles/valley_of_trials"
+    water_chunk_size = 20
+    for wy in range(0, zone.height, water_chunk_size):
+        for wx in range(0, zone.width, water_chunk_size):
+            ww = min(water_chunk_size, zone.width - wx)
+            wh = min(water_chunk_size, zone.height - wy)
+            has_deep = any(zone.base_layer[wy + dy][wx + dx] == "deep_water"
+                           for dy in range(0, wh, 4) for dx in range(0, ww, 4)
+                           if wy + dy < zone.height and wx + dx < zone.width)
+            has_any_water = has_deep or any(
+                zone.base_layer[wy + dy][wx + dx] == "shallow_water"
+                for dy in range(0, wh, 4) for dx in range(0, ww, 4)
+                if wy + dy < zone.height and wx + dx < zone.width)
+            if not has_any_water:
+                continue
+            sprite = f"{vot}/oasis_deep_water.png" if has_deep else f"{vot}/oasis_shallow_water.png"
+            zone.add_water_chunk(sprite, wx, wy, ww, wh)
+
+    # Strip stray grass_tuft left floating over water by the base terrain
+    # roll at the top of this function (oases + east coast carved after
+    # it) - same fix as Northern Barrens above.
+    ZoneGenerator._clear_visual_over_water(zone)
 
     return zone
 
@@ -1472,8 +1544,16 @@ def generate_southern_barrens():
     # actual Razorfen Kraul entrance, matching the name.
     zone.add_subzone("Razorfen Approach", 15, 130, 90, 90)
 
-    # Scattered trees
-    for _ in range(280):
+    # Scattered trees. Same real-size fix as Northern/Central Barrens
+    # (Kyle playtest: "the trees and props in barrens are too small") -
+    # acacia_tree.png squashed to a single 32px tile by the old pure
+    # per-tile scatter. Most density now goes through _scatter_big_props
+    # (real 2-4 tile add_landmark trees), lighter single-tile scatter
+    # kept on top for background fill.
+    ZoneGenerator._scatter_big_props(
+        zone, ["assets/tiles/barrens/props/acacia_tree.png"],
+        count=150, size_range=(2, 4), area=(0, 0, zone.width, zone.height))
+    for _ in range(100):
         x = random.randint(0, zone.width - 1)
         y = random.randint(0, zone.height - 1)
         if zone.base_layer[y][x] in ("dirt", "grass"):

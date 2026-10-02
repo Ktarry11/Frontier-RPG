@@ -723,12 +723,18 @@ class ZoneGenerator:
         # Real positions checked for clearance against roads/mountains/
         # water before placing (same discipline as every other landmark
         # this session), not eyeballed.
+        # Scaled up ~1.8x (Kyle: "Durotar's are too small" compared to
+        # every other town's buildings). generic_shack_a's original spot
+        # (100,85) is a cramped mountain-rock pocket with no room to grow
+        # in place (confirmed via direct collision scan) - moved to
+        # (110,85), a clear open stretch nearby, rather than shrinking the
+        # building back down to fit.
         scatter_buildings = [
-            ("assets/buildings/plain_orc_house_a.png", 75, 45, 5, 3),
-            ("assets/buildings/plain_orc_house_b.png", 45, 95, 5, 3),
-            ("assets/buildings/generic_shack_a.png", 100, 85, 4, 3),
-            ("assets/buildings/generic_shack_b.png", 20, 175, 4, 3),
-            ("assets/buildings/watchtower.png", 70, 130, 5, 5),
+            ("assets/buildings/plain_orc_house_a.png", 73, 44, 9, 5),
+            ("assets/buildings/plain_orc_house_b.png", 43, 94, 9, 5),
+            ("assets/buildings/generic_shack_a.png", 110, 85, 7, 5),
+            ("assets/buildings/generic_shack_b.png", 19, 174, 7, 5),
+            ("assets/buildings/watchtower.png", 68, 128, 9, 9),
         ]
         for (sprite, bx, by, bw, bh) in scatter_buildings:
             zone.add_landmark(sprite, bx, by, bw, bh)
@@ -2129,6 +2135,25 @@ class ZoneGenerator:
         enforced in one place instead of re-checked (or missed) at each of
         the dozen+ scatter call sites across this file."""
         return zone.base_layer[y][x] in ("deep_water", "shallow_water")
+
+    @staticmethod
+    def _clear_visual_over_water(zone):
+        """Strip any visual-layer decoration (grass_tuft, small_rocks,
+        etc) sitting on a water tile. A zone's base-terrain roll usually
+        paints visual-layer scatter BEFORE any water is carved in (oases,
+        coastlines, ponds) - the water carve only ever clears
+        base_layer/collision_layer at each site, not visual_layer, so
+        decoration meant for dry ground keeps rendering on top of the
+        water afterward (Kyle, Central Barrens' east coast: scattered
+        orange grass-tuft squares floating across open water). Call this
+        once, after all water carving is done, rather than patching every
+        individual carve site to also clear visual_layer - cheaper to get
+        right once than to risk missing one of a dozen+ carve sites.
+        """
+        for y in range(zone.height):
+            for x in range(zone.width):
+                if zone.base_layer[y][x] in ("deep_water", "shallow_water") and zone.visual_layer[y][x]:
+                    zone.visual_layer[y][x] = None
 
     @staticmethod
     @staticmethod
