@@ -16,7 +16,8 @@ class Item:
                  set_id=None, sockets=None, enchant_id=None,
                  weapon_damage_min=0, weapon_damage_max=0, attack_speed=0.0,
                  block_value=0, bag_capacity=0, icon_id=None,
-                 is_crafted=False, crafting_material=None):
+                 is_crafted=False, crafting_material=None,
+                 upgrade_count=0, upgrade_deltas=None):
         self.item_id = item_id
         self.name = name
         self.slot = slot  # e.g. "chest", "main_hand", "ring1", "bag1"-"bag4"
@@ -100,6 +101,29 @@ class Item:
         # while needing completely different kits.
         self.crafting_material = crafting_material
 
+        # How many times an upgrade kit has been applied to this item -
+        # capped at 2 (world/upgrade_manager.py enforces the cap; this
+        # field is just the counter). Kyle, Oct 2026, after first saying
+        # a material caps at exactly one rarity rank: "Yes ONE rank
+        # jump, but two improvements" - it takes 2 kit applications to
+        # reach that one rank: the 1ST bumps both rarity AND stats (the
+        # original ratio-based bump), the 2ND bumps stats ONLY (rarity
+        # stays put) by 1.5x the first application's own stat increase -
+        # "if first upgrade...gives +1 stam and +1 str...goes white to
+        # green. Then the next upgrade would be 1.5 stam and 1.5 str and
+        # green stays green." A 3rd application is never possible once
+        # upgrade_count reaches 2.
+        self.upgrade_count = upgrade_count
+
+        # The exact per-stat increase the FIRST kit application granted
+        # (e.g. {"primary_stats": {"stamina": 1, "strength": 1}, ...}) -
+        # recorded so the second application can compute "1.5x the first
+        # one" instead of re-deriving a bump from a ratio a second time
+        # (which would double-count the rarity change the first
+        # application already banked). None until the first upgrade
+        # happens, and never read again after the second.
+        self.upgrade_deltas = upgrade_deltas
+
     def get_dps(self):
         """Damage per second for weapons. Returns 0 for non-weapons/shields.
 
@@ -174,6 +198,8 @@ class Item:
             "enchant_id": self.enchant_id,
             "is_crafted": self.is_crafted,
             "crafting_material": self.crafting_material,
+            "upgrade_count": self.upgrade_count,
+            "upgrade_deltas": self.upgrade_deltas,
         }
 
     @classmethod
@@ -205,6 +231,8 @@ class Item:
             enchant_id=data.get("enchant_id"),
             is_crafted=data.get("is_crafted", False),
             crafting_material=data.get("crafting_material"),
+            upgrade_count=data.get("upgrade_count", 0),
+            upgrade_deltas=data.get("upgrade_deltas"),
         )
 
     def __repr__(self):

@@ -24,7 +24,7 @@ from ui.sprite_loader import get_tile_sprite
 from world.gathering_manager import TIER_SKILL_CAPS, MATERIAL_TYPE_FOLDERS, get_gathering_node_manager
 from world.smelting_manager import get_smelting_manager
 from world.blacksmithing_manager import get_blacksmithing_manager
-from world.upgrade_manager import get_kit_for_item, can_upgrade, upgrade_item, next_rarity_for
+from world.upgrade_manager import get_kit_for_item, can_upgrade, upgrade_item, next_rarity_for, MAX_UPGRADE_COUNT
 
 
 #: Display order and label for each known gathering profession. A
@@ -262,14 +262,22 @@ class ProfessionsScreen(BaseScreen):
             self.upgrade_message_color = (240, 140, 140)
             self.upgrade_message_timer = 3.0
         else:
-            self.upgrade_message = f"{result.name} upgraded to {result.rarity.title()}!"
+            # upgrade_count is 1 right after the FIRST application (the
+            # one that moved the rarity) and 2 right after the SECOND
+            # (stats-only, rarity frozen - Kyle: "green stays green") -
+            # the message needs to say which one just happened rather
+            # than always claiming a rarity change.
+            if result.upgrade_count == 1:
+                self.upgrade_message = f"{result.name} upgraded to {result.rarity.title()}!"
+            else:
+                self.upgrade_message = f"{result.name} refined further (stats boosted again)."
             self.upgrade_message_color = (140, 220, 160)
             self.upgrade_message_timer = 3.0
-            # The item's own rarity just changed, so it may no longer be
-            # eligible for the kit tier just used (or any kit, if maxed
-            # out) - clear the selection rather than leaving a stale
-            # reference pointing at an item that might not even still
-            # list a kit button under it next render.
+            # The item may no longer be eligible for ANY kit (if it just
+            # hit upgrade_count == 2, it's permanently done) - clear the
+            # selection rather than leaving a stale reference pointing at
+            # an item that might not even still list a kit button under
+            # it next render.
             self.selected_upgrade_item = None
 
     def update(self, dt):
@@ -558,7 +566,8 @@ class ProfessionsScreen(BaseScreen):
             self.renderer.draw_rect(screen, rect, (30, 30, 35))
             self.renderer.draw_rect(screen, rect, border_color, fill=False)
             self.renderer.draw_text(screen, item.name, (rect.x + 10, rect.y + 6), color=COLOR_WHITE)
-            self.renderer.draw_text(screen, item.rarity.title(), (rect.x + 10, rect.y + 24), size="small", color=COLOR_LIGHT_GRAY)
+            status = f"{item.rarity.title()}   ({item.upgrade_count}/{MAX_UPGRADE_COUNT} upgrades used)"
+            self.renderer.draw_text(screen, status, (rect.x + 10, rect.y + 24), size="small", color=COLOR_LIGHT_GRAY)
             self.upgrade_item_rects.append((item, rect))
             y += row_h
 
@@ -576,22 +585,32 @@ class ProfessionsScreen(BaseScreen):
         item = self.selected_upgrade_item
         kit_id = get_kit_for_item(item)
         if kit_id is None:
-            # Can genuinely happen here even though `item` came from the
-            # eligible list above: an earlier upgrade this same render
-            # pass... can't actually change rarity mid-render, but a kit
-            # could be at max tier already if selected right after a
-            # successful upgrade cleared selection elsewhere - defensive,
-            # not expected in practice since selection is cleared on
-            # every successful upgrade (_attempt_upgrade).
-            self.renderer.draw_text(screen, f"{item.name} is already at its maximum upgrade tier.",
+            # item.upgrade_count has hit MAX_UPGRADE_COUNT (2) - both
+            # applications (rank+stats, then stats-only) are already
+            # used up and this item can never be upgraded again.
+            # Defensive rather than expected in practice, since
+            # selection is cleared on every successful upgrade
+            # (_attempt_upgrade), so this item shouldn't normally still
+            # be selected once it's maxed.
+            self.renderer.draw_text(screen, f"{item.name} is already fully upgraded.",
                                     (panel_x, PANEL_Y + 32), color=(150, 150, 150))
             self._draw_upgrade_message(screen)
             return
 
-        from_rarity = item.rarity
-        to_rarity = next_rarity_for(from_rarity)
         have_qty = player.get_material_quantity(kit_id)
         kit_name = kit_id.replace("upgrade_kit_", "").title() + " Upgrade Kit"
+
+        # Application 1 moves the rarity up one rank; application 2
+        # (item.upgrade_count == 1 at this point - get_kit_for_item above
+        # already excludes upgrade_count >= 2) is stats-only and the
+        # rarity is frozen at whatever application 1 left it at (Kyle:
+        # "green stays green") - the label needs to say which is about
+        # to happen, not always claim a rarity change.
+        if item.upgrade_count == 0:
+            to_rarity = next_rarity_for(item.rarity)
+            effect_line = f"{item.rarity.title()} -> {to_rarity.title()}   (have {have_qty})"
+        else:
+            effect_line = f"Refine further (1.5x stat bump, stays {item.rarity.title()})   (have {have_qty})"
 
         rect = pygame.Rect(panel_x, PANEL_Y + 32, 360, 64)
         can_apply = have_qty >= 1
@@ -601,7 +620,7 @@ class ProfessionsScreen(BaseScreen):
         self.renderer.draw_text(screen, kit_name, (rect.x + 10, rect.y + 8), color=COLOR_WHITE)
         self.renderer.draw_text(
             screen,
-            f"{from_rarity.title()} -> {to_rarity.title()}   (have {have_qty})",
+            effect_line,
             (rect.x + 10, rect.y + 32), size="small", color=COLOR_LIGHT_GRAY)
         self.upgrade_kit_button_rects.append((kit_id, rect))
 
