@@ -135,6 +135,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Fires several shots in rapid succession.",
+      "_source": "Real WoW Classic: Multi-Shot has always been a hard 3-target cleave, never unlimited AoE, in every version of the spell. Fixed during DPS niche audit (Oct 2026): was tagged plain enemy_aoe with no max_targets (the new cleave-cap field added this session for Fist of the Ancients/Forked Lightning), hitting every living enemy at the flat 0.6x penalty instead of capping at 3 - this turn-based engine still distinguishes a capped cleave from true unlimited AoE via max_targets, it's not purely a positional/range concept.",
       "ranks": [
         {
           "rank": 1,
@@ -162,7 +163,8 @@
         }
       ],
       "icon_id": null,
-      "target_type": "enemy_aoe"
+      "target_type": "enemy_aoe",
+      "max_targets": 3
     },
     {
       "ability_id": "hunter_aimed_shot",
