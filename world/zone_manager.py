@@ -11,6 +11,8 @@ from world.vendor_manager import get_vendor_manager
 from world.gathering_manager import get_gathering_node_manager
 from world.forge_manager import get_forge_manager
 from world.chest_manager import get_chest_manager
+from ui.sprite_loader import prewarm_chunk_sprites
+from world.tile_textures import TILE_SIZE
 
 
 class ZoneManager:
@@ -78,6 +80,11 @@ class ZoneManager:
         self.current_zone = self.zones["Valley of Trials"]["tilemap"]
         self.player_x = 60
         self.player_y = 40  # Near starting NPC
+        # Pre-scale every chunk sprite for the starting zone up front -
+        # see prewarm_chunk_sprites' docstring for why (fixes "I step
+        # once and a chunk just pops into existence", a cold
+        # smoothscale happening inside the render loop instead of here).
+        prewarm_chunk_sprites(self.current_zone, TILE_SIZE)
 
         # Roll the initial gathering node layout for the starting zone -
         # transition_to_zone() handles every LATER zone entry, but the
@@ -107,6 +114,7 @@ class ZoneManager:
         self.player_x = 60
         self.player_y = 40
         self.player_facing = "down"
+        prewarm_chunk_sprites(self.current_zone, TILE_SIZE)
 
     def _place_recruit_tiles(self):
         """
@@ -355,6 +363,11 @@ class ZoneManager:
                              and spawn_x is not None and spawn_y is not None)
 
             self.current_zone = new_zone
+            # Same prewarm as __init__/reset_to_start - see that call's
+            # comment. This is the path that actually matters most in
+            # practice (every portal/cave transition during real play),
+            # not just the one-time game start.
+            prewarm_chunk_sprites(self.current_zone, TILE_SIZE)
             target_x = spawn_x if spawn_x is not None else new_zone.width // 2
             target_y = spawn_y if spawn_y is not None else new_zone.height // 2
 

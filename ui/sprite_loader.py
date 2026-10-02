@@ -286,6 +286,38 @@ def get_npc_sprite(base_path, direction, tile_width=None, tile_height=None):
     return scaled
 
 
+def prewarm_chunk_sprites(tilemap, tile_size, feather_px=48):
+    """Pre-scale every ground/water/obstacle chunk sprite for a zone,
+    once, right when the zone is entered - rather than lazily on first
+    draw. Fixes Kyle's "I step once and a whole new chunk just pops into
+    existence" bug: get_landmark_sprite/get_feathered_chunk_sprite cache
+    by (sheet_path, width, height), but that cache is only populated on
+    first call, which happens inside the per-frame render loop the first
+    time a chunk's footprint scrolls into the buffered tile range. A
+    cold pygame.transform.smoothscale of a 512-627px source chunk image
+    is slow enough to show up as a single dropped/late frame - visually
+    identical to the chunk having not been there the frame before. Since
+    chunk dicts (ground_chunks/water_chunks/obstacle_chunks) are fully
+    known the moment a zone is built, every chunk's sprite - both the
+    plain get_landmark_sprite and the feathered variant the renderer
+    also draws for every chunk - can be warmed into _sprite_cache up
+    front instead, so the render loop only ever hits a cache HIT.
+
+    Call this once per zone, right when ZoneManager switches
+    current_zone to it (both the initial zone and every
+    transition_to_zone) - not every frame, this does real image scaling
+    work.
+    """
+    for chunks in (getattr(tilemap, "ground_chunks", []),
+                   getattr(tilemap, "water_chunks", []),
+                   getattr(tilemap, "obstacle_chunks", [])):
+        for chunk in chunks:
+            px_w = chunk["width_tiles"] * tile_size
+            px_h = chunk["height_tiles"] * tile_size
+            get_landmark_sprite(chunk["sprite_key"], px_w, px_h)
+            get_feathered_chunk_sprite(chunk["sprite_key"], px_w, px_h, feather_px=feather_px)
+
+
 def clear_cache():
     """Drop all cached sheets/sprites. Useful for hot-reloading art during
     development without restarting the game."""
