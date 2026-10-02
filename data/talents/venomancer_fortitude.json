@@ -290,12 +290,26 @@
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
-      "effects": {
-        "retort_poison_chance": 0.03
+      "effects": {},
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 3,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "venomous_retort_poison",
+          "name": "Venomous Retort",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 15,
+          "damage_school": "nature",
+          "dispel_type": "poison",
+          "on_target": true
+        }
       },
       "connected_to": [
         "venomancer_fortitude_alacrity"
-      ]
+      ],
+      "_source": "retort_poison_chance was a dead stat_mods key never read anywhere - converted to a real talent-level proc (same mechanism as Spider Lord). chance is the PER-RANK value (3), scaled by Character._sync_talent_procs to the rank actually spent (3/6/9% across 3 ranks) - see that method's new rank-scaling comment. trigger on_damage_taken + apply_effect(on_target=true) applies the poison DoT to the ATTACKER (passed through as the proc's target via take_damage's new attacker parameter), not the Venomancer - this is a retaliation effect, not a self-buff. Fixed potency=15/duration=3 (a modest, non-scaling poison tick) rather than reusing a real damage-dealing spell's own effect_value, since a passive retaliation proc shouldn't scale with the Venomancer's own spell power/gear the way an intentional cast does."
     },
     {
       "talent_id": "venomancer_fortitude_staggering_blow",

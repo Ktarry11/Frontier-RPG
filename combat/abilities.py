@@ -1520,7 +1520,7 @@ class Ability:
         seal_bonus = on_judgement.get("damage", 0)
         total_damage = int((base_damage + seal_bonus) * self._damage_multiplier(caster, "spell"))
 
-        actual = t.take_damage(total_damage, judge_school, attacker_level=getattr(caster, "level", None))
+        actual = t.take_damage(total_damage, judge_school, attacker_level=getattr(caster, "level", None), attacker=caster)
         self._last_threat_events.append((t, actual, True))
 
         grant = on_judgement.get("grant_resource")
@@ -1629,7 +1629,7 @@ class Ability:
                         if is_crit:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
-                        actual_damage = t.take_damage(hit_damage, "physical", attacker_level=getattr(caster, "level", None))
+                        actual_damage = t.take_damage(hit_damage, "physical", attacker_level=getattr(caster, "level", None), attacker=caster)
                         if actual_damage == 0:
                             # Dodge/Parry (see Character.take_damage's
                             # avoidance roll) - the attack landed (passed
@@ -1687,7 +1687,7 @@ class Ability:
                         if is_crit:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
-                        actual_damage = t.take_damage(hit_damage, spell_damage_school, attacker_level=getattr(caster, "level", None))
+                        actual_damage = t.take_damage(hit_damage, spell_damage_school, attacker_level=getattr(caster, "level", None), attacker=caster)
                         hit_lines.append(f"{actual_damage} to {t.name}" + (" (CRIT!)" if is_crit else ""))
                         any_hit = True
                         if first_hit_amount is None:
@@ -1778,7 +1778,7 @@ class Ability:
                         if is_crit:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
-                        actual_damage = t.take_damage(hit_damage, cryo_school, attacker_level=getattr(caster, "level", None))
+                        actual_damage = t.take_damage(hit_damage, cryo_school, attacker_level=getattr(caster, "level", None), attacker=caster)
                         hit_lines.append(f"{actual_damage} to {t.name}" + (" (CRIT!)" if is_crit else ""))
                         any_hit = True
                         if first_hit_amount is None:
@@ -1828,7 +1828,7 @@ class Ability:
                         if is_crit:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
-                        actual_damage = t.take_damage(hit_damage, discharge_school, attacker_level=getattr(caster, "level", None))
+                        actual_damage = t.take_damage(hit_damage, discharge_school, attacker_level=getattr(caster, "level", None), attacker=caster)
                         hit_lines.append(f"{actual_damage} to {t.name}" + (" (CRIT!)" if is_crit else ""))
                         self._last_threat_events.append((t, actual_damage, True))
 

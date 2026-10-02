@@ -1301,12 +1301,34 @@ class Character(StatusEffectMixin):
                     continue
                 synthetic_id = f"talent_proc_{node.talent_id}"
                 if node.points_spent > 0:
+                    # Rank-scaled chance (new): every proc-carrying talent
+                    # node before Venomancer's Venomous Retort was
+                    # max_points=1 (Fingers of Frost, Blade Twisting,
+                    # Sudden Death - a single on/off point, no rank curve
+                    # to speak of), so this never previously mattered.
+                    # Retort's real tooltip is "3% chance PER RANK" across
+                    # 3 ranks (3/6/9%) - without this, _sync_talent_procs
+                    # would apply the proc dict's authored chance verbatim
+                    # regardless of rank, silently granting the FULL
+                    # multi-rank value off a single spent point. Scales
+                    # proc["chance"] by points_spent the same way
+                    # TalentNode.get_effective_effects already scales
+                    # ordinary numeric effects by rank (effects are
+                    # authored PER RANK, not pre-summed) - a copy of the
+                    # dict, not a mutation of the authored data, so
+                    # unspending/respending ranks always recomputes from
+                    # the same per-rank base rather than compounding.
+                    effective_proc = proc
+                    if "chance" in proc and node.max_points > 1:
+                        effective_proc = dict(proc)
+                        effective_proc["chance"] = min(100, proc["chance"] * node.points_spent)
+
                     effect = StatusEffect(
                         effect_id=synthetic_id, name=node.name,
                         effect_type=EffectType.BUFF, duration=999999,
                         stat_mods={}, source_name=node.name,
                         real_time_seconds=None,
-                        proc=proc,
+                        proc=effective_proc,
                     )
                     self.apply_status_effect(effect)
                 else:
@@ -1710,7 +1732,7 @@ class Character(StatusEffectMixin):
         for tooltips/character-sheet display."""
         return self.mitigation_from(self.get_resistance(school)) * 100.0
 
-    def take_damage(self, amount, damage_type="physical", attacker_level=None):
+    def take_damage(self, amount, damage_type="physical", attacker_level=None, attacker=None):
         """Take damage with resistance.
 
         attacker_level (optional): the level of whatever dealt this damage.
@@ -1928,7 +1950,18 @@ class Character(StatusEffectMixin):
         # initialized yet.
         if hasattr(self, "fire_proc_trigger"):
             from combat.status_effects import ProcTrigger
-            proc_msgs = self.fire_proc_trigger(ProcTrigger.ON_DAMAGE_TAKEN, {"amount": actual})
+            # attacker (optional, new): whoever dealt this hit, passed
+            # through as the proc's "target" - a retaliation-style
+            # ON_DAMAGE_TAKEN proc (Venomancer's Venomous Retort: "melee
+            # attacks against you have a 3%/rank chance to poison the
+            # attacker"; Reactive Plating doesn't need it, since its
+            # shield lands on self) needs to know WHO to hit back, which
+            # take_damage had no way to express until this parameter was
+            # added - every existing call site that doesn't pass attacker
+            # (most of them, still) simply has no retaliation target,
+            # exactly like before this parameter existed.
+            proc_msgs = self.fire_proc_trigger(
+                ProcTrigger.ON_DAMAGE_TAKEN, {"amount": actual, "target": attacker})
             if proc_msgs:
                 pending = getattr(self, "_pending_proc_messages", None)
                 if pending is None:
