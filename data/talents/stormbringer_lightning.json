@@ -23,8 +23,12 @@
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
-      "effects": {"spell_power": 5},
-      "connected_to": ["stormbringer_lightning_electrifying_aura"]
+      "effects": {
+        "spell_power": 5
+      },
+      "connected_to": [
+        "stormbringer_lightning_electrifying_aura"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_flux_arc",
@@ -36,8 +40,12 @@
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
-      "effects": {"crit_chance_spell": 1.0},
-      "connected_to": ["stormbringer_lightning_electrocutioner"]
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "stormbringer_lightning_electrocutioner"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_wicked_storms",
@@ -49,8 +57,12 @@
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
-      "effects": {"ability_stormbringer_shock_damage": 0.03},
-      "connected_to": ["stormbringer_lightning_thunder_wave"]
+      "effects": {
+        "ability_stormbringer_shock_damage": 0.03
+      },
+      "connected_to": [
+        "stormbringer_lightning_thunder_wave"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_static_charge",
@@ -62,8 +74,12 @@
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {"ability_stormbringer_shock_cost_pct": 0.02},
-      "connected_to": ["stormbringer_lightning_superconductor"]
+      "effects": {
+        "ability_stormbringer_shock_cost_pct": 0.02
+      },
+      "connected_to": [
+        "stormbringer_lightning_superconductor"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_electrifying_aura",
@@ -75,8 +91,13 @@
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
-      "effects": {"haste": 1.0},
-      "connected_to": ["stormbringer_lightning_electrical_charge", "stormbringer_lightning_arm_of_thorim"]
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "stormbringer_lightning_electrical_charge",
+        "stormbringer_lightning_arm_of_thorim"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_electrocutioner",
@@ -88,8 +109,12 @@
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {"ability_stormbringer_electrocute_reset_chance": 0.05},
-      "connected_to": ["stormbringer_lightning_flux_arc"]
+      "effects": {
+        "ability_stormbringer_electrocute_reset_chance": 0.05
+      },
+      "connected_to": [
+        "stormbringer_lightning_flux_arc"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_thunder_wave",
@@ -101,8 +126,12 @@
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {"ability_stormbringer_freewind_damage": 0.04},
-      "connected_to": ["stormbringer_lightning_wicked_storms"]
+      "effects": {
+        "ability_stormbringer_freewind_damage": 0.04
+      },
+      "connected_to": [
+        "stormbringer_lightning_wicked_storms"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_superconductor",
@@ -114,8 +143,12 @@
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {"static_max": 10},
-      "connected_to": ["stormbringer_lightning_static_charge"]
+      "effects": {
+        "static_max": 10
+      },
+      "connected_to": [
+        "stormbringer_lightning_static_charge"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_arm_of_thorim",
@@ -127,8 +160,13 @@
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": -2,
-      "effects": {"unlock_ability": "stormbringer_arm_of_thorim"},
-      "connected_to": ["stormbringer_lightning_electrifying_aura", "stormbringer_lightning_crackling_devastation"]
+      "effects": {
+        "unlock_ability": "stormbringer_arm_of_thorim"
+      },
+      "connected_to": [
+        "stormbringer_lightning_electrifying_aura",
+        "stormbringer_lightning_crackling_devastation"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_forked_lightning",
@@ -140,8 +178,13 @@
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
-      "effects": {"unlock_ability": "stormbringer_forked_lightning"},
-      "connected_to": ["stormbringer_lightning_superconductor", "stormbringer_lightning_invoking_storms"]
+      "effects": {
+        "unlock_ability": "stormbringer_forked_lightning"
+      },
+      "connected_to": [
+        "stormbringer_lightning_superconductor",
+        "stormbringer_lightning_invoking_storms"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_titanstorm",
@@ -153,8 +196,12 @@
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
-      "effects": {"ability_stormbringer_electrocute_damage": 0.06},
-      "connected_to": ["stormbringer_lightning_flux_arc"]
+      "effects": {
+        "ability_stormbringer_electrocute_damage": 0.06
+      },
+      "connected_to": [
+        "stormbringer_lightning_flux_arc"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_thunderbolt_focus",
@@ -166,8 +213,12 @@
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -2,
-      "effects": {"cast_time_reduction_pct": 0.03},
-      "connected_to": ["stormbringer_lightning_electrical_charge"]
+      "effects": {
+        "cast_time_reduction_pct": 0.03
+      },
+      "connected_to": [
+        "stormbringer_lightning_electrical_charge"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_crackling_devastation",
@@ -179,8 +230,13 @@
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
-      "effects": {"ability_stormbringer_arm_of_thorim_damage": 0.06},
-      "connected_to": ["stormbringer_lightning_arm_of_thorim", "stormbringer_lightning_lightning_cage"]
+      "effects": {
+        "ability_stormbringer_arm_of_thorim_damage": 0.06
+      },
+      "connected_to": [
+        "stormbringer_lightning_arm_of_thorim",
+        "stormbringer_lightning_lightning_cage"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_aeroblast",
@@ -192,8 +248,12 @@
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {"unlock_ability": "stormbringer_aeroblast"},
-      "connected_to": ["stormbringer_lightning_titanstorm"],
+      "effects": {
+        "unlock_ability": "stormbringer_aeroblast"
+      },
+      "connected_to": [
+        "stormbringer_lightning_titanstorm"
+      ],
       "_source": "Confirmed screenshot: Lvl 20, Depletes 50 Static, '207 Nature damage to them and then an additional time for 40% of the damage dealt after 1 sec.' Tagged 'Lightning (1)' despite the wind-sounding name - names in this data don't reliably predict spec-lock, the Requires tag is authoritative."
     },
     {
@@ -206,8 +266,12 @@
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
-      "effects": {"dodge_chance": 1.0},
-      "connected_to": ["stormbringer_lightning_electrocutioner"]
+      "effects": {
+        "dodge": 1.0
+      },
+      "connected_to": [
+        "stormbringer_lightning_electrocutioner"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_invoking_storms",
@@ -219,8 +283,13 @@
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {"ability_stormbringer_forked_lightning_damage": 0.06},
-      "connected_to": ["stormbringer_lightning_forked_lightning", "stormbringer_lightning_titanic_thunderbringer"]
+      "effects": {
+        "ability_stormbringer_forked_lightning_damage": 0.06
+      },
+      "connected_to": [
+        "stormbringer_lightning_forked_lightning",
+        "stormbringer_lightning_titanic_thunderbringer"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_lightning_cage",
@@ -232,8 +301,12 @@
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 2,
-      "effects": {"cc_resist": 5.0},
-      "connected_to": ["stormbringer_lightning_crackling_devastation"]
+      "effects": {
+        "cc_resist": 5.0
+      },
+      "connected_to": [
+        "stormbringer_lightning_crackling_devastation"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_titanic_thunderbringer",
@@ -245,8 +318,13 @@
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
-      "effects": {"nature_spell_damage": 0.03},
-      "connected_to": ["stormbringer_lightning_invoking_storms", "stormbringer_lightning_volt"]
+      "effects": {
+        "nature_spell_damage": 0.03
+      },
+      "connected_to": [
+        "stormbringer_lightning_invoking_storms",
+        "stormbringer_lightning_volt"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_overcharge",
@@ -258,8 +336,12 @@
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
-      "effects": {"intellect_pct": 0.02},
-      "connected_to": ["stormbringer_lightning_lightning_cage"]
+      "effects": {
+        "intellect_pct": 2.0
+      },
+      "connected_to": [
+        "stormbringer_lightning_lightning_cage"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_volt",
@@ -271,8 +353,13 @@
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
-      "effects": {"unlock_ability": "stormbringer_volt"},
-      "connected_to": ["stormbringer_lightning_titanic_thunderbringer", "stormbringer_lightning_ride_the_lightning"]
+      "effects": {
+        "unlock_ability": "stormbringer_volt"
+      },
+      "connected_to": [
+        "stormbringer_lightning_titanic_thunderbringer",
+        "stormbringer_lightning_ride_the_lightning"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_storm_ascendance",
@@ -284,8 +371,12 @@
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 6,
-      "effects": {"unlock_ability": "stormbringer_storm_ascendance"},
-      "connected_to": ["stormbringer_lightning_volt"],
+      "effects": {
+        "unlock_ability": "stormbringer_storm_ascendance"
+      },
+      "connected_to": [
+        "stormbringer_lightning_volt"
+      ],
       "_source": "Kyle: 'storm ascendance is actually a class talent but we can move it to lightning' - redistributed here as the Lightning capstone."
     },
     {
@@ -298,8 +389,13 @@
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 6,
-      "effects": {"ability_stormbringer_volt_damage": 0.08, "ability_stormbringer_volt_cost_pct": 0.05},
-      "connected_to": ["stormbringer_lightning_volt"]
+      "effects": {
+        "ability_stormbringer_volt_damage": 0.08,
+        "ability_stormbringer_volt_cost_pct": 0.05
+      },
+      "connected_to": [
+        "stormbringer_lightning_volt"
+      ]
     },
     {
       "talent_id": "stormbringer_lightning_unbound_lightning",
@@ -311,8 +407,12 @@
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
-      "effects": {"crit_damage_spell": 0.04},
-      "connected_to": ["stormbringer_lightning_titanic_thunderbringer"]
+      "effects": {
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [
+        "stormbringer_lightning_titanic_thunderbringer"
+      ]
     }
   ]
 }

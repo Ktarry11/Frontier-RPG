@@ -3,6 +3,18 @@ TalentNode - represents a single talent in a talent tree.
 Talents are hex nodes that can be connected, ranked, and have costs.
 """
 
+#: Effect keys that are a fixed configuration constant rather than a
+#: real per-rank bonus, even when they live inside a multi-rank node's
+#: `effects` dict alongside one. get_effective_effects() (below) passes
+#: these through at their raw authored value regardless of points_spent,
+#: instead of multiplying by rank count like every other numeric effect.
+#: low_health_threshold_pct is the first real case: Venomancer's
+#: Unbreakable and Tinker's Emergency Coolant each pair a genuine
+#: per-rank "-2%/rank damage taken" bonus with a FIXED "while below
+#: X% health" trigger condition that must stay the same number whether
+#: 1 or 3 ranks are spent.
+UNSCALED_EFFECT_KEYS = frozenset({"low_health_threshold_pct"})
+
 
 class TalentNode:
     """A single talent node in a talent tree."""
@@ -96,10 +108,25 @@ class TalentNode:
         scale = self.points_spent
         scaled = {}
         for key, value in self.effects.items():
-            if isinstance(value, (int, float)):
+            if isinstance(value, (int, float)) and key not in UNSCALED_EFFECT_KEYS:
                 scaled[key] = value * scale
             else:
-                scaled[key] = value  # non-numeric values (descriptions, etc) pass through
+                # Non-numeric values (descriptions, unlock_ability, etc) AND
+                # UNSCALED_EFFECT_KEYS both pass through at their raw value
+                # regardless of rank. UNSCALED_EFFECT_KEYS exists for a real
+                # configuration-constant effect that happens to share a
+                # node with a genuine per-rank bonus (Venomancer's
+                # Unbreakable, Tinker's Emergency Coolant: "low_health_
+                # damage_reduction_pct": 0.02 [a real per-rank bonus] PLUS
+                # "low_health_threshold_pct": 0.35 [a FIXED trigger
+                # condition, "while below 35% health" - the same number no
+                # matter how many of the node's ranks are spent]). Before
+                # this existed, every numeric key in a node's effects dict
+                # was multiplied by points_spent unconditionally, so a
+                # 3-rank Unbreakable silently inflated its own 35% HP
+                # threshold to 105% HP (i.e. "always active"), a real bug
+                # caught via direct testing rather than assumed away.
+                scaled[key] = value
         return scaled
     
     def to_dict(self):

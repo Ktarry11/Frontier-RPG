@@ -1871,6 +1871,31 @@ class Character(StatusEffectMixin):
                 taken_mult += self.get_talent_effect(school_key, 0.0)
                 taken_mult += self.get_status_stat_mod(school_key) / 100.0
 
+        # low_health_damage_reduction_pct (Venomancer's Unbreakable: "-2%/
+        # rank all damage taken while below 35% health"; Tinker's
+        # Emergency Coolant: same key, "-2%/rank... below 30% Health" -
+        # the actual threshold travels alongside the reduction via the new
+        # low_health_threshold_pct key on the SAME talent node, since the
+        # two classes' real tooltips use different thresholds and this one
+        # reduction key alone can't carry two different numbers). Applies
+        # to ALL damage types (unlike physical_damage_taken_pct/magic_
+        # damage_taken_pct above, which are school-specific) - checked
+        # unconditionally here, outside the physical/magic/school if-elif
+        # chain, matching the generic damage_taken_pct catch-all's own
+        # unconditional placement earlier in this method. Gated on
+        # CURRENT health (before this hit lands), matching the real WoW
+        # convention for "while below X% health" tank cooldowns/passives -
+        # a hit that would cross the threshold doesn't retroactively get
+        # the discount, and a hit taken while already below it does.
+        # Falls back to a 35% threshold if a future talent grants the
+        # reduction without pairing a threshold (keeps this from silently
+        # doing nothing rather than silently always-on).
+        low_hp_reduction = self.get_talent_effect("low_health_damage_reduction_pct", 0.0)
+        if low_hp_reduction > 0 and self.health > 0:
+            threshold = self.get_talent_effect("low_health_threshold_pct", 0.35)
+            if (self.current_health / self.health) < threshold:
+                taken_mult -= low_hp_reduction
+
         taken_mult = max(0.0, taken_mult)
 
         actual = max(1, int(amount * (1.0 - reduction) * row_mult * level_mult * taken_mult))
