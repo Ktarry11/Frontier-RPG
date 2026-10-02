@@ -707,11 +707,21 @@ def generate_silverpine_north():
 
     zone.add_subzone("Shadowspring Pools", 80, 80, 60, 50)
 
-    # PYREWOOD VILLAGE (north) — Burned ruins
-    for y in range(10, 40):
-        for x in range(70, 140):
-            if random.random() < 0.3:
-                zone.set_tile(x, y, "small_rocks", "visual")
+    # PYREWOOD VILLAGE (north) — Burned ruins. small_rocks debris scatter.
+    # Was uniform random at 30% density across the whole ~900-tile rect -
+    # the real art (a single gray boulder icon, correctly wired, not a
+    # bug) tiled edge-to-edge at that density read as solid static noise
+    # rather than rubble (Kyle: "wtf happened in pyrewood"). Now scattered
+    # in small clumps at a much lower overall rate, so it reads as
+    # burn-debris piles here and there instead of a uniform texture.
+    for _ in range(14):
+        clump_x = random.randint(70, 139)
+        clump_y = random.randint(10, 39)
+        for dy in range(-1, 2):
+            for dx in range(-1, 2):
+                x, y = clump_x + dx, clump_y + dy
+                if 70 <= x < 140 and 10 <= y < 40 and random.random() < 0.5:
+                    zone.set_tile(x, y, "small_rocks", "visual")
 
     zone.add_subzone("Pyrewood Village", 70, 10, 70, 30)
 
@@ -802,12 +812,21 @@ def generate_silverpine_north():
             variant_i += 1
 
     # Shadowspring Pools - real bog water texture over the carved marsh.
+    # Was registered via add_ground_chunk, but the renderer only ever
+    # consults water_chunks for a tile whose base_layer is actually
+    # shallow_water/deep_water (Tilemap.add_water_chunk's own docstring
+    # explains why the two lists are kept separate) - so this water never
+    # got drawn at all and fell through to decayed_forest's per-tile
+    # water fallback instead, which is the striped/noisy mess Kyle
+    # reported. add_water_chunk is the fix; the per-tile fallback is also
+    # fixed now (see tile_textures.py) as a second line of defense for
+    # any water tile outside this chunk's rectangle.
     for gy in range(80, 130, chunk_size):
         for gx in range(80, 140, chunk_size):
             gw = min(chunk_size, 140 - gx)
             gh = min(chunk_size, 130 - gy)
             if gw > 0 and gh > 0:
-                zone.add_ground_chunk(f"{haunted}/murky_bog_water.png", gx, gy, gw, gh)
+                zone.add_water_chunk(f"{haunted}/murky_bog_water.png", gx, gy, gw, gh)
 
     # Props - crypt and reeds dressing around the cemetery/pools.
     zone.add_landmark(f"{haunted}/props/crypt_mausoleum.png", 45, 70, 5, 4)
@@ -1007,13 +1026,31 @@ def generate_silverpine_south():
             zone.add_ground_chunk(sprite, cx, cy, cw, ch)
             variant_i += 1
 
-    # Rotting Marshes - real bog water over the carved swamp.
+    # Rotting Marshes - real bog water over the carved swamp. Was
+    # add_ground_chunk, which the renderer never checks for a water-base
+    # tile (see Tilemap.add_water_chunk's docstring) - fell through to
+    # decayed_forest's per-tile water fallback instead, same striped-mess
+    # bug as Shadowspring Pools in Silverpine North.
     for gy in range(80, 150, chunk_size):
         for gx in range(20, 60, chunk_size):
             gw = min(chunk_size, 60 - gx)
             gh = min(chunk_size, 150 - gy)
             if gw > 0 and gh > 0:
-                zone.add_ground_chunk(f"{haunted}/murky_bog_water.png", gx, gy, gw, gh)
+                zone.add_water_chunk(f"{haunted}/murky_bog_water.png", gx, gy, gw, gh)
+
+    # East-coast sea (the Fenris Isle boat crossing) - had NO chunk art at
+    # all, ground or water, despite the base layer being filled solid
+    # deep_water for 15 tiles wide by the full zone height. Every one of
+    # those tiles was falling through to decayed_forest's per-tile water
+    # fallback, which is the striped mess Kyle screenshotted "by the
+    # docks." Real choppy open-sea art, distinct from the marsh's murky
+    # bog water.
+    sea = "assets/tiles/cursed_isle/dark_coastal_water.png"
+    for gy in range(0, zone.height, chunk_size):
+        gw = zone.width - 185
+        gh = min(chunk_size, zone.height - gy)
+        if gw > 0 and gh > 0:
+            zone.add_water_chunk(sea, 185, gy, gw, gh)
 
     # Props - reeds in the marshes, a dead pine or two near Ambermill.
     zone.add_landmark(f"{haunted}/props/bog_reeds_cluster.png", 35, 110, 3, 3)

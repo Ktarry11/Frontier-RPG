@@ -205,6 +205,19 @@ SHEETS = {
     "cave_crystal_3": "assets/tiles/cave_props/crystal_3.png",
     "cave_skull_door_1": "assets/tiles/cave_props/skull_door_1.png",
     "cave_skull_door_2": "assets/tiles/cave_props/skull_door_2.png",
+    # Silverpine/Fenris's real haunted_forest ground + water art, registered
+    # for decayed_forest's per-tile fallback below. Pyrewood Village,
+    # Shadowspring Pools, Rotting Marshes etc already paint real chunk art
+    # via add_ground_chunk/add_water_chunk at the generator level, but any
+    # tile a chunk doesn't fully cover (chunk edges, or a water tile wired
+    # as a ground chunk by mistake - see zone_generator fix) falls through
+    # to this per-tile lookup, which previously had no ground entries at
+    # all for decayed_forest and pointed water at a tiny unrelated
+    # water_ice_sheet crop (24x24, tiled per-tile => a hard stripe pattern,
+    # not open water).
+    "haunted_forest_floor": "assets/tiles/haunted_forest/haunted_forest_floor.png",
+    "haunted_forest_floor_2": "assets/tiles/haunted_forest/haunted_forest_floor_2.png",
+    "murky_bog_water": "assets/tiles/haunted_forest/murky_bog_water.png",
     # Vegetation variety (real bushes/ferns/cacti/trees) - was leaning on
     # 4 rock-pile sprites as the only scatter option everywhere.
     "veg_cactus_1": "assets/tiles/vegetation/cactus_1.png",
@@ -1041,8 +1054,17 @@ BIOME_TILES = {
         "dirt": ("fm_tileset", (1344, 378, 32, 32), True),
         "tree": ("fm_trees", (0, 0, 170, 170), True),        # orange/autumn = decayed read
         "deep_forest": ("fm_trees", (0, 0, 170, 170), True),
-        "shallow_water": ("water_ice", (0, 104, 24, 24), False),
-        "deep_water": ("water_ice", (0, 104, 24, 24), False),
+        # Real haunted-forest bog water (Silverpine/Fenris), not the old
+        # 24x24 water_ice_sheet crop - that was a frozen-lake texture never
+        # meant for this biome, and tiled per-tile (smooth=False) it read
+        # as a hard repeating stripe pattern instead of open water.
+        "shallow_water": ("murky_bog_water", (0, 0, 384, 384), True),
+        "deep_water": ("murky_bog_water", (0, 0, 384, 384), True),
+        # Was entirely unmapped, so Pyrewood Village's 30%-density
+        # small_rocks scatter (zone_generator's visual-layer pass) fell
+        # back to a flat gray/white rect per tile - hundreds of them,
+        # reading as static noise over the real ground art underneath.
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
     },
     "undead": {
         # Same missing "undead_ground" bug as savanna_bones above - the
