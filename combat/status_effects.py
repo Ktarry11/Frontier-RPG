@@ -480,6 +480,28 @@ class StatusEffectMixin:
             if self.get_status_stat_mod("cc_immune") > 0:
                 return f"{self.name} is immune to {effect.name}!"
 
+            # stun_duration_reduction_pct (Primalist's Unmovable Object,
+            # Venomancer's Stubborn Exoskeleton: "reduces the duration of
+            # stun effects against you by 5%/rank") - a real, talent-tree-
+            # granted tank defensive stat that had never been read anywhere
+            # (dead key, same failure mode as the other CoA tank-tree keys
+            # fixed earlier this session). Talent-sourced only (no known
+            # buff/debuff currently grants this), so get_talent_effect alone
+            # - not get_status_stat_mod, which this class's trees don't use
+            # for this key. Applied as a straight percentage cut to the
+            # incoming stun's own duration, floored at 1 turn so a reduction
+            # can shorten a stun but never fully negate it outright (that's
+            # what cc_immune, checked just above, is for) - rounds down via
+            # int() rather than round() so e.g. a 2-turn stun at 5% (1.9)
+            # reduces to 1, not stays at 2, matching "reduces duration" being
+            # a real, if small, effect even on short stuns.
+            reduction_pct = self.get_talent_effect("stun_duration_reduction_pct", 0.0)
+            if reduction_pct > 0 and effect.duration > 1:
+                reduced = max(1, int(effect.duration * (1.0 - reduction_pct)))
+                if reduced < effect.duration:
+                    effect.duration = reduced
+                    effect.max_duration = reduced
+
         stat_desc = self._describe_stat_mods(effect.stat_mods)
         suffix = f" ({stat_desc})" if stat_desc else ""
 
@@ -763,6 +785,7 @@ class StatusEffectMixin:
         amount = context.get("amount", 0)
         target = context.get("target")
         is_crit = bool(context.get("is_crit", False))
+        ability_id = context.get("ability_id")
         messages = []
 
         # Re-entrancy guard: extra_attack re-invokes Ability.use(), which
@@ -779,11 +802,11 @@ class StatusEffectMixin:
             return messages
         self._proc_reentry_guard = True
         try:
-            return self._fire_proc_trigger_inner(trigger, amount, target, is_crit, engine)
+            return self._fire_proc_trigger_inner(trigger, amount, target, is_crit, engine, ability_id)
         finally:
             self._proc_reentry_guard = False
 
-    def _fire_proc_trigger_inner(self, trigger, amount, target, is_crit, engine):
+    def _fire_proc_trigger_inner(self, trigger, amount, target, is_crit, engine, ability_id=None):
         messages = []
 
         # ON_CRIT only matters alongside a real hit; if this event wasn't
@@ -807,6 +830,18 @@ class StatusEffectMixin:
                     and trigger in (ProcTrigger.ON_DAMAGE_CAST, ProcTrigger.ON_HEAL_CAST))
             )
             if not matches:
+                continue
+
+            # ability_filter: optional list of ability_ids this proc is
+            # restricted to (Primalist's Mountain Avatar: "Damage dealt by
+            # Geode Barrage or Earthquake has a 5% chance..." - a real WoW
+            # proc tied to two SPECIFIC abilities, not "any damage you
+            # deal," unlike every other ON_DAMAGE_CAST proc in this engine
+            # so far which fires off any qualifying cast). None/absent
+            # (the default) means unrestricted, so every proc authored
+            # before this field existed keeps matching exactly as before.
+            ability_filter = proc.get("ability_filter")
+            if ability_filter and ability_id not in ability_filter:
                 continue
 
             if effect.proc_icd_remaining > 0:

@@ -1078,7 +1078,7 @@ class Ability:
                 trigger = ProcTrigger.ON_DAMAGE_CAST if is_damage else ProcTrigger.ON_HEAL_CAST
                 evt_target = recipient if is_damage else caster
                 proc_msgs += caster.fire_proc_trigger(
-                    trigger, {"amount": evt_amount, "target": evt_target})
+                    trigger, {"amount": evt_amount, "target": evt_target, "ability_id": self.ability_id})
 
                 # ON_WEAPON_SWING: fired ONLY when this specific cast was
                 # the caster's own basic attack ("<class_prefix>_attack",
