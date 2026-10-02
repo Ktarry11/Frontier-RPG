@@ -564,6 +564,20 @@ def generate_northern_barrens():
         prh = random.randint(6, 13)
         slug_ponds.append((pcx, pcy, prw, prh))
 
+    # PASS 1: carve every pond's water FIRST, all 14, before any fringe
+    # decoration. REAL BUG FOUND + FIXED this session (Kyle: "can you
+    # see the tiny trees in the water and on the land bro") - the old
+    # code carved each pond's water THEN its own fringe immediately,
+    # nested in one loop iteration. With 14 randomly-placed ellipses in
+    # a shared ~85x70 area, ponds routinely overlap or sit close enough
+    # that a LATER pond's water carve re-flooded tiles an EARLIER pond's
+    # fringe pass had already placed "bushes" on (confirmed directly:
+    # 86 of 371 bushes tiles ended up sitting on water tiles after
+    # generation, despite each fringe tile passing its own dry-check at
+    # placement time - the check was correct for the state at that
+    # moment, just too early). Splitting into two full passes - all
+    # water, then all fringe - makes the dry-check's result actually
+    # final once every pond exists.
     for (pcx, pcy, prw, prh) in slug_ponds:
         for dy in range(-prh, prh + 1):
             for dx in range(-prw, prw + 1):
@@ -572,10 +586,20 @@ def generate_northern_barrens():
                     nd = ((dx / prw) ** 2 + (dy / prh) ** 2) ** 0.5
                     if nd <= 1.0:
                         zone.set_tile(x, y, "shallow_water", "base")
-                    elif nd <= 1.15:
-                        # Soft muddy fringe right at the pond's edge
-                        # (bushes/mud), not scattered randomly elsewhere.
-                        if random.random() < 0.5:
+
+    # PASS 2: muddy fringe ("bushes" collision - renders as a thin
+    # bare-tree sprite in Slug Fens' "barrens_fen" biome, tile_textures.
+    # py) around each pond's edge, now that ALL water from every pond
+    # is final. Explicit _is_water check per tile is still kept (not
+    # just relying on the nd ring) as defense in depth.
+    for (pcx, pcy, prw, prh) in slug_ponds:
+        for dy in range(-prh - 2, prh + 3):
+            for dx in range(-prw - 2, prw + 3):
+                x, y = pcx + dx, pcy + dy
+                if 0 <= x < zone.width and 0 <= y < zone.height:
+                    nd = ((dx / prw) ** 2 + (dy / prh) ** 2) ** 0.5
+                    if 1.2 <= nd <= 1.4 and not ZoneGenerator._is_water(zone, x, y):
+                        if random.random() < 0.3:
                             zone.set_tile(x, y, "bushes", "collision")
 
     zone.add_subzone("Slug Fens", 55, 95, 85, 70)
@@ -773,38 +797,78 @@ def generate_northern_barrens():
             sprite = f"{vot}/oasis_deep_water.png" if has_deep else f"{vot}/oasis_shallow_water.png"
             zone.add_water_chunk(sprite, wx, wy, ww, wh)
 
-    # Rock/tree props scattered through the real mountain-adjacent
-    # subzones (Harpy Roost's cliffs, Sludge Fen's industrial rubble)
-    # using the real Barrens prop art instead of the generic "rock"
-    # collision tile everywhere.
-    for _ in range(18):
-        x = random.randint(185, 245)
-        y = random.randint(20, 80)
-        if zone.base_layer[y][x] not in ("deep_water", "shallow_water"):
-            zone.add_landmark(f"{barrens}/props/rock_outcrop.png", x, y, 4, 4, solid=False)
+    # ------------------------------------------------------------------
+    # HAND-PLACED PROPS (Kyle, this session: scrap random scatter
+    # entirely - "lets remove the scattered trees and rocks and hand
+    # place props...use logic, more around mountains, more around
+    # forests or oasis"). REAL BUG this replaced: random.randint() prop
+    # placement (both the old single-tile "tree" collision loop and
+    # rock_outcrop landmarks) had no reliable relationship to where
+    # water/terrain actually ended up, and Kyle caught real cases of
+    # tiny tree sprites rendered standing IN water. Every group below is
+    # placed at real named coordinates with an explicit water/collision
+    # check at call time, grouped by what's actually nearby - rocks
+    # ring Harpy Roost's cliffs and Sludge Fen's rubble, trees cluster
+    # at Slug Fens' and Stagnant Oasis' pond edges (not in them), and a
+    # light scatter of real multi-tile acacia landmarks covers the open
+    # savanna between named features. This is the first zone built this
+    # way - the template for doing every future zone hand-placed rather
+    # than randomly scattered.
+    # ------------------------------------------------------------------
+    def _place_if_clear(sprite, x, y, w, h, solid=False):
+        """Place a landmark only if its whole footprint is dry, in-
+        bounds, and free of existing collision - the explicit check
+        the old scatter loops were supposed to have everywhere."""
+        if not (0 <= x and x + w <= zone.width and 0 <= y and y + h <= zone.height):
+            return False
+        for dy in range(h):
+            for dx in range(w):
+                if (zone.collision_layer[y + dy][x + dx] is not None
+                        or ZoneGenerator._is_water(zone, x + dx, y + dy)):
+                    return False
+        zone.add_landmark(sprite, x, y, w, h, solid=solid)
+        return True
 
-    # REAL BUG FOUND + FIXED (Kyle playtest: "the trees and props in
-    # barrens are too small"). Every tree here was placed via
-    # set_tile(..., "tree", "collision") - a per-tile collision tile_id,
-    # which the renderer always draws at exactly 1 grid tile regardless
-    # of the source art's native resolution. acacia_tree.png is a real
-    # multi-tile-scale asset, squashed down to a single tile - genuinely
-    # too small, not a subjective complaint. Real fix: most of the
-    # scatter now goes through _scatter_big_props, which places real
-    # add_landmark props sized 2-4 tiles - actually visible at map
-    # scale. A light single-tile "tree" scatter is kept on top at much
-    # lower density purely for background fill/texture between the real
-    # landmark trees, not as the primary way trees read on screen
-    # anymore.
-    ZoneGenerator._scatter_big_props(
-        zone, [f"{barrens}/props/acacia_tree.png"],
-        count=130, size_range=(2, 4), area=(0, 0, zone.width, zone.height))
-    for _ in range(90):
-        x = random.randint(0, zone.width - 1)
-        y = random.randint(0, zone.height - 1)
-        if zone.base_layer[y][x] not in ("deep_water", "shallow_water"):
-            if random.random() < 0.4:
-                zone.set_tile(x, y, "tree", "collision")
+    # Rock outcrops ringing Harpy Roost's cliffs (180-250, 15-85) - hand
+    # placed around the actual rock-collision cluster instead of a blind
+    # random box over the whole subzone rect.
+    for (rx, ry) in [(195, 25), (210, 35), (225, 22), (238, 45), (200, 60),
+                      (218, 65), (232, 75), (205, 78), (242, 30)]:
+        _place_if_clear(f"{barrens}/props/rock_outcrop.png", rx, ry, 4, 4)
+
+    # Rock rubble around Sludge Fen's industrial site (center 225,55).
+    for (rx, ry) in [(212, 44), (238, 46), (220, 70), (232, 68)]:
+        _place_if_clear(f"{barrens}/props/rock_outcrop.png", rx, ry, 3, 3)
+
+    # Acacia trees clustered at Slug Fens' real pond edges (the 14 ponds
+    # carved above, slug_ponds list) - a believable "trees like the
+    # water" read instead of trees anywhere in the subzone including on
+    # top of ponds.
+    for (pcx, pcy, prw, prh) in slug_ponds:
+        for _ in range(2):
+            ox = pcx + random.randint(-prw - 4, prw + 4)
+            oy = pcy + random.randint(-prh - 4, prh + 4)
+            _place_if_clear(f"{barrens}/props/acacia_tree.png", ox, oy, 3, 3)
+
+    # Acacia trees around Stagnant Oasis (center 200,175) - real oasis
+    # tree ring, not scattered randomly across the whole southeast.
+    for (ox, oy) in [(185, 158), (215, 160), (180, 185), (220, 188),
+                      (195, 195), (205, 155)]:
+        _place_if_clear(f"{barrens}/props/acacia_tree.png", ox, oy, 3, 3)
+
+    # Light scatter of real multi-tile acacia trees across the open
+    # savanna between named features - deliberately sparser than the
+    # old 130-count blind scatter, with the same explicit per-tile
+    # water/collision check every placement here uses.
+    placed = 0
+    attempts = 0
+    while placed < 45 and attempts < 45 * 25:
+        attempts += 1
+        x = random.randint(0, zone.width - 4)
+        y = random.randint(0, zone.height - 4)
+        size = random.randint(2, 4)
+        if _place_if_clear(f"{barrens}/props/acacia_tree.png", x, y, size, size):
+            placed += 1
 
     # Portal south to Central Barrens (aligned with Central Barrens' north
     # portal at (150, 4))
