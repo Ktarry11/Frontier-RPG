@@ -963,6 +963,27 @@ class ZoneGenerator:
         zone.add_landmark("assets/tiles/burning_blade_coven/props/campfire_ring.png", 19, 19, 4, 4, solid=False)
         zone.add_landmark("assets/tiles/burning_blade_coven/props/loot_crate_barrel.png", 37, 41, 4, 4)
 
+        # Chunked ground art (Kyle: "razor hill still has small tiles" -
+        # this zone really did have NO chunk art at all, just the flat
+        # "stone" per-tile fill from above, which is what read as "small
+        # tiles" against every other town's large-format chunks). Real
+        # packed-dirt town ground, assets/tiles/durotar/packed_town_dirt_*
+        # - genuinely unused anywhere else in the project until now,
+        # named for exactly this. Same 2-variant checkerboard-avoidance
+        # pattern as other towns (alternating by chunk index so adjacent
+        # chunks never repeat the same variant).
+        durotar = "assets/tiles/durotar"
+        town_variants = [f"{durotar}/packed_town_dirt_a.png", f"{durotar}/packed_town_dirt_b.png"]
+        chunk_size = 10
+        variant_i = 0
+        for cy in range(0, zone.height, chunk_size):
+            for cx in range(0, zone.width, chunk_size):
+                cw = min(chunk_size, zone.width - cx)
+                ch = min(chunk_size, zone.height - cy)
+                sprite = town_variants[variant_i % len(town_variants)]
+                zone.add_ground_chunk(sprite, cx, cy, cw, ch)
+                variant_i += 1
+
         # Basic path spurs linking the building cluster to the south portal
         # - deliberately simple (same single "path" base tile as every
         # other road in this file), Kyle's building a real path tileset
