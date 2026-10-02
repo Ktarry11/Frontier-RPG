@@ -913,11 +913,12 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Launch a massive ball of fire at an enemy that also damages nearby enemies, dealing 91 Fire damage. Usable while moving. Shares a cooldown with other Mechsuit abilities.",
-      "_source": "Real screenshot: Requires Level 24, Mechsuit: Combustion (Rank 1) - real self-rank gate, Kyle-confirmed. Only usable during real Mechsuit Form (see requires_form). Granted by a Mechanics talent node.",
+      "_source": "Real screenshot: Requires Level 24, Mechsuit: Combustion (Rank 1) - real self-rank gate, Kyle-confirmed. Only usable during real Mechsuit Form (see requires_form). Granted by a Mechanics talent node. Fixed during DPS niche audit (Oct 2026): had is_aoe=true sitting dead next to a missing target_type - Ability.__init__ only ever reads target_type (DEFAULT_TARGET_TYPE maps effect_type='damage' with no target_type to plain 'enemy', single-target), is_aoe is never consumed anywhere in combat/abilities.py. Added target_type='enemy_aoe' so 'also damages nearby enemies' actually hits multiple targets (at the real AOE_DAMAGE_MULTIPLIER=0.6x per-hit penalty, same as every other AoE ability).",
       "requires_talent": true,
       "requires_form": [
         "mechsuit"
       ],
+      "target_type": "enemy_aoe",
       "is_aoe": true,
       "ranks": [
         {
@@ -1181,8 +1182,9 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Deploy a crawling explosive that seeks out the nearest enemy before detonating for heavy Fire damage to all enemies nearby.",
-      "_source": "Kyle's real correction: 'spider bomb is just an aoe explosive.' Talent-granted by tinker_demolition_build_spider_bomb (tier 3).",
+      "_source": "Kyle's real correction: 'spider bomb is just an aoe explosive.' Talent-granted by tinker_demolition_build_spider_bomb (tier 3). Fixed during DPS niche audit (Oct 2026): had is_aoe=true sitting dead next to a missing target_type - Ability.__init__ only ever reads target_type (is_aoe is never consumed anywhere in combat/abilities.py), and a missing target_type on effect_type='damage' silently defaults to single-target 'enemy'. Added target_type='enemy_aoe' so 'heavy Fire damage to all enemies nearby' actually hits multiple targets. This also gives Tinker Demolition its one real AoE tool - the research audit flagged this tree as having NO working enemy_aoe ability despite its explosives theming.",
       "requires_talent": true,
+      "target_type": "enemy_aoe",
       "is_aoe": true,
       "ranks": [
         {
