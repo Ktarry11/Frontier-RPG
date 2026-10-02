@@ -532,14 +532,51 @@ def generate_northern_barrens():
                 zone.set_tile(x, y, "grass_tuft", "visual")
 
     # Slug Fens (west side, muddy)
-    for dy in range(80):
-        for dx in range(110):
-            x, y = 30 + dx, 60 + dy
-            if 0 <= x < zone.width and 0 <= y < zone.height:
-                if random.random() < 0.4:
-                    zone.set_tile(x, y, "shallow_water", "base")
-                if random.random() < 0.15:
-                    zone.set_tile(x, y, "bushes", "collision")
+    #
+    # REAL BUG FIXED this session (Kyle: "slugfens is still this ugly ass
+    # shit" / "sludgefen is a collision hell" / "the barrens water is
+    # ugly...it's all the small 32x32 style blocks, nothing smooth").
+    # The old loop rolled random.random()<0.4 INDEPENDENTLY per tile
+    # across the whole 110x80 area - a pure salt-and-pepper checkerboard
+    # of isolated single water tiles with dry dirt gaps between almost
+    # every one, which is exactly why it never read as a real fen/pond
+    # no matter how good the chunk art under it was (confirmed by
+    # rendering it directly: the chunk-art pass further down DOES lay
+    # real smooth water_shore_calm-style art per 20x20 chunk, but a
+    # chunk only qualifies as "water" if it has ANY water tile in it -
+    # the checkerboard pattern still fragments collision/base state at
+    # the single-tile level underneath that art). Same root cause as the
+    # bushes scatter at 15%/tile - isolated collision tiles scattered
+    # through open ground, not real mud-clump terrain.
+    #
+    # Real fix: generate a handful of real pond/bog blob shapes (soft-
+    # edged ellipses, several overlapping per area) instead of per-tile
+    # noise, same technique already proven for Echo Isles' islands and
+    # Durotar's oases. Leaves real dry ground BETWEEN ponds instead of
+    # speckling water through all of it, and each pond is big enough to
+    # read as a real body of water at normal zoom.
+    random.seed(1337)  # deterministic blob layout, not reshuffled every regen
+    slug_ponds = []
+    for _ in range(14):
+        pcx = random.randint(40, 125)
+        pcy = random.randint(65, 135)
+        prw = random.randint(8, 16)
+        prh = random.randint(6, 13)
+        slug_ponds.append((pcx, pcy, prw, prh))
+
+    for (pcx, pcy, prw, prh) in slug_ponds:
+        for dy in range(-prh, prh + 1):
+            for dx in range(-prw, prw + 1):
+                x, y = pcx + dx, pcy + dy
+                if 0 <= x < zone.width and 0 <= y < zone.height:
+                    nd = ((dx / prw) ** 2 + (dy / prh) ** 2) ** 0.5
+                    if nd <= 1.0:
+                        zone.set_tile(x, y, "shallow_water", "base")
+                    elif nd <= 1.15:
+                        # Soft muddy fringe right at the pond's edge
+                        # (bushes/mud), not scattered randomly elsewhere.
+                        if random.random() < 0.5:
+                            zone.set_tile(x, y, "bushes", "collision")
 
     zone.add_subzone("Slug Fens", 55, 95, 85, 70)
 
@@ -820,7 +857,11 @@ def generate_northern_barrens():
         for dx in range(-18, 19):
             x, y = fw_cx + dx, fw_cy + dy
             if 0 <= x < zone.width and 0 <= y < zone.height:
-                if abs(dx) < 10 and abs(dy) < 10:
+                # Widened from abs(dx)<10/abs(dy)<10 - too small to fit
+                # both real buildings below (watchtower+house, 9 tiles
+                # wide each) with any margin, part of the same overlap
+                # bug fixed just below.
+                if abs(dx) < 17 and abs(dy) < 15:
                     zone.collision_layer[y][x] = None
                     zone.set_tile(x, y, "dirt", "base")
     zone.add_subzone("Far Watch Post", fw_cx - 18, fw_cy - 16, 36, 32)
@@ -830,9 +871,19 @@ def generate_northern_barrens():
     # Kelsara, 258,130) already researched and placed - no structures
     # existed before this session, same gap as every hub camp in the
     # earlier Barrens expansion.
+    #
+    # REAL BUG FIXED this session (Kyle: "the only two buildings in
+    # farwatch post are literally on top of each other lol") - the
+    # watchtower (anchor 238,108, 9x12) and generic_house_a (anchor
+    # 243,109, 9x9) were placed only 5 tiles apart on both axes with
+    # both footprints 9+ tiles wide - a dead-certain overlap (watchtower
+    # spans x:[238,247), house spans x:[243,252), overlapping x:[243,247)
+    # entirely, same story on y). Respaced to opposite sides of the
+    # cleared ~19x19 interior (fw_cx±18/fw_cy±16 clearing), each kept
+    # inside the clearing with margin, checked directly for zero overlap.
     for sprite_key, ax, ay, w, h in [
-        ("assets/buildings/watchtower.png", 238, 108, 9, 12),
-        ("assets/buildings/generic_house_a.png", 243, 109, 9, 9),
+        ("assets/buildings/watchtower.png", fw_cx - 16, fw_cy - 8, 9, 12),
+        ("assets/buildings/generic_house_a.png", fw_cx + 5, fw_cy - 4, 9, 9),
     ]:
         zone.add_landmark(sprite_key, ax, ay, w, h)
 
@@ -847,7 +898,9 @@ def generate_northern_barrens():
         for dx in range(-16, 17):
             x, y = mb_cx + dx, mb_cy + dy
             if 0 <= x < zone.width and 0 <= y < zone.height:
-                if abs(dx) < 9 and abs(dy) < 9:
+                # Widened from abs(dx)<9/abs(dy)<9 - same too-small-
+                # clearing bug as Far Watch Post above, fixed the same way.
+                if abs(dx) < 16 and abs(dy) < 13:
                     zone.collision_layer[y][x] = None
                     zone.set_tile(x, y, "dirt", "base")
     zone.add_subzone("Mor'shan Base Camp", mb_cx - 16, mb_cy - 14, 32, 28)
@@ -855,9 +908,15 @@ def generate_northern_barrens():
     # Real buildings at Mor'shan Base Camp - staging camp for the Warsong
     # Outriders (real hub NPC: Warsong Outrider Dask, 145,65), same
     # treatment as Far Watch Post above.
+    #
+    # REAL BUG FIXED this session - same overlap bug as Far Watch Post
+    # above (watchtower anchor 117,41 9x12 vs generic_house_a anchor
+    # 122,42 9x9, only 5 tiles apart on both axes, guaranteed overlap).
+    # Respaced to opposite sides of the cleared ~17x17 interior
+    # (mb_cx±16/mb_cy±14 clearing), checked directly for zero overlap.
     for sprite_key, ax, ay, w, h in [
-        ("assets/buildings/watchtower.png", 117, 41, 9, 12),
-        ("assets/buildings/generic_house_a.png", 122, 42, 9, 9),
+        ("assets/buildings/watchtower.png", mb_cx - 15, mb_cy - 7, 9, 12),
+        ("assets/buildings/generic_house_a.png", mb_cx + 4, mb_cy - 3, 9, 9),
     ]:
         zone.add_landmark(sprite_key, ax, ay, w, h)
 

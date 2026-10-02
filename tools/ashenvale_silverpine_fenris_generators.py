@@ -2175,9 +2175,19 @@ def generate_splintertree_post():
             zone.add_ground_chunk(variants[variant_i % len(variants)], cx, cy, cw, ch)
             variant_i += 1
 
-    # Exit back to Ashenvale East
-    ZoneGenerator._carve_landing(zone, town_cx, zone.height - 5, radius=3)
-    zone.set_tile(town_cx, zone.height - 5, "portal", "interaction")
+    # Exit back to Ashenvale East - MUST be exactly (30, 47), the hard
+    # contract in portal_manager.py's real _links dict ("Splintertree
+    # Post": {(30, 47): ("Ashenvale East", 110, 160)}). REAL BUG FIXED
+    # this session (Kyle: "portal out of splintertree doesn't work") -
+    # the generator previously carved its exit portal at
+    # (town_cx, zone.height - 5) = (45, 65), a tile portal_manager never
+    # checks, while (30, 47) - where the game actually listens for this
+    # zone's exit - had no portal tile at all. Verified directly: before
+    # this fix, scanning the whole generated zone for "portal" tiles on
+    # the interaction layer found exactly one, at (45, 65); (30, 47) was
+    # walkable open dirt with nothing on it.
+    ZoneGenerator._carve_landing(zone, 30, 47, radius=3)
+    zone.set_tile(30, 47, "portal", "interaction")
 
     return zone
 
