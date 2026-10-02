@@ -3768,6 +3768,90 @@
       },
       "is_boss": false,
       "ability_kit": "cavern_rock_elemental"
+    },
+    "Razorjaw Lurker": {
+      "template": "beast_large",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "reef_predator"
+    },
+    "Reef Stalker": {
+      "template": "beast_fast",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "reef_predator"
+    },
+    "The Razorjaw": {
+      "template": "beast_large",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "razorjaw_apex"
+    },
+    "Naga Coastguard": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "naga_coastguard"
+    },
+    "Naga Tidecaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "naga_coastguard"
+    },
+    "Warden Ssaleth": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.3,
+      "ability_kit": "naga_ruin_warden"
+    },
+    "Drowned Crewman": {
+      "template": "undead_basic",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_crewman"
+    },
+    "Waterlogged Gunner": {
+      "template": "undead_basic",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_crewman"
+    },
+    "Captain Morrow": {
+      "template": "undead_basic",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "fleet_captain"
     }
   }
 }

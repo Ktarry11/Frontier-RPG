@@ -116,6 +116,17 @@ BEAST_KITS = {
         ("Snapping Bite", "damage", 23, 0, 0, "physical", {}),
         ("Death Roll", "dot", 14, 4, 0, "physical", {"duration": 3}),
     ],
+    "razorjaw_apex": [
+        # Razorjaw Reef's boss (new area, this session) - a genuine apex
+        # predator: reef_predator's bleed shape plus a self-buff frenzy
+        # (same "escalates as the fight goes" pattern as other reef/
+        # beast bosses - Elder Bloodtalon's tier) rather than a flat
+        # damage-up stat stick.
+        ("Razor Bite", "damage", 28, 0, 0, "physical", {}),
+        ("Thrashing Bleed", "dot", 13, 3, 0, "physical", {"duration": 3}),
+        ("Blood Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 20}}),
+    ],
     "kodo": [
         ("Trample", "damage", 25, 0, 0, "physical", {}),
         ("Kodo Stomp", "debuff", 0, 4, 0, "physical",
@@ -1399,6 +1410,33 @@ AQUATIC_KITS = {
         ("Riptide Hex", "debuff", 0, 5, 24, "magic",
          {"duration": 3, "stat_mods": {"agility": -14}}),
     ],
+    "naga_ruin_warden": [
+        # Echo Isles' Naga Ruins (new area, this session). Distinct from
+        # naga_shrine_guardian (Sunken Grotto of the Deep's own boss) -
+        # same naga-guardian shape (melee + a hex layer) but built around
+        # a stacking debuff instead of a DoT+slow pair, so the two naga
+        # bosses don't play identically even sharing a faction.
+        ("Trident Thrust", "damage", 23, 0, 0, "physical", {}),
+        ("Tidal Slam", "damage", 33, 3, 0, "physical", {"is_aoe": True}),
+        ("Weakening Curse", "debuff", 0, 4, 22, "magic",
+         {"duration": 4, "stat_mods": {"armor": -16}}),
+    ],
+    "naga_coastguard": [
+        # Trash tier for Naga Ruins - naga_warrior's melee shape plus a
+        # light hex bolt so the subzone doesn't read as pure physical
+        # like Troll Camps already does.
+        ("Trident Thrust", "damage", 21, 0, 0, "physical", {}),
+        ("Hex Bolt", "damage", 25, 3, 20, "magic", {}),
+    ],
+    "reef_predator": [
+        # Razorjaw Reef trash (new area, this session) - reuses
+        # crocolisk's death-roll DoT shape (same reef-predator family)
+        # with a bleed instead of a flat DoT so repeated hits stack
+        # rather than refresh, giving the reef a slightly nastier bite
+        # than Durotar's river crocolisks.
+        ("Razor Bite", "damage", 24, 0, 0, "physical", {}),
+        ("Thrashing Bleed", "dot", 11, 3, 0, "physical", {"duration": 3}),
+    ],
 }
 
 # ======================================================================
@@ -1465,6 +1503,26 @@ UNDEAD_KITS = {
     "undead_zombie": [
         ("Rotting Claw", "damage", 18, 0, 0, "physical", {}),
         ("Retch", "dot", 7, 4, 0, "magic", {"duration": 3}),
+    ],
+    "drowned_crewman": [
+        # The Lost Fleet's trash (new Echo Isles area, this session) -
+        # drowned_sailor's musket shape (Drowned Deckhand, Scuttle
+        # Coast) but with a cutlass/bleed melee swap so the fleet's
+        # crew don't play identically to Deckhand despite the shared
+        # "waterlogged sailor" flavor.
+        ("Waterlogged Cutlass", "damage", 22, 0, 0, "physical", {}),
+        ("Barnacle Scrape", "dot", 8, 3, 0, "physical", {"duration": 3}),
+    ],
+    "fleet_captain": [
+        # The Lost Fleet's boss - distinct from Undead Pirate Captain
+        # (Sunken Grotto of the Deep's own boss): a curse/debuff caster
+        # layer instead of a rotting-DoT melee hybrid, so the two
+        # undead-pirate bosses read as different fights, not a reskin.
+        ("Waterlogged Cutlass", "damage", 26, 0, 0, "physical", {}),
+        ("Captain's Curse", "debuff", 0, 4, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": -18}}),
+        ("Call the Crew", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
     ],
 }
 

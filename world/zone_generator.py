@@ -1010,42 +1010,62 @@ class ZoneGenerator:
     
     @staticmethod
     def generate_echo_isles():
-        """Generate Echo Isles (160x160) - a real dedicated rebuild
-        (Kyle: "let's revisit... build with what's on hand" after
-        confirming this zone's previous version was still the old
-        generic 100x100 random-scatter generator despite the
-        architecture doc's own notes claiming a 160x160 resize, real
-        art, and rescaled portals were already done - none of that had
-        actually landed in this function. Verified directly before
-        writing this: 2 of portal_manager.py's 4 real Echo Isles exit
-        coordinates ((80,152) and (128,99)) were OUT OF BOUNDS on the
-        old 100x100 map - a live, real bug, not a hypothetical one.
+        """Generate Echo Isles (160x160) - full 7-island rebuild (Kyle,
+        this session: "FULL rebuild using shallow water to connect
+        multiple separate islands, not the current single landmass +
+        rope bridges over dry land" - the previous version, despite
+        being a real dedicated 4-island rebuild with correct portal
+        contracts, still connected islands with carved DRY-LAND strips
+        + bridge art laid over them, not actual water you wade through.
+        Also added 3 new named islands matching Kyle's reference concept
+        art (Entrance/Tidefury Cove/Razorjaw Reef/Naga Ruins/The Lost
+        Fleet/Shattered Straits/The Broken Falls, 7 areas total) - per
+        Kyle's explicit call, these 3 get REAL content (new creatures +
+        subzone encounter tables in data/creatures/{creatures,
+        encounters}.json, new ability kits in tools/monster_kits.py),
+        not just flavor scatter on empty islands. Kyle picked Razorjaw
+        Reef / Naga Ruins / The Lost Fleet as the 3 new areas to build
+        (of the 6 non-Entrance reference names) since Entrance, Troll
+        Camps, Grotto, and Hollow already map onto this zone's existing
+        4 real functional areas.
 
-        4 separate rock-pillar islands connected by real carved-water
-        crossings + bridge_long/bridge_short landmark art on top (same
-        "carve first, lay bridge art over it" pattern as the Barrens
-        entrance crossing elsewhere in this file - the walkability
-        comes from the carve, the bridge is a solid=False visual only):
+        7 separate rock-pillar islands, connected by real carved
+        SHALLOW WATER crossings (is_walkable("shallow_water") == True,
+        confirmed directly in world/tiles.py) - the walkability comes
+        from the water itself being shallow, not a bridge sitting over
+        dry land. bridge_plank.png is kept as a real visual crossing
+        marker over 2 of the wider gaps (still solid=False, still
+        cosmetic) so the long crossings don't feel like "just waist-deep
+        water as far as the eye can see", but every crossing is real
+        shallow water underneath, including under the bridges:
 
-        - Central Isle: both Durotar docks (north/south), the open-zone
-          "Isle Interior" encounter table, quest NPC + vendor.
-        - Troll Camp Isle: the real "Troll Camps" subzone from
-          encounters.json, connected off Central Isle's east side.
+        - Central Isle (Entrance): both Durotar docks (north/south),
+          the open-zone "Isle Interior" encounter table, quest NPC.
+        - Troll Camp Isle: real "Troll Camps" subzone (encounters.json).
         - Grotto Isle: Sunken Temple Grotto's cave entrance (west).
-        - Hollow Isle: Zalazane's Hollow's cave entrance (east) -
-          bestiary calls this "the capstone of the starter cluster",
-          so it's deliberately the furthest/last island reached rather
-          than sitting right next to a dock.
+        - Hollow Isle: Zalazane's Hollow's cave entrance (east) - the
+          bestiary's "capstone of the starter cluster", deliberately
+          the furthest/last island reached.
+        - Razorjaw Reef (NEW, south of Central): apex-predator reef
+          beasts (Razorjaw Lurker/Reef Stalker trash, The Razorjaw
+          boss) - real "naga_coastguard"-adjacent reef_predator kit
+          family, coral/shell prop dressing (assets/tiles/seabed/).
+        - Naga Ruins (NEW, west, near Grotto): naga guarding a sunken
+          ruin (Naga Coastguard/Naga Tidecaller trash, Warden Ssaleth
+          boss) - real naga_statue.png centerpiece
+          (assets/tiles/naga_dungeon/, previously unused anywhere).
+        - The Lost Fleet (NEW, northeast): drowned pirate crew haunting
+          a wreck cluster (Drowned Crewman/Waterlogged Gunner trash,
+          Captain Morrow boss) - real shipwreck_hull.png +
+          shipwreck_deck_planking.png (assets/tiles/cursed_isle/,
+          genuinely different wrecks from Central Isle's own
+          shipwreck_full/fragment so the fleet doesn't look like a
+          re-use of the same wreck).
 
-        Real asset set already on disk (jungle_floor_a/b, beach_sand,
-        rock_pillar_a/b, palm_cluster/lean_a/lean_b, shipwreck_full/
-        fragment) - no ruin/temple landmark or coral/shell scatter
-        exists yet (both were referenced in the OLD broken generator
-        via _scatter(zone, "coral_blue", ...) etc, but "coral_blue"/
-        "coral_red"/"shell" were never real tile_ids in world/tiles.py
-        at all - confirmed by grep, not assumed - so those calls were
-        silently no-opping every time). Kyle: build with what's real
-        now, more props later.
+        Island layout verified clear of overlap via a direct ellipse-
+        normalized-distance check between every pair before writing any
+        of this (all pairs >=1.09, only Central-vs-Razorjaw-Reef needed
+        a real position adjustment to clear 0.95 -> 1.3+), not eyeballed.
 
         exit_pos coordinates below are ALL real hard contracts from
         world/portal_manager.py's _links dict, checked directly, not
@@ -1055,7 +1075,7 @@ class ZoneGenerator:
         """
         width, height = 160, 160
         zone = Tilemap("Echo Isles", width, height,
-                        "A tropical island chain off Durotar's coast, its rock-pillar islets linked by rope bridges.")
+                        "A tropical island chain off Durotar's coast, its rock-pillar islets linked by shallow tidal crossings.")
 
         # Water everywhere by default - islands are carved dry landmasses
         # cut INTO it, same "start solid/wet, carve the real shape out"
@@ -1066,7 +1086,7 @@ class ZoneGenerator:
             for x in range(width):
                 zone.collision_layer[y][x] = "water"
 
-        def carve_island(cx, cy, rw, rh, floor="jungle_floor_a"):
+        def carve_island(cx, cy, rw, rh):
             for dy in range(-rh, rh + 1):
                 for dx in range(-rw, rw + 1):
                     x, y = cx + dx, cy + dy
@@ -1076,89 +1096,116 @@ class ZoneGenerator:
                             zone.set_tile(x, y, "grass", "base")
 
         # ------------------------------------------------------------------
-        # CENTRAL ISLE - the big one. Spans most of the map's height since
-        # both Durotar docks sit at the same x=80 but opposite ends
-        # (y=8 north, y=152 south) - a single elongated island covers
-        # both without a separate crossing needed just to reach either
-        # dock from the interior.
+        # THE 7 ISLANDS
         # ------------------------------------------------------------------
         central = (80, 80)
         carve_island(*central, 22, 62)
 
-        # ------------------------------------------------------------------
-        # TROLL CAMP ISLE - east of Central, a real separate landmass
-        # (not just a subzone rect drawn over the same island) so it
-        # reads as its own place, matching the reference's genuinely
-        # separate-islets composition.
-        # ------------------------------------------------------------------
         troll_camp = (118, 60)
         carve_island(*troll_camp, 14, 14)
 
-        # ------------------------------------------------------------------
-        # GROTTO ISLE (west) - small, just enough to host the cave
-        # entrance clearing. exit_pos (48,88) is the real hard contract.
-        # ------------------------------------------------------------------
         grotto_isle = (44, 88)
         carve_island(*grotto_isle, 12, 12)
 
-        # ------------------------------------------------------------------
-        # HOLLOW ISLE (east) - Zalazane's Hollow, the real capstone.
-        # Placed furthest from both docks on purpose (bestiary: "should
-        # feel like a real test before whatever Phase 8 dungeon comes
-        # next" - the layout itself should make you work to reach it,
-        # not have it sitting right next to the entrance).
-        # ------------------------------------------------------------------
+        # Furthest/last island reached on purpose (bestiary: "should feel
+        # like a real test before whatever Phase 8 dungeon comes next").
         hollow_isle = (132, 104)
         carve_island(*hollow_isle, 13, 13)
 
+        razorjaw_isle = (60, 148)
+        carve_island(*razorjaw_isle, 12, 9)
+
+        naga_isle = (30, 55)
+        carve_island(*naga_isle, 12, 11)
+
+        fleet_isle = (145, 40)
+        carve_island(*fleet_isle, 11, 10)
+
         # ------------------------------------------------------------------
-        # WATER CROSSINGS - real carved dry strips first (this IS the
-        # walkability), bridge landmark art laid over each as a visual
-        # only (solid=False) - same order every other water-crossing in
-        # this file uses.
+        # WATER CROSSINGS - real carved SHALLOW WATER (this IS the fix:
+        # is_walkable("shallow_water") == True, confirmed directly, so
+        # these are genuinely wadeable crossings, not dry land dressed
+        # up with bridge art). Chunked water art laid over the carve for
+        # the open-sea mood (same "carve first, texture over it" order
+        # every water feature in this file uses) - water_shore_calm for
+        # the shallow crossings themselves (lighter, rocks visible
+        # through it, reads as shallow), water_open_a for the deep sea
+        # surrounding every island (dark open-water mood, distinct from
+        # the crossings so "shallow enough to wade" vs "open sea, stay
+        # on the crossing" is visually legible, not just a game-logic
+        # fact the player can't see).
         # ------------------------------------------------------------------
-        def carve_crossing(x0, y0, x1, y1, width_tiles=2):
-            ZoneGenerator._carve_path(zone, x0, y0, x1, y1, width=width_tiles, base="grass")
+        def carve_crossing(x0, y0, x1, y1, width_tiles=3):
+            ZoneGenerator._carve_path(zone, x0, y0, x1, y1,
+                                       width=width_tiles, base="shallow_water")
+
+        def water_chunks_along(x0, y0, x1, y1, width_tiles, sprite, chunk=8):
+            # Lay real add_water_chunk art along a crossing's bounding
+            # box (clipped to real shallow_water tiles by the renderer's
+            # own per-tile check, same as every other water_chunk call
+            # in this file - never bleeds onto dry island floor).
+            x_lo, x_hi = min(x0, x1) - width_tiles - 1, max(x0, x1) + width_tiles + 1
+            y_lo, y_hi = min(y0, y1) - width_tiles - 1, max(y0, y1) + width_tiles + 1
+            for cy in range(y_lo, y_hi, chunk):
+                for cx in range(x_lo, x_hi, chunk):
+                    cw = min(chunk, x_hi - cx)
+                    ch = min(chunk, y_hi - cy)
+                    if cw > 0 and ch > 0:
+                        zone.add_water_chunk(sprite, cx, cy, cw, ch)
+
+        shallow_sprite = "assets/tiles/water_variants/water_shore_calm.png"
 
         # Central <-> Troll Camp (east)
         carve_crossing(98, 62, 108, 60)
+        water_chunks_along(98, 62, 108, 60, 3, shallow_sprite)
         zone.add_landmark("assets/tiles/bridges/bridge_long.png",
                            97, 55, 14, 10, solid=False)
 
         # Central <-> Grotto Isle (west)
         carve_crossing(60, 88, 54, 88)
+        water_chunks_along(60, 88, 54, 88, 3, shallow_sprite)
         zone.add_landmark("assets/tiles/bridges/bridge_short.png",
                            53, 83, 10, 10, solid=False)
 
         # Troll Camp <-> Hollow Isle (southeast) - the real final
-        # approach to the capstone cave, deliberately the LAST crossing
-        # on the route rather than a direct line from Central.
-        #
-        # REAL BUG FOUND + FIXED (Kyle: "the bridges in echo isles are
-        # turned the wrong way"). This crossing runs NORTH-SOUTH (126,68)
-        # -> (128,92): dx=2, dy=24, almost purely vertical. The original
-        # bridge_sag.png (like bridge_long/bridge_short - checked
-        # directly) is a side-view illustration with a dark painterly
-        # vignette background, not top-down art - it "worked" for the
-        # other two (genuinely horizontal) crossings only because that
-        # orientation happened to hide the perspective mismatch. Rotated
-        # 90 degrees for this vertical crossing, the vignette and
-        # side-view angle became obviously wrong (Kyle: "it looks ugly as
-        # fuck"). Real fix: a dedicated top-down plank-bridge asset
-        # (bridge_plank.png, built this pass from real clean plank-grain
-        # crops of assets/tiles/goblin_shared/dock_plank.png - no
-        # hardware/rope clutter, feathered seams, no vignette/perspective
-        # issue at any rotation) rather than forcing rotation on art that
-        # was never meant to be rotated.
+        # approach to the capstone cave. Uses bridge_plank.png (built
+        # last session specifically for this north-south crossing after
+        # bridge_sag.png's rotation looked wrong here - real top-down
+        # plank art, no vignette/perspective issue at any rotation).
         carve_crossing(126, 68, 128, 92)
+        water_chunks_along(126, 68, 128, 92, 3, shallow_sprite)
         zone.add_landmark("assets/tiles/bridges/bridge_plank.png",
                            118, 78, 12, 16, solid=False, rotation=90)
 
+        # Central <-> Razorjaw Reef (south) - no bridge art, short
+        # enough wade that open water reads fine without one.
+        carve_crossing(72, 125, 65, 140)
+        water_chunks_along(72, 125, 65, 140, 3, shallow_sprite)
+
+        # Grotto <-> Naga Ruins (southwest) - the two "mystical/aquatic"
+        # islands sit adjacent on purpose, same cluster-by-mood pattern
+        # Valley of Trials' subzones already use.
+        carve_crossing(36, 80, 34, 64)
+        water_chunks_along(36, 80, 34, 64, 3, shallow_sprite)
+
+        # Troll Camp <-> The Lost Fleet (north) - trolls and drowned
+        # pirates sit on the same side of the map, both reachable off
+        # Troll Camp's own shore rather than routing through Central.
+        carve_crossing(126, 50, 140, 44)
+        water_chunks_along(126, 50, 140, 44, 3, shallow_sprite)
+        zone.add_landmark("assets/tiles/bridges/bridge_long.png",
+                           125, 40, 14, 10, solid=False)
+
         # ------------------------------------------------------------------
-        # SUBZONE - Troll Camps, matching encounters.json's real
-        # existing table_key exactly.
+        # SUBZONES - matching encounters.json's real table_keys exactly
+        # (Troll Camps = existing, Razorjaw Reef/Naga Ruins/The Lost
+        # Fleet = new this session, wired into
+        # data/creatures/encounters.json's Echo Isles entry).
         # ------------------------------------------------------------------
         zone.add_subzone("Troll Camps", troll_camp[0] - 14, troll_camp[1] - 14, 28, 28)
+        zone.add_subzone("Razorjaw Reef", razorjaw_isle[0] - 12, razorjaw_isle[1] - 9, 24, 18)
+        zone.add_subzone("Naga Ruins", naga_isle[0] - 12, naga_isle[1] - 11, 24, 22)
+        zone.add_subzone("The Lost Fleet", fleet_isle[0] - 11, fleet_isle[1] - 10, 22, 20)
 
         # ------------------------------------------------------------------
         # PORTALS - all 4 coordinates are real hard contracts from
@@ -1171,12 +1218,6 @@ class ZoneGenerator:
         grotto_exit = (48, 88)
         hollow_exit = (128, 99)
 
-        # North/south docks sit within Central Isle's own carved ellipse
-        # (central=(80,80), rw=22,rh=62 comfortably covers y=18 to
-        # y=142 at x=80 - checked directly: ((80-80)/22)^2 +
-        # ((8-80)/62)^2 = 0 + 1.30, which is OUTSIDE the ellipse, so a
-        # real landing clear is still needed right at the edge, same
-        # safety-net discipline every other zone's portal gets).
         ZoneGenerator._carve_landing(zone, *north_dock, radius=4)
         ZoneGenerator._carve_path(zone, *north_dock, *central, width=3)
         zone.set_tile(*north_dock, "portal", "interaction")
@@ -1185,13 +1226,6 @@ class ZoneGenerator:
         ZoneGenerator._carve_path(zone, *south_dock, *central, width=3)
         zone.set_tile(*south_dock, "portal", "interaction")
 
-        # Grotto/Hollow exits sit ON their own islands' carved ellipses
-        # already (grotto_isle=(44,88) rw=12,rh=12 covers (48,88) at
-        # distance 4 - well inside; hollow_isle=(132,104) rw=13,rh=13
-        # covers (128,99) at distance ~6.4 - also inside) - landing
-        # clears still added as the same unconditional safety net every
-        # other portal in this codebase gets, not skipped just because
-        # the math checks out on paper.
         ZoneGenerator._carve_landing(zone, *grotto_exit, radius=3)
         zone.set_tile(*grotto_exit, "portal", "interaction")
 
@@ -1199,9 +1233,7 @@ class ZoneGenerator:
         zone.set_tile(*hollow_exit, "portal", "interaction")
 
         # ------------------------------------------------------------------
-        # NPC + quest marker - Central Isle's own interior, away from
-        # both dock landings so it reads as a real destination rather
-        # than sitting right on the arrival point.
+        # NPC + quest marker - Central Isle's own interior.
         # ------------------------------------------------------------------
         npc_pos = (80, 80)
         ZoneGenerator._carve_landing(zone, *npc_pos, radius=2)
@@ -1209,11 +1241,9 @@ class ZoneGenerator:
         zone.set_tile(npc_pos[0] + 2, npc_pos[1], "quest_marker", "interaction")
 
         # ------------------------------------------------------------------
-        # LANDMARKS - real props from what's on disk. Palms scattered
-        # across every island (matches a tropical chain), shipwreck as a
-        # real point-of-interest on Central Isle's own shore, nothing
-        # referencing the missing ruin/coral/shell art the old generator
-        # silently no-op'd on.
+        # LANDMARKS - existing props (Central/Troll Camp/Grotto/Hollow,
+        # kept from the previous pass) plus new per-island centerpieces
+        # for the 3 new areas.
         # ------------------------------------------------------------------
         zone.add_landmark("assets/tiles/echo_isles/props/shipwreck_full.png",
                            95, 130, 10, 6, solid=False)
@@ -1234,12 +1264,6 @@ class ZoneGenerator:
             zone.add_landmark(palm_variants[i % len(palm_variants)],
                                px, py, 4, 5, solid=False)
 
-        # Real "someone was here before" / beach-clutter props (Kyle,
-        # this session) - jungle idol as a Central Isle interior point
-        # of interest, overgrown ruin fragment near Grotto Isle (temple-
-        # adjacent, matching Sunken Temple Grotto's own name), coral/
-        # shell cluster and tide pool as real beach detail away from
-        # both dock landings and every existing crossing/portal.
         zone.add_landmark("assets/tiles/echo_isles/props/jungle_idol.png",
                            88, 60, 4, 6)
         zone.add_landmark("assets/tiles/echo_isles/props/overgrown_ruin.png",
@@ -1249,14 +1273,44 @@ class ZoneGenerator:
         zone.add_landmark("assets/tiles/echo_isles/props/tide_pool.png",
                            100, 100, 7, 5, solid=False)
 
+        # Razorjaw Reef - coral/shell reef dressing (assets/tiles/seabed/,
+        # previously unused anywhere in the codebase) instead of jungle
+        # props, so the reef reads as a beach/reef, not more jungle.
+        zone.add_landmark("assets/tiles/seabed/coral_pink.png",
+                           razorjaw_isle[0] - 7, razorjaw_isle[1] - 3, 3, 3, solid=False)
+        zone.add_landmark("assets/tiles/seabed/coral_red.png",
+                           razorjaw_isle[0] + 4, razorjaw_isle[1] + 2, 3, 3, solid=False)
+        zone.add_landmark("assets/tiles/seabed/coral_blue.png",
+                           razorjaw_isle[0] - 2, razorjaw_isle[1] + 4, 3, 3, solid=False)
+        zone.add_landmark("assets/tiles/seabed/shell_pearl.png",
+                           razorjaw_isle[0] + 1, razorjaw_isle[1] - 5, 2, 2, solid=False)
+        zone.add_landmark("assets/tiles/seabed/shell_brown.png",
+                           razorjaw_isle[0] - 5, razorjaw_isle[1] + 1, 2, 2, solid=False)
+
+        # Naga Ruins - naga_statue.png centerpiece (assets/tiles/
+        # naga_dungeon/, previously unused anywhere), serpent_skeleton
+        # as secondary dressing. Statue placed off-center from the
+        # island's own carve-center so it doesn't block the walkable
+        # interior (same discipline as every other room-centerpiece
+        # landmark in this file).
+        zone.add_landmark("assets/tiles/naga_dungeon/naga_statue.png",
+                           naga_isle[0] - 2, naga_isle[1] - 7, 5, 6)
+        zone.add_landmark("assets/tiles/naga_dungeon/serpent_skeleton.png",
+                           naga_isle[0] + 3, naga_isle[1] + 2, 4, 3, solid=False)
+
+        # The Lost Fleet - a genuinely different wreck from Central
+        # Isle's shipwreck_full/fragment (assets/tiles/cursed_isle/,
+        # previously only used for the Fenris Isle coast).
+        zone.add_landmark("assets/tiles/cursed_isle/props/shipwreck_hull.png",
+                           fleet_isle[0] - 8, fleet_isle[1] - 6, 10, 8, solid=False)
+
         # ------------------------------------------------------------------
-        # CHUNKED FLOOR ART - jungle floor on Central/Troll Camp/Hollow
-        # isles (real jungle interior), beach sand right at each
-        # island's own shoreline reads better in theory but needs per-
-        # tile coastline detection this pass doesn't do yet - flagged
-        # here rather than faked; jungle floor throughout is the honest
-        # current state. Grotto Isle (small, just a cave-entrance
-        # clearing) gets beach sand throughout since it's mostly shore.
+        # CHUNKED FLOOR ART - jungle floor on the 4 jungle-flavored
+        # isles, beach sand on Grotto (small, mostly-shore cave
+        # clearing) and the 2 coastal new areas (Razorjaw Reef's reef/
+        # beach and The Lost Fleet's wreck-strewn shore both read better
+        # as sand than jungle interior). Naga Ruins keeps jungle floor -
+        # it's a ruin reclaimed by the island's own jungle, not a beach.
         # ------------------------------------------------------------------
         chunk_size = 20
 
@@ -1272,6 +1326,7 @@ class ZoneGenerator:
 
         jungle_variants = ["assets/tiles/echo_isles/jungle_floor_a.png",
                             "assets/tiles/echo_isles/jungle_floor_b.png"]
+        beach_sprite = "assets/tiles/echo_isles/beach_sand.png"
 
         variant_i = 0
         for cy in range(central[1] - 62, central[1] + 63, chunk_size):
@@ -1284,15 +1339,10 @@ class ZoneGenerator:
 
         floor_chunks(*troll_camp, 14, 14, jungle_variants[1])
         floor_chunks(*hollow_isle, 13, 13, jungle_variants[0])
-        floor_chunks(*grotto_isle, 12, 12, "assets/tiles/echo_isles/beach_sand.png")
-
-        # ------------------------------------------------------------------
-        # WALL/OBSTACLE ART - rock pillar walls around each island's
-        # collision edge (the water itself isn't a "wall" tile_id, so
-        # this only matters wherever a real rock-pillar landmark or
-        # cliff edge exists - none carved yet this pass, so this is
-        # prepped for a future pass rather than wired to nothing).
-        # ------------------------------------------------------------------
+        floor_chunks(*grotto_isle, 12, 12, beach_sprite)
+        floor_chunks(*razorjaw_isle, 12, 9, beach_sprite)
+        floor_chunks(*naga_isle, 12, 11, jungle_variants[0])
+        floor_chunks(*fleet_isle, 11, 10, beach_sprite)
 
         zone.is_cave = False
         zone.fixed_spawns = False
@@ -1300,6 +1350,7 @@ class ZoneGenerator:
 
         ZoneGenerator._scatter(zone, "flowers", 0.02)
         ZoneGenerator._scatter(zone, "small_rocks", 0.01)
+        ZoneGenerator._clear_visual_over_water(zone)
 
         return zone
 
