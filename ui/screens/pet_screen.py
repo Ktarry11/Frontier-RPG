@@ -26,6 +26,13 @@ class PetScreen(BaseScreen):
             return "hunter"
         if char_class == "Warlock":
             return "warlock"
+        if char_class == "Primalist":
+            # Wildwalker's Spirit Beast Master: "Primalist tames beasts
+            # like hunter, not elementals" (Kyle, Oct 2026) - same real
+            # Hunter-style taming flow, own pet_type/template roster
+            # (see combat/pet_templates.py's "raptor") rather than sharing
+            # Hunter's Wolf outright.
+            return "primalist"
         return None
 
     def handle_event(self, event):

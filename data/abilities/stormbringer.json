@@ -921,22 +921,24 @@
       "name": "Summon: Air Elemental",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
+      "effect_type": "summon_pet",
+      "duration": 0,
       "stat_mods": {},
-      "description": "Call an Air Elemental to aid you in combat.",
-      "_source": "Wind-locked pet summon, confirmed structurally via Tempest's Call talent tooltip earlier this session. Stubbed as a self-buff placeholder since no pet entity system exists yet (see _implementation_note on the Wind tree's tempests_call node).",
+      "description": "Call an Air Elemental to aid you in combat, replacing any pet you currently have.",
+      "_source": "Built during the pet-system push (Oct 2026, Kyle: 'We need the pet system up and running... since we have hunters, warlocks, primalist, and wind spec stormbringer'). Previously stubbed as a self-buff placeholder. Real pet template added (combat/pet_templates.py's 'air_elemental', pet_type 'stormbringer' - a caster-style ranged pet, Nature-damage Lightning Bolt). Talent-gated via Tempest's Call's unlock_ability (requires_talent below), same as the talent's own tooltip ('Learn Summon: Air Elemental'). NOTE: Lexicon of Servitude (tier 5, 'Increases your Air Elemental's damage by 6% per rank') reads a pet_damage stat_mod key not currently read anywhere in the engine - flagged on the pet template's own _source rather than silently left broken; wiring real pet-damage talent scaling is a separate, bigger mechanic than this one summon ability.",
       "target_type": "self",
       "ranks": [
         {
           "rank": 1,
           "level_req": 20,
           "cost": 40,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
+      "is_instant": true,
+      "requires_talent": true,
       "icon_id": null,
-      "_implementation_note": "Real pet - stub only until the pet system Kyle mentioned is built. See Tinker's ZIGGI-6K and Venomancer's Air Elemental for the same pattern."
+      "summon_pet_template": "air_elemental"
     },
     {
       "ability_id": "stormbringer_raging_zephyr",

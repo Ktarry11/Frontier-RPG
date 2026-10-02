@@ -260,7 +260,7 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
-                 max_targets=None, force_proc_group=None):
+                 max_targets=None, force_proc_group=None, summon_pet_template=None):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
             and "effect_value" keys (from combat/rank_generator.py's
@@ -309,6 +309,15 @@ class Ability:
         # effect_type="shapeshift" (e.g. "bear", "spider"). None for every
         # other ability.
         self.shapeshift_form_id = shapeshift_form_id
+        # Pet template id (combat/pet_templates.py) this ability summons,
+        # for effect_type="summon_pet" (e.g. "wolf", "imp", "ziggi_6k").
+        # Same shapeshift_form_id-style pattern: the real mechanic
+        # (Character.summon_pet) already existed before this field did -
+        # Hunter taming, Warlock demon summons, and Primalist/Stormbringer/
+        # Tinker's companion pets were ALL stubbed as plain self-buffs with
+        # no way to actually call it from a cast (Kyle, Oct 2026: "We need
+        # the pet system up and running"). None for every other ability.
+        self.summon_pet_template = summon_pet_template
         self.ranks = ranks  # list of rank dicts, ascending by level_req
         self.cooldown = cooldown  # Turns between uses (NOT seconds!)
         self.turns_remaining = 0  # Turns remaining on cooldown
@@ -2335,6 +2344,42 @@ class Ability:
                 self._refund_failed_cast(caster, cost=cost)
             return msg
 
+        elif self.effect_type == "summon_pet":
+            # Real castable pet summon (Hunter taming, Warlock demon
+            # summons, Primalist's Spirit Beast Master companion,
+            # Stormbringer Wind's Air Elemental, Tinker Invention's
+            # ZIGGI-6K) - calls the same Character.summon_pet() the
+            # standalone pet_screen.py menu already calls directly for
+            # Hunter/Warlock. Kyle, Oct 2026: "We need the pet system up
+            # and running" - the Pet engine itself (entities/pet.py,
+            # combat turn integration, AI) already existed, and so did
+            # real templates for Warlock's 4 demons and Hunter's Wolf, but
+            # NOTHING anywhere actually called summon_pet() from a cast -
+            # every pet-flavored ability for Primalist/Stormbringer/Tinker
+            # was explicitly stubbed as a plain self-buff for exactly this
+            # reason (see each one's own _implementation_note), and
+            # Warlock had templates with no summon spell to use them.
+            # self.summon_pet_template is set from the JSON's
+            # "summon_pet_template" key at load time.
+            #
+            # Unlike shapeshift (which only ever fails on a missing
+            # form_id/method), summon_pet's real Character.summon_pet()
+            # can ALSO fail on a legitimate game-rule check (e.g. level
+            # requirement) - its own (success, message_or_pet) return
+            # already distinguishes this, so failure here refunds the
+            # cast and surfaces that specific reason rather than a generic
+            # "cannot summon" the way shapeshift's branch does, since
+            # shapeshift has no equivalent rejection reason to show.
+            if not self.summon_pet_template:
+                return f"{caster.name} tries to summon a pet, but has nothing to summon!"
+            if not hasattr(caster, "summon_pet"):
+                return f"{caster.name} cannot summon pets."
+            success, result = caster.summon_pet(self.summon_pet_template)
+            if not success:
+                self._refund_failed_cast(caster, cost=cost)
+                return result
+            return f"{caster.name} summons {result.name}!"
+
         elif self.effect_type == "totem_loadout":
             # Call of the Elements/Ancestors/Spirits: casts every totem
             # currently slotted in the caster's totem_loadout (see
@@ -2514,6 +2559,7 @@ def _ability_from_data(entry):
         duration_per_stack=entry.get("duration_per_stack", 0),
         max_targets=entry.get("max_targets"),
         force_proc_group=entry.get("force_proc_group"),
+        summon_pet_template=entry.get("summon_pet_template"),
         requires_form=_normalize_requires_form(entry.get("requires_form")),
         heal_scope=entry.get("heal_scope", "lowest_ally"),
         exclusive_group=entry.get("exclusive_group"),

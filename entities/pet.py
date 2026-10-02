@@ -165,6 +165,18 @@ class Pet(StatusEffectMixin):
     def armor(self):
         return max(0, self.base_armor + self.get_status_stat_mod("armor"))
 
+    def get_effective_spell_power(self, school):
+        """Minimal stand-in for Character.get_effective_spell_power - real
+        per-school spell power (gear suffixes like "of Fiery Wrath") is a
+        gear mechanic that doesn't exist for pets at all, so this just
+        returns the flat self.spell_power every damage_and_heal/spell_damage
+        call site expects. Added alongside ZIGGI-6K's Wrench Toss (Tinker
+        Invention's capstone, pet-system push, Oct 2026) - the first pet
+        ability to use effect_type=damage_and_heal, which calls this method
+        directly; every other pet ability so far only read self.spell_power
+        inline, so this gap was never hit until now."""
+        return getattr(self, "spell_power", 0)
+
     def is_alive(self):
         return self.current_health > 0
 
@@ -247,7 +259,13 @@ class Pet(StatusEffectMixin):
         damage/basic) since a pet's whole job is "hit whatever the owner
         is fighting" - not a boss with a rotation to play around:
           1. Self-heal if badly hurt and a heal is available and affordable.
-          2. Biggest affordable damage ability.
+          2. Biggest affordable damage ability (damage_and_heal counts as
+             a damage option here too - Tinker's ZIGGI-6K's Wrench Toss
+             both damages an enemy AND smart-heals the owner's party in
+             one cast, so it needs to be reachable through the normal
+             "attack something" priority, not just as an accidental
+             last-resort fallback when it happens to be the only ability
+             on the hotbar).
           3. Basic attack (first hotbar ability) as the guaranteed fallback.
 
         target: the owner's current target - passed straight through
@@ -267,7 +285,7 @@ class Pet(StatusEffectMixin):
 
         damage_options = [
             a for a in options
-            if a.effect_type in ("damage", "spell_damage", "ranged_damage")
+            if a.effect_type in ("damage", "spell_damage", "ranged_damage", "damage_and_heal")
             and self.get_resource(a.resource_type) >= a.cost
         ]
         if damage_options:

@@ -1191,18 +1191,21 @@
       "name": "Build: ZIGGI-6K",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "summon",
+      "effect_type": "summon_pet",
+      "summon_pet_template": "ziggi_6k",
+      "target_type": "self",
+      "is_instant": true,
       "duration": 0,
       "stat_mods": {},
       "description": "Deploy ZIGGI-6K, a pet that helps heal with Wrench Toss, dealing small damage and smart-healing the lowest-HP ally, until dismissed.",
-      "_source": "Kyle's real correction: 'ZIGGI-6K is a pet (like an imp) that helps heal with wrench toss (deals small damage and smart heals ally)' - real pet summon, Invention's capstone (tier 6, 'matches Kyle's own Healing Tinkerer experience'). Wrench Toss itself (the pet's real attack) isn't separately modeled yet - same real gap as other pet-ability-kit work elsewhere in the project (Monster/Pet AI), flagging rather than silently dropping.",
+      "_source": "Kyle's real correction: 'ZIGGI-6K is a pet (like an imp) that helps heal with wrench toss (deals small damage and smart heals ally)' - real pet summon, Invention's capstone (tier 6, 'matches Kyle's own Healing Tinkerer experience'). Wired onto the real pet system built this session (Oct 2026): effect_type changed from the dead 'summon' stub (never a real dispatch branch in Ability._apply_effect, would have silently no-op'd) to 'summon_pet', pointing at the new 'ziggi_6k' pet_templates.py entry. Wrench Toss itself (the pet's real attack+heal) is now a real damage_and_heal ability on that template, same mechanic Mage's Cryotherapist talents already use - no longer an unmodeled gap.",
       "requires_talent": true,
       "ranks": [
         {
           "rank": 1,
           "level_req": 50,
           "cost": 50,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null

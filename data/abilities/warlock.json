@@ -199,6 +199,98 @@
       "icon_id": null
     },
     {
+      "ability_id": "warlock_summon_imp",
+      "name": "Summon Imp",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Summons an Imp to serve the caster, replacing any demon currently summoned.",
+      "_source": "Built during the pet-system push (Oct 2026, Kyle: 'We need the pet system up and running... since we have hunters, warlocks, primalist, and wind spec stormbringer'). combat/pet_templates.py already had real Imp/Voidwalker/Succubus/Felhunter templates, and warlock_health_funnel (a real ability already in this file, lvl 16 - the classic 'sacrifice your own HP to heal your demon' spell) only makes sense with a pet to funnel health TO, but nothing anywhere actually summoned one. Level_req matches Imp's own template (1) and real WoW convention (Imp is every Warlock's first demon).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "summon_pet_template": "imp"
+    },
+    {
+      "ability_id": "warlock_summon_voidwalker",
+      "name": "Summon Voidwalker",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Summons a Voidwalker to serve the caster, replacing any demon currently summoned.",
+      "_source": "Built during the pet-system push (Oct 2026) - see Summon Imp's _source for the full context. Level_req matches Voidwalker's own template (10) and real WoW convention (the Warlock's tanky off-tank demon, learned shortly after Imp).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "summon_pet_template": "voidwalker"
+    },
+    {
+      "ability_id": "warlock_summon_succubus",
+      "name": "Summon Succubus",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Summons a Succubus to serve the caster, replacing any demon currently summoned.",
+      "_source": "Built during the pet-system push (Oct 2026) - see Summon Imp's _source for the full context. Level_req matches Succubus's own template (20) and real WoW convention.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "summon_pet_template": "succubus"
+    },
+    {
+      "ability_id": "warlock_summon_felhunter",
+      "name": "Summon Felhunter",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Summons a Felhunter to serve the caster, replacing any demon currently summoned.",
+      "_source": "Built during the pet-system push (Oct 2026) - see Summon Imp's _source for the full context. Level_req matches Felhunter's own template (30) and real WoW convention (the Warlock's anti-caster demon, learned last of the 4 starting demons).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "summon_pet_template": "felhunter"
+    },
+    {
       "ability_id": "warlock_curse_of_weakness",
       "name": "Curse of Weakness",
       "resource_type": "mana",

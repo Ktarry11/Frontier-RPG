@@ -908,22 +908,24 @@
       "name": "Spirit Beast Master",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
+      "effect_type": "summon_pet",
+      "duration": 0,
       "stat_mods": {},
-      "description": "You may now tame beasts to aid you as a companion.",
-      "_source": "Confirmed structurally via Rylak's Bite/Primal Shred both referencing 'your pet' - stubbed as a self-buff placeholder since no pet entity system exists yet.",
+      "description": "Tame a Raptor to fight alongside you, replacing any pet you currently have.",
+      "_source": "Built during the pet-system push (Oct 2026, Kyle: 'We need the pet system up and running... since we have hunters, warlocks, primalist, and wind spec stormbringer', then correcting: 'Primalist tames beasts like hunter, not elementals'). Previously stubbed as a self-buff with no real mechanic - the real tooltip ('You may now tame beasts... to aid you as a companion') is itself the unlock/first-tame moment, same real shape as Hunter's own Tame Beast, so this ability now IS the tame cast directly (talent-gated via Spirit Beast Master's own unlock_ability, rather than baseline like Hunter's) instead of a separate no-op buff sitting in front of a taming system that didn't exist. Also added Primalist as a real pet_type to pet_screen.py and combat/pet_templates.py (new 'raptor' template) so this has an actual roster to pick from, same real acquisition flow as Hunter's taming screen.",
       "target_type": "self",
       "ranks": [
         {
           "rank": 1,
           "level_req": 10,
           "cost": 0,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
+      "is_instant": true,
+      "requires_talent": true,
       "icon_id": null,
-      "_implementation_note": "Real pet system needed - see Stormbringer's Air Elemental and Tinker's ZIGGI-6K for the same stub pattern."
+      "summon_pet_template": "raptor"
     },
     {
       "ability_id": "primalist_bring_me_their_bones",

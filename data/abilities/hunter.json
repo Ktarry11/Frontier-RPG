@@ -435,6 +435,29 @@
       "is_stun": true
     },
     {
+      "ability_id": "hunter_tame_beast",
+      "name": "Tame Beast",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Tame a Wolf to fight alongside you, replacing any pet you currently have.",
+      "_source": "Built during the pet-system push (Oct 2026, Kyle: 'We need the pet system up and running... since we have hunters, warlocks, primalist, and wind spec stormbringer'). The Pet engine itself (entities/pet.py, combat turn integration, AI, pet_screen.py's UI) and a real Wolf template (combat/pet_templates.py) already existed, but NOTHING actually called Character.summon_pet() from a cast - pet_screen.py's 'Summon' button called it directly, bypassing the ability system entirely, so there was no real spell a Hunter could point to as 'this is how I tame a pet.' Modeled as a real baseline ability (any Hunter can tame from level 1, matching Wolf's own level_req: 1) rather than only reachable through the standalone menu - pet_screen.py's picker still works the same way (it calls summon_pet directly), this just gives the mechanic a real spellbook entry too, consistent with Kyle's existing direction that shapeshifting should be 'a real spell you cast... not a separate out-of-band menu' (see druid_bear_form's own _source).",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "summon_pet_template": "wolf"
+    },
+    {
       "ability_id": "hunter_mend_pet",
       "name": "Mend Pet",
       "resource_type": "mana",

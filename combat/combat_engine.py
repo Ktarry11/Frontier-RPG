@@ -434,10 +434,21 @@ class CombatEngine:
             self._end_turn(pet)
             return
 
+        # party=self.living_allies() mirrors execute_ability's own call
+        # (see its "party is only consulted by damage_and_heal abilities"
+        # comment) - without this, a damage_and_heal pet ability (Tinker's
+        # ZIGGI-6K: "Wrench Toss... deals small damage and smart heals the
+        # lowest-HP ally") would fall back to _apply_smart_heal's no-party
+        # default of healing only the CASTER (the pet itself), never a
+        # real party member, silently defeating the entire point of a
+        # healing-bot pet. Found and fixed during the pet-system push
+        # (Oct 2026) while building ZIGGI-6K - every ally-targeting pet
+        # ability was missing its real target list until now, not just
+        # this one spec's.
         if getattr(chosen_ability, "is_aoe", False):
-            success, message = chosen_ability.use(pet, self.living_enemies())
+            success, message = chosen_ability.use(pet, self.living_enemies(), party=self.living_allies())
         else:
-            success, message = chosen_ability.use(pet, target)
+            success, message = chosen_ability.use(pet, target, party=self.living_allies())
 
         if success:
             self.combat_log.append(message)
