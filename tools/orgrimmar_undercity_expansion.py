@@ -100,6 +100,20 @@ class OrgrimmarMassive:
         # reads as one continuous structure from both zones.
         zone.add_landmark("assets/buildings/orgrimmar_gate.png", 93, 188, 14, 11)
 
+        # add_landmark (no mouth_offset) stamps solid "landmark" collision
+        # across the ENTIRE 14x11 footprint (x:93-106, y:188-198) - that's
+        # every tile including the one the portal below sits on, which
+        # re-blocked the exact entrance this gate was added to fix (caught
+        # via BFS flood-fill from (100,197): reachable tiles == 1, i.e.
+        # the portal tile was a sealed 1-tile island). mouth_offset only
+        # exempts a single relative tile, not wide enough for a believable
+        # archway, so carve a real multi-tile-wide gap through the gate's
+        # own collision stamp instead - centered on the portal column,
+        # matching the width of the south-wall breach cleared above.
+        for gx in range(97, 104):
+            for gy in range(188, 199):
+                zone.collision_layer[gy][gx] = None
+
         # Dedicated Durotar-arrival portal tile, just inside the gate
         # opening - was MISSING entirely. portal_manager.py's Durotar ->
         # Orgrimmar entry used to point at (100,192), which is actually
