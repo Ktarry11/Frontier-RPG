@@ -89,7 +89,16 @@ class PortalManager:
 
             # ===== DUROTAR (core hub zone) =====
             "Durotar": {
-                (65, 26): ("Orgrimmar", 100, 192),
+                # Was (100,192) - that's actually the Zeppelin Tower
+                # platform's own portal tile inside Orgrimmar's walls, 4
+                # rows north of the real south gate. Walking in from
+                # Durotar skipped the gate entirely and dropped the
+                # player onto the zeppelin platform (Kyle: "gets the
+                # player stuck arriving INSIDE the Org gates"). Repointed
+                # at the new dedicated arrival tile just inside the real
+                # gate opening - see orgrimmar_undercity_expansion.py's
+                # South Gate section.
+                (65, 26): ("Orgrimmar", 100, 197),
                 (95, 25): ("Drygulch Ravine", 46, 70),
                 (112, 35): ("Zeppelin Tower", 17, 41),
                 (118, 60): ("Skull Rock", 54, 85),
@@ -155,7 +164,12 @@ class PortalManager:
 
             # ===== ORGRIMMAR / ZEPPELIN =====
             "Orgrimmar": {
-                (100, 192): ("Durotar", 65, 26),
+                # Real south gate arrival/exit tile (added this session -
+                # see Durotar's own (65,26) entry above for the full
+                # story). Replaces the old (100,192) "Zeppelin" tile,
+                # which was a mislabeled duplicate exit 4 rows further
+                # north with no real distinct destination of its own.
+                (100, 197): ("Durotar", 65, 26),
                 (20, 170): ("Ragefire Chasm", 120, 214),
                 (25, 170): ("Ragefire Chasm", 120, 214),
             },

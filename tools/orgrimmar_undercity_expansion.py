@@ -91,7 +91,26 @@ class OrgrimmarMassive:
             for y in range(zone.height - 4, zone.height):
                 zone.collision_layer[y][x] = None
                 zone.set_tile(x, y, "dirt", "base")
-        
+
+        # Real gate structure spanning the opening (Kyle: "these gates
+        # should be much larger too to show off the entrance to org" -
+        # this south wall breach had NO gate art at all before now, just
+        # a bare collision gap in the wall). Same art as Durotar's own
+        # gate landmark on the other side of this portal, so the entrance
+        # reads as one continuous structure from both zones.
+        zone.add_landmark("assets/buildings/orgrimmar_gate.png", 93, 188, 14, 11)
+
+        # Dedicated Durotar-arrival portal tile, just inside the gate
+        # opening - was MISSING entirely. portal_manager.py's Durotar ->
+        # Orgrimmar entry used to point at (100,192), which is actually
+        # the Zeppelin Tower platform's own portal tile 4 rows further
+        # north (see ZEPPELIN TOWER section below) - walking in from
+        # Durotar silently skipped the gate entirely and dropped the
+        # player onto the zeppelin platform instead, reading as "stuck
+        # arriving inside the gates." This tile is real open ground
+        # (already cleared above) directly under the new gate art.
+        zone.set_tile(100, 197, "portal", "interaction")  # -> Durotar (south gate arrival)
+
         # ===== CENTRAL PLAZA (massive open area) =====
         # 100x60 marketplace
         plaza_x1, plaza_x2 = 50, 150
@@ -441,14 +460,24 @@ class OrgrimmarMassive:
         OrgrimmarMassive._carve_landing(zone, 100, 8, radius=3)
         zone.set_tile(100, 8, "npc", "interaction")  # Flight master
         
-        # ===== ZEPPELIN TOWER (south transport) =====
-        # Large platform
+        # ===== SOUTH PLAZA APPROACH (between the real gate and the
+        # central plaza) =====
+        # Large open stone platform - kept as walkable open ground
+        # leading up from the gate. This used to carry its own "portal"
+        # tile labeled "Zeppelin" at (100,192), but nothing in this file
+        # or portal_manager.py ever gave it a real Zeppelin destination -
+        # it silently routed back to Durotar, 4 tiles north of (and
+        # functionally identical to) the real south gate arrival tile
+        # added above. That mislabeled duplicate is what let players
+        # "arrive inside the gates": walking in from Durotar landed here,
+        # past the actual gate structure, rather than at it. Removed; the
+        # real gate (see South Gate section) is now the only Durotar
+        # entry/exit point.
         for x in range(85, 115):
             for y in range(190, 196):
                 zone.collision_layer[y][x] = None
                 zone.set_tile(x, y, "stone", "base")
-        zone.set_tile(100, 192, "portal", "interaction")  # Zeppelin
-        
+
         # ===== MAIN ENTRY PATH (from Durotar south gate) =====
         for y in range(zone.height - 4, 130):
             zone.collision_layer[y][100] = None

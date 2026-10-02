@@ -684,7 +684,12 @@ class ZoneGenerator:
         # of the in-game map showing bare portal dots) - both get a real
         # marker now too.
         # ------------------------------------------------------------------
-        zone.add_landmark("assets/buildings/orgrimmar_gate.png", 62, 20, 6, 5)
+        # Scaled up from 6x5 (Kyle: "these gates should be much larger too
+        # to show off the entrance to org. They are sad now" - confirmed
+        # wide open space all around this landmark on Durotar's map, real
+        # headroom to grow it). ~2.3x, re-centered on the same (65,26)
+        # portal tile the gate sits above so the entrance still lines up.
+        zone.add_landmark("assets/buildings/orgrimmar_gate.png", 51, 10, 14, 11)
         zone.add_landmark("assets/buildings/zeppelin_tower.png", 108, 29, 6, 4)
         zone.add_landmark("assets/tiles/cave_entrances/cave_entrance_plain.png",
                            117, 34, 6, 4, mouth_offset=(3, 3))  # Sunken Grotto of the Deep
