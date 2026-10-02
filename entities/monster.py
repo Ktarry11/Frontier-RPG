@@ -419,13 +419,20 @@ class Monster(StatusEffectMixin):
             "holy": self.holy_resistance,
         }.get(school, 0)
 
-    def take_damage(self, amount, damage_type="physical", attacker_level=None):
+    def take_damage(self, amount, damage_type="physical", attacker_level=None, attacker=None):
         """Apply damage with armor/resist reduction. Returns damage taken.
 
         attacker_level (optional): the level of whatever dealt this damage.
         Applies the same symmetric level-difference multiplier as
         Character.take_damage, so an overleveled party actually flattens
         low-level content instead of trading evenly with it.
+
+        attacker (optional): accepted for call-signature parity with
+        Character.take_damage (combat/abilities.py calls take_damage
+        uniformly across target types - Character, Monster, Pet - and
+        passes attacker= for Character's absorb-shield bookkeeping).
+        Monster has no use for it, just needs to accept it without
+        crashing.
         """
         from combat.status_effects import DamageSchool
 

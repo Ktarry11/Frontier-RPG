@@ -214,7 +214,11 @@ class Pet(StatusEffectMixin):
     def is_alive(self):
         return self.current_health > 0
 
-    def take_damage(self, amount, damage_type="physical", attacker_level=None):
+    def take_damage(self, amount, damage_type="physical", attacker_level=None, attacker=None):
+        # attacker accepted for call-signature parity with
+        # Character.take_damage - see Monster.take_damage's docstring for
+        # why (combat/abilities.py calls this uniformly across target
+        # types). Pet doesn't use it either.
         from entities.character import Character
         if damage_type == "physical":
             reduction = Character.mitigation_from(self.armor)
