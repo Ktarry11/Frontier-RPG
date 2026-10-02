@@ -15,7 +15,8 @@ class Item:
                  required_level=1, sell_price=0, flavor_text="",
                  set_id=None, sockets=None, enchant_id=None,
                  weapon_damage_min=0, weapon_damage_max=0, attack_speed=0.0,
-                 block_value=0, bag_capacity=0, icon_id=None):
+                 block_value=0, bag_capacity=0, icon_id=None,
+                 is_crafted=False, crafting_material=None):
         self.item_id = item_id
         self.name = name
         self.slot = slot  # e.g. "chest", "main_hand", "ring1", "bag1"-"bag4"
@@ -71,6 +72,33 @@ class Item:
         self.set_id = set_id
         self.sockets = sockets or []
         self.enchant_id = enchant_id
+
+        # True only for items produced by a real crafting profession
+        # (Blacksmithing, Oct 2026 - Kyle: "I will want to massively
+        # expand crafting"). Gates upgrade kits (world/upgrade_manager.py):
+        # Kyle's explicit call - "Only crafted" - upgrade kits work on
+        # Blacksmithed gear, not procedural drops or quest rewards, even
+        # though those can also roll the same rarity tiers. Defaults
+        # False so every existing item (procedural loot, hand-authored
+        # unique_item_defs, bags) is correctly "not upgradeable" without
+        # needing to touch any of those call sites.
+        self.is_crafted = is_crafted
+
+        # Which material TIER this item was crafted from (e.g. "copper",
+        # "bronze", "silver") - None for anything not crafted. Kyle
+        # corrected the upgrade-kit design (Oct 2026) after seeing the
+        # first version: "You use the same kit twice. Like copper kit
+        # only upgrades copper stuff. If I make armor with a certain
+        # type of cloth, we use that kit to upgrade it." - so a kit is
+        # tied to the MATERIAL an item was made from, not to a specific
+        # rarity jump, and this is the tag that match is made against
+        # (world/upgrade_manager.py). Set by each crafting profession's
+        # manager at craft time (e.g. BlacksmithingManager reads it off
+        # the recipe's own output spec), never inferred from item_level
+        # or rarity - a Tailoring "linen" item and a Blacksmithing
+        # "copper" item could easily share the same item_level/rarity
+        # while needing completely different kits.
+        self.crafting_material = crafting_material
 
     def get_dps(self):
         """Damage per second for weapons. Returns 0 for non-weapons/shields.
@@ -144,6 +172,8 @@ class Item:
             "set_id": self.set_id,
             "sockets": self.sockets,
             "enchant_id": self.enchant_id,
+            "is_crafted": self.is_crafted,
+            "crafting_material": self.crafting_material,
         }
 
     @classmethod
@@ -173,6 +203,8 @@ class Item:
             set_id=data.get("set_id"),
             sockets=data.get("sockets", []),
             enchant_id=data.get("enchant_id"),
+            is_crafted=data.get("is_crafted", False),
+            crafting_material=data.get("crafting_material"),
         )
 
     def __repr__(self):

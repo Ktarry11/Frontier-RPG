@@ -23,6 +23,8 @@ from ui.screens.base_screen import BaseScreen
 from ui.sprite_loader import get_tile_sprite
 from world.gathering_manager import TIER_SKILL_CAPS, MATERIAL_TYPE_FOLDERS, get_gathering_node_manager
 from world.smelting_manager import get_smelting_manager
+from world.blacksmithing_manager import get_blacksmithing_manager
+from world.upgrade_manager import get_kit_for_item, can_upgrade, upgrade_item, next_rarity_for
 
 
 #: Display order and label for each known gathering profession. A
@@ -58,15 +60,48 @@ class ProfessionsScreen(BaseScreen):
         self.return_state = GameState.OVERWORLD
 
         self.active_tab = "overview"
-        self.overview_tab_button = pygame.Rect(SCREEN_WIDTH - 420, 20, 130, 36)
-        self.smelting_tab_button = pygame.Rect(SCREEN_WIDTH - 280, 20, 130, 36)
+        self.overview_tab_button = pygame.Rect(SCREEN_WIDTH - 720, 20, 120, 36)
+        self.smelting_tab_button = pygame.Rect(SCREEN_WIDTH - 590, 20, 120, 36)
+        self.blacksmithing_tab_button = pygame.Rect(SCREEN_WIDTH - 460, 20, 150, 36)
+        #: Upgrade Kit tab - deliberately NOT tied to Blacksmithing, even
+        #: though Blacksmithing is the only profession that exists today.
+        #: Kyle, Oct 2026: "This will be for every crafting thing too.
+        #: Leather worker, tailor, etc." - every future crafting
+        #: profession will craft its OWN kits the same way (Kyle's
+        #: earlier "all crafters will craft their upgrade kits" rule),
+        #: and a crafted Leatherworked/Tailored item is just as eligible
+        #: as a crafted Blacksmithed one (upgrade_manager.py's own
+        #: can_upgrade/get_kit_for_item never check which profession made
+        #: the item, only item.is_crafted + its current rarity) - so this
+        #: lives as its own tab, scanning the ENTIRE inventory for any
+        #: crafted+eligible item, rather than being folded into
+        #: Blacksmithing's tab where it would need rebuilding the moment
+        #: a second crafting profession ships.
+        self.upgrade_tab_button = pygame.Rect(SCREEN_WIDTH - 300, 20, 130, 36)
 
         self.smelting_manager = get_smelting_manager()
+        self.blacksmithing_manager = get_blacksmithing_manager()
         self.gathering_manager = get_gathering_node_manager()
         self.smelt_message = None
         self.smelt_message_color = (140, 220, 160)
         self.smelt_message_timer = 0.0
         self.recipe_rects = []  # index-aligned to the recipe list currently rendered
+        self.craft_message = None
+        self.craft_message_color = (140, 220, 160)
+        self.craft_message_timer = 0.0
+        self.craft_recipe_rects = []  # index-aligned to blacksmithing's own recipe list
+
+        #: Upgrade tab state. selected_upgrade_item is the inventory Item
+        #: currently chosen to upgrade (None = no selection yet); clicking
+        #: a kit button while an eligible item is selected applies it.
+        #: Index-aligned rect lists rebuilt every render, same convention
+        #: as recipe_rects/craft_recipe_rects above.
+        self.selected_upgrade_item = None
+        self.upgrade_item_rects = []  # eligible crafted items in the bag
+        self.upgrade_kit_button_rects = []  # one rect per kit the player holds that fits the selected item
+        self.upgrade_message = None
+        self.upgrade_message_color = (140, 220, 160)
+        self.upgrade_message_timer = 0.0
 
     def set_subject(self, character, return_state=None):
         """Point the screen at a character (party screen uses this) -
@@ -112,10 +147,35 @@ class ProfessionsScreen(BaseScreen):
             if self.smelting_tab_button.collidepoint(event.pos):
                 self.active_tab = "smelting"
                 return
+            if self.blacksmithing_tab_button.collidepoint(event.pos):
+                self.active_tab = "blacksmithing"
+                return
+            if self.upgrade_tab_button.collidepoint(event.pos):
+                self.active_tab = "upgrade"
+                self.selected_upgrade_item = None
+                return
             if self.active_tab == "smelting":
                 for i, rect in enumerate(self.recipe_rects):
                     if rect.collidepoint(event.pos):
                         self._attempt_smelt(i)
+                        return
+            if self.active_tab == "blacksmithing":
+                for i, rect in enumerate(self.craft_recipe_rects):
+                    if rect.collidepoint(event.pos):
+                        self._attempt_craft(i)
+                        return
+            if self.active_tab == "upgrade":
+                for item, rect in self.upgrade_item_rects:
+                    if rect.collidepoint(event.pos):
+                        # Re-clicking the already-selected item deselects
+                        # it - a cheap toggle so there's always a way back
+                        # to the "pick an item" state without a separate
+                        # Cancel button.
+                        self.selected_upgrade_item = None if self.selected_upgrade_item is item else item
+                        return
+                for kit_id, rect in self.upgrade_kit_button_rects:
+                    if rect.collidepoint(event.pos):
+                        self._attempt_upgrade(kit_id)
                         return
 
     def _attempt_smelt(self, recipe_index):
@@ -147,17 +207,95 @@ class ProfessionsScreen(BaseScreen):
             self.smelt_message_color = (140, 220, 160)
             self.smelt_message_timer = 3.0
 
+    def _attempt_craft(self, recipe_index):
+        """Craft the Blacksmithing recipe at recipe_index. Real WoW
+        Blacksmithing has no location requirement (unlike Smelting's
+        real "only at a Forge" rule) - no _at_forge()-equivalent check
+        here, matching this project's "what did WoW do?" north star.
+        Always the PLAYER's own materials/skill, same reasoning as
+        _attempt_smelt."""
+        player = self.state_manager.player
+        available = self.blacksmithing_manager.available_recipes(player)
+        recipe_ids = list(available.keys())
+        if recipe_index >= len(recipe_ids):
+            return
+        recipe_id = recipe_ids[recipe_index]
+
+        result = self.blacksmithing_manager.craft(player, recipe_id)
+        if result is None:
+            # can_craft already distinguishes "missing bars" from "bag
+            # full" internally, but craft() itself only returns None for
+            # either - re-check here just for the message, same
+            # "friendlier message, same underlying gate" pattern as
+            # _attempt_smelt's single generic failure string.
+            if len(player.inventory) >= player.inventory_capacity:
+                self.craft_message = "Your bags are full."
+            else:
+                self.craft_message = "Missing materials for that recipe."
+            self.craft_message_color = (240, 140, 140)
+            self.craft_message_timer = 3.0
+        else:
+            self.craft_message = f"Crafted {result.name}."
+            self.craft_message_color = (140, 220, 160)
+            self.craft_message_timer = 3.0
+
+    def _attempt_upgrade(self, kit_material_id):
+        """Apply kit_material_id to self.selected_upgrade_item. Always the
+        PLAYER's own bag/materials, same "it's always the player acting"
+        reasoning as _attempt_smelt/_attempt_craft - this tab is never
+        shown for a companion subject in the first place (see
+        _render_upgrade_tab), so there's no viewed-subject ambiguity to
+        guard against here the way _at_forge has to.
+
+        upgrade_item() re-checks can_upgrade() itself and guarantees the
+        kit is never consumed on failure, so this method doesn't need to
+        duplicate that check - it only needs to turn the result into a
+        message, same division of responsibility as _attempt_craft."""
+        player = self.state_manager.player
+        item = self.selected_upgrade_item
+        if item is None:
+            return
+
+        result = upgrade_item(player, item, kit_material_id)
+        if result is None:
+            self.upgrade_message = "That kit doesn't fit this item."
+            self.upgrade_message_color = (240, 140, 140)
+            self.upgrade_message_timer = 3.0
+        else:
+            self.upgrade_message = f"{result.name} upgraded to {result.rarity.title()}!"
+            self.upgrade_message_color = (140, 220, 160)
+            self.upgrade_message_timer = 3.0
+            # The item's own rarity just changed, so it may no longer be
+            # eligible for the kit tier just used (or any kit, if maxed
+            # out) - clear the selection rather than leaving a stale
+            # reference pointing at an item that might not even still
+            # list a kit button under it next render.
+            self.selected_upgrade_item = None
+
     def update(self, dt):
         if self.smelt_message_timer > 0:
             self.smelt_message_timer -= dt
             if self.smelt_message_timer <= 0:
                 self.smelt_message = None
+        if self.craft_message_timer > 0:
+            self.craft_message_timer -= dt
+            if self.craft_message_timer <= 0:
+                self.craft_message = None
+        if self.upgrade_message_timer > 0:
+            self.upgrade_message_timer -= dt
+            if self.upgrade_message_timer <= 0:
+                self.upgrade_message = None
 
     def render(self, screen):
         subject = self._get_subject()
 
         player = self.state_manager.player
-        base_title = "PROFESSIONS" if self.active_tab == "overview" else "SMELTING"
+        base_title = {
+            "overview": "PROFESSIONS",
+            "smelting": "SMELTING",
+            "blacksmithing": "BLACKSMITHING",
+            "upgrade": "UPGRADE GEAR",
+        }.get(self.active_tab, "PROFESSIONS")
         if subject is player:
             title = base_title
         else:
@@ -173,9 +311,27 @@ class ProfessionsScreen(BaseScreen):
         self.renderer.draw_rect(screen, self.smelting_tab_button, (35, 35, 40))
         self.renderer.draw_rect(screen, self.smelting_tab_button, smelting_color, fill=False)
         self.renderer.draw_text(screen, "Smelting", (self.smelting_tab_button.x + 22, self.smelting_tab_button.y + 9), color=smelting_color)
+        blacksmithing_color = COLOR_GOLD if self.active_tab == "blacksmithing" else (90, 90, 95)
+        self.renderer.draw_rect(screen, self.blacksmithing_tab_button, (35, 35, 40))
+        self.renderer.draw_rect(screen, self.blacksmithing_tab_button, blacksmithing_color, fill=False)
+        self.renderer.draw_text(screen, "Blacksmithing", (self.blacksmithing_tab_button.x + 12, self.blacksmithing_tab_button.y + 9), color=blacksmithing_color)
+        upgrade_color = COLOR_GOLD if self.active_tab == "upgrade" else (90, 90, 95)
+        self.renderer.draw_rect(screen, self.upgrade_tab_button, (35, 35, 40))
+        self.renderer.draw_rect(screen, self.upgrade_tab_button, upgrade_color, fill=False)
+        self.renderer.draw_text(screen, "Upgrade", (self.upgrade_tab_button.x + 24, self.upgrade_tab_button.y + 9), color=upgrade_color)
 
         if self.active_tab == "smelting":
             self._render_smelting_tab(screen)
+            self.renderer.draw_button(screen, self.close_button, "Close")
+            return
+
+        if self.active_tab == "blacksmithing":
+            self._render_blacksmithing_tab(screen)
+            self.renderer.draw_button(screen, self.close_button, "Close")
+            return
+
+        if self.active_tab == "upgrade":
+            self._render_upgrade_tab(screen)
             self.renderer.draw_button(screen, self.close_button, "Close")
             return
 
@@ -285,6 +441,175 @@ class ProfessionsScreen(BaseScreen):
     def _draw_smelt_message(self, screen):
         if self.smelt_message:
             self.renderer.draw_text(screen, self.smelt_message, (PANEL_X, SCREEN_HEIGHT - 60), color=self.smelt_message_color)
+
+    def _render_blacksmithing_tab(self, screen):
+        """Recipe list for Blacksmithing - same row shape as
+        _render_smelting_tab, with two real differences: no Forge
+        requirement (real WoW Blacksmithing can be crafted anywhere,
+        unlike Smelting - see _attempt_craft's own docstring), and a
+        recipe's display name/inputs come from the recipe dict itself
+        (recipe["name"], e.g. "Copper Bracers") rather than looking up an
+        output material's name - a Blacksmithing recipe's OUTPUT is
+        either a freshly-generated Item (no material def exists for it)
+        or an upgrade-kit Material (whose def does exist, but the
+        recipe's own authored name is used for consistency with the item
+        recipes rather than branching the label lookup by output kind)."""
+        player = self.state_manager.player
+        available = self.blacksmithing_manager.available_recipes(player)
+        self.craft_recipe_rects = []
+
+        if not available:
+            self.renderer.draw_text(screen, "No Blacksmithing recipes known yet.",
+                                    (PANEL_X, PANEL_Y), color=(150, 150, 150))
+            self._draw_craft_message(screen)
+            return
+
+        y = PANEL_Y
+        row_h = 56
+        for recipe_id, recipe in available.items():
+            name = recipe["name"]
+
+            rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH, row_h - 8)
+            can_craft = self.blacksmithing_manager.can_craft(player, recipe_id)
+            border_color = (140, 220, 160) if can_craft else (100, 100, 100)
+            self.renderer.draw_rect(screen, rect, (30, 30, 35))
+            self.renderer.draw_rect(screen, rect, border_color, fill=False)
+
+            # Real bar icons (same MATERIAL_TYPE_FOLDERS/gathering_manager
+            # lookup smelting uses) - every current recipe's FIRST input
+            # is always a bar, so this draws that bar's icon as a stand-in
+            # for the recipe itself (there's no icon art for the output
+            # gear/kit yet - procedural items render as rarity-colored
+            # boxes elsewhere in the UI, not real sprites).
+            icon_drawn = False
+            first_input_id = next(iter(recipe["inputs"]), None)
+            input_def = self.gathering_manager.get_material_def(first_input_id) if first_input_id else None
+            if input_def and input_def.get("icon_id"):
+                folder = MATERIAL_TYPE_FOLDERS.get(input_def["material_type"], input_def["material_type"])
+                sprite = get_tile_sprite(f"assets/gathering_nodes/{folder}/{input_def['icon_id']}.png", (0, 0, 32, 32), 40)
+                if sprite is not None:
+                    screen.blit(sprite, (rect.x + 8, rect.y + 8))
+                    icon_drawn = True
+
+            text_x = rect.x + (56 if icon_drawn else 12)
+            input_parts = []
+            for input_id, qty in recipe["inputs"].items():
+                mat_def = self.gathering_manager.get_material_def(input_id)
+                input_name = mat_def["name"] if mat_def else input_id
+                have = player.get_material_quantity(input_id)
+                input_parts.append(f"{input_name} {have}/{qty}")
+            input_line = "   ".join(input_parts)
+
+            self.renderer.draw_text(screen, name, (text_x, rect.y + 6), color=COLOR_WHITE)
+            self.renderer.draw_text(screen, input_line, (text_x, rect.y + 26), size="small", color=COLOR_LIGHT_GRAY)
+
+            self.craft_recipe_rects.append(rect)
+            y += row_h
+
+        self._draw_craft_message(screen)
+
+    def _draw_craft_message(self, screen):
+        if self.craft_message:
+            self.renderer.draw_text(screen, self.craft_message, (PANEL_X, SCREEN_HEIGHT - 60), color=self.craft_message_color)
+
+    def _render_upgrade_tab(self, screen):
+        """Profession-agnostic Upgrade Kit screen (Kyle, Oct 2026: "This
+        will be for every crafting thing too. Leather worker, tailor,
+        etc.") - scans the PLAYER's entire bag for crafted+eligible
+        items rather than anything Blacksmithing-specific, so it needs no
+        rework when a second crafting profession ships. Always the
+        player's own bag (never a viewed companion's - this tab's
+        button/content ignores self.subject entirely, same "upgrading is
+        a player action" reasoning _attempt_smelt/_attempt_craft already
+        use for crafting itself).
+
+        Two-step flow: click an eligible item on the left to select it
+        (stored in self.selected_upgrade_item), which reveals the one
+        kit button that actually fits its current rarity on the right
+        (get_kit_for_item already returns at most one match - there's
+        never a choice to make between competing kits, so this never
+        needs to show kits that don't apply)."""
+        player = self.state_manager.player
+        self.upgrade_item_rects = []
+        self.upgrade_kit_button_rects = []
+
+        eligible = [item for item in player.inventory if getattr(item, "is_crafted", False) and get_kit_for_item(item) is not None]
+
+        if not eligible:
+            self.renderer.draw_text(
+                screen,
+                "No crafted gear is eligible for an upgrade right now.",
+                (PANEL_X, PANEL_Y), color=(150, 150, 150))
+            self.renderer.draw_text(
+                screen,
+                "Craft gear from a profession (e.g. Blacksmithing) first - only crafted items can be upgraded.",
+                (PANEL_X, PANEL_Y + 28), size="small", color=(120, 120, 120))
+            self._draw_upgrade_message(screen)
+            return
+
+        list_width = 420
+        self.renderer.draw_text(screen, "ELIGIBLE ITEMS", (PANEL_X, PANEL_Y), color=COLOR_GOLD)
+        y = PANEL_Y + 32
+        row_h = 48
+        for item in eligible:
+            rect = pygame.Rect(PANEL_X, y, list_width, row_h - 8)
+            selected = item is self.selected_upgrade_item
+            border_color = COLOR_GOLD if selected else (100, 100, 100)
+            self.renderer.draw_rect(screen, rect, (30, 30, 35))
+            self.renderer.draw_rect(screen, rect, border_color, fill=False)
+            self.renderer.draw_text(screen, item.name, (rect.x + 10, rect.y + 6), color=COLOR_WHITE)
+            self.renderer.draw_text(screen, item.rarity.title(), (rect.x + 10, rect.y + 24), size="small", color=COLOR_LIGHT_GRAY)
+            self.upgrade_item_rects.append((item, rect))
+            y += row_h
+
+        # ---- Right-hand panel: the kit (singular) that fits the
+        # currently-selected item, or a prompt to pick one ----
+        panel_x = PANEL_X + list_width + 40
+        self.renderer.draw_text(screen, "APPLY KIT", (panel_x, PANEL_Y), color=COLOR_GOLD)
+
+        if self.selected_upgrade_item is None:
+            self.renderer.draw_text(screen, "Select an item on the left.",
+                                    (panel_x, PANEL_Y + 32), color=(150, 150, 150))
+            self._draw_upgrade_message(screen)
+            return
+
+        item = self.selected_upgrade_item
+        kit_id = get_kit_for_item(item)
+        if kit_id is None:
+            # Can genuinely happen here even though `item` came from the
+            # eligible list above: an earlier upgrade this same render
+            # pass... can't actually change rarity mid-render, but a kit
+            # could be at max tier already if selected right after a
+            # successful upgrade cleared selection elsewhere - defensive,
+            # not expected in practice since selection is cleared on
+            # every successful upgrade (_attempt_upgrade).
+            self.renderer.draw_text(screen, f"{item.name} is already at its maximum upgrade tier.",
+                                    (panel_x, PANEL_Y + 32), color=(150, 150, 150))
+            self._draw_upgrade_message(screen)
+            return
+
+        from_rarity = item.rarity
+        to_rarity = next_rarity_for(from_rarity)
+        have_qty = player.get_material_quantity(kit_id)
+        kit_name = kit_id.replace("upgrade_kit_", "").title() + " Upgrade Kit"
+
+        rect = pygame.Rect(panel_x, PANEL_Y + 32, 360, 64)
+        can_apply = have_qty >= 1
+        border_color = (140, 220, 160) if can_apply else (100, 100, 100)
+        self.renderer.draw_rect(screen, rect, (30, 30, 35))
+        self.renderer.draw_rect(screen, rect, border_color, fill=False)
+        self.renderer.draw_text(screen, kit_name, (rect.x + 10, rect.y + 8), color=COLOR_WHITE)
+        self.renderer.draw_text(
+            screen,
+            f"{from_rarity.title()} -> {to_rarity.title()}   (have {have_qty})",
+            (rect.x + 10, rect.y + 32), size="small", color=COLOR_LIGHT_GRAY)
+        self.upgrade_kit_button_rects.append((kit_id, rect))
+
+        self._draw_upgrade_message(screen)
+
+    def _draw_upgrade_message(self, screen):
+        if self.upgrade_message:
+            self.renderer.draw_text(screen, self.upgrade_message, (PANEL_X, SCREEN_HEIGHT - 60), color=self.upgrade_message_color)
 
     def _render_profession_bar(self, screen, prof_key, label, current_skill, y):
         """One profession's row: label, current/cap numbers, and a real

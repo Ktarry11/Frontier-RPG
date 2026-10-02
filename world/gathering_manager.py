@@ -362,6 +362,14 @@ MATERIAL_TYPE_FOLDERS = {
     "ore": "ore",
     "herb": "herbs",
     "bar": "bars",
+    # No real sprite art exists for upgrade kits yet (Oct 2026,
+    # Blacksmithing's upgrade_kit_copper/upgrade_kit_silver) - mapped here
+    # anyway so the lookup has a defined destination the moment art is
+    # added, rather than silently falling back to "upgrade_kit" as a
+    # folder name (the .get() fallback elsewhere in this codebase doesn't
+    # crash on a missing folder, but a real entry here is one less thing
+    # to remember to add later).
+    "upgrade_kit": "upgrade_kits",
 }
 
 #: Skill cap per profession TIER, not an absolute profession cap - "early"

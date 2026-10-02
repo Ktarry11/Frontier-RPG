@@ -353,6 +353,30 @@
         85,
         100
       ]
+    },
+    "upgrade_kit_copper": {
+      "name": "Copper Upgrade Kit",
+      "material_type": "upgrade_kit",
+      "profession": "blacksmithing",
+      "tier": "kit",
+      "description": "A set of fine tools and polish, used to refine any Copper-tier crafted item up one rarity rank. Only works on Blacksmithed Copper gear.",
+      "stack_limit": 20,
+      "sell_price": 15,
+      "icon_id": "upgrade_kit_copper",
+      "skill_range": null,
+      "_source": "Kyle, Oct 2026: 'crafting upgrade kits..like a copper upgrade kit let's me upgrade a normal item from normal to improved to refined which boosts stats' - refined into 'white will improve to green with kits, green to blue' (reusing the existing rarity ladder rather than a new tier system) + 'only crafted' (gated to is_crafted items). Later corrected again: 'You use the same kit twice. Like copper kit only upgrades copper stuff' - a kit matches an item by its material_tier tag (entities/item.py, world/upgrade_manager.py), not by a fixed rarity jump, and the SAME Copper kit is used again for the item's next rank once more copper gear exists past Rare. skill_range is null (not a gathered material, never greys out/has nothing to teach - no skill-up relevance at all)."
+    },
+    "upgrade_kit_bronze": {
+      "name": "Bronze Upgrade Kit",
+      "material_type": "upgrade_kit",
+      "profession": "blacksmithing",
+      "tier": "kit",
+      "description": "A costlier set of tools built for working Bronze, used to refine any Bronze-tier crafted item up one rarity rank. Only works on Blacksmithed Bronze gear.",
+      "stack_limit": 20,
+      "sell_price": 35,
+      "icon_id": "upgrade_kit_bronze",
+      "skill_range": null,
+      "_source": "Replaces an earlier, incorrect 'Silver Upgrade Kit' (tied to a fixed common->uncommon/uncommon->rare JUMP rather than a material) after Kyle's correction above. Bronze is the only other material_tier real gear exists for right now (Rough Bronze Cuirass/Leggings - data/blacksmithing/recipes.json); a Silver kit has nothing to target since no recipe produces Silver-tier gear yet. Kyle, Oct 2026: 'let's just start with copper and bronze to lvl 75 to test the system' (40 total ores/herbs exist, more material tiers of both kits and gear are coming later - this is deliberately scoped to just the two tiers that already have real recipes). Costs 35 (vs Copper's 15) reflecting 'the cost grows the higher rank materials.'"
     }
   }
 }

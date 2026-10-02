@@ -1,0 +1,100 @@
+{
+  "_comment": "Blacksmithing recipes - the first real crafting profession (Oct 2026, following Smelting/Mining and Herbalism). Unlike Smelting (ore->bar, guaranteed success, shares Mining's skill number), Blacksmithing is its OWN real WoW profession with its own skill track (Character.profession_skills['blacksmithing']), consuming the BARS Smelting already produces. Recipe NAMES and skill_required values are real, confirmed WoW Classic Blacksmithing patterns (web search, Oct 2026, warcraft.wiki.gg's Classic blacksmithing plans page) - deliberately restricted to the subset of real recipes that use ONLY bars as reagents (no Weak Flux/Linen Cloth/Light Leather/grinding stones - none of those material types exist in this engine yet), rather than inventing recipe names or forcing a partial/fake version of a real multi-reagent recipe. 'output' is NOT a material_id (see smelting_recipes.json) - it's a spec describing a real equippable Item to generate via entities/loot_generator.py's generate_armor_piece/generate_weapon, so crafted gear reuses the game's real stat-budget math rather than hand-picked numbers. item_level/rarity/slot/armor_type (or weapon_type)/stat_template are fixed per recipe, matching how a real pattern always makes the same named item. Every output gets is_crafted=true (see world/blacksmithing_manager.py) - Kyle's explicit call: upgrade kits only work on Blacksmithed gear, not procedural drops or quest rewards even at the same rarity. item_level values are this engine's own estimate (real WoW doesn't assign a single item_level the way this engine's loot generator needs one) picked to roughly track each recipe's real skill_required tier. Every armor/weapon output ALSO carries 'material_tier' (e.g. 'copper', 'bronze') - Kyle's Oct 2026 correction to the upgrade-kit design: 'You use the same kit twice. Like copper kit only upgrades copper stuff' - a kit matches an item by this tag (world/upgrade_manager.py), not by the item's rarity.",
+  "recipes": {
+    "blacksmith_copper_bracers": {
+      "name": "Copper Bracers",
+      "inputs": { "bar_copper": 2 },
+      "skill_required": 0,
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 3,
+        "rarity": "common",
+        "material_tier": "copper"
+      },
+      "_source": "Real WoW Classic Blacksmithing's actual first recipe, taught at skill 1: '2x Copper Bar', no other reagents (confirmed via warcraft.wiki.gg's Classic blacksmithing plans page, Oct 2026 web search)."
+    },
+    "blacksmith_rough_copper_vest": {
+      "name": "Rough Copper Vest",
+      "inputs": { "bar_copper": 4 },
+      "skill_required": 15,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 6,
+        "rarity": "common",
+        "material_tier": "copper"
+      },
+      "_source": "Real WoW Classic recipe, taught at skill 15: '4x Copper Bar', no other reagents (confirmed via warcraft.wiki.gg, Oct 2026)."
+    },
+    "blacksmith_copper_chain_belt": {
+      "name": "Copper Chain Belt",
+      "inputs": { "bar_copper": 6 },
+      "skill_required": 35,
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 10,
+        "rarity": "common",
+        "material_tier": "copper"
+      },
+      "_source": "Real WoW Classic recipe, taught at skill 35: '6x Copper Bar', no other reagents (confirmed via warcraft.wiki.gg, Oct 2026)."
+    },
+    "blacksmith_rough_bronze_cuirass": {
+      "name": "Rough Bronze Cuirass",
+      "inputs": { "bar_bronze": 7 },
+      "skill_required": 104,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "_source": "Real WoW Classic recipe, taught at skill 104: '7x Bronze Bar', no other reagents (confirmed via warcraft.wiki.gg, Oct 2026). Bronze Bar is itself a real two-step Smelting recipe (Copper Bar + Tin Bar, see smelting_recipes.json), so this is this engine's first genuine multi-stage profession chain: ore -> bar -> alloy bar -> gear. Bumped to Plate/Uncommon since this is the profession's first recipe above the flat early tier - real WoW's own skill-104 gate already puts it well past the Copper tier."
+    },
+    "blacksmith_rough_bronze_leggings": {
+      "name": "Rough Bronze Leggings",
+      "inputs": { "bar_bronze": 6 },
+      "skill_required": 105,
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "_source": "Real WoW Classic recipe, taught at skill 105: '6x Bronze Bar', no other reagents (confirmed via warcraft.wiki.gg, Oct 2026)."
+    },
+    "blacksmith_upgrade_kit_copper": {
+      "name": "Copper Upgrade Kit",
+      "inputs": { "bar_copper": 6 },
+      "skill_required": 20,
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_copper"
+      },
+      "_source": "Kyle, Oct 2026: 'All crafters will craft their upgrade kits bro. Normally it'll be slightly more expensive. Like a copper upgrade kit is 6 bars etc.' - 6x Copper Bar, same cost as Copper Chain Belt (the most expensive plain-Copper recipe) since a kit is meant to feel like a real reagent sink, not a throwaway craft. Targets material_tier='copper' items only (world/upgrade_manager.py's MATERIAL_KITS) - per Kyle's correction, this kit works on ANY Copper-tier crafted item regardless of its current rarity, always bumping it exactly one rank. skill_required 20 - above the 3 flat Copper recipes (0/15/35 span) but set independently of them rather than copying Chain Belt's own 35, since kits are their own progression line, not an armor piece."
+    },
+    "blacksmith_upgrade_kit_bronze": {
+      "name": "Bronze Upgrade Kit",
+      "inputs": { "bar_bronze": 7 },
+      "skill_required": 110,
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_bronze"
+      },
+      "_source": "Replaces an earlier, incorrect 'Silver Upgrade Kit' design (a kit tied to a fixed rarity JUMP rather than a material) - Kyle corrected this, Oct 2026: 'You use the same kit twice. Like copper kit only upgrades copper stuff. If I make armor with a certain type of cloth, we use that kit to upgrade it.' Bronze is the only OTHER material_tier gear actually exists for right now (Rough Bronze Cuirass/Leggings) - a Silver kit would have nothing to target since no recipe produces Silver-tier gear yet, so it's dropped rather than built unused. Cost (7x Bronze Bar) matches the pricier Bronze Cuirass recipe, reflecting Kyle's 'the cost grows the higher rank materials' - Bronze Bar is itself a real two-step alloy, costlier than plain Copper Bar. skill_required 110, just above both Bronze gear recipes (104/105) and the Copper kit's own 20, keeping a real profession-long progression."
+    }
+  }
+}
