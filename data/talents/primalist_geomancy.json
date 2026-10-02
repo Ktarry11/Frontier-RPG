@@ -102,7 +102,7 @@
     {
       "talent_id": "primalist_geomancy_primal_shamans_mask",
       "name": "Primal Shaman's Mask",
-      "description": "Increases Earthquake damage by 6% per rank.",
+      "description": "Increases Quake damage by 6% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 4,
@@ -110,8 +110,9 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_earthquake_damage": 0.06
+        "ability_primalist_quake_damage": 0.06
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_primalist_earthquake_damage - the real ability is primalist_quake ('Quake'), not 'Earthquake'. Found by a full ability-reference sweep across every talent file after 3 similar bugs turned up in Mage/Hunter. _damage is a real, engine-consumed per-ability suffix (Ability._damage_multiplier), so this fix makes the talent fully functional, unlike the radius_pct/threat_pct siblings below.",
       "connected_to": [
         "primalist_geomancy_therazanes_might"
       ]
@@ -275,7 +276,7 @@
     {
       "talent_id": "primalist_geomancy_tectonic_shift",
       "name": "Tectonic Shift",
-      "description": "Increases Earthquake radius by 8% per rank.",
+      "description": "Increases Quake radius by 8% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -283,8 +284,9 @@
       "hex_x": -6,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_earthquake_radius_pct": 0.08
+        "ability_primalist_quake_radius_pct": 0.08
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_primalist_earthquake_radius_pct - the real ability is primalist_quake ('Quake'). Retargeted the ability_id, but left as a genuinely inert key like this: _radius_pct is not one of the engine's real per-ability talent suffixes (only _cost/_cooldown/_damage/_potency are read anywhere in Ability, see combat/abilities.py) and this engine has no positional/range system at all (same documented gap as ranged_ability_range in claude/balance_pass_buffs_cc_stats.md) - Quake already hits every present enemy via target_type=enemy_aoe regardless of a 'radius', so a radius increase has no real mechanic to attach to. Harmless, does nothing, same 'left inert, not silently broken' category as that doc's other one-off gaps.",
       "connected_to": [
         "primalist_geomancy_primal_shamans_mask"
       ]

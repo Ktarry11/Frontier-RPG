@@ -76,8 +76,9 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_invigorating_surge_cooldown": -1
+        "ability_stormbringer_invigorating_surge_cooldown": 1
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep (Stormbringer x2 more, Tinker x2). Note left unfixed: the description's 'at rank 2' phrasing implies a non-linear threshold effect (rank 1 does nothing, only rank 2 grants the reduction), but TalentNode.get_effective_effects scales every numeric effect linearly by points_spent - this talent's actual in-game behavior is a flat 1-turn reduction per rank (2 turns at rank 2), not the stated threshold behavior. Flagged, not silently redesigned - fixing the threshold behavior would need new per-talent scaling logic, out of scope for a sign-bug fix.",
       "connected_to": [
         "stormbringer_wind_nimbus"
       ]
@@ -163,8 +164,9 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "ability_stormbringer_freewind_cooldown": -1
+        "ability_stormbringer_freewind_cooldown": 1
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
       "connected_to": [
         "stormbringer_wind_tailwind",
         "stormbringer_wind_unrelenting_winds"
@@ -407,8 +409,9 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_stormbringer_raging_zephyr_cooldown": -1
+        "ability_stormbringer_raging_zephyr_cooldown": 1
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
       "connected_to": [
         "stormbringer_wind_tailwind"
       ]

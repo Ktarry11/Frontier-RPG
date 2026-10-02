@@ -220,7 +220,8 @@
       "duration": 1,
       "stat_mods": {},
       "description": "Throw a bomb that sticks to the enemy for 5 sec. At the end of the duration the bomb explodes, dealing 20 Fire damage to the target and 4 enemies within 8 yds of the target.",
-      "_source": "Real screenshot: Requires Level 4. Demolition leveling sequence.",
+      "_source": "Real screenshot: Requires Level 4. Demolition leveling sequence. Fixed during DPS niche audit (Oct 2026): had no target_type at all despite its own tooltip explicitly hitting 'the target and 4 enemies within 8 yds' - same dead-is_aoe-tagging pattern already fixed this session for Spider Bomb/Mechsuit: Combustion. Added target_type=enemy_aoe so the explosion actually hits multiple enemies.",
+      "target_type": "enemy_aoe",
       "ranks": [
         {
           "rank": 1,
@@ -255,6 +256,39 @@
       ],
       "icon_id": null,
       "damage_school": "fire"
+    },
+    {
+      "ability_id": "tinker_defibrillate",
+      "name": "Defibrillate",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shock a fallen ally back to life, restoring a portion of their health.",
+      "_source": "Built during DPS niche audit (Oct 2026): the Invention talent 'Cybernetic Revival' ('Reduces the cooldown of Defibrillate by 1 turn per rank') pointed at this ability by name, but it never existed anywhere in this file - a genuine missing-content gap, not a typo like the Quake/Earthquake cases fixed in the same pass. Built using the real revive effect_type (combat/abilities.py) added earlier this session for Venomancer's Unyielding Will, which had no ability using it yet. Thematically apt: a defibrillator revives the dying in real life, same as this engine's revive mechanic. Baseline (not requires_talent), same reasoning as Hunter's Arcane Shot fix - 'Cybernetic Revival' (a cooldown-reduction talent, not an unlock_ability talent) implies Defibrillate already exists as a trained spell, not something the talent itself grants.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 40,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 55,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 70,
+          "effect_value": 65
+        }
+      ],
+      "icon_id": null
     },
     {
       "ability_id": "tinker_discombobulate",

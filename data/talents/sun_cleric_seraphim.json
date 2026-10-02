@@ -302,13 +302,13 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_sun_cleric_dawnbreak_cooldown_pct": -0.04
+        "ability_sun_cleric_dawnbreak_talent_cooldown_pct": -0.04
       },
       "connected_to": [
         "sun_cleric_seraphim_sun_touched_armor",
         "sun_cleric_seraphim_dawnbreak"
       ],
-      "_source": "CoA handoff doc confirmed: 'Level 20 Passive. Reduces Gavel of Light/Horusath Blast/Dawnbreak cooldowns.'"
+      "_source": "CoA handoff doc confirmed: 'Level 20 Passive. Reduces Gavel of Light/Horusath Blast/Dawnbreak cooldowns.' Partially fixed during DPS niche audit (Oct 2026): the embedded ability_id was missing Dawnbreak's real id suffix - the actual ability is sun_cleric_dawnbreak_talent, not sun_cleric_dawnbreak. Retargeted the reference, but the key's own suffix (_cooldown_pct) is not one of the engine's real per-ability talent suffixes (only _cost/_cooldown/_damage/_potency are read anywhere in Ability, see combat/abilities.py) - a percentage-based cooldown reduction isn't supported at all today, only a flat-turns _cooldown is. This talent also mentions Gavel of Light and Horusath Blast, which this same key can't cover even by name (one key, three abilities) - a real gap beyond this one reference fix, flagged rather than silently built out."
     },
     {
       "talent_id": "sun_cleric_seraphim_dawnbreak",

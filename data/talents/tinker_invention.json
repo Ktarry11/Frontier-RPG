@@ -110,8 +110,9 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_defibrillate_cooldown": -1
+        "ability_tinker_defibrillate_cooldown": 1
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to ability_tinker_defibrillate_cooldown, but no Defibrillate ability ever existed in data/abilities/tinker.json - built it as a real revive-type ability (see tinker_defibrillate's own _source note). Also fixed the stored value's sign: was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
       "connected_to": [
         "tinker_invention_bandage_gun"
       ]

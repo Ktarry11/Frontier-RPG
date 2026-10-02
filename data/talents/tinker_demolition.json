@@ -119,7 +119,7 @@
     {
       "talent_id": "tinker_demolition_rocket_barrage",
       "name": "Rocket Barrage",
-      "description": "Reduces the cooldown of Remote Detonation by 1 turn.",
+      "description": "Reduces the cooldown of Sticky Bomb by 1 turn.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -127,8 +127,9 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_remote_detonation_cooldown": -1
+        "ability_tinker_sticky_bomb_cooldown": 1
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_tinker_remote_detonation_cooldown - no 'Remote Detonation' ability ever existed in data/abilities/tinker.json. Retargeted to Sticky Bomb (sticks to an enemy, detonates after a delay for AoE Fire damage - the closest real match to a 'remote detonation' flavor, and unclaimed by any other talent). Also fixed the stored value's sign: it was -1, which talented_cooldown's formula (cooldown - reduction) actually INCREASES cooldown for a negative reduction - the description says 'reduces,' so this should be +1, same sign-flip fix applied to 4 other talents in this same sweep (Stormbringer x3, Tinker's Cybernetic Revival).",
       "connected_to": [
         "tinker_demolition_sparked_and_ready"
       ]
@@ -137,7 +138,7 @@
     {
       "talent_id": "tinker_demolition_hyperblast_barrage",
       "name": "Hyperblast Barrage",
-      "description": "Increases Remote Detonation damage by 8% per rank.",
+      "description": "Increases Sticky Bomb damage by 8% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -145,8 +146,9 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_remote_detonation_damage": 0.08
+        "ability_tinker_sticky_bomb_damage": 0.08
       },
+      "_source": "Fixed during DPS niche audit (Oct 2026): same nonexistent ability_tinker_remote_detonation_damage as Rocket Barrage above - retargeted to Sticky Bomb for the same reason.",
       "connected_to": [
         "tinker_demolition_bomb_toss",
         "tinker_demolition_build_spider_bomb"
