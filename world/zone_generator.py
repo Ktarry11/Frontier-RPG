@@ -5598,6 +5598,9 @@ def create_all_zones():
     from tools.handbuilt_echo_isles import generate_echo_isles as generate_echo_isles_handbuilt
     from tools.handbuilt_central_barrens import generate_central_barrens as generate_central_barrens_handbuilt
     from tools.handbuilt_southern_barrens import generate_southern_barrens as generate_southern_barrens_handbuilt
+    from tools.handbuilt_crossroads import generate_crossroads as generate_crossroads_handbuilt
+    from tools.handbuilt_camp_taurajo import generate_camp_taurajo as generate_camp_taurajo_handbuilt
+    from tools.handbuilt_ratchet import generate_ratchet as generate_ratchet_handbuilt
     from tools import handbuilt_vot_caves as vot_caves
     from tools import handbuilt_durotar_caves as dcaves
     from tools import handbuilt_echo_caves as ecaves
@@ -5637,7 +5640,7 @@ def create_all_zones():
         "Durotar": generate_durotar_handbuilt(),  # hand-built (tools/handbuilt_durotar.py)
         "Razor Hill": dcaves_razor.generate_razor_hill(),  # hand-built (tools/handbuilt_razor_hill.py)
         "Echo Isles": generate_echo_isles_handbuilt(),  # hand-built (tools/handbuilt_echo_isles.py)
-        "Ratchet": ZoneGenerator.generate_ratchet(),
+        "Ratchet": generate_ratchet_handbuilt(),  # hand-built (tools/handbuilt_ratchet.py)
         "Orgrimmar": dorg.generate_orgrimmar(),  # hand-built (tools/handbuilt_orgrimmar.py)
         "Zeppelin Tower": ZoneGenerator.generate_zeppelin_tower(),
         
@@ -5650,11 +5653,9 @@ def create_all_zones():
         # ===== BARRENS SPLIT (3 zones from 1) =====
         "Northern Barrens": generate_northern_barrens(),
         "Central Barrens": generate_central_barrens_handbuilt(),  # hand-built (tools/handbuilt_central_barrens.py)
-        "Crossroads": generate_crossroads(),
+        "Crossroads": generate_crossroads_handbuilt(),  # hand-built (tools/handbuilt_crossroads.py)
         "Southern Barrens": generate_southern_barrens_handbuilt(),  # hand-built (tools/handbuilt_southern_barrens.py)
-        "Camp Taurajo": ZoneGenerator.generate_camp_taurajo(),  # was never
-        # added to this dict despite the generator existing and the portal
-        # registry pointing at it - the zone was completely unreachable.
+        "Camp Taurajo": generate_camp_taurajo_handbuilt(),  # hand-built (tools/handbuilt_camp_taurajo.py)
         
         # ===== ASHENVALE SPLIT (2 zones) =====
         "Ashenvale West": generate_ashenvale_west(),
