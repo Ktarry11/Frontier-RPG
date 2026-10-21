@@ -20,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from tools.build_durotar_quests import item, kill, fetch   # noqa: E402
+RZ = "razorfen_kraul"
 BS = "the_broodspiral"                                      # dungeon-scoped objectives only count inside it
 
 OUT = ROOT / "data/quests/southern_barrens_hub.json"
@@ -477,6 +478,106 @@ def quests():
          R(23, "Larval-Silk Mantle", "shoulder", "of the Sorcerer", "Pale silk, spun by something that should have been a moth. Cool to the touch.", "cloth"),
          R(23, "Hollow-Edge Spaulders", "shoulder", "of the Elder", "Mail laced with hive-amber. A faint glow when anything ugly gets close.", "mail")],
         xp=1620, gold=5800))
+    # ============== OGGRA, PART TWO: THE KRAUL (Razorfen Kraul dungeon chain; kills only count inside it) ==============
+    # Oggra's thornwatch chain above clears the approach; the Kraul itself is the hill under it (entrance (55,175), south of her post).
+    G = "sb_thornwatch"
+    a(Q("sb_into_the_kraul", "Into the Kraul", G, 25,
+        ("Every thorn on this ridge grows out of the same root, Oggra says, and the root is the Kraul: the quilboar "
+         "hill-warren south of her post, with a mouth of bramble and a throat of boars. She has watched it for four "
+         "winters and it has never looked as busy as this. She wants the gate guard thinned before anything else."),
+        [kill("Razorfen Spearhide", 8, zone=RZ), kill("Razorfen Beast Trainer", 6, zone=RZ)],
+        ("The gate is south of my post, under the thorns. Spearhides at the door, beast trainers just inside. "
+         "Be quick, and keep your back to the wall. The wall is mostly thorn."),
+        ("Eight spears, six whips, and all your fingers. You'll do. Take this. We're going deeper."),
+        [R(25, "Thornwatch Scout's Vest", "chest", "of the Falcon", "Quilted hide with thorn-guards sewn into the shoulders. It smells of the hill and of Oggra's tobacco.", "leather"),
+         R(25, "Bramble-Cutter", "main_hand", "of the Squire", "A short hooked blade for cutting thorn, and, if need be, quilboar.", "axe_1h"),
+         R(25, "Gatekeeper's Bone Ring", "ring", "of the Eagle", "A ring of carved bone. The Spearhide who owned it was no longer using it.")],
+        nxt="sb_seed_and_thorn", xp=1560, gold=5500))
+    a(Q("sb_seed_and_thorn", "Seed and Thorn", G, 26,
+        ("The thorns on the ridge are not wild. The geomancers inside the Kraul seed them, one barbed pod at a time, "
+         "and every pod is a little more hill the quilboar own. Oggra wants six seed-pods for her notes, and the "
+         "geomancers who make them put in the ground."),
+        [kill("Razorfen Geomancer", 6, zone=RZ), fetch("kraul_seed_pod", 6)],
+        ("Geomancers carry the pods, and they are almost always on the ground, working. "
+         "Don't drop them. They go off, in a sense."),
+        ("Six seed-pods. The thorn's spreading faster than I'd feared, and now I can prove it. Take this."),
+        [R(26, "Geomancer's Thorn-Robe", "chest", "of the Sorcerer", "A robe stitched with living briar. Each thorn points away from the wearer, which is considerate.", "cloth"),
+         R(26, "Seedcaller's Wand", "ranged", "of Nature's Wrath", "A wand of dried seed-pod, still faintly warm. It clicks like an awakening plant.", "wand"),
+         R(26, "Root-Bound Gauntlets", "hands", "of the Bear", "Leather bound with root. They hold fast to whatever they grip.", "leather")],
+        nxt="sb_the_vine_bridge", xp=1620, gold=5800))
+    a(Q("sb_the_vine_bridge", "The Vine Bridge", G, 28,
+        ("West of the first fork a rope-and-vine bridge crosses a drop to a platform, and on the platform lives "
+         "Roogug, who has been ordering the hill's warriors about since before Oggra was a ranger. "
+         "He's off the main road, which makes him safe to leave alone. Oggra would rather he were not left alone."),
+        [kill("Razorfen Defender", 6, zone=RZ), boss("Roogug", zone=RZ)],
+        ("The bridge is narrow. Don't fight on it. Wait for them on the platform, and Roogug will come to you. "
+         "He's all muscle and no plan, so use that."),
+        ("Roogug's down. The bridge is quiet, for the first time in my life. Take this, with my thanks."),
+        [R(28, "Bridge-Warden's Vine-Hauberk", "chest", "of the Tiger", "Mail woven through with vine-rope. It creaks when you move and it dares you to climb something.", "mail"),
+         R(28, "Roogug's Cudgel", "main_hand", "of the Champion", "A knotted club with iron studs. It makes a distinct, regrettable sound.", "mace_1h"),
+         R(28, "Platform-Walker's Boots", "feet", "of the Falcon", "Soft leather boots, treaded for narrow places and falling.", "leather")],
+        nxt="sb_two_speakers", xp=1740, gold=6300))
+    a(Q("sb_two_speakers", "Two Speakers", G, 30,
+        ("North of the fork the Kraul splits around the Thorn Court and two chieftains sit at either end of it. "
+         "Aggem Thorncurse, west, who calls the boar-spirits; Death Speaker Jargba, east, who speaks for the dead "
+         "and takes what they say very seriously. Both of them keep the hill's heartbeat. Stop either and it stumbles."),
+        [boss("Aggem Thorncurse", zone=RZ), boss("Death Speaker Jargba", zone=RZ)],
+        ("Both of them, in whichever order you like. Aggem's guards are beast-trainers with boars. "
+         "Jargba's are Death's Head, with hexes. Don't fight both at once, and don't let either one finish a sentence."),
+        ("Both of them! I'd call the hill's spirit broken, but I know better. Take this, and my respect."),
+        [R(30, "Speaker's Hexbound Robes", "chest", "of the Archmage", "Cloth sewn with thorn and prayer-beads. It hums quietly with other people's voices.", "cloth"),
+         R(30, "Boarspirit Greathelm", "head", "of the Defender", "A plate helm with a stylised boar-snout. The tusks are real, which is sad.", "plate"),
+         R(30, "Thorncurse Hunter's Bow", "ranged", "of the Marksman", "A bow of ironwood thorn. It pulls hard and seldom misses.", "bow")],
+        nxt="sb_the_pens_below", xp=1860, gold=6700, span=3))
+    a(Q("sb_the_pens_below", "The Pens Below", G, 32,
+        ("At the centre of the Kraul is the Boar Pens: a corral ring, stalls on every side, and in the middle, "
+         "Overlord Ramtusk, who has been fattening his boars for a war for a decade. Oggra wants the pens broken "
+         "before they open them."),
+        [kill("Thornback Sow", 6, zone=RZ), boss("Overlord Ramtusk", zone=RZ)],
+        ("Sows in the stalls, the Overlord in the ring. The ring has three gaps. Hold the south one and "
+         "they'll come to you. Keep the sows off your back."),
+        ("The Overlord's down and the pens are empty. I'll sleep tonight. Take this, you've earned it."),
+        [R(32, "Boarlord's Tusk-Plate", "chest", "of the Bastion", "Plate grown over a pen-keeper's rib-guard. The tusk-spikes are decoration, mostly.", "plate"),
+         R(32, "Pen-Breaker's Maul", "main_hand", "of the Gladiator", "A two-handed maul with a boar's skull for a head. It hits like a collapsing corral.", "mace_2h"),
+         R(32, "Overlord's Warcloak", "back", "of the Eagle", "A heavy cloak of boar-hide. It rustles and whispers menacing little oaths.", "cloth")],
+        nxt="sb_the_beast_pit", xp=1960, gold=7000))
+    a(Q("sb_the_beast_pit", "The Beast Pit", G, 32,
+        ("From the pens a narrow neck runs north-west, sealed by a ward and held by Ward-Keepers: the Beast Pit, "
+         "where something called Agathelos has been fed on stolen kodo for years. The ward-stones keep it in. "
+         "Take four and the ward falls, and then, Oggra says, you'll want to be ready."),
+        [kill("Razorfen Ward-Keeper", 5, zone=RZ), fetch("ward_seal_stone", 4), boss("Agathelos the Raging", zone=RZ)],
+        ("Ward-Keepers hold the neck. Break the stones, then go in. "
+         "Agathelos is a beast, not a boar. Don't mistake one for the other. It isn't kind."),
+        ("Agathelos is dead and the pit's open to the sun. I hope that rattles Charlga. Take this."),
+        [R(32, "Pit-Warden's Stoneward Shield", "off_hand", "of Blocking", "A shield of warded stone. It still hums with the binding that held the beast.", "shield"),
+         R(32, "Beastcaller's Fang-Dagger", "main_hand", "of the Assassin", "A dagger carved from a beast-pit fang. It likes your hand.", "dagger"),
+         R(32, "Ward-Stone Pendant", "neck", "of the Whale", "A seal-stone pendant, still faintly warm. It dulls the blows you take.")],
+        nxt="sb_razorflank", xp=1980, gold=7100))
+    a(Q("sb_razorflank", "Razorflank", G, 34,
+        ("At the top of the Kraul, on a platform of bones, sits Charlga Razorflank in a hut of thorn and tusk, "
+         "and she has heard the pens fall, and the speakers die. Oggra says the hill's heart is hers. "
+         "Take it, and the thorns will wither by spring."),
+        [kill("Razorfen Totemic", 6, zone=RZ), boss("Charlga Razorflank", zone=RZ)],
+        ("Totemics around her, and she mends them as fast as you cut them. Go for her first if you can. "
+         "The thorns won't forgive you, but they'll stop."),
+        ("Charlga's dead. The Kraul will take a generation to recover, if it does, and the ridge will breathe. "
+         "Take this, with all the thanks a ranger has."),
+        [R(34, "Razorflank's Thornweave Mantle", "shoulder", "of the Physician", "Cloth woven from living briar. It pulses faintly when something nearby needs healing.", "cloth"),
+         R(34, "Chieftain's Thorn-Guard Greaves", "legs", "of the Juggernaut", "Plate legguards edged with thorn. Enemies bleed before they have the sense to run.", "plate"),
+         R(34, "Agamaggan's Boarhide Belt", "waist", "of the Tiger", "A belt of ancient boar-hide, scarred and thick. It makes you feel hunted, and quick.", "leather"),
+         R(34, "Quilboar Queen's Longbow", "ranged", "of the Marksman", "A great bow of quilboar-bone and sinew. It sings when strung.", "bow")],
+        xp=2200, gold=8200, span=3))
+    a(Q("sb_blind_hunter", "The Blind Hunter", G, 29,
+        ("There's a hunter in the western galleries of the Kraul who has been blind for years and still never misses. "
+         "Oggra has lost two scouts to him. She wants him stopped, and the handlers that guide him dead."),
+        [kill("Razorfen Handler", 8, zone=RZ), boss("Blind Hunter", zone=RZ)],
+        ("West gallery, past Aggem's pen. He listens for you. Don't stand still. "
+         "Don't breathe loudly, either, if it comes to that."),
+        ("The hunter's down, and I'll write to the families. Take this, and my thanks."),
+        [R(29, "Listener's Quiver-Coat", "chest", "of the Marksman", "Soft leather, cut for quiet movement. It hushes the sound of your breath, and your boots.", "leather"),
+         R(29, "Hunter's Blind Dagger", "main_hand", "of the Assassin", "A dagger with a handle wrapped in cord to find the grip by feel.", "dagger"),
+         R(29, "Handlers' Bone Amulet", "neck", "of the Eagle", "A bone amulet, strung on sinew. It tingles when something nearby is lying.")],
+        xp=1760, gold=6400))
     return A
 
 

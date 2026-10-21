@@ -2569,6 +2569,692 @@
       ],
       "gear_reward_gear_level": 26,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_into_the_kraul",
+      "title": "Into the Kraul",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 25,
+      "level_max": 27,
+      "description": "Every thorn on this ridge grows out of the same root, Oggra says, and the root is the Kraul: the quilboar hill-warren south of her post, with a mouth of bramble and a throat of boars. She has watched it for four winters and it has never looked as busy as this. She wants the gate guard thinned before anything else.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorfen Spearhide",
+          "count": 8,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "kill",
+          "target": "Razorfen Beast Trainer",
+          "count": 6,
+          "zone": "razorfen_kraul"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 5500,
+      "accept_text": "The gate is south of my post, under the thorns. Spearhides at the door, beast trainers just inside. Be quick, and keep your back to the wall. The wall is mostly thorn.",
+      "turn_in_text": "Eight spears, six whips, and all your fingers. You'll do. Take this. We're going deeper.",
+      "next_quest_id": "sb_seed_and_thorn",
+      "unique_item_defs": [
+        {
+          "name": "Thornwatch Scout's Vest",
+          "slot": "chest",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Quilted hide with thorn-guards sewn into the shoulders. It smells of the hill and of Oggra's tobacco.",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 7
+          },
+          "armor_type": "leather",
+          "armor_value": 54,
+          "label": "Leather Chest (Agi/Int)"
+        },
+        {
+          "name": "Bramble-Cutter",
+          "slot": "main_hand",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "A short hooked blade for cutting thorn, and, if need be, quilboar.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 55,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        },
+        {
+          "name": "Gatekeeper's Bone Ring",
+          "slot": "ring",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "A ring of carved bone. The Spearhide who owned it was no longer using it.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "label": "Ring (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 28,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_seed_and_thorn",
+      "title": "Seed and Thorn",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 26,
+      "level_max": 28,
+      "description": "The thorns on the ridge are not wild. The geomancers inside the Kraul seed them, one barbed pod at a time, and every pod is a little more hill the quilboar own. Oggra wants six seed-pods for her notes, and the geomancers who make them put in the ground.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorfen Geomancer",
+          "count": 6,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "fetch",
+          "target": "kraul_seed_pod",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1620,
+      "reward_gold": 5800,
+      "accept_text": "Geomancers carry the pods, and they are almost always on the ground, working. Don't drop them. They go off, in a sense.",
+      "turn_in_text": "Six seed-pods. The thorn's spreading faster than I'd feared, and now I can prove it. Take this.",
+      "next_quest_id": "sb_the_vine_bridge",
+      "unique_item_defs": [
+        {
+          "name": "Geomancer's Thorn-Robe",
+          "slot": "chest",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "A robe stitched with living briar. Each thorn points away from the wearer, which is considerate.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "spell_power": 3.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 28,
+          "label": "Cloth Chest (Int/Sta)"
+        },
+        {
+          "name": "Seedcaller's Wand",
+          "slot": "ranged",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "A wand of dried seed-pod, still faintly warm. It clicks like an awakening plant.",
+          "weapon_type": "wand",
+          "primary_stats": {},
+          "secondary_stats": {
+            "nature_spell_power": 5.1
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 48,
+          "attack_speed": 1.9,
+          "label": "Wand"
+        },
+        {
+          "name": "Root-Bound Gauntlets",
+          "slot": "hands",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Leather bound with root. They hold fast to whatever they grip.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 28,
+          "label": "Leather Gloves (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 29,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_vine_bridge",
+      "title": "The Vine Bridge",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 28,
+      "level_max": 30,
+      "description": "West of the first fork a rope-and-vine bridge crosses a drop to a platform, and on the platform lives Roogug, who has been ordering the hill's warriors about since before Oggra was a ranger. He's off the main road, which makes him safe to leave alone. Oggra would rather he were not left alone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorfen Defender",
+          "count": 6,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Roogug",
+          "count": 1,
+          "zone": "razorfen_kraul"
+        }
+      ],
+      "reward_exp": 1740,
+      "reward_gold": 6300,
+      "accept_text": "The bridge is narrow. Don't fight on it. Wait for them on the platform, and Roogug will come to you. He's all muscle and no plan, so use that.",
+      "turn_in_text": "Roogug's down. The bridge is quiet, for the first time in my life. Take this, with my thanks.",
+      "next_quest_id": "sb_two_speakers",
+      "unique_item_defs": [
+        {
+          "name": "Bridge-Warden's Vine-Hauberk",
+          "slot": "chest",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 28,
+          "flavor_text": "Mail woven through with vine-rope. It creaks when you move and it dares you to climb something.",
+          "primary_stats": {
+            "strength": 7,
+            "agility": 7
+          },
+          "armor_type": "mail",
+          "armor_value": 96,
+          "label": "Mail Chest (Str/Agi)"
+        },
+        {
+          "name": "Roogug's Cudgel",
+          "slot": "main_hand",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 28,
+          "flavor_text": "A knotted club with iron studs. It makes a distinct, regrettable sound.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 60,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Sta)"
+        },
+        {
+          "name": "Platform-Walker's Boots",
+          "slot": "feet",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 28,
+          "flavor_text": "Soft leather boots, treaded for narrow places and falling.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 30,
+          "label": "Leather Boots (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_two_speakers",
+      "title": "Two Speakers",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 30,
+      "level_max": 33,
+      "description": "North of the fork the Kraul splits around the Thorn Court and two chieftains sit at either end of it. Aggem Thorncurse, west, who calls the boar-spirits; Death Speaker Jargba, east, who speaks for the dead and takes what they say very seriously. Both of them keep the hill's heartbeat. Stop either and it stumbles.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Aggem Thorncurse",
+          "count": 1,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Death Speaker Jargba",
+          "count": 1,
+          "zone": "razorfen_kraul"
+        }
+      ],
+      "reward_exp": 1860,
+      "reward_gold": 6700,
+      "accept_text": "Both of them, in whichever order you like. Aggem's guards are beast-trainers with boars. Jargba's are Death's Head, with hexes. Don't fight both at once, and don't let either one finish a sentence.",
+      "turn_in_text": "Both of them! I'd call the hill's spirit broken, but I know better. Take this, and my respect.",
+      "next_quest_id": "sb_the_pens_below",
+      "unique_item_defs": [
+        {
+          "name": "Speaker's Hexbound Robes",
+          "slot": "chest",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Cloth sewn with thorn and prayer-beads. It hums quietly with other people's voices.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.2,
+            "mp5": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Chest (Int)"
+        },
+        {
+          "name": "Boarspirit Greathelm",
+          "slot": "head",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "A plate helm with a stylised boar-snout. The tusks are real, which is sad.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 115,
+          "label": "Plate Helm (Sta)"
+        },
+        {
+          "name": "Thorncurse Hunter's Bow",
+          "slot": "ranged",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "A bow of ironwood thorn. It pulls hard and seldom misses.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_pens_below",
+      "title": "The Pens Below",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 32,
+      "level_max": 34,
+      "description": "At the centre of the Kraul is the Boar Pens: a corral ring, stalls on every side, and in the middle, Overlord Ramtusk, who has been fattening his boars for a war for a decade. Oggra wants the pens broken before they open them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thornback Sow",
+          "count": 6,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Overlord Ramtusk",
+          "count": 1,
+          "zone": "razorfen_kraul"
+        }
+      ],
+      "reward_exp": 1960,
+      "reward_gold": 7000,
+      "accept_text": "Sows in the stalls, the Overlord in the ring. The ring has three gaps. Hold the south one and they'll come to you. Keep the sows off your back.",
+      "turn_in_text": "The Overlord's down and the pens are empty. I'll sleep tonight. Take this, you've earned it.",
+      "next_quest_id": "sb_the_beast_pit",
+      "unique_item_defs": [
+        {
+          "name": "Boarlord's Tusk-Plate",
+          "slot": "chest",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Plate grown over a pen-keeper's rib-guard. The tusk-spikes are decoration, mostly.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.6,
+            "block_rating": 1.1,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 163,
+          "label": "Plate Chest"
+        },
+        {
+          "name": "Pen-Breaker's Maul",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "A two-handed maul with a boar's skull for a head. It hits like a collapsing corral.",
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 18
+          },
+          "secondary_stats": {
+            "hit_rating": 1.3,
+            "crit_chance_physical": 1.3
+          },
+          "weapon_damage_min": 89,
+          "weapon_damage_max": 120,
+          "attack_speed": 3.6,
+          "label": "Mace 2H (Str)"
+        },
+        {
+          "name": "Overlord's Warcloak",
+          "slot": "back",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "A heavy cloak of boar-hide. It rustles and whispers menacing little oaths.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloak (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_beast_pit",
+      "title": "The Beast Pit",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 32,
+      "level_max": 34,
+      "description": "From the pens a narrow neck runs north-west, sealed by a ward and held by Ward-Keepers: the Beast Pit, where something called Agathelos has been fed on stolen kodo for years. The ward-stones keep it in. Take four and the ward falls, and then, Oggra says, you'll want to be ready.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorfen Ward-Keeper",
+          "count": 5,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "fetch",
+          "target": "ward_seal_stone",
+          "count": 4
+        },
+        {
+          "type": "kill_boss",
+          "target": "Agathelos the Raging",
+          "count": 1,
+          "zone": "razorfen_kraul"
+        }
+      ],
+      "reward_exp": 1980,
+      "reward_gold": 7100,
+      "accept_text": "Ward-Keepers hold the neck. Break the stones, then go in. Agathelos is a beast, not a boar. Don't mistake one for the other. It isn't kind.",
+      "turn_in_text": "Agathelos is dead and the pit's open to the sun. I hope that rattles Charlga. Take this.",
+      "next_quest_id": "sb_razorflank",
+      "unique_item_defs": [
+        {
+          "name": "Pit-Warden's Stoneward Shield",
+          "slot": "off_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "A shield of warded stone. It still hums with the binding that held the beast.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "armor_value": 54,
+          "block_value": 68,
+          "label": "Shield (Sta)"
+        },
+        {
+          "name": "Beastcaller's Fang-Dagger",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "A dagger carved from a beast-pit fang. It likes your hand.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 49,
+          "weapon_damage_max": 67,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Ward-Stone Pendant",
+          "slot": "neck",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "A seal-stone pendant, still faintly warm. It dulls the blows you take.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "label": "Necklace (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_razorflank",
+      "title": "Razorflank",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 34,
+      "level_max": 37,
+      "description": "At the top of the Kraul, on a platform of bones, sits Charlga Razorflank in a hut of thorn and tusk, and she has heard the pens fall, and the speakers die. Oggra says the hill's heart is hers. Take it, and the thorns will wither by spring.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorfen Totemic",
+          "count": 6,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Charlga Razorflank",
+          "count": 1,
+          "zone": "razorfen_kraul"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 8200,
+      "accept_text": "Totemics around her, and she mends them as fast as you cut them. Go for her first if you can. The thorns won't forgive you, but they'll stop.",
+      "turn_in_text": "Charlga's dead. The Kraul will take a generation to recover, if it does, and the ridge will breathe. Take this, with all the thanks a ranger has.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Razorflank's Thornweave Mantle",
+          "slot": "shoulder",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Cloth woven from living briar. It pulses faintly when something nearby needs healing.",
+          "primary_stats": {
+            "stamina": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 27,
+          "label": "Cloth Shoulders (Sta/Int)"
+        },
+        {
+          "name": "Chieftain's Thorn-Guard Greaves",
+          "slot": "legs",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Plate legguards edged with thorn. Enemies bleed before they have the sense to run.",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "armor": 21.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 173,
+          "label": "Plate Legs (Sta)"
+        },
+        {
+          "name": "Agamaggan's Boarhide Belt",
+          "slot": "waist",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "A belt of ancient boar-hide, scarred and thick. It makes you feel hunted, and quick.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Belt (Str/Agi)"
+        },
+        {
+          "name": "Quilboar Queen's Longbow",
+          "slot": "ranged",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "A great bow of quilboar-bone and sinew. It sings when strung.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 59,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_blind_hunter",
+      "title": "The Blind Hunter",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 29,
+      "level_max": 31,
+      "description": "There's a hunter in the western galleries of the Kraul who has been blind for years and still never misses. Oggra has lost two scouts to him. She wants him stopped, and the handlers that guide him dead.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorfen Handler",
+          "count": 8,
+          "zone": "razorfen_kraul"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Blind Hunter",
+          "count": 1,
+          "zone": "razorfen_kraul"
+        }
+      ],
+      "reward_exp": 1760,
+      "reward_gold": 6400,
+      "accept_text": "West gallery, past Aggem's pen. He listens for you. Don't stand still. Don't breathe loudly, either, if it comes to that.",
+      "turn_in_text": "The hunter's down, and I'll write to the families. Take this, and my thanks.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Listener's Quiver-Coat",
+          "slot": "chest",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "Soft leather, cut for quiet movement. It hushes the sound of your breath, and your boots.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 62,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Hunter's Blind Dagger",
+          "slot": "main_hand",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "A dagger with a handle wrapped in cord to find the grip by feel.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 45,
+          "weapon_damage_max": 62,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Handlers' Bone Amulet",
+          "slot": "neck",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "A bone amulet, strung on sinew. It tingles when something nearby is lying.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "rare"
     }
   ]
 }

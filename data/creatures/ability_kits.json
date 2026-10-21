@@ -8574,6 +8574,664 @@
         }
       }
     ],
+    "razorfen_spearhide": [
+      {
+        "name": "Spear Thrust",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Barbed Skewer",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "razorfen_defender": [
+      {
+        "name": "Shield Slam",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thornwall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 62
+        }
+      }
+    ],
+    "razorfen_beast_trainer": [
+      {
+        "name": "Whip Crack",
+        "kind": "damage",
+        "amount": 35,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rally the Pack",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 32
+        }
+      }
+    ],
+    "razorfen_handler": [
+      {
+        "name": "Thorn Dart",
+        "kind": "damage",
+        "amount": 37,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Poisoned Dart",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "razorfen_geomancer": [
+      {
+        "name": "Earth Spike",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "nature"
+      },
+      {
+        "name": "Rooting Thorns",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -30
+        }
+      },
+      {
+        "name": "Stoneskin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 20,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 44
+        }
+      }
+    ],
+    "razorfen_totemic": [
+      {
+        "name": "Totem Strike",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Mending Totem",
+        "kind": "heal",
+        "amount": 70,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "nature"
+      },
+      {
+        "name": "Brand of Thorns",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -36
+        }
+      }
+    ],
+    "razorfen_ward_keeper": [
+      {
+        "name": "Ward Bolt",
+        "kind": "damage",
+        "amount": 41,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "arcane"
+      },
+      {
+        "name": "Sealing Pulse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 20,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -32
+        }
+      },
+      {
+        "name": "Ward Barrier",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 24,
+        "school": "arcane",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 48
+        }
+      }
+    ],
+    "deaths_head_acolyte": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 24,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Agony",
+        "kind": "dot",
+        "amount": 17,
+        "cooldown": 3,
+        "mana_cost": 22,
+        "school": "shadow",
+        "duration": 5
+      },
+      {
+        "name": "Siphon Essence",
+        "kind": "heal",
+        "amount": 60,
+        "cooldown": 5,
+        "mana_cost": 28,
+        "school": "shadow"
+      }
+    ],
+    "deaths_head_cultist": [
+      {
+        "name": "Death Touch",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "shadow"
+      },
+      {
+        "name": "Withering Hex",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -34
+        }
+      },
+      {
+        "name": "Soul Rend",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 3,
+        "mana_cost": 26,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "kraul_bristleboar": [
+      {
+        "name": "Gore",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bristle",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 52
+        }
+      }
+    ],
+    "raging_agamar": [
+      {
+        "name": "Savage Gore",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 38
+        }
+      },
+      {
+        "name": "Rend",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "thornback_sow": [
+      {
+        "name": "Trample",
+        "kind": "damage",
+        "amount": 37,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thorn Spray",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -28
+        }
+      },
+      {
+        "name": "Wallow",
+        "kind": "heal",
+        "amount": 56,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "blind_hunter": [
+      {
+        "name": "Blind Shot",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hunter's Mark",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": -42
+        }
+      },
+      {
+        "name": "Serrated Arrow",
+        "kind": "dot",
+        "amount": 21,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      }
+    ],
+    "earthcaller_halmgar": [
+      {
+        "name": "Earthshock",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 0,
+        "mana_cost": 30,
+        "school": "nature"
+      },
+      {
+        "name": "Stoneclaw Ward",
+        "kind": "heal",
+        "amount": 105,
+        "cooldown": 6,
+        "mana_cost": 36,
+        "school": "nature"
+      },
+      {
+        "name": "Earthbind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -34
+        }
+      }
+    ],
+    "thornjaw_the_gorger": [
+      {
+        "name": "Gorging Bite",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thorn-Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 72
+        }
+      },
+      {
+        "name": "Ravenous Rend",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      }
+    ],
+    "roogug": [
+      {
+        "name": "Brutal Cleave",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rend Flesh",
+        "kind": "dot",
+        "amount": 24,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Roogug's Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 40
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "aggem_thorncurse": [
+      {
+        "name": "Thorn Bolt",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 30,
+        "school": "nature"
+      },
+      {
+        "name": "Thorn Curse",
+        "kind": "dot",
+        "amount": 26,
+        "cooldown": 4,
+        "mana_cost": 32,
+        "school": "nature",
+        "duration": 5
+      },
+      {
+        "name": "Spirit Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 5,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 52
+        }
+      },
+      {
+        "name": "Call of the Boar Spirits",
+        "kind": "damage",
+        "amount": 82,
+        "cooldown": 5,
+        "mana_cost": 36,
+        "school": "nature"
+      }
+    ],
+    "death_speaker_jargba": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 0,
+        "mana_cost": 30,
+        "school": "shadow"
+      },
+      {
+        "name": "Dominate Mind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 30,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": -46
+        }
+      },
+      {
+        "name": "Death's Head Hex",
+        "kind": "dot",
+        "amount": 27,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "shadow",
+        "duration": 5
+      },
+      {
+        "name": "Dark Mending",
+        "kind": "heal",
+        "amount": 120,
+        "cooldown": 8,
+        "mana_cost": 40,
+        "school": "shadow"
+      }
+    ],
+    "overlord_ramtusk": [
+      {
+        "name": "Tusk Gore",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Trampling Charge",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "War Cry",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 46
+        }
+      },
+      {
+        "name": "Bleeding Gouge",
+        "kind": "dot",
+        "amount": 28,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      }
+    ],
+    "agathelos_the_raging": [
+      {
+        "name": "Rending Maul",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Raging Charge",
+        "kind": "damage",
+        "amount": 100,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Savage Roar",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 50
+        }
+      },
+      {
+        "name": "Frenzied Bite",
+        "kind": "dot",
+        "amount": 30,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      }
+    ],
+    "charlga_razorflank": [
+      {
+        "name": "Razorflank Bolt",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 0,
+        "mana_cost": 34,
+        "school": "nature"
+      },
+      {
+        "name": "Chieftain's Mending",
+        "kind": "heal",
+        "amount": 150,
+        "cooldown": 6,
+        "mana_cost": 40,
+        "school": "nature"
+      },
+      {
+        "name": "Mighty Cursing",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 30,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "armor": -52
+        }
+      },
+      {
+        "name": "Thornwrack",
+        "kind": "dot",
+        "amount": 32,
+        "cooldown": 4,
+        "mana_cost": 34,
+        "school": "nature",
+        "duration": 5
+      }
+    ],
     "murloc_flesheater": [
       {
         "name": "Rend Flesh",

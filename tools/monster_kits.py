@@ -2642,13 +2642,125 @@ BROODSPIRAL_KITS = {
     ],
 }
 
+RAZORFEN_KITS = {
+    # ---- trash (L25-32) -------------------------------------------------------------------------------------------
+    "razorfen_spearhide": [
+        ("Spear Thrust", "damage", 36, 0, 0, "physical", {}),
+        ("Barbed Skewer", "dot", 14, 3, 0, "physical", {"duration": 4}),
+    ],
+    "razorfen_defender": [
+        ("Shield Slam", "damage", 33, 0, 0, "physical", {}),
+        ("Thornwall", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 62}}),
+    ],
+    "razorfen_beast_trainer": [
+        ("Whip Crack", "damage", 35, 0, 0, "physical", {}),
+        ("Rally the Pack", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 32}}),
+    ],
+    "razorfen_handler": [
+        ("Thorn Dart", "damage", 37, 0, 0, "nature", {}),
+        ("Poisoned Dart", "dot", 15, 3, 0, "nature", {"duration": 4}),
+    ],
+    "razorfen_geomancer": [
+        ("Earth Spike", "damage", 40, 0, 22, "nature", {}),
+        ("Rooting Thorns", "debuff", 0, 4, 22, "nature", {"duration": 3, "stat_mods": {"agility": -30}}),
+        ("Stoneskin", "buff", 0, 7, 20, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 44}}),
+    ],
+    "razorfen_totemic": [
+        ("Totem Strike", "damage", 38, 0, 0, "physical", {}),
+        ("Mending Totem", "heal", 70, 4, 30, "nature", {}),
+        ("Brand of Thorns", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"armor": -36}}),
+    ],
+    "razorfen_ward_keeper": [
+        ("Ward Bolt", "damage", 41, 0, 22, "arcane", {}),
+        ("Sealing Pulse", "debuff", 0, 5, 20, "arcane", {"duration": 3, "stat_mods": {"attack_power": -32}}),
+        ("Ward Barrier", "buff", 0, 6, 24, "arcane", {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 48}}),
+    ],
+    "deaths_head_acolyte": [
+        ("Shadow Bolt", "damage", 42, 0, 24, "shadow", {}),
+        ("Curse of Agony", "dot", 17, 3, 22, "shadow", {"duration": 5}),
+        ("Siphon Essence", "heal", 60, 5, 28, "shadow", {}),
+    ],
+    "deaths_head_cultist": [
+        ("Death Touch", "damage", 40, 0, 22, "shadow", {}),
+        ("Withering Hex", "debuff", 0, 4, 22, "shadow", {"duration": 3, "stat_mods": {"attack_power": -34}}),
+        ("Soul Rend", "dot", 18, 3, 26, "shadow", {"duration": 4}),
+    ],
+    "kraul_bristleboar": [
+        ("Gore", "damage", 34, 0, 0, "physical", {}),
+        ("Bristle", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 52}}),
+    ],
+    "raging_agamar": [
+        ("Savage Gore", "damage", 40, 0, 0, "physical", {}),
+        ("Frenzy", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 38}}),
+        ("Rend", "dot", 16, 3, 0, "physical", {"duration": 4}),
+    ],
+    "thornback_sow": [
+        ("Trample", "damage", 37, 0, 0, "physical", {}),
+        ("Thorn Spray", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("Wallow", "heal", 56, 6, 0, "nature", {}),
+    ],
+    # ---- named rares (3 abilities) ----------------------------------------------------------------------------------
+    "blind_hunter": [
+        ("Blind Shot", "damage", 54, 0, 0, "physical", {}),
+        ("Hunter's Mark", "debuff", 0, 5, 0, "physical", {"duration": 4, "stat_mods": {"armor": -42}}),
+        ("Serrated Arrow", "dot", 21, 4, 0, "physical", {"duration": 5}),
+    ],
+    "earthcaller_halmgar": [
+        ("Earthshock", "damage", 58, 0, 30, "nature", {}),
+        ("Stoneclaw Ward", "heal", 105, 6, 36, "nature", {}),
+        ("Earthbind", "debuff", 0, 5, 26, "nature", {"duration": 4, "stat_mods": {"agility": -34}}),
+    ],
+    "thornjaw_the_gorger": [
+        ("Gorging Bite", "damage", 60, 0, 0, "physical", {}),
+        ("Thorn-Hide", "buff", 0, 7, 0, "physical", {"duration": 5, "self_only": True, "stat_mods": {"armor": 72}}),
+        ("Ravenous Rend", "dot", 22, 4, 0, "physical", {"duration": 5}),
+    ],
+    # ---- bosses (levels 28 / 30 / 30 / 32 / 32 / 34; all 4 abilities) -------------------------------------------------
+    "roogug": [
+        ("Brutal Cleave", "damage", 62, 0, 0, "physical", {}),
+        ("Rend Flesh", "dot", 24, 4, 0, "physical", {"duration": 4}),
+        ("Roogug's Fury", "buff", 0, 7, 0, "physical", {"duration": 5, "self_only": True, "stat_mods": {"attack_power": 40}}),
+        ("Crushing Blow", "damage", 84, 5, 0, "physical", {}),
+    ],
+    "aggem_thorncurse": [   # PLANNED summon: "Call of the Boar Spirits" should raise 2 spirit boars once the engine supports it
+        ("Thorn Bolt", "damage", 66, 0, 30, "nature", {}),
+        ("Thorn Curse", "dot", 26, 4, 32, "nature", {"duration": 5}),
+        ("Spirit Ward", "buff", 0, 7, 0, "nature", {"duration": 5, "self_only": True, "stat_mods": {"magic_resistance": 52}}),
+        ("Call of the Boar Spirits", "damage", 82, 5, 36, "nature", {}),
+    ],
+    "death_speaker_jargba": [   # PLANNED: "Dominate Mind" should be a real mind-control once the engine supports it
+        ("Shadow Bolt", "damage", 68, 0, 30, "shadow", {}),
+        ("Dominate Mind", "debuff", 0, 5, 30, "shadow", {"duration": 4, "stat_mods": {"attack_power": -46}}),
+        ("Death's Head Hex", "dot", 27, 4, 30, "shadow", {"duration": 5}),
+        ("Dark Mending", "heal", 120, 8, 40, "shadow", {}),
+    ],
+    "overlord_ramtusk": [
+        ("Tusk Gore", "damage", 74, 0, 0, "physical", {}),
+        ("Trampling Charge", "damage", 98, 4, 0, "physical", {}),
+        ("War Cry", "buff", 0, 7, 0, "physical", {"duration": 5, "self_only": True, "stat_mods": {"attack_power": 46}}),
+        ("Bleeding Gouge", "dot", 28, 4, 0, "physical", {"duration": 5}),
+    ],
+    "agathelos_the_raging": [   # PLANNED phase: "Savage Roar" should become a true enrage at 30% hp
+        ("Rending Maul", "damage", 76, 0, 0, "physical", {}),
+        ("Raging Charge", "damage", 100, 4, 0, "physical", {}),
+        ("Savage Roar", "buff", 0, 7, 0, "physical", {"duration": 5, "self_only": True, "stat_mods": {"attack_power": 50}}),
+        ("Frenzied Bite", "dot", 30, 4, 0, "physical", {"duration": 5}),
+    ],
+    "charlga_razorflank": [   # PLANNED: Earthgrab Totem / Lightning Shield / heal-ward summons once the engine supports them
+        ("Razorflank Bolt", "damage", 80, 0, 34, "nature", {}),
+        ("Chieftain's Mending", "heal", 150, 6, 40, "nature", {}),
+        ("Mighty Cursing", "debuff", 0, 5, 30, "shadow", {"duration": 4, "stat_mods": {"armor": -52}}),
+        ("Thornwrack", "dot", 32, 4, 34, "nature", {"duration": 5}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

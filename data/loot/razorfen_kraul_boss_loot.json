@@ -1,0 +1,571 @@
+{
+  "_notes": "Razorfen Kraul boss + named-rare loot (2026-10-21). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "Roogug": [
+    {
+      "name": "Roogug's Vine-Cutter",
+      "slot": "main_hand",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "A hooked axe made for cutting thorn and, when thorn is not available, other things.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4,
+        "crit_chance_physical": 0.4
+      },
+      "weapon_damage_min": 58,
+      "weapon_damage_max": 79,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Thornhide Bracers",
+      "slot": "wrist",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "Leather wrapped over a brace of dried thorn. Every pull of the strap draws a little blood.",
+      "primary_stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 39
+    },
+    {
+      "name": "Boarhide War-Belt",
+      "slot": "waist",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "A broad belt of boar-skin and iron studs. It smells, honestly, of boar.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "armor": 11.9,
+        "parry_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 94
+    },
+    {
+      "name": "Bridgewalker's Mantle",
+      "slot": "back",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "A cloak of woven vine and wool. It sways, even when you do not.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 15
+    }
+  ],
+  "Aggem Thorncurse": [
+    {
+      "name": "Thorncursed Mantle",
+      "slot": "shoulder",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "Spun from briar-fibre and hexed twice. It whispers in a boar's voice, which is unsettling.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "spell_power": 3.6
+      },
+      "armor_type": "cloth",
+      "armor_value": 31
+    },
+    {
+      "name": "Aggem's Gnarled Staff",
+      "slot": "main_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "A knot of ironwood with a boar's tusk at the head. It remembers the herd.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 16,
+        "spirit": 16
+      },
+      "secondary_stats": {
+        "healing_power": 17.4
+      },
+      "weapon_damage_min": 33,
+      "weapon_damage_max": 45,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Spiritbound Greaves",
+      "slot": "feet",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "Mail boots lined with something warm that is not fur. They keep their footing on any hill.",
+      "primary_stats": {
+        "agility": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 67
+    },
+    {
+      "name": "Thorncurse Signet",
+      "slot": "ring",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "A ring of braided thorn. Wounds nearby close a little faster, and a little reluctantly.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 4.5,
+        "mp5": 1.0
+      }
+    }
+  ],
+  "Death Speaker Jargba": [
+    {
+      "name": "Death Speaker's Cowl",
+      "slot": "head",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "A cowl stitched from burial shrouds. The dead are very chatty, if you are the one wearing it.",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 6.1,
+        "mp5": 1.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 31
+    },
+    {
+      "name": "Mind-Bound Wand",
+      "slot": "ranged",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "A wand wound with a lock of someone's hair. It's best not to ask whose.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "spell_power": 1.8
+      },
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Death's Head Hauberk",
+      "slot": "chest",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "Mail sewn over a quilboar-skull gorget. It settles on the shoulders like a hand.",
+      "primary_stats": {
+        "strength": 10,
+        "agility": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 134
+    },
+    {
+      "name": "Hexbinder's Mace",
+      "slot": "main_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "A bone-capped mace, carved with the names of those who stopped arguing.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "defense_rating": 0.4
+      },
+      "weapon_damage_min": 61,
+      "weapon_damage_max": 83,
+      "attack_speed": 2.6
+    }
+  ],
+  "Overlord Ramtusk": [
+    {
+      "name": "Ramtusk's Tusk-Crown",
+      "slot": "head",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A great helm with a pair of real tusks. It rings like a bell when you are struck.",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "defense_rating": 0.6,
+        "dodge_rating": 0.6
+      },
+      "armor_type": "plate",
+      "armor_value": 160
+    },
+    {
+      "name": "Overlord's Warcleaver",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A two-handed axe made for a boar-lord. It's heavy, and it makes up its own mind about direction.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 23
+      },
+      "secondary_stats": {
+        "hit_rating": 1.7,
+        "crit_chance_physical": 1.7
+      },
+      "weapon_damage_min": 116,
+      "weapon_damage_max": 158,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Boarlord's Girdle",
+      "slot": "waist",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A belt of cured hide, scarred where something bit it. The scars are, so far, mostly decorative.",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "armor_type": "leather",
+      "armor_value": 44
+    },
+    {
+      "name": "Pen-Keeper's Longrifle",
+      "slot": "ranged",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A long rifle that Ramtusk's pen-keepers used on escapees. It has opinions about range.",
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2
+      },
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 2.6
+    }
+  ],
+  "Agathelos the Raging": [
+    {
+      "name": "Agathelos's Rending Fang",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A fang the length of a forearm, mounted on a bone grip. It tears more than it cuts.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 5
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4,
+        "crit_chance_physical": 0.4
+      },
+      "weapon_damage_min": 64,
+      "weapon_damage_max": 87,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Beastpit Hide Jerkin",
+      "slot": "chest",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "The cured pelt of something that did not like its keepers. It does not particularly like you, either.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 89
+    },
+    {
+      "name": "Raging Pelt Cloak",
+      "slot": "back",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A fur cloak, matted with dried blood. It warms you, and it makes you irritable.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 17
+    },
+    {
+      "name": "Chainbound Legguards",
+      "slot": "legs",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Mail legguards with a broken manacle still hanging from one knee. It rings a little, in a way that feels sarcastic.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.4
+      },
+      "armor_type": "mail",
+      "armor_value": 142
+    }
+  ],
+  "Charlga Razorflank": [
+    {
+      "name": "Razorflank's Heartstaff",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "A staff of sunbaked thorn with a pulsing heartwood knot. Wounds close faster around it, and quietly.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "stamina": 21,
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "healing_power": 14.7
+      },
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 50,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Thorn-Crown of Agamaggan",
+      "slot": "head",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "A circlet of interlaced thorn, old as the hill. The spirits of the boar-god lean in when you wear it.",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 6.8,
+        "mp5": 1.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 35
+    },
+    {
+      "name": "Chieftain's Thornplate Legs",
+      "slot": "legs",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Plate grown through with living briar. It hurts to be hit, and it hurts to hit it.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.8,
+        "block_rating": 1.5,
+        "dodge_rating": 1.0
+      },
+      "armor_type": "plate",
+      "armor_value": 226
+    },
+    {
+      "name": "Thornfang Longsword",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "A long blade with a sawtooth edge, traded for the lives of three of Charlga's guards.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "defense_rating": 0.5
+      },
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 2.4
+    }
+  ],
+  "Blind Hunter": [
+    {
+      "name": "Blind Hunter's Shortbow",
+      "slot": "ranged",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "A bow strung with sinew. It was built for someone who had to listen for the target.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 51,
+      "weapon_damage_max": 69,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Listener's Leather Gloves",
+      "slot": "hands",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "Soft leather gloves, cut to feel the pull of a string. They are very quiet.",
+      "primary_stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 40
+    },
+    {
+      "name": "Hunter's Bone Signet",
+      "slot": "ring",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "A ring of carved bone. It doesn't have eyes, but it seems to be looking.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Earthcaller Halmgar": [
+    {
+      "name": "Earthcaller's Mantle",
+      "slot": "shoulder",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A mantle of woven root. It hums, faintly, with the pitch of a buried stone.",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 5.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 32
+    },
+    {
+      "name": "Halmgar's Stoneclaw Mace",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A mace topped with a smooth grey stone. When you swing it, the ground notices.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 8.7,
+        "mp5": 1.9
+      },
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Pendant of the Deep Root",
+      "slot": "neck",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A pendant of petrified root. It is heavier than it looks, and much calmer.",
+      "primary_stats": {
+        "stamina": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Thornjaw the Gorger": [
+    {
+      "name": "Thornjaw's Gorge-Cap",
+      "slot": "head",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A helm cured from a sow's skull, thorns left in. It makes you feel hungry and a little ridiculous.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 65
+    },
+    {
+      "name": "Gorger's Claw-Knuckles",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Claws set in a fist-bar of bone. It bites at the end of a punch.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 7,
+        "agility": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Wallow-Mud Band",
+      "slot": "ring",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A ring of baked mud and bone. It's gross, and it fits perfectly.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.2
+      }
+    }
+  ]
+}

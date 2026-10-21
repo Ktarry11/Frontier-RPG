@@ -5590,9 +5590,9 @@ def create_all_zones():
         generate_crossroads,
         generate_southern_barrens,
         generate_wailing_caverns_expanded,
-        generate_razorfen_kraul_expanded,
     )
     from tools.handbuilt_broodspiral import generate_the_broodspiral
+    from tools.handbuilt_razorfen import generate_razorfen_kraul
     from tools.handbuilt_vot import generate_valley_of_trials as generate_valley_of_trials_handbuilt
     from tools.handbuilt_durotar import generate_durotar as generate_durotar_handbuilt
     from tools.handbuilt_echo_isles import generate_echo_isles as generate_echo_isles_handbuilt
@@ -5773,7 +5773,7 @@ def create_all_zones():
     
     # Add the massive pre-designed dungeons
     zones["Wailing Caverns"] = generate_wailing_caverns_expanded()
-    zones["Razorfen Kraul"] = generate_razorfen_kraul_expanded()
+    zones["Razorfen Kraul"] = generate_razorfen_kraul()
     zones["The Broodspiral"] = generate_the_broodspiral()
 
     return zones
