@@ -5594,6 +5594,7 @@ def create_all_zones():
         generate_the_broodspiral,
     )
     from tools.handbuilt_vot import generate_valley_of_trials as generate_valley_of_trials_handbuilt
+    from tools import handbuilt_vot_caves as vot_caves
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5744,10 +5745,10 @@ def create_all_zones():
     zones["Zalazane's Hollow"] = ZoneGenerator.generate_zalazane_hollow()
     zones["Boulder Lode Mine"] = ZoneGenerator.generate_boulder_lode_mine()
     zones["Serena's Hollow"] = ZoneGenerator.generate_serenas_hollow()
-    zones["The Den"] = ZoneGenerator.generate_the_den()
+    zones["The Den"] = vot_caves.generate_the_den()  # hand-built (tools/handbuilt_vot_caves.py)
     zones["Dustwind Cave"] = ZoneGenerator.generate_dustwind_cave()
     zones["Thunder Ridge"] = ZoneGenerator.generate_thunder_ridge()
-    zones["Burning Blade Coven"] = ZoneGenerator.generate_burning_blade_coven()
+    zones["Burning Blade Coven"] = vot_caves.generate_burning_blade_coven()  # hand-built
     zones["Tiragarde Keep"] = ZoneGenerator.generate_tiragarde_keep()
     zones["Skull Rock"] = ZoneGenerator.generate_skull_rock()
     zones["Night Web's Hollow"] = ZoneGenerator.generate_night_webs_hollow()
