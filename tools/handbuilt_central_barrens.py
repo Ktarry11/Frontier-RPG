@@ -52,23 +52,29 @@ ARRIVALS = [(150, 2), (270, 28), (150, 148), (75, 224), (285, 268), (150, 294)]
 # ---------------------------------------------------------------- the plan
 # roads: waypoints (tile coords), width in tiles
 ROADS = {
-    "gold_n":   ([(150, 3), (150, 22), (147, 45), (151, 70), (153, 95), (150, 118), (150, 138)], 3.6),
-    "gold_s":   ([(150, 162), (149, 190), (152, 215), (150, 245), (150, 270), (150, 295)], 3.6),
+    # Gold Road: one long meandering spine; every other road BRANCHES off it (Y-junctions),
+    # only the E-W trade road actually crosses it at the Crossroads.
+    "gold_n":   ([(150, 3), (150, 16), (146, 32), (138, 50), (137, 70), (146, 88), (156, 104),
+                  (156, 122), (151, 138)], 3.6),
+    "gold_s":   ([(150, 162), (152, 178), (158, 196), (160, 214), (152, 230), (150, 246), (150, 266),
+                  (150, 282), (150, 295)], 3.6),
+    "plaza":    ([(150, 136), (150, 164)], 3.6),
     "durotar_e": ([(270, 31), (262, 30), (246, 30)], 3.0),
-    "durotar":  ([(246, 30), (236, 36), (222, 50), (208, 68), (196, 88), (184, 108), (172, 126),
-                  (162, 140), (153, 147), (150, 150)], 3.2),
-    "ratchet":  ([(150, 150), (158, 156), (172, 172), (190, 186), (210, 192), (232, 197), (246, 210),
-                  (256, 232), (262, 252), (264, 268), (268, 270)], 3.2),
-    "west":     ([(150, 150), (144, 150), (120, 151), (100, 147), (86, 146), (70, 142), (56, 141), (49, 141)], 3.2),
-    "wailing":  ([(150, 150), (146, 156), (134, 176), (118, 196), (100, 212), (86, 222), (76, 225)], 3.0),
-    "pools":    ([(150, 150), (146, 144), (130, 122), (112, 104), (98, 92), (92, 88)], 3.0),
+    "durotar":  ([(246, 30), (236, 38), (224, 52), (214, 72), (204, 90), (190, 104), (174, 114),
+                  (162, 119), (156, 122)], 3.2),
+    "kolkar":   ([(214, 72), (226, 82), (237, 93), (240, 108)], 2.4),
+    "east":     ([(150, 150), (164, 152), (178, 150), (192, 153), (206, 158), (220, 160)], 2.8),
+    "west":     ([(150, 150), (144, 150), (128, 153), (112, 147), (100, 150), (86, 146), (70, 144),
+                  (56, 141), (49, 141)], 3.2),
+    "farm":     ([(86, 146), (86, 138)], 2.4),
+    "ratchet":  ([(158, 197), (172, 194), (190, 190), (210, 194), (230, 196), (244, 204), (248, 220),
+                  (250, 238), (258, 254), (263, 268), (268, 270)], 3.2),
+    "raiders":  ([(204, 194), (205, 206), (206, 216)], 2.4),
+    "wailing":  ([(152, 178), (140, 186), (126, 194), (112, 206), (98, 218), (86, 224), (76, 225)], 3.0),
+    "pools":    ([(137, 70), (124, 74), (110, 80), (100, 86), (92, 88)], 3.0),
     "dreadmist": ([(74, 72), (66, 64), (60, 57), (55, 51)], 2.4),
     "brambles": ([(150, 238), (140, 242), (132, 247)], 2.4),
     "agama":    ([(150, 238), (160, 242), (168, 247)], 2.4),
-    "kolkar":   ([(208, 68), (224, 78), (238, 92), (240, 108)], 2.4),
-    "east":     ([(150, 150), (162, 150), (182, 152), (204, 156), (220, 160)], 2.8),
-    "farm":     ([(86, 146), (86, 138)], 2.4),
-    "plaza":    ([(150, 136), (150, 164)], 3.6),
 }
 
 # decks laid over water: (x0, x1, y0, y1)
@@ -79,6 +85,7 @@ DECKS = [
 ]
 
 # cliff massifs: (cx, cy, rx, ry, rot_deg) --------------------------------
+# Only formations big enough to read as landforms; small rocks are PROPS (spires, boulders).
 MESAS = [
     # Dreadmist range (NW) - a ring of massifs around a box canyon (the Den at 50,44)
     (16, 16, 15, 12, 10), (40, 11, 14, 8, -8), (60, 17, 11, 9, 12), (72, 34, 7, 14, 0),
@@ -90,29 +97,28 @@ MESAS = [
     (127, 12, 12, 8, 4), (174, 14, 14, 9, 0), (116, 4, 8, 5, 0), (186, 5, 7, 4, 0),
     # Southern pass flanks (Taurajo gate)
     (123, 284, 15, 9, 6), (179, 288, 12, 7, -8),
-    # Sentinel Rocks, the mesa cluster north of the Crossroads
-    (126, 92, 7, 5, 15), (133, 98, 4, 3.5, 0), (170, 100, 6, 4.5, -10), (176, 108, 3.5, 3, 0),
-    # open-country mesa groups (cover, landmarks)
-    (110, 60, 6, 4, 0), (118, 66, 3, 2.5, 0), (190, 55, 6, 5, 0), (198, 62, 3, 3, 0),
-    (30, 100, 5, 4, 0), (24, 108, 3, 3, 0), (40, 160, 7, 5, 0), (48, 168, 3, 3, 0),
-    (110, 190, 6, 5, 20), (118, 196, 3, 3, 0), (200, 130, 5, 4, 0),
-    (180, 215, 6, 5, 0), (188, 222, 3, 3, 0), (120, 262, 6, 4, 0), (186, 266, 6, 4, 0),
-    (100, 140, 4, 3, 0), (60, 195, 5, 4, 0), (236, 60, 6, 5, 0), (246, 140, 5, 6, 0),
-    (230, 175, 5, 5, 0), (244, 190, 4, 4, 0),
+    # tilted formations (each a pair, long axis varying) - not round blobs
+    (108, 58, 9, 4.5, -22), (118, 63, 5, 3, 12),
+    (28, 100, 7, 4.5, 68), (24, 111, 4, 3, 20),
+    (96, 168, 8, 4, -24), (105, 174, 4, 3, 10),
+    (176, 228, 9, 4.5, 14), (187, 234, 4.5, 3, -10),
+    (234, 176, 7.5, 4, 32), (243, 183, 4, 3, 0),
     # Fallen Warrior bluff (the shrine sits in its lee)
     (38, 124, 8, 5, 0), (60, 132, 5, 3.5, 0),
-    # Kolkar escarpment
-    (205, 40, 4, 6, 0), (214, 100, 4, 7, 0),
 ]
 
-# long ridges: (waypoints, half-width)
+# long ridges: (waypoints, half-width) - tapered at both ends
 RIDGES = [
-    ([(196, 22), (203, 36), (208, 48)], 2.4),                     # Kolkar escarpment north
-    ([(212, 92), (216, 110), (220, 128), (218, 142)], 2.6),       # Kolkar escarpment south
-    ([(104, 252), (118, 262), (132, 268)], 2.4),                  # Bramblescar bluff
-    ([(196, 252), (182, 262), (168, 268)], 2.4),                  # Agama'gor bluff
-    ([(40, 148), (46, 160), (54, 172)], 2.2),                     # Shrine ridge
-    ([(236, 232), (244, 244), (250, 258)], 2.4),                  # Raider's Rest scarp
+    ([(196, 18), (203, 32), (209, 48), (211, 56)], 3.0),               # Kolkar escarpment, north
+    ([(212, 80), (214, 98), (218, 118), (222, 136), (222, 148)], 3.2),  # Kolkar escarpment, south
+    ([(114, 102), (118, 93), (126, 87), (135, 86)], 3.7),               # Sentinel ridge, west arm
+    ([(172, 94), (181, 99), (185, 108), (183, 118)], 3.5),              # Sentinel ridge, east arm
+    ([(104, 252), (118, 262), (132, 268)], 2.4),                        # Bramblescar bluff
+    ([(196, 252), (182, 262), (168, 268)], 2.4),                        # Agama'gor bluff
+    ([(40, 148), (46, 160), (54, 172)], 2.4),                           # Shrine ridge
+    ([(226, 236), (234, 248), (240, 264)], 2.8),                        # Raider's Rest scarp
+    ([(12, 238), (24, 250), (38, 266), (56, 280)], 3.2),                # south-west scarp
+    ([(14, 120), (18, 138), (13, 158)], 2.6),                           # far-west shelf
 ]
 
 # gaps carved through the above/rim: ("ell", cx, cy, rx, ry)
@@ -178,17 +184,25 @@ def blob(gx, gy, cx, cy, rx, ry, rot=0.0, ph=0.0, wob=0.10):
 # lakes: name -> list of (cx, cy, rx, ry, rot, phase) shallow shapes; deep = shrunk copy
 LAKES = {
     "lushwater": [(75, 198, 17, 10.5, 0, 0.6)],
-    "raiders":   [(225, 214, 18, 11, 8, 2.1)],
+    "raiders":   [(222, 216, 16, 10, 8, 2.1)],
     "pools":     [(71, 74, 7.5, 5.5, 10, 0.3), (92, 82, 7.5, 6, -12, 1.4), (79, 94, 6.5, 4.8, 0, 2.6),
                   (62, 88, 5, 3.8, 20, 3.4), (100, 98, 4.5, 3.4, 0, 4.2)],
 }
 DEEP_SHRINK = {"lushwater": 3.6, "raiders": 4.0, "pools": 2.4}
-ISLANDS = [(229, 212, 4.2, 3.0, 0, 1.0)]       # Raider's Rest island (land inside the lake)
+ISLANDS = [(226, 214, 4.0, 2.8, 0, 1.0)]       # Raider's Rest island (land inside the lake)
+
+
+def _gauss(gy, c, w):
+    return np.exp(-((gy - c) / w) ** 2)
 
 
 def coast_x(gy):
+    """East shore: headlands and bays (the Ratchet spit hooks out in the south)."""
     spit = 15.0 * _smooth(246, 262, gy) * (1 - _smooth(284, 296, gy))
-    return 253.0 + 2.6 * np.sin(0.07 * gy + 1.0) + 1.6 * np.sin(0.19 * gy) + spit
+    swing = (-8.0 * _gauss(gy, 88, 15) + 5.0 * _gauss(gy, 128, 12) - 8.0 * _gauss(gy, 176, 15)
+             + 4.0 * _gauss(gy, 214, 11) - 3.0 * _gauss(gy, 240, 6))
+    swing = swing * _smooth(56, 72, gy)
+    return 257.0 + swing + 1.8 * np.sin(0.19 * gy) + 1.2 * np.sin(0.53 * gy + 1.0) + spit
 
 
 def river_c(gy):
@@ -262,8 +276,11 @@ def _ridge(pts, hw, gx, gy):
     if key not in _RIDGE_TREES:
         from tools.terrain_painter import Painter
         _RIDGE_TREES[key] = cKDTree(Painter.spline(pts))
-    d, _ = _RIDGE_TREES[key].query(np.stack([gx.ravel(), gy.ravel()], 1))
-    return hw + 0.7 * _wob(gx, gy) - d.reshape(gx.shape)
+    tree = _RIDGE_TREES[key]
+    d, idx = tree.query(np.stack([gx.ravel(), gy.ravel()], 1))
+    t = idx / max(1, tree.n - 1)
+    taper = 0.30 + 0.70 * np.sin(np.pi * t) ** 0.6
+    return (hw * taper).reshape(gx.shape) + 0.7 * _wob(gx, gy) - d.reshape(gx.shape)
 
 
 def cliff_raw(gx, gy):
@@ -279,9 +296,9 @@ def cliff_raw(gx, gy):
         out = np.maximum(out, (1 - r) * min(rx, ry))
     for (rpts, rhw) in RIDGES:
         out = np.maximum(out, _ridge(rpts, rhw, gx, gy))
-    west = (5.0 + 1.2 * np.sin(0.13 * gy + 1.0) + 0.8 * np.sin(0.37 * gy)) - gx
-    north = (4.2 + 1.0 * np.sin(0.11 * gx) + 0.7 * np.sin(0.31 * gx + 1.0)) - gy
-    south = gy - (295.4 - 1.0 * np.sin(0.13 * gx) - 0.7 * np.sin(0.29 * gx + 2.0))
+    west = (7.5 + 3.4 * np.sin(0.045 * gy + 0.4) + 1.6 * np.sin(0.13 * gy + 1.0) + 0.8 * np.sin(0.37 * gy)) - gx
+    north = (6.0 + 2.4 * np.sin(0.05 * gx + 1.0) + 1.2 * np.sin(0.11 * gx) + 0.7 * np.sin(0.31 * gx + 1.0)) - gy
+    south = gy - (293.0 - 2.4 * np.sin(0.06 * gx + 2.0) - 1.0 * np.sin(0.13 * gx) - 0.7 * np.sin(0.29 * gx + 2.0))
     out = np.maximum(out, np.maximum(west, np.maximum(north, south)))
     return out + 1.1 * _wob(gx, gy)
 
@@ -365,6 +382,14 @@ def _aspect(path):
 
 
 class Layout:
+    # parametric hooks so other hand-built zones (Southern Barrens) can reuse the placement logic
+    W, H = W, H
+    portal_tiles = list(PORTALS)
+    arrival_tiles = list(ARRIVALS)
+
+    def road_fn(self, gx, gy):
+        return road_dist(gx, gy)
+
     def __init__(self):
         self.zone = Tilemap("Central Barrens", W, H,
                             "Golden savanna stretching to every horizon. The Crossroads stands at the heart of it all.")
@@ -376,7 +401,7 @@ class Layout:
         self.npc_xy = list(NPC_POSITIONS.values())
 
     def road_clear(self, x, y, margin=0.9):
-        return road_dist(np.array([x + 0.5]), np.array([y + 0.5]))[0] < -margin
+        return self.road_fn(np.array([x + 0.5]), np.array([y + 0.5]))[0] < -margin
 
     def _try(self, path, wt, height, cx, base_y, solid, fraction, road_ok, allow_overlap, shore_ok):
         z = self.z
@@ -390,7 +415,7 @@ class Layout:
                     core.append((x, y))
         probe = core or [(cx, base_y)]
         for (x, y) in probe:
-            if not (0 <= x < W and 0 <= y < H):
+            if not (0 <= x < self.W and 0 <= y < self.H):
                 return "off-map", core, ax, ay
             if z.collision_layer[y][x] is not None and not allow_overlap:
                 return "overlaps solid", core, ax, ay
@@ -398,7 +423,7 @@ class Layout:
                 return "water", core, ax, ay
             if any(abs(x - nx) <= 1 and abs(y - ny) <= 1 for nx, ny in self.npc_xy):
                 return "NPC", core, ax, ay
-            if any(abs(x - px) <= 2 and abs(y - py) <= 2 for px, py in list(PORTALS) + ARRIVALS):
+            if any(abs(x - px) <= 2 and abs(y - py) <= 2 for px, py in self.portal_tiles + self.arrival_tiles):
                 return "portal", core, ax, ay
             if not road_ok and not self.road_clear(x, y, 0.6):
                 return "road", core, ax, ay
@@ -462,7 +487,7 @@ class Layout:
             for dy in range(-r, r + 1):
                 for dx in range(-r, r + 1):
                     xx, yy = x + dx, y + dy
-                    if (0 <= xx < W and 0 <= yy < H and z.is_walkable(xx, yy)
+                    if (0 <= xx < self.W and 0 <= yy < self.H and z.is_walkable(xx, yy)
                             and z.interaction_layer[yy][xx] is None
                             and z.base_layer[yy][xx] not in ("deep_water", "shallow_water", "path")
                             and z.collision_layer[yy][xx] is None
@@ -693,7 +718,7 @@ def dress(L):
     P("br_razorfen_bramble_gate", 140, 241, 6, solid=False, road_ok=True)
 
     # ---- Raider's Rest (south-east oasis) ------------------------------------
-    for (x, y) in [(207, 213), (200, 222), (212, 224)]:
+    for (x, y) in [(213, 211), (199, 222), (212, 224)]:
         L.bld("generic_tent_a", x, y, 5)
     L.dp("vot_fire_pit", 206, 220, 2, solid=False)
     P("br_caravan_wagon", 196, 214, 4)

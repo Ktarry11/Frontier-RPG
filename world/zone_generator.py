@@ -5597,6 +5597,7 @@ def create_all_zones():
     from tools.handbuilt_durotar import generate_durotar as generate_durotar_handbuilt
     from tools.handbuilt_echo_isles import generate_echo_isles as generate_echo_isles_handbuilt
     from tools.handbuilt_central_barrens import generate_central_barrens as generate_central_barrens_handbuilt
+    from tools.handbuilt_southern_barrens import generate_southern_barrens as generate_southern_barrens_handbuilt
     from tools import handbuilt_vot_caves as vot_caves
     from tools import handbuilt_durotar_caves as dcaves
     from tools import handbuilt_echo_caves as ecaves
@@ -5650,7 +5651,7 @@ def create_all_zones():
         "Northern Barrens": generate_northern_barrens(),
         "Central Barrens": generate_central_barrens_handbuilt(),  # hand-built (tools/handbuilt_central_barrens.py)
         "Crossroads": generate_crossroads(),
-        "Southern Barrens": generate_southern_barrens(),
+        "Southern Barrens": generate_southern_barrens_handbuilt(),  # hand-built (tools/handbuilt_southern_barrens.py)
         "Camp Taurajo": ZoneGenerator.generate_camp_taurajo(),  # was never
         # added to this dict despite the generator existing and the portal
         # registry pointing at it - the zone was completely unreachable.
