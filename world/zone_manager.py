@@ -372,7 +372,14 @@ class ZoneManager:
             target_y = spawn_y if spawn_y is not None else new_zone.height // 2
 
             if leaving_cave:
-                target_y += 1
+                # portal_manager offsets the spawn 2 tiles NORTH of the
+                # portal tile (the right call when entering a cave), which
+                # on the overworld side is up inside the cave-mouth
+                # landmark - the walkability net below then snapped the
+                # player ONTO the portal tile itself. Land one tile
+                # SOUTH of the portal tile instead (spawn_y + 3), clear of
+                # the mouth and of the trigger.
+                target_y += 3
 
             # Safety net: portal_manager.py's coordinates are static data
             # authored against a generator's output at some point in time.

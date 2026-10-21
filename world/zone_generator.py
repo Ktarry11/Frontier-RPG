@@ -5596,6 +5596,7 @@ def create_all_zones():
     from tools.handbuilt_vot import generate_valley_of_trials as generate_valley_of_trials_handbuilt
     from tools.handbuilt_durotar import generate_durotar as generate_durotar_handbuilt
     from tools import handbuilt_vot_caves as vot_caves
+    from tools import handbuilt_durotar_caves as dcaves
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5747,11 +5748,11 @@ def create_all_zones():
     zones["Boulder Lode Mine"] = ZoneGenerator.generate_boulder_lode_mine()
     zones["Serena's Hollow"] = ZoneGenerator.generate_serenas_hollow()
     zones["The Den"] = vot_caves.generate_the_den()  # hand-built (tools/handbuilt_vot_caves.py)
-    zones["Dustwind Cave"] = ZoneGenerator.generate_dustwind_cave()
-    zones["Thunder Ridge"] = ZoneGenerator.generate_thunder_ridge()
+    zones["Dustwind Cave"] = dcaves.generate_dustwind_cave()  # hand-built (tools/handbuilt_durotar_caves.py)
+    zones["Thunder Ridge"] = dcaves.generate_thunder_ridge()  # hand-built
     zones["Burning Blade Coven"] = vot_caves.generate_burning_blade_coven()  # hand-built
-    zones["Tiragarde Keep"] = ZoneGenerator.generate_tiragarde_keep()
-    zones["Skull Rock"] = ZoneGenerator.generate_skull_rock()
+    zones["Tiragarde Keep"] = dcaves.generate_tiragarde_keep()  # hand-built
+    zones["Skull Rock"] = dcaves.generate_skull_rock()  # hand-built
     zones["Night Web's Hollow"] = ZoneGenerator.generate_night_webs_hollow()
     zones["Scarlet Crypt"] = ZoneGenerator.generate_scarlet_crypt()
     zones["Scourge Cave"] = ZoneGenerator.generate_scourge_cave()
@@ -5760,8 +5761,8 @@ def create_all_zones():
     # function's own docstring note and generate_drygulch_ravine()'s
     # docstring for why an open-air canyon needed a different generator
     # shape than the room-and-corridor dungeon carver.
-    zones["Drygulch Ravine"] = ZoneGenerator.generate_drygulch_ravine()
-    zones["Sunken Grotto of the Deep"] = generate_sunken_grotto_of_the_deep()  # hand-built (tools/handbuilt_dungeons.py)
+    zones["Drygulch Ravine"] = dcaves.generate_drygulch_ravine()  # hand-built
+    zones["Sunken Grotto of the Deep"] = dcaves.generate_sunken_grotto_of_the_deep()  # hand-built
     
     # Add the massive pre-designed dungeons
     zones["Wailing Caverns"] = generate_wailing_caverns_expanded()

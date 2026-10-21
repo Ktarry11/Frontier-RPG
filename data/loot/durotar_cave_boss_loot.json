@@ -1,0 +1,620 @@
+{
+  "_notes": "Durotar cave boss loot (2026-10-21). One item drops per kill from the boss's pool of 4. item_level = boss level + 3; real loot formulas (tools/build_durotar_content.make), primary + secondary stats.",
+  "Gorge the Corpsegrinder": [
+    {
+      "name": "Corpsegrinder's Jaw-Maul",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Two scorpid mandibles lashed to a haft. It still tries to close.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 65,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Chitin-Plate Pauldrons",
+      "slot": "shoulder",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Overlapping carapace plates. Heavy, ugly, and very hard to bite through.",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2,
+        "dodge_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 50
+    },
+    {
+      "name": "Burrowmother's Silkwrap",
+      "slot": "wrist",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Spun in the dark by something that cared about its brood. Soft as breath.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 1.9,
+        "mp5": 0.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 7
+    },
+    {
+      "name": "Venom-Barb Stiletto",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "A stinger the length of your forearm, cured and hilted. Handle with care.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1,
+        "crit_chance_physical": 0.1
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 1.7
+    }
+  ],
+  "Captain Thalenvorde": [
+    {
+      "name": "Thalenvorde's Officer Cutlass",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Kul Tiras steel, kept sharp long after there was anyone to salute.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "attack_power": 3.0
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Garrison Sea-Coat",
+      "slot": "chest",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Salt-stiffened mail under a blue coat that has seen better tides.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "attack_power": 4.0
+      },
+      "armor_type": "mail",
+      "armor_value": 44
+    },
+    {
+      "name": "Stormwrecked Flintlock",
+      "slot": "ranged",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Powder long dried out, but the lock still clicks like a promise.",
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 22,
+      "weapon_damage_max": 30,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Captain's Signet of the Tide",
+      "slot": "ring",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Press it to wax and a garrison answers. Nobody is left to hear it.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.1,
+        "block_rating": 0.2,
+        "dodge_rating": 0.1
+      }
+    }
+  ],
+  "Neru Fireblade": [
+    {
+      "name": "Neru's Ember Wand",
+      "slot": "ranged",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "A blade-spirit's last candle, whittled thin. It sputters when he's near.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "fire_spell_power": 3.2
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Cowl of Burning Oaths",
+      "slot": "head",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Leather scorched at the brow where the oath was branded in.",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 26
+    },
+    {
+      "name": "Fireblade's Warkilt",
+      "slot": "legs",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Plate skirting heat-blued like a smith's apron. Warm to the touch.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 85
+    },
+    {
+      "name": "Ashen Rending-Claws",
+      "slot": "main_hand",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Fist-blades quenched in cinders. They leave brands, not cuts.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 31,
+      "weapon_damage_max": 42,
+      "attack_speed": 1.8
+    }
+  ],
+  "Gazz'uz": [
+    {
+      "name": "Shadowhoof Staff",
+      "slot": "main_hand",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Cloven-hoof finial. Its owner stopped being polite a long time ago.",
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 23.1
+      },
+      "weapon_damage_min": 17,
+      "weapon_damage_max": 23,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Mantle of Gazz'uz's Pact",
+      "slot": "shoulder",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Felcloth stitched with a signature you wouldn't want on a contract.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 13
+    },
+    {
+      "name": "Demon-Hide Girdle",
+      "slot": "waist",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Tanned from something that lied to you first.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 2.4,
+        "mp5": 0.5
+      },
+      "armor_type": "leather",
+      "armor_value": 17
+    },
+    {
+      "name": "Binder's Pendant",
+      "slot": "neck",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Every ward in Skull Rock was keyed to this. Now the keyhole's yours.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 2.1,
+        "spell_penetration": 0.9
+      }
+    }
+  ],
+  "Matriarch Vess'ra": [
+    {
+      "name": "Vess'ra's Stormfeather Cloak",
+      "slot": "back",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Every feather hums. The wind in Drygulch listens to whoever wears it.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 3.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 7
+    },
+    {
+      "name": "Talon-Strung Windbow",
+      "slot": "ranged",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Sinew from a roost-mother's wing, strung on a spine of red cane.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Matriarch's Windwoven Robes",
+      "slot": "chest",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Light as a thermal. It keeps the faith better than most of Drygulch's shrines.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 2.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 17
+    },
+    {
+      "name": "Roost-Warden's Gauntlets",
+      "slot": "hands",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Mail gauntlets with talon-guards. The harpies knew exactly how a fist works.",
+      "primary_stats": {
+        "strength": 1,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.1
+      },
+      "armor_type": "mail",
+      "armor_value": 28
+    }
+  ],
+  "Thunder Broodmother": [
+    {
+      "name": "Broodmother's Stormspire",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "A shard of ridge-lightning set in a horn haft. It wants to strike twice.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "armor": 33.0,
+        "parry_rating": 0.7
+      },
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 84,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Thunderhide Hauberk",
+      "slot": "chest",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Static crawls over the scales like a held breath. Nothing strikes it twice.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "block_rating": 0.5,
+        "block_value": 4.9
+      },
+      "armor_type": "plate",
+      "armor_value": 97
+    },
+    {
+      "name": "Stormwatcher's Totem",
+      "slot": "ranged",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Carved from the nest-stone at the heart of the ridge. Hold it and your hair lifts.",
+      "weapon_type": "totem",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 2.9
+      },
+      "weapon_damage_min": 29,
+      "weapon_damage_max": 39,
+      "attack_speed": 0.0
+    },
+    {
+      "name": "Eggshell Slippers",
+      "slot": "feet",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Pearl-white shell fragments, lined with down. The Broodmother does not take loss gently.",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 10
+    }
+  ],
+  "Giant Crab": [
+    {
+      "name": "Cracked Pincer Shield",
+      "slot": "off_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Still twitching, somehow.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "armor_value": 32,
+      "block_value": 40
+    },
+    {
+      "name": "Barnacled Greatboots",
+      "slot": "feet",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Waterlogged, but they'll outlast you.",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2,
+        "dodge_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 48
+    },
+    {
+      "name": "Crab-Shell Talisman",
+      "slot": "trinket",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Warm to the touch, even now.",
+      "primary_stats": {
+        "strength": 2,
+        "agility": 2
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Claw-Cleaver of the Deep",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "One pincer, ground to an edge by a century of tide.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 9,
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 84,
+      "attack_speed": 3.6
+    }
+  ],
+  "Undead Pirate Captain": [
+    {
+      "name": "Drowned Captain's Cutlass",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Still tastes of brine and mutiny.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 34,
+      "weapon_damage_max": 46,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Tricorn of the Drowned",
+      "slot": "head",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "The feather never dries.",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 30
+    },
+    {
+      "name": "Sunken Officer's Vestment",
+      "slot": "chest",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Rank insignia, barnacle-crusted but legible.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "mp5": 0.8
+      },
+      "armor_type": "mail",
+      "armor_value": 65
+    },
+    {
+      "name": "Gold-Rotted Signet",
+      "slot": "ring",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "He was buried with it. He did not stay buried.",
+      "primary_stats": {
+        "intellect": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {
+        "spell_power": 0.9
+      }
+    }
+  ],
+  "Naga Shrine Guardian": [
+    {
+      "name": "Tidebound Trident",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "The shrine's own weapon, still humming with tidal current.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "defense_rating": 0.7
+      },
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 84,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Naga Ritual Dagger",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Etched with tidal runes no living tongue can read.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.5,
+        "mp5": 0.5
+      },
+      "weapon_damage_min": 34,
+      "weapon_damage_max": 46,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Guardian's Warplate Gauntlets",
+      "slot": "hands",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Forged to grip a trident that no longer needs gripping.",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.2,
+        "parry_rating": 0.1
+      },
+      "armor_type": "plate",
+      "armor_value": 48
+    },
+    {
+      "name": "Shrine-Blessed Bracers",
+      "slot": "wrist",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "The naga's shrine still answers to a new wearer.",
+      "primary_stats": {
+        "stamina": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.2
+      },
+      "armor_type": "leather",
+      "armor_value": 20
+    }
+  ]
+}

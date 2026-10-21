@@ -1885,13 +1885,81 @@ SILVERPINE_DUNGEON_KITS = {
     ],
 }
 
+# Durotar cave residents (2026-10-21 cave pass). First ability of every kit is a
+# 0-cd basic attack (kit_to_json contract).
+DUROTAR_CAVE_KITS = {
+    # ---- Dustwind Cave (scorpid burrow) ---------------------------------
+    "burrow_stalker": [
+        ("Ambush Sting", "damage", 18, 0, 0, "physical", {}),
+        ("Paralytic Venom", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -12}}),
+    ],
+    "hive_carapace_guard": [
+        ("Pincer Slam", "damage", 17, 0, 0, "physical", {}),
+        ("Chitin Plating", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 22}}),
+    ],
+    # ---- Tiragarde Keep -------------------------------------------------
+    "stranded_cannoneer": [
+        ("Powder Shot", "damage", 20, 0, 0, "physical", {}),
+        ("Grapeshot Volley", "damage", 26, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    "ships_surgeon": [
+        ("Scalpel Jab", "damage", 14, 0, 6, "physical", {}),
+        ("Field Dressing", "heal", 26, 4, 12, "magic", {}),
+        ("Bad Anesthetic", "dot", 6, 3, 8, "magic", {"duration": 3}),
+    ],
+    # ---- Drygulch Ravine ------------------------------------------------
+    "roost_warden": [
+        ("Talon Rake", "damage", 20, 0, 0, "physical", {}),
+        ("Wing Buffet", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "is_aoe": True, "stat_mods": {"agility": -14}}),
+    ],
+    "gale_caller": [
+        ("Wind Slash", "damage", 26, 0, 10, "nature", {}),
+        ("Choking Gust", "dot", 10, 3, 14, "nature", {"duration": 3}),
+        ("Cyclone Veil", "buff", 0, 5, 12, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 20}}),
+    ],
+    # ---- Thunder Ridge --------------------------------------------------
+    "thunderbrood_guardian": [
+        ("Tail Slam", "damage", 26, 0, 0, "physical", {}),
+        ("Static Hide", "buff", 0, 5, 0, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 24}}),
+        ("Thunderclap", "debuff", 0, 5, 0, "nature",
+         {"duration": 3, "is_aoe": True, "stat_mods": {"agility": -16}}),
+    ],
+    "thunder_broodmother": [
+        # Cave boss. PLANNED (engine): Brood Roar will call 2 Static
+        # Hatchlings each time it is cast.
+        ("Stormclaw Rend", "damage", 36, 0, 0, "physical", {}),
+        ("Brood Roar", "buff", 0, 6, 0, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 20}}),
+        ("Chain Lightning", "damage", 44, 4, 0, "nature", {"is_aoe": True}),
+        ("Static Nest", "dot", 15, 4, 0, "nature", {"duration": 4}),
+    ],
+    # ---- Sunken Grotto of the Deep --------------------------------------
+    "naga_coralspeaker": [
+        ("Tidal Bolt", "damage", 28, 0, 12, "frost", {}),
+        ("Mending Tide", "heal", 34, 5, 18, "magic", {}),
+        ("Riptide", "dot", 12, 3, 14, "frost", {"duration": 3}),
+    ],
+    "drowned_buccaneer": [
+        ("Rusted Cutlass", "damage", 24, 0, 0, "physical", {}),
+        ("Boarding Hook", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+        ("Dead Man's Grit", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 20}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

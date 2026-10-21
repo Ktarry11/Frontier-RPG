@@ -4921,6 +4921,291 @@
         "duration": 3
       }
     ],
+    "burrow_stalker": [
+      {
+        "name": "Ambush Sting",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Paralytic Venom",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -12
+        }
+      }
+    ],
+    "hive_carapace_guard": [
+      {
+        "name": "Pincer Slam",
+        "kind": "damage",
+        "amount": 17,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chitin Plating",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 22
+        }
+      }
+    ],
+    "stranded_cannoneer": [
+      {
+        "name": "Powder Shot",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grapeshot Volley",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "ships_surgeon": [
+      {
+        "name": "Scalpel Jab",
+        "kind": "damage",
+        "amount": 14,
+        "cooldown": 0,
+        "mana_cost": 6,
+        "school": "physical"
+      },
+      {
+        "name": "Field Dressing",
+        "kind": "heal",
+        "amount": 26,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Bad Anesthetic",
+        "kind": "dot",
+        "amount": 6,
+        "cooldown": 3,
+        "mana_cost": 8,
+        "school": "magic",
+        "duration": 3
+      }
+    ],
+    "roost_warden": [
+      {
+        "name": "Talon Rake",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wing Buffet",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "gale_caller": [
+      {
+        "name": "Wind Slash",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 10,
+        "school": "nature"
+      },
+      {
+        "name": "Choking Gust",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 14,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Cyclone Veil",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 20
+        }
+      }
+    ],
+    "thunderbrood_guardian": [
+      {
+        "name": "Tail Slam",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Static Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 24
+        }
+      },
+      {
+        "name": "Thunderclap",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "thunder_broodmother": [
+      {
+        "name": "Stormclaw Rend",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Brood Roar",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 20
+        }
+      },
+      {
+        "name": "Chain Lightning",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Static Nest",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "naga_coralspeaker": [
+      {
+        "name": "Tidal Bolt",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 12,
+        "school": "frost"
+      },
+      {
+        "name": "Mending Tide",
+        "kind": "heal",
+        "amount": 34,
+        "cooldown": 5,
+        "mana_cost": 18,
+        "school": "magic"
+      },
+      {
+        "name": "Riptide",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 14,
+        "school": "frost",
+        "duration": 3
+      }
+    ],
+    "drowned_buccaneer": [
+      {
+        "name": "Rusted Cutlass",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Boarding Hook",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      },
+      {
+        "name": "Dead Man's Grit",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 20
+        }
+      }
+    ],
     "murloc_flesheater": [
       {
         "name": "Rend Flesh",

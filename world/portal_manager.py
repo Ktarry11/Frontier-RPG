@@ -99,9 +99,9 @@ class PortalManager:
                 # gate opening - see orgrimmar_undercity_expansion.py's
                 # South Gate section.
                 (65, 26): ("Orgrimmar", 100, 197),
-                (95, 25): ("Drygulch Ravine", 46, 70),
+                (95, 25): ("Drygulch Ravine", 47, 71),
                 (112, 35): ("Zeppelin Tower", 17, 41),
-                (118, 60): ("Skull Rock", 54, 85),
+                (118, 60): ("Skull Rock", 55, 86),
                 (120, 40): ("Sunken Grotto of the Deep", 55, 92),
                 (5, 85): ("Central Barrens", 270, 30),
                 (65, 108): ("Razor Hill", 30, 55),
@@ -109,7 +109,7 @@ class PortalManager:
                 (28, 150): ("Valley of Trials", 115, 60),
                 (110, 150): ("Echo Isles", 80, 8),
                 (95, 178): ("Tiragarde Keep", 45, 76),
-                (55, 45): ("Thunder Ridge", 40, 55),
+                (55, 45): ("Thunder Ridge", 45, 86),
             },
             "Razor Hill": {
                 (30, 55): ("Durotar", 65, 108),
@@ -121,7 +121,7 @@ class PortalManager:
                 (55, 86): ("Durotar", 118, 60),
             },
             "Thunder Ridge": {
-                (40, 55): ("Durotar", 55, 45),
+                (45, 86): ("Durotar", 55, 45),
             },
             "Sunken Grotto of the Deep": {
                 (55, 92): ("Durotar", 120, 40),
