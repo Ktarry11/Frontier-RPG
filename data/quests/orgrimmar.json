@@ -1,0 +1,833 @@
+{
+  "quests": [
+    {
+      "quest_id": "org_embers_beneath",
+      "title": "Embers Beneath the Valley",
+      "giver_npc_id": "org_thrall",
+      "zone": "orgrimmar",
+      "level_min": 12,
+      "level_max": 16,
+      "next_quest_id": "org_hunger_in_the_lake",
+      "description": "The warm vents under the Cleft of Shadow used to be only warm. For a month now they have been loud: picks, drums, and a smell of sulphur that does not belong to nature. Troggs who have not come near the city in a generation are streaming up out of Ragefire Chasm, and behind them there is something with a purpose. Thrall does not like things with a purpose that he has not given them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ragefire Trogg",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Ragefire Shaman",
+          "count": 5
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 3600,
+      "accept_text": "Go down through the Cleft. The troggs first - they are the loud part - and their shamans, who are keeping them loud. Bring me back what the chasm has become. I will not send a tide of warriors into a place I do not understand.",
+      "turn_in_text": "So it is not only troggs. Good - I would rather know. The Cleft is quieter already. But something down there is feeding that fire. Take this, and listen to me again.",
+      "unique_item_defs": [
+        {
+          "name": "Cleft-Watch Tunic",
+          "slot": "chest",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Hardened hide with a cinder-stain at the cuff. The Cleft's own.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Trogg-Bone Shield",
+          "slot": "off_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Two thighbones and a prayer. It has already survived a trogg.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_value": 21,
+          "block_value": 27,
+          "label": "Shield (Str/Block)"
+        },
+        {
+          "name": "Emberdew Charm",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "A sliver of obsidian that stays warm. The shamans guarded it jealously.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.0,
+            "mp5": 0.2
+          },
+          "label": "Necklace (Int/SP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "org_hunger_in_the_lake",
+      "title": "Hunger in the Lake",
+      "giver_npc_id": "org_thrall",
+      "zone": "orgrimmar",
+      "level_min": 14,
+      "level_max": 17,
+      "next_quest_id": "org_sinister_edge",
+      "description": "The cultists did not find the lava lake - they found what lives in it. Taragaman the Hungerer is an elemental older than the city, and for ten thousand years he has done nothing but burn and wait. Someone has been feeding him, binding him, and pointing him at Orgrimmar. A bound spirit of that size is not a weapon. It is a fuse.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Taragaman the Hungerer",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1500,
+      "reward_gold": 5600,
+      "accept_text": "Beyond the antechamber the chasm opens onto a lake of fire with two stone bridges across it. Taragaman sits where they cross. Do not fight him on the bridges for longer than you must.",
+      "turn_in_text": "He is out. The Hungerer is out. I felt the vents quiet from here. Thank you - for the first time in a month the city is breathing right. There is still the one who held his chain.",
+      "unique_item_defs": [
+        {
+          "name": "Hungerer's Cinderstaff",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Burned from the inside out. The grain still glows.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "fire_spell_power": 29.7
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 28,
+          "attack_speed": 3.2,
+          "label": "Staff (Fire Spell Power)"
+        },
+        {
+          "name": "Lava-Seared Breastplate",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "It leaves a char mark on anything that touches it. Anything that touches it deserves it.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 110,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Smolderfang Band",
+          "slot": "ring",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Ring-bone from a lake creature that bit back. Still hot.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.6
+          },
+          "label": "Ring (Agi/Int/AP)"
+        },
+        {
+          "name": "Cinderspirit's Mending Wraps",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Woven from ash-silk that mends faster than it burns.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 3.1,
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Bracers (Healing/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "org_sinister_edge",
+      "title": "The Sinister Edge",
+      "giver_npc_id": "org_thrall",
+      "zone": "orgrimmar",
+      "level_min": 15,
+      "level_max": 18,
+      "next_quest_id": null,
+      "description": "Every cult needs a blade, and the Searing Blade's is a trogg-hater named Bazzalan. He sits on an obsidian throne at the end of the chasm, in a hall that was an orc shrine before it was theirs. He does not shout. He does not pose. He waits for you to look at the wrong corner of the room.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Searing Blade Fanatic",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Bazzalan",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1700,
+      "reward_gold": 6400,
+      "accept_text": "His walkway lies beyond the Invoker's ritual hall. Take your time and your healers. A cult is a body, and Bazzalan is the knife it holds in the dark.",
+      "turn_in_text": "Bring the throne to dust, they said, and you did more than that. The Searing Blade's hold on my city is broken - at least for now. Wear this with pride. The Horde remembers who stands in the dark so others may sleep.",
+      "unique_item_defs": [
+        {
+          "name": "Thrall's Gift: Hammerfall",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 16,
+          "flavor_text": "Forged in Orgrimmar's own forges for a champion Thrall did not have to name.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 10.9,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 53,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Dark-Edge Duelist's Blade",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 16,
+          "flavor_text": "Sharper than its owner was careful. Still sharp.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 53,
+          "attack_speed": 2.4,
+          "label": "Sword (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Mantle of the Third Fire",
+          "slot": "shoulder",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 16,
+          "flavor_text": "Orgrimmar's own shamans wove the cord. It knows your name.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Shoulders (Int/Spi/Healing)"
+        },
+        {
+          "name": "Horde Marshal's Sabatons",
+          "slot": "feet",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 16,
+          "flavor_text": "Heavy plate that remembers every road Orgrimmar ever paved.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 58,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "org_whispers_cleft",
+      "title": "Whispers in the Cleft",
+      "giver_npc_id": "org_rogue_trainer",
+      "zone": "orgrimmar",
+      "level_min": 13,
+      "level_max": 16,
+      "next_quest_id": null,
+      "description": "The Cleft of Shadow has always belonged to the quiet kind of orc. That does not mean it belongs to whoever claims the quiet. A cult calling itself the Searing Blade has been using the Cleft's own back tunnels to run their ritual stock into the chasm below. The Shade is not pleased. A thief has a code, and the code does not include sacrifices.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Searing Blade Cultist",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Searing Blade Fanatic",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Searing Blade Invoker",
+          "count": 3
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 3800,
+      "accept_text": "They hide behind candlelight. You can use that. Go in through the gate in the Cleft and take them as they come - the cultists first, the fanatics who guard them, the invokers who command them.",
+      "turn_in_text": "Their whispers have gone quiet. Good. I will be back to my usual clientele by dusk. Here - a small thank-you from a very small ghost.",
+      "unique_item_defs": [
+        {
+          "name": "Shade-Silk Hood",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Dark enough to lose a shadow in. It does not lose you.",
+          "primary_stats": {
+            "agility": 3,
+            "spirit": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Hood (Agi/Spi)"
+        },
+        {
+          "name": "Cleftrunner's Dirk",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A knife for someone who prefers a quiet exit.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Whisper-Thread Cloak",
+          "slot": "back",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "The weave swallows sound. Small ones, anyway.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloak (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "org_binding_invoker",
+      "title": "Binding the Invoker",
+      "giver_npc_id": "org_warlock_trainer",
+      "zone": "orgrimmar",
+      "level_min": 15,
+      "level_max": 18,
+      "next_quest_id": null,
+      "description": "Malzhet has spent a lifetime learning where a warlock's contract ends. Jergosh the Invoker has built a chamber in the chasm and a cult around the idea that it ends nowhere. Voidwalkers he did not earn walk his ritual hall. Malzhet recognises the shape of the mistake - it is his own, twenty years ago - and has no wish to see it repeated at city scale.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Voidwalker Minion",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Jergosh the Invoker",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1550,
+      "reward_gold": 5800,
+      "accept_text": "Jergosh's chamber lies north of the lake. Mind the voidwalkers - they are his hands, and he has never once had to use his own. When he falls, break the circle. Do not read what is in it.",
+      "turn_in_text": "The circle is broken. Then the debt is paid, at least in part. Take it - a better warlock than I was used to carry it. I would be pleased if you were better than either of us.",
+      "unique_item_defs": [
+        {
+          "name": "Binder's Grimoire",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "A cracked spine, warm pages. The marginalia is not in a language the living use.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 28,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Sta/Hit)"
+        },
+        {
+          "name": "Voidtouched Robes",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Cut for someone comfortable being looked at by things that are not there.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "shadow_spell_power": 5.5,
+            "arcane_spell_power": 5.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Chest (Shadow/Arcane SP)"
+        },
+        {
+          "name": "Soul-Anchor Pendant",
+          "slot": "neck",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Stops you from drifting. A soul is a heavy thing to carry alone.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "label": "Necklace (Sta/Spi)"
+        },
+        {
+          "name": "Invoker's Ward-Gloves",
+          "slot": "hands",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "A little heavier than they look. Cults pay in leather as well as blood.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 22,
+          "label": "Leather Gloves (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "org_ore_deep",
+      "title": "Ore of the Deep",
+      "giver_npc_id": "org_smith",
+      "zone": "orgrimmar",
+      "level_min": 12,
+      "level_max": 16,
+      "next_quest_id": "org_pitbreaker",
+      "description": "Krunk keeps one piece of black rock above his anvil, and he has been staring at it for a week. It came from the mining spur under the Cleft, and it is the best ore he has ever put a hammer to. He wants more. The troggs digging it up and the elementals warming it down below are, in his view, a very small obstacle.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ragefire_ore_sample",
+          "count": 8
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 3400,
+      "accept_text": "Troggs mine it. Elementals nest in it. Bring me eight lumps - black, shot with orange. You will know it when you pick it up. It will want to burn your hand.",
+      "turn_in_text": "Look at that grain. Look at it. I could make a blade from this that would sing. Not today - but I will not forget who brought it. Here, something from the racks.",
+      "unique_item_defs": [
+        {
+          "name": "Anvilfist's Spare Maul",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "He made six of them. This is the one that did not hit the wall.",
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 9
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 3.6,
+          "label": "Mace (Str/Sta)"
+        },
+        {
+          "name": "Forgeguard Bracers",
+          "slot": "wrist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Riveted twice, because Krunk does not trust anything done once.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 32,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Spark-Ember Belt",
+          "slot": "waist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Studded with rejected rivets. The sparks are a feature.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Belt (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "org_pitbreaker",
+      "title": "The Pitbreaker",
+      "giver_npc_id": "org_smith",
+      "zone": "orgrimmar",
+      "level_min": 14,
+      "level_max": 17,
+      "next_quest_id": null,
+      "description": "The best ore in the spur belongs to a trogg called Grulgash. He is not a warlord - he is a miner, with a miner's grudge, and a hammer that has broken more pit-props than Krunk has forged blades. Nobody mines the black seam while Grulgash is breathing. Krunk would pay a fair bit to see that change.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ragefire Digger",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Grulgash the Pitbreaker",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1250,
+      "reward_gold": 4800,
+      "accept_text": "West of the warrens, past the supply racks. The diggers first - they keep him informed. Grulgash is bigger than he looks and angrier than he sounds.",
+      "turn_in_text": "The seam is open. I'll have the smiths down there before the week is out. As for the hammer - I do not need it. You do. Take your pick.",
+      "unique_item_defs": [
+        {
+          "name": "Seamcutter's Warhammer",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "A miner's hammer with a smith's temper. It has nothing left to prove.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Agi/Sta)"
+        },
+        {
+          "name": "Black-Seam Chainmail",
+          "slot": "chest",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "Mail woven from wire drawn from that seam. It does not rust, and it does not apologise.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 69,
+          "label": "Mail Chest (Agi/Sta/Hit)"
+        },
+        {
+          "name": "Lantern-Hook Ring",
+          "slot": "ring",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "A hook, a band, and enough stubbornness to hold a mine up.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "label": "Ring (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Dust-Wrap Mitts",
+          "slot": "hands",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "Soft inside, plated outside, and very good at not being noticed.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Gloves (Int/Spi/Healing)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "org_hexed_ash",
+      "title": "Hexed Ash",
+      "giver_npc_id": "orgrimmar_alchemist",
+      "zone": "orgrimmar",
+      "level_min": 13,
+      "level_max": 17,
+      "next_quest_id": null,
+      "description": "The Searing Blade does not burn its offerings for flavour. The ash is a reagent, and the reagent is a curse, and a curse needs a hand. Zurm has been analysing the ash his customers brought back for a week, and he has learned that every sample points the same way: down the chasm, to a priestess called Zhurra Bloodhex.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "searing_ritual_ash",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Acolyte Zhurra Bloodhex",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1300,
+      "reward_gold": 5000,
+      "accept_text": "Pyromancers and cultists carry the ash. Zhurra is the one who makes it mean something. She holds the altar in the antechamber, behind the cages. Do not touch the ash with bare skin.",
+      "turn_in_text": "I will not ask what you saw. I will say that the sample matches. Her curse is broken at the root. I would like you to have something from my own stock.",
+      "unique_item_defs": [
+        {
+          "name": "Apothecary's Mending Mantle",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "Smells of lavender and tincture. The knots hold - they have been tested.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Shoulders (Healing/Spi/Sta)"
+        },
+        {
+          "name": "Zhurra's Kris, Reforged",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "A blade cleaned of its work. It still remembers its work.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.4
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 1.7,
+          "label": "Dagger (Int/Hit/SP)"
+        },
+        {
+          "name": "Vial-Bandolier",
+          "slot": "waist",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "A belt with a dozen empty loops and an honest smell of alcohol.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Belt (Sta/Int/Healing)"
+        },
+        {
+          "name": "Hexbreaker Talisman",
+          "slot": "neck",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "A paper charm in a glass bead. Zurm made it in an afternoon and will deny it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "spell_power": 2.5,
+            "spell_penetration": 1.0
+          },
+          "label": "Necklace (Spell Power/Pen)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "org_cinderfang",
+      "title": "Cinderfang",
+      "giver_npc_id": "org_hunter",
+      "zone": "orgrimmar",
+      "level_min": 14,
+      "level_max": 17,
+      "next_quest_id": null,
+      "description": "Rethok does not hunt for sport. He hunts what threatens the herd, and a salamander the size of a wolf has taken to the shores of the lava lake beneath the city. The troggs call it Cinderfang. They keep their distance. Rethok keeps a list of animals he has failed to bring home, and the list is short.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cinder Salamander",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Cinderfang",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1350,
+      "reward_gold": 5200,
+      "accept_text": "It lairs on the north-east shore of the lake. The lesser ones lead you to it - they are always near a bigger one. Keep to the stone, do not touch the lava, and do not run.",
+      "turn_in_text": "A clean kill. I have seen that pelt on a trogg's wall once. Not now. Pick whichever you will use - I would only have it hung.",
+      "unique_item_defs": [
+        {
+          "name": "Cinderfang's Bow",
+          "slot": "ranged",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Strung with salamander-gut. It sings when drawn.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 43,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int)"
+        },
+        {
+          "name": "Embersilk Jerkin",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Leather lined with ash-silk. Warm in the cold; lightly warm in the heat.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.6
+          },
+          "armor_type": "leather",
+          "armor_value": 45,
+          "label": "Leather Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Salamander-Scale Greaves",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Scales still glinting. A hunter's trophy, and a hunter's armour.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Hunter's Ember-Totem",
+          "slot": "ranged",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Carved from the shore-stone where the salamander denned. Warm enough to hold in winter.",
+          "weapon_type": "totem",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 1.9,
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 43,
+          "attack_speed": 0.0,
+          "label": "Totem (Healing/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

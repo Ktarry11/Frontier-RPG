@@ -1602,6 +1602,27 @@
         "mana_cost": 0,
         "school": "physical",
         "duration": 4
+      },
+      {
+        "name": "Gouging Cut",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Void Shroud",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "agility": 22
+        }
       }
     ],
     "earthborer": [
@@ -5204,6 +5225,401 @@
         "stat_mods": {
           "armor": 20
         }
+      }
+    ],
+    "oggleflint": [
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Warband Bellow",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 30
+        }
+      },
+      {
+        "name": "Boulder Maul",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crushing Roar",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": -18
+        }
+      }
+    ],
+    "taragaman_the_hungerer": [
+      {
+        "name": "Fire Nova",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Hungering Flames",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Molten Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 30,
+          "magic_resistance": 20
+        }
+      },
+      {
+        "name": "Lava Burst",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "magic"
+      }
+    ],
+    "jergosh_the_invoker": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 30,
+        "school": "magic"
+      },
+      {
+        "name": "Immolate",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 34,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Curse of Agony",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "magic",
+        "duration": 5
+      },
+      {
+        "name": "Searing Chains",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "magic",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -18,
+          "attack_power": -12
+        }
+      },
+      {
+        "name": "Dark Mending",
+        "kind": "heal",
+        "amount": 70,
+        "cooldown": 6,
+        "mana_cost": 45,
+        "school": "magic"
+      }
+    ],
+    "void_construct": [
+      {
+        "name": "Void Bolt",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "magic"
+      },
+      {
+        "name": "Consuming Gaze",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -12
+        }
+      }
+    ],
+    "ragefire_digger": [
+      {
+        "name": "Pick Throw",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rending Pick",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "trogg_skullcrusher": [
+      {
+        "name": "Skull Crush",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shattering Blow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": -14
+        }
+      },
+      {
+        "name": "Rampage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 20
+        }
+      }
+    ],
+    "searing_blade_pyromancer": [
+      {
+        "name": "Fireball",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 30,
+        "school": "magic"
+      },
+      {
+        "name": "Pyroblaze",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 32,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Flame Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 28,
+        "school": "magic",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 25
+        }
+      }
+    ],
+    "searing_blade_wardpriest": [
+      {
+        "name": "Searing Smite",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 20,
+        "school": "magic"
+      },
+      {
+        "name": "Blood Mending",
+        "kind": "heal",
+        "amount": 62,
+        "cooldown": 3,
+        "mana_cost": 40,
+        "school": "magic"
+      },
+      {
+        "name": "Dark Fortitude",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 24,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 22
+        }
+      }
+    ],
+    "cinder_salamander": [
+      {
+        "name": "Searing Bite",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Ember Spit",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4
+      }
+    ],
+    "grulgash_pitbreaker": [
+      {
+        "name": "Pit-Hammer",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Quake Slam",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Miner's Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 22,
+          "armor": 15
+        }
+      }
+    ],
+    "cinderfang": [
+      {
+        "name": "Searing Fangs",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Cinderstorm",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Ember Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 24,
+          "agility": 12
+        }
+      }
+    ],
+    "zhurra_bloodhex": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 28,
+        "school": "magic"
+      },
+      {
+        "name": "Bloodhex",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 30,
+        "school": "magic",
+        "duration": 5
+      },
+      {
+        "name": "Hex of Weakness",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "magic",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": -18
+        }
+      },
+      {
+        "name": "Blood Mending",
+        "kind": "heal",
+        "amount": 64,
+        "cooldown": 5,
+        "mana_cost": 42,
+        "school": "magic"
       }
     ],
     "murloc_flesheater": [

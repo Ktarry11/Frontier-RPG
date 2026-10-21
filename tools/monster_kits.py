@@ -750,6 +750,12 @@ RAGEFIRE_BOSS_KITS = {
     "bazzalan": [
         ("Sinister Strike", "damage", 32, 0, 0, "physical", {}),
         ("Deadly Poison", "dot", 12, 3, 0, "physical", {"duration": 4}),
+        # Final-boss additions (2026-10-21): a Searing Blade assassin who opens
+        # from the shadows of his throne room.  PLANNED SUMMON HOOK: "Shadow
+        # Acolytes" (2 adds at 50% HP) once monster summons exist.
+        ("Gouging Cut", "damage", 46, 3, 0, "physical", {}),
+        ("Void Shroud", "buff", 0, 6, 0, "shadow",
+         {"duration": 4, "self_only": True, "stat_mods": {"agility": 22}}),
     ],
     "earthborer": [
         ("Burrow Strike", "damage", 22, 0, 0, "physical", {}),
@@ -1953,13 +1959,96 @@ DUROTAR_CAVE_KITS = {
     ],
 }
 
+# ======================================================================
+# RAGEFIRE CHASM content pass (2026-10-21) - bosses, rares, new trash.
+# Oggleflint / Taragaman / Jergosh / Voidwalker Minion previously had NO kit.
+# Planned summon hooks (engine work later): Oggleflint "Warband Horn" (2 troggs),
+# Taragaman "Lava Spawn" (cinder adds from the lake), Jergosh "Invoke Voidwalker".
+# ======================================================================
+RAGEFIRE_CONTENT_KITS = {
+    "oggleflint": [
+        ("Cleave", "damage", 28, 0, 0, "physical", {}),
+        ("Warband Bellow", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 30}}),
+        ("Boulder Maul", "damage", 46, 3, 0, "physical", {}),
+        ("Crushing Roar", "debuff", 0, 4, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": -18}}),
+    ],
+    "taragaman_the_hungerer": [
+        ("Fire Nova", "damage", 30, 0, 0, "magic", {}),
+        ("Hungering Flames", "dot", 14, 3, 0, "magic", {"duration": 4}),
+        ("Molten Hide", "buff", 0, 6, 0, "magic",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 30, "magic_resistance": 20}}),
+        ("Lava Burst", "damage", 52, 4, 0, "magic", {}),
+    ],
+    "jergosh_the_invoker": [
+        ("Shadow Bolt", "damage", 34, 0, 30, "magic", {}),
+        ("Immolate", "dot", 13, 3, 34, "magic", {"duration": 4}),
+        ("Curse of Agony", "dot", 11, 4, 30, "magic", {"duration": 5}),
+        ("Searing Chains", "debuff", 0, 5, 26, "magic",
+         {"duration": 4, "stat_mods": {"agility": -18, "attack_power": -12}}),
+        ("Dark Mending", "heal", 70, 6, 45, "magic", {}),
+    ],
+    "void_construct": [
+        ("Void Bolt", "damage", 24, 0, 18, "magic", {}),
+        ("Consuming Gaze", "debuff", 0, 4, 22, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -12}}),
+    ],
+    "ragefire_digger": [
+        ("Pick Throw", "damage", 31, 0, 0, "physical", {}),
+        ("Rending Pick", "dot", 9, 3, 0, "physical", {"duration": 4}),
+    ],
+    "trogg_skullcrusher": [
+        ("Skull Crush", "damage", 34, 0, 0, "physical", {}),
+        ("Shattering Blow", "debuff", 0, 4, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": -14}}),
+        ("Rampage", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 20}}),
+    ],
+    "searing_blade_pyromancer": [
+        ("Fireball", "damage", 36, 0, 30, "magic", {}),
+        ("Pyroblaze", "dot", 12, 3, 32, "magic", {"duration": 4}),
+        ("Flame Ward", "buff", 0, 6, 28, "magic",
+         {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 25}}),
+    ],
+    "searing_blade_wardpriest": [
+        ("Searing Smite", "damage", 26, 0, 20, "magic", {}),
+        ("Blood Mending", "heal", 62, 3, 40, "magic", {}),
+        ("Dark Fortitude", "buff", 0, 6, 24, "shadow",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 22}}),
+    ],
+    "cinder_salamander": [
+        ("Searing Bite", "damage", 25, 0, 0, "magic", {}),
+        ("Ember Spit", "dot", 10, 3, 0, "magic", {"duration": 4}),
+    ],
+    "grulgash_pitbreaker": [
+        ("Pit-Hammer", "damage", 32, 0, 0, "physical", {}),
+        ("Quake Slam", "damage", 48, 3, 0, "physical", {}),
+        ("Miner's Fury", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 22, "armor": 15}}),
+    ],
+    "cinderfang": [
+        ("Searing Fangs", "damage", 30, 0, 0, "magic", {}),
+        ("Cinderstorm", "dot", 13, 3, 0, "magic", {"duration": 4}),
+        ("Ember Frenzy", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 24, "agility": 12}}),
+    ],
+    "zhurra_bloodhex": [
+        ("Shadow Bolt", "damage", 31, 0, 28, "magic", {}),
+        ("Bloodhex", "dot", 12, 3, 30, "magic", {"duration": 5}),
+        ("Hex of Weakness", "debuff", 0, 5, 26, "magic",
+         {"duration": 4, "stat_mods": {"attack_power": -18}}),
+        ("Blood Mending", "heal", 64, 5, 42, "magic", {}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

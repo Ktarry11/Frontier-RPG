@@ -649,6 +649,10 @@ def generate_ragefire_chasm():
         (taragaman[0], taragaman[1], "Taragaman the Hungerer"),
         (jergosh[0], jergosh[1], "Jergosh the Invoker"),
         (bazzalan[0], bazzalan[1], "Bazzalan"),
+        # optional named rares (tools/build_ragefire_content.py)
+        (56, 169, "Grulgash the Pitbreaker"),        # Ore Spur
+        (124, 132, "Acolyte Zhurra Bloodhex"),       # Antechamber, behind the altar
+        (110, 44, "Cinderfang"),                     # NE shore of Taragaman's lake
     ]
     zone.boss_position = taragaman
 

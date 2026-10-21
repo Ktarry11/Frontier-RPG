@@ -1,134 +1,469 @@
 {
-  "_notes": "Ragefire Chasm fixed boss loot (Kyle, 2026-09-06): 4 real WoW Classic bosses (Oggleflint, Taragaman the Hungerer, Jergosh the Invoker, Bazzalan), 3 items each, full stat/slot spread so every archetype has a reason to want each boss dead - no trinkets (reserved as genuinely rare per Kyle's call), no repeated slot+stat combo against Sunken Grotto's table (data/loot/sunken_grotto_boss_loot.json) or within this file. All numbers computed from the real formulas in entities/loot_generator.py at item_level 16, rarity 'rare' (RFC's real Classic level range is 15-17), same as every other fixed boss table - see entities/boss_loot.py for how this file is loaded and wired into combat.",
-
+  "_notes": "Ragefire Chasm boss + named-rare loot (2026-10-21). ONE item drops per kill from the pool. item_level = boss level + 3; real loot formulas (tools/build_durotar_content.make), primary + secondary stats.",
   "Oggleflint": [
     {
-      "name": "Trogg Warlord's Maul",
+      "name": "Warlord's Rending Cleaver",
       "slot": "main_hand",
-      "weapon_type": "mace_1h",
-      "item_level": 16,
+      "item_level": 18,
       "rarity": "rare",
-      "primary_stats": {"strength": 7},
-      "weapon_damage_min": 34,
-      "weapon_damage_max": 46,
-      "attack_speed": 2.6,
-      "flavor_text": "Still crusted with cave-stone and worse."
+      "required_level": 15,
+      "flavor_text": "A trogg-forged blade the size of a door. It has been used as one.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 12
+      },
+      "secondary_stats": {
+        "hit_rating": 0.9,
+        "crit_chance_physical": 0.9
+      },
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 3.6
     },
     {
-      "name": "Warband Shoulderguard",
+      "name": "Warband Bulwark Pauldrons",
       "slot": "shoulder",
-      "armor_type": "plate",
-      "item_level": 16,
+      "item_level": 18,
       "rarity": "rare",
-      "primary_stats": {"strength": 5, "stamina": 2},
-      "armor_value": 32,
-      "flavor_text": "Marked with the trogg warband's crude sigil."
+      "required_level": 15,
+      "flavor_text": "Slab plate chipped by a hundred raiders' hammers. It remembers every one.",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3,
+        "dodge_rating": 0.3
+      },
+      "armor_type": "plate",
+      "armor_value": 82
     },
     {
-      "name": "Cave-Warlord's Signet",
-      "slot": "ring",
-      "item_level": 16,
+      "name": "Cavespeaker's Thunder-Totem",
+      "slot": "ranged",
+      "item_level": 18,
       "rarity": "rare",
-      "primary_stats": {"agility": 4},
-      "flavor_text": "Too small for trogg fingers - taken as tribute, not worn."
+      "required_level": 15,
+      "flavor_text": "A rune-cut bone that hums when the stone shifts. Healers say it calms them.",
+      "weapon_type": "totem",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 1.9,
+        "mp5": 0.4
+      },
+      "weapon_damage_min": 32,
+      "weapon_damage_max": 43,
+      "attack_speed": 0.0
+    },
+    {
+      "name": "Bear-Claw Signet",
+      "slot": "ring",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Too small for trogg fingers - taken as tribute, not worn.",
+      "primary_stats": {
+        "stamina": 2,
+        "agility": 1
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.2
+      }
     }
   ],
-
   "Taragaman the Hungerer": [
     {
-      "name": "Hungerer's Warmaul",
+      "name": "Cinder-Hearted Staff",
       "slot": "main_hand",
-      "weapon_type": "mace_2h",
-      "item_level": 16,
+      "item_level": 19,
       "rarity": "rare",
-      "primary_stats": {"strength": 7, "intellect": 4},
-      "secondary_stats": {"attack_power": 8},
-      "weapon_damage_min": 62,
-      "weapon_damage_max": 84,
-      "attack_speed": 3.6,
-      "flavor_text": "Still radiates the heat of the chasm's deepest fires."
+      "required_level": 16,
+      "flavor_text": "The Hungerer's spirit still burns at its tip. It wants feeding.",
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "fire_spell_power": 31.4
+      },
+      "weapon_damage_min": 21,
+      "weapon_damage_max": 29,
+      "attack_speed": 3.2
     },
     {
       "name": "Enslaved Cinderspirit Pendant",
       "slot": "neck",
-      "item_level": 16,
+      "item_level": 19,
       "rarity": "rare",
-      "primary_stats": {"intellect": 3, "stamina": 1},
-      "flavor_text": "A fragment of the elemental spirit Taragaman bound to his will."
+      "required_level": 16,
+      "flavor_text": "A fragment of the elemental Taragaman bound to his will. It has opinions.",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.9,
+        "crit_chance_spell": 0.1
+      }
     },
     {
       "name": "Felscorched Waistguard",
       "slot": "waist",
-      "armor_type": "leather",
-      "item_level": 16,
+      "item_level": 19,
       "rarity": "rare",
-      "primary_stats": {"strength": 3, "agility": 1},
-      "armor_value": 32,
-      "flavor_text": "The leather never stopped smoldering."
+      "required_level": 16,
+      "flavor_text": "The leather never stopped smoldering.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "attack_power": 3.5
+      },
+      "armor_type": "leather",
+      "armor_value": 24
+    },
+    {
+      "name": "Lavaforged Legguards",
+      "slot": "legs",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Plate poured, not hammered. It cools slower than it should.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3
+      },
+      "armor_type": "plate",
+      "armor_value": 116
     }
   ],
-
   "Jergosh the Invoker": [
     {
       "name": "Invoker's Grasp",
       "slot": "ranged",
-      "weapon_type": "wand",
-      "item_level": 16,
+      "item_level": 19,
       "rarity": "rare",
-      "primary_stats": {"intellect": 5},
-      "weapon_damage_min": 29,
-      "weapon_damage_max": 39,
-      "attack_speed": 1.9,
-      "flavor_text": "Still warm from the last Immolate it channeled."
+      "required_level": 16,
+      "flavor_text": "Still warm from the last Immolate it channeled.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 4.4
+      },
+      "weapon_damage_min": 33,
+      "weapon_damage_max": 45,
+      "attack_speed": 1.9
     },
     {
-      "name": "Searing Blade Cultist's Cloak",
-      "slot": "back",
-      "item_level": 16,
+      "name": "Searing Blade Ritual Robes",
+      "slot": "chest",
+      "item_level": 19,
       "rarity": "rare",
-      "primary_stats": {"intellect": 4},
-      "flavor_text": "Marked with the sigil of a cult that answers to no orc."
+      "required_level": 16,
+      "flavor_text": "A cult that answers to no orc, in a cloth that answers to nobody.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 24
     },
     {
       "name": "Warlock's Binding Ring",
       "slot": "ring",
-      "item_level": 16,
+      "item_level": 19,
       "rarity": "rare",
-      "primary_stats": {"spirit": 3, "stamina": 1},
-      "flavor_text": "The binding runes are still legible, if you dare read them aloud."
+      "required_level": 16,
+      "flavor_text": "The binding runes are still legible, if you dare read them aloud.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "mp5": 0.4
+      }
+    },
+    {
+      "name": "Voidcaller's Kris",
+      "slot": "main_hand",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "The blade is cold. The hilt is colder. Neither is yours yet.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 3.0,
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 39,
+      "weapon_damage_max": 53,
+      "attack_speed": 1.7
     }
   ],
-
   "Bazzalan": [
     {
       "name": "Bazzalan's Sinister Edge",
       "slot": "main_hand",
-      "weapon_type": "dagger",
-      "item_level": 16,
+      "item_level": 20,
       "rarity": "rare",
-      "primary_stats": {"agility": 7},
+      "required_level": 17,
+      "flavor_text": "Quenched in poison and half-hidden grudges.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "attack_power": 5.5
+      },
+      "weapon_damage_min": 41,
+      "weapon_damage_max": 55,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Cultist's Repeater",
+      "slot": "ranged",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Fel-etched bolts load themselves. Do not ask who taught them.",
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
       "weapon_damage_min": 34,
-      "weapon_damage_max": 46,
-      "attack_speed": 1.7,
-      "flavor_text": "The poison groove never quite runs dry."
+      "weapon_damage_max": 47,
+      "attack_speed": 2.4
     },
     {
-      "name": "Satyr-Stitched Legguards",
+      "name": "Shadowcrown Hood",
+      "slot": "head",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Stitched from the cult's old ritual veils. It does not shed.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.7,
+        "mp5": 0.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 19
+    },
+    {
+      "name": "Bulwark of the Searing Throne",
+      "slot": "off_hand",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "The throne room's door, cut down to a shield. It still slams.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "armor_value": 40,
+      "block_value": 51
+    }
+  ],
+  "Grulgash the Pitbreaker": [
+    {
+      "name": "Pitbreaker's Pick",
+      "slot": "main_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "A miner's tool, sharpened by a trogg who knows exactly what it's for.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 49,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Ore-Dusted Leggings",
       "slot": "legs",
-      "armor_type": "leather",
-      "item_level": 16,
+      "item_level": 17,
       "rarity": "rare",
-      "primary_stats": {"agility": 7, "stamina": 3},
-      "armor_value": 32,
-      "flavor_text": "Stitched from hides no honest tanner would touch."
+      "required_level": 14,
+      "flavor_text": "Stiff with a century of cave dust. It deflects more than it looks like.",
+      "primary_stats": {
+        "stamina": 5,
+        "agility": 3
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.4
+      },
+      "armor_type": "leather",
+      "armor_value": 43
     },
     {
-      "name": "Cultist Leader's Chain",
-      "slot": "neck",
-      "item_level": 16,
+      "name": "Sootblack Miner's Cap",
+      "slot": "head",
+      "item_level": 17,
       "rarity": "rare",
-      "primary_stats": {"strength": 3, "agility": 1},
-      "flavor_text": "Bazzalan wore this even after he stopped needing to prove anything."
+      "required_level": 14,
+      "flavor_text": "A lantern hook, a dent, and a stubborn will to live.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.2
+      },
+      "armor_type": "mail",
+      "armor_value": 52
+    }
+  ],
+  "Acolyte Zhurra Bloodhex": [
+    {
+      "name": "Bloodhex Mantle",
+      "slot": "shoulder",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Stained in a way that doesn't wash. The wearer heals anyway.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 2.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 17
+    },
+    {
+      "name": "Zhurra's Sacrificial Kris",
+      "slot": "main_hand",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Notched on the pommel, once for each altar.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "spell_power": 2.5
+      },
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 51,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Hexbinder's Wristwraps",
+      "slot": "wrist",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Knots in the cord keep a curse from slipping.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 3.3,
+        "spell_penetration": 1.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 11
+    },
+    {
+      "name": "Blood-Sworn Fist-Blades",
+      "slot": "main_hand",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Cult-issue claws. Zhurra preferred talking to the people she cut.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "agility": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 51,
+      "attack_speed": 1.8
+    }
+  ],
+  "Cinderfang": [
+    {
+      "name": "Cinderfang Pelt-Cloak",
+      "slot": "back",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Scorched fur that has never once been cold.",
+      "primary_stats": {
+        "agility": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 9
+    },
+    {
+      "name": "Emberclaw Grips",
+      "slot": "hands",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Salamander hide, stitched while it was still sulking.",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 24
+    },
+    {
+      "name": "Salamander-Tooth Spear",
+      "slot": "main_hand",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A single curved fang on a charred haft. It wants to be thrown.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 11,
+        "agility": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 71,
+      "weapon_damage_max": 96,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Emberheart Amulet",
+      "slot": "neck",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A living coal, caged in black glass. Warm in the cold, loud in the quiet.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "arcane_spell_power": 2.3,
+        "fire_spell_power": 2.3
+      }
     }
   ]
 }

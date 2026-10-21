@@ -2157,8 +2157,8 @@
     "Taragaman the Hungerer": {
       "template": "elemental_bruiser",
       "level_range": [
-        15,
-        15
+        16,
+        16
       ],
       "is_boss": true,
       "boss_multiplier": 2.2,
@@ -3119,7 +3119,7 @@
       "template": "humanoid_warrior",
       "level_range": [
         15,
-        16
+        15
       ],
       "is_boss": true,
       "boss_multiplier": 1.8,
@@ -3138,7 +3138,7 @@
     "Bazzalan": {
       "template": "demon_caster",
       "level_range": [
-        16,
+        17,
         17
       ],
       "is_boss": true,
@@ -4291,6 +4291,81 @@
       ],
       "is_boss": false,
       "ability_kit": "drowned_buccaneer"
+    },
+    "Ragefire Digger": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "ragefire_digger"
+    },
+    "Trogg Skullcrusher": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "trogg_skullcrusher"
+    },
+    "Searing Blade Pyromancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "searing_blade_pyromancer"
+    },
+    "Searing Blade Ward-Priest": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "searing_blade_wardpriest"
+    },
+    "Cinder Salamander": {
+      "template": "beast_fast",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "cinder_salamander"
+    },
+    "Grulgash the Pitbreaker": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "ability_kit": "grulgash_pitbreaker",
+      "boss_multiplier": 1.6
+    },
+    "Acolyte Zhurra Bloodhex": {
+      "template": "humanoid_caster",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "ability_kit": "zhurra_bloodhex",
+      "boss_multiplier": 1.6
+    },
+    "Cinderfang": {
+      "template": "beast_fast",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "ability_kit": "cinderfang",
+      "boss_multiplier": 1.7
     }
   }
 }
