@@ -22,6 +22,7 @@ CAVE_LM = "assets/tiles/cave_landmarks/"
 TIRA = "assets/tiles/tiragarde_keep/props/"
 HAUNT = "assets/tiles/haunted_forest/props/"
 SKULL = "assets/tiles/skull_rock/props/"
+DP = "assets/tiles/dungeon_props/"
 
 
 def generate_blackfathom_deeps():
@@ -112,18 +113,40 @@ def generate_blackfathom_deeps():
         zone.set_tile(cx, cy, "chest", "interaction")
 
     # --- Props (hand placed; bottom-center anchors) ---
-    b.prop(NAGA + "shipwreck.png", 191, 198, 4, solid="core")        # sunken wreck
-    b.prop(NAGA + "giant_crab.png", 137, 74, 3)                       # Serra'kis' kin
-    b.prop(NAGA + "serpent_skeleton.png", 172, 100, 4)                # gauntlet remains
-    b.prop(RUINS + "ruin_archway.png", 120, 47, 4)                    # Kelris' walled gate
-    b.prop(RUINS + "ruin_bone_pillars.png", 109, 14, 6, solid="core")
-    b.prop(RUINS + "ruin_bone_pillars.png", 131, 14, 6, solid="core")
-    b.prop(CORR + "void_crystal_formation.png", 105, 22, 3, solid="core")
-    b.prop(CORR + "void_crystal_formation.png", 135, 22, 3, solid="core")
+    # Entrance + pool: naga guardians flank the way in
+    b.prop(DP + "naga_statue.png", 112, 195, 5, solid="core")
+    b.prop(DP + "naga_statue.png", 128, 195, 5, solid="core")
+    b.prop(DP + "naga_statue.png", 106, 156, 5, solid="core")
+    b.prop(DP + "glow_coral_cluster.png", 148, 170, 3)
+    b.prop(DP + "glow_coral_cluster.png", 112, 162, 3)
+    # Sarevess' grotto
+    b.prop(DP + "naga_statue.png", 56, 104, 5, solid="core")
+    b.prop(DP + "glow_coral_cluster.png", 38, 108, 3)
+    # Gelihast's pool
+    b.prop(NAGA + "shipwreck.png", 191, 198, 4, solid="core")
+    b.prop(DP + "glow_coral_cluster.png", 205, 208, 3)
+    # Twilight Gauntlet
+    b.prop(NAGA + "serpent_skeleton.png", 172, 100, 4)
     b.prop(CORR + "void_crystal_formation.png", 177, 92, 3, solid="core")
-    b.prop(CORR + "void_crystal_formation.png", 50, 17, 3, solid="core")
+    b.prop(DP + "broken_column.png", 160, 98, 4, solid="core")
+    # Old Serra'kis' grotto
+    b.prop(NAGA + "giant_crab.png", 137, 74, 3)
+    b.prop(DP + "glow_coral_cluster.png", 122, 64, 3)
+    # Drowned Sacellum: walled gate, priestess guardians, columns, altar, braziers
+    b.prop(DP + "temple_archway.png", 120, 47, 5)
+    b.prop(DP + "priestess_statue.png", 112, 44, 5, solid="core")
+    b.prop(DP + "priestess_statue.png", 128, 44, 5, solid="core")
+    b.prop(DP + "twilight_altar.png", 120, 6, 4, solid="core")
+    for (px, py) in [(111, 11), (129, 11), (111, 21), (129, 21)]:
+        b.prop(DP + "temple_column.png", px, py, 6, solid="core")
+    b.prop(DP + "broken_column.png", 104, 12, 4, solid="core")
+    b.prop(DP + "broken_column.png", 136, 20, 4, solid="core")
     for bx, by in braziers:
-        b.prop(CORR + "fel_fire_brazier.png", bx, by, 3)
+        b.prop(DP + "spirit_brazier.png", bx, by + 1, 4, solid="core")
+    # Aku'mai's chamber
+    b.prop(CORR + "void_crystal_formation.png", 50, 17, 3, solid="core")
+    b.prop(DP + "glow_coral_cluster.png", 30, 12, 3)
+    b.prop(DP + "priestess_statue.png", 52, 8, 5, solid="core")
     for (px, py, nm) in [(116, 149, "shell_pearl"), (144, 147, "shell_brown"),
                          (119, 160, "coral_blue"), (143, 163, "coral_pink"),
                          (126, 161, "coral_red"), (136, 143, "shell_pearl"),
@@ -202,6 +225,14 @@ def generate_widows_lair():
     b.lobes([(70, 20, 26, 13), (52, 26, 9, 7), (88, 26, 9, 7), (70, 9, 12, 5)])
     zone.add_subzone("Matriarch's Chamber", 42, 4, 56, 34)
 
+    # Themed floors: silk-matted nests in the three lairs, heavy web in the
+    # silk tunnel and gallery, plain silk-veined earth elsewhere.
+    b.restyle(16, 40, 56, 74, floor="stone")        # Silka's egg chamber
+    b.restyle(90, 32, 126, 56, floor="stone")       # Skitter's lair
+    b.restyle(40, 3, 100, 36, floor="stone")        # Matriarch's chamber
+    b.restyle(88, 58, 112, 82, floor="sand")        # silk tunnel
+    b.restyle(54, 38, 88, 54, floor="sand")         # web gallery
+
     # Markers
     zone.set_tile(*entrance, "portal", "interaction")
     for pos in (silka, skitter, velaxis):
@@ -213,22 +244,28 @@ def generate_widows_lair():
 
     # Props
     b.prop(HAUNT + "twisted_root_arch.png", 70, 94, 4)                    # mouth of the warren
-    b.prop(DEN + "web_tent_peak.png", 70, 9, 7)                          # Velaxis' web-nest
+    b.prop(DP + "spider_nest.png", 70, 9, 8, solid="core")                # Velaxis' nest
+    b.prop(DP + "web_curtain.png", 70, 41, 5)                              # gallery -> matriarch
+    b.prop(DP + "web_curtain.png", 52, 79, 4)                              # tunnel to Silka
+    b.prop(DP + "web_curtain.png", 92, 80, 4)                              # mouth of the silk tunnel
     b.prop(DEN + "egg_cluster_a.png", 27, 53, 5, solid="core")
     b.prop(DEN + "egg_cluster_b.png", 42, 59, 5, solid="core")
-    b.prop(DEN + "egg_cocoon_hanging.png", 33, 48, 5)
     b.prop(DEN + "egg_cluster_b.png", 111, 51, 5, solid="core")
-    b.prop(DEN + "egg_cocoon_hanging.png", 100, 46, 5)
     b.prop(DEN + "egg_cluster_a.png", 56, 28, 5, solid="core")
     b.prop(DEN + "egg_cluster_a.png", 86, 29, 5, solid="core")
+    b.prop(DP + "cocoon_victim.png", 33, 49, 5)
+    b.prop(DP + "cocoon_victim.png", 100, 46, 5)
+    b.prop(DP + "cocoon_victim.png", 62, 24, 5)
+    b.prop(DP + "cocoon_victim.png", 80, 70, 4)
+    b.prop(DP + "spider_husk.png", 30, 62, 4)
+    b.prop(DP + "spider_husk.png", 112, 40, 4)
+    b.prop(DP + "skull_pile.png", 44, 52, 3, solid="core")
+    b.prop(DP + "skull_pile.png", 64, 28, 3, solid="core")
+    b.prop(DP + "web_tangle.png", 60, 74, 3)
+    b.prop(DP + "web_tangle.png", 76, 99, 3)
+    b.prop(DP + "web_tangle.png", 62, 98, 3)
     b.prop(DEN + "web_bridge_a.png", 103, 70, 4)
     b.prop(DEN + "web_bridge_b.png", 70, 51, 4)
-    b.prop(CAVE_LM + "cocoon_web.png", 62, 47, 2)
-    b.prop(CAVE_LM + "cocoon_web.png", 78, 47, 2)
-    b.prop(CAVE_LM + "cocoon_web.png", 60, 74, 2)
-    b.prop(CAVE_LM + "cocoon_web.png", 80, 74, 2)
-    b.prop(CAVE_LM + "cocoon_web.png", 64, 99, 2)
-    b.prop(CAVE_LM + "cocoon_web.png", 77, 98, 2)
 
     b.verify(entrance, [silka, skitter, velaxis] + [(x, y, "chest") for x, y in chests])
 
@@ -284,13 +321,12 @@ def generate_shadowfang_keep():
     # Great Hall
     b.corridor([(85, 120), (85, 104)], width=2)
     b.rect(60, 76, 110, 106, chamfer=3)
-    b.pillars((68, 78, 92, 102), (82, 90, 98))
+    b.pillars((68, 78, 92, 102), (82, 90, 98), sprite=DP + "candelabra.png", height=5)
     zone.add_subzone("The Great Hall", 58, 74, 54, 34)
 
     # WEST door: Fenrus' crypt, then the Upper Landing
     b.corridor([(62, 91), (40, 91), (40, 76)], width=1)
     b.rect(26, 50, 54, 78, chamfer=3)
-    b.restyle(26, 50, 54, 78, floor="dirt")
     b.pillars((32, 48), (58, 66, 74))
     zone.add_subzone("Fenrus' Crypt", 24, 48, 34, 32)
     b.corridor([(40, 52), (40, 44), (68, 44)], width=1)
@@ -306,7 +342,7 @@ def generate_shadowfang_keep():
     # Arugal's Sanctum
     b.corridor([(85, 40), (85, 26)], width=2)
     b.rect(58, 4, 112, 30, chamfer=4)
-    b.pillars((66, 104), (10, 18, 24))
+    b.pillars((66, 104), (10, 18, 24), sprite=DP + "candelabra.png", height=5)
     zone.add_subzone("Arugal's Sanctum", 56, 2, 58, 30)
 
     # Markers
@@ -317,29 +353,52 @@ def generate_shadowfang_keep():
     for cx, cy in chests:
         zone.set_tile(cx, cy, "chest", "interaction")
 
+    # Arugal's Sanctum gets its own arcane floor
+    b.restyle(58, 4, 112, 30, floor="path")
+
     # Props
     b.prop(RUINS + "ruin_archway.png", 85, 143, 4)                       # gate to the ward
     b.prop(RUINS + "ruin_archway.png", 85, 121, 4)                       # ward -> great hall
     b.prop(RUINS + "ruin_archway.png", 85, 41, 4)                        # landing -> sanctum
     b.prop(RUINS + "ruin_tower_skulls.png", 74, 151, 5, solid="core")
     b.prop(RUINS + "ruin_tower_skulls.png", 97, 151, 5, solid="core")
+    b.prop(DP + "gothic_gate.png", 95, 80, 5, solid="core")              # sealed door, Great Hall
+    b.prop(DP + "gothic_gate.png", 85, 8, 5, solid="core")               # Arugal's great doors
     b.prop(TIRA + "tiragarde_barrel_crate_cluster.png", 66, 134, 3, solid="core")
     b.prop(TIRA + "tiragarde_barrel_crate_cluster.png", 106, 121, 3, solid="core")
     b.prop(TIRA + "tiragarde_rubble_pile.png", 76, 129, 3)
     b.prop(TIRA + "tiragarde_rubble_pile.png", 96, 132, 3)
-    b.prop(SKULL + "bone_pile.png", 28, 134, 4, solid="core")
-    b.prop(SKULL + "bone_pile.png", 40, 122, 4, solid="core")
+    # Kennel
+    b.prop(DP + "kennel_cage_empty.png", 27, 124, 4, solid="core")
+    b.prop(DP + "kennel_cage_worg.png", 27, 134, 4, solid="core")
+    b.prop(DP + "kennel_cage_empty.png", 41, 135, 4, solid="core")
+    b.prop(SKULL + "bone_pile.png", 40, 121, 4, solid="core")
+    # Barracks
+    b.prop(DP + "weapon_rack.png", 130, 122, 4, solid="core")
+    b.prop(DP + "weapon_rack.png", 143, 134, 4, solid="core")
     b.prop(TIRA + "tiragarde_barrel_crate_cluster.png", 130, 135, 3, solid="core")
     b.prop(TIRA + "tiragarde_rubble_beam.png", 142, 124, 3)
-    b.prop(TIRA + "tiragarde_rubble_pile.png", 70, 102, 3)
-    b.prop(TIRA + "tiragarde_rubble_pile.png", 102, 86, 3)
-    b.prop(RUINS + "ruin_wall_arch.png", 85, 100, 4)
-    b.prop(TIRA + "tiragarde_ruined_wall_section.png", 40, 55, 5, solid="core")
-    b.prop(TIRA + "tiragarde_rubble_pile.png", 48, 72, 3)
+    # Great Hall
+    b.prop(DP + "banquet_table.png", 73, 96, 4, solid="core")
+    b.prop(DP + "candelabra.png", 64, 80, 4, solid="core")
+    b.prop(DP + "candelabra.png", 106, 104, 4, solid="core")
+    b.prop(TIRA + "tiragarde_rubble_pile.png", 102, 90, 3)
+    b.prop(DP + "worgen_gargoyle.png", 82, 106, 5, solid="core")
+    # Fenrus' crypt
+    for (px, py) in [(30, 55), (50, 55), (30, 72), (50, 72)]:
+        b.prop(DP + "sarcophagus.png", px, py, 3, solid="core")
+    b.prop(TIRA + "tiragarde_rubble_pile.png", 48, 66, 3)
+    # Armory
+    b.prop(DP + "weapon_rack.png", 122, 56, 4, solid="core")
+    b.prop(DP + "weapon_rack.png", 140, 74, 4, solid="core")
     b.prop(TIRA + "tiragarde_barrel_crate_cluster.png", 122, 72, 3, solid="core")
-    b.prop(TIRA + "tiragarde_rubble_beam.png", 138, 56, 3)
-    for bx, by in [(68, 12), (102, 12), (68, 26), (102, 26)]:
-        b.prop(CORR + "fel_fire_brazier.png", bx, by, 3)
+    # Arugal's Sanctum
+    b.prop(DP + "ritual_circle.png", 85, 17, 10)
+    b.prop(DP + "worgen_gargoyle.png", 78, 29, 5, solid="core")
+    b.prop(DP + "worgen_gargoyle.png", 92, 29, 5, solid="core")
+    b.prop(DP + "wizard_desk.png", 66, 20, 4, solid="core")
+    for (px, py) in [(64, 8), (106, 8), (62, 24), (108, 24)]:
+        b.prop(DP + "candelabra.png", px, py, 4, solid="core")
     b.prop(CORR + "void_crystal_formation.png", 76, 8, 3, solid="core")
     b.prop(CORR + "void_crystal_formation.png", 94, 8, 3, solid="core")
 

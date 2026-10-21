@@ -93,10 +93,14 @@ class Builder:
             for dx in range(size):
                 self.zone.set_tile(x + dx, y + dy, self.wall_id, "collision")
 
-    def pillars(self, xs, ys, size=2):
+    def pillars(self, xs, ys, size=2, sprite=None, height=4):
+        """Wall-block pillars; `sprite` is drawn standing on each block
+        (decorative only - the block already provides the collision)."""
         for y in ys:
             for x in xs:
                 self.pillar(x, y, size)
+                if sprite:
+                    self.prop(sprite, x + size // 2, y + size - 1, height)
 
     def water(self, ellipses, island=None):
         """Shallow (walkable) water lobes; `island` ellipses stay dry."""

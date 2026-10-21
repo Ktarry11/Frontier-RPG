@@ -1647,24 +1647,44 @@ BIOME_TILES = {
 
 
 # Derived dungeon biomes (hand-built dungeons - tools/handbuilt_dungeons.py).
-# cave_sunken = Blackfathom Deeps: the cave_cold look for natural caverns,
-# but "stone" floor + "cliff" wall are the Twilight-stone temple (Drowned
-# Sacellum). cave_keep = Shadowfang Keep: castle flagstone + brick walls.
+# Floors are picked by BASE tile_id, walls by COLLISION tile_id, so each
+# themed wing of a dungeon can get its own texture via Builder.restyle().
+#   cave_sunken (Blackfathom):  dirt=wet naga cave floor, stone=temple floor,
+#                               rock/wall=barnacled cave rock, cliff=temple wall
+#   cave_webbed (Widow's Lair): dirt=silk-veined earth, sand=heavy web,
+#                               stone=silk nest matting, rock/wall=web-wrapped rock
+#   cave_keep   (Shadowfang):   stone=castle flagstone, dirt=kennel straw,
+#                               path=arcane sanctum floor, rock/wall/cliff=gothic brick
 BIOME_TILES["cave_sunken"] = dict(BIOME_TILES["cave_cold"])
 BIOME_TILES["cave_sunken"].update({
-    "stone": ("castle_floor", (0, 0, 256, 256), False),
-    "cliff": ("twilight_wall", (0, 0, 256, 256), False),
+    "dirt": ("bfd_cave_floor", (0, 0, 256, 256), False),
+    "stone": ("bfd_temple_floor", (0, 0, 256, 256), False),
+    "rock": ("bfd_cave_wall", (0, 0, 256, 256), False),
+    "wall": ("bfd_cave_wall", (0, 0, 256, 256), False),
+    "cliff": ("bfd_temple_wall", (0, 0, 256, 256), False),
+    "shallow_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
+})
+BIOME_TILES["cave_webbed"] = dict(BIOME_TILES["cave_dark"])
+BIOME_TILES["cave_webbed"].update({
+    "dirt": ("widow_floor", (0, 0, 256, 256), False),
+    "sand": ("widow_web", (0, 0, 256, 256), False),
+    "stone": ("widow_nest", (0, 0, 256, 256), False),
+    "rock": ("widow_wall", (0, 0, 256, 256), False),
+    "wall": ("widow_wall", (0, 0, 256, 256), False),
+    "cliff": ("widow_wall", (0, 0, 256, 256), False),
 })
 BIOME_TILES["cave_keep"] = dict(BIOME_TILES["cave_dark"])
 BIOME_TILES["cave_keep"].update({
-    "stone": ("castle_floor_b", (0, 0, 256, 256), False),
-    "dirt": ("castle_floor", (0, 0, 256, 256), False),
-    "rock": ("castle_wall_dark", (0, 0, 256, 256), False),
-    "wall": ("castle_wall_dark", (0, 0, 256, 256), False),
-    "cliff": ("castle_wall_dark", (0, 0, 256, 256), False),
+    "stone": ("keep_floor", (0, 0, 256, 256), False),
+    "dirt": ("keep_kennel", (0, 0, 256, 256), False),
+    "path": ("sanctum_floor", (0, 0, 256, 256), False),
+    "rock": ("keep_wall", (0, 0, 256, 256), False),
+    "wall": ("keep_wall", (0, 0, 256, 256), False),
+    "cliff": ("keep_wall", (0, 0, 256, 256), False),
     "shallow_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
 })
 CAVE_BIOME["Blackfathom Deeps"] = "cave_sunken"
+CAVE_BIOME["Widow's Lair"] = "cave_webbed"
 CAVE_BIOME["Shadowfang Keep"] = "cave_keep"
 
 
@@ -1727,6 +1747,19 @@ WORLD_ANCHORED = {
     # Darkened castle_wall so walls/pillars read as solid masses against the flagstone floor.
     "castle_wall_dark": "assets/tiles/caves/seamless/castle_wall_dark_a.png",
     "twilight_wall": "assets/tiles/caves/seamless/twilight_wall_a.png",
+    # Kyle's ChatGPT tile sheet (round 1): Widow's Lair, Blackfathom, Shadowfang.
+    "widow_floor": "assets/tiles/caves/seamless/widow_floor_a.png",
+    "widow_web": "assets/tiles/caves/seamless/widow_web_a.png",
+    "widow_wall": "assets/tiles/caves/seamless/widow_wall_a.png",
+    "widow_nest": "assets/tiles/caves/seamless/widow_nest_a.png",
+    "bfd_temple_floor": "assets/tiles/caves/seamless/bfd_temple_floor_a.png",
+    "bfd_temple_wall": "assets/tiles/caves/seamless/bfd_temple_wall_a.png",
+    "bfd_cave_floor": "assets/tiles/caves/seamless/bfd_cave_floor_a.png",
+    "bfd_cave_wall": "assets/tiles/caves/seamless/bfd_cave_wall_a.png",
+    "keep_floor": "assets/tiles/caves/seamless/keep_floor_a.png",
+    "keep_wall": "assets/tiles/caves/seamless/keep_wall_a.png",
+    "keep_kennel": "assets/tiles/caves/seamless/keep_kennel_a.png",
+    "sanctum_floor": "assets/tiles/caves/seamless/sanctum_floor_a.png",
 }
 
 
