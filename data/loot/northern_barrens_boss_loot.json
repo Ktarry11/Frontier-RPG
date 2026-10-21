@@ -1,0 +1,747 @@
+{
+  "_notes": "Northern Barrens boss + named-rare loot (2026-10-21). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "Foreman Grills": [
+    {
+      "name": "Foreman's Rivet-Hammer",
+      "slot": "main_hand",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A wrench-mallet with a head shaped like a rivet. It sorts problems into 'struck' and 'not yet struck'.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2
+      },
+      "weapon_damage_min": 41,
+      "weapon_damage_max": 55,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Venture Co. Hardhat",
+      "slot": "head",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A dented iron hat with the company logo scraped half off. It has, evidently, been dropped on a lot of heads.",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3,
+        "dodge_rating": 0.3
+      },
+      "armor_type": "plate",
+      "armor_value": 91
+    },
+    {
+      "name": "Blast-Proof Foreman's Apron",
+      "slot": "chest",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Heavy leather, singed to a shade of brown that no one ordered. Smells of pitch and grudges.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 51
+    },
+    {
+      "name": "Tinkered Pressure-Gauge Pendant",
+      "slot": "neck",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A watch-sized gauge on a chain. The needle points to wherever someone is about to be hit.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "mp5": 0.4
+      }
+    }
+  ],
+  "Harpy Matriarch": [
+    {
+      "name": "Matriarch's Pinion Staff",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A staff hung with grey flight feathers. In a wind it chimes, one note over and over.",
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 38.0
+      },
+      "weapon_damage_min": 25,
+      "weapon_damage_max": 34,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Roost-Mother's Plumage Robe",
+      "slot": "chest",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A robe of layered feathers. Warm, and impossible to stop preening.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 7.9,
+        "mp5": 1.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 29
+    },
+    {
+      "name": "Skyreach Talons",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A pair of curved harpy claws on a bone grip. They want to be thrown, and they're never quite sorry.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Cliff-Walker's Talonguards",
+      "slot": "feet",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Mail boots with a talon on each toe. You feel steadier in a gale, and a little predatory.",
+      "primary_stats": {
+        "strength": 2,
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 46
+    }
+  ],
+  "Serena Bloodfeather": [
+    {
+      "name": "Bloodfeather's Hunting Bow",
+      "slot": "ranged",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A recurve bow lashed with red-tipped feathers. It sings softly just before the string slips.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 38,
+      "weapon_damage_max": 52,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Witchwing Hunter's Spaulders",
+      "slot": "shoulder",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Leather pauldrons fringed with grey-and-crimson feathers. They flutter, with intent.",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "attack_power": 6.3
+      },
+      "armor_type": "leather",
+      "armor_value": 43
+    },
+    {
+      "name": "Serena's Blood-Tipped Signet",
+      "slot": "ring",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A ring of red-dyed bone. Wear it, and the sky seems closer, and slightly more hostile.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Supervisor Lugwizzle": [
+    {
+      "name": "Lugwizzle's Spill-Proof Buckler",
+      "slot": "off_hand",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "A round shield with a drip-tray on the rim. It was supposed to catch oil. It catches other things.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "armor_value": 42,
+      "block_value": 53
+    },
+    {
+      "name": "Control-Room Toolbelt",
+      "slot": "waist",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "A heavy belt hung with wrenches. Every one of them has a slightly different opinion about who was in charge.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 64
+    },
+    {
+      "name": "Signet of Quarterly Targets",
+      "slot": "ring",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "A brass ring stamped 'APPROVED'. It never says by whom.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      }
+    }
+  ],
+  "Engineer Whirleygig": [
+    {
+      "name": "Whirleygig's Sheep-Launcher",
+      "slot": "ranged",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A rifle-sized launcher with a small wool-covered hopper. Do not ask what is in the hopper.",
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 50,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Gadgeteer's Goggles",
+      "slot": "head",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "Brass goggles with seven lenses, all slightly different shades of wrong. You see farther. You see worse.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "mp5": 0.8
+      },
+      "armor_type": "leather",
+      "armor_value": 42
+    },
+    {
+      "name": "Tinker's Spark-Stitched Gloves",
+      "slot": "hands",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "Cloth gloves with copper thread in the fingertips. They tingle during a thunderstorm.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "spell_power": 1.6
+      },
+      "armor_type": "cloth",
+      "armor_value": 14
+    }
+  ],
+  "Verog the Dervish": [
+    {
+      "name": "Verog's Whirling Scimitar",
+      "slot": "main_hand",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A curved blade, balanced for a spin. Verog's grip left a groove in the handle the size of a thumb.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "dodge_rating": 0.7,
+        "parry_rating": 0.5
+      },
+      "weapon_damage_min": 44,
+      "weapon_damage_max": 59,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Dervish-Stalker's Leggings",
+      "slot": "legs",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "Dust-colored leather leggings that cut the wind. You'll find sand in them for weeks.",
+      "primary_stats": {
+        "agility": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 56
+    },
+    {
+      "name": "Stagnant Oasis Talisman",
+      "slot": "neck",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A charm of tarnished brass on a leather thong. It smells strongly of a pond that has seen things.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Captain Saltspray": [
+    {
+      "name": "Saltspray's Boarding Cutlass",
+      "slot": "main_hand",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A cutlass with a barnacle-crusted guard. The point has seen more ropes than ribs, which is unusual for a pirate.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "attack_power": 5.5
+      },
+      "weapon_damage_min": 41,
+      "weapon_damage_max": 55,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Captain's Salt-Stained Tricorn",
+      "slot": "head",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A tricorn bent into a permanent defiant tilt. It's never dry, and it's never apologized.",
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 38
+    },
+    {
+      "name": "Southsea Doubloon Ring",
+      "slot": "ring",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A heavy gold ring stamped with a skull that is just slightly too happy.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Old Mire-Maw": [
+    {
+      "name": "Mire-Maw's Hide Cloak",
+      "slot": "back",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A cloak cut from the mud-brown hide of something that really, really liked its mud.",
+      "primary_stats": {
+        "stamina": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 10
+    },
+    {
+      "name": "Snapper-Tooth Dagger",
+      "slot": "main_hand",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A tooth the length of your hand, notched for the grip. It still smells slightly of fen.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 41,
+      "weapon_damage_max": 55,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Boglord's Band",
+      "slot": "ring",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A ring of pressed peat and old bone. It keeps its shape through the wettest week.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Skyfang the Plunderer": [
+    {
+      "name": "Skyfang's Pinion Wand",
+      "slot": "ranged",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "A wand tipped with a single dark primary feather. Static pops off it when anyone lies nearby.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 4.8
+      },
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 49,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Plunderer's Talon Gloves",
+      "slot": "hands",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Fingerless leather gloves, each knuckle capped with a harpy talon. Excellent for picking pockets and fights.",
+      "primary_stats": {
+        "agility": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "armor_type": "leather",
+      "armor_value": 26
+    },
+    {
+      "name": "Windrider's Cloak",
+      "slot": "back",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "A long grey cloak that never quite sits flat. In a gale it lifts you a little, spiritually.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 10
+    }
+  ],
+  "Warden Ilthae": [
+    {
+      "name": "Ilthae's Moonglaive",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A silver-edged glaive that cuts cleaner than it should. It does not like the Barrens at all.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "defense_rating": 1.0
+      },
+      "weapon_damage_min": 82,
+      "weapon_damage_max": 111,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Sentinel's Moonweave Mantle",
+      "slot": "shoulder",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Pale cloth woven with something that is not thread. It cools, like a hand laid on your shoulder.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 21
+    },
+    {
+      "name": "Warden's Quiver-Belt",
+      "slot": "waist",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A belt of dark leather with a hidden quiver at the back. A night-elf waistline in every way that matters.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "attack_power": 4.2
+      },
+      "armor_type": "leather",
+      "armor_value": 29
+    }
+  ],
+  "Scout-Captain Vrek": [
+    {
+      "name": "Vrek's Scout-Longbow",
+      "slot": "ranged",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A tall bow of horn and sinew. Built to be shot from a galloping centaur, and good at the other thing too.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 34,
+      "weapon_damage_max": 47,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Kolkar Hide Bracers",
+      "slot": "wrist",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Hide bracers dyed with red clay and a thousand miles of road.",
+      "primary_stats": {
+        "agility": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 25
+    },
+    {
+      "name": "Wind-Bell Ring",
+      "slot": "ring",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A ring with a tiny bell. When you run it chimes, and the centaurs call that 'being found'.",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Kragg the Wall-Breaker": [
+    {
+      "name": "Wallbreaker's Maul",
+      "slot": "main_hand",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A two-handed maul with a head the size of a gate. It was built for gates. It's open to other suggestions.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "armor": 41.3,
+        "parry_rating": 0.8
+      },
+      "weapon_damage_min": 73,
+      "weapon_damage_max": 99,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Siege-Plate Vambraces",
+      "slot": "wrist",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Plate vambraces cut from a Kolkar siege-ram's iron shoulder. They have a deep, satisfied clang.",
+      "primary_stats": {
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2,
+        "dodge_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 61
+    },
+    {
+      "name": "Kolkar War-Charm",
+      "slot": "neck",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A charm of horn and iron. Each notch is a wall. There are many notches.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Prospector Delvik": [
+    {
+      "name": "Delvik's Blasting Pick",
+      "slot": "main_hand",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A pickaxe with a tiny fuse-holder in the haft. A prospector does not so much dig as persuade.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 39,
+      "weapon_damage_max": 53,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Prospector's Dented Hardhat",
+      "slot": "head",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A dented mining helmet with a candle-bracket. It is almost always still faintly warm.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.2
+      },
+      "armor_type": "mail",
+      "armor_value": 58
+    },
+    {
+      "name": "Dynamite Bandolier",
+      "slot": "waist",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A bandolier of empty dynamite loops. The full ones are, wisely, not included.",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "armor_type": "leather",
+      "armor_value": 24
+    }
+  ],
+  "Windcaller Skreeva": [
+    {
+      "name": "Skreeva's Gale-Wand",
+      "slot": "ranged",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "A wand carved from a harpy wing-bone. The shriek, when it casts, is very much on purpose.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.9,
+        "mp5": 0.4
+      },
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 49,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Windspeaker's Cowl",
+      "slot": "head",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "A feathered cowl that muffles every sound except wind. Spellcasting in it feels like speaking in a gale.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.9,
+        "mp5": 0.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 20
+    },
+    {
+      "name": "Featherbound Mending-Bracers",
+      "slot": "wrist",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Cloth bracers bound with small, warm feathers. Wounds nearby close a little faster, and a little reluctantly.",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 13
+    }
+  ]
+}

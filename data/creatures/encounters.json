@@ -548,40 +548,72 @@
     },
     "Northern Barrens": {
       "open_zone": {
+        "name": "The Northern Plains",
         "creatures": {
-          "Plainstrider": 6,
-          "Zhevra Runner": 4,
-          "Harpy": 5,
-          "Harpy Windcaller": 2
+          "Plainstrider": 4,
+          "Zhevra Runner": 3,
+          "Harpy": 2,
+          "Harpy Windcaller": 1
         }
       },
       "subzones": {
-        "Slug Fens": {
+        "Gold Road": {
+          "name": "Gold Road",
           "creatures": {
-            "Slug": 8,
-            "Bog Creature": 5
+            "Road Bandit": 4,
+            "Bandit Cutthroat": 2,
+            "Bandit Outrider": 2,
+            "Zhevra Runner": 2,
+            "Plainstrider": 2
+          }
+        },
+        "Slug Fens": {
+          "name": "Slug Fens",
+          "creatures": {
+            "Slug": 3,
+            "Bog Creature": 3,
+            "Mire Leech": 3,
+            "Peat Shambler": 2,
+            "Fenwater Crocolisk": 2,
+            "Old Mire-Maw": 0
           }
         },
         "Harpy Roost": {
+          "name": "Harpy Roost",
           "creatures": {
-            "Harpy": 10,
-            "Harpy Windcaller": 4,
-            "Harpy Matriarch": 1
+            "Harpy": 4,
+            "Harpy Windcaller": 2,
+            "Roost Bonepicker": 3,
+            "Harpy Sky-Sentry": 2,
+            "Skyfang the Plunderer": 0
           }
         },
         "Mor'shan Rampart": {
           "name": "Mor'shan Rampart",
           "creatures": {
-            "Rampart Watchman": 2,
-            "Harpy": 2,
-            "Harpy Windcaller": 1
+            "Sentinel Picket": 3,
+            "Sentinel Archer": 3,
+            "Sentinel Moonspeaker": 2,
+            "Harpy": 1,
+            "Warden Ilthae": 0
+          }
+        },
+        "Mor'shan Base Camp": {
+          "name": "Mor'shan Base Camp",
+          "creatures": {
+            "Kolkar Raider": 3,
+            "Kolkar Scoutrider": 3,
+            "Kolkar Warbrand": 2,
+            "Kolkar Drudge": 1,
+            "Scout-Captain Vrek": 0
           }
         },
         "Sludge Fen": {
           "name": "Sludge Fen",
           "creatures": {
-            "Venture Co. Overseer": 2,
-            "Venture Co. Miner": 1,
+            "Venture Co. Oil Driller": 3,
+            "Pumpjack Guard": 3,
+            "Sludge Elemental": 3,
             "Supervisor Lugwizzle": 0,
             "Engineer Whirleygig": 0
           }
@@ -589,67 +621,66 @@
         "Stagnant Oasis": {
           "name": "Stagnant Oasis",
           "creatures": {
-            "Kolkar Drudge": 2,
-            "Kolkar Marauder": 1,
-            "Kolkar Stormer": 1,
+            "Kolkar Dervish": 3,
+            "Kolkar Stormcaller": 2,
+            "Dervish Hound": 3,
             "Verog the Dervish": 0
           }
         },
-        "Dry Hills": {
-          "creatures": {
-            "Witchwing Harpy": 6,
-            "Witchwing Windcaller": 3,
-            "Witchwing Slayer": 2,
-            "Zhevra Runner": 3,
-            "Plainstrider": 2,
-            "Serena Bloodfeather": 0
-          }
-        },
         "Far Watch Post": {
+          "name": "Far Watch Post",
           "creatures": {
-            "Kolkar Raider": 5,
-            "Kolkar Drudge": 2
-          }
-        },
-        "Mor'shan Base Camp": {
-          "creatures": {
-            "Kolkar Raider": 5,
-            "Kolkar Marauder": 2
+            "Kolkar Raider": 4,
+            "Kolkar Scoutrider": 2,
+            "Kolkar Drudge": 2,
+            "Kragg the Wall-Breaker": 0
           }
         },
         "Merchant Coast": {
+          "name": "Merchant Coast",
           "creatures": {
-            "Southsea Brigand": 6,
+            "Southsea Brigand": 4,
             "Southsea Cannoneer": 3,
-            "Pool Murloc": 3,
+            "Pool Murloc": 2,
+            "Tide-Wrecker Crab": 3,
             "Captain Saltspray": 0
           }
         },
-        "Gold Road": {
+        "Dry Hills": {
+          "name": "Dry Hills",
           "creatures": {
-            "Road Bandit": 5,
-            "Bandit Cutthroat": 3,
-            "Bandit Outrider": 2
+            "Witchwing Harpy": 4,
+            "Witchwing Windcaller": 2,
+            "Witchwing Slayer": 3,
+            "Hillcrest Stalker": 3,
+            "Stonepeck Vulture": 2,
+            "Serena Bloodfeather": 0
           }
         }
       },
       "caves": {
-        "Serena's Hollow": {
-          "name": "Serena's Hollow",
-          "creatures": {
-            "Harpy": 5,
-            "Harpy Windcaller": 2,
-            "Harpy Matriarch": 0
-          }
-        },
         "Boulder Lode Mine": {
           "name": "Boulder Lode Mine",
           "creatures": {
-            "Venture Co. Miner": 2,
-            "Venture Co. Tinkerer": 1,
-            "Venture Co. Overseer": 1,
-            "Cavern Rock Elemental": 1,
-            "Foreman Grills": 0
+            "Venture Co. Miner": 3,
+            "Venture Co. Tinkerer": 2,
+            "Venture Co. Overseer": 2,
+            "Cavern Rock Elemental": 2,
+            "Mine Hound": 3,
+            "Ore Sprite": 2,
+            "Foreman Grills": 0,
+            "Prospector Delvik": 0
+          }
+        },
+        "Serena's Hollow": {
+          "name": "Serena's Hollow",
+          "creatures": {
+            "Harpy": 4,
+            "Harpy Windcaller": 2,
+            "Roost Bonepicker": 3,
+            "Harpy Sky-Sentry": 2,
+            "Harpy Matriarch": 0,
+            "Windcaller Skreeva": 0
           }
         }
       }

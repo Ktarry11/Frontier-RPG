@@ -427,8 +427,8 @@
     "Kolkar Raider": {
       "template": "humanoid_warrior",
       "level_range": [
-        12,
-        15
+        15,
+        17
       ],
       "is_boss": false,
       "ability_kit": "centaur_lancer"
@@ -674,8 +674,8 @@
     "Plainstrider": {
       "template": "beast_fast",
       "level_range": [
-        12,
-        19
+        14,
+        17
       ],
       "is_boss": false,
       "ability_kit": "plainstrider"
@@ -692,8 +692,8 @@
     "Zhevra Runner": {
       "template": "beast_fast",
       "level_range": [
-        12,
-        19
+        14,
+        17
       ],
       "is_boss": false,
       "ability_kit": "zhevra"
@@ -845,11 +845,11 @@
     "Verog the Dervish": {
       "template": "humanoid_warrior",
       "level_range": [
-        17,
-        17
+        19,
+        19
       ],
       "is_boss": true,
-      "boss_multiplier": 1.0,
+      "boss_multiplier": 1.7,
       "ability_kit": "verog_the_dervish"
     },
     "Deviate Adder": {
@@ -918,7 +918,7 @@
       "template": "humanoid_warrior",
       "level_range": [
         13,
-        17
+        16
       ],
       "is_boss": false,
       "ability_kit": "venture_co_miner"
@@ -926,7 +926,7 @@
     "Venture Co. Overseer": {
       "template": "humanoid_warrior",
       "level_range": [
-        13,
+        15,
         17
       ],
       "is_boss": false,
@@ -935,7 +935,7 @@
     "Venture Co. Tinkerer": {
       "template": "humanoid_ranged",
       "level_range": [
-        13,
+        14,
         17
       ],
       "is_boss": false,
@@ -957,7 +957,7 @@
         17
       ],
       "is_boss": true,
-      "boss_multiplier": 1.0,
+      "boss_multiplier": 2.3,
       "ability_kit": "foreman_grills"
     },
     "Barrens Kodo": {
@@ -990,18 +990,20 @@
     "Witchwing Harpy": {
       "template": "beast_fast",
       "level_range": [
-        20,
-        22
+        19,
+        21
       ],
-      "is_boss": false
+      "is_boss": false,
+      "ability_kit": "witchwing_harpy"
     },
     "Witchwing Windcaller": {
       "template": "humanoid_caster",
       "level_range": [
-        21,
-        23
+        20,
+        22
       ],
-      "is_boss": false
+      "is_boss": false,
+      "ability_kit": "witchwing_windcaller"
     },
     "Hezrul Bloodmark": {
       "template": "humanoid_warrior",
@@ -1445,15 +1447,15 @@
         20
       ],
       "is_boss": true,
-      "kit": "harpy_matriarch"
+      "ability_kit": "harpy_matriarch",
+      "boss_multiplier": 3.3
     },
     "Harpy Windcaller": {
       "template": "humanoid_caster",
       "level_range": [
-        14,
-        20
-      ],
-      "kit": "harpy_windcaller"
+        16,
+        19
+      ]
     },
     "Troll Axe Thrower": {
       "template": "humanoid_ranged",
@@ -1507,18 +1509,18 @@
     "Slug": {
       "template": "vermin_sneaky",
       "level_range": [
-        14,
-        19
+        15,
+        17
       ],
-      "kit": "slug"
+      "ability_kit": "slug"
     },
     "Bog Creature": {
       "template": "beast_basic",
       "level_range": [
-        14,
-        19
+        15,
+        18
       ],
-      "kit": "bog_creature"
+      "ability_kit": "bog_creature"
     },
     "Furbolg Guardian": {
       "template": "humanoid_warrior",
@@ -2321,8 +2323,8 @@
     "Harpy": {
       "template": "beast_fast",
       "level_range": [
-        14,
-        19
+        15,
+        18
       ],
       "ability_kit": "harpy_melee"
     },
@@ -3437,7 +3439,7 @@
     "Engineer Whirleygig": {
       "template": "humanoid_warrior",
       "level_range": [
-        17,
+        19,
         19
       ],
       "is_boss": true,
@@ -3523,7 +3525,7 @@
         21
       ],
       "is_boss": false,
-      "ability_kit": "harpy_melee"
+      "ability_kit": "witchwing_slayer"
     },
     "Serena Bloodfeather": {
       "template": "beast_fast",
@@ -3532,12 +3534,13 @@
         20
       ],
       "is_boss": true,
-      "ability_kit": "serena_bloodfeather"
+      "ability_kit": "serena_bloodfeather",
+      "boss_multiplier": 2.0
     },
     "Southsea Brigand": {
       "template": "humanoid_rogue",
       "level_range": [
-        12,
+        13,
         16
       ],
       "is_boss": false,
@@ -3546,10 +3549,11 @@
     "Southsea Cannoneer": {
       "template": "humanoid_ranged",
       "level_range": [
-        13,
+        14,
         17
       ],
-      "is_boss": false
+      "is_boss": false,
+      "ability_kit": "southsea_cannoneer"
     },
     "Captain Saltspray": {
       "template": "humanoid_rogue",
@@ -3558,14 +3562,14 @@
         17
       ],
       "is_boss": true,
-      "boss_multiplier": 1.0,
+      "boss_multiplier": 1.6,
       "ability_kit": "captain_saltspray"
     },
     "Road Bandit": {
       "template": "humanoid_rogue",
       "level_range": [
-        12,
-        15
+        14,
+        16
       ],
       "is_boss": false,
       "ability_kit": "road_bandit"
@@ -5413,6 +5417,265 @@
       "is_boss": true,
       "ability_kit": "sporeback_the_bloated",
       "boss_multiplier": 1.2
+    },
+    "Mire Leech": {
+      "template": "vermin_swarm",
+      "level_range": [
+        15,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "mire_leech"
+    },
+    "Peat Shambler": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "peat_shambler"
+    },
+    "Fenwater Crocolisk": {
+      "template": "beast_large",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "fenwater_crocolisk"
+    },
+    "Roost Bonepicker": {
+      "template": "beast_fast",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "roost_bonepicker"
+    },
+    "Harpy Sky-Sentry": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "harpy_sky_sentry"
+    },
+    "Sentinel Picket": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "sentinel_picket"
+    },
+    "Sentinel Archer": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        17,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "sentinel_archer"
+    },
+    "Sentinel Moonspeaker": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "sentinel_moonspeaker"
+    },
+    "Kolkar Scoutrider": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        15,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "kolkar_scoutrider"
+    },
+    "Kolkar Warbrand": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "kolkar_warbrand"
+    },
+    "Venture Co. Oil Driller": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "oil_driller"
+    },
+    "Pumpjack Guard": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "pumpjack_guard"
+    },
+    "Sludge Elemental": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "sludge_elemental"
+    },
+    "Kolkar Dervish": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "kolkar_dervish"
+    },
+    "Kolkar Stormcaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "kolkar_stormcaller"
+    },
+    "Dervish Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "dervish_hound"
+    },
+    "Tide-Wrecker Crab": {
+      "template": "aquatic_basic",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "tidewrecker_crab"
+    },
+    "Hillcrest Stalker": {
+      "template": "beast_basic",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "hillcrest_stalker"
+    },
+    "Stonepeck Vulture": {
+      "template": "beast_fast",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "stonepeck_vulture"
+    },
+    "Mine Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "mine_hound"
+    },
+    "Ore Sprite": {
+      "template": "elemental_caster",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "ore_sprite"
+    },
+    "Old Mire-Maw": {
+      "template": "beast_large",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "ability_kit": "old_mire_maw",
+      "boss_multiplier": 1.4
+    },
+    "Skyfang the Plunderer": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "ability_kit": "skyfang_plunderer",
+      "boss_multiplier": 1.8
+    },
+    "Warden Ilthae": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "warden_ilthae",
+      "boss_multiplier": 1.8
+    },
+    "Scout-Captain Vrek": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "ability_kit": "scoutcaptain_vrek",
+      "boss_multiplier": 1.7
+    },
+    "Kragg the Wall-Breaker": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "ability_kit": "kragg_wallbreaker",
+      "boss_multiplier": 1.8
+    },
+    "Prospector Delvik": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "ability_kit": "prospector_delvik",
+      "boss_multiplier": 1.7
+    },
+    "Windcaller Skreeva": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "ability_kit": "windcaller_skreeva",
+      "boss_multiplier": 1.7
     }
   }
 }

@@ -268,9 +268,10 @@ CENTAUR_KITS = {
         # on its next attack." Modeled as a self-buff (attack_power
         # spike) that precedes the follow-up hit, since this engine has
         # no separate charge/gap-closer mechanic.
-        ("Slash", "damage", 24, 0, 0, "physical", {}),
+        ("Slash", "damage", 36, 0, 0, "physical", {}),
         ("Rushing Charge", "buff", 0, 4, 0, "physical",
-         {"duration": 1, "self_only": True, "stat_mods": {"attack_power": 30}}),
+         {"duration": 1, "self_only": True, "stat_mods": {"attack_power": 40}}),
+        ("Dervish Whirl", "damage", 42, 4, 0, "physical", {"is_aoe": True}),
     ],
 }
 
@@ -490,17 +491,19 @@ BARRENS_MISC_KITS = {
         # Named Venture Co. boss/foreman - a real burn DoT from the
         # overcharge rather than a second flat AoE hit, so the fight has
         # actual damage-over-time pressure a healer has to manage.
-        ("Foreman's Hammer", "damage", 30, 0, 0, "physical", {}),
-        ("Overcharged Blast", "dot", 14, 4, 0, "fire", {"duration": 3, "is_aoe": True}),
+        ("Foreman's Hammer", "damage", 40, 0, 0, "physical", {}),
+        ("Overcharged Blast", "dot", 17, 4, 0, "fire", {"duration": 3, "is_aoe": True}),
+        ("Hardhat Brace", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 48}}),
     ],
     "supervisor_lugwizzle": [
         # Real confirmed lore: level 18, patrols the oil platform's
         # control room, no confirmed special combat ability beyond being
         # a quest target - given a straightforward boss-tier goblin kit
         # matching his level rather than an invented signature move.
-        ("Wrench Bash", "damage", 26, 0, 0, "physical", {}),
+        ("Wrench Bash", "damage", 34, 0, 0, "physical", {}),
         ("Oil Slick", "debuff", 0, 4, 0, "physical",
-         {"duration": 3, "stat_mods": {"agility": -14}}),
+         {"duration": 3, "stat_mods": {"agility": -22}}),
+        ("Pressure Valve", "damage", 44, 5, 0, "fire", {"is_aoe": True}),
     ],
     "engineer_whirleygig": [
         # Real confirmed lore (Wowpedia): Compact Harvest Reaper (summons
@@ -2851,13 +2854,202 @@ RAZORFEN_KITS = {
     ],
 }
 
+# Northern Barrens content pass (2026-10-21): kits for the creatures whose "kit" key was dead (Slug, Bog Creature, Road Bandit,
+# Southsea Brigand/Cannoneer, Witchwing x3, Serena, Harpy Matriarch, Captain Saltspray), plus the new NB roster.
+# Power for L13-22: trash 20-32 first ability, rares 36-48, cave bosses 40-70.
+NORTHERN_BARRENS_KITS = {
+    # ---- repaired (formerly dead / undefined kit ids) -----------------------------------------------------------
+    "slug": [
+        ("Acid Spit", "damage", 22, 0, 0, "nature", {}),
+        ("Slime Trail", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -18}}),
+    ],
+    "bog_creature": [
+        ("Mire Slam", "damage", 25, 0, 0, "physical", {}),
+        ("Suffocating Mud", "dot", 10, 4, 0, "nature", {"duration": 4}),
+    ],
+    "road_bandit": [
+        ("Cheap Shot", "damage", 21, 0, 0, "physical", {}),
+        ("Pocket Sand", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "southsea_brigand": [
+        ("Cutlass Slash", "damage", 22, 0, 0, "physical", {}),
+        ("Dirty Trick", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -14}}),
+    ],
+    "southsea_cannoneer": [
+        ("Grapeshot", "damage", 26, 0, 0, "physical", {}),
+        ("Powder Burn", "dot", 11, 4, 0, "fire", {"duration": 3}),
+    ],
+    "witchwing_harpy": [
+        ("Razor Talon", "damage", 28, 0, 0, "physical", {}),
+        ("Hexed Screech", "debuff", 0, 4, 0, "magic", {"duration": 3, "stat_mods": {"attack_power": -18}}),
+    ],
+    "witchwing_windcaller": [
+        ("Lightning Bolt", "damage", 29, 0, 24, "nature", {}),
+        ("Wind Hex", "debuff", 0, 4, 26, "nature", {"duration": 3, "stat_mods": {"agility": -22}}),
+        ("Mending Gale", "heal", 52, 4, 34, "nature", {}),
+    ],
+    "witchwing_slayer": [
+        ("Slayer's Talon", "damage", 29, 0, 0, "physical", {}),
+        ("Rending Dive", "dot", 12, 3, 0, "physical", {"duration": 4}),
+    ],
+    # ---- Slug Fens ----------------------------------------------------------------------------------------------
+    "mire_leech": [
+        ("Leech Bite", "damage", 18, 0, 0, "physical", {}),
+        ("Drain Blood", "dot", 9, 3, 0, "physical", {"duration": 4}),
+    ],
+    "peat_shambler": [
+        ("Peat Fist", "damage", 26, 0, 0, "physical", {}),
+        ("Bog Hide", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 34}}),
+    ],
+    "fenwater_crocolisk": [
+        ("Fen Bite", "damage", 27, 0, 0, "physical", {}),
+        ("Death Spin", "damage", 36, 4, 0, "physical", {}),
+    ],
+    # ---- Harpy Roost / Serena's Hollow ---------------------------------------------------------------------------------
+    "roost_bonepicker": [
+        ("Carrion Claw", "damage", 23, 0, 0, "physical", {}),
+        ("Gnaw Marrow", "dot", 10, 3, 0, "physical", {"duration": 4}),
+    ],
+    "harpy_sky_sentry": [
+        ("Spear Dive", "damage", 27, 0, 0, "physical", {}),
+        ("Guarded Perch", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 36}}),
+    ],
+    # ---- Mor'shan Rampart (night-elf pickets probing the Horde wall) -------------------------------------------------
+    "sentinel_picket": [
+        ("Glaive Strike", "damage", 28, 0, 0, "physical", {}),
+        ("Shield of Elune", "buff", 0, 6, 0, "magic", {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 28}}),
+    ],
+    "sentinel_archer": [
+        ("Moonbow Shot", "damage", 29, 0, 0, "physical", {}),
+        ("Hamstring Arrow", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -24}}),
+    ],
+    "sentinel_moonspeaker": [
+        ("Moonfire", "damage", 29, 0, 22, "arcane", {}),
+        ("Mending Moonlight", "heal", 50, 4, 32, "arcane", {}),
+        ("Entangling Roots", "debuff", 0, 5, 24, "nature", {"duration": 3, "stat_mods": {"agility": -22}}),
+    ],
+    # ---- Mor'shan Base Camp / Far Watch -------------------------------------------------------------------------------
+    "kolkar_scoutrider": [
+        ("Javelin Throw", "damage", 24, 0, 0, "physical", {}),
+        ("Hobbling Dart", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -18}}),
+    ],
+    "kolkar_warbrand": [
+        ("Warbrand Cleave", "damage", 28, 0, 0, "physical", {}),
+        ("Brand of War", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 26}}),
+    ],
+    # ---- Sludge Fen -----------------------------------------------------------------------------------------------------
+    "oil_driller": [
+        ("Drill Strike", "damage", 28, 0, 0, "physical", {}),
+        ("Oil Splash", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+    "pumpjack_guard": [
+        ("Rifle Shot", "damage", 29, 0, 0, "physical", {}),
+        ("Flare Round", "dot", 12, 4, 0, "fire", {"duration": 3}),
+    ],
+    "sludge_elemental": [
+        ("Sludge Slam", "damage", 29, 0, 0, "physical", {}),
+        ("Tar Coat", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"armor": -26}}),
+        ("Congeal", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+    ],
+    # ---- Stagnant Oasis -------------------------------------------------------------------------------------------------
+    "kolkar_dervish": [
+        ("Whirling Slash", "damage", 28, 0, 0, "physical", {}),
+        ("Dervish Spin", "damage", 34, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    "kolkar_stormcaller": [
+        ("Stormbolt", "damage", 30, 0, 24, "nature", {}),
+        ("Static Cloud", "debuff", 0, 5, 24, "nature", {"duration": 3, "stat_mods": {"attack_power": -22}}),
+    ],
+    "dervish_hound": [
+        ("Maul", "damage", 24, 0, 0, "physical", {}),
+        ("Rabid Frenzy", "buff", 0, 5, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 20}}),
+    ],
+    # ---- Merchant Coast -----------------------------------------------------------------------------------------------
+    "tidewrecker_crab": [
+        ("Pincer Snap", "damage", 20, 0, 0, "physical", {}),
+        ("Shell Up", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 30}}),
+    ],
+    # ---- Dry Hills ------------------------------------------------------------------------------------------------------
+    "hillcrest_stalker": [
+        ("Pounce", "damage", 30, 0, 0, "physical", {}),
+        ("Rend", "dot", 13, 3, 0, "physical", {"duration": 4}),
+    ],
+    "stonepeck_vulture": [
+        ("Beak Rake", "damage", 27, 0, 0, "physical", {}),
+        ("Carrion Dive", "damage", 37, 4, 0, "physical", {}),
+    ],
+    # ---- Boulder Lode Mine ----------------------------------------------------------------------------------------------
+    "mine_hound": [
+        ("Tunnel Bite", "damage", 20, 0, 0, "physical", {}),
+        ("Baying Howl", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -14}}),
+    ],
+    "ore_sprite": [
+        ("Spark Shard", "damage", 23, 0, 16, "arcane", {}),
+        ("Crystal Resonance", "debuff", 0, 4, 18, "arcane", {"duration": 3, "stat_mods": {"intellect": -16}}),
+    ],
+    # ---- named rares (3 abilities) --------------------------------------------------------------------------------------
+    "old_mire_maw": [
+        ("Mire-Maw Snap", "damage", 38, 0, 0, "physical", {}),
+        ("Bog Rot", "dot", 15, 3, 0, "nature", {"duration": 4}),
+        ("Wallow", "buff", 0, 7, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 50}}),
+    ],
+    "skyfang_plunderer": [
+        ("Plunder Dive", "damage", 38, 0, 0, "physical", {}),
+        ("Shrieking Gale", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"agility": -26}}),
+        ("Talon Rake", "dot", 15, 4, 0, "physical", {"duration": 4}),
+    ],
+    "warden_ilthae": [
+        ("Moonglaive", "damage", 44, 0, 0, "arcane", {}),
+        ("Elune's Grasp", "debuff", 0, 5, 26, "nature", {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("Starfall Ward", "buff", 0, 7, 0, "arcane", {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 44}}),
+    ],
+    "scoutcaptain_vrek": [
+        ("Piercing Javelin", "damage", 38, 0, 0, "physical", {}),
+        ("Cripple", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -26}}),
+        ("Rally the Scouts", "buff", 0, 7, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 34}}),
+    ],
+    "kragg_wallbreaker": [
+        ("Wallbreaker Slam", "damage", 42, 0, 0, "physical", {}),
+        ("Shattering Blow", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"armor": -40}}),
+        ("Siegeform", "buff", 0, 7, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 36}}),
+    ],
+    "prospector_delvik": [
+        ("Blasting Pick", "damage", 36, 0, 0, "physical", {}),
+        ("Dynamite Stick", "dot", 16, 4, 0, "fire", {"duration": 3, "is_aoe": True}),
+        ("Hard Hat Drill", "buff", 0, 7, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 44}}),
+    ],
+    "windcaller_skreeva": [
+        ("Skreeva's Bolt", "damage", 38, 0, 28, "nature", {}),
+        ("Gale Hex", "debuff", 0, 5, 28, "nature", {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("Mending Gale", "heal", 70, 4, 36, "nature", {}),
+    ],
+    "serena_bloodfeather": [
+        ("Bloodfeather Rake", "damage", 44, 0, 0, "physical", {}),
+        ("Hunting Shriek", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -30}}),
+        ("Blood Frenzy", "buff", 0, 7, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 36}}),
+    ],
+    "captain_saltspray": [
+        ("Cutlass Flurry", "damage", 38, 0, 0, "physical", {}),
+        ("Grog Splash", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -26}}),
+        ("Broadside", "damage", 50, 5, 0, "fire", {"is_aoe": True}),
+    ],
+    # ---- Serena's Hollow boss (L20 -> 4 abilities) ----------------------------------------------------------------------
+    "harpy_matriarch": [
+        ("Matriarch's Talons", "damage", 50, 0, 0, "physical", {}),
+        ("Shrieking Gale", "debuff", 0, 5, 0, "nature", {"duration": 3, "is_aoe": True,
+                                                         "stat_mods": {"attack_power": -34, "agility": -24}}),
+        ("Roost Mending", "heal", 80, 5, 40, "nature", {}),
+        ("Wing-Storm", "damage", 64, 4, 0, "physical", {"is_aoe": True}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):
