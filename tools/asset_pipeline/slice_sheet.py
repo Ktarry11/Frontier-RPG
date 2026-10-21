@@ -104,7 +104,7 @@ def slice_props(sheet, out_dir, names, grid="6x4", dil=7):
     arr = despill(arr, alpha)
     arr[:, :, 3] = np.where(alpha, 255, 0)
     H, W = alpha.shape
-    assert len(names) == cols * rows, f"need {cols*rows} names"
+    assert len(names) >= cols * rows, f"need {cols*rows} names"
     os.makedirs(out_dir, exist_ok=True)
     # group fragments into objects, merge tiny specks into the nearest big object
     grp, n = ndi.label(ndi.binary_dilation(alpha, iterations=dil))
@@ -135,4 +135,4 @@ if __name__ == "__main__":
     if mode == "tiles":
         slice_tiles(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5:])
     else:
-        slice_props(sys.argv[2], sys.argv[3], sys.argv[4:], dil=int(os.environ.get("SLICE_DIL", 7)))
+        slice_props(sys.argv[2], sys.argv[3], sys.argv[4:], grid=os.environ.get("SLICE_GRID", "6x4"), dil=int(os.environ.get("SLICE_DIL", 7)))

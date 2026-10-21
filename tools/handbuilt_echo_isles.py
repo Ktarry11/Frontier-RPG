@@ -39,6 +39,7 @@ DP = "assets/tiles/dungeon_props/"
 BLD = "assets/buildings/"
 ENT = "assets/tiles/cave_entrances/"
 EP = "assets/tiles/echo_isles/props/"
+CP = "assets/tiles/coastal_props/"
 SB = "assets/tiles/seabed/"
 NG = "assets/tiles/naga_dungeon/"
 BR = "assets/tiles/bridges/"
@@ -263,7 +264,7 @@ NPC_POSITIONS = {
     "echo_isles_fisher": (76, 54),
     "echo_isles_net_mender": (84, 55),
     "echo_isles_camp_quartermaster": (77, 49),
-    "echo_isles_camp_lookout": (83, 47),
+    "echo_isles_camp_lookout": (82, 43),
     "echoisle_vendor": (82, 57),
     # Troll Camp isle
     "echo_isles_troll_beachcomber": (116, 56),
@@ -272,7 +273,7 @@ NPC_POSITIONS = {
     # Hollow isle landing / Grotto isle
     "echo_isles_goblin_salvager": (130, 105),
     "echo_isles_shaman": (36, 87),
-    "echo_isles_young_diver": (33, 95),
+    "echo_isles_young_diver": (32, 93),
     # Tidal Flats cay
     "echo_isles_shipwreck_bones": (109, 129),
 }
@@ -435,8 +436,8 @@ def _bridges(L):
 
 
 def _caves(L):
-    L.cave(GROTTO[0], GROTTO[1], "entrance_dark_blue")
-    L.cave(HOLLOW[0], HOLLOW[1], "entrance_dark_mossy")
+    L.cave(GROTTO[0], GROTTO[1], "ent_naga_temple_door", 8, 7)     # drowned naga doorway
+    L.cave(HOLLOW[0], HOLLOW[1], "ent_troll_skull_cave", 8, 7)     # troll skull lair
     # arrival column: the cave exits drop you 2 tiles north of the mouth
     for (px, py) in (GROTTO, HOLLOW):
         for dy in (1, 2, 3):
@@ -477,7 +478,172 @@ def _seal_unreachable(L, start=(80, 12)):
 
 
 def _dress(L):
-    pass
+    """Hand-placed props.  Less is more: each cluster is something the spot would
+    really have (huts round a cook-fire, crates on a dock, coral in the shallows)."""
+    cp = lambda n, x, y, h, **k: L.prop(n, x, y, h, path_dir=CP, **k)
+    ep = lambda n, x, y, h, **k: L.prop(n, x, y, h, path_dir=EP, **k)
+    dp = lambda n, x, y, h, **k: L.prop(n, x, y, h, path_dir=DP, **k)
+    deck = dict(road_ok=True, solid=False)           # props that stand ON a pier
+
+    # ---------------- piers: lanterns, mooring, crates (decks are walkable path tiles)
+    for (x, y) in ((78, 16), (81, 16), (78, 26), (81, 26)):
+        cp("dock_lantern_post", x, y, 4, **deck)
+    cp("mooring_posts", 75, 10, 3, **deck)
+    cp("mooring_posts", 86, 10, 3, **deck)
+    cp("fish_crates_traps", 75, 5, 3, **deck)
+    cp("fish_crates_traps", 85, 5, 3, **deck)
+    for (x, y) in ((78, 136), (81, 136), (78, 144), (81, 144)):
+        cp("dock_lantern_post", x, y, 4, **deck)
+    cp("mooring_posts", 75, 152, 3, **deck)
+    cp("mooring_posts", 86, 152, 3, **deck)
+    cp("fish_crates_traps", 76, 156, 3, **deck)
+    cp("outrigger_canoe", 70, 33, 3, shore_ok=True, solid=False)
+
+    # ---------------- Echo Landing: the Darkspear village (north hub)
+    cp("troll_stilt_hut", 71, 51, 7)
+    cp("troll_stilt_hut", 89, 50, 7)
+    cp("troll_stilt_hut", 72, 60, 7)
+    cp("troll_stilt_hut", 88, 61, 7)
+    cp("tiki_totem", 87, 40, 7)
+    cp("troll_war_banner", 76, 46, 6)
+    cp("troll_war_banner", 84, 47, 6)
+    cp("troll_cookfire", 78, 56, 4, fraction=0.5)
+    cp("fish_drying_rack", 85, 53, 4)
+    cp("fish_crates_traps", 75, 62, 3)
+    cp("signal_tower", 92, 36, 7)
+    cp("outrigger_canoe", 63, 56, 3, shore_ok=True, solid=False)
+    cp("hibiscus_bush", 74, 45, 3)
+    cp("banana_plant", 69, 47, 4)
+    cp("banana_plant", 91, 56, 4)
+    cp("bamboo_grove", 66, 54, 5)
+    ep("palm_lean_a", 64, 42, 6)
+    ep("palm_lean_a", 94, 44, 6)
+    ep("palm_lean_b", 67, 37, 6)
+    ep("palm_lean_b", 96, 52, 6)
+
+    # ---------------- Echo Landing: jungle interior (west/east/south)
+    cp("jungle_banyan", 69, 72, 8)
+    cp("jungle_banyan", 90, 74, 8)
+    cp("jungle_banyan", 76, 84, 8)
+    cp("jungle_banyan", 72, 108, 8)
+    cp("jungle_banyan", 90, 108, 8)
+    cp("mossy_jungle_boulder", 66, 66, 4)
+    cp("mossy_jungle_boulder", 93, 79, 4)
+    cp("mossy_jungle_boulder", 72, 100, 4)
+    cp("bamboo_grove", 66, 80, 5)
+    cp("bamboo_grove", 96, 92, 5)
+    cp("hibiscus_bush", 74, 76, 3)
+    cp("hibiscus_bush", 87, 70, 3)
+    cp("hibiscus_bush", 78, 94, 3)
+    cp("banana_plant", 70, 90, 4)
+    cp("banana_plant", 92, 96, 4)
+    cp("banana_plant", 84, 112, 4)
+    ep("palm_lean_a", 60, 74, 6)
+    ep("palm_lean_a", 98, 70, 6)
+    ep("palm_lean_b", 62, 96, 6)
+    ep("palm_lean_b", 100, 86, 6)
+    ep("palm_lean_a", 96, 116, 6)
+    ep("palm_lean_a", 66, 114, 6)
+    cp("driftwood_pile", 99, 98, 3, shore_ok=True)
+    cp("rowboat_wreck", 61, 82, 3, shore_ok=True)
+    cp("driftwood_pile", 62, 106, 3, shore_ok=True)
+    cp("mooring_posts", 98, 60, 3, shore_ok=True, solid=False)
+
+    # ---------------- Troll Camp isle (east of the north bridge)
+    cp("troll_stilt_hut", 119, 51, 7)
+    cp("troll_stilt_hut", 132, 50, 7)
+    cp("troll_stilt_hut", 133, 61, 7)
+    cp("tiki_totem", 123, 51, 7)
+    cp("tiki_totem", 114, 62, 7)
+    cp("troll_war_banner", 116, 54, 6)
+    cp("troll_war_banner", 116, 61, 6)
+    cp("troll_cookfire", 126, 58, 4, fraction=0.5)
+    cp("fish_drying_rack", 129, 55, 4)
+    cp("fish_crates_traps", 120, 64, 3)
+    cp("signal_tower", 137, 46, 7)
+    cp("outrigger_canoe", 142, 62, 3, shore_ok=True, solid=False)
+    cp("banana_plant", 121, 47, 4)
+    cp("hibiscus_bush", 135, 57, 3)
+    cp("bamboo_grove", 127, 47, 5)
+    ep("palm_lean_a", 141, 54, 6)
+    ep("palm_lean_b", 114, 48, 6)
+
+    # ---------------- The Lost Fleet (north-east)
+    ep("shipwreck_full", 141, 24, 9, solid="core", shore_ok=True)
+    ep("shipwreck_fragment", 152, 17, 5, shore_ok=True)
+    cp("rowboat_wreck", 148, 28, 3, shore_ok=True)
+    cp("buried_treasure_chest", 152, 24, 2)
+    cp("driftwood_pile", 136, 25, 3, shore_ok=True)
+    cp("crab_claw_arch", 144, 29, 4, road_ok=True, solid=False)
+    cp("driftwood_pile", 143, 14, 3, shore_ok=True)
+    ep("palm_lean_b", 150, 28, 6)
+    ep("palm_lean_a", 138, 18, 6)
+
+    # ---------------- Hollow isle (south-east): goblin salvage + the troll lair
+    cp("rowboat_wreck", 128, 108, 3, shore_ok=True)
+    cp("fish_crates_traps", 132, 103, 3)
+    cp("driftwood_pile", 126, 102, 3, shore_ok=True)
+    cp("tiki_totem", 135, 117, 7)
+    cp("tiki_totem", 147, 117, 7)
+    cp("banana_plant", 130, 98, 4)
+    cp("bamboo_grove", 146, 100, 5)
+    cp("hibiscus_bush", 134, 96, 3)
+    cp("mossy_jungle_boulder", 148, 110, 4)
+    ep("palm_lean_b", 150, 104, 6)
+    ep("palm_lean_a", 129, 116, 6)
+
+    # ---------------- Grotto isle (west): the drowned naga door
+    cp("sunken_totem", 15, 106, 5, shore_ok=True)
+    cp("coral_reef_outcrop", 31, 106, 4, shore_ok=True)
+    cp("murloc_hut", 42, 98, 5, shore_ok=True)
+    cp("mangrove_thicket", 18, 86, 6, shore_ok=True)
+    cp("hibiscus_bush", 36, 83, 3)
+    cp("banana_plant", 40, 90, 4)
+    cp("mossy_jungle_boulder", 35, 96, 4)
+    ep("tide_pool", 28, 100, 3)
+    ep("palm_lean_a", 22, 84, 6)
+    ep("palm_lean_a", 40, 85, 6)
+
+    # ---------------- Naga Ruins (north-west)
+    dp("temple_archway", 25, 58, 7, road_ok=True, solid=False)
+    dp("grotto_naga_column", 20, 51, 5, solid="core")
+    dp("grotto_naga_column", 30, 51, 5, solid="core")
+    dp("grotto_naga_priestess_statue", 21, 45, 5, solid="core")
+    dp("grotto_naga_warrior_statue", 29, 45, 5, solid="core")
+    dp("grotto_shell_altar", 25, 46, 3, solid="core")
+    dp("grotto_naga_rune_stone", 17, 49, 4, solid="core")
+    dp("grotto_serpent_skeleton", 33, 56, 4)
+    ep("overgrown_ruin", 15, 42, 6, solid="core")
+    ep("jungle_idol", 35, 47, 5, solid="core")
+    cp("mangrove_thicket", 12, 54, 6, shore_ok=True)
+    cp("banana_plant", 16, 55, 4)
+    ep("palm_lean_b", 20, 38, 6)
+
+    # ---------------- Razorjaw Reef (south-west)
+    cp("coral_reef_outcrop", 36, 134, 4, shore_ok=True)
+    cp("coral_reef_outcrop", 61, 148, 4, shore_ok=True)
+    cp("coral_reef_outcrop", 41, 150, 4, shore_ok=True)
+    cp("murloc_hut", 33, 141, 5, shore_ok=True)
+    cp("sunken_totem", 64, 140, 5, shore_ok=True)
+    cp("crab_claw_arch", 55, 140, 4, road_ok=True, solid=False)
+    cp("mangrove_thicket", 48, 147, 6, shore_ok=True)
+    dp("grotto_giant_clam", 44, 133, 3)
+    dp("grotto_crab_nest", 40, 141, 4, solid="core")
+    cp("driftwood_pile", 50, 134, 3)
+    cp("rowboat_wreck", 58, 133, 3, shore_ok=True)
+    ep("palm_lean_b", 38, 137, 6)
+
+    # ---------------- Tidal Flats (south-east of Echo Landing)
+    cp("coral_reef_outcrop", 98, 124, 4, shore_ok=True)
+    cp("coral_reef_outcrop", 115, 131, 4, shore_ok=True)
+    cp("mangrove_thicket", 104, 135, 6, shore_ok=True)
+    cp("buried_treasure_chest", 113, 124, 2)
+    cp("driftwood_pile", 100, 132, 3)
+    ep("tide_pool", 108, 126, 3, shore_ok=True)
+
+    # ---------------- sea stacks: the real rock spires
+    for (cx, cy, rx, ry) in STACKS:
+        cp("sea_stack_spire", int(cx), int(cy + 1), 7, solid=False, shore_ok=True, allow_overlap=True, road_ok=True, nudge=0)
 
 
 def build_layout():
