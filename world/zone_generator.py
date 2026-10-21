@@ -5598,6 +5598,7 @@ def create_all_zones():
     from tools.handbuilt_echo_isles import generate_echo_isles as generate_echo_isles_handbuilt
     from tools import handbuilt_vot_caves as vot_caves
     from tools import handbuilt_durotar_caves as dcaves
+    from tools import handbuilt_echo_caves as ecaves
     from tools import handbuilt_razor_hill as dcaves_razor
     from tools import handbuilt_orgrimmar as dorg
     from tools.handbuilt_dungeons import (
@@ -5746,8 +5747,8 @@ def create_all_zones():
     # boxes - moot now since The Den doesn't use that feature table at
     # all anymore, but still true for the other "bones"-feature caves
     # still on the shared generator).
-    zones["Sunken Temple Grotto"] = ZoneGenerator.generate_sunken_temple_grotto()
-    zones["Zalazane's Hollow"] = ZoneGenerator.generate_zalazane_hollow()
+    zones["Sunken Temple Grotto"] = ecaves.generate_sunken_temple_grotto()  # hand-built (tools/handbuilt_echo_caves.py)
+    zones["Zalazane's Hollow"] = ecaves.generate_zalazane_hollow()  # hand-built
     zones["Boulder Lode Mine"] = ZoneGenerator.generate_boulder_lode_mine()
     zones["Serena's Hollow"] = ZoneGenerator.generate_serenas_hollow()
     zones["The Den"] = vot_caves.generate_the_den()  # hand-built (tools/handbuilt_vot_caves.py)
