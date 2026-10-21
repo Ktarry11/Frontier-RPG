@@ -1,0 +1,410 @@
+{
+  "_notes": "Valley of Trials cluster boss + named-rare loot (2026-10-21). One item drops per kill from the boss's pool. Numbers from the real loot formulas (tools/build_vot_content.py). Primary-stat only - ilvl<10 rule.",
+  "Nest Guardian": [
+    {
+      "name": "Skitterhorn Bulwark",
+      "slot": "off_hand",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "A guardian's own horn-plate, split and riveted into a shield.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "armor_value": 16,
+      "block_value": 20
+    },
+    {
+      "name": "Husk-Cracker Maul",
+      "slot": "main_hand",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Built to crack chitin. It has opinions about anything else.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 39,
+      "weapon_damage_max": 53,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Silkweave Hood of the Den",
+      "slot": "head",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Spun from the nest's own silk. Thread by thread it hums when you speak a kind word.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 7
+    },
+    {
+      "name": "Egg-Warden's Treads",
+      "slot": "feet",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Quiet, light and sticky in all the right places.",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 10
+    }
+  ],
+  "Yarrog Baneshadow": [
+    {
+      "name": "Fel-Stitched Vestments",
+      "slot": "chest",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "The stitching is in a language you do not want to learn.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 10
+    },
+    {
+      "name": "Coven Ritual Dagger",
+      "slot": "main_hand",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Blessed, cursed and sharpened - in that order.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 21,
+      "weapon_damage_max": 29,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Fel-Iron Gauntlets",
+      "slot": "hands",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Still warm. Please stop asking why.",
+      "primary_stats": {
+        "strength": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 24
+    },
+    {
+      "name": "Soul-Siphon Hexwand",
+      "slot": "ranged",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Yarrog never noticed it was draining him back.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 1.9
+    }
+  ],
+  "Broodmother Sarrix": [
+    {
+      "name": "Venom-Barbed Shortbow",
+      "slot": "ranged",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Every arrow is dipped before the string is drawn. It never dries.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Brood-Silk Mantle",
+      "slot": "shoulder",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Egg-silk, tightly woven. Faintly sticky, always.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 24
+    },
+    {
+      "name": "Egg-Mother's Locket",
+      "slot": "neck",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "The eggs inside never hatch. Nobody has checked why.",
+      "primary_stats": {
+        "stamina": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Old Tusk": [
+    {
+      "name": "Tusk-Tipped Spear",
+      "slot": "main_hand",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "flavor_text": "Old Tusk's last gift to a hunter who finally got close enough.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 33,
+      "weapon_damage_max": 45,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Boarhide Jerkin",
+      "slot": "chest",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "flavor_text": "Thick enough to turn a tusk. It's been tested.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 15
+    },
+    {
+      "name": "Broken Tusk Signet",
+      "slot": "ring",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "flavor_text": "A ring carved from the tusk that finally broke.",
+      "primary_stats": {
+        "strength": 1
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Old Gulpjaw": [
+    {
+      "name": "Gulpjaw's Slimecloak",
+      "slot": "back",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "flavor_text": "It repels water. It also repels everyone at the campfire.",
+      "primary_stats": {
+        "stamina": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "accessory",
+      "armor_value": 0
+    },
+    {
+      "name": "Toadskin Gloves",
+      "slot": "hands",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "flavor_text": "Supple, damp and strangely comforting.",
+      "primary_stats": {
+        "intellect": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 4
+    },
+    {
+      "name": "Reedwoven Band",
+      "slot": "ring",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "flavor_text": "Spring reeds braided around a river stone.",
+      "primary_stats": {
+        "intellect": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Bramblethorn the Ancient": [
+    {
+      "name": "Heartwood Staff",
+      "slot": "main_hand",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "It grew this way. You are fairly certain it is listening.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 12,
+      "weapon_damage_max": 16,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Sapbound Bracers",
+      "slot": "wrist",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Living bark that tightens when you run.",
+      "primary_stats": {
+        "agility": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 10
+    },
+    {
+      "name": "Sagewood Heart-Amulet",
+      "slot": "neck",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Smells like rain on warm stone.",
+      "primary_stats": {
+        "spirit": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Sandfang": [
+    {
+      "name": "Sandfang's Pelt Mantle",
+      "slot": "shoulder",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Sun-bleached and quick to remember the hunt.",
+      "primary_stats": {
+        "strength": 2,
+        "agility": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 15
+    },
+    {
+      "name": "Dunestalker's Crossbow",
+      "slot": "ranged",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Built to bring down something faster than you.",
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Windrift Sash",
+      "slot": "waist",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Woven from dune-grass and good intentions.",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 16
+    }
+  ],
+  "Smolderhide": [
+    {
+      "name": "Ashen Smolder-Mace",
+      "slot": "main_hand",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Cooler than it looks. Warmer than it should be.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 23,
+      "weapon_damage_max": 31,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Cinderscale Legguards",
+      "slot": "legs",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Scales of a very patient basilisk. It has stopped being patient.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 55
+    },
+    {
+      "name": "Ember-Etched Ring",
+      "slot": "ring",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "The ember inside never quite goes out.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {}
+    }
+  ]
+}

@@ -101,7 +101,7 @@
         5
       ],
       "is_boss": true,
-      "boss_multiplier": 1.5,
+      "boss_multiplier": 2.6,
       "ability_kit": "nest_guardian"
     },
     "Gorge the Corpsegrinder": {
@@ -165,7 +165,8 @@
         3,
         5
       ],
-      "ability_kit": "felhound"
+      "ability_kit": "fel_pup",
+      "is_boss": false
     },
     "Felhound": {
       "template": "beast_fast",
@@ -3882,6 +3883,164 @@
       "is_boss": true,
       "boss_multiplier": 2.5,
       "ability_kit": "matriarch_velaxis"
+    },
+    "Dustwind Jackal": {
+      "template": "beast_fast",
+      "level_range": [
+        1,
+        4
+      ],
+      "is_boss": false,
+      "ability_kit": "dustwind_jackal"
+    },
+    "Carrion Vulture": {
+      "template": "beast_fast",
+      "level_range": [
+        2,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "carrion_vulture"
+    },
+    "Sandpincer Crawler": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "sandpincer_crawler"
+    },
+    "Marsh Skimmer": {
+      "template": "vermin_swarm",
+      "level_range": [
+        1,
+        3
+      ],
+      "is_boss": false,
+      "ability_kit": "marsh_skimmer"
+    },
+    "Thornroot Sapling": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "thornroot_sapling"
+    },
+    "Dust Devil": {
+      "template": "elemental_caster",
+      "level_range": [
+        4,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "dust_devil"
+    },
+    "Ember Wisp": {
+      "template": "elemental_caster",
+      "level_range": [
+        4,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "ember_wisp"
+    },
+    "Den Webspinner": {
+      "template": "vermin_swarm",
+      "level_range": [
+        2,
+        4
+      ],
+      "is_boss": false,
+      "ability_kit": "den_spinner"
+    },
+    "Husk Crawler": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "husk_crawler"
+    },
+    "Egg Tender": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "egg_tender"
+    },
+    "Burning Blade Acolyte": {
+      "template": "humanoid_caster",
+      "level_range": [
+        4,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "burning_blade_acolyte"
+    },
+    "Coven Ritual Guard": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        4,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "coven_ritual_guard"
+    },
+    "Old Tusk": {
+      "template": "beast_basic",
+      "level_range": [
+        3,
+        3
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "old_tusk"
+    },
+    "Old Gulpjaw": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        4,
+        4
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "old_gulpjaw"
+    },
+    "Bramblethorn the Ancient": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.4,
+      "ability_kit": "bramblethorn_the_ancient"
+    },
+    "Sandfang": {
+      "template": "beast_fast",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.8,
+      "ability_kit": "sandfang"
+    },
+    "Smolderhide": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        6,
+        6
+      ],
+      "is_boss": true,
+      "boss_multiplier": 1.4,
+      "ability_kit": "smolderhide"
     }
   }
 }

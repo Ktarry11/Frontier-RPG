@@ -20,14 +20,35 @@ from scipy import ndimage as ndi
 
 
 def slice_tiles(sheet, out_dir, grid, names):
+    """grid = "COLSxROWS" (even grid) or "COLSxROWS@y0,y1,...,yN" with explicit
+    row boundaries - AI-generated sheets often come out with UNEQUAL row heights
+    (e.g. 192,192,191,177,135,137 on a 1536x1024 8x6 sheet) and an even grid then
+    bleeds neighbouring tiles into each crop. Detect boundaries by the strongest
+    row-to-row colour jump, pass them here. Each cell is centre-cropped to a
+    square and upscaled to 256."""
+    rows_at = None
+    if "@" in grid:
+        grid, rb = grid.split("@")
+        rows_at = [int(v) for v in rb.split(",")]
     cols, rows = (int(v) for v in grid.lower().split("x"))
     im = Image.open(sheet).convert("RGB")
-    cw, ch = im.width // cols, im.height // rows
+    cw = im.width // cols
+    if rows_at is None:
+        ch = im.height // rows
+        rows_at = [r * ch for r in range(rows)] + [rows * ch]
+    assert len(rows_at) == rows + 1, "need rows+1 boundaries"
     assert len(names) == cols * rows, f"need {cols*rows} names, got {len(names)}"
     os.makedirs(out_dir, exist_ok=True)
     for i, n in enumerate(names):
         c, r = i % cols, i // cols
-        im.crop((c * cw, r * ch, (c + 1) * cw, (r + 1) * ch)).save(os.path.join(out_dir, n + ".png"))
+        top, bot = rows_at[r], rows_at[r + 1]
+        side = min(cw, bot - top)
+        x0 = c * cw + (cw - side) // 2
+        y0 = top + (bot - top - side) // 2
+        tile = im.crop((x0, y0, x0 + side, y0 + side))
+        if side != 256:
+            tile = tile.resize((256, 256), Image.LANCZOS)
+        tile.save(os.path.join(out_dir, n + ".png"))
 
 
 def key_magenta(arr, dist=120):

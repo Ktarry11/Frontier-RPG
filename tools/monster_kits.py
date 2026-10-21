@@ -1141,26 +1141,37 @@ TIRISFAL_KITS = {
 
 VALLEY_OF_TRIALS_KITS = {
     "broodmother_sarrix": [
-        # Scorpid Nest's boss - "Broodmother" evokes an egg-laying
-        # matriarch, so a venom DoT layered on top of the base scorpid
-        # sting rather than just bigger flat hits.
+        # Scorpid Nest named rare - venom + a brood-protecting shell.
         ("Venomous Sting", "damage", 14, 0, 0, "physical", {}),
         ("Brood Poison", "dot", 6, 3, 0, "magic", {"duration": 4}),
+        ("Egg-Guard Carapace", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 12}}),
     ],
     "nest_guardian": [
-        # The Scorpid Nest's other guardian - a defensive tank-flavored
-        # counterpart to Sarrix's venom, matching "Guardian."
+        # The Den's boss - the first fight in the game that is not a
+        # stat-check. Three beats: an armor-up (Hardened Shell), a heavy
+        # skewer on a cooldown you can see coming, and a Brood Cry that
+        # pumps its own attack so a slow fight gets worse, not easier.
+        # PLANNED (engine support not built yet): Brood Cry will also call
+        # 2 Cave Skitterers at ~50% HP.
         ("Pincer Crush", "damage", 15, 0, 0, "physical", {}),
         ("Hardened Shell", "buff", 0, 4, 0, "physical",
          {"duration": 3, "self_only": True, "stat_mods": {"armor": 14}}),
+        ("Chitin Skewer", "damage", 28, 3, 0, "physical", {}),
+        ("Brood Cry", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 10}}),
     ],
     "yarrog_baneshadow": [
-        # Burning Blade Coven's mini-boss - a real step up over the
-        # Vile Familiar/demon_imp trash it commands, fel-caster flavor
-        # matching its demon_caster template.
+        # Burning Blade Coven's boss - a fel caster that fights like one:
+        # a curse that weakens the player's offence, a self-heal that
+        # punishes slow burst, and a big Fel Eruption on a cooldown.
+        # PLANNED (engine support not built yet): Summon Familiars at ~60%
+        # and ~30% HP, matching the quest text.
         ("Shadow Bolt", "damage", 16, 0, 14, "shadow", {}),
         ("Baneful Curse", "debuff", 0, 4, 12, "shadow",
          {"duration": 3, "stat_mods": {"attack_power": -8}}),
+        ("Drain Vitality", "heal", 14, 5, 16, "shadow", {}),
+        ("Fel Eruption", "damage", 34, 3, 22, "shadow", {}),
     ],
     "burning_blade_initiate": [
         ("Fel Slash", "damage", 12, 0, 0, "physical", {}),
@@ -1254,6 +1265,115 @@ VALLEY_OF_TRIALS_KITS = {
         # weapon and a genuine bleed the plain zombies don't have.
         ("Scythe Swing", "damage", 24, 0, 0, "physical", {}),
         ("Harvest Wound", "dot", 10, 3, 0, "physical", {"duration": 4}),
+    ],
+    # ---- Valley of Trials / Den / Coven diversity pass (2026-10-21) ----
+    "dustwind_jackal": [
+        # Fast pack hunter: weak bite, but it works itself up.
+        ("Snap", "damage", 12, 0, 0, "physical", {}),
+        ("Pack Cry", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 6}}),
+    ],
+    "carrion_vulture": [
+        # Carrion feeder: bleeds you slowly, then circles.
+        ("Talon Rake", "damage", 13, 0, 0, "physical", {}),
+        ("Carrion Rot", "dot", 5, 3, 0, "physical", {"duration": 4}),
+    ],
+    "sandpincer_crawler": [
+        # Armoured scorpid line: soft hit, hard shell.
+        ("Pincer Snap", "damage", 14, 0, 0, "physical", {}),
+        ("Chitin Plating", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 12}}),
+    ],
+    "marsh_skimmer": [
+        # Trailwater dragonfly: tiny hit, speeds up.
+        ("Wing Buzz", "damage", 8, 0, 0, "physical", {}),
+        ("Skim", "buff", 0, 3, 0, "physical",
+         {"duration": 2, "self_only": True, "stat_mods": {"agility": 10}}),
+    ],
+    "thornroot_sapling": [
+        # Grove guardian: lash then root you down (agility debuff).
+        ("Thorn Lash", "damage", 14, 0, 0, "physical", {}),
+        ("Entangling Roots", "debuff", 0, 3, 0, "nature",
+         {"duration": 2, "stat_mods": {"agility": -12}}),
+    ],
+    "dust_devil": [
+        # Windrift Dunes caster: a gust and a blinding sandstorm that cuts
+        # your attack power.
+        ("Gritty Gust", "damage", 12, 0, 6, "magic", {}),
+        ("Blinding Sand", "debuff", 0, 4, 8, "magic",
+         {"duration": 3, "stat_mods": {"attack_power": -7}}),
+    ],
+    "ember_wisp": [
+        # Cinderjaw Wastes caster: fire dot.
+        ("Cinder Spark", "damage", 13, 0, 6, "magic", {}),
+        ("Smolder", "dot", 6, 3, 8, "magic", {"duration": 3}),
+    ],
+    "den_spinner": [
+        # The Den's web-spinner: bite plus a speed-sapping web.
+        ("Quick Bite", "damage", 9, 0, 0, "physical", {}),
+        ("Sticky Web", "debuff", 0, 3, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -10}}),
+    ],
+    "husk_crawler": [
+        # The Den's husk-carrier: mandible rend that bleeds.
+        ("Rending Mandible", "damage", 13, 0, 0, "physical", {}),
+        ("Brittle Husk Gash", "dot", 5, 3, 0, "physical", {"duration": 3}),
+    ],
+    "egg_tender": [
+        # The Den's support mob - mends nest-mates and itself. Kill first.
+        ("Tender Strike", "damage", 11, 0, 0, "physical", {}),
+        ("Nurture", "heal", 12, 4, 0, "nature", {}),
+    ],
+    "burning_blade_acolyte": [
+        # Coven healer-caster: Fel Flame plus a self mend.
+        ("Fel Flame", "damage", 15, 0, 12, "magic", {}),
+        ("Blade Mending", "heal", 13, 4, 14, "shadow", {}),
+    ],
+    "coven_ritual_guard": [
+        # Coven bruiser: heavy cleaver, hardens up.
+        ("Rusted Cleaver", "damage", 18, 0, 0, "physical", {}),
+        ("Fel Fortitude", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 14}}),
+    ],
+    "fel_pup": [
+        # Fix: creatures.json pointed Fel Pup at a kit named "felhound" that
+        # never existed (spawn KeyError). Light pack biter.
+        ("Nip", "damage", 12, 0, 0, "physical", {}),
+        ("Fel Frenzy", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 7}}),
+    ],
+    # ---- named rares ----
+    "old_tusk": [
+        ("Gore", "damage", 20, 0, 0, "physical", {}),
+        ("Bloodied Charge", "damage", 30, 3, 0, "physical", {}),
+        ("Thick Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 10}}),
+    ],
+    "old_gulpjaw": [
+        ("Crushing Gulp", "damage", 18, 0, 0, "physical", {}),
+        ("Bog Belch", "dot", 7, 3, 0, "nature", {"duration": 4}),
+        ("Swollen Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 12}}),
+    ],
+    "bramblethorn_the_ancient": [
+        ("Thorn Lash", "damage", 18, 0, 0, "physical", {}),
+        ("Rooting Grasp", "debuff", 0, 3, 0, "nature",
+         {"duration": 2, "stat_mods": {"agility": -14}}),
+        ("Bark Skin", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 18}}),
+        ("Rejuvenating Sap", "heal", 14, 5, 0, "nature", {}),
+    ],
+    "sandfang": [
+        ("Snap", "damage", 16, 0, 0, "physical", {}),
+        ("Gnashing Rake", "dot", 7, 3, 0, "physical", {"duration": 3}),
+        ("Pack Cry", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 9}}),
+    ],
+    "smolderhide": [
+        ("Scorching Bite", "damage", 24, 0, 0, "physical", {}),
+        ("Molten Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 16}}),
+        ("Ashen Breath", "dot", 9, 3, 0, "magic", {"duration": 3}),
     ],
 }
 

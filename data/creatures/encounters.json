@@ -4,16 +4,27 @@
       "open_zone": {
         "name": "The Valley Floor",
         "creatures": {
-          "Mottled Boar": 2,
-          "Scorpid Worker": 1
+          "Mottled Boar": 3,
+          "Scorpid Worker": 1,
+          "Dustwind Jackal": 2,
+          "Carrion Vulture": 1
         }
       },
       "subzones": {
+        "Sagebrush Flat": {
+          "name": "Sagebrush Flat",
+          "creatures": {
+            "Mottled Boar": 3,
+            "Dustwind Jackal": 2,
+            "Old Tusk": 0
+          }
+        },
         "Scorpid Nest": {
           "name": "The Scorpid Nest",
           "creatures": {
-            "Scorpid Worker": 2,
-            "Venomtail Scorpid": 1,
+            "Scorpid Worker": 3,
+            "Venomtail Scorpid": 2,
+            "Sandpincer Crawler": 2,
             "Broodmother Sarrix": 0
           }
         },
@@ -21,21 +32,36 @@
           "name": "Trailwater Spring",
           "creatures": {
             "Trailwater Toad": 3,
-            "Scorpid Worker": 1
+            "Marsh Skimmer": 3,
+            "Scorpid Worker": 1,
+            "Old Gulpjaw": 0
           }
         },
         "Sagewood Grove": {
           "name": "Sagewood Grove",
           "creatures": {
             "Sagewood Sprite": 3,
-            "Mottled Boar": 1
+            "Thornroot Sapling": 2,
+            "Mottled Boar": 1,
+            "Bramblethorn the Ancient": 0
+          }
+        },
+        "Windrift Dunes": {
+          "name": "Windrift Dunes",
+          "creatures": {
+            "Dustwind Jackal": 3,
+            "Dust Devil": 2,
+            "Carrion Vulture": 2,
+            "Sandfang": 0
           }
         },
         "Cinderjaw Wastes": {
           "name": "Cinderjaw Wastes",
           "creatures": {
             "Cinderjaw Skitterling": 3,
-            "Ashback Basilisk": 1
+            "Ashback Basilisk": 2,
+            "Ember Wisp": 2,
+            "Smolderhide": 0
           }
         }
       },
@@ -43,17 +69,22 @@
         "The Den": {
           "name": "The Den",
           "creatures": {
-            "Cave Skitterer": 1,
+            "Cave Skitterer": 3,
+            "Den Webspinner": 3,
+            "Husk Crawler": 2,
+            "Egg Tender": 1,
             "Nest Guardian": 0
           }
         },
         "Burning Blade Coven": {
           "name": "Burning Blade Coven",
           "creatures": {
-            "Burning Blade Initiate": 2,
-            "Vile Familiar": 2,
-            "Felstalker Whelp": 1,
-            "Fel Pup": 1,
+            "Burning Blade Initiate": 3,
+            "Vile Familiar": 3,
+            "Felstalker Whelp": 2,
+            "Fel Pup": 2,
+            "Burning Blade Acolyte": 1,
+            "Coven Ritual Guard": 1,
             "Yarrog Baneshadow": 0
           }
         }

@@ -1905,6 +1905,19 @@
         "mana_cost": 0,
         "school": "magic",
         "duration": 4
+      },
+      {
+        "name": "Egg-Guard Carapace",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 12
+        }
       }
     ],
     "nest_guardian": [
@@ -1928,6 +1941,27 @@
         "stat_mods": {
           "armor": 14
         }
+      },
+      {
+        "name": "Chitin Skewer",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Brood Cry",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 10
+        }
       }
     ],
     "yarrog_baneshadow": [
@@ -1950,6 +1984,22 @@
         "stat_mods": {
           "attack_power": -8
         }
+      },
+      {
+        "name": "Drain Vitality",
+        "kind": "heal",
+        "amount": 14,
+        "cooldown": 5,
+        "mana_cost": 16,
+        "school": "shadow"
+      },
+      {
+        "name": "Fel Eruption",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 3,
+        "mana_cost": 22,
+        "school": "shadow"
       }
     ],
     "burning_blade_initiate": [
@@ -2139,6 +2189,450 @@
         "mana_cost": 0,
         "school": "physical",
         "duration": 4
+      }
+    ],
+    "dustwind_jackal": [
+      {
+        "name": "Snap",
+        "kind": "damage",
+        "amount": 12,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pack Cry",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 6
+        }
+      }
+    ],
+    "carrion_vulture": [
+      {
+        "name": "Talon Rake",
+        "kind": "damage",
+        "amount": 13,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Carrion Rot",
+        "kind": "dot",
+        "amount": 5,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "sandpincer_crawler": [
+      {
+        "name": "Pincer Snap",
+        "kind": "damage",
+        "amount": 14,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chitin Plating",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 12
+        }
+      }
+    ],
+    "marsh_skimmer": [
+      {
+        "name": "Wing Buzz",
+        "kind": "damage",
+        "amount": 8,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Skim",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "self_only": true,
+        "stat_mods": {
+          "agility": 10
+        }
+      }
+    ],
+    "thornroot_sapling": [
+      {
+        "name": "Thorn Lash",
+        "kind": "damage",
+        "amount": 14,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Entangling Roots",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -12
+        }
+      }
+    ],
+    "dust_devil": [
+      {
+        "name": "Gritty Gust",
+        "kind": "damage",
+        "amount": 12,
+        "cooldown": 0,
+        "mana_cost": 6,
+        "school": "magic"
+      },
+      {
+        "name": "Blinding Sand",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 8,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -7
+        }
+      }
+    ],
+    "ember_wisp": [
+      {
+        "name": "Cinder Spark",
+        "kind": "damage",
+        "amount": 13,
+        "cooldown": 0,
+        "mana_cost": 6,
+        "school": "magic"
+      },
+      {
+        "name": "Smolder",
+        "kind": "dot",
+        "amount": 6,
+        "cooldown": 3,
+        "mana_cost": 8,
+        "school": "magic",
+        "duration": 3
+      }
+    ],
+    "den_spinner": [
+      {
+        "name": "Quick Bite",
+        "kind": "damage",
+        "amount": 9,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sticky Web",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -10
+        }
+      }
+    ],
+    "husk_crawler": [
+      {
+        "name": "Rending Mandible",
+        "kind": "damage",
+        "amount": 13,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Brittle Husk Gash",
+        "kind": "dot",
+        "amount": 5,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "egg_tender": [
+      {
+        "name": "Tender Strike",
+        "kind": "damage",
+        "amount": 11,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Nurture",
+        "kind": "heal",
+        "amount": 12,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "burning_blade_acolyte": [
+      {
+        "name": "Fel Flame",
+        "kind": "damage",
+        "amount": 15,
+        "cooldown": 0,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Blade Mending",
+        "kind": "heal",
+        "amount": 13,
+        "cooldown": 4,
+        "mana_cost": 14,
+        "school": "shadow"
+      }
+    ],
+    "coven_ritual_guard": [
+      {
+        "name": "Rusted Cleaver",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fel Fortitude",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 14
+        }
+      }
+    ],
+    "fel_pup": [
+      {
+        "name": "Nip",
+        "kind": "damage",
+        "amount": 12,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fel Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 7
+        }
+      }
+    ],
+    "old_tusk": [
+      {
+        "name": "Gore",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bloodied Charge",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thick Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 10
+        }
+      }
+    ],
+    "old_gulpjaw": [
+      {
+        "name": "Crushing Gulp",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bog Belch",
+        "kind": "dot",
+        "amount": 7,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Swollen Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 12
+        }
+      }
+    ],
+    "bramblethorn_the_ancient": [
+      {
+        "name": "Thorn Lash",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rooting Grasp",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -14
+        }
+      },
+      {
+        "name": "Bark Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 18
+        }
+      },
+      {
+        "name": "Rejuvenating Sap",
+        "kind": "heal",
+        "amount": 14,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "sandfang": [
+      {
+        "name": "Snap",
+        "kind": "damage",
+        "amount": 16,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnashing Rake",
+        "kind": "dot",
+        "amount": 7,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Pack Cry",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 9
+        }
+      }
+    ],
+    "smolderhide": [
+      {
+        "name": "Scorching Bite",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Molten Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 16
+        }
+      },
+      {
+        "name": "Ashen Breath",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 3
       }
     ],
     "burning_blade_cultist_east": [
