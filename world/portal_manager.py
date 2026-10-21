@@ -170,11 +170,13 @@ class PortalManager:
                 # which was a mislabeled duplicate exit 4 rows further
                 # north with no real distinct destination of its own.
                 (100, 197): ("Durotar", 65, 26),
-                (20, 170): ("Ragefire Chasm", 120, 214),
-                (25, 170): ("Ragefire Chasm", 120, 214),
+                # Ragefire Chasm: lava-mouth in the south wall of the Cleft of
+                # Shadow (tools/handbuilt_orgrimmar.RAGEFIRE).  Arrival is 2
+                # tiles north of the registered tile, on the Cleft's main street.
+                (34, 184): ("Ragefire Chasm", 120, 214),
             },
             "Ragefire Chasm": {
-                (120, 214): ("Orgrimmar", 22, 168),
+                (120, 214): ("Orgrimmar", 34, 184),
             },
             "Zeppelin Tower": {
                 (17, 41): ("Durotar", 112, 35),

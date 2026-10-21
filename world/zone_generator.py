@@ -5598,6 +5598,7 @@ def create_all_zones():
     from tools import handbuilt_vot_caves as vot_caves
     from tools import handbuilt_durotar_caves as dcaves
     from tools import handbuilt_razor_hill as dcaves_razor
+    from tools import handbuilt_orgrimmar as dorg
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5633,7 +5634,7 @@ def create_all_zones():
         "Razor Hill": dcaves_razor.generate_razor_hill(),  # hand-built (tools/handbuilt_razor_hill.py)
         "Echo Isles": ZoneGenerator.generate_echo_isles(),
         "Ratchet": ZoneGenerator.generate_ratchet(),
-        "Orgrimmar": generate_orgrimmar_expanded(),  # EXPANDED with districts & Ragefire entrance
+        "Orgrimmar": dorg.generate_orgrimmar(),  # hand-built (tools/handbuilt_orgrimmar.py)
         "Zeppelin Tower": ZoneGenerator.generate_zeppelin_tower(),
         
         # ===== TIRISFAL SPLIT (3 zones from 1) + UNDERCITY =====
