@@ -2273,6 +2273,57 @@ class ZoneGenerator:
         return zone.base_layer[y][x] in ("deep_water", "shallow_water")
 
     @staticmethod
+    def _carve_pond_blobs(zone, cx, cy, w, h, coverage, keep_clear=()):
+        """Carve organic shallow-water ponds inside a rectangular room
+        (centered cx,cy; size w x h) covering roughly `coverage` of its
+        area. Replaces the old `if random.random() < wet_chance` per-TILE
+        coin flip the dungeon room carvers used, which produced
+        salt-and-pepper checkerboard water - 1x1 water squares scattered
+        over dry floor, every one of them a hard-edged tile (Kyle:
+        visible gaps/ugly tiling in dungeons). Ponds are ellipse blobs
+        (normalized-distance carve, same technique as Slug Fens) kept 2
+        tiles clear of the room's walls.
+
+        keep_clear: iterable of (x, y, radius) circles that must stay dry
+        (boss spots, so a boss still stands on an island/bank, not in the
+        shallows). Only tiles already carved open (collision None) are
+        touched, so walls are never flooded. Walkable shallow water only
+        (the same tile the old scatter used), so reachability is unchanged
+        apart from corridors, which are carved AFTER rooms and re-dry
+        their own path."""
+        x_lo, x_hi = cx - w // 2 + 2, cx + w // 2 - 2
+        y_lo, y_hi = cy - h // 2 + 2, cy + h // 2 - 2
+        if x_hi <= x_lo or y_hi <= y_lo:
+            return 0
+        target = coverage * w * h
+        carved = 0
+        for _ in range(400):
+            if carved >= target:
+                break
+            px = random.randint(x_lo, x_hi)
+            py = random.randint(y_lo, y_hi)
+            rx = random.randint(3, max(4, w // 5))
+            ry = random.randint(2, max(3, h // 4))
+            for dy in range(-ry, ry + 1):
+                for dx in range(-rx, rx + 1):
+                    if ((dx / rx) ** 2 + (dy / ry) ** 2) ** 0.5 > 1.0:
+                        continue
+                    x, y = px + dx, py + dy
+                    if not (x_lo <= x <= x_hi and y_lo <= y <= y_hi):
+                        continue
+                    if not (0 <= x < zone.width and 0 <= y < zone.height):
+                        continue
+                    if zone.collision_layer[y][x] is not None:
+                        continue
+                    if any((x - kx) ** 2 + (y - ky) ** 2 <= kr * kr
+                           for (kx, ky, kr) in keep_clear):
+                        continue
+                    if zone.base_layer[y][x] != "shallow_water":
+                        carved += 1
+                    zone.set_tile(x, y, "shallow_water", "base")
+        return carved
+
+    @staticmethod
     def _clear_visual_over_water(zone):
         """Strip any visual-layer decoration (grass_tuft, small_rocks,
         etc) sitting on a water tile. A zone's base-terrain roll usually
@@ -4969,33 +5020,10 @@ class ZoneGenerator:
         # already resolves to, so the carved corridor tiles (which use
         # these per-tile textures, not chunk art, at chunk edges) match
         # the chunk art instead of clashing with it either.
-        floor_variants = [
-            "assets/tiles/caves/cave_floor_rock_1.png",
-            "assets/tiles/caves/cave_floor_rock_2.png",
-        ]
-        chunk_size = 20
-        variant_i = 0
-        for cy in range(0, cave.height, chunk_size):
-            for cx in range(0, cave.width, chunk_size):
-                cw = min(chunk_size, cave.width - cx)
-                ch = min(chunk_size, cave.height - cy)
-                sprite = floor_variants[variant_i % len(floor_variants)]
-                cave.add_ground_chunk(sprite, cx, cy, cw, ch)
-                variant_i += 1
-
-        wall_variants = [
-            "assets/tiles/caves/cave_wall_1.png",
-            "assets/tiles/caves/cave_wall_2.png",
-        ]
-        wall_variant_i = 0
-        obstacle_chunk_size = 4
-        for cy in range(0, cave.height, obstacle_chunk_size):
-            for cx in range(0, cave.width, obstacle_chunk_size):
-                cw = min(obstacle_chunk_size, cave.width - cx)
-                ch = min(obstacle_chunk_size, cave.height - cy)
-                sprite = wall_variants[wall_variant_i % len(wall_variants)]
-                cave.add_obstacle_chunk(sprite, cx, cy, cw, ch)
-                wall_variant_i += 1
+        # Chunk art removed: those were the raw UI-card crops (baked navy
+        # frame + blur at 2.5x stretch = visible framed boxes between
+        # tiles). The cave_mossy per-tile textures are world-anchored
+        # seamless now, so no chunk layer is needed here.
 
         return cave
 
@@ -5425,10 +5453,26 @@ class ZoneGenerator:
                         cave.set_tile(x, lava_y, "stone", "base")
                         cave.collision_layer[lava_y][x] = None
         if feature == "ice":
-            for y in range(height):
-                for x in range(width):
-                    if cave.is_walkable(x, y) and random.random() < 0.35:
-                        cave.set_tile(x, y, "ice", "base")
+            # Frozen PATCHES (ellipse blobs), not a per-tile 35% coin flip -
+            # that scattered 1x1 ice squares like salt-and-pepper noise.
+            walkable_total = sum(1 for yy in range(height) for xx in range(width)
+                                  if cave.is_walkable(xx, yy))
+            iced = 0
+            for _ in range(600):
+                if iced >= 0.35 * walkable_total:
+                    break
+                px, py = random.randint(2, width - 3), random.randint(2, height - 3)
+                rx, ry = random.randint(3, 8), random.randint(3, 7)
+                for dy in range(-ry, ry + 1):
+                    for dx in range(-rx, rx + 1):
+                        if ((dx / rx) ** 2 + (dy / ry) ** 2) ** 0.5 > 1.0:
+                            continue
+                        x, y = px + dx, py + dy
+                        if (0 <= x < width and 0 <= y < height
+                                and cave.is_walkable(x, y)
+                                and cave.base_layer[y][x] != "ice"):
+                            cave.set_tile(x, y, "ice", "base")
+                            iced += 1
 
         for tile_name, chance in feature_tiles.get(feature, []):
             ZoneGenerator._scatter(cave, tile_name, chance)

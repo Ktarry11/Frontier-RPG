@@ -1125,7 +1125,7 @@ BIOME_TILES = {
     },
     "cave_warm": {
         # Scatter tile_ids the dungeon generators place but this biome never mapped (flat gray boxes) - reuse the biome's own rubble crop.
-        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
         "bones": ("cave_bones_1", (0, 0, 32, 32), False),
         "bones_2": ("cave_bones_2", (0, 0, 64, 64), False),
         "bones_3": ("cave_bones_3", (0, 0, 32, 32), False),
@@ -1159,8 +1159,8 @@ BIOME_TILES = {
     },
     "cave_sick": {
         # Same gap as cave_warm (Plague Depths/Shadowpine Altar scatter).
-        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
-        "bushes": ("cave_moss_clump_real", (0, 0, 77, 132), True),
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
+        "bushes": ("props_nature", (400, 126, 101, 113), False),
         "bones": ("cave_bones_1", (0, 0, 32, 32), False),
         "bones_2": ("cave_bones_2", (0, 0, 64, 64), False),
         "bones_3": ("cave_bones_3", (0, 0, 32, 32), False),
@@ -1189,11 +1189,11 @@ BIOME_TILES = {
     },
     "cave_cold": {
         # Blackfathom Deeps: ~1300 shallow_water base tiles had no mapping (flat boxes) - same real pool art every other cave biome uses.
-        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
         "shallow_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
         "deep_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
-        # Howling Barrows floor: pale frost crop from the ice sheet (clean opaque 16x16 region, eyeballed).
-        "ice": ("water_ice", (0, 98, 16, 16), False),
+        # Howling Barrows floor: seamless frosted-rock texture (see WORLD_ANCHORED).
+        "ice": ("cave_ice_floor", (0, 0, 256, 256), False),
         "bones": ("cave_bones_1", (0, 0, 32, 32), False),
         "bones_2": ("cave_bones_2", (0, 0, 64, 64), False),
         "bones_3": ("cave_bones_3", (0, 0, 32, 32), False),
@@ -1227,7 +1227,7 @@ BIOME_TILES = {
     },
     "cave_dark": {
         # Widow's Lair root/fungus scatter had no mapping.
-        "bushes": ("cave_moss_clump_real", (0, 0, 77, 132), True),
+        "bushes": ("props_nature", (400, 126, 101, 113), False),
         "ruin": ("ruin_3", (0, 0, 64, 64), False),
         "ruin_2": ("ruin_4", (0, 0, 48, 48), False),
         "ruin_3": ("ruin_5", (0, 0, 32, 32), False),
@@ -1239,7 +1239,7 @@ BIOME_TILES = {
         # Real cave_rubble_floor crop - Scarlet Crypt's _scatter(small_rocks)
         # call had no entry here at all (silent gray-box fallback, same
         # bug class as the missing CAVE_BIOME entries above).
-        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
         # Widow's Lair, Shadowfang Keep, Tiragarde Keep. Same missing
         # "caves" sheet bug as cave_warm - this is the biome for the keep
         # SE of Razor Hill (Kyle's named example for "large empty space
@@ -1285,7 +1285,7 @@ BIOME_TILES = {
         "rock": ("bone_hall_wall", (0, 0, 614, 618), True),
         "wall": ("bone_hall_wall", (0, 0, 614, 618), True),
         "cliff": ("bone_hall_wall", (0, 0, 614, 618), True),
-        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
     },
     # Sunken Temple Grotto - genuinely flooded, not just "cave with some
     # water tiles" (Kyle: "its in the name"). Same floor/wall as cave_mossy
@@ -1430,35 +1430,15 @@ BIOME_TILES = {
         "rock_pile_4": ("rock_pile_orange_4", (0, 0, 40, 23), False),
         "cactus_small": ("veg_cactus_1", (0, 0, 32, 32), False),
         "cactus_small_2": ("veg_cactus_2", (0, 0, 16, 16), False),
-        "sand": [
-            ("durotar_cracked_red_earth_a", (0, 0, 113, 118), True),
-            ("durotar_cracked_red_earth_c", (0, 0, 115, 118), True),
-            ("durotar_pebble_strewn_red_earth", (0, 0, 138, 165), True),
-        ],
-        "dirt": [
-            ("durotar_cracked_red_earth_b", (0, 0, 116, 118), True),
-            ("durotar_red_earth_to_dry_grass", (0, 0, 111, 118), True),
-            ("durotar_red_rock_rubble_patch", (0, 0, 138, 165), True),
-        ],
-        "path": ("durotar_sun_bleached_path_dirt", (0, 0, 115, 118), True),
-        "stone": [
-            ("durotar_rocky_red_ground_a", (0, 0, 113, 118), True),
-            ("durotar_cracked_red_rock_a", (0, 0, 138, 165), True),
-        ],
-        "rock": [
-            ("durotar_rocky_red_ground_b", (0, 0, 117, 118), True),
-            ("durotar_cracked_red_rock_b", (0, 0, 139, 165), True),
-        ],
+        "sand": ("dg_sand", (0, 0, 256, 256), False),
+        "dirt": ("dg_dirt", (0, 0, 256, 256), False),
+        "path": ("dg_path", (0, 0, 256, 256), False),
+        "stone": ("dg_stone", (0, 0, 256, 256), False),
+        "rock": ("dg_rock", (0, 0, 256, 256), False),
         # A real canyon wall - mountain rock face art, matching the
         # "canyon" biome name properly instead of reusing flat ground.
-        "wall": [
-            ("durotar_mountain_rock_face_a", (0, 0, 184, 285), True),
-            ("durotar_mountain_rock_face_b", (0, 0, 184, 285), True),
-        ],
-        "cliff": [
-            ("durotar_boulder_wall", (0, 0, 186, 285), True),
-            ("durotar_mountain_scree_slope", (0, 0, 183, 285), True),
-        ],
+        "wall": ("dg_wall", (0, 0, 256, 256), False),
+        "cliff": ("dg_wall", (0, 0, 256, 256), False),
         "tree": [
             ("durotar_tall_saguaro_cactus", (0, 0, 154, 257), True),
             ("durotar_barrel_cactus", (0, 0, 164, 145), True),
@@ -1570,8 +1550,8 @@ BIOME_TILES = {
         "cliff": ("den_wall_a", (0, 0, 627, 627), True),
         "shallow_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
         "deep_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
-        "bushes": ("cave_moss_clump_real", (0, 0, 77, 132), True),
-        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
+        "bushes": ("props_nature", (400, 126, 101, 113), False),
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
         # "bones"/"bones_2"/"bones_3" - The Den's "bones" feature scatter
         # (see generate_cave's feature_tiles table) calls these 3 tile_ids,
         # and NONE were mapped in this biome - checked directly (searching
@@ -1614,10 +1594,10 @@ BIOME_TILES = {
         # IS the wall material, not floor). Mossy green-brick, distinct
         # from the bog-floor "dirt" crop above so walls read as solid
         # boundaries instead of blending into open floor.
-        "stone": ("damp_dungeons", (0, 208, 16, 16), False),
-        "rock": ("damp_dungeons", (0, 208, 16, 16), False),
-        "wall": ("damp_dungeons", (0, 208, 16, 16), False),
-        "cliff": ("damp_dungeons", (0, 208, 16, 16), False),
+        "stone": ("wc_floor", (0, 0, 256, 256), False),
+        "rock": ("wc_wall", (0, 0, 256, 256), False),
+        "wall": ("wc_wall", (0, 0, 256, 256), False),
+        "cliff": ("wc_wall", (0, 0, 256, 256), False),
         # Stagnant water covers up to ~30% of every chamber here (see the
         # generator's carve(wet=True) calls) - much denser than the sparse
         # oasis-pond accent this calm-water crop was designed for. The flat
@@ -1626,8 +1606,8 @@ BIOME_TILES = {
         # wavy water_ice crop instead (same one grassland/undead use) -
         # still calm/non-animated in the sense that it's a single static
         # frame, just has actual surface texture instead of a flat fill.
-        "shallow_water": ("water_ice", (36, 73, 24, 24), False),
-        "deep_water": ("water_ice", (42, 73, 24, 24), False),
+        "shallow_water": ("wc_water", (0, 0, 256, 256), False),
+        "deep_water": ("wc_water", (0, 0, 256, 256), False),
         # Root tangles / fungal bloom scatter (the generator's own
         # "bushes" visual-layer placement at 6% density throughout) -
         # bare-tree crop reused the same way cave_mossy uses it for roots.
@@ -1674,6 +1654,52 @@ def get_biome_for_zone(zone_name, is_cave=False):
     return ZONE_BIOME.get(zone_name, DEFAULT_BIOME)
 
 
+# ---------------------------------------------------------------------------
+# World-anchored seamless cave textures.
+#
+# The original cave_* sheet keys pointed at ~85x132 "UI card" crops with a
+# dark margin + light frame baked in; squashed into one 32px tile each they
+# drew a dark grid line between EVERY pair of tiles (Kyle: "a visible gap
+# between tiled zone in dungeons and some caves"). The art itself was fine -
+# see tools/asset_pipeline/extract_card_tiles.py, which crops it out of the
+# frame and make_seamless.py, which makes it wrap.
+#
+# Instead of squashing a whole texture into every tile, each tile samples
+# its OWN 32x32 window of a 256x256 seamless texture, chosen by world
+# position ((x % 8, y % 8)), so the rock/water flows continuously across
+# tile boundaries with no per-tile edge at all. Every existing BIOME_TILES
+# entry that names one of these keys keeps working untouched - the swap
+# happens here, at lookup time. Where an entry is a variant LIST (e.g. 3
+# floor rocks) only its FIRST entry is used (see get_texture_entry).
+# ---------------------------------------------------------------------------
+WORLD_ANCHORED_TILES_PER_SIDE = 8
+WORLD_ANCHORED = {
+    "cave_floor_rock_1": "assets/tiles/caves/seamless/cave_floor_rock_1_a.png",
+    "cave_floor_rock_2": "assets/tiles/caves/seamless/cave_floor_rock_2_a.png",
+    "cave_floor_rock_3": "assets/tiles/caves/seamless/cave_floor_rock_3_a.png",
+    "cave_wall_1": "assets/tiles/caves/seamless/cave_wall_1_b.png",
+    "cave_wall_2": "assets/tiles/caves/seamless/cave_wall_2_a.png",
+    "cave_water_pool_real": "assets/tiles/caves/seamless/cave_water_pool_a.png",
+    "cave_moss_clump_real": "assets/tiles/caves/seamless/cave_moss_clump_a.png",
+    "cave_rubble_floor": "assets/tiles/caves/seamless/rubble_strewn_floor_a.png",
+    "cave_mossy_floor_real": "assets/tiles/caves/seamless/mossy_cave_floor_a.png",
+    # Frosted rock floor generated from cave_floor_rock_2 (pale blue-white tint) - Howling Barrows.
+    "cave_ice_floor": "assets/tiles/caves/seamless/cave_ice_floor_a.png",
+    # Drygulch Ravine / canyon caves: Durotar ground crops with their dark
+    # frames/vignettes trimmed (extract_card_tiles.py --auto) and wrapped.
+    "dg_sand": "assets/tiles/caves/seamless/dg_sand_a.png",
+    "dg_dirt": "assets/tiles/caves/seamless/dg_dirt_a.png",
+    "dg_stone": "assets/tiles/caves/seamless/dg_stone_a.png",
+    "dg_rock": "assets/tiles/caves/seamless/dg_rock_a.png",
+    "dg_path": "assets/tiles/caves/seamless/dg_path_a.png",
+    "dg_wall": "assets/tiles/caves/seamless/dg_wall_a.png",
+    # Wailing Caverns' own chunk art, squared + wrapped for per-tile gaps.
+    "wc_floor": "assets/tiles/caves/seamless/wc_floor_a.png",
+    "wc_wall": "assets/tiles/caves/seamless/wc_wall_a.png",
+    "wc_water": "assets/tiles/caves/seamless/wc_water_a.png",
+}
+
+
 def get_texture_entry(biome_id, tile_id, x=None, y=None):
     """Return (sheet_path, rect, smooth) for a tile_id in a biome, or None
     if unmapped - callers must fall back to tiles.py's flat color on None.
@@ -1707,7 +1733,16 @@ def get_texture_entry(biome_id, tile_id, x=None, y=None):
     if isinstance(entry, list):
         if not entry:
             return None
-        if x is not None and y is not None:
+        if (x is not None and y is not None
+                and entry[0][0] in WORLD_ANCHORED):
+            # World-anchored textures: ALWAYS the list's first entry. Mixing
+            # variants (even per 8x8 block) put straight-edged rectangles of
+            # gray/brown rock next to each other - the very "visible gap"
+            # this system exists to remove. One continuous texture per
+            # tile_id; stone vs dirt still differ because their lists lead
+            # with different source textures.
+            idx = 0
+        elif x is not None and y is not None:
             # 2D bit-mixing hash (splitmix-style), NOT the previous
             # (x*7 + y*13) % len(entry) linear stride. Kyle: "the tiles
             # look nauseating in durotar as they are just diagonal
@@ -1734,6 +1769,11 @@ def get_texture_entry(biome_id, tile_id, x=None, y=None):
     else:
         chosen = entry
     sheet_key, rect, smooth = chosen
+    if sheet_key in WORLD_ANCHORED and x is not None and y is not None:
+        n = WORLD_ANCHORED_TILES_PER_SIDE
+        side = 256 // n  # 256px seamless textures -> a 32px window per tile
+        return (WORLD_ANCHORED[sheet_key],
+                ((x % n) * side, (y % n) * side, side, side), False)
     sheet_path = SHEETS.get(sheet_key)
     if not sheet_path:
         return None

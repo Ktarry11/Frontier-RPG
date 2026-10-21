@@ -2059,7 +2059,7 @@ def generate_wailing_caverns_expanded():
         for x in range(zone.width):
             zone.set_tile(x, y, "wall", "collision")
 
-    def _room(cx, cy, w, h, wet_chance=0.0):
+    def _room(cx, cy, w, h, wet_chance=0.0, keep_clear=()):
         """Carve a rectangular room. wet_chance scatters real
         shallow_water for the river/flooded-cave read, same mechanism
         the old carve() used but rectangular rooms instead of ellipses -
@@ -2070,10 +2070,11 @@ def generate_wailing_caverns_expanded():
                 x, y = cx + dx, cy + dy
                 if 0 <= x < zone.width and 0 <= y < zone.height:
                     zone.collision_layer[y][x] = None
-                    if wet_chance and random.random() < wet_chance:
-                        zone.set_tile(x, y, "shallow_water", "base")
-                    else:
-                        zone.set_tile(x, y, "dirt", "base")
+                    zone.set_tile(x, y, "dirt", "base")
+        if wet_chance:
+            # Organic ponds instead of a per-tile coin flip (1x1
+            # checkerboard water) - see ZoneGenerator._carve_pond_blobs.
+            ZoneGenerator._carve_pond_blobs(zone, cx, cy, w, h, wet_chance, keep_clear)
 
     def _river(x0, y0, x1, y1, width=5):
         """A wider, always-water corridor for the river itself, distinct
@@ -2091,7 +2092,7 @@ def generate_wailing_caverns_expanded():
 
     # ===== MAIN CAVERN with the river running through it - Lady
     # Anacondra in the upper part =====
-    _room(120, 150, 70, 50, wet_chance=0.25)
+    _room(120, 150, 70, 50, wet_chance=0.25, keep_clear=[(120, 128, 6)])
     _corridor(120, 195, 120, 150, width=5)
     anacondra_pos = (120, 128)
     zone.set_tile(*anacondra_pos, "boss_marker", "interaction")

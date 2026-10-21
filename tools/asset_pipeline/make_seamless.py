@@ -45,29 +45,40 @@ def make_square(im):
 
 
 def make_seamless(im, blend_px=20):
-    """Cross-fade opposite edges so the tile wraps cleanly. Same
-    algorithm proven on the Barrens grass tiles (verified via 3x3
-    self-tile render with no visible seam or ghosting artifact) -
-    not changed here, just lifted out of one-off inline code."""
+    """Make a tile wrap cleanly using an OVERLAP cross-fade.
+
+    The first `b` columns/rows are cross-faded with the `b` columns/rows
+    that sit just past the tile's last full column (i.e. the image is
+    treated as if its far edge overlaps its near edge by b px). The result
+    is (w-b)x(h-b) and is truly periodic - pixel (w-b-1) is the real
+    neighbour of pixel 0 in the source - so it is then resized back to the
+    input size so callers still get the size they passed in.
+
+    BUG FIXED (this version): the previous implementation blended the left
+    strip with weights `left*(1-alpha_rev) + right*alpha`, which equals
+    `2*alpha` in total - the first column went BLACK and the last of the
+    strip went double-bright, drawing a dark double line at every wrap.
+    It went unnoticed on the Barrens grass (the line is 1-2px on a 900px
+    texture) but was glaring on 32px-per-tile cave floors."""
     arr = np.array(im.convert("RGB")).astype(np.float64)
     h, w = arr.shape[:2]
-    b = min(blend_px, w // 2, h // 2)
+    b = min(blend_px, w // 4, h // 4)
     if b < 2:
         return im  # too small to blend meaningfully, return as-is
 
-    left = arr[:, :b].copy()
-    right = arr[:, -b:].copy()
-    alpha = np.linspace(0, 1, b).reshape(1, b, 1)
-    arr[:, -b:] = right * (1 - alpha) + left * alpha
-    arr[:, :b] = left * (1 - alpha[:, ::-1, :]) + right * alpha[:, ::-1, :]
+    # Horizontal overlap: columns [0,b) fade from the far strip (x+w-b)
+    # into the near strip (x); everything else is untouched.
+    t = np.linspace(0, 1, b, endpoint=False).reshape(1, b, 1)
+    hb = arr[:, :w - b].copy()
+    hb[:, :b] = arr[:, w - b:] * (1 - t) + arr[:, :b] * t
 
-    top = arr[:b, :].copy()
-    bottom = arr[-b:, :].copy()
-    alphav = np.linspace(0, 1, b).reshape(b, 1, 1)
-    arr[-b:, :] = bottom * (1 - alphav) + top * alphav
-    arr[:b, :] = top * (1 - alphav[::-1, :, :]) + bottom * alphav[::-1, :, :]
+    # Vertical overlap on the horizontally-fixed result, so both axes wrap.
+    t = np.linspace(0, 1, b, endpoint=False).reshape(b, 1, 1)
+    out = hb[:h - b, :].copy()
+    out[:b, :] = hb[h - b:, :] * (1 - t) + hb[:b, :] * t
 
-    return Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+    res = Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
+    return res.resize((w, h), Image.LANCZOS)
 
 
 def self_tile_preview(im, grid=3):

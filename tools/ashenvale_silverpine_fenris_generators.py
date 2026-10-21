@@ -1255,16 +1255,17 @@ def generate_blackfathom_deeps():
         for x in range(zone.width):
             zone.set_tile(x, y, "wall", "collision")
 
-    def _room(cx, cy, w, h, wet_chance=0.0):
+    def _room(cx, cy, w, h, wet_chance=0.0, keep_clear=()):
         for dy in range(-h // 2, h // 2 + 1):
             for dx in range(-w // 2, w // 2 + 1):
                 x, y = cx + dx, cy + dy
                 if 0 <= x < zone.width and 0 <= y < zone.height:
                     zone.collision_layer[y][x] = None
-                    if wet_chance and random.random() < wet_chance:
-                        zone.set_tile(x, y, "shallow_water", "base")
-                    else:
-                        zone.set_tile(x, y, "dirt", "base")
+                    zone.set_tile(x, y, "dirt", "base")
+        if wet_chance:
+            # Organic ponds, NOT a per-tile coin flip (that made 1x1
+            # checkerboard water squares - see _carve_pond_blobs).
+            ZoneGenerator._carve_pond_blobs(zone, cx, cy, w, h, wet_chance, keep_clear)
 
     def _water(x0, y0, x1, y1, width=5):
         ZoneGenerator._carve_path(zone, x0, y0, x1, y1, width=width, base="shallow_water")
@@ -1281,7 +1282,7 @@ def generate_blackfathom_deeps():
 
     # ===== POOL OF ASK'AR - the first major junction, an island in the
     # middle with Ghamoo-ra, surrounded by (neutral) turtles. =====
-    _room(130, 155, 55, 40, wet_chance=0.4)
+    _room(130, 155, 55, 40, wet_chance=0.4, keep_clear=[(130, 150, 6)])
     _corridor(130, 175, 130, 155, width=4)
     ghamoora_pos = (130, 150)
     zone.set_tile(*ghamoora_pos, "boss_marker", "interaction")
@@ -1305,7 +1306,7 @@ def generate_blackfathom_deeps():
     # every individual tile along the corridor's own centerline testing
     # walkable - the room and corridor just never actually touched.
     _corridor(130, 195, 185, 205, width=3)
-    _room(195, 200, 30, 22, wet_chance=0.3)
+    _room(195, 200, 30, 22, wet_chance=0.3, keep_clear=[(200, 205, 5)])
     gelihast_pos = (200, 205)
     zone.set_tile(*gelihast_pos, "boss_marker", "interaction")
     zone.add_subzone("Gelihast's Pool", 180, 189, 30, 22)
@@ -1328,7 +1329,7 @@ def generate_blackfathom_deeps():
     # moved from (145,75) to (130,73) - same corridor-falls-short bug,
     # room bounds are x:120-140, y:57-73. =====
     _water(165, 95, 130, 73, width=3)
-    _room(130, 65, 20, 16, wet_chance=0.6)
+    _room(130, 65, 20, 16, wet_chance=0.5, keep_clear=[(128, 62, 4)])
     serrakis_pos = (128, 62)
     zone.set_tile(*serrakis_pos, "boss_marker", "interaction")
     zone.add_subzone("The Sunken Grotto", 120, 57, 20, 16)
