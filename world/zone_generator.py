@@ -5597,6 +5597,8 @@ def create_all_zones():
         generate_blackfathom_deeps,
         generate_widows_lair,
         generate_shadowfang_keep,
+        generate_sunken_grotto_of_the_deep,
+        generate_ragefire_chasm,
     )
     from tools.ashenvale_silverpine_fenris_generators import (
         generate_ashenvale_west,
@@ -5615,7 +5617,6 @@ def create_all_zones():
     )
     from tools.orgrimmar_undercity_expansion import (
         generate_orgrimmar_expanded,
-        generate_ragefire_chasm,
         generate_undercity,
         generate_plague_depths,
     )
@@ -5664,7 +5665,7 @@ def create_all_zones():
         "Fenris Isle": generate_fenris_isle(),
         
         # ===== EXPANSION DUNGEONS =====
-        "Ragefire Chasm": generate_ragefire_chasm(),  # NEW: In Orgrimmar, Cleft of Shadow
+        "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)
         "Plague Depths": generate_plague_depths(),  # NEW: In Undercity, Forsaken traitors
         "Blackfathom Deeps": generate_blackfathom_deeps(),
         "Grom's Rest": generate_groms_rest(),
@@ -5757,7 +5758,7 @@ def create_all_zones():
     # docstring for why an open-air canyon needed a different generator
     # shape than the room-and-corridor dungeon carver.
     zones["Drygulch Ravine"] = ZoneGenerator.generate_drygulch_ravine()
-    zones["Sunken Grotto of the Deep"] = ZoneGenerator.generate_sunken_grotto_of_the_deep()
+    zones["Sunken Grotto of the Deep"] = generate_sunken_grotto_of_the_deep()  # hand-built (tools/handbuilt_dungeons.py)
     
     # Add the massive pre-designed dungeons
     zones["Wailing Caverns"] = generate_wailing_caverns_expanded()

@@ -123,14 +123,14 @@ def generate_blackfathom_deeps():
     b.prop(DP + "naga_statue.png", 56, 104, 5, solid="core")
     b.prop(DP + "glow_coral_cluster.png", 38, 108, 3)
     # Gelihast's pool
-    b.prop(NAGA + "shipwreck.png", 191, 198, 4, solid="core")
+    b.prop(DP + "grotto_ship_bow.png", 191, 200, 8, solid="core")
     b.prop(DP + "glow_coral_cluster.png", 205, 208, 3)
     # Twilight Gauntlet
-    b.prop(NAGA + "serpent_skeleton.png", 172, 100, 4)
+    b.prop(DP + "grotto_serpent_skeleton.png", 172, 100, 5)
     b.prop(CORR + "void_crystal_formation.png", 177, 92, 3, solid="core")
     b.prop(DP + "broken_column.png", 160, 98, 4, solid="core")
     # Old Serra'kis' grotto
-    b.prop(NAGA + "giant_crab.png", 137, 74, 3)
+    b.prop(DP + "grotto_crab_molt.png", 137, 74, 3)
     b.prop(DP + "glow_coral_cluster.png", 122, 64, 3)
     # Drowned Sacellum: walled gate, priestess guardians, columns, altar, braziers
     b.prop(DP + "temple_archway.png", 120, 47, 5)
@@ -414,4 +414,320 @@ def generate_shadowfang_keep():
     ]
     zone.boss_position = arugal
     zone.add_subzone("Shadowfang Keep", 0, 0, zone.width, zone.height)
+    return zone
+
+
+GRO = DP + "grotto_"
+
+
+def generate_sunken_grotto_of_the_deep():
+    """Sunken Grotto of the Deep (110x95): the Durotar naga sea-cave, drawn by hand.
+
+    Landing -> Flooded Hall (tidepool, coiled serpent skeleton) with two side
+    wings (west: Pearl Nook treasure alcove, east: Kelp Garden) and a fork:
+      WEST  Shipwreck Cove   - Undead Pirate Captain (wrecked bow, cannons, skeletons)
+      EAST  Crab Den         - Giant Crab (nest, molted shells, tide pools)
+    Both forks rejoin at the Naga Shrine (statues, shell altars), which leads
+    north into the Naga Sanctum - Naga Shrine Guardian before a coral throne.
+    Hard contract kept: portal (55, 92) <-> Durotar (120, 40).
+    """
+    zone = Tilemap("Sunken Grotto of the Deep", 110, 95,
+                   "A drowned sea-cave beneath Durotar's northeast coast, "
+                   "claimed by naga.")
+    zone.is_cave = True
+    zone.region = "Durotar"
+    b = Builder(zone, wall_id="wall", floor_id="dirt")
+
+    entrance = (55, 92)
+    pirate = (22, 50)
+    crab = (88, 50)
+    guardian = (55, 10)
+
+    # --- Landing + Flooded Hall ---
+    b.lobes([(55, 87, 10, 6), (46, 86, 4, 3), (64, 86, 4, 3)])
+    b.corridor([(55, 81), (55, 75)], width=1)
+    b.lobes([(55, 66, 15, 9), (42, 64, 6, 5), (68, 64, 6, 5), (55, 74, 6, 3)])
+    b.water([(55, 65, 8, 4)], island=[(55, 65, 2, 1)])
+    zone.add_subzone("The Landing", 43, 80, 25, 14)
+    zone.add_subzone("The Flooded Hall", 38, 56, 36, 22)
+
+    # --- West wing: Pearl Nook (optional treasure alcove) ---
+    b.corridor([(40, 66), (28, 68)], width=1)
+    b.lobes([(20, 68, 9, 6), (14, 64, 4, 3)], base="sand")
+    zone.add_subzone("The Pearl Nook", 9, 60, 24, 16)
+
+    # --- East wing: Kelp Garden (dead end, flavour + trash) ---
+    b.corridor([(70, 66), (82, 68)], width=1)
+    b.lobes([(91, 68, 10, 7), (98, 63, 4, 3)], base="grass")
+    zone.add_subzone("The Kelp Garden", 79, 59, 26, 18)
+
+    # --- West fork: Shipwreck Cove ---
+    b.corridor([(46, 58), (34, 54), (28, 50)], width=1)
+    b.lobes([(22, 46, 14, 10), (12, 40, 6, 5), (31, 38, 6, 5), (20, 55, 7, 3)])
+    b.restyle(12, 38, 34, 58, floor="path")           # deck planks around the wreck
+    b.water([(26, 50, 6, 3)])
+    zone.add_subzone("Shipwreck Cove", 6, 33, 34, 26)
+
+    # --- East fork: Crab Den ---
+    b.corridor([(64, 58), (76, 54), (82, 50)], width=1)
+    b.lobes([(88, 46, 14, 10), (98, 40, 6, 5), (79, 38, 6, 5), (90, 55, 7, 3)])
+    b.restyle(76, 36, 102, 58, floor="sand")
+    b.water([(84, 49, 5, 3)])
+    zone.add_subzone("The Crab Den", 74, 33, 34, 26)
+
+    # --- Both forks rejoin at the Naga Shrine ---
+    b.corridor([(22, 36), (24, 29), (42, 27)], width=1)
+    b.corridor([(88, 36), (86, 29), (68, 27)], width=1)
+    b.lobes([(55, 26, 16, 8), (42, 25, 5, 4), (68, 25, 5, 4)])
+    b.restyle(38, 18, 72, 34, floor="stone", wall="cliff")
+    zone.add_subzone("The Naga Shrine", 37, 17, 36, 18)
+
+    # --- Naga Sanctum (boss) ---
+    b.corridor([(55, 18), (55, 15)], width=2)
+    b.rect(36, 2, 74, 15, chamfer=3)
+    b.restyle(36, 1, 74, 16, floor="stone", wall="cliff")
+    zone.add_subzone("The Naga Sanctum", 34, 0, 42, 18)
+
+    # --- Markers ---
+    zone.set_tile(*entrance, "portal", "interaction")
+    for pos in (pirate, crab, guardian):
+        zone.set_tile(pos[0], pos[1], "boss_marker", "interaction")
+    chests = [(44, 5), (14, 68)]
+    for cx, cy in chests:
+        zone.set_tile(cx, cy, "chest", "interaction")
+    zone.boss_position = guardian
+    zone.boss_positions = [
+        (crab[0], crab[1], "Giant Crab"),
+        (pirate[0], pirate[1], "Undead Pirate Captain"),
+        (guardian[0], guardian[1], "Naga Shrine Guardian"),
+    ]
+
+    # --- Props ---
+    # Landing + Flooded Hall
+    b.prop(GRO + "naga_column.png", 47, 83, 5, solid="core")
+    b.prop(GRO + "naga_column.png", 63, 83, 5, solid="core")
+    b.prop(GRO + "glow_coral.png", 50, 90, 3)
+    b.prop(GRO + "barnacle_pillar.png", 45, 62, 5, solid="core")
+    b.prop(GRO + "barnacle_pillar.png", 66, 62, 5, solid="core")
+    b.prop(GRO + "serpent_skeleton.png", 47, 72, 6)
+    b.prop(GRO + "glow_coral.png", 68, 72, 3)
+    b.prop(GRO + "tide_pool.png", 58, 59, 3)
+    # Pearl Nook
+    b.prop(GRO + "giant_clam.png", 20, 66, 3)
+    b.prop(GRO + "treasure_chest.png", 25, 72, 2)
+    b.prop(GRO + "anchor.png", 15, 72, 3)
+    b.prop(GRO + "glow_coral.png", 12, 66, 3)
+    # Kelp Garden
+    b.prop(GRO + "kelp_stalks.png", 88, 66, 4)
+    b.prop(GRO + "kelp_stalks.png", 96, 70, 4)
+    b.prop(GRO + "kelp_stalks.png", 90, 73, 4)
+    b.prop(GRO + "tide_pool.png", 95, 64, 3)
+    # Shipwreck Cove
+    b.prop(GRO + "ship_bow.png", 16, 47, 11, solid="core")
+    b.prop(GRO + "ship_cannon.png", 29, 44, 3, solid="core")
+    b.prop(GRO + "pirate_skeletons.png", 27, 54, 3)
+    b.prop(GRO + "ship_wheel.png", 14, 55, 3)
+    b.prop(GRO + "barrel_stack.png", 30, 40, 3, solid="core")
+    b.prop(GRO + "fishing_net.png", 12, 43, 3)
+    b.prop(GRO + "anchor.png", 19, 56, 3)
+    # Crab Den
+    b.prop(GRO + "crab_nest.png", 94, 45, 4)
+    b.prop(GRO + "crab_molt.png", 82, 44, 3)
+    b.prop(GRO + "tide_pool.png", 82, 55, 4)
+    b.prop(GRO + "barnacle_pillar.png", 98, 52, 5, solid="core")
+    b.prop(GRO + "glow_coral.png", 79, 40, 3)
+    b.prop(GRO + "crab_nest.png", 98, 40, 3)
+    # Naga Shrine
+    b.prop(GRO + "shell_altar.png", 47, 23, 5, solid="core")
+    b.prop(GRO + "shell_altar.png", 63, 23, 5, solid="core")
+    b.prop(GRO + "naga_priestess_statue.png", 41, 29, 6, solid="core")
+    b.prop(GRO + "naga_priestess_statue.png", 69, 29, 6, solid="core")
+    b.prop(GRO + "naga_rune_stone.png", 55, 21, 4)
+    b.prop(GRO + "blue_brazier.png", 49, 31, 4, solid="core")
+    b.prop(GRO + "blue_brazier.png", 61, 31, 4, solid="core")
+    # Naga Sanctum
+    b.prop(GRO + "naga_throne.png", 55, 7, 9, solid="core")
+    for x in (41, 69):
+        b.prop(GRO + "naga_warrior_statue.png", x, 10, 6, solid="core")
+        b.prop(GRO + "naga_column.png", x, 5, 5, solid="core")
+    b.prop(GRO + "blue_brazier.png", 46, 13, 4, solid="core")
+    b.prop(GRO + "blue_brazier.png", 64, 13, 4, solid="core")
+    b.prop(GRO + "shackle_frame.png", 48, 6, 4)
+    b.prop(GRO + "naga_rune_stone.png", 62, 6, 4)
+
+    b.verify(entrance, [(*pirate, "pirate"), (*crab, "crab"), (*guardian, "guardian")]
+             + [(cx, cy, "chest") for cx, cy in chests])
+    return zone
+
+
+RF = DP + "rf_"
+
+
+def generate_ragefire_chasm():
+    """Ragefire Chasm (240x220): the volcanic cultist warren under Orgrimmar.
+
+    Cleft Gate (portal, quest NPCs) -> Trogg Warrens (trash) -> Searing Blade
+    Antechamber (cultists) which forks: WEST to Oggleflint's Den (optional
+    boss + Maur's corpse), NORTH across Taragaman's lava lake (only the stone
+    bridges are walkable; lava tiles block) -> Jergosh's Ritual Chamber ->
+    Bazzalan's Walkway.  All boss/NPC/portal coordinates are unchanged from
+    the generator-driven layout, so spawns, quests and the Orgrimmar link keep
+    working (portal (120, 214) <-> Orgrimmar (22, 168)).
+    """
+    zone = Tilemap("Ragefire Chasm", 240, 220,
+                   "A volcanic cavern beneath Orgrimmar. Troggs and the "
+                   "Searing Blade cult have made this their territory.")
+    zone.is_cave = True
+    zone.region = "Orgrimmar"
+    b = Builder(zone, wall_id="wall", floor_id="stone")
+
+    entrance = (120, 214)
+    oggleflint = (55, 100)
+    taragaman = (90, 60)
+    jergosh = (62, 12)
+    bazzalan = (120, 12)
+
+    # --- Cleft Gate: entrance hall, quest NPCs at (112,205) and (128,205) ---
+    b.rect(102, 194, 138, 216, chamfer=4)
+    zone.add_subzone("The Cleft Gate", 100, 192, 40, 26)
+
+    # --- winding tunnel + Trogg Warrens ---
+    b.corridor([(120, 194), (118, 186), (106, 181), (100, 175)], width=1)
+    b.lobes([(95, 166, 17, 11), (82, 160, 7, 6), (107, 157, 7, 5), (86, 173, 7, 4)], base="dirt")
+    zone.add_subzone("The Trogg Warrens", 76, 150, 44, 32)
+
+    # optional mining spur west of the warrens (ore cart, tool racks)
+    b.corridor([(80, 166), (64, 168)], width=1)
+    b.lobes([(54, 168, 11, 7)], base="grass")
+    b.restyle(44, 160, 66, 176, wall="rock")
+    zone.add_subzone("The Ore Spur", 42, 160, 26, 18)
+
+    # --- Searing Blade Antechamber (cultists) ---
+    b.corridor([(100, 156), (110, 147), (118, 139)], width=1)
+    b.rect(106, 118, 142, 138, chamfer=3, base="path")
+    b.restyle(104, 116, 144, 140, wall="rock")
+    zone.add_subzone("Searing Blade Antechamber", 104, 116, 40, 24)
+
+    # --- WEST: Oggleflint's Den (optional) ---
+    b.corridor([(108, 126), (92, 118), (78, 110)], width=1)
+    b.lobes([(60, 105, 17, 12), (48, 98, 8, 6), (71, 112, 7, 5), (52, 112, 6, 4)], base="dirt")
+    zone.add_subzone("Oggleflint's Den", 42, 92, 36, 28)
+
+    # --- NORTH: Taragaman's lava lake ---
+    b.corridor([(124, 118), (110, 102), (96, 86), (90, 80)], width=1)
+    b.rect(67, 41, 113, 79, chamfer=6, base="sand")
+    b.lobes([(90, 60, 21, 17)], base="lava")                 # the lake (blocks movement)
+    b.rect(89, 41, 91, 80, base="stone")                     # N-S bridge
+    b.rect(67, 59, 113, 61, base="stone")                    # E-W bridge
+    b.lobes([(90, 60, 6, 5)], base="stone")                  # boss platform
+    b.restyle(65, 39, 115, 81, wall="cliff")
+    zone.add_subzone("Taragaman's Chamber", 66, 40, 50, 42)
+
+    # --- Jergosh's Ritual Chamber ---
+    b.corridor([(90, 42), (84, 33), (74, 26), (66, 21)], width=1)
+    b.rect(46, 4, 84, 24, chamfer=3, base="path")
+    b.restyle(44, 2, 86, 26, wall="rock")
+    zone.add_subzone("Jergosh's Chamber", 44, 2, 44, 26)
+
+    # --- Bazzalan's Walkway ---
+    b.corridor([(80, 14), (104, 14)], width=1)
+    b.rect(102, 4, 138, 22, chamfer=3, base="stone")
+    b.restyle(100, 2, 140, 24, wall="cliff")
+    zone.add_subzone("Bazzalan's Walkway", 100, 2, 40, 24)
+
+    # --- Markers (coordinates are contracts) ---
+    zone.set_tile(*entrance, "portal", "interaction")
+    for pos in (oggleflint, taragaman, jergosh, bazzalan):
+        zone.set_tile(pos[0], pos[1], "boss_marker", "interaction")
+    for pos in ((65, 108), (112, 205), (128, 205)):
+        zone.set_tile(pos[0], pos[1], "npc", "interaction")
+    chests = [(126, 16), (50, 168), (48, 104)]
+    for cx, cy in chests:
+        zone.set_tile(cx, cy, "chest", "interaction")
+    zone.boss_positions = [
+        (oggleflint[0], oggleflint[1], "Oggleflint"),
+        (taragaman[0], taragaman[1], "Taragaman the Hungerer"),
+        (jergosh[0], jergosh[1], "Jergosh the Invoker"),
+        (bazzalan[0], bazzalan[1], "Bazzalan"),
+    ]
+    zone.boss_position = taragaman
+
+    # --- Props: Cleft Gate ---
+    b.prop(RF + "cult_banner.png", 106, 200, 7, solid="core")
+    b.prop(RF + "cult_banner.png", 134, 200, 7, solid="core")
+    b.prop(RF + "brazier.png", 108, 210, 5, solid="core")
+    b.prop(RF + "brazier.png", 132, 210, 5, solid="core")
+    b.prop(RF + "supply_crates.png", 114, 200, 4, solid="core")
+    b.prop(RF + "supply_crates.png", 126, 200, 4, solid="core")
+    b.prop(RF + "skull_spears.png", 120, 198, 4)
+    b.prop(RF + "lava_fissure.png", 106, 212, 3)
+    # --- Trogg Warrens ---
+    b.prop(RF + "trogg_tent.png", 86, 165, 6, solid="core")
+    b.prop(RF + "trogg_tent.png", 102, 162, 6, solid="core")
+    b.prop(RF + "trogg_nest.png", 92, 173, 4)
+    b.prop(RF + "trogg_nest.png", 108, 169, 4)
+    b.prop(RF + "trogg_totem.png", 80, 158, 6, solid="core")
+    b.prop(RF + "trogg_totem.png", 110, 154, 6, solid="core")
+    b.prop(RF + "skull_spears.png", 96, 159, 4)
+    b.prop(RF + "lava_stalagmite.png", 82, 175, 6, solid="core")
+    b.prop(RF + "lava_fissure.png", 100, 170, 3)
+    # --- Ore Spur ---
+    b.prop(RF + "ore_cart.png", 52, 166, 3, solid="core")
+    b.prop(RF + "tool_rack.png", 60, 164, 4, solid="core")
+    b.prop(RF + "tool_rack.png", 48, 172, 4, solid="core")
+    b.prop(RF + "supply_crates.png", 58, 172, 3, solid="core")
+    # --- Antechamber ---
+    b.prop(RF + "cult_circle.png", 124, 128, 5)
+    b.prop(RF + "sacrificial_altar.png", 124, 123, 6, solid="core")
+    b.prop(RF + "prison_cage.png", 111, 125, 5, solid="core")
+    b.prop(RF + "prison_cage.png", 137, 125, 5, solid="core")
+    b.prop(RF + "cult_banner.png", 112, 135, 7, solid="core")
+    b.prop(RF + "cult_banner.png", 136, 135, 7, solid="core")
+    b.prop(RF + "brazier.png", 118, 137, 5, solid="core")
+    b.prop(RF + "brazier.png", 130, 137, 5, solid="core")
+    b.prop(RF + "shackle_frame.png", 140, 134, 5)
+    # --- Oggleflint's Den ---
+    b.prop(RF + "trogg_tent.png", 49, 104, 6, solid="core")
+    b.prop(RF + "trogg_nest.png", 66, 100, 4)
+    b.prop(RF + "skull_spears.png", 70, 112, 4)
+    b.prop(RF + "trogg_totem.png", 62, 97, 6, solid="core")
+    b.prop(RF + "trogg_nest.png", 53, 113, 4)
+    b.prop(RF + "lava_fissure.png", 71, 105, 3)
+    # --- Taragaman's lake (props sit on rim/lava, never on the bridges) ---
+    b.prop(RF + "lava_pool.png", 78, 50, 5)
+    b.prop(RF + "lava_pool.png", 102, 70, 5)
+    b.prop(RF + "lava_pool.png", 102, 50, 4)
+    b.prop(RF + "lava_pool.png", 78, 70, 4)
+    b.prop(RF + "obsidian_spikes.png", 72, 46, 5, solid="core")
+    b.prop(RF + "obsidian_spikes.png", 108, 46, 5, solid="core")
+    b.prop(RF + "lava_stalagmite.png", 72, 74, 6, solid="core")
+    b.prop(RF + "lava_stalagmite.png", 108, 74, 6, solid="core")
+    b.prop(RF + "steam_vent.png", 84, 77, 5, solid="core")
+    b.prop(RF + "steam_vent.png", 96, 45, 5, solid="core")
+    b.prop(RF + "golem_husk.png", 98, 57, 4)
+    b.prop(RF + "basalt_bridge.png", 90, 53, 3)
+    # --- Jergosh ---
+    b.prop(RF + "summoning_circle.png", 62, 15, 6)
+    b.prop(RF + "void_crystals.png", 52, 9, 4, solid="core")
+    b.prop(RF + "void_crystals.png", 76, 9, 4, solid="core")
+    b.prop(RF + "cult_banner.png", 50, 22, 7, solid="core")
+    b.prop(RF + "cult_banner.png", 80, 22, 7, solid="core")
+    b.prop(RF + "brazier.png", 58, 20, 5, solid="core")
+    b.prop(RF + "brazier.png", 70, 20, 5, solid="core")
+    b.prop(RF + "prison_cage.png", 78, 16, 5, solid="core")
+    b.prop(RF + "void_crystals.png", 66, 6, 4, solid="core")
+    # --- Bazzalan ---
+    b.prop(RF + "obsidian_throne.png", 120, 8, 9, solid="core")
+    b.prop(RF + "cult_banner.png", 108, 10, 7, solid="core")
+    b.prop(RF + "cult_banner.png", 132, 10, 7, solid="core")
+    b.prop(RF + "brazier.png", 110, 20, 5, solid="core")
+    b.prop(RF + "brazier.png", 130, 20, 5, solid="core")
+    b.prop(RF + "cult_circle.png", 120, 17, 5)
+    b.prop(RF + "fallen_pillar.png", 106, 16, 4)
+    b.prop(RF + "supply_crates.png", 129, 15, 3, solid="core")
+
+    b.verify(entrance, [(*oggleflint, "oggleflint"), (*taragaman, "taragaman"),
+                        (*jergosh, "jergosh"), (*bazzalan, "bazzalan"),
+                        (65, 108, "npc"), (112, 205, "npc"), (128, 205, "npc")]
+             + [(cx, cy, "chest") for cx, cy in chests])
     return zone

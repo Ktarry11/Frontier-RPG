@@ -1683,6 +1683,34 @@ BIOME_TILES["cave_keep"].update({
     "cliff": ("keep_wall", (0, 0, 256, 256), False),
     "shallow_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
 })
+BIOME_TILES["cave_grotto"] = dict(BIOME_TILES["cave_naga"])   # Sunken Grotto of the Deep (Durotar)
+BIOME_TILES["cave_grotto"].update({
+    "dirt": ("gro_cave_floor", (0, 0, 256, 256), False),
+    "sand": ("gro_sand", (0, 0, 256, 256), False),
+    "stone": ("gro_temple_floor", (0, 0, 256, 256), False),
+    "path": ("gro_deck", (0, 0, 256, 256), False),
+    "grass": ("gro_kelp_floor", (0, 0, 256, 256), False),
+    "shallow_water": ("gro_tidepool", (0, 0, 256, 256), False),
+    "deep_water": ("gro_deep_floor", (0, 0, 256, 256), False),
+    "wall": ("gro_cave_wall", (0, 0, 256, 256), False),
+    "rock": ("gro_coral_wall", (0, 0, 256, 256), False),
+    "cliff": ("gro_temple_wall", (0, 0, 256, 256), False),
+})
+CAVE_BIOME["Sunken Grotto of the Deep"] = "cave_grotto"
+BIOME_TILES["cave_ragefire"] = dict(BIOME_TILES["cave_warm"])  # Ragefire Chasm (Orgrimmar)
+BIOME_TILES["cave_ragefire"].update({
+    "stone": ("rf_basalt_floor", (0, 0, 256, 256), False),
+    "dirt": ("rf_trogg_floor", (0, 0, 256, 256), False),
+    "sand": ("rf_ash_floor", (0, 0, 256, 256), False),
+    "path": ("rf_cult_floor", (0, 0, 256, 256), False),
+    "grass": ("rf_ore_floor", (0, 0, 256, 256), False),
+    "ice": ("rf_scaffold_floor", (0, 0, 256, 256), False),
+    "lava": ("rf_molten_floor", (0, 0, 256, 256), False),
+    "wall": ("rf_basalt_wall", (0, 0, 256, 256), False),
+    "rock": ("rf_brick_wall", (0, 0, 256, 256), False),
+    "cliff": ("rf_obsidian_wall", (0, 0, 256, 256), False),
+})
+CAVE_BIOME["Ragefire Chasm"] = "cave_ragefire"
 CAVE_BIOME["Blackfathom Deeps"] = "cave_sunken"
 CAVE_BIOME["Widow's Lair"] = "cave_webbed"
 CAVE_BIOME["Shadowfang Keep"] = "cave_keep"
@@ -1760,6 +1788,31 @@ WORLD_ANCHORED = {
     "keep_wall": "assets/tiles/caves/seamless/keep_wall_a.png",
     "keep_kennel": "assets/tiles/caves/seamless/keep_kennel_a.png",
     "sanctum_floor": "assets/tiles/caves/seamless/sanctum_floor_a.png",
+    # Kyle's ChatGPT tile sheet (round 2): Sunken Grotto (gro_*) + Ragefire Chasm (rf_*).
+    "gro_cave_floor": "assets/tiles/caves/seamless/gro_cave_floor_a.png",
+    "gro_tidepool": "assets/tiles/caves/seamless/gro_tidepool_a.png",
+    "gro_sand": "assets/tiles/caves/seamless/gro_sand_a.png",
+    "gro_cave_wall": "assets/tiles/caves/seamless/gro_cave_wall_a.png",
+    "gro_coral_wall": "assets/tiles/caves/seamless/gro_coral_wall_a.png",
+    "gro_temple_floor": "assets/tiles/caves/seamless/gro_temple_floor_a.png",
+    "gro_temple_wall": "assets/tiles/caves/seamless/gro_temple_wall_a.png",
+    "gro_deck": "assets/tiles/caves/seamless/gro_deck_a.png",
+    "gro_kelp_floor": "assets/tiles/caves/seamless/gro_kelp_floor_a.png",
+    "gro_deep_floor": "assets/tiles/caves/seamless/gro_deep_floor_a.png",
+    "gro_pearl_floor": "assets/tiles/caves/seamless/gro_pearl_floor_a.png",
+    "gro_vent_wall": "assets/tiles/caves/seamless/gro_vent_wall_a.png",
+    "rf_basalt_floor": "assets/tiles/caves/seamless/rf_basalt_floor_a.png",
+    "rf_lava_floor": "assets/tiles/caves/seamless/rf_lava_floor_a.png",
+    "rf_ash_floor": "assets/tiles/caves/seamless/rf_ash_floor_a.png",
+    "rf_cult_floor": "assets/tiles/caves/seamless/rf_cult_floor_a.png",
+    "rf_basalt_wall": "assets/tiles/caves/seamless/rf_basalt_wall_a.png",
+    "rf_obsidian_wall": "assets/tiles/caves/seamless/rf_obsidian_wall_a.png",
+    "rf_brick_wall": "assets/tiles/caves/seamless/rf_brick_wall_a.png",
+    "rf_trogg_floor": "assets/tiles/caves/seamless/rf_trogg_floor_a.png",
+    "rf_ore_floor": "assets/tiles/caves/seamless/rf_ore_floor_a.png",
+    "rf_scaffold_floor": "assets/tiles/caves/seamless/rf_scaffold_floor_a.png",
+    "rf_molten_floor": "assets/tiles/caves/seamless/rf_molten_floor_a.png",
+    "rf_lava_wall": "assets/tiles/caves/seamless/rf_lava_wall_a.png",
 }
 
 
