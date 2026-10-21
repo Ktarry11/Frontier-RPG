@@ -5593,16 +5593,18 @@ def create_all_zones():
         generate_razorfen_kraul_expanded,
         generate_the_broodspiral,
     )
+    from tools.handbuilt_dungeons import (
+        generate_blackfathom_deeps,
+        generate_widows_lair,
+        generate_shadowfang_keep,
+    )
     from tools.ashenvale_silverpine_fenris_generators import (
         generate_ashenvale_west,
         generate_ashenvale_east,
         generate_silverpine_north,
         generate_silverpine_south,
         generate_fenris_isle,
-        generate_blackfathom_deeps,
         generate_groms_rest,
-        generate_widows_lair,
-        generate_shadowfang_keep,
         generate_ambermill_tower,
         generate_shadowpine_altar,
         generate_astranaar,

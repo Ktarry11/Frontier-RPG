@@ -1276,6 +1276,41 @@ BLACKFATHOM_DEEPS_KITS = {
         ("Tidal Ward", "buff", 0, 5, 24, "nature",
          {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 20}}),
     ],
+    # The remaining Blackfathom creatures had ability_kit ids in
+    # creatures.json with NO matching kit, so spawning any of them raised
+    # KeyError (Monster.__init__) - five of seven bosses plus the Murloc
+    # Hydra trash were un-fightable. Modeled on their real Classic abilities.
+    "murloc_hydra": [
+        ("Hydra Bite", "damage", 24, 0, 0, "physical", {}),
+        ("Spit Venom", "dot", 9, 3, 0, "magic", {"duration": 3}),
+    ],
+    "gelihast": [
+        ("Tidal Bolt", "damage", 30, 0, 18, "nature", {}),
+        ("Fishing Net", "debuff", 0, 4, 12, "physical",
+         {"duration": 2, "stat_mods": {"agility": -20}}),
+    ],
+    "lorgus_jett": [
+        ("Stormcaller's Strike", "damage", 38, 0, 0, "physical", {}),
+        ("Lightning Shield", "buff", 0, 5, 0, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 18}}),
+        ("Lightning Bolt", "damage", 42, 3, 0, "nature", {}),
+    ],
+    "old_serrakis": [
+        ("Crushing Claw", "damage", 44, 0, 0, "physical", {}),
+        ("Thundercrack", "damage", 34, 3, 0, "physical", {"is_aoe": True}),
+    ],
+    "twilight_lord_kelris": [
+        ("Shadow Bolt", "damage", 34, 0, 18, "shadow", {}),
+        ("Mind Blast", "damage", 46, 2, 22, "shadow", {}),
+        ("Mind Sleep", "debuff", 0, 5, 20, "shadow",
+         {"duration": 2, "stat_mods": {"agility": -22, "attack_power": -10}}),
+    ],
+    "akumai": [
+        ("Venomous Bite", "damage", 46, 0, 0, "physical", {}),
+        ("Poison Cloud", "dot", 18, 3, 0, "nature", {"duration": 4, "is_aoe": True}),
+        ("Frenzied Rage", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 28}}),
+    ],
 }
 
 WAILING_CAVERNS_KITS = {
@@ -1527,6 +1562,91 @@ UNDEAD_KITS = {
 }
 
 
+
+# ======================================================================
+# SILVERPINE DUNGEONS — Widow's Lair + Shadowfang Keep. Every creature in
+# these two dungeons used a dead "kit" key in creatures.json (the loader
+# only reads "ability_kit") and most of those kit ids never existed, so
+# every fight here ran on bare template defaults. Real kits for all of them.
+# ======================================================================
+SILVERPINE_DUNGEON_KITS = {
+    # --- Widow's Lair ---
+    "giant_spider": [
+        ("Fang Bite", "damage", 20, 0, 0, "physical", {}),
+        ("Web Spray", "debuff", 0, 4, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -10}}),
+    ],
+    "spider_cultist": [
+        ("Shadow Bolt", "damage", 18, 0, 10, "shadow", {}),
+        ("Venom Curse", "dot", 8, 3, 12, "shadow", {"duration": 3}),
+    ],
+    "broodmother_silka": [
+        ("Venomous Fang", "damage", 30, 0, 0, "physical", {}),
+        ("Brood Poison", "dot", 13, 3, 0, "magic", {"duration": 4}),
+        ("Web Wrap", "debuff", 0, 5, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -16}}),
+    ],
+    "weaver_skitter": [
+        ("Silk Lash", "damage", 32, 0, 0, "physical", {}),
+        ("Entangling Silk", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -18}}),
+        ("Skitter Frenzy", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 16}}),
+    ],
+    "matriarch_velaxis": [
+        ("Widow's Bite", "damage", 38, 0, 0, "physical", {}),
+        ("Necrotic Venom", "dot", 16, 3, 0, "shadow", {"duration": 4}),
+        ("Smothering Web", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "is_aoe": True, "stat_mods": {"agility": -16}}),
+        ("Brood Call", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 20}}),
+    ],
+    # --- Shadowfang Keep ---
+    "forsaken_warrior": [
+        ("Rusty Cleave", "damage", 24, 0, 0, "physical", {}),
+        ("Undying Resolve", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 14}}),
+    ],
+    "forsaken_knight": [
+        ("Lance Thrust", "damage", 28, 0, 0, "physical", {}),
+        ("Shield Bash", "debuff", 0, 4, 0, "physical",
+         {"duration": 2, "stat_mods": {"attack_power": -10}}),
+    ],
+    "worgen_warrior": [
+        ("Savage Claw", "damage", 26, 0, 0, "physical", {}),
+        ("Rend Flesh", "dot", 11, 3, 0, "physical", {"duration": 3}),
+    ],
+    "rethilgore": [
+        ("Savage Bite", "damage", 38, 0, 0, "physical", {}),
+        ("Rend", "dot", 15, 3, 0, "physical", {"duration": 4}),
+        ("Howl of Rage", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 22}}),
+    ],
+    "razorclaw": [
+        ("Butcher's Cleave", "damage", 36, 0, 0, "physical", {}),
+        ("Gushing Wound", "dot", 16, 3, 0, "physical", {"duration": 4}),
+    ],
+    "baron_silverlaine": [
+        ("Noble's Strike", "damage", 36, 0, 0, "physical", {}),
+        ("Veil of Shadow", "debuff", 0, 4, 0, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -14}}),
+        ("Cursed Blood", "dot", 14, 3, 0, "shadow", {"duration": 4}),
+    ],
+    "fenrus_devourer": [
+        ("Crushing Bite", "damage", 40, 0, 0, "physical", {}),
+        ("Toxic Spittle", "dot", 17, 3, 0, "magic", {"duration": 4}),
+        ("Devouring Rage", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 24}}),
+    ],
+    "archmage_arugal": [
+        ("Arcane Bolt", "damage", 36, 0, 12, "magic", {}),
+        ("Void Bolt", "damage", 48, 2, 18, "shadow", {}),
+        ("Curse of the Wolf", "debuff", 0, 4, 15, "shadow",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+        ("Arugal's Curse", "dot", 20, 3, 18, "shadow", {"duration": 4}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -1535,7 +1655,8 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
-               ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS):
+               ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
+               SILVERPINE_DUNGEON_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

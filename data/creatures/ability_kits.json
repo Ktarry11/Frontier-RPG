@@ -3191,6 +3191,161 @@
         }
       }
     ],
+    "murloc_hydra": [
+      {
+        "name": "Hydra Bite",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spit Venom",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 3
+      }
+    ],
+    "gelihast": [
+      {
+        "name": "Tidal Bolt",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "nature"
+      },
+      {
+        "name": "Fishing Net",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
+    "lorgus_jett": [
+      {
+        "name": "Stormcaller's Strike",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lightning Shield",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 18
+        }
+      },
+      {
+        "name": "Lightning Bolt",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "old_serrakis": [
+      {
+        "name": "Crushing Claw",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thundercrack",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "twilight_lord_kelris": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "shadow"
+      },
+      {
+        "name": "Mind Blast",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 2,
+        "mana_cost": 22,
+        "school": "shadow"
+      },
+      {
+        "name": "Mind Sleep",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 20,
+        "school": "shadow",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -22,
+          "attack_power": -10
+        }
+      }
+    ],
+    "akumai": [
+      {
+        "name": "Venomous Bite",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Poison Cloud",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "is_aoe": true
+      },
+      {
+        "name": "Frenzied Rage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 28
+        }
+      }
+    ],
     "fanglord_druid": [
       {
         "name": "Lightning Bolt",
@@ -4760,6 +4915,375 @@
         "stat_mods": {
           "attack_power": 18
         }
+      }
+    ],
+    "giant_spider": [
+      {
+        "name": "Fang Bite",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Web Spray",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -10
+        }
+      }
+    ],
+    "spider_cultist": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 10,
+        "school": "shadow"
+      },
+      {
+        "name": "Venom Curse",
+        "kind": "dot",
+        "amount": 8,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 3
+      }
+    ],
+    "broodmother_silka": [
+      {
+        "name": "Venomous Fang",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Brood Poison",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Web Wrap",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "weaver_skitter": [
+      {
+        "name": "Silk Lash",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Entangling Silk",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      },
+      {
+        "name": "Skitter Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 16
+        }
+      }
+    ],
+    "matriarch_velaxis": [
+      {
+        "name": "Widow's Bite",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Necrotic Venom",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Smothering Web",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "agility": -16
+        }
+      },
+      {
+        "name": "Brood Call",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 20
+        }
+      }
+    ],
+    "forsaken_warrior": [
+      {
+        "name": "Rusty Cleave",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Undying Resolve",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 14
+        }
+      }
+    ],
+    "forsaken_knight": [
+      {
+        "name": "Lance Thrust",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "attack_power": -10
+        }
+      }
+    ],
+    "worgen_warrior": [
+      {
+        "name": "Savage Claw",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rend Flesh",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "rethilgore": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rend",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Howl of Rage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 22
+        }
+      }
+    ],
+    "razorclaw": [
+      {
+        "name": "Butcher's Cleave",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gushing Wound",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "baron_silverlaine": [
+      {
+        "name": "Noble's Strike",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Veil of Shadow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -14
+        }
+      },
+      {
+        "name": "Cursed Blood",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "fenrus_devourer": [
+      {
+        "name": "Crushing Bite",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Toxic Spittle",
+        "kind": "dot",
+        "amount": 17,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Devouring Rage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 24
+        }
+      }
+    ],
+    "archmage_arugal": [
+      {
+        "name": "Arcane Bolt",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Void Bolt",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 2,
+        "mana_cost": 18,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of the Wolf",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 15,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      },
+      {
+        "name": "Arugal's Curse",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 18,
+        "school": "shadow",
+        "duration": 4
       }
     ]
   }

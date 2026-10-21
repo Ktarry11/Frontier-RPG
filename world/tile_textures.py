@@ -1646,6 +1646,28 @@ BIOME_TILES = {
 }
 
 
+# Derived dungeon biomes (hand-built dungeons - tools/handbuilt_dungeons.py).
+# cave_sunken = Blackfathom Deeps: the cave_cold look for natural caverns,
+# but "stone" floor + "cliff" wall are the Twilight-stone temple (Drowned
+# Sacellum). cave_keep = Shadowfang Keep: castle flagstone + brick walls.
+BIOME_TILES["cave_sunken"] = dict(BIOME_TILES["cave_cold"])
+BIOME_TILES["cave_sunken"].update({
+    "stone": ("castle_floor", (0, 0, 256, 256), False),
+    "cliff": ("twilight_wall", (0, 0, 256, 256), False),
+})
+BIOME_TILES["cave_keep"] = dict(BIOME_TILES["cave_dark"])
+BIOME_TILES["cave_keep"].update({
+    "stone": ("castle_floor_b", (0, 0, 256, 256), False),
+    "dirt": ("castle_floor", (0, 0, 256, 256), False),
+    "rock": ("castle_wall_dark", (0, 0, 256, 256), False),
+    "wall": ("castle_wall_dark", (0, 0, 256, 256), False),
+    "cliff": ("castle_wall_dark", (0, 0, 256, 256), False),
+    "shallow_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
+})
+CAVE_BIOME["Blackfathom Deeps"] = "cave_sunken"
+CAVE_BIOME["Shadowfang Keep"] = "cave_keep"
+
+
 def get_biome_for_zone(zone_name, is_cave=False):
     """Resolve a zone/tilemap name to a biome_id. Caves check CAVE_BIOME
     first since dungeon names don't overlap the overworld ZONE_BIOME list."""
@@ -1697,6 +1719,14 @@ WORLD_ANCHORED = {
     "wc_floor": "assets/tiles/caves/seamless/wc_floor_a.png",
     "wc_wall": "assets/tiles/caves/seamless/wc_wall_a.png",
     "wc_water": "assets/tiles/caves/seamless/wc_water_a.png",
+    # Castle/temple stone from the Tiragarde Keep + Twilight art (seamless
+    # via make_seamless.py): Shadowfang Keep, Blackfathom's Drowned Sacellum.
+    "castle_floor": "assets/tiles/caves/seamless/castle_floor_a.png",
+    "castle_floor_b": "assets/tiles/caves/seamless/castle_floor_b_a.png",
+    "castle_wall": "assets/tiles/caves/seamless/castle_wall_a.png",
+    # Darkened castle_wall so walls/pillars read as solid masses against the flagstone floor.
+    "castle_wall_dark": "assets/tiles/caves/seamless/castle_wall_dark_a.png",
+    "twilight_wall": "assets/tiles/caves/seamless/twilight_wall_a.png",
 }
 
 

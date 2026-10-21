@@ -1750,7 +1750,7 @@
         11,
         17
       ],
-      "kit": "giant_spider"
+      "ability_kit": "giant_spider"
     },
     "Spider Cultist": {
       "template": "humanoid_caster",
@@ -1758,7 +1758,7 @@
         11,
         17
       ],
-      "kit": "spider_cultist"
+      "ability_kit": "spider_cultist"
     },
     "Ash Zombie": {
       "template": "humanoid_warrior",
@@ -1782,7 +1782,7 @@
         15,
         23
       ],
-      "kit": "forsaken_warrior"
+      "ability_kit": "forsaken_warrior"
     },
     "Forsaken Mage": {
       "template": "humanoid_caster",
@@ -1798,7 +1798,7 @@
         15,
         23
       ],
-      "kit": "forsaken_knight"
+      "ability_kit": "forsaken_knight"
     },
     "Zombie Bear": {
       "template": "beast_basic",
@@ -1839,7 +1839,7 @@
         23
       ],
       "is_boss": true,
-      "kit": "rethilgore"
+      "ability_kit": "rethilgore"
     },
     "Razorclaw the Butcher": {
       "template": "beast_fast",
@@ -1848,7 +1848,7 @@
         23
       ],
       "is_boss": true,
-      "kit": "razorclaw"
+      "ability_kit": "razorclaw"
     },
     "Baron Silverlaine": {
       "template": "humanoid_warrior",
@@ -1857,7 +1857,7 @@
         23
       ],
       "is_boss": true,
-      "kit": "baron_silverlaine"
+      "ability_kit": "baron_silverlaine"
     },
     "Fenrus the Devourer": {
       "template": "beast_fast",
@@ -1866,7 +1866,7 @@
         23
       ],
       "is_boss": true,
-      "kit": "fenrus_devourer"
+      "ability_kit": "fenrus_devourer"
     },
     "Archmage Arugal": {
       "template": "humanoid_caster",
@@ -1875,7 +1875,7 @@
         23
       ],
       "is_boss": true,
-      "kit": "archmage_arugal"
+      "ability_kit": "archmage_arugal"
     },
     "Magister Hawren": {
       "template": "humanoid_caster",
@@ -1918,7 +1918,7 @@
         18,
         24
       ],
-      "kit": "worgen_warrior"
+      "ability_kit": "worgen_warrior"
     },
     "Cursed Spirit": {
       "template": "humanoid_caster",
@@ -3852,6 +3852,36 @@
       "is_boss": true,
       "boss_multiplier": 2.2,
       "ability_kit": "fleet_captain"
+    },
+    "Broodmother Silka": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "broodmother_silka"
+    },
+    "Weaver Skitter": {
+      "template": "beast_fast",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.2,
+      "ability_kit": "weaver_skitter"
+    },
+    "Matriarch Velaxis": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "boss_multiplier": 2.5,
+      "ability_kit": "matriarch_velaxis"
     }
   }
 }
