@@ -24,6 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from tools.build_durotar_quests import item, kill, fetch   # noqa: E402
+from tools.build_southern_barrens_quests import R   # noqa: E402
 
 OUT = ROOT / "data/quests/central_barrens_hub.json"
 Z = "central_barrens"
@@ -365,7 +366,7 @@ def quests_oases():
          item("Oasis-Guardian's Signet", "ring", "of the Warder", 18,
               "A ring carved from a single reed-knot. It promises cool water and delivers.",
               "Ring (Sta/Armor)", req=15)],
-        xp=1100, gold=3700, span=3))
+        nxt="cb_wailing_mouth", xp=1100, gold=3700, span=3))
 
     # ============================== PILGRIM-WARDEN TORGA (Forgotten Pools) ==============================
     a(Q("cb_forgotten_pilgrims", "The Forgotten Pilgrims", "cb_pools_warden", 14,
@@ -749,8 +750,129 @@ def quests_south():
     return A
 
 
+def wboss(target):
+    return dict(type="kill_boss", target=target, count=1, zone=WZ)
+
+
+WZ = "wailing_caverns"
+
+
+def quests_wailing():
+    """Sanu part two: the Wailing Caverns under his oasis (portal (75,223)).  No escorts - kill / fetch / boss only."""
+    A = []
+    a = A.append
+    G = "cb_waterkeeper"
+    a(Q("cb_wailing_mouth", "The Mouth of the Wailing", G, 16,
+        ("The Wailing Caverns are the oasis's other half: every spring at Lushwater is fed from the green warren "
+         "beneath it, and for a season now something in that warren has been dreaming wrong. The pools run cold at "
+         "dusk and the animals come up from the mouth already mad. Sanu wants the entrance cleared before he walks anyone in."),
+        [kill("Deviate Raptor", 8, zone=WZ), kill("Deviate Python", 6, zone=WZ), kill("Deviate Crocolisk", 4, zone=WZ)],
+        ("The mouth is south of the bluff. Raptors on the bank, pythons in the reeds, crocolisks where the "
+         "water's deepest. They're not wild; they're sick. Be quick, and don't take it personally."),
+        ("They were beautiful once, you know. Come, there is more to understand."),
+        [R(16, "Mouthwatcher's Hide Vest", "chest", "of the Falcon", "Raptor-hide stitched over reed-cord. It breathes, which is almost enough.", "leather"),
+         R(16, "Reedcutter's Hook", "main_hand", "of the Squire", "A hooked blade for clearing reeds. The reeds, of late, have been fighting back.", "axe_1h"),
+         R(16, "Lushwater Waterskin Cord", "waist", "of the Eagle", "A braided cord with a copper loop. It carries a surprising amount of water for its weight.", "cloth")],
+        nxt="cb_dewdrops_of_the_dream", xp=1200, gold=3900))
+    a(Q("cb_dewdrops_of_the_dream", "Dewdrops of the Dream", G, 17,
+        ("Where the dreaming leaks out, it condenses. Sanu has been collecting a particular dew from the wisps that "
+         "drift in the warren's mid-halls: beads that do not evaporate, that show you what the sleeper sees. He wants "
+         "five, and the broodlings that guard the nests cleared while you are there."),
+        [kill("Nightmare Wisp", 8, zone=WZ), fetch("nightmare_dewdrop", 5), kill("Deviate Broodling", 6, zone=WZ)],
+        ("Wisps drift past the river, over the cavern floor. Collect their dew. Do not stare into it. "
+         "I mean that kindly."),
+        ("Five drops, and none of them spilled. Look at what it shows. The sleeper is not alone. The Fang have his ear."),
+        [R(17, "Dreamcatcher's Gloves", "hands", "of the Prophet", "Fine cloth with a lattice of silvery thread that feels like holding your breath.", "cloth"),
+         R(17, "Dew-Bead Pendant", "neck", "of the Whale", "A bead of nightmare dew in a silver cage. It still moves, softly, when you are not looking."),
+         R(17, "Sleepwalker's Boots", "feet", "of the Wolf", "Soft leather boots. The soles were made for walking quietly through other people's dreams.", "leather")],
+        nxt="cb_fang_and_flame", xp=1260, gold=4100))
+    a(Q("cb_fang_and_flame", "The Fang Initiates", G, 18,
+        ("The Druids of the Fang were a school of healers, once. Now they are a cult, and the cult has initiates who still "
+         "believe they are healing. Sanu needs evidence the school is one body, and the shards the initiates break at the "
+         "end of each rite will prove it. Bring four, and thin the druids guarding the west arm."),
+        [kill("Druid of the Fang", 8, zone=WZ), kill("Fang Initiate", 6, zone=WZ), fetch("fang_totem_shard", 4)],
+        ("Fang Initiates break one shard at the end of each rite. Don't linger to watch it. "
+         "The druids will not be kind about interruptions."),
+        ("Four shards, and they fit together. A single seal, a single hand. It is time to name the hand."),
+        [R(18, "Fang-Warden's Mail Coif", "head", "of the Soldier", "A mail coif with a green fang stitched over the brow. The Fang left it behind in a hurry.", "mail"),
+         R(18, "Initiate's Rootwand", "ranged", "of Nature's Wrath", "A wand of living root. It hums against the palm, like something purring.", "wand"),
+         R(18, "Fangbound Cloak", "back", "of the Eagle", "A cloak fastened with a serpent-tooth clasp. It never quite settles on the shoulders.")],
+        nxt="cb_lady_of_the_fang", xp=1320, gold=4300))
+    a(Q("cb_lady_of_the_fang", "The Lady of the Fang", G, 19,
+        ("Lady Anacondra was Sanu's student, once, long ago, and the first of the Fang to forget which was the lesson "
+         "and which the sickness. She keeps the north platform of the Serpentbloom Cavern and her druids guard the "
+         "river crossing. He asks that you end it gently. He knows that is not how it will go."),
+        [kill("Deviate Lasher", 6, zone=WZ), wboss("Lady Anacondra")],
+        ("Lasher vines grip at the river's edge. Lady Anacondra waits above. She will heal through anything you throw "
+         "at her unless you move on her fast."),
+        ("She was clever, once. She could have been so much more. Take this. It is what she was supposed to become."),
+        [R(19, "Serpentbloom Robe", "chest", "of the Archmage", "A robe sewn with petals that bloom only in the dark. It has an aftertaste, somehow.", "cloth"),
+         R(19, "Anacondra's Sleep-Rod", "main_hand", "of the Restorer", "A short mace of green wood. Whoever it taps tends to lie down quickly.", "mace_1h"),
+         R(19, "Coiled Scale Legguards", "legs", "of the Tiger", "Leather legguards sewn with viper scale. They hiss when you cross your legs.", "leather")],
+        nxt="cb_cobrahn_and_kresh", xp=1380, gold=4500))
+    a(Q("cb_cobrahn_and_kresh", "Lord Cobrahn and the Old Shell", G, 20,
+        ("Two of the warren's masters sit on the western ring: Lord Cobrahn, who has begun to prefer his serpent form, "
+         "and Kresh, a river-turtle old enough to remember when the pool was a pool. Kresh is not evil. Kresh is "
+         "hurt. Sanu says it will not matter to the fight, but it matters to him."),
+        [wboss("Lord Cobrahn"), wboss("Kresh"), kill("Deviate Shambler", 6, zone=WZ)],
+        ("West around the cavern. Cobrahn in his den, Kresh in the pool further north. Kresh retreats into its shell and "
+         "hits hard when it comes out. Cobrahn's venom lingers. Bring a way to cure it."),
+        ("Both done. The west ring is quiet. I did not think I would miss the sound of the old turtle shifting in the water. I do."),
+        [R(20, "Cobrahn's Venomgrip", "hands", "of the Assassin", "Leather gloves stained green to the wrist. Do not lick your fingers.", "leather"),
+         R(20, "Kresh's Shellguard", "shoulder", "of the Defender", "Shoulderplates of baked shell. They do not like to be hit, and do not much mind it.", "plate"),
+         R(20, "Barnacle-Ring of the Deep", "ring", "of the Bear", "A ring of crusted shell. It smells of salt, of old water, of patience.")],
+        nxt="cb_thunder_and_slumber", xp=1440, gold=4700))
+    a(Q("cb_thunder_and_slumber", "Thunder and Slumber", G, 21,
+        ("Lord Pythas guards the east gallery with thunder and sleep. Skum, the old lizard, guards the north with "
+         "thunder alone. Sanu wants both gone: the ring cannot be walked in either direction while they stand."),
+        [wboss("Lord Pythas"), wboss("Skum"), kill("Deviate Ravager", 6, zone=WZ)],
+        ("Pythas east, Skum north. Pythas casts sleep: have a trinket, a friend or both. Skum's roar weakens your arms; "
+         "kill him before it stacks."),
+        ("The ring's open. The Fang's gallery waits at its heart. Be careful. It is quieter there than it should be."),
+        [R(21, "Thunderbringer's Staff", "main_hand", "of the Prophet", "A staff that crackles. Pythas called down thunder with it; now it calls down mild static.", "staff"),
+         R(21, "Slumberproof Cowl", "head", "of the Sorcerer", "A cowl lined with copper wire to resist the lulling. It also resists the cold.", "cloth"),
+         R(21, "Thunderhide Greaves", "legs", "of the Bear", "Heavy leather from a thunder lizard. It builds a charge in dry weather.", "leather")],
+        nxt="cb_the_everliving_and_the_serpent", xp=1500, gold=4900))
+    a(Q("cb_the_everliving_and_the_serpent", "The Everliving and the Serpent", G, 22,
+        ("At the heart of the ring, in the Chamber of the Fang, stand Lord Serpentis, the cult's last and most "
+         "devoted lord, and Verdan the Everliving, a thing of bark and root that the cult has been feeding for years. "
+         "They stand between you and the sleeper's door."),
+        [wboss("Lord Serpentis"), wboss("Verdan the Everliving"), kill("Fang Initiate", 8, zone=WZ)],
+        ("Serpentis shields himself with warding before every fight; strip it with burst, not patience. "
+         "Verdan hits like a falling tree. Do not stand in the vines."),
+        ("Both lie still. Behind them is the way to Naralex's Dream. I wish I could go with you. I will wait here."),
+        [R(22, "Everliving Bark Chestguard", "chest", "of the Bastion", "Plate grown through with living root. It heals a little when sunlit, which in this cave means never.", "plate"),
+         R(22, "Serpentis's Venom-Blade", "main_hand", "of the Champion", "A short blade whose edge weeps a faint green. Treat it as a wound.", "sword_1h"),
+         R(22, "Fang-Lord's Ring of Binding", "ring", "of the Eagle", "A heavy ring inscribed with the Fang's seal. It tightens when you tell the truth.")],
+        nxt="cb_naralexs_dream", xp=1560, gold=5100))
+    a(Q("cb_naralexs_dream", "Naralex's Dream", G, 24,
+        ("Naralex came here to wake the Barrens, and instead he fell asleep inside his own dream, and the dream "
+         "fed on him. At its heart now waits Mutanus the Devourer, a nightmare in the shape of a murloc. End it, "
+         "bring Sanu the pearl, and the dream may go back to being a dream."),
+        [wboss("Mutanus the Devourer"), fetch("naralex_dream_pearl", 1)],
+        ("North through the Chamber of the Fang, then west into the Dream. Mutanus devours and then screams. "
+         "The scream will hurt more than the bite. Bring everyone you trust."),
+        ("The pearl is warm. I can feel him in it, sleeping peacefully for the first time in years. "
+         "Take this, with everything the oasis can give."),
+        [R(24, "Dreamwalker's Vestments", "chest", "of the Prophet", "Green and silver robes that rustle like leaves. Oddly, they smell of rain on dry earth.", "cloth"),
+         R(24, "Naralex's Memory-Blade", "main_hand", "of the Champion", "A long blade of pale wood. It remembers a gentle druid, and a gentler time.", "sword_1h"),
+         R(24, "Nightmare-Ender's Helm", "head", "of the Juggernaut", "A heavy helm marked with the sleeper's seal. It makes the dark stop whispering.", "plate")],
+        xp=1800, gold=6200, span=3))
+    a(Q("cb_old_hissfang", "Old Hissfang", G, 19,
+        ("There is a python in the south hollow of the warren older than the Fang, older than the oasis. It is not sick. "
+         "It is simply large, and it has been eating Sanu's reed-cutters for three seasons. He would like it, politely, stopped."),
+        [wboss("Old Hissfang")],
+        ("The south hollow, off the first cavern, west of the entry tube. It is very large. Do not be impressed."),
+        ("Three seasons of missing reed-cutters, resolved. Thank you. It was a magnificent animal."),
+        [R(19, "Hissfang's Coil-Belt", "waist", "of the Tiger", "A belt of scales. It tightens when you eat too much.", "leather"),
+         R(19, "Python-Skin Bracers", "wrist", "of the Falcon", "Soft, supple, well-cured. Not at all unsettling.", "leather"),
+         R(19, "Slitted Eye Pendant", "neck", "of the Monkey", "A pendant with a yellow slit-eye that follows you across the room.")],
+        xp=1380, gold=4400))
+    return A
+
+
 def main():
-    Qs = quests() + quests_oases() + quests_south()
+    Qs = quests() + quests_oases() + quests_south() + quests_wailing()
     out = []
     ids = set()
     for q in Qs:

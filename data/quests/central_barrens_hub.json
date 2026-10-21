@@ -1245,7 +1245,7 @@
       "reward_gold": 3700,
       "accept_text": "The creepers guard the north reeds. The queen is behind them. Do it cleanly and don't linger - her song is not a lullaby.",
       "turn_in_text": "The reeds are silent. Not the silence of death - the silence of rest. Thank you, friend of the oasis. Take what the pool has to give.",
-      "next_quest_id": null,
+      "next_quest_id": "cb_wailing_mouth",
       "unique_item_defs": [
         {
           "name": "Skitterwing's Chitin Hauberk",
@@ -2853,6 +2853,769 @@
         }
       ],
       "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_wailing_mouth",
+      "title": "The Mouth of the Wailing",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "The Wailing Caverns are the oasis's other half: every spring at Lushwater is fed from the green warren beneath it, and for a season now something in that warren has been dreaming wrong. The pools run cold at dusk and the animals come up from the mouth already mad. Sanu wants the entrance cleared before he walks anyone in.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Deviate Raptor",
+          "count": 8,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill",
+          "target": "Deviate Python",
+          "count": 6,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill",
+          "target": "Deviate Crocolisk",
+          "count": 4,
+          "zone": "wailing_caverns"
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 3900,
+      "accept_text": "The mouth is south of the bluff. Raptors on the bank, pythons in the reeds, crocolisks where the water's deepest. They're not wild; they're sick. Be quick, and don't take it personally.",
+      "turn_in_text": "They were beautiful once, you know. Come, there is more to understand.",
+      "next_quest_id": "cb_dewdrops_of_the_dream",
+      "unique_item_defs": [
+        {
+          "name": "Mouthwatcher's Hide Vest",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Raptor-hide stitched over reed-cord. It breathes, which is almost enough.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Chest (Agi/Int)"
+        },
+        {
+          "name": "Reedcutter's Hook",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A hooked blade for clearing reeds. The reeds, of late, have been fighting back.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        },
+        {
+          "name": "Lushwater Waterskin Cord",
+          "slot": "waist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A braided cord with a copper loop. It carries a surprising amount of water for its weight.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Belt (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_dewdrops_of_the_dream",
+      "title": "Dewdrops of the Dream",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "Where the dreaming leaks out, it condenses. Sanu has been collecting a particular dew from the wisps that drift in the warren's mid-halls: beads that do not evaporate, that show you what the sleeper sees. He wants five, and the broodlings that guard the nests cleared while you are there.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Nightmare Wisp",
+          "count": 8,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "fetch",
+          "target": "nightmare_dewdrop",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Deviate Broodling",
+          "count": 6,
+          "zone": "wailing_caverns"
+        }
+      ],
+      "reward_exp": 1260,
+      "reward_gold": 4100,
+      "accept_text": "Wisps drift past the river, over the cavern floor. Collect their dew. Do not stare into it. I mean that kindly.",
+      "turn_in_text": "Five drops, and none of them spilled. Look at what it shows. The sleeper is not alone. The Fang have his ear.",
+      "next_quest_id": "cb_fang_and_flame",
+      "unique_item_defs": [
+        {
+          "name": "Dreamcatcher's Gloves",
+          "slot": "hands",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Fine cloth with a lattice of silvery thread that feels like holding your breath.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Dew-Bead Pendant",
+          "slot": "neck",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A bead of nightmare dew in a silver cage. It still moves, softly, when you are not looking.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "label": "Necklace (Sta/Spi)"
+        },
+        {
+          "name": "Sleepwalker's Boots",
+          "slot": "feet",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Soft leather boots. The soles were made for walking quietly through other people's dreams.",
+          "primary_stats": {
+            "agility": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Boots (Agi/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_fang_and_flame",
+      "title": "The Fang Initiates",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "The Druids of the Fang were a school of healers, once. Now they are a cult, and the cult has initiates who still believe they are healing. Sanu needs evidence the school is one body, and the shards the initiates break at the end of each rite will prove it. Bring four, and thin the druids guarding the west arm.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Druid of the Fang",
+          "count": 8,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill",
+          "target": "Fang Initiate",
+          "count": 6,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "fetch",
+          "target": "fang_totem_shard",
+          "count": 4
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 4300,
+      "accept_text": "Fang Initiates break one shard at the end of each rite. Don't linger to watch it. The druids will not be kind about interruptions.",
+      "turn_in_text": "Four shards, and they fit together. A single seal, a single hand. It is time to name the hand.",
+      "next_quest_id": "cb_lady_of_the_fang",
+      "unique_item_defs": [
+        {
+          "name": "Fang-Warden's Mail Coif",
+          "slot": "head",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A mail coif with a green fang stitched over the brow. The Fang left it behind in a hurry.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 49,
+          "label": "Mail Helm (Str/Sta)"
+        },
+        {
+          "name": "Initiate's Rootwand",
+          "slot": "ranged",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A wand of living root. It hums against the palm, like something purring.",
+          "weapon_type": "wand",
+          "primary_stats": {},
+          "secondary_stats": {
+            "nature_spell_power": 3.7
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 1.9,
+          "label": "Wand"
+        },
+        {
+          "name": "Fangbound Cloak",
+          "slot": "back",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A cloak fastened with a serpent-tooth clasp. It never quite settles on the shoulders.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_lady_of_the_fang",
+      "title": "The Lady of the Fang",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "Lady Anacondra was Sanu's student, once, long ago, and the first of the Fang to forget which was the lesson and which the sickness. She keeps the north platform of the Serpentbloom Cavern and her druids guard the river crossing. He asks that you end it gently. He knows that is not how it will go.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Deviate Lasher",
+          "count": 6,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Lady Anacondra",
+          "count": 1,
+          "zone": "wailing_caverns"
+        }
+      ],
+      "reward_exp": 1380,
+      "reward_gold": 4500,
+      "accept_text": "Lasher vines grip at the river's edge. Lady Anacondra waits above. She will heal through anything you throw at her unless you move on her fast.",
+      "turn_in_text": "She was clever, once. She could have been so much more. Take this. It is what she was supposed to become.",
+      "next_quest_id": "cb_cobrahn_and_kresh",
+      "unique_item_defs": [
+        {
+          "name": "Serpentbloom Robe",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A robe sewn with petals that bloom only in the dark. It has an aftertaste, somehow.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.1,
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Chest (Int)"
+        },
+        {
+          "name": "Anacondra's Sleep-Rod",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A short mace of green wood. Whoever it taps tends to lie down quickly.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.3,
+            "mp5": 0.9
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 2.6,
+          "label": "Mace 1H"
+        },
+        {
+          "name": "Coiled Scale Legguards",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Leather legguards sewn with viper scale. They hiss when you cross your legs.",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Legs (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_cobrahn_and_kresh",
+      "title": "Lord Cobrahn and the Old Shell",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "Two of the warren's masters sit on the western ring: Lord Cobrahn, who has begun to prefer his serpent form, and Kresh, a river-turtle old enough to remember when the pool was a pool. Kresh is not evil. Kresh is hurt. Sanu says it will not matter to the fight, but it matters to him.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lord Cobrahn",
+          "count": 1,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Kresh",
+          "count": 1,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill",
+          "target": "Deviate Shambler",
+          "count": 6,
+          "zone": "wailing_caverns"
+        }
+      ],
+      "reward_exp": 1440,
+      "reward_gold": 4700,
+      "accept_text": "West around the cavern. Cobrahn in his den, Kresh in the pool further north. Kresh retreats into its shell and hits hard when it comes out. Cobrahn's venom lingers. Bring a way to cure it.",
+      "turn_in_text": "Both done. The west ring is quiet. I did not think I would miss the sound of the old turtle shifting in the water. I do.",
+      "next_quest_id": "cb_thunder_and_slumber",
+      "unique_item_defs": [
+        {
+          "name": "Cobrahn's Venomgrip",
+          "slot": "hands",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Leather gloves stained green to the wrist. Do not lick your fingers.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 22,
+          "label": "Leather Gloves (Agi)"
+        },
+        {
+          "name": "Kresh's Shellguard",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Shoulderplates of baked shell. They do not like to be hit, and do not much mind it.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 80,
+          "label": "Plate Shoulders (Sta)"
+        },
+        {
+          "name": "Barnacle-Ring of the Deep",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A ring of crusted shell. It smells of salt, of old water, of patience.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_thunder_and_slumber",
+      "title": "Thunder and Slumber",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "Lord Pythas guards the east gallery with thunder and sleep. Skum, the old lizard, guards the north with thunder alone. Sanu wants both gone: the ring cannot be walked in either direction while they stand.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lord Pythas",
+          "count": 1,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Skum",
+          "count": 1,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill",
+          "target": "Deviate Ravager",
+          "count": 6,
+          "zone": "wailing_caverns"
+        }
+      ],
+      "reward_exp": 1500,
+      "reward_gold": 4900,
+      "accept_text": "Pythas east, Skum north. Pythas casts sleep: have a trinket, a friend or both. Skum's roar weakens your arms; kill him before it stacks.",
+      "turn_in_text": "The ring's open. The Fang's gallery waits at its heart. Be careful. It is quieter there than it should be.",
+      "next_quest_id": "cb_the_everliving_and_the_serpent",
+      "unique_item_defs": [
+        {
+          "name": "Thunderbringer's Staff",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A staff that crackles. Pythas called down thunder with it; now it calls down mild static.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 9,
+            "spirit": 9
+          },
+          "secondary_stats": {
+            "healing_power": 9.7
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi)"
+        },
+        {
+          "name": "Slumberproof Cowl",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A cowl lined with copper wire to resist the lulling. It also resists the cold.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Helm (Int/Sta)"
+        },
+        {
+          "name": "Thunderhide Greaves",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Heavy leather from a thunder lizard. It builds a charge in dry weather.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Legs (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_the_everliving_and_the_serpent",
+      "title": "The Everliving and the Serpent",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "At the heart of the ring, in the Chamber of the Fang, stand Lord Serpentis, the cult's last and most devoted lord, and Verdan the Everliving, a thing of bark and root that the cult has been feeding for years. They stand between you and the sleeper's door.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lord Serpentis",
+          "count": 1,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Verdan the Everliving",
+          "count": 1,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "kill",
+          "target": "Fang Initiate",
+          "count": 8,
+          "zone": "wailing_caverns"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 5100,
+      "accept_text": "Serpentis shields himself with warding before every fight; strip it with burst, not patience. Verdan hits like a falling tree. Do not stand in the vines.",
+      "turn_in_text": "Both lie still. Behind them is the way to Naralex's Dream. I wish I could go with you. I will wait here.",
+      "next_quest_id": "cb_naralexs_dream",
+      "unique_item_defs": [
+        {
+          "name": "Everliving Bark Chestguard",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Plate grown through with living root. It heals a little when sunlit, which in this cave means never.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.8,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 117,
+          "label": "Plate Chest"
+        },
+        {
+          "name": "Serpentis's Venom-Blade",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A short blade whose edge weeps a faint green. Treat it as a wound.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Str/Sta)"
+        },
+        {
+          "name": "Fang-Lord's Ring of Binding",
+          "slot": "ring",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A heavy ring inscribed with the Fang's seal. It tightens when you tell the truth.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "label": "Ring (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_naralexs_dream",
+      "title": "Naralex's Dream",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 24,
+      "level_max": 27,
+      "description": "Naralex came here to wake the Barrens, and instead he fell asleep inside his own dream, and the dream fed on him. At its heart now waits Mutanus the Devourer, a nightmare in the shape of a murloc. End it, bring Sanu the pearl, and the dream may go back to being a dream.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Mutanus the Devourer",
+          "count": 1,
+          "zone": "wailing_caverns"
+        },
+        {
+          "type": "fetch",
+          "target": "naralex_dream_pearl",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 6200,
+      "accept_text": "North through the Chamber of the Fang, then west into the Dream. Mutanus devours and then screams. The scream will hurt more than the bite. Bring everyone you trust.",
+      "turn_in_text": "The pearl is warm. I can feel him in it, sleeping peacefully for the first time in years. Take this, with everything the oasis can give.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dreamwalker's Vestments",
+          "slot": "chest",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Green and silver robes that rustle like leaves. Oddly, they smell of rain on dry earth.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 26,
+          "label": "Cloth Chest (Int/Spi)"
+        },
+        {
+          "name": "Naralex's Memory-Blade",
+          "slot": "main_hand",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "A long blade of pale wood. It remembers a gentle druid, and a gentler time.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 53,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Str/Sta)"
+        },
+        {
+          "name": "Nightmare-Ender's Helm",
+          "slot": "head",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "A heavy helm marked with the sleeper's seal. It makes the dark stop whispering.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 11.8,
+            "parry_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 94,
+          "label": "Plate Helm (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 27,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "cb_old_hissfang",
+      "title": "Old Hissfang",
+      "giver_npc_id": "cb_waterkeeper",
+      "zone": "central_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "There is a python in the south hollow of the warren older than the Fang, older than the oasis. It is not sick. It is simply large, and it has been eating Sanu's reed-cutters for three seasons. He would like it, politely, stopped.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Hissfang",
+          "count": 1,
+          "zone": "wailing_caverns"
+        }
+      ],
+      "reward_exp": 1380,
+      "reward_gold": 4400,
+      "accept_text": "The south hollow, off the first cavern, west of the entry tube. It is very large. Do not be impressed.",
+      "turn_in_text": "Three seasons of missing reed-cutters, resolved. Thank you. It was a magnificent animal.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hissfang's Coil-Belt",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A belt of scales. It tightens when you eat too much.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Belt (Str/Agi)"
+        },
+        {
+          "name": "Python-Skin Bracers",
+          "slot": "wrist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Soft, supple, well-cured. Not at all unsettling.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Bracers (Agi/Int)"
+        },
+        {
+          "name": "Slitted Eye Pendant",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A pendant with a yellow slit-eye that follows you across the room.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "label": "Necklace (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
       "gear_reward_rarity": "rare"
     }
   ]

@@ -3921,6 +3921,19 @@
         "mana_cost": 0,
         "school": "physical",
         "is_aoe": true
+      },
+      {
+        "name": "Everliving Bark",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 55
+        }
       }
     ],
     "mutanus_the_devourer": [
@@ -3951,6 +3964,20 @@
         "duration": 2,
         "stat_mods": {
           "attack_power": -999
+        }
+      },
+      {
+        "name": "Terrifying Screech",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "attack_power": -45,
+          "agility": -30
         }
       }
     ],
@@ -3983,6 +4010,19 @@
         "self_only": true,
         "stat_mods": {
           "armor": 24
+        }
+      },
+      {
+        "name": "Thunder Roar",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "attack_power": -35
         }
       }
     ],
@@ -9230,6 +9270,493 @@
         "mana_cost": 34,
         "school": "nature",
         "duration": 5
+      }
+    ],
+    "lady_anacondra": [
+      {
+        "name": "Lightning Bolt",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 24,
+        "school": "nature"
+      },
+      {
+        "name": "Healing Touch",
+        "kind": "heal",
+        "amount": 90,
+        "cooldown": 5,
+        "mana_cost": 40,
+        "school": "nature"
+      },
+      {
+        "name": "Drowsy Dream",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 30,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -30
+        }
+      }
+    ],
+    "lord_cobrahn": [
+      {
+        "name": "Venom Spit",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Poison Cloud",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "is_aoe": true
+      },
+      {
+        "name": "Serpent Form",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 48
+        }
+      },
+      {
+        "name": "Cobrahn's Lightning",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "nature"
+      }
+    ],
+    "kresh": [
+      {
+        "name": "Shell Slam",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Withdraw",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 90
+        }
+      },
+      {
+        "name": "Water Jet",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Barnacle Rend",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "lord_pythas": [
+      {
+        "name": "Lightning Bolt",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 0,
+        "mana_cost": 26,
+        "school": "nature"
+      },
+      {
+        "name": "Thunderclap",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "attack_power": -40
+        }
+      },
+      {
+        "name": "Slumber",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 30,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -38
+        }
+      },
+      {
+        "name": "Healing Touch",
+        "kind": "heal",
+        "amount": 110,
+        "cooldown": 6,
+        "mana_cost": 45,
+        "school": "nature"
+      }
+    ],
+    "lord_serpentis": [
+      {
+        "name": "Lightning Bolt",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 0,
+        "mana_cost": 26,
+        "school": "nature"
+      },
+      {
+        "name": "Wrath of the Fang",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 4,
+        "mana_cost": 28,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Serpent's Gaze",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 28,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -42
+        }
+      },
+      {
+        "name": "Fangbound Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 8,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 50
+        }
+      }
+    ],
+    "old_hissfang": [
+      {
+        "name": "Crushing Coil",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Venom Fangs",
+        "kind": "dot",
+        "amount": 17,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Hiss",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -30
+        }
+      }
+    ],
+    "drowsyroot_the_dreamer": [
+      {
+        "name": "Dream Thorn",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 24,
+        "school": "nature"
+      },
+      {
+        "name": "Lullaby",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "attack_power": -999
+        }
+      },
+      {
+        "name": "Rootmend",
+        "kind": "heal",
+        "amount": 80,
+        "cooldown": 5,
+        "mana_cost": 36,
+        "school": "nature"
+      }
+    ],
+    "sporeback_the_bloated": [
+      {
+        "name": "Bloated Slam",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spore Cloud",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "is_aoe": true
+      },
+      {
+        "name": "Swell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 55
+        }
+      }
+    ],
+    "deviate_python": [
+      {
+        "name": "Constrict",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Python Venom",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "deviate_ooze": [
+      {
+        "name": "Acid Splash",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Corroding Touch",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 14,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -22
+        }
+      }
+    ],
+    "deviate_raptor": [
+      {
+        "name": "Raptor Strike",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Savage Leap",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "deviate_crocolisk": [
+      {
+        "name": "Gator Bite",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Death Roll",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "druid_fang": [
+      {
+        "name": "Wrath",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 16,
+        "school": "nature"
+      },
+      {
+        "name": "Rejuvenating Moss",
+        "kind": "heal",
+        "amount": 42,
+        "cooldown": 4,
+        "mana_cost": 24,
+        "school": "nature"
+      },
+      {
+        "name": "Entangling Roots",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 18,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24
+        }
+      }
+    ],
+    "dreadfang": [
+      {
+        "name": "Fang Bite",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dread Venom",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "fang_initiate": [
+      {
+        "name": "Fang Strike",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Initiate's Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 34
+        }
+      }
+    ],
+    "nightmare_wisp": [
+      {
+        "name": "Dream Bolt",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "arcane"
+      },
+      {
+        "name": "Lull",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 18,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -26
+        }
+      }
+    ],
+    "deviate_broodling": [
+      {
+        "name": "Nip",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swarm Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 18
+        }
       }
     ],
     "murloc_flesheater": [

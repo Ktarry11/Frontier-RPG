@@ -1576,6 +1576,8 @@ WAILING_CAVERNS_KITS = {
         ("Grasping Vines", "debuff", 0, 6, 0, "physical",
          {"duration": 3, "is_aoe": True, "stat_mods": {"agility": -999}}),
         ("Stomp", "damage", 38, 3, 0, "physical", {"is_aoe": True}),
+        ("Everliving Bark", "buff", 0, 7, 0, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 55}}),
     ],
     "mutanus_the_devourer": [
         # Real kit: Fear + Sleep (Basin Wiki), Thundercrack AoE (multiple
@@ -1587,6 +1589,8 @@ WAILING_CAVERNS_KITS = {
         ("Thundercrack", "damage", 44, 3, 0, "magic", {"is_aoe": True}),
         ("Nightmare Sleep", "debuff", 0, 5, 0, "magic",
          {"duration": 2, "stat_mods": {"attack_power": -999}}),
+        ("Terrifying Screech", "debuff", 0, 6, 0, "magic",
+         {"duration": 3, "is_aoe": True, "stat_mods": {"attack_power": -45, "agility": -30}}),
     ],
     "skum": [
         # Confirmed "Thunder Lizard" type - reuses thunder_lizard's real
@@ -1596,6 +1600,99 @@ WAILING_CAVERNS_KITS = {
         ("Lightning Nova", "damage", 40, 3, 0, "magic", {"is_aoe": True}),
         ("Thick Hide", "buff", 0, 5, 0, "physical",
          {"duration": 4, "self_only": True, "stat_mods": {"armor": 24}}),
+        ("Thunder Roar", "debuff", 0, 6, 0, "nature",
+         {"duration": 3, "is_aoe": True, "stat_mods": {"attack_power": -35}}),
+    ],
+}
+
+# Wailing Caverns content pass (2026-10-21): unique kits for the Fanglords + Kresh, trash kits for the creatures whose
+# "kit" key was dead (never loaded), and the new WC trash/rares.  Power is flat per the L16-24 band (trash 20-34,
+# bosses 44-70 first ability).
+WAILING_CONTENT_KITS = {
+    # ---- bosses ----------------------------------------------------------------------------------------------------
+    "lady_anacondra": [
+        ("Lightning Bolt", "damage", 44, 0, 24, "nature", {}),
+        ("Healing Touch", "heal", 90, 5, 40, "nature", {}),
+        ("Drowsy Dream", "debuff", 0, 5, 30, "nature", {"duration": 3, "stat_mods": {"agility": -30}}),
+    ],
+    "lord_cobrahn": [
+        ("Venom Spit", "damage", 46, 0, 0, "nature", {}),
+        ("Poison Cloud", "dot", 20, 4, 0, "nature", {"duration": 4, "is_aoe": True}),
+        ("Serpent Form", "buff", 0, 7, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 48}}),
+        ("Cobrahn's Lightning", "damage", 62, 4, 30, "nature", {}),
+    ],
+    "kresh": [
+        ("Shell Slam", "damage", 42, 0, 0, "physical", {}),
+        ("Withdraw", "buff", 0, 7, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 90}}),
+        ("Water Jet", "damage", 58, 4, 0, "nature", {}),
+        ("Barnacle Rend", "dot", 18, 5, 0, "physical", {"duration": 4}),
+    ],
+    "lord_pythas": [
+        ("Lightning Bolt", "damage", 48, 0, 26, "nature", {}),
+        ("Thunderclap", "debuff", 0, 5, 0, "physical", {"duration": 3, "is_aoe": True, "stat_mods": {"attack_power": -40}}),
+        ("Slumber", "debuff", 0, 6, 30, "nature", {"duration": 2, "stat_mods": {"agility": -38}}),
+        ("Healing Touch", "heal", 110, 6, 45, "nature", {}),
+    ],
+    "lord_serpentis": [
+        ("Lightning Bolt", "damage", 50, 0, 26, "nature", {}),
+        ("Wrath of the Fang", "dot", 22, 4, 28, "nature", {"duration": 4}),
+        ("Serpent's Gaze", "debuff", 0, 5, 28, "nature", {"duration": 3, "stat_mods": {"armor": -42}}),
+        ("Fangbound Ward", "buff", 0, 8, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 50}}),
+    ],
+    # ---- rares -----------------------------------------------------------------------------------------------------
+    "old_hissfang": [
+        ("Crushing Coil", "damage", 38, 0, 0, "physical", {}),
+        ("Venom Fangs", "dot", 17, 3, 0, "nature", {"duration": 4}),
+        ("Hiss", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"attack_power": -30}}),
+    ],
+    "drowsyroot_the_dreamer": [
+        ("Dream Thorn", "damage", 40, 0, 24, "nature", {}),
+        ("Lullaby", "debuff", 0, 5, 26, "nature", {"duration": 2, "stat_mods": {"attack_power": -999}}),
+        ("Rootmend", "heal", 80, 5, 36, "nature", {}),
+    ],
+    "sporeback_the_bloated": [
+        ("Bloated Slam", "damage", 40, 0, 0, "physical", {}),
+        ("Spore Cloud", "dot", 18, 4, 0, "nature", {"duration": 4, "is_aoe": True}),
+        ("Swell", "buff", 0, 7, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 55}}),
+    ],
+    # ---- previously-dead-kit trash (L16-22) ------------------------------------------------------------------------
+    "deviate_python": [
+        ("Constrict", "damage", 24, 0, 0, "physical", {}),
+        ("Python Venom", "dot", 10, 3, 0, "nature", {"duration": 4}),
+    ],
+    "deviate_ooze": [
+        ("Acid Splash", "damage", 25, 0, 14, "nature", {}),
+        ("Corroding Touch", "debuff", 0, 4, 14, "nature", {"duration": 3, "stat_mods": {"armor": -22}}),
+    ],
+    "deviate_raptor": [
+        ("Raptor Strike", "damage", 26, 0, 0, "physical", {}),
+        ("Savage Leap", "damage", 33, 4, 0, "physical", {}),
+    ],
+    "deviate_crocolisk": [
+        ("Gator Bite", "damage", 27, 0, 0, "physical", {}),
+        ("Death Roll", "dot", 11, 4, 0, "physical", {"duration": 3}),
+    ],
+    "druid_fang": [
+        ("Wrath", "damage", 26, 0, 16, "nature", {}),
+        ("Rejuvenating Moss", "heal", 42, 4, 24, "nature", {}),
+        ("Entangling Roots", "debuff", 0, 5, 18, "nature", {"duration": 3, "stat_mods": {"agility": -24}}),
+    ],
+    "dreadfang": [
+        ("Fang Bite", "damage", 25, 0, 0, "physical", {}),
+        ("Dread Venom", "dot", 11, 3, 0, "nature", {"duration": 4}),
+    ],
+    # ---- new trash ------------------------------------------------------------------------------------------------
+    "fang_initiate": [
+        ("Fang Strike", "damage", 25, 0, 0, "physical", {}),
+        ("Initiate's Ward", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 34}}),
+    ],
+    "nightmare_wisp": [
+        ("Dream Bolt", "damage", 28, 0, 18, "arcane", {}),
+        ("Lull", "debuff", 0, 5, 18, "arcane", {"duration": 3, "stat_mods": {"attack_power": -26}}),
+    ],
+    "deviate_broodling": [
+        ("Nip", "damage", 20, 0, 0, "physical", {}),
+        ("Swarm Frenzy", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 18}}),
     ],
 }
 
@@ -2760,7 +2857,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

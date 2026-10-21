@@ -1,0 +1,698 @@
+{
+  "_notes": "Wailing Caverns boss + named-rare loot (2026-10-21). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "Lady Anacondra": [
+    {
+      "name": "Viperskin Bracers",
+      "slot": "wrist",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "Bracers cut from a viper that made the mistake of being underfoot. They cool the pulse and sweeten the temper.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 3.8,
+        "mp5": 0.8
+      },
+      "armor_type": "leather",
+      "armor_value": 28
+    },
+    {
+      "name": "Anacondra's Slumber-Staff",
+      "slot": "main_hand",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A staff of green wood and cold scales. Whoever holds it gets very calm, very quickly.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {
+        "healing_power": 11.6
+      },
+      "weapon_damage_min": 24,
+      "weapon_damage_max": 32,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Serpentbloom Circlet",
+      "slot": "head",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A circlet of pale flowers that bloom only in the dark of the caverns. They smell of wet stone and sleep.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 21
+    },
+    {
+      "name": "Lady's Coiled Signet",
+      "slot": "ring",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A thin gold ring coiled twice around the finger. It tightens when you lie, and Lady Anacondra never lied.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Lord Cobrahn": [
+    {
+      "name": "Cobrahn's Fanged Cleaver",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A hand-axe with a fang set into the head. It bites, then it lets go. That is how snakes do it.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Emerald Scale Chestguard",
+      "slot": "chest",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Green scale-mail that shifts colour when you are not paying attention. It is always listening.",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.3
+      },
+      "armor_type": "mail",
+      "armor_value": 93
+    },
+    {
+      "name": "Drake-Hide Cloak",
+      "slot": "back",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A long cloak cut from a drake's shed skin. It takes the wind well and the daylight poorly.",
+      "primary_stats": {
+        "agility": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 11
+    },
+    {
+      "name": "Venomtouched Waistband",
+      "slot": "waist",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Leather stained a permanent, unhealthy green. A careful wearer never licks a finger.",
+      "primary_stats": {
+        "agility": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "armor_type": "leather",
+      "armor_value": 29
+    }
+  ],
+  "Kresh": [
+    {
+      "name": "Kresh's Shellplate Spaulders",
+      "slot": "shoulder",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Pauldrons carved from an old turtle's shell, hammered flat. They take hits and give nothing back, which is the point.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.4,
+        "dodge_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 105
+    },
+    {
+      "name": "Barnacled Bulwark",
+      "slot": "off_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A shield grown over with barnacles. They are, oddly, still alive, and still clinging.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 6
+      },
+      "armor_value": 46,
+      "block_value": 58
+    },
+    {
+      "name": "Silt-Soaked Greaves",
+      "slot": "feet",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Mail boots caked in river-silt. They keep a swimmer's footing and a waterlogged mood.",
+      "primary_stats": {
+        "stamina": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 46
+    },
+    {
+      "name": "Tidebound Band",
+      "slot": "ring",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A ring of dull green shell. When you wear it you hear, very faintly, something stir.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Lord Pythas": [
+    {
+      "name": "Pythas's Thunderstaff",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A staff that crackles. Pythas called down thunder to defend his sleeping chamber; the staff remembers.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "spell_power": 15.9,
+        "mp5": 3.2
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 35,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Slumberer's Mantle",
+      "slot": "shoulder",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A soft mantle that drags every thought toward a nap. Practiced wearers learn to sleep upright and cast anyway.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 22
+    },
+    {
+      "name": "Fang-Lord's Pale Dagger",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A dagger of bleached bone. It is quiet even when it is not quiet.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 64,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Basin Walker's Boots",
+      "slot": "feet",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Leather boots laced with river-reed. They dry fast, and they walk soft.",
+      "primary_stats": {
+        "agility": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 30
+    }
+  ],
+  "Skum": [
+    {
+      "name": "Thunderhide Vest",
+      "slot": "chest",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A vest of thick lizard hide. Static lifts the hairs on your arms whenever you put it on.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 61
+    },
+    {
+      "name": "Skum's Tail-Club",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A great mace made from the tail-bone of something very large. It was not asked, and it did not volunteer.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "armor": 49.6,
+        "parry_rating": 1.0
+      },
+      "weapon_damage_min": 85,
+      "weapon_damage_max": 115,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Thunder-Tooth Pendant",
+      "slot": "neck",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A tooth the length of a thumb, hung on a cord. It hums a note just below hearing.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Static-Charged Gauntlets",
+      "slot": "hands",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Mail gauntlets that hum. If you clap in them, the cave notices.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2
+      },
+      "armor_type": "mail",
+      "armor_value": 48
+    }
+  ],
+  "Lord Serpentis": [
+    {
+      "name": "Serpentis's Venom-Wand",
+      "slot": "ranged",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A wand of petrified serpent spine. The tip beads with something you would rather not touch.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 5.5
+      },
+      "weapon_damage_min": 40,
+      "weapon_damage_max": 54,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Fang-Weave Leggings",
+      "slot": "legs",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Cloth woven with fine green thread and shaped like scales. They shift when you walk, softly, like an exhale.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "spell_power": 3.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 30
+    },
+    {
+      "name": "Wrathbringer's Falchion",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A curved sword with a hooked tip. Serpentis drew it when his rites were interrupted, and was seldom interrupted twice.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3
+      },
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 64,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Crest of the Fang",
+      "slot": "head",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A leather cap crowned with a ridge of fang. It marks the wearer as a student of the Fang, which has implications.",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 45
+    }
+  ],
+  "Verdan the Everliving": [
+    {
+      "name": "Verdan's Rootbark Cuirass",
+      "slot": "chest",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Plate grown through with living root. It heals a little when sunlit, which in this cave means never.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.5,
+        "block_rating": 1.0,
+        "dodge_rating": 0.7
+      },
+      "armor_type": "plate",
+      "armor_value": 153
+    },
+    {
+      "name": "Everliving Greatstaff",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A polearm of ironwood that still puts out leaves. They are, regrettably, very sharp.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "stamina": 21
+      },
+      "secondary_stats": {
+        "armor": 51.6,
+        "parry_rating": 1.0
+      },
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 119,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Bark-Wrapped Vambraces",
+      "slot": "wrist",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Plate vambraces wrapped in bark. When struck, they sigh a little.",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3,
+        "dodge_rating": 0.3
+      },
+      "armor_type": "plate",
+      "armor_value": 76
+    },
+    {
+      "name": "Living Vine Cord",
+      "slot": "waist",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A length of vine that tightens and slackens on its own. It will mend you, if you ask nicely.",
+      "primary_stats": {
+        "stamina": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "healing_power": 1.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 15
+    }
+  ],
+  "Mutanus the Devourer": [
+    {
+      "name": "Mutanus's Devouring Helm",
+      "slot": "head",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A helm with a jaw. The jaw does not close, but it does not entirely stay still.",
+      "primary_stats": {
+        "strength": 5
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4,
+        "crit_chance_physical": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 123
+    },
+    {
+      "name": "Nightmare-Touched Staff",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A staff of dark wood and green light. It hums to itself, in a voice that sounds like someone sleeping.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 14.3
+      },
+      "weapon_damage_min": 28,
+      "weapon_damage_max": 38,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Naralex's Dreamshroud",
+      "slot": "back",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A cloak the colour of a bad dream, light as a prayer. It remembers a druid who was kind.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.6,
+        "mp5": 0.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 13
+    },
+    {
+      "name": "Devourer's Nightbolt Crossbow",
+      "slot": "ranged",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A crossbow built around a jawbone. The bolts are carved from something that was once asleep.",
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 44,
+      "weapon_damage_max": 59,
+      "attack_speed": 2.4
+    }
+  ],
+  "Old Hissfang": [
+    {
+      "name": "Hissfang's Coil-Knife",
+      "slot": "main_hand",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A knife made from a single shed fang. It is exactly as sharp as a snake's apology.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 44,
+      "weapon_damage_max": 59,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Shedskin Gloves",
+      "slot": "hands",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "Gloves that feel wrong and fit right. They were, once, someone else's skin.",
+      "primary_stats": {
+        "agility": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 28
+    },
+    {
+      "name": "Old Serpent's Eye-Ring",
+      "slot": "ring",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A ring set with a yellow slit-eye. It watches whatever you do not.",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Drowsyroot the Dreamer": [
+    {
+      "name": "Drowsyroot Mantle",
+      "slot": "shoulder",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A mantle of woven root. Wearing it, you hear the whole cave breathe slowly in and out.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 6.2,
+        "mp5": 1.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 22
+    },
+    {
+      "name": "Dreamer's Rootmace",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A rod of living root, pulsing in time with a slumbering heart.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.5
+      },
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 64,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Lullaby Pendant",
+      "slot": "neck",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A pendant of spun glass. It plays a very quiet tune, and it never repeats a note.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Sporeback the Bloated": [
+    {
+      "name": "Sporeback's Mushroom Cap",
+      "slot": "head",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A helm grown from the cap of a very large fungus. It is damp and pleasantly absurd.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 47
+    },
+    {
+      "name": "Puffball Knuckles",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Fist-bars of dried spore-sacs. They burst politely on impact.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Spore-Dusted Ring",
+      "slot": "ring",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A ring dusted with something that smells faintly of rain.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.1
+      }
+    }
+  ]
+}
