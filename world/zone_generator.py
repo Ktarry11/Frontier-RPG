@@ -5593,6 +5593,7 @@ def create_all_zones():
         generate_razorfen_kraul_expanded,
         generate_the_broodspiral,
     )
+    from tools.handbuilt_vot import generate_valley_of_trials as generate_valley_of_trials_handbuilt
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5623,7 +5624,7 @@ def create_all_zones():
     
     zones = {
         # ===== ORIGINAL STARTER ZONES (unchanged) =====
-        "Valley of Trials": ZoneGenerator.generate_valley_of_trials(),
+        "Valley of Trials": generate_valley_of_trials_handbuilt(),  # hand-built (tools/handbuilt_vot.py)
         "Durotar": ZoneGenerator.generate_durotar(),
         "Razor Hill": ZoneGenerator.generate_razor_hill(),
         "Echo Isles": ZoneGenerator.generate_echo_isles(),

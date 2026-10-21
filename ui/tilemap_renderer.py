@@ -228,6 +228,11 @@ class TilemapRenderer:
             # feature with no neighboring same-type chunk to blend into.
             if clip_tiles is not None:
                 continue
+            # "exact" chunks are one continuous painting (tools/terrain_painter.py):
+            # already seamless, and the feather pass draws an OFFSET copy that would
+            # misalign them against the exact water/obstacle blits.
+            if chunk.get("exact"):
+                continue
             cx0, cy0 = chunk["anchor_x"], chunk["anchor_y"]
             screen_x, screen_y = camera.world_to_screen(cx0, cy0, self.tile_size)
             screen_x += viewport_rect.x
