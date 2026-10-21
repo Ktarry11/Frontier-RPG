@@ -924,6 +924,32 @@
       "greeting": "Waystation stores, fresh from Taurajo and only slightly rained on. What'll it be?",
       "x": 138,
       "y": 113
+    },
+    {
+      "vendor_id": "nb_basecamp_vendor",
+      "name": "Quartermaster Gruzk Ironhide",
+      "zone": "northern_barrens",
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "healing_potion_standard",
+        "mana_potion_minor",
+        "mana_potion_standard",
+        "bread_and_cheese",
+        "roasted_meat",
+        "guardian_elixir_standard",
+        "battle_elixir_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 20,
+      "sells_gear": true,
+      "race": "orc",
+      "appearance_variant": 8,
+      "gender": "male",
+      "greeting": "Base Camp stores. Heavy on the jerky, light on the courtesy. What do you need?",
+      "x": 150,
+      "y": 66
     }
   ]
 }

@@ -5585,7 +5585,6 @@ def create_all_zones():
         generate_deathknell,
         generate_eastern_tirisfal,
         generate_western_tirisfal,
-        generate_northern_barrens,
         generate_central_barrens,
         generate_crossroads,
         generate_southern_barrens,
@@ -5598,6 +5597,9 @@ def create_all_zones():
     from tools.handbuilt_echo_isles import generate_echo_isles as generate_echo_isles_handbuilt
     from tools.handbuilt_central_barrens import generate_central_barrens as generate_central_barrens_handbuilt
     from tools.handbuilt_southern_barrens import generate_southern_barrens as generate_southern_barrens_handbuilt
+    from tools.handbuilt_northern_barrens import generate_northern_barrens as generate_northern_barrens_handbuilt
+    from tools.handbuilt_boulder_lode import generate_boulder_lode_mine as generate_boulder_lode_mine_handbuilt
+    from tools.handbuilt_serenas_hollow import generate_serenas_hollow as generate_serenas_hollow_handbuilt
     from tools.handbuilt_crossroads import generate_crossroads as generate_crossroads_handbuilt
     from tools.handbuilt_camp_taurajo import generate_camp_taurajo as generate_camp_taurajo_handbuilt
     from tools.handbuilt_ratchet import generate_ratchet as generate_ratchet_handbuilt
@@ -5651,7 +5653,7 @@ def create_all_zones():
         "Undercity": generate_undercity(),  # NEW: Forsaken capital
         
         # ===== BARRENS SPLIT (3 zones from 1) =====
-        "Northern Barrens": generate_northern_barrens(),
+        "Northern Barrens": generate_northern_barrens_handbuilt(),  # hand-built (tools/handbuilt_northern_barrens.py)
         "Central Barrens": generate_central_barrens_handbuilt(),  # hand-built (tools/handbuilt_central_barrens.py)
         "Crossroads": generate_crossroads_handbuilt(),  # hand-built (tools/handbuilt_crossroads.py)
         "Southern Barrens": generate_southern_barrens_handbuilt(),  # hand-built (tools/handbuilt_southern_barrens.py)
@@ -5752,8 +5754,8 @@ def create_all_zones():
     # still on the shared generator).
     zones["Sunken Temple Grotto"] = ecaves.generate_sunken_temple_grotto()  # hand-built (tools/handbuilt_echo_caves.py)
     zones["Zalazane's Hollow"] = ecaves.generate_zalazane_hollow()  # hand-built
-    zones["Boulder Lode Mine"] = ZoneGenerator.generate_boulder_lode_mine()
-    zones["Serena's Hollow"] = ZoneGenerator.generate_serenas_hollow()
+    zones["Boulder Lode Mine"] = generate_boulder_lode_mine_handbuilt()  # hand-built (tools/handbuilt_boulder_lode.py)
+    zones["Serena's Hollow"] = generate_serenas_hollow_handbuilt()  # hand-built (tools/handbuilt_serenas_hollow.py)
     zones["The Den"] = vot_caves.generate_the_den()  # hand-built (tools/handbuilt_vot_caves.py)
     zones["Dustwind Cave"] = dcaves.generate_dustwind_cave()  # hand-built (tools/handbuilt_durotar_caves.py)
     zones["Thunder Ridge"] = dcaves.generate_thunder_ridge()  # hand-built

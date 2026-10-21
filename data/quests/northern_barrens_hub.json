@@ -1,0 +1,3615 @@
+{
+  "quests": [
+    {
+      "quest_id": "nb_toll_collectors",
+      "title": "Toll Collectors",
+      "giver_npc_id": "nb_road_warden",
+      "zone": "northern_barrens",
+      "level_min": 14,
+      "level_max": 16,
+      "description": "The Gold Road is the only honest thing in the Northern Barrens, and someone has started charging for it. Road Bandits wait at the bends, polite for exactly one sentence, and every wagon that can't pay gets lighter. Hargak runs the waystation and has run out of patience.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Road Bandit",
+          "count": 8
+        }
+      ],
+      "reward_exp": 852,
+      "reward_gold": 3360,
+      "accept_text": "They wear their coats the wrong way round so you can't tell who they are. I can tell. Thin them out along the bends and bring me what you find.",
+      "turn_in_text": "Fewer coats, more wagons. That's the arithmetic I like. Here, the waystation's thanks.",
+      "next_quest_id": "nb_the_highwaymans_ledger",
+      "unique_item_defs": [
+        {
+          "name": "Waystation Drover's Coat",
+          "slot": "chest",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Heavy canvas, waxed against the rain. It has outlasted three previous owners.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 33,
+          "label": "Leather Chest (Str/Sta)"
+        },
+        {
+          "name": "Wagon-Guard Cudgel",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "A short iron-banded club. Excellent at ending arguments over fares.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Sta)"
+        },
+        {
+          "name": "Teamster's Road-Boots",
+          "slot": "feet",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Broken in on ten thousand miles of rut. Your feet will never feel the difference.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Boots (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_the_highwaymans_ledger",
+      "title": "The Highwayman's Ledger",
+      "giver_npc_id": "nb_road_warden",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "Bandits keep books. Hargak finds this both funny and useful. Every Road Bandit carries a stained page of who paid, who didn't, and which wagons are worth the trouble. Collect enough pages and you can read the route they plan next.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "highwayman_ledger",
+          "count": 5
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "Five pages should do. Look in their coat linings. They think nobody checks there.",
+      "turn_in_text": "Mm. They're going to hit the coast road next. I'd better tell someone with a spear. Take this.",
+      "next_quest_id": "nb_cutthroats_on_the_road",
+      "unique_item_defs": [
+        {
+          "name": "Ledger-Keeper's Spectacles",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Thick lenses in a bent wire frame. Numbers stand still when you look at them.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Int/Sta)"
+        },
+        {
+          "name": "Bandit-Taker's Wristguards",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Bracers stripped from a bandit chief's arms. They still smell of cheap rum.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Bracers (Str/Agi)"
+        },
+        {
+          "name": "Pageturner's Quiet Dagger",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Thin, light, perfect for opening letters and, occasionally, people.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_cutthroats_on_the_road",
+      "title": "Cutthroats on the Road",
+      "giver_npc_id": "nb_road_warden",
+      "zone": "northern_barrens",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "The pages named a crew: cutthroats on foot, outriders on beasts, working the stretch of road between the oasis fork and the coast. They are not toll collectors. They do not ask first.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bandit Cutthroat",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Bandit Outrider",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1020,
+      "reward_gold": 3860,
+      "accept_text": "Cutthroats move in pairs and outriders cover them from a distance. Take the outriders' bows first if you can. They hurt more than they look.",
+      "turn_in_text": "The road's quiet. That's the first time in a season. You've earned more than I can pay, but this is what I have.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Roadwarden's Mail Hauberk",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Riveted mail, patched with road-iron. It has stopped a few too many knives.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 59,
+          "label": "Mail Chest (Str/Sta)"
+        },
+        {
+          "name": "Outrider's Short-Bow",
+          "slot": "ranged",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Light and quick. Built for shooting from a moving mount.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        },
+        {
+          "name": "Gold Road Signet",
+          "slot": "ring",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A ring cast from a mile-marker. It makes the road feel a little shorter.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_wreckers_beach",
+      "title": "Wreckers' Beach",
+      "giver_npc_id": "nb_coast_sergeant",
+      "zone": "northern_barrens",
+      "level_min": 14,
+      "level_max": 16,
+      "description": "The Merchant Coast is the Barrens' loading dock, which is why every crab in the bay has decided it owns the pier. Tide-Wreckers pry the planks off cargo crates, drag them out to sea and nobody sees either again. Kizzle has asked nicely. She's now asking differently.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tide-Wrecker Crab",
+          "count": 8
+        }
+      ],
+      "reward_exp": 852,
+      "reward_gold": 3360,
+      "accept_text": "Big, red, sulky. They hide in the surf. Crack a few and the rest will remember they have other places to be.",
+      "turn_in_text": "Listen to that, bro. Nothing! Not one claw! Take this, with the beachmaster's gratitude.",
+      "next_quest_id": "nb_salvage_rights",
+      "unique_item_defs": [
+        {
+          "name": "Crabshell Beach-Plate",
+          "slot": "chest",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Shell plates sewn onto a leather vest. Don't wear it in the surf. It floats.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Chest"
+        },
+        {
+          "name": "Beachmaster's Claw-Cutter",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "A short curved blade for cutting claws, fish and, sometimes, trouble.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.4,
+          "label": "Sword 1H"
+        },
+        {
+          "name": "Barnacle-Crusted Sash",
+          "slot": "waist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Stiff with salt. It keeps its shape even when you don't.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Belt (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_salvage_rights",
+      "title": "Salvage Rights",
+      "giver_npc_id": "nb_coast_sergeant",
+      "zone": "northern_barrens",
+      "level_min": 14,
+      "level_max": 16,
+      "description": "Southsea Brigands have been dragging cargo crates up the beach and prying them open. Anything they haven't opened yet is, strictly speaking, still the Merchants'. Kizzle's definition of 'strictly speaking' is flexible.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "salvaged_cargo_crate",
+          "count": 5
+        }
+      ],
+      "reward_exp": 852,
+      "reward_gold": 3360,
+      "accept_text": "Five crates. Don't open them. I know what's in them. Don't ask how.",
+      "turn_in_text": "These are mine! Er, the Merchants'. Same thing, really. Take this for your trouble.",
+      "next_quest_id": "nb_silence_the_cannons",
+      "unique_item_defs": [
+        {
+          "name": "Salvager's Oilskin Cloak",
+          "slot": "back",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Slick and tarry. Rain and spilled rum slide right off.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloak (Int/Sta)"
+        },
+        {
+          "name": "Brigand-Taker's Cutlass",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "A pirate's blade with a repaired hilt. Still sharp, still opinionated.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Str/Sta)"
+        },
+        {
+          "name": "Crate-Lifter's Gloves",
+          "slot": "hands",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Thick palms and reinforced thumbs. They stop splinters and some bad decisions.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Gloves (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_silence_the_cannons",
+      "title": "Silence the Cannons",
+      "giver_npc_id": "nb_coast_sergeant",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "The Southsea crews have mounted three cannons on the cliffs and are using them for target practice on anything that floats. Kizzle has a Ratchet-built guarantee that her pier is 'definitely not in range'. It definitely is.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Southsea Cannoneer",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Southsea Brigand",
+          "count": 6
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "Cannoneers stand behind the brigands. Cut through the brigands. Don't stand in a line.",
+      "turn_in_text": "Quiet again! Well, 'quiet' for a harbour. Here, take this. It's cleaner than it looks.",
+      "next_quest_id": "nb_captain_saltspray",
+      "unique_item_defs": [
+        {
+          "name": "Cannoneer's Powder-Burnt Gloves",
+          "slot": "hands",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Black with soot at the fingertips. They never quite wash out.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Gloves (Agi/Sta)"
+        },
+        {
+          "name": "Fuse-Cutter's Dirk",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A short dagger with a notch in the blade. For fuses. Mostly.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Harbour Guard's Brass Pauldrons",
+          "slot": "shoulder",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Polished brass, bent in places by something heavy. Looks good on a pier.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Shoulders (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_captain_saltspray",
+      "title": "Captain Saltspray",
+      "giver_npc_id": "nb_coast_sergeant",
+      "zone": "northern_barrens",
+      "level_min": 16,
+      "level_max": 19,
+      "description": "Captain Saltspray runs the Southsea crew. He's not very good at it, but he is very loud, and the loud ones make the cannoneers brave. Take him down and the harbour might finally get some peace.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Saltspray",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Southsea Brigand",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4200,
+      "accept_text": "He shows himself when his crew is winning. Make them stop winning. Then make him regret showing himself.",
+      "turn_in_text": "The captain's down, and the beach is ours again. Come back in a week; there'll be a drink with your name on it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Saltspray's Tricorn",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A battered pirate hat, still damp. It's taller than it looks.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Helm"
+        },
+        {
+          "name": "Beachmaster's Grudge-Blade",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A heavy cutlass. It's a pirate's. It doesn't care whose pocket it's in.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Str/Sta)"
+        },
+        {
+          "name": "Harbour-Keeper's Seal",
+          "slot": "neck",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A brass pendant with a cannon stamped on it. Cold to the touch, warm to the conscience.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "label": "Necklace (Sta/Spi)"
+        },
+        {
+          "name": "Southsea Buccaneer's Pistol",
+          "slot": "ranged",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A flintlock with a stolen engraving. It has fewer opinions than its former owner.",
+          "weapon_type": "gun",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.0
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.6,
+          "label": "Gun (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_hounds_of_the_oasis",
+      "title": "Hounds of the Oasis",
+      "giver_npc_id": "nb_oasis_scout",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "The Stagnant Oasis hasn't been fit to drink from in years, but it still draws every wanderer in the plains. Lately it also draws dervish hounds, lean, mange-ridden things that Kolkar dervishes breed and set loose. Mahri wants them gone before they learn what a campfire is for.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dervish Hound",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1026,
+      "reward_gold": 4080,
+      "accept_text": "They circle first and bite after. Keep your back to something solid. A cliff, a tent, anything.",
+      "turn_in_text": "They've stopped howling. I never realised how much of the night they filled. Take this.",
+      "next_quest_id": "nb_curved_blades",
+      "unique_item_defs": [
+        {
+          "name": "Oasis Scout's Leather Cap",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Sun-bleached leather with a flap for the neck. It smells strongly of dog.",
+          "primary_stats": {
+            "agility": 4,
+            "spirit": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Helm (Agi/Spi)"
+        },
+        {
+          "name": "Hound-Tamer's Chain-Whip",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A light chain on a leather grip. Excellent for persuading things that bite.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Agi/Sta)"
+        },
+        {
+          "name": "Watcher's Dust-Wrap",
+          "slot": "wrist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Cloth wrapping against grit. You'll never lose track of your own hands again.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Bracers (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_curved_blades",
+      "title": "Curved Blades",
+      "giver_npc_id": "nb_oasis_scout",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "Kolkar dervishes fight with curved blades they sharpen on the same stones they pray at. Mahri's scouts want half a dozen, not to use, but to read. The edges carry marks that say who trained whom.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dervish_curved_blade",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1026,
+      "reward_gold": 4080,
+      "accept_text": "Cut them off the bodies. Bring me six and I'll show you what the marks mean.",
+      "turn_in_text": "These are from the same forge. There's a smith feeding the whole camp. That's worth knowing. Take this.",
+      "next_quest_id": "nb_stormcallers",
+      "unique_item_defs": [
+        {
+          "name": "Dervish-Hunter's Mail Coif",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Heavy rings and a leather lining. It dents blades instead of being dented.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Helm (Str/Sta)"
+        },
+        {
+          "name": "Blade-Reader's Bracers",
+          "slot": "wrist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Thin leather laced with copper wire. It keeps your wrists quick and your pulse steady.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Bracers (Agi/Int)"
+        },
+        {
+          "name": "Bent-Steel Scimitar",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A curved blade taken from a dervish. It sings when you swing it fast.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.4,
+          "label": "Sword 1H"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_stormcallers",
+      "title": "Stormcallers",
+      "giver_npc_id": "nb_oasis_scout",
+      "zone": "northern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "A band of Kolkar Stormcallers has taken up at the far side of the oasis, drawing lightning out of a sky that hasn't seen rain in months. It's not working. It's still giving everyone a headache. Mahri would like to be able to think again.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Stormcaller",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "They stay together in the middle and the dervishes ring them. Break the ring, then the casters. Don't stand in the lightning. I mean that literally.",
+      "turn_in_text": "The sky is quiet. Wonderful. I can even hear the wind. Take this, with the camp's thanks.",
+      "next_quest_id": "nb_verog_the_dervish",
+      "unique_item_defs": [
+        {
+          "name": "Stormcaller's Static-Wrap",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Silk gloves that crackle when you clap. Not entirely safe near copper.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Gloves (Int/Sta)"
+        },
+        {
+          "name": "Thunder-Etched Totem",
+          "slot": "off_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A small stone totem carved with lightning. It hums when thunder is near.",
+          "weapon_type": "totem",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 0.0,
+          "label": "Totem (Int/Sta)"
+        },
+        {
+          "name": "Oasis Dowser's Pendant",
+          "slot": "neck",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A bent copper pendant on a thong. It dips when water is within a day's walk.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.3
+          },
+          "label": "Necklace (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_verog_the_dervish",
+      "title": "Verog the Dervish",
+      "giver_npc_id": "nb_oasis_scout",
+      "zone": "northern_barrens",
+      "level_min": 19,
+      "level_max": 22,
+      "description": "Verog leads the dervishes. He's fast, he's patient, and he's quick to be offended, which makes him the best bait the Kolkar could have used and the worst enemy anyone could have. The oasis will never be safe while he spins at the heart of it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Verog the Dervish",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Kolkar Dervish",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1220,
+      "reward_gold": 4560,
+      "accept_text": "He spins when he's angry and he's always angry. Wait for the spin to wind down, then hit him. Dervishes around him first, though. You want him alone.",
+      "turn_in_text": "Verog's dead. I never thought I'd see it. Take this, and let me be the first to buy you a drink.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Verog's Spinning-Belt",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A broad belt studded with iron spikes. It never stops swinging, even when you do.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Belt (Str/Agi)"
+        },
+        {
+          "name": "Dervish-Slayer's Greaves",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Mail legguards, notched where blades struck and failed. The notches are a record.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 12.9,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Legs (Sta)"
+        },
+        {
+          "name": "Verog's Twin Scimitar",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A pair of curved blades riveted together. It's heavier than it looks and prouder than it should be.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Str)"
+        },
+        {
+          "name": "Oasis Warden's Medallion",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A coin of old stone from the oasis shore. It gets warmer when allies are near.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_raiders_at_the_gate",
+      "title": "Raiders at the Gate",
+      "giver_npc_id": "farwatch_officer",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "Far Watch Post holds the eastern road, and the Kolkar know it. Every dawn another band of raiders rides up the headland, circles the watchtower and tests the palisade. Kelsara has counted forty since last full moon. She's stopped counting them as people.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Raider",
+          "count": 8
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "They test the weak spots. There aren't any. Convince them of that with a spear.",
+      "turn_in_text": "Nothing at the palisade for an hour now. Almost suspicious. Take this and don't question luck.",
+      "next_quest_id": "nb_war_pennants",
+      "unique_item_defs": [
+        {
+          "name": "Watch-Post Studded Vest",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Leather studded with iron nails. It stops a blade or two.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Chest (Str/Sta)"
+        },
+        {
+          "name": "Headland Spear",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A long ash spear with a sharp iron head. Best used before the raiders reach the wall.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 11
+          },
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 70,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        },
+        {
+          "name": "Far Watch Signet",
+          "slot": "ring",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A plain iron ring stamped with a tower. It's cold in the morning and warm after a fight.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "label": "Ring (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_war_pennants",
+      "title": "War-Pennants",
+      "giver_npc_id": "farwatch_officer",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "Every Kolkar warband carries a pennant, a strip of dyed hide on a stick that tells the others who's in charge. Take enough of them and the bands lose their way. Kelsara is tired of reading the same colours at the same hour every morning.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "kolkar_warpennant",
+          "count": 6
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "Six pennants. Don't burn them. I want to read them first.",
+      "turn_in_text": "The colours match three different bands. They've united. That's bad. Take this, and be quick going back out.",
+      "next_quest_id": "nb_scoutriders_on_the_headland",
+      "unique_item_defs": [
+        {
+          "name": "Pennant-Bearer's Cloak",
+          "slot": "back",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A strip of dyed hide cut into a cloak. It flaps beautifully in a wind.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloak (Agi/Int)"
+        },
+        {
+          "name": "Standard-Taker's Bracers",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Mail bracers taken from a Kolkar standard-bearer. They fit better than they should.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Bracers (Str/Sta)"
+        },
+        {
+          "name": "Warband-Breaker's Axe",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A broad axe with a notch cut in the haft for each band broken.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_scoutriders_on_the_headland",
+      "title": "Scoutriders on the Headland",
+      "giver_npc_id": "farwatch_officer",
+      "zone": "northern_barrens",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "Kolkar Scoutriders ride the headland every night, measuring the watchtower's blind spots. Kelsara has no blind spots. She does have a lot of drudges stealing from the supply line while the scouts watch. She'd like both problems gone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Scoutrider",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Kolkar Drudge",
+          "count": 6
+        }
+      ],
+      "reward_exp": 968,
+      "reward_gold": 3840,
+      "accept_text": "Scoutriders on beasts, drudges on foot. Cut the drudges down first. They're slow, and the scouts will come to rescue them.",
+      "turn_in_text": "The headland's quiet again. You earned this, and a place in my orders.",
+      "next_quest_id": "nb_kragg_the_wall_breaker",
+      "unique_item_defs": [
+        {
+          "name": "Scout-Catcher's Leggings",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Reinforced at the knees for long ambushes in short grass.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Legs (Agi/Sta)"
+        },
+        {
+          "name": "Beast-Rider's Crossbow",
+          "slot": "ranged",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A short, light crossbow built to fire from a moving mount.",
+          "weapon_type": "crossbow",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.0
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.4,
+          "label": "Crossbow (Agi/Int)"
+        },
+        {
+          "name": "Watchtower Warden's Shoulders",
+          "slot": "shoulder",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Mail shoulderguards stamped with a tower. They make you feel taller than you are.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 44,
+          "label": "Mail Shoulders (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_kragg_the_wall_breaker",
+      "title": "Kragg the Wall-Breaker",
+      "giver_npc_id": "farwatch_officer",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 20,
+      "description": "Kragg is a warbrand chief who has never met a palisade he couldn't test. He rides a hide-clad warbeast and brings a ram. Far Watch's wall has stood for ten years and he's decided that's too long.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Kragg the Wall-Breaker",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Kolkar Warbrand",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1170,
+      "reward_gold": 4350,
+      "accept_text": "He comes at dusk, usually. Warbrands first, then him. If he reaches the wall, we all know what happens.",
+      "turn_in_text": "Kragg's down. The wall holds. I'll raise a drink and a banner. Take this, the Post's thanks.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Wall-Breaker's Ram-Horn Helm",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A ram's horns on a mail coif. It looks fierce and weighs more than it should.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 8.8,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Helm (Sta)"
+        },
+        {
+          "name": "Kragg's Battering Maul",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A massive two-handed maul. It breaks walls. And more.",
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 76,
+          "attack_speed": 3.6,
+          "label": "Mace 2H (Str)"
+        },
+        {
+          "name": "Ram-Hide Waistguard",
+          "slot": "waist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Thick hide with iron studs. It's heavy and nearly bite-proof.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Belt (Str/Sta)"
+        },
+        {
+          "name": "Far Watch Commander's Cloak",
+          "slot": "back",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A cloak edged in the Post's colours. It catches the wind and holds your head high.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloak (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_slugs_in_the_reeds",
+      "title": "Slugs in the Reeds",
+      "giver_npc_id": "nb_fen_warden",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "The Slug Fens used to be only slow, wet and quiet. Then the slugs got big. Dugmok's wardens keep the causeway open, but the slugs are creeping across it at night, and nobody wants to explain why a caravan went in and the cargo came out as soup.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Slug",
+          "count": 8
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "Pale, fat, and bigger than a dog. Cut them back from the causeway. If they wriggle, hit harder.",
+      "turn_in_text": "Quiet. Thick, wet, honest quiet. Thank you. Take this, with the fen's thanks.",
+      "next_quest_id": "nb_venom_glands",
+      "unique_item_defs": [
+        {
+          "name": "Fenwarden's Mudproof Coat",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Waxed leather with a mud-shedding finish. It's never quite clean.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Chest (Str/Sta)"
+        },
+        {
+          "name": "Reed-Cutter's Billhook",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A curved blade for cutting reeds. Also slugs.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        },
+        {
+          "name": "Causeway Boots",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "High boots with sealed seams. They keep water out and tempers in.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Boots (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_venom_glands",
+      "title": "Venom Glands",
+      "giver_npc_id": "nb_fen_warden",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "Fen slugs carry venom glands in their backs, a green sac that makes a first-rate poison if you know how to cure it. Dugmok knows how. He'd rather not touch them himself.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "slug_venom_gland",
+          "count": 6
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "Cut them out whole. Don't pop them. If you do, we'll be burying a tauren.",
+      "turn_in_text": "Good clean glands. I'll make something for the next caravan. Take this.",
+      "next_quest_id": "nb_peat_hearts",
+      "unique_item_defs": [
+        {
+          "name": "Venom-Tapper's Gloves",
+          "slot": "hands",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Treated leather that resists most poisons. Not all. Don't test it.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Gloves (Agi)"
+        },
+        {
+          "name": "Fenwarden's Poisoner's Knife",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A narrow blade with a groove for venom. Neat, nasty, fast.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Glandkeeper's Pendant",
+          "slot": "neck",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A tiny glass vial on a cord. It tingles when something poisonous is near.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_peat_hearts",
+      "title": "Peat Hearts",
+      "giver_npc_id": "nb_fen_warden",
+      "zone": "northern_barrens",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "Deep in the fens the peat has started to move. Peat Shamblers, mud and root and old bog-oak, shuffle along the causeway at night. At the heart of each is a warm core that Dugmok can burn through a cold winter, if he can get it out.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "peat_heart",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Peat Shambler",
+          "count": 6
+        }
+      ],
+      "reward_exp": 968,
+      "reward_gold": 3840,
+      "accept_text": "You'll have to break them. Hit the middle. The heart's a lump the size of your fist.",
+      "turn_in_text": "Ha! Warm already. You're a wonder. Take this.",
+      "next_quest_id": "nb_old_mire_maw",
+      "unique_item_defs": [
+        {
+          "name": "Peatwalker's Mossweave Hood",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A cloth hood grown over with moss. It smells like the fen, which is oddly comforting.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Sta/Spi)"
+        },
+        {
+          "name": "Bogwarden's Studded Leggings",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Leather leggings with bog-iron studs. Heavy, damp, and nearly indestructible.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Legs (Str/Sta)"
+        },
+        {
+          "name": "Shambler-Smasher's Staff",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A heavy staff of bog-oak. It's still faintly warm.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "mp5": 1.9
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_old_mire_maw",
+      "title": "Old Mire-Maw",
+      "giver_npc_id": "nb_fen_warden",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 20,
+      "description": "Something old and very hungry lives at the bottom of the deep fen, Old Mire-Maw, a crocolisk older than the causeway and wider than a wagon. Dugmok has lost three wardens to it. He's decided that's enough.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Mire-Maw",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Fenwater Crocolisk",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1020,
+      "reward_gold": 4080,
+      "accept_text": "It hides in the deep pools, at the end of the causeway. Don't stand in the water. Don't stand near the water. If you can, don't stand.",
+      "turn_in_text": "Mire-Maw's dead. I never thought I'd say it. Come back and I'll carve you something from its tooth.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Mire-Maw's Scaled Jerkin",
+          "slot": "chest",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Scales from the old croc. They shed water and blows with equal contempt.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 11.7,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 62,
+          "label": "Mail Chest (Sta)"
+        },
+        {
+          "name": "Maw-Tooth Cleaver",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A great axe edged with a crocolisk's tooth. It bites twice.",
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 76,
+          "attack_speed": 3.6,
+          "label": "Axe 2H (Str)"
+        },
+        {
+          "name": "Fenwarden's Oath-Ring",
+          "slot": "ring",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A ring of bog-iron cast from a warden's old chain. It's heavier than it looks.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_rig_crews",
+      "title": "Rig Crews",
+      "giver_npc_id": "nb_sludge_inspector",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "Nix used to work for the Venture Company, before he learned what they were doing in the fen. Now he watches the rig from a rusted shack and counts the crews. They've been drilling day and night, and the ground is bleeding black. He wants the crews gone, preferably without anyone he likes in the way.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Venture Co. Oil Driller",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1026,
+      "reward_gold": 4080,
+      "accept_text": "The drillers are the loud ones. Stop the noise and the guards come out. They're quieter, and nastier.",
+      "turn_in_text": "Quiet! Real quiet. The fen has a pulse again. Take this, from a man who knows what it's worth.",
+      "next_quest_id": "nb_pressure_gauges",
+      "unique_item_defs": [
+        {
+          "name": "Driller's Soot-Stained Vest",
+          "slot": "chest",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Black with oil and old grease. It stops most things, even a bad smell.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 39,
+          "label": "Leather Chest (Str/Sta)"
+        },
+        {
+          "name": "Pipe-Wrench Maul",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A heavy two-handed wrench. It's built for pipes. It works on skulls too.",
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 76,
+          "attack_speed": 3.6,
+          "label": "Mace 2H (Str/Sta)"
+        },
+        {
+          "name": "Goggles of the Pit-Crew",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Thick lenses, scratched and oily. They show you the world in sepia.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Helm (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_pressure_gauges",
+      "title": "Pressure Gauges",
+      "giver_npc_id": "nb_sludge_inspector",
+      "zone": "northern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "Every rig has a gauge, and every gauge tells a story: how hard they're drilling, how deep, and how close the whole fen is to blowing. Nix wants five of them from the pumpjack guards. He's lost the nerve to ask nicely.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "oil_pressure_gauge",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Pumpjack Guard",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "Pumpjack guards keep them on a chain. Cut the chain. Don't cut the guard's friends. They fight back.",
+      "turn_in_text": "Ha. Look at that needle. They're drilling too deep. It's going to blow. Take this and keep your distance.",
+      "next_quest_id": "nb_sludge_samples",
+      "unique_item_defs": [
+        {
+          "name": "Pumpjack-Guard's Rubber Gloves",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Thick and chemical-proof. They make you feel invincible, which is dangerous.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Gloves (Str/Sta)"
+        },
+        {
+          "name": "Gauge-Reader's Brass Dagger",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A small brass blade with a dial on the pommel. It points to the nearest trouble.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 1.7,
+          "label": "Dagger"
+        },
+        {
+          "name": "Pressure-Valve Ring",
+          "slot": "ring",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A brass ring with a tiny valve. It hisses when you're angry.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_sludge_samples",
+      "title": "Sludge Samples",
+      "giver_npc_id": "nb_sludge_inspector",
+      "zone": "northern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "Where the oil's pooled, the sludge has started to move. Sludge Elementals, black, sticky, and very angry. Nix wants samples to prove to the Company that its drilling is doing this. He'd also like not to be near them while they're collected.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "crude_sludge_sample",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Sludge Elemental",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "Take the samples from the middle. They leave a slick. Careful. The goop doesn't come off.",
+      "turn_in_text": "Look at that. Pure, black, and very illegal. They won't be able to deny it. Take this.",
+      "next_quest_id": "nb_supervisor_lugwizzle",
+      "unique_item_defs": [
+        {
+          "name": "Slickwalker's Oilcloth Cloak",
+          "slot": "back",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Treated cloth that sheds oil and the occasional curse.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak (Sta/Spi)"
+        },
+        {
+          "name": "Sludge-Smeared Greaves",
+          "slot": "legs",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Mail legguards stained black. They look awful and stop blows.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 65,
+          "label": "Mail Legs (Str/Sta)"
+        },
+        {
+          "name": "Black-Gold Pendant",
+          "slot": "neck",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A drop of cured crude in glass. It's weirdly beautiful and heavy.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.3
+          },
+          "label": "Necklace (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_supervisor_lugwizzle",
+      "title": "Supervisor Lugwizzle",
+      "giver_npc_id": "nb_sludge_inspector",
+      "zone": "northern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "Lugwizzle runs the rig. He screams a lot, throws wrenches, and signs every order. If he stops, the rig stops. If the rig stops, the fen heals. Nix has drawn you a map to the pumphouse.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Supervisor Lugwizzle",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Venture Co. Oil Driller",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1100,
+      "reward_gold": 4300,
+      "accept_text": "He's usually in the pumphouse, shouting. He throws oil. Don't stand in it.",
+      "turn_in_text": "Lugwizzle's down, and the rig's quiet. Take this. I owe you more than I'll ever have.",
+      "next_quest_id": "nb_engineer_whirleygig",
+      "unique_item_defs": [
+        {
+          "name": "Lugwizzle's Greasy Gauntlets",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Heavy gloves slick with old oil. They don't slip, which is annoying.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "armor": 6.1,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 32,
+          "label": "Mail Gloves (Sta)"
+        },
+        {
+          "name": "Supervisor's Whistle",
+          "slot": "neck",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A brass whistle on a chain. One blast and the shift ends, usually badly.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta)"
+        },
+        {
+          "name": "Foreman-Beater's Wrench",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A massive wrench with a dented head. It still has a little of Lugwizzle on it.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_engineer_whirleygig",
+      "title": "Engineer Whirleygig",
+      "giver_npc_id": "nb_sludge_inspector",
+      "zone": "northern_barrens",
+      "level_min": 19,
+      "level_max": 22,
+      "description": "With Lugwizzle gone the engineer is panicking. Whirleygig is the one who actually made the drillers work, and he's building something large and noisy in the back of the shop. Nix says it is going to explode. Nix says a lot of things, but he's usually right about that one.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Engineer Whirleygig",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Pumpjack Guard",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 4560,
+      "accept_text": "He's got turrets. Kill the guards, then him. Don't be near him when he trips the switch.",
+      "turn_in_text": "The thing's dead, the engineer's dead, and the fen will heal in time. Take this. It's the last of what I own that's worth giving.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Whirleygig's Goggles",
+          "slot": "head",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Brass goggles with seven lenses. You can see far, and also hear a faint ticking.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.1,
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Helm (Int)"
+        },
+        {
+          "name": "Engineer's Shock-Mail",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Mail wired with copper. It crackles when you're hit.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.7,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Chest"
+        },
+        {
+          "name": "Sprocket-Spun Boots",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Leather boots with tiny gears on the heels. They tick as you walk.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Clockwork Pistol",
+          "slot": "ranged",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A small pistol with a spring-driven action. It jams only when you least expect it.",
+          "weapon_type": "gun",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 2.6,
+          "label": "Gun (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_claim_jumpers",
+      "title": "Claim Jumpers",
+      "giver_npc_id": "nb_lode_surveyor",
+      "zone": "northern_barrens",
+      "level_min": 14,
+      "level_max": 16,
+      "description": "The Boulder Lode was a Horde claim before the Venture Company moved in. Now Miners swing picks on its walls and Overseers shout in its tunnels, and Gruda has the paperwork to prove who owns the ore. The paperwork is not helping.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Venture Co. Miner",
+          "count": 8,
+          "zone": "boulder_lode_mine"
+        }
+      ],
+      "reward_exp": 852,
+      "reward_gold": 3360,
+      "accept_text": "Go in and clear the miners from the lower galleries. They're not soldiers. They'll still hit you with a pick.",
+      "turn_in_text": "The lower galleries are ours again. I can hear the dust settling. Take this.",
+      "next_quest_id": "nb_heart_of_the_vein",
+      "unique_item_defs": [
+        {
+          "name": "Surveyor's Tool-Belt",
+          "slot": "waist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Leather loops and pockets for every kind of tool. It jingles in a way you quickly forget.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Belt (Str/Sta)"
+        },
+        {
+          "name": "Claim-Holder's Pickaxe",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "A sturdy miner's pick with a polished handle. Dig or fight, it doesn't care.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        },
+        {
+          "name": "Miner's Hard-Hat",
+          "slot": "head",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "An iron cap with a lantern bracket. You will bump your head. It won't hurt as much.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 39,
+          "label": "Mail Helm (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_heart_of_the_vein",
+      "title": "Heart of the Vein",
+      "giver_npc_id": "nb_lode_surveyor",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "The Elementals in the mine are made of the same rock as the walls, and the walls are laced with crystal. If Gruda can read the vein, she can tell how much the Company has already taken. Sample cores from the big ones.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "vein_core_sample",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Cavern Rock Elemental",
+          "count": 5,
+          "zone": "boulder_lode_mine"
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "Break them open. You'll find a glowing core in each. Bring me five. I'll read the vein.",
+      "turn_in_text": "The vein's rich. Richer than they let on. And they've taken nearly half. Take this, with my thanks.",
+      "next_quest_id": "nb_sprites_in_the_seams",
+      "unique_item_defs": [
+        {
+          "name": "Vein-Reader's Loupe",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A jeweller's loupe in a leather cap. It shows seams you didn't know were there.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Int/Sta)"
+        },
+        {
+          "name": "Core-Cracker's Hammer",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A small hammer with a broad face. It breaks stone and small egos.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Sta)"
+        },
+        {
+          "name": "Crystal-Core Pendant",
+          "slot": "neck",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A tiny crystal on a cord. It pulses faintly when you walk past ore.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.1
+          },
+          "label": "Necklace (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_sprites_in_the_seams",
+      "title": "Sprites in the Seams",
+      "giver_npc_id": "nb_lode_surveyor",
+      "zone": "northern_barrens",
+      "level_min": 15,
+      "level_max": 17,
+      "description": "The ore sprites are small, bright and mean. They live in the crystal seams and bite anything that gets close. Gruda wants their shards, a chip off each, for her assay table.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ore_sprite_shard",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Ore Sprite",
+          "count": 6,
+          "zone": "boulder_lode_mine"
+        }
+      ],
+      "reward_exp": 910,
+      "reward_gold": 3600,
+      "accept_text": "Quick and glowing. Hit them while they're pausing to sparkle. Don't breathe their dust.",
+      "turn_in_text": "Beautiful. And they test out rich, too. Take this, with the claim's thanks.",
+      "next_quest_id": "nb_prospector_delvik",
+      "unique_item_defs": [
+        {
+          "name": "Sprite-Catcher's Gloves",
+          "slot": "hands",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Fine silk lined with thread of copper. It never quite stops tingling.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Gloves (Int/Sta)"
+        },
+        {
+          "name": "Shard-Studded Wristguards",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Leather bracers set with sprite shards. They catch lamplight and tempers.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Bracers (Agi/Int)"
+        },
+        {
+          "name": "Assayer's Brass Wand",
+          "slot": "ranged",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "A thin brass wand with a crystal tip. It buzzes near ore.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.3,
+            "mp5": 0.3
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 33,
+          "attack_speed": 1.9,
+          "label": "Wand (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_prospector_delvik",
+      "title": "Prospector Delvik",
+      "giver_npc_id": "nb_lode_surveyor",
+      "zone": "northern_barrens",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "Delvik was Gruda's partner once. He sold the claim's map to the Venture Company for a promise and a bag of silver, and now hides in a side adit with a rifle and a bad conscience. Gruda would like him to explain himself, if possible. If not, it won't be a surprise.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Prospector Delvik",
+          "count": 1,
+          "zone": "boulder_lode_mine"
+        },
+        {
+          "type": "kill",
+          "target": "Venture Co. Tinkerer",
+          "count": 5,
+          "zone": "boulder_lode_mine"
+        }
+      ],
+      "reward_exp": 968,
+      "reward_gold": 3840,
+      "accept_text": "He's in a side adit off the middle gallery, behind a pile of rubble. He shoots first. Tinkerers will keep him company. Clear them out and you've done most of it.",
+      "turn_in_text": "So he did get what he deserved. I'd wish it a quieter end, but I'm not sorry. Take this.",
+      "next_quest_id": "nb_foreman_grills",
+      "unique_item_defs": [
+        {
+          "name": "Delvik's Prospector Duster",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A long dust-coat with a hundred pockets. They're mostly empty.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Delvik's Long Rifle",
+          "slot": "ranged",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A long-barrelled rifle, scratched and oiled. It's very accurate, if you can stand the smell.",
+          "weapon_type": "gun",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.0
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.6,
+          "label": "Gun (Agi/Int)"
+        },
+        {
+          "name": "Traitor's Silver Ring",
+          "slot": "ring",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A heavy silver band. It was worth more once.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_foreman_grills",
+      "title": "Foreman Grills",
+      "giver_npc_id": "nb_lode_surveyor",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 20,
+      "description": "At the top of the mine, round a vein of blue crystal, Foreman Grills runs the Company's crew. He wears an iron hat, shouts orders through a bullhorn and is, in his own estimation, the cleverest man ever to hold a pick. Gruda says he's only the loudest.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Foreman Grills",
+          "count": 1,
+          "zone": "boulder_lode_mine"
+        },
+        {
+          "type": "kill",
+          "target": "Venture Co. Overseer",
+          "count": 4,
+          "zone": "boulder_lode_mine"
+        }
+      ],
+      "reward_exp": 1030,
+      "reward_gold": 4080,
+      "accept_text": "He's at the top, in the crystal chamber. Overseers guard the way up. Take them out and he's alone, if you can call a man with a bullhorn alone.",
+      "turn_in_text": "Grills is dead, the claim's ours, and the vein will outlast us all. Take this, with the claim's honour.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Foreman's Iron Hat",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A heavy iron hat with a dented crown. It has survived worse than you.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 8.8,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Helm (Sta)"
+        },
+        {
+          "name": "Grills' Bullhorn-Blade",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A heavy sword with a flared guard, shaped suspiciously like a horn.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Str/Sta)"
+        },
+        {
+          "name": "Vein-Heart Crystal",
+          "slot": "neck",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A chunk of blue crystal from the top of the vein. It glows in the dark.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.5,
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int)"
+        },
+        {
+          "name": "Lodeguard's Mail Shoulders",
+          "slot": "shoulder",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Mail shoulders chipped from a day's labour. They bear the Company's stamp, scratched out.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.2,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Shoulders"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_siege_lines",
+      "title": "Siege Lines",
+      "giver_npc_id": "morshan_outrider",
+      "zone": "northern_barrens",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "Mor'shan Base Camp sits under the Rampart like a thorn in the Kaldorei's side. Kolkar Warbrands surround it. Dask doesn't blame them: he'd attack, too. He'd like the Warbrands to stop camping on the supply road.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Warbrand",
+          "count": 6
+        }
+      ],
+      "reward_exp": 968,
+      "reward_gold": 3840,
+      "accept_text": "Warbrands are tough, loud and always in a group of four. Break one group and the rest will think twice. Don't think twice yourself.",
+      "turn_in_text": "The supply road's clear! Well, clearer. Take this, from a grateful outrider.",
+      "next_quest_id": "nb_break_the_scouts",
+      "unique_item_defs": [
+        {
+          "name": "Warsong Outrider's Leather Tunic",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A Warsong leather tunic, scratched and sun-faded. It's more comfortable than it looks.",
+          "primary_stats": {
+            "agility": 4,
+            "spirit": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Chest (Agi/Spi)"
+        },
+        {
+          "name": "Outrider's Wolfhide Cloak",
+          "slot": "back",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A grey wolf-pelt cloak. It still has a little of the wolf's attitude.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloak (Agi/Int)"
+        },
+        {
+          "name": "Camp Guard's Spear",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A long spear for guarding tent-lines. It reaches further than you think.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 73,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_break_the_scouts",
+      "title": "Break the Scouts",
+      "giver_npc_id": "morshan_outrider",
+      "zone": "northern_barrens",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "Scoutriders ride the hills above the Base Camp and report every movement to the Rampart. Dask doesn't mind being watched. He minds being shot at, which the scouts do for sport.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Scoutrider",
+          "count": 8
+        }
+      ],
+      "reward_exp": 968,
+      "reward_gold": 3840,
+      "accept_text": "They shoot from range and run. Chase the slow ones. The fast ones will come back.",
+      "turn_in_text": "They've stopped watching. Good. I can have a quiet breakfast. Take this.",
+      "next_quest_id": "nb_scout_captain_vrek",
+      "unique_item_defs": [
+        {
+          "name": "Scout-Breaker's Boots",
+          "slot": "feet",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Light boots for chasing riders. They're very quiet.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 18,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Riders' Short-Bow",
+          "slot": "ranged",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A short bow with a pull as stiff as a Kolkar's temper.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        },
+        {
+          "name": "Outrider's Dust-Scarf",
+          "slot": "neck",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "A long cloth scarf against the sand. It's been lucky so far.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "label": "Necklace (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_scout_captain_vrek",
+      "title": "Scout-Captain Vrek",
+      "giver_npc_id": "morshan_outrider",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 20,
+      "description": "Vrek commands the Rampart-watchers and is the one who tells the Kaldorei when to shoot. He rides a swift, sharp-eyed hawk and sees everything on the plain. Dask wants him blinded, preferably permanently.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Scout-Captain Vrek",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Kolkar Raider",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1020,
+      "reward_gold": 4080,
+      "accept_text": "He hides among the scoutriders. If you can get to him, he's weak. If he gets to you, you're not.",
+      "turn_in_text": "Vrek's down. The Rampart can't see us for a day or two. That may be all we need. Take this.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Vrek's Hawk-Feather Hood",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A hood trimmed with hawk feathers. The wind lifts them as if the hawk were still alive.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Helm (Agi/Int)"
+        },
+        {
+          "name": "Scout-Captain's Spyglass-Blade",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A narrow blade with a small spyglass set in the pommel. Impractical, delightful.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.4,
+          "label": "Sword 1H"
+        },
+        {
+          "name": "Warsong Pathfinder's Belt",
+          "slot": "waist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A broad leather belt marked with Warsong runes. It never quite fits, and never falls off.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Belt (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_pickets_past_the_wall",
+      "title": "Pickets Past the Wall",
+      "giver_npc_id": "nb_rampart_captain",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "The Rampart is the Horde's wall against the Kaldorei, and it's a wall with a very thin side. Sentinel Pickets and Archers hold the strip just north of it, firing at anyone who gets near the gate. Korvash wants the strip cleared. He's tired of being polite.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sentinel Picket",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Sentinel Archer",
+          "count": 4
+        }
+      ],
+      "reward_exp": 1026,
+      "reward_gold": 4080,
+      "accept_text": "The pickets hold the line. The archers cover them from the cliffs. Take the archers first if you can. Don't be proud.",
+      "turn_in_text": "The strip's quiet. For now. They'll send more. They always do. Take this.",
+      "next_quest_id": "nb_signal_horns",
+      "unique_item_defs": [
+        {
+          "name": "Rampart Guard's Mail Hauberk",
+          "slot": "chest",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Heavy mail edged with the Rampart's old iron. It's stopped bigger things.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.6,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 62,
+          "label": "Mail Chest"
+        },
+        {
+          "name": "Gatebreaker's Spear",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A long spear taken from a night elf picket. The balance is annoyingly perfect.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 76,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        },
+        {
+          "name": "Korvash's Gate-Ring",
+          "slot": "ring",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A thick iron ring. It's cold to touch and warms in a fight.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_signal_horns",
+      "title": "Signal Horns",
+      "giver_npc_id": "nb_rampart_captain",
+      "zone": "northern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "Every Sentinel Picket carries a signal horn: one blast and the whole forest answers. Korvash wants them silenced before the Kaldorei figure out how thin the Rampart really is.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sentinel_signal_horn",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "Cut them off their belts. Quick, before they sound them. Bring me five.",
+      "turn_in_text": "Five horns. Five fewer calls for help. That's a good day. Take this.",
+      "next_quest_id": "nb_moonspeakers",
+      "unique_item_defs": [
+        {
+          "name": "Silencer's Soft-Soled Boots",
+          "slot": "feet",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Quiet boots in dark leather. You'll startle people.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Boots (Agi)"
+        },
+        {
+          "name": "Horn-Bearer's Cloak",
+          "slot": "back",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A grey cloak with a horn-shaped clasp. It makes a small, sad hooting in the wind.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak (Agi/Int)"
+        },
+        {
+          "name": "Korvash's Brass Knuckles",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A pair of brass knuckles, heavy and ugly. They suit the captain.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 1.8,
+          "label": "Fist Weapon (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_moonspeakers",
+      "title": "Moonspeakers",
+      "giver_npc_id": "nb_rampart_captain",
+      "zone": "northern_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "Behind the pickets stand Moonspeakers, night elf priestesses who call down light on anyone who falls. They're the reason the pickets keep coming back. Take them out and the line breaks.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sentinel Moonspeaker",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1142,
+      "reward_gold": 4560,
+      "accept_text": "They stay in the back, glowing. Close on them quickly. They run if you wait.",
+      "turn_in_text": "The line's breaking. That's what we've been waiting for. Take this, with the Rampart's thanks.",
+      "next_quest_id": "nb_warden_ilthae",
+      "unique_item_defs": [
+        {
+          "name": "Moonspeaker's Silver Circlet",
+          "slot": "head",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A thin silver circlet, cold as moonlight. It makes you feel watched.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.3,
+            "mp5": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Helm"
+        },
+        {
+          "name": "Lunar-Etched Wristwraps",
+          "slot": "wrist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cloth wraps marked with crescent moons. They soothe more than they should.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Bracers (Int/Spi)"
+        },
+        {
+          "name": "Moonlit Dagger",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A narrow silver dagger that glows faintly. It's beautiful and wicked.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_warden_ilthae",
+      "title": "Warden Ilthae",
+      "giver_npc_id": "nb_rampart_captain",
+      "zone": "northern_barrens",
+      "level_min": 20,
+      "level_max": 23,
+      "description": "The Sentinels' commander at the wall is Warden Ilthae, an old, steady, silver-haired woman who hasn't lost a skirmish in twenty years. Korvash respects her. He'd still like her dead.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Warden Ilthae",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Sentinel Picket",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1280,
+      "reward_gold": 4800,
+      "accept_text": "She's got a glaive, a bad temper and no fear. Don't fight her in the open. Don't fight her at all, if you can avoid it. But you can't.",
+      "turn_in_text": "Ilthae's dead. The strip is ours. Take this, and may the wall hold a little longer.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ilthae's Silverleaf Helm",
+          "slot": "head",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A helm of silver-leafed mail. It's too light for its strength.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Helm"
+        },
+        {
+          "name": "Warden's Moonglaive",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A two-handed glaive with a curved blade. It sings in the moonlight.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
+          },
+          "weapon_damage_min": 63,
+          "weapon_damage_max": 85,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str)"
+        },
+        {
+          "name": "Sentinel's Cloak of Moonwool",
+          "slot": "back",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A soft grey cloak. It's warmer than it looks.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak (Sta/Spi)"
+        },
+        {
+          "name": "Gatekeeper's Medal",
+          "slot": "neck",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A medal for holding the Rampart. It's heavy.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_feathers_on_the_wind",
+      "title": "Feathers on the Wind",
+      "giver_npc_id": "nb_dryhills_huntress",
+      "zone": "northern_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "The Dry Hills belong to the Witchwings, harpies who've learned a few tricks from somewhere dark. Zan'ula tracks them for a living. She'd like fewer of them to track.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Witchwing Harpy",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1142,
+      "reward_gold": 4560,
+      "accept_text": "They fly low over the ridges and strike from behind. Keep your back to a hill and you'll be fine.",
+      "turn_in_text": "Good. Quiet in the hills. For a day or so. Take this.",
+      "next_quest_id": "nb_hexed_totems",
+      "unique_item_defs": [
+        {
+          "name": "Zan'ula's Hunter-Leathers",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Hide leathers dyed to match the hills. It's practically invisible.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Chest (Int/Sta)"
+        },
+        {
+          "name": "Witchwing-Feather Cloak",
+          "slot": "back",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A cloak trimmed with witchwing feathers. It makes you feel lighter.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak (Agi/Int)"
+        },
+        {
+          "name": "Hillcrest Hunting Bow",
+          "slot": "ranged",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A bow of pale hillwood. Light, strong and quiet.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_hexed_totems",
+      "title": "Hexed Totems",
+      "giver_npc_id": "nb_dryhills_huntress",
+      "zone": "northern_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "The Witchwing Windcallers carve hex-totems and hang them in the high rocks. Zan'ula doesn't know what they do, only that she dreams badly near them. She'd like them taken down.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "witchwing_hex_totem",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Witchwing Windcaller",
+          "count": 4
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 4800,
+      "accept_text": "Pull the totems from the Windcallers. Don't look at them for long.",
+      "turn_in_text": "Mm. They feel wrong, even in a bag. I'll burn them. Thank you. Take this.",
+      "next_quest_id": "nb_hillcrest_stalkers",
+      "unique_item_defs": [
+        {
+          "name": "Hex-Breaker's Gloves",
+          "slot": "hands",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Cloth gloves stitched with protective sigils. They itch if a hex is near.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Gloves (Int/Sta)"
+        },
+        {
+          "name": "Totem-Smasher's Mace",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A heavy mace with a stone head. It's good at breaking things that stare back.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Sta)"
+        },
+        {
+          "name": "Stormfeather Pendant",
+          "slot": "neck",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A harpy-feather pendant. It trembles in a rising wind.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "label": "Necklace (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_hillcrest_stalkers",
+      "title": "Hillcrest Stalkers",
+      "giver_npc_id": "nb_dryhills_huntress",
+      "zone": "northern_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "Hillcrest Stalkers have been hunting the trail between the hills. They're patient, grey and cunning. Zan'ula wants a dozen pelts and the hills quiet again.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hillcrest Stalker",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 4800,
+      "accept_text": "Stalkers wait on the high ledges. Look up before you walk under a ridge.",
+      "turn_in_text": "Good pelts. I'll sell the rest at the Crossroads. Take this.",
+      "next_quest_id": "nb_serena_bloodfeather",
+      "unique_item_defs": [
+        {
+          "name": "Stalker-Pelt Leggings",
+          "slot": "legs",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Grey fur leggings that muffle your steps. They're warmer than you'd like.",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 44,
+          "label": "Leather Legs (Str/Agi)"
+        },
+        {
+          "name": "Hunter's Quick-Draw Crossbow",
+          "slot": "ranged",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A light crossbow with a snap-draw lever. It's very quick.",
+          "weapon_type": "crossbow",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.4
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.4,
+          "label": "Crossbow (Agi/Int)"
+        },
+        {
+          "name": "Ridgewalker's Boots",
+          "slot": "feet",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Stout boots for rough ridges. Your ankles will thank you.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 22,
+          "label": "Leather Boots (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_serena_bloodfeather",
+      "title": "Serena Bloodfeather",
+      "giver_npc_id": "nb_dryhills_huntress",
+      "zone": "northern_barrens",
+      "level_min": 20,
+      "level_max": 23,
+      "description": "Serena Bloodfeather leads the Witchwings. She has an old blood-feud with the Horde and a long memory. Zan'ula has tracked her for years and never gotten close. You might. You'll certainly try.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Serena Bloodfeather",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Witchwing Slayer",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1260,
+      "reward_gold": 4800,
+      "accept_text": "She flies in at the end of a long hunt. Slayers first, always. If Serena sees you, run to the nearest ridge and fight there.",
+      "turn_in_text": "Serena's dead. The hills are quiet. I can't believe it. Take this, with a hunter's thanks.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Serena's Bloodfeather Mantle",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Crimson feathers stitched to leather. It's gaudy and fierce.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 33,
+          "label": "Leather Shoulders (Int/Sta)"
+        },
+        {
+          "name": "Bloodfeather Talon-Blade",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A curved talon-dagger from Serena's own hand. It's sharp as a prayer.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Windcaller's Hex-Ring",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A ring of black feather and silver. It tingles when you lie.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.0
+          },
+          "label": "Ring (Int/Sta)"
+        },
+        {
+          "name": "Matron's Hunt-Bow",
+          "slot": "ranged",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A long bow strung with harpy sinew. It sings when you draw.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.4
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_roost_raiders",
+      "title": "Roost Raiders",
+      "giver_npc_id": "nb_hollow_shaman",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "Serena's Hollow is a cliff-gorge that winds up to a harpy roost, and the harpies who live there don't love visitors. Rohna is an earthcaller, a spirit-speaker, and she can feel the roost crying out. It's a bad cry. She wants it quieted.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Roost Bonepicker",
+          "count": 6,
+          "zone": "serenas_hollow"
+        }
+      ],
+      "reward_exp": 1026,
+      "reward_gold": 4080,
+      "accept_text": "Go in through the cave mouth. Bonepickers hold the lower nests. They're small, mean, and love the taste of tauren.",
+      "turn_in_text": "Better. The earth is calmer. Take this, with the spirits' thanks.",
+      "next_quest_id": "nb_down_from_the_roost",
+      "unique_item_defs": [
+        {
+          "name": "Earthcaller's Woven Vest",
+          "slot": "chest",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Woven roots and hide. It smells like the first rain.",
+          "primary_stats": {
+            "stamina": 5,
+            "spirit": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 39,
+          "label": "Leather Chest (Sta/Spi)"
+        },
+        {
+          "name": "Gorge-Climber's Gloves",
+          "slot": "hands",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Thick grippy gloves. They'll hold you on any cliff.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Gloves (Agi/Sta)"
+        },
+        {
+          "name": "Hollow-Guard's Spear",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A long spear for reaching nests. It also reaches harpies.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 76,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_down_from_the_roost",
+      "title": "Down from the Roost",
+      "giver_npc_id": "nb_hollow_shaman",
+      "zone": "northern_barrens",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "The harpies line their nests with down. Fine, white, and warm. Rohna's totem-carvers use it in their rites. She'd like six handfuls, and no more harpies in her sleep.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "harpy_roost_down",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Harpy Sky-Sentry",
+          "count": 4,
+          "zone": "serenas_hollow"
+        }
+      ],
+      "reward_exp": 1026,
+      "reward_gold": 4080,
+      "accept_text": "Pull the down from the nests. Mind the sentries; they watch from the high ledges.",
+      "turn_in_text": "Soft as a promise. Thank you. The spirits will be pleased. Take this.",
+      "next_quest_id": "nb_windcallers_perch",
+      "unique_item_defs": [
+        {
+          "name": "Feather-Light Cloak",
+          "slot": "back",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A cloak lined with soft down. It weighs almost nothing.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloak (Int/Sta)"
+        },
+        {
+          "name": "Rohna's Totem-Charm",
+          "slot": "neck",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A small carved totem on a cord. It hums when spirits are near.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int/Sta)"
+        },
+        {
+          "name": "Down-Stuffed Belt",
+          "slot": "waist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "A thick cloth belt. It's lighter than it looks, and warm.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Belt (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_windcallers_perch",
+      "title": "The Windcaller's Perch",
+      "giver_npc_id": "nb_hollow_shaman",
+      "zone": "northern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "High in the gorge sits a perch where Windcaller Skreeva commands the winds that blow the harpies up and down the cliff. Rohna says the winds listen to her. She'd rather they listened to someone else.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Windcaller Skreeva",
+          "count": 1,
+          "zone": "serenas_hollow"
+        },
+        {
+          "type": "kill",
+          "target": "Harpy Windcaller",
+          "count": 4,
+          "zone": "serenas_hollow"
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "She stands on the east ledge, above the middle of the gorge. Her Windcallers keep the air thick. Take them first, then her.",
+      "turn_in_text": "Skreeva's dead. The winds are quiet. I can hear them breathing. Take this.",
+      "next_quest_id": "nb_harpy_matriarch",
+      "unique_item_defs": [
+        {
+          "name": "Skreeva's Wind-Caller Robe",
+          "slot": "chest",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A pale cloth robe that lifts in the faintest breeze.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 20,
+          "label": "Cloth Chest (Int/Sta)"
+        },
+        {
+          "name": "Perch-Warden's Totem",
+          "slot": "off_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A small wind-totem of grey stone. It hums softly.",
+          "weapon_type": "totem",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 1.7,
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 0.0,
+          "label": "Totem"
+        },
+        {
+          "name": "Windcaller's Feather-Ring",
+          "slot": "ring",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A ring of woven feather and silver wire. It's weightless.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.3
+          },
+          "label": "Ring (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "nb_harpy_matriarch",
+      "title": "The Harpy Matriarch",
+      "giver_npc_id": "nb_hollow_shaman",
+      "zone": "northern_barrens",
+      "level_min": 20,
+      "level_max": 23,
+      "description": "At the top of the gorge sits the roost, a great bowl of nests, and in the centre of it, the Matriarch, mother of every harpy in the hills. Rohna says her cry is the one the earth keeps answering. End it, and the hollow will be quiet.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Harpy Matriarch",
+          "count": 1,
+          "zone": "serenas_hollow"
+        },
+        {
+          "type": "kill",
+          "target": "Harpy",
+          "count": 6,
+          "zone": "serenas_hollow"
+        }
+      ],
+      "reward_exp": 1300,
+      "reward_gold": 4800,
+      "accept_text": "She won't leave the nest. She'll call every harpy in the roost the moment she sees you. Don't fight her with the whole flock watching.",
+      "turn_in_text": "The Matriarch's dead. The roost is silent, and the earth is quiet. I'll sing the spirits home. Take this, and my thanks.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Matriarch's Down-Mantle",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A soft white mantle woven from the Matriarch's own down. It hums with a lullaby.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.5,
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Shoulders"
+        },
+        {
+          "name": "Roost-Breaker's Maul",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A heavy two-handed maul with a nest-twig handle. It's rough, but it hits.",
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
+          },
+          "weapon_damage_min": 63,
+          "weapon_damage_max": 85,
+          "attack_speed": 3.6,
+          "label": "Mace 2H (Str)"
+        },
+        {
+          "name": "Gorge-Warden's Greaves",
+          "slot": "legs",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Mail greaves with feathered trim. They keep you steady on a cliff.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.7,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "mail",
+          "armor_value": 71,
+          "label": "Mail Legs"
+        },
+        {
+          "name": "Earthcaller's Eagle-Eye Amulet",
+          "slot": "neck",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A carved eagle of grey stone. Its eyes glow faintly when something circles above.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}
