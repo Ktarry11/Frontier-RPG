@@ -172,6 +172,14 @@ SHEETS = {
     "swamp": "assets/tiles/swamp/tiles/Tile_32.png",
     "damp_dungeons_deco": "assets/tiles/damp_dungeons/DungeonDecorations.png",
     "props_nature": "assets/tiles/props_nature/plants_rocks_food.png",
+    # Real round bush sprites (native 32x32, no stretching needed) -
+    # replaces several biomes' "bushes" tile_id incorrectly pointing at
+    # props_nature's bare-branch TREE crop (Kyle: "the trees are still
+    # too small and look weird" - traced to this exact mis-mapping,
+    # since a tree silhouette squashed to one tile reads as a tiny
+    # weird dead tree, not a bush, no matter the size).
+    "bush_1": "assets/tiles/vegetation/bush_1.png",
+    "bush_2": "assets/tiles/vegetation/bush_2.png",
     "lava": "assets/tiles/lava/freelavatileset-Sheet.png",
     "resurrected_rpg_props": "assets/tiles/resurrected_rpg/Props.png",
     # Paved-road pack (5 palettes: stone/brick/slate/terracotta/cobble) -
@@ -916,7 +924,17 @@ BIOME_TILES = {
         "rock": ("cave_wall_1", (0, 0, 83, 132), True),
         "cliff": ("cave_wall_2", (0, 0, 90, 132), True),
         "tree": ("props_nature", (310, 235, 40, 145), False),
-        "bushes": ("props_nature", (310, 235, 40, 145), False),
+        # REAL BUG FIXED this session (Kyle: "the trees are still too
+        # small and look weird") - this used to point "bushes" at the
+        # exact same bare-branch TREE crop as "tree" above, no
+        # distinguishing rationale (unlike savanna_thornscrub's genuine
+        # thorn-bramble read) - a tree silhouette squashed to one tile
+        # just reads as a tiny weird dead tree. Real round bush sprites,
+        # native 32x32 so no stretching.
+        "bushes": [
+            ("bush_1", (0, 0, 32, 32), False),
+            ("bush_2", (0, 0, 32, 32), False),
+        ],
         # Stand-in for bone piles/silithid mounds - gray boulder, not real
         # bone art. Flag stays here until a real pack is sourced.
         "small_rocks": ("props_nature", (400, 126, 101, 113), False),
@@ -1009,9 +1027,16 @@ BIOME_TILES = {
         "grass_tuft": ("swamp", (0, 0, 32, 32), False),
         "shallow_water": ("water_ice", (36, 73, 24, 24), False),
         "deep_water": ("water_ice", (42, 73, 24, 24), False),
-        # Fen scrub - generator places "bushes" collision at 15% density
-        # throughout. Bare-tree crop, same as every other bushes mapping.
-        "bushes": ("props_nature", (310, 235, 40, 145), False),
+        # REAL BUG FIXED this session (Kyle: "the trees are still too
+        # small and look weird") - this is the exact mapping behind the
+        # tiny tree-shaped sprites in Slug Fens' pond-edge fringe
+        # (traced directly, see zone_expansion_generators.py's "bushes"
+        # fringe placement). Bare-tree crop replaced with a real round
+        # bush, native 32x32 so no stretching.
+        "bushes": [
+            ("bush_1", (0, 0, 32, 32), False),
+            ("bush_2", (0, 0, 32, 32), False),
+        ],
     },
     # Central Barrens' three oases (Lushwater, Forgotten Pools, Raider's
     # Rest) - all three use the identical concentric-ring generator code
