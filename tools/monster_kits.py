@@ -1139,6 +1139,124 @@ TIRISFAL_KITS = {
     ],
 }
 
+DUROTAR_OPEN_KITS = {
+    # ---- Red Wastes -----------------------------------------------------
+    "rustfang_hyena": [
+        ("Rending Bite", "damage", 18, 0, 0, "physical", {}),
+        ("Pack Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 10}}),
+        ("Rake", "dot", 8, 3, 0, "physical", {"duration": 3}),
+    ],
+    "redtooth": [
+        # Old Redtooth, alpha of the Rustfang packs. PLANNED (engine): Howl
+        # will call 2 hyenas at ~50% HP.
+        ("Alpha Bite", "damage", 28, 0, 0, "physical", {}),
+        ("Howl of the Pack", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 16}}),
+        ("Hamstring Rake", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "mesa_stonebiter": [
+        ("Stone Jaw", "damage", 22, 0, 0, "physical", {}),
+        ("Sandstone Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 24}}),
+    ],
+    # ---- Thunder Ridge --------------------------------------------------
+    "static_hatchling": [
+        ("Nip", "damage", 14, 0, 0, "physical", {}),
+        ("Static Spark", "dot", 7, 3, 0, "nature", {"duration": 3}),
+    ],
+    "ridge_stormbinder": [
+        ("Lightning Lash", "damage", 26, 0, 20, "nature", {}),
+        ("Storm Ward", "buff", 0, 6, 16, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 20}}),
+        ("Chain Shock", "damage", 34, 4, 26, "nature", {}),
+    ],
+    "rumblejaw": [
+        # Thunder Ridge named rare. PLANNED (engine): Ground Tremor will stun.
+        ("Seismic Bite", "damage", 34, 0, 0, "physical", {}),
+        ("Ground Tremor", "damage", 30, 4, 0, "physical", {"is_aoe": True}),
+        ("Hardened Plates", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 30}}),
+    ],
+    # ---- Kolkar Crag ----------------------------------------------------
+    "bloodhoof_the_lamed": [
+        # Kolkar Crag named rare - a crippled outrider who charges anyway.
+        ("Crippled Charge", "damage", 32, 0, 0, "physical", {}),
+        ("Rage of the Lamed", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 20}}),
+        ("Trample", "dot", 12, 4, 0, "physical", {"duration": 3}),
+    ],
+    # ---- Rocktusk Farm --------------------------------------------------
+    "rocktusk_farmhand": [
+        ("Pitchfork Jab", "damage", 17, 0, 0, "physical", {}),
+        ("Thorn Salve", "heal", 12, 5, 0, "nature", {}),
+    ],
+    "tamed_razorback": [
+        ("Gore", "damage", 20, 0, 0, "physical", {}),
+        ("Trampling Charge", "damage", 28, 4, 0, "physical", {}),
+    ],
+    "matron_sowbelly": [
+        # Rocktusk Farm named rare - the farm's breeding sow, enormous and furious.
+        ("Gore", "damage", 28, 0, 0, "physical", {}),
+        ("Sow's Fury", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
+        ("Rotting Bile", "dot", 11, 4, 0, "nature", {"duration": 4}),
+    ],
+    # ---- Scuttle Coast --------------------------------------------------
+    "saltcrust_crab": [
+        ("Claw Snap", "damage", 16, 0, 0, "physical", {}),
+        ("Shell Up", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 20}}),
+    ],
+    "murloc_netcaster": [
+        ("Net Slash", "damage", 15, 0, 0, "physical", {}),
+        ("Tangling Net", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -12}}),
+    ],
+    "gillfin_net_cutter": [
+        ("Hooked Blade", "damage", 26, 0, 0, "physical", {}),
+        ("Rending Net", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+        ("Tidal Mend", "heal", 22, 6, 0, "nature", {}),
+    ],
+    # ---- Skull Rock Approach -------------------------------------------
+    "burning_blade_torchbearer": [
+        ("Torch Strike", "damage", 24, 0, 0, "fire", {}),
+        ("Ignite", "dot", 12, 3, 0, "fire", {"duration": 3}),
+    ],
+    "cinder_imp": [
+        ("Firebolt", "damage", 20, 0, 12, "fire", {}),
+        ("Fel Flicker", "dot", 9, 3, 10, "fire", {"duration": 3}),
+    ],
+    "houndmaster_kraygh": [
+        # Skull Rock Approach named rare. PLANNED (engine): calls 2 Felhounds at ~60%.
+        ("Fel Whip", "damage", 30, 0, 22, "shadow", {}),
+        ("Rally the Hounds", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
+        ("Shadow Brand", "debuff", 0, 4, 18, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -16}}),
+    ],
+
+    # ---- previously missing Durotar kits ---------------------------------
+    "quilboar_shaman": [
+        ("Earth Bolt", "damage", 20, 0, 14, "nature", {}),
+        ("Thorn Ward", "buff", 0, 6, 14, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 20}}),
+        ("Rejuvenating Mud", "heal", 18, 6, 16, "nature", {}),
+    ],
+    "drowned_sailor": [
+        ("Rusted Cutlass", "damage", 16, 0, 0, "physical", {}),
+        ("Seawater Retch", "dot", 8, 4, 0, "nature", {"duration": 3}),
+    ],
+    "felhound": [
+        ("Fel Bite", "damage", 26, 0, 0, "shadow", {}),
+        ("Mana Burn Howl", "debuff", 0, 5, 0, "shadow",
+         {"duration": 3, "stat_mods": {"intellect": -14}}),
+        ("Rending Claws", "dot", 11, 4, 0, "physical", {"duration": 3}),
+    ],
+}
+
 VALLEY_OF_TRIALS_KITS = {
     "broodmother_sarrix": [
         # Scorpid Nest named rare - venom + a brood-protecting shell.
@@ -1773,7 +1891,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

@@ -1,0 +1,553 @@
+{
+  "_notes": "Durotar open-world named-rare + boss loot (2026-10-21). One item drops per kill from the creature's pool. Numbers from the real loot formulas (tools/build_durotar_content.py); ilvl>=10 so secondary stats are allowed.",
+  "Old Redtooth": [
+    {
+      "name": "Redtooth's Fang-Knife",
+      "slot": "main_hand",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Pulled from the jaw of the alpha himself. Still thinks it's hunting.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 31,
+      "weapon_damage_max": 42,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Rustfang Hunter's Mask",
+      "slot": "head",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Hyena-hide, stitched around a skull that did not need it any more.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "attack_power": 3.9
+      },
+      "armor_type": "leather",
+      "armor_value": 26
+    },
+    {
+      "name": "Pack-Mother's Charm",
+      "slot": "neck",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Every pack has someone who keeps the others alive. This is what she wore.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 1.9,
+        "mp5": 0.4
+      }
+    },
+    {
+      "name": "Hauberk of the Alpha",
+      "slot": "chest",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Layers of hide and scale. It shrugs off teeth with a sort of smug patience.",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 57
+    }
+  ],
+  "Rumblejaw": [
+    {
+      "name": "Rumblejaw's Slab",
+      "slot": "off_hand",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "A plate of fused ridge-stone. Rattles, faintly, when something big walks by.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "armor_value": 30,
+      "block_value": 38
+    },
+    {
+      "name": "Thunderbitten Staff",
+      "slot": "main_hand",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "The wood is petrified. The lightning it holds is not.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9.9,
+        "crit_chance_spell": 0.5
+      },
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 24,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Seer's Stoneplate Bracers",
+      "slot": "wrist",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Slate bracers. Listen to them and you can hear the ridge settling.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "mp5": 0.4
+      },
+      "armor_type": "mail",
+      "armor_value": 30
+    },
+    {
+      "name": "Quake-Walker's Greaves",
+      "slot": "legs",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Heavy plates that don't care how the ground feels about it.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 91
+    }
+  ],
+  "Bloodhoof the Lamed": [
+    {
+      "name": "Lamed Outrider's Glaive",
+      "slot": "main_hand",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Balanced for a rider with one good leg. Rides on regardless.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      },
+      "weapon_damage_min": 59,
+      "weapon_damage_max": 80,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Outrider's Hunting Belt",
+      "slot": "waist",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "A Kolkar belt, studded with the tags of every kill he refused to stop counting.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "attack_power": 2.8
+      },
+      "armor_type": "leather",
+      "armor_value": 19
+    },
+    {
+      "name": "Hoofbeat Greaves",
+      "slot": "feet",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "You can feel a gallop in the soles. Even standing still.",
+      "primary_stats": {
+        "strength": 2,
+        "agility": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 30
+    },
+    {
+      "name": "Wrangler's Mending Band",
+      "slot": "ring",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "The ring he used on wounded mounts. It did a lot of mending, in the end.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 2.1,
+        "mp5": 0.4
+      }
+    }
+  ],
+  "Matron Sowbelly": [
+    {
+      "name": "Farmyard Tenderiser",
+      "slot": "main_hand",
+      "item_level": 13,
+      "rarity": "rare",
+      "required_level": 10,
+      "flavor_text": "A fence-post with ideas. The Matron had opinions about fences.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.1
+      },
+      "weapon_damage_min": 29,
+      "weapon_damage_max": 40,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Sowbelly's Silk Shawl",
+      "slot": "shoulder",
+      "item_level": 13,
+      "rarity": "rare",
+      "required_level": 10,
+      "flavor_text": "Somebody wove this for a farmer's wife. She never got to wear it.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 12
+    },
+    {
+      "name": "Matron's Ear-Tag",
+      "slot": "trinket",
+      "item_level": 13,
+      "rarity": "rare",
+      "required_level": 10,
+      "flavor_text": "Iron, numbered, and still warm. She was number one.",
+      "primary_stats": {
+        "stamina": 1
+      },
+      "secondary_stats": {
+        "defense_rating": 0.1,
+        "dodge_rating": 0.1
+      }
+    },
+    {
+      "name": "Trough-Scrapers",
+      "slot": "hands",
+      "item_level": 13,
+      "rarity": "rare",
+      "required_level": 10,
+      "flavor_text": "Plate gauntlets, dented in a way that only makes sense if you have met the Matron.",
+      "primary_stats": {
+        "strength": 1,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "defense_rating": 0.1
+      },
+      "armor_type": "plate",
+      "armor_value": 39
+    }
+  ],
+  "Gillfin the Net-Cutter": [
+    {
+      "name": "Net-Cutter's Hooked Blade",
+      "slot": "main_hand",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Half a sword, half a gaff. Entirely sure which half it prefers.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "dodge_rating": 0.4,
+        "parry_rating": 0.3
+      },
+      "weapon_damage_min": 31,
+      "weapon_damage_max": 42,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Driftwood Harpoon-Crossbow",
+      "slot": "ranged",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Fires harpoons. The harpoons are mostly spite.",
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Tidewrack Wristwraps",
+      "slot": "wrist",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Dry-rotted netting, enchanted by someone with a long memory of drowning.",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1,
+        "spell_power": 1.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 8
+    },
+    {
+      "name": "Pearl of the Net-Cutter",
+      "slot": "neck",
+      "item_level": 14,
+      "rarity": "rare",
+      "required_level": 11,
+      "flavor_text": "Pried from a clam that took it personally.",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.4,
+        "mp5": 0.3
+      }
+    }
+  ],
+  "Houndmaster Kraygh": [
+    {
+      "name": "Kraygh's Felwhip Wand",
+      "slot": "ranged",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "The leather's burned into the grip. It cracks even when you're not holding it.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 3.7
+      },
+      "weapon_damage_min": 29,
+      "weapon_damage_max": 39,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Houndmaster's Fel-Pistol",
+      "slot": "ranged",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Fires something that mends the hounds. You've just decided it mends you instead.",
+      "weapon_type": "gun",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 2.1,
+        "mp5": 0.4
+      },
+      "weapon_damage_min": 29,
+      "weapon_damage_max": 39,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Kennel-Keeper's Plate",
+      "slot": "chest",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Spiked and scorched in all the places a hound likes to bite.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "armor": 12.2,
+        "parry_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 97
+    },
+    {
+      "name": "Netherfire Handwraps",
+      "slot": "hands",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "They glow when the dark is close. They're glowing now.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 2.4,
+        "fire_spell_power": 2.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 10
+    }
+  ],
+  "Warlord Krellian": [
+    {
+      "name": "Krellian's Cleaver",
+      "slot": "main_hand",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "A Kolkar war-axe, longer than the hand that held it.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      },
+      "weapon_damage_min": 59,
+      "weapon_damage_max": 80,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Warlord's Hierophant Cloak",
+      "slot": "back",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Sun-faded scarlet. Smells of smoke, hides, and a prayer to someone who stopped answering.",
+      "primary_stats": {
+        "stamina": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {
+        "healing_power": 0.9
+      },
+      "armor_type": "accessory",
+      "armor_value": 0
+    },
+    {
+      "name": "Crag-Scale Legguards",
+      "slot": "legs",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Mail laced with small plates, each stamped with a Kolkar brand.",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3,
+        "dodge_rating": 0.3
+      },
+      "armor_type": "mail",
+      "armor_value": 61
+    },
+    {
+      "name": "Kolkar Horn Bow",
+      "slot": "ranged",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Drawn from the horn of a beast older than the Kolkar are.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 1,
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "attack_power": 2.1
+      },
+      "weapon_damage_min": 28,
+      "weapon_damage_max": 38,
+      "attack_speed": 2.8
+    }
+  ],
+  "Stormhide Patriarch": [
+    {
+      "name": "Patriarch's Thunderhammer",
+      "slot": "main_hand",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "The spark inside never goes out. It's been trying to for a while.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 14.9,
+        "spell_penetration": 6.2
+      },
+      "weapon_damage_min": 59,
+      "weapon_damage_max": 80,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Stormhide Pauldrons",
+      "slot": "shoulder",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Thick, static-crackling hide. Rubs the wrong way on cold mornings.",
+      "primary_stats": {
+        "stamina": 3,
+        "agility": 2
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.2
+      },
+      "armor_type": "leather",
+      "armor_value": 28
+    },
+    {
+      "name": "Cracked-Plate Girdle",
+      "slot": "waist",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Scales fused into a belt by a bolt of lightning that nobody asked for.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.2,
+        "block_rating": 0.3,
+        "dodge_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 45
+    },
+    {
+      "name": "Storm-Eye Idol",
+      "slot": "trinket",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Stare at it long enough and it stares back with the weather.",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.5,
+        "hit_rating": 0.1
+      }
+    }
+  ]
+}

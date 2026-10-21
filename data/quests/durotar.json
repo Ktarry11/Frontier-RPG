@@ -63,7 +63,7 @@
             "spirit": 2
           },
           "armor_value": 10,
-          "flavor_text": "No amount of scrubbing will truly clean these threads, but you tighten the wraps anyway\u2014there is no turning back now.",
+          "flavor_text": "No amount of scrubbing will truly clean these threads, but you tighten the wraps anyway—there is no turning back now.",
           "label": "Cloth (Int)"
         },
         {
@@ -136,8 +136,8 @@
       "accept_text": "Clear the approach first. I mean that as an order, not a suggestion - the cave itself is worse, and I'd rather you walk in without half the patrol already alerted. Ten of them. Don't rush it.",
       "turn_in_text": "The approach is quiet. It won't stay that way once you go into the cave itself - nothing about Skull Rock stays quiet for long - but you've earned the right to try. Two names matter once you're inside: Neru Fireblade and Gazz'uz. Neither of them will make this easy.",
       "next_quest_id": "durotar_skullrock_neru",
-      "level_min": 7,
-      "level_max": 10,
+      "level_min": 8,
+      "level_max": 11,
       "unique_item_defs": [
         {
           "name": "Approach-Warden's Blade",
@@ -294,13 +294,13 @@
       "accept_text": "Eight feathers, good condition, no scorch marks - the buyer's picky about scorch marks for some reason I've genuinely never asked about. Just bring me eight and I'll cut you in fair.",
       "turn_in_text": "Perfect condition, all eight. I don't know what a fletcher in Orgrimmar wants with this many vulture feathers and honestly at this point I've stopped wondering. Here's your cut.",
       "next_quest_id": null,
-      "level_min": 5,
-      "level_max": 8
+      "level_min": 6,
+      "level_max": 9
     },
     {
       "quest_id": "durotar_prowler_den",
       "title": "Scouting the Prowler Den",
-      "description": "Borka the Watchful has noticed the Durotar prowlers denning closer to the road than usual, and he'd rather know exactly where before Razor Hill sends anyone in after them properly. He's not asking for a fight yet - just eyes on the den itself, confirmed and reported back.",
+      "description": "Borka the Watchful has noticed the Durotar prowlers denning closer to the road than usual, and he'd rather know exactly where before Razor Hill sends anyone in after them properly. The cats have made a den in the dry basin west of the highway, roughly halfway between the Orgrimmar gate and Razor Hill. He's not asking for a fight yet - just eyes on the den itself, confirmed and reported back.",
       "giver_npc_id": "durotar_rocktusk_scout",
       "zone": "durotar",
       "objectives": [
@@ -314,11 +314,1801 @@
       ],
       "reward_exp": 260,
       "reward_gold": 850,
-      "accept_text": "Southwest of here, past the ridge. Get close enough to confirm the den and get out. I'd rather have a live scout with an answer than a dead hero with a guess.",
+      "accept_text": "North of here, in the dry basin west of the highway, about halfway to the Orgrimmar gate. Get close enough to confirm the den and get out. I'd rather have a live scout with an answer than a dead hero with a guess.",
       "turn_in_text": "Good. Now we actually know where they've dug in instead of guessing from droppings and torn-up ground. That's worth more to me than another dead prowler would've been.",
       "next_quest_id": null,
-      "level_min": 5,
-      "level_max": 8
+      "level_min": 6,
+      "level_max": 9
+    },
+    {
+      "quest_id": "dur_eyes_on_road",
+      "title": "Eyes on the Road",
+      "giver_npc_id": "durotar_orgrimmar_gate_guard",
+      "zone": "durotar",
+      "level_min": 6,
+      "level_max": 9,
+      "next_quest_id": "dur_old_redtooth",
+      "description": "The Outrider at the gate watches the highway for a living, and for three weeks the highway has been watching back. Rustfang hyenas have started tailing the caravans out of Orgrimmar, hanging a hundred paces behind the last wagon and picking off whatever falls behind. Wagons are late. Drivers are quitting. The Outrider would deal with it herself, but the gate is hers to hold, and someone has to be seen to be doing something.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rustfang Hyena",
+          "count": 8
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 1200,
+      "accept_text": "Out on the Red Wastes, either side of the highway. They come in threes and fours, rust-red, grinning like they know something. They do not know anything. Make that clear to them.",
+      "turn_in_text": "Fewer of them on the road already - I can hear it. Quiet, I mean. There's a bigger one, though. The drivers talk about him like he's a tax collector. Take this and keep your eyes open.",
+      "unique_item_defs": [
+        {
+          "name": "Outrider's Roadcloak",
+          "slot": "back",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Dust-coloured on the outside. The inside is mostly pockets.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "accessory",
+          "armor_value": 0,
+          "label": "Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Gate-Watch Brigandine",
+          "slot": "chest",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Standard issue for the gate. Fits almost nobody exactly.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 24,
+          "label": "Mail Chest (Str/Agi)"
+        },
+        {
+          "name": "Wasteland Spear",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A long spear for short tempers.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 10
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str)"
+        },
+        {
+          "name": "Hyena-Tooth Ring",
+          "slot": "ring",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Strung on a leather thong; the thong has seen worse days.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "dur_old_redtooth",
+      "title": "Wanted: Old Redtooth",
+      "giver_npc_id": "durotar_orgrimmar_gate_guard",
+      "zone": "durotar",
+      "level_min": 8,
+      "level_max": 11,
+      "next_quest_id": null,
+      "description": "Every pack has a head, and the Rustfang's is a hyena the drivers call Old Redtooth. Scarred muzzle, one ear torn to a notch, bigger than a pony and smarter than most of the guards at the gate. He doesn't charge. He circles, he waits, he lets the others bleed you first. The Outrider has a bounty on him that's older than some of the recruits.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rustfang Hyena",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Old Redtooth",
+          "count": 1
+        }
+      ],
+      "reward_exp": 760,
+      "reward_gold": 2600,
+      "accept_text": "He keeps to the open ground off the highway, not far from the gate road. Don't fight him with your back to a hill - he'll have two friends up there before you finish the thought.",
+      "turn_in_text": "That's the notch, right there. Redtooth's done. Good. Keep the pelt if you want, but I think you'll want what he guarded.",
+      "unique_item_defs": [
+        {
+          "name": "Redtooth's Fang-Knife",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Pulled from the jaw of the alpha himself. Still thinks it's hunting.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Rustfang Hunter's Mask",
+          "slot": "head",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Hyena-hide stitched around a skull that did not need it any more.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.9
+          },
+          "armor_type": "leather",
+          "armor_value": 26,
+          "label": "Leather Helm (Agi/Int/AP)"
+        },
+        {
+          "name": "Pack-Mother's Charm",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Every pack has someone who keeps the others alive. This is what she wore.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 1.9,
+            "mp5": 0.4
+          },
+          "label": "Necklace (Healing/MP5)"
+        },
+        {
+          "name": "Hauberk of the Alpha",
+          "slot": "chest",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Layers of hide and scale. It shrugs off teeth with a sort of smug patience.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 57,
+          "label": "Mail Chest (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 14,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dur_scorpid_season",
+      "title": "Scorpid Season",
+      "giver_npc_id": "durotar_patrol_1",
+      "zone": "durotar",
+      "level_min": 6,
+      "level_max": 9,
+      "description": "The Sentry's patrol cuts across the east side of the highway and every year around this time the armored scorpids come out from under their rocks to mate, or fight, or - he's honestly never been clear which. What he is clear on is that his boots are not made for it. Thin them out before they spread to the road.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Armored Scorpid",
+          "count": 8
+        }
+      ],
+      "reward_exp": 320,
+      "reward_gold": 1300,
+      "accept_text": "Out past the road, near the rock shelves. The plates are thick, so hit the gaps. They don't hunt you. They just don't move out of your way.",
+      "turn_in_text": "Quieter already. I'll be able to walk the whole beat in peace for a week. Take something from the stores - Orgrimmar won't miss it, and if it does, it'll blame me.",
+      "unique_item_defs": [
+        {
+          "name": "Scorpid-Plate Pauldrons",
+          "slot": "shoulder",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Sections of scorpid carapace on a plate frame. They clack when you shrug.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 31,
+          "label": "Plate Shoulders (Str/Sta)"
+        },
+        {
+          "name": "Sentry's Quilted Wraps",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Padded cloth, because even sentries get tired of bruises.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Bracers (Int/Spi)"
+        },
+        {
+          "name": "Tail-Stinger Dirk",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A scorpid tail-spine on a hilt. It's better than it sounds.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta)"
+        },
+        {
+          "name": "Carapace Buckler",
+          "slot": "off_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Small, round, and a little bit venomous looking.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_value": 14,
+          "block_value": 17,
+          "label": "Shield (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 9,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "dur_warm_blanket",
+      "title": "A Warm Blanket",
+      "giver_npc_id": "durotar_traveler",
+      "zone": "durotar",
+      "level_min": 6,
+      "level_max": 9,
+      "description": "Grosk the Wanderer has crossed the Wastes more times than he can count and has never once been cold, which is why it took him three nights to notice that Grukk's boy is. The desert freezes after dark, and the child has been sleeping on a bedroll thin enough to read through. Prowler pelts are the warmest thing for a hundred miles. Grosk has too many knees to hunt them himself.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "durotar_prowler_pelt",
+          "count": 6
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 1000,
+      "accept_text": "Durotar Prowlers - the big sand-coloured cats. They den in the rough ground west of the highway. Six good pelts, no holes in them. The boy's small, but he's not that small.",
+      "turn_in_text": "Look at that. He's asleep already and I haven't even tucked it in. You've done a better thing than most do all year. I'll not be needing this anymore - the road gave it to me, and it gave you a better deal.",
+      "unique_item_defs": [
+        {
+          "name": "Wanderer's Prowlerhide Vest",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Warm on a cold night. Smells like campfire and apology.",
+          "primary_stats": {
+            "agility": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Chest (Agi/Spi)"
+        },
+        {
+          "name": "Roadworn Walking Staff",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Has walked further than you will. Has opinions on the matter.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "stamina": 6,
+            "spirit": 6
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 13,
+          "attack_speed": 3.2,
+          "label": "Staff (Sta/Spi)"
+        },
+        {
+          "name": "Kid's Lucky Pebble",
+          "slot": "trinket",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A smooth river-stone painted with a face. The face is smiling at something behind you.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Trinket (Int/Sta)"
+        },
+        {
+          "name": "Dustproof Boots",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Seams sealed with something sticky and mysterious.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Boots (Str/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 9,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "dur_thunder_approach",
+      "title": "The Rumble Below",
+      "giver_npc_id": "durotar_thunder_ridge_scout",
+      "zone": "durotar",
+      "level_min": 8,
+      "level_max": 11,
+      "next_quest_id": "dur_stormbinders",
+      "description": "Ridgewatch Kurr has watched Thunder Ridge for years and the ridge has never been this loud. Thunder lizards and their cousins the thunderhides are wandering down off the slopes in numbers, crowding the approach to the cave and snapping at anyone who gets between them and the water. He wants the traffic thinned before something worse follows them down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thunder Lizard",
+          "count": 6,
+          "alt_targets": [
+            "Crackling Thunderhide"
+          ]
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1600,
+      "accept_text": "North-west of the highway, up the gravel basin. You'll hear them before you see them. If the ground hums, step to the side. Seriously.",
+      "turn_in_text": "Better. Not good, but better. You noticed the other ones up there, though - the ones that talk? That's the real problem. Finish what you started.",
+      "unique_item_defs": [
+        {
+          "name": "Ridgewatcher's Hauberk",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Mail layered over ridge-lizard scale. It doesn't mind the weather.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 31,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Static-Charged Gloves",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Rub them together and the hairs on your arms agree.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.9,
+            "mp5": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Gloves (Int/SP/MP5)"
+        },
+        {
+          "name": "Gravel-Runner Boots",
+          "slot": "feet",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Grip the loose stone so you don't have to.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 9,
+          "label": "Leather Boots (Agi/Sta/Hit)"
+        },
+        {
+          "name": "Thunderhide Girdle",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Thick, stiff, and only a little bit singed.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 23,
+          "label": "Plate Belt (Str/Sta/Defense)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "dur_stormbinders",
+      "title": "Stormbinders",
+      "giver_npc_id": "durotar_thunder_ridge_scout",
+      "zone": "durotar",
+      "level_min": 9,
+      "level_max": 12,
+      "next_quest_id": "dur_rumblejaw",
+      "description": "The lizards aren't coming down on their own. Something has been feeding the storm on the ridge - Kurr has watched Ridge Stormbinders chanting at the cliff edge with their arms raised, and every time they finish, a flock of static hatchlings spills out of the rocks. Whatever they're building toward, he doesn't want to be there for it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ridge Stormbinder",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Static Hatchling",
+          "count": 6
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 1800,
+      "accept_text": "Higher up the ridge, where the rock goes dark. Take the binders first - the hatchlings stop swarming when the chanting stops. Don't stand in anything that's glowing.",
+      "turn_in_text": "Quiet. Truly quiet. Which means he's awake. Rumblejaw - the big one. I've never seen him come down, but I've heard him through the stone.",
+      "unique_item_defs": [
+        {
+          "name": "Stormbinder's Mantle",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Woven from a binder's own cloak, singed at the hem.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.5,
+            "crit_chance_spell": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Shoulders (Int/SP/Crit)"
+        },
+        {
+          "name": "Hatchling-Shell Bracers",
+          "slot": "wrist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Light, hard, and still faintly crackling.",
+          "primary_stats": {
+            "stamina": 1,
+            "agility": 1
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 10,
+          "label": "Leather Bracers (Sta/Agi/Dodge)"
+        },
+        {
+          "name": "Lightning-Rod Spear",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Do not hold this during a storm. Do not hold this ever, if you can help it.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Hit/Crit)"
+        },
+        {
+          "name": "Tempest Ward Band",
+          "slot": "ring",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "A ring of fused sand. It repels lightning like a bad idea.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "label": "Ring (Sta/Defense/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "dur_rumblejaw",
+      "title": "Wanted: Rumblejaw",
+      "giver_npc_id": "durotar_thunder_ridge_scout",
+      "zone": "durotar",
+      "level_min": 10,
+      "level_max": 12,
+      "next_quest_id": null,
+      "description": "There's a lizard on Thunder Ridge the length of two ox-carts with a jaw that cracks stone. The scouts call him Rumblejaw because they feel him before they hear him. He's never been seen beyond the high shelves, but Kurr says that's changing: the stormbinders have been feeding him. Cut the head off the problem.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thunder Lizard",
+          "count": 4,
+          "alt_targets": [
+            "Crackling Thunderhide"
+          ]
+        },
+        {
+          "type": "kill",
+          "target": "Rumblejaw",
+          "count": 1
+        }
+      ],
+      "reward_exp": 840,
+      "reward_gold": 2900,
+      "accept_text": "Top of the ridge, in the rock shelf above the basin. When the ground stops shaking, he's about to hit you. Move when it stops, not when it starts.",
+      "turn_in_text": "Rumblejaw's down? I can hear the quiet from here. That's the first real silence the ridge has had in ten years. Take whatever fits.",
+      "unique_item_defs": [
+        {
+          "name": "Rumblejaw's Slab",
+          "slot": "off_hand",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A plate of fused ridge-stone. Rattles, faintly, when something big walks by.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "armor_value": 30,
+          "block_value": 38,
+          "label": "Shield (Sta/Block)"
+        },
+        {
+          "name": "Thunderbitten Staff",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "The wood is petrified. The lightning it holds is not.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 9.9,
+            "crit_chance_spell": 0.5
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        },
+        {
+          "name": "Seer's Stoneplate Bracers",
+          "slot": "wrist",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Slate bracers. Listen to them and you can hear the ridge settling.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 30,
+          "label": "Mail Bracers (Int/Sta/MP5)"
+        },
+        {
+          "name": "Quake-Walker's Greaves",
+          "slot": "legs",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Heavy plates that don't care how the ground feels about it.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 91,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dur_cinders_on_wind",
+      "title": "Cinders on the Wind",
+      "giver_npc_id": "durotar_skull_rock_patrol",
+      "zone": "durotar",
+      "level_min": 8,
+      "level_max": 11,
+      "next_quest_id": "dur_houndmaster",
+      "description": "The Skull Rock Watcher has stood on the cliff above the approach for so long he's stopped seeing the ash, but today it's coming up the path in clouds. Burning Blade torchbearers are burning their way across the approach to clear ground for something, and a swarm of cinder imps follows them to feed on the embers. If that fire reaches the road, the Wastes are going to burn for a week.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cinder Imp",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Burning Blade Torchbearer",
+          "count": 4
+        }
+      ],
+      "reward_exp": 480,
+      "reward_gold": 1700,
+      "accept_text": "Down the cliff path, toward the cave mouth. Torchbearers first - they light everything they pass. The imps are small, but they're quick, and they bite where you least expect.",
+      "turn_in_text": "The wind's clean for the first time since spring. I could cry. I won't, but I could. There's a man down there with dogs - Kraygh. He lit the first fire. Finish it.",
+      "unique_item_defs": [
+        {
+          "name": "Ash-Walker's Wraps",
+          "slot": "wrist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Fireproofed with something that doesn't smell as bad as it ought to.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Bracers (Int/Sta)"
+        },
+        {
+          "name": "Torchbearer's Cord",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Singed in a few places. Strong in all the rest.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 15,
+          "label": "Mail Belt (Str/Sta/Hit)"
+        },
+        {
+          "name": "Cinderproof Cloak",
+          "slot": "back",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Ash slides off it. So does a lot of other things.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "accessory",
+          "armor_value": 0,
+          "label": "Cloak (Sta/Spi)"
+        },
+        {
+          "name": "Imp-Bone Cudgel",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Small, ugly, and fond of finding the soft spot.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "dur_houndmaster",
+      "title": "The Houndmaster",
+      "giver_npc_id": "durotar_skull_rock_patrol",
+      "zone": "durotar",
+      "level_min": 10,
+      "level_max": 13,
+      "next_quest_id": null,
+      "description": "Houndmaster Kraygh keeps his dogs on the approach and his whip in his hand and he's never once been seen sleeping. The Burning Blade bring him fresh hounds from the caves and he sets them on any traveler who looks too far in. He's good with a whip. He's better with an excuse. The Watcher wants him gone before the hounds find a way down to the road.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Searing Blade Raider",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Houndmaster Kraygh",
+          "count": 1
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 3000,
+      "accept_text": "Down by the cave mouth, with his pack. Cut the guards down first - they hold the hounds back until he gives the word. When the whip cracks, run. Not away. Past him.",
+      "turn_in_text": "The whip's silent. Do you hear that? Nothing's barking. Take his things. He won't be wanting them.",
+      "unique_item_defs": [
+        {
+          "name": "Kraygh's Felwhip Wand",
+          "slot": "ranged",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "The leather's burned into the grip. It cracks even when you're not holding it.",
+          "weapon_type": "wand",
+          "primary_stats": {},
+          "secondary_stats": {
+            "shadow_spell_power": 3.7
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 39,
+          "attack_speed": 1.9,
+          "label": "Wand (Shadow Power)"
+        },
+        {
+          "name": "Houndmaster's Fel-Pistol",
+          "slot": "ranged",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Fires something that mends the hounds. You've just decided it mends you instead.",
+          "weapon_type": "gun",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.1,
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.6,
+          "label": "Gun (Healing/MP5)"
+        },
+        {
+          "name": "Kennel-Keeper's Plate",
+          "slot": "chest",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Spiked and scorched in all the places a hound likes to bite.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 12.2,
+            "parry_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 97,
+          "label": "Plate Chest (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Netherfire Handwraps",
+          "slot": "hands",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "They glow when the dark is close. They're glowing now.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "shadow_spell_power": 2.4,
+            "fire_spell_power": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Gloves (Shadow+Fire Power)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dur_glitter",
+      "title": "All That Glitters",
+      "giver_npc_id": "durotar_goblin_prospector",
+      "zone": "durotar",
+      "level_min": 7,
+      "level_max": 10,
+      "description": "Gazlowe's Cousin Fitz has been mapping the mesas for ore for six months and has found exactly one thing: the stonebiters chew it. Big rock-coloured beasts that gnaw on the mesa edges and, somewhere in that long digestive tract, concentrate glittering ore. Fitz would love to know how. He'd love it more if someone brought him a sample without making him go near the teeth.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mesa_ore",
+          "count": 6
+        }
+      ],
+      "reward_exp": 400,
+      "reward_gold": 1500,
+      "accept_text": "Mesa Stonebiters. Big, grey, hungry. They drop little glittering chunks when you cut them open - yes, I know how that sounds. Six chunks. I'll pay a finder's cut and not ask questions.",
+      "turn_in_text": "Oh, that's lovely. It's practically jewelry. Don't tell Gazlowe, he'll want a cut. Here - and take one of my spare prospecting finds for your trouble.",
+      "unique_item_defs": [
+        {
+          "name": "Prospector's Greatcoat",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Pockets inside pockets. Most of them contain pebbles.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Chest (Agi/Int)"
+        },
+        {
+          "name": "Fitz's Pick-Hammer",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Half pick, half hammer. Entirely sure which half it prefers.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "intellect": 2
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Int)"
+        },
+        {
+          "name": "Glittering Ore Pendant",
+          "slot": "neck",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Ore, wire, and an optimistic goblin's idea of jewelry.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.7
+          },
+          "label": "Necklace (Int/SP/Hit)"
+        },
+        {
+          "name": "Mesa-Stride Greaves",
+          "slot": "legs",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Stout, scuffed, and quite fond of a good scramble.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 46,
+          "label": "Plate Legs (Sta/Defense/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "dur_farmhands",
+      "title": "Hands on the Farm",
+      "giver_npc_id": "durotar_rocktusk_scout",
+      "zone": "durotar",
+      "level_min": 6,
+      "level_max": 9,
+      "next_quest_id": "dur_matron_sowbelly",
+      "description": "Borka the Watchful keeps one eye on the road and the other on Rocktusk Farm, where the quilboar have taken over a stolen homestead and put the previous owners' razorbacks to work. The farmhands are quilboar who've learned that a pitchfork works on people. The tamed razorbacks have learned much the same. Neither is a good neighbor.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rocktusk Farmhand",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Tamed Razorback",
+          "count": 4
+        }
+      ],
+      "reward_exp": 320,
+      "reward_gold": 1300,
+      "accept_text": "South-west, through the gate in the farm palisade. The farmhands patrol the furrows; the razorbacks follow whoever's holding the slops. Don't be holding the slops.",
+      "turn_in_text": "Farm's quieter. Mostly. There's a sow in the back barn - the Matron. She's been breeding war-pigs in there since spring. I want her to stop.",
+      "unique_item_defs": [
+        {
+          "name": "Hog-Tender's Jerkin",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Greasy leather, but it takes a gore like a champion.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Pitchfork of Leaning",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Hay-tipped and angry.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 6,
+            "spirit": 6
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 43,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Spi)"
+        },
+        {
+          "name": "Furrow-Cleat Boots",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Clay-caked, but they hold the dirt.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 21,
+          "label": "Plate Boots (Str/Sta)"
+        },
+        {
+          "name": "Thornwood Bracers",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Wrapped with thorn-vine and a reasonable amount of luck.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Bracers (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "dur_matron_sowbelly",
+      "title": "Wanted: Matron Sowbelly",
+      "giver_npc_id": "durotar_rocktusk_scout",
+      "zone": "durotar",
+      "level_min": 8,
+      "level_max": 10,
+      "next_quest_id": null,
+      "description": "She was an ordinary sow once, the farm's breeding stock, before the quilboar fed her whatever it is they feed things. Now she's the size of a cart and twice as bitter. The razorbacks follow her. The farmhands pray to her. Borka wants her gone before she decides the road is next.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tamed Razorback",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Matron Sowbelly",
+          "count": 1
+        }
+      ],
+      "reward_exp": 700,
+      "reward_gold": 2400,
+      "accept_text": "Farm barn, back of the furrows. She hits hard and she smells worse. Don't fight her in the open - the razorbacks will join in.",
+      "turn_in_text": "Matron's down. That's a lot of bacon, though I wouldn't touch it. Take the good stuff - she's done with it.",
+      "unique_item_defs": [
+        {
+          "name": "Farmyard Tenderiser",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "A fence-post with ideas. The Matron had opinions about fences.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sowbelly's Silk Shawl",
+          "slot": "shoulder",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Somebody wove this for a farmer's wife. She never got to wear it.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Shoulders (Int/Spi/Healing)"
+        },
+        {
+          "name": "Matron's Ear-Tag",
+          "slot": "trinket",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Iron, numbered, and still warm. She was number one.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "label": "Trinket (Sta/Defense/Dodge)"
+        },
+        {
+          "name": "Trough-Scrapers",
+          "slot": "hands",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Plate gauntlets, dented in a way that only makes sense if you have met the Matron.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Gloves (Str/Sta/Defense)"
+        }
+      ],
+      "gear_reward_gear_level": 13,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dur_net_and_hook",
+      "title": "Net and Hook",
+      "giver_npc_id": "durotar_beltelf_merchant",
+      "zone": "durotar",
+      "level_min": 7,
+      "level_max": 10,
+      "next_quest_id": "dur_gillfin",
+      "description": "Sylthressa Windmourne imports silk from places with names she says better than you could. She also imports it, regrettably, through Scuttle Coast, where the murlocs have taken to stringing nets across the beach and the saltcrust crabs have taken to living in them. Her caravans arrive late, tangled, and mildly crab-flavored. She would like this to stop.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Murloc Netcaster",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Saltcrust Crab",
+          "count": 6
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1600,
+      "accept_text": "East, on the shore. The netcasters throw first and ask questions never. The crabs just pinch. Clear both out and my silk can arrive dry.",
+      "turn_in_text": "Dry silk! You've no idea what that means to me. And there's something else on that coast - a murloc with a hook. My drivers call him the Net-Cutter. Please do him next.",
+      "unique_item_defs": [
+        {
+          "name": "Windmourne Silk Hood",
+          "slot": "head",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Finest weave, finest threads. She's very particular about the threads.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.4,
+            "mp5": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Helm (Int/SP/MP5)"
+        },
+        {
+          "name": "Saltcrust Pauldrons",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Crab-shell on a plate frame. Sea air hasn't touched it.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 35,
+          "label": "Plate Shoulders (Str/Sta/Hit)"
+        },
+        {
+          "name": "Netweaver's Gloves",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Knots tied by hands that knew what they were doing.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.4
+          },
+          "armor_type": "leather",
+          "armor_value": 9,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Tidepool Charm",
+          "slot": "neck",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "A pearl and a wish, bound in kelp.",
+          "primary_stats": {
+            "stamina": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.4
+          },
+          "label": "Necklace (Sta/Int/Healing)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "dur_gillfin",
+      "title": "Wanted: Gillfin the Net-Cutter",
+      "giver_npc_id": "durotar_beltelf_merchant",
+      "zone": "durotar",
+      "level_min": 9,
+      "level_max": 11,
+      "next_quest_id": null,
+      "description": "Every murloc tribe has one who learned to use a blade, and on Scuttle Coast it's Gillfin. He cuts nets, he cuts lines, and when he's bored, he cuts the traders' ropes. Sylthressa's drivers swear he took a wagon wheel once, for the hub. She'd like him out of business.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Murloc Netcaster",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Gillfin the Net-Cutter",
+          "count": 1
+        }
+      ],
+      "reward_exp": 780,
+      "reward_gold": 2700,
+      "accept_text": "Shoreline, east. He moves between the netted rocks, and he'll mend himself if you let him. Don't.",
+      "turn_in_text": "The Net-Cutter is done? Gods. I could kiss you. I won't - business first - but I will pay you extremely well in finery.",
+      "unique_item_defs": [
+        {
+          "name": "Net-Cutter's Hooked Blade",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Half a sword, half a gaff. Entirely sure which half it prefers.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        },
+        {
+          "name": "Driftwood Harpoon-Crossbow",
+          "slot": "ranged",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Fires harpoons. The harpoons are mostly spite.",
+          "weapon_type": "crossbow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 2.4,
+          "label": "Crossbow (Agi/Sta/Hit)"
+        },
+        {
+          "name": "Tidewrack Wristwraps",
+          "slot": "wrist",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Dry-rotted netting, enchanted by someone with a long memory of drowning.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Bracers (Int/SP/Hit)"
+        },
+        {
+          "name": "Pearl of the Net-Cutter",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Pried from a clam that took it personally.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.4,
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int/SP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 14,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dur_kolkar_reckoning",
+      "title": "Kolkar Reckoning",
+      "giver_npc_id": "durotar_human_prisoner_convert",
+      "zone": "durotar",
+      "level_min": 8,
+      "level_max": 11,
+      "next_quest_id": "dur_bloodhoof",
+      "description": "Wyll Marrow was a cartwright out of Stormwind when the Kolkar took his caravan at the Crag and left him alive as an afterthought. The Horde found him two days later, half-starved and swearing, and he's never quite forgiven them for the rescue or the centaur for the ambush. Now he wants the war-riders paid back, in the only currency they understand.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Warrider",
+          "count": 8,
+          "alt_targets": [
+            "Kolkar Outrunner",
+            "Kolkar Wrangler",
+            "Kolkar Pack Runner",
+            "Kolkar Windchaser"
+          ]
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 1800,
+      "accept_text": "The Crag's the bowl south-west of the Barrens road. They ride in circles like they own it. Fair enough - they do. Thin the war-riders out and I'll sleep easier.",
+      "turn_in_text": "There. Somewhere in a Stormwind graveyard, my brother's smiling. There's one of them I can't get out of my head - a lame one with a limp he hides. Bloodhoof. He broke my wagon.",
+      "unique_item_defs": [
+        {
+          "name": "Cartwright's Steel Gloves",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Cartwright's hands, steel gauntlets, a very patient maker.",
+          "primary_stats": {
+            "strength": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 23,
+          "label": "Plate Gloves (Str/Hit/Crit)"
+        },
+        {
+          "name": "Marrow's Mended Cloak",
+          "slot": "back",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "A cloak he's patched so often it's more patch than cloak.",
+          "primary_stats": {
+            "stamina": 1,
+            "agility": 1
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.1
+          },
+          "armor_type": "accessory",
+          "armor_value": 0,
+          "label": "Cloak (Sta/Agi/Dodge)"
+        },
+        {
+          "name": "Centaur-Hide Leggings",
+          "slot": "legs",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Tough, supple, and cut for someone who never sits still.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.8
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Wagon-Spoke Staff",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "A broken spoke, carved and varnished. Quite a lot of care went into it.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.1,
+            "crit_chance_spell": 0.3
+          },
+          "weapon_damage_min": 10,
+          "weapon_damage_max": 14,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "dur_bloodhoof",
+      "title": "Wanted: Bloodhoof the Lamed",
+      "giver_npc_id": "durotar_human_prisoner_convert",
+      "zone": "durotar",
+      "level_min": 10,
+      "level_max": 12,
+      "next_quest_id": null,
+      "description": "The Kolkar tell stories about their outriders, and about the one called Bloodhoof they tell quieter. A crippled rider with a withered foreleg who kept charging anyway, long after any sensible centaur would have retired. He has taken more caravans than the rest of the Crag combined. Wyll wants him on his back, in the dust, where he put the wagons.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kolkar Warrider",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Bloodhoof the Lamed",
+          "count": 1
+        }
+      ],
+      "reward_exp": 860,
+      "reward_gold": 3000,
+      "accept_text": "He rides alone, at the edge of the Crag, where the ground drops. He hits like a cart and runs like a deer. Don't chase him. Make him come to you.",
+      "turn_in_text": "Lamed Bloodhoof's down. I almost feel for him. Almost. Take whatever he carried - he won't be riding again.",
+      "unique_item_defs": [
+        {
+          "name": "Lamed Outrider's Glaive",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Balanced for a rider with one good leg. Rides on regardless.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {
+            "hit_rating": 0.7,
+            "crit_chance_physical": 0.7
+          },
+          "weapon_damage_min": 59,
+          "weapon_damage_max": 80,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Hit/Crit)"
+        },
+        {
+          "name": "Outrider's Hunting Belt",
+          "slot": "waist",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A Kolkar belt, studded with the tags of every kill he refused to stop counting.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.8
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Belt (Agi/Int/AP)"
+        },
+        {
+          "name": "Hoofbeat Greaves",
+          "slot": "feet",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "You can feel a gallop in the soles. Even standing still.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 30,
+          "label": "Mail Boots (Str/Agi)"
+        },
+        {
+          "name": "Wrangler's Mending Band",
+          "slot": "ring",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "The ring he used on wounded mounts. It did a lot of mending, in the end.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.1,
+            "mp5": 0.4
+          },
+          "label": "Ring (Healing/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dur_last_words",
+      "title": "Last Words",
+      "giver_npc_id": "durotar_skeleton_marker",
+      "zone": "durotar",
+      "level_min": 7,
+      "level_max": 11,
+      "description": "The bones by the shore are a wagon-driver's, and clutched in them is a sealed letter and a cracked signet ring that doesn't look like it belongs to the driver. The letter is addressed to someone named Tamsin, care of the burnt caravan on the highway south-west of Grosk's camp. The ink's too faded to say who's expecting it. It doesn't say it has to be delivered. But somebody has to.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "durotar",
+          "target_x": 72,
+          "target_y": 80,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 360,
+      "reward_gold": 1100,
+      "accept_text": "(The bones don't speak. The letter is addressed in a shaky hand, and the ring is warm in your palm.) The highway south-west of the traveler's camp. Where the wagons burned.",
+      "turn_in_text": "(You lay the letter among the ash, as best you can. When you return, the signet is a little less cracked than it was. The wind carries something that might be thanks.)",
+      "unique_item_defs": [
+        {
+          "name": "Driver's Signet",
+          "slot": "ring",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "A plain ring, polished smooth by an owner who wore it every day.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "label": "Ring (Sta/Spi)"
+        },
+        {
+          "name": "Wagon-Wheel Charm",
+          "slot": "trinket",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Small enough to hold, heavy enough to remember.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "label": "Trinket (Agi/Sta)"
+        },
+        {
+          "name": "Tamsin's Last Letter",
+          "slot": "neck",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Wax-sealed, unread. A little warm, somehow.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.6
+          },
+          "label": "Necklace (Int/Spi/Healing)"
+        },
+        {
+          "name": "Roadmender's Boots",
+          "slot": "feet",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Worn through. Somehow still keeping their word.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 23,
+          "label": "Plate Boots (Sta/Defense/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "dur_safe_road_south",
+      "title": "The Safe Road South",
+      "giver_npc_id": "durotar_vot_road_traveler",
+      "zone": "durotar",
+      "level_min": 6,
+      "level_max": 9,
+      "description": "Southbound Grekka has walked the road between Razor Hill and the Valley of Trials longer than most recruits have been alive. Lately she can't make it past the Rocktusk Farm turnoff without a quilboar scout shaking her down for the privilege. Recruits shouldn't have to start their first week on the Wastes with their coin purse already lighter.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razormane Scout",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Razormane Geomancer",
+          "count": 3
+        }
+      ],
+      "reward_exp": 340,
+      "reward_gold": 1300,
+      "accept_text": "The road south of the gateway, near the farm. The scouts watch from above; the geomancers throw rocks from behind. Take the geomancers first, if you can find them.",
+      "turn_in_text": "You're a good one. Now new recruits get a clean road and I get to keep what I earn. Here - a spare from my own pack.",
+      "unique_item_defs": [
+        {
+          "name": "Wayfarer's Longcoat",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Long enough to keep out the wind. Short enough to run in.",
+          "primary_stats": {
+            "agility": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Chest (Agi/Spi)"
+        },
+        {
+          "name": "Roadkeeper's Mace",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A solid mace for solid people.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta)"
+        },
+        {
+          "name": "Grekka's Spare Cloak",
+          "slot": "back",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Thick wool, a little frayed at the hem.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "accessory",
+          "armor_value": 0,
+          "label": "Cloak (Int/Sta)"
+        },
+        {
+          "name": "Southbound Sash",
+          "slot": "waist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Tied around her waist for forty miles. It's earned its place.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Belt (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 9,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "dur_road_tax",
+      "title": "Road Tax",
+      "giver_npc_id": "durotar_razorhill_road_merchant",
+      "zone": "durotar",
+      "level_min": 7,
+      "level_max": 10,
+      "description": "Wandering Bok sells what he can on the road between Razor Hill and the gate and pays the Orgrimmar road tax out of his own pocket. The quilboar have started doing the same - collecting it, that is. Their quilboar-sized toll pouches turn up in their packs every time someone's gotten past them, and Bok figures that's his coin. He'd like his coin.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "razormane_toll_pouch",
+          "count": 6
+        }
+      ],
+      "reward_exp": 380,
+      "reward_gold": 1500,
+      "accept_text": "Razormane quilboar, out on the Wastes. They carry leather pouches on their belts - you'll know them. Six pouches, and I'll consider the road tax paid.",
+      "turn_in_text": "My coin! Smaller than I remembered, but still mine. Now take a cut - you've earned it, and I always pay my debts.",
+      "unique_item_defs": [
+        {
+          "name": "Merchant's Mantle",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Sewn by someone who was careful about the seams.",
+          "primary_stats": {
+            "stamina": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Shoulders (Sta/Int/Healing)"
+        },
+        {
+          "name": "Toll-Collector's Hauberk",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Heavy mail with an extra layer of leather where the money goes.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 31,
+          "label": "Mail Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Strongbox Shield",
+          "slot": "off_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "A lid with a lock, and a fair bit of dent.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_value": 15,
+          "block_value": 19,
+          "label": "Shield (Sta/Block)"
+        },
+        {
+          "name": "Bok's Lucky Coin",
+          "slot": "trinket",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Heads, he wins. Tails, he's thinking about it.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Trinket (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "next_quest_id": null
     }
   ]
 }
