@@ -2042,13 +2042,124 @@ RAGEFIRE_CONTENT_KITS = {
     ],
 }
 
+
+# ======================================================================
+# ECHO ISLES CONTENT PASS (2026-10-21) - wading creatures for the five
+# shallow-water subzones, jungle/beach additions, Hollow trolls and the
+# six named rares.  Every kit has its own shape (no reskins of reef_predator).
+# ======================================================================
+ECHO_CONTENT_KITS = {
+    # ---- Isle Interior / beaches ---------------------------------------
+    "coconut_crab": [
+        ("Crushing Claw", "damage", 22, 0, 0, "physical", {}),
+        ("Husk Armor", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 26}}),
+    ],
+    "isle_screecher": [
+        ("Talon Rake", "damage", 19, 0, 0, "physical", {}),
+        ("Shrill Cry", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -12}}),
+    ],
+    # ---- Troll Camps / Zalazane's Hollow -------------------------------
+    "fetish_carver": [
+        ("Bone Hex", "damage", 22, 0, 18, "magic", {}),
+        ("Mending Fetish", "heal", 40, 3, 30, "nature", {}),
+    ],
+    "hollow_skullbreaker": [
+        ("Skull Crack", "damage", 27, 0, 0, "physical", {}),
+        ("Dazing Blow", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    # ---- Wreck Shallows -------------------------------------------------
+    "wreck_scavenger": [
+        ("Pincer Pull", "damage", 21, 0, 0, "physical", {}),
+        ("Rusted Snap", "dot", 9, 3, 0, "physical", {"duration": 3}),
+    ],
+    "bilge_eel": [
+        ("Eel Bite", "damage", 20, 0, 0, "physical", {}),
+        ("Static Jolt", "damage", 30, 3, 0, "nature", {}),
+    ],
+    # ---- Drowned Causeway ----------------------------------------------
+    "causeway_siren": [
+        ("Siren's Lash", "damage", 22, 0, 18, "magic", {}),
+        ("Entrancing Song", "debuff", 0, 5, 24, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -14}}),
+    ],
+    "murloc_spearfisher": [
+        ("Barbed Spear", "damage", 20, 0, 0, "physical", {}),
+        ("Net Throw", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    # ---- Sunken Steps ----------------------------------------------------
+    "stepstone_sentinel": [
+        ("Slab Slam", "damage", 25, 0, 0, "physical", {}),
+        ("Barnacled Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 28}}),
+    ],
+    # ---- Razorjaw Shallows -----------------------------------------------
+    "razor_whelp": [
+        ("Rending Bite", "damage", 25, 0, 0, "physical", {}),
+        ("Blood Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 16}}),
+    ],
+    # ---- Tidal Flats -----------------------------------------------------
+    "flatfin_stinger": [
+        ("Barb Strike", "damage", 18, 0, 0, "physical", {}),
+        ("Venom Barb", "dot", 10, 3, 0, "nature", {"duration": 4}),
+    ],
+    "sand_burrower": [
+        ("Sand Claw", "damage", 19, 0, 0, "physical", {}),
+        ("Burrow Dodge", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"agility": 16}}),
+    ],
+    # ---- named rares -----------------------------------------------------
+    "gortek_houndmaster": [
+        ("Whip Crack", "damage", 30, 0, 0, "physical", {}),
+        ("Sic 'Em", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
+        ("Hamstring Lash", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "mamtoth_hexweaver": [
+        ("Shadow Bolt", "damage", 30, 0, 24, "shadow", {}),
+        ("Weaving Hex", "debuff", 0, 4, 20, "shadow",
+         {"duration": 4, "stat_mods": {"intellect": -16}}),
+        ("Hex Mend", "heal", 44, 4, 32, "shadow", {}),
+    ],
+    "mojbashi_drowned": [
+        ("Drowned Fist", "damage", 28, 0, 0, "physical", {}),
+        ("Waterlogged Rot", "dot", 13, 3, 0, "physical", {"duration": 3}),
+        ("Tidebound Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 26}}),
+    ],
+    "sshara_seer": [
+        ("Tide Bolt", "damage", 30, 0, 26, "magic", {}),
+        ("Drowning Whisper", "dot", 13, 3, 22, "magic", {"duration": 3}),
+        ("Sea Veil", "buff", 0, 5, 20, "magic",
+         {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 22}}),
+    ],
+    "kragg_shellcrusher": [
+        ("Shellcrusher Slam", "damage", 30, 0, 0, "physical", {}),
+        ("Barnacle Plate", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 34}}),
+        ("Rending Pincer", "dot", 13, 3, 0, "physical", {"duration": 3}),
+    ],
+    "barnacle_beard": [
+        ("Rusted Boarding Axe", "damage", 28, 0, 0, "physical", {}),
+        ("Rotgut Roar", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -14}}),
+        ("Salt-Crusted Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 24}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

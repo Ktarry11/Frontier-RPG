@@ -123,7 +123,7 @@ def wall_annulus(zone, cx, cy, r0, r1, gates, gate_half_deg=11):
 STG_PORTAL = (60, 92)
 STG_C = (60, 48)                     # rotunda centre
 STG_BOSS = (60, 48)
-STG_ROAR = (12, 58)                  # Drowned Troll's crypt (named rare)
+STG_ROAR = (12, 58)                  # Moj'bashi the Drowned crypt (named rare)
 STG_CHESTS = [(7, 61), (18, 10), (105, 12), (112, 64)]
 STG_GATES = (90, 300, 180)           # south, north-east, west gates in the inner wall
 _moat = [(STG_C[0] + 14.5 * math.cos(math.radians(a)), STG_C[1] + 14.5 * math.sin(math.radians(a)), 5.4, 5.4, a * 0.05)
@@ -169,7 +169,7 @@ def build_temple_grotto():
 
     _finish(L, zone, STG_PORTAL,
             [(STG_BOSS[0], STG_BOSS[1], "Tidelord Gharesh"),
-             (STG_ROAR[0], STG_ROAR[1], "Drowned Troll")], STG_CHESTS)
+             (STG_ROAR[0], STG_ROAR[1], "Moj'bashi the Drowned")], STG_CHESTS)
 
     p = L.prop
     g = lambda r, a: pol(cx, cy, r, a)

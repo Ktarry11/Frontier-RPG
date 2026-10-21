@@ -1,69 +1,13 @@
 {
   "quests": [
     {
-      "quest_id": "echo_isles_beast_cull",
-      "title": "The Isle Bites Back",
-      "description": "Elder Kang'ari doesn't waste words on the beasts of Echo Isles - raptors, panthers, serpents thick enough in the interior that the camp's own people can't gather safely past the tree line. Before anything else gets sorted out on this island, the immediate danger needs thinning. It's not glamorous work. It's necessary work.",
-      "giver_npc_id": "echo_isles_troll_elder",
-      "zone": "echo_isles",
-      "objectives": [
-        {
-          "type": "kill",
-          "target": "Bloodtalon Raptor",
-          "alt_targets": [
-            "Jungle Panther",
-            "Isle Serpent"
-          ],
-          "count": 10
-        }
-      ],
-      "reward_exp": 560,
-      "reward_gold": 2200,
-      "accept_text": "Ten of them, any mix - raptor, panther, serpent, the interior's thick with all three right now. Nothing personal in this one. Just clearing ground.",
-      "turn_in_text": "Good. Da tree line's quieter now. Not safe - dis island hasn't been safe in longer than you'd guess - but quieter. Dat's worth something.",
-      "next_quest_id": null,
-      "level_min": 9,
-      "level_max": 12,
-      "unique_item_defs": [
-        {
-          "name": "Bloodtalon Fang Blade",
-          "slot": "main_hand",
-          "item_level": 10,
-          "rarity": "uncommon",
-          "weapon_type": "dagger",
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 6,
-            "stamina": 2
-          },
-          "weapon_damage_min": 19,
-          "weapon_damage_max": 26,
-          "attack_speed": 1.7,
-          "label": "Dagger (Agi)"
-        },
-        {
-          "name": "Panther-Hide Wraps",
-          "slot": "hands",
-          "item_level": 10,
-          "rarity": "uncommon",
-          "armor_type": "leather",
-          "stat_template": "agi_int_hybrid",
-          "primary_stats": {
-            "agility": 4,
-            "intellect": 3,
-            "stamina": 2
-          },
-          "armor_value": 24,
-          "label": "Leather (Agi)"
-        }
-      ]
-    },
-    {
       "quest_id": "echo_isles_camp_supplies",
       "title": "Building Something Permanent",
-      "description": "Rask'jin is trying to turn a temporary landing spot into an actual camp, and that means materials - good coral for binding, shell for tools, sturdy jungle wood, the kind of unglamorous groundwork nobody writes songs about. He's matter-of-fact about it: a real camp means the Darkspear who wash up here have somewhere to land besides open sand.",
       "giver_npc_id": "echo_isles_camp_quartermaster",
       "zone": "echo_isles",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Rask'jin is trying to turn a landing spot into a camp, and a camp wants a palisade. Sand does not hold a post. Reef coral does - the deep-red kind that grows where the current is strongest, not the pretty kind in the shallows. The coconut crabs along the beaches drag it up the sand to line their burrows, so the quickest way to get it is to get it back off them.",
       "objectives": [
         {
           "type": "fetch",
@@ -71,119 +15,891 @@
           "count": 6
         }
       ],
-      "reward_exp": 300,
-      "reward_gold": 900,
-      "accept_text": "Da reef coral you want is da tough kind, not da pretty kind - deep red, grows near where da current's strongest. Bring me six pieces and dis camp gets a real palisade instead of a prayer.",
-      "turn_in_text": "Dis is good stock, mon. Palisade's going up by week's end. You didn't have to help build somethin' dat's not really your home. Means somethin' dat you did anyway.",
-      "next_quest_id": null,
-      "level_min": 9,
-      "level_max": 11,
+      "reward_exp": 420,
+      "reward_gold": 1500,
+      "accept_text": "Da crabs on da beaches are hoardin' it - big as a kodo's head, shell like a shield. Six pieces, mon. Dey'll fight you for it. Dey'll lose.",
+      "turn_in_text": "Dis is good stock! Palisade goes up by week's end. You didn't have to help build somethin' dat's not your home. Dat you did anyway - I notice dat.",
       "unique_item_defs": [
         {
           "name": "Reef-Binder's Buckler",
           "slot": "off_hand",
-          "item_level": 10,
+          "item_level": 13,
           "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Two coral slabs bound in sinew. Heavier than it looks and prouder than it is.",
           "weapon_type": "shield",
-          "stat_template": null,
           "primary_stats": {
-            "stamina": 4,
-            "strength": 2
+            "stamina": 2
           },
-          "armor_value": 26,
-          "label": "Shield (Sta)"
+          "armor_value": 20,
+          "block_value": 25,
+          "label": "Shield (Sta/Block)"
+        },
+        {
+          "name": "Palisade-Builder's Mallet",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "A mallet for driving posts. It also drives opinions.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Agi/Sta)"
+        },
+        {
+          "name": "Coralstitch Sandals",
+          "slot": "feet",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Cloth wrapped on a coral sole. The sea-spirits like them, says Rask'jin, and he is usually right.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Boots (Int/Sta)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 13,
+      "next_quest_id": null
     },
     {
       "quest_id": "echo_isles_scout_camps",
       "title": "Eyes on the Cultists",
-      "description": "Vessa Palewind watches the tree line for a living, and she's seen enough movement toward the eastern camps to want real eyes on the ground before anyone commits to a fight. The Troll Camps aren't just hostile territory - they're Darkspear territory, held now by Zalazane's cultists, which makes every report back from there personal in a way Vessa doesn't bother hiding.",
       "giver_npc_id": "echo_isles_camp_lookout",
       "zone": "echo_isles",
+      "level_min": 10,
+      "level_max": 12,
+      "next_quest_id": "echo_isles_screecher_wings",
+      "description": "Vessa watches the tree line for a living, and for a week the smoke over the troll island has been the wrong colour. The east bridge at the Landing leads to Kang'ari's village, and past it the north trail runs to the old Darkspear camps - now Zalazane's. She wants a pair of eyes on the north camp before anyone commits to a fight.",
       "objectives": [
         {
           "type": "explore",
           "target": "echo_isles",
-          "target_x": 75,
-          "target_y": 48,
-          "radius": 10
+          "target_x": 134,
+          "target_y": 42,
+          "radius": 9
         }
       ],
-      "reward_exp": 280,
-      "reward_gold": 800,
-      "accept_text": "Don't engage. I mean dat - just get eyes on da camp layout and get back here. We fight smart on dis one, not angry, no matter how angry it deserves to make you.",
-      "turn_in_text": "Good. Now we know what we're walkin' into. Dat's worth more dan you'd think - most people who die out dere die because dey walked in blind.",
+      "reward_exp": 360,
+      "reward_gold": 1100,
+      "accept_text": "Cross da east bridge, take da trail past Kang'ari's village and keep goin' north to da camp. Don't engage. Look, remember, come back. We fight smart on dis one, not angry.",
+      "turn_in_text": "Dat many? ... Good. Now we know what we're walkin' into. Most people who die out dere die because dey walked in blind. Next job's closer to home, and louder.",
+      "unique_item_defs": [
+        {
+          "name": "Lookout's Windcloak",
+          "slot": "back",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Dyed the grey of an overcast sky. You can stand in it for an hour and no one blinks.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Watcher's Spyglass-Bow",
+          "slot": "ranged",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "A short bow with a brass sight she added herself. It is, apparently, not for sale.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        },
+        {
+          "name": "Tree-Line Vest",
+          "slot": "chest",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Woven leaf-cloth. It hums faintly when the wind turns.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Chest (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "echo_isles_screecher_wings",
+      "title": "Wings Over the Tree Line",
+      "giver_npc_id": "echo_isles_camp_lookout",
+      "zone": "echo_isles",
+      "level_min": 11,
+      "level_max": 13,
+      "description": "Vessa's signal fires keep going out. Isle screechers - green-and-red jungle birds with a voice like a knife on a whetstone - nest in the canopy right above her watch-post and mob anything that moves. A raptor or two has learned to follow the birds. She is tired of shouting over them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Isle Screecher",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Bloodtalon Raptor",
+          "count": 4
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 1800,
+      "accept_text": "Dey nest in da canopy all around da Landing, and da raptors trail dem like dogs. Eight birds, four raptors. I want to hear da wind again.",
+      "turn_in_text": "Quiet. Actually quiet. I forgot what dat sounded like. Take one of dese - I made dem for myself.",
+      "unique_item_defs": [
+        {
+          "name": "Screecher-Plume Cowl",
+          "slot": "head",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Bright feathers over supple hide. Birdwatchers call it tasteless. Birds disagree.",
+          "primary_stats": {
+            "agility": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Helm (Agi/Spi)"
+        },
+        {
+          "name": "Talon-Wrapped Spear",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Raptor talons lashed under the head. It tears as it goes in.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "agility": 9
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Agi)"
+        },
+        {
+          "name": "Signal-Fire Amulet",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "A charred bead on a thong. Warm when something is coming.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.0,
+            "crit_chance_spell": 0.1
+          },
+          "label": "Necklace (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 14,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_tarna_nets",
+      "title": "Nets Full of Teeth",
+      "giver_npc_id": "echo_isles_fisher",
+      "zone": "echo_isles",
+      "level_min": 10,
+      "level_max": 12,
+      "next_quest_id": "echo_tarna_kragg",
+      "description": "The Tidal Flats - the cays south-east of the Landing, where the tide leaves a mile of sand and the sea leaves its worst behind - used to be Tarna's best fishing. Now every net comes back torn and every ankle comes back stung. Flatfin stingers and burrowing crabs have moved in, and they are not interested in sharing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Flatfin Stinger",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Sand Burrower",
+          "count": 6
+        }
+      ],
+      "reward_exp": 500,
+      "reward_gold": 1700,
+      "accept_text": "Walk south from da Landing till da sand goes grey and da water goes to your shins. Stingers first - dey hide under da silt. Den da burrowers. Watch your feet, hear?",
+      "turn_in_text": "Dat's two good tides of fishing I got back. Not safe yet - da big one's still out dere - but you've earned a pick off my best work.",
+      "unique_item_defs": [
+        {
+          "name": "Stingray-Barb Dirk",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "A stingray's barb on a bone grip. It is nasty and it knows it.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.3
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        },
+        {
+          "name": "Tarna's Tideproof Waders",
+          "slot": "legs",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Oiled hide that has never once been dry on the inside. Strangely, that is the point.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 25,
+          "label": "Leather Legs (Sta/Spi)"
+        },
+        {
+          "name": "Net-Weaver's Wrist-Cords",
+          "slot": "wrist",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Knotted by a woman who has had a lot of time to practise.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Bracers (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "echo_tarna_kragg",
+      "title": "The Shell That Ate the Skiff",
+      "giver_npc_id": "echo_isles_fisher",
+      "zone": "echo_isles",
+      "level_min": 11,
+      "level_max": 13,
+      "description": "Tarna lost a skiff last month, and she is certain it was not the tide. Something the size of a hut lives under the cays - a crab, she says, grown for forty years on the flats' leavings. Shellcrusher Kragg takes the whole boat when it's feeling hungry and lets the fisherman swim. Tarna wants a trophy. And her skiff's anchor.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sand Burrower",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Shellcrusher Kragg",
+          "count": 1
+        }
+      ],
+      "reward_exp": 720,
+      "reward_gold": 2500,
+      "accept_text": "He comes up when da trailing crabs go quiet. Kill his courtiers and he'll come lookin'. Don't try to out-wait him - he's patient. Hit him from da side, mon, not da front.",
+      "turn_in_text": "Ha! Forty years of crab, and he went down like a bad knot. My anchor?! Oh, you found it. Take whatever you like off his shell, I got what I wanted.",
+      "unique_item_defs": [
+        {
+          "name": "Kragg-Shell Greathelm",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "The carapace is half an inch thick and still not yielding.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 68,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Flatwalker's Harpoon",
+          "slot": "ranged",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "A long barbed harpoon that throws like a spear and reels in like a promise.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.1
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi/Int/AP)"
+        },
+        {
+          "name": "Brinebound Prayer-Beads",
+          "slot": "neck",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Shell beads strung by the sea. Tarna says every one of them is a drowned name.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.1,
+            "mp5": 0.4
+          },
+          "label": "Necklace (Healing/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_talra_cord",
+      "title": "Good Cord Is Hard to Find",
+      "giver_npc_id": "echo_isles_net_mender",
+      "zone": "echo_isles",
+      "level_min": 11,
+      "level_max": 13,
+      "description": "Hemp rots, sinew snaps, and the sea does not care. The only cord that has ever outlasted a Darkspear storm is cured eel-hide, and the best eels on the archipelago are the bilge eels of Wreck Shallows - the knee-deep flats between the troll island and the Lost Fleet, in the far north-east. Talra's hands ache, and she is out.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "eel_hide_cord",
+          "count": 6
+        }
+      ],
+      "reward_exp": 560,
+      "reward_gold": 1900,
+      "accept_text": "Take da east bridge, go through da troll village, past da north camp, and wade north-east till da water goes to your knees. Da wreck crabs will pester you. Da eels will shock you. Six good lengths of cord. I'll know if you cheat.",
+      "turn_in_text": "Oh, that's lovely. Smooth as silk and mean as a snake. I'll mend every net on the Landing with this. And I'll make you something with what's left over.",
+      "unique_item_defs": [
+        {
+          "name": "Eel-Hide Jerkin",
+          "slot": "chest",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Supple, slick, and surprisingly warm. The eels would be upset.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Saltbraid Fishing-Knife",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "A stout little blade for cutting line. Also for cutting other things.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        },
+        {
+          "name": "Mender's Lucky Coin-Charm",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "A pierced coin on a braided cord. It was never spent. It was loved.",
+          "primary_stats": {
+            "stamina": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.6
+          },
+          "label": "Necklace (Sta/Int/Healing)"
+        }
+      ],
+      "gear_reward_gear_level": 14,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_vashj_stones",
+      "title": "Voices in the Drowned Stone",
+      "giver_npc_id": "echo_isles_spirit_elder",
+      "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "next_quest_id": "echo_vashj_scales",
+      "description": "The spirits of the Landing have been restless for a month. Vashj hears them every night from the north-west: low, rhythmic, not unfriendly - the voices of something standing guard over something old. The Naga Ruins, on the north-west island: over the west bridge to the Grotto isle, up its north trail and across the Sunken Steps ford. She does not ask you to fight. Just to stand in the old stones and hear what she hears.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "echo_isles",
+          "target_x": 24,
+          "target_y": 48,
+          "radius": 9
+        }
+      ],
+      "reward_exp": 640,
+      "reward_gold": 2100,
+      "accept_text": "Cross da west bridge to da Grotto isle, follow da north trail and wade da Sunken Steps to da naga isle. Stand in da middle of dem and listen. Don't talk. Don't take anything. Just listen.",
+      "turn_in_text": "So dey spoke to you too. Not in words. In order. Dey're guarding somethin' - and dey are afraid of what comes after dem. Let me think about dis. Come back when you're ready for da next part.",
+      "unique_item_defs": [
+        {
+          "name": "Tidecaller's Spiral-Wand",
+          "slot": "ranged",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A hand's length of lacquered coral with a spiral cut round it. It sings very softly in the wet.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.4,
+            "mp5": 0.3
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/MP5)"
+        },
+        {
+          "name": "Vashj's Salt-Cord Belt",
+          "slot": "waist",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Knotted in the Landing's old style. The knots are the prayer.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Belt (Sta/Spi)"
+        },
+        {
+          "name": "Echo-Stone Greaves",
+          "slot": "legs",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Grey stone greaves with a faint ring to them. You can hear the ruins in your steps.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 61,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "echo_vashj_scales",
+      "title": "What the Tide Remembers",
+      "giver_npc_id": "echo_isles_spirit_elder",
+      "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "next_quest_id": "echo_vashj_warden",
+      "description": "Vashj can read the old runes if she has something to read them off. The nagas wear them: tide-etched scales, each marked with a spiral that is half writing and half weather. Six of them and she may finally understand what the guards are protecting - and what they are afraid of.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tide_etched_scale",
+          "count": 6
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 2300,
+      "accept_text": "Da coastguards and tidecallers wear dem. Take dem from da ones who don't need dem anymore. Six scales. And please - wash your hands afterwards.",
+      "turn_in_text": "... it is a seal. Dey are not guardin' da temple. Dey're guardin' da door under da temple, and Ssaleth is da key-keeper. Dat's da name, mon: Warden Ssaleth. End him and da door stays shut.",
+      "unique_item_defs": [
+        {
+          "name": "Runereader's Sash",
+          "slot": "waist",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A cloth sash worked with sixty runes. Vashj spent a year on it and gave it away in a minute.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Belt (Int/Spi/Healing)"
+        },
+        {
+          "name": "Scale-Etched Hauberk",
+          "slot": "chest",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Overlapping scales with tide-runes. It looks borrowed. It acts inherited.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 61,
+          "label": "Mail Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Spiral-Carved Mace",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A short mace carved with a spiral from end to end. Every blow feels slightly like a wave.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 44,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "echo_vashj_warden",
+      "title": "The Warden's Oath",
+      "giver_npc_id": "echo_isles_spirit_elder",
+      "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "description": "Warden Ssaleth keeps the Naga Ruins the way a lock keeps a door: not out of hatred but out of oath. Vashj can feel the oath, and she can also feel that it is fraying. If he falls, the door stays shut a while longer. If he is ignored, someone with worse manners will come along.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Naga Coastguard",
+          "count": 6,
+          "alt_targets": [
+            "Naga Tidecaller"
+          ]
+        },
+        {
+          "type": "kill_boss",
+          "target": "Warden Ssaleth",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 3500,
+      "accept_text": "Go back to da ruins, thin da guard and find Ssaleth. He stands where da stones are highest. His trident cuts, and when you stand still he weakens you. Keep moving, don't stand in da water.",
+      "turn_in_text": "Da stones are silent. Not gone - silent. I haven't heard dat in years. You've bought us a season, at least. Dis is for you, from da Landing.",
+      "unique_item_defs": [
+        {
+          "name": "Ssaleth's Warden-Pike",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A coral pike, spiral-fluted, built for a naga hand and surprisingly well balanced for a human one.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 84,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Defense)"
+        },
+        {
+          "name": "Hood of the Drowned Rites",
+          "slot": "head",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A cowl embroidered with an old naga rite. It does not itch. It remembers.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.9,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Helm (Int/SP/Hit)"
+        },
+        {
+          "name": "Tide-Warden Spaulders",
+          "slot": "shoulder",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Scale pauldrons that shed water. Good for hunters in a wet country.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.4
+          },
+          "armor_type": "mail",
+          "armor_value": 48,
+          "label": "Mail Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Oathkeeper's Band",
+          "slot": "ring",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A ring for someone who finishes what they start.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "label": "Ring (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_isles_beast_cull",
+      "title": "The Isle Bites Back",
+      "giver_npc_id": "echo_isles_troll_elder",
+      "zone": "echo_isles",
+      "level_min": 10,
+      "level_max": 12,
       "next_quest_id": "echo_isles_cultist_purge",
-      "level_min": 9,
-      "level_max": 11
+      "description": "Elder Kang'ari doesn't waste words on the beasts of Echo Isles - raptors, panthers, serpents, screechers and coconut crabs as big as a pot, all of them thick in the interior now that Zalazane's fires have driven them out of the north. The trail between the Landing and the troll village is not safe to walk. Before anything else gets sorted out on this island, the road needs clearing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodtalon Raptor",
+          "count": 10,
+          "alt_targets": [
+            "Jungle Panther",
+            "Isle Serpent",
+            "Isle Coconut Crab",
+            "Isle Screecher"
+          ]
+        }
+      ],
+      "reward_exp": 560,
+      "reward_gold": 2000,
+      "accept_text": "Ten of dem, any mix - raptor, panther, serpent, crab, bird. Da interior's thick with all of dem. Nothin' personal in dis one. Just clearin' ground. Come back when da road is walkable.",
+      "turn_in_text": "Good. Da trail's quieter now. Not safe - dis island hasn't been safe in longer than you'd guess - but quieter. Now. About what's really wrong with dis place.",
+      "unique_item_defs": [
+        {
+          "name": "Bloodtalon Fang Blade",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "A raptor's foreclaw, hafted on a bone grip. Faster than it looks.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Panther-Hide Wraps",
+          "slot": "hands",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Soft, quiet, a little snarly around the cuffs.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 12,
+          "label": "Leather Gloves (Agi/Int)"
+        },
+        {
+          "name": "Serpent-Scale Waistguard",
+          "slot": "waist",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Small interlocking scales; surprisingly tough, surprisingly light.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 20,
+          "label": "Mail Belt (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 13
     },
     {
       "quest_id": "echo_isles_cultist_purge",
       "title": "The Camps Answer For It",
-      "description": "With Vessa's scouting report in hand, Elder Kang'ari is ready to send fighters into the Troll Camps for real. Voodoo trolls, hex trolls, Zalazane's berserkers and headhunters - all of them Darkspear once, all of them lost to whatever hold Zalazane has over them now. Kang'ari doesn't ask you to feel good about this fight. He asks you to finish it.",
       "giver_npc_id": "echo_isles_troll_elder",
       "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 13,
+      "next_quest_id": "echo_isles_relic_recovery",
+      "description": "The hostile Darkspear camps sit north and south of Kang'ari's village, on the troll isle's two trails. Voodoo trolls, hex trolls, Zalazane's berserkers, headhunters and fetish-carvers: all of them Darkspear once, all of them lost to whatever hold Zalazane has over them now. Kang'ari doesn't ask you to feel good about this fight. He asks you to finish it.",
       "objectives": [
         {
           "type": "kill",
           "target": "Voodoo Troll",
+          "count": 12,
           "alt_targets": [
             "Hex Troll",
             "Zalazane Berserker",
-            "Isle Headhunter"
-          ],
-          "count": 12
+            "Isle Headhunter",
+            "Zalazane Fetish-Carver"
+          ]
         }
       ],
-      "reward_exp": 620,
+      "reward_exp": 720,
       "reward_gold": 2600,
-      "accept_text": "Twelve of dem. I won't lie to you about what dat means - every one of dem used to be someone's kin, someone's name before Zalazane took it. Do it anyway. Dey're not comin' back from what he did to dem.",
-      "turn_in_text": "It's done. I felt every one of dose losses, even da ones dat happened years before you ever set foot on dis island. Da camps are quiet now. Zalazane still has da temple and his own hollow. Dat's where dis really ends.",
-      "next_quest_id": "echo_isles_relic_recovery",
-      "level_min": 10,
-      "level_max": 12,
+      "accept_text": "Twelve of dem. I won't lie to you about what dat means - every one of dem used to be someone's kin. Do it anyway. Dey're not comin' back from what he did to dem. North trail and south trail - start where Vessa's report said.",
+      "turn_in_text": "It's done. I felt every one of dose losses. Da camps are quiet now. Zalazane still has da Hollow in da south-east, and da temple below da west isle's still drowned. But first I need something of yours.",
       "unique_item_defs": [
         {
           "name": "Hexbreaker's Cleaver",
           "slot": "main_hand",
-          "item_level": 11,
+          "item_level": 14,
           "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A cleaver for Zalazane's rank and file. It does not discriminate.",
           "weapon_type": "axe_1h",
-          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 3
+            "strength": 2
           },
-          "weapon_damage_min": 20,
-          "weapon_damage_max": 27,
-          "attack_speed": 2.5,
-          "label": "Axe (Str)"
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Hit/Crit)"
         },
         {
           "name": "Voodoo Adept's Totem-Rod",
           "slot": "main_hand",
-          "item_level": 11,
+          "item_level": 14,
           "rarity": "uncommon",
-          "weapon_type": "wand",
-          "stat_template": "int_caster",
+          "required_level": 12,
+          "flavor_text": "A fetish-rod taken from a man who deserved better. It hums with a leashed spell.",
+          "weapon_type": "staff",
           "primary_stats": {
-            "intellect": 5,
-            "spirit": 2
+            "intellect": 5
           },
-          "weapon_damage_min": 17,
-          "weapon_damage_max": 23,
-          "attack_speed": 1.9,
-          "label": "Wand (Int)"
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 6.4
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Hit/SP)"
+        },
+        {
+          "name": "Darkspear Hide-Greaves",
+          "slot": "legs",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Old Darkspear craftwork, retied by someone who remembers how.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 43,
+          "label": "Mail Legs (Str/Sta/Crit)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 14
     },
     {
       "quest_id": "echo_isles_relic_recovery",
       "title": "What Zalazane Took",
-      "description": "Before the final push, Kang'ari wants something recovered, not destroyed - hexed Darkspear totems scattered through what's left of the camps, fetishes twisted by Zalazane's magic but not beyond recognizing. He wants to SEE them, study what was done, maybe find a way to undo some of it for the trolls still lost out there. This isn't about killing anything else. It's about understanding what happened here.",
       "giver_npc_id": "echo_isles_troll_elder",
       "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "next_quest_id": "echo_isles_tidelord",
+      "description": "Before the final push, Kang'ari wants something recovered, not destroyed - hexed Darkspear totems, fetishes twisted by Zalazane's magic but not beyond recognizing. The voodoo trolls and hex trolls carry them; so do the fetish-carvers who tend the camp fires. He wants to study what was done and maybe find a way back for the trolls still lost.",
       "objectives": [
         {
           "type": "gather",
@@ -191,20 +907,73 @@
           "count": 5
         }
       ],
-      "reward_exp": 340,
-      "reward_gold": 1000,
-      "accept_text": "Five totems. Just bring dem to me, don't touch da magic still on dem if you can help it - I've seen what dat kind of hex does to someone who handles it careless.",
-      "turn_in_text": "Dis... dis tells me more dan I expected. Da hex isn't as permanent as I feared. Dere may be a way back for some of dem, someday. Not today. But someday. Keep dat hope wherever you carry hope, whatever dat looks like for you.",
-      "next_quest_id": "echo_isles_tidelord",
-      "level_min": 10,
-      "level_max": 12
+      "reward_exp": 640,
+      "reward_gold": 2200,
+      "accept_text": "Five totems. Bring dem to me, don't touch da magic still on dem if you can help it. I've seen what dat kind of hex does to someone who handles it careless.",
+      "turn_in_text": "Dis tells me more dan I expected. Da hex isn't as permanent as I feared. Dere may be a way back for some of dem, someday. Not today. But someday. Keep dat hope wherever you carry hope.",
+      "unique_item_defs": [
+        {
+          "name": "Cleansed Totem-Shard Pendant",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A hexed totem, scrubbed and re-blessed. It smells of smoke and fresh water.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.6
+          },
+          "label": "Necklace (Sta/Spi/Healing)"
+        },
+        {
+          "name": "Fetish-Bound Wristguards",
+          "slot": "wrist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Mail bracers with a small bound fetish. The fetish is polite about it.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Darkspear Scribe's Cowl",
+          "slot": "head",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A cloth hood marked with the old Darkspear sigils. Wearing it feels like being remembered.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Helm (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 14
     },
     {
       "quest_id": "echo_isles_tidelord",
       "title": "The Drowned Temple",
-      "description": "The Sunken Temple Grotto floods with the tide and empties with it, and something ancient has claimed the flooded chambers as its own - Tidelord Gharesh, an elemental bruiser that Kang'ari suspects Zalazane either summoned or simply failed to stop. Either way, it guards ground the Darkspear used to hold sacred, and Kang'ari wants it gone before anyone worries about reclaiming what's underneath.",
       "giver_npc_id": "echo_isles_troll_elder",
       "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "next_quest_id": "echo_isles_zalazane",
+      "description": "The Sunken Temple Grotto - the western island, cave mouth at the end of the Grotto trail past the west bridge - floods with the tide and empties with it, and something ancient has claimed its drowned chambers: Tidelord Gharesh, an elemental that Kang'ari suspects Zalazane either summoned or simply failed to stop. It guards ground the Darkspear held sacred.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -213,36 +982,75 @@
           "zone": "sunken_temple_grotto"
         }
       ],
-      "reward_exp": 880,
-      "reward_gold": 3400,
-      "accept_text": "It moves with da tide - stronger when da water's high, slower when it's not. Time it right and dis fight is winnable. Time it wrong and you're fightin' a flood dat hits back.",
-      "turn_in_text": "Da temple's quiet. Whatever dat thing was guardin', it's safe now, at least from dat. One name left, mon. Da one dat started all of dis.",
-      "next_quest_id": "echo_isles_zalazane",
-      "level_min": 11,
-      "level_max": 13,
+      "reward_exp": 1000,
+      "reward_gold": 3600,
+      "accept_text": "Da temple's door is at da end of da west trail, past da bridge. Gharesh moves with da tide - strong when da water's high, slower when it's low. Time it right and dis fight is winnable. Time it wrong and you're fightin' a flood dat hits back.",
+      "turn_in_text": "Da temple's quiet. Whatever dat thing was guardin', it's safe now. One name left, mon. Da one dat started all of dis.",
       "unique_item_defs": [
         {
           "name": "Gharesh's Tidal Core",
           "slot": "off_hand",
-          "item_level": 12,
+          "item_level": 16,
           "rarity": "rare",
-          "weapon_type": null,
-          "stat_template": "int_caster",
+          "required_level": 13,
+          "flavor_text": "A fist-sized sphere of moving water. It pulls toward the sea, and so do you.",
           "primary_stats": {
-            "intellect": 7,
-            "spirit": 3
+            "intellect": 2
           },
-          "flavor_text": "It shifts weight in your hand like it's still keeping time with a tide that isn't there anymore.",
-          "label": "Off-Hand (Int)"
+          "secondary_stats": {
+            "spell_power": 2.9,
+            "mp5": 0.6
+          },
+          "label": "Off-hand Orb (Int/SP/MP5)"
+        },
+        {
+          "name": "Riptide-Forged Bracers",
+          "slot": "wrist",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Plate bracers hammered in a tidal forge. They hold their shape through anything.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 48,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Spray-Soaked Cloak",
+          "slot": "back",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A cloak that never quite dries. It makes you feel slightly faster.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak (Agi/Int/AP)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare"
     },
     {
       "quest_id": "echo_isles_zalazane",
       "title": "Zalazane",
-      "description": "Zalazane's Hollow is the last of it - the source, the witch doctor who turned his own kin into hexed and drowned things rather than lead them honestly. Kang'ari has waited a long time to say this name to someone capable of ending it. He doesn't dress up what this fight means to him. Zalazane didn't just attack the Darkspear. He took them, one hex at a time, and wore their loyalty like something he'd earned instead of stolen.",
       "giver_npc_id": "echo_isles_troll_elder",
       "zone": "echo_isles",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "Zalazane's Hollow is the last of it - the source, the witch doctor who turned his own kin into hexed and drowned things rather than lead them honestly. The cave mouth is on the south-east island, at the end of the long bridge from the Landing. Kang'ari has waited a long time to say this name to someone capable of ending it.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -251,45 +1059,1057 @@
           "zone": "zalazanes_hollow"
         }
       ],
-      "reward_exp": 1100,
-      "reward_gold": 4600,
+      "reward_exp": 1500,
+      "reward_gold": 5600,
       "accept_text": "He's da strongest hexer I've ever seen, and I've seen a few. He'll try to turn your own party against you before he ever raises a weapon himself. Break da hex fast or don't let it land at all. Dat's da whole fight, really.",
-      "turn_in_text": "It's over. Zalazane is finished, and dis island belongs to da livin' again, not to whatever he was tryin' to make of it. I've carried dis a long time. I don't fully know how to put down a weight dat old, but I suspect I'll figure it out startin' today. Take what he had. You've more than earned it, and I mean dat as far more dan words.",
-      "next_quest_id": null,
-      "level_min": 12,
-      "level_max": 13,
+      "turn_in_text": "It's over. Zalazane is finished, and dis island belongs to da livin' again. I've carried dis a long time. I don't fully know how to put down a weight dat old, but I suspect I'll figure it out startin' today. Take what he had. You've more than earned it.",
       "unique_item_defs": [
         {
           "name": "Zalazane's Broken Fetish",
           "slot": "main_hand",
-          "item_level": 13,
+          "item_level": 18,
           "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "The fetish he channelled his power through, snapped in half. Still warm.",
           "weapon_type": "staff",
-          "stat_template": "int_caster",
-          "primary_stats": {
-            "intellect": 10,
-            "spirit": 4
+          "primary_stats": {},
+          "secondary_stats": {
+            "shadow_spell_power": 14.9,
+            "arcane_spell_power": 14.9
           },
-          "weapon_damage_min": 16,
-          "weapon_damage_max": 22,
-          "attack_speed": 3.0,
-          "flavor_text": "The hex magic in it is dead now, snuffed out the moment he fell. It still hums faintly anyway, like habit.",
-          "label": "Staff (Int)"
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 28,
+          "attack_speed": 3.2,
+          "label": "Staff (SP/Shadow/Arcane)"
         },
         {
           "name": "Darkspear Reclamation Circlet",
           "slot": "head",
-          "item_level": 13,
+          "item_level": 18,
           "rarity": "rare",
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 6,
-            "stamina": 6
+          "required_level": 14,
+          "flavor_text": "A circlet of beaten bronze with the Darkspear mark. It was returned by the one who earned it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.6,
+            "mp5": 1.0
           },
-          "flavor_text": "Kang'ari says it belonged to a chieftain before Zalazane melted it down for parts. He had it reforged the moment word reached camp.",
-          "label": "Head (Str/Sta)"
+          "armor_type": "mail",
+          "armor_value": 55,
+          "label": "Mail Helm (Healing/MP5)"
+        },
+        {
+          "name": "Witch-Doctor's Bane",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "A slim curved knife that cuts hexes more than flesh. It does both without complaint.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 51,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        },
+        {
+          "name": "Hollow-Walker's Bulwark",
+          "slot": "off_hand",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 14,
+          "flavor_text": "A shield painted in a language only trolls read. The writing says: you shall not pass.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "armor_value": 36,
+          "block_value": 45,
+          "label": "Shield (Sta/Block)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_zathra_shards",
+      "title": "A Healer's Debt",
+      "giver_npc_id": "echo_isles_troll_healer",
+      "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "next_quest_id": "echo_zathra_hexweaver",
+      "description": "Zathra mends what the camps send her: fevers, cuts, curses. The curses are the new part. Every victim has the same mark on the skin, a sliver of bone with a Darkspear name carved into it and then crossed out. The fetish-carvers make them. If she can see the carving she can find the weaver behind it, and if she can find the weaver she can stop treating the symptoms.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "hex_bone_shard",
+          "count": 6
+        }
+      ],
+      "reward_exp": 640,
+      "reward_gold": 2200,
+      "accept_text": "Carvers work da camp fires and da deeper dens of da Hollow. Take da shards off dem, don't touch da names. Six. I need to read dem together.",
+      "turn_in_text": "... all one hand. All one rhythm. It's a weaver, mon - someone in da Hollow who stitches dese hexes into da bone. I'll tell you where to look. Take dis for da trouble.",
+      "unique_item_defs": [
+        {
+          "name": "Zathra's Mending Gloves",
+          "slot": "hands",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Soft, clean, and never quite dry. They remember every fever they have broken.",
+          "primary_stats": {
+            "stamina": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Gloves (Sta/Int/Healing)"
+        },
+        {
+          "name": "Bone-Needle Stiletto",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A needle too long for a healer. She uses it for what the needle was meant for.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Sunwarden's Totem",
+          "slot": "ranged",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A palm-sized totem, warm when held. Used to calm the wounded and the nervous.",
+          "weapon_type": "totem",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 1.1,
+            "mp5": 0.2
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 0.0,
+          "label": "Totem (Healing/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "echo_zathra_hexweaver",
+      "title": "The Weaver Behind the Hex",
+      "giver_npc_id": "echo_isles_troll_healer",
+      "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "description": "Mam'toth the Hexweaver sits in his den on the west side of Zalazane's Hollow, below the Sanctum, and ties curses into bone. Zathra has treated forty of his victims. She'd like to stop treating them, and the only way to do that is to take the loom out of his hands. His adepts will rally round him; go through them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Voodoo Adept",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Mam'toth the Hexweaver",
+          "count": 1,
+          "zone": "zalazanes_hollow"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 3500,
+      "accept_text": "He's in da west of da Hollow, in a den below Zalazane's own sanctum. Don't let him finish da weave - interrupt him if you can, kill him quick if you can't. And bring back what's left of da loom.",
+      "turn_in_text": "Forty hexes, unmade in one breath. I felt dem go. Dat's da best medicine I've ever tasted. Take dis - and remember, mon: da healin' was never da hard part. It's da stoppin'.",
+      "unique_item_defs": [
+        {
+          "name": "Hexweaver's Mourning Robe",
+          "slot": "chest",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A black robe stitched with a hundred names, uncrossed. Zathra personally uncrossed them.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 3.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 20,
+          "label": "Cloth Chest (Int/Spi/Healing)"
+        },
+        {
+          "name": "Loomcutter's Cleaver",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A heavy cleaver for cutting thread. It cuts other things equally well.",
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 11
+          },
+          "secondary_stats": {
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 84,
+          "attack_speed": 3.6,
+          "label": "Axe (Str/Hit/Crit)"
+        },
+        {
+          "name": "Spirit-Spun Gauntlets",
+          "slot": "hands",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Leather gloves threaded with spirit-silk. They turn blows better than they should.",
+          "primary_stats": {
+            "stamina": 2,
+            "agility": 1
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Gloves (Sta/Agi/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_jinzil_charts",
+      "title": "Charts of the Lost Fleet",
+      "giver_npc_id": "echo_isles_troll_beachcomber",
+      "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "next_quest_id": "echo_jinzil_beard",
+      "description": "Jin'zil walks the beach below the troll village every dawn and has been doing it for thirty years. What he found this morning was a chart: drowned, soaked, still legible, washed off one of the dead ships of the Lost Fleet in the north-east. He wants the rest of them. Whoever sailed those ships knew where the old reefs were, and he suspects the old reefs are where Zalazane's power comes from.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "waterlogged_chart",
+          "count": 5
+        }
+      ],
+      "reward_exp": 640,
+      "reward_gold": 2200,
+      "accept_text": "Da Lost Fleet is up north-east, past da shallows. Da drowned crewmen still carry dere charts - dey cannot let go of da job. Five. Don't read dem in da rain.",
+      "turn_in_text": "A ring of islands, and a red cross. It's not a treasure map, mon - it's a warnin'. Da man who drew dis was runnin' from somethin'. One of his mates still guards da wreck. I'll tell you where.",
+      "unique_item_defs": [
+        {
+          "name": "Beachcomber's Weathered Satchel-Cloak",
+          "slot": "back",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A canvas cloak the colour of sand and seaweed. You are very hard to see.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloak (Int/Sta)"
+        },
+        {
+          "name": "Driftwood Cudgel",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A length of sea-silvered driftwood with a knot on the end. Honest and heavy.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta)"
+        },
+        {
+          "name": "Chartreader's Boots",
+          "slot": "feet",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Light leather boots for someone who has walked a lot of beach.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Boots (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "echo_jinzil_beard",
+      "title": "Barnacle-Beard's Lantern",
+      "giver_npc_id": "echo_isles_troll_beachcomber",
+      "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "description": "The first mate of the Lost Fleet never left his post. Old Barnacle-Beard walks the shallows by the wrecks, lantern in one hand, axe in the other, looking for the captain's orders. The crabs that infest his flats have gone feral on him. Jin'zil would like the lantern, and the old man to rest.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Wreck Scavenger",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Old Barnacle-Beard",
+          "count": 1
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 3200,
+      "accept_text": "Wreck Shallows, up north-east. Da crabs gather where he walks. Kill dem and he'll come lookin' for da noise. He fights like a man who's already dead. Dat is not a metaphor.",
+      "turn_in_text": "... He's restin'. I could feel him let go. I'm not a sentimental man, but I'll light dis lantern tonight for him, and for da crew. Take whatever you like off his belt.",
+      "unique_item_defs": [
+        {
+          "name": "Mate's Boarding Pike",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A short boarding pike, hooked at the back to drag a rail. Still tastes of rum.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 84,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Lanternbearer's Hood",
+          "slot": "head",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A hood with a tiny lantern-hook at the temple. Something warm in the dark.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.8
+          },
+          "armor_type": "leather",
+          "armor_value": 30,
+          "label": "Leather Helm (Sta/Spi/Healing)"
+        },
+        {
+          "name": "Captain's Mate Flintlock",
+          "slot": "ranged",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "An old naval pistol, spotless on the inside. He never did fire it.",
+          "weapon_type": "gun",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.6,
+          "label": "Gun (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_dritt_salvage",
+      "title": "Salvage Rights",
+      "giver_npc_id": "echo_isles_goblin_salvager",
+      "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "next_quest_id": "echo_dritt_seer",
+      "description": "Dritt's plan, as he puts it, is not complicated: get to the Lost Fleet, take what isn't nailed down, pay off the creditors. The plan's single flaw is the Drowned Causeway - the knee-deep ford that runs north from his camp on the south-east island to the troll isle. Murloc spearfishers hold it and sirens sing from the rocks. He cannot cross it. He cannot even look at it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Murloc Spearfisher",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Causeway Siren",
+          "count": 4
+        }
+      ],
+      "reward_exp": 640,
+      "reward_gold": 2400,
+      "accept_text": "It's a toll road now, friend, and the toll is MY LIFE. Eight spearfishers, four sirens, and I'll make it worth your while. Don't ask where the money's from.",
+      "turn_in_text": "You, friend, are a miracle. A violent, wet miracle. And a business partner, I hope. There's still the seer on the rocks who runs the choir. Come back when you're ready.",
+      "unique_item_defs": [
+        {
+          "name": "Dritt's Cutthroat Cutlass",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A goblin cutlass. Cheap alloy, expensive attitude.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.1
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 44,
+          "attack_speed": 2.4,
+          "label": "Sword (Agi/Sta/AP)"
+        },
+        {
+          "name": "Salvager's Rigging Belt",
+          "slot": "waist",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Pockets on every pocket. A wise goblin carries his own warehouse.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Belt (Agi/Sta)"
+        },
+        {
+          "name": "Wrangler's Brass Whistle",
+          "slot": "neck",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A little brass whistle that Dritt promises will call a sea-beast. It calls a bad feeling.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.9
+          },
+          "label": "Necklace (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "echo_dritt_seer",
+      "title": "The Seer on the Rocks",
+      "giver_npc_id": "echo_isles_goblin_salvager",
+      "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "next_quest_id": "echo_dritt_captain",
+      "description": "Spearfishers are one thing. The thing that sings the sirens into place is another. Seer Sshara sits on a rock halfway down the Drowned Causeway and does not let a sailor pass. Dritt says she once charmed his entire crew into walking off the end of a pier. He would like to be paid back in gold, but will settle for her silence.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Causeway Siren",
+          "count": 4
+        },
+        {
+          "type": "kill_boss",
+          "target": "Seer Sshara",
+          "count": 1
+        }
+      ],
+      "reward_exp": 820,
+      "reward_gold": 3000,
+      "accept_text": "Don't listen to her sing. I mean it. Plug your ears. Put wax in your ears. Go deaf. Whatever it takes, friend, my crew weren't smart enough and now they're fish.",
+      "turn_in_text": "Silent! You saved my life and about nine thousand gold in lost cargo. I'll find you a bonus, I'm just not quite sure where.",
+      "unique_item_defs": [
+        {
+          "name": "Sshara's Siren-Silk Mantle",
+          "slot": "shoulder",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Shimmering silk that sings when it catches the wind. Do not wear in a crowd.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Shoulders (Int/Sta/MP5)"
+        },
+        {
+          "name": "Seastrand Band",
+          "slot": "ring",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A coil of braided brine-pearl. Heavy for a ring and nimble for a weapon.",
+          "primary_stats": {
+            "strength": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Hit/Crit)"
+        },
+        {
+          "name": "Causeway Tidewalkers",
+          "slot": "feet",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Studded leather boots that grip wet stone like a crab.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Boots (Sta/Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "echo_dritt_captain",
+      "title": "The Captain's Strongbox",
+      "giver_npc_id": "echo_isles_goblin_salvager",
+      "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "next_quest_id": "echo_dritt_hounds",
+      "description": "With the causeway quiet, Dritt can finally say out loud what the plan was. Captain Morrow went down with his ship and his strongbox, and the Lost Fleet's captain still stalks his deck in the north-east, dead and unsociable. The strongbox is on his flagship. Dritt wants it. Dritt wants it very, very much.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Crewman",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Captain Morrow",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 3800,
+      "accept_text": "North-east, past da troll isle. Da flagship's the big one. He's got a cutlass and a temper and probably a grudge. Bring me da strongbox and I'll buy you a drink. Several.",
+      "turn_in_text": "... it's empty. Is it? No. No, it's not. THERE'S A FALSE BOTTOM! Friend, I'm going to cry in a minute. Take your cut, take it all, take the boat.",
+      "unique_item_defs": [
+        {
+          "name": "Morrow's Saltstained Epaulets",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Dress-uniform epaulets, heavy with brass, which has not tarnished. Disgraceful.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 9.8,
+            "parry_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 78,
+          "label": "Plate Shoulders (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Dead Reckoning Compass-Charm",
+          "slot": "neck",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A brass compass whose needle points at whatever you want to find. The rest is up to you.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.7,
+            "hit_rating": 0.1
+          },
+          "label": "Necklace (Int/SP/Hit)"
+        },
+        {
+          "name": "Quartermaster's Boarding Axe",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A balanced boarding axe with a hook at the back. It parts a deck rail like paper.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "echo_dritt_hounds",
+      "title": "A Hound's Worth",
+      "giver_npc_id": "echo_isles_goblin_salvager",
+      "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "description": "Dritt's camp sits a stone's throw from Zalazane's Hollow, and every night something in the dark whistles up the shadowfang hounds that prowl his perimeter. Houndmaster Gor'tek keeps the kennels in the middle of the Hollow, past the Thrall Pens, and the whistle is his. A goblin cannot sleep near a whistle like that.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shadowfang Guardian",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Houndmaster Gor'tek",
+          "count": 1,
+          "zone": "zalazanes_hollow"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 3600,
+      "accept_text": "Hounds first, so the master comes out. He'll whip his pack into a frenzy - kill him before the frenzy sets in, friend, or you'll be buyin' a lot of bandages.",
+      "turn_in_text": "Dead quiet! The whistle's gone and the hounds are asleep. I haven't slept in two weeks. I'm going to sleep for two more. Take dis, with my thanks. And my sympathies for his dogs.",
+      "unique_item_defs": [
+        {
+          "name": "Kennelmaster's Chain-Whip",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A length of chain and a short grip. The hounds know it by sound alone.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 1.8,
+          "label": "Fist (Agi/Int)"
+        },
+        {
+          "name": "Hound-Warden's Helm",
+          "slot": "head",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A visored helm with a muzzle-guard. Practical advice from a man who lost his nose.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 78,
+          "label": "Plate Helm (Str/Sta/Hit)"
+        },
+        {
+          "name": "Shadowfang Pelt Mantle",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "Hound-pelt, tanned black. It stays dark where the sun does not reach.",
+          "primary_stats": {
+            "agility": 4,
+            "spirit": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 32,
+          "label": "Leather Shoulders (Agi/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_kesh_pearls",
+      "title": "Pearls for the Offering",
+      "giver_npc_id": "echo_isles_shaman",
+      "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "next_quest_id": "echo_kesh_crypt",
+      "description": "Kesh keeps the spirit-shrine on the Grotto island, a few steps from the temple door, and the tide has started leaving things on the shrine step that no one placed there. The old offering was always a tide-touched pearl: grey, damp, impossible to dry. The spirits are asking again. The murlocs and tide-spirits inside the temple hold the only pearls left.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tide_touched_pearl",
+          "count": 5
+        }
+      ],
+      "reward_exp": 640,
+      "reward_gold": 2200,
+      "accept_text": "Go in at da temple door, mon, at da end of da Grotto trail. Da murlocs hoard dem in da shallows and da tidal elementals wear dem like bad jewellery. Five pearls. Keep dem wet.",
+      "turn_in_text": "Five. Perfect. Da tide is already softer. Dese pearls are why da temple's guardians never left. Dey're still lookin' for da last offering. Dere's a drowned warrior down dere who needs rest.",
+      "unique_item_defs": [
+        {
+          "name": "Kesh's Spirit-Tide Beads",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Tide-worn beads on a thong. They taste faintly of salt and rain.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.8
+          },
+          "label": "Necklace (Int/Spi/Healing)"
+        },
+        {
+          "name": "Spiritwalker's Driftwood Staff",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "A driftwood staff with a pearl in the crook. Greener than it should be.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "nature_spell_power": 17.7
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 3.2,
+          "label": "Staff (Nature SP)"
+        },
+        {
+          "name": "Shrine-Keeper's Hide Vest",
+          "slot": "chest",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Thick hide, sewn tight. It smells of wet fur and woodsmoke.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Chest (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "echo_kesh_crypt",
+      "title": "The Restless Below",
+      "giver_npc_id": "echo_isles_shaman",
+      "zone": "echo_isles",
+      "level_min": 13,
+      "level_max": 15,
+      "description": "In the Drowned Crypt, off the west gate of the Sunken Temple Grotto's rotunda, a Darkspear warrior called Moj'bashi has been walking the same tide-flooded corridor for forty years. He is not malicious. He is not sane either. The drowned trolls with him have followed his example. Kesh's offering does not take until the crypt is quiet.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Troll",
+          "count": 6,
+          "zone": "sunken_temple_grotto"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Moj'bashi the Drowned",
+          "count": 1,
+          "zone": "sunken_temple_grotto"
+        }
+      ],
+      "reward_exp": 900,
+      "reward_gold": 3200,
+      "accept_text": "Da crypt is off da west gate of da rotunda. He'll be at da back, mon. Treat him as a warrior, not a monster - he'd want dat. And bring him peace as quick as you can.",
+      "turn_in_text": "He's at rest. I felt it as he went, like a held breath comin' out. Dat's what da pearls were for. Take dis - da shrine and I are even.",
+      "unique_item_defs": [
+        {
+          "name": "Moj'bashi's Last Brineblade",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A Darkspear short sword, tide-polished. It parries as if it remembered something.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        },
+        {
+          "name": "Crypt-Warden's Mail Coif",
+          "slot": "head",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A coif of tide-rusted rings, mended with kelp-silk. Heavier than it looks.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 48,
+          "label": "Mail Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Tidepool Dreamer's Robes",
+          "slot": "chest",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 13,
+          "flavor_text": "A robe of sea-dyed cloth. Anyone who sleeps in it dreams of the temple.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 20,
+          "label": "Cloth Chest (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "echo_muzka_steps",
+      "title": "A Dare on the Sunken Steps",
+      "giver_npc_id": "echo_isles_young_diver",
+      "zone": "echo_isles",
+      "level_min": 11,
+      "level_max": 13,
+      "next_quest_id": "echo_muzka_razorjaw",
+      "description": "Muzka says he can hold his breath for four minutes. The Sunken Steps - a stair of old black stone that rises from the knee-deep water south of the Naga Ruins, between his island and the naga's - are where he has been proving it. The steps are guarded by slab-like sentinels, and the murloc spearfishers have taken an interest. He wants a witness.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "echo_isles",
+          "target_x": 28,
+          "target_y": 69,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Stepstone Sentinel",
+          "count": 6
+        }
+      ],
+      "reward_exp": 500,
+      "reward_gold": 1800,
+      "accept_text": "From da Grotto isle take da north trail into da water. Da steps are right below. Reach da middle step, break six sentinels, come back and tell me I'm brave.",
+      "turn_in_text": "You did it! You actually did it! Now I can say I know someone who did it. Which is nearly as good. Okay - I need to tell you about my brother.",
+      "unique_item_defs": [
+        {
+          "name": "Diver's Pearl-Knife",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "A diver's knife with a pearl-inlaid hilt. The edge has never left the water.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta)"
+        },
+        {
+          "name": "Kelpweave Leggings",
+          "slot": "legs",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Woven from three kinds of kelp. They stay cool and never tangle.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 25,
+          "label": "Leather Legs (Agi/Int)"
+        },
+        {
+          "name": "Steps-Walker's Charm",
+          "slot": "neck",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "A black stone from the stair. It makes the water feel a little less deep.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "echo_muzka_razorjaw",
+      "title": "What Took My Brother's Leg",
+      "giver_npc_id": "echo_isles_young_diver",
+      "zone": "echo_isles",
+      "level_min": 12,
+      "level_max": 14,
+      "description": "Muzka's older brother dove the southwestern reef and came back with half a leg. The thing that took it is called the Razorjaw: a great reef predator that has ruled the south-west for a decade, that circles the shallows below the Razorjaw Reef island when blood is in the water. Muzka does not want revenge. He wants it to stop.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorjaw Whelp",
+          "count": 6,
+          "alt_targets": [
+            "Razorjaw Lurker",
+            "Reef Stalker"
+          ]
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Razorjaw",
+          "count": 1
+        }
+      ],
+      "reward_exp": 980,
+      "reward_gold": 3400,
+      "accept_text": "Go down the south trail till da water, den west across da shallows. His whelps hunt in packs and he comes when dey scream. He hits hard, and he gets angrier as it goes. Hit and move, mon.",
+      "turn_in_text": "... It's really gone? I didn't think anyone could. Thank you. Thank you from my brother too. He's going to be insufferable, now.",
+      "unique_item_defs": [
+        {
+          "name": "Razorjaw Tooth Hatchet",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A tooth the size of a hand, hafted. Cuts like it still wants to.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Hit/Crit)"
+        },
+        {
+          "name": "Reef-Hunter's Scale Shirt",
+          "slot": "chest",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Scale from a reef predator, stitched to leather. Light, flexible, and quite hard to hit.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.9
+          },
+          "armor_type": "mail",
+          "armor_value": 65,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Brother's Mending Pendant",
+          "slot": "neck",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "A pendant his brother carved while the leg healed. It has a gentle effect.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.2,
+            "mp5": 0.5
+          },
+          "label": "Necklace (Healing/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare",
+      "next_quest_id": null
     }
   ]
 }

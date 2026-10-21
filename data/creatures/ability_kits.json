@@ -5622,6 +5622,456 @@
         "school": "magic"
       }
     ],
+    "coconut_crab": [
+      {
+        "name": "Crushing Claw",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Husk Armor",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 26
+        }
+      }
+    ],
+    "isle_screecher": [
+      {
+        "name": "Talon Rake",
+        "kind": "damage",
+        "amount": 19,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shrill Cry",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -12
+        }
+      }
+    ],
+    "fetish_carver": [
+      {
+        "name": "Bone Hex",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "magic"
+      },
+      {
+        "name": "Mending Fetish",
+        "kind": "heal",
+        "amount": 40,
+        "cooldown": 3,
+        "mana_cost": 30,
+        "school": "nature"
+      }
+    ],
+    "hollow_skullbreaker": [
+      {
+        "name": "Skull Crack",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dazing Blow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "wreck_scavenger": [
+      {
+        "name": "Pincer Pull",
+        "kind": "damage",
+        "amount": 21,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rusted Snap",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "bilge_eel": [
+      {
+        "name": "Eel Bite",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Static Jolt",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "causeway_siren": [
+      {
+        "name": "Siren's Lash",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "magic"
+      },
+      {
+        "name": "Entrancing Song",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 24,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -14
+        }
+      }
+    ],
+    "murloc_spearfisher": [
+      {
+        "name": "Barbed Spear",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Net Throw",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "stepstone_sentinel": [
+      {
+        "name": "Slab Slam",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Barnacled Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 28
+        }
+      }
+    ],
+    "razor_whelp": [
+      {
+        "name": "Rending Bite",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Blood Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 16
+        }
+      }
+    ],
+    "flatfin_stinger": [
+      {
+        "name": "Barb Strike",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Venom Barb",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "sand_burrower": [
+      {
+        "name": "Sand Claw",
+        "kind": "damage",
+        "amount": 19,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Burrow Dodge",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "agility": 16
+        }
+      }
+    ],
+    "gortek_houndmaster": [
+      {
+        "name": "Whip Crack",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sic 'Em",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 18
+        }
+      },
+      {
+        "name": "Hamstring Lash",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "mamtoth_hexweaver": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 24,
+        "school": "shadow"
+      },
+      {
+        "name": "Weaving Hex",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 20,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "intellect": -16
+        }
+      },
+      {
+        "name": "Hex Mend",
+        "kind": "heal",
+        "amount": 44,
+        "cooldown": 4,
+        "mana_cost": 32,
+        "school": "shadow"
+      }
+    ],
+    "mojbashi_drowned": [
+      {
+        "name": "Drowned Fist",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Waterlogged Rot",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Tidebound Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 26
+        }
+      }
+    ],
+    "sshara_seer": [
+      {
+        "name": "Tide Bolt",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 26,
+        "school": "magic"
+      },
+      {
+        "name": "Drowning Whisper",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 22,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Sea Veil",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 20,
+        "school": "magic",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 22
+        }
+      }
+    ],
+    "kragg_shellcrusher": [
+      {
+        "name": "Shellcrusher Slam",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Barnacle Plate",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 34
+        }
+      },
+      {
+        "name": "Rending Pincer",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "barnacle_beard": [
+      {
+        "name": "Rusted Boarding Axe",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rotgut Roar",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -14
+        }
+      },
+      {
+        "name": "Salt-Crusted Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 24
+        }
+      }
+    ],
     "murloc_flesheater": [
       {
         "name": "Rend Flesh",

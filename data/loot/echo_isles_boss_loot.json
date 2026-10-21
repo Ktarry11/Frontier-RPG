@@ -1,0 +1,720 @@
+{
+  "_notes": "Echo Isles boss + named-rare loot (2026-10-21). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "The Razorjaw": [
+    {
+      "name": "Razorjaw's Serrated Edge",
+      "slot": "main_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "A tooth the length of a forearm in a driftwood hilt. It bites the way it was grown to.",
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 11
+      },
+      "secondary_stats": {
+        "hit_rating": 0.8,
+        "crit_chance_physical": 0.8
+      },
+      "weapon_damage_min": 65,
+      "weapon_damage_max": 88,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Sharkskin Reaver's Vest",
+      "slot": "chest",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Cured while it was still angry. The grain runs towards the wearer's prey.",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "attack_power": 6.2
+      },
+      "armor_type": "leather",
+      "armor_value": 43
+    },
+    {
+      "name": "Apex-Jaw Bulwark",
+      "slot": "off_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Two plates of fused jawbone. Nothing has bitten through it since.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "armor_value": 34,
+      "block_value": 43
+    },
+    {
+      "name": "Reefcaller's Tidal Choker",
+      "slot": "neck",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "A tooth, a pearl and a promise. The reef answers to it, politely.",
+      "primary_stats": {
+        "intellect": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.0
+      }
+    }
+  ],
+  "Warden Ssaleth": [
+    {
+      "name": "Ssaleth's Tidal Trident",
+      "slot": "main_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Three barbed tines and a shaft of fossil coral. It hums at high tide.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.6
+      },
+      "weapon_damage_min": 65,
+      "weapon_damage_max": 88,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Warden's Scalemail Hauberk",
+      "slot": "chest",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Overlapping scales that shed water the way a roof sheds rain.",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 69
+    },
+    {
+      "name": "Runekeeper's Drowned Cowl",
+      "slot": "head",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "The inside is lined with tiny runes. Reading them aloud is discouraged.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {
+        "healing_power": 2.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 16
+    },
+    {
+      "name": "Coil of the Ruin-Warden",
+      "slot": "waist",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "A belt of braided kelp-iron. It will outlast the temple it came from.",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2,
+        "dodge_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 52
+    }
+  ],
+  "Captain Morrow": [
+    {
+      "name": "Captain Morrow's Boarding Cutlass",
+      "slot": "main_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Pitted to the guard, still sharp where it counts.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "attack_power": 4.7
+      },
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 49,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Dead Man's Flintlock",
+      "slot": "ranged",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "It fired once more, the day they pulled it up. Nobody liked how it sounded.",
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 30,
+      "weapon_damage_max": 41,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Drowned Captain's Greatcoat",
+      "slot": "chest",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Heavy with brine and brass. It still stands up on its own.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "armor": 13.0,
+        "parry_rating": 0.3
+      },
+      "armor_type": "plate",
+      "armor_value": 104
+    },
+    {
+      "name": "Barnacled Signet of the Tides",
+      "slot": "ring",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "The crest on it is a lighthouse. The nearest one is four hundred miles away.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 2.3,
+        "mp5": 0.5
+      }
+    }
+  ],
+  "Tidelord Gharesh": [
+    {
+      "name": "Tide-Heart Staff",
+      "slot": "main_hand",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "A column of standing water trapped in a staff. The pull of it is slightly unreasonable.",
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "frost_spell_power": 29.7
+      },
+      "weapon_damage_min": 20,
+      "weapon_damage_max": 28,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Crown of the Drowned Tidelord",
+      "slot": "head",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Pearl and kelp-iron. The wearer breathes easier, and a little wetter.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 2.0
+      },
+      "armor_type": "mail",
+      "armor_value": 55
+    },
+    {
+      "name": "Surge-Wrought Greaves",
+      "slot": "legs",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Plates that move with the tide. They do not move with you, unless you ask nicely.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.4,
+        "block_rating": 0.7,
+        "dodge_rating": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 110
+    },
+    {
+      "name": "Foam-Spun Cloak",
+      "slot": "back",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Spun from sea-foam and something stubborn. It never quite dries.",
+      "primary_stats": {
+        "agility": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 9
+    }
+  ],
+  "Zalazane": [
+    {
+      "name": "Zalazane's Hexcarved Scepter",
+      "slot": "main_hand",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Every notch is a name. Some of the names are still listening.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 8.3
+      },
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 51,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Mantle of the Darkspear Claimed",
+      "slot": "shoulder",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Woven of the feathers of a hundred prayers. Zalazane never answered a single one.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 4.6,
+        "mp5": 1.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 17
+    },
+    {
+      "name": "Bonewoven Spiritwalker Harness",
+      "slot": "chest",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Ribs of a dozen beasts, tied in a knot that only a hunter can untie.",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "attack_power": 6.6
+      },
+      "armor_type": "mail",
+      "armor_value": 73
+    },
+    {
+      "name": "Hexbreaker's Maul",
+      "slot": "main_hand",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "A club of petrified mangrove with a skull-shaped head. It was made to unmake hexes.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.6
+      },
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 3.6
+    }
+  ],
+  "Houndmaster Gor'tek": [
+    {
+      "name": "Kennel-Keeper's Hooked Axe",
+      "slot": "main_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "One side for splitting, the other for dragging a stubborn hound home.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 49,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Houndhide Leggings",
+      "slot": "legs",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Stitched from three different dogs. They would have gotten along.",
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 43
+    },
+    {
+      "name": "Pack-Bound Spaulders",
+      "slot": "shoulder",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Chain links studded with teeth. Some of them are even the hound's.",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 52
+    },
+    {
+      "name": "Whistle of the Kennelmaster",
+      "slot": "neck",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Silent to people. The hounds hear it three islands away.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Mam'toth the Hexweaver": [
+    {
+      "name": "Hexweaver's Spindle",
+      "slot": "main_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "A drop-spindle wound with something that is not wool.",
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 14.0,
+        "arcane_spell_power": 14.0
+      },
+      "weapon_damage_min": 19,
+      "weapon_damage_max": 26,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Threads of Mam'toth",
+      "slot": "legs",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "The hem moves a little when you are not looking at it.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 21
+    },
+    {
+      "name": "Weaver's Binding Cord",
+      "slot": "waist",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "A hex cord, repurposed. Healers swear it is not so very different.",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 10
+    },
+    {
+      "name": "Hexbound Fetish Ring",
+      "slot": "ring",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "The fetish has a face. The face has opinions.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 4.2
+      }
+    }
+  ],
+  "Moj'bashi the Drowned": [
+    {
+      "name": "Drowned Warrior's Brineblade",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "A Darkspear blade that spent forty years underwater and learned patience.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 34,
+      "weapon_damage_max": 46,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Kelp-Slick Boots",
+      "slot": "feet",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Slippery on the outside, steady on the inside. Which is the right way round.",
+      "primary_stats": {
+        "stamina": 2,
+        "agility": 1
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.2
+      },
+      "armor_type": "leather",
+      "armor_value": 20
+    },
+    {
+      "name": "Tide-Bound Troll Ring",
+      "slot": "ring",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "A ring of braided sinew. It remembers breathing, and tries to remind you.",
+      "primary_stats": {
+        "stamina": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Seer Sshara": [
+    {
+      "name": "Seer's Pearl Scepter",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "A black pearl in a coral claw. The reflection in it is slightly ahead of you.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {
+        "healing_power": 2.4
+      },
+      "weapon_damage_min": 34,
+      "weapon_damage_max": 46,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Sshara's Veil of Brine",
+      "slot": "head",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Spider-fine silk that tastes of the sea. The wearer sees in two directions at once.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.9,
+        "hit_rating": 0.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 15
+    },
+    {
+      "name": "Seastrand Wristlets",
+      "slot": "wrist",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "Mail links the size of rice grains. The tide has polished every one.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "mp5": 0.4
+      },
+      "armor_type": "mail",
+      "armor_value": 32
+    },
+    {
+      "name": "Siren's Tear",
+      "slot": "neck",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "A drop of brine that never fell. It rings faintly when something sings nearby.",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.6,
+        "mp5": 0.3
+      }
+    }
+  ],
+  "Shellcrusher Kragg": [
+    {
+      "name": "Shellcrusher Pauldrons",
+      "slot": "shoulder",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Carapace plate the size of a dinner platter. The edges are surprisingly polite.",
+      "primary_stats": {
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "armor": 8.6,
+        "parry_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 68
+    },
+    {
+      "name": "Claw-Hammer of the Flats",
+      "slot": "main_hand",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "A claw, lashed to a haft. It has not forgotten its last meal.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 33,
+      "weapon_damage_max": 44,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Crab-Shell Buckler",
+      "slot": "off_hand",
+      "item_level": 15,
+      "rarity": "rare",
+      "required_level": 12,
+      "flavor_text": "Smaller than it looks, harder than it should be.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "armor_value": 30,
+      "block_value": 38
+    }
+  ],
+  "Old Barnacle-Beard": [
+    {
+      "name": "Barnacle-Beard's Boarding Axe",
+      "slot": "main_hand",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "The edge has more barnacles than steel. It cuts anyway, out of spite.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "attack_power": 4.4
+      },
+      "weapon_damage_min": 34,
+      "weapon_damage_max": 46,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Salt-Stiffened Tricorn",
+      "slot": "head",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "It has seen a lot of weather. None of it was good.",
+      "primary_stats": {
+        "agility": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "attack_power": 4.4
+      },
+      "armor_type": "leather",
+      "armor_value": 30
+    },
+    {
+      "name": "Rum-Soaked Sash",
+      "slot": "waist",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "You can smell the past. You can also smell the rum. They overlap.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 10
+    },
+    {
+      "name": "Boarding Crossbow",
+      "slot": "ranged",
+      "item_level": 16,
+      "rarity": "rare",
+      "required_level": 13,
+      "flavor_text": "A ship's crossbow, built to fire across a deck and not look back.",
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 29,
+      "weapon_damage_max": 39,
+      "attack_speed": 2.4
+    }
+  ]
+}

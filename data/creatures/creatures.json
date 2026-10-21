@@ -246,7 +246,7 @@
     "Bloodtalon Raptor": {
       "template": "beast_fast",
       "level_range": [
-        9,
+        10,
         12
       ],
       "is_boss": false,
@@ -273,7 +273,7 @@
     "Jungle Panther": {
       "template": "beast_fast",
       "level_range": [
-        9,
+        10,
         12
       ],
       "stat_overrides": {
@@ -552,8 +552,8 @@
     "Voodoo Troll": {
       "template": "humanoid_caster",
       "level_range": [
-        9,
-        12
+        12,
+        13
       ],
       "is_boss": false,
       "ability_kit": "voodoo_troll"
@@ -561,8 +561,8 @@
     "Hex Troll": {
       "template": "humanoid_caster",
       "level_range": [
-        9,
-        12
+        12,
+        13
       ],
       "stat_overrides": {
         "agility": 1.1
@@ -573,8 +573,8 @@
     "Zalazane Berserker": {
       "template": "humanoid_warrior",
       "level_range": [
-        9,
-        12
+        12,
+        13
       ],
       "is_boss": false,
       "ability_kit": "zalazane_berserker"
@@ -582,8 +582,8 @@
     "Isle Headhunter": {
       "template": "humanoid_ranged",
       "level_range": [
-        9,
-        12
+        12,
+        13
       ],
       "is_boss": false,
       "ability_kit": "isle_headhunter"
@@ -591,7 +591,7 @@
     "Isle Serpent": {
       "template": "vermin_sneaky",
       "level_range": [
-        9,
+        10,
         12
       ],
       "is_boss": false,
@@ -600,8 +600,8 @@
     "Grotto Murloc": {
       "template": "aquatic_basic",
       "level_range": [
-        9,
-        12
+        12,
+        13
       ],
       "is_boss": false,
       "ability_kit": "grotto_murloc"
@@ -609,8 +609,8 @@
     "Tidal Elemental": {
       "template": "elemental_bruiser",
       "level_range": [
-        9,
-        12
+        12,
+        14
       ],
       "is_boss": false,
       "ability_kit": "tidal_elemental"
@@ -618,8 +618,8 @@
     "Drowned Troll": {
       "template": "undead_basic",
       "level_range": [
-        9,
-        12
+        12,
+        14
       ],
       "is_boss": false,
       "ability_kit": "drowned_troll"
@@ -627,8 +627,8 @@
     "Tidelord Gharesh": {
       "template": "elemental_bruiser",
       "level_range": [
-        13,
-        13
+        15,
+        15
       ],
       "is_boss": true,
       "boss_multiplier": 2.5,
@@ -637,8 +637,8 @@
     "Hexed Thrall": {
       "template": "undead_basic",
       "level_range": [
-        9,
-        12
+        13,
+        14
       ],
       "is_boss": false,
       "ability_kit": "hexed_thrall"
@@ -646,8 +646,8 @@
     "Voodoo Adept": {
       "template": "humanoid_caster",
       "level_range": [
-        9,
-        12
+        13,
+        14
       ],
       "is_boss": false,
       "ability_kit": "voodoo_troll"
@@ -655,8 +655,8 @@
     "Shadowfang Guardian": {
       "template": "demon_hound",
       "level_range": [
-        9,
-        12
+        13,
+        14
       ],
       "is_boss": false,
       "ability_kit": "shadowfang_guardian"
@@ -664,8 +664,8 @@
     "Zalazane": {
       "template": "humanoid_caster",
       "level_range": [
-        13,
-        13
+        15,
+        15
       ],
       "is_boss": true,
       "boss_multiplier": 2.5,
@@ -3773,8 +3773,8 @@
     "Razorjaw Lurker": {
       "template": "beast_large",
       "level_range": [
-        10,
-        12
+        11,
+        13
       ],
       "is_boss": false,
       "ability_kit": "reef_predator"
@@ -3801,8 +3801,8 @@
     "Naga Coastguard": {
       "template": "humanoid_warrior",
       "level_range": [
-        11,
-        13
+        12,
+        14
       ],
       "is_boss": false,
       "ability_kit": "naga_coastguard"
@@ -3810,8 +3810,8 @@
     "Naga Tidecaller": {
       "template": "humanoid_caster",
       "level_range": [
-        11,
-        13
+        12,
+        14
       ],
       "is_boss": false,
       "ability_kit": "naga_coastguard"
@@ -3829,8 +3829,8 @@
     "Drowned Crewman": {
       "template": "undead_basic",
       "level_range": [
-        11,
-        13
+        12,
+        14
       ],
       "is_boss": false,
       "ability_kit": "drowned_crewman"
@@ -3838,8 +3838,8 @@
     "Waterlogged Gunner": {
       "template": "undead_basic",
       "level_range": [
-        11,
-        13
+        12,
+        14
       ],
       "is_boss": false,
       "ability_kit": "drowned_crewman"
@@ -4366,6 +4366,174 @@
       "is_boss": true,
       "ability_kit": "cinderfang",
       "boss_multiplier": 1.7
+    },
+    "Isle Coconut Crab": {
+      "template": "beast_large",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "coconut_crab"
+    },
+    "Isle Screecher": {
+      "template": "beast_fast",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "isle_screecher"
+    },
+    "Zalazane Fetish-Carver": {
+      "template": "humanoid_caster",
+      "level_range": [
+        12,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "fetish_carver"
+    },
+    "Hollow Skullbreaker": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        13,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "hollow_skullbreaker"
+    },
+    "Wreck Scavenger": {
+      "template": "beast_basic",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "wreck_scavenger"
+    },
+    "Bilge Eel": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "bilge_eel"
+    },
+    "Causeway Siren": {
+      "template": "humanoid_caster",
+      "level_range": [
+        12,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "causeway_siren"
+    },
+    "Murloc Spearfisher": {
+      "template": "aquatic_basic",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "murloc_spearfisher"
+    },
+    "Stepstone Sentinel": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        12,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "stepstone_sentinel"
+    },
+    "Razorjaw Whelp": {
+      "template": "beast_fast",
+      "level_range": [
+        11,
+        13
+      ],
+      "is_boss": false,
+      "ability_kit": "razor_whelp"
+    },
+    "Flatfin Stinger": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "flatfin_stinger"
+    },
+    "Sand Burrower": {
+      "template": "beast_basic",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "sand_burrower"
+    },
+    "Houndmaster Gor'tek": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "ability_kit": "gortek_houndmaster",
+      "boss_multiplier": 1.7
+    },
+    "Mam'toth the Hexweaver": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "ability_kit": "mamtoth_hexweaver",
+      "boss_multiplier": 1.7
+    },
+    "Moj'bashi the Drowned": {
+      "template": "undead_basic",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "ability_kit": "mojbashi_drowned",
+      "boss_multiplier": 1.7
+    },
+    "Seer Sshara": {
+      "template": "humanoid_caster",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "ability_kit": "sshara_seer",
+      "boss_multiplier": 1.6
+    },
+    "Shellcrusher Kragg": {
+      "template": "beast_large",
+      "level_range": [
+        12,
+        12
+      ],
+      "is_boss": true,
+      "ability_kit": "kragg_shellcrusher",
+      "boss_multiplier": 1.7
+    },
+    "Old Barnacle-Beard": {
+      "template": "undead_basic",
+      "level_range": [
+        13,
+        13
+      ],
+      "is_boss": true,
+      "ability_kit": "barnacle_beard",
+      "boss_multiplier": 1.6
     }
   }
 }
