@@ -5597,6 +5597,7 @@ def create_all_zones():
     from tools.handbuilt_durotar import generate_durotar as generate_durotar_handbuilt
     from tools import handbuilt_vot_caves as vot_caves
     from tools import handbuilt_durotar_caves as dcaves
+    from tools import handbuilt_razor_hill as dcaves_razor
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5629,7 +5630,7 @@ def create_all_zones():
         # ===== ORIGINAL STARTER ZONES (unchanged) =====
         "Valley of Trials": generate_valley_of_trials_handbuilt(),  # hand-built (tools/handbuilt_vot.py)
         "Durotar": generate_durotar_handbuilt(),  # hand-built (tools/handbuilt_durotar.py)
-        "Razor Hill": ZoneGenerator.generate_razor_hill(),
+        "Razor Hill": dcaves_razor.generate_razor_hill(),  # hand-built (tools/handbuilt_razor_hill.py)
         "Echo Isles": ZoneGenerator.generate_echo_isles(),
         "Ratchet": ZoneGenerator.generate_ratchet(),
         "Orgrimmar": generate_orgrimmar_expanded(),  # EXPANDED with districts & Ragefire entrance
