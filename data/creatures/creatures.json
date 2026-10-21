@@ -728,8 +728,8 @@
     "Savannah Patriarch": {
       "template": "beast_large",
       "level_range": [
-        18,
-        24
+        20,
+        22
       ],
       "is_boss": false,
       "ability_kit": "savannah_patriarch"
@@ -773,8 +773,8 @@
     "Bristleback Quilboar": {
       "template": "humanoid_warrior",
       "level_range": [
-        18,
-        24
+        19,
+        22
       ],
       "is_boss": false,
       "ability_kit": "bristleback_quilboar"
@@ -782,8 +782,8 @@
     "Bristleback Shaman": {
       "template": "humanoid_caster",
       "level_range": [
-        18,
-        24
+        20,
+        22
       ],
       "is_boss": false,
       "ability_kit": "bristleback_shaman"
@@ -791,8 +791,8 @@
     "Bristleback Thornweaver": {
       "template": "humanoid_caster",
       "level_range": [
-        18,
-        24
+        20,
+        22
       ],
       "is_boss": false,
       "ability_kit": "bristleback_thornweaver"
@@ -809,8 +809,8 @@
     "Bristleback Water Seeker": {
       "template": "humanoid_ranged",
       "level_range": [
-        18,
-        24
+        19,
+        22
       ],
       "is_boss": false,
       "ability_kit": "bristleback_water_seeker"
@@ -963,7 +963,7 @@
       "template": "beast_large",
       "level_range": [
         18,
-        24
+        20
       ],
       "is_boss": false,
       "ability_kit": "kodo"
@@ -971,8 +971,8 @@
     "Aged Kodo": {
       "template": "beast_large",
       "level_range": [
-        18,
-        24
+        19,
+        21
       ],
       "is_boss": false,
       "ability_kit": "kodo"
@@ -980,8 +980,8 @@
     "Sunscale Lashtail": {
       "template": "beast_large",
       "level_range": [
-        18,
-        24
+        20,
+        23
       ],
       "is_boss": false,
       "ability_kit": "sunscale_lashtail"
@@ -1417,25 +1417,25 @@
       "template": "humanoid_warrior",
       "level_range": [
         19,
-        24
+        22
       ],
-      "kit": "dwarf_miner"
+      "ability_kit": "dwarf_miner"
     },
     "Dwarf Engineer": {
       "template": "humanoid_warrior",
       "level_range": [
-        19,
-        24
+        20,
+        23
       ],
-      "kit": "dwarf_engineer"
+      "ability_kit": "dwarf_engineer"
     },
     "Dwarf Explosives Expert": {
       "template": "humanoid_warrior",
       "level_range": [
-        19,
+        21,
         24
       ],
-      "kit": "dwarf_explosives"
+      "ability_kit": "dwarf_explosives"
     },
     "Harpy Matriarch": {
       "template": "beast_fast",
@@ -2263,7 +2263,7 @@
       "template": "beast_basic",
       "level_range": [
         18,
-        24
+        20
       ],
       "is_boss": false,
       "ability_kit": "boar"
@@ -2272,7 +2272,7 @@
       "template": "beast_large",
       "level_range": [
         18,
-        24
+        20
       ],
       "is_boss": false,
       "ability_kit": "elder_scythemaw"
@@ -3704,8 +3704,8 @@
     "Razormane Stalker": {
       "template": "humanoid_rogue",
       "level_range": [
-        18,
-        21
+        19,
+        22
       ],
       "is_boss": false,
       "ability_kit": "quilboar_battleguard"
@@ -3713,7 +3713,7 @@
     "Razormane Seer": {
       "template": "humanoid_caster",
       "level_range": [
-        19,
+        20,
         22
       ],
       "is_boss": false,
@@ -3726,7 +3726,7 @@
         22
       ],
       "is_boss": true,
-      "boss_multiplier": 2.4,
+      "boss_multiplier": 2.5,
       "ability_kit": "hagg_taurenbane"
     },
     "Brontus": {
@@ -3736,17 +3736,17 @@
         24
       ],
       "is_boss": true,
-      "boss_multiplier": 2.3,
+      "boss_multiplier": 2.5,
       "ability_kit": "brontus"
     },
     "General Twinbraid": {
       "template": "humanoid_warrior",
       "level_range": [
-        23,
-        23
+        24,
+        24
       ],
       "is_boss": true,
-      "boss_multiplier": 2.5,
+      "boss_multiplier": 2.6,
       "ability_kit": "general_twinbraid"
     },
     "Cinderjaw Skitterling": {
@@ -4826,6 +4826,295 @@
       "is_boss": true,
       "ability_kit": "bazz_lootchief",
       "boss_multiplier": 1.7
+    },
+    "Rift Cliffhawk": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "rift_cliffhawk"
+    },
+    "Gravel Skitterer": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        18,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "gravel_skitterer"
+    },
+    "Rift Sabertooth": {
+      "template": "beast_basic",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "rift_sabertooth"
+    },
+    "Giantbone Hyena": {
+      "template": "beast_basic",
+      "level_range": [
+        18,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "giantbone_hyena"
+    },
+    "Bone-Dust Wraith": {
+      "template": "undead_basic",
+      "level_range": [
+        19,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "bonedust_wraith"
+    },
+    "Razorfen Bramble-Guard": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "razorfen_bramble_guard"
+    },
+    "Thornhide Boar": {
+      "template": "beast_basic",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "thornhide_boar"
+    },
+    "Razormane Skinner": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        19,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "razormane_skinner"
+    },
+    "Blackthorn Boarhound": {
+      "template": "beast_fast",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "blackthorn_boarhound"
+    },
+    "Modan Overseer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "modan_overseer"
+    },
+    "Dig-Site Golem": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "dig_site_golem"
+    },
+    "Bael'dun Rifleman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "keep_rifleman"
+    },
+    "Bael'dun Sergeant": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        22,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "keep_sergeant"
+    },
+    "Keep Mastiff": {
+      "template": "beast_fast",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "keep_mastiff"
+    },
+    "Sunscale Stalker": {
+      "template": "beast_fast",
+      "level_range": [
+        20,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "sunscale_stalker"
+    },
+    "Nest-Mother Raptor": {
+      "template": "beast_large",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "nest_mother_raptor"
+    },
+    "Sinkhole Burrower": {
+      "template": "vermin_swarm",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "sinkhole_burrower"
+    },
+    "Brood Tunnel-Guard": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        22,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "brood_tunnel_guard"
+    },
+    "Windspire Harpy": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "windspire_harpy"
+    },
+    "Spire Windcaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "spire_windcaller"
+    },
+    "Hoodoo Dust Devil": {
+      "template": "elemental_caster",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "hoodoo_dust_devil"
+    },
+    "Dustmaw the Rift-Lurker": {
+      "template": "beast_large",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "dustmaw_rift_lurker",
+      "boss_multiplier": 1.7
+    },
+    "Thrumbone the Ancient": {
+      "template": "undead_basic",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "ability_kit": "thrumbone_ancient",
+      "boss_multiplier": 1.7
+    },
+    "Old Mother Longhorn": {
+      "template": "beast_large",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "old_mother_longhorn",
+      "boss_multiplier": 1.7
+    },
+    "Bramblequeen Durga": {
+      "template": "humanoid_caster",
+      "level_range": [
+        22,
+        22
+      ],
+      "is_boss": true,
+      "ability_kit": "bramblequeen_durga",
+      "boss_multiplier": 1.6
+    },
+    "Skinwalker Garn": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "ability_kit": "skinwalker_garn",
+      "boss_multiplier": 1.6
+    },
+    "Foreman Grubb Deepdelver": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "ability_kit": "foreman_grubb",
+      "boss_multiplier": 1.7
+    },
+    "Sergeant Ironvein": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "ability_kit": "sergeant_ironvein",
+      "boss_multiplier": 1.7
+    },
+    "Razorbeak the Nestbreaker": {
+      "template": "beast_fast",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "ability_kit": "razorbeak_nestbreaker",
+      "boss_multiplier": 1.6
+    },
+    "Vexa the Tunnel-Queen": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        24,
+        24
+      ],
+      "is_boss": true,
+      "ability_kit": "vexa_tunnel_queen",
+      "boss_multiplier": 1.7
+    },
+    "Skyshriek Matron": {
+      "template": "humanoid_caster",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "ability_kit": "skyshriek_matron",
+      "boss_multiplier": 1.6
     }
   }
 }

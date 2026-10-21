@@ -1,0 +1,2247 @@
+{
+  "quests": [
+    {
+      "quest_id": "sb_hawks_over_the_rift",
+      "title": "Hawks Over the Rift",
+      "giver_npc_id": "sb_rift_warden",
+      "zone": "southern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "The Rift is a day's walk of broken canyon between Camp Taurajo and everything south of it, and Brakka Stonehoof keeps the ramp that crosses it. Cliffhawks have started to nest in the walls. They don't mind the caravans. They mind the people on the ramp, who they see, quite reasonably, as dinner.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rift Cliffhawk",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "Brown wings, white throats, a lot of attitude. Thin them out along the canyon walls. Don't fall in. The Rift is not forgiving about that.",
+      "turn_in_text": "Quieter already. I can hear the wagons again. Take this. It's the least the Waystation owes you.",
+      "next_quest_id": "sb_geodes_for_the_warden",
+      "unique_item_defs": [
+        {
+          "name": "Waywarden's Cliff-Cloak",
+          "slot": "back",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Dun-coloured and weather-beaten. It disappears on a canyon wall, which is the point.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak (Int/Sta)"
+        },
+        {
+          "name": "Ramp-Guard Spear",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Long enough to reach over a rail. Short enough to still stab someone.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 79,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        },
+        {
+          "name": "Rimstone Tread-Boots",
+          "slot": "feet",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Ribbed soles. They grip rock like it owes them money.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 32,
+          "label": "Mail Boots (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_geodes_for_the_warden",
+      "title": "Geodes for the Warden",
+      "giver_npc_id": "sb_rift_warden",
+      "zone": "southern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "The gravel skitterers of the Rift floor carry geodes in their shells like pockets. Brakka's wardens have learned that the crystals inside hum when a rockfall is about to happen. A string of them along the ramp would be worth a warden's life. They are, unhappily, worth a skitterer's too.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rift_geode",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "Glittering things inside the shell, you can't miss them. Six geodes. And if the skitterer objects, don't take it personally.",
+      "turn_in_text": "They hum! Listen to that. That's one fewer funeral this season. Take this.",
+      "next_quest_id": "sb_teeth_in_the_canyon",
+      "unique_item_defs": [
+        {
+          "name": "Geode-Studded Bracers",
+          "slot": "wrist",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Leather bound with rock-crystal. They hum a little. They've never told anyone why.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Warden's Rockfall Charm",
+          "slot": "neck",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A string of tiny geodes. It tinkles before a slide. The tinkle is the warning.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "label": "Necklace (Str/Sta)"
+        },
+        {
+          "name": "Canyon-Slate Shield",
+          "slot": "off_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A flat slab of slate, hand-fitted. Heavy, honest, impossible to leave behind.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "armor_value": 32,
+          "block_value": 40,
+          "label": "Shield (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_teeth_in_the_canyon",
+      "title": "Teeth in the Canyon",
+      "giver_npc_id": "sb_rift_warden",
+      "zone": "southern_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "The sabertooths came down out of the high rock three weeks ago. A caravan of kodo-haulers lost two animals and a driver on the ramp, and the survivors swear something bigger than a sabertooth watches from the ledges. Dustmaw. Brakka has heard the name before. She'd hoped it was a story.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rift Sabertooth",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Dustmaw the Rift-Lurker",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1260,
+      "reward_gold": 4800,
+      "accept_text": "Six cats first - they're the sure thing. Dustmaw, if he shows himself, is the reason. He's half the canyon's size and twice as stubborn.",
+      "turn_in_text": "Dustmaw. Dead. I'll hang a fang over the gate. You've earned a bigger share than that.",
+      "next_quest_id": "sb_across_the_rift",
+      "unique_item_defs": [
+        {
+          "name": "Sabertooth-Hide Jerkin",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Spotted pelt over riveted leather. It still smells like the cat.",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Chest (Str/Agi)"
+        },
+        {
+          "name": "Dustmaw-Tooth Dirk",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A fang as long as your hand, set in a wrapped grip. It still looks hungry.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Canyon-Warden's Signet",
+          "slot": "ring",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A plain band hammered from an old ramp-spike. It has held a lot of weight.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_across_the_rift",
+      "title": "Across the Rift",
+      "giver_npc_id": "sb_rift_warden",
+      "zone": "southern_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "Two ramps cross the Rift besides the Waystation's, and Brakka hasn't had a warden near either since the cliffhawks started. She wants eyes on both. Walk the west ramp, walk the east one, and tell her what you see. The Rift is wider than it looks, and it is always quieter than it should be.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_barrens",
+          "target_x": 100,
+          "target_y": 126,
+          "radius": 9
+        },
+        {
+          "type": "explore",
+          "target": "southern_barrens",
+          "target_x": 176,
+          "target_y": 142,
+          "radius": 9
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5000,
+      "accept_text": "West ramp first, then east. Look for hawks, cats and anything that shouldn't be there. Bones are normal. Fresh bones are not.",
+      "turn_in_text": "Both ramps passable. Good. The Waystation can breathe. Take this - and remember me kindly when you cross.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Rimrunner's Leggings",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Hide leggings with reinforced knees. For people who spend their lives climbing in and out of holes.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Legs (Agi/Sta)"
+        },
+        {
+          "name": "Waystation Warhorn",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A small horn on a cord. One blast gets the whole ramp's attention.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "label": "Necklace (Agi/Int)"
+        },
+        {
+          "name": "Crossing-Keeper's Truncheon",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Short, heavy and well-balanced. Persuasive in a traffic dispute.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_hyenas_in_the_bones",
+      "title": "Hyenas in the Bones",
+      "giver_npc_id": "sb_bonehunter",
+      "zone": "southern_barrens",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "Rurk collects bones. Giant bones, the kind that stick out of the Field of Giants like the ribs of a ship. Hyenas have made that harder. They've learned that a man with his arms full of bones is a man who cannot swing a spear, and they come in packs to prove it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Giantbone Hyena",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1084,
+      "reward_gold": 4320,
+      "accept_text": "Spotted, patient, cheerful. Drive them off the bones. I'll make more of a living if I'm not being chased.",
+      "turn_in_text": "Mmm. Hear that? Nothing. You'd be surprised how nice that sounds. Take this.",
+      "next_quest_id": "sb_giants_knucklebones",
+      "unique_item_defs": [
+        {
+          "name": "Bonepicker's Padded Vest",
+          "slot": "chest",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Lots of pockets. Each one smells of something dead.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 40,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Hyena-Tooth Hatchet",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "A small axe with a hyena tooth set in the pommel. It's a lucky tooth. Mostly.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        },
+        {
+          "name": "Marrow-Hardened Gauntlets",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Bone plates over mail. They've seen a lot of marrow.",
+          "primary_stats": {
+            "strength": 2,
+            "intellect": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 32,
+          "label": "Mail Gloves (Str/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_giants_knucklebones",
+      "title": "Giants' Knucklebones",
+      "giver_npc_id": "sb_bonehunter",
+      "zone": "southern_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "The old plain has more than bones. It has something that wears them. Dust-grey wraiths drift between the ribs, shouldering knuckles the size of anvils. Rurk wants those knuckles. Why? He won't say, and he pays well enough that you don't ask.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "giant_knucklebone",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1142,
+      "reward_gold": 4560,
+      "accept_text": "Bone-Dust Wraiths. They keep the knucklebones close, like a miser keeps coins. Take six. Don't let them take yours.",
+      "turn_in_text": "Six knucklebones. Look at the polish on that! Beautiful. Take this - I'll be busy carving.",
+      "next_quest_id": "sb_the_matriarchs_last_walk",
+      "unique_item_defs": [
+        {
+          "name": "Knucklebone-Linked Belt",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Linked giant knuckle-plates. The belt weighs more than it should and holds up better than it looks.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Belt (Str/Sta)"
+        },
+        {
+          "name": "Carver's Bone Wand",
+          "slot": "ranged",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A bone sliver carved with unfriendly little faces. They whisper when you aren't looking.",
+          "weapon_type": "wand",
+          "primary_stats": {},
+          "secondary_stats": {
+            "shadow_spell_power": 3.9
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 1.9,
+          "label": "Wand"
+        },
+        {
+          "name": "Giant's Memory Pendant",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A tiny polished knuckle on a cord. It feels like being very, very small.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "label": "Necklace (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_matriarchs_last_walk",
+      "title": "The Matriarch's Last Walk",
+      "giver_npc_id": "sb_bonehunter",
+      "zone": "southern_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "A herd-mother kodo has been walking the Field of Giants in circles for a season, goring anything that wanders close. The herders call her Old Mother Longhorn. She isn't mad. She lost a calf, and she's been looking for it ever since. Rurk won't do it himself. He thinks it'd be bad luck. He pays well, though.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Aged Kodo",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Old Mother Longhorn",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 5200,
+      "accept_text": "Six of her herd, the old and sorry ones. Then her. Be quick about it. She's been grieving long enough.",
+      "turn_in_text": "It's done, then. Quietly, I hope. Take this. And say a word for her at the gate, if you've got one.",
+      "next_quest_id": "sb_thrumbone",
+      "unique_item_defs": [
+        {
+          "name": "Herd-Mother's Horn Helm",
+          "slot": "head",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A horned helm shaped from a matriarch's horn. It's heavy, and it's warm, and it remembers.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 80,
+          "label": "Plate Helm (Sta)"
+        },
+        {
+          "name": "Longhorn Calf-Cradle Cloak",
+          "slot": "back",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Soft hide, long fur. It looks like it's meant to hold something small.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.4,
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloak"
+        },
+        {
+          "name": "Gorebreaker's Mace",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A hard, curved horn bound to a haft. Not made to be gentle.",
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 0.8
+          },
+          "weapon_damage_min": 63,
+          "weapon_damage_max": 85,
+          "attack_speed": 3.6,
+          "label": "Mace 2H (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_thrumbone",
+      "title": "Thrumbone",
+      "giver_npc_id": "sb_bonehunter",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "There is something in the Field of Giants that is older than the bones. The wraiths gather around it. It walks in a slow circle through the ribs, and the ground hums when it does. Rurk calls it Thrumbone. He's never seen it. He doesn't want to. He wants it gone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bone-Dust Wraith",
+          "count": 8
+        },
+        {
+          "type": "kill_boss",
+          "target": "Thrumbone the Ancient",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1520,
+      "reward_gold": 5600,
+      "accept_text": "Wraiths first. Then, if you feel the ground start to sing, you've found him. I'd run, but that's why you're being paid.",
+      "turn_in_text": "The ground's gone quiet. First time in years. I... thank you. Take these. They belong to the plain now, and so do you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Wraith-Hunter's Marrow-Staff",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A hollow giant femur, polished by a lot of wind. It sings if you hold it up to the sun.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 9,
+            "spirit": 9
+          },
+          "secondary_stats": {
+            "healing_power": 9.7
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi)"
+        },
+        {
+          "name": "Rattlebone Wraps",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Strings of small bones on cloth. They click in time with your heart.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Bracers (Int/Sta)"
+        },
+        {
+          "name": "Giantbone Breastplate",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Sections of giant rib over iron. Bigger than it needs to be, tougher than it looks.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "armor": 14.0,
+            "parry_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 112,
+          "label": "Plate Chest (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_skinners_trophy_cords",
+      "title": "Skinner's Trophy Cords",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "Oggra keeps the thornwatch on the Razorfen approach and has done for four winters. Razormane skinners wander south of the Ridge now, braiding trophy cords out of whatever they kill. Oggra wants the cords. Not for the trophies - for the names knotted into them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "skinner_trophy_cord",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1142,
+      "reward_gold": 4560,
+      "accept_text": "Look for the small bell on the cord. That's how they know each other. Six cords. Bring them back and I'll read what they say.",
+      "turn_in_text": "Names. Faces. A lot of dead rangers. I'll write to their families. Take this.",
+      "next_quest_id": "sb_the_boarhound_pack",
+      "unique_item_defs": [
+        {
+          "name": "Thornwatch Ranger's Vest",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Boiled leather, sewn with thorn-wood buttons. Sharp edges, comfortable fit.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.2
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Chest (Agi/Int)"
+        },
+        {
+          "name": "Ranger's Skinning Knife",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Narrow, curved, and extremely sharp. The grip is wrapped in a stranger's good intentions.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.9
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta)"
+        },
+        {
+          "name": "Trophy-Cord Choker",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A braided cord with a single small bell. It isn't there to warn you. It's there to remind you.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "label": "Necklace (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_boarhound_pack",
+      "title": "The Boarhound Pack",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "The Razormane keep boarhounds - low, bristled, built for charging through thorn. They've started to hunt in packs along the ridge, driven by a quilboar handler who is a lot better at it than Oggra would like. Hounds and handlers both.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blackthorn Boarhound",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Razormane Stalker",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 4800,
+      "accept_text": "Hounds to the west of the ridge, stalkers in the thorns behind them. Twelve in all. And if you find the handler, I'd like to hear about it.",
+      "turn_in_text": "Better. The ridge sounds different. I think I can hear the birds again. Take this.",
+      "next_quest_id": "sb_skinwalker_garn",
+      "unique_item_defs": [
+        {
+          "name": "Boarhound-Hide Bracers",
+          "slot": "wrist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Tough bristled hide, hard to cut and harder to wear to a formal occasion.",
+          "primary_stats": {
+            "agility": 3,
+            "spirit": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 22,
+          "label": "Leather Bracers (Agi/Spi)"
+        },
+        {
+          "name": "Thornwatch Spear-Thrower",
+          "slot": "ranged",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A short bow of bent thornwood. It's light and fast. It hates being dropped.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        },
+        {
+          "name": "Stalker-Cut Pauldrons",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Mail over leather with thorn-points riveted in. They make for a respectful hug.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Shoulders (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_skinwalker_garn",
+      "title": "Skinwalker Garn",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "There's a story in the Ridge: a Razormane named Garn, who skins animals and wears what he takes. Oggra thought it was folklore until a ranger came back with half his coat missing. Garn works with seers, so Oggra wants the seers dealt with first.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razormane Seer",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Skinwalker Garn",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 5400,
+      "accept_text": "Seers first, they're his eyes. Then Garn. Watch his hands - he can wear a face the way you'd wear a hat.",
+      "turn_in_text": "Garn's dead. The Ridge feels lighter. Take this - keep it close, and don't let anyone peel your coat.",
+      "next_quest_id": "sb_the_bramble_court",
+      "unique_item_defs": [
+        {
+          "name": "Garn-Slayer's Patchwork Leggings",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Hide in three colours. They look good, if you can ignore the stitching.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.7
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Legs (Agi/Int)"
+        },
+        {
+          "name": "Garn's Flensing Hook",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A curved blade for lifting pelts. It could also lift other things.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Many-Hide Cloak",
+          "slot": "back",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A cloak sewn from several different animals. Uncomfortably well-made.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 18,
+          "label": "Cloak (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_bramble_court",
+      "title": "The Bramble Court",
+      "giver_npc_id": "sb_thornwatch",
+      "zone": "southern_barrens",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "South of Oggra's post the thorns grow thick and the quilboar thicker. A Bristleback matriarch, Durga, has taken the Razorfen approach for her court. She's grown her bramble-guard around her like a hedge. Oggra wants the hedge cut and the queen put in the ground.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Razorfen Bramble-Guard",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Thornhide Boar",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Bramblequeen Durga",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1620,
+      "reward_gold": 6000,
+      "accept_text": "Guards, then boars, then the queen. The thorns bite. The quilboar bite harder. Stay on the dry ground.",
+      "turn_in_text": "The Bramble Court is over. The approach is open. You've done more for the Barrens than a battalion. Take these.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Bramblequeen's Thorned Staff",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A staff of grown thorn. It's alive. It's a little offended.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "nature_spell_power": 31.6
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 3.2,
+          "label": "Staff"
+        },
+        {
+          "name": "Bramble-Court Hood",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A hood of woven vine. It sprouts small flowers when you cast something kind.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.5,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Helm (Int)"
+        },
+        {
+          "name": "Thornhide Warplate",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Plate studded with sharpened thorns. They didn't have to do that, but they did.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.8,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 117,
+          "label": "Plate Chest"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_pit_at_bael_modan",
+      "title": "The Pit at Bael Modan",
+      "giver_npc_id": "sb_modan_scout",
+      "zone": "southern_barrens",
+      "level_min": 19,
+      "level_max": 21,
+      "description": "The dwarves at Bael Modan have been digging for years, and the pit keeps getting wider. Tarrik watches from the rim and has counted heads. Every month there are more miners and the hole is deeper. He'd like fewer miners. He'd like to find out why they're digging so fast.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dwarf Miner",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1142,
+      "reward_gold": 4560,
+      "accept_text": "Eight miners. They're not soldiers, but they swing a pick like they mean it. Thin them out and keep an eye on the pit. There's something at the bottom.",
+      "turn_in_text": "Eight down. And the pit's still going. They didn't even stop to look. That's what worries me. Take this.",
+      "next_quest_id": "sb_golem_cores",
+      "unique_item_defs": [
+        {
+          "name": "Scout's Rimwalker Boots",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Thick-soled, quiet and easy to run in. A scout's best friend.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Boots (Int/Sta)"
+        },
+        {
+          "name": "Quarry-Edge Short-Sword",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A short blade with a notch in it from hitting rock. Not a very good rock-breaker.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Str/Sta)"
+        },
+        {
+          "name": "Dig-Watcher's Spyglass",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "A tiny brass spyglass on a cord. You can see a surprising amount through it.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.5
+          },
+          "label": "Necklace (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_golem_cores",
+      "title": "Golem Cores",
+      "giver_npc_id": "sb_modan_scout",
+      "zone": "southern_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "The dwarves have built golems to haul rock. Stone ones, grey and square, thumping up and down the terraces. They obey orders and never tire. Tarrik wants to know how. He'd settle for a piece of one.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "golem_core_shard",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 4800,
+      "accept_text": "Crack a golem. There's a core in the chest, glowing. Bring me five shards. Don't try to think about what they're running on.",
+      "turn_in_text": "Five. Interesting. They're running on... nothing. Or something that thinks it's nothing. I'll send word north. Take this.",
+      "next_quest_id": "sb_the_overseers",
+      "unique_item_defs": [
+        {
+          "name": "Core-Shard Spellblade",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A short blade set with a glowing shard. It hums when you cast.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 1.9
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.4,
+          "label": "Sword 1H (Int/Sta)"
+        },
+        {
+          "name": "Golemstone Gauntlets",
+          "slot": "hands",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Stone-faced plate. They don't scrape. They crush.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "block_rating": 0.3,
+            "block_value": 2.7
+          },
+          "armor_type": "plate",
+          "armor_value": 53,
+          "label": "Plate Gloves (Sta)"
+        },
+        {
+          "name": "Quarry-Dust Mantle",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Grey cloth, stiff with dust. It shakes off magic better than it shakes off dirt.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.2,
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Shoulders (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_overseers",
+      "title": "The Overseers",
+      "giver_npc_id": "sb_modan_scout",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "Behind every dwarven digger is a man with a whip. The overseers keep the miners moving, and the engineers keep the overseers supplied. Tarrik thinks if he can break the middle of the chain, the rest will fall apart. He also thinks you're the person to do it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Modan Overseer",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Dwarf Engineer",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1258,
+      "reward_gold": 5040,
+      "accept_text": "Overseers wear red sashes. Engineers carry wrenches the size of your arm. Take both out and the pit's labour grinds to a halt.",
+      "turn_in_text": "The pit's gone quiet. Whole terraces idle. Nice work. There's one more thing to chase. Take this first.",
+      "next_quest_id": "sb_grubbs_ledger",
+      "unique_item_defs": [
+        {
+          "name": "Overseer's Brassbound Vest",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Leather with brass studs. Good for crowd control and intimidation.",
+          "primary_stats": {
+            "strength": 6,
+            "agility": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Chest (Str/Agi)"
+        },
+        {
+          "name": "Engineer's Heavy Wrench",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A wrench you can break a skull with. It was designed for pipes.",
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
+          },
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 88,
+          "attack_speed": 3.6,
+          "label": "Mace 2H (Str)"
+        },
+        {
+          "name": "Rivet-Studded Belt",
+          "slot": "waist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Mail links on a studded strap. It holds everything you own, and all of it rattles.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 37,
+          "label": "Mail Belt (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_grubbs_ledger",
+      "title": "Grubb's Ledger",
+      "giver_npc_id": "sb_modan_scout",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "Foreman Grubb Deepdelver has run the pit since before the Keep was built. He keeps a ledger: ore, workers, accidents. Tarrik wants every page. A man who counts that carefully is a man who knows what he's counting for.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dig_ledger_page",
+          "count": 4
+        },
+        {
+          "type": "kill_boss",
+          "target": "Foreman Grubb Deepdelver",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1500,
+      "reward_gold": 5500,
+      "accept_text": "Pages from the overseers' satchels, and Grubb himself if he comes up for air. He's stubborn. He's also paid by the cubic yard.",
+      "turn_in_text": "Look at these numbers. They've been digging for something specific. I don't know what, but they know where. Take your reward. I'll write this up.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Quarry-Boss's Iron Cap",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A stout iron cap with a lantern-hook. Dented from every ceiling in the quarry.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Helm (Sta)"
+        },
+        {
+          "name": "Ledger-Keeper's Wraps",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Cloth wraps stitched with a tally pattern. Counting suits you.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.2,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Bracers (Int)"
+        },
+        {
+          "name": "Quarry-Breaker's Pick",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A heavy pick with a short haft. It was used for digging, but it works for other things too.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_eyes_on_the_gate",
+      "title": "Eyes on the Gate",
+      "giver_npc_id": "sb_keep_spy",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "Zhuul lies in the grass east of Bael'dun Keep with a spyglass and a bad attitude. The dwarves have turned the keep into a proper fortress - riflemen on the walls, patrols in the yard. He needs someone to scout the gate and thin out the riflemen before they spot him.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_barrens",
+          "target_x": 113,
+          "target_y": 36,
+          "radius": 10
+        },
+        {
+          "type": "kill",
+          "target": "Bael'dun Rifleman",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1258,
+      "reward_gold": 5040,
+      "accept_text": "Walk up to the gate. Look. Come back. If a rifleman objects, shoot him first. I'd go myself, but I'd leave a trail. Trolls are tall, mon.",
+      "turn_in_text": "Good. Good. Gate's guarded, but not as well as they think. Take this.",
+      "next_quest_id": "sb_mastiffs_at_the_gate",
+      "unique_item_defs": [
+        {
+          "name": "Spy's Silent Vest",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Soft hide, dyed in the colours of dusk. It disappears in grass and in rumours.",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Rifleman-Bane Crossbow",
+          "slot": "ranged",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Light, quiet and fast to reload. It was built for one thing.",
+          "weapon_type": "crossbow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 41,
+          "attack_speed": 2.4,
+          "label": "Crossbow (Agi/Sta)"
+        },
+        {
+          "name": "Gate-Watcher's Signet",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A narrow band with a little peephole. You can almost see through it.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_mastiffs_at_the_gate",
+      "title": "Mastiffs at the Gate",
+      "giver_npc_id": "sb_keep_spy",
+      "zone": "southern_barrens",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "The dwarves keep mastiffs at the Keep. Big, loud, mean and loyal. They've started to range out past the walls, and one of them found Zhuul's last lean-to. He'd like the dogs gone, and he'd like the dispatches they've been guarding. A hound isn't a good postman.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Keep Mastiff",
+          "count": 6
+        },
+        {
+          "type": "fetch",
+          "target": "keep_dispatch",
+          "count": 4
+        }
+      ],
+      "reward_exp": 1316,
+      "reward_gold": 5280,
+      "accept_text": "Mastiffs, and the sergeants that walk them. Sergeants carry dispatches. Bring me four. I don't read dwarvish, but I know a man who does.",
+      "turn_in_text": "Four dispatches. Orders for the east gate. The dwarves are digging in. Take this.",
+      "next_quest_id": "sb_cut_the_fuse",
+      "unique_item_defs": [
+        {
+          "name": "Mastiff-Tamer's Leggings",
+          "slot": "legs",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Heavy mail with leather straps. Whatever you walk, it walks where you tell it.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "mail",
+          "armor_value": 78,
+          "label": "Mail Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Dispatch-Runner's Cloak",
+          "slot": "back",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Light, fast and quiet. It doesn't flap. It doesn't dare.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Keep-Hound Fang Dagger",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A fang set in a bone hilt. A trophy, and a warning.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.5
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_cut_the_fuse",
+      "title": "Cut the Fuse",
+      "giver_npc_id": "sb_keep_spy",
+      "zone": "southern_barrens",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "Bael'dun's explosives experts run a charge-line to the east gate. If it's fired, it'll bring the cliff down on the Waystation road. Zhuul wants the experts gone and the charges in his hands before that happens. He knows what he'll do with them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dwarf Explosives Expert",
+          "count": 8
+        },
+        {
+          "type": "fetch",
+          "target": "powder_charge",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1316,
+      "reward_gold": 5280,
+      "accept_text": "Experts, with the little red hats. Take their charges, and don't drop them. I know that sounds obvious. It's not, if you've met a dwarf.",
+      "turn_in_text": "Five charges, all intact. I'm impressed. Don't tell anyone I said so. Take this.",
+      "next_quest_id": "sb_ironvein",
+      "unique_item_defs": [
+        {
+          "name": "Fuse-Cutter's Gloves",
+          "slot": "hands",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Thin leather, thick insulation. Made for people who do delicate work near explosives.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 24,
+          "label": "Leather Gloves"
+        },
+        {
+          "name": "Sapper's Powder-Horn",
+          "slot": "neck",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A brass horn on a chain. It never explodes. It threatens to.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.1
+          },
+          "label": "Necklace (Int/Sta)"
+        },
+        {
+          "name": "Blast-Blackened Mail Hood",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Scorched mail with a leather liner. It remembers every explosion, and forgives none.",
+          "primary_stats": {
+            "agility": 4,
+            "spirit": 4
+          },
+          "armor_type": "mail",
+          "armor_value": 58,
+          "label": "Mail Helm (Agi/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_ironvein",
+      "title": "Sergeant Ironvein",
+      "giver_npc_id": "sb_keep_spy",
+      "zone": "southern_barrens",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Sergeant Ironvein runs the Keep's east wall. He drills the riflemen, walks the mastiffs and hammers every plan flat. Zhuul says if Ironvein falls, the east gate falls. Zhuul has been wrong before, but he's very sure about this one.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bael'dun Sergeant",
+          "count": 6
+        },
+        {
+          "type": "kill_boss",
+          "target": "Sergeant Ironvein",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1700,
+      "reward_gold": 6200,
+      "accept_text": "Sergeants on the walls. Ironvein among them, if you listen for the hammer. Dwarves fight better in lines. Break the line.",
+      "turn_in_text": "Ironvein down. The east gate's lost its anchor. This is going to hurt them. Take this - you've earned it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ironvein's Gatekeeper Plate",
+          "slot": "chest",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Thick dwarven plate with a vein of bright ore. It rings when struck, and holds.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 121,
+          "label": "Plate Chest (Sta)"
+        },
+        {
+          "name": "Sergeant's Marching Axe",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "A short axe built for crowded places. Fast, honest, and meaner than it looks.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 38,
+          "weapon_damage_max": 52,
+          "attack_speed": 2.6,
+          "label": "Axe 1H (Str/Sta)"
+        },
+        {
+          "name": "Keep-Marcher's Ring",
+          "slot": "ring",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "A band of dark iron. It looks heavy and feels reassuring.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 26,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_windspire_harpies",
+      "title": "Windspire Harpies",
+      "giver_npc_id": "sb_hoodoo_huntress",
+      "zone": "southern_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "The spires in the north-east are full of wind and voices. Harpies nest in the hollows, shrieking down at anyone who passes below. Alamir has hunted them for a season. Her arrows are running low and her patience's already gone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Windspire Harpy",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1200,
+      "reward_gold": 4800,
+      "accept_text": "Feathers, claws, a lot of noise. Eight of them, from the hollows on the east side. Don't stand under the spires. They drop things.",
+      "turn_in_text": "Quiet at last. You could almost hear yourself think. Take this.",
+      "next_quest_id": "sb_voices_in_the_spires",
+      "unique_item_defs": [
+        {
+          "name": "Harpy-Feather Mantle",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Soft down and long flight feathers. It rustles when you aren't moving.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 33,
+          "label": "Leather Shoulders (Int/Sta)"
+        },
+        {
+          "name": "Spire-Hunter's Shortbow",
+          "slot": "ranged",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A light bow cut for shooting at things overhead. It forgives mistakes.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        },
+        {
+          "name": "Windcut Greaves",
+          "slot": "legs",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Mail leggings with wind-cut slits. They breathe in the heat and still turn a blade.",
+          "primary_stats": {
+            "agility": 5,
+            "intellect": 5
+          },
+          "armor_type": "mail",
+          "armor_value": 71,
+          "label": "Mail Legs (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_voices_in_the_spires",
+      "title": "Voices in the Spires",
+      "giver_npc_id": "sb_hoodoo_huntress",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "The wind sings through the hoodoo spires, and the harpy windcallers sing with it. Where they sing, the dust gets up and turns on you. Alamir wants the windcallers silenced and the crystals they carry brought to her. Crystals sing, too. They'd better do it for her than for the harpies.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "spire_wind_crystal",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Hoodoo Dust Devil",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1258,
+      "reward_gold": 5040,
+      "accept_text": "Windcallers carry crystals, the size of your thumb. Dust devils follow the singing. Take the crystals, break the devils.",
+      "turn_in_text": "They're singing in my pocket. It's... not unpleasant. Take this, and stop humming.",
+      "next_quest_id": "sb_skyshriek",
+      "unique_item_defs": [
+        {
+          "name": "Windcaller's Crystal Wand",
+          "slot": "ranged",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A sliver of windspire crystal in a bone handle. It hums a tune you almost know.",
+          "weapon_type": "wand",
+          "primary_stats": {},
+          "secondary_stats": {
+            "nature_spell_power": 4.2
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 41,
+          "attack_speed": 1.9,
+          "label": "Wand"
+        },
+        {
+          "name": "Dust-Devil Wraps",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Fine cloth that eddies faintly in a still room. Unsettling and weirdly comforting.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Bracers (Int/Sta)"
+        },
+        {
+          "name": "Huntress's Spire-Cloak",
+          "slot": "back",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Light, quiet and sand-coloured. A cloak for people who prefer not to be seen.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.7
+          },
+          "armor_type": "leather",
+          "armor_value": 18,
+          "label": "Cloak (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_skyshriek",
+      "title": "Skyshriek",
+      "giver_npc_id": "sb_hoodoo_huntress",
+      "zone": "southern_barrens",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "At the heart of the spires is a hollow where the wind never stops, and a harpy matron who has named herself for it. She commands the windcallers and sets the dust devils loose. Alamir wants her gone before the next storm.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_barrens",
+          "target_x": 212,
+          "target_y": 46,
+          "radius": 8
+        },
+        {
+          "type": "kill_boss",
+          "target": "Skyshriek Matron",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1580,
+      "reward_gold": 5800,
+      "accept_text": "The hollow is at the arch, near the east edge. Look for the biggest nest. She'll scream. Ignore it.",
+      "turn_in_text": "The wind's dropped. Listen. That's the quietest the spires have been in years. Take this.",
+      "next_quest_id": "sb_the_raptor_cull",
+      "unique_item_defs": [
+        {
+          "name": "Matron's Storm-Feather Wand",
+          "slot": "ranged",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A long feather tipped with a spark. It crackles when you point it.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.8,
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 43,
+          "attack_speed": 1.9,
+          "label": "Wand (Int)"
+        },
+        {
+          "name": "Spire-Weave Robes",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Light cloth that doesn't catch on thorns or ideas.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "mp5": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Chest (Int/Sta)"
+        },
+        {
+          "name": "Skyshriek-Talon Spear",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A long spear tipped with a harpy talon. It screams on release.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 19.0
+          },
+          "weapon_damage_min": 67,
+          "weapon_damage_max": 91,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_raptor_cull",
+      "title": "The Raptor Cull",
+      "giver_npc_id": "sb_hoodoo_huntress",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "South of the spires lies the Raptor Grounds, a long valley between two ridges where the Sunscale raptors nest. Alamir is a hunter, and a hunter respects a cull. The grounds are overfull this season. Too many stalkers, too many lashtails, and not enough prey to go around.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunscale Stalker",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Sunscale Lashtail",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1258,
+      "reward_gold": 5040,
+      "accept_text": "Stalkers on the ridges, lashtails in the valley. Fourteen in all. Leave the eggs. I won't have it said I broke the balance.",
+      "turn_in_text": "Fourteen. Good. The valley can breathe. Take this.",
+      "next_quest_id": "sb_razorbeak",
+      "unique_item_defs": [
+        {
+          "name": "Raptor-Scale Jerkin",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Overlapping scales over soft hide. It sheds sand and the occasional dagger.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.7
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Chest (Agi/Int)"
+        },
+        {
+          "name": "Cullmaster's Longbow",
+          "slot": "ranged",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A strong longbow strung with raptor sinew. It remembers its prey.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 41,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        },
+        {
+          "name": "Lashtail-Barbed Gloves",
+          "slot": "hands",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Gauntlets barbed with lashtail spines. Use caution when applauding.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 37,
+          "label": "Mail Gloves (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_razorbeak",
+      "title": "Razorbeak the Nestbreaker",
+      "giver_npc_id": "sb_hoodoo_huntress",
+      "zone": "southern_barrens",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "A raptor alpha called Razorbeak has been raiding other nests - not for food, for eggs. She breaks them, one by one, and the grounds are going quiet for it. Alamir hates waste. She hates it more when it's deliberate.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Nest-Mother Raptor",
+          "count": 4
+        },
+        {
+          "type": "kill_boss",
+          "target": "Razorbeak the Nestbreaker",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1680,
+      "reward_gold": 6100,
+      "accept_text": "Nest-mothers, four of them, protecting what's left. Then the alpha. She's fast. Don't stand still.",
+      "turn_in_text": "Razorbeak's gone. The nests will recover. Take this, with my thanks.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Nestwarden's Raptorbone Bow",
+          "slot": "ranged",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Strung with sinew from the alpha herself. It twangs like something remembering how to hunt.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta)"
+        },
+        {
+          "name": "Nestbreaker's Scale Vest",
+          "slot": "chest",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Overlapping raptor scales over soft hide. It sheds sand and rumours.",
+          "primary_stats": {
+            "strength": 6,
+            "agility": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 50,
+          "label": "Leather Chest (Str/Agi)"
+        },
+        {
+          "name": "Cloak of the Spared Egg",
+          "slot": "back",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Feathered and speckled. Smells faintly of gratitude.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloak (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 26,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_something_below",
+      "title": "Something Below",
+      "giver_npc_id": "sb_crater_digger",
+      "zone": "southern_barrens",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "Fizzwick Boltcog found the crater last spring and has been digging ever since. He found a stair at the bottom, a lot of glittering rock and, three days ago, what he describes as 'a series of unfortunate bites.' Sinkhole burrowers came up through the floor. They're still coming.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sinkhole Burrower",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1316,
+      "reward_gold": 5280,
+      "accept_text": "Little brown things, lots of legs, extremely rude. Thin them out and I'll get back to my digging. No, you can't see what I've found.",
+      "turn_in_text": "Eight! Marvellous. I've sorted three crates already. Don't look at them. Take this.",
+      "next_quest_id": "sb_tunnel_guards",
+      "unique_item_defs": [
+        {
+          "name": "Excavator's Padded Coat",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Thick hide with extra pockets. It smells of dirt and ambition.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 48,
+          "label": "Leather Chest (Str/Sta)"
+        },
+        {
+          "name": "Boltcog's Dig-Hammer",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A stout hammer with a pointed end. Good for rocks, locks and people who ask the wrong questions.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Sta)"
+        },
+        {
+          "name": "Burrower-Chitin Bracers",
+          "slot": "wrist",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Plates of hardened shell, strapped over mail. They hurt anything that hurts them.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 39,
+          "label": "Mail Bracers (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_tunnel_guards",
+      "title": "Tunnel-Guards",
+      "giver_npc_id": "sb_crater_digger",
+      "zone": "southern_barrens",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Below the burrowers are the tunnel-guards: bigger, harder, and a great deal better organised. They're keeping Fizzwick away from the stair, and he doesn't enjoy being kept away from anything. He'd like the guards dead, and a few of their chitin plates for his shop.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Brood Tunnel-Guard",
+          "count": 6
+        },
+        {
+          "type": "fetch",
+          "target": "tunnel_guard_chitin",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1660,
+      "reward_gold": 6000,
+      "accept_text": "Six guards, five plates. They ring when you tap them, don't tap them. Whatever answers, you don't want to meet.",
+      "turn_in_text": "Five plates! They'll fetch a fortune in Ratchet. Don't tell my partner. Take this.",
+      "next_quest_id": "sb_vexa",
+      "unique_item_defs": [
+        {
+          "name": "Tunnel-Guard Chitin Cuirass",
+          "slot": "chest",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Layered chitin over plate. It rings when you hit it, and it hits back.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "armor": 15.2,
+            "parry_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 121,
+          "label": "Plate Chest (Sta)"
+        },
+        {
+          "name": "Brood-Slayer's Blade",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "A long blade ground from a tunnel-guard's claw. The edge is chitin-fine.",
+          "weapon_type": "sword_2h",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 0.9
+          },
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 94,
+          "attack_speed": 3.4,
+          "label": "Sword 2H (Str/Sta)"
+        },
+        {
+          "name": "Shell-Plate Mantle",
+          "slot": "shoulder",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Light chitin over cloth. Insects tend to leave you alone while you wear it.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 19,
+          "label": "Cloth Shoulders (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 26,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_vexa",
+      "title": "Vexa the Tunnel-Queen",
+      "giver_npc_id": "sb_crater_digger",
+      "zone": "southern_barrens",
+      "level_min": 24,
+      "level_max": 26,
+      "description": "At the bottom of the crater, past the guards, sits the queen. Her name is Vexa, and she has made the Sinkhole her own. The Broodspiral below is her nursery. Fizzwick wants to get to the stair, and, to be fair, he'd like the nursery safe. He just can't do either until she's gone.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_barrens",
+          "target_x": 225,
+          "target_y": 212,
+          "radius": 8
+        },
+        {
+          "type": "kill_boss",
+          "target": "Vexa the Tunnel-Queen",
+          "count": 1
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 6600,
+      "accept_text": "Go down into the crater. Find the nest at the centre. She's big, she's angry and she will not stop. Neither should you.",
+      "turn_in_text": "The queen is dead. The stair's open. I'm going to need a bigger shovel. Take this, with my deepest thanks and a cheque I'll never cash.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Queen-Slayer's Brood-Mace",
+          "slot": "main_hand",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "A scepter of fused chitin with a pulsing sac at the tip. Do not squeeze it.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "spell_power": 5.7,
+            "spell_penetration": 2.4
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 53,
+          "attack_speed": 2.6,
+          "label": "Mace 1H"
+        },
+        {
+          "name": "Tunnel-Slayer's Chitin Cowl",
+          "slot": "head",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Hard shell plates, stitched with sinew. The cavities hold amber, and the amber holds something.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 63,
+          "label": "Mail Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Hive-Amber Signet",
+          "slot": "ring",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "A bead of resin, warm to the touch. Something small inside kicks whenever you heal.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.8,
+            "mp5": 0.6
+          },
+          "label": "Ring"
+        }
+      ],
+      "gear_reward_gear_level": 27,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

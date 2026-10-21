@@ -898,6 +898,32 @@
       "appearance_variant": 6,
       "gender": "female",
       "greeting": "Zeeka doesn't sell junk. Every elixir here earns its price."
+    },
+    {
+      "vendor_id": "sb_waystation_vendor",
+      "name": "Provisioner Hemma Redbrand",
+      "zone": "southern_barrens",
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "healing_potion_standard",
+        "mana_potion_minor",
+        "mana_potion_standard",
+        "bread_and_cheese",
+        "roasted_meat",
+        "guardian_elixir_standard",
+        "battle_elixir_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "orc",
+      "appearance_variant": 14,
+      "gender": "female",
+      "greeting": "Waystation stores, fresh from Taurajo and only slightly rained on. What'll it be?",
+      "x": 138,
+      "y": 113
     }
   ]
 }

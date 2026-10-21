@@ -289,7 +289,17 @@ def wash_dist(gx, gy):
     return best.reshape(np.shape(gx))
 
 
-NPC_POSITIONS = {}      # filled in by the content pass
+# Quest hubs (tools/build_southern_barrens_quests.py; positions synced by tools/sync_southern_barrens_npcs.py)
+NPC_POSITIONS = {
+    "sb_rift_warden": (137, 116),        # Rift-Warden Brakka, Waystation (north ramp of the Rift)
+    "sb_waystation_vendor": (138, 113),  # Provisioner Hemma
+    "sb_bonehunter": (128, 172),         # Bonehunter Rurk, Field of Giants gate
+    "sb_thornwatch": (62, 141),          # Thornwatch Ranger Oggra, Razorfen approach
+    "sb_keep_spy": (121, 41),            # Spy Zhuul, east of the Bael'dun gate
+    "sb_modan_scout": (63, 57),          # Dig-Scout Tarrik, quarry rim
+    "sb_hoodoo_huntress": (195, 49),     # Huntress Alamir, the hunter's blind
+    "sb_crater_digger": (209, 222),      # Excavator Fizzwick, crater rim
+}
 
 CAVES = {   # portal tile -> (sprite, w, h)
     (55, 175): ("ent_razorfen_gate", 9, 8),
@@ -377,12 +387,27 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("Blackthorn Ridge", 14, 84, 80, 46, None),
     ("Bael Modan", 6, 40, 52, 46, None),
     ("Bael'dun Keep", 56, 10, 62, 44, None),
+    ("Hoodoo Spires", 186, 38, 66, 40, None),
     ("Raptor Grounds", 196, 78, 52, 44, None),
+    ("Sinkhole Crater", 198, 196, 56, 42, None),
 ]
 
 
+def _rift_rects(step=24, half=9):
+    """The Rift follows a wandering centreline; cover it with a chain of rectangles (registered last so
+    they win over the Razorfen / Blackthorn / Field boxes they overlap)."""
+    rects = []
+    for x0 in range(0, W, step):
+        xs = np.arange(x0, min(W, x0 + step) + 1)
+        ys = rift_y(xs)
+        y0 = int(ys.min() - half)
+        y1 = int(ys.max() + half)
+        rects.append(("The Rift", x0, y0, min(step, W - x0), y1 - y0, None))
+    return rects
+
+
 def _subzones(L):
-    for key, x, y, w, h, disp in SUBZONES:
+    for key, x, y, w, h, disp in SUBZONES + _rift_rects():
         L.z.add_subzone(key, x, y, w, h, display_name=disp)
 
 
@@ -540,6 +565,39 @@ def dress(L):
                          (240, 140, "br_driftwood_skull", 3), (60, 133, "br_dead_tree_vulture", 7),
                          (118, 130, "br_dead_tree_vulture", 7)]:
         P(n, x, y, h)
+
+    # ---- quest hubs: small camps round the givers ----------------------------------------------------------
+    # Rift Waystation (north ramp): the Horde's one proper foothold south of Taurajo
+    L.bld("generic_tent_a", 143, 114, 5)
+    L.bld("generic_tent_b", 131, 119, 5)
+    L.dp("vot_hide_rack", 135, 113, 3)
+    L.dp("vot_crate_stack", 146, 121, 3)
+    P("br_hitching_trough", 144, 124, 3)
+    P("br_tauren_totem", 140, 110, 7)
+    # Field of Giants gate: bone-hunter's camp
+    L.bld("generic_tent_b", 133, 170, 5)
+    L.dp("vot_fire_pit", 129, 175, 2, solid=False)
+    L.dp("vot_hide_rack", 121, 173, 3)
+    L.dp("vot_crate_stack", 134, 176, 3)
+    # Razorfen approach: Thornwatch post
+    L.bld("generic_tent_a", 67, 141, 5)
+    L.dp("vot_fire_pit", 59, 143, 2, solid=False)
+    L.dp("vot_palisade", 56, 140, 3, solid=True)
+    L.dp("vot_palisade", 59, 139, 3, solid=True)
+    L.dp("vot_war_banner", 66, 137, 5)
+    # Bael'dun east gate: the spy's lean-to
+    L.bld("generic_tent_b", 125, 43, 5)
+    L.dp("vot_crate_stack", 119, 45, 3)
+    L.dp("vot_fire_pit", 123, 38, 2, solid=False)
+    # Bael Modan rim: the scout's dig watch
+    L.bld("generic_tent_a", 67, 60, 5)
+    L.dp("vot_fire_pit", 62, 61, 2, solid=False)
+    L.dp("rf_tool_rack", 68, 55, 3)
+    # Sinkhole rim: goblin dig camp
+    L.bld("generic_tent_a", 212, 226, 5)
+    L.dp("vot_crate_stack", 206, 225, 3)
+    L.dp("rf_ore_cart", 213, 220, 3)
+    L.dp("vot_fire_pit", 209, 227, 2, solid=False)
 
     # ---- groves: acacias are rare down here, thorn and scrub rule ----------------------------------
     for (cx, cy, rx, ry, n, sd) in [(150, 60, 14, 12, 4, 21), (110, 92, 12, 8, 4, 22),

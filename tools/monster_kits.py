@@ -2372,13 +2372,197 @@ CENTRAL_BARRENS_KITS = {
     ],
 }
 
+SOUTHERN_BARRENS_KITS = {
+    # ---- the dwarves (Bael Modan / Bael'dun Keep) - previously had no kit at all -----------------------
+    "dwarf_miner": [
+        ("Pickaxe Swing", "damage", 25, 0, 0, "physical", {}),
+        ("Rock-Dust Cloud", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -18}}),
+    ],
+    "dwarf_engineer": [
+        ("Wrench Bash", "damage", 24, 0, 0, "physical", {}),
+        ("Rivet Gun", "damage", 33, 3, 0, "physical", {}),
+        ("Patch Armour", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 34}}),
+    ],
+    "dwarf_explosives": [
+        ("Pry-Bar Jab", "damage", 24, 0, 0, "physical", {}),
+        ("Dynamite Toss", "damage", 36, 3, 0, "fire", {}),
+        ("Short Fuse", "dot", 12, 3, 0, "fire", {"duration": 4}),
+    ],
+    # ---- Bael Modan ---------------------------------------------------------------------------------------
+    "modan_overseer": [
+        ("Overseer's Whip", "damage", 28, 0, 0, "physical", {}),
+        ("Work Harder", "buff", 0, 5, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 22}}),
+        ("Docked Pay", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -18}}),
+    ],
+    "dig_site_golem": [
+        ("Granite Fist", "damage", 30, 0, 0, "physical", {}),
+        ("Seismic Slam", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+    # ---- Bael'dun Keep --------------------------------------------------------------------------------------
+    "keep_rifleman": [
+        ("Rifle Shot", "damage", 33, 0, 0, "physical", {}),
+        ("Pinning Fire", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -18}}),
+    ],
+    "keep_sergeant": [
+        ("Hammer Blow", "damage", 31, 0, 0, "physical", {}),
+        ("Hold the Line", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+        ("Shield Bash", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -20}}),
+    ],
+    "keep_mastiff": [
+        ("Mastiff Bite", "damage", 28, 0, 0, "physical", {}),
+        ("Savage Worry", "dot", 12, 3, 0, "physical", {"duration": 4}),
+    ],
+    "general_twinbraid": [
+        ("Twinbraid's Hammer", "damage", 54, 0, 0, "physical", {}),
+        ("Stormhammer Throw", "damage", 70, 4, 0, "nature", {}),
+        ("Dwarven Resolve", "buff", 0, 7, 0, "physical", {"duration": 5, "self_only": True, "stat_mods": {"armor": 55, "attack_power": 30}}),
+        ("Sundering Stomp", "debuff", 0, 5, 0, "physical", {"duration": 4, "stat_mods": {"attack_power": -26}}),
+    ],
+    # ---- Blackthorn / Razorfen --------------------------------------------------------------------------------
+    "razormane_skinner": [
+        ("Skinning Knife", "damage", 26, 0, 0, "physical", {}),
+        ("Gutting Cut", "dot", 12, 3, 0, "physical", {"duration": 4}),
+    ],
+    "blackthorn_boarhound": [
+        ("Tusk Rake", "damage", 25, 0, 0, "physical", {}),
+        ("Frenzied Charge", "damage", 36, 3, 0, "physical", {}),
+    ],
+    "razorfen_bramble_guard": [
+        ("Thorn-Club Smash", "damage", 28, 0, 0, "physical", {}),
+        ("Bramble Armour", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 36}}),
+    ],
+    "thornhide_boar": [
+        ("Thorn Gore", "damage", 26, 0, 0, "physical", {}),
+        ("Rending Thorns", "dot", 11, 3, 0, "nature", {"duration": 4}),
+    ],
+    "hagg_taurenbane": [
+        ("Taurenbane Cleave", "damage", 50, 0, 0, "physical", {}),
+        ("Trophy Hunter", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 34}}),
+        ("Hamstring Chop", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -24}}),
+        ("Gouge the Hide", "dot", 18, 4, 0, "physical", {"duration": 4}),
+    ],
+    "brontus": [
+        ("Earthshaking Stomp", "damage", 58, 0, 0, "physical", {}),
+        ("Raging Charge", "damage", 74, 4, 0, "physical", {}),
+        ("Thunderous Roar", "debuff", 0, 5, 0, "physical", {"duration": 4, "stat_mods": {"attack_power": -28}}),
+        ("Hide of Stone", "buff", 0, 7, 0, "physical", {"duration": 5, "self_only": True, "stat_mods": {"armor": 60}}),
+    ],
+    # ---- The Rift ------------------------------------------------------------------------------------------------
+    "rift_cliffhawk": [
+        ("Cliff Dive", "damage", 25, 0, 0, "physical", {}),
+        ("Rending Talons", "dot", 10, 3, 0, "physical", {"duration": 4}),
+    ],
+    "gravel_skitterer": [
+        ("Gravel Pinch", "damage", 24, 0, 0, "physical", {}),
+        ("Slate Venom", "dot", 12, 3, 0, "nature", {"duration": 4}),
+    ],
+    "rift_sabertooth": [
+        ("Rend", "damage", 29, 0, 0, "physical", {}),
+        ("Pounce", "damage", 38, 3, 0, "physical", {}),
+        ("Bleeding Claws", "dot", 12, 4, 0, "physical", {"duration": 4}),
+    ],
+    # ---- Field of Giants -----------------------------------------------------------------------------------------
+    "giantbone_hyena": [
+        ("Bone-Crack Bite", "damage", 26, 0, 0, "physical", {}),
+        ("Marrow Frenzy", "buff", 0, 5, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
+    ],
+    "bonedust_wraith": [
+        ("Knuckle Slam", "damage", 29, 0, 0, "physical", {}),
+        ("Giant's Dread", "debuff", 0, 4, 24, "magic", {"duration": 3, "stat_mods": {"strength": -18}}),
+    ],
+    # ---- Raptor Grounds ------------------------------------------------------------------------------------------
+    "sunscale_stalker": [
+        ("Raking Claws", "damage", 27, 0, 0, "physical", {}),
+        ("Leaping Rend", "damage", 37, 3, 0, "physical", {}),
+    ],
+    "nest_mother_raptor": [
+        ("Maternal Fury", "damage", 33, 0, 0, "physical", {}),
+        ("Brood Shriek", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 24}}),
+        ("Tearing Beak", "dot", 14, 3, 0, "physical", {"duration": 4}),
+    ],
+    # ---- Sinkhole Crater ----------------------------------------------------------------------------------------
+    "sinkhole_burrower": [
+        ("Mandible Snap", "damage", 25, 0, 0, "physical", {}),
+        ("Acid Spit", "dot", 11, 3, 0, "nature", {"duration": 4}),
+    ],
+    "brood_tunnel_guard": [
+        ("Chitin Slash", "damage", 31, 0, 0, "physical", {}),
+        ("Hardened Shell", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 38}}),
+        ("Paralytic Sting", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -22}}),
+    ],
+    # ---- Hoodoo Spires ---------------------------------------------------------------------------------------------
+    "windspire_harpy": [
+        ("Wind-Talon Rake", "damage", 26, 0, 0, "physical", {}),
+        ("Screech", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"intellect": -16}}),
+    ],
+    "spire_windcaller": [
+        ("Lightning Gust", "damage", 30, 0, 24, "nature", {}),
+        ("Gale Mending", "heal", 50, 4, 32, "nature", {}),
+    ],
+    "hoodoo_dust_devil": [
+        ("Grit Lash", "damage", 27, 0, 0, "nature", {}),
+        ("Blinding Dust", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+    # ---- named rares ----------------------------------------------------------------------------------------------
+    "dustmaw_rift_lurker": [
+        ("Maw of the Rift", "damage", 44, 0, 0, "physical", {}),
+        ("Rock-Slide Roar", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -24}}),
+        ("Canyon Frenzy", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 30}}),
+    ],
+    "thrumbone_ancient": [
+        ("Colossal Backhand", "damage", 46, 0, 0, "physical", {}),
+        ("Titan's Dread", "debuff", 0, 4, 26, "magic", {"duration": 3, "stat_mods": {"strength": -24}}),
+        ("Rattling Dirge", "dot", 16, 3, 24, "shadow", {"duration": 4}),
+    ],
+    "old_mother_longhorn": [
+        ("Matriarch's Gore", "damage", 45, 0, 0, "physical", {}),
+        ("Protective Trample", "damage", 56, 4, 0, "physical", {}),
+        ("Herd-Mother's Roar", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 44}}),
+    ],
+    "bramblequeen_durga": [
+        ("Thorn Bolt", "damage", 44, 0, 30, "nature", {}),
+        ("Strangling Briar", "dot", 18, 3, 30, "nature", {"duration": 4}),
+        ("Bark of the Queen", "buff", 0, 6, 28, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 44}}),
+    ],
+    "skinwalker_garn": [
+        ("Trophy Stab", "damage", 42, 0, 0, "physical", {}),
+        ("Flay", "dot", 18, 3, 0, "physical", {"duration": 4}),
+        ("Hide Cloak", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"agility": 32}}),
+    ],
+    "foreman_grubb": [
+        ("Foreman's Hammer", "damage", 46, 0, 0, "physical", {}),
+        ("Quota Enforcement", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 32}}),
+        ("Shoddy Scaffold", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -24}}),
+    ],
+    "sergeant_ironvein": [
+        ("Ironvein's Maul", "damage", 50, 0, 0, "physical", {}),
+        ("Stand Fast", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 56}}),
+        ("Sundering Blow", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"armor": -40}}),
+    ],
+    "razorbeak_nestbreaker": [
+        ("Nestbreaker Rake", "damage", 46, 0, 0, "physical", {}),
+        ("Diving Rend", "damage", 60, 4, 0, "physical", {}),
+        ("Shrill Frenzy", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 34}}),
+    ],
+    "vexa_tunnel_queen": [
+        ("Queen's Mandibles", "damage", 50, 0, 0, "physical", {}),
+        ("Toxic Brood-Spit", "dot", 20, 3, 0, "nature", {"duration": 4}),
+        ("Skitter Swarm", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -28}}),
+    ],
+    "skyshriek_matron": [
+        ("Matron's Lightning", "damage", 50, 0, 30, "nature", {}),
+        ("Skyshriek", "debuff", 0, 4, 28, "magic", {"duration": 3, "stat_mods": {"intellect": -26}}),
+        ("Storm Feathers", "buff", 0, 6, 26, "nature", {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 36}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

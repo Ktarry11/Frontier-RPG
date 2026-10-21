@@ -1,0 +1,706 @@
+{
+  "_notes": "Southern Barrens boss + named-rare loot (2026-10-21). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "General Twinbraid": [
+    {
+      "name": "Twinbraid's Stormhammer",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A hammer built to be thrown and caught. The dwarf who built it did not account for a general's temper.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "defense_rating": 1.2
+      },
+      "weapon_damage_min": 93,
+      "weapon_damage_max": 127,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "General's Braided-Beard Cuirass",
+      "slot": "chest",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Plate in the old Bael'dun style, with a braided beard-pattern in the rivets. It smells of oil and fury.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.6,
+        "block_rating": 1.1,
+        "dodge_rating": 0.7
+      },
+      "armor_type": "plate",
+      "armor_value": 165
+    },
+    {
+      "name": "Bulwark of Bael'dun",
+      "slot": "off_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A tower shield with the keep's sigil beaten flat by many years of the wrong kind of visitor.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "armor_value": 55,
+      "block_value": 68
+    },
+    {
+      "name": "Quartermaster's Iron Girdle",
+      "slot": "waist",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A heavy belt hung with brass keys. None of them open anything in the Barrens.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 82
+    }
+  ],
+  "Hagg Taurenbane": [
+    {
+      "name": "Hagg's Taurenbane Hatchet",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A short axe with notches filed in the haft. Hagg stopped counting at forty.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "agility": 5
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Trophy-Hunter's Hide Vest",
+      "slot": "chest",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Hung with horn-tips and braided hair. The horn-tips are sorted by size. The hair is not.",
+      "primary_stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "attack_power": 9.2
+      },
+      "armor_type": "leather",
+      "armor_value": 63
+    },
+    {
+      "name": "Gauntlets of the Ridge-Stalker",
+      "slot": "hands",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Thorn-wood knuckle plates over mail. Punching with them is not strictly advisable.",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 51
+    },
+    {
+      "name": "Taurenbane's Bone Signet",
+      "slot": "ring",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A ring cut from a bull-horn tip. It's warm. It is not meant to be.",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "attack_power": 3.7
+      }
+    }
+  ],
+  "Brontus": [
+    {
+      "name": "Brontus's Horn-Hewn Greatclub",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Cut from a single giant horn. Heavy enough to flatten a quilboar and everything behind him.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 18
+      },
+      "secondary_stats": {
+        "hit_rating": 1.3,
+        "crit_chance_physical": 1.3
+      },
+      "weapon_damage_min": 93,
+      "weapon_damage_max": 127,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Earthshaker Greaves",
+      "slot": "legs",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Plate over kodo-hide. Every step feels like you're about to stampede.",
+      "primary_stats": {
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "armor": 20.7,
+        "parry_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 165
+    },
+    {
+      "name": "Pendant of the Thunderhoof",
+      "slot": "neck",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A bull's horn-tip set in iron. It rings, very softly, whenever the ground does.",
+      "primary_stats": {
+        "stamina": 3,
+        "agility": 2
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.2
+      }
+    },
+    {
+      "name": "Stampede-Hide Girdle",
+      "slot": "waist",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Pale kodo-hide, tanned until it creaks like a drum. Hits to the ribs sound like thunder.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 82
+    }
+  ],
+  "Dustmaw the Rift-Lurker": [
+    {
+      "name": "Dustmaw's Canyon-Fang",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A tooth the length of a dagger, still gritty with canyon dust.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Rift-Runner's Boots",
+      "slot": "feet",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Soft hide, ribbed soles. Climbing a wall in these feels like cheating, because it is.",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 29
+    },
+    {
+      "name": "Gravel-Ground Signet",
+      "slot": "ring",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A band of rock-crystal. It rattles faintly when something's about to fall.",
+      "primary_stats": {
+        "agility": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Thrumbone the Ancient": [
+    {
+      "name": "Thrumbone's Marrow Staff",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A giant's thigh-bone, hollow and very old. Wind whistles through it in a language nobody speaks.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 12.7
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 35,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Robes of the Rattling Dirge",
+      "slot": "chest",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Cloth stitched with knucklebones. They click in time with your heartbeat. Mostly.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 30
+    },
+    {
+      "name": "Giantbone Charm of Mending",
+      "slot": "neck",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A tiny carved finger-bone on a cord. Wearing it, wounds seem to take less offence.",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.4
+      }
+    }
+  ],
+  "Old Mother Longhorn": [
+    {
+      "name": "Matriarch's Horn-Plate Pauldrons",
+      "slot": "shoulder",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Layered kodo horn over iron. They do the same job she did: stand in front of the herd.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.4,
+        "dodge_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 105
+    },
+    {
+      "name": "Herd-Mother's Gavel",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A short-handled mace carved from a horn-tip. It rings like a gong.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Band of the Last Calf",
+      "slot": "ring",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A ring of small, old horn. Don't ask what it's from.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Bramblequeen Durga": [
+    {
+      "name": "Durga's Briar-Crowned Staff",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A staff grown, not carved. It keeps growing, if you don't mind the thorns.",
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 41.3
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Hood of the Bramble Court",
+      "slot": "head",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A cowl woven from thorn-vine. It gives you a headache and good ideas, in that order.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 4.6,
+        "crit_chance_spell": 0.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 23
+    },
+    {
+      "name": "Briar-Binder's Bracers",
+      "slot": "wrist",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Mail over bramble-cord. The thorns point inward, so it hurts to take them off.",
+      "primary_stats": {
+        "agility": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 51
+    }
+  ],
+  "Skinwalker Garn": [
+    {
+      "name": "Garn's Flaying Knife",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "The blade is shaped like a leaf. The handle is wrapped in a stranger's hair.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "attack_power": 5.6
+      },
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 64,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Skin-Stitched Leggings",
+      "slot": "legs",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Stitched from several different animals. One of them used to be a person. Probably.",
+      "primary_stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "attack_power": 8.8
+      },
+      "armor_type": "leather",
+      "armor_value": 61
+    },
+    {
+      "name": "Charm of Many Hides",
+      "slot": "neck",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A pouch of small animal teeth. It rattles when you're about to be noticed.",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Foreman Grubb Deepdelver": [
+    {
+      "name": "Grubb's Deepdelver Pickaxe",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A heavy iron pickaxe, balanced for one-handed swings and two-handed regrets.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3
+      },
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 64,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Foreman's Hard-Hat Helm",
+      "slot": "head",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "An iron cap with a lantern bracket. The bracket's been dented by every ceiling in the quarry.",
+      "primary_stats": {
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "block_rating": 0.6,
+        "block_value": 5.5
+      },
+      "armor_type": "plate",
+      "armor_value": 110
+    },
+    {
+      "name": "Quota-Keeper's Utility Belt",
+      "slot": "waist",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Loops for every tool, and a pocket for the paperwork nobody wanted to read.",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 48
+    }
+  ],
+  "Sergeant Ironvein": [
+    {
+      "name": "Ironvein's Rampart",
+      "slot": "off_hand",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "A kite shield in dwarven steel. The dent at the top is where a general threw something.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "armor_value": 53,
+      "block_value": 66
+    },
+    {
+      "name": "Keep-Marcher's Sabatons",
+      "slot": "feet",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Steel boots with studs. They announce you from three rooms away.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.3,
+        "block_rating": 0.5,
+        "dodge_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 79
+    },
+    {
+      "name": "Signet of the Iron Vein",
+      "slot": "ring",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "A band of dark ore with a bright vein through it, like a scar.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Razorbeak the Nestbreaker": [
+    {
+      "name": "Razorbeak's Raptorbone Bow",
+      "slot": "ranged",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Strung with raptor sinew. It twangs like something remembering how to hunt.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 42,
+      "weapon_damage_max": 58,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Nestbreaker's Scale Jerkin",
+      "slot": "chest",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Overlapping raptor scales over soft hide. It sheds sand, and rumours.",
+      "primary_stats": {
+        "strength": 8,
+        "agility": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 66
+    },
+    {
+      "name": "Cloak of the Stolen Egg",
+      "slot": "back",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Feathered and speckled. Smells distinctly like omelette.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 13
+    }
+  ],
+  "Vexa the Tunnel-Queen": [
+    {
+      "name": "Vexa's Brood-Scepter",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A scepter of fused chitin with a soft, pulsing grub-sac at the tip. Do not squeeze it. It knows.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 7.4,
+        "spell_penetration": 3.1
+      },
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Tunnel-Queen's Chitin Cowl",
+      "slot": "head",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Plates of hard shell, sewn with sinew. The cavities hold amber. The amber holds something.",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 82
+    },
+    {
+      "name": "Hive-Amber Band",
+      "slot": "ring",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A hard bead of resin, warm to the touch. Something small inside kicks, once, whenever you heal.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 3.7,
+        "mp5": 0.8
+      }
+    }
+  ],
+  "Skyshriek Matron": [
+    {
+      "name": "Skyshriek's Storm-Feather Wand",
+      "slot": "ranged",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "A wand with a harpy feather at the tip. The feather crackles when it's thinking.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 6.0
+      },
+      "weapon_damage_min": 42,
+      "weapon_damage_max": 58,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Matron's Feathered Mantle",
+      "slot": "shoulder",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Feather-light, thunder-bright. It makes your hair do things.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 24
+    },
+    {
+      "name": "Windspire Matron's Ring",
+      "slot": "ring",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "A ring of wind-polished sandstone. The wind only blows from one direction here: toward you.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.5,
+        "mp5": 0.5
+      }
+    }
+  ]
+}

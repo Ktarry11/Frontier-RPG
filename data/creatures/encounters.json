@@ -842,59 +842,108 @@
     },
     "Southern Barrens": {
       "open_zone": {
+        "name": "The Southern Plains",
         "creatures": {
           "Ancient Mottled Boar": 3,
-          "Elder Bloodtalon Scythemaw": 2
+          "Elder Bloodtalon Scythemaw": 2,
+          "Rift Cliffhawk": 1,
+          "Giantbone Hyena": 1
         }
       },
       "subzones": {
+        "The Rift": {
+          "name": "The Rift",
+          "creatures": {
+            "Rift Cliffhawk": 3,
+            "Gravel Skitterer": 3,
+            "Rift Sabertooth": 2,
+            "Dustmaw the Rift-Lurker": 0
+          }
+        },
         "Field of Giants": {
           "name": "Field of Giants",
           "creatures": {
             "Barrens Kodo": 2,
             "Aged Kodo": 1,
-            "Sunscale Lashtail": 1,
-            "Savannah Patriarch": 1
+            "Giantbone Hyena": 3,
+            "Bone-Dust Wraith": 3,
+            "Savannah Patriarch": 1,
+            "Thrumbone the Ancient": 0,
+            "Old Mother Longhorn": 0
           }
         },
         "Razorfen Approach": {
           "name": "Razorfen Approach",
           "creatures": {
-            "Bristleback Quilboar": 2,
+            "Bristleback Quilboar": 3,
             "Bristleback Water Seeker": 1,
-            "Bristleback Shaman": 1,
-            "Bristleback Thornweaver": 1,
-            "Bristleback Geomancer": 0,
-            "Charlga's Enforcer": 0
+            "Bristleback Shaman": 2,
+            "Bristleback Thornweaver": 2,
+            "Razorfen Bramble-Guard": 2,
+            "Thornhide Boar": 2,
+            "Bramblequeen Durga": 0
           }
         },
         "Bael Modan": {
-          "creatures": {
-            "Dwarf Miner": 6,
-            "Dwarf Engineer": 4,
-            "Dwarf Explosives Expert": 2
-          }
-        },
-        "Bael'dun Keep": {
+          "name": "Bael Modan",
           "creatures": {
             "Dwarf Miner": 5,
             "Dwarf Engineer": 3,
             "Dwarf Explosives Expert": 2,
+            "Modan Overseer": 2,
+            "Dig-Site Golem": 3,
+            "Foreman Grubb Deepdelver": 0
+          }
+        },
+        "Bael'dun Keep": {
+          "name": "Bael'dun Keep",
+          "creatures": {
+            "Dwarf Miner": 2,
+            "Dwarf Engineer": 2,
+            "Dwarf Explosives Expert": 3,
+            "Bael'dun Rifleman": 4,
+            "Bael'dun Sergeant": 2,
+            "Keep Mastiff": 3,
+            "Sergeant Ironvein": 0,
             "General Twinbraid": 0
           }
         },
         "Blackthorn Ridge": {
+          "name": "Blackthorn Ridge",
           "creatures": {
-            "Razormane Stalker": 6,
-            "Razormane Seer": 3,
+            "Razormane Stalker": 4,
+            "Razormane Seer": 2,
+            "Razormane Skinner": 3,
+            "Blackthorn Boarhound": 3,
+            "Skinwalker Garn": 0,
             "Hagg Taurenbane": 0,
             "Brontus": 0
           }
         },
         "Raptor Grounds": {
+          "name": "Raptor Grounds",
           "creatures": {
-            "Sunscale Lashtail": 6,
-            "Sunscale Screecher": 3
+            "Sunscale Lashtail": 4,
+            "Sunscale Stalker": 4,
+            "Nest-Mother Raptor": 2,
+            "Razorbeak the Nestbreaker": 0
+          }
+        },
+        "Hoodoo Spires": {
+          "name": "Hoodoo Spires",
+          "creatures": {
+            "Windspire Harpy": 4,
+            "Spire Windcaller": 2,
+            "Hoodoo Dust Devil": 3,
+            "Skyshriek Matron": 0
+          }
+        },
+        "Sinkhole Crater": {
+          "name": "Sinkhole Crater",
+          "creatures": {
+            "Sinkhole Burrower": 4,
+            "Brood Tunnel-Guard": 3,
+            "Vexa the Tunnel-Queen": 0
           }
         }
       },
