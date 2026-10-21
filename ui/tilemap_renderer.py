@@ -583,6 +583,16 @@ class TilemapRenderer:
                     # same pattern as ambient_npcs/cave_spawns.
                     if layer_tile == "gathering_node":
                         continue
+                    # "water" is a pure movement-blocker marker (Echo Isles
+                    # stamps it across the whole open sea so the player
+                    # can't swim off the crossings), not a texture. It has
+                    # no tiles.py entry, so it fell back to a flat gray
+                    # box + gray grid line on top of the real water art -
+                    # the whole ocean read as a gray graph-paper grid
+                    # (Kyle: "still fallback tiles"). Skipped like
+                    # "landmark" so the base-layer water shows through.
+                    if layer_tile == "water":
+                        continue
                     # Kyle: "mountain tiles should also be in the third
                     # layer... since they're still read as movement=false,
                     # right?" - confirmed (cliff/wall are both

@@ -1153,6 +1153,24 @@ class ZoneGenerator:
                     if cw > 0 and ch > 0:
                         zone.add_water_chunk(sprite, cx, cy, cw, ch)
 
+        # Deep-sea art over the whole open ocean. Added BEFORE every
+        # crossing's shallow chunks on purpose: water_chunks draw in list
+        # order and get_water_chunk_at is last-write-wins, so the lighter
+        # shallow_calm crossings land on top of the dark sea instead of
+        # being painted over by it. Clipped to real water tiles by the
+        # renderer, so these never bleed onto island ground. Before this
+        # the open sea had NO chunks and rendered per-tile (a repeated
+        # 83x132 crop squashed into 32px cells).
+        # water_open_b only: it self-tiles cleanly (3x3 preview checked),
+        # while water_open_a has a visible light/dark seam and
+        # water_ripple/choppy read as isolated whirlpools in a single
+        # 16-tile block. Same-sprite neighbours keep the sea uniform.
+        deep_sea = "assets/tiles/water_variants/water_open_b.png"
+        for cy in range(0, height, 16):
+            for cx in range(0, width, 16):
+                zone.add_water_chunk(deep_sea, cx, cy,
+                                      min(16, width - cx), min(16, height - cy))
+
         shallow_sprite = "assets/tiles/water_variants/water_shore_calm.png"
 
         # Central <-> Troll Camp (east)
@@ -1256,8 +1274,8 @@ class ZoneGenerator:
             "assets/tiles/echo_isles/props/palm_lean_b.png",
         ]
         palm_spots = [
-            (65, 40), (95, 45), (65, 100), (95, 115), (80, 30),
-            (112, 55), (124, 65), (40, 82), (48, 94),
+            (65, 40), (95, 45), (65, 100), (92, 115), (80, 30),
+            (112, 55), (124, 65), (40, 82), (46, 93),
             (126, 98), (138, 108), (128, 112),
         ]
         for i, (px, py) in enumerate(palm_spots):
@@ -1348,8 +1366,75 @@ class ZoneGenerator:
         zone.fixed_spawns = False
         zone.add_subzone("Echo Isles", 0, 0, width, height, display_name="The Isle Interior")
 
-        ZoneGenerator._scatter(zone, "flowers", 0.02)
-        ZoneGenerator._scatter(zone, "small_rocks", 0.01)
+        # ------------------------------------------------------------------
+        # HAND-PLACED COCONUT PALMS (replaces the random "flowers"/
+        # "small_rocks" per-tile scatter, which rendered as striped stacks
+        # and teal squares - a 13x57 flower crop and a 64x44 rock crop
+        # squashed into single 32px cells - Kyle: "what are these ugly
+        # things"). Palms ring each island's shoreline at an even spacing
+        # (the classic island silhouette) with a deterministic jitter, and
+        # skip anything not fully clear: water, collision, an NPC/portal
+        # landing, or another landmark's footprint (bridges, wrecks,
+        # ruins). solid=False like the older palm spots, so they never
+        # create collision hell.
+        # ------------------------------------------------------------------
+        import math, random as _random
+        rng = _random.Random(2026)
+        occupied = set()
+        for lm in zone.landmarks:
+            for dy in range(lm["height_tiles"]):
+                for dx in range(lm["width_tiles"]):
+                    occupied.add((lm["anchor_x"] + dx, lm["anchor_y"] + dy))
+
+        def _near_interaction(x, y, w, h, pad=3):
+            for yy in range(max(0, y - pad), min(height, y + h + pad)):
+                for xx in range(max(0, x - pad), min(width, x + w + pad)):
+                    if zone.interaction_layer[yy][xx] is not None:
+                        return True
+            return False
+
+        def place_palm(x, y, w=4, h=5):
+            if not (0 <= x and x + w <= width and 0 <= y and y + h <= height):
+                return False
+            for dy in range(h):
+                for dx in range(w):
+                    px, py = x + dx, y + dy
+                    if ((px, py) in occupied
+                            or zone.collision_layer[py][px] is not None
+                            or ZoneGenerator._is_water(zone, px, py)):
+                        return False
+            if _near_interaction(x, y, w, h):
+                return False
+            zone.add_landmark(palm_variants[len(occupied) % len(palm_variants)],
+                               x, y, w, h, solid=False)
+            for dy in range(h):
+                for dx in range(w):
+                    occupied.add((x + dx, y + dy))
+            return True
+
+        # (center, rx, ry, spacing in tiles along the shoreline)
+        palm_islands = [
+            (central, 22, 62, 12),
+            (troll_camp, 14, 14, 9),
+            (grotto_isle, 12, 12, 9),
+            (hollow_isle, 13, 13, 9),
+            (razorjaw_isle, 12, 9, 9),
+            (naga_isle, 12, 11, 9),
+            (fleet_isle, 11, 10, 9),
+        ]
+        for (icx, icy, irx, iry, spacing) in [(c[0], c[1], rx, ry, sp)
+                                               for (c, rx, ry, sp) in palm_islands]:
+            perimeter = 2 * math.pi * math.sqrt((irx ** 2 + iry ** 2) / 2)
+            count = max(4, int(perimeter / spacing))
+            start = rng.uniform(0, 2 * math.pi)
+            for i in range(count):
+                ang = start + i * 2 * math.pi / count + rng.uniform(-0.12, 0.12)
+                for nd in (0.78, 0.70, 0.62, 0.86):
+                    px = int(icx + math.cos(ang) * irx * nd) - 2
+                    py = int(icy + math.sin(ang) * iry * nd) - 4
+                    if place_palm(px, py):
+                        break
+
         ZoneGenerator._clear_visual_over_water(zone)
 
         return zone

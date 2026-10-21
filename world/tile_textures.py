@@ -455,6 +455,10 @@ CAVE_BIOME = {
     "Night Web's Hollow": "cave_mossy",
     "Scarlet Crypt": "cave_dark",
     "Scourge Cave": "cave_scourge_bone",
+
+    # Generic cave_specs caves that had NO entry (fell to "grassland", which maps no wall/cliff -> thousands of flat boxes).
+    "Moonwell Hollow": "cave_mossy",      # flooded + roots
+    "Howling Barrows": "cave_cold",       # cliff + ice
 }
 
 DEFAULT_BIOME = "grassland"
@@ -1069,6 +1073,10 @@ BIOME_TILES = {
         "small_rocks": ("resurrected_rpg", (13, 320, 67, 80), False),
     },
     "grassland": {
+        # Thunder Ridge / Boulder Lode / Serena's Hollow scatter fell back to flat boxes here.
+        "small_rocks": ("props_nature", (400, 126, 101, 113), False),
+        "rock_pile_2": ("rock_pile_orange_2", (0, 0, 52, 26), False),
+        "rock_pile_3": ("rock_pile_orange_3", (0, 0, 32, 25), False),
         "grass": ("fm_tileset", (70, 70, 60, 60), True),
         "dirt": ("fm_tileset", (1344, 378, 32, 32), True),
         # Same missing "undead_ground" bug as savanna_bones above.
@@ -1116,6 +1124,8 @@ BIOME_TILES = {
         "deep_water": ("water_ice", (0, 104, 24, 24), False),
     },
     "cave_warm": {
+        # Scatter tile_ids the dungeon generators place but this biome never mapped (flat gray boxes) - reuse the biome's own rubble crop.
+        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
         "bones": ("cave_bones_1", (0, 0, 32, 32), False),
         "bones_2": ("cave_bones_2", (0, 0, 64, 64), False),
         "bones_3": ("cave_bones_3", (0, 0, 32, 32), False),
@@ -1148,6 +1158,9 @@ BIOME_TILES = {
         "cliff": ("cave_wall_1", (0, 0, 83, 132), True),
     },
     "cave_sick": {
+        # Same gap as cave_warm (Plague Depths/Shadowpine Altar scatter).
+        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
+        "bushes": ("cave_moss_clump_real", (0, 0, 77, 132), True),
         "bones": ("cave_bones_1", (0, 0, 32, 32), False),
         "bones_2": ("cave_bones_2", (0, 0, 64, 64), False),
         "bones_3": ("cave_bones_3", (0, 0, 32, 32), False),
@@ -1175,6 +1188,12 @@ BIOME_TILES = {
         "cliff": ("cave_wall_1", (0, 0, 83, 132), True),
     },
     "cave_cold": {
+        # Blackfathom Deeps: ~1300 shallow_water base tiles had no mapping (flat boxes) - same real pool art every other cave biome uses.
+        "small_rocks": ("cave_rubble_floor", (0, 0, 78, 132), True),
+        "shallow_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
+        "deep_water": ("cave_water_pool_real", (0, 0, 79, 132), True),
+        # Howling Barrows floor: pale frost crop from the ice sheet (clean opaque 16x16 region, eyeballed).
+        "ice": ("water_ice", (0, 98, 16, 16), False),
         "bones": ("cave_bones_1", (0, 0, 32, 32), False),
         "bones_2": ("cave_bones_2", (0, 0, 64, 64), False),
         "bones_3": ("cave_bones_3", (0, 0, 32, 32), False),
@@ -1207,6 +1226,8 @@ BIOME_TILES = {
         "cliff": ("cave_wall_1", (0, 0, 83, 132), True),
     },
     "cave_dark": {
+        # Widow's Lair root/fungus scatter had no mapping.
+        "bushes": ("cave_moss_clump_real", (0, 0, 77, 132), True),
         "ruin": ("ruin_3", (0, 0, 64, 64), False),
         "ruin_2": ("ruin_4", (0, 0, 48, 48), False),
         "ruin_3": ("ruin_5", (0, 0, 32, 32), False),
@@ -1403,6 +1424,12 @@ BIOME_TILES = {
     # underground/enclosed, not a new palette. "tree" reuses desert's
     # cactus prop for the same reason.
     "cave_canyon": {
+        # Drygulch Ravine / Thunder Ridge scatter ids that had no mapping at all.
+        "rock_pile_2": ("rock_pile_orange_2", (0, 0, 52, 26), False),
+        "rock_pile_3": ("rock_pile_orange_3", (0, 0, 32, 25), False),
+        "rock_pile_4": ("rock_pile_orange_4", (0, 0, 40, 23), False),
+        "cactus_small": ("veg_cactus_1", (0, 0, 32, 32), False),
+        "cactus_small_2": ("veg_cactus_2", (0, 0, 16, 16), False),
         "sand": [
             ("durotar_cracked_red_earth_a", (0, 0, 113, 118), True),
             ("durotar_cracked_red_earth_c", (0, 0, 115, 118), True),
