@@ -110,8 +110,8 @@ class RecruitNPC:
         chain (vot_vile_familiars, "Fel Taint" - see
         data/quests/valley_of_trials.json), and disappears again once the
         chain's final quest (vot_yarrog_baneshadow, "Baneshadow" -
-        next_quest_id chains Fel Taint -> Baneshadow, confirmed the actual
-        last step) has been turned in, since his scripted departure
+        next_quest_id chains Fel Taint -> Disrupting the Ritual ->
+        Baneshadow, confirmed the actual last step) has been turned in, since his scripted departure
         (QuestManager.turn_in_quest) already removes him from the party at
         that point - he shouldn't be standing back at his old spot ready
         to rejoin immediately after leaving.

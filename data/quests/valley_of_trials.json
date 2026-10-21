@@ -78,7 +78,7 @@
     {
       "quest_id": "vot_scorpid_trouble",
       "title": "Scorpid Trouble",
-      "description": "The scorpid nest south of camp has been unusually restless for three days running, and Nakhtar doesn't believe in coincidence. Something's stirred them - could be nothing, could be the same wrongness that's been creeping into this valley since before you arrived. Either way, six fewer Scorpid Workers means six fewer things trying to sting a recruit half to death on the road. He's not sending you in blind - scorpids are slow, predictable, easy to read once you've seen the pattern. This is the last easy lesson he's got for you.",
+      "description": "The scorpid nest in the north-east of the valley has been unusually restless for three days running, and Nakhtar doesn't believe in coincidence. Something's stirred them - could be nothing, could be the same wrongness that's been creeping into this valley since before you arrived. Either way, six fewer Scorpid Workers means six fewer things trying to sting a recruit half to death on the road. He's not sending you in blind - scorpids are slow, predictable, easy to read once you've seen the pattern. This is the last easy lesson he's got for you.",
       "giver_npc_id": "vot_greeter",
       "zone": "valley_of_trials",
       "objectives": [
@@ -93,7 +93,7 @@
       "gear_reward_gear_level": 5,
       "accept_text": "The scorpids have been pushing further from the nest than they should, and I don't like things that change their habits for no reason. Thin them out - six workers, no more chasing that's needed. Watch their tails, not their claws. That's where the lesson is.",
       "turn_in_text": "That'll keep them honest a while. You watched the tails, like I said - good, you listen. That's rarer than it should be. Now. You've done real work for this valley, twice now, and I don't say that lightly. Take something for it - pick whatever suits how you fight. You've earned the choice, not just the reward.",
-      "next_quest_id": "vot_graduation",
+      "next_quest_id": "vot_mother_of_nest",
       "level_min": 2,
       "level_max": 5,
       "unique_item_defs": [
@@ -147,13 +147,27 @@
           "attack_speed": 3.2,
           "flavor_text": "It lacks the clean balance of a golf club, but it certainly gets the message across.",
           "label": "2H Axe (Str)"
+        },
+        {
+          "name": "Stinger-Studded Bracers",
+          "slot": "wrist",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Spikes where the stingers were. Plates where they'd hit.",
+          "primary_stats": {
+            "strength": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 9,
+          "label": "Plate Bracers (Str)"
         }
       ]
     },
     {
       "quest_id": "vot_den_scout",
       "title": "Into the Den",
-      "description": "Elder Kuraw has no patience for Nakhtar's gentler approach to newcomers. In his experience, the valley teaches best when you're standing in it, not being told about it. The Den is a shallow cave just north of camp - nothing in there should kill a careful person, which is exactly why he wants you to go first, before anywhere that could. He's not interested in a report of what you fought. He wants to know what you noticed: the sound of water somewhere you didn't expect it, a draft where there shouldn't be one, the shape of a room before you're standing in the middle of it with something already swinging. That's the difference between someone who survives this valley and someone who gets remembered by it.",
+      "description": "Elder Kuraw has no patience for Nakhtar's gentler approach to newcomers. In his experience, the valley teaches best when you're standing in it, not being told about it. The Den is a shallow cave just west of camp - nothing in there should kill a careful person, which is exactly why he wants you to go first, before anywhere that could. He's not interested in a report of what you fought. He wants to know what you noticed: the sound of water somewhere you didn't expect it, a draft where there shouldn't be one, the shape of a room before you're standing in the middle of it with something already swinging. That's the difference between someone who survives this valley and someone who gets remembered by it.",
       "giver_npc_id": "vot_elder",
       "zone": "valley_of_trials",
       "objectives": [
@@ -169,7 +183,7 @@
       "reward_gold": 300,
       "accept_text": "Nakhtar talks. I'd rather you see something with your own eyes and tell me what you found. The Den is close, shallow, forgiving - as caves go. And that's the other thing: caves aren't like open ground. Tight rooms, narrow tunnels - you step into the wrong corner and you'll have two or three of them on you at once instead of one. It's not a warning to scare you off. It's just how caves fight. Go in. Look around properly - not just at what's trying to kill you. Come back and tell me what you noticed.",
       "turn_in_text": "You're still in one piece, and better - you came back describing a place, not just a fight. That instinct is worth more than any weapon I could hand you. Most people who wake up in this valley never learn to look past what's directly in front of them. You're already ahead of most.",
-      "next_quest_id": "vot_nest_guardian",
+      "next_quest_id": "vot_brood_below",
       "level_min": 1,
       "level_max": 3
     },
@@ -193,8 +207,8 @@
       "accept_text": "It's a soft boss, as these things go in this valley. But it's still a boss, and you haven't fought one yet. Don't get comfortable just because I called it soft. Go find out what your hands do when the stakes are real.",
       "turn_in_text": "You did it. However your hands are shaking right now, if they are - remember exactly how this felt. That was your first real fight in this world, and it will not be your last. The next one won't announce itself as a lesson the way this one did. Carry that with you.",
       "next_quest_id": null,
-      "level_min": 2,
-      "level_max": 4,
+      "level_min": 3,
+      "level_max": 6,
       "unique_item_defs": [
         {
           "name": "Guardian's Broken Tusk",
@@ -246,6 +260,36 @@
           "attack_speed": 3.3,
           "flavor_text": "You used to struggle with heavy groceries - now you're swinging a cinder block on a stick.",
           "label": "2H Mace (Str)"
+        },
+        {
+          "name": "Carapace Breastplate",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "A guardian's own plating, hammered flat and riveted.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 28,
+          "label": "Plate Chest (Str/Sta)"
+        },
+        {
+          "name": "Brood-Warden's Hauberk",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Light, flexible, and smells faintly of damp stone.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 18,
+          "label": "Mail Chest (Agi/Int)"
         }
       ]
     },
@@ -267,7 +311,7 @@
       "reward_gold": 800,
       "accept_text": "Demons. In this valley, of all places. I've stood this watch three seasons and never seen one before last week - now there's a cave full of them. Whatever's in there isn't from around here either, kind of like you, maybe, though I doubt it's as friendly. Start with the familiars. Don't go deeper without backup.",
       "turn_in_text": "Four down, and the cave's gone quiet - for now. Quiet isn't the same as safe, and I want you to remember that before you get comfortable. Whatever's still in there commanding them hasn't so much as flinched. That's the part that keeps me up at night, if orcs still dreamed the way you people do.",
-      "next_quest_id": "vot_yarrog_baneshadow",
+      "next_quest_id": "vot_ritual_disruption",
       "level_min": 3,
       "level_max": 5,
       "gear_reward_gear_level": 5,
@@ -305,6 +349,31 @@
           "attack_speed": 1.8,
           "flavor_text": "Still faintly warm. You try very hard not to think about why.",
           "label": "Fist Weapon (Agi)"
+        },
+        {
+          "name": "Familiar-Bone Charm",
+          "slot": "neck",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Warm to the touch for reasons it won't share.",
+          "primary_stats": {},
+          "label": "Necklace (Int/Sta)"
+        },
+        {
+          "name": "Taint-Warded Leggings",
+          "slot": "legs",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Stitched with a ward you can't read. It hasn't failed you yet.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Legs (Int/Spi)"
         }
       ]
     },
@@ -330,7 +399,6 @@
       "next_quest_id": null,
       "level_min": 4,
       "level_max": 6,
-      "gear_reward_slot": "weapon",
       "unique_item_defs": [
         {
           "name": "Baneshadow's Edge",
@@ -382,6 +450,36 @@
           "attack_speed": 3.0,
           "flavor_text": "The fel sigils are already fading now that he's gone. Small mercies.",
           "label": "Staff (Int)"
+        },
+        {
+          "name": "Baneshadow's Cowl",
+          "slot": "head",
+          "item_level": 6,
+          "rarity": "rare",
+          "required_level": 4,
+          "flavor_text": "The cowl speaks in a language you do not want to learn. It has stopped, for now.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Helm (Int/Sta)"
+        },
+        {
+          "name": "Fel-Seared Bracers",
+          "slot": "wrist",
+          "item_level": 6,
+          "rarity": "rare",
+          "required_level": 4,
+          "flavor_text": "Burned into shape and quenched in something dark.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 18,
+          "label": "Plate Bracers (Str/Sta)"
         }
       ]
     },
@@ -402,7 +500,7 @@
       "reward_gold": 400,
       "accept_text": "You've got that look - the one they all have when they first wake up here, like the ground itself doesn't feel quite real yet. It passes, given time. In the meantime, the sagewood sprites drop petals when they're startled badly enough to run. Bring me five, fresh as you can manage - they wilt fast.",
       "turn_in_text": "Still fragrant - you were careful with these, good. Most recruits crush half of what they bring me without noticing. You'll do fine here, better than fine maybe, if you keep paying that kind of attention to the small things. It's usually the small things that keep people alive out here.",
-      "next_quest_id": null,
+      "next_quest_id": "vot_heartwood",
       "level_min": 1,
       "level_max": 3
     },
@@ -465,6 +563,35 @@
           "attack_speed": 2.0,
           "flavor_text": "Every pack has a runt that breaks off from the others. This is what you use to make sure it doesn't get back up.",
           "label": "Thrown (Agi)"
+        },
+        {
+          "name": "Hound-Hide Boots",
+          "slot": "feet",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Scuffed in places no boot should be.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Boots (Agi)"
+        },
+        {
+          "name": "Packleader's Spaulders",
+          "slot": "shoulder",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Taken from something with a very bad temper.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 11,
+          "label": "Mail Shoulders (Agi/Sta)"
         }
       ]
     },
@@ -485,11 +612,1193 @@
       ],
       "reward_exp": 300,
       "reward_gold": 1000,
-      "accept_text": "Follow the road north out of the valley and keep it under your feet the whole way - Durotar doesn't forgive wandering off it, not yet, not for someone as green as you still are underneath everything you've survived here. Razor Hill sits at the heart of it. Find Grokk. Tell him Nakhtar sent you, though I suspect he'll know the second he sees you carry yourself.",
+      "accept_text": "Follow the road east out of the valley and keep it under your feet the whole way - Durotar doesn't forgive wandering off it, not yet, not for someone as green as you still are underneath everything you've survived here. Razor Hill sits at the heart of it. Find Grokk. Tell him Nakhtar sent you, though I suspect he'll know the second he sees you carry yourself.",
       "turn_in_text": "You made it. Of course you made it - I wouldn't have sent you otherwise. This is farther than most of you get, in either direction of what that means. Go find Grokk properly now. What happens from here isn't mine to teach you anymore.",
       "next_quest_id": null,
+      "level_min": 4,
+      "level_max": 6,
+      "unique_item_defs": [
+        {
+          "name": "Recruit's Valor Cloak",
+          "slot": "back",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Dust of three trials still caught in the weave.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "label": "Cloak (Sta)"
+        },
+        {
+          "name": "Nakhtar's Farewell Charm",
+          "slot": "neck",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "A feather and a knot of red cord. He tied it himself.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "label": "Necklace (Int/Spi)"
+        },
+        {
+          "name": "Valley-Forged Band",
+          "slot": "ring",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Plain, sturdy, and slightly too big. It will fit by Durotar.",
+          "primary_stats": {
+            "strength": 1
+          },
+          "label": "Ring (Str)"
+        },
+        {
+          "name": "Graduate's Token",
+          "slot": "trinket",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "A flat river stone, marked with a single claw-scratch.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "label": "Trinket (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "vot_old_tusk",
+      "title": "Wanted: Old Tusk",
+      "giver_npc_id": "vot_recruit_watcher",
+      "zone": "valley_of_trials",
+      "level_min": 2,
+      "level_max": 4,
+      "description": "Grulnok has watched this ridge for six seasons and he knows every boar on it by its tracks. One set of tracks he doesn't like: a boar the size of a cart, tusks worn yellow, with a habit of walking straight through the training dummies on Sagebrush Flat as if they were an insult. The recruits call it Old Tusk. Grulnok calls it a matter of time before someone's mother gets bad news. Thin out the boars on the flat, and when the old one shows himself, put him down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mottled Boar",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Old Tusk",
+          "count": 1
+        }
+      ],
+      "reward_exp": 230,
+      "reward_gold": 700,
+      "accept_text": "West of camp, on the flat. You'll know him when you see him - he's the one that doesn't run. Don't fight him on open ground with your back to a hill. Use the dummies. He hates the dummies.",
+      "turn_in_text": "Tusk's down? Good. Good. That's a lot of years of that animal off the ridge in one afternoon. Take these - the old boar's had them coming since before you woke up.",
+      "unique_item_defs": [
+        {
+          "name": "Tuskplate Pauldrons",
+          "slot": "shoulder",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Two curved tusks, riveted to a strap. Nobody is asking where the third one went.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 17,
+          "label": "Plate Shoulders (Str/Sta)"
+        },
+        {
+          "name": "Boarbristle Mitts",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Stiff bristles across the knuckles, soft silk where it counts.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Ridgerunner Bracers",
+          "slot": "wrist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Cut from the part of the hide that doesn't squeak.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Bracers (Agi/Sta)"
+        },
+        {
+          "name": "Heavy Boarhide Belt",
+          "slot": "waist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Heavier than it looks and about as comfortable as it sounds.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 7,
+          "label": "Mail Belt (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 5,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_carrion_circle",
+      "title": "Carrion Circle",
+      "giver_npc_id": "vot_wounded_grunt",
+      "zone": "valley_of_trials",
+      "level_min": 2,
+      "level_max": 5,
+      "description": "Torgak can't walk the ridge yet and the carrion birds have noticed. They've started circling the camp in the afternoons, patient as tax collectors, and the jackals that follow them keep creeping closer to the fire. He says it's nothing personal. He says it with the look of someone who has taken it personally. Clear out the vultures and the jackals running with them until the sky gets boring again.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Carrion Vulture",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Dustwind Jackal",
+          "count": 5
+        }
+      ],
+      "reward_exp": 210,
+      "reward_gold": 650,
+      "accept_text": "They think I'm already dead. I'd like to change their minds. Vultures first - the jackals only get brave when there's something circling. Don't tell Nakhtar I'm giving out quests.",
+      "turn_in_text": "Quiet sky. You have no idea how nice that is. Take something - Nakhtar says I'm not allowed to hand out coin, but nobody said anything about gear I can't wear anymore.",
+      "unique_item_defs": [
+        {
+          "name": "Vulture-Feather Cloak",
+          "slot": "back",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Lighter than air, warmer than it has any right to be.",
+          "primary_stats": {},
+          "label": "Cloak (Agi/Spi)"
+        },
+        {
+          "name": "Scavenger's Cord",
+          "slot": "waist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Everything useful ends up tied to it eventually.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Belt (Agi/Int)"
+        },
+        {
+          "name": "Bonepicker's Legguards",
+          "slot": "legs",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Plated with what the birds left behind.",
+          "primary_stats": {
+            "strength": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 23,
+          "label": "Plate Legs (Str)"
+        },
+        {
+          "name": "Torgak's Spare Crutch",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "It has a lot of opinions about leaning.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "weapon_damage_min": 7,
+          "weapon_damage_max": 9,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 5,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_troubled_waters",
+      "title": "Troubled Waters",
+      "giver_npc_id": "valley_vendor",
+      "zone": "valley_of_trials",
+      "level_min": 1,
+      "level_max": 3,
+      "next_quest_id": "vot_gulpjaw",
+      "description": "The spring at the lake south of camp has fed this valley since before the Horde had a name for it, and lately Old Marta can't brew a clean batch with water from it. Marsh skimmers have been skating over the shallows in numbers she's never seen, and the toads are bolder than toads should be. She isn't asking for a massacre - just enough dead things that the water runs clear again.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Marsh Skimmer",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Trailwater Toad",
+          "count": 4
+        }
+      ],
+      "reward_exp": 150,
+      "reward_gold": 450,
+      "accept_text": "Go south to the lake. Mind the mud, it's deeper than it looks. Skimmers and toads - I don't care which you reach first, I just want the shallows still for an hour.",
+      "turn_in_text": "Clear water, at last. Smell that? That's a remedy that works. And look at you - hardly wet. You're learning the trick of it faster than most.",
+      "unique_item_defs": [
+        {
+          "name": "Reed-Wrapped Bracers",
+          "slot": "wrist",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "required_level": 1,
+          "flavor_text": "Waterproof, mostly. Fragrant, definitely.",
+          "primary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Bracers (Sta/Spi)"
+        },
+        {
+          "name": "Skimmer-Silk Sash",
+          "slot": "waist",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "required_level": 1,
+          "flavor_text": "Spun from something that spends its life on water. It sheds it beautifully.",
+          "primary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Belt (Int/Spi)"
+        },
+        {
+          "name": "Springstone Charm",
+          "slot": "neck",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "required_level": 1,
+          "flavor_text": "A smooth stone from the lake bottom. It's calmer than you are.",
+          "primary_stats": {
+            "spirit": 1
+          },
+          "label": "Necklace (Spi)"
+        },
+        {
+          "name": "Mudcaked Greaves",
+          "slot": "feet",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "required_level": 1,
+          "flavor_text": "They've never been clean and never will be. They don't slip, either.",
+          "primary_stats": {},
+          "armor_type": "mail",
+          "armor_value": 4,
+          "label": "Mail Boots (Str/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 3
+    },
+    {
+      "quest_id": "vot_gulpjaw",
+      "title": "The Spring's Warden",
+      "giver_npc_id": "valley_vendor",
+      "zone": "valley_of_trials",
       "level_min": 3,
-      "level_max": 6
+      "level_max": 5,
+      "description": "The skimmers are only the symptom. Something huge has taken up residence at Trailwater Spring - a toad bigger than a boar that the recruits have started calling Old Gulpjaw, mostly in the tone people use for weather. It's been eating whatever drifts in, and now it's eating whatever walks in. Marta needs the spring back. Bring a friend if you can find one. Bring a plan if you can't.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Old Gulpjaw",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Trailwater Toad",
+          "count": 3
+        }
+      ],
+      "reward_exp": 260,
+      "reward_gold": 800,
+      "accept_text": "He sits at the bottom of the shallows and waits. Don't wade in. Pull him out onto the bank - everything slow is worse in water than out of it.",
+      "turn_in_text": "Gulpjaw, gone. The water's already settling. You've done this valley more good than you know - and I'll keep telling people so, whether you like it or not.",
+      "unique_item_defs": [
+        {
+          "name": "Toadleather Hood",
+          "slot": "head",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Smells of pond. Keeps the rain out like nothing else.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Helm (Agi/Spi)"
+        },
+        {
+          "name": "Spring-Warden's Mace",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "You've seen cartoon hammers like this. Now you own one.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Spi)"
+        },
+        {
+          "name": "Slick-Scale Legwraps",
+          "slot": "legs",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Water beads right off. So, honestly, does most criticism.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Legs (Int/Sta)"
+        },
+        {
+          "name": "Lilypad Buckler",
+          "slot": "off_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Surprisingly sturdy for something named after a plant.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_value": 9,
+          "block_value": 11,
+          "label": "Shield (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 6,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_heartwood",
+      "title": "Heartwood and Thorn",
+      "giver_npc_id": "valley_vendor",
+      "zone": "valley_of_trials",
+      "level_min": 3,
+      "level_max": 5,
+      "description": "The petals did their job. Now Marta wants the thing that makes the petals worth gathering: heartwood from the old sagewood in the Grove east of camp. Lately the saplings there have started walking - thornroot saplings, quick and mean - and something older has begun to move among them. Bramblethorn the Ancient has been in that grove longer than the valley has had a name. She doesn't ask you to fell it. She asks that it stop.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thornroot Sapling",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Bramblethorn the Ancient",
+          "count": 1
+        }
+      ],
+      "reward_exp": 290,
+      "reward_gold": 900,
+      "accept_text": "It's the grove's own heart gone sour. Saplings first - they'll tell you where the old one is. Fire works, if you have it. It also makes the grove very angry, so do it quickly.",
+      "turn_in_text": "The grove's quiet again. Listen to it. That is what a valley sounds like when it isn't being watched. Take something. You've earned more than I'll ever be able to give.",
+      "unique_item_defs": [
+        {
+          "name": "Sapling-Carved Wand",
+          "slot": "ranged",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "You wave it, things happen. You're choosing not to ask for details.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "weapon_damage_min": 12,
+          "weapon_damage_max": 16,
+          "attack_speed": 1.9,
+          "label": "Wand (Int)"
+        },
+        {
+          "name": "Bramblebound Leggings",
+          "slot": "legs",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Woven so tightly even the thorns couldn't find the gaps.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 11,
+          "label": "Leather Legs (Agi/Spi)"
+        },
+        {
+          "name": "Thornroot Spaulders",
+          "slot": "shoulder",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Grown, not forged. Doesn't mind the weight.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Shoulders (Agi/Int)"
+        },
+        {
+          "name": "Greenwarden's Mantle",
+          "slot": "shoulder",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Warm, and quietly alive.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Shoulders (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 6,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_brood_below",
+      "title": "The Brood Below",
+      "giver_npc_id": "vot_elder",
+      "zone": "valley_of_trials",
+      "level_min": 3,
+      "level_max": 5,
+      "next_quest_id": "vot_nest_guardian",
+      "description": "You came back from the Den's mouth with an observant eye. Now Elder Kuraw wants the next lesson: the deeper chambers where the eggs are kept. The Den is a scorpid-and-spider brood cave and its guardians are only as dangerous as the numbers behind them. Thin them out - skitterers and webspinners in the halls, egg tenders in the nursery - so that whatever comes for the guardian does not come into a room full of its children.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cave Skitterer",
+          "count": 4,
+          "zone": "the_den"
+        },
+        {
+          "type": "kill",
+          "target": "Den Webspinner",
+          "count": 4,
+          "zone": "the_den"
+        },
+        {
+          "type": "kill",
+          "target": "Egg Tender",
+          "count": 3,
+          "zone": "the_den"
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 900,
+      "accept_text": "Caves lie. They tell you the next room is safe because it's quiet. Then you step in and find out why it was quiet. Clear the halls, then the nursery. One room at a time.",
+      "turn_in_text": "You walk different than you did. Good. Fewer of them behind you means fewer in front. The guardian is next, and it's the last thing in that cave that matters.",
+      "unique_item_defs": [
+        {
+          "name": "Skitterer-Chitin Helm",
+          "slot": "head",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Doesn't fit anyone. Fits you now.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 17,
+          "label": "Plate Helm (Str/Sta)"
+        },
+        {
+          "name": "Webwoven Gloves",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Sticky on the inside only. Tested.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Gloves (Agi)"
+        },
+        {
+          "name": "Husk-Plated Vambraces",
+          "slot": "wrist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Chitin plates over a boiled hide.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 7,
+          "label": "Mail Bracers (Str/Spi)"
+        },
+        {
+          "name": "Egg-Tender's Wand",
+          "slot": "ranged",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "It hums when you stand near anything fragile.",
+          "weapon_type": "wand",
+          "primary_stats": {},
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 15,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 5
+    },
+    {
+      "quest_id": "vot_windrift_omens",
+      "title": "Windrift Omens",
+      "giver_npc_id": "vot_elder",
+      "zone": "valley_of_trials",
+      "level_min": 4,
+      "level_max": 6,
+      "next_quest_id": "vot_cinderjaw",
+      "description": "Elder Kuraw reads weather the way other orcs read faces, and the weather in the Windrift Dunes southeast of camp is saying something he doesn't like. Dust devils have been walking the road with intent, and sandpincer crawlers keep pushing up out of the sand where there was nothing before. He wants the dunes quiet before whatever is stirring them decides to finish waking.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dust Devil",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Sandpincer Crawler",
+          "count": 4
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 950,
+      "accept_text": "Southeast, down the road to the dunes. Don't chase the dust. Let it come to you. Sandpincers hide under the surface - if the sand moves, move first.",
+      "turn_in_text": "Quieter already. I can hear the road again. There's one more place that's wrong, and it's the worst one. We'll talk about it.",
+      "unique_item_defs": [
+        {
+          "name": "Dustveil Wraps",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Layered cloth, stained in the shape of a very long road.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Chest (Int/Sta)"
+        },
+        {
+          "name": "Sandglass Pendant",
+          "slot": "neck",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "The sand inside never finishes falling.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Necklace (Agi/Int)"
+        },
+        {
+          "name": "Dunewalker's Crossbow",
+          "slot": "ranged",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Lightweight, accurate, and forgiving of sand in the mechanism.",
+          "weapon_type": "crossbow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 12,
+          "weapon_damage_max": 16,
+          "attack_speed": 2.4,
+          "label": "Crossbow (Agi/Sta)"
+        },
+        {
+          "name": "Crawler-Shell Cuirass",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Heavy. Hot. Excellent against things that bite.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 28,
+          "label": "Plate Chest (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "vot_cinderjaw",
+      "title": "The Cinderjaw Problem",
+      "giver_npc_id": "vot_elder",
+      "zone": "valley_of_trials",
+      "level_min": 5,
+      "level_max": 6,
+      "description": "There is a stretch of valley far to the south-west where the ground itself is burnt: the Cinderjaw Wastes. Ember wisps drift there like loose sparks, ashback basilisks sleep on the warm stone, and something called Smolderhide has been seen walking at night with fire on its back. Elder Kuraw wants it dealt with before the wastes creep any closer to the lake. This is the hardest thing he has ever asked of a recruit. He asks it quietly.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ember Wisp",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Ashback Basilisk",
+          "count": 3
+        },
+        {
+          "type": "kill",
+          "target": "Smolderhide",
+          "count": 1
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1300,
+      "accept_text": "Go south, past the lake, and keep the road under your feet until it stops being a road. Don't fight on the black stone. It holds heat. Smolderhide will find you - it always finds you. Be ready when it does.",
+      "turn_in_text": "Smolderhide, dead. Then the valley's dangerous things are done, or as done as they get. You have the look of someone who survived a lot. That's the only graduation I recognize.",
+      "unique_item_defs": [
+        {
+          "name": "Cinderforged Greathelm",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "It's a bucket with ambitions. They're mostly justified.",
+          "primary_stats": {
+            "strength": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 24,
+          "label": "Plate Helm (Str)"
+        },
+        {
+          "name": "Ashwalker's Jerkin",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Singed in all the right places. Tough in all the others.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Chest (Str/Agi)"
+        },
+        {
+          "name": "Ember-Stitched Legguards",
+          "slot": "legs",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "The seams still glow faintly at night.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Legs (Agi/Int)"
+        },
+        {
+          "name": "Cinder Signet",
+          "slot": "ring",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A red-hot idea you had once, cooled into metal.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "label": "Ring (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 7,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_grosks_trophy",
+      "title": "Grosk's Trophy",
+      "giver_npc_id": "vot_young_orc",
+      "zone": "valley_of_trials",
+      "level_min": 4,
+      "level_max": 6,
+      "description": "Grosk the Younger has decided that a real orc leaves the valley with a trophy, and he has decided on Sandfang - the pale, scarred jackal that haunts the Windrift Dunes and has outrun every hunter in the valley. He has not decided how he'll do it, which is why he is asking you. Thin the pack, find the old one, and bring him proof. His mother has opinions about the whole idea. She may be right. Do it anyway.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwind Jackal",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Sandfang",
+          "count": 1
+        }
+      ],
+      "reward_exp": 330,
+      "reward_gold": 1000,
+      "accept_text": "It's a white one. Scar over the left eye. Quick as anything, but it's old - old things get careless. I'd do it myself except... my mother. You understand.",
+      "turn_in_text": "You actually did it! She's going to be so angry. I'm going to tell everyone you did it, I swear - I'll say it was both of us. Here, take something. For the trouble.",
+      "unique_item_defs": [
+        {
+          "name": "Dunestalker's Longspear",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Longer than a shopping cart and nearly as steerable.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 8
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str)"
+        },
+        {
+          "name": "Trophy-Hunter's Sling",
+          "slot": "ranged",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Not exactly a gentleman's weapon. You're not exactly a gentleman.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 12,
+          "weapon_damage_max": 16,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi/Sta)"
+        },
+        {
+          "name": "Dune-Stalker's Cloak",
+          "slot": "back",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Sand-coloured, sand-stained, sand-proof.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "label": "Cloak (Agi)"
+        },
+        {
+          "name": "Grosk's Lucky Bracers",
+          "slot": "wrist",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "He wore them for a day. They did not feel lucky.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 14,
+          "label": "Plate Bracers (Str/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 6,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_fel_shards",
+      "title": "Fizzcrank's Shiny Problem",
+      "giver_npc_id": "vot_goblin_tinkerer",
+      "zone": "valley_of_trials",
+      "level_min": 3,
+      "level_max": 5,
+      "description": "Fizzcrank Sprocketspin has discovered that the crystals lining the Burning Blade Coven give off a heat he finds personally offensive: it should not be possible to be warm and wrong at the same time. He wants five shards - tiny ones, pocket-sized, the kind the acolytes carry on their belts - to measure what's wrong with them. He is fairly sure it's not dangerous. He is also fairly sure it was on fire a moment ago.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "fel_shard",
+          "count": 5,
+          "zone": "burning_blade_coven"
+        }
+      ],
+      "reward_exp": 260,
+      "reward_gold": 850,
+      "accept_text": "The acolytes keep them on their belts. Don't touch them with bare hands. Use tongs. Or a stick. Or a different hand. I'll be here, doing my own science.",
+      "turn_in_text": "Oh, that's wonderful. That's - oh no. Okay, it's fine, nothing to see. Take whatever you want from the bench - I'm going to be busy.",
+      "unique_item_defs": [
+        {
+          "name": "Sprocketspin Rangefinder",
+          "slot": "ranged",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "It clicks. You aren't sure what it measures. You choose to trust it.",
+          "weapon_type": "gun",
+          "primary_stats": {},
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 15,
+          "attack_speed": 2.6,
+          "label": "Gun (Agi/Sta)"
+        },
+        {
+          "name": "Goggles of Questionable Safety",
+          "slot": "head",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Rated for two explosions. You've already worn it through four.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 7,
+          "label": "Leather Helm (Agi/Int)"
+        },
+        {
+          "name": "Shard-Studded Gauntlets",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Tiny crystals hum at the knuckles. Do not make a fist near anything flammable.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 7,
+          "label": "Mail Gloves (Int/Sta)"
+        },
+        {
+          "name": "Fuse-Wire Ring",
+          "slot": "ring",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Shorter fuse, bigger idea.",
+          "primary_stats": {},
+          "label": "Ring (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 5,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_silk_for_rhaka",
+      "title": "Silk for Rhaka",
+      "giver_npc_id": "vot_orc_mother",
+      "zone": "valley_of_trials",
+      "level_min": 2,
+      "level_max": 4,
+      "description": "Rhaka's son went up the ridge to prove himself last week, and he came back. She'd like to keep it that way, and in her experience the surest way to do that is a good cloak. Not a ratty hide thing - silk, strong enough to turn a scorpid sting, the kind the webspinners in the Den spin in their halls. Six spools. She has the loom. She does not have the nerve to go into that cave.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "den_silk",
+          "count": 6,
+          "zone": "the_den"
+        }
+      ],
+      "reward_exp": 200,
+      "reward_gold": 650,
+      "accept_text": "Spools, from the webspinners. They keep them at their backs. Don't take the loose thread - it's sticky. The spools are what you want. Be careful. Please.",
+      "turn_in_text": "This is good silk. Strong. Feel that? That'll turn a stinger. Here - I made extra. It's the least I can do for the one who made me less afraid.",
+      "unique_item_defs": [
+        {
+          "name": "Rhaka's Silkwoven Mantle",
+          "slot": "shoulder",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Made by a mother who has worried a lot and sewn better for it.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Shoulders (Sta/Spi)"
+        },
+        {
+          "name": "Mother's Travel Cloak",
+          "slot": "back",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "It's not magic. It's just very well made.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "label": "Cloak (Sta)"
+        },
+        {
+          "name": "Den-Silk Slippers",
+          "slot": "feet",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Quiet on stone, soft on blisters.",
+          "primary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Boots (Int/Spi)"
+        },
+        {
+          "name": "Silk-Laced Marching Boots",
+          "slot": "feet",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "She added one extra stitch for luck.",
+          "primary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 3,
+          "label": "Leather Boots (Agi/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 4,
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "vot_mother_of_nest",
+      "title": "Mother of the Nest",
+      "giver_npc_id": "vot_greeter",
+      "zone": "valley_of_trials",
+      "level_min": 4,
+      "level_max": 6,
+      "next_quest_id": "vot_graduation",
+      "description": "The scorpids you've been killing have a mother. Broodmother Sarrix has held the north-eastern nest for longer than the Horde has held the valley, and she is the reason the workers keep coming. Nakhtar doesn't want you to fight her. He wants you to fight everything around her first, and then to decide whether you're ready. He suspects you'll go anyway.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Venomtail Scorpid",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Broodmother Sarrix",
+          "count": 1
+        }
+      ],
+      "reward_exp": 360,
+      "reward_gold": 1200,
+      "accept_text": "Northeast. Past the camp road, where the sand turns dark. She rarely leaves the nest and never leaves it unguarded. Be sure of your health before you commit to the fight. It's long, and it's patient.",
+      "turn_in_text": "Sarrix is dead. The nest will keep moving without her for a season and then settle. You did something this valley has needed for a long time. I won't forget it.",
+      "unique_item_defs": [
+        {
+          "name": "Broodmother's Stinger",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "A real stinger, dried and shaped. Still faintly twitches.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Queenhide Tunic",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "The hide shrugs off everything except compliments.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Nestbreaker Legplates",
+          "slot": "legs",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Heavy, and it doesn't care.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 32,
+          "label": "Plate Legs (Str/Sta)"
+        },
+        {
+          "name": "Chitin Aegis",
+          "slot": "off_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "A slab of broodmother carapace on a strap.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_value": 10,
+          "block_value": 13,
+          "label": "Shield (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "vot_ritual_disruption",
+      "title": "Disrupting the Ritual",
+      "giver_npc_id": "vot_guard_1",
+      "zone": "valley_of_trials",
+      "level_min": 4,
+      "level_max": 5,
+      "next_quest_id": "vot_yarrog_baneshadow",
+      "description": "The familiars were only the bait. Deeper in the Coven, the Burning Blade have been drawing a circle - a real one, with a real summoning, in a hall the Valley Grunt has only seen from a distance. Initiates guard the approaches and ritual guards stand between them and any fool with a sword. Break up the ritual before it finishes, or there won't be a Baneshadow to fight. There will be something worse.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Burning Blade Initiate",
+          "count": 5,
+          "zone": "burning_blade_coven"
+        },
+        {
+          "type": "kill",
+          "target": "Coven Ritual Guard",
+          "count": 2,
+          "zone": "burning_blade_coven"
+        }
+      ],
+      "reward_exp": 330,
+      "reward_gold": 1000,
+      "accept_text": "Initiates in the outer halls. Ritual guards in the hall with the circle. Kill the guards first if you can - they're the ones who'll finish it. I'll hold the road behind you.",
+      "turn_in_text": "The circle's broken. The air smells normal again, and I didn't know I'd been smelling it. There's only one left to finish. Take this and go.",
+      "unique_item_defs": [
+        {
+          "name": "Shattered Ritual Blade",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Cracked down the middle and still sharp enough. Both halves are on the wall of your room back home.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 2.4,
+          "label": "Sword (Str)"
+        },
+        {
+          "name": "Acolyte's Sash",
+          "slot": "waist",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "The sigil on the buckle is facing the wrong way. It's fine.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Belt (Int/Sta)"
+        },
+        {
+          "name": "Fel-Scorched Greaves",
+          "slot": "feet",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Blackened but sturdy. Don't kick anything flammable.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 14,
+          "label": "Plate Boots (Str/Sta)"
+        },
+        {
+          "name": "Coven-Marked Band",
+          "slot": "ring",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "The mark has faded. The strength hasn't.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "label": "Ring (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 6
     }
   ]
 }
