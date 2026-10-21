@@ -218,6 +218,10 @@ class PortalManager:
             "Southern Barrens": {
                 (130, 2): ("Camp Taurajo", 32, 53),
                 (55, 175): ("Razorfen Kraul", 120, 208),
+                (225, 220): ("The Broodspiral", 152, 220),
+            },
+            "The Broodspiral": {
+                (152, 220): ("Southern Barrens", 225, 220),
             },
             "Razorfen Kraul": {
                 (120, 208): ("Southern Barrens", 55, 175),
