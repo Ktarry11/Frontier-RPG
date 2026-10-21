@@ -130,6 +130,8 @@ class Tilemap:
         # them, as of this flag's introduction) keeps working unchanged;
         # new cave-like generators must set this to False explicitly.
         self.fixed_spawns = True
+        # Authored dungeons: [(x, y, "Creature"[, level]), ...] hand-placed trash (None = random scatter fallback)
+        self.trash_spawns = None
 
     def add_landmark(self, sprite_key, anchor_x, anchor_y, width_tiles, height_tiles,
                      mouth_offset=None, solid=True, rotation=0):

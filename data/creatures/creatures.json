@@ -5115,6 +5115,108 @@
       "is_boss": true,
       "ability_kit": "skyshriek_matron",
       "boss_multiplier": 1.6
+    },
+    "Hive Drone": {
+      "template": "vermin_swarm",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "hive_drone"
+    },
+    "Hive Skulker": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "hive_skulker"
+    },
+    "Resin Spitter": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "resin_spitter"
+    },
+    "Brood Tender": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "brood_tender"
+    },
+    "Carapace Crusher": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "carapace_crusher"
+    },
+    "Gorged Larva": {
+      "template": "vermin_swarm",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "gorged_larva"
+    },
+    "Hive Weaver": {
+      "template": "elemental_caster",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "hive_weaver"
+    },
+    "Amber Sentinel": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        22,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "amber_sentinel"
+    },
+    "Mother Amberwing": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "mother_amberwing",
+      "boss_multiplier": 1.7
+    },
+    "Gnash the Hollow-Maw": {
+      "template": "beast_large",
+      "level_range": [
+        22,
+        22
+      ],
+      "is_boss": true,
+      "ability_kit": "gnash_hollow_maw",
+      "boss_multiplier": 1.7
+    },
+    "Chitterlord Skrix": {
+      "template": "humanoid_caster",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "ability_kit": "chitterlord_skrix",
+      "boss_multiplier": 1.6
     }
   }
 }

@@ -2556,13 +2556,99 @@ SOUTHERN_BARRENS_KITS = {
     ],
 }
 
+BROODSPIRAL_KITS = {
+    # ---- trash ----------------------------------------------------------------------------------------------------
+    "silithid_guardian": [
+        ("Mandible Crush", "damage", 26, 0, 0, "physical", {}),
+        ("Chitin Plating", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 34}}),
+    ],
+    "silithid_stinger": [
+        ("Stinger Jab", "damage", 24, 0, 0, "physical", {}),
+        ("Neurotoxin", "dot", 11, 3, 0, "nature", {"duration": 4}),
+    ],
+    "hive_drone": [
+        ("Drone Slash", "damage", 22, 0, 0, "physical", {}),
+        ("Swarm Rush", "damage", 31, 3, 0, "physical", {}),
+    ],
+    "hive_skulker": [
+        ("Ambush Strike", "damage", 27, 0, 0, "physical", {}),
+        ("Crippling Venom", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+    "resin_spitter": [
+        ("Resin Glob", "damage", 29, 0, 0, "nature", {}),
+        ("Sticky Resin", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -24}}),
+    ],
+    "brood_tender": [
+        ("Venom Lash", "damage", 25, 0, 18, "nature", {}),
+        ("Tend the Brood", "heal", 55, 4, 30, "nature", {}),
+    ],
+    "carapace_crusher": [
+        ("Crushing Claw", "damage", 33, 0, 0, "physical", {}),
+        ("Shell Slam", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -22}}),
+    ],
+    "gorged_larva": [
+        ("Acid Burp", "damage", 27, 0, 0, "nature", {}),
+        ("Corrosive Bile", "dot", 12, 3, 0, "nature", {"duration": 4}),
+    ],
+    "hive_weaver": [
+        ("Amber Bolt", "damage", 31, 0, 22, "nature", {}),
+        ("Resin Bind", "debuff", 0, 4, 20, "nature", {"duration": 3, "stat_mods": {"agility": -26}}),
+        ("Amber Ward", "buff", 0, 6, 24, "nature", {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 30}}),
+    ],
+    "amber_sentinel": [
+        ("Sentinel Strike", "damage", 35, 0, 0, "physical", {}),
+        ("Hold Amber", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 44}}),
+        ("Shatter Guard", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -24}}),
+    ],
+    # ---- bosses (levels 19 / 21 / 22 / 24; sub-20 = 3 abilities, 20+ = 4) --------------------------------------------
+    "carapace_warden": [
+        ("Chitin Slam", "damage", 44, 0, 0, "physical", {}),
+        ("Carapace Hardening", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 52}}),
+        ("Rending Mandibles", "dot", 16, 4, 0, "physical", {"duration": 4}),
+    ],
+    "the_broodkeeper": [   # PLANNED summon: "Hatching Call" should hatch 2-3 Hive Drones once the engine supports it
+        ("Venom Bolt", "damage", 48, 0, 28, "nature", {}),
+        ("Brood Mending", "heal", 95, 6, 34, "nature", {}),
+        ("Hatching Call", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 32}}),
+        ("Caustic Cloud", "dot", 20, 4, 30, "nature", {"duration": 4}),
+    ],
+    "larval_broodguard": [  # PLANNED phase: "Larval Molt" should drop its armour and enrage at 50% hp
+        ("Acid Spit", "damage", 52, 0, 0, "nature", {}),
+        ("Venom Barrage", "damage", 68, 4, 0, "nature", {}),
+        ("Paralytic Ichor", "debuff", 0, 5, 0, "nature", {"duration": 4, "stat_mods": {"agility": -30}}),
+        ("Larval Molt", "buff", 0, 7, 0, "physical", {"duration": 5, "self_only": True, "stat_mods": {"armor": 46}}),
+    ],
+    "broodspiral_queen": [  # PLANNED summon: "Hivemind Screech" should call 2 Silithid Stingers
+        ("Queen's Rend", "damage", 62, 0, 0, "physical", {}),
+        ("Hivemind Screech", "debuff", 0, 5, 0, "magic", {"duration": 4, "stat_mods": {"attack_power": -32}}),
+        ("Brood Frenzy", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 42}}),
+        ("Corrosive Ichor", "dot", 24, 4, 0, "nature", {"duration": 4}),
+    ],
+    # ---- named rares (pinned in the nurseries) -------------------------------------------------------------------------
+    "mother_amberwing": [
+        ("Amberwing Lash", "damage", 42, 0, 0, "physical", {}),
+        ("Egg-Mother's Rage", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 30}}),
+        ("Sticky Web", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -26}}),
+    ],
+    "gnash_hollow_maw": [
+        ("Hollow Maw", "damage", 50, 0, 0, "physical", {}),
+        ("Bone-Crunch", "dot", 18, 3, 0, "physical", {"duration": 4}),
+        ("Gnash Frenzy", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 34}}),
+    ],
+    "chitterlord_skrix": [
+        ("Chitter Bolt", "damage", 52, 0, 30, "nature", {}),
+        ("Skrix's Swarm", "dot", 22, 3, 28, "nature", {"duration": 4}),
+        ("Chitin Veil", "buff", 0, 6, 26, "nature", {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 40}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

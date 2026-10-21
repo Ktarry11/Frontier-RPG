@@ -20,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from tools.build_durotar_quests import item, kill, fetch   # noqa: E402
+BS = "the_broodspiral"                                      # dungeon-scoped objectives only count inside it
 
 OUT = ROOT / "data/quests/southern_barrens_hub.json"
 Z = "southern_barrens"
@@ -30,8 +31,11 @@ _SLOTNAME = {"head": "Helm", "shoulder": "Shoulders", "chest": "Chest", "wrist":
              "ranged": "Ranged", "off_hand": "Off-hand", "main_hand": "Weapon"}
 
 
-def boss(target):
-    return dict(type="kill_boss", target=target, count=1)
+def boss(target, zone=None):
+    o = dict(type="kill_boss", target=target, count=1)
+    if zone:
+        o["zone"] = zone
+    return o
 
 
 def explore(x, y, radius=8):
@@ -423,6 +427,56 @@ def quests():
          R(24, "Tunnel-Slayer's Chitin Cowl", "head", "of the Beast", "Hard shell plates, stitched with sinew. The cavities hold amber, and the amber holds something.", "mail"),
          R(24, "Hive-Amber Signet", "ring", "of the Restorer", "A bead of resin, warm to the touch. Something small inside kicks whenever you heal.")],
         xp=1800, gold=6600))
+    # ============== FIZZWICK, PART TWO: THE STAIR (Broodspiral dungeon chain, independent of the crater chain) ==============
+    # Fizzwick's crater chain above ends with the stair open; this chain sends you down it.  Kills only count inside the dungeon.
+    a(Q("sb_down_the_stair", "Down the Stair", G, 20,
+        ("The stair at the bottom of the crater doesn't go down so much as around. Fizzwick has measured it twice "
+         "and gotten two different answers, which he finds deeply insulting. Drones and skulkers patrol the outer ring. "
+         "Thin them out so he can chalk the walls."),
+        [kill("Hive Drone", 8, zone=BS), kill("Hive Skulker", 6, zone=BS)],
+        ("Take the stair at the crater's edge and keep to the right-hand wall. It's a spiral. "
+         "Stay with it and it'll bring you to the middle, whether you like it or not."),
+        ("Eight drones, six skulkers. You came back with all your fingers. I'm adding that to my map. Take this."),
+        [R(20, "Chalkmarker's Hive-Coat", "chest", "of the Bear", "Quilted hide, chalk-stained at the cuffs. Every pocket has a drawing of a tunnel in it.", "leather"),
+         R(20, "Outer-Ring Spike", "main_hand", "of the Soldier", "A drone's barb on a hammer-handle. Gets the point across.", "dagger"),
+         R(20, "Stair-Walker's Amber Loop", "ring", "of the Eagle", "A little bead of resin on a wire. Warm, in a cold place.")],
+        nxt="sb_amber_for_the_taking", xp=1380, gold=4800))
+    a(Q("sb_amber_for_the_taking", "Amber for the Taking", G, 21,
+        ("The hive builds in amber, and amber, Fizzwick explains at length, is worth more by the ounce than any of "
+         "the things he's dug up so far. Weavers and spitters carry the best shards in their glands. "
+         "He'd like six. Don't ask what he does with them."),
+        [fetch("hive_amber_shard", 6)],
+        ("Hive Weavers spin it, Resin Spitters spit it. Either will do. "
+         "Don't drop them. They go off, in a sense."),
+        ("Six! Perfect clarity, and the one in the middle appears to be waving. Take this, I need to sit down."),
+        [R(21, "Amber-Glass Cowl", "head", "of the Sorcerer", "A cap of cloth with a lens of hive-amber. Everything you look at takes on a golden cast, and a faint resentment.", "cloth"),
+         R(21, "Spitter-Hide Gauntlets", "hands", "of the Tiger", "Resin-hardened hide. Sticky only if you want them to be.", "leather"),
+         R(21, "Fizzwick's Pocket Bulwark", "off_hand", "of the Defender", "A tiny round shield of pressed amber. Very sturdy for something so small.", "shield")],
+        nxt="sb_the_tenders", xp=1440, gold=5100))
+    a(Q("sb_the_tenders", "The Tenders", G, 22,
+        ("Past the outer ring the tunnel widens into a brood chamber, and the things that tend it are called "
+         "Brood Tenders. They are quite gentle. Fizzwick has been told this by someone who isn't coming back. "
+         "The Broodkeeper sits at the head of the chamber. Kill the tenders; then kill it."),
+        [kill("Brood Tender", 6, zone=BS), boss("The Broodkeeper", zone=BS)],
+        ("Six tenders, then the Broodkeeper. It sits behind a pair of resin pillars. "
+         "Stay out of the green. The green is not for you."),
+        ("The Broodkeeper's dead and the second ring's open. I'm very proud of you and also deeply afraid. Take this."),
+        [R(22, "Keeper's Resin-Leggings", "legs", "of the Restorer", "Cloth stiffened with brood-resin. It cracks when you kneel, which is a good reason to stay standing.", "cloth"),
+         R(22, "Tender-Plate Gauntlets", "hands", "of the Juggernaut", "Chitin over steel. Every plate remembers a different hive.", "plate"),
+         R(22, "Brood-Chamber Thumper", "main_hand", "of the Squire", "A carapace-headed mace. Hits like a tunnel collapsing.", "mace_1h")],
+        nxt="sb_screen_the_queen", xp=1500, gold=5400))
+    a(Q("sb_screen_the_queen", "Screen the Queen", G, 23,
+        ("The last ring before the Queen's Hollow is the Larval Screen: crushers, larvae, and a great pale guard "
+         "who watches the throne from the dark. If Fizzwick's maps are right, the Queen sits on the other side. "
+         "He'd rather you cleared the screen than found out how right his maps are."),
+        [boss("Larval Broodguard", zone=BS), kill("Carapace Crusher", 6, zone=BS)],
+        ("Crushers first, then the Broodguard. It doesn't move much, and it hits like a falling roof. "
+         "The Queen's behind it. Not today, though. Today you clear the screen."),
+        ("The screen is down and you're alive. I'll chalk the throne room in on my next trip. Take this, with my gratitude and my apologies in advance."),
+        [R(23, "Screenwarden's Crushing Axe", "main_hand", "of the Champion", "A two-handed axe with a carapace-plate head. The Broodguard wore the blade first.", "axe_2h"),
+         R(23, "Larval-Silk Mantle", "shoulder", "of the Sorcerer", "Pale silk, spun by something that should have been a moth. Cool to the touch.", "cloth"),
+         R(23, "Hollow-Edge Spaulders", "shoulder", "of the Elder", "Mail laced with hive-amber. A faint glow when anything ugly gets close.", "mail")],
+        xp=1620, gold=5800))
     return A
 
 

@@ -8083,6 +8083,497 @@
         }
       }
     ],
+    "silithid_guardian": [
+      {
+        "name": "Mandible Crush",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chitin Plating",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 34
+        }
+      }
+    ],
+    "silithid_stinger": [
+      {
+        "name": "Stinger Jab",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Neurotoxin",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "hive_drone": [
+      {
+        "name": "Drone Slash",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swarm Rush",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hive_skulker": [
+      {
+        "name": "Ambush Strike",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crippling Venom",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
+    "resin_spitter": [
+      {
+        "name": "Resin Glob",
+        "kind": "damage",
+        "amount": 29,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Sticky Resin",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24
+        }
+      }
+    ],
+    "brood_tender": [
+      {
+        "name": "Venom Lash",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "nature"
+      },
+      {
+        "name": "Tend the Brood",
+        "kind": "heal",
+        "amount": 55,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "nature"
+      }
+    ],
+    "carapace_crusher": [
+      {
+        "name": "Crushing Claw",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shell Slam",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -22
+        }
+      }
+    ],
+    "gorged_larva": [
+      {
+        "name": "Acid Burp",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Corrosive Bile",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "hive_weaver": [
+      {
+        "name": "Amber Bolt",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "nature"
+      },
+      {
+        "name": "Resin Bind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 20,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -26
+        }
+      },
+      {
+        "name": "Amber Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 24,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 30
+        }
+      }
+    ],
+    "amber_sentinel": [
+      {
+        "name": "Sentinel Strike",
+        "kind": "damage",
+        "amount": 35,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hold Amber",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 44
+        }
+      },
+      {
+        "name": "Shatter Guard",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -24
+        }
+      }
+    ],
+    "carapace_warden": [
+      {
+        "name": "Chitin Slam",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Carapace Hardening",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 52
+        }
+      },
+      {
+        "name": "Rending Mandibles",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "the_broodkeeper": [
+      {
+        "name": "Venom Bolt",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 0,
+        "mana_cost": 28,
+        "school": "nature"
+      },
+      {
+        "name": "Brood Mending",
+        "kind": "heal",
+        "amount": 95,
+        "cooldown": 6,
+        "mana_cost": 34,
+        "school": "nature"
+      },
+      {
+        "name": "Hatching Call",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 32
+        }
+      },
+      {
+        "name": "Caustic Cloud",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "larval_broodguard": [
+      {
+        "name": "Acid Spit",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Venom Barrage",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Paralytic Ichor",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -30
+        }
+      },
+      {
+        "name": "Larval Molt",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 46
+        }
+      }
+    ],
+    "broodspiral_queen": [
+      {
+        "name": "Queen's Rend",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hivemind Screech",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": -32
+        }
+      },
+      {
+        "name": "Brood Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 42
+        }
+      },
+      {
+        "name": "Corrosive Ichor",
+        "kind": "dot",
+        "amount": 24,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "mother_amberwing": [
+      {
+        "name": "Amberwing Lash",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Egg-Mother's Rage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 30
+        }
+      },
+      {
+        "name": "Sticky Web",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -26
+        }
+      }
+    ],
+    "gnash_hollow_maw": [
+      {
+        "name": "Hollow Maw",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone-Crunch",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Gnash Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 34
+        }
+      }
+    ],
+    "chitterlord_skrix": [
+      {
+        "name": "Chitter Bolt",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 0,
+        "mana_cost": 30,
+        "school": "nature"
+      },
+      {
+        "name": "Skrix's Swarm",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 28,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Chitin Veil",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 26,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 40
+        }
+      }
+    ],
     "murloc_flesheater": [
       {
         "name": "Rend Flesh",

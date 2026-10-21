@@ -2242,6 +2242,333 @@
       ],
       "gear_reward_gear_level": 27,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_down_the_stair",
+      "title": "Down the Stair",
+      "giver_npc_id": "sb_crater_digger",
+      "zone": "southern_barrens",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "The stair at the bottom of the crater doesn't go down so much as around. Fizzwick has measured it twice and gotten two different answers, which he finds deeply insulting. Drones and skulkers patrol the outer ring. Thin them out so he can chalk the walls.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hive Drone",
+          "count": 8,
+          "zone": "the_broodspiral"
+        },
+        {
+          "type": "kill",
+          "target": "Hive Skulker",
+          "count": 6,
+          "zone": "the_broodspiral"
+        }
+      ],
+      "reward_exp": 1380,
+      "reward_gold": 4800,
+      "accept_text": "Take the stair at the crater's edge and keep to the right-hand wall. It's a spiral. Stay with it and it'll bring you to the middle, whether you like it or not.",
+      "turn_in_text": "Eight drones, six skulkers. You came back with all your fingers. I'm adding that to my map. Take this.",
+      "next_quest_id": "sb_amber_for_the_taking",
+      "unique_item_defs": [
+        {
+          "name": "Chalkmarker's Hive-Coat",
+          "slot": "chest",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Quilted hide, chalk-stained at the cuffs. Every pocket has a drawing of a tunnel in it.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 44,
+          "label": "Leather Chest (Str/Sta)"
+        },
+        {
+          "name": "Outer-Ring Spike",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A drone's barb on a hammer-handle. Gets the point across.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 1.7,
+          "label": "Dagger (Str/Sta)"
+        },
+        {
+          "name": "Stair-Walker's Amber Loop",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "A little bead of resin on a wire. Warm, in a cold place.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "label": "Ring (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_amber_for_the_taking",
+      "title": "Amber for the Taking",
+      "giver_npc_id": "sb_crater_digger",
+      "zone": "southern_barrens",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "The hive builds in amber, and amber, Fizzwick explains at length, is worth more by the ounce than any of the things he's dug up so far. Weavers and spitters carry the best shards in their glands. He'd like six. Don't ask what he does with them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "hive_amber_shard",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1440,
+      "reward_gold": 5100,
+      "accept_text": "Hive Weavers spin it, Resin Spitters spit it. Either will do. Don't drop them. They go off, in a sense.",
+      "turn_in_text": "Six! Perfect clarity, and the one in the middle appears to be waving. Take this, I need to sit down.",
+      "next_quest_id": "sb_the_tenders",
+      "unique_item_defs": [
+        {
+          "name": "Amber-Glass Cowl",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A cap of cloth with a lens of hive-amber. Everything you look at takes on a golden cast, and a faint resentment.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Helm (Int/Sta)"
+        },
+        {
+          "name": "Spitter-Hide Gauntlets",
+          "slot": "hands",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Resin-hardened hide. Sticky only if you want them to be.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Gloves (Str/Agi)"
+        },
+        {
+          "name": "Fizzwick's Pocket Bulwark",
+          "slot": "off_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A tiny round shield of pressed amber. Very sturdy for something so small.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "armor_value": 37,
+          "block_value": 46,
+          "label": "Shield (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_the_tenders",
+      "title": "The Tenders",
+      "giver_npc_id": "sb_crater_digger",
+      "zone": "southern_barrens",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "Past the outer ring the tunnel widens into a brood chamber, and the things that tend it are called Brood Tenders. They are quite gentle. Fizzwick has been told this by someone who isn't coming back. The Broodkeeper sits at the head of the chamber. Kill the tenders; then kill it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Brood Tender",
+          "count": 6,
+          "zone": "the_broodspiral"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Broodkeeper",
+          "count": 1,
+          "zone": "the_broodspiral"
+        }
+      ],
+      "reward_exp": 1500,
+      "reward_gold": 5400,
+      "accept_text": "Six tenders, then the Broodkeeper. It sits behind a pair of resin pillars. Stay out of the green. The green is not for you.",
+      "turn_in_text": "The Broodkeeper's dead and the second ring's open. I'm very proud of you and also deeply afraid. Take this.",
+      "next_quest_id": "sb_screen_the_queen",
+      "unique_item_defs": [
+        {
+          "name": "Keeper's Resin-Leggings",
+          "slot": "legs",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Cloth stiffened with brood-resin. It cracks when you kneel, which is a good reason to stay standing.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 6.6,
+            "mp5": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Legs"
+        },
+        {
+          "name": "Tender-Plate Gauntlets",
+          "slot": "hands",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Chitin over steel. Every plate remembers a different hive.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "armor": 7.3,
+            "parry_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 58,
+          "label": "Plate Gloves (Sta)"
+        },
+        {
+          "name": "Brood-Chamber Thumper",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "A carapace-headed mace. Hits like a tunnel collapsing.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 2.6,
+          "label": "Mace 1H (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sb_screen_the_queen",
+      "title": "Screen the Queen",
+      "giver_npc_id": "sb_crater_digger",
+      "zone": "southern_barrens",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "The last ring before the Queen's Hollow is the Larval Screen: crushers, larvae, and a great pale guard who watches the throne from the dark. If Fizzwick's maps are right, the Queen sits on the other side. He'd rather you cleared the screen than found out how right his maps are.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Larval Broodguard",
+          "count": 1,
+          "zone": "the_broodspiral"
+        },
+        {
+          "type": "kill",
+          "target": "Carapace Crusher",
+          "count": 6,
+          "zone": "the_broodspiral"
+        }
+      ],
+      "reward_exp": 1620,
+      "reward_gold": 5800,
+      "accept_text": "Crushers first, then the Broodguard. It doesn't move much, and it hits like a falling roof. The Queen's behind it. Not today, though. Today you clear the screen.",
+      "turn_in_text": "The screen is down and you're alive. I'll chalk the throne room in on my next trip. Take this, with my gratitude and my apologies in advance.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Screenwarden's Crushing Axe",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "A two-handed axe with a carapace-plate head. The Broodguard wore the blade first.",
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 0.9
+          },
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 94,
+          "attack_speed": 3.6,
+          "label": "Axe 2H (Str/Sta)"
+        },
+        {
+          "name": "Larval-Silk Mantle",
+          "slot": "shoulder",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Pale silk, spun by something that should have been a moth. Cool to the touch.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 19,
+          "label": "Cloth Shoulders (Int/Sta)"
+        },
+        {
+          "name": "Hollow-Edge Spaulders",
+          "slot": "shoulder",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Mail laced with hive-amber. A faint glow when anything ugly gets close.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "mail",
+          "armor_value": 60,
+          "label": "Mail Shoulders (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 26,
+      "gear_reward_rarity": "rare"
     }
   ]
 }

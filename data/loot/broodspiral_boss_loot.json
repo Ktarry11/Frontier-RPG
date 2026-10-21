@@ -1,158 +1,427 @@
 {
-  "_notes": "Fixed/curated boss loot for The Broodspiral (home-brew 3->4-boss silithid dungeon, Kyle's ask 2026-09-11). Same mechanism as data/loot/sunken_grotto_boss_loot.json - read by entities/boss_loot.py's get_fixed_boss_loot(), one random item per boss kill from its own pool, not all at once. Every stat/armor/damage number computed from the REAL formulas in entities/loot_generator.py (STAT_BUDGET_BASE_MULT=0.36, weight_tiers, armor_types.json's armor_multiplier, stat_budget_costs from gear_suffixes.json) at 'rare' rarity (1.7x) - not hand-guessed. Kyle's explicit ask: 'dungeon loot can be slightly higher than standard rares' - item_level is boss_level+3 throughout (no existing multiplier precedent for a dungeon bonus elsewhere in the loot system, so this follows real WoW's own convention of dungeon-drop item level sitting a few points above the mobs guarding it, rather than inventing a new constant). Stat combos deliberately pull from gear_suffixes.json's REAL named suffixes ('of the Archmage', 'of the Tactician', 'of the Champion', etc.) rather than defaulting to flat single-template splits - Kyle's explicit pushback: 'why is everything int/spirit and agi/stam' - every item mixes a primary stat with a genuine secondary (spell_power, healing_power, attack_power, crit, hit, haste, defense, mp5), and no two items repeat the same combo. Secondary-stat amounts are budget divided by that stat's real cost from stat_budget_costs (e.g. crit/hit cost 10.0, haste costs 12.0, spell_power/healing_power cost 1.25) - NOT an equal split - matching how _roll_stats() actually works, which is why fractional amounts like 0.3% crit appear at this item level exactly like the rest of the game's gear does. NO trinkets per Kyle's explicit call (save that slot's rarity for later/special drops). Two weapons included per Kyle's ask: a gun (Larval Broodguard) and a 1H mace (Broodspiral Queen) - the gun deliberately carries Intellect/Healing Power instead of the procedural generator's hardcoded gun->agi_physical-only constraint (data/items/weapon_types.json's valid_stat_templates), because Kyle flagged that rigidity as actively hurting the CoA custom classes' weapon options; hand-authored loot bypasses generate_weapon() entirely (same as every item in this file bypasses the procedural path), so there's no code constraint being violated, just a deliberately wider design choice for this one drop.",
-
+  "_notes": "The Broodspiral boss + named-rare loot (rebuilt 2026-10-21; the old pool used the invalid slot 'weapon'). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make). The gun carries Healing Power on purpose (wide CoA weapon spread).",
   "Carapace Warden": [
     {
       "name": "Cracked Carapace Mantle",
       "slot": "shoulder",
-      "armor_type": "leather",
       "item_level": 22,
       "rarity": "rare",
-      "primary_stats": {"agility": 4},
-      "secondary_stats": {"hit_rating": 0.3, "crit_chance_physical": 0.3},
-      "armor_value": 36,
-      "flavor_text": "Still faintly warm from the kill that cracked it loose."
+      "required_level": 19,
+      "flavor_text": "Plates of shell the Warden shed, strapped over soft hide. They still ring when struck.",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "armor_type": "leather",
+      "armor_value": 42
     },
     {
       "name": "Warden's Chitin Bands",
       "slot": "wrist",
-      "armor_type": "cloth",
       "item_level": 22,
       "rarity": "rare",
-      "primary_stats": {"intellect": 2},
-      "secondary_stats": {"spell_power": 3, "crit_chance_spell": 0.1},
-      "armor_value": 12,
-      "flavor_text": "The chitin hums faintly when magic is drawn through it."
+      "required_level": 19,
+      "flavor_text": "Bands of pale chitin sewn onto cloth. They hum faintly, as if the hive were listening.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.7,
+        "mp5": 0.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 14
     },
     {
       "name": "Burrower's Girdle",
       "slot": "waist",
-      "armor_type": "mail",
       "item_level": 22,
       "rarity": "rare",
-      "primary_stats": {"agility": 2, "intellect": 2},
-      "secondary_stats": {"attack_power": 4},
-      "armor_value": 38,
-      "flavor_text": "Segmented plating, flexible enough to strike from any angle."
+      "required_level": 19,
+      "flavor_text": "Links of chitin and old mail, built for something that spends its life underground.",
+      "primary_stats": {
+        "agility": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 44
+    },
+    {
+      "name": "Carapace-Splitter",
+      "slot": "main_hand",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "A short axe with a head ground from the Warden's own claw. It finishes what the claw started.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 44,
+      "weapon_damage_max": 59,
+      "attack_speed": 2.6
     }
   ],
-
   "The Broodkeeper": [
     {
       "name": "Broodkeeper's Vestments",
       "slot": "chest",
-      "armor_type": "cloth",
       "item_level": 24,
       "rarity": "rare",
-      "primary_stats": {"intellect": 4},
-      "secondary_stats": {"spell_power": 6, "mp5": 1.2},
-      "armor_value": 26,
-      "flavor_text": "Stained deep green with the ichor of a thousand hatchlings."
+      "required_level": 21,
+      "flavor_text": "Silk spun by something that was not meant to be spun by. Wounds mend faster under it, and so does the dread.",
+      "primary_stats": {
+        "stamina": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "healing_power": 3.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 30
     },
     {
       "name": "Caustic-Woven Leggings",
       "slot": "legs",
-      "armor_type": "leather",
       "item_level": 24,
       "rarity": "rare",
-      "primary_stats": {"agility": 5, "stamina": 7},
-      "secondary_stats": {"hit_rating": 0.3},
-      "armor_value": 53,
-      "flavor_text": "Woven from silk that dissolves anything but the wearer's own skin."
+      "required_level": 21,
+      "flavor_text": "Woven with acid-treated thread. They resist everything, including being washed.",
+      "primary_stats": {
+        "strength": 7,
+        "agility": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 61
     },
     {
       "name": "Chitinguard Gauntlets",
       "slot": "hands",
-      "armor_type": "plate",
       "item_level": 24,
       "rarity": "rare",
-      "primary_stats": {"strength": 3},
-      "secondary_stats": {"hit_rating": 0.2, "crit_chance_physical": 0.2},
-      "armor_value": 64,
-      "flavor_text": "Fused from carapace plates too thick for anything but a smith's press."
+      "required_level": 21,
+      "flavor_text": "Heavy chitin gauntlets, still faintly warm from the brood they guarded.",
+      "primary_stats": {
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "armor": 9.2,
+        "parry_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 73
+    },
+    {
+      "name": "Keeper's Brood-Crook",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A shepherd's crook for a flock of larvae. It hums when something nearby is hungry.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 12.7
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 35,
+      "attack_speed": 3.2
     }
   ],
-
   "Larval Broodguard": [
     {
       "name": "Venomspitter Rifle",
-      "slot": "weapon",
-      "weapon_type": "gun",
-      "item_level": 24,
+      "slot": "ranged",
+      "item_level": 25,
       "rarity": "rare",
-      "primary_stats": {"intellect": 3},
-      "secondary_stats": {"healing_power": 2},
-      "weapon_damage_min": 40,
-      "weapon_damage_max": 54,
-      "flavor_text": "Fires a distilled venom round that somehow, impossibly, mends flesh instead of rotting it."
+      "required_level": 22,
+      "flavor_text": "A rifle that fires a mist of larval venom. Strangely, it heals the friendlies it misses.",
+      "weapon_type": "gun",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.4
+      },
+      "weapon_damage_min": 41,
+      "weapon_damage_max": 56,
+      "attack_speed": 2.6
     },
     {
       "name": "Screenwarden's Helm",
       "slot": "head",
-      "armor_type": "mail",
-      "item_level": 24,
+      "item_level": 25,
       "rarity": "rare",
-      "primary_stats": {"strength": 4, "stamina": 5},
-      "secondary_stats": {"defense_rating": 0.3},
-      "armor_value": 68,
-      "flavor_text": "Every dent tells you it stopped something it wasn't supposed to survive."
+      "required_level": 22,
+      "flavor_text": "A helm of mail and chitin, built to hold the line against things that bite.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.4,
+        "dodge_rating": 0.4
+      },
+      "armor_type": "mail",
+      "armor_value": 76
     },
     {
       "name": "Broodguard's Signet",
       "slot": "ring",
-      "item_level": 24,
+      "item_level": 25,
       "rarity": "rare",
-      "primary_stats": {"spirit": 3},
-      "secondary_stats": {"mp5": 1.0, "healing_power": 2},
-      "flavor_text": "A ring of chitin, still faintly slick with venom that never dries."
+      "required_level": 22,
+      "flavor_text": "A ring of larval amber. It warms when you heal and cools when you stop.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 3.4,
+        "mp5": 0.7
+      }
+    },
+    {
+      "name": "Larval Shell Buckler",
+      "slot": "off_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A shield cut from a molted larval shell. It remembers every blow, and returns a few.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 6
+      },
+      "armor_value": 51,
+      "block_value": 63
     }
   ],
-
   "Broodspiral Queen": [
     {
       "name": "Queen's Bulwark",
       "slot": "chest",
-      "armor_type": "plate",
       "item_level": 27,
       "rarity": "rare",
-      "primary_stats": {"strength": 6, "stamina": 7},
-      "secondary_stats": {"defense_rating": 0.4},
-      "armor_value": 143,
-      "flavor_text": "Taken from the Queen's own throne-shell. It has never once cracked."
+      "required_level": 24,
+      "flavor_text": "Plate grown, not forged, over a queen's own carapace. It is very hard to leave the hive in it.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.6,
+        "block_rating": 1.1,
+        "dodge_rating": 0.7
+      },
+      "armor_type": "plate",
+      "armor_value": 165
     },
     {
       "name": "Hivemind Legguards",
       "slot": "legs",
-      "armor_type": "mail",
       "item_level": 27,
       "rarity": "rare",
-      "primary_stats": {"intellect": 5},
-      "secondary_stats": {"hit_rating": 0.4, "spell_power": 6},
-      "armor_value": 95,
-      "flavor_text": "Wearing them, you can almost hear the hive's thoughts. Almost."
+      "required_level": 24,
+      "flavor_text": "Layered chitin, linked by something that thinks. It occasionally finishes your sentences.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 4.0
+      },
+      "armor_type": "mail",
+      "armor_value": 110
     },
     {
       "name": "Queenmother's Mace",
-      "slot": "weapon",
-      "weapon_type": "mace_1h",
+      "slot": "main_hand",
       "item_level": 27,
       "rarity": "rare",
-      "primary_stats": {"strength": 5},
-      "secondary_stats": {"crit_chance_physical": 0.4},
+      "required_level": 24,
+      "flavor_text": "A mace carved from the queen's own mandible. It is heavy, and it is unfriendly.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3
+      },
       "weapon_damage_min": 52,
       "weapon_damage_max": 70,
-      "flavor_text": "Grown, not forged - a spur torn living from the Queen's own foreleg."
+      "attack_speed": 2.6
     },
     {
       "name": "Broodspiral Cloak",
       "slot": "back",
-      "armor_type": "accessory",
       "item_level": 27,
       "rarity": "rare",
-      "primary_stats": {"intellect": 2, "spirit": 2},
-      "secondary_stats": {"healing_power": 2},
-      "armor_value": 0,
-      "flavor_text": "Spun from the Queen's own molt. It still moves like something alive."
+      "required_level": 24,
+      "flavor_text": "A cloak of pale silk drawn from the queen's own spinnerets. It soothes you, and it watches.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 3.7,
+        "mp5": 0.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 13
+    }
+  ],
+  "Mother Amberwing": [
+    {
+      "name": "Egg-Guard Bracers",
+      "slot": "wrist",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "Chitin bracers lined with egg-membrane. They keep a person's pulse low and their guard high.",
+      "primary_stats": {
+        "agility": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 46
+    },
+    {
+      "name": "Amber-Drop Pendant",
+      "slot": "neck",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A tear of hard amber on a cord. Something inside is very still, very patient.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Brood-Mother's Stinger",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 20,
+      "flavor_text": "A short stinger set in a bone grip. It's faster than it looks and meaner than it should be.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 1.7
+    }
+  ],
+  "Gnash the Hollow-Maw": [
+    {
+      "name": "Gnash's Hollow-Tusk Cleaver",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A broad axe built around a split tusk. It hungers, in the way that tusks do.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 17
+      },
+      "secondary_stats": {
+        "hit_rating": 1.2,
+        "crit_chance_physical": 1.2
+      },
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 119,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Maw-Hide Jerkin",
+      "slot": "chest",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Tough hide from the pit, rough-cured and rank. It laughs at claws.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 63
+    },
+    {
+      "name": "Marrow-Cracker Band",
+      "slot": "ring",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A band of bone-iron, scarred by a hundred knuckle-cracks. It doesn't mind.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.1
+      }
+    }
+  ],
+  "Chitterlord Skrix": [
+    {
+      "name": "Skrix's Chitter-Rod",
+      "slot": "ranged",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "A slender rod of resin that clicks and chitters when you aim it. Loudly.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 6.0
+      },
+      "weapon_damage_min": 42,
+      "weapon_damage_max": 58,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Swarm-Lord's Mantle",
+      "slot": "shoulder",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "A mantle of tiny shell-plates. Each one moves a little. Don't look at it for long.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 24
+    },
+    {
+      "name": "Veil of a Thousand Legs",
+      "slot": "back",
+      "item_level": 26,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "A cloak of fine chitin-silk. It prickles. It is very, very warm.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 13
     }
   ]
 }

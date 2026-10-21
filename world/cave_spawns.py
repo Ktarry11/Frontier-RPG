@@ -198,7 +198,21 @@ class CaveSpawnManager:
         area = cave_map.width * cave_map.height
         trash_count = max(5, min(40, area // 190))
 
-        if place_trash and trash:
+        # Authored dungeons (multi-boss, e.g. The Broodspiral) carry their own HAND-PLACED trash list:
+        #   zone.trash_spawns = [(x, y, "Creature"), (x, y, "Creature", level), ...]
+        # Placed exactly where the layout author put them (room by room, level ramping with depth); the
+        # random scatter below is only the fallback for dungeons that have not been authored yet.
+        hand = getattr(cave_map, "trash_spawns", None)
+        if place_trash and hand:
+            for entry in hand:
+                hx, hy, hname = entry[0], entry[1], entry[2]
+                hlevel = entry[3] if len(entry) > 3 else None
+                if hname not in self.creature_manager.creatures:
+                    raise ValueError(f"{cave_map.name}: trash_spawns creature '{hname}' has no entry in creatures.json")
+                if not cave_map.is_walkable(hx, hy):
+                    raise ValueError(f"{cave_map.name}: trash_spawns '{hname}' at ({hx},{hy}) is not walkable")
+                self.spawns.append(SpawnPoint(hx, hy, hname, level=hlevel))
+        elif place_trash and trash:
             names = list(trash.keys())
             weights = list(trash.values())
             blocked = list(exits) + boss_positions_placed
