@@ -684,7 +684,7 @@
       "template": "beast_fast",
       "level_range": [
         12,
-        16
+        14
       ],
       "is_boss": false,
       "ability_kit": "plainstrider"
@@ -702,7 +702,7 @@
       "template": "beast_fast",
       "level_range": [
         12,
-        16
+        14
       ],
       "is_boss": false,
       "ability_kit": "zhevra"
@@ -710,8 +710,8 @@
     "Savannah Prowler": {
       "template": "beast_fast",
       "level_range": [
-        12,
-        17
+        13,
+        15
       ],
       "is_boss": false,
       "ability_kit": "prowler"
@@ -738,7 +738,7 @@
       "template": "beast_large",
       "level_range": [
         12,
-        16
+        14
       ],
       "is_boss": false,
       "ability_kit": "giraffe"
@@ -755,8 +755,8 @@
     "Silithid Swarmer": {
       "template": "vermin_swarm",
       "level_range": [
-        12,
-        17
+        13,
+        15
       ],
       "is_boss": false,
       "ability_kit": "silithid_swarmer"
@@ -764,8 +764,8 @@
     "Silithid Creeper": {
       "template": "vermin_sneaky",
       "level_range": [
-        12,
-        17
+        13,
+        15
       ],
       "is_boss": false,
       "ability_kit": "silithid_creeper"
@@ -1023,7 +1023,7 @@
     "Murloc Flesheater": {
       "template": "aquatic_basic",
       "level_range": [
-        12,
+        14,
         17
       ],
       "is_boss": false,
@@ -1032,10 +1032,10 @@
     "Water Elemental": {
       "template": "elemental_caster",
       "level_range": [
-        10,
-        17
+        13,
+        15
       ],
-      "kit": "water_elemental"
+      "ability_kit": "water_elemental"
     },
     "Gaharrz the Drowned": {
       "template": "aquatic_basic",
@@ -1044,7 +1044,7 @@
         17
       ],
       "is_boss": true,
-      "boss_multiplier": 1.0,
+      "boss_multiplier": 2.4,
       "ability_kit": "gaharrz_the_drowned"
     },
     "Mangy Duskbat": {
@@ -2408,7 +2408,7 @@
       "template": "beast_large",
       "level_range": [
         15,
-        18
+        17
       ],
       "is_boss": false,
       "ability_kit": "crocolisk"
@@ -3594,7 +3594,7 @@
         16
       ],
       "is_boss": false,
-      "ability_kit": "burning_blade_cultist_east"
+      "ability_kit": "dreadmist_cultist"
     },
     "Dreadmist Warlock": {
       "template": "humanoid_caster",
@@ -3603,7 +3603,7 @@
         17
       ],
       "is_boss": false,
-      "ability_kit": "burning_blade_cultist_east"
+      "ability_kit": "dreadmist_warlock"
     },
     "Rathorian": {
       "template": "humanoid_caster",
@@ -3612,7 +3612,7 @@
         17
       ],
       "is_boss": true,
-      "boss_multiplier": 1.3,
+      "boss_multiplier": 2.3,
       "ability_kit": "rathorian"
     },
     "Xelnaz": {
@@ -4534,6 +4534,298 @@
       "is_boss": true,
       "ability_kit": "barnacle_beard",
       "boss_multiplier": 1.6
+    },
+    "Plains Thunderhawk": {
+      "template": "beast_fast",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "plains_thunderhawk"
+    },
+    "Barrens Hyena": {
+      "template": "beast_basic",
+      "level_range": [
+        12,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "barrens_hyena"
+    },
+    "Redstone Scorpid": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "redstone_scorpid"
+    },
+    "Oasis Tangle-Vine": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "oasis_tangle_vine"
+    },
+    "Drowned Pilgrim": {
+      "template": "undead_basic",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_pilgrim"
+    },
+    "Boneyard Vulture": {
+      "template": "beast_fast",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "cb_carrion_vulture"
+    },
+    "Kodo Wraith": {
+      "template": "undead_basic",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "kodo_wraith"
+    },
+    "Kolkar Taskmaster": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "kolkar_taskmaster"
+    },
+    "Kolkar Windseer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        14,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "kolkar_windseer"
+    },
+    "Raider's Rest Smuggler": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        15,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "raiders_smuggler"
+    },
+    "Bandit Bombardier": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        16,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "bandit_bombardier"
+    },
+    "Razormane Quillthrower": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "quillthrower"
+    },
+    "Bristleback Battleboar": {
+      "template": "beast_basic",
+      "level_range": [
+        15,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "bristleback_battleboar"
+    },
+    "Bristleback Briarweaver": {
+      "template": "humanoid_caster",
+      "level_range": [
+        15,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "cb_bristleback_thornweaver"
+    },
+    "Dreadmist Imp": {
+      "template": "demon_caster",
+      "level_range": [
+        13,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "dreadmist_imp"
+    },
+    "Farm Poacher": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        13,
+        15
+      ],
+      "is_boss": false,
+      "ability_kit": "farm_poacher"
+    },
+    "Mourning Spirit": {
+      "template": "elemental_caster",
+      "level_range": [
+        14,
+        16
+      ],
+      "is_boss": false,
+      "ability_kit": "mourning_spirit"
+    },
+    "Riverbank Snapper": {
+      "template": "beast_basic",
+      "level_range": [
+        12,
+        14
+      ],
+      "is_boss": false,
+      "ability_kit": "riverbank_snapper"
+    },
+    "Old Sunhide": {
+      "template": "beast_large",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "ability_kit": "old_sunhide",
+      "boss_multiplier": 1.7
+    },
+    "Stormwing the Skyrider": {
+      "template": "beast_fast",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "ability_kit": "stormwing_skyrider",
+      "boss_multiplier": 1.6
+    },
+    "Redrock Matriarch": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "ability_kit": "redrock_matriarch",
+      "boss_multiplier": 1.7
+    },
+    "Queen Skitterwing": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "ability_kit": "queen_skitterwing",
+      "boss_multiplier": 1.7
+    },
+    "Maeve the Weeping": {
+      "template": "undead_basic",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "ability_kit": "maeve_weeping",
+      "boss_multiplier": 1.6
+    },
+    "Hollowhorn": {
+      "template": "undead_basic",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "ability_kit": "hollowhorn",
+      "boss_multiplier": 1.7
+    },
+    "Warbringer Gorrak": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "ability_kit": "warbringer_gorrak",
+      "boss_multiplier": 1.7
+    },
+    "Silas Quickfinger": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "ability_kit": "silas_quickfinger",
+      "boss_multiplier": 1.6
+    },
+    "Wardchief Thulg": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "ability_kit": "wardchief_thulg",
+      "boss_multiplier": 1.7
+    },
+    "Sow-Mother Grunka": {
+      "template": "beast_basic",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "ability_kit": "sowmother_grunka",
+      "boss_multiplier": 1.7
+    },
+    "Voidcaller Veshra": {
+      "template": "humanoid_caster",
+      "level_range": [
+        16,
+        16
+      ],
+      "is_boss": true,
+      "ability_kit": "veshra_voidcaller",
+      "boss_multiplier": 1.6
+    },
+    "Echo of the Fallen Warrior": {
+      "template": "undead_basic",
+      "level_range": [
+        15,
+        15
+      ],
+      "is_boss": true,
+      "ability_kit": "fallen_warrior_echo",
+      "boss_multiplier": 1.6
+    },
+    "Looter-Chief Bazz": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        14,
+        14
+      ],
+      "is_boss": true,
+      "ability_kit": "bazz_lootchief",
+      "boss_multiplier": 1.7
     }
   }
 }

@@ -56,17 +56,17 @@ ROADS = {
     "gold_s":   ([(150, 162), (149, 190), (152, 215), (150, 245), (150, 270), (150, 295)], 3.6),
     "durotar_e": ([(270, 31), (262, 30), (246, 30)], 3.0),
     "durotar":  ([(246, 30), (236, 36), (222, 50), (208, 68), (196, 88), (184, 108), (172, 126),
-                  (162, 140), (156, 146)], 3.2),
-    "ratchet":  ([(158, 156), (172, 172), (190, 186), (210, 192), (232, 197), (246, 210),
+                  (162, 140), (153, 147), (150, 150)], 3.2),
+    "ratchet":  ([(150, 150), (158, 156), (172, 172), (190, 186), (210, 192), (232, 197), (246, 210),
                   (256, 232), (262, 252), (264, 268), (268, 270)], 3.2),
-    "west":     ([(144, 150), (120, 151), (100, 147), (86, 146), (70, 142), (56, 141), (49, 141)], 3.2),
-    "wailing":  ([(146, 156), (134, 176), (118, 196), (100, 212), (86, 222), (76, 225)], 3.0),
-    "pools":    ([(146, 144), (130, 122), (112, 104), (98, 92), (92, 88)], 3.0),
+    "west":     ([(150, 150), (144, 150), (120, 151), (100, 147), (86, 146), (70, 142), (56, 141), (49, 141)], 3.2),
+    "wailing":  ([(150, 150), (146, 156), (134, 176), (118, 196), (100, 212), (86, 222), (76, 225)], 3.0),
+    "pools":    ([(150, 150), (146, 144), (130, 122), (112, 104), (98, 92), (92, 88)], 3.0),
     "dreadmist": ([(74, 72), (66, 64), (60, 57), (55, 51)], 2.4),
     "brambles": ([(150, 238), (140, 242), (132, 247)], 2.4),
     "agama":    ([(150, 238), (160, 242), (168, 247)], 2.4),
     "kolkar":   ([(208, 68), (224, 78), (238, 92), (240, 108)], 2.4),
-    "east":     ([(162, 150), (182, 152), (204, 156), (220, 160)], 2.8),
+    "east":     ([(150, 150), (162, 150), (182, 152), (204, 156), (220, 160)], 2.8),
     "farm":     ([(86, 146), (86, 138)], 2.4),
     "plaza":    ([(150, 136), (150, 164)], 3.6),
 }
@@ -318,7 +318,7 @@ CAMP_PATCHES = {   # name -> (cx, cy, rx, ry): trampled camp earth
     "kolkar_war": (238, 112, 11, 8), "kolkar_out": (222, 160, 9, 7),
     "brambles": (130, 252, 11, 8), "agamagor": (170, 252, 11, 8),
     "raiders": (206, 218, 8, 6), "farm": (85, 146, 12, 8), "den": (50, 44, 9, 6),
-    "dorn": (182, 152, 5, 4), "shrine": (50, 140, 7, 6), "wc": (75, 226, 7, 4),
+    "dorn": (182, 152, 5, 4), "crossroads": (150, 150, 11, 9), "shrine": (50, 140, 7, 6), "wc": (75, 226, 7, 4),
     "durotar": (270, 30, 8, 7), "southfury": (258, 36, 5, 4), "kodo_yard": (205, 120, 10, 7),
 }
 
@@ -338,9 +338,16 @@ def wash_dist(gx, gy):
 # --------------------------------------------------------------- NPC spots
 # id -> (x, y).  Existing ids are kept (quests reference ids, never coordinates).
 NPC_POSITIONS = {
-    "barrens_herder_1": (142, 82),
-    "barrens_scout_2": (182, 152),
-    "groldom_farmer": (85, 145),
+    "barrens_herder_1": (142, 83),       # Herder Magra, under the Sentinel Rocks
+    "barrens_scout_2": (182, 154),       # Plainswatcher Dorn, east road
+    "groldom_farmer": (85, 148),         # Kranal Fiss, Grol'dom Farm
+    "cb_waterkeeper": (88, 207),         # Waterkeeper Sanu, Lushwater
+    "cb_pools_warden": (96, 95),         # Pilgrim-Warden Torga, Forgotten Pools
+    "cb_caravan_master": (203, 218),     # Caravan-Master Dogan, Raider's Rest
+    "cb_shrine_keeper": (52, 144),       # Keeper Ahnmar, Shrine of the Fallen Warrior
+    "cb_dreadmist_scout": (66, 61),      # Scout Zarla, Dreadmist road
+    "cb_quilboar_ranger": (146, 234),    # Ranger Kishi, between the quilboar camps
+    "cb_bridgewarden": (262, 34),        # Bridgewarden Karga, Durotar landing
 }
 
 CAVES = {   # portal tile -> (sprite, w, h)
@@ -528,6 +535,11 @@ def _portals(L):
 
 SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win on overlap
     ("Kolkar Plains", 190, 20, 100, 200, None),
+    ("Southfury Banks", 256, 0, 44, 52, None),
+    ("Kolkar Outpost", 206, 144, 36, 32, None),
+    ("Kodo Graveyard", 188, 104, 34, 30, None),
+    ("Kolkar War Camp", 222, 94, 36, 34, None),
+    ("Sentinel Rocks", 108, 80, 76, 36, None),
     ("Dreadmist Peak", 5, 3, 68, 58, None),
     ("The Forgotten Pools", 55, 62, 52, 48, None),
     ("Lushwater Oasis", 50, 180, 52, 42, None),
@@ -661,17 +673,24 @@ def dress(L):
     L.dp("vot_beast_ribcage", 204, 121, 3)
     _grove(L, BONES, 205, 121, 12, 8, 6, 11, gap=3.5, solid=False)
 
-    # ---- quilboar camps ------------------------------------------------------
-    for (cx, cy, huts) in [(130, 250, [(124, 247), (134, 246), (127, 255), (137, 254), (131, 259)]),
-                           (170, 250, [(176, 247), (166, 246), (173, 255), (163, 254), (169, 259)])]:
-        for (x, y) in huts:
-            P("br_quilboar_hut", x, y, 6)
-        L.dp("vot_fire_pit", cx, cy + 1, 2, solid=False)
-        L.dp("vot_hide_rack", cx + 7, cy - 1, 3)
-        P("br_termite_mound", cx - 9, cy + 6, 5)
-        _grove(L, SCRUB, cx, cy + 3, 15, 10, 9, cx, gap=3.5)
+    # ---- quilboar camps: Razormane (thorn-and-bramble hold) vs Bristleback (bone-and-tusk warren) ----
+    for (x, y) in [(123, 246), (133, 244), (126, 255), (139, 253), (131, 260)]:
+        P("br_quilboar_hut", x, y, 6)
+    L.dp("vot_fire_pit", 131, 252, 2, solid=False)
+    L.dp("vot_hide_rack", 137, 249, 3)
+    P("br_termite_mound", 121, 258, 5)
+    P("br_razorfen_bramble_gate", 131, 238, 6, solid=False, road_ok=True)
+    _grove(L, [("br_thorn_scrub", 3), ("br_agave_spike", 3)], 130, 254, 15, 10, 7, 130, gap=4.0)
+    for (x, y) in [(177, 245), (167, 243), (174, 254), (163, 252), (170, 260)]:
+        P("br_quilboar_hut", x, y, 6)
+    L.dp("vot_fire_pit", 170, 251, 2, solid=False)
+    L.dp("vot_hide_rack", 163, 247, 3)
+    L.dp("vot_beast_ribcage", 178, 253, 3)
+    P("br_vulture_roost", 160, 258, 4)
+    P("br_kodo_skeleton", 182, 258, 4)
+    P("br_kodo_tusk_gate", 170, 238, 7, solid=False, road_ok=True)
+    _grove(L, BONES + [("br_sandstone_boulders", 4)], 170, 254, 15, 10, 6, 170, gap=4.5)
     P("br_razorfen_bramble_gate", 140, 241, 6, solid=False, road_ok=True)
-    P("br_razorfen_bramble_gate", 160, 241, 6, solid=False, road_ok=True)
 
     # ---- Raider's Rest (south-east oasis) ------------------------------------
     for (x, y) in [(207, 213), (200, 222), (212, 224)]:

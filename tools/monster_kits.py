@@ -2153,13 +2153,232 @@ ECHO_CONTENT_KITS = {
     ],
 }
 
+# ======================================================================
+# CENTRAL BARRENS content pass (2026-10-21).  Ladder: Plains 12-15, Lushwater 13-15,
+# Pools 14-17, Kolkar 13-17, quilboar 13-18, Dreadmist 13-18, Raider's Rest 16-19.
+# ======================================================================
+CENTRAL_BARRENS_KITS = {
+    # ---- Golden Plains ---------------------------------------------------
+    "plains_thunderhawk": [
+        ("Talon Dive", "damage", 23, 0, 0, "physical", {}),
+        ("Static Shriek", "damage", 31, 3, 0, "nature", {}),
+    ],
+    "barrens_hyena": [
+        ("Gnaw", "damage", 21, 0, 0, "physical", {}),
+        ("Rabid Howl", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 14}}),
+    ],
+    # ---- Sentinel Rocks ----------------------------------------------------
+    "redstone_scorpid": [
+        ("Claw Pinch", "damage", 22, 0, 0, "physical", {}),
+        ("Redstone Venom", "dot", 10, 3, 0, "nature", {"duration": 4}),
+    ],
+    # ---- Lushwater Oasis ---------------------------------------------------
+    "oasis_tangle_vine": [
+        ("Whip Lash", "damage", 22, 0, 0, "nature", {}),
+        ("Entangling Roots", "debuff", 0, 4, 0, "nature",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+    # ---- Forgotten Pools -----------------------------------------------------
+    "drowned_pilgrim": [
+        ("Waterlogged Strike", "damage", 24, 0, 0, "physical", {}),
+        ("Weeping Chill", "debuff", 0, 4, 22, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -14}}),
+    ],
+    # ---- Kodo Graveyard --------------------------------------------------------
+    "cb_carrion_vulture": [
+        ("Carrion Peck", "damage", 21, 0, 0, "physical", {}),
+        ("Festering Wound", "dot", 9, 3, 0, "nature", {"duration": 4}),
+    ],
+    "kodo_wraith": [
+        ("Bone-Crush Stomp", "damage", 27, 0, 0, "physical", {}),
+        ("Grave Chill", "debuff", 0, 4, 20, "magic",
+         {"duration": 3, "stat_mods": {"attack_power": -14}}),
+    ],
+    # ---- Kolkar War Camp --------------------------------------------------------
+    "kolkar_taskmaster": [
+        ("Lash of Command", "damage", 25, 0, 0, "physical", {}),
+        ("Rally the Herd", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
+        ("Crippling Whip", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "kolkar_windseer": [
+        ("Gale Bolt", "damage", 24, 0, 20, "nature", {}),
+        ("Wind Ward", "heal", 42, 4, 32, "nature", {}),
+    ],
+    # ---- Raider's Rest -----------------------------------------------------------
+    "raiders_smuggler": [
+        ("Poisoned Dirk", "damage", 25, 0, 0, "physical", {}),
+        ("Crippling Poison", "dot", 11, 3, 0, "nature", {"duration": 4}),
+    ],
+    "bandit_bombardier": [
+        ("Powder Toss", "damage", 28, 0, 0, "fire", {}),
+        ("Smoke Bomb", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+    # ---- Bramblescar / Agama'gor -----------------------------------------------------
+    "quillthrower": [
+        ("Quill Volley", "damage", 24, 0, 0, "physical", {}),
+        ("Thorn Barb", "dot", 9, 3, 0, "physical", {"duration": 4}),
+    ],
+    "bristleback_battleboar": [
+        ("Gore", "damage", 26, 0, 0, "physical", {}),
+        ("Trampling Rush", "damage", 36, 4, 0, "physical", {}),
+        ("Boar Fury", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 16}}),
+    ],
+    "cb_bristleback_thornweaver": [
+        ("Thorn Bolt", "damage", 26, 0, 22, "nature", {}),
+        ("Briar Mending", "heal", 46, 4, 34, "nature", {}),
+    ],
+    # ---- Dreadmist ------------------------------------------------------------------------
+    "dreadmist_cultist": [
+        ("Shadow Bolt", "damage", 24, 0, 20, "shadow", {}),
+        ("Curse of Weakness", "debuff", 0, 4, 22, "shadow",
+         {"duration": 4, "stat_mods": {"attack_power": -14}}),
+    ],
+    "dreadmist_warlock": [
+        ("Immolate", "damage", 30, 0, 26, "fire", {}),
+        ("Corruption", "dot", 12, 3, 28, "shadow", {"duration": 4}),
+        ("Fel Armor", "buff", 0, 6, 24, "shadow",
+         {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 22}}),
+    ],
+    "dreadmist_imp": [
+        ("Firebolt", "damage", 23, 0, 16, "fire", {}),
+        ("Blood Pact", "buff", 0, 6, 0, "shadow",
+         {"duration": 4, "self_only": True, "stat_mods": {"intellect": 14}}),
+    ],
+    # ---- Grol'dom Farm / Shrine / Southfury ------------------------------------------------------
+    "farm_poacher": [
+        ("Cheap Shot", "damage", 22, 0, 0, "physical", {}),
+        ("Snare Trap", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "mourning_spirit": [
+        ("Spirit Bolt", "damage", 25, 0, 20, "magic", {}),
+        ("Mourning Wail", "debuff", 0, 4, 22, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -14}}),
+    ],
+    "riverbank_snapper": [
+        ("Snapping Jaws", "damage", 22, 0, 0, "physical", {}),
+        ("Shell Retreat", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 28}}),
+    ],
+    # ---- bosses that never had kits -----------------------------------------------------------------
+    "rathorian": [
+        ("Shadow Bolt", "damage", 38, 0, 28, "shadow", {}),
+        ("Siphon Soul", "dot", 15, 3, 32, "shadow", {"duration": 4}),
+        ("Curse of Tongues", "debuff", 0, 5, 26, "shadow",
+         {"duration": 4, "stat_mods": {"intellect": -20}}),
+        ("Dark Mending", "heal", 60, 5, 36, "shadow", {}),
+    ],
+    "xelnaz": [
+        ("Fel Bite", "damage", 38, 0, 0, "physical", {}),
+        ("Rending Claws", "dot", 16, 3, 0, "physical", {"duration": 4}),
+        ("Terrifying Howl", "debuff", 0, 5, 0, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -20}}),
+        ("Bloodlust", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 22}}),
+    ],
+    "water_elemental": [
+        ("Water Bolt", "damage", 24, 0, 18, "magic", {}),
+        ("Tidal Surge", "damage", 33, 3, 28, "magic", {}),
+    ],
+    # ---- named rares ------------------------------------------------------------------------------------
+    "old_sunhide": [
+        ("Sunhide Stomp", "damage", 30, 0, 0, "physical", {}),
+        ("Thick Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 34}}),
+        ("Ground Tremor", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+    "stormwing_skyrider": [
+        ("Thunder Dive", "damage", 32, 0, 0, "nature", {}),
+        ("Storm Cry", "debuff", 0, 4, 0, "nature",
+         {"duration": 3, "stat_mods": {"attack_power": -16}}),
+        ("Tailwind", "buff", 0, 5, 0, "nature",
+         {"duration": 4, "self_only": True, "stat_mods": {"agility": 20}}),
+    ],
+    "redrock_matriarch": [
+        ("Matriarch's Pincer", "damage", 32, 0, 0, "physical", {}),
+        ("Brood Venom", "dot", 14, 3, 0, "nature", {"duration": 4}),
+        ("Carapace Harden", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 32}}),
+    ],
+    "queen_skitterwing": [
+        ("Chitin Lash", "damage", 31, 0, 0, "physical", {}),
+        ("Swarm Call", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"agility": 22}}),
+        ("Hive Sting", "dot", 14, 3, 0, "nature", {"duration": 4}),
+    ],
+    "maeve_weeping": [
+        ("Weeping Touch", "damage", 33, 0, 26, "magic", {}),
+        ("Drowning Sorrow", "dot", 14, 3, 24, "magic", {"duration": 4}),
+        ("Tears of the Pool", "heal", 52, 5, 34, "magic", {}),
+    ],
+    "hollowhorn": [
+        ("Hollowhorn Gore", "damage", 36, 0, 0, "physical", {}),
+        ("Boneyard Dirge", "debuff", 0, 4, 22, "magic",
+         {"duration": 3, "stat_mods": {"attack_power": -18}}),
+        ("Deathless Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 36}}),
+    ],
+    "warbringer_gorrak": [
+        ("Warbringer's Cleave", "damage", 38, 0, 0, "physical", {}),
+        ("Battle Roar", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 26}}),
+        ("Hamstring", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -18}}),
+    ],
+    "silas_quickfinger": [
+        ("Quickfinger Stab", "damage", 38, 0, 0, "physical", {}),
+        ("Lamp-Oil Poison", "dot", 16, 3, 0, "nature", {"duration": 4}),
+        ("Vanishing Powder", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"agility": 26}}),
+    ],
+    "wardchief_thulg": [
+        ("Thulg's Cleaver", "damage", 34, 0, 0, "physical", {}),
+        ("Wardchief's Command", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 30}}),
+        ("Ruinous Strike", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -16}}),
+    ],
+    "sowmother_grunka": [
+        ("Sow-Mother's Gore", "damage", 36, 0, 0, "physical", {}),
+        ("Brood Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 24}}),
+        ("Rending Tusks", "dot", 15, 3, 0, "physical", {"duration": 4}),
+    ],
+    "veshra_voidcaller": [
+        ("Void Lance", "damage", 36, 0, 28, "shadow", {}),
+        ("Rift Corruption", "dot", 15, 3, 28, "shadow", {"duration": 4}),
+        ("Hollow Ward", "buff", 0, 6, 24, "shadow",
+         {"duration": 4, "self_only": True, "stat_mods": {"magic_resistance": 26}}),
+    ],
+    "fallen_warrior_echo": [
+        ("Spectral Blade", "damage", 31, 0, 0, "physical", {}),
+        ("Echo of Valour", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 20}}),
+        ("Mournful Cry", "debuff", 0, 4, 22, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -16}}),
+    ],
+    "bazz_lootchief": [
+        ("Pitchfork Jab", "damage", 29, 0, 0, "physical", {}),
+        ("Sticky Fingers", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+        ("Scrap Plate", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 28}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
                ASHENVALE_KITS, FENRIS_SILVERPINE_KITS, TIRISFAL_KITS,
                BLACKFATHOM_DEEPS_KITS, WAILING_CAVERNS_KITS,
-               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS,
+               BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS):

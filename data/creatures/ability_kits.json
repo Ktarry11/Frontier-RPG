@@ -6072,6 +6072,990 @@
         }
       }
     ],
+    "plains_thunderhawk": [
+      {
+        "name": "Talon Dive",
+        "kind": "damage",
+        "amount": 23,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Static Shriek",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "barrens_hyena": [
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 21,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rabid Howl",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
+      }
+    ],
+    "redstone_scorpid": [
+      {
+        "name": "Claw Pinch",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Redstone Venom",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "oasis_tangle_vine": [
+      {
+        "name": "Whip Lash",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Entangling Roots",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "drowned_pilgrim": [
+      {
+        "name": "Waterlogged Strike",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Weeping Chill",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -14
+        }
+      }
+    ],
+    "cb_carrion_vulture": [
+      {
+        "name": "Carrion Peck",
+        "kind": "damage",
+        "amount": 21,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Festering Wound",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "kodo_wraith": [
+      {
+        "name": "Bone-Crush Stomp",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Chill",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 20,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -14
+        }
+      }
+    ],
+    "kolkar_taskmaster": [
+      {
+        "name": "Lash of Command",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rally the Herd",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 18
+        }
+      },
+      {
+        "name": "Crippling Whip",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "kolkar_windseer": [
+      {
+        "name": "Gale Bolt",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 20,
+        "school": "nature"
+      },
+      {
+        "name": "Wind Ward",
+        "kind": "heal",
+        "amount": 42,
+        "cooldown": 4,
+        "mana_cost": 32,
+        "school": "nature"
+      }
+    ],
+    "raiders_smuggler": [
+      {
+        "name": "Poisoned Dirk",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crippling Poison",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "bandit_bombardier": [
+      {
+        "name": "Powder Toss",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Smoke Bomb",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "quillthrower": [
+      {
+        "name": "Quill Volley",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thorn Barb",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "bristleback_battleboar": [
+      {
+        "name": "Gore",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Trampling Rush",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Boar Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 16
+        }
+      }
+    ],
+    "cb_bristleback_thornweaver": [
+      {
+        "name": "Thorn Bolt",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "nature"
+      },
+      {
+        "name": "Briar Mending",
+        "kind": "heal",
+        "amount": 46,
+        "cooldown": 4,
+        "mana_cost": 34,
+        "school": "nature"
+      }
+    ],
+    "dreadmist_cultist": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 20,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Weakness",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": -14
+        }
+      }
+    ],
+    "dreadmist_warlock": [
+      {
+        "name": "Immolate",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 26,
+        "school": "fire"
+      },
+      {
+        "name": "Corruption",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 28,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Fel Armor",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 24,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 22
+        }
+      }
+    ],
+    "dreadmist_imp": [
+      {
+        "name": "Firebolt",
+        "kind": "damage",
+        "amount": 23,
+        "cooldown": 0,
+        "mana_cost": 16,
+        "school": "fire"
+      },
+      {
+        "name": "Blood Pact",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "intellect": 14
+        }
+      }
+    ],
+    "farm_poacher": [
+      {
+        "name": "Cheap Shot",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Snare Trap",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "mourning_spirit": [
+      {
+        "name": "Spirit Bolt",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 20,
+        "school": "magic"
+      },
+      {
+        "name": "Mourning Wail",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -14
+        }
+      }
+    ],
+    "riverbank_snapper": [
+      {
+        "name": "Snapping Jaws",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shell Retreat",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 28
+        }
+      }
+    ],
+    "rathorian": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 28,
+        "school": "shadow"
+      },
+      {
+        "name": "Siphon Soul",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 3,
+        "mana_cost": 32,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Curse of Tongues",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "intellect": -20
+        }
+      },
+      {
+        "name": "Dark Mending",
+        "kind": "heal",
+        "amount": 60,
+        "cooldown": 5,
+        "mana_cost": 36,
+        "school": "shadow"
+      }
+    ],
+    "xelnaz": [
+      {
+        "name": "Fel Bite",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rending Claws",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Terrifying Howl",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -20
+        }
+      },
+      {
+        "name": "Bloodlust",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 22
+        }
+      }
+    ],
+    "water_elemental": [
+      {
+        "name": "Water Bolt",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "magic"
+      },
+      {
+        "name": "Tidal Surge",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 3,
+        "mana_cost": 28,
+        "school": "magic"
+      }
+    ],
+    "old_sunhide": [
+      {
+        "name": "Sunhide Stomp",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thick Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 34
+        }
+      },
+      {
+        "name": "Ground Tremor",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "stormwing_skyrider": [
+      {
+        "name": "Thunder Dive",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Storm Cry",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -16
+        }
+      },
+      {
+        "name": "Tailwind",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "agility": 20
+        }
+      }
+    ],
+    "redrock_matriarch": [
+      {
+        "name": "Matriarch's Pincer",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Brood Venom",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Carapace Harden",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 32
+        }
+      }
+    ],
+    "queen_skitterwing": [
+      {
+        "name": "Chitin Lash",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swarm Call",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "agility": 22
+        }
+      },
+      {
+        "name": "Hive Sting",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "maeve_weeping": [
+      {
+        "name": "Weeping Touch",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 26,
+        "school": "magic"
+      },
+      {
+        "name": "Drowning Sorrow",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 24,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Tears of the Pool",
+        "kind": "heal",
+        "amount": 52,
+        "cooldown": 5,
+        "mana_cost": 34,
+        "school": "magic"
+      }
+    ],
+    "hollowhorn": [
+      {
+        "name": "Hollowhorn Gore",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Boneyard Dirge",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -18
+        }
+      },
+      {
+        "name": "Deathless Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 36
+        }
+      }
+    ],
+    "warbringer_gorrak": [
+      {
+        "name": "Warbringer's Cleave",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Battle Roar",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 26
+        }
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "silas_quickfinger": [
+      {
+        "name": "Quickfinger Stab",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lamp-Oil Poison",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Vanishing Powder",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "agility": 26
+        }
+      }
+    ],
+    "wardchief_thulg": [
+      {
+        "name": "Thulg's Cleaver",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wardchief's Command",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 30
+        }
+      },
+      {
+        "name": "Ruinous Strike",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -16
+        }
+      }
+    ],
+    "sowmother_grunka": [
+      {
+        "name": "Sow-Mother's Gore",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Brood Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 24
+        }
+      },
+      {
+        "name": "Rending Tusks",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "veshra_voidcaller": [
+      {
+        "name": "Void Lance",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 28,
+        "school": "shadow"
+      },
+      {
+        "name": "Rift Corruption",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 3,
+        "mana_cost": 28,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Hollow Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 24,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 26
+        }
+      }
+    ],
+    "fallen_warrior_echo": [
+      {
+        "name": "Spectral Blade",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Echo of Valour",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 20
+        }
+      },
+      {
+        "name": "Mournful Cry",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -16
+        }
+      }
+    ],
+    "bazz_lootchief": [
+      {
+        "name": "Pitchfork Jab",
+        "kind": "damage",
+        "amount": 29,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sticky Fingers",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      },
+      {
+        "name": "Scrap Plate",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 28
+        }
+      }
+    ],
     "murloc_flesheater": [
       {
         "name": "Rend Flesh",

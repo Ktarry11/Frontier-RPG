@@ -658,40 +658,92 @@
       "open_zone": {
         "name": "The Golden Plains",
         "creatures": {
-          "Plainstrider": 2,
-          "Zhevra Runner": 1,
-          "Savannah Prowler": 1,
-          "Sunscale Screecher": 1,
+          "Greater Plainstrider": 3,
+          "Zhevra Courser": 2,
+          "Savannah Prowler": 2,
+          "Plains Thunderhawk": 2,
+          "Barrens Hyena": 2,
           "Barrens Giraffe": 1,
-          "Greater Plainstrider": 0,
-          "Zhevra Courser": 0,
-          "Savannah Huntress": 0
+          "Sunscale Screecher": 1,
+          "Old Sunhide": 0,
+          "Stormwing the Skyrider": 0
         }
       },
       "subzones": {
+        "Sentinel Rocks": {
+          "name": "Sentinel Rocks",
+          "creatures": {
+            "Redstone Scorpid": 3,
+            "Barrens Hyena": 2,
+            "Plains Thunderhawk": 1,
+            "Redrock Matriarch": 0
+          }
+        },
+        "Southfury Banks": {
+          "name": "Southfury Banks",
+          "creatures": {
+            "Riverbank Snapper": 3,
+            "Sunscale Screecher": 2,
+            "Pool Murloc": 1
+          }
+        },
         "Lushwater Oasis": {
           "name": "Lushwater Oasis",
           "creatures": {
-            "Silithid Swarmer": 2,
-            "Silithid Creeper": 1,
+            "Silithid Swarmer": 3,
+            "Silithid Creeper": 2,
+            "Oasis Tangle-Vine": 2,
             "Savannah Prowler": 1,
-            "Water Elemental": 0
+            "Water Elemental": 1,
+            "Queen Skitterwing": 0
           }
         },
         "The Forgotten Pools": {
           "name": "The Forgotten Pools",
           "creatures": {
             "Pool Murloc": 2,
-            "Murloc Flesheater": 1,
+            "Murloc Flesheater": 2,
+            "Drowned Pilgrim": 2,
             "Water Elemental": 1,
-            "Gaharrz the Drowned": 0
+            "Gaharrz the Drowned": 0,
+            "Maeve the Weeping": 0
           }
         },
         "Kolkar Plains": {
           "name": "Kolkar Plains",
           "creatures": {
-            "Kolkar Stormer": 1,
+            "Kolkar Stormer": 2,
             "Kolkar Drudge": 2,
+            "Kolkar Marauder": 1,
+            "Kolkar Windseer": 1
+          }
+        },
+        "Kodo Graveyard": {
+          "name": "Kodo Graveyard",
+          "creatures": {
+            "Boneyard Vulture": 3,
+            "Kodo Wraith": 3,
+            "Barrens Hyena": 2,
+            "Hollowhorn": 0
+          }
+        },
+        "Kolkar War Camp": {
+          "name": "Kolkar War Camp",
+          "creatures": {
+            "Kolkar Marauder": 2,
+            "Kolkar Drudge": 2,
+            "Kolkar Taskmaster": 2,
+            "Kolkar Windseer": 2,
+            "Kolkar Stormer": 1,
+            "Warbringer Gorrak": 0
+          }
+        },
+        "Kolkar Outpost": {
+          "name": "Kolkar Outpost",
+          "creatures": {
+            "Kolkar Drudge": 2,
+            "Kolkar Stormer": 2,
+            "Kolkar Taskmaster": 1,
             "Kolkar Marauder": 1
           }
         },
@@ -699,44 +751,67 @@
           "name": "Raider's Rest Oasis",
           "creatures": {
             "Bandit Outrider": 2,
-            "Bandit Cutthroat": 1,
-            "Watering Hole Crocolisk": 1
-          }
-        },
-        "Agama'gor": {
-          "creatures": {
-            "Bristleback Raider": 6,
-            "Bristleback Raider Shaman": 3
+            "Bandit Cutthroat": 2,
+            "Raider's Rest Smuggler": 2,
+            "Bandit Bombardier": 1,
+            "Watering Hole Crocolisk": 1,
+            "Silas Quickfinger": 0
           }
         },
         "Bramblescar": {
+          "name": "Bramblescar",
           "creatures": {
-            "Razormane Veteran": 6,
-            "Razormane Warcaller": 3
+            "Razormane Veteran": 4,
+            "Razormane Warcaller": 2,
+            "Razormane Quillthrower": 3,
+            "Wardchief Thulg": 0
+          }
+        },
+        "Agama'gor": {
+          "name": "Agama'gor",
+          "creatures": {
+            "Bristleback Raider": 4,
+            "Bristleback Raider Shaman": 2,
+            "Bristleback Battleboar": 3,
+            "Bristleback Briarweaver": 2,
+            "Sow-Mother Grunka": 0
           }
         },
         "Dreadmist Peak": {
+          "name": "Dreadmist Peak",
           "creatures": {
-            "Dreadmist Cultist": 6,
-            "Dreadmist Warlock": 3
+            "Dreadmist Cultist": 4,
+            "Dreadmist Warlock": 2,
+            "Dreadmist Imp": 3,
+            "Voidcaller Veshra": 0
           }
         },
         "Dreadmist Den": {
+          "name": "Dreadmist Den",
           "creatures": {
             "Dreadmist Cultist": 3,
             "Dreadmist Warlock": 3,
+            "Dreadmist Imp": 2,
             "Rathorian": 0,
             "Xelnaz": 0
           }
         },
         "Grol'dom Farm": {
+          "name": "Grol'dom Farm",
           "creatures": {
-            "Bandit Outrider": 2,
-            "Kolkar Drudge": 1
+            "Farm Poacher": 3,
+            "Kolkar Drudge": 1,
+            "Barrens Hyena": 1,
+            "Looter-Chief Bazz": 0
           }
         },
         "Shrine of the Fallen Warrior": {
-          "creatures": {}
+          "name": "Shrine of the Fallen Warrior",
+          "creatures": {
+            "Mourning Spirit": 3,
+            "Kodo Wraith": 1,
+            "Echo of the Fallen Warrior": 0
+          }
         }
       },
       "caves": {
