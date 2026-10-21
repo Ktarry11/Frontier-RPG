@@ -135,4 +135,4 @@ if __name__ == "__main__":
     if mode == "tiles":
         slice_tiles(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5:])
     else:
-        slice_props(sys.argv[2], sys.argv[3], sys.argv[4:])
+        slice_props(sys.argv[2], sys.argv[3], sys.argv[4:], dil=int(os.environ.get("SLICE_DIL", 7)))
