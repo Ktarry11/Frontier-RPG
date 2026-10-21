@@ -152,14 +152,14 @@ class PortalManager:
                 # session's full rebuild) - same proportional scale
                 # (x1.6) applied to every one, not eyeballed individually.
                 (80, 152): ("Durotar", 105, 150),
-                (48, 88): ("Sunken Temple Grotto", 50, 81),
-                (128, 99): ("Zalazane's Hollow", 52, 86),
+                (24, 98): ("Sunken Temple Grotto", 50, 81),
+                (141, 117): ("Zalazane's Hollow", 52, 86),
             },
             "Sunken Temple Grotto": {
-                (50, 81): ("Echo Isles", 48, 88),
+                (50, 81): ("Echo Isles", 24, 98),
             },
             "Zalazane's Hollow": {
-                (52, 86): ("Echo Isles", 128, 99),
+                (52, 86): ("Echo Isles", 141, 117),
             },
 
             # ===== ORGRIMMAR / ZEPPELIN =====

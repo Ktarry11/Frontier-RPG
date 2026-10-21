@@ -5595,6 +5595,7 @@ def create_all_zones():
     )
     from tools.handbuilt_vot import generate_valley_of_trials as generate_valley_of_trials_handbuilt
     from tools.handbuilt_durotar import generate_durotar as generate_durotar_handbuilt
+    from tools.handbuilt_echo_isles import generate_echo_isles as generate_echo_isles_handbuilt
     from tools import handbuilt_vot_caves as vot_caves
     from tools import handbuilt_durotar_caves as dcaves
     from tools import handbuilt_razor_hill as dcaves_razor
@@ -5632,7 +5633,7 @@ def create_all_zones():
         "Valley of Trials": generate_valley_of_trials_handbuilt(),  # hand-built (tools/handbuilt_vot.py)
         "Durotar": generate_durotar_handbuilt(),  # hand-built (tools/handbuilt_durotar.py)
         "Razor Hill": dcaves_razor.generate_razor_hill(),  # hand-built (tools/handbuilt_razor_hill.py)
-        "Echo Isles": ZoneGenerator.generate_echo_isles(),
+        "Echo Isles": generate_echo_isles_handbuilt(),  # hand-built (tools/handbuilt_echo_isles.py)
         "Ratchet": ZoneGenerator.generate_ratchet(),
         "Orgrimmar": dorg.generate_orgrimmar(),  # hand-built (tools/handbuilt_orgrimmar.py)
         "Zeppelin Tower": ZoneGenerator.generate_zeppelin_tower(),

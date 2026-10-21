@@ -344,17 +344,23 @@ class Tilemap:
         tile_id is actually "cliff"/"wall" - see add_obstacle_chunk."""
         return self._obstacle_chunk_lookup.get((x, y))
 
-    def add_subzone(self, table_key, x, y, w, h, display_name=None):
+    def add_subzone(self, table_key, x, y, w, h, display_name=None, base_tiles=None):
         """Register a rectangular named region inside this map.
 
         table_key must match a key under this zone's "subzones" entry in
         data/creatures/encounters.json, otherwise the region will exist
         geographically but fall back to the open-zone encounter table.
+
+        base_tiles (optional): tuple of base-layer tile ids; when given the
+        subzone only applies to tiles of those kinds inside its rectangle, so a
+        diagonal ford / reef flat can be its own subzone ("shallow_water" only)
+        without claiming the dry land inside its bounding box.
         """
         self.subzones.append({
             "name": display_name or table_key,
             "table_key": table_key,
             "x": x, "y": y, "w": w, "h": h,
+            "base_tiles": tuple(base_tiles) if base_tiles else None,
         })
 
     def get_subzone_at(self, x, y):
@@ -366,6 +372,9 @@ class Tilemap:
         found = None
         for sz in self.subzones:
             if sz["x"] <= x < sz["x"] + sz["w"] and sz["y"] <= y < sz["y"] + sz["h"]:
+                bt = sz.get("base_tiles")
+                if bt and self.base_layer[y][x] not in bt:
+                    continue
                 found = sz
         return found
 
