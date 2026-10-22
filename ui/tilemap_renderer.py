@@ -70,6 +70,9 @@ class TilemapRenderer:
                 return override
         return biome
 
+    #: Overworld/dungeon boss marker size in tiles (it was 1.3, which read as a trash mob).
+    BOSS_ICON_TILES = 4.0
+
     def _get_boss_icon(self, template, size):
         """Loaded-and-scaled boss portrait Surface for a creature template,
         cached by (template, size). Returns None if the file can't be
@@ -873,12 +876,14 @@ class TilemapRenderer:
                     if creature_manager is not None and creature_name:
                         creature = creature_manager.creatures.get(creature_name, {})
                         template = creature.get("template")
-                    icon_size = int(self.tile_size * 1.3)
+                    # Dungeon bosses are BIG (Kyle: "boss sprites in dungeon need to be way bigger"):
+                    # ~4 tiles, standing on the spawn tile so the feet sit at its bottom edge.
+                    icon_size = int(self.tile_size * self.BOSS_ICON_TILES)
                     icon = self._get_boss_icon(template, icon_size)
                     if icon:
-                        icon_rect = icon.get_rect(center=(
+                        icon_rect = icon.get_rect(midbottom=(
                             screen_x + self.tile_size // 2,
-                            screen_y + self.tile_size // 2))
+                            screen_y + self.tile_size + self.tile_size // 4))
                         screen.blit(icon, icon_rect)
                     else:
                         # Icon file failed to load (shouldn't happen with

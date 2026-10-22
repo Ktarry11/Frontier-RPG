@@ -112,6 +112,23 @@ def main():
         if hasattr(game_screen, 'icon_ui_helper'):
             game_screen.icon_ui_helper = icon_ui_helper
     
+    # Screens read pygame.mouse.get_pos() for hover / wheel hit-tests, but every screen
+    # is laid out in the fixed 1280x720 LOGICAL space.  get_pos() reports real window
+    # coordinates, which only match while the window is exactly 1280x720 (fullscreen,
+    # F11, or a scaled window broke every get_pos() based hit-test, e.g. wheel
+    # scrolling).  Replace it with a logical-space version for the whole game.
+    _real_get_pos = pygame.mouse.get_pos
+    _lb = {"geom": (SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0)}
+
+    def _logical_mouse_pos():
+        raw_x, raw_y = _real_get_pos()
+        tw, th, ox, oy = _lb["geom"]
+        lx = int((raw_x - ox) * SCREEN_WIDTH / tw)
+        ly = int((raw_y - oy) * SCREEN_HEIGHT / th)
+        return (max(0, min(SCREEN_WIDTH - 1, lx)), max(0, min(SCREEN_HEIGHT - 1, ly)))
+
+    pygame.mouse.get_pos = _logical_mouse_pos
+
     running = True
     while running:
         dt = clock.tick(FPS) / 1000.0  # Delta time in seconds
@@ -131,6 +148,7 @@ def main():
             display_screen.get_size(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         scale_x = SCREEN_WIDTH / target_w
         scale_y = SCREEN_HEIGHT / target_h
+        _lb["geom"] = (target_w, target_h, offset_x, offset_y)
 
         # Handle events
         for event in pygame.event.get():

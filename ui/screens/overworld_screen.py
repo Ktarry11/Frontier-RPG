@@ -589,10 +589,10 @@ class OverworldScreen(BaseScreen):
                         if spawn:
                             enemies = [spawn]
                         elif (not self.zone_manager.has_fixed_spawns()
-                              and random.random() < 0.02):
+                              and random.random() < self.zone_manager.encounter_chance()):
                             enemies = self.zone_manager.trigger_encounter_group(
                                 player.level, party_size=party_size)
-                    elif random.random() < 0.02:  # 2% chance per tile moved
+                    elif random.random() < self.zone_manager.encounter_chance():  # 2% open zone, 5% subzone
                         enemies = self.zone_manager.trigger_encounter_group(
                             player.level, party_size=party_size)
                     if enemies:

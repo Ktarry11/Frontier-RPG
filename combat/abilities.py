@@ -1086,6 +1086,11 @@ class Ability:
         # wording, not "at a discounted cost"), cost reported as 0 to
         # _apply_effect/the return message rather than this ability's
         # real cost, since nothing was actually spent.
+        # Shapeshifting while already shapeshifted is free (and shifting back to
+        # Normal by recasting your current form costs nothing): shifting wipes the
+        # mana pool, so a charge here would trap a Bear-form Druid in Bear Form.
+        if self.effect_type == "shapeshift" and getattr(caster, "current_form", None):
+            free = True
         if free:
             cost = 0
         else:
@@ -2339,6 +2344,11 @@ class Ability:
                 return f"{caster.name} tries to shapeshift, but has no form to become!"
             if not hasattr(caster, "shift_form"):
                 return f"{caster.name} cannot shapeshift."
+            # Recasting the form you are already in drops it (WoW behaviour) -
+            # this is the way back to Normal Form now the form screen is retired.
+            if getattr(caster, "current_form", None) == self.shapeshift_form_id and hasattr(caster, "revert_form"):
+                success, msg = caster.revert_form()
+                return msg
             success, msg = caster.shift_form(self.shapeshift_form_id)
             if not success:
                 self._refund_failed_cast(caster, cost=cost)

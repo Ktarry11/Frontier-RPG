@@ -714,6 +714,18 @@ class Character(StatusEffectMixin):
     def clear_totem(self, element):
         self.totem_loadout.pop(element, None)
 
+    def generates_rage_from_combat(self):
+        """True for Warriors and for anyone in a Rage shapeshift form (Druid Bear /
+        Dire Bear, Venomancer Beetle) - they build Rage from hitting and being hit."""
+        if self.char_class == "Warrior":
+            return True
+        form = getattr(self, "current_form", None)
+        if form:
+            from combat.forms import resource_for_form
+            from combat.abilities import ResourceType
+            return resource_for_form(form) == ResourceType.RAGE
+        return False
+
     def can_use_form(self, form_id):
         """Whether this character currently qualifies for a given form
         (right class, right level)."""
@@ -1977,8 +1989,9 @@ class Character(StatusEffectMixin):
 
         self.current_health -= actual
         
-        # Warriors generate rage from taking damage (reduced from 0.5 to 0.2)
-        if self.char_class == "Warrior":
+        # Warriors - and anyone shapeshifted into a Rage form (Bear, Dire Bear,
+        # Beetle) - generate rage from taking damage (reduced from 0.5 to 0.2)
+        if self.generates_rage_from_combat():
             self.current_rage = min(100, self.current_rage + (actual * 0.2))
 
         # ON_DAMAGE_TAKEN procs (e.g. a defensive buff that grants a

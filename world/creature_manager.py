@@ -138,9 +138,19 @@ class CreatureManager:
     #: a genuine low-probability roll rather than a scaled-up weight.
     RARE_SPAWN_CHANCE = 0.06
 
-    def get_random_creature(self, zone_name, location_type="open_zone", subzone_name=None):
-        """Get a random weighted creature from an encounter table."""
+    #: Weight multiplier for creatures an ACTIVE quest still needs killed.
+    QUEST_TARGET_WEIGHT_BOOST = 4.0
+    #: Chance a subzone roll is a named rare when the player is hunting that very rare for a quest.
+    QUEST_RARE_SPAWN_CHANCE = 0.25
+
+    def get_random_creature(self, zone_name, location_type="open_zone", subzone_name=None, quest_targets=None):
+        """Get a random weighted creature from an encounter table.
+
+        quest_targets (optional set of creature names): kill targets of the player's active, unfinished
+        quests.  Those creatures are weighted up, and a quest-target rare appears far more often than
+        the ordinary 6%, so a quest never turns into a 1000-step wait for its mob to turn up."""
         encounter_table = self.get_encounter_table(zone_name, location_type, subzone_name)
+        quest_targets = set(quest_targets or ())
 
         if not encounter_table:
             return None
@@ -174,8 +184,10 @@ class CreatureManager:
                 name for name in encounter_table
                 if self.creatures.get(name, {}).get("is_boss", False)
             ]
-            if rare_names and random.random() < self.RARE_SPAWN_CHANCE:
-                chosen_creature = random.choice(rare_names)
+            wanted_rares = [n for n in rare_names if n in quest_targets]
+            rare_chance = self.QUEST_RARE_SPAWN_CHANCE if wanted_rares else self.RARE_SPAWN_CHANCE
+            if rare_names and random.random() < rare_chance:
+                chosen_creature = random.choice(wanted_rares or rare_names)
                 creature = self.spawn_creature(chosen_creature)
                 if creature:
                     creature.location_type = location_type
@@ -186,7 +198,8 @@ class CreatureManager:
 
         # Weighted random selection
         creatures = list(trash_table.keys())
-        weights = list(trash_table.values())
+        weights = [w * (self.QUEST_TARGET_WEIGHT_BOOST if n in quest_targets else 1.0)
+                   for n, w in trash_table.items()]
         chosen_creature = random.choices(creatures, weights=weights, k=1)[0]
         
         # Spawn creature

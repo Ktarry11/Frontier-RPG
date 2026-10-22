@@ -186,6 +186,20 @@ class QuestManager:
             quest.status = QuestStatus.READY_TO_TURN_IN
         return True
 
+    def abandon_quest(self, quest_id):
+        """Drop an in-progress quest: back to NOT_STARTED with all objective progress
+        wiped, so it can be picked up again from the giver.  Returns True on success.
+        Completed quests (and ones never started) cannot be abandoned."""
+        quest = self.quests.get(quest_id)
+        if quest is None or quest.status not in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN):
+            return False
+        quest.status = QuestStatus.NOT_STARTED
+        for objective in quest.objectives:
+            objective.progress = 0
+            if hasattr(objective, "topics_asked"):
+                objective.topics_asked = []
+        return True
+
     def turn_in_quest(self, quest_id, player, party):
         """Award XP/gold, consume any FETCH objective items, and mark
         complete. Does NOT hand out gear - gear choice is a separate

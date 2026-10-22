@@ -276,8 +276,10 @@ class CombatEngine:
                     else:
                         table.pop(target, None)
 
-            # Warrior Rage generation on basic attack
-            if getattr(actor, "char_class", None) == "Warrior" and ability_id == "warrior_attack":
+            # Rage generation on basic attack: Warriors, and any Rage-form shapeshifter
+            # (Druid Bear / Dire Bear, Venomancer Beetle) swinging their basic attack
+            if (ability_id.endswith("_attack") and hasattr(actor, "generates_rage_from_combat")
+                    and actor.generates_rage_from_combat()):
                 actor.current_rage = min(100, actor.current_rage + 10)
                 self.combat_log.append(f"{actor.name} gains 10 Rage!")
 

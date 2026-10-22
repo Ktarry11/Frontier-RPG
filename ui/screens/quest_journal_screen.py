@@ -50,6 +50,16 @@ class QuestJournalScreen(BaseScreen):
         self.scroll_offset = 0
         self._list_viewport = pygame.Rect(0, 0, 0, 0)  # set each render, used by handle_event's wheel check
         self._list_content_height = 0  # set each render, used to clamp scroll_offset
+        self._dragging_scrollbar = False
+        self._scroll_track = pygame.Rect(0, 0, 0, 0)  # set each render (scrollbar hit area)
+
+        # Abandon-quest button (detail view only, active quests only) with a
+        # two-step confirm so a stray click cannot wipe a quest's progress.
+        self.abandon_button = pygame.Rect(20, SCREEN_HEIGHT - 70, 200, 44)
+        self.abandon_yes_button = pygame.Rect(20, SCREEN_HEIGHT - 70, 200, 44)
+        self.abandon_no_button = pygame.Rect(230, SCREEN_HEIGHT - 70, 120, 44)
+        self.abandon_confirm_pending = False
+        self.notice = ""
 
     @property
     def quest_mgr(self):
@@ -87,26 +97,51 @@ class QuestJournalScreen(BaseScreen):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             # Same one-step-back-then-close feel as the back_button already
             # gives with the mouse: from a quest's detail view, Esc steps
-            # back to the list first; from the list, Esc closes the
-            # journal entirely (Kyle: "when opening quest journal - to hit
-            # Esc and close it").
-            if self.selected_quest_id is not None:
+            # back to the list first (cancelling a pending abandon first);
+            # from the list, Esc closes the journal entirely.
+            if self.abandon_confirm_pending:
+                self.abandon_confirm_pending = False
+            elif self.selected_quest_id is not None:
                 self.selected_quest_id = None
             else:
                 self.state_manager.transition_to(GameState.OVERWORLD)
             return
 
+        if event.type == pygame.KEYDOWN and self.selected_quest_id is None:
+            # Keyboard scrolling: always works, even when a mouse wheel / trackpad
+            # does not deliver usable wheel events.
+            key_steps = {pygame.K_UP: -self.SCROLL_STEP_PX, pygame.K_DOWN: self.SCROLL_STEP_PX,
+                         pygame.K_PAGEUP: -8 * self.SCROLL_STEP_PX, pygame.K_PAGEDOWN: 8 * self.SCROLL_STEP_PX}
+            if event.key in key_steps:
+                self.scroll_offset += key_steps[event.key]
+                return
+            if event.key == pygame.K_HOME:
+                self.scroll_offset = 0
+                return
+            if event.key == pygame.K_END:
+                self.scroll_offset = 10 ** 6  # clamped to the true bottom on the next render
+                return
+
         if event.type == pygame.MOUSEWHEEL:
-            # Only scrolls the quest LIST (not the detail panel, which
-            # doesn't need it - quest descriptions are short enough to
-            # fit without scrolling). event.y is +1 per notch up, -1 per
-            # notch down; SCROLL_STEP_PX converts that into a pixel
-            # delta. Clamping happens in _render_list every frame (the
-            # single source of truth for valid range), not here - this
-            # just applies the raw delta and lets the next render pull
-            # it back in bounds if it overshot.
-            if self.selected_quest_id is None and self._list_viewport.collidepoint(pygame.mouse.get_pos()):
-                self.scroll_offset -= event.y * self.SCROLL_STEP_PX
+            # Scrolls the quest LIST (the detail panel never needs it). Uses
+            # precise_y when present - precision touchpads report fractional
+            # deltas and an integer .y of 0 for most small swipes, which made
+            # scrolling look dead. No viewport hit-test on the mouse position:
+            # the list is the only scrollable thing on this screen, and the raw
+            # pygame.mouse.get_pos() is in window (not logical) coordinates when
+            # the window is scaled, so that test used to fail there.
+            if self.selected_quest_id is None:
+                delta = getattr(event, "precise_y", None)
+                if delta is None or delta == 0:
+                    delta = event.y
+                self.scroll_offset -= delta * self.SCROLL_STEP_PX
+            return
+
+        if event.type == pygame.MOUSEMOTION and self._dragging_scrollbar:
+            self._drag_scrollbar_to(event.pos[1])
+            return
+        if event.type == pygame.MOUSEBUTTONUP:
+            self._dragging_scrollbar = False
             return
 
         if event.type != pygame.MOUSEBUTTONDOWN:
@@ -120,6 +155,28 @@ class QuestJournalScreen(BaseScreen):
         if self.selected_quest_id is not None:
             if self.back_button.collidepoint(mouse_pos):
                 self.selected_quest_id = None
+                self.abandon_confirm_pending = False
+                return
+            quest = self.quest_mgr.quests.get(self.selected_quest_id)
+            can_abandon = quest is not None and quest.status in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN)
+            if can_abandon and not self.abandon_confirm_pending and self.abandon_button.collidepoint(mouse_pos):
+                self.abandon_confirm_pending = True
+            elif can_abandon and self.abandon_confirm_pending:
+                if self.abandon_yes_button.collidepoint(mouse_pos):
+                    title = quest.title
+                    if self.quest_mgr.abandon_quest(self.selected_quest_id):
+                        self.notice = f'Abandoned "{title}".'
+                    self.abandon_confirm_pending = False
+                    self.selected_quest_id = None
+                    self.scroll_offset = 0
+                elif self.abandon_no_button.collidepoint(mouse_pos):
+                    self.abandon_confirm_pending = False
+            return
+
+        # Scrollbar: click the track to jump, drag the thumb to scroll.
+        if self._scroll_track.width and self._scroll_track.inflate(14, 0).collidepoint(mouse_pos):
+            self._dragging_scrollbar = True
+            self._drag_scrollbar_to(mouse_pos[1])
             return
 
         if self.active_tab_button.collidepoint(mouse_pos):
@@ -148,6 +205,14 @@ class QuestJournalScreen(BaseScreen):
                     self.selected_quest_id = quests[i].quest_id
                 return
 
+    def _drag_scrollbar_to(self, mouse_y):
+        track = self._scroll_track
+        max_scroll = max(0, self._list_content_height - self._list_viewport.height)
+        if track.height <= 0 or max_scroll <= 0:
+            return
+        frac = (mouse_y - track.top) / track.height
+        self.scroll_offset = int(max(0.0, min(1.0, frac)) * max_scroll)
+
     def _current_list(self):
         if self.active_tab == "active":
             return self.quest_mgr.get_active_quests()
@@ -174,9 +239,12 @@ class QuestJournalScreen(BaseScreen):
                 # rule in _render_scrollbar, so this hint and the visual
                 # scrollbar always agree about whether scrolling is
                 # relevant right now.
-                self.renderer.draw_text(screen, "Scroll for more",
-                                        (SCREEN_WIDTH - 160, SCREEN_HEIGHT - 34),
+                self.renderer.draw_text(screen, "Scroll for more (wheel, Up/Down, PgUp/PgDn, or drag the bar)",
+                                        (SCREEN_WIDTH - 540, SCREEN_HEIGHT - 34),
                                         font_size=14, color=(130, 130, 140))
+            if self.notice and self.selected_quest_id is None:
+                self.renderer.draw_text(screen, self.notice, (20, SCREEN_HEIGHT - 34),
+                                        font_size=16, color=(240, 200, 140))
 
     def _render_list(self, screen):
         active_color = (60, 55, 30) if self.active_tab == "active" else (30, 30, 35)
@@ -192,6 +260,7 @@ class QuestJournalScreen(BaseScreen):
             self.renderer.draw_text(screen, msg, (20, 140), color=(150, 150, 150))
             self._list_viewport = pygame.Rect(0, 0, 0, 0)
             self._list_content_height = 0
+            self._scroll_track = pygame.Rect(0, 0, 0, 0)
             return
 
         row_h = 64
@@ -271,10 +340,12 @@ class QuestJournalScreen(BaseScreen):
         adding scroll input: technically scrollable, but nothing tells
         the player that)."""
         if content_height <= viewport.height:
+            self._scroll_track = pygame.Rect(0, 0, 0, 0)
             return  # everything fits - no scrollbar needed, matches how a real scrollbar hides itself
 
         track_x = viewport.right - 6
         track = pygame.Rect(track_x, viewport.top, 4, viewport.height)
+        self._scroll_track = track
         pygame.draw.rect(screen, (40, 40, 48), track)
 
         thumb_h = max(24, int(viewport.height * (viewport.height / content_height)))
@@ -360,6 +431,15 @@ class QuestJournalScreen(BaseScreen):
             y += 40
             self.renderer.draw_text(screen, "Ready to turn in - return to the quest giver.",
                                     (20, y), color=COLOR_GOLD)
+
+        if quest.status in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN):
+            if self.abandon_confirm_pending:
+                self.renderer.draw_text(screen, "Abandon this quest? All progress will be lost.",
+                                        (20, SCREEN_HEIGHT - 105), color=(240, 140, 140))
+                self.renderer.draw_button(screen, self.abandon_yes_button, "Yes, abandon", color=(120, 40, 40))
+                self.renderer.draw_button(screen, self.abandon_no_button, "Keep it")
+            else:
+                self.renderer.draw_button(screen, self.abandon_button, "Abandon Quest", color=(110, 40, 40))
 
     def _draw_wrapped_text(self, screen, text, pos, max_width, color=COLOR_WHITE, line_height=24):
         if not text:

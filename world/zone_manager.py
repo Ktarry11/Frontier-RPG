@@ -26,7 +26,6 @@ class ZoneManager:
         self.player_facing = "down"  # last movement direction - "down"/"up"/"left"/"right",
         # used only for sprite selection (see tilemap_renderer.py). Not a gameplay-affecting
         # value, purely which way the player's sprite faces when standing still.
-        self.encounter_chance = 0.15  # 15% per tile to trigger encounter
 
         self.creature_manager = CreatureManager()
 
@@ -252,8 +251,9 @@ class ZoneManager:
         location_type, subzone_key = self.get_location_context()
         zone_name = (self.current_zone.region if self.is_in_cave()
                      else self.current_zone.name)
+        targets = self.active_kill_targets()
         enemy = self.creature_manager.get_random_creature(
-            zone_name, location_type=location_type, subzone_name=subzone_key)
+            zone_name, location_type=location_type, subzone_name=subzone_key, quest_targets=targets)
 
         # Fall back to the open-zone table if a subzone has no table entry,
         # so a geographic region without encounter data never yields None.
@@ -261,6 +261,29 @@ class ZoneManager:
             enemy = self.creature_manager.get_random_creature(
                 zone_name, location_type="open_zone")
         return enemy
+
+    #: Per-step chance of a random encounter, by where you are standing.  Subzones are the themed hunting
+    #: grounds quests send you to, so they roll much more often than the open zone (2% per step meant
+    #: ~170 steps per Marsh Skimmer - quest targets simply never seemed to spawn).
+    ENCOUNTER_CHANCE = {"open_zone": 0.02, "subzone": 0.05, "cave": 0.03}
+
+    def encounter_chance(self):
+        """Per-step random-encounter chance for the player's current tile."""
+        location_type, _ = self.get_location_context()
+        return self.ENCOUNTER_CHANCE.get(location_type, 0.02)
+
+    def active_kill_targets(self):
+        """Names of creatures an active, unfinished quest still needs killed (incl. alternates)."""
+        from world.quest_manager import get_quest_manager
+        from world.quest import ObjectiveType
+        names = set()
+        for quest in get_quest_manager().get_active_quests():
+            for o in quest.objectives:
+                if o.objective_type in (ObjectiveType.KILL, ObjectiveType.KILL_BOSS) and o.progress < o.count:
+                    if o.target:
+                        names.add(o.target)
+                    names.update(getattr(o, "alt_targets", None) or [])
+        return names
 
     def trigger_encounter_group(self, player_level=1, party_size=1):
         """

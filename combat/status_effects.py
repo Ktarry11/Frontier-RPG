@@ -401,6 +401,12 @@ class StatusEffectMixin:
     (or tolerate `active_effects` being created lazily by apply_effect).
     """
 
+    def get_talent_effect(self, key, default=0.0):
+        """Fallback for anything without talent trees (Monster, Pet): no talent
+        bonuses.  Character overrides this with the real talent lookup.  Without
+        it, stunning any monster crashed apply_status_effect (Bash crash)."""
+        return default
+
     @property
     def display_health(self):
         """Whole-number HP for UI display (Kyle: "keep HP whole numbers").

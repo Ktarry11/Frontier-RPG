@@ -70,6 +70,9 @@ def make(name, slot, suffix, ilvl, flavor, armor_type=None, weapon_type=None,
         d["primary_stats"], d["secondary_stats"] = _stats(suffix, budget)
         tier = wt.get("damage_tier", "one_hand")
         mult = LG.weapon_types["damage_tiers"][tier]["dps_multiplier"]
+        # Early boss two-handers only get a small premium over a one-hander: at the global 1.8x the
+        # Husk-Cracker Maul hit ~65 per swing at level 5 (2.3x a starter weapon) and trivialised the Den boss.
+        mult = min(mult, 1.1) if tier == "two_hand" else mult
         avg = (ilvl * 1.1 + 6.4) * r * mult
         d["weapon_damage_min"] = max(1, int(avg * 0.85))
         d["weapon_damage_max"] = max(d["weapon_damage_min"] + 1, int(avg * 1.15))
