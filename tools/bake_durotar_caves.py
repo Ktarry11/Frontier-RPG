@@ -303,6 +303,22 @@ def bake_spec(key, preview=None):
             S[k] = np.where(inw, -2.0, S[k]).astype(np.float32)
         fields["pool_s"] = s.astype(np.float32)
         fields["pool_d"] = d.astype(np.float32)
+    # water read from the built zone's shallow/deep water TILES (old-Builder dungeons, e.g. Blackfathom Deeps)
+    if spec.get("tile_water"):
+        sh_b = np.array([[b in ("shallow_water", "deep_water") for b in row] for row in zone.base_layer])
+        dp_b = np.array([[b == "deep_water" for b in row] for row in zone.base_layer])
+        s = np.clip(4 * P.tile_mask(sh_b, 0.5, 0.15, key + "_ws", sigma=0.9, soft=True), -4, 6)
+        d = np.clip(4 * P.tile_mask(dp_b, 0.5, 0.15, key + "_wd", sigma=0.9, soft=True), -6, 6) if dp_b.any() \
+            else np.full_like(s, -4.0)
+        S["water_s"] = (1.6 + 10 * s).astype(np.float32)
+        S["water_d"] = (1.6 + 10 * s + 10 * d).astype(np.float32)
+        inw = s > 0.45
+        for k in fk:
+            S[k] = np.where(inw, -2.0, S[k]).astype(np.float32)
+        for k in wk:
+            S[k] = np.where(inw, -2.0, S[k]).astype(np.float32)
+        fields["pool_s"] = s.astype(np.float32)
+        fields["pool_d"] = d.astype(np.float32)
     mats = dict(spec["materials"])
     # drop materials with no score (e.g. water when no pools)
     for k in list(mats):

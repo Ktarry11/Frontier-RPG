@@ -81,6 +81,49 @@ def spec_barrows():
     )
 
 
+CS = "caves/seamless/"
+
+
+def spec_bfd():
+    """Blackfathom Deeps: the sunken night-elf temple.  Walls and floors are deliberately different materials (Kyle:
+    they read as the same thing in the old tile version): wet cave rock walls, coral walls in the naga grottos, dark temple
+    stone in the Sacellum / Twilight Gauntlet; sand, pearl, kelp and flagstone floors by area."""
+    return dict(
+        build="build_bfd_baked", seed=523, slug="blackfathom_deeps", tile_water=True,
+        materials={
+            "floor": M(CS + "gro_cave_floor_a"),
+            "sand": M(dim(CS + "gro_sand_a", 0.62)),
+            "temple": M(CS + "gro_temple_floor_a"),
+            "pearl": M(dim(CS + "gro_pearl_floor_a", 0.60)),
+            "deck": M(dim(CS + "gro_deck_a", 0.9)),
+            "kelp": M(CS + "gro_kelp_floor_a"),
+            "water_s": M(CS + "gro_tidepool_a"),
+            "water_d": M(CS + "gro_deep_floor_a"),
+            "wall": M(CS + "gro_cave_wall_a"),
+            "coral": M(CS + "gro_coral_wall_a"),
+            "twall": M(CS + "gro_temple_wall_a"),
+            "vent": M(CS + "gro_vent_wall_a"),
+        },
+        floor_keys=["floor", "sand", "temple", "pearl", "deck", "kelp"],
+        wall_keys=["wall", "coral", "twall", "vent"],
+        floors={
+            "sand": [(120, 198, 16, 10), (196, 202, 16, 10), (150, 203, 12, 3)],
+            "pearl": [(50, 105, 16, 12), (45, 12, 16, 11)],
+            "temple": [(120, 40, 13, 9), (120, 13, 24, 13), (165, 94, 14, 10), (120, 28, 3, 12)],
+            "deck": [(191, 200, 6, 4)],
+            "kelp": [(130, 65, 12, 9), (130, 152, 9, 7)],
+        },
+        walls={
+            "coral": [(50, 105, 19, 15), (196, 200, 18, 13), (130, 65, 15, 12), (40, 12, 16, 12)],
+            "twall": [(120, 26, 28, 30), (165, 93, 16, 13)],
+            "vent": [(130, 152, 30, 22), (120, 190, 14, 8)],
+        },
+        pools=[],
+        cfg=dict(ao=0.42, depth=0.86, lip=20, lip_col=(0.6, 0.9, 1.0), deep_dark=0.5,
+                 foam_col=(200, 240, 245), glows=[]),
+    )
+
+
 class _C:
     BAKED = "assets/tiles/{}/baked"
 
@@ -100,13 +143,24 @@ class _C:
         return GR.build_groms_baked()
 
     @staticmethod
+    def build_bfd_baked():
+        """The runtime zone, with wall/cliff collision renamed to the baker's 'rock'."""
+        from tools import handbuilt_dungeons as HD
+        zone = HD.build_blackfathom_deeps()
+        for row in zone.collision_layer:
+            for x, c in enumerate(row):
+                if c in ("wall", "cliff"):
+                    row[x] = "rock"
+        return zone, None
+
+    @staticmethod
     def pool_fields(pools, gx, gy):
         from tools.handbuilt_vot_caves import pool_fields
         return pool_fields(pools, gx, gy)
 
 
 BD.C = _C
-SPEC_FNS = {"moonwell_hollow": spec_moonwell, "howling_barrows": spec_barrows}
+SPEC_FNS = {"moonwell_hollow": spec_moonwell, "howling_barrows": spec_barrows, "blackfathom_deeps": spec_bfd}
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None

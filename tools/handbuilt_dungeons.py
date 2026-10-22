@@ -25,7 +25,20 @@ SKULL = "assets/tiles/skull_rock/props/"
 DP = "assets/tiles/dungeon_props/"
 
 
+BAKED_BFD = "assets/tiles/blackfathom_deeps/baked"
+
+
 def generate_blackfathom_deeps():
+    """The runtime zone: the built layout under its painted ground (tools/bake_ashenvale_dungeons.py blackfathom_deeps)."""
+    import os
+    zone = build_blackfathom_deeps()
+    if os.path.exists(f"{BAKED_BFD}/ground_0_0.jpg"):
+        from tools.handbuilt_vot_caves import register_baked
+        register_baked(zone, BAKED_BFD)
+    return zone
+
+
+def build_blackfathom_deeps():
     """Blackfathom Deeps (240x220): entry cave -> Pool of Ask'ar junction ->
     three branches (NW swim to Sarevess, S cross-tunnels to Gelihast, NE
     gauntlet to Lorgus) -> Serra'kis' grotto -> Drowned Sacellum (Kelris,
