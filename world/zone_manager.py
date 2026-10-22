@@ -170,7 +170,9 @@ class ZoneManager:
     @staticmethod
     def _normalize_zone_key(zone):
         """Match RecruitManager's normalization ("Valley of Trials" -> valley_of_trials)."""
-        return str(zone).lower().replace(" ", "_").replace("'", "")
+        key = str(zone).lower().replace(" ", "_").replace("'", "")
+        # "The Sepulcher" (zone) vs "sepulcher" (NPC data): a leading article never distinguishes zones
+        return key[4:] if key.startswith("the_") else key
 
     def get_current_zone(self):
         """Get current zone tilemap."""
