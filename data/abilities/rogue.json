@@ -85,7 +85,7 @@
           "effect_value": 125
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "rogue_backstab",
@@ -128,7 +128,7 @@
           "effect_value": 151
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "rogue_eviscerate",
@@ -559,6 +559,371 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null
+    },
+    {
+      "ability_id": "rogue_garrote",
+      "name": "Garrote",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Garrotes the target, causing bleed damage over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 40,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 40,
+          "effect_value": 68
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 40,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 124
+        },
+        {
+          "rank": 5,
+          "level_req": 62,
+          "cost": 40,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "rogue_cheap_shot",
+      "name": "Cheap Shot",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "A dirty opener that stuns the target for 1 turn.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 60,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "is_stun": true,
+      "is_instant": true
+    },
+    {
+      "ability_id": "rogue_deadly_poison",
+      "name": "Deadly Poison",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Coats your blade in a lethal toxin, dealing Nature damage over 4 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 66
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 92
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "rogue_ambush",
+      "name": "Ambush",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A heavy surprise strike from the shadows. (No stealth system exists - the opener flavour is cosmetic.)",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 60,
+          "effect_value": 95
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 60,
+          "effect_value": 135
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 60,
+          "effect_value": 175
+        },
+        {
+          "rank": 4,
+          "level_req": 54,
+          "cost": 60,
+          "effect_value": 215
+        }
+      ],
+      "icon_id": null
+    },
+    {
+      "ability_id": "rogue_crippling_poison",
+      "name": "Crippling Poison",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": -30
+      },
+      "description": "Coats your blade in a numbing toxin, slowing the target for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "is_instant": true
+    },
+    {
+      "ability_id": "rogue_shiv",
+      "name": "Shiv",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A quick, cheap stab that deals bonus damage and is cheap to chain.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 30,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 30,
+          "effect_value": 108
+        }
+      ],
+      "icon_id": null,
+      "is_instant": true
+    },
+    {
+      "ability_id": "rogue_blade_flurry",
+      "name": "Blade Flurry",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 30
+      },
+      "description": "Your blades become a blur, greatly increasing your attack speed for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "target_type": "self",
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "rogue_kidney_shot",
+      "name": "Kidney Shot",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "A finishing blow to the kidney that stuns the target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "is_stun": true,
+      "is_instant": true
+    },
+    {
+      "ability_id": "rogue_blind",
+      "name": "Blind",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Throws blinding powder, incapacitating the target for 2 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "is_stun": true,
+      "is_instant": true
+    },
+    {
+      "ability_id": "rogue_envenom",
+      "name": "Envenom",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A venom-laced finisher that deals Nature damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 35,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 48,
+          "cost": 35,
+          "effect_value": 135
+        },
+        {
+          "rank": 3,
+          "level_req": 60,
+          "cost": 35,
+          "effect_value": 170
+        }
+      ],
+      "icon_id": null,
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "rogue_fan_of_knives",
+      "name": "Fan of Knives",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hurls a whirl of knives at every enemy.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 52,
+          "cost": 50,
+          "effect_value": 85
+        },
+        {
+          "rank": 3,
+          "level_req": 62,
+          "cost": 50,
+          "effect_value": 110
+        }
+      ],
+      "icon_id": null,
+      "target_type": "enemy_aoe"
+    },
+    {
+      "ability_id": "rogue_preparation",
+      "name": "Preparation",
+      "resource_type": "energy",
+      "cooldown": 20,
+      "effect_type": "reset_cooldowns",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Resets all of your ability cooldowns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "target_type": "self",
+      "is_instant": true
+    },
+    {
+      "ability_id": "rogue_killing_spree",
+      "name": "Killing Spree",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Vanishes between a flurry of devastating strikes on the target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 60,
+          "effect_value": 220
+        }
+      ],
+      "icon_id": null,
+      "is_instant": true
     }
   ]
 }
