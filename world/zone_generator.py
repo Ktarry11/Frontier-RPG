@@ -5624,7 +5624,6 @@ def create_all_zones():
         generate_silverpine_north,
         generate_silverpine_south,
         generate_fenris_isle,
-        generate_groms_rest,
         generate_ambermill_tower,
         generate_shadowpine_altar,
         generate_the_sepulcher,
@@ -5681,7 +5680,6 @@ def create_all_zones():
         "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)
         "Plague Depths": generate_plague_depths(),  # NEW: In Undercity, Forsaken traitors
         "Blackfathom Deeps": generate_blackfathom_deeps(),
-        "Grom's Rest": generate_groms_rest(),
         "Widow's Lair": generate_widows_lair(),
         "Shadowfang Keep": generate_shadowfang_keep(),
         "Ambermill Tower": generate_ambermill_tower(),
@@ -5757,6 +5755,8 @@ def create_all_zones():
     from tools.handbuilt_moonwell_hollow import generate_moonwell_hollow
     from tools.handbuilt_howling_barrows import generate_howling_barrows
     zones["Howling Barrows"] = generate_howling_barrows()  # hand-built (tools/handbuilt_howling_barrows.py)
+    from tools.handbuilt_groms_rest import generate_groms_rest
+    zones["Grom's Rest"] = generate_groms_rest()  # hand-built, 6 bosses (tools/handbuilt_groms_rest.py)
     zones["Moonwell Hollow"] = generate_moonwell_hollow()  # hand-built (tools/handbuilt_moonwell_hollow.py)
     zones["The Den"] = vot_caves.generate_the_den()  # hand-built (tools/handbuilt_vot_caves.py)
     zones["Dustwind Cave"] = dcaves.generate_dustwind_cave()  # hand-built (tools/handbuilt_durotar_caves.py)

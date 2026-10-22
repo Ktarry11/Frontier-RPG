@@ -1690,39 +1690,22 @@
     "Satyr Warlord": {
       "template": "humanoid_warrior",
       "level_range": [
-        31,
-        31
+        28,
+        28
       ],
       "is_boss": true,
-      "kit": "satyr_warlord"
-    },
-    "Dread Mage Malik": {
-      "template": "humanoid_caster",
-      "level_range": [
-        31,
-        31
-      ],
-      "is_boss": true,
-      "kit": "dread_mage_malik"
-    },
-    "Possessed Oracle": {
-      "template": "humanoid_caster",
-      "level_range": [
-        31,
-        31
-      ],
-      "is_boss": true,
-      "kit": "possessed_oracle"
+      "ability_kit": "groms_satyr_warlord",
+      "boss_multiplier": 2.2
     },
     "Lord Nightmare": {
       "template": "humanoid_caster",
       "level_range": [
-        31,
-        31
+        32,
+        32
       ],
       "is_boss": true,
-      "boss_multiplier": 2.5,
-      "kit": "lord_nightmare"
+      "ability_kit": "groms_lord_nightmare",
+      "boss_multiplier": 2.6
     },
     "Skeleton Archer": {
       "template": "humanoid_ranged",
@@ -2255,12 +2238,13 @@
       "ability_kit": "plague_surgeon"
     },
     "Corrupted Felhound": {
-      "template": "beast_fast",
+      "template": "demon_hound",
       "level_range": [
         26,
         30
       ],
-      "kit": "felhound"
+      "is_boss": false,
+      "ability_kit": "felhound"
     },
     "Ancient Mottled Boar": {
       "template": "beast_basic",
@@ -2281,12 +2265,13 @@
       "ability_kit": "elder_scythemaw"
     },
     "Dread Imp": {
-      "template": "humanoid_caster",
+      "template": "demon_caster",
       "level_range": [
         26,
         30
       ],
-      "kit": "imp"
+      "is_boss": false,
+      "ability_kit": "imp"
     },
     "Arcane-Bound Imp": {
       "template": "humanoid_caster",
@@ -2318,7 +2303,8 @@
         26,
         30
       ],
-      "kit": "void_construct"
+      "is_boss": false,
+      "ability_kit": "void_construct"
     },
     "Harpy": {
       "template": "beast_fast",
@@ -2342,7 +2328,8 @@
         26,
         30
       ],
-      "kit": "satyr"
+      "is_boss": false,
+      "ability_kit": "satyr"
     },
     "Small Spiders": {
       "template": "vermin_swarm",
@@ -5806,6 +5793,64 @@
       "is_boss": true,
       "ability_kit": "hunt_king_valorin",
       "boss_multiplier": 2.2
+    },
+    "Felguard Legionnaire": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        30
+      ],
+      "is_boss": false,
+      "ability_kit": "groms_felguard_legionnaire"
+    },
+    "Doomguard Warden": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        27,
+        30
+      ],
+      "is_boss": false,
+      "ability_kit": "groms_doomguard_warden"
+    },
+    "Void Handmaiden": {
+      "template": "humanoid_caster",
+      "level_range": [
+        29,
+        29
+      ],
+      "is_boss": true,
+      "ability_kit": "groms_void_handmaiden",
+      "boss_multiplier": 2.2
+    },
+    "Doomguard Sentinel": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        29,
+        29
+      ],
+      "is_boss": true,
+      "ability_kit": "groms_doomguard_sentinel",
+      "boss_multiplier": 2.3
+    },
+    "Corrupted Ancient": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        30,
+        30
+      ],
+      "is_boss": true,
+      "ability_kit": "groms_corrupted_ancient",
+      "boss_multiplier": 2.4
+    },
+    "Felguard Overseer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "ability_kit": "groms_felguard_overseer",
+      "boss_multiplier": 2.4
     }
   }
 }

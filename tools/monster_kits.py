@@ -3112,6 +3112,53 @@ ASHENVALE_DUNGEON_KITS = {
         ("Rimed Shackles", "debuff", 0, 5, 0, "frost", {"duration": 3, "stat_mods": {"agility": -28}}),
         ("The Hunt Rides", "buff", 0, 7, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 34}}),
     ],
+    # ---------------------------------------------------------------- Grom's Rest (L26-32, 6 bosses, 4 abilities each)
+    "groms_felguard_legionnaire": [
+        ("Fel Cleave", "damage", 32, 0, 0, "shadow", {}),
+        ("Sunder Armor", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"armor": -22}}),
+        ("Fel Resolve", "buff", 0, 6, 0, "shadow", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 22}}),
+    ],
+    "groms_doomguard_warden": [
+        ("Warden's Slam", "damage", 31, 0, 0, "fire", {}),
+        ("Hellfire Lash", "dot", 12, 4, 0, "fire", {"duration": 4}),
+        ("Infernal Hide", "buff", 0, 6, 0, "fire", {"duration": 3, "self_only": True, "stat_mods": {"armor": 48}}),
+    ],
+    "groms_satyr_warlord": [             # optional west wing, L28
+        ("Warlord's Cleave", "damage", 46, 0, 0, "physical", {}),
+        ("Fel Rampage", "damage", 58, 3, 0, "shadow", {}),
+        ("Rend Flesh", "dot", 18, 4, 0, "physical", {"duration": 5}),
+        ("Warlord's Roar", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 36}}),
+    ],
+    "groms_void_handmaiden": [           # optional east wing, L29
+        ("Void Lance", "damage", 48, 0, 30, "shadow", {}),
+        ("Enveloping Dark", "dot", 19, 3, 34, "shadow", {"duration": 5}),
+        ("Siphon Hope", "debuff", 0, 5, 36, "shadow", {"duration": 3, "stat_mods": {"intellect": -30}}),
+        ("Veil of the Void", "buff", 0, 7, 40, "shadow", {"duration": 4, "self_only": True, "stat_mods": {"armor": 60}}),
+    ],
+    "groms_doomguard_sentinel": [         # chain boss 1, L29
+        ("Doom Cleave", "damage", 48, 0, 0, "fire", {}),
+        ("Burning Ground", "dot", 18, 4, 0, "fire", {"duration": 5}),
+        ("Crushing Stomp", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -30}}),
+        ("Infernal Plating", "buff", 0, 7, 0, "fire", {"duration": 4, "self_only": True, "stat_mods": {"armor": 72}}),
+    ],
+    "groms_corrupted_ancient": [          # chain boss 2, L30
+        ("Rotting Slam", "damage", 50, 0, 0, "physical", {}),
+        ("Choking Roots", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -32}}),
+        ("Fel Blight", "dot", 20, 3, 0, "nature", {"duration": 5}),
+        ("Bark of Ages", "buff", 0, 7, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 78}}),
+    ],
+    "groms_felguard_overseer": [          # chain boss 3, L31
+        ("Overseer's Blade", "damage", 52, 0, 0, "physical", {}),
+        ("Mortal Rend", "dot", 21, 4, 0, "physical", {"duration": 5}),
+        ("Demoralizing Roar", "debuff", 0, 5, 0, "shadow", {"duration": 3, "stat_mods": {"strength": -30}}),
+        ("Fel Frenzy", "buff", 0, 7, 0, "shadow", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 42}}),
+    ],
+    "groms_lord_nightmare": [             # final boss, L32 (the Inner Sanctum Horror)
+        ("Nightmare Bolt", "damage", 54, 0, 40, "shadow", {}),
+        ("Eldritch Horror", "damage", 70, 3, 55, "shadow", {}),
+        ("Void Corruption", "debuff", 0, 4, 45, "shadow", {"duration": 3, "stat_mods": {"armor": -30}}),
+        ("Consuming Dread", "dot", 22, 5, 50, "shadow", {"duration": 5}),
+    ],
 }
 
 

@@ -12533,6 +12533,328 @@
         }
       }
     ],
+    "groms_felguard_legionnaire": [
+      {
+        "name": "Fel Cleave",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Sunder Armor",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -22
+        }
+      },
+      {
+        "name": "Fel Resolve",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 22
+        }
+      }
+    ],
+    "groms_doomguard_warden": [
+      {
+        "name": "Warden's Slam",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Hellfire Lash",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4
+      },
+      {
+        "name": "Infernal Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 48
+        }
+      }
+    ],
+    "groms_satyr_warlord": [
+      {
+        "name": "Warlord's Cleave",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fel Rampage",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Rend Flesh",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      },
+      {
+        "name": "Warlord's Roar",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 36
+        }
+      }
+    ],
+    "groms_void_handmaiden": [
+      {
+        "name": "Void Lance",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 0,
+        "mana_cost": 30,
+        "school": "shadow"
+      },
+      {
+        "name": "Enveloping Dark",
+        "kind": "dot",
+        "amount": 19,
+        "cooldown": 3,
+        "mana_cost": 34,
+        "school": "shadow",
+        "duration": 5
+      },
+      {
+        "name": "Siphon Hope",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 36,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -30
+        }
+      },
+      {
+        "name": "Veil of the Void",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 40,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 60
+        }
+      }
+    ],
+    "groms_doomguard_sentinel": [
+      {
+        "name": "Doom Cleave",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Burning Ground",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 5
+      },
+      {
+        "name": "Crushing Stomp",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -30
+        }
+      },
+      {
+        "name": "Infernal Plating",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 72
+        }
+      }
+    ],
+    "groms_corrupted_ancient": [
+      {
+        "name": "Rotting Slam",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Choking Roots",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -32
+        }
+      },
+      {
+        "name": "Fel Blight",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 5
+      },
+      {
+        "name": "Bark of Ages",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 78
+        }
+      }
+    ],
+    "groms_felguard_overseer": [
+      {
+        "name": "Overseer's Blade",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Mortal Rend",
+        "kind": "dot",
+        "amount": 21,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      },
+      {
+        "name": "Demoralizing Roar",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "strength": -30
+        }
+      },
+      {
+        "name": "Fel Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 42
+        }
+      }
+    ],
+    "groms_lord_nightmare": [
+      {
+        "name": "Nightmare Bolt",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 0,
+        "mana_cost": 40,
+        "school": "shadow"
+      },
+      {
+        "name": "Eldritch Horror",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 3,
+        "mana_cost": 55,
+        "school": "shadow"
+      },
+      {
+        "name": "Void Corruption",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 45,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -30
+        }
+      },
+      {
+        "name": "Consuming Dread",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 5,
+        "mana_cost": 50,
+        "school": "shadow",
+        "duration": 5
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",

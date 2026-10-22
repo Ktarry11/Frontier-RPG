@@ -81,6 +81,52 @@ def spec_barrows():
     )
 
 
+def spec_groms():
+    """Grom's Rest: the demon throne.  Each wing / chamber gets its own floor + wall so the rooms read apart:
+    obsidian hub, bare satyr earth, void swirl, fel-pool ember hall, nightmare glade, bone hall, rune-circle sanctum."""
+    from tools import handbuilt_groms_rest as GR
+    R = GR.ROOMS
+    return dict(
+        build="build_groms_baked", seed=634, slug="groms_rest",
+        materials={
+            "floor": M(_a("corrupt_ground"), _a("scorched")),
+            "obsidian": M(_a("obsidian_floor")),
+            "satyr": M(_a("satyr_earth")),
+            "void": M(_a("void_floor"), _a("obsidian_floor")),
+            "ember": M(_a("ember_ash")),
+            "glade": M(_a("nightmare_glade")),
+            "bone": M(_a("bone_hall_floor")),
+            "rune": M(_a("twilight_rune_floor")),
+            "water_s": M(_a("fel_pool_water")),
+            "water_d": M(_a("fel_pool_water")),
+            "wall": M(_a("corrupt_root_wall")),
+            "ocliff": M(_a("obsidian_cliff")),
+            "bwall": M(_a("bone_hall_wall")),
+            "rwall": M(_a("rock_wall")),
+        },
+        floor_keys=["floor", "obsidian", "satyr", "void", "ember", "glade", "bone", "rune"],
+        wall_keys=["wall", "ocliff", "bwall", "rwall"],
+        floors={
+            "obsidian": [(R["hub"][0], R["hub"][1], 36, 22), (R["gate"][0], R["gate"][1], 15, 7), (R["sanctum"][0], R["sanctum"][1], 33, 11)],
+            "satyr": [(R["satyr"][0], R["satyr"][1], 24, 18), (R["nook_w"][0], R["nook_w"][1], 8, 7), (R["nook_sw"][0], R["nook_sw"][1], 8, 7)],
+            "void": [(R["void"][0], R["void"][1], 24, 18), (R["nook_e"][0], R["nook_e"][1], 8, 7)],
+            "ember": [(R["doom"][0], R["doom"][1], 23, 15), (R["nook_se"][0], R["nook_se"][1], 8, 7)],
+            "glade": [(R["grove"][0], R["grove"][1], 21, 14)],
+            "bone": [(R["bone"][0], R["bone"][1], 21, 12)],
+            "rune": [(R["sanctum"][0], R["sanctum"][1] + 1, 12, 6), (R["hub"][0], R["hub"][1] + 2, 9, 6)],
+        },
+        walls={
+            "ocliff": [(R["hub"][0], R["hub"][1], 36, 24), (R["void"][0], R["void"][1], 25, 19), (R["doom"][0], R["doom"][1], 24, 16),
+                       (R["sanctum"][0], R["sanctum"][1], 34, 12)],
+            "rwall": [(R["satyr"][0], R["satyr"][1], 25, 19), (R["nook_w"][0], R["nook_w"][1], 9, 8)],
+            "bwall": [(R["bone"][0], R["bone"][1], 22, 13), (R["gate"][0], R["gate"][1], 16, 8)],
+        },
+        pools=[GR.GR_POOLS],
+        cfg=dict(ao=0.46, depth=0.80, lip=20, lip_col=(0.55, 0.95, 0.30), deep_dark=0.2,
+                 foam_col=(190, 240, 130), glows=[]),
+    )
+
+
 CS = "caves/seamless/"
 
 
@@ -160,7 +206,8 @@ class _C:
 
 
 BD.C = _C
-SPEC_FNS = {"moonwell_hollow": spec_moonwell, "howling_barrows": spec_barrows, "blackfathom_deeps": spec_bfd}
+SPEC_FNS = {"moonwell_hollow": spec_moonwell, "howling_barrows": spec_barrows, "blackfathom_deeps": spec_bfd,
+            "groms_rest": spec_groms}
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
