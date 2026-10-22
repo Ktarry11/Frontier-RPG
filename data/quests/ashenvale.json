@@ -561,43 +561,43 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 1900,
-      "reward_gold": 9000,
+      "reward_exp": 2300,
+      "reward_gold": 11000,
       "accept_text": "An emissary means something bigger is paying attention to Ashenvale. I'd much rather it didn't get the chance to report back.",
       "turn_in_text": "That's the quietest I've ever seen the Wastes. Whatever was coming, you just delayed it. I'll take delayed.",
-      "level_min": 18,
-      "level_max": 18,
-      "gear_reward_gear_level": 19,
+      "level_min": 23,
+      "level_max": 25,
+      "gear_reward_gear_level": 27,
       "unique_item_defs": [
         {
           "name": "Emissary's Fel-Forged Axe",
           "slot": "main_hand",
           "weapon_type": "axe_2h",
-          "item_level": 19,
+          "item_level": 27,
           "rarity": "rare",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 14,
-            "stamina": 6
+            "strength": 20,
+            "stamina": 9
           },
           "flavor_text": "Too hot to hold bare-handed even now, days after it stopped moving.",
           "secondary_stats": {
-            "attack_power": 10
+            "attack_power": 14
           }
         },
         {
           "name": "Pit Lord's Binding Seal",
           "slot": "trinket",
-          "item_level": 19,
+          "item_level": 27,
           "rarity": "rare",
           "primary_stats": {
-            "strength": 5,
-            "intellect": 5,
-            "stamina": 3
+            "strength": 8,
+            "intellect": 8,
+            "stamina": 5
           },
           "flavor_text": "Whatever it was meant to bind, it isn't bound anymore.",
           "secondary_stats": {
-            "hit_rating": 4
+            "hit_rating": 6
           }
         }
       ]
