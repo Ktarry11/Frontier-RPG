@@ -5741,6 +5741,71 @@
       "is_boss": true,
       "ability_kit": "maelwyn_blightbloom",
       "boss_multiplier": 2.2
+    },
+    "Rimebone Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "rimebone_hound"
+    },
+    "Barrow Wight": {
+      "template": "undead_basic",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "barrow_wight"
+    },
+    "Frostbitten Huntsman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        22,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "frostbitten_huntsman"
+    },
+    "Howling Wraith": {
+      "template": "humanoid_caster",
+      "level_range": [
+        22,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "howling_wraith"
+    },
+    "Rimeguard Sentinel": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        22,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "rimeguard_sentinel"
+    },
+    "Wintermaw the Howling": {
+      "template": "beast_large",
+      "level_range": [
+        23,
+        23
+      ],
+      "is_boss": true,
+      "ability_kit": "wintermaw_howling",
+      "boss_multiplier": 1.7
+    },
+    "Hunt-King Valorin": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        24,
+        24
+      ],
+      "is_boss": true,
+      "ability_kit": "hunt_king_valorin",
+      "boss_multiplier": 2.2
     }
   }
 }

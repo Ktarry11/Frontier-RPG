@@ -3070,11 +3070,47 @@ ASHENVALE_DUNGEON_KITS = {
         ("Crushing Moss", "damage", 36, 0, 0, "nature", {}),
         ("Gloomcap Cloud", "dot", 13, 4, 0, "nature", {"duration": 4, "is_aoe": True}),
         ("Mossy Hide", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 52}}),
+        ("Smothering Spores", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"attack_power": -22}}),
     ],
     "maelwyn_blightbloom": [   # boss, L16 (3 abilities)
         ("Blight Bolt", "damage", 38, 0, 20, "nature", {}),
         ("Rotbloom", "dot", 15, 4, 24, "nature", {"duration": 5}),
         ("Choking Roots", "debuff", 0, 6, 26, "nature", {"duration": 3, "stat_mods": {"agility": -26}}),
+        ("Sap the Well", "heal", 70, 6, 30, "nature", {}),
+    ],
+    # ================= HOWLING BARROWS (L21-24) ====================================================================
+    "rimebone_hound": [
+        ("Frost Bite", "damage", 30, 0, 0, "frost", {}),
+        ("Chilling Howl", "debuff", 0, 5, 0, "frost", {"duration": 3, "stat_mods": {"agility": -18}}),
+    ],
+    "barrow_wight": [
+        ("Grave Chill", "damage", 29, 0, 0, "frost", {}),
+        ("Rattling Dread", "debuff", 0, 5, 0, "shadow", {"duration": 3, "stat_mods": {"attack_power": -20}}),
+    ],
+    "frostbitten_huntsman": [
+        ("Frozen Arrow", "damage", 33, 0, 0, "frost", {}),
+        ("Hunter's Snare", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+    "howling_wraith": [
+        ("Wailing Bolt", "damage", 32, 0, 18, "shadow", {}),
+        ("Keening Wail", "dot", 10, 4, 22, "shadow", {"duration": 4}),
+        ("Gravewind", "heal", 55, 6, 26, "frost", {}),
+    ],
+    "rimeguard_sentinel": [
+        ("Glacial Slam", "damage", 34, 0, 0, "frost", {}),
+        ("Rime Plate", "buff", 0, 6, 0, "frost", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+    ],
+    "wintermaw_howling": [     # named rare, L23 (4 abilities)
+        ("Rending Bite", "damage", 40, 0, 0, "physical", {}),
+        ("Howl of the Hunt", "debuff", 0, 5, 0, "frost", {"duration": 3, "stat_mods": {"attack_power": -24}}),
+        ("Frozen Maw", "dot", 14, 4, 0, "frost", {"duration": 4}),
+        ("Rime Hide", "buff", 0, 6, 0, "frost", {"duration": 4, "self_only": True, "stat_mods": {"armor": 58}}),
+    ],
+    "hunt_king_valorin": [     # boss, L24 (4 abilities)
+        ("Frostbrand Strike", "damage", 44, 0, 0, "frost", {}),
+        ("Winter's Grasp", "dot", 17, 4, 0, "frost", {"duration": 5}),
+        ("Rimed Shackles", "debuff", 0, 5, 0, "frost", {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("The Hunt Rides", "buff", 0, 7, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 34}}),
     ],
 }
 

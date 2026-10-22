@@ -50,6 +50,37 @@ def spec_moonwell():
     )
 
 
+def spec_barrows():
+    from tools import handbuilt_howling_barrows as HB
+    R = HB.ROOMS
+    return dict(
+        build="build_barrows_baked", seed=412, slug="howling_barrows",
+        materials={
+            "floor": M(_a("barrows_floor")),
+            "bone": M(_a("bone_hall_floor")),
+            "wall": M(_a("barrows_wall")),
+            "ossuary": M(_a("bone_hall_wall")),
+            "cliff": M(_a("cliff_a")),
+            "water_s": M(_a("barrows_floor")),
+            "water_d": M(_a("barrows_floor")),
+        },
+        floor_keys=["floor", "bone"],
+        wall_keys=["wall", "ossuary", "cliff"],
+        floors={
+            "bone": [(R["west"][0], R["west"][1], 10, 8), (R["east"][0], R["east"][1], 10, 8),
+                     (R["hall"][0], R["hall"][1] - 1, 19, 10)],
+        },
+        walls={
+            "ossuary": [(R["west"][0], R["west"][1], 13, 11), (R["east"][0], R["east"][1], 13, 11),
+                        (R["gallery"][0], R["gallery"][1], 14, 9)],
+            "cliff": [(R["gate"][0], R["gate"][1], 13, 8), (R["alcove_w"][0], R["alcove_w"][1], 8, 6)],
+        },
+        pools=[],
+        cfg=dict(ao=0.50, depth=0.78, lip=18, lip_col=(0.70, 0.86, 1.0), deep_dark=0.2,
+                 foam_col=(220, 235, 255), glows=[]),
+    )
+
+
 class _C:
     BAKED = "assets/tiles/{}/baked"
 
@@ -75,7 +106,7 @@ class _C:
 
 
 BD.C = _C
-SPEC_FNS = {"moonwell_hollow": spec_moonwell}
+SPEC_FNS = {"moonwell_hollow": spec_moonwell, "howling_barrows": spec_barrows}
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None

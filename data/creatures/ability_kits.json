@@ -12276,6 +12276,18 @@
         "stat_mods": {
           "armor": 52
         }
+      },
+      {
+        "name": "Smothering Spores",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -22
+        }
       }
     ],
     "maelwyn_blightbloom": [
@@ -12306,6 +12318,218 @@
         "duration": 3,
         "stat_mods": {
           "agility": -26
+        }
+      },
+      {
+        "name": "Sap the Well",
+        "kind": "heal",
+        "amount": 70,
+        "cooldown": 6,
+        "mana_cost": 30,
+        "school": "nature"
+      }
+    ],
+    "rimebone_hound": [
+      {
+        "name": "Frost Bite",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Chilling Howl",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "barrow_wight": [
+      {
+        "name": "Grave Chill",
+        "kind": "damage",
+        "amount": 29,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Rattling Dread",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -20
+        }
+      }
+    ],
+    "frostbitten_huntsman": [
+      {
+        "name": "Frozen Arrow",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Hunter's Snare",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
+    "howling_wraith": [
+      {
+        "name": "Wailing Bolt",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "shadow"
+      },
+      {
+        "name": "Keening Wail",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Gravewind",
+        "kind": "heal",
+        "amount": 55,
+        "cooldown": 6,
+        "mana_cost": 26,
+        "school": "frost"
+      }
+    ],
+    "rimeguard_sentinel": [
+      {
+        "name": "Glacial Slam",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Rime Plate",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 40
+        }
+      }
+    ],
+    "wintermaw_howling": [
+      {
+        "name": "Rending Bite",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Howl of the Hunt",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -24
+        }
+      },
+      {
+        "name": "Frozen Maw",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 4
+      },
+      {
+        "name": "Rime Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 58
+        }
+      }
+    ],
+    "hunt_king_valorin": [
+      {
+        "name": "Frostbrand Strike",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Winter's Grasp",
+        "kind": "dot",
+        "amount": 17,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 5
+      },
+      {
+        "name": "Rimed Shackles",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -28
+        }
+      },
+      {
+        "name": "The Hunt Rides",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 34
         }
       }
     ],

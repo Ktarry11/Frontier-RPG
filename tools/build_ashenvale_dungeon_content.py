@@ -81,6 +81,56 @@ DUNGEONS["moonwell"] = MOONWELL
 # ===================================================================================================================
 
 
+# ====================================================================================================== HOWLING BARROWS
+BARROWS = dict(
+    region="Ashenvale East", cave="Howling Barrows",
+    creatures={
+        "Rimebone Hound": C("beast_fast", 21, 23, "rimebone_hound"),
+        "Barrow Wight": C("undead_basic", 21, 23, "barrow_wight"),
+        "Frostbitten Huntsman": C("humanoid_ranged", 22, 24, "frostbitten_huntsman"),
+        "Howling Wraith": C("humanoid_caster", 22, 24, "howling_wraith"),
+        "Rimeguard Sentinel": C("elemental_bruiser", 22, 24, "rimeguard_sentinel"),
+        "Wintermaw the Howling": C("beast_large", 23, 23, "wintermaw_howling", True, 1.7),
+        "Hunt-King Valorin": C("humanoid_warrior", 24, 24, "hunt_king_valorin", True, 2.2),
+    },
+    table={
+        "Rimebone Hound": 3, "Barrow Wight": 3, "Frostbitten Huntsman": 2, "Howling Wraith": 2, "Rimeguard Sentinel": 2,
+        "Hunt-King Valorin": 0, "Wintermaw the Howling": 0,
+    },
+    quest_drops={},
+)
+
+
+def barrows_pools():
+    P = {}
+    P["Hunt-King Valorin"] = [      # L24 -> 27: 1h sword / plate chest / leather legs / bow
+        make("Frostbrand of the Hunt-King", "main_hand", "of the Tiger", 27,
+             "A hunter's blade rimed over for a thousand winters. It still remembers the sound a quarry makes.",
+             weapon_type="sword_1h"),
+        make("Rimeplate Hauberk", "chest", "of the Bear", 27,
+             "Plate cold enough to stick to bare skin. The Hunt-King wore it to his grave and then some.",
+             armor_type="plate"),
+        make("Winterwalker Legguards", "legs", "of the Hunt", 27,
+             "Leather stiffened with frost, cut for a rider who never once dismounted.", armor_type="leather"),
+        make("Horn-Call Longbow", "ranged", "of the Marksman", 27,
+             "A bow of pale heartwood with a horn-mouth carved in the grip. Draw it and something howls back.",
+             weapon_type="bow")]
+    P["Wintermaw the Howling"] = [  # L23 -> 26: neck / cloak / mail hands
+        make("Wintermaw's Fang", "neck", "of the Wolf", 26,
+             "A fang as long as a dagger on a cord of frayed gut. The cold goes through it.", ),
+        make("Rimefur Cloak", "back", "of the Eagle", 26,
+             "Cut from a hound that should not have been able to die, and was.", armor_type="cloth"),
+        make("Houndkeeper's Gauntlets", "hands", "of the Bulwark", 26,
+             "Chained gauntlets, gnawed through at the knuckle. Whoever wore them lost the argument.",
+             armor_type="mail")]
+    return P
+
+
+BARROWS["pools"] = barrows_pools()
+DUNGEONS["barrows"] = BARROWS
+# ===================================================================================================================
+
+
 def main():
     only = [a for a in sys.argv[1:] if not a.startswith("-")]
     cp = ROOT / "data/creatures/creatures.json"
