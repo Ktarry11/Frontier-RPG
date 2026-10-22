@@ -187,7 +187,7 @@ class PortalManager:
                 (32, 6): ("Undercity Zeppelin Tower", 32, 11),
             },
             "Undercity Zeppelin Tower": {
-                (32, 58): ("Eastern Tirisfal", 90, 50),
+                (32, 58): ("Eastern Tirisfal", 21, 97),
                 (32, 6): ("Zeppelin Tower", 32, 11),
             },
 
@@ -274,7 +274,7 @@ class PortalManager:
                 (120, 205): ("Ashenvale West", 30, 20),
             },
             "Silverpine North": {
-                (100, 4): ("Western Tirisfal", 40, 8),
+                (100, 4): ("Eastern Tirisfal", 16, 132),
                 (100, 185): ("Silverpine South", 100, 10),
                 (170, 100): ("Widow's Lair", 70, 108),
             },
@@ -319,7 +319,7 @@ class PortalManager:
                 # zone's "Western Tirisfal" is the one that actually has
                 # Brill on it, so Deathknell - being further southwest -
                 # should connect through THIS zone, not Eastern Tirisfal.
-                (96, 47): ("Western Tirisfal", 10, 44),
+                (96, 47): ("Western Tirisfal", 64, 106),
             },
             "Night Web's Hollow": {
                 (45, 71): ("Deathknell", 17, 21),
@@ -327,26 +327,31 @@ class PortalManager:
             "Scarlet Crypt": {
                 (47, 76): ("Deathknell", 83, 19),
             },
+            # Hand-built on the real Tirisfal map (tools/handbuilt_{western,eastern}_tirisfal.py, handbuilt_brill.py):
+            # Deathknell -> Western -> Brill's west gate; Brill's east gate -> Eastern; a bypass road joins Western and Eastern
+            # north of town; Eastern holds the zeppelin landing, the Undercity gate, the Silverpine road and the Scourge Cave.
             "Eastern Tirisfal": {
-                (10, 50): ("Western Tirisfal", 70, 40),
-                (90, 50): ("Undercity Zeppelin Tower", 32, 57),
-                (30, 70): ("Undercity", 100, 12),
-                (15, 80): ("Scourge Cave", 45, 68),
+                (4, 62): ("Western Tirisfal", 112, 62),
+                (6, 86): ("Brill", 87, 44),
+                (21, 97): ("Undercity Zeppelin Tower", 32, 57),
+                (10, 112): ("Undercity", 100, 12),
+                (16, 136): ("Silverpine North", 100, 8),
+                (52, 112): ("Scourge Cave", 45, 68),
             },
             "Scourge Cave": {
-                (45, 68): ("Eastern Tirisfal", 15, 80),
+                (45, 68): ("Eastern Tirisfal", 52, 116),
             },
             "Western Tirisfal": {
-                (10, 40): ("Deathknell", 94, 49),
-                (70, 40): ("Eastern Tirisfal", 10, 50),
-                (40, 4): ("Silverpine North", 100, 8),
-                (40, 40): ("Brill", 35, 55),
+                (60, 106): ("Deathknell", 94, 49),
+                (113, 84): ("Brill", 9, 44),
+                (116, 62): ("Eastern Tirisfal", 8, 62),
             },
             "Brill": {
-                (35, 55): ("Western Tirisfal", 40, 40),
+                (5, 44): ("Western Tirisfal", 110, 88),
+                (91, 44): ("Eastern Tirisfal", 10, 88),
             },
             "Undercity": {
-                (100, 10): ("Eastern Tirisfal", 30, 72),
+                (100, 10): ("Eastern Tirisfal", 10, 108),
                 (30, 180): ("Plague Depths", 120, 214),
             },
             "Plague Depths": {

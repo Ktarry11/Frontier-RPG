@@ -1126,7 +1126,7 @@
       "template": "vermin_swarm",
       "level_range": [
         6,
-        9
+        8
       ],
       "is_boss": false,
       "ability_kit": "swarm"
@@ -1135,7 +1135,7 @@
       "template": "undead_basic",
       "level_range": [
         6,
-        9
+        8
       ],
       "is_boss": false,
       "ability_kit": "solliden_farmhand"
@@ -1143,7 +1143,7 @@
     "Agamand Servant": {
       "template": "undead_basic",
       "level_range": [
-        7,
+        8,
         10
       ],
       "is_boss": false,
@@ -1152,7 +1152,7 @@
     "Agamand Family Ghoul": {
       "template": "undead_basic",
       "level_range": [
-        7,
+        8,
         10
       ],
       "is_boss": false,
@@ -1171,7 +1171,7 @@
     "Captured Farmer": {
       "template": "humanoid_warrior",
       "level_range": [
-        7,
+        8,
         10
       ],
       "is_boss": false,
@@ -1232,7 +1232,7 @@
     "Scarlet Zealot": {
       "template": "humanoid_warrior",
       "level_range": [
-        9,
+        10,
         12
       ],
       "is_boss": false,
@@ -1241,7 +1241,7 @@
     "Scarlet Preacher": {
       "template": "humanoid_caster",
       "level_range": [
-        9,
+        10,
         12
       ],
       "is_boss": false,
@@ -1250,7 +1250,7 @@
     "Scarlet Bowman": {
       "template": "humanoid_ranged",
       "level_range": [
-        9,
+        10,
         12
       ],
       "is_boss": false,
@@ -3490,7 +3490,7 @@
     "Manor Reaper": {
       "template": "undead_basic",
       "level_range": [
-        5,
+        6,
         9
       ],
       "is_boss": false,
@@ -6031,6 +6031,254 @@
       ],
       "is_boss": true,
       "ability_kit": "brother_wystan",
+      "boss_multiplier": 1.6
+    },
+    "Vile Fin Puddlejumper": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        6,
+        8
+      ],
+      "is_boss": false,
+      "ability_kit": "vile_fin_puddlejumper"
+    },
+    "Vile Fin Minor Oracle": {
+      "template": "humanoid_caster",
+      "level_range": [
+        7,
+        9
+      ],
+      "is_boss": false,
+      "ability_kit": "vile_fin_oracle"
+    },
+    "Stillwater Lurker": {
+      "template": "beast_basic",
+      "level_range": [
+        5,
+        7
+      ],
+      "is_boss": false,
+      "ability_kit": "stillwater_lurker"
+    },
+    "Agamand Crypt Wight": {
+      "template": "undead_basic",
+      "level_range": [
+        9,
+        10
+      ],
+      "is_boss": false,
+      "ability_kit": "agamand_crypt_wight"
+    },
+    "Rot Hide Mongrel": {
+      "template": "beast_basic",
+      "level_range": [
+        8,
+        10
+      ],
+      "is_boss": false,
+      "ability_kit": "rot_hide_mongrel"
+    },
+    "Rot Hide Gnoll": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        8,
+        10
+      ],
+      "is_boss": false,
+      "ability_kit": "rot_hide_gnoll"
+    },
+    "Rot Hide Graverobber": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        8,
+        10
+      ],
+      "is_boss": false,
+      "ability_kit": "rot_hide_graverobber"
+    },
+    "Ressan the Needler": {
+      "template": "beast_fast",
+      "level_range": [
+        7,
+        7
+      ],
+      "is_boss": true,
+      "ability_kit": "ressan_the_needler",
+      "boss_multiplier": 1.8
+    },
+    "Old Gillrot": {
+      "template": "humanoid_caster",
+      "level_range": [
+        9,
+        9
+      ],
+      "is_boss": true,
+      "ability_kit": "old_gillrot",
+      "boss_multiplier": 1.7
+    },
+    "Meven Korgal": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        9,
+        9
+      ],
+      "is_boss": true,
+      "ability_kit": "meven_korgal",
+      "boss_multiplier": 1.7
+    },
+    "Goodman Solliden": {
+      "template": "undead_basic",
+      "level_range": [
+        8,
+        8
+      ],
+      "is_boss": true,
+      "ability_kit": "goodman_solliden",
+      "boss_multiplier": 1.7
+    },
+    "Murk the Bloated": {
+      "template": "undead_basic",
+      "level_range": [
+        7,
+        7
+      ],
+      "is_boss": true,
+      "ability_kit": "murk_the_bloated",
+      "boss_multiplier": 1.8
+    },
+    "Captain Dargol": {
+      "template": "undead_basic",
+      "level_range": [
+        10,
+        10
+      ],
+      "is_boss": true,
+      "ability_kit": "captain_dargol",
+      "boss_multiplier": 1.6
+    },
+    "Maggot Eye": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        10
+      ],
+      "is_boss": true,
+      "ability_kit": "maggot_eye",
+      "boss_multiplier": 1.6
+    },
+    "Reaper-Lord Aldous": {
+      "template": "undead_basic",
+      "level_range": [
+        9,
+        9
+      ],
+      "is_boss": true,
+      "ability_kit": "reaper_lord_aldous",
+      "boss_multiplier": 1.7
+    },
+    "Faol's Restless": {
+      "template": "undead_basic",
+      "level_range": [
+        8,
+        10
+      ],
+      "is_boss": false,
+      "ability_kit": "faols_restless"
+    },
+    "Venomweb Skitterer": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        10,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "venomweb_skitterer"
+    },
+    "Lordaeron Remnant": {
+      "template": "undead_basic",
+      "level_range": [
+        9,
+        11
+      ],
+      "is_boss": false,
+      "ability_kit": "lordaeron_remnant"
+    },
+    "Cult Acolyte": {
+      "template": "humanoid_caster",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "cult_acolyte"
+    },
+    "Cult Fanatic": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "cult_fanatic"
+    },
+    "Bethor Iceshard": {
+      "template": "elemental_caster",
+      "level_range": [
+        10,
+        10
+      ],
+      "is_boss": true,
+      "ability_kit": "bethor_iceshard",
+      "boss_multiplier": 1.6
+    },
+    "Captain Melrache": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        10
+      ],
+      "is_boss": true,
+      "ability_kit": "captain_melrache",
+      "boss_multiplier": 1.6
+    },
+    "Crusader Brennic": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        10,
+        10
+      ],
+      "is_boss": true,
+      "ability_kit": "crusader_brennic",
+      "boss_multiplier": 1.6
+    },
+    "Mother Venomweb": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "ability_kit": "mother_venomweb",
+      "boss_multiplier": 1.6
+    },
+    "Captain Vachon": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "ability_kit": "captain_vachon",
+      "boss_multiplier": 1.6
+    },
+    "Cult Overseer Thaddeus": {
+      "template": "humanoid_caster",
+      "level_range": [
+        12,
+        12
+      ],
+      "is_boss": true,
+      "ability_kit": "cult_overseer_thaddeus",
       "boss_multiplier": 1.6
     }
   }

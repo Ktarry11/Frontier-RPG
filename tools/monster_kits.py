@@ -1081,6 +1081,8 @@ TIRISFAL_KITS = {
         ("Zombie Grasp", "damage", 24, 0, 0, "physical", {}),
         ("Rotting Wail", "debuff", 0, 4, 0, "physical",
          {"duration": 3, "stat_mods": {"attack_power": -14}}),
+        ("Undying Fury", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 14}}),
     ],
     "high_inquisitor_fairbanks": [
         ("Holy Smite", "damage", 32, 0, 28, "magic", {}),
@@ -1092,6 +1094,8 @@ TIRISFAL_KITS = {
     "interrogator_vishas": [
         ("Interrogator's Blade", "damage", 30, 0, 0, "physical", {}),
         ("Immolate", "dot", 13, 3, 0, "fire", {"duration": 4}),
+        ("Brand of Penance", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -18}}),
     ],
     "broodmother_neshka": [
         ("Venomous Sting", "damage", 26, 0, 0, "physical", {}),
@@ -3280,6 +3284,163 @@ DEATHKNELL_KITS = {
     ],
 }
 
+TIRISFAL_REBUILD_KITS = {
+    # ---- Tirisfal rebuild content pass (2026-10-22): Western / Eastern Tirisfal rosters on the real subzones ----
+    # Western: Whispering Shore (L6-9)
+    "vile_fin_puddlejumper": [
+        ("Spear Poke", "damage", 17, 0, 0, "physical", {}),
+        ("Gurgling Cry", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -10}}),
+    ],
+    "vile_fin_oracle": [
+        ("Tidal Bolt", "damage", 19, 0, 10, "nature", {}),
+        ("Soothing Tide", "heal", 24, 6, 12, "nature", {}),
+    ],
+    # Stillwater Pond (L5-8)
+    "stillwater_lurker": [
+        ("Pincer Snap", "damage", 17, 0, 0, "physical", {}),
+        ("Silt Cloud", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -10}}),
+    ],
+    # Agamand Family Crypt (L8-10)
+    "agamand_crypt_wight": [
+        ("Grave Strike", "damage", 24, 0, 0, "physical", {}),
+        ("Crypt Chill", "debuff", 0, 4, 0, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -12}}),
+    ],
+    # Garren's Haunt (L5-9)
+    "rot_hide_mongrel": [
+        ("Mangy Bite", "damage", 16, 0, 0, "physical", {}),
+        ("Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 10}}),
+    ],
+    "rot_hide_gnoll": [
+        ("Club Smash", "damage", 21, 0, 0, "physical", {}),
+        ("Sickly Roar", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -10}}),
+    ],
+    "rot_hide_graverobber": [
+        ("Shovel Bash", "damage", 22, 0, 0, "physical", {}),
+        ("Grave Dust", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -10}}),
+    ],
+    # Eastern: Faol's Rest, Venomweb Vale, Ruins of Lordaeron, Cult of the Damned (L8-11)
+    "faols_restless": [
+        ("Rusted Blade", "damage", 26, 0, 0, "physical", {}),
+        ("Tomb Chill", "debuff", 0, 4, 0, "shadow",
+         {"duration": 3, "stat_mods": {"armor": -14}}),
+    ],
+    "venomweb_skitterer": [
+        ("Venom Bite", "damage", 24, 0, 0, "physical", {}),
+        ("Web Spit", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "lordaeron_remnant": [
+        ("Fallen Banner Strike", "damage", 23, 0, 0, "physical", {}),
+        ("Dust of Ages", "debuff", 0, 4, 0, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -12}}),
+    ],
+    "cult_acolyte": [
+        ("Shadow Bolt", "damage", 26, 0, 12, "shadow", {}),
+        ("Drain Strength", "debuff", 0, 4, 10, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -14}}),
+    ],
+    "cult_fanatic": [
+        ("Cultist Dagger", "damage", 25, 0, 0, "physical", {}),
+        ("Frenzied Devotion", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 14}}),
+    ],
+    # ---- named rares / bosses (3 abilities each, sub-20) ----
+    "ressan_the_needler": [
+        ("Needle Bite", "damage", 18, 0, 0, "physical", {}),
+        ("Needle Venom", "dot", 6, 3, 0, "nature", {"duration": 3}),
+        ("Shrill Screech", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -10}}),
+    ],
+    "old_gillrot": [
+        ("Brine Bolt", "damage", 23, 0, 12, "nature", {}),
+        ("Gill Rot", "dot", 8, 3, 10, "nature", {"duration": 3}),
+        ("Mending Brine", "heal", 30, 6, 14, "nature", {}),
+    ],
+    "meven_korgal": [
+        ("Crusader Strike", "damage", 24, 0, 0, "physical", {}),
+        ("Zealous Smite", "damage", 26, 2, 16, "magic", {}),
+        ("Oath of the Crusade", "buff", 0, 6, 12, "magic",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 14}}),
+    ],
+    "goodman_solliden": [
+        ("Pitchfork Thrust", "damage", 25, 0, 0, "physical", {}),
+        ("Sour Harvest", "dot", 9, 3, 0, "physical", {"duration": 3}),
+        ("Scarecrow's Vigil", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 16}}),
+    ],
+    "murk_the_bloated": [
+        ("Bloated Slam", "damage", 22, 0, 0, "physical", {}),
+        ("Bog Rot", "dot", 8, 3, 0, "nature", {"duration": 4}),
+        ("Swell", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 14}}),
+    ],
+    "captain_dargol": [
+        ("Family Blade", "damage", 29, 0, 0, "physical", {}),
+        ("Dargol's Curse", "debuff", 0, 4, 0, "shadow",
+         {"duration": 3, "stat_mods": {"armor": -16}}),
+        ("Ancestral Fury", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 16}}),
+    ],
+    "maggot_eye": [
+        ("Maggot Club", "damage", 26, 0, 0, "physical", {}),
+        ("Festering Wound", "dot", 10, 3, 0, "physical", {"duration": 4}),
+        ("Gnoll War Cry", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 16}}),
+    ],
+    "reaper_lord_aldous": [
+        ("Harvest Cleave", "damage", 27, 0, 0, "physical", {}),
+        ("Soul Reap", "dot", 10, 3, 0, "shadow", {"duration": 4}),
+        ("Death's Hour", "buff", 0, 6, 0, "shadow",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 16}}),
+    ],
+    "bethor_iceshard": [
+        ("Iceshard Bolt", "damage", 30, 0, 14, "magic", {}),
+        ("Frostbite Shackle", "debuff", 0, 5, 12, "magic",
+         {"duration": 3, "stat_mods": {"agility": -16}}),
+        ("Ice Barrier", "buff", 0, 6, 14, "magic",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 22}}),
+    ],
+    "captain_melrache": [
+        ("Zealot's Cleave", "damage", 32, 0, 0, "physical", {}),
+        ("Crusader's Wrath", "dot", 11, 3, 0, "physical", {"duration": 4}),
+        ("Rallying Banner", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
+    ],
+    "crusader_brennic": [
+        ("Crusader Strike", "damage", 27, 0, 0, "physical", {}),
+        ("Shield Bash", "debuff", 0, 4, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -14}}),
+        ("Righteous Fury", "buff", 0, 6, 12, "magic",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 14}}),
+    ],
+    "mother_venomweb": [
+        ("Venomous Fang", "damage", 30, 0, 0, "physical", {}),
+        ("Venom Cloud", "dot", 12, 3, 0, "nature", {"duration": 4}),
+        ("Web Cocoon", "debuff", 0, 5, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -18}}),
+    ],
+    "captain_vachon": [
+        ("Vachon's Blade", "damage", 29, 0, 0, "physical", {}),
+        ("Piercing Strike", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -16}}),
+        ("Stand Fast", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 22}}),
+    ],
+    "cult_overseer_thaddeus": [
+        ("Shadow Lash", "damage", 31, 0, 14, "shadow", {}),
+        ("Curse of Weakness", "debuff", 0, 5, 12, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -16}}),
+        ("Dark Vigor", "buff", 0, 6, 14, "shadow",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 18}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3289,7 +3450,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

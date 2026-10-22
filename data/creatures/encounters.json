@@ -530,39 +530,96 @@
         "name": "The Glades",
         "creatures": {
           "Mangy Duskbat": 2,
-          "Ragged Scavenger": 1,
-          "Rattlecage Skeleton": 1,
+          "Rotting Dead": 2,
           "Young Nightcrawler": 1,
           "Wretched Zombie": 1,
-          "Scarlet Convert": 0,
-          "Darkeye Bonecaster": 0
+          "Bleak Worg": 1,
+          "Rattlecage Skeleton": 1
         }
       },
       "subzones": {
-        "Agamand Mills": {
-          "name": "Agamand Mills",
+        "Brightwater Lake": {
+          "name": "Brightwater Lake",
           "creatures": {
-            "Agamand Servant": 2,
-            "Agamand Family Ghoul": 1,
-            "Captured Farmer": 1,
-            "Thurman Agamand": 0
+            "Drowned Wretch": 4,
+            "Weeping Shade": 3,
+            "Young Nightcrawler": 1,
+            "Bethor Iceshard": 0
           }
         },
-        "Solliden Farmstead": {
-          "name": "Solliden Farmstead",
+        "The North Coast": {
+          "name": "The North Coast",
           "creatures": {
-            "Rotting Dead": 2,
-            "Blighted Grain Thresher": 1,
-            "Solliden Farmhand": 1
+            "Scarlet Bowman": 2,
+            "Rattlecage Skeleton": 2,
+            "Ragged Scavenger": 2
           }
         },
-        "The Scarlet Watch": {
-          "name": "The Scarlet Watch",
+        "Scarlet Watch Post": {
+          "name": "Scarlet Watch Post",
           "creatures": {
-            "Scarlet Zealot": 2,
-            "Scarlet Bowman": 1,
-            "Scarlet Preacher": 1,
+            "Scarlet Zealot": 3,
+            "Scarlet Bowman": 2,
+            "Scarlet Preacher": 2,
             "Interrogator Vishas": 0
+          }
+        },
+        "Faol's Rest": {
+          "name": "Faol's Rest",
+          "creatures": {
+            "Faol's Restless": 4,
+            "Rotting Dead": 2,
+            "Rattlecage Skeleton": 1,
+            "Captain Melrache": 0
+          }
+        },
+        "Crusader's Outpost": {
+          "name": "Crusader's Outpost",
+          "creatures": {
+            "Scarlet Convert": 3,
+            "Scarlet Initiate": 2,
+            "Crusader Brennic": 0
+          }
+        },
+        "Venomweb Vale": {
+          "name": "Venomweb Vale",
+          "creatures": {
+            "Venomweb Skitterer": 4,
+            "Vicious Night Web Spider": 3,
+            "Mother Venomweb": 0
+          }
+        },
+        "Ruins of Lordaeron": {
+          "name": "Ruins of Lordaeron",
+          "creatures": {
+            "Lordaeron Remnant": 4,
+            "Wretched Zombie": 2,
+            "Rattlecage Skeleton": 2
+          }
+        },
+        "Balnir Farmstead": {
+          "name": "Balnir Farmstead",
+          "creatures": {
+            "Bleak Worg": 3,
+            "Balnir Stableboy": 3,
+            "Scarlet Convert": 1,
+            "Captain Vachon": 0
+          }
+        },
+        "Cult of the Damned Farm": {
+          "name": "Cult of the Damned Farm",
+          "creatures": {
+            "Cult Acolyte": 3,
+            "Cult Fanatic": 3,
+            "Rotting Dead": 1,
+            "Cult Overseer Thaddeus": 0
+          }
+        },
+        "The Bulwark Road": {
+          "name": "The Bulwark Road",
+          "creatures": {
+            "Wretched Zombie": 2,
+            "Bleak Worg": 2
           }
         }
       },
@@ -577,41 +634,148 @@
       },
       "level_overrides": {
         "Mangy Duskbat": [
-          6,
-          8
+          7,
+          9
         ],
         "Wretched Zombie": [
-          6,
+          7,
           9
         ],
         "Rotting Dead": [
-          7,
+          8,
           10
         ],
         "Ragged Scavenger": [
-          6,
-          8
-        ],
-        "Rattlecage Skeleton": [
           7,
           9
+        ],
+        "Rattlecage Skeleton": [
+          8,
+          10
+        ],
+        "Bleak Worg": [
+          8,
+          10
+        ],
+        "Young Nightcrawler": [
+          8,
+          9
+        ],
+        "Drowned Wretch": [
+          8,
+          10
+        ],
+        "Weeping Shade": [
+          8,
+          10
+        ],
+        "Scarlet Convert": [
+          8,
+          10
+        ],
+        "Scarlet Initiate": [
+          9,
+          10
+        ],
+        "Balnir Stableboy": [
+          9,
+          10
+        ],
+        "Vicious Night Web Spider": [
+          10,
+          11
         ]
       }
     },
     "Western Tirisfal": {
       "open_zone": {
+        "name": "The Glades",
         "creatures": {
-          "Mangy Duskbat": 4,
-          "Wretched Zombie": 2
+          "Mangy Duskbat": 2,
+          "Rotting Dead": 2,
+          "Wretched Zombie": 1,
+          "Bleak Worg": 1,
+          "Rattlecage Skeleton": 1
         }
       },
       "subzones": {
+        "Whispering Shore": {
+          "name": "Whispering Shore",
+          "creatures": {
+            "Vile Fin Puddlejumper": 4,
+            "Vile Fin Minor Oracle": 3,
+            "Rotting Dead": 1,
+            "Old Gillrot": 0
+          }
+        },
+        "Crusader Outpost": {
+          "name": "Crusader Outpost",
+          "creatures": {
+            "Scarlet Convert": 4,
+            "Scarlet Initiate": 1,
+            "Meven Korgal": 0
+          }
+        },
+        "Solliden Farmstead": {
+          "name": "Solliden Farmstead",
+          "creatures": {
+            "Solliden Farmhand": 3,
+            "Blighted Grain Thresher": 3,
+            "Rotting Dead": 1,
+            "Goodman Solliden": 0
+          }
+        },
+        "Stillwater Pond": {
+          "name": "Stillwater Pond",
+          "creatures": {
+            "Stillwater Lurker": 4,
+            "Rotting Dead": 3,
+            "Drowned Wretch": 1,
+            "Murk the Bloated": 0
+          }
+        },
+        "Agamand Mills": {
+          "name": "Agamand Mills",
+          "creatures": {
+            "Agamand Servant": 3,
+            "Agamand Family Ghoul": 2,
+            "Captured Farmer": 1,
+            "Thurman Agamand": 0
+          }
+        },
+        "Agamand Family Crypt": {
+          "name": "Agamand Family Crypt",
+          "creatures": {
+            "Agamand Crypt Wight": 3,
+            "Agamand Family Ghoul": 2,
+            "Captain Dargol": 0
+          }
+        },
+        "Garren's Haunt": {
+          "name": "Garren's Haunt",
+          "creatures": {
+            "Rot Hide Mongrel": 3,
+            "Rot Hide Gnoll": 3,
+            "Rot Hide Graverobber": 2,
+            "Maggot Eye": 0
+          }
+        },
         "Cold Hearth Manor": {
           "name": "Cold Hearth Manor",
           "creatures": {
-            "Manor Reaper": 2,
+            "Manor Reaper": 4,
             "Wretched Zombie": 2,
-            "Rotting Dead": 1
+            "Rotting Dead": 1,
+            "Reaper-Lord Aldous": 0
+          }
+        },
+        "Nightmare Vale": {
+          "name": "Nightmare Vale",
+          "creatures": {
+            "Bleak Worg": 4,
+            "Young Nightcrawler": 2,
+            "Scarlet Convert": 1,
+            "Ressan the Needler": 0
           }
         }
       },
@@ -627,6 +791,30 @@
         "Rotting Dead": [
           6,
           9
+        ],
+        "Bleak Worg": [
+          5,
+          7
+        ],
+        "Young Nightcrawler": [
+          5,
+          7
+        ],
+        "Rattlecage Skeleton": [
+          5,
+          7
+        ],
+        "Scarlet Convert": [
+          7,
+          9
+        ],
+        "Scarlet Initiate": [
+          8,
+          9
+        ],
+        "Drowned Wretch": [
+          5,
+          7
         ]
       }
     },
@@ -1541,18 +1729,6 @@
             "Bone-Strewn Cur": 1,
             "Feral Packmaster": 1,
             "The Alpha Cur": 0
-          }
-        }
-      }
-    },
-    "Brill": {
-      "subzones": {
-        "Balnir Farmstead": {
-          "name": "Balnir Farmstead",
-          "creatures": {
-            "Bleak Worg": 2,
-            "Vicious Night Web Spider": 1,
-            "Balnir Stableboy": 1
           }
         }
       }

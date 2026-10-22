@@ -56,7 +56,7 @@ class TownLayout(CB.Layout):
         self.zone = Tilemap(M.NAME, M.W, M.H, M.DESC)
         self.z = self.zone
         self.z.region = M.REGION
-        self.z.is_town = True                 # no gathering nodes in towns
+        self.z.is_town = getattr(M, "IS_TOWN", True)   # no gathering nodes in towns (outdoor zones set IS_TOWN = False)
         self.skipped, self.chests, self.placed = [], [], 0
         self.npc_xy = list(M.NPC_POSITIONS.values()) + list(getattr(M, "EXTRA_NPC_XY", []))
 
@@ -66,7 +66,7 @@ class TownLayout(CB.Layout):
 
 def build_terrain(L):
     M, z = L.M, L.z
-    z.fill("dirt", "base")
+    z.fill(getattr(M, "BASE_TILE", "dirt"), "base")
     ys, xs = np.mgrid[0:M.H, 0:M.W]
     kind = M.tile_kind(xs + 0.5, ys + 0.5)
     L.kind = kind

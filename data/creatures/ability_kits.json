@@ -3368,6 +3368,19 @@
         "stat_mods": {
           "attack_power": -14
         }
+      },
+      {
+        "name": "Undying Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
       }
     ],
     "high_inquisitor_fairbanks": [
@@ -3421,6 +3434,18 @@
         "mana_cost": 0,
         "school": "fire",
         "duration": 4
+      },
+      {
+        "name": "Brand of Penance",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -18
+        }
       }
     ],
     "broodmother_neshka": [
@@ -13409,6 +13434,723 @@
         "cooldown": 6,
         "mana_cost": 24,
         "school": "holy"
+      }
+    ],
+    "vile_fin_puddlejumper": [
+      {
+        "name": "Spear Poke",
+        "kind": "damage",
+        "amount": 17,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gurgling Cry",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -10
+        }
+      }
+    ],
+    "vile_fin_oracle": [
+      {
+        "name": "Tidal Bolt",
+        "kind": "damage",
+        "amount": 19,
+        "cooldown": 0,
+        "mana_cost": 10,
+        "school": "nature"
+      },
+      {
+        "name": "Soothing Tide",
+        "kind": "heal",
+        "amount": 24,
+        "cooldown": 6,
+        "mana_cost": 12,
+        "school": "nature"
+      }
+    ],
+    "stillwater_lurker": [
+      {
+        "name": "Pincer Snap",
+        "kind": "damage",
+        "amount": 17,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Silt Cloud",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -10
+        }
+      }
+    ],
+    "agamand_crypt_wight": [
+      {
+        "name": "Grave Strike",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crypt Chill",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -12
+        }
+      }
+    ],
+    "rot_hide_mongrel": [
+      {
+        "name": "Mangy Bite",
+        "kind": "damage",
+        "amount": 16,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 10
+        }
+      }
+    ],
+    "rot_hide_gnoll": [
+      {
+        "name": "Club Smash",
+        "kind": "damage",
+        "amount": 21,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sickly Roar",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -10
+        }
+      }
+    ],
+    "rot_hide_graverobber": [
+      {
+        "name": "Shovel Bash",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Dust",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -10
+        }
+      }
+    ],
+    "faols_restless": [
+      {
+        "name": "Rusted Blade",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Tomb Chill",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -14
+        }
+      }
+    ],
+    "venomweb_skitterer": [
+      {
+        "name": "Venom Bite",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Web Spit",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "lordaeron_remnant": [
+      {
+        "name": "Fallen Banner Strike",
+        "kind": "damage",
+        "amount": 23,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dust of Ages",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -12
+        }
+      }
+    ],
+    "cult_acolyte": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 12,
+        "school": "shadow"
+      },
+      {
+        "name": "Drain Strength",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 10,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -14
+        }
+      }
+    ],
+    "cult_fanatic": [
+      {
+        "name": "Cultist Dagger",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Frenzied Devotion",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
+      }
+    ],
+    "ressan_the_needler": [
+      {
+        "name": "Needle Bite",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Needle Venom",
+        "kind": "dot",
+        "amount": 6,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Shrill Screech",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -10
+        }
+      }
+    ],
+    "old_gillrot": [
+      {
+        "name": "Brine Bolt",
+        "kind": "damage",
+        "amount": 23,
+        "cooldown": 0,
+        "mana_cost": 12,
+        "school": "nature"
+      },
+      {
+        "name": "Gill Rot",
+        "kind": "dot",
+        "amount": 8,
+        "cooldown": 3,
+        "mana_cost": 10,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Mending Brine",
+        "kind": "heal",
+        "amount": 30,
+        "cooldown": 6,
+        "mana_cost": 14,
+        "school": "nature"
+      }
+    ],
+    "meven_korgal": [
+      {
+        "name": "Crusader Strike",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Zealous Smite",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 2,
+        "mana_cost": 16,
+        "school": "magic"
+      },
+      {
+        "name": "Oath of the Crusade",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
+      }
+    ],
+    "goodman_solliden": [
+      {
+        "name": "Pitchfork Thrust",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sour Harvest",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Scarecrow's Vigil",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 16
+        }
+      }
+    ],
+    "murk_the_bloated": [
+      {
+        "name": "Bloated Slam",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bog Rot",
+        "kind": "dot",
+        "amount": 8,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Swell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 14
+        }
+      }
+    ],
+    "captain_dargol": [
+      {
+        "name": "Family Blade",
+        "kind": "damage",
+        "amount": 29,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dargol's Curse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -16
+        }
+      },
+      {
+        "name": "Ancestral Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 16
+        }
+      }
+    ],
+    "maggot_eye": [
+      {
+        "name": "Maggot Club",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Festering Wound",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Gnoll War Cry",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 16
+        }
+      }
+    ],
+    "reaper_lord_aldous": [
+      {
+        "name": "Harvest Cleave",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Soul Reap",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Death's Hour",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 16
+        }
+      }
+    ],
+    "bethor_iceshard": [
+      {
+        "name": "Iceshard Bolt",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "magic"
+      },
+      {
+        "name": "Frostbite Shackle",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      },
+      {
+        "name": "Ice Barrier",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 14,
+        "school": "magic",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 22
+        }
+      }
+    ],
+    "captain_melrache": [
+      {
+        "name": "Zealot's Cleave",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crusader's Wrath",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Rallying Banner",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 18
+        }
+      }
+    ],
+    "crusader_brennic": [
+      {
+        "name": "Crusader Strike",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -14
+        }
+      },
+      {
+        "name": "Righteous Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
+      }
+    ],
+    "mother_venomweb": [
+      {
+        "name": "Venomous Fang",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Venom Cloud",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Web Cocoon",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "captain_vachon": [
+      {
+        "name": "Vachon's Blade",
+        "kind": "damage",
+        "amount": 29,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Piercing Strike",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -16
+        }
+      },
+      {
+        "name": "Stand Fast",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 22
+        }
+      }
+    ],
+    "cult_overseer_thaddeus": [
+      {
+        "name": "Shadow Lash",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Weakness",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -16
+        }
+      },
+      {
+        "name": "Dark Vigor",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 14,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 18
+        }
       }
     ],
     "ancient_treant": [

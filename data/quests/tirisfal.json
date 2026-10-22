@@ -1,0 +1,5363 @@
+{
+  "quests": [
+    {
+      "quest_id": "brl_wolves",
+      "title": "Wolves at the Door",
+      "giver_npc_id": "brill_deathguard",
+      "zone": "brill",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Bleak Worgs have been trotting up the Deathknell road after dark. They haven't bitten anyone in Brill yet, which Rennick considers a stroke of luck and a warning. Thin the pack in Nightmare Vale before the luck runs out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bleak Worg",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Take the west road down to the Vale. Eight worgs. Bring me the count and I'll pretend I'm not worried.",
+      "turn_in_text": "Eight? Good. Brill sleeps lighter than it admits. Take something from the crate.",
+      "next_quest_id": "brl_nightmare",
+      "unique_item_defs": [
+        {
+          "name": "Dusk-Vale Coat",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Somebody left it where the road bends. You can see why.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Chest (Sta)"
+        },
+        {
+          "name": "Dusk-Vale Fists",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The Vale never lets you wash it out.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 16,
+          "label": "Plate Gloves (Str/Int)"
+        },
+        {
+          "name": "Moth-Eaten Shield",
+          "slot": "off_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Smells of loam and wolf. Both are mostly gone.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_value": 10,
+          "block_value": 13,
+          "label": "Shield (Str/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "brl_nightmare",
+      "title": "Into the Nightmare Vale",
+      "giver_npc_id": "brill_deathguard",
+      "zone": "brill",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Nobody has walked Nightmare Vale's lower road since the worgs came. Rennick wants someone to walk it end to end and report what is waiting at the bottom, because 'something' is a poor basis for a patrol roster.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_tirisfal",
+          "target_x": 86,
+          "target_y": 118,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "South-west of the Cold Hearth road, past the Deathknell gate, the road goes into the trees. Walk it. Don't dawdle.",
+      "turn_in_text": "So it's quiet down there. I like quiet less than you'd think. Good work.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dusk-Vale Legplates",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "The Vale never lets you wash it out.",
+          "primary_stats": {
+            "strength": 4
+          },
+          "armor_type": "plate",
+          "armor_value": 37,
+          "label": "Plate Legs (Str)"
+        },
+        {
+          "name": "Nightmare Gloves",
+          "slot": "hands",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Cut for someone who lived in the dark, and liked it.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 7,
+          "label": "Leather Gloves (Agi/Spi)"
+        },
+        {
+          "name": "Nightmare Talisman",
+          "slot": "neck",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Smells of loam and wolf. Both are mostly gone.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "brl_glades",
+      "title": "Thin the Glades",
+      "giver_npc_id": "brill_guard",
+      "zone": "brill",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "The Wretched Zombies that wander the glades west of Brill have started drifting toward the gate. They are slow and stupid and mean no harm, but the gate guard has a quota of corpses he is willing to step over.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Wretched Zombie",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Out along the road west. Zombies. Put eight of them down and I'll let you back in without a lecture.",
+      "turn_in_text": "That's the road clear. I was getting a crick from all the stepping over.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ashen Gloves",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A village thing: cheap, mended and cared for.",
+          "primary_stats": {
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Gloves (Spi)"
+        },
+        {
+          "name": "Town-Crier's Cuisses",
+          "slot": "legs",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Brill makes do. This is proof.",
+          "primary_stats": {
+            "strength": 2,
+            "spirit": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 32,
+          "label": "Plate Legs (Str/Spi)"
+        },
+        {
+          "name": "Gallows' End Flail",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A village thing: cheap, mended and cared for.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "brl_news_landing",
+      "title": "Tidings from the Landing",
+      "giver_npc_id": "brill_town_crier",
+      "zone": "brill",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Wexley prides himself on hearing everything first, and he has heard the Undercity zeppelin tower east of Brill is open for passengers. He has no way to confirm it. He would very much like you to go and look.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_tirisfal",
+          "target_x": 18,
+          "target_y": 99,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "East along the high road, then south. The tower is a tangle of ropes and goblin curses. Go and tell me if it's real.",
+      "turn_in_text": "Real! Real, and open for custom. I shall cry it from the steps. Thank you.",
+      "next_quest_id": "brl_news_ruins",
+      "unique_item_defs": [
+        {
+          "name": "Landing-Dock Belt",
+          "slot": "waist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Goblin work: sturdy, overpriced and slightly wrong.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 7,
+          "label": "Leather Belt (Sta)"
+        },
+        {
+          "name": "Cargo-Hauler's Bracers",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Goblin work: sturdy, overpriced and slightly wrong.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Bracers (Int/Sta)"
+        },
+        {
+          "name": "Cargo-Hauler's Flail",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Whoever carried freight in this carried it well.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "brl_news_ruins",
+      "title": "Word from the Ruins",
+      "giver_npc_id": "brill_town_crier",
+      "zone": "brill",
+      "level_min": 9,
+      "level_max": 11,
+      "description": "The Landing is one thing. The Ruins of Lordaeron, just south, are another: the old capital, gate to the Undercity, and full of rumours the town crier cannot afford to miss. Walk the approach and see who is still home.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_tirisfal",
+          "target_x": 12,
+          "target_y": 110,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "South of the landing, along the road the Dark Lady took. Don't linger. The ghosts remember being important.",
+      "turn_in_text": "The old throne's cold, then. Pity. It was a lovely rumour.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Weathered-Banner Sash",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Once somebody's best.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Belt (Int/SP/Crit)"
+        },
+        {
+          "name": "Ruin-Dust Spaulders",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Once somebody's best.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 23,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Royal Guard's Pike",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Gold braid, faded to grey.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "armor": 15.8,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 35,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "brl_grael_pumpkins",
+      "title": "Blight Pumpkins",
+      "giver_npc_id": "brill_apothecary_asst",
+      "zone": "brill",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Assistant Grael needs the pumpkins the Solliden thrashers are growing: swollen, grey-green things that ferment into the Apothecary's best base for plague reagents. He will not go near them himself. The thrashers hit back.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "blighted_pumpkin",
+          "count": 5
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "The Grain Threshers in the Solliden fields carry them. Five, uncracked, please. I'm very particular about cracks.",
+      "turn_in_text": "Perfectly foul. Look at the colour. Take something from the shelf, you've earned it.",
+      "next_quest_id": "brl_grael_pearls",
+      "unique_item_defs": [
+        {
+          "name": "Tithe-Barn Hauberk",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A farmer wore this to work in rain that never ends.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Chest (Int/Sta)"
+        },
+        {
+          "name": "Harvest-Blighted Gloves",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 6,
+          "label": "Leather Gloves (Agi/Int)"
+        },
+        {
+          "name": "Harvest-Blighted Sword",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "brl_grael_pearls",
+      "title": "Pearls from the Bay",
+      "giver_npc_id": "brill_apothecary_asst",
+      "zone": "brill",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "The Vile Fin oracles on Whispering Shore wear salt-pearls the Apothecary can grind into a calming powder. Grael has no idea what the Vile Fins want them for, and not much interest in the answer.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "oracle_pearl",
+          "count": 5
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "North-west, where the bay meets the dead marsh. The little oracles. Five pearls, and don't scratch them.",
+      "turn_in_text": "Lovely lustre. Ground fine, these'll keep a grave-robber asleep for a month. Take your pick.",
+      "next_quest_id": "brl_grael_iceshard",
+      "unique_item_defs": [
+        {
+          "name": "Kelp-Woven Skirt",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Wind off the water gets in the seams.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Legs (Sta/Spi)"
+        },
+        {
+          "name": "Tide-Worn Pauldrons",
+          "slot": "shoulder",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Dried by wind, never by sun.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 28,
+          "label": "Plate Shoulders (Str/Int)"
+        },
+        {
+          "name": "Shore-Reed Signet",
+          "slot": "ring",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Wind off the water gets in the seams.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "brl_grael_iceshard",
+      "title": "Brightwater Ice",
+      "giver_npc_id": "brill_apothecary_asst",
+      "zone": "brill",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Brightwater Lake sheds shards of black ice no matter the weather, and the weeping shades that stalk its shore carry them like keepsakes. The Apothecary uses them for cold-fixing. Grael needs five.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "iceshard_fragment",
+          "count": 5
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "Eastern Tirisfal, Brightwater Lake. The shades and the drowned wretches carry fragments. Bring five, and gloves.",
+      "turn_in_text": "Cold enough to hurt. Excellent. Your reward is on the third shelf. Do not touch the fourth.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Brightwater Greaves",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Water beads and runs off, or doesn't.",
+          "primary_stats": {
+            "strength": 2,
+            "spirit": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Legs (Str/Spi)"
+        },
+        {
+          "name": "Iceshard Girdle",
+          "slot": "waist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Frost along the hem, even in summer.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Belt (Int/Sta)"
+        },
+        {
+          "name": "Lakeshore Ring",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Water beads and runs off, or doesn't.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "brl_hollis_robbers",
+      "title": "Fresh Graves, Empty",
+      "giver_npc_id": "brill_gravedigger",
+      "zone": "brill",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Gravedigger Hollis has been digging graves for thirty years, living and dead, and he knows when one's been robbed. Rot Hide gnolls up at Garren's Haunt are doing it, and they leave the bodies in the wrong places.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rot Hide Graverobber",
+          "count": 6,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "The graverobbers use shovels. I recognise the shovels. They're mine. Put them in the ground.",
+      "turn_in_text": "Six less. I'd say rest in peace, but they never earned it. Take your pick.",
+      "next_quest_id": "brl_hollis_relics",
+      "unique_item_defs": [
+        {
+          "name": "Haunt-Stitched Helm",
+          "slot": "head",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Stitched together by something with very little patience.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Helm (Str/Agi)"
+        },
+        {
+          "name": "Garren's Boots",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Stitched together by something with very little patience.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 21,
+          "label": "Plate Boots (Sta)"
+        },
+        {
+          "name": "Gnoll-Chewed Charm",
+          "slot": "neck",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Dog-chewed and worse.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "brl_hollis_relics",
+      "title": "Returned to the Earth",
+      "giver_npc_id": "brill_gravedigger",
+      "zone": "brill",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Whatever the robbers and the crypt wights took, Hollis wants it back in the ground where it belongs: rings, seals, little carved relics from the Agamand family vault.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "grave_relic",
+          "count": 5
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "The wights in the Agamand crypt and the robbers at Garren's Haunt carry the best of it. Five relics, and no keeping any.",
+      "turn_in_text": "All present. I'll bury them tonight with a proper word. Take something from the barrow.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Wight-Bone Greaves",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The Agamand family kept their dead dressed. This is what they wore.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Boots (Str/Agi)"
+        },
+        {
+          "name": "Wight-Bone Skirt",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The Agamand family kept their dead dressed. This is what they wore.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Legs (Int/Sta)"
+        },
+        {
+          "name": "Mausoleum Rod",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Damp stone and older dust.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 20,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "brl_meryl_orders",
+      "title": "A Brother in the Crusade",
+      "giver_npc_id": "brill_human_sympathizer",
+      "zone": "brill",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Meryl Ashdown has a brother in the Scarlet Crusade. She wants to know if he is still alive, still sane, or still listed. Convert orders from the Crusader Outpost might tell her. She will not ask what you do to get them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "crusade_orders",
+          "count": 5
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "The Crusader Outpost west of the Solliden farms. The recruits carry their orders on them. Please. Five. And don't hurt him if you meet him.",
+      "turn_in_text": "...He's on the roster. Alive, at least. Thank you. I won't forget this. Take something. It was his.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Scarlet Picket's Mantle",
+          "slot": "back",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Crimson dye, fading in the rain.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Sta)"
+        },
+        {
+          "name": "Scarlet Picket's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Whoever wore it believed every word of the sermon.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 28,
+          "label": "Plate Shoulders (Str/Int)"
+        },
+        {
+          "name": "Scarlet Picket's Walking Stick",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 12,
+          "attack_speed": 3.2,
+          "label": "Staff (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "brl_nettles_crows",
+      "title": "Crows Over Brill",
+      "giver_npc_id": "brill_farmer",
+      "zone": "brill",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Old Farmer Nettles swears the duskbats over the glades are the crows that used to eat his barley, and that they're still after it. Nothing grows, but he insists on the principle.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mangy Duskbat",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Out in the glades, the big grey ones. They've had my crop and my patience. Eight of them, if you please.",
+      "turn_in_text": "Eight. I'll hang them on the fence. It's what you do. Take some of the old tack.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Harvest-Blighted Cloak",
+          "slot": "back",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Cloak (Int/Spi)"
+        },
+        {
+          "name": "Tithe-Barn Chain Belt",
+          "slot": "waist",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 10,
+          "label": "Mail Belt (Sta)"
+        },
+        {
+          "name": "Solliden Hammer",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A farmer wore this to work in rain that never ends.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "brl_pruit_straw",
+      "title": "Straw and Sorrow",
+      "giver_npc_id": "brill_scarecrow_tender",
+      "zone": "brill",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Pruit tends the scarecrows that guard Brill's plots. The Rotting Dead that stumble in from the glades keep knocking them down and, worse, leaving their own shapes on the posts. He wants them cleared.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rotting Dead",
+          "count": 7,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Seven, and don't bring them back. I'll make do with straw.",
+      "turn_in_text": "Straw's easier to stand up than they are. Thank you, friend. Take what you need.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Pumpkin-Vine Robe",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Chest (Int/Sta)"
+        },
+        {
+          "name": "Furrow-Worn Leggings",
+          "slot": "legs",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Legs (Agi/Sta)"
+        },
+        {
+          "name": "Furrow-Worn Band",
+          "slot": "ring",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A farmer wore this to work in rain that never ends.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "brl_ohmsted_toll",
+      "title": "A Toll for the Drowned",
+      "giver_npc_id": "brill_bell_ringer",
+      "zone": "brill",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "The bell-ringer rings once a day for those lost at Brightwater Lake. Lately the Drowned Wretches ring back, from the water. He wants them quiet.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Wretch",
+          "count": 7,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "East past Brill, the big lake on the north side. They rise at dusk and wail. Seven, please.",
+      "turn_in_text": "Quieter, I think. Or I've gone deaf. Either way, thank you.",
+      "next_quest_id": "brl_ohmsted_shades",
+      "unique_item_defs": [
+        {
+          "name": "Lakeshore Breeches",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Legs (Int/Sta)"
+        },
+        {
+          "name": "Cold-Water Bracers",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "It was a fisher's before the lake started crying.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Bracers (Sta)"
+        },
+        {
+          "name": "Shade-Haunted Blade",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "It was a fisher's before the lake started crying.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.4,
+          "label": "Sword (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "brl_ohmsted_shades",
+      "title": "Silence the Weeping",
+      "giver_npc_id": "brill_bell_ringer",
+      "zone": "brill",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "The Weeping Shades answer the toll with their own. It is the worst sound in Tirisfal. Ohmsted would like them gone, or at least discouraged.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Weeping Shade",
+          "count": 6,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "Same lake. The shades. They're rather high-handed about it. Six, if you can stomach it.",
+      "turn_in_text": "I can hear the bell again. It's a lovely sound, if you're me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Iceshard Sabatons",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Water beads and runs off, or doesn't.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Boots (Sta)"
+        },
+        {
+          "name": "Lakeshore Leggings",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Legs (Int/Spi)"
+        },
+        {
+          "name": "Iceshard Ring",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Water beads and runs off, or doesn't.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "brl_joss_home",
+      "title": "The Old Homestead",
+      "giver_npc_id": "brill_newly_risen_farmhand",
+      "zone": "brill",
+      "level_min": 9,
+      "level_max": 11,
+      "description": "Farmhand Joss remembers a stable, a farmhouse and a woman who made bread. He thinks it was south of the Brill road, near an overgrown paddock. He wants someone to walk the place and tell him whether it's still there.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_tirisfal",
+          "target_x": 38,
+          "target_y": 98,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "Balnir, I think they called it. South of the east road. Look at the farmhouse for me and tell me what's left.",
+      "turn_in_text": "The stable's still standing? That's... something. Thank you. I'll remember it better now.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Saddle-Worn Treads",
+          "slot": "feet",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Smells of hay and horse. The horses are gone.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.4
+          },
+          "armor_type": "leather",
+          "armor_value": 9,
+          "label": "Leather Boots (Agi/Sta/AP)"
+        },
+        {
+          "name": "Hay-Dusted Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Worn by someone who still hoped.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.3
+          },
+          "armor_type": "mail",
+          "armor_value": 23,
+          "label": "Mail Shoulders (Int/Hit/SP)"
+        },
+        {
+          "name": "Worg-Scarred Sword",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "A stableboy's, with a stableboy's patches.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "armor": 4.4,
+            "parry_rating": 0.1
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "brl_ilvessa_cargo",
+      "title": "Lost Cargo",
+      "giver_npc_id": "brill_beltelf_trader",
+      "zone": "brill",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Trader Ilvessa's shipment never made it from the Undercity zeppelin to her stall. Scavengers picked it clean on the road, and she wants her crates back before the next shipment arrives and the scavengers get ideas.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "stolen_cargo",
+          "count": 6
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "Ragged scavengers along the Eastern road. They steal anything that glints. Six crates, please.",
+      "turn_in_text": "My goods! Mostly my goods. Take your cut, darling.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Cargo-Hauler's Belt",
+          "slot": "waist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Whoever carried freight in this carried it well.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Belt (Str/Spi)"
+        },
+        {
+          "name": "Cargo-Hauler's Girdle",
+          "slot": "waist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Goblin work: sturdy, overpriced and slightly wrong.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 18,
+          "label": "Plate Belt (Sta)"
+        },
+        {
+          "name": "Landing-Dock Band",
+          "slot": "ring",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Whoever carried freight in this carried it well.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "label": "Ring (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "wtv_wolves",
+      "title": "Howls in the Vale",
+      "giver_npc_id": "wt_vale_ranger",
+      "zone": "western_tirisfal",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "Ranger Corvin Ashe walks the Vale's edge for the Deathguard, and the Bleak Worgs have been getting bolder. He needs the pack thinned before it learns to climb the road.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bleak Worg",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 380,
+      "reward_gold": 1500,
+      "accept_text": "They hunt in the dusk. Eight should keep them wary. Aim for the grey ones, they lead.",
+      "turn_in_text": "That's quieter. Nobody ever thanks a ranger for what doesn't happen. I'm thanking you.",
+      "next_quest_id": "wtv_crawlers",
+      "unique_item_defs": [
+        {
+          "name": "Hollow-Hunter's Helm",
+          "slot": "head",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Somebody left it where the road bends. You can see why.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Helm (Int/Sta)"
+        },
+        {
+          "name": "Nightmare Bindings",
+          "slot": "wrist",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Somebody left it where the road bends. You can see why.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Bracers (Int/Sta)"
+        },
+        {
+          "name": "Thorn-Torn Necklace",
+          "slot": "neck",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Worn thin by thorn and branch.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "wtv_crawlers",
+      "title": "Crawling Things",
+      "giver_npc_id": "wt_vale_ranger",
+      "zone": "western_tirisfal",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "Nightcrawlers burrow in the Vale's loam and snap at anyone who walks overhead. Corvin has lost two boots to them and more dignity than he cares to admit.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Young Nightcrawler",
+          "count": 7,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 380,
+      "reward_gold": 1500,
+      "accept_text": "Under the roots. You'll feel them before you see them. Seven, please, before they grow.",
+      "turn_in_text": "Good. A man can walk again. Take a piece of the kit.",
+      "next_quest_id": "wtv_needler",
+      "unique_item_defs": [
+        {
+          "name": "Moth-Eaten Cape",
+          "slot": "back",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Worn thin by thorn and branch.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Gloamwood Vestments",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Somebody left it where the road bends. You can see why.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Chest (Int/Sta)"
+        },
+        {
+          "name": "Thorn-Torn Axe",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Worn thin by thorn and branch.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 2.6,
+          "label": "Axe (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "wtv_needler",
+      "title": "The Needler",
+      "giver_npc_id": "wt_vale_ranger",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "A big old duskbat called Ressan the Needler nests above the Vale road. Needle-sharp teeth, a taste for ankles, and a flock that follows him. Corvin has had enough.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ressan the Needler",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Mangy Duskbat",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 546,
+      "reward_gold": 2340,
+      "accept_text": "He's a brute, flies low, and screams. Clear his flock and then him. I'll watch from here, with my boots on.",
+      "turn_in_text": "He's down. I can hear myself think. Well done. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dusk-Vale Treads",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The Vale never lets you wash it out.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 7,
+          "label": "Leather Boots (Agi/Int)"
+        },
+        {
+          "name": "Moth-Eaten Veil",
+          "slot": "head",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The Vale never lets you wash it out.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Helm (Sta/Spi)"
+        },
+        {
+          "name": "Dusk-Vale Charm",
+          "slot": "neck",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Smells of loam and wolf. Both are mostly gone.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "label": "Necklace (Sta/Spi)"
+        },
+        {
+          "name": "Gloamwood Chausses",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Cut for someone who lived in the dark, and liked it.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 24,
+          "label": "Mail Legs (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "wt_manor_reapers",
+      "title": "Reapers at the Door",
+      "giver_npc_id": "wt_coldhearth_watcher",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Watcher Pell has kept the Cold Hearth gate for a year and the reapers have never stopped coming. They come up out of the manor cellars with scythes and no manners.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Manor Reaper",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Eight, and be careful with the scythes. They've been sharpened since before you died.",
+      "turn_in_text": "Eight. That's the first quiet watch in a month. Take something from the pile.",
+      "next_quest_id": "wt_manor_dead",
+      "unique_item_defs": [
+        {
+          "name": "Manor-Reaper's Cuffs",
+          "slot": "wrist",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "It was a servant's once. Someone rose from it in a hurry.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 6,
+          "label": "Leather Bracers (Agi/Spi)"
+        },
+        {
+          "name": "Manor-Reaper's Visor",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "It was a servant's once. Someone rose from it in a hurry.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 24,
+          "label": "Plate Helm (Str/Int)"
+        },
+        {
+          "name": "Ash-Hearth Knife",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The manor's chimney has been cold a long time. This remembers.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "wt_manor_dead",
+      "title": "The Hall Fills Up",
+      "giver_npc_id": "wt_coldhearth_watcher",
+      "zone": "western_tirisfal",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "The reapers aren't the only thing in the hall. Zombies and Rotting Dead pour out of the grounds as if the manor were calling them home.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Wretched Zombie",
+          "count": 6,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Rotting Dead",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "Clear the gardens. Zombies and the rotted ones. The sooner they stop coming, the sooner I stop watching.",
+      "turn_in_text": "The gardens are empty. For now. Thank you. Your pick of the lot.",
+      "next_quest_id": "wt_aldous",
+      "unique_item_defs": [
+        {
+          "name": "Draught-Chilled Bracers",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "It was a servant's once. Someone rose from it in a hurry.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Bracers (Str/Spi)"
+        },
+        {
+          "name": "Cold Hearth Bindings",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Hung in the hall until the reapers rose.",
+          "primary_stats": {
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Bracers (Spi)"
+        },
+        {
+          "name": "Manor-Reaper's Saber",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "It was a servant's once. Someone rose from it in a hurry.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "wt_aldous",
+      "title": "The Reaper-Lord",
+      "giver_npc_id": "wt_coldhearth_watcher",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 9,
+      "description": "Reaper-Lord Aldous is what the manor's dead report to: a tall, scythe-armed wreck who thinks the hall is still his. Pell would like him to be wrong.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Reaper-Lord Aldous",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Manor Reaper",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 611,
+      "reward_gold": 2730,
+      "accept_text": "Inside the hall, at the hearth. His reapers will guard him. Take them first, then Aldous.",
+      "turn_in_text": "The Lord of the Hall, in pieces. I'll have the hearth lit again. Take what you want.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ash-Hearth Spaulders",
+          "slot": "shoulder",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "It was a servant's once. Someone rose from it in a hurry.",
+          "primary_stats": {
+            "strength": 2,
+            "spirit": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Shoulders (Str/Spi)"
+        },
+        {
+          "name": "Mourning-Hall Wraps",
+          "slot": "shoulder",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The manor's chimney has been cold a long time. This remembers.",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Shoulders (Spi)"
+        },
+        {
+          "name": "Chimney-Black Glaive",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The manor's chimney has been cold a long time. This remembers.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 6,
+            "agility": 6
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Agi)"
+        },
+        {
+          "name": "Draught-Chilled Vest",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The manor's chimney has been cold a long time. This remembers.",
+          "primary_stats": {
+            "agility": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Chest (Agi/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wts_puddlejumpers",
+      "title": "Vile Fins on the Strand",
+      "giver_npc_id": "wt_shore_fisher",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Fisher Quillon's nets are in tatters and his boat is gone. The Vile Fin murlocs on Whispering Shore took the boat and use the nets as hats. He wants them put in their place.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Vile Fin Puddlejumper",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Along the strand to the north-west. The little ones. Eight, and bring back my dignity if you find it.",
+      "turn_in_text": "That'll teach them. Probably not, but it'll teach me something. Take a piece of what's left.",
+      "next_quest_id": "wts_pearls",
+      "unique_item_defs": [
+        {
+          "name": "Brine-Stained Leggings",
+          "slot": "legs",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Wet to the touch even when it is dry.",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Legs (Spi)"
+        },
+        {
+          "name": "Shore-Reed Jerkin",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Wet to the touch even when it is dry.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Chest (Agi)"
+        },
+        {
+          "name": "Brine-Stained Flail",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Wind off the water gets in the seams.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "wts_pearls",
+      "title": "Oracle's Pearls",
+      "giver_npc_id": "wt_shore_fisher",
+      "zone": "western_tirisfal",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "The oracles wear pearls to speak to the tide, and the tide has been speaking a great deal of nonsense lately. Quillon thinks taking the pearls might quiet it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "oracle_pearl",
+          "count": 5
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "The Minor Oracles carry them. Five pearls, and if the tide screams, run.",
+      "turn_in_text": "Quiet at last. Even the gulls have stopped. Your pick, friend.",
+      "next_quest_id": "wts_gillrot",
+      "unique_item_defs": [
+        {
+          "name": "Salt-Crusted Boots",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Dried by wind, never by sun.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 7,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Brine-Stained Handguards",
+          "slot": "hands",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Wet to the touch even when it is dry.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Gloves (Str/Agi)"
+        },
+        {
+          "name": "Kelp-Woven Walking Stick",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "The Vile Fins left it on the strand. Maybe a sacrifice.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 5
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 12,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "wts_gillrot",
+      "title": "Old Gillrot",
+      "giver_npc_id": "wt_shore_fisher",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 9,
+      "description": "Old Gillrot leads the Vile Fins, a withered oracle with a staff made from a drowned man's mast. He's the one who stole the boat. Quillon wants it back.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Gillrot",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Vile Fin Minor Oracle",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 611,
+      "reward_gold": 2730,
+      "accept_text": "He sits on the biggest rock. His oracles heal him, so thin them first, then Gillrot.",
+      "turn_in_text": "My boat's still rotten, but it's mine. Take whatever you like from his trove.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tide-Worn Spaulders",
+          "slot": "shoulder",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The Vile Fins left it on the strand. Maybe a sacrifice.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Shoulders (Str/Sta)"
+        },
+        {
+          "name": "Salt-Crusted Mitts",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Smells of the bay and of what the bay keeps.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Gloves (Sta/Spi)"
+        },
+        {
+          "name": "Tide-Worn Flail",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Smells of the bay and of what the bay keeps.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        },
+        {
+          "name": "Salt-Crusted Cuirass",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Smells of the bay and of what the bay keeps.",
+          "primary_stats": {
+            "strength": 2,
+            "spirit": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Chest (Str/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wto_converts",
+      "title": "Fresh Converts",
+      "giver_npc_id": "wt_outpost_scout",
+      "zone": "western_tirisfal",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Scout Dessa Vane watches the Crusader Outpost from the thorn-line. New recruits arrive weekly, wide-eyed and fanatical. The Deathguard would like fewer of them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Convert",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "They're green and enthusiastic. That makes them dangerous. Eight, and keep to the shadows.",
+      "turn_in_text": "Fewer recruits, fewer problems. The Crusade bleeds. Take your pick.",
+      "next_quest_id": "wto_initiates",
+      "unique_item_defs": [
+        {
+          "name": "Recruit's Coif",
+          "slot": "head",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "The Crusade does not skimp on paint. Or on zeal.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 11,
+          "label": "Leather Helm (Agi)"
+        },
+        {
+          "name": "Scarlet Picket's Sandals",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Boots (Sta/Spi)"
+        },
+        {
+          "name": "Oath-Stamped Rod",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "The Crusade does not skimp on paint. Or on zeal.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 12,
+          "attack_speed": 3.2,
+          "label": "Staff (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "wto_initiates",
+      "title": "Initiates and Banners",
+      "giver_npc_id": "wt_outpost_scout",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 9,
+      "description": "Behind the converts stand the Initiates: trained, armed and devout. They carry the Crusade's banners and the outpost's stubbornness. Dessa wants them cut down before they march on Brill.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Initiate",
+          "count": 6,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "They're better than the converts. Don't engage more than two at once. Six, please.",
+      "turn_in_text": "A good cut. I'd say the Crusade will feel that. Take what you can carry.",
+      "next_quest_id": "wto_korgal",
+      "unique_item_defs": [
+        {
+          "name": "Banner-Red Coif",
+          "slot": "head",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Whoever wore it believed every word of the sermon.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 18,
+          "label": "Mail Helm (Sta)"
+        },
+        {
+          "name": "Oath-Stamped Sabatons",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Crimson dye, fading in the rain.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 18,
+          "label": "Plate Boots (Str/Spi)"
+        },
+        {
+          "name": "Banner-Red Axe",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "wto_korgal",
+      "title": "Meven Korgal",
+      "giver_npc_id": "wt_outpost_scout",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 9,
+      "description": "Meven Korgal commands the Crusader Outpost: a veteran, a zealot and an excellent shot with a prayer. If he falls, the outpost will fall with him.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Meven Korgal",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Convert",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 611,
+      "reward_gold": 2730,
+      "accept_text": "He's at the heart of the camp. His recruits will rally. Take them first, then him.",
+      "turn_in_text": "Korgal's dead. The camp's a rabble. That'll buy Brill a season. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Crusader's Legguards",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Crimson dye, fading in the rain.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Legs (Sta)"
+        },
+        {
+          "name": "Recruit's Cloak",
+          "slot": "back",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The Crusade does not skimp on paint. Or on zeal.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Int)"
+        },
+        {
+          "name": "Crusader's Talisman",
+          "slot": "neck",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The Crusade does not skimp on paint. Or on zeal.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)"
+        },
+        {
+          "name": "Oath-Stamped Boots",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Whoever wore it believed every word of the sermon.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 21,
+          "label": "Plate Boots (Str/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wtf_farmhands",
+      "title": "Hands Without Masters",
+      "giver_npc_id": "wt_solliden_farmer",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Widow Marren's farmhands stayed on after the master died, and after they died. They work the fields all hours with rusted tools and no direction.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Solliden Farmhand",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "They don't know any better. Put them down gently. They were good men.",
+      "turn_in_text": "Thank you. I'll sit with the ones who remain. Please, take something.",
+      "next_quest_id": "wtf_threshers",
+      "unique_item_defs": [
+        {
+          "name": "Furrow-Worn Wraps",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Gloves (Int/Sta)"
+        },
+        {
+          "name": "Pumpkin-Vine Boots",
+          "slot": "feet",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 6,
+          "label": "Leather Boots (Agi)"
+        },
+        {
+          "name": "Pumpkin-Vine Ring",
+          "slot": "ring",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "wtf_threshers",
+      "title": "Blighted Harvest",
+      "giver_npc_id": "wt_solliden_farmer",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "The grain threshers, blighted machines that run themselves, have eaten the last of the harvest and are looking for more. Marren cannot stop them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blighted Grain Thresher",
+          "count": 7,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "They're iron and rot. Seven of them, before they find the house.",
+      "turn_in_text": "The fields are quiet. Still ruined, but quiet. Take some of the old tack.",
+      "next_quest_id": "wtf_goodman",
+      "unique_item_defs": [
+        {
+          "name": "Solliden Robe",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Chest (Int)"
+        },
+        {
+          "name": "Solliden Legguards",
+          "slot": "legs",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Legs (Str/Agi)"
+        },
+        {
+          "name": "Solliden Shortbow",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Straw in the seams and soil in the grain.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "wtf_goodman",
+      "title": "Goodman Solliden",
+      "giver_npc_id": "wt_solliden_farmer",
+      "zone": "western_tirisfal",
+      "level_min": 7,
+      "level_max": 8,
+      "description": "Her husband, Goodman Solliden, walks the fields with a pitchfork and a blighted grin. She wants him laid to rest, and doesn't want to watch.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Goodman Solliden",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Solliden Farmhand",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 546,
+      "reward_gold": 2340,
+      "accept_text": "He's out among the pumpkins. His men will guard him. Be kind to him, if you can.",
+      "turn_in_text": "...Thank you. He was a good man once. Take his things. I can't look at them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Furrow-Worn Bracers",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Bracers (Int)"
+        },
+        {
+          "name": "Pumpkin-Vine Spaulders",
+          "slot": "shoulder",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "The harvest rots where it stands. So does this.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_type": "plate",
+          "armor_value": 28,
+          "label": "Plate Shoulders (Sta)"
+        },
+        {
+          "name": "Solliden Ring",
+          "slot": "ring",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Str/Sta)"
+        },
+        {
+          "name": "Solliden Girdle",
+          "slot": "waist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Belt (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "wtp_lurkers",
+      "title": "Things in the Silt",
+      "giver_npc_id": "wt_pond_hermit",
+      "zone": "western_tirisfal",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "Hermit Oswin lives by Stillwater Pond because no one else will. The crab-like lurkers in the silt are the only neighbours he has, and they bite.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Stillwater Lurker",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 380,
+      "reward_gold": 1500,
+      "accept_text": "They hide in the mud and pinch. Eight, and watch your ankles.",
+      "turn_in_text": "Fewer pincers. A man can wash his feet again. Thanks.",
+      "next_quest_id": "wtp_dead",
+      "unique_item_defs": [
+        {
+          "name": "Hermit's Cord",
+          "slot": "waist",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Fished from the muck. It dries out in a week, if you ignore the smell.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Belt (Sta/Spi)"
+        },
+        {
+          "name": "Bog-Slick Chestguard",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "The pond keeps what falls in. This slipped through.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 28,
+          "label": "Plate Chest (Str/Spi)"
+        },
+        {
+          "name": "Reed-Bound Dirk",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Fished from the muck. It dries out in a week, if you ignore the smell.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "wtp_dead",
+      "title": "The Drowned Choir",
+      "giver_npc_id": "wt_pond_hermit",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "The Rotting Dead shuffle out of the pond at all hours, singing a hymn no one remembers. Oswin finds it unrestful.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rotting Dead",
+          "count": 7,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "They hum. I can't stand the humming. Seven, please.",
+      "turn_in_text": "Silence at last. I think I'll sleep. Take your pick.",
+      "next_quest_id": "wtp_murk",
+      "unique_item_defs": [
+        {
+          "name": "Silt-Caked Hood",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Mud in every stitch.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Helm (Int/Spi)"
+        },
+        {
+          "name": "Silt-Caked Coif",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The pond keeps what falls in. This slipped through.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 10,
+          "label": "Leather Helm (Sta)"
+        },
+        {
+          "name": "Hermit's Talisman",
+          "slot": "neck",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The pond keeps what falls in. This slipped through.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "label": "Necklace (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "wtp_murk",
+      "title": "Murk the Bloated",
+      "giver_npc_id": "wt_pond_hermit",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 7,
+      "description": "Something large sits at the bottom of the pond. Oswin calls it Murk. It bloats with every drowned thing and belches them up on the shore.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Murk the Bloated",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Stillwater Lurker",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 494,
+      "reward_gold": 1950,
+      "accept_text": "It comes up when you splash. Clear the lurkers, then call it out. Don't fight in the water.",
+      "turn_in_text": "The pond's clear. Well, clearer. Take his treasures. I've no use for them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Silt-Caked Boots",
+          "slot": "feet",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Mud in every stitch.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 16,
+          "label": "Plate Boots (Str/Sta)"
+        },
+        {
+          "name": "Stillwater Boots",
+          "slot": "feet",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Mud in every stitch.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 10,
+          "label": "Mail Boots (Str/Spi)"
+        },
+        {
+          "name": "Pond-Dredged Pike",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "The pond keeps what falls in. This slipped through.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "weapon_damage_min": 17,
+          "weapon_damage_max": 23,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        },
+        {
+          "name": "Reed-Bound Bindings",
+          "slot": "wrist",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Heavy with pond water.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Bracers (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "wta_servants",
+      "title": "The Agamand Staff",
+      "giver_npc_id": "wt_agamand_envoy",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Envoy Sorren speaks for Brill at the old mill. The Agamand servants still tend the house they died in, and they'll murder anyone who tries to take the grain.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Agamand Servant",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They're stubborn, not smart. Eight, and don't let them corner you in the mill-race.",
+      "turn_in_text": "That'll thin the household. Sorren thanks you. Take your pick.",
+      "next_quest_id": "wta_keys",
+      "unique_item_defs": [
+        {
+          "name": "Servant's Cuffs",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Flour-pale and damp.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Bracers (Agi/Int)"
+        },
+        {
+          "name": "Estate Treads",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The estate's servants wore them in life. They wear nothing in death.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 21,
+          "label": "Plate Boots (Str/Int)"
+        },
+        {
+          "name": "Grain-Dust Wand",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The estate's servants wore them in life. They wear nothing in death.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "spirit": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 20,
+          "attack_speed": 1.9,
+          "label": "Wand (Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wta_keys",
+      "title": "Keys to the Cellar",
+      "giver_npc_id": "wt_agamand_envoy",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Captured farmers are held in the mill cellars, shackled and slowly rotting. The servants carry the keys. Sorren wants them freed, or at least unlocked.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "captured_farmer_shackle_key",
+          "count": 3
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "The servants have the keys on them. Three should open the lot. Bring them to me.",
+      "turn_in_text": "Three keys. That's freedom for the lot of them. Take something for the trouble.",
+      "next_quest_id": "wta_thurman",
+      "unique_item_defs": [
+        {
+          "name": "Agamand Leggings",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "A good cut, wasted on a bad owner.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Legs (Int/Sta)"
+        },
+        {
+          "name": "Servant's Wristguards",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Flour-pale and damp.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Bracers (Agi/Spi)"
+        },
+        {
+          "name": "Grain-Dust Band",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "A good cut, wasted on a bad owner.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wta_thurman",
+      "title": "Thurman Agamand",
+      "giver_npc_id": "wt_agamand_envoy",
+      "zone": "western_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Thurman Agamand was the miller, then the lord, then something worse. He reigns in the mill-house with a family of ghouls. Sorren wants the house back.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Thurman Agamand",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Agamand Family Ghoul",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 676,
+      "reward_gold": 3120,
+      "accept_text": "He's at the heart of the mill. His ghouls come first. Be ready.",
+      "turn_in_text": "The mill's ours. The Agamands are dust. Take what you like from the strongbox.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Millstone Vambraces",
+          "slot": "wrist",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The estate's servants wore them in life. They wear nothing in death.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "block_rating": 0.2,
+            "block_value": 1.5
+          },
+          "armor_type": "plate",
+          "armor_value": 30,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Mill-Race Belt",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "From the Agamand house, once fine. Now fine only in the sense of dust.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.1
+          },
+          "armor_type": "mail",
+          "armor_value": 20,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Grain-Dust Blade",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Flour-pale and damp.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "armor": 5.7,
+            "parry_rating": 0.1
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Grain-Dust Cord",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The estate's servants wore them in life. They wear nothing in death.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 12,
+          "label": "Leather Belt (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "wtc_wights",
+      "title": "Wights Below",
+      "giver_npc_id": "wt_crypt_keeper",
+      "zone": "western_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Keeper Halvard guards the Agamand crypt gate and has not been inside since the wights woke. They hold the vaults now, and he wants them cleared.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Agamand Crypt Wight",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They're strong, hungry and old. Eight, and don't let them gang up.",
+      "turn_in_text": "That's the vaults breathing easier. Thank you. Take something.",
+      "next_quest_id": "wtc_dargol",
+      "unique_item_defs": [
+        {
+          "name": "Tomb-Guard Wraps",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Cold to the touch, in every season.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Boots (Sta/Spi)"
+        },
+        {
+          "name": "Ancestral Cuirass",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Damp stone and older dust.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Chest (Str/Sta)"
+        },
+        {
+          "name": "Ancestral Sword",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "The Agamand family kept their dead dressed. This is what they wore.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.4,
+          "label": "Sword (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wtc_dargol",
+      "title": "Captain Dargol",
+      "giver_npc_id": "wt_crypt_keeper",
+      "zone": "western_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Captain Dargol, last of the Agamand guard, rose to defend a family that is already dust. He fights anything that comes near the dead.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Dargol",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Agamand Crypt Wight",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 676,
+      "reward_gold": 3120,
+      "accept_text": "He's at the deepest vault. His wights guard the door. Clear them, then him.",
+      "turn_in_text": "Dargol's at rest. The vault is ours. Take your pick of the old arms.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Crypt-Warden's Spaulders",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Tomb-robbers left it. That says something.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 45,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Crypt-Warden's Cape",
+          "slot": "back",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Damp stone and older dust.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 10,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Ancestral Glaive",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The Agamand family kept their dead dressed. This is what they wore.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "armor": 20.7,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Sepulchre Wraps",
+          "slot": "feet",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Tomb-robbers left it. That says something.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Boots (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "wth_mongrels",
+      "title": "Mongrels in the Fields",
+      "giver_npc_id": "wt_garren_warden",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Warden Brask holds the line at Garren's Haunt. The Rot Hide mongrels that follow the gnolls have turned the fields into a kennel.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rot Hide Mongrel",
+          "count": 8,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They come in packs, mangy and starved. Eight, please.",
+      "turn_in_text": "That's the field quiet. Take a piece of the kit.",
+      "next_quest_id": "wth_gnolls",
+      "unique_item_defs": [
+        {
+          "name": "Haunt-Stitched Legguards",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Stitched together by something with very little patience.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Legs (Int/Sta)"
+        },
+        {
+          "name": "Mongrel-Scrap Wraps",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "It stinks. It also works.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Haunt-Stitched Charm",
+          "slot": "neck",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Whoever robbed the graves here took this off one.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "label": "Necklace (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wth_gnolls",
+      "title": "Gnoll Camp",
+      "giver_npc_id": "wt_garren_warden",
+      "zone": "western_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Behind the mongrels stand the Rot Hide gnolls: brutes in stitched hide with clubs as long as your arm. They dig up graves for fun. Brask is not amused.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rot Hide Gnoll",
+          "count": 7,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They have clubs and bad tempers. Seven should get the message across.",
+      "turn_in_text": "Seven fewer clubs. Excellent. Your pick.",
+      "next_quest_id": "wth_maggot",
+      "unique_item_defs": [
+        {
+          "name": "Rot Hide Leggings",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Dog-chewed and worse.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Legs (Int/Spi)"
+        },
+        {
+          "name": "Gnoll-Chewed Boots",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Whoever robbed the graves here took this off one.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 21,
+          "label": "Plate Boots (Str/Spi)"
+        },
+        {
+          "name": "Gnoll-Chewed Loop",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "It stinks. It also works.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "wth_maggot",
+      "title": "Maggot Eye",
+      "giver_npc_id": "wt_garren_warden",
+      "zone": "western_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Maggot Eye is the gnoll chieftain: scarred, rotted and bigger than the rest. His tribe follows him because he bites harder than they do.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Maggot Eye",
+          "count": 1,
+          "zone": "western_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Rot Hide Gnoll",
+          "count": 4,
+          "zone": "western_tirisfal"
+        }
+      ],
+      "reward_exp": 676,
+      "reward_gold": 3120,
+      "accept_text": "He sits in the middle of the camp. His guards come first. Be quick.",
+      "turn_in_text": "Maggot Eye's gone. The tribe will scatter. Take your pick of the camp's loot.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Graverobber's Chestguard",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "It stinks. It also works.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 61,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Mongrel-Scrap Leggings",
+          "slot": "legs",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Whoever robbed the graves here took this off one.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 25,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Rot Hide Hammer",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Dog-chewed and worse.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "armor": 5.7,
+            "parry_rating": 0.1
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Garren's Chausses",
+          "slot": "legs",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Stitched together by something with very little patience.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 40,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etl_dusk",
+      "title": "Dusk Over the Landing",
+      "giver_npc_id": "et_deathguard_linnea",
+      "zone": "eastern_tirisfal",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Deathguard Linnea keeps order at the zeppelin landing. Duskbats roost in the ropes and drop on passengers. It is, she says, bad for business.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mangy Duskbat",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "Up in the ropes and along the road. Eight, please, before the next boat.",
+      "turn_in_text": "The landing is quieter. Thank you. Take something from the supply crate.",
+      "next_quest_id": "etl_dead",
+      "unique_item_defs": [
+        {
+          "name": "Cargo-Hauler's Slippers",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Brass fittings still gleam.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Boots (Sta)"
+        },
+        {
+          "name": "Zeppelin-Crew's Greaves",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Whoever carried freight in this carried it well.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Boots (Str/Sta)"
+        },
+        {
+          "name": "Zeppelin-Crew's Spear",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Brass fittings still gleam.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 10
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "etl_dead",
+      "title": "Walkers on the Brill Road",
+      "giver_npc_id": "et_deathguard_linnea",
+      "zone": "eastern_tirisfal",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Zombies wander the road between Brill and the landing, blocking carts. They are slow and sullen and utterly uninterested in being moved.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Wretched Zombie",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 470,
+      "reward_gold": 2100,
+      "accept_text": "They block the road and the carts. Eight, and drag them off the verge.",
+      "turn_in_text": "The road is clear. Now we can complain about something else. Take your pick.",
+      "next_quest_id": "etl_remnants",
+      "unique_item_defs": [
+        {
+          "name": "Zeppelin-Crew's Shroud",
+          "slot": "back",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Goblin work: sturdy, overpriced and slightly wrong.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Sta/Spi)"
+        },
+        {
+          "name": "Goblin-Stitched Vambraces",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Goblin work: sturdy, overpriced and slightly wrong.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 18,
+          "label": "Plate Bracers (Sta)"
+        },
+        {
+          "name": "Goblin-Stitched Halberd",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 7,
+          "flavor_text": "Smells of oil, rope and Undercity.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 10
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "etl_remnants",
+      "title": "Ghosts of the Throne",
+      "giver_npc_id": "et_deathguard_linnea",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 11,
+      "description": "South of the landing lie the Ruins of Lordaeron: the old capital, the Undercity gate, and a thousand remnants of men who never left. They snap at anyone who passes.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lordaeron Remnant",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "Go south, to the ruins. The remnants are tireless. Eight, and don't stand in the open.",
+      "turn_in_text": "That will give the road a rest. Take what you need.",
+      "next_quest_id": "etl_signets",
+      "unique_item_defs": [
+        {
+          "name": "Ruin-Dust Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Gold braid, faded to grey.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 23,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Ruin-Dust Cord",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Gold braid, faded to grey.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Belt (Int/Sta/MP5)"
+        },
+        {
+          "name": "Old-Kingdom Band",
+          "slot": "ring",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Gold braid, faded to grey.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.1
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "etl_signets",
+      "title": "Signets of Lordaeron",
+      "giver_npc_id": "et_deathguard_linnea",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 11,
+      "description": "The remnants wear the signet rings of the old court. Linnea wants them: not for the gold, but because some of them can still be traced to families who might want to know.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "lordaeron_signet",
+          "count": 4
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "Four signets. They're on the remnants. Treat them with a little respect.",
+      "turn_in_text": "Four. Each one a family. I'll send them word. Take something for your trouble.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Weathered-Banner Spaulders",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "From a kingdom that doesn't remember itself.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 14,
+          "label": "Leather Shoulders (Str/Agi/Sta)"
+        },
+        {
+          "name": "Lordaeron Helm",
+          "slot": "head",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Gold braid, faded to grey.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "block_rating": 0.2,
+            "block_value": 1.8
+          },
+          "armor_type": "plate",
+          "armor_value": 35,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Weathered-Banner Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "The lions on the crest have lost their teeth.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.1
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "etm_restless",
+      "title": "The Restless of Faol",
+      "giver_npc_id": "et_gravekeeper_morvyn",
+      "zone": "eastern_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Gravekeeper Morvyn tends Faol's Rest, the old pilgrims' graveyard. The dead there will not stay put; they claw up through the soil and stand in the rows.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Faol's Restless",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They wander the rows. Eight, and be gentle with the stones.",
+      "turn_in_text": "Back in the ground, or near enough. Thank you. Take your pick.",
+      "next_quest_id": "etm_seals",
+      "unique_item_defs": [
+        {
+          "name": "Tomb-Field Greaves",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Taken from a grave that wasn't Faol's, but might have been.",
+          "primary_stats": {
+            "strength": 2,
+            "intellect": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Legs (Str/Int)"
+        },
+        {
+          "name": "Pilgrim's Coif",
+          "slot": "head",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Taken from a grave that wasn't Faol's, but might have been.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Helm (Int/Sta)"
+        },
+        {
+          "name": "Gravekeeper's Hatchet",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "A small, solemn thing.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "etm_seals",
+      "title": "Faol's Seal",
+      "giver_npc_id": "et_gravekeeper_morvyn",
+      "zone": "eastern_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Faol's grave was sealed by a ring of stone fragments. The restless have been taking them. Morvyn wants them back before the seal fails.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "faols_seal_fragment",
+          "count": 4
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "The restless carry the fragments. Four will do it. Bring them to me.",
+      "turn_in_text": "The seal is mended. Mostly. Take something for the trouble.",
+      "next_quest_id": "etm_melrache",
+      "unique_item_defs": [
+        {
+          "name": "Restless Tunic",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Graveyard moss in the weave.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Chest (Int/Sta)"
+        },
+        {
+          "name": "Faol's Rest Gauntlets",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Graveyard moss in the weave.",
+          "primary_stats": {
+            "strength": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 21,
+          "label": "Plate Gloves (Str)"
+        },
+        {
+          "name": "Tomb-Field Loop",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Graveyard moss in the weave.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "etm_melrache",
+      "title": "Captain Melrache",
+      "giver_npc_id": "et_gravekeeper_morvyn",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "A Scarlet captain, Melrache, has made Faol's Rest his camp, digging up graves and calling it a crusade. Morvyn would like him to dig his own.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Melrache",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Faol's Restless",
+          "count": 4,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 676,
+      "reward_gold": 3120,
+      "accept_text": "He sits at the north end of the rows. Clear the restless, then him.",
+      "turn_in_text": "Melrache's dead. Faol can rest. Take your pick of the camp.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Pilgrim's Boots",
+          "slot": "feet",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Taken from a grave that wasn't Faol's, but might have been.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 12,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Pilgrim's Wraps",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Graveyard moss in the weave.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.8,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Shoulders (Int/SP/Hit)"
+        },
+        {
+          "name": "Faol's Rest Dirk",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "A small, solemn thing.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        },
+        {
+          "name": "Gravekeeper's Greaves",
+          "slot": "feet",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Taken from a grave that wasn't Faol's, but might have been.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.7
+          },
+          "armor_type": "mail",
+          "armor_value": 20,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etg_wretches",
+      "title": "Lake of the Drowned",
+      "giver_npc_id": "et_gunther_lorn",
+      "zone": "eastern_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Warden Gunther Lorn watches Brightwater Lake. Drowned Wretches crawl out of it at dusk, moaning the names of the lost. He wants them back in the water.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Wretch",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They come out at dusk. Eight, and keep your feet dry if you can.",
+      "turn_in_text": "That's the shore quiet. Thanks. Take your pick.",
+      "next_quest_id": "etg_ice",
+      "unique_item_defs": [
+        {
+          "name": "Frost-Rimed Gloves",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Gloves (Int/Sta)"
+        },
+        {
+          "name": "Cold-Water Greaves",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "primary_stats": {
+            "strength": 2,
+            "spirit": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Legs (Str/Spi)"
+        },
+        {
+          "name": "Iceshard Blade",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "It was a fisher's before the lake started crying.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "etg_ice",
+      "title": "Shards of the Cold Lake",
+      "giver_npc_id": "et_gunther_lorn",
+      "zone": "eastern_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "The lake sheds black ice shards, and the shades hoard them. Gunther is convinced they are what is making the water cold. He'd like them gone.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "iceshard_fragment",
+          "count": 5
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "The shades carry them. Five shards, and don't stand too long near the water.",
+      "turn_in_text": "Five. The lake will warm, I think. Slowly. Take something.",
+      "next_quest_id": "etg_bethor",
+      "unique_item_defs": [
+        {
+          "name": "Lakeshore Shoes",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Frost along the hem, even in summer.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Frost-Rimed Bracers",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Water beads and runs off, or doesn't.",
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Bracers (Str/Spi)"
+        },
+        {
+          "name": "Brightwater Walking Stick",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 13,
+          "attack_speed": 3.2,
+          "label": "Staff (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "etg_bethor",
+      "title": "Bethor Iceshard",
+      "giver_npc_id": "et_gunther_lorn",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Bethor Iceshard is a shade who has grown too cold to die. He stands at the centre of the lake and drains the warmth from anything near.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Bethor Iceshard",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Weeping Shade",
+          "count": 4,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 676,
+      "reward_gold": 3120,
+      "accept_text": "He stands where the ice is thickest. His shades guard him. Take them first.",
+      "turn_in_text": "The lake is warming already. I can feel it. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Iceshard Belt",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.8
+          },
+          "armor_type": "leather",
+          "armor_value": 12,
+          "label": "Leather Belt (Agi/Sta/AP)"
+        },
+        {
+          "name": "Lakeshore Shroud",
+          "slot": "back",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Cloak (Int/SP/Crit)"
+        },
+        {
+          "name": "Cold-Water Axe",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        },
+        {
+          "name": "Cold-Water Armguards",
+          "slot": "wrist",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The lake keeps things cold. This is still cold.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 30,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "eth_converts",
+      "title": "Recruits on the Rise",
+      "giver_npc_id": "et_scout_hallam",
+      "zone": "eastern_tirisfal",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Scout Hallam watches the Crusader's Outpost east of Brill. The recruits there are loud, young and entirely unprepared. They're also a month away from being a threat.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Convert",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They train in the yard. Eight, and keep them from the road.",
+      "turn_in_text": "Fewer recruits, fewer problems. Take your pick.",
+      "next_quest_id": "eth_initiates",
+      "unique_item_defs": [
+        {
+          "name": "Recruit's Tunic",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Crimson dye, fading in the rain.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Chest (Int)"
+        },
+        {
+          "name": "Recruit's Legguards",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Crimson dye, fading in the rain.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Legs (Int/Sta)"
+        },
+        {
+          "name": "Oath-Stamped Cleaver",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.6,
+          "label": "Axe (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "eth_initiates",
+      "title": "Initiates of the Outpost",
+      "giver_npc_id": "et_scout_hallam",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Behind the recruits come the Initiates: drilled, armed and fanatical. They guard the outpost's gate and its secrets.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Initiate",
+          "count": 6,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "Don't take more than two at a time. Six should give them pause.",
+      "turn_in_text": "Six. They'll be rattled. Take something from the supply.",
+      "next_quest_id": "eth_brennic",
+      "unique_item_defs": [
+        {
+          "name": "Oath-Stamped Treads",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Boots (Agi/Int)"
+        },
+        {
+          "name": "Recruit's Shroud",
+          "slot": "back",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Sta)"
+        },
+        {
+          "name": "Recruit's Ring",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Whoever wore it believed every word of the sermon.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "label": "Ring (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "eth_brennic",
+      "title": "Crusader Brennic",
+      "giver_npc_id": "et_scout_hallam",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Crusader Brennic commands the outpost. He's strong, devout and utterly merciless. Without him, the garrison will fall.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Crusader Brennic",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Convert",
+          "count": 4,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 676,
+      "reward_gold": 3120,
+      "accept_text": "He's in the tower. His recruits rally to him. Take them first, then him.",
+      "turn_in_text": "Brennic's down. The outpost is leaderless. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Scarlet Picket's Fists",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The Crusade does not skimp on paint. Or on zeal.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 30,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Oath-Stamped Armguards",
+          "slot": "wrist",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.1
+          },
+          "armor_type": "mail",
+          "armor_value": 20,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Recruit's Talisman",
+          "slot": "neck",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "Standard issue, and mostly standard.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        },
+        {
+          "name": "Oath-Stamped Robe",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "rare",
+          "required_level": 9,
+          "flavor_text": "The Crusade does not skimp on paint. Or on zeal.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Chest (Sta/Int/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etr_skitterers",
+      "title": "Skitterers of the Vale",
+      "giver_npc_id": "et_hunter_ravel",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 11,
+      "description": "Huntress Ravel tracks the spiders of Venomweb Vale. The skitterers breed faster than she can hunt them, and their bite paralyses.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Venomweb Skitterer",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "They hide in the webs. Eight, and watch for the big one.",
+      "turn_in_text": "The Vale is quieter. Thanks. Take something.",
+      "next_quest_id": "etr_sacs",
+      "unique_item_defs": [
+        {
+          "name": "Chitin-Plated Breeches",
+          "slot": "legs",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Sticky for the first hour. After that you stop noticing.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Venomweb Pauldrons",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Sticky for the first hour. After that you stop noticing.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 14,
+          "label": "Leather Shoulders (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Web-Spun Mace",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Chitin, silk and nerve. Nothing wasted.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 2.6,
+          "label": "Mace (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "etr_sacs",
+      "title": "Venom for the Apothecary",
+      "giver_npc_id": "et_hunter_ravel",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 11,
+      "description": "Venomweb venom is worth a fortune to the Apothecaries. Ravel wants five sacs: for the Undercity, for the war, and for her own reasons.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "venom_sac",
+          "count": 5
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "The skitterers and the night-webs carry them. Five, and don't pop them.",
+      "turn_in_text": "Five sacs. A fine haul. Take your pick of the lot.",
+      "next_quest_id": "etr_mother",
+      "unique_item_defs": [
+        {
+          "name": "Vale-Walker's Coif",
+          "slot": "head",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Faint venom smell; likely harmless.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.1,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 23,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Chitin-Plated Wraps",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Spun by something patient and fed on the unwary.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.9,
+            "mp5": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Gloves (Int/SP/MP5)"
+        },
+        {
+          "name": "Venomweb Talisman",
+          "slot": "neck",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Spun by something patient and fed on the unwary.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.7
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "etr_mother",
+      "title": "Mother Venomweb",
+      "giver_npc_id": "et_hunter_ravel",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 11,
+      "description": "Mother Venomweb is the matriarch of the Vale: a huge spider, venom-fat and cunning. Every skitterer in the Vale is her brood.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Mother Venomweb",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Venomweb Skitterer",
+          "count": 4,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 780,
+      "reward_gold": 3510,
+      "accept_text": "She sits at the heart of the web. Her brood guards her. Take them first.",
+      "turn_in_text": "The Mother's dead. The Vale is yours. Take your pick of her hoard.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Web-Spun Coif",
+          "slot": "head",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Sticky for the first hour. After that you stop noticing.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.8
+          },
+          "armor_type": "mail",
+          "armor_value": 33,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Silk-Lashed Pauldrons",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Sticky for the first hour. After that you stop noticing.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Shoulders (Dodge/Parry)"
+        },
+        {
+          "name": "Skitterer's Axe",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Chitin, silk and nerve. Nothing wasted.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        },
+        {
+          "name": "Venomweb Vestments",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Spun by something patient and fed on the unwary.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 3.8,
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Chest (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etb_worgs",
+      "title": "Worgs in the Paddock",
+      "giver_npc_id": "et_balnir_edric",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Stablehand Edric tends what remains of the Balnir farmstead. The Bleak Worgs have taken over the paddock and eat whatever stumbles in.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bleak Worg",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "They hide in the hay. Eight, and keep to the fences.",
+      "turn_in_text": "That's the paddock clear. Take something from the tack.",
+      "next_quest_id": "etb_stableboys",
+      "unique_item_defs": [
+        {
+          "name": "Hay-Dusted Visor",
+          "slot": "head",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "A stableboy's, with a stableboy's patches.",
+          "primary_stats": {
+            "strength": 3
+          },
+          "armor_type": "plate",
+          "armor_value": 31,
+          "label": "Plate Helm (Str)"
+        },
+        {
+          "name": "Stable-Hand's Belt",
+          "slot": "waist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Smells of hay and horse. The horses are gone.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Belt (Agi)"
+        },
+        {
+          "name": "Farmstead Talisman",
+          "slot": "neck",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "A stableboy's, with a stableboy's patches.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "etb_stableboys",
+      "title": "The Stableboys' Rest",
+      "giver_npc_id": "et_balnir_edric",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 11,
+      "description": "The stableboys never left the farm. They roam the paddock with pitchforks, loyal to a master who died long ago. Edric wants them put to rest.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Balnir Stableboy",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "They don't know. Treat them kindly. Eight.",
+      "turn_in_text": "They're at rest. Thank you. Take your pick.",
+      "next_quest_id": "etb_vachon",
+      "unique_item_defs": [
+        {
+          "name": "Worg-Scarred Vest",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Worn by someone who still hoped.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.8
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Hay-Dusted Legguards",
+          "slot": "legs",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "The worgs have left bite-marks. Nobody objects.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 31,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Saddle-Worn Buckler",
+          "slot": "off_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "A stableboy's, with a stableboy's patches.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_value": 15,
+          "block_value": 19,
+          "label": "Shield (Parry/Block/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "etb_vachon",
+      "title": "Captain Vachon",
+      "giver_npc_id": "et_balnir_edric",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 11,
+      "description": "Captain Vachon led the Balnir militia. He now leads the dead, a stubborn old soldier who refuses to give up the farm.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Vachon",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Balnir Stableboy",
+          "count": 4,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 780,
+      "reward_gold": 3510,
+      "accept_text": "He's at the farmhouse. His stableboys guard him. Take them first.",
+      "turn_in_text": "Vachon's at peace. The farm is quiet. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hay-Dusted Cloak",
+          "slot": "back",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Worn by someone who still hoped.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.1,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Cloak (Int/SP/Hit)"
+        },
+        {
+          "name": "Saddle-Worn Byrnie",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "Smells of hay and horse. The horses are gone.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 44,
+          "label": "Mail Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Saddle-Worn Talisman",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "A stableboy's, with a stableboy's patches.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.0
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        },
+        {
+          "name": "Balnir Cuirass",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 10,
+          "flavor_text": "A stableboy's, with a stableboy's patches.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "block_rating": 0.3,
+            "block_value": 3.4
+          },
+          "armor_type": "plate",
+          "armor_value": 67,
+          "label": "Plate Chest (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etd_acolytes",
+      "title": "Acolytes of the Damned",
+      "giver_npc_id": "et_cult_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Warden Ysolde Grave watches the Cult of the Damned farm. Its acolytes call on powers no one should, and the Undercity wants them silenced.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cult Acolyte",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "They chant in the cellar. Eight, and don't let them finish a verse.",
+      "turn_in_text": "That will quiet the cellar. Take something.",
+      "next_quest_id": "etd_ledger",
+      "unique_item_defs": [
+        {
+          "name": "Dark-Vestment Wraps",
+          "slot": "hands",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Whoever made it wanted to be remembered. Wrongly.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Gloves (Int/Sta/SP)"
+        },
+        {
+          "name": "Fanatic's Legguards",
+          "slot": "legs",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Found in a farm cellar. It was not alone.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 34,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Cultist's Charm",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Stitched with a sigil you shouldn't look at for long.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.5
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "etd_ledger",
+      "title": "The Cult's Ledger",
+      "giver_npc_id": "et_cult_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "The cult keeps meticulous records: names, tallies, debts. The pages are scattered on the bodies of its members. Ysolde wants them for the Undercity.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "cult_ledger_page",
+          "count": 5
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "The acolytes and the fanatics carry them. Five pages, and don't read them aloud.",
+      "turn_in_text": "Five pages. Enough for a warrant. Take your pick.",
+      "next_quest_id": "etd_thaddeus",
+      "unique_item_defs": [
+        {
+          "name": "Fanatic's Helm",
+          "slot": "head",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Warm in the wrong places.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.9
+          },
+          "armor_type": "mail",
+          "armor_value": 25,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        },
+        {
+          "name": "Fanatic's Visor",
+          "slot": "head",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Found in a farm cellar. It was not alone.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 38,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Sigil-Marked Hammer",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Warm in the wrong places.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "etd_thaddeus",
+      "title": "Overseer Thaddeus",
+      "giver_npc_id": "et_cult_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "Overseer Thaddeus leads the cult. He sits in the farm's deepest cellar, issuing orders to the damned. His death would unravel the lot.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Cult Overseer Thaddeus",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Cult Fanatic",
+          "count": 4,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 884,
+      "reward_gold": 4160,
+      "accept_text": "He's in the cellar. His fanatics guard the stairs. Take them first.",
+      "turn_in_text": "The cult is leaderless. Excellent. Take your pick of his robes.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Fanatic's Cap",
+          "slot": "head",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Warm in the wrong places.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 22,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Ledger-Stained Cuisses",
+          "slot": "legs",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Stitched with a sigil you shouldn't look at for long.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.2,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 73,
+          "label": "Plate Legs (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Cultist's Targe",
+          "slot": "off_hand",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Found in a farm cellar. It was not alone.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 24,
+          "block_value": 30,
+          "label": "Shield (Sta/Block/BV)"
+        },
+        {
+          "name": "Damned Sash",
+          "slot": "waist",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Warm in the wrong places.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Belt (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 12,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ets_bowmen",
+      "title": "Archers on the Coast",
+      "giver_npc_id": "et_scarlet_watch_scout",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Scout Hollowmere watches the Scarlet Watch Post from the lakeside slope. Their bowmen patrol the north coast road and pick off anyone who passes.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Bowman",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "Stay low. They shoot first. Eight, and watch the shadows.",
+      "turn_in_text": "That's the road open. Thank you. Take something.",
+      "next_quest_id": "ets_zealots",
+      "unique_item_defs": [
+        {
+          "name": "Sunburst Cape",
+          "slot": "back",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Heavy with doctrine.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.2
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Cloak (Agi/Int/AP)"
+        },
+        {
+          "name": "Zealot's Fists",
+          "slot": "hands",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Pressed, polished and utterly certain.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 25,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sunburst Hatchet",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Sunburst on the breast. There is no sun here.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ets_zealots",
+      "title": "Zealots of the Watch",
+      "giver_npc_id": "et_scarlet_watch_scout",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "The Watch Post is held by zealots, who preach as they fight. Hollowmere would like them to stop preaching.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Zealot",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "They don't stop. Eight, and keep your ears covered.",
+      "turn_in_text": "Quieter. For a while. Take your pick.",
+      "next_quest_id": "ets_preachers",
+      "unique_item_defs": [
+        {
+          "name": "Scarlet Watch Belt",
+          "slot": "waist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Heavy with doctrine.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 17,
+          "label": "Mail Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Scarlet Watch Robe",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Heavy with doctrine.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Chest (Int/Spi/HP)"
+        },
+        {
+          "name": "Scarlet Watch Blade",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Pressed, polished and utterly certain.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ets_preachers",
+      "title": "Sermons in Fire",
+      "giver_npc_id": "et_scarlet_watch_scout",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "The preachers are the worst of them. They call down fire on the faithless. Hollowmere has the burn scars to prove it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Preacher",
+          "count": 6,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "They stand on the steps and burn things. Six, and don't stand in the fire.",
+      "turn_in_text": "Six sermons ended. Thank you. Take something.",
+      "next_quest_id": "ets_vishas",
+      "unique_item_defs": [
+        {
+          "name": "Preacher's Hauberk",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Whoever wore it expected to be praised for it.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 34,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Scarlet Watch Boots",
+          "slot": "feet",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Sunburst on the breast. There is no sun here.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 25,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Inquisitor's Glaive",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Sunburst on the breast. There is no sun here.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ets_vishas",
+      "title": "Interrogator Vishas",
+      "giver_npc_id": "et_scarlet_watch_scout",
+      "zone": "eastern_tirisfal",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "Interrogator Vishas runs the Watch Post's cells. He's patient, methodical and cruel. Hollowmere wants him dead, and the cells emptied.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Interrogator Vishas",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Zealot",
+          "count": 4,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 884,
+      "reward_gold": 4160,
+      "accept_text": "He's in the cells. His zealots guard the door. Take them first.",
+      "turn_in_text": "Vishas is dead. The cells are open. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Inquisitor's Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Pressed, polished and utterly certain.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 2.0
+          },
+          "armor_type": "mail",
+          "armor_value": 36,
+          "label": "Mail Shoulders (Int/Hit/SP)"
+        },
+        {
+          "name": "Sunburst Breeches",
+          "slot": "legs",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Sunburst on the breast. There is no sun here.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Inquisitor's Ring",
+          "slot": "ring",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Whoever wore it expected to be praised for it.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.1
+          },
+          "label": "Ring (Int/Hit/SP)"
+        },
+        {
+          "name": "Zealot's Treads",
+          "slot": "feet",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Whoever wore it expected to be praised for it.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 36,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 12,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

@@ -5610,6 +5610,9 @@ def create_all_zones():
     from tools import handbuilt_orgrimmar as dorg
     from tools import handbuilt_zeppelin_tower as dzep
     from tools import handbuilt_deathknell as ddk
+    from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
+    from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
+    from tools.handbuilt_brill import generate_brill as generate_brill_handbuilt
     from tools import handbuilt_deathknell_caves as ddkc
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
@@ -5651,8 +5654,8 @@ def create_all_zones():
         
         # ===== TIRISFAL SPLIT (3 zones from 1) + UNDERCITY =====
         "Deathknell": ddk.generate_deathknell(),  # hand-built (tools/handbuilt_deathknell.py)
-        "Eastern Tirisfal": generate_eastern_tirisfal(),
-        "Western Tirisfal": generate_western_tirisfal(),
+        "Eastern Tirisfal": generate_eastern_tirisfal_handbuilt(),  # hand-built (tools/handbuilt_eastern_tirisfal.py)
+        "Western Tirisfal": generate_western_tirisfal_handbuilt(),  # hand-built (tools/handbuilt_western_tirisfal.py)
         "Undercity": generate_undercity(),  # NEW: Forsaken capital
         
         # ===== BARRENS SPLIT (3 zones from 1) =====
@@ -5675,7 +5678,7 @@ def create_all_zones():
         "The Sepulcher": generate_the_sepulcher(),
         
         # ===== BRILL (standalone town, was baked into Western Tirisfal) =====
-        "Brill": generate_brill(),
+        "Brill": generate_brill_handbuilt(),  # hand-built (tools/handbuilt_brill.py)
         
         # ===== FENRIS ISLE (new zone) =====
         "Fenris Isle": generate_fenris_isle(),
