@@ -3043,6 +3043,42 @@ NORTHERN_BARRENS_KITS = {
     ],
 }
 
+ASHENVALE_DUNGEON_KITS = {
+    # ================= MOONWELL HOLLOW (L13-16) ====================================================================
+    "hollow_rotlasher": [
+        ("Lash", "damage", 29, 0, 0, "physical", {}),
+        ("Rooting Grasp", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+    "gloomcap_sporeling": [
+        ("Spore Burst", "damage", 24, 0, 0, "nature", {}),
+        ("Choking Spores", "dot", 9, 4, 0, "nature", {"duration": 4}),
+    ],
+    "moonwell_mothwing": [
+        ("Dust Wing", "damage", 27, 0, 0, "arcane", {}),
+        ("Lunar Powder", "debuff", 0, 5, 0, "arcane", {"duration": 3, "stat_mods": {"attack_power": -18}}),
+    ],
+    "corrupted_moon_guard": [
+        ("Glaive Cleave", "damage", 31, 0, 0, "physical", {}),
+        ("Fallen Vigil", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 34}}),
+    ],
+    "twilight_rootbinder": [
+        ("Withering Bolt", "damage", 30, 0, 18, "nature", {}),
+        ("Entangle", "debuff", 0, 5, 18, "nature", {"duration": 3, "stat_mods": {"agility": -18}}),
+        ("Rootmend", "heal", 52, 5, 24, "nature", {}),
+    ],
+    "mosshide_elder": [      # named rare, L15
+        ("Crushing Moss", "damage", 36, 0, 0, "nature", {}),
+        ("Gloomcap Cloud", "dot", 13, 4, 0, "nature", {"duration": 4, "is_aoe": True}),
+        ("Mossy Hide", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 52}}),
+    ],
+    "maelwyn_blightbloom": [   # boss, L16 (3 abilities)
+        ("Blight Bolt", "damage", 38, 0, 20, "nature", {}),
+        ("Rotbloom", "dot", 15, 4, 24, "nature", {"duration": 5}),
+        ("Choking Roots", "debuff", 0, 6, 26, "nature", {"duration": 3, "stat_mods": {"agility": -26}}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3052,7 +3088,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")
@@ -3091,4 +3127,13 @@ def kit_to_json(abilities):
 
 
 def build():
-    return {"kits": {k: kit_to_json(v) for k, v in ALL_KITS.items()}}
+    kits = {k: kit_to_json(v) for k, v in ALL_KITS.items()}
+    # kits that were hand-added straight into ability_kits.json before they had a source here (Ashenvale East commit 2427e14);
+    # regenerating used to silently delete them and crash the first spawn of an Ashenvale Wraith.
+    import json
+    from pathlib import Path
+    legacy = Path(__file__).with_name("legacy_kits.json")
+    if legacy.exists():
+        for k, v in json.loads(legacy.read_text()).items():
+            kits.setdefault(k, v)
+    return {"kits": kits}

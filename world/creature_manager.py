@@ -98,8 +98,12 @@ class CreatureManager:
 
         return {}
     
-    def spawn_creature(self, creature_name, level=None):
-        """Spawn a creature (Monster instance)."""
+    def spawn_creature(self, creature_name, level=None, zone_name=None):
+        """Spawn a creature (Monster instance).
+
+        zone_name (optional): the encounter-table zone the roll came from.  A zone may carry
+        ``"level_overrides": {creature: [lo, hi]}`` in encounters.json so one creature can sit at different
+        levels in different zones (Ashenvale East 20-25 vs West 22-28 share most of their wildlife)."""
         if creature_name not in self.creatures:
             return None
         
@@ -109,6 +113,10 @@ class CreatureManager:
         # Determine level
         if level is None:
             level_range = creature_def.get("level_range", [1, 1])
+            if zone_name:
+                ov = self.encounters.get(zone_name, {}).get("level_overrides", {}).get(creature_name)
+                if ov:
+                    level_range = ov
             level = random.randint(level_range[0], level_range[1])
         
         # Get ability kit if specified, otherwise Monster uses template default
@@ -188,7 +196,7 @@ class CreatureManager:
             rare_chance = self.QUEST_RARE_SPAWN_CHANCE if wanted_rares else self.RARE_SPAWN_CHANCE
             if rare_names and random.random() < rare_chance:
                 chosen_creature = random.choice(wanted_rares or rare_names)
-                creature = self.spawn_creature(chosen_creature)
+                creature = self.spawn_creature(chosen_creature, zone_name=zone_name)
                 if creature:
                     creature.location_type = location_type
                 return creature
@@ -203,7 +211,7 @@ class CreatureManager:
         chosen_creature = random.choices(creatures, weights=weights, k=1)[0]
         
         # Spawn creature
-        creature = self.spawn_creature(chosen_creature)
+        creature = self.spawn_creature(chosen_creature, zone_name=zone_name)
         if creature:
             # Tag with location_type so combat can apply a dungeon/cave XP
             # bonus (see combat_engine._calculate_exp_reward). ZoneManager.

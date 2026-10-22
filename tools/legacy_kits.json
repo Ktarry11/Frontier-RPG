@@ -1,0 +1,1618 @@
+{
+  "ancient_treant": [
+    {
+      "name": "Branch Smash",
+      "kind": "damage",
+      "amount": 30,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Barkskin",
+      "kind": "buff",
+      "amount": 0,
+      "cooldown": 6,
+      "mana_cost": 0,
+      "school": "physical",
+      "duration": 5,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 30
+      }
+    }
+  ],
+  "furbolg_guardian": [
+    {
+      "name": "Maul",
+      "kind": "damage",
+      "amount": 26,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Thick Hide",
+      "kind": "buff",
+      "amount": 0,
+      "cooldown": 6,
+      "mana_cost": 0,
+      "school": "physical",
+      "duration": 4,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 20
+      }
+    }
+  ],
+  "furbolg_shaman": [
+    {
+      "name": "Lightning Bolt",
+      "kind": "damage",
+      "amount": 27,
+      "cooldown": 0,
+      "mana_cost": 22,
+      "school": "nature"
+    },
+    {
+      "name": "Healing Totem",
+      "kind": "heal",
+      "amount": 30,
+      "cooldown": 5,
+      "mana_cost": 26,
+      "school": "nature"
+    }
+  ],
+  "furbolg_warrior": [
+    {
+      "name": "Cleaving Strike",
+      "kind": "damage",
+      "amount": 24,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Sundering Blow",
+      "kind": "debuff",
+      "amount": 0,
+      "cooldown": 4,
+      "mana_cost": 0,
+      "school": "physical",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -15
+      }
+    }
+  ],
+  "ghost": [
+    {
+      "name": "Spectral Touch",
+      "kind": "damage",
+      "amount": 22,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "shadow"
+    },
+    {
+      "name": "Drain Essence",
+      "kind": "dot",
+      "amount": 9,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 3
+    }
+  ],
+  "satyr": [
+    {
+      "name": "Fel Lash",
+      "kind": "damage",
+      "amount": 28,
+      "cooldown": 0,
+      "mana_cost": 22,
+      "school": "shadow"
+    },
+    {
+      "name": "Curse of Agony",
+      "kind": "dot",
+      "amount": 11,
+      "cooldown": 3,
+      "mana_cost": 24,
+      "school": "shadow",
+      "duration": 4
+    }
+  ],
+  "satyr_warrior": [
+    {
+      "name": "Wicked Slash",
+      "kind": "damage",
+      "amount": 27,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Bloodrage",
+      "kind": "buff",
+      "amount": 0,
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "physical",
+      "duration": 4,
+      "self_only": true,
+      "stat_mods": {
+        "attack_power": 16
+      }
+    }
+  ],
+  "twilight_cultist": [
+    {
+      "name": "Shadow Bolt",
+      "kind": "damage",
+      "amount": 28,
+      "cooldown": 0,
+      "mana_cost": 24,
+      "school": "shadow"
+    },
+    {
+      "name": "Curse of Weakness",
+      "kind": "debuff",
+      "amount": 0,
+      "cooldown": 4,
+      "mana_cost": 20,
+      "school": "shadow",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": -14
+      }
+    }
+  ],
+  "forsaken_traitor": [
+    {
+      "name": "Betrayer's Blade",
+      "kind": "damage",
+      "amount": 27,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Sinister Strike",
+      "kind": "damage",
+      "amount": 35,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Curse of Betrayal",
+      "kind": "debuff",
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 2,
+      "stat_mods": {
+        "armor": -12
+      }
+    }
+  ],
+  "zombie": [
+    {
+      "name": "Slam",
+      "kind": "damage",
+      "amount": 16,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Infected Bite",
+      "kind": "damage",
+      "amount": 10,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "magic"
+    }
+  ],
+  "rotting_ghoul": [
+    {
+      "name": "Claw",
+      "kind": "damage",
+      "amount": 24,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Disease Bite",
+      "kind": "damage",
+      "amount": 17,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "magic"
+    }
+  ],
+  "cursed_spirit": [
+    {
+      "name": "Spectral Bolt",
+      "kind": "damage",
+      "amount": 30,
+      "cooldown": 0,
+      "mana_cost": 30,
+      "school": "shadow"
+    },
+    {
+      "name": "Wailing Curse",
+      "kind": "dot",
+      "amount": 16,
+      "cooldown": 3,
+      "mana_cost": 16,
+      "school": "shadow",
+      "duration": 3
+    }
+  ],
+  "plague_abomination": [
+    {
+      "name": "Crushing Blow",
+      "kind": "damage",
+      "amount": 30,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Putrid Explosion",
+      "kind": "damage",
+      "amount": 42,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "shadow",
+      "is_aoe": true
+    },
+    {
+      "name": "Plague Aura",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 28
+      }
+    }
+  ],
+  "corrupted_shaman": [
+    {
+      "name": "Lightning Strike",
+      "kind": "damage",
+      "amount": 24,
+      "cooldown": 0,
+      "mana_cost": 28,
+      "school": "lightning"
+    },
+    {
+      "name": "Chain Lightning",
+      "kind": "damage",
+      "amount": 32,
+      "cooldown": 3,
+      "mana_cost": 35,
+      "school": "lightning"
+    },
+    {
+      "name": "Hex",
+      "kind": "debuff",
+      "cooldown": 4,
+      "mana_cost": 25,
+      "school": "shadow",
+      "duration": 2,
+      "stat_mods": {
+        "intellect": -8
+      }
+    },
+    {
+      "name": "Shamanic Heal",
+      "kind": "heal",
+      "amount": 30,
+      "cooldown": 5,
+      "mana_cost": 40,
+      "school": "nature"
+    }
+  ],
+  "rot_worm": [
+    {
+      "name": "Decaying Bite",
+      "kind": "damage",
+      "amount": 25,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Rot Attack",
+      "kind": "dot",
+      "amount": 9,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 3
+    }
+  ],
+  "plagued_hound": [
+    {
+      "name": "Diseased Bite",
+      "kind": "damage",
+      "amount": 24,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Pounce",
+      "kind": "damage",
+      "amount": 32,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Pestilent Scratch",
+      "kind": "dot",
+      "amount": 8,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 3
+    }
+  ],
+  "scourge_warrior": [
+    {
+      "name": "Bone Blade",
+      "kind": "damage",
+      "amount": 12,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Undying Swing",
+      "kind": "damage",
+      "amount": 15,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "physical"
+    }
+  ],
+  "magma_elemental": [
+    {
+      "name": "Magma Burst",
+      "kind": "damage",
+      "amount": 28,
+      "cooldown": 0,
+      "mana_cost": 35,
+      "school": "fire",
+      "is_aoe": true
+    },
+    {
+      "name": "Molten Wave",
+      "kind": "damage",
+      "amount": 35,
+      "cooldown": 3,
+      "mana_cost": 40,
+      "school": "fire",
+      "is_aoe": true
+    },
+    {
+      "name": "Lava Armor",
+      "kind": "buff",
+      "cooldown": 6,
+      "mana_cost": 30,
+      "school": "fire",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 20,
+        "stamina": 15
+      }
+    }
+  ],
+  "fire_cultist": [
+    {
+      "name": "Ritual Blade",
+      "kind": "damage",
+      "amount": 24,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Burning Slash",
+      "kind": "dot",
+      "amount": 9,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "fire",
+      "duration": 3
+    },
+    {
+      "name": "Immolate",
+      "kind": "dot",
+      "amount": 7,
+      "cooldown": 3,
+      "mana_cost": 20,
+      "school": "fire",
+      "duration": 4
+    }
+  ],
+  "plagued_rat": [
+    {
+      "name": "Infected Bite",
+      "kind": "damage",
+      "amount": 18,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Plague Spit",
+      "kind": "dot",
+      "amount": 7,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 3
+    }
+  ],
+  "plague_zombie": [
+    {
+      "name": "Shambling Fist",
+      "kind": "damage",
+      "amount": 26,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Putrid Slam",
+      "kind": "damage",
+      "amount": 36,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Undead Tenacity",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 2,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 22
+      }
+    }
+  ],
+  "lava_lurker": [
+    {
+      "name": "Magma Claw",
+      "kind": "damage",
+      "amount": 26,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Searing Pounce",
+      "kind": "damage",
+      "amount": 35,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Volcanic Eruption",
+      "kind": "damage",
+      "amount": 40,
+      "cooldown": 4,
+      "mana_cost": 0,
+      "school": "fire"
+    }
+  ],
+  "plagueweaver_vex": [
+    {
+      "name": "Plague Wave",
+      "kind": "damage",
+      "amount": 38,
+      "cooldown": 0,
+      "mana_cost": 42,
+      "school": "shadow",
+      "is_aoe": true
+    },
+    {
+      "name": "Pestilence",
+      "kind": "dot",
+      "amount": 14,
+      "cooldown": 2,
+      "mana_cost": 40,
+      "school": "shadow",
+      "duration": 4
+    },
+    {
+      "name": "Blight Storm",
+      "kind": "damage",
+      "amount": 52,
+      "cooldown": 3,
+      "mana_cost": 55,
+      "school": "shadow"
+    },
+    {
+      "name": "Shadow Shield",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 45,
+      "school": "shadow",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 25
+      }
+    }
+  ],
+  "pyromancer_loregrain": [
+    {
+      "name": "Fireball",
+      "kind": "damage",
+      "amount": 38,
+      "cooldown": 0,
+      "mana_cost": 40,
+      "school": "fire"
+    },
+    {
+      "name": "Inferno",
+      "kind": "damage",
+      "amount": 55,
+      "cooldown": 3,
+      "mana_cost": 60,
+      "school": "fire"
+    },
+    {
+      "name": "Burning Hex",
+      "kind": "dot",
+      "amount": 13,
+      "cooldown": 3,
+      "mana_cost": 35,
+      "school": "fire",
+      "duration": 4
+    },
+    {
+      "name": "Flame Barrier",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 45,
+      "school": "fire",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 20,
+        "intellect": 10
+      }
+    }
+  ],
+  "vile_plague_abomination": [
+    {
+      "name": "Corrupted Slam",
+      "kind": "damage",
+      "amount": 46,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Putrid Explosion",
+      "kind": "damage",
+      "amount": 58,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "shadow",
+      "is_aoe": true
+    },
+    {
+      "name": "Plague Aura",
+      "kind": "debuff",
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -18
+      },
+      "is_aoe": true
+    },
+    {
+      "name": "Abomination Roar",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 2,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 35,
+        "stamina": 20
+      }
+    }
+  ],
+  "fire_imp": [
+    {
+      "name": "Fireball",
+      "kind": "damage",
+      "amount": 22,
+      "cooldown": 0,
+      "mana_cost": 30,
+      "school": "fire"
+    },
+    {
+      "name": "Ignite",
+      "kind": "dot",
+      "amount": 8,
+      "cooldown": 3,
+      "mana_cost": 25,
+      "school": "fire",
+      "duration": 3
+    },
+    {
+      "name": "Fire Shield",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 20,
+      "school": "fire",
+      "duration": 2,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 12
+      }
+    }
+  ],
+  "plague_spore": [
+    {
+      "name": "Spore Cloud",
+      "kind": "damage",
+      "amount": 20,
+      "cooldown": 0,
+      "mana_cost": 20,
+      "school": "shadow"
+    },
+    {
+      "name": "Poison Dust",
+      "kind": "dot",
+      "amount": 6,
+      "cooldown": 2,
+      "mana_cost": 15,
+      "school": "shadow",
+      "duration": 3
+    }
+  ],
+  "plague_keeper_voss": [
+    {
+      "name": "Archive Strike",
+      "kind": "damage",
+      "amount": 36,
+      "cooldown": 0,
+      "mana_cost": 40,
+      "school": "shadow"
+    },
+    {
+      "name": "Plague Knowledge",
+      "kind": "damage",
+      "amount": 54,
+      "cooldown": 3,
+      "mana_cost": 55,
+      "school": "shadow"
+    },
+    {
+      "name": "Plague Transmission",
+      "kind": "dot",
+      "amount": 15,
+      "cooldown": 2,
+      "mana_cost": 38,
+      "school": "shadow",
+      "duration": 4
+    },
+    {
+      "name": "Keeper's Vigor",
+      "kind": "heal",
+      "amount": 40,
+      "cooldown": 5,
+      "mana_cost": 50,
+      "school": "shadow"
+    }
+  ],
+  "lava_sentinel": [
+    {
+      "name": "Lava Lance",
+      "kind": "damage",
+      "amount": 28,
+      "cooldown": 0,
+      "mana_cost": 35,
+      "school": "fire"
+    },
+    {
+      "name": "Inferno Wave",
+      "kind": "damage",
+      "amount": 38,
+      "cooldown": 3,
+      "mana_cost": 45,
+      "school": "fire",
+      "is_aoe": true
+    },
+    {
+      "name": "Burning Ground",
+      "kind": "debuff",
+      "cooldown": 4,
+      "mana_cost": 30,
+      "school": "fire",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -10
+      }
+    }
+  ],
+  "carrion_bird": [
+    {
+      "name": "Peck",
+      "kind": "damage",
+      "amount": 22,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Dive",
+      "kind": "damage",
+      "amount": 31,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "physical"
+    }
+  ],
+  "ragefire_shaman_overlord": [
+    {
+      "name": "Chain Lightning",
+      "kind": "damage",
+      "amount": 40,
+      "cooldown": 0,
+      "mana_cost": 45,
+      "school": "lightning"
+    },
+    {
+      "name": "Tempest",
+      "kind": "damage",
+      "amount": 58,
+      "cooldown": 3,
+      "mana_cost": 65,
+      "school": "lightning"
+    },
+    {
+      "name": "Lightning Storm",
+      "kind": "debuff",
+      "cooldown": 4,
+      "mana_cost": 50,
+      "school": "lightning",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -15
+      }
+    },
+    {
+      "name": "Shamanic Power",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 50,
+      "school": "fire",
+      "duration": 2,
+      "self_only": true,
+      "stat_mods": {
+        "intellect": 15,
+        "attack_power": 10
+      }
+    }
+  ],
+  "zombie_bear": [
+    {
+      "name": "Maul",
+      "kind": "damage",
+      "amount": 26,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Rotting Bite",
+      "kind": "damage",
+      "amount": 19,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "magic"
+    }
+  ],
+  "magmus": [
+    {
+      "name": "Lava Burst",
+      "kind": "damage",
+      "amount": 42,
+      "cooldown": 0,
+      "mana_cost": 45,
+      "school": "fire",
+      "is_aoe": true
+    },
+    {
+      "name": "Molten Wave",
+      "kind": "damage",
+      "amount": 52,
+      "cooldown": 2,
+      "mana_cost": 50,
+      "school": "fire",
+      "is_aoe": true
+    },
+    {
+      "name": "Immolate",
+      "kind": "dot",
+      "amount": 14,
+      "cooldown": 3,
+      "mana_cost": 40,
+      "school": "fire",
+      "duration": 3
+    },
+    {
+      "name": "Magma Shield",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 40,
+      "school": "fire",
+      "duration": 2,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 25
+      }
+    }
+  ],
+  "dark_sorcerer_zulketh": [
+    {
+      "name": "Plague Bolt",
+      "kind": "damage",
+      "amount": 42,
+      "cooldown": 0,
+      "mana_cost": 48,
+      "school": "shadow"
+    },
+    {
+      "name": "Plague Heart Power",
+      "kind": "damage",
+      "amount": 62,
+      "cooldown": 3,
+      "mana_cost": 70,
+      "school": "shadow"
+    },
+    {
+      "name": "Corruption Hex",
+      "kind": "dot",
+      "amount": 16,
+      "cooldown": 2,
+      "mana_cost": 45,
+      "school": "shadow",
+      "duration": 4
+    },
+    {
+      "name": "Life Drain",
+      "kind": "damage",
+      "amount": 48,
+      "cooldown": 3,
+      "mana_cost": 55,
+      "school": "shadow"
+    },
+    {
+      "name": "Sorcerer's Aegis",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 60,
+      "school": "shadow",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 32,
+        "intellect": 20
+      }
+    }
+  ],
+  "skeleton_archer": [
+    {
+      "name": "Bone Arrow",
+      "kind": "damage",
+      "amount": 16,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Piercing Shot",
+      "kind": "damage",
+      "amount": 22,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "physical"
+    }
+  ],
+  "magma_seeker": [
+    {
+      "name": "Lava Bite",
+      "kind": "damage",
+      "amount": 25,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "fire"
+    },
+    {
+      "name": "Charge Through",
+      "kind": "damage",
+      "amount": 33,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Molten Strike",
+      "kind": "damage",
+      "amount": 30,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "fire"
+    }
+  ],
+  "forsaken_witch": [
+    {
+      "name": "Shadow Bolt",
+      "kind": "damage",
+      "amount": 26,
+      "cooldown": 0,
+      "mana_cost": 32,
+      "school": "shadow"
+    },
+    {
+      "name": "Life Drain",
+      "kind": "damage",
+      "amount": 28,
+      "cooldown": 3,
+      "mana_cost": 35,
+      "school": "shadow"
+    },
+    {
+      "name": "Hex Curse",
+      "kind": "debuff",
+      "cooldown": 3,
+      "mana_cost": 28,
+      "school": "shadow",
+      "duration": 2,
+      "stat_mods": {
+        "intellect": -12
+      }
+    }
+  ],
+  "flame_guardian": [
+    {
+      "name": "Cleave",
+      "kind": "damage",
+      "amount": 27,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical",
+      "is_aoe": true
+    },
+    {
+      "name": "Fiery Slam",
+      "kind": "damage",
+      "amount": 36,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "fire"
+    },
+    {
+      "name": "Defensive Stance",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "physical",
+      "duration": 2,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 25
+      }
+    }
+  ],
+  "blight_cultist": [
+    {
+      "name": "Plague Bolt",
+      "kind": "damage",
+      "amount": 24,
+      "cooldown": 0,
+      "mana_cost": 28,
+      "school": "shadow"
+    },
+    {
+      "name": "Blight",
+      "kind": "dot",
+      "amount": 9,
+      "cooldown": 3,
+      "mana_cost": 30,
+      "school": "shadow",
+      "duration": 3
+    },
+    {
+      "name": "Curse",
+      "kind": "debuff",
+      "cooldown": 4,
+      "mana_cost": 25,
+      "school": "shadow",
+      "duration": 2,
+      "stat_mods": {
+        "intellect": -10
+      }
+    }
+  ],
+  "plague_surgeon": [
+    {
+      "name": "Plague Injection",
+      "kind": "damage",
+      "amount": 24,
+      "cooldown": 0,
+      "mana_cost": 28,
+      "school": "shadow"
+    },
+    {
+      "name": "Corpse Explosion",
+      "kind": "damage",
+      "amount": 40,
+      "cooldown": 4,
+      "mana_cost": 50,
+      "school": "shadow",
+      "is_aoe": true
+    },
+    {
+      "name": "Dark Mending",
+      "kind": "heal",
+      "amount": 35,
+      "cooldown": 5,
+      "mana_cost": 45,
+      "school": "shadow"
+    }
+  ],
+  "the_infected_noble": [
+    {
+      "name": "Noble's Blade",
+      "kind": "damage",
+      "amount": 40,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Corruption Strike",
+      "kind": "damage",
+      "amount": 50,
+      "cooldown": 2,
+      "mana_cost": 0,
+      "school": "shadow"
+    },
+    {
+      "name": "Curse of Nobility",
+      "kind": "debuff",
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 2,
+      "stat_mods": {
+        "intellect": -15
+      }
+    },
+    {
+      "name": "Undead Might",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "shadow",
+      "duration": 2,
+      "self_only": true,
+      "stat_mods": {
+        "attack_power": 18
+      }
+    }
+  ],
+  "worgen_beast": [
+    {
+      "name": "Claw",
+      "kind": "damage",
+      "amount": 33,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Savage Bite",
+      "kind": "damage",
+      "amount": 47,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "physical"
+    }
+  ],
+  "twisted_sapling": [
+    {
+      "name": "Thorn Whip",
+      "kind": "damage",
+      "amount": 27,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Bramble Burst",
+      "kind": "damage",
+      "amount": 19,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "magic",
+      "is_aoe": true
+    }
+  ],
+  "ash_zombie": [
+    {
+      "name": "Rotting Claw",
+      "kind": "damage",
+      "amount": 16,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Plague Bite",
+      "kind": "damage",
+      "amount": 10,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "magic"
+    }
+  ],
+  "rotting_kobold": [
+    {
+      "name": "Pickaxe Swing",
+      "kind": "damage",
+      "amount": 14,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Cave-In",
+      "kind": "damage",
+      "amount": 20,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "physical"
+    }
+  ],
+  "imp": [
+    {
+      "name": "Firebolt",
+      "kind": "damage",
+      "amount": 28,
+      "cooldown": 0,
+      "mana_cost": 28,
+      "school": "fire"
+    },
+    {
+      "name": "Immolate",
+      "kind": "dot",
+      "amount": 14,
+      "cooldown": 3,
+      "mana_cost": 14,
+      "school": "fire",
+      "duration": 3
+    }
+  ],
+  "shadow_corruption": [
+    {
+      "name": "Corrupting Bolt",
+      "kind": "damage",
+      "amount": 42,
+      "cooldown": 0,
+      "mana_cost": 42,
+      "school": "shadow"
+    },
+    {
+      "name": "Decay",
+      "kind": "dot",
+      "amount": 23,
+      "cooldown": 3,
+      "mana_cost": 23,
+      "school": "shadow",
+      "duration": 4
+    }
+  ],
+  "troll_hex_master": [
+    {
+      "name": "Hex Bolt",
+      "kind": "damage",
+      "amount": 31,
+      "cooldown": 0,
+      "mana_cost": 31,
+      "school": "magic"
+    },
+    {
+      "name": "Voodoo Curse",
+      "kind": "dot",
+      "amount": 17,
+      "cooldown": 3,
+      "mana_cost": 17,
+      "school": "magic",
+      "duration": 3
+    }
+  ],
+  "kirin_tor_mage": [
+    {
+      "name": "Arcane Bolt",
+      "kind": "damage",
+      "amount": 32,
+      "cooldown": 0,
+      "mana_cost": 32,
+      "school": "magic"
+    },
+    {
+      "name": "Arcane Explosion",
+      "kind": "dot",
+      "amount": 38,
+      "cooldown": 3,
+      "mana_cost": 38,
+      "school": "magic",
+      "duration": 3,
+      "is_aoe": true
+    }
+  ],
+  "forsaken_mage": [
+    {
+      "name": "Shadowfrost Bolt",
+      "kind": "damage",
+      "amount": 32,
+      "cooldown": 0,
+      "mana_cost": 32,
+      "school": "shadow"
+    },
+    {
+      "name": "Frost Nova",
+      "kind": "dot",
+      "amount": 20,
+      "cooldown": 3,
+      "mana_cost": 20,
+      "school": "shadow",
+      "duration": 3,
+      "is_aoe": true
+    }
+  ],
+  "troll_axe_thrower": [
+    {
+      "name": "Axe Throw",
+      "kind": "damage",
+      "amount": 30,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Volley",
+      "kind": "damage",
+      "amount": 42,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "physical"
+    }
+  ],
+  "archmage_atiesh": [
+    {
+      "name": "Frostbolt",
+      "kind": "damage",
+      "amount": 42,
+      "cooldown": 0,
+      "mana_cost": 38,
+      "school": "magic"
+    },
+    {
+      "name": "Staff of Sorrows",
+      "kind": "damage",
+      "amount": 54,
+      "cooldown": 3,
+      "mana_cost": 46,
+      "school": "shadow"
+    },
+    {
+      "name": "Mana Shield",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 40,
+      "school": "magic",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 28
+      }
+    }
+  ],
+  "magister_hawren": [
+    {
+      "name": "Arcane Missiles",
+      "kind": "damage",
+      "amount": 40,
+      "cooldown": 0,
+      "mana_cost": 36,
+      "school": "magic"
+    },
+    {
+      "name": "Blink Strike",
+      "kind": "damage",
+      "amount": 48,
+      "cooldown": 3,
+      "mana_cost": 38,
+      "school": "magic"
+    },
+    {
+      "name": "Polymorph",
+      "kind": "debuff",
+      "cooldown": 5,
+      "mana_cost": 42,
+      "school": "magic",
+      "duration": 2,
+      "stat_mods": {
+        "attack_power": -25
+      }
+    }
+  ],
+  "apothecary_helbrim": [
+    {
+      "name": "Plague Bolt",
+      "kind": "damage",
+      "amount": 40,
+      "cooldown": 0,
+      "mana_cost": 36,
+      "school": "shadow"
+    },
+    {
+      "name": "Noxious Fumes",
+      "kind": "dot",
+      "amount": 30,
+      "cooldown": 3,
+      "mana_cost": 38,
+      "school": "shadow",
+      "duration": 4
+    },
+    {
+      "name": "Toxic Brew",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 36,
+      "school": "shadow",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "attack_power": 18
+      }
+    }
+  ],
+  "curse_keeper_tael": [
+    {
+      "name": "Curse Bolt",
+      "kind": "damage",
+      "amount": 44,
+      "cooldown": 0,
+      "mana_cost": 40,
+      "school": "shadow"
+    },
+    {
+      "name": "Wither Curse",
+      "kind": "dot",
+      "amount": 32,
+      "cooldown": 3,
+      "mana_cost": 42,
+      "school": "shadow",
+      "duration": 4
+    },
+    {
+      "name": "Dark Ritual",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 40,
+      "school": "shadow",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "intellect": 20
+      }
+    }
+  ],
+  "alpha_fenris": [
+    {
+      "name": "Savage Maul",
+      "kind": "damage",
+      "amount": 46,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Pack Leader's Fury",
+      "kind": "damage",
+      "amount": 60,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "physical"
+    },
+    {
+      "name": "Howl",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "physical",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "attack_power": 25
+      }
+    }
+  ],
+  "dread_mage_malik": [
+    {
+      "name": "Void Bolt",
+      "kind": "damage",
+      "amount": 58,
+      "cooldown": 0,
+      "mana_cost": 55,
+      "school": "shadow"
+    },
+    {
+      "name": "Demonic Pact",
+      "kind": "damage",
+      "amount": 70,
+      "cooldown": 3,
+      "mana_cost": 62,
+      "school": "shadow"
+    },
+    {
+      "name": "Shadowform",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 55,
+      "school": "shadow",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 35
+      }
+    }
+  ],
+  "possessed_oracle": [
+    {
+      "name": "Corrupted Heal",
+      "kind": "damage",
+      "amount": 56,
+      "cooldown": 0,
+      "mana_cost": 52,
+      "school": "shadow"
+    },
+    {
+      "name": "Nightmare Vision",
+      "kind": "dot",
+      "amount": 40,
+      "cooldown": 3,
+      "mana_cost": 58,
+      "school": "shadow",
+      "duration": 4
+    },
+    {
+      "name": "Oracle's Ward",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 50,
+      "school": "shadow",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "armor": 32
+      }
+    }
+  ],
+  "lord_nightmare": [
+    {
+      "name": "Nightmare Bolt",
+      "kind": "damage",
+      "amount": 60,
+      "cooldown": 0,
+      "mana_cost": 58,
+      "school": "shadow"
+    },
+    {
+      "name": "Eldritch Horror",
+      "kind": "damage",
+      "amount": 75,
+      "cooldown": 3,
+      "mana_cost": 65,
+      "school": "shadow"
+    },
+    {
+      "name": "Void Corruption",
+      "kind": "debuff",
+      "cooldown": 4,
+      "mana_cost": 55,
+      "school": "shadow",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -25
+      }
+    }
+  ],
+  "satyr_warlord": [
+    {
+      "name": "Warlord's Cleave",
+      "kind": "damage",
+      "amount": 55,
+      "cooldown": 0,
+      "mana_cost": 0,
+      "school": "physical",
+      "is_aoe": true
+    },
+    {
+      "name": "Fel Rampage",
+      "kind": "damage",
+      "amount": 72,
+      "cooldown": 3,
+      "mana_cost": 0,
+      "school": "magic"
+    },
+    {
+      "name": "Warlord's Roar",
+      "kind": "buff",
+      "cooldown": 5,
+      "mana_cost": 0,
+      "school": "physical",
+      "duration": 3,
+      "self_only": true,
+      "stat_mods": {
+        "attack_power": 30
+      }
+    }
+  ],
+  "quilboar_priestess": [
+    {
+      "name": "Blood Ritual Bolt",
+      "kind": "damage",
+      "amount": 46,
+      "cooldown": 0,
+      "mana_cost": 42,
+      "school": "magic"
+    },
+    {
+      "name": "Ancestral Wrath",
+      "kind": "dot",
+      "amount": 34,
+      "cooldown": 3,
+      "mana_cost": 44,
+      "school": "magic",
+      "duration": 4
+    },
+    {
+      "name": "Blood Idol",
+      "kind": "heal",
+      "amount": 50,
+      "cooldown": 3,
+      "mana_cost": 44,
+      "school": "magic"
+    }
+  ]
+}
