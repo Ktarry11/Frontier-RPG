@@ -287,15 +287,16 @@ def make_layout_class(spec, title, desc, region, portals, arrivals, npc_position
             self.trees = 0
 
         # -- fast tree placement from precomputed masks (see scatter) --
-        def tree(self, name, cx, base_y, height, solid=True, fraction=0.22):
+        def tree(self, name, cx, base_y, height, solid=True, fraction=0.12):
             path = f"{AP}{name}.png" if "/" not in name else name
             wt = max(1, round(height * CB._aspect(path)))
             ax, ay = cx - wt // 2, base_y - height + 1
             core = []
             if solid:
                 rows = max(1, round(height * fraction))
-                x0 = ax + int(wt * 0.3)
-                x1 = max(ax + int(wt * 0.7), x0 + 1)
+                # trunk only: one row, ~2 tiles wide (was ~3x2) - the crown is drawn over the player, so the look is unchanged
+                x0 = ax + int(wt * 0.4)
+                x1 = max(ax + int(wt * 0.62), x0 + 1)
                 for y in range(ay + height - rows, ay + height):
                     for x in range(x0, x1):
                         core.append((x, y))
@@ -399,6 +400,11 @@ def build_free_mask(L, npc_xy, margin_road=2.0):
     L.free_mask = free
 
 
+GROVE_MIN_DENSITY = 0.55    # forest density below which no grove is seeded
+GROVE_KEEP = 0.6            # chance a seed point above that becomes a grove
+GROVE_SPACING = 10          # min distance between grove centres (tiles)
+
+
 def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True):
     """Deliberate forest: jittered grid, density field decides where, tree size by density.
     kit = {"big": [(name,h)], "mid": [...], "small": [...]}.  Woodland trees get a trunk collision core;
@@ -409,23 +415,53 @@ def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True):
     ys, xs = np.mgrid[0:spec.H, 0:spec.W]
     f = spec.fields(xs + 0.5, ys + 0.5)
     dens = spec.density(xs + 0.5, ys + 0.5, f)
+    # ---- GROVES, not lone trunks (Kyle 2026-10-22: keep the look and the big blockers, lose the dozens of tiny ones).
+    # The old scatter put ~400 single trees (each its own 3x2 collision post) across the open forest.  Now trees come in
+    # groves: a handful of trees around a centre whose trunks are merged into ONE solid mass you walk around, with open
+    # forest floor between groves.  Lone trees are gone.
     n = 0
-    y = 2.0
-    while y < spec.H - 2:
-        x = 2.0
-        while x < spec.W - 2:
-            jx, jy = x + rnd.uniform(-1.8, 1.8), y + rnd.uniform(-1.8, 1.8)
+    centres = []
+    y = 3.0
+    while y < spec.H - 3:
+        x = 3.0
+        while x < spec.W - 3:
+            jx, jy = x + rnd.uniform(-2.5, 2.5), y + rnd.uniform(-2.5, 2.5)
             ix, iy = int(jx), int(jy)
             if 0 <= ix < spec.W and 0 <= iy < spec.H and L.free_mask[iy, ix]:
                 d = dens[iy, ix]
-                if rnd.random() < d:
-                    tier = "big" if d > 0.72 else ("mid" if d > 0.45 else "small")
-                    pool = kit.get(tier) or kit["mid"]
-                    name, h = pool[rnd.randrange(len(pool))]
-                    if L.tree(name, ix, iy, int(round(h * scale))):
-                        n += 1
+                if d >= GROVE_MIN_DENSITY and rnd.random() < d * GROVE_KEEP:
+                    centres.append((ix, iy, d))
             x += spacing
         y += spacing
+    placed = []
+    for (cx, cy, d) in centres:
+        if any(abs(cx - px) < GROVE_SPACING and abs(cy - py) < GROVE_SPACING for (px, py) in placed):
+            continue
+        k = rnd.randint(4, 7)
+        trees = []
+        for _ in range(k):
+            ang, rr = rnd.uniform(0, 6.283), rnd.uniform(0.0, 3.1)
+            tx, ty = int(round(cx + rr * math.cos(ang))), int(round(cy + 0.8 * rr * math.sin(ang)))
+            tier = "big" if d > 0.72 else ("mid" if d > 0.45 else "small")
+            pool = kit.get(tier) or kit["mid"]
+            name, h = pool[rnd.randrange(len(pool))]
+            if 0 <= tx < spec.W and 0 <= ty < spec.H and L.free_mask[ty, tx]:
+                trees.append((tx, ty, name, int(round(h * scale))))
+        if len(trees) < 3:
+            continue
+        placed.append((cx, cy))
+        # the merged trunk mass: a disc round every tree's base, only on free ground
+        for (tx, ty, name, h) in sorted(trees, key=lambda t: t[1]):
+            if L.tree(name, tx, ty, h, solid=False):
+                n += 1
+        for (tx, ty, _n, _h) in trees:
+            for yy in range(ty - 2, ty + 2):
+                for xx in range(tx - 2, tx + 3):
+                    if 0 <= xx < spec.W and 0 <= yy < spec.H and L.free_mask[yy, xx] \
+                            and (xx - tx) ** 2 + 1.4 * (yy - ty + 0.5) ** 2 <= 4.6 \
+                            and L.z.collision_layer[yy][xx] is None:
+                        L.z.collision_layer[yy][xx] = "landmark"
+                        L.free_mask[yy, xx] = False
     L.scattered = n
     # visual canopy over the massif edge (no collision: the painted woods are already the obstacle)
     if woods_deco:

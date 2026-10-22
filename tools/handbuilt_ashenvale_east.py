@@ -284,10 +284,10 @@ def sprinkle(L):
             if L.prop("fern_cluster", x, y, 3, path_dir=E.AP, solid=False, nudge=0):
                 ferns += 1
         elif logs < 24 and r < 0.046 and not dead:
-            if L.prop("fallen_log", x, y, 3, path_dir=E.AP, solid="core", nudge=0):
+            if L.prop("fallen_log", x, y, 3, path_dir=E.AP, solid=False, nudge=0):
                 logs += 1
         elif rocks < 34 and r < 0.056:
-            if L.prop("rock_outcrop_small", x, y, 4, path_dir=E.AP, solid="core", nudge=0):
+            if L.prop("rock_outcrop_small", x, y, 4, path_dir=E.AP, solid=False, nudge=0):
                 rocks += 1
     L.clutter = (ferns, logs, rocks)
 

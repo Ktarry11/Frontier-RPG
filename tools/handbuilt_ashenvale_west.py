@@ -235,10 +235,10 @@ def sprinkle(L):
             if L.prop("fern_cluster", x, y, 3, path_dir=E.AP, solid=False, nudge=0):
                 ferns += 1
         elif logs < 28 and r < 0.046:
-            if L.prop("fallen_log", x, y, 3, path_dir=E.AP, solid="core", nudge=0):
+            if L.prop("fallen_log", x, y, 3, path_dir=E.AP, solid=False, nudge=0):
                 logs += 1
         elif rocks < 26 and r < 0.052:
-            if L.prop("rock_outcrop_small", x, y, 4, path_dir=E.AP, solid="core", nudge=0):
+            if L.prop("rock_outcrop_small", x, y, 4, path_dir=E.AP, solid=False, nudge=0):
                 rocks += 1
     L.clutter = (ferns, logs, rocks)
 
@@ -250,8 +250,24 @@ CHEST_SPOTS = [
 
 
 def chests(L):
+    import math
     for (x, y) in CHEST_SPOTS:
-        L.chest(x, y)
+        if L.chest(x, y):
+            continue
+        # fallback (groves can swallow a spot): walk outwards in a ring until a clear tile takes it
+        L.skipped.pop()
+        done = False
+        for r in range(6, 16, 2):
+            for k in range(16):
+                a = k * math.pi / 8
+                if L.chest(int(x + r * math.cos(a)), int(y + r * math.sin(a))):
+                    done = True
+                    break
+                L.skipped.pop()
+            if done:
+                break
+        if not done:
+            L.skipped.append(("chest", x, y, "no free tile"))
 
 
 def dress(L):
