@@ -13,6 +13,9 @@ from ui.screens.base_screen import BaseScreen
 from ui.tilemap_renderer import TilemapRenderer
 from ui.camera import CameraManager
 
+#: Show the "TEST: +5 Levels" button in the right-hand tab column (play-testing aid; set False to hide).
+DEBUG_LEVEL_BUTTON = True
+
 
 class OverworldScreen(BaseScreen):
     """Overworld with tilemap visualization and camera follow."""
@@ -350,6 +353,8 @@ class OverworldScreen(BaseScreen):
                 self.state_manager.transition_to(GameState.MENU)
             elif action == "unstuck":
                 self.unstuck_confirm_pending = True
+            elif action == "test_levels":
+                self._debug_level_party(5)
             return
 
     def _render_tab_column(self, screen):
@@ -393,7 +398,39 @@ class OverworldScreen(BaseScreen):
         unstuck_rect = pygame.Rect(self.tab_column_x, y, self.tab_w, self.tab_h)
         self.renderer.draw_button(screen, unstuck_rect, "Unstuck (U)", color=(110, 40, 40))
         self.tab_rects["unstuck"] = unstuck_rect
+
+        # TEST BUTTON (Kyle): +5 levels for the whole party, so every zone can be
+        # play-tested without grinding. Flip DEBUG_LEVEL_BUTTON off before release.
+        if DEBUG_LEVEL_BUTTON:
+            y += self.tab_h + self.tab_gap
+            test_rect = pygame.Rect(self.tab_column_x, y, self.tab_w, self.tab_h)
+            self.renderer.draw_button(screen, test_rect, "TEST: +5 Levels", color=(90, 60, 130))
+            self.tab_rects["test_levels"] = test_rect
     
+    def _debug_level_party(self, levels=5):
+        """TEST ONLY: raise every party member (active + bench) by `levels`, capped at
+        MAX_LEVEL, through the real Character.level_up() so stats, ability ranks, talent
+        points and HP/mana all update exactly as a natural level-up would."""
+        from config import MAX_LEVEL
+        party = self.state_manager.get_party()
+        members = list(party.members) + list(getattr(party, "bench", [])) if party else [self.state_manager.player]
+        gained_total = 0
+        for member in members:
+            for _ in range(levels):
+                if member.level >= MAX_LEVEL:
+                    break
+                member.level_up()
+                gained_total += 1
+            member.experience = 0
+            pet = getattr(member, "active_pet", None)
+            if pet is not None and hasattr(pet, "sync_to_owner_level"):
+                pet.sync_to_owner_level()
+        player = self.state_manager.player
+        if gained_total:
+            self._notify(f"TEST: party +{levels} levels (you are now level {player.level}).", (200, 170, 255))
+        else:
+            self._notify(f"Everyone is already at the level cap ({MAX_LEVEL}).", (240, 200, 140))
+
     def _open_inventory(self):
         """
         Open the bag on the PLAYER. The inventory screen is shared with the

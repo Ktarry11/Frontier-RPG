@@ -179,7 +179,7 @@ class Painter:
         return ndi.map_coordinates(field, [cy, cx], order=1, mode="nearest")
 
     def bake(self, materials, scores, out_dir, chunk_tiles=20, tau=0.10, hscale=0.22,
-             post=None, quality=90, prefix="ground", variant_mix=None):
+             post=None, quality=90, prefix="ground", variant_mix=None, only=None):
         """
         materials: {name: (texA, texB_or_None, tile_scale)}  (texture file stems)
         scores:    {name: mask-grid float field (higher = wins)}
@@ -194,6 +194,8 @@ class Painter:
         written = []
         for cy in range(0, self.H, chunk_tiles):
             for cx in range(0, self.W, chunk_tiles):
+                if only is not None and (cx, cy) not in only:
+                    continue
                 wpx = min(chunk_tiles, self.W - cx) * TILE_PX
                 hpx = min(chunk_tiles, self.H - cy) * TILE_PX
                 ys, xs = np.mgrid[0:hpx, 0:wpx]
@@ -201,7 +203,14 @@ class Painter:
                 Y = (ys + cy * TILE_PX).astype(np.float32) + 0.5
                 mix = self.sample_field(mix_noise, X, Y)
                 cols, svals = [], []
+                # skip materials that cannot reach a weight above ~1e-3 anywhere in this chunk (speed-up only)
+                base = {n: self.sample_field(scores[n], X, Y) for n in names}
+                bmax = np.max(np.stack(list(base.values())), axis=0)
+                lum_b = hscale * 0.5
+                active = [n for n in names if np.any(base[n] + lum_b > bmax - lum_b - 7.0 * tau)]
                 for i, n in enumerate(names):
+                    if n not in active:
+                        continue
                     a, b, scale = materials[n]
                     ox, oy = (i * 83) % TEX, (i * 131) % TEX
                     sx = ((X / scale + ox) % TEX).astype(np.int32)
@@ -214,7 +223,7 @@ class Painter:
                         m = smoothstep(0.42, 0.58, mix)[..., None]
                         col = col * (1 - m) + col2 * m
                     lum = col.mean(axis=2) / 255.0
-                    s = self.sample_field(scores[n], X, Y) + hscale * (lum - 0.5)
+                    s = base[n] + hscale * (lum - 0.5)
                     cols.append(col)
                     svals.append(s)
                 S = np.stack(svals)
@@ -222,7 +231,7 @@ class Painter:
                 Wt = np.exp(S)
                 Wt /= Wt.sum(axis=0, keepdims=True)
                 rgb = np.zeros((hpx, wpx, 3), np.float32)
-                for i in range(len(names)):
+                for i in range(len(cols)):
                     rgb += Wt[i][..., None] * cols[i]
                 if post:
                     rgb = post(rgb, X, Y, self)

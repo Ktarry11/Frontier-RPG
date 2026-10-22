@@ -5615,8 +5615,8 @@ def create_all_zones():
         generate_sunken_grotto_of_the_deep,
         generate_ragefire_chasm,
     )
+    from tools.handbuilt_ashenvale_west import generate_ashenvale_west
     from tools.ashenvale_silverpine_fenris_generators import (
-        generate_ashenvale_west,
         generate_ashenvale_east,
         generate_silverpine_north,
         generate_silverpine_south,

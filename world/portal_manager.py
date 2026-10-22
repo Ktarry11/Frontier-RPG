@@ -250,20 +250,20 @@ class PortalManager:
                 (215, 100): ("Ashenvale East", 4, 100),
                 (30, 20): ("Blackfathom Deeps", 120, 205),
                 (110, 82): ("Moonwell Hollow", 42, 66),
-                (110, 160): ("Astranaar", 35, 55),
+                (110, 160): ("Astranaar", 55, 85),
                 (15, 30): ("Zoram Strand", 50, 25),
             },
             "Astranaar": {
-                (35, 55): ("Ashenvale West", 110, 160),
+                (55, 85): ("Ashenvale West", 110, 160),
             },
             "Zoram Strand": {
-                (50, 25): ("Ashenvale West", 40, 180),
+                (50, 25): ("Ashenvale West", 15, 30),
             },
             "Moonwell Hollow": {
-                (42, 66): ("Ashenvale West", 110, 80),
+                (42, 66): ("Ashenvale West", 110, 82),
             },
             "Blackfathom Deeps": {
-                (120, 205): ("Ashenvale West", 30, 18),
+                (120, 205): ("Ashenvale West", 30, 20),
             },
             "Silverpine North": {
                 (100, 4): ("Western Tirisfal", 40, 8),
