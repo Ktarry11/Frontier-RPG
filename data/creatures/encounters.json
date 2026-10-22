@@ -420,30 +420,62 @@
       "open_zone": {
         "creatures": {
           "Mangy Duskbat": 3,
-          "Ragged Scavenger": 2
+          "Ragged Scavenger": 2,
+          "Plagued Stray": 2
         }
       },
       "subzones": {
-        "Shadow Grave": {
-          "name": "Shadow Grave",
-          "creatures": {
-            "Shadow Grave Wight": 2,
-            "Rattlecage Skeleton": 2,
-            "Wretched Zombie": 1
-          }
-        },
         "Deathknell Graves": {
           "name": "Deathknell Graves",
           "creatures": {
-            "Restless Grave-Dweller": 3,
-            "Rattlecage Skeleton": 1
+            "Restless Grave-Dweller": 4,
+            "Grave Rat": 2,
+            "Plagued Stray": 2,
+            "Mawgrin the Gaunt": 0
+          }
+        },
+        "Shadow Grave": {
+          "name": "Shadow Grave",
+          "creatures": {
+            "Shadow Grave Wight": 3,
+            "Rattlecage Skeleton": 3,
+            "Wretched Zombie": 2,
+            "Ossric the Unburied": 0
           }
         },
         "The Overrun Claim": {
           "name": "The Overrun Claim",
           "creatures": {
-            "Claim Spider": 3,
-            "Mangy Duskbat": 1
+            "Claim Spider": 4,
+            "Dead Digger": 3,
+            "Mangy Duskbat": 1,
+            "Goldfang": 0
+          }
+        },
+        "Weeping Pond": {
+          "name": "The Weeping Pond",
+          "creatures": {
+            "Drowned Wretch": 3,
+            "Weeping Shade": 3,
+            "Grave Rat": 1,
+            "Mourning Wren": 0
+          }
+        },
+        "Burned Farmstead": {
+          "name": "The Burned Farmstead",
+          "creatures": {
+            "Blighted Scarecrow": 3,
+            "Burned Farmhand": 3,
+            "Ragged Scavenger": 1,
+            "Gaffer Thorne": 0
+          }
+        },
+        "Scarlet Forecourt": {
+          "name": "Scarlet Forecourt",
+          "creatures": {
+            "Scarlet Picket": 3,
+            "Scarlet Torchbearer": 3,
+            "Sergeant Halbrook": 0
           }
         }
       },
@@ -451,23 +483,46 @@
         "Night Web's Hollow": {
           "name": "Night Web's Hollow",
           "creatures": {
-            "Night Web Spider": 2,
+            "Night Web Spider": 3,
+            "Brood Hatchling": 3,
             "Night Web Matriarch": 1,
             "Web Wrapped Corpse": 1,
             "Ravenclaw Drudger": 1,
-            "Broodmother Nesh'ka": 0
+            "Broodmother Nesh'ka": 0,
+            "Hatchery Warden Skrix": 0,
+            "The Pale Weaver": 0
           }
         },
         "Scarlet Crypt": {
           "name": "Scarlet Crypt",
           "creatures": {
-            "Crypt Crawler": 1,
-            "Scarlet Initiate": 1,
+            "Crypt Crawler": 2,
+            "Scarlet Initiate": 2,
             "Scarlet Chaplain": 1,
-            "Restless Crypt Fiend": 1,
-            "High Inquisitor Fairbanks": 0
+            "Restless Crypt Fiend": 2,
+            "High Inquisitor Fairbanks": 0,
+            "Valdric Bonewarden": 0,
+            "Brother Wystan": 0
           }
         }
+      },
+      "level_overrides": {
+        "Mangy Duskbat": [
+          1,
+          4
+        ],
+        "Ragged Scavenger": [
+          1,
+          3
+        ],
+        "Rattlecage Skeleton": [
+          2,
+          4
+        ],
+        "Wretched Zombie": [
+          2,
+          4
+        ]
       }
     },
     "Eastern Tirisfal": {

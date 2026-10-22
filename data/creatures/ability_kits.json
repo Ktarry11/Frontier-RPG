@@ -12855,6 +12855,585 @@
         "duration": 5
       }
     ],
+    "plagued_stray": [
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 9,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 4,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "grave_rat": [
+      {
+        "name": "Scurry Bite",
+        "kind": "damage",
+        "amount": 7,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Frenzied Nibbles",
+        "kind": "damage",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "dead_digger": [
+      {
+        "name": "Pickaxe Swing",
+        "kind": "damage",
+        "amount": 11,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Miner's Grit",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 8
+        }
+      }
+    ],
+    "drowned_wretch": [
+      {
+        "name": "Sodden Fist",
+        "kind": "damage",
+        "amount": 11,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Choking Silt",
+        "kind": "dot",
+        "amount": 4,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "weeping_shade": [
+      {
+        "name": "Mournful Wail",
+        "kind": "damage",
+        "amount": 10,
+        "cooldown": 0,
+        "mana_cost": 6,
+        "school": "shadow"
+      },
+      {
+        "name": "Chill of Grief",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 8,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -8
+        }
+      }
+    ],
+    "blighted_scarecrow": [
+      {
+        "name": "Straw Flail",
+        "kind": "damage",
+        "amount": 14,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cawing Mob",
+        "kind": "dot",
+        "amount": 5,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "burned_farmhand": [
+      {
+        "name": "Charred Pitchfork",
+        "kind": "damage",
+        "amount": 13,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ash Cloud",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -8
+        }
+      }
+    ],
+    "scarlet_torchbearer": [
+      {
+        "name": "Torch Hurl",
+        "kind": "damage",
+        "amount": 15,
+        "cooldown": 0,
+        "mana_cost": 10,
+        "school": "fire"
+      },
+      {
+        "name": "Kindle",
+        "kind": "dot",
+        "amount": 5,
+        "cooldown": 4,
+        "mana_cost": 8,
+        "school": "fire",
+        "duration": 3
+      }
+    ],
+    "scarlet_picket": [
+      {
+        "name": "Halberd Chop",
+        "kind": "damage",
+        "amount": 16,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sunder",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -12
+        }
+      }
+    ],
+    "brood_hatchling": [
+      {
+        "name": "Hatchling Bite",
+        "kind": "damage",
+        "amount": 12,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Skitter Nip",
+        "kind": "damage",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "web_wrapped_corpse": [
+      {
+        "name": "Cocoon Slam",
+        "kind": "damage",
+        "amount": 15,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Silk Bind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -10
+        }
+      }
+    ],
+    "ravenclaw_drudger": [
+      {
+        "name": "Drudger's Blow",
+        "kind": "damage",
+        "amount": 16,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rotting Bite",
+        "kind": "dot",
+        "amount": 6,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "crypt_crawler": [
+      {
+        "name": "Chitin Snap",
+        "kind": "damage",
+        "amount": 14,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Burrow Venom",
+        "kind": "dot",
+        "amount": 5,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "mawgrin_the_gaunt": [
+      {
+        "name": "Rending Bite",
+        "kind": "damage",
+        "amount": 14,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 5,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Pack Howl",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 10
+        }
+      }
+    ],
+    "ossric_the_unburied": [
+      {
+        "name": "Grave Cleave",
+        "kind": "damage",
+        "amount": 17,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Soul Rot",
+        "kind": "dot",
+        "amount": 6,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3
+      },
+      {
+        "name": "Shroud of Dust",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 14
+        }
+      }
+    ],
+    "goldfang": [
+      {
+        "name": "Goldfang Bite",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gilded Venom",
+        "kind": "dot",
+        "amount": 6,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Web Snare",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "mourning_wren": [
+      {
+        "name": "Keening Bolt",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 0,
+        "mana_cost": 10,
+        "school": "shadow"
+      },
+      {
+        "name": "Grief-Struck",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 10,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -12
+        }
+      },
+      {
+        "name": "Lament",
+        "kind": "heal",
+        "amount": 26,
+        "cooldown": 6,
+        "mana_cost": 14,
+        "school": "shadow"
+      }
+    ],
+    "gaffer_thorne": [
+      {
+        "name": "Rusted Scythe",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Harvest Wound",
+        "kind": "dot",
+        "amount": 7,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Hard Cold Earth",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 16
+        }
+      }
+    ],
+    "sergeant_halbrook": [
+      {
+        "name": "Halberd Cleave",
+        "kind": "damage",
+        "amount": 21,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sunder Armor",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -14
+        }
+      },
+      {
+        "name": "Rally Cry",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
+      }
+    ],
+    "hatchery_warden_skrix": [
+      {
+        "name": "Skrix's Fang",
+        "kind": "damage",
+        "amount": 19,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Silk Spit",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -14
+        }
+      },
+      {
+        "name": "Egg Guard",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 14
+        }
+      }
+    ],
+    "pale_weaver": [
+      {
+        "name": "Pale Fang",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Weaver's Venom",
+        "kind": "dot",
+        "amount": 7,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Shroud Web",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "is_aoe": true,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "valdric_bonewarden": [
+      {
+        "name": "Bone Hammer",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Marrow Rot",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3
+      },
+      {
+        "name": "Bone Armor",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 22
+        }
+      }
+    ],
+    "brother_wystan": [
+      {
+        "name": "Wystan's Smite",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 20,
+        "school": "holy"
+      },
+      {
+        "name": "Cleansing Flame",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 4,
+        "mana_cost": 16,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Penitent Prayer",
+        "kind": "heal",
+        "amount": 40,
+        "cooldown": 6,
+        "mana_cost": 24,
+        "school": "holy"
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",

@@ -1,147 +1,6 @@
 {
   "quests": [
     {
-      "quest_id": "dk_first_steps",
-      "title": "First Steps in Undeath",
-      "description": "Overseer Krell says the dead don't get to rest on their first day either. The Mangy Duskbats roosting near the village treeline are an easy enough start - prove the body still answers, even if the mind's still catching up.",
-      "giver_npc_id": "dk_quest_overseer",
-      "zone": "deathknell",
-      "objectives": [
-        {
-          "type": "kill",
-          "target": "Mangy Duskbat",
-          "count": 6,
-          "zone": "Deathknell"
-        }
-      ],
-      "reward_exp": 150,
-      "reward_gold": 300,
-      "accept_text": "You woke up dead. Congratulations. Now go prove the rest of you still works - the duskbats won't test you hard.",
-      "turn_in_text": "Still standing. Good. That's most of the battle, this early.",
-      "level_min": 1,
-      "level_max": 3
-    },
-    {
-      "quest_id": "dk_scavenger_scraps",
-      "title": "Scavenger Scraps",
-      "description": "The Ragged Scavengers picking through Deathknell's refuse have gotten bold enough to carry off supplies the village actually needs. Krell wants their stolen scraps recovered.",
-      "giver_npc_id": "dk_quest_overseer",
-      "zone": "deathknell",
-      "objectives": [
-        {
-          "type": "fetch",
-          "target": "stolen_village_scrap",
-          "count": 5
-        }
-      ],
-      "reward_exp": 180,
-      "reward_gold": 350,
-      "accept_text": "Scavengers took more than their share again. Doesn't matter that we're all dead here - we still eat, after a fashion.",
-      "turn_in_text": "Good. Every scrap counts when the whole village is held together with rust and spite.",
-      "level_min": 1,
-      "level_max": 4
-    },
-    {
-      "quest_id": "dk_newly_risen_memory",
-      "title": "A Face I Almost Remember",
-      "description": "The Newly Risen doesn't remember her own name, only a fading sense that she had a life near the Overrun Claim. She asks you to look there - not for treasure, just for anything that might jog the memory loose.",
-      "giver_npc_id": "dk_risen",
-      "zone": "deathknell",
-      "objectives": [
-        {
-          "type": "explore",
-          "target": null,
-          "zone": "The Overrun Claim"
-        }
-      ],
-      "reward_exp": 150,
-      "reward_gold": 250,
-      "accept_text": "I keep thinking I lived near there. Or died there. The two feel the same lately.",
-      "turn_in_text": "Nothing came back to me. Maybe nothing will. Thank you for looking anyway - that's more than most would do.",
-      "level_min": 1,
-      "level_max": 3
-    },
-    {
-      "quest_id": "dk_claim_spiders",
-      "title": "Clearing the Claim",
-      "description": "Overseer Krell wants the Claim Spiders infesting the Overrun Claim's old goldmine thinned - the village has tried to reclaim that mine for longer than anyone currently alive-again can remember.",
-      "giver_npc_id": "dk_quest_overseer",
-      "zone": "deathknell",
-      "objectives": [
-        {
-          "type": "kill",
-          "target": "Claim Spider",
-          "count": 8,
-          "zone": "Deathknell"
-        }
-      ],
-      "reward_exp": 220,
-      "reward_gold": 400,
-      "accept_text": "That mine was ours before the spiders. It can be ours again, one dead spider at a time.",
-      "turn_in_text": "Progress. Real progress. Keep this up and we might actually get that mine running again someday.",
-      "level_min": 2,
-      "level_max": 5
-    },
-    {
-      "quest_id": "dk_shadow_grave_wights",
-      "title": "Wights of Shadow Grave",
-      "description": "Krell's tone turns graver here: the Shadow Grave Wights are a different kind of dead - the kind that never got the Dark Lady's gift of will, just hunger. He wants them put down before they wander into the village proper.",
-      "giver_npc_id": "dk_quest_overseer",
-      "zone": "deathknell",
-      "objectives": [
-        {
-          "type": "kill",
-          "target": "Shadow Grave Wight",
-          "alt_targets": [
-            "Rattlecage Skeleton"
-          ],
-          "count": 8,
-          "zone": "Deathknell"
-        }
-      ],
-      "reward_exp": 250,
-      "reward_gold": 450,
-      "accept_text": "Those things in the Grave aren't like us. No will behind the eyes. Just hunger wearing a corpse. Put them down.",
-      "turn_in_text": "That's the kind of mercy they can't thank you for, but it's mercy all the same.",
-      "level_min": 3,
-      "level_max": 6,
-      "gear_reward_gear_level": 5,
-      "unique_item_defs": [
-        {
-          "name": "Shadow Grave Wraps",
-          "slot": "hands",
-          "armor_type": "cloth",
-          "item_level": 5,
-          "rarity": "common",
-          "primary_stats": {
-            "intellect": 1
-          },
-          "armor_value": 1,
-          "flavor_text": "Taken off a wight that had no more use for hands."
-        }
-      ]
-    },
-    {
-      "quest_id": "dk_nights_webs_hollow",
-      "title": "Into Night Web's Hollow",
-      "description": "Krell has heard the spiders in Night Web's Hollow answer to something bigger than scouting parties should have to handle alone. He wants a scout sent in to confirm it before Deathknell commits real numbers.",
-      "giver_npc_id": "dk_quest_overseer",
-      "zone": "deathknell",
-      "objectives": [
-        {
-          "type": "explore",
-          "target": null,
-          "zone": "Night Web's Hollow"
-        }
-      ],
-      "reward_exp": 300,
-      "reward_gold": 500,
-      "accept_text": "Something's nesting deep in that cave, something bigger than the spiders we've already dealt with. Go confirm it.",
-      "turn_in_text": "A broodmother, you say. That's a problem for stronger hands than most of Deathknell's. But now we know. Thank you.",
-      "level_min": 4,
-      "level_max": 6
-    },
-    {
       "quest_id": "et_solliden_rot",
       "title": "The Rot at Solliden",
       "description": "Envoy Sorren says Solliden Farmstead's Rotting Dead have grown aggressive enough to threaten the road between Brill and the Scarlet Watch. He wants their numbers cut.",
@@ -560,8 +419,10 @@
       "objectives": [
         {
           "type": "explore",
-          "target": null,
-          "zone": "The Bulwark"
+          "target": "western_tirisfal",
+          "target_x": 61,
+          "target_y": 62,
+          "radius": 8
         }
       ],
       "reward_exp": 300,

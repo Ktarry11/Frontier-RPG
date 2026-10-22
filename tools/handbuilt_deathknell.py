@@ -161,6 +161,11 @@ NPC_POSITIONS = {
     "dk_elder": (43, 42),                 # Death Knight Instructor, on the square
     "dk_risen": (53, 60),                 # the Newly Risen, among the graves
     "deathknell_undertaker": (58, 41),    # Undertaker Mordo (vendor), beside the chapel
+    "dk_foreman_gresk": (23, 24),         # Foreman Gresk, at the Overrun Claim's mine camp
+    "dk_mourner_isolde": (34, 58),        # Mourner Isolde, on the Weeping Pond's bank
+    "dk_gardener_orrel": (73, 68),        # Gardener Orrel, among the burned farmstead's furrows
+    "dk_scout_verrick": (72, 28),         # Scout Verrick, watching the Scarlet forecourt from the rocks
+    "dk_sexton_marrow": (47, 72),         # Sexton Marrow, in the Shadow Grave crypt-yard
 }
 # fixed spawn points (data/creatures/spawn_points.json) - kept on open ground away from roads and props
 SPAWNS = [("Mangy Duskbat", 41, 27), ("Mangy Duskbat", 66, 27), ("Mangy Duskbat", 18, 70),
@@ -305,6 +310,9 @@ def _subzones(L):
     z.add_subzone("Shadow Grave", 33, 66, 34, 20)
     z.add_subzone("Deathknell Graves", 36, 50, 28, 15)
     z.add_subzone("The Overrun Claim", 7, 11, 26, 20)
+    z.add_subzone("Weeping Pond", 13, 55, 23, 13, display_name="The Weeping Pond")
+    z.add_subzone("Burned Farmstead", 68, 64, 18, 13, display_name="The Burned Farmstead")
+    z.add_subzone("Scarlet Forecourt", 72, 15, 19, 15)
 
 
 def _dress(L):

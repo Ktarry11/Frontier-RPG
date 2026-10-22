@@ -153,7 +153,9 @@ def build_nwh():
                      ("The Drained Pit", 2, 50, 20, 16), ("The Brood Chamber", 68, 50, 20, 16)],
               "Night Web's Hollow")
 
-    _finish(L, zone, NWH_PORTAL, [(NWH_BOSS[0], NWH_BOSS[1], "Broodmother Nesh'ka")], NWH_CHESTS)
+    _finish(L, zone, NWH_PORTAL, [(NWH_BOSS[0], NWH_BOSS[1], "Broodmother Nesh'ka"),
+                              (NWH_RARES[0][0], NWH_RARES[0][1], "Hatchery Warden Skrix"),
+                              (NWH_RARES[1][0], NWH_RARES[1][1], "The Pale Weaver")], NWH_CHESTS)
     L.critical += NWH_RARES                       # keep the named-rare spots clear of props
 
     p = L.prop
@@ -266,7 +268,9 @@ def build_crypt():
                      ("The Penitent's Walk", 43, 16, 9, 9), ("The Inquisitor's Sanctum", 29, 2, 37, 16)],
               "Scarlet Crypt")
 
-    _finish(L, zone, CR_PORTAL, [(CR_BOSS[0], CR_BOSS[1], "High Inquisitor Fairbanks")], CR_CHESTS)
+    _finish(L, zone, CR_PORTAL, [(CR_BOSS[0], CR_BOSS[1], "High Inquisitor Fairbanks"),
+                             (CR_RARES[0][0], CR_RARES[0][1], "Valdric Bonewarden"),
+                             (CR_RARES[1][0], CR_RARES[1][1], "Brother Wystan")], CR_CHESTS)
     L.critical += CR_RARES                        # keep the named-rare spots clear of props
 
     p = L.prop

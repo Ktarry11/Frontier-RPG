@@ -1,0 +1,2360 @@
+{
+  "quests": [
+    {
+      "quest_id": "dk_first_steps",
+      "title": "First Steps in Undeath",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "level_min": 1,
+      "level_max": 3,
+      "description": "Overseer Krell says the dead don't get a day off just because they only just died. The Mangy Duskbats nesting round the village treeline are as gentle a test as the valley offers. Prove the body still answers, even if the mind is still catching up.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mangy Duskbat",
+          "count": 6,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 150,
+      "reward_gold": 300,
+      "accept_text": "You woke up dead. Congratulations. Now go prove the rest of you still works - the duskbats won't test you hard.",
+      "turn_in_text": "Still standing. Good. That's most of the battle, this early.",
+      "next_quest_id": "dk_scavenger_scraps",
+      "unique_item_defs": [
+        {
+          "name": "Newly Risen's Wraps",
+          "slot": "wrist",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "Strips of burial linen. Better than nothing, which is what you came with.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Bracers (Sta)"
+        },
+        {
+          "name": "Krell's Spare Cudgel",
+          "slot": "main_hand",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "Overseer-issue. Heavy, plain, and surprisingly good at getting a point across.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1
+          },
+          "weapon_damage_min": 8,
+          "weapon_damage_max": 11,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        },
+        {
+          "name": "Shroud-Cord Belt",
+          "slot": "waist",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "A burial cord. It holds up your trousers and your dignity.",
+          "primary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 2,
+          "label": "Leather Belt (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 3
+    },
+    {
+      "quest_id": "dk_scavenger_scraps",
+      "title": "Stolen Supplies",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "level_min": 1,
+      "level_max": 4,
+      "description": "The village stores have been shrinking, and not because anyone in Deathknell eats. Ragged scavengers have been dragging off salt tins, rope, bandages - whatever glints. Krell wants every piece back; the Dark Lady's bookkeeping is meticulous and so is his.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "stolen_village_scrap",
+          "count": 5
+        }
+      ],
+      "reward_exp": 170,
+      "reward_gold": 400,
+      "accept_text": "Birds. A man dies, rises, goes to work, and the birds are robbing him. Bring me five scraps back.",
+      "turn_in_text": "That's the rope. That's the salt. That's - what is that? Never mind. Good work.",
+      "next_quest_id": "dk_stray_cull",
+      "unique_item_defs": [
+        {
+          "name": "Scavenger's Sinew Cord",
+          "slot": "back",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "Braided from whatever the birds left behind.",
+          "primary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 1,
+          "label": "Leather Cloak (Agi/Spi)"
+        },
+        {
+          "name": "Salt-Stained Gloves",
+          "slot": "hands",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "Rough cloth, stiff with salt. Itch is an acquired taste.",
+          "primary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Gloves (Str/Sta)"
+        },
+        {
+          "name": "Krell's Ration Pouch Ring",
+          "slot": "ring",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "A drawstring-ring that proves even the dead hoard.",
+          "primary_stats": {},
+          "label": "Ring (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 3
+    },
+    {
+      "quest_id": "dk_stray_cull",
+      "title": "Strays at the Gate",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "level_min": 2,
+      "level_max": 4,
+      "description": "Dogs and rats came to the graveyard the way they always do - for what's in the ground. Something in the soil has sickened them. The plagued strays now tear at the gravediggers and the Newly Risen alike, and the rats carry it into the village stores. Krell wants them thinned before it spreads.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Plagued Stray",
+          "count": 7,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Grave Rat",
+          "count": 4,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 210,
+      "reward_gold": 550,
+      "accept_text": "They bite, and then you rot a little faster than you were already rotting. Cull them. Seven strays, four rats.",
+      "turn_in_text": "Fewer teeth in the dark. I can sleep - metaphorically - a little easier. Take something from the pile.",
+      "next_quest_id": "dk_claim_spiders",
+      "unique_item_defs": [
+        {
+          "name": "Plaguebitten Cap",
+          "slot": "head",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "A hat for a bad week. The bite marks are original.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Helm (Sta/Spi)"
+        },
+        {
+          "name": "Stray-Tooth Pendant",
+          "slot": "neck",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Strung on gut. It clacks when you walk, like a very small funeral.",
+          "primary_stats": {},
+          "label": "Necklace (Str/Agi)"
+        },
+        {
+          "name": "Ratcatcher's Boots",
+          "slot": "feet",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Soft-soled and quiet. They have seen a lot of rats.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 3,
+          "label": "Leather Boots (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 4
+    },
+    {
+      "quest_id": "dk_claim_spiders",
+      "title": "The Overrun Claim",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "level_min": 3,
+      "level_max": 5,
+      "description": "The old goldmine to the north-west was a decent little operation until the spiders arrived. Now the camp is web, bone and bad news - and Foreman Gresk is still there, which is its own kind of miracle. Clear the claim's spiders so Gresk can breathe, then see what he needs.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Claim Spider",
+          "count": 8,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 280,
+      "reward_gold": 850,
+      "accept_text": "North-west, past the old gold-road. Eight spiders. Then talk to Gresk - he's at the mine camp, he's cranky, and he's right.",
+      "turn_in_text": "Eight? Good. The Dark Lady has plans for that gold, and none of them include spiders.",
+      "next_quest_id": "dk_scout_hollow",
+      "unique_item_defs": [
+        {
+          "name": "Spiderbite Jerkin",
+          "slot": "chest",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Layered hide, punctured in six places and patched in all of them.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 9,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Goldmine Foreman's Spade",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "A shovel by trade and a mace by necessity.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        },
+        {
+          "name": "Silkweaver's Mantle",
+          "slot": "shoulder",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Spun by something larger than you and a good deal more patient.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Shoulders (Int/Spi)"
+        },
+        {
+          "name": "Mineshaft Ring",
+          "slot": "ring",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Cheap gold, but it knows when a roof is about to come down.",
+          "primary_stats": {},
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 5
+    },
+    {
+      "quest_id": "dk_scout_hollow",
+      "title": "Into the Hollow",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "level_min": 4,
+      "level_max": 6,
+      "description": "The spiders aren't just wandering in - they're being fed. A web-choked cave beside the claim, Night Web's Hollow, pours them out like a spring. Krell wants eyes on the cave's inner strand before anyone commits to a fight, because someone in the Undercity asks questions, and he'd like to have the answers.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "night_webs_hollow",
+          "target_x": 28,
+          "target_y": 34,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 900,
+      "accept_text": "Past the claim's camp there's a cave mouth wrapped in web. Walk the spiral and keep walking until you reach the inner strand. Do not poke anything. Come back and tell me what you saw.",
+      "turn_in_text": "A broodmother. Of course there's a broodmother. All right - now we know. Next time we go in with a purpose.",
+      "next_quest_id": "dk_neshka",
+      "unique_item_defs": [
+        {
+          "name": "Hollow-Scout's Cloak",
+          "slot": "back",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Dust-grey and web-torn. It makes you forgettable.",
+          "primary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Webwalker Treads",
+          "slot": "feet",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Soles lined with something that does not stick to silk.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Boots (Agi/Spi)"
+        },
+        {
+          "name": "Silk-Spun Gloves",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "They smell faintly of cave. They fit better than they should.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Gloves (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 5
+    },
+    {
+      "quest_id": "dk_neshka",
+      "title": "Broodmother Nesh'ka",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "At the centre of the Hollow, wrapped in her own silk, sits Nesh'ka. Every spider the claim has ever seen came from her, and while she lives the cave will keep filling the valley. Krell does not need a diplomatic solution. He needs a corpse, and a handful of her brood for the report.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Broodmother Nesh'ka",
+          "count": 1,
+          "zone": "night_webs_hollow"
+        },
+        {
+          "type": "kill",
+          "target": "Night Web Spider",
+          "count": 6,
+          "zone": "night_webs_hollow"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 1800,
+      "accept_text": "She's in the heart of the spiral. She stings, she poisons, and she wraps you. Kill the spiders on the way in and keep your head. The Dark Lady's name be with you, or whatever passes for luck down here.",
+      "turn_in_text": "Dead. Properly dead. You have more teeth than I thought. I'll note it in the report - favourably, for once.",
+      "next_quest_id": "dk_bulwark_bound",
+      "unique_item_defs": [
+        {
+          "name": "Nesh'ka's Silkguard Vest",
+          "slot": "chest",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Silk, woven tight, and hers. Her bite didn't pierce it. It might not pierce yours.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Chest (Int/Spi)"
+        },
+        {
+          "name": "Brood-Slayer's Fang",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A broken stinger, still tipped with something unkind.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Carapace Round Shield",
+          "slot": "off_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Shell plate on a wood frame. It rings when struck.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_value": 12,
+          "block_value": 15,
+          "label": "Shield (Sta)"
+        },
+        {
+          "name": "Hollow-Won Hauberk",
+          "slot": "chest",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Chain made from a hundred small sacrifices. Most of them were spiders.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "armor_type": "mail",
+          "armor_value": 24,
+          "label": "Mail Chest (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "dk_bulwark_bound",
+      "title": "Word for the Bulwark",
+      "giver_npc_id": "dk_quest_overseer",
+      "zone": "deathknell",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "The valley is quiet for the first time since you were sewn together, and that is Krell's cue to be rid of you. The road east leaves Deathknell for Western Tirisfal, where the Bulwark, the Forsaken garrison, holds the line against the Scarlets. Krell has written a note for whoever is on the gate. It says 'Take this one, they bite.' He is not sorry.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_tirisfal",
+          "target_x": 61,
+          "target_y": 62,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 450,
+      "reward_gold": 1500,
+      "accept_text": "Follow the east road out of the valley and keep going until you see the Bulwark. Show the guard my note. Tell them I didn't ruin you. They won't believe it.",
+      "turn_in_text": "You made it out of the valley. Farther than most. The rest of the Forsaken are going to find you very inconvenient. Good.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Krell's Farewell Cloak",
+          "slot": "back",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "He's never admitted it, but he sewed the hem himself.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Sta/Spi)"
+        },
+        {
+          "name": "Overseer's Sturdy Boots",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Heavy-soled and ugly. They'll take you anywhere.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Boots (Str/Sta)"
+        },
+        {
+          "name": "Deathknell Graduate's Signet",
+          "slot": "ring",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Struck from a grave marker. It's tradition. Nobody likes it.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Str/Int)"
+        },
+        {
+          "name": "Valley-Walker's Spear",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Ash-wood haft, iron head. It has walked out of the valley before.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "dk_risen_grave_dwellers",
+      "title": "Restless in the Ground",
+      "giver_npc_id": "dk_risen",
+      "zone": "deathknell",
+      "level_min": 1,
+      "level_max": 3,
+      "description": "The woman beside the graves can't remember her own name, but she remembers the sound they make - the scratching from underneath. Grave-Dwellers, freshly risen and not yet coherent, claw their way out of the mass grave and wander the field in the dark. She wants them put back where they belong.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Restless Grave-Dweller",
+          "count": 6,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 150,
+      "reward_gold": 300,
+      "accept_text": "They don't know they're dead yet. Please - quickly, before they figure it out.",
+      "turn_in_text": "Thank you. I think I knew one of them. I don't know which. Please - take this. It doesn't feel like mine.",
+      "next_quest_id": "dk_risen_grave_markers",
+      "unique_item_defs": [
+        {
+          "name": "Risen Mourner's Shawl",
+          "slot": "shoulder",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "Black wool, moth-eaten. Somebody once cried into it.",
+          "primary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Shoulders (Int/Spi)"
+        },
+        {
+          "name": "Gravefield Spade",
+          "slot": "main_hand",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "Left behind. Still sharp. Still muddy.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1
+          },
+          "weapon_damage_min": 8,
+          "weapon_damage_max": 11,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        },
+        {
+          "name": "Dirt-Caked Boots",
+          "slot": "feet",
+          "item_level": 3,
+          "rarity": "common",
+          "required_level": 1,
+          "flavor_text": "Clay between every stitch. They will never come clean.",
+          "primary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 2,
+          "label": "Leather Boots (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 3
+    },
+    {
+      "quest_id": "dk_risen_grave_markers",
+      "title": "Names on the Stones",
+      "giver_npc_id": "dk_risen",
+      "zone": "deathknell",
+      "level_min": 2,
+      "level_max": 4,
+      "description": "Grave markers are meant to be names. Up here they're mostly splinters, and the restless dead keep tearing them out of the ground and carrying them off, as though they still wanted to read their own. The Newly Risen thinks if she can gather enough of them, she might find hers.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "weathered_grave_marker",
+          "count": 5
+        }
+      ],
+      "reward_exp": 200,
+      "reward_gold": 600,
+      "accept_text": "The Grave-Dwellers carry them. I think they're looking, too. Please bring five back - I'll sort them by hand.",
+      "turn_in_text": "...Not one of them is mine. But this one has a name I almost - no. Never mind. Thank you.",
+      "next_quest_id": "dk_risen_mawgrin",
+      "unique_item_defs": [
+        {
+          "name": "Etched Marker Charm",
+          "slot": "neck",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "A splinter of oak with half a name. You'll never read the other half.",
+          "primary_stats": {},
+          "label": "Necklace (Int/Sta)"
+        },
+        {
+          "name": "Mourner's Veil",
+          "slot": "head",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Gauze meant to hide a face. Nobody here is vain about theirs.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Helm (Sta/Spi)"
+        },
+        {
+          "name": "Marker-Stake Dagger",
+          "slot": "main_hand",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "A grave stake, sharpened. Practical and bleak.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 1
+          },
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 16,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 4
+    },
+    {
+      "quest_id": "dk_risen_mawgrin",
+      "title": "The Gaunt Alpha",
+      "giver_npc_id": "dk_risen",
+      "zone": "deathknell",
+      "level_min": 3,
+      "level_max": 5,
+      "description": "One of the plagued strays has grown larger than the rest - a gaunt, grey dog that leads the others through the graves at night, and drags off whatever it likes. The villagers call it Mawgrin. The Newly Risen calls it 'the one who sits on my grave'.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Mawgrin the Gaunt",
+          "count": 1,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Plagued Stray",
+          "count": 5,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 330,
+      "reward_gold": 1000,
+      "accept_text": "He's out in the field. You'll hear him first. He's bigger than the others and angrier than he looks.",
+      "turn_in_text": "...Gone? That's - good. That's very good. I can sit by my grave in peace. Please - take whatever you like.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Mawgrin's Hide Cloak",
+          "slot": "back",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Mangy fur and a smell like regret.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Cloak (Agi/Spi)"
+        },
+        {
+          "name": "Gaunt-Tooth Choker",
+          "slot": "neck",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Fangs on a leather thong. They've held up better than you'd expect.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Str/Sta)"
+        },
+        {
+          "name": "Gravehound Gauntlets",
+          "slot": "hands",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Mail studded with teeth. They bite on both ends.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 9,
+          "label": "Mail Gloves (Str/Agi)"
+        },
+        {
+          "name": "Plague-Bitten Mace",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Dented, notched, and still keen to hit something.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "dk_instructor_bones",
+      "title": "Drill: Bones",
+      "giver_npc_id": "dk_elder",
+      "zone": "deathknell",
+      "level_min": 2,
+      "level_max": 4,
+      "description": "The Instructor believes a Forsaken learns by hitting things that are already dead. Rattlecage Skeletons - crypt-dwellers, long dead and bad-tempered about it - pace the Shadow Grave to the south, and they make the best sparring partners the valley offers. They never complain and they never stay down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rattlecage Skeleton",
+          "count": 8,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 230,
+      "reward_gold": 700,
+      "accept_text": "Shadow Grave, south of the graves. Skeletons. Hit them until they stop. Then hit them a little more.",
+      "turn_in_text": "Not graceful. Not clever. But you're upright and they aren't, and that is the entire syllabus.",
+      "next_quest_id": "dk_instructor_wights",
+      "unique_item_defs": [
+        {
+          "name": "Drillmaster's Bracers",
+          "slot": "wrist",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Plate for knuckles. The Instructor swears they're lucky.",
+          "primary_stats": {},
+          "armor_type": "plate",
+          "armor_value": 9,
+          "label": "Plate Bracers (Str/Sta)"
+        },
+        {
+          "name": "Rattlecage Femur Club",
+          "slot": "main_hand",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "A genuine femur. The previous owner objects.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1
+          },
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 16,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        },
+        {
+          "name": "Marching-Band Tabard",
+          "slot": "chest",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Don't ask. It was in the Instructor's trunk.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Chest (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 4
+    },
+    {
+      "quest_id": "dk_instructor_wights",
+      "title": "Wights of Shadow Grave",
+      "giver_npc_id": "dk_elder",
+      "zone": "deathknell",
+      "level_min": 3,
+      "level_max": 5,
+      "description": "Wights are a different kind of dead - the kind that never got the Dark Lady's gift of will, just hunger. They haunt the Shadow Grave's old stones and drain the living of whatever's left. The Instructor wants them put down before they wander up into the village proper.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shadow Grave Wight",
+          "count": 8,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 290,
+      "reward_gold": 900,
+      "accept_text": "They aren't like us. No will behind the eyes. Just hunger wearing a corpse. Put them down.",
+      "turn_in_text": "That's the kind of mercy they can't thank you for, but it's mercy all the same. Take your pick.",
+      "next_quest_id": "dk_instructor_ossric",
+      "unique_item_defs": [
+        {
+          "name": "Shadow Grave Wraps",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Taken off a wight that had no more use for hands.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Wight-Bone Bracers",
+          "slot": "wrist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Bleached and shaped. They'd have stopped a blade once.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 7,
+          "label": "Mail Bracers (Sta)"
+        },
+        {
+          "name": "Graveside Belt",
+          "slot": "waist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "A cord of knotted grave-linen. Good luck is optional.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Belt (Sta/Spi)"
+        },
+        {
+          "name": "Withering Rod",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "A staff that remembers being dead. It remembers fondly.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "weapon_damage_min": 7,
+          "weapon_damage_max": 9,
+          "attack_speed": 3.2,
+          "label": "Staff (Int)"
+        }
+      ],
+      "gear_reward_gear_level": 5
+    },
+    {
+      "quest_id": "dk_instructor_ossric",
+      "title": "The Unburied",
+      "giver_npc_id": "dk_elder",
+      "zone": "deathknell",
+      "level_min": 4,
+      "level_max": 6,
+      "description": "One of the Shadow Grave's dead refuses to stay in his hole. Ossric was a sexton once - he buried half the village. Now he rises every night with the spade still in his hand, searching for the grave nobody dug for him. The Instructor would very much like someone to dig it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ossric the Unburied",
+          "count": 1,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Wretched Zombie",
+          "count": 4,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 380,
+      "reward_gold": 1200,
+      "accept_text": "He's in the crypt-yard, by the old headstones. Zombies follow him around like mourners. Clear the mourners, then Ossric.",
+      "turn_in_text": "Finally. He can rest. And for what it's worth - you did that well. Take something from the pile. I mean it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ossric's Shroud-Wrap",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Burial linen that never decayed. It remembers the man.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Chest (Int/Spi)"
+        },
+        {
+          "name": "Sexton's Iron Spade",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "A working tool, still crusted. It's as heavy as the job.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta)"
+        },
+        {
+          "name": "Boneplate Pauldrons",
+          "slot": "shoulder",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Fused vertebrae and iron. They rattle against your neck.",
+          "primary_stats": {
+            "strength": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 24,
+          "label": "Plate Shoulders (Str)"
+        },
+        {
+          "name": "Burial Bell Charm",
+          "slot": "neck",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "It chimes for the dead. It's chiming right now.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "dk_marrow_shrouds",
+      "title": "Shrouds for the Unburied",
+      "giver_npc_id": "dk_sexton_marrow",
+      "zone": "deathknell",
+      "level_min": 2,
+      "level_max": 4,
+      "description": "Sexton Marrow tends the Shadow Grave's crypt-yard, and he takes pride in never leaving anyone uncovered. The zombies and skeletons wandering the yard wear scraps of burial shroud - his shrouds, the good linen. He'd like them back, preferably before the next burial.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tattered_burial_shroud",
+          "count": 6
+        }
+      ],
+      "reward_exp": 220,
+      "reward_gold": 650,
+      "accept_text": "I stitched every one of them myself. The zombies took them off the corpses. Bring them back, and mind the stains.",
+      "turn_in_text": "These are still good. Washed and pressed, they'll do someone another burial. You've a good eye for linen. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Marrow's Mending Gloves",
+          "slot": "hands",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Needle-callused. They handle cloth better than flesh.",
+          "primary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 1,
+          "label": "Cloth Gloves (Int/Sta)"
+        },
+        {
+          "name": "Gravedigger's Kidney Belt",
+          "slot": "waist",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "Wide leather. Seven hundred burials, one back.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 3,
+          "label": "Leather Belt (Sta)"
+        },
+        {
+          "name": "Linen-Wrapped Hammer",
+          "slot": "main_hand",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "required_level": 2,
+          "flavor_text": "A maul wrapped in clean linen. For quiet work.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 16,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 4
+    },
+    {
+      "quest_id": "dk_gresk_diggers",
+      "title": "Dead Men Don't Dig",
+      "giver_npc_id": "dk_foreman_gresk",
+      "zone": "deathknell",
+      "level_min": 3,
+      "level_max": 5,
+      "description": "Gresk's crew was undead before the spiders arrived - which turned out to be convenient for the spiders. The dead diggers kept working after Gresk gave up supervising them, and now they swing their picks at anyone who comes near the shaft. He cannot reason with them. He'd like you to try something else.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dead Digger",
+          "count": 8,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 270,
+      "reward_gold": 800,
+      "accept_text": "My crew. Every one of them. They don't stop. They don't recognise me. They just dig. Please put them out of it.",
+      "turn_in_text": "I thought I'd feel worse. I don't. Honest work, that, and quick. Take something for it.",
+      "next_quest_id": "dk_gresk_thread",
+      "unique_item_defs": [
+        {
+          "name": "Foreman's Hardhat",
+          "slot": "head",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Dented iron. Has saved this man's skull more than once.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 11,
+          "label": "Mail Helm (Str/Sta)"
+        },
+        {
+          "name": "Digger's Callused Gloves",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Thick leather. The knuckles are scraped bare.",
+          "primary_stats": {
+            "strength": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Gloves (Str)"
+        },
+        {
+          "name": "Prospector's Pick-Mace",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "A pick with the point flattened. Now it's a mace.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 5
+    },
+    {
+      "quest_id": "dk_gresk_thread",
+      "title": "Gold on a Thread",
+      "giver_npc_id": "dk_foreman_gresk",
+      "zone": "deathknell",
+      "level_min": 4,
+      "level_max": 6,
+      "description": "The spiders weave with more than silk. They've been lacing real gold dust through their webs - taken from the old veins and spun into lines that glint in the dark. Gresk wants every strand back; the Dark Lady likes gold and Gresk likes being alive.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "spun_gold_thread",
+          "count": 5
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 950,
+      "accept_text": "Look for the spiders that sparkle. They've got gold in their webs, and I want it in my ledger.",
+      "turn_in_text": "That's gold. Honest gold. Spider-spun, but gold. You've saved my neck - what's left of it.",
+      "next_quest_id": "dk_gresk_goldfang",
+      "unique_item_defs": [
+        {
+          "name": "Goldspun Cloak",
+          "slot": "back",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "A shimmer in the weave. It catches torchlight.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Spiderwire Belt",
+          "slot": "waist",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Silk and thread-of-gold. Strong enough to hang a man.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 5,
+          "label": "Leather Belt (Agi/Spi)"
+        },
+        {
+          "name": "Veinseeker's Ring",
+          "slot": "ring",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "It warms when there's gold nearby. It's warm a lot.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "dk_gresk_goldfang",
+      "title": "Goldfang",
+      "giver_npc_id": "dk_foreman_gresk",
+      "zone": "deathknell",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "One of the claim's spiders has grown fat on the gold, and bright with it - its fangs have gone yellow-bright and it hunts the crew's old tunnels. The diggers call it Goldfang. Gresk calls it a problem with a price.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Goldfang",
+          "count": 1,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Claim Spider",
+          "count": 5,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 360,
+      "reward_gold": 1200,
+      "accept_text": "It's big, it's gold-toothed, and it's mine. Not literally - but the gold in its fangs is the Dark Lady's, and I want it back.",
+      "turn_in_text": "There it is. Pure gold, in a spider's jaw. The world is a funny place. Take your pick of the lot.",
+      "next_quest_id": "dk_gresk_hatchery",
+      "unique_item_defs": [
+        {
+          "name": "Goldfang's Gilded Wand",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A fang, set in dark wood. Still bright.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 1.9,
+          "label": "Wand (Int)"
+        },
+        {
+          "name": "Gilt-Webbed Gloves",
+          "slot": "hands",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Soft silk spun with real gold. Warm on the fingers.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Gloves (Agi/Int)"
+        },
+        {
+          "name": "Prospector's Strongbelt",
+          "slot": "waist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Heavy, riveted, mine-proof. It keeps you together.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Belt (Str/Sta)"
+        },
+        {
+          "name": "Claim-Warden's Spear",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A long spear made for long shafts.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "dk_gresk_hatchery",
+      "title": "Clearing the Hatchery",
+      "giver_npc_id": "dk_foreman_gresk",
+      "zone": "deathknell",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "The Hollow's hatchery is where the claim's spiders come from - a chamber in the north-west of the cave where egg-clutches hang in the silk, guarded by Hatchery Warden Skrix. The Pale Weaver lurks on the far side, spinning cocoons around the dead. Gresk wants both gone, and the clutches cleared with them.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Hatchery Warden Skrix",
+          "count": 1,
+          "zone": "night_webs_hollow"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Pale Weaver",
+          "count": 1,
+          "zone": "night_webs_hollow"
+        },
+        {
+          "type": "kill",
+          "target": "Brood Hatchling",
+          "count": 6,
+          "zone": "night_webs_hollow"
+        }
+      ],
+      "reward_exp": 480,
+      "reward_gold": 1700,
+      "accept_text": "The Hollow's four corners are nurseries. Skrix guards the north-west one. The Weaver's in the south-east brood chamber. Kill both, and thin the hatchlings while you're at it.",
+      "turn_in_text": "Both of them. And the hatchlings. You are a very efficient little horror. Take your pick.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hatchery Warden's Cap",
+          "slot": "head",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Chitin plates on leather. Still smells of silk and egg.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Helm (Agi)"
+        },
+        {
+          "name": "Weaver's Silk Leggings",
+          "slot": "legs",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Fine, pale and a little too fine to be natural.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Legs (Int/Spi)"
+        },
+        {
+          "name": "Brood-Warden's Fang",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A shard of chitin, honed into a dagger.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta)"
+        },
+        {
+          "name": "Eggshell Roundshield",
+          "slot": "off_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A shield of shell and silk. Better than it looks.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_value": 14,
+          "block_value": 17,
+          "label": "Shield (Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "dk_isolde_wretches",
+      "title": "Waters Gone Wrong",
+      "giver_npc_id": "dk_mourner_isolde",
+      "zone": "deathknell",
+      "level_min": 3,
+      "level_max": 5,
+      "description": "The pond west of the graves was a mourners' spot once, a place to sit and talk to the dead. Now the dead talk back - the drowned wretches that crawl from the silt, dripping and moaning, grabbing at anyone near the bank. Isolde sits there all day anyway. She asks only that the pond be quiet when she comes.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Wretch",
+          "count": 8,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 260,
+      "reward_gold": 800,
+      "accept_text": "They crawl out of the water at dusk, grey as the silt, and they cry. I can't hear myself think. Please.",
+      "turn_in_text": "Quieter. Thank you. It's a poor kind of grief that has to compete with the dead for volume.",
+      "next_quest_id": "dk_isolde_keepsakes",
+      "unique_item_defs": [
+        {
+          "name": "Pond-Reed Wraps",
+          "slot": "wrist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Woven reed, damp forever. They smell of mud and prayers.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Bracers (Sta/Spi)"
+        },
+        {
+          "name": "Silt-Streaked Belt",
+          "slot": "waist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "Leather darkened by pond water. It holds a lot.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 4,
+          "label": "Leather Belt (Str/Sta)"
+        },
+        {
+          "name": "Mourner's Cane",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "required_level": 3,
+          "flavor_text": "A walking stick for walking slowly, with grief.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "spirit": 6
+          },
+          "weapon_damage_min": 7,
+          "weapon_damage_max": 9,
+          "attack_speed": 3.2,
+          "label": "Staff (Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 5
+    },
+    {
+      "quest_id": "dk_isolde_keepsakes",
+      "title": "Keepsakes in the Silt",
+      "giver_npc_id": "dk_mourner_isolde",
+      "zone": "deathknell",
+      "level_min": 4,
+      "level_max": 6,
+      "description": "Isolde lost more than a husband to this pond. The mourners who came here left tokens on the bank - rings, lockets, ribbon - and the pond-dead have collected them, as if hoarding grief. She would like them returned to the families, or to someone, or to herself.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tarnished_keepsake",
+          "count": 5
+        }
+      ],
+      "reward_exp": 300,
+      "reward_gold": 950,
+      "accept_text": "The wretches and the shades both carry them. They don't know what they mean - they just know they were loved.",
+      "turn_in_text": "...Oh. This one's mine. This one's... someone's. Thank you. I'll see they're kept. Take your pick of mine.",
+      "next_quest_id": "dk_isolde_wren",
+      "unique_item_defs": [
+        {
+          "name": "Keepsake Locket",
+          "slot": "neck",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Empty of picture. It remembers the weight.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)"
+        },
+        {
+          "name": "Widow's Black Veil",
+          "slot": "head",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Gauze and ribbon. It's heavy in a way fabric shouldn't be.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Helm (Int/Spi)"
+        },
+        {
+          "name": "Wading Boots",
+          "slot": "feet",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Leather, waxed against the pond. They squelch.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 5,
+          "label": "Leather Boots (Sta/Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "dk_isolde_wren",
+      "title": "Quiet the Weeping",
+      "giver_npc_id": "dk_mourner_isolde",
+      "zone": "deathknell",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "There's one wail in the pond that's louder than the rest. The Mourning Wren - a shade that stands on the water at night, weeping in a voice that chills every other thing into following. Isolde has heard that voice since she arrived. She thinks she knows who it is, and she'd rather it didn't last.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Mourning Wren",
+          "count": 1,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Weeping Shade",
+          "count": 5,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 370,
+      "reward_gold": 1200,
+      "accept_text": "She stands on the water at night. The shades follow her. End the Wren and the pond will go quiet.",
+      "turn_in_text": "...Gone. Finally. I thought it would feel different. It's only quiet. That's - enough. Please, take whatever helps.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Wren's Mourning Shawl",
+          "slot": "shoulder",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Damp, cold, and softer than any cloth should be.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Shoulders (Int/Spi)"
+        },
+        {
+          "name": "Keening Staff",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "It hums at the pitch of a person crying alone.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "weapon_damage_min": 9,
+          "weapon_damage_max": 12,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Sta)"
+        },
+        {
+          "name": "Tear-Stained Sandals",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Reeds and ribbon. They leave wet prints.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Boots (Sta/Spi)"
+        },
+        {
+          "name": "Drowned Mourner's Ring",
+          "slot": "ring",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Silver gone green. The inscription is a name you can't quite read.",
+          "primary_stats": {
+            "spirit": 1
+          },
+          "label": "Ring (Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "dk_orrel_scarecrows",
+      "title": "Scarecrows That Walk",
+      "giver_npc_id": "dk_gardener_orrel",
+      "zone": "deathknell",
+      "level_min": 4,
+      "level_max": 6,
+      "description": "Orrel tended these fields before the fire, and he still does, in his own way. The scarecrows he built to keep the crows off have got up and begun walking the furrows, flailing at anything that moves. He assumes it's his own fault. He'd like you to correct it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blighted Scarecrow",
+          "count": 8,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 310,
+      "reward_gold": 950,
+      "accept_text": "I stuffed them myself. With straw, and some other things I didn't think about. They hit hard. Please be careful.",
+      "turn_in_text": "I'll rebuild them. Properly, this time. Without - whatever it was. Take something for the trouble.",
+      "next_quest_id": "dk_orrel_seeds",
+      "unique_item_defs": [
+        {
+          "name": "Strawstuffed Jerkin",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Padded leather. It rustles, faintly, even when still.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 11,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Orrel's Hedge Shears",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Garden tools with a mean streak.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Furrow-Walker Boots",
+          "slot": "feet",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Thick boots, clay to the ankle. They still smell of ash.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 9,
+          "label": "Mail Boots (Str/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "dk_orrel_seeds",
+      "title": "Seeds Worth Saving",
+      "giver_npc_id": "dk_gardener_orrel",
+      "zone": "deathknell",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "The fire took the house and most of the harvest, but not the seed-packets. Orrel buried them in the cellar and the burned farmhands have been digging them up, as though they remember what the seeds were for. He wants them back - nothing grows in Tirisfal, but he intends to try.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "unburnt_seed_packet",
+          "count": 5
+        }
+      ],
+      "reward_exp": 340,
+      "reward_gold": 1050,
+      "accept_text": "The farmhands keep them in their pockets. Maybe it's habit. Maybe they still hope. Bring me five.",
+      "turn_in_text": "Five. Enough for a row. Maybe two. It's a stubborn kind of hope, I know - but it's mine. Take your pick.",
+      "next_quest_id": "dk_orrel_thorne",
+      "unique_item_defs": [
+        {
+          "name": "Gardener's Hat",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Wide-brimmed, stained, and weathered. Somebody loved this hat.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Helm (Sta/Spi)"
+        },
+        {
+          "name": "Seedpacket Satchel Belt",
+          "slot": "waist",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Full of pockets, all of them empty now.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Belt (Int/Sta)"
+        },
+        {
+          "name": "Orchard-Keeper's Hoe",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A garden tool turned bludgeon.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 2.6,
+          "label": "Mace (Str)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "dk_orrel_thorne",
+      "title": "Old Gaffer Thorne",
+      "giver_npc_id": "dk_gardener_orrel",
+      "zone": "deathknell",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Gaffer Thorne owned the farm. When the fire came he stayed to save the barn, and when the barn went he stayed anyway. He still walks the burned rows with a rusted scythe, cutting down whatever he finds, convinced it's harvest. Orrel owes him a decent burial and will not do it himself.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gaffer Thorne",
+          "count": 1,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Burned Farmhand",
+          "count": 5,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 450,
+      "reward_gold": 1500,
+      "accept_text": "He's at the far end of the rows, scythe in hand. Don't talk to him - he won't hear it. Just stop him, for both our sakes.",
+      "turn_in_text": "...He's at rest. The harvest's in. Thank you. I'll bury him myself, in the end. Take whatever you need from his barn.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Thorne's Harvest Scythe",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rusted, notched and heavy. It cuts yet.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 11
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str)"
+        },
+        {
+          "name": "Scorched Barn-Door Shield",
+          "slot": "off_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Charred wood on an iron rim. It kept the fire out once.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "armor_value": 14,
+          "block_value": 17,
+          "label": "Shield (Sta)"
+        },
+        {
+          "name": "Burnt Farmer's Gauntlets",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Scorched leather over scorched knuckles. They still grip hard.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Gloves (Str/Sta)"
+        },
+        {
+          "name": "Strawcloak of the Harvest",
+          "slot": "back",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A coat of old straw. Surprisingly warm.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "dk_verrick_pickets",
+      "title": "Eyes on the Crusade",
+      "giver_npc_id": "dk_scout_verrick",
+      "zone": "deathknell",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "The Scarlet Crusade has made a camp outside the old crypt at the valley's north-east edge - pickets, torchbearers and a great deal of righteous noise. Verrick has watched them for a week from the rocks and concluded they will not leave on their own. He'd like fewer of them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Picket",
+          "count": 6,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Torchbearer",
+          "count": 4,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 360,
+      "reward_gold": 1100,
+      "accept_text": "They burn what they can't convert. They convert what they can't burn. Thin them out before they burn the valley.",
+      "turn_in_text": "Good. Quiet, clean and no survivors to report. You've done this before - maybe in a life you don't remember.",
+      "next_quest_id": "dk_verrick_orders",
+      "unique_item_defs": [
+        {
+          "name": "Scout's Mottled Cloak",
+          "slot": "back",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Dyed grey-green. Fades into the rocks.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Picket's Dented Helm",
+          "slot": "head",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Crimson paint over dents. It's a better helm than its owner.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Helm (Str/Sta)"
+        },
+        {
+          "name": "Torchbearer's Ember Ring",
+          "slot": "ring",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Warm to the touch. It never goes out.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "label": "Ring (Agi/Int)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "dk_verrick_orders",
+      "title": "Burning Orders",
+      "giver_npc_id": "dk_scout_verrick",
+      "zone": "deathknell",
+      "level_min": 5,
+      "level_max": 7,
+      "description": "The Scarlets write everything down - dispatches, sermons, orders for the next day's burning. Verrick wants those orders. A dispatch in hand tells him what the Crusade plans, which tells him what to plan against. The pickets and torchbearers carry them stuffed in their belts.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "scarlet_dispatch",
+          "count": 4
+        }
+      ],
+      "reward_exp": 370,
+      "reward_gold": 1150,
+      "accept_text": "Their pockets are full of paper. Paper is wonderful. Bring me four dispatches and I'll bring you the war.",
+      "turn_in_text": "Hm. They plan to move on the crypt's reliquary. A patrol, a priest, a lot of banners. This is useful. Take your pick.",
+      "next_quest_id": "dk_verrick_halbrook",
+      "unique_item_defs": [
+        {
+          "name": "Courier's Satchel Strap",
+          "slot": "shoulder",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A messenger's leather. Pockets inside pockets.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Shoulders (Agi/Spi)"
+        },
+        {
+          "name": "Inkstained Gloves",
+          "slot": "hands",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Cloth stained black. They smell of ledgers.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 2,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Forged-Seal Ring",
+          "slot": "ring",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "A stolen seal. It opens more doors than a key.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 6
+    },
+    {
+      "quest_id": "dk_verrick_halbrook",
+      "title": "Sergeant Halbrook",
+      "giver_npc_id": "dk_scout_verrick",
+      "zone": "deathknell",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "Sergeant Halbrook runs the Crusade's picket line - eight years of service, a halberd he named, and a certainty that undeath is a sin. Verrick has marked him for the longest time. If the forecourt loses its sergeant, the pickets lose their spine.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Sergeant Halbrook",
+          "count": 1,
+          "zone": "deathknell"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Picket",
+          "count": 4,
+          "zone": "deathknell"
+        }
+      ],
+      "reward_exp": 430,
+      "reward_gold": 1400,
+      "accept_text": "He stands by the crypt gate. Big, loud, and disciplined. Break the line and he'll break with it.",
+      "turn_in_text": "Without Halbrook that camp is a rabble with torches. Excellent. Now we can talk about the crypt.",
+      "next_quest_id": "dk_verrick_crypt",
+      "unique_item_defs": [
+        {
+          "name": "Halbrook's Notched Halberd",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Eight years of tally marks along the haft.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 6
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        },
+        {
+          "name": "Sergeant's Enamel Pauldrons",
+          "slot": "shoulder",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Crimson over steel. Someone polished them daily.",
+          "primary_stats": {
+            "strength": 3
+          },
+          "armor_type": "plate",
+          "armor_value": 31,
+          "label": "Plate Shoulders (Str)"
+        },
+        {
+          "name": "Picket-Line Stout Boots",
+          "slot": "feet",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Made for long watches and kicking down doors.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Boots (Str/Sta)"
+        },
+        {
+          "name": "Crusade Tabard-Sash",
+          "slot": "waist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Faded red cloth. Still looks righteous at a distance.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Belt (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "dk_verrick_crypt",
+      "title": "Into the Scarlet Crypt",
+      "giver_npc_id": "dk_scout_verrick",
+      "zone": "deathknell",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "The Scarlet Crypt is the Crusade's foothold in the valley - a chapel, an ossuary, a reliquary and a High Inquisitor with a fondness for confessions. Verrick wants someone to walk its nave and tell him what's holding the doors shut. He won't go himself. He's seen what happens to scouts who do.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "scarlet_crypt",
+          "target_x": 47,
+          "target_y": 32,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 400,
+      "reward_gold": 1300,
+      "accept_text": "The crypt gate's behind the picket line. Go down the stair, through the nave, to the chapel crossing. See it. Come back and tell me.",
+      "turn_in_text": "A chapel crossing, an inquisitor, vaults on both sides. It's worse than I thought and better than I feared. Take your pick.",
+      "next_quest_id": "dk_verrick_fairbanks",
+      "unique_item_defs": [
+        {
+          "name": "Crypt-Scout's Hooded Cloak",
+          "slot": "back",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Greyed linen over dull leather. Nobody remembers you.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Agi/Sta)"
+        },
+        {
+          "name": "Penitent's Soft Boots",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Soft-soled, quiet on stone.",
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 7,
+          "label": "Leather Boots (Agi/Spi)"
+        },
+        {
+          "name": "Verrick's Spare Dagger",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A thin blade he never used. It's very sharp.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 8
+    },
+    {
+      "quest_id": "dk_verrick_fairbanks",
+      "title": "The High Inquisitor",
+      "giver_npc_id": "dk_scout_verrick",
+      "zone": "deathknell",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "High Inquisitor Fairbanks has broken more Forsaken than the valley holds. He sits at the sanctum's far end, behind a loop of candlelit corridors, and he does not leave. Verrick has no clever plan. He has only an axiom: nobody who goes down there should expect to come back, and so far the exception is you.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "High Inquisitor Fairbanks",
+          "count": 1,
+          "zone": "scarlet_crypt"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Initiate",
+          "count": 6,
+          "zone": "scarlet_crypt"
+        }
+      ],
+      "reward_exp": 640,
+      "reward_gold": 2400,
+      "accept_text": "The sanctum, past the penitent's walk. He smites, he curses, and he cleanses. Kill the initiates first - they'll heal him otherwise.",
+      "turn_in_text": "Fairbanks. Dead. The Crusade will bleed for it. I won't - but I'll drink to it, in the way the dead drink. Take your reward.",
+      "next_quest_id": "dk_verrick_vaults",
+      "unique_item_defs": [
+        {
+          "name": "Fairbanks' Inquisitor Mace",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "Flanges engraved with confessions. Some are being added.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Spi/HP)"
+        },
+        {
+          "name": "Crimson Inquisitor's Mantle",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "Silk the colour of old wine. It never wrinkles.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.0,
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Shoulders (Int/SP/MP5)"
+        },
+        {
+          "name": "Sanctum Warplate Gauntlets",
+          "slot": "hands",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "Worn by a man who believed every strike was a sermon.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 33,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Scarlet Penitent's Hauberk",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "Mail under crimson. The blessing is mostly intact.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "armor_type": "mail",
+          "armor_value": 44,
+          "label": "Mail Chest (Sta/Int/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dk_verrick_vaults",
+      "title": "The Sealed Vaults",
+      "giver_npc_id": "dk_scout_verrick",
+      "zone": "deathknell",
+      "level_min": 7,
+      "level_max": 9,
+      "description": "Fairbanks is dead, but the crypt still keeps its secrets. The ossuary to the west holds the dead the Crusade never finished burying, under Valdric Bonewarden. The reliquary to the east belongs to Brother Wystan, who keeps whatever the Scarlets thought worth saving. Verrick wants both vaults opened.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Valdric Bonewarden",
+          "count": 1,
+          "zone": "scarlet_crypt"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Brother Wystan",
+          "count": 1,
+          "zone": "scarlet_crypt"
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2200,
+      "accept_text": "West vault: bones and a warden. East vault: relics and a priest. Two doors, two keepers. Both need to go.",
+      "turn_in_text": "Both vaults open. You have done in an afternoon what my scouts failed at for a month. I'll tell the Undercity. Quietly.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Bonewarden's Ossuary Helm",
+          "slot": "head",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "A helm of fused bone. It hums with other people's prayers.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 50,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Reliquary Keeper's Robe",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "Layered white wool. The blood only shows in certain light.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 3.8,
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Chest (HP/MP5)"
+        },
+        {
+          "name": "Vaultbreaker's Censer",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "Heavy, hollow and warm. It still smells of incense.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 2.6,
+          "label": "Mace (Int/Spi/HP)"
+        },
+        {
+          "name": "Scarlet Relic Signet",
+          "slot": "ring",
+          "item_level": 11,
+          "rarity": "rare",
+          "required_level": 7,
+          "flavor_text": "Gilded and inscribed with an oath that no longer binds.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

@@ -3162,6 +3162,136 @@ ASHENVALE_DUNGEON_KITS = {
 }
 
 
+DEATHKNELL_KITS = {
+    # ---- Deathknell content pass (2026-10-22): the valley's subzone rosters, rares and the two starter caves ----
+    # Valley floor / Deathknell Graves (L1-3)
+    "plagued_stray": [
+        ("Gnaw", "damage", 9, 0, 0, "physical", {}),
+        ("Plague Bite", "dot", 4, 3, 0, "nature", {"duration": 3}),
+    ],
+    "grave_rat": [
+        ("Scurry Bite", "damage", 7, 0, 0, "physical", {}),
+        ("Frenzied Nibbles", "damage", 10, 3, 0, "physical", {}),
+    ],
+    # The Overrun Claim (L3-5)
+    "dead_digger": [
+        ("Pickaxe Swing", "damage", 11, 0, 0, "physical", {}),
+        ("Miner's Grit", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 8}}),
+    ],
+    # Weeping Pond (L3-5)
+    "drowned_wretch": [
+        ("Sodden Fist", "damage", 11, 0, 0, "physical", {}),
+        ("Choking Silt", "dot", 4, 4, 0, "nature", {"duration": 3}),
+    ],
+    "weeping_shade": [
+        ("Mournful Wail", "damage", 10, 0, 6, "shadow", {}),
+        ("Chill of Grief", "debuff", 0, 4, 8, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -8}}),
+    ],
+    # Burned Farmstead (L4-6)
+    "blighted_scarecrow": [
+        ("Straw Flail", "damage", 14, 0, 0, "physical", {}),
+        ("Cawing Mob", "dot", 5, 4, 0, "physical", {"duration": 3}),
+    ],
+    "burned_farmhand": [
+        ("Charred Pitchfork", "damage", 13, 0, 0, "physical", {}),
+        ("Ash Cloud", "debuff", 0, 4, 0, "fire",
+         {"duration": 2, "stat_mods": {"agility": -8}}),
+    ],
+    # Scarlet Forecourt (L5-6)
+    "scarlet_torchbearer": [
+        ("Torch Hurl", "damage", 15, 0, 10, "fire", {}),
+        ("Kindle", "dot", 5, 4, 8, "fire", {"duration": 3}),
+    ],
+    "scarlet_picket": [
+        ("Halberd Chop", "damage", 16, 0, 0, "physical", {}),
+        ("Sunder", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -12}}),
+    ],
+    # Night Web's Hollow (L5-7) - shared names get their own kits instead of the generic zombie kit
+    "brood_hatchling": [
+        ("Hatchling Bite", "damage", 12, 0, 0, "physical", {}),
+        ("Skitter Nip", "damage", 14, 3, 0, "physical", {}),
+    ],
+    "web_wrapped_corpse": [
+        ("Cocoon Slam", "damage", 15, 0, 0, "physical", {}),
+        ("Silk Bind", "debuff", 0, 4, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -10}}),
+    ],
+    "ravenclaw_drudger": [
+        ("Drudger's Blow", "damage", 16, 0, 0, "physical", {}),
+        ("Rotting Bite", "dot", 6, 3, 0, "physical", {"duration": 3}),
+    ],
+    # Scarlet Crypt (L6-8)
+    "crypt_crawler": [
+        ("Chitin Snap", "damage", 14, 0, 0, "physical", {}),
+        ("Burrow Venom", "dot", 5, 3, 0, "nature", {"duration": 3}),
+    ],
+    # ---- named rares (3 abilities each) ----
+    "mawgrin_the_gaunt": [
+        ("Rending Bite", "damage", 14, 0, 0, "physical", {}),
+        ("Plague Bite", "dot", 5, 3, 0, "nature", {"duration": 3}),
+        ("Pack Howl", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 10}}),
+    ],
+    "ossric_the_unburied": [
+        ("Grave Cleave", "damage", 17, 0, 0, "physical", {}),
+        ("Soul Rot", "dot", 6, 4, 0, "shadow", {"duration": 3}),
+        ("Shroud of Dust", "buff", 0, 6, 0, "shadow",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 14}}),
+    ],
+    "goldfang": [
+        ("Goldfang Bite", "damage", 18, 0, 0, "physical", {}),
+        ("Gilded Venom", "dot", 6, 3, 0, "nature", {"duration": 3}),
+        ("Web Snare", "debuff", 0, 5, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -14}}),
+    ],
+    "mourning_wren": [
+        ("Keening Bolt", "damage", 18, 0, 10, "shadow", {}),
+        ("Grief-Struck", "debuff", 0, 5, 10, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -12}}),
+        ("Lament", "heal", 26, 6, 14, "shadow", {}),
+    ],
+    "gaffer_thorne": [
+        ("Rusted Scythe", "damage", 20, 0, 0, "physical", {}),
+        ("Harvest Wound", "dot", 7, 4, 0, "physical", {"duration": 3}),
+        ("Hard Cold Earth", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 16}}),
+    ],
+    "sergeant_halbrook": [
+        ("Halberd Cleave", "damage", 21, 0, 0, "physical", {}),
+        ("Sunder Armor", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -14}}),
+        ("Rally Cry", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 14}}),
+    ],
+    "hatchery_warden_skrix": [
+        ("Skrix's Fang", "damage", 19, 0, 0, "physical", {}),
+        ("Silk Spit", "debuff", 0, 4, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -14}}),
+        ("Egg Guard", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"armor": 14}}),
+    ],
+    "pale_weaver": [
+        ("Pale Fang", "damage", 20, 0, 0, "physical", {}),
+        ("Weaver's Venom", "dot", 7, 3, 0, "nature", {"duration": 3}),
+        ("Shroud Web", "debuff", 0, 5, 0, "physical",
+         {"duration": 2, "is_aoe": True, "stat_mods": {"agility": -16}}),
+    ],
+    "valdric_bonewarden": [
+        ("Bone Hammer", "damage", 28, 0, 0, "physical", {}),
+        ("Marrow Rot", "dot", 9, 4, 0, "shadow", {"duration": 3}),
+        ("Bone Armor", "buff", 0, 6, 0, "shadow",
+         {"duration": 4, "self_only": True, "stat_mods": {"armor": 22}}),
+    ],
+    "brother_wystan": [
+        ("Wystan's Smite", "damage", 26, 0, 20, "holy", {}),
+        ("Cleansing Flame", "dot", 9, 4, 16, "fire", {"duration": 3}),
+        ("Penitent Prayer", "heal", 40, 6, 24, "holy", {}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3171,7 +3301,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

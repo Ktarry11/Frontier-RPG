@@ -44,13 +44,23 @@ class QuestManager:
                 self.quests_by_giver.setdefault(quest.giver_npc_id, []).append(quest.quest_id)
 
     @staticmethod
+    def _slug(s):
+        """Zone slug used by every zone-keyed lookup (zone_manager,
+        combat_screen): lower-case, spaces -> '_', apostrophes dropped.
+        Quest data may be authored with display names ("Ashenvale West")."""
+        if not isinstance(s, str):
+            return s
+        return s.lower().replace(" ", "_").replace("'", "")
+
+    @staticmethod
     def _build_quest(q_def):
+        _slug = QuestManager._slug
         objectives = [
             QuestObjective(
                 objective_type=ObjectiveType(o["type"]),
-                target=o.get("target"),
+                target=(_slug(o.get("target")) if o["type"] == "explore" else o.get("target")),
                 count=o.get("count", 1),
-                zone=o.get("zone"),
+                zone=_slug(o.get("zone")),
                 target_x=o.get("target_x"),
                 target_y=o.get("target_y"),
                 radius=o.get("radius", 6),

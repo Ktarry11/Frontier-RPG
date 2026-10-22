@@ -1,0 +1,782 @@
+{
+  "_notes": "Deathknell cluster named-rare + cave-boss loot (2026-10-22). One item drops per kill from the creature's pool. Numbers from the real loot formulas (tools/build_deathknell_content.py).",
+  "Mawgrin the Gaunt": [
+    {
+      "name": "Gaunt Fang Dirk",
+      "slot": "main_hand",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "flavor_text": "Pulled from a mouth that never stopped being hungry.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Stray-Hide Jerkin",
+      "slot": "chest",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "flavor_text": "Mangy, patched, and still smells like wet dog and grave dirt.",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 15
+    },
+    {
+      "name": "Mawgrin's Gnawed Collar",
+      "slot": "neck",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "flavor_text": "Someone put this on him once. Someone regretted it.",
+      "primary_stats": {
+        "strength": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Plaguebitten Wristwraps",
+      "slot": "wrist",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "flavor_text": "Stained past all washing. The stains do not seem to mind.",
+      "primary_stats": {
+        "stamina": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 3
+    }
+  ],
+  "Ossric the Unburied": [
+    {
+      "name": "Sexton's Grave-Spade",
+      "slot": "main_hand",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "flavor_text": "Heavy iron, still crusted. It has dug more than one hole twice.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 20,
+      "weapon_damage_max": 27,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Ossric's Burial Shroud",
+      "slot": "chest",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "flavor_text": "Linen that was never meant to be worn by anyone still moving.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 8
+    },
+    {
+      "name": "Wightbone Bracers",
+      "slot": "wrist",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "flavor_text": "Shaped from something that used to hold a sword.",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 21
+    },
+    {
+      "name": "Rattling Skull Charm",
+      "slot": "neck",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "flavor_text": "It rattles when the grave wind rises. Lately, that is always.",
+      "primary_stats": {
+        "intellect": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Goldfang": [
+    {
+      "name": "Goldvein Staff",
+      "slot": "main_hand",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "A prospector's staff, veined with something that glints and bites.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 12,
+      "weapon_damage_max": 16,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Spiderglass Wand",
+      "slot": "main_hand",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Hardened silk, brittle as glass. Handle with the tips of your fingers.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Gilded Silk Cord",
+      "slot": "waist",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Gold dust spun into the web. The spider kept the best strands.",
+      "primary_stats": {
+        "agility": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 10
+    },
+    {
+      "name": "Webstrand Gloves",
+      "slot": "hands",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Sticky for the first hour. After that, you stop noticing.",
+      "primary_stats": {
+        "agility": 1,
+        "intellect": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 5
+    }
+  ],
+  "Mourning Wren": [
+    {
+      "name": "Wren's Tear-Stained Veil",
+      "slot": "head",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Damp at all times. It was never dry even before the pond.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 7
+    },
+    {
+      "name": "Keening Wand",
+      "slot": "main_hand",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Hold it to your ear and you will hear someone calling a name.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Pond-Reed Sandals",
+      "slot": "feet",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "Woven reeds, soft with age. They leave no tracks at the water's edge.",
+      "primary_stats": {
+        "stamina": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 5
+    },
+    {
+      "name": "Drowned Locket Ring",
+      "slot": "ring",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "flavor_text": "The picture inside has long since washed out. The ring remembers it anyway.",
+      "primary_stats": {
+        "intellect": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Gaffer Thorne": [
+    {
+      "name": "Thorne's Rusted Scythe",
+      "slot": "main_hand",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "A harvest tool, in a harvest that never ended.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 15
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 25,
+      "weapon_damage_max": 35,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Scarecrow-Straw Cloak",
+      "slot": "back",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Itchy, and stuffed with something that is probably not just straw.",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 4
+    },
+    {
+      "name": "Burnt Farmer's Gauntlets",
+      "slot": "hands",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Scorched leather over scorched knuckles. They still grip hard.",
+      "primary_stats": {
+        "strength": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 18
+    },
+    {
+      "name": "Hearth-Ward Shield",
+      "slot": "off_hand",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "A barn door, cut down and reinforced. It kept a family safe once.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "armor_value": 18,
+      "block_value": 22
+    }
+  ],
+  "Sergeant Halbrook": [
+    {
+      "name": "Halbrook's Halberd",
+      "slot": "main_hand",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "The Crusade's issue polearm, with notches along the haft for every tally.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 25,
+      "weapon_damage_max": 35,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Scarlet Sergeant's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Crimson enamel over dented plate. Someone polished them every day.",
+      "primary_stats": {
+        "strength": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 41
+    },
+    {
+      "name": "Picket's Stout Boots",
+      "slot": "feet",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Good for long watches and for kicking down doors.",
+      "primary_stats": {
+        "strength": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 18
+    },
+    {
+      "name": "Crimson Tabard-Sash",
+      "slot": "waist",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Faded red cloth. It still looks righteous at a distance.",
+      "primary_stats": {
+        "strength": 1,
+        "agility": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 18
+    }
+  ],
+  "Hatchery Warden Skrix": [
+    {
+      "name": "Skrix's Chitin Cap",
+      "slot": "head",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Chitin plates bound with silk. Light, strong, faintly twitching.",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 17
+    },
+    {
+      "name": "Hatchery Silk Mantle",
+      "slot": "shoulder",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Spun around a clutch that never hatched.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 8
+    },
+    {
+      "name": "Brood-Warden's Spur",
+      "slot": "main_hand",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "A leg-spur from something much larger. Still sharp enough to matter.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 23,
+      "weapon_damage_max": 31,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Eggshell Buckler",
+      "slot": "off_hand",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Hardened shell and silk. Surprisingly good at deflecting things.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "armor_value": 18,
+      "block_value": 22
+    }
+  ],
+  "The Pale Weaver": [
+    {
+      "name": "Weaver's Pale Leggings",
+      "slot": "legs",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Fine silk, the colour of bone. It is a little too fine to be natural.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 11
+    },
+    {
+      "name": "Silkbound Gauntlets",
+      "slot": "hands",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Chain and web, woven together by something patient.",
+      "primary_stats": {
+        "strength": 1,
+        "agility": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 18
+    },
+    {
+      "name": "Pale Fang Wand",
+      "slot": "main_hand",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "A single curved fang, set in ivory-coloured wood.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 20,
+      "weapon_damage_max": 27,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Cocooned Cloak",
+      "slot": "back",
+      "item_level": 9,
+      "rarity": "rare",
+      "required_level": 6,
+      "flavor_text": "Wrapped around something once. It kept the shape.",
+      "primary_stats": {
+        "agility": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 9
+    }
+  ],
+  "Broodmother Nesh'ka": [
+    {
+      "name": "Nesh'ka's Venom Dagger",
+      "slot": "main_hand",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "flavor_text": "Still wet. Do not lick it, bro.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1,
+        "crit_chance_physical": 0.1
+      },
+      "weapon_damage_min": 25,
+      "weapon_damage_max": 34,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Brood Mother's Silk Robe",
+      "slot": "chest",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "flavor_text": "Pearly silk, warm to the touch. It hums faintly when something skitters nearby.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "spell_power": 1.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 12
+    },
+    {
+      "name": "Spiderfang Shortbow",
+      "slot": "main_hand",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "flavor_text": "Strung with a single strand of her silk. It never frays.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 21,
+      "weapon_damage_max": 28,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Carapace Bulwark",
+      "slot": "off_hand",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "flavor_text": "A slab of her own shell, ground flat and strapped to a frame.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 2
+      },
+      "armor_value": 20,
+      "block_value": 25
+    }
+  ],
+  "Valdric Bonewarden": [
+    {
+      "name": "Bonewarden's Maul",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Femurs, lashed to a pillar of the ossuary. It hits like a sermon.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.4
+      },
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 48,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Ossuary Plate Girdle",
+      "slot": "waist",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Welded from the plates of those who came to be buried.",
+      "primary_stats": {
+        "strength": 1,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "defense_rating": 0.1
+      },
+      "armor_type": "plate",
+      "armor_value": 33
+    },
+    {
+      "name": "Skullkeeper's Cowl",
+      "slot": "head",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "A hood stitched to a skull-cap. The skull is not decorative.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.0,
+        "hit_rating": 0.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 10
+    },
+    {
+      "name": "Reliquary Bone Ring",
+      "slot": "ring",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "A vertebra, polished by centuries of nervous fingers.",
+      "primary_stats": {
+        "intellect": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {
+        "mp5": 0.2
+      }
+    }
+  ],
+  "Brother Wystan": [
+    {
+      "name": "Wystan's Censer Mace",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "The chain is the only part that is not scorched.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "stamina": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.2
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Penitent's Hood",
+      "slot": "head",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Wool, cut for confession. It hides a great deal.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 2.8,
+        "mp5": 0.6
+      },
+      "armor_type": "cloth",
+      "armor_value": 10
+    },
+    {
+      "name": "Scarlet Vigil Hauberk",
+      "slot": "chest",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Mail under crimson. It was blessed. The blessing is still mostly intact.",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.6
+      },
+      "armor_type": "mail",
+      "armor_value": 44
+    },
+    {
+      "name": "Brother's Rosary",
+      "slot": "neck",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Every bead is warm. The last one is a little too warm.",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.1,
+        "mp5": 0.2
+      }
+    }
+  ],
+  "High Inquisitor Fairbanks": [
+    {
+      "name": "Fairbanks' Inquisitor Mace",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "The flanges are engraved with confessions. Some of them are still being added.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "stamina": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.2
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Crimson Inquisitor's Robe",
+      "slot": "chest",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Silk the colour of old wine. It never wrinkles, and it never forgives.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.7,
+        "mp5": 0.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 14
+    },
+    {
+      "name": "Sanctum Warplate Greaves",
+      "slot": "legs",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "Worn by a man who believed every step was a sermon.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 67
+    },
+    {
+      "name": "Blood-Etched Longsword",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "flavor_text": "The blade is etched with names. Yours is not there. Yet.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 2.4
+    }
+  ]
+}

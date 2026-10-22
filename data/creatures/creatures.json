@@ -1269,8 +1269,8 @@
     "Night Web Spider": {
       "template": "vermin_sneaky",
       "level_range": [
-        6,
-        11
+        5,
+        6
       ],
       "is_boss": false,
       "ability_kit": "night_web_spider"
@@ -1279,7 +1279,7 @@
       "template": "vermin_sneaky",
       "level_range": [
         6,
-        11
+        7
       ],
       "is_boss": false,
       "ability_kit": "night_web_matriarch"
@@ -1287,26 +1287,26 @@
     "Web Wrapped Corpse": {
       "template": "undead_basic",
       "level_range": [
-        6,
-        11
+        5,
+        6
       ],
       "is_boss": false,
-      "ability_kit": "undead_zombie"
+      "ability_kit": "web_wrapped_corpse"
     },
     "Ravenclaw Drudger": {
       "template": "undead_basic",
       "level_range": [
         6,
-        11
+        6
       ],
       "is_boss": false,
-      "ability_kit": "undead_zombie"
+      "ability_kit": "ravenclaw_drudger"
     },
     "Broodmother Nesh'ka": {
       "template": "vermin_sneaky",
       "level_range": [
-        11,
-        11
+        7,
+        7
       ],
       "is_boss": true,
       "boss_multiplier": 2.3,
@@ -1319,7 +1319,7 @@
         7
       ],
       "is_boss": false,
-      "ability_kit": "silithid"
+      "ability_kit": "crypt_crawler"
     },
     "Scarlet Initiate": {
       "template": "humanoid_warrior",
@@ -3454,8 +3454,8 @@
     "Claim Spider": {
       "template": "vermin_swarm",
       "level_range": [
-        2,
-        6
+        3,
+        5
       ],
       "is_boss": false,
       "ability_kit": "claim_spider"
@@ -3464,7 +3464,7 @@
       "template": "undead_basic",
       "level_range": [
         1,
-        4
+        3
       ],
       "is_boss": false,
       "ability_kit": "restless_grave_dweller"
@@ -3491,7 +3491,7 @@
       "template": "undead_basic",
       "level_range": [
         2,
-        6
+        4
       ],
       "is_boss": false,
       "ability_kit": "shadow_grave_wight"
@@ -5851,6 +5851,196 @@
       "is_boss": true,
       "ability_kit": "groms_felguard_overseer",
       "boss_multiplier": 2.4
+    },
+    "Plagued Stray": {
+      "template": "beast_basic",
+      "level_range": [
+        1,
+        4
+      ],
+      "is_boss": false,
+      "ability_kit": "plagued_stray"
+    },
+    "Grave Rat": {
+      "template": "vermin_swarm",
+      "level_range": [
+        1,
+        3
+      ],
+      "is_boss": false,
+      "ability_kit": "grave_rat"
+    },
+    "Dead Digger": {
+      "template": "undead_basic",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "dead_digger"
+    },
+    "Drowned Wretch": {
+      "template": "undead_basic",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_wretch"
+    },
+    "Weeping Shade": {
+      "template": "elemental_caster",
+      "level_range": [
+        3,
+        5
+      ],
+      "is_boss": false,
+      "ability_kit": "weeping_shade"
+    },
+    "Blighted Scarecrow": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        4,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "blighted_scarecrow"
+    },
+    "Burned Farmhand": {
+      "template": "undead_basic",
+      "level_range": [
+        4,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "burned_farmhand"
+    },
+    "Scarlet Torchbearer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        5,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_torchbearer"
+    },
+    "Scarlet Picket": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        5,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_picket"
+    },
+    "Brood Hatchling": {
+      "template": "vermin_swarm",
+      "level_range": [
+        5,
+        6
+      ],
+      "is_boss": false,
+      "ability_kit": "brood_hatchling"
+    },
+    "Mawgrin the Gaunt": {
+      "template": "beast_basic",
+      "level_range": [
+        3,
+        3
+      ],
+      "is_boss": true,
+      "ability_kit": "mawgrin_the_gaunt",
+      "boss_multiplier": 1.8
+    },
+    "Ossric the Unburied": {
+      "template": "undead_basic",
+      "level_range": [
+        4,
+        4
+      ],
+      "is_boss": true,
+      "ability_kit": "ossric_the_unburied",
+      "boss_multiplier": 1.8
+    },
+    "Goldfang": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "ability_kit": "goldfang",
+      "boss_multiplier": 1.8
+    },
+    "Mourning Wren": {
+      "template": "elemental_caster",
+      "level_range": [
+        5,
+        5
+      ],
+      "is_boss": true,
+      "ability_kit": "mourning_wren",
+      "boss_multiplier": 1.7
+    },
+    "Gaffer Thorne": {
+      "template": "undead_basic",
+      "level_range": [
+        6,
+        6
+      ],
+      "is_boss": true,
+      "ability_kit": "gaffer_thorne",
+      "boss_multiplier": 1.7
+    },
+    "Sergeant Halbrook": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        6,
+        6
+      ],
+      "is_boss": true,
+      "ability_kit": "sergeant_halbrook",
+      "boss_multiplier": 1.7
+    },
+    "Hatchery Warden Skrix": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        6,
+        6
+      ],
+      "is_boss": true,
+      "ability_kit": "hatchery_warden_skrix",
+      "boss_multiplier": 1.7
+    },
+    "The Pale Weaver": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        6,
+        6
+      ],
+      "is_boss": true,
+      "ability_kit": "pale_weaver",
+      "boss_multiplier": 1.7
+    },
+    "Valdric Bonewarden": {
+      "template": "undead_basic",
+      "level_range": [
+        8,
+        8
+      ],
+      "is_boss": true,
+      "ability_kit": "valdric_bonewarden",
+      "boss_multiplier": 1.6
+    },
+    "Brother Wystan": {
+      "template": "humanoid_caster",
+      "level_range": [
+        8,
+        8
+      ],
+      "is_boss": true,
+      "ability_kit": "brother_wystan",
+      "boss_multiplier": 1.6
     }
   }
 }
