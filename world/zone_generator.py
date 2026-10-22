@@ -5732,7 +5732,6 @@ def create_all_zones():
         # reusing The Den's web/egg art, Tiragarde Keep's stone fortress
         # art, and Ashenvale Corruption's bone_hall art respectively,
         # not the shared generic warren/chain/cavern tables anymore.
-        ("Moonwell Hollow", "Ashenvale West", (85, 70), "wall", "flooded", "roots"),
         ("Howling Barrows", "Ashenvale East", (95, 80), "cliff", "cavern", "ice"),
     ]
     for cave_name, parent, (w, h), theme, layout, feature in cave_specs:
@@ -5756,6 +5755,8 @@ def create_all_zones():
     zones["Zalazane's Hollow"] = ecaves.generate_zalazane_hollow()  # hand-built
     zones["Boulder Lode Mine"] = generate_boulder_lode_mine_handbuilt()  # hand-built (tools/handbuilt_boulder_lode.py)
     zones["Serena's Hollow"] = generate_serenas_hollow_handbuilt()  # hand-built (tools/handbuilt_serenas_hollow.py)
+    from tools.handbuilt_moonwell_hollow import generate_moonwell_hollow
+    zones["Moonwell Hollow"] = generate_moonwell_hollow()  # hand-built (tools/handbuilt_moonwell_hollow.py)
     zones["The Den"] = vot_caves.generate_the_den()  # hand-built (tools/handbuilt_vot_caves.py)
     zones["Dustwind Cave"] = dcaves.generate_dustwind_cave()  # hand-built (tools/handbuilt_durotar_caves.py)
     zones["Thunder Ridge"] = dcaves.generate_thunder_ridge()  # hand-built

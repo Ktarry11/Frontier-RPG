@@ -1,0 +1,113 @@
+{
+  "_notes": "Moonwell Hollow boss + rare loot (2026-10-22). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "Maelwyn Blightbloom": [
+    {
+      "name": "Blightbloom Staff",
+      "slot": "main_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "A staff of root-wood, split at the head where a flower should be. The flower is elsewhere.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {
+        "healing_power": 14.8
+      },
+      "weapon_damage_min": 29,
+      "weapon_damage_max": 39,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Moonwell-Stained Robes",
+      "slot": "chest",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Cloth that went through the Moonwell and came out a different shade of silver.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 4.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 35
+    },
+    {
+      "name": "Hollow-Walker's Boots",
+      "slot": "feet",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Soft leather soled in root-fibre. They know where the floor is, even where you don't.",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 35
+    },
+    {
+      "name": "Signet of the Withered Grove",
+      "slot": "ring",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "A ring of petrified bark. It does not remember being alive, which may be a mercy.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 3.8,
+        "mp5": 0.8
+      }
+    }
+  ],
+  "Mosshide the Gloomcap Elder": [
+    {
+      "name": "Mosshide Bulwark",
+      "slot": "off_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A slab of living moss over a stone core. It's damp, and it is very hard to move.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "armor_value": 55,
+      "block_value": 68
+    },
+    {
+      "name": "Gloomcap Bracers",
+      "slot": "wrist",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Mail bracers with a pale fungus growing between the links. It is, somehow, load-bearing.",
+      "primary_stats": {
+        "agility": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 55
+    },
+    {
+      "name": "Elder's Spore Pendant",
+      "slot": "neck",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A dried gloomcap on a leather cord. It smells like a cellar and hums like a hive.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ]
+}
