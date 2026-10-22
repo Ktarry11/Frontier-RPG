@@ -117,8 +117,8 @@ class TilemapRenderer:
     def _draw_quest_indicator(self, screen, indicator, sprite_x, sprite_top_y):
         """Draw the gold/grey !/? marker above an NPC's head. indicator
         is one of "gold_exclaim"/"grey_exclaim"/"gold_question"/
-        "grey_question"/None (see QuestManager.get_indicator_for_npc for
-        what each means) - None draws nothing.
+        "grey_question"/"green_exclaim" (flight master)/None (see
+        QuestManager.get_indicator_for_npc for what each means) - None draws nothing.
 
         sprite_x/sprite_top_y are the NPC sprite's actual on-screen
         top-left (not the tile's), so the marker sits centered above
@@ -130,7 +130,8 @@ class TilemapRenderer:
             return
         is_gold = indicator.startswith("gold")
         glyph = "!" if indicator.endswith("exclaim") else "?"
-        color = (255, 215, 0) if is_gold else (140, 140, 140)
+        # "green_exclaim" = flight master (see OverworldScreen / travel_manager); gold/grey are quest markers.
+        color = (80, 220, 100) if indicator.startswith("green") else ((255, 215, 0) if is_gold else (140, 140, 140))
 
         cx = sprite_x + self.tile_size // 2
         cy = sprite_top_y - 12

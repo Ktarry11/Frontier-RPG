@@ -15,6 +15,9 @@ from ui.renderer import Renderer
 from boss_icons import get_boss_icon_path
 
 
+FLIGHT_GREEN = (80, 220, 100)
+
+
 class MapScreen(BaseScreen):
     """Scaled overview of the current zone."""
 
@@ -293,6 +296,19 @@ class MapScreen(BaseScreen):
                     pygame.draw.circle(screen, (255, 0, 0), (px, py), 6)
                     pygame.draw.circle(screen, (20, 20, 20), (px, py), 6, 1)
 
+        # Flight masters: green "!" markers (windrider nodes), drawn above the other POIs
+        from world.ambient_npc_manager import get_ambient_npc_manager
+        from world.travel_manager import services_for_npc
+        flight_font = self.renderer._get_font(font_size=14)
+        for npc in get_ambient_npc_manager().get_npcs_in_zone(tilemap.name):
+            if "flight" not in services_for_npc(npc):
+                continue
+            fx, fy = self._tile_to_screen(tilemap, rect, npc.x, npc.y)
+            pygame.draw.circle(screen, (20, 20, 20), (fx, fy), 8)
+            pygame.draw.circle(screen, FLIGHT_GREEN, (fx, fy), 8, 2)
+            glyph = flight_font.render("!", True, FLIGHT_GREEN)
+            screen.blit(glyph, glyph.get_rect(center=(fx, fy)))
+
         # Player marker, drawn last so it is never hidden
         px, py = self._tile_to_screen(tilemap, rect, zm.player_x, zm.player_y)
         pygame.draw.circle(screen, (255, 255, 255), (px, py), 7)
@@ -310,6 +326,7 @@ class MapScreen(BaseScreen):
             (poi_colors["npc"], "NPC / vendor"),
             (poi_colors["chest"], "Treasure"),
             (poi_colors["quest_marker"], "Point of interest"),
+            (FLIGHT_GREEN, "Flight master"),
         ]
         for color, text in legend:
             pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)

@@ -687,6 +687,7 @@ class OverworldScreen(BaseScreen):
         # for a quest turns its giver's "!" into "?" without needing to
         # leave and re-enter the zone).
         from world.quest_manager import get_quest_manager
+        from world.travel_manager import services_for_npc
         quest_mgr = get_quest_manager()
         quest_indicators = {}
         for npc in list(vendors_in_zone) + list(ambient_npcs_in_zone):
@@ -695,6 +696,8 @@ class OverworldScreen(BaseScreen):
                 indicator = quest_mgr.get_indicator_for_npc(npc_id, player.level)
                 if indicator:
                     quest_indicators[npc_id] = indicator
+                elif "flight" in services_for_npc(npc):
+                    quest_indicators[npc_id] = "green_exclaim"   # flight masters wear a green "!"
         
         # Draw tilemap with camera follow (includes vendors and recruits with npc_color)
         cave_spawn_positions = None
