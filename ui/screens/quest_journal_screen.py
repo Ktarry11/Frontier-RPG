@@ -398,6 +398,15 @@ class QuestJournalScreen(BaseScreen):
             shown = places[:3]
             more = f"  (+{len(places) - 3} more)" if len(places) > 3 else ""
             return "Find them: " + "  /  ".join(shown) + more
+        if objective.objective_type in (ObjectiveType.FETCH, ObjectiveType.GATHER) and objective.target:
+            from world.quest_locator import locate_item
+            zm = getattr(self.state_manager, "zone_manager", None)
+            zones = getattr(zm, "zones", None) or None
+            sources = locate_item(str(objective.target), zones)
+            if not sources:
+                return ""
+            more = f"  (+{len(sources) - 3} more)" if len(sources) > 3 else ""
+            return "Dropped by: " + "  /  ".join(sources[:3]) + more
         if objective.objective_type == ObjectiveType.EXPLORE and objective.target:
             return f"Go to: {str(objective.target).replace('_', ' ').title()}"
         return ""

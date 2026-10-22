@@ -125,3 +125,32 @@ def locate(creature, zones=None):
             seen.add(s)
             out.append(s)
     return out
+
+
+_DROPS = None
+
+
+def item_sources(item_id):
+    """Creature names that can drop a quest item, from data/creatures/quest_drops.json (most likely first)."""
+    global _DROPS
+    if _DROPS is None:
+        path = Path(__file__).resolve().parent.parent / "data" / "creatures" / "quest_drops.json"
+        try:
+            _DROPS = json.loads(path.read_text(encoding="utf-8")).get("drops", {})
+        except (OSError, ValueError):
+            _DROPS = {}
+    found = []
+    for creature, drops in _DROPS.items():
+        for d in drops:
+            if d.get("item_id") == item_id:
+                found.append((-float(d.get("chance", 1.0)), creature))
+    return [c for _, c in sorted(found)]
+
+
+def locate_item(item_id, zones=None):
+    """'Creature - where' strings for a quest item that drops from creatures (best first, deduped)."""
+    out = []
+    for creature in item_sources(item_id):
+        places = locate(creature, zones)
+        out.append(f"{creature} - {places[0]}" if places else creature)
+    return out

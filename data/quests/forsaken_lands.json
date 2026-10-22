@@ -112,12 +112,11 @@
           "slot": "hands",
           "armor_type": "cloth",
           "item_level": 5,
-          "rarity": "uncommon",
+          "rarity": "common",
           "primary_stats": {
-            "intellect": 4,
-            "spirit": 2
+            "intellect": 1
           },
-          "armor_value": 7,
+          "armor_value": 1,
           "flavor_text": "Taken off a wight that had no more use for hands."
         }
       ]
@@ -163,8 +162,8 @@
       "reward_gold": 700,
       "accept_text": "Solliden's dead don't serve the Dark Lady - they just rot and lash out. Cut their numbers before the road closes.",
       "turn_in_text": "The road's clear again, for now. Solliden was good farmland once. It's just a graveyard with crops now.",
-      "level_min": 4,
-      "level_max": 7
+      "level_min": 6,
+      "level_max": 9
     },
     {
       "quest_id": "et_solliden_farmhands",
@@ -184,8 +183,8 @@
       "reward_gold": 650,
       "accept_text": "They were tenant farmers. They didn't choose this. Give them the only kindness left - an ending.",
       "turn_in_text": "Rest, finally. Small mercy, but it's the only kind this land has left to give.",
-      "level_min": 4,
-      "level_max": 7
+      "level_min": 6,
+      "level_max": 9
     },
     {
       "quest_id": "et_agamand_servants",
@@ -208,8 +207,8 @@
       "reward_gold": 850,
       "accept_text": "The Agamands kept a full household staff. Now it's a full household of corpses. Thin them before the Mills overflow.",
       "turn_in_text": "Good work. The Mills are quieter. Thurman Agamand himself is still unaccounted for, if you're willing to look further.",
-      "level_min": 5,
-      "level_max": 8
+      "level_min": 7,
+      "level_max": 10
     },
     {
       "quest_id": "et_captured_farmers",
@@ -228,24 +227,24 @@
       "reward_gold": 800,
       "accept_text": "Living prisoners, at the Mills. I don't know why they're being kept, and I'd rather not find out the hard way. Free them.",
       "turn_in_text": "Freed, and alive. Whatever the Agamands wanted with them, they'll never get the chance now.",
-      "level_min": 5,
-      "level_max": 8,
-      "gear_reward_gear_level": 7,
+      "level_min": 7,
+      "level_max": 10,
+      "gear_reward_gear_level": 9,
       "unique_item_defs": [
         {
           "name": "Liberator's Mace",
           "slot": "main_hand",
           "weapon_type": "mace_1h",
-          "item_level": 7,
-          "rarity": "uncommon",
+          "item_level": 9,
+          "rarity": "common",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 2
+            "strength": 1,
+            "stamina": 1
           },
           "flavor_text": "Taken off the thing guarding the shackle keys. It won't need it anymore.",
           "secondary_stats": {
-            "attack_power": 3
+            "attack_power": 1.0
           }
         }
       ]
@@ -268,39 +267,38 @@
       "reward_gold": 1400,
       "accept_text": "Thurman ruled that estate alive and apparently still thinks he rules it dead. Disabuse him of the notion.",
       "turn_in_text": "The Mills are truly quiet now, for the first time since the blight. Thurman's reign, such as it was, is over.",
-      "level_min": 8,
-      "level_max": 9,
-      "gear_reward_gear_level": 9,
+      "level_min": 10,
+      "level_max": 11,
+      "gear_reward_gear_level": 11,
       "unique_item_defs": [
         {
           "name": "Agamand Patriarch's Signet Ring",
           "slot": "ring",
-          "item_level": 9,
-          "rarity": "rare",
+          "item_level": 11,
+          "rarity": "uncommon",
           "primary_stats": {
-            "strength": 4,
-            "intellect": 4,
-            "stamina": 2
+            "strength": 1,
+            "intellect": 1
           },
           "flavor_text": "Thurman wore this through life and undeath both. It still feels like it belongs to someone important.",
           "secondary_stats": {
-            "spell_power": 3
+            "spell_power": 0.6
           }
         },
         {
           "name": "Thurman's Walking Cane",
           "slot": "main_hand",
           "weapon_type": "mace_1h",
-          "item_level": 9,
-          "rarity": "rare",
+          "item_level": 11,
+          "rarity": "uncommon",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 6,
-            "spirit": 2
+            "intellect": 2,
+            "spirit": 1
           },
           "flavor_text": "More ceremonial than practical, until it isn't.",
           "secondary_stats": {
-            "spell_power": 4
+            "spell_power": 1.5
           }
         }
       ]
@@ -326,21 +324,21 @@
       "reward_gold": 1100,
       "accept_text": "The Crusade thinks burning us once wasn't enough. They're welcome to keep trying. Thin their patrols.",
       "turn_in_text": "Fewer zealots on the road today. There will be more tomorrow. There always are.",
-      "level_min": 8,
-      "level_max": 11,
-      "gear_reward_gear_level": 10,
+      "level_min": 9,
+      "level_max": 12,
+      "gear_reward_gear_level": 11,
       "unique_item_defs": [
         {
           "name": "Scarlet Patrol Leathers",
           "slot": "chest",
           "armor_type": "leather",
-          "item_level": 10,
-          "rarity": "uncommon",
+          "item_level": 11,
+          "rarity": "common",
           "primary_stats": {
-            "agility": 6,
-            "stamina": 3
+            "agility": 2,
+            "stamina": 1
           },
-          "armor_value": 32,
+          "armor_value": 16,
           "flavor_text": "Stripped off a zealot who won't be patrolling again."
         }
       ]
@@ -363,7 +361,7 @@
       "reward_gold": 1200,
       "accept_text": "Their words are as dangerous as their blades, sometimes more. Silence the preachers before they silence more of us.",
       "turn_in_text": "Quieter out there now. The Crusade will send more. They always do. But today, we won this ground.",
-      "level_min": 9,
+      "level_min": 10,
       "level_max": 12
     },
     {
@@ -385,23 +383,23 @@
       "accept_text": "Vishas has personally broken three scouts I know of. I'd like her to understand what that feels like, briefly, before she stops existing.",
       "turn_in_text": "The Watch's interrogations end with her. That's more scouts who'll come home because of what you did today.",
       "level_min": 12,
-      "level_max": 13,
-      "gear_reward_gear_level": 13,
+      "level_max": 12,
+      "gear_reward_gear_level": 12,
       "unique_item_defs": [
         {
           "name": "Vishas's Interrogation Blade",
           "slot": "main_hand",
           "weapon_type": "dagger",
-          "item_level": 13,
-          "rarity": "rare",
+          "item_level": 12,
+          "rarity": "uncommon",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 8,
-            "stamina": 4
+            "agility": 2,
+            "stamina": 1
           },
           "flavor_text": "Designed to extract information, not just end a fight.",
           "secondary_stats": {
-            "crit_chance_physical": 3
+            "crit_chance_physical": 0.8
           }
         }
       ]
@@ -460,12 +458,12 @@
           "slot": "chest",
           "armor_type": "leather",
           "item_level": 7,
-          "rarity": "uncommon",
+          "rarity": "common",
           "primary_stats": {
-            "agility": 4,
-            "stamina": 2
+            "agility": 1,
+            "stamina": 1
           },
-          "armor_value": 18,
+          "armor_value": 10,
           "flavor_text": "Found hanging on a fence post. The farmhand it belonged to wasn't so lucky."
         }
       ]
@@ -511,24 +509,23 @@
       "reward_gold": 1200,
       "accept_text": "Deserters are worse than enemies, in some ways. They know exactly how we operate. Hunt them down.",
       "turn_in_text": "Good. The supply lines are safer. Deserters never really get to rest easy, even twice-dead.",
-      "level_min": 13,
-      "level_max": 16,
-      "gear_reward_gear_level": 15,
+      "level_min": 8,
+      "level_max": 10,
+      "gear_reward_gear_level": 9,
       "unique_item_defs": [
         {
           "name": "Deserter's Confiscated Blade",
           "slot": "main_hand",
           "weapon_type": "sword_1h",
-          "item_level": 15,
-          "rarity": "uncommon",
+          "item_level": 9,
+          "rarity": "common",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 9,
-            "stamina": 4
+            "strength": 2
           },
           "flavor_text": "Dresden stripped the Bulwark's own insignia off before handing this over.",
           "secondary_stats": {
-            "attack_power": 6
+            "attack_power": 0.9
           }
         }
       ]
@@ -551,8 +548,8 @@
       "reward_gold": 1300,
       "accept_text": "They stood this wall for years. Now the wall's turned on itself. End it for them - it's the least they're owed.",
       "turn_in_text": "Done. The Bulwark holds again, even if it's missing hands that used to hold it.",
-      "level_min": 13,
-      "level_max": 16
+      "level_min": 9,
+      "level_max": 10
     },
     {
       "quest_id": "wt_couriers_route",
@@ -571,22 +568,21 @@
       "reward_gold": 1000,
       "accept_text": "I just need someone to walk the route with me once, make sure it's still clear. Dying once was plenty of excitement.",
       "turn_in_text": "Made it in one piece. Relatively speaking. Thank you - truly.",
-      "level_min": 9,
-      "level_max": 13,
-      "gear_reward_gear_level": 11,
+      "level_min": 7,
+      "level_max": 10,
+      "gear_reward_gear_level": 9,
       "unique_item_defs": [
         {
           "name": "Courier's Fleetfoot Band",
           "slot": "ring",
-          "item_level": 11,
+          "item_level": 9,
           "rarity": "uncommon",
           "primary_stats": {
-            "agility": 6,
-            "stamina": 2
+            "agility": 2
           },
           "flavor_text": "Beth insisted you take it. 'Running messages taught me a thing or two about good boots and good rings.'",
           "secondary_stats": {
-            "haste": 2
+            "haste": 0.5
           }
         }
       ]
@@ -642,15 +638,15 @@
           "slot": "chest",
           "armor_type": "plate",
           "item_level": 16,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "primary_stats": {
-            "strength": 10,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 2
           },
-          "armor_value": 92,
+          "armor_value": 74,
           "flavor_text": "Still bears the old Forsaken sigil, scratched half-away.",
           "secondary_stats": {
-            "attack_power": 7
+            "attack_power": 3.0
           }
         }
       ]
@@ -688,12 +684,12 @@
           "rarity": "uncommon",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 8,
-            "stamina": 4
+            "agility": 2,
+            "stamina": 1
           },
           "flavor_text": "Still sharp enough to worry about, even separated from what carried them.",
           "secondary_stats": {
-            "crit_chance_physical": 2
+            "crit_chance_physical": 0.5
           }
         }
       ]
@@ -725,15 +721,15 @@
           "slot": "ranged",
           "weapon_type": "gun",
           "item_level": 17,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11,
-            "stamina": 5
+            "agility": 2,
+            "stamina": 1
           },
           "flavor_text": "A gentleman's weapon, badly out of place in a worgen's claws.",
           "secondary_stats": {
-            "crit_chance_physical": 3
+            "crit_chance_physical": 0.6
           }
         },
         {
@@ -741,15 +737,15 @@
           "slot": "back",
           "armor_type": "accessory",
           "item_level": 17,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "primary_stats": {
-            "agility": 8,
-            "stamina": 3
+            "agility": 2,
+            "stamina": 1
           },
-          "armor_value": 8,
+          "armor_value": 0,
           "flavor_text": "Still cut in a style decades out of fashion.",
           "secondary_stats": {
-            "hit_rating": 3
+            "hit_rating": 0.8
           }
         }
       ]
@@ -808,12 +804,12 @@
           "rarity": "rare",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 10,
-            "stamina": 4
+            "agility": 4,
+            "stamina": 2
           },
           "flavor_text": "Pried loose from the thing that nearly took your arm with it.",
           "secondary_stats": {
-            "crit_chance_physical": 3
+            "crit_chance_physical": 1.3
           }
         }
       ]
@@ -850,10 +846,10 @@
           "item_level": 16,
           "rarity": "uncommon",
           "primary_stats": {
-            "strength": 10,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 2
           },
-          "armor_value": 88,
+          "armor_value": 74,
           "flavor_text": "Dallow's own spare set. 'Bring it back in better shape than I usually do.'"
         }
       ]
@@ -885,29 +881,29 @@
           "slot": "main_hand",
           "weapon_type": "sword_1h",
           "item_level": 18,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 12,
-            "stamina": 5
+            "strength": 4,
+            "stamina": 1
           },
           "flavor_text": "Still bears the March's own insignia, however little that means now.",
           "secondary_stats": {
-            "attack_power": 8
+            "attack_power": 2.4
           }
         },
         {
           "name": "Captain's Service Medal",
           "slot": "trinket",
           "item_level": 18,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "primary_stats": {
-            "strength": 8,
-            "stamina": 4
+            "strength": 2,
+            "stamina": 1
           },
           "flavor_text": "Awarded for service that no longer means what it used to.",
           "secondary_stats": {
-            "hit_rating": 3
+            "hit_rating": 0.8
           }
         }
       ]
@@ -963,15 +959,15 @@
           "slot": "chest",
           "armor_type": "leather",
           "item_level": 18,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "primary_stats": {
-            "agility": 12,
-            "stamina": 5
+            "agility": 5,
+            "stamina": 2
           },
-          "armor_value": 62,
+          "armor_value": 35,
           "flavor_text": "Yseult asked for a sample. You gave her the whole hide instead.",
           "secondary_stats": {
-            "crit_chance_physical": 3
+            "crit_chance_physical": 1.2
           }
         }
       ]
@@ -1030,12 +1026,12 @@
           "rarity": "uncommon",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 10,
-            "spirit": 4
+            "intellect": 2,
+            "spirit": 1
           },
           "flavor_text": "Still carries a faint, mournful hum.",
           "secondary_stats": {
-            "spell_power": 6
+            "spell_power": 1.3
           }
         }
       ]
@@ -1070,12 +1066,12 @@
           "rarity": "rare",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 13,
-            "stamina": 6
+            "strength": 7,
+            "stamina": 3
           },
           "flavor_text": "Stone clear through, yet it still draws blood.",
           "secondary_stats": {
-            "attack_power": 9
+            "attack_power": 4.7
           }
         },
         {
@@ -1084,12 +1080,12 @@
           "item_level": 21,
           "rarity": "rare",
           "primary_stats": {
-            "intellect": 10,
-            "spirit": 4
+            "intellect": 4,
+            "spirit": 1
           },
           "flavor_text": "Corwell says keeping it is either very wise or very foolish. He hasn't decided which.",
           "secondary_stats": {
-            "spell_power": 5
+            "spell_power": 1.8
           }
         }
       ]
@@ -1148,12 +1144,12 @@
           "rarity": "rare",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 14,
-            "stamina": 6
+            "agility": 7,
+            "stamina": 3
           },
           "flavor_text": "Rusted by decades underwater, still sharp enough to matter.",
           "secondary_stats": {
-            "crit_chance_physical": 4
+            "crit_chance_physical": 2.0
           }
         }
       ]
@@ -1190,10 +1186,10 @@
           "item_level": 19,
           "rarity": "uncommon",
           "primary_stats": {
-            "strength": 10,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 2
           },
-          "armor_value": 34,
+          "armor_value": 44,
           "flavor_text": "Still smells like the grave it was taken from."
         }
       ]
@@ -1228,12 +1224,12 @@
           "rarity": "rare",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 14,
-            "stamina": 6
+            "agility": 6,
+            "stamina": 3
           },
           "flavor_text": "Still warm, somehow, long after the rest of it went cold.",
           "secondary_stats": {
-            "crit_chance_physical": 4
+            "crit_chance_physical": 1.8
           }
         },
         {
@@ -1243,13 +1239,13 @@
           "item_level": 22,
           "rarity": "rare",
           "primary_stats": {
-            "strength": 14,
-            "stamina": 6
+            "strength": 9,
+            "stamina": 4
           },
-          "armor_value": 128,
+          "armor_value": 89,
           "flavor_text": "The pack's bloodline ends with this pelt. Wear it as a warning or a trophy.",
           "secondary_stats": {
-            "attack_power": 8
+            "attack_power": 5.2
           }
         }
       ]
@@ -1281,30 +1277,30 @@
           "slot": "main_hand",
           "weapon_type": "sword_1h",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 15,
-            "spirit": 6
+            "intellect": 5,
+            "spirit": 2
           },
           "flavor_text": "A noble's dueling sword, still bearing the Ashbury crest.",
           "secondary_stats": {
-            "spell_power": 5
+            "spell_power": 1.7
           }
         },
         {
           "name": "Ashbury's Cursed Ring",
           "slot": "ring",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "primary_stats": {
-            "strength": 6,
-            "intellect": 6,
-            "stamina": 3
+            "strength": 2,
+            "intellect": 1,
+            "stamina": 1
           },
           "flavor_text": "The curse that bound him to this isle might still linger in the band. You wear it anyway.",
           "secondary_stats": {
-            "healing_power": 5
+            "healing_power": 1.3
           }
         }
       ]

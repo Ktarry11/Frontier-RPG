@@ -57,8 +57,8 @@
           "weapon_type": "mace_1h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 2
+            "strength": 1,
+            "stamina": 1
           },
           "weapon_damage_min": 15,
           "weapon_damage_max": 21,
@@ -73,8 +73,8 @@
           "weapon_type": "dagger",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 4,
-            "stamina": 2
+            "agility": 1,
+            "stamina": 1
           },
           "weapon_damage_min": 15,
           "weapon_damage_max": 21,
@@ -89,8 +89,7 @@
           "weapon_type": "wand",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 5,
-            "spirit": 1
+            "intellect": 1
           },
           "weapon_damage_min": 13,
           "weapon_damage_max": 17,
@@ -131,8 +130,8 @@
           "weapon_type": "mace_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 3
+            "strength": 4,
+            "stamina": 2
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -147,11 +146,10 @@
           "armor_type": "leather",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 5,
-            "spirit": 2,
-            "stamina": 1
+            "intellect": 1,
+            "spirit": 1
           },
-          "armor_value": 22,
+          "armor_value": 8,
           "label": "Leather (Agi)"
         },
         {
@@ -162,8 +160,8 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 5,
-            "spirit": 3
+            "intellect": 2,
+            "spirit": 1
           },
           "label": "Off-Hand (Int)"
         }
@@ -194,15 +192,15 @@
           "name": "Patriarch's Last Roar",
           "slot": "main_hand",
           "item_level": 11,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "weapon_type": "axe_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 8,
-            "stamina": 4
+            "strength": 7,
+            "stamina": 3
           },
-          "weapon_damage_min": 27,
-          "weapon_damage_max": 37,
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 48,
           "attack_speed": 3.4,
           "flavor_text": "It still smells faintly of ozone, like the storm that never quite broke over the ridge finally did, once, all at once.",
           "label": "2H Axe (Str)"
@@ -211,27 +209,27 @@
           "name": "Stormhide Mantle",
           "slot": "shoulder",
           "item_level": 11,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "armor_type": "mail",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 6,
-            "stamina": 4
+            "agility": 3,
+            "stamina": 2
           },
-          "armor_value": 30,
+          "armor_value": 33,
           "label": "Mail (Agi)"
         },
         {
           "name": "Thunder-Cracked Grimoire",
           "slot": "off_hand",
           "item_level": 11,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "weapon_type": null,
           "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 4,
-            "intellect": 4,
-            "stamina": 2
+            "strength": 2,
+            "intellect": 2,
+            "stamina": 1
           },
           "label": "Off-Hand (Int)"
         }
@@ -268,15 +266,15 @@
           "name": "Tollbooth Cleaver",
           "slot": "main_hand",
           "item_level": 7,
-          "rarity": "uncommon",
+          "rarity": "common",
           "weapon_type": "axe_1h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 2
+            "strength": 1,
+            "stamina": 1
           },
-          "weapon_damage_min": 15,
-          "weapon_damage_max": 21,
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 16,
           "attack_speed": 2.5,
           "label": "Axe (Str)"
         },
@@ -284,15 +282,14 @@
           "name": "Outrunner's Own Bowstring Knife",
           "slot": "main_hand",
           "item_level": 7,
-          "rarity": "uncommon",
+          "rarity": "common",
           "weapon_type": "dagger",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 1
+            "agility": 1
           },
-          "weapon_damage_min": 15,
-          "weapon_damage_max": 21,
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 16,
           "attack_speed": 1.7,
           "label": "Dagger (Agi)"
         }
@@ -327,8 +324,8 @@
           "weapon_type": "sword_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 3
+            "strength": 4,
+            "stamina": 2
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -344,11 +341,10 @@
           "armor_type": "leather",
           "stat_template": "spirit_healer",
           "primary_stats": {
-            "spirit": 4,
-            "intellect": 2,
-            "stamina": 2
+            "spirit": 1,
+            "intellect": 1
           },
-          "armor_value": 18,
+          "armor_value": 8,
           "label": "Leather (Agi)"
         }
       ]
@@ -388,8 +384,8 @@
           "weapon_type": "fist_weapon",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 2
+            "agility": 1,
+            "stamina": 1
           },
           "weapon_damage_min": 15,
           "weapon_damage_max": 21,
@@ -404,9 +400,8 @@
           "weapon_type": null,
           "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 3,
-            "intellect": 3,
-            "stamina": 1
+            "agility": 1,
+            "intellect": 1
           },
           "label": "Off-Hand (Int)"
         }

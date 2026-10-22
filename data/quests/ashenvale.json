@@ -14,12 +14,14 @@
           "zone": "Ashenvale West"
         }
       ],
-      "reward_exp": 700,
-      "reward_gold": 2800,
+      "reward_exp": 1300,
+      "reward_gold": 5000,
       "accept_text": "They used to keep their distance. Something's pushed them toward the post, and I don't like not knowing what.",
       "turn_in_text": "Good. The lake trail's safe again, for now. Keep your eyes on the Highlands - that's where the real trouble's brewing.",
-      "level_min": 10,
-      "level_max": 13
+      "level_min": 22,
+      "level_max": 25,
+      "_xp_factor": 0.824,
+      "_gold_factor": 0.949
     },
     {
       "quest_id": "ashenvale_timberling_bark",
@@ -34,26 +36,27 @@
           "count": 5
         }
       ],
-      "reward_exp": 600,
-      "reward_gold": 2400,
+      "reward_exp": 1200,
+      "reward_gold": 4300,
       "accept_text": "The wards are failing. I don't love asking you to cut down something that was alive a moment before, but the post needs them.",
       "turn_in_text": "This'll hold the wards another season. Thank you - I know that wasn't a pleasant errand.",
-      "level_min": 10,
-      "level_max": 12,
-      "gear_reward_gear_level": 11,
+      "level_min": 22,
+      "level_max": 24,
+      "gear_reward_gear_level": 23,
       "unique_item_defs": [
         {
           "name": "Maestra's Warded Charm",
           "slot": "trinket",
-          "item_level": 11,
+          "item_level": 23,
           "rarity": "uncommon",
           "primary_stats": {
-            "intellect": 6,
-            "spirit": 2
+            "intellect": 4
           },
           "flavor_text": "A sliver of the watchpost's own ward-wood, carved into a keepsake."
         }
-      ]
+      ],
+      "_xp_factor": 0.706,
+      "_gold_factor": 0.814
     },
     {
       "quest_id": "ashenvale_ursal_the_mauler",
@@ -69,31 +72,33 @@
           "zone": "Ashenvale West"
         }
       ],
-      "reward_exp": 1200,
-      "reward_gold": 5000,
+      "reward_exp": 2550,
+      "reward_gold": 9000,
       "accept_text": "It's not just big - it's organizing the others. I've never seen a grizzly do that. Kill it before the behavior spreads.",
       "turn_in_text": "Good. Whatever was making it act like that died with it. The lake trail's yours again.",
-      "level_min": 14,
-      "level_max": 16,
-      "gear_reward_gear_level": 15,
+      "level_min": 26,
+      "level_max": 28,
+      "gear_reward_gear_level": 28,
       "unique_item_defs": [
         {
           "name": "Ursal's Broken Claw",
           "slot": "main_hand",
           "weapon_type": "fist_weapon",
-          "item_level": 15,
-          "rarity": "rare",
+          "item_level": 28,
+          "rarity": "uncommon",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 9,
-            "stamina": 4
+            "strength": 5,
+            "stamina": 2
           },
           "flavor_text": "Still curved like it was mid-swing when it stopped moving.",
           "secondary_stats": {
-            "attack_power": 6
+            "attack_power": 3.1
           }
         }
-      ]
+      ],
+      "_xp_factor": 1.263,
+      "_gold_factor": 1.389
     },
     {
       "quest_id": "ashenvale_sentinel_scouts_report",
@@ -108,12 +113,14 @@
           "zone": "Ragged Highlands"
         }
       ],
-      "reward_exp": 650,
-      "reward_gold": 2600,
+      "reward_exp": 1200,
+      "reward_gold": 4700,
       "accept_text": "Two scouts, three days overdue. The Highlands have never been friendly, but they've never swallowed a patrol whole before either.",
       "turn_in_text": "No bodies, no gear, nothing. Whatever's up there, it's thorough. I need more than a report - I need it handled.",
-      "level_min": 10,
-      "level_max": 13
+      "level_min": 22,
+      "level_max": 25,
+      "_xp_factor": 0.765,
+      "_gold_factor": 0.881
     },
     {
       "quest_id": "ashenvale_furbolg_ravagers",
@@ -132,28 +139,30 @@
           "zone": "Ashenvale West"
         }
       ],
-      "reward_exp": 1050,
-      "reward_gold": 4800,
+      "reward_exp": 2350,
+      "reward_gold": 8300,
       "accept_text": "Furbolg used to be territorial, not feral. Something changed that, and I want it stopped before it reaches Astranaar's gates.",
       "turn_in_text": "That'll buy us time. Not an answer, but time. Keep pushing if you're willing - I don't think the Ravagers are the root of it.",
-      "level_min": 12,
-      "level_max": 15,
-      "gear_reward_gear_level": 14,
+      "level_min": 24,
+      "level_max": 27,
+      "gear_reward_gear_level": 26,
       "unique_item_defs": [
         {
           "name": "Sentinel Patrol Leathers",
           "slot": "chest",
           "armor_type": "leather",
-          "item_level": 14,
+          "item_level": 26,
           "rarity": "uncommon",
           "primary_stats": {
             "agility": 8,
-            "stamina": 3
+            "stamina": 2
           },
-          "armor_value": 38,
+          "armor_value": 50,
           "flavor_text": "Shalasyr's own spare set, offered without ceremony. 'Bring it back in one piece, if you can.'"
         }
-      ]
+      ],
+      "_xp_factor": 1.312,
+      "_gold_factor": 1.846
     },
     {
       "quest_id": "ashenvale_furbolg_shaman_totems",
@@ -168,12 +177,14 @@
           "count": 4
         }
       ],
-      "reward_exp": 950,
-      "reward_gold": 4200,
+      "reward_exp": 1900,
+      "reward_gold": 7700,
       "accept_text": "The shamans are carrying something that isn't natural furbolg craft. I want to know what, and I want it out of their hands.",
       "turn_in_text": "This confirms it - something's been feeding corruption into the Highlands through these totems. We need to find the source.",
-      "level_min": 13,
-      "level_max": 16
+      "level_min": 24,
+      "level_max": 27,
+      "_xp_factor": 1.056,
+      "_gold_factor": 1.2
     },
     {
       "quest_id": "ashenvale_keeper_rustveil",
@@ -189,45 +200,47 @@
           "zone": "Ashenvale West"
         }
       ],
-      "reward_exp": 1400,
-      "reward_gold": 6000,
+      "reward_exp": 2750,
+      "reward_gold": 9400,
       "accept_text": "Rustveil was ours once - a keeper of the Grove, sworn to the same oaths I carry. Whatever it is now, it isn't that anymore. End it.",
       "turn_in_text": "The Grove feels lighter already. I won't pretend that was easy to ask of you. Thank you.",
-      "level_min": 15,
-      "level_max": 16,
-      "gear_reward_gear_level": 16,
+      "level_min": 27,
+      "level_max": 28,
+      "gear_reward_gear_level": 28,
       "unique_item_defs": [
         {
           "name": "Rustveil's Last Branch",
           "slot": "main_hand",
           "weapon_type": "staff",
-          "item_level": 16,
+          "item_level": 28,
           "rarity": "rare",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 11,
-            "spirit": 5
+            "intellect": 17,
+            "spirit": 8
           },
           "flavor_text": "Still growing, slowly, even broken off from whatever it used to be.",
           "secondary_stats": {
-            "spell_power": 7
+            "spell_power": 11.0
           }
         },
         {
           "name": "Grove Warden's Oath Ring",
           "slot": "ring",
-          "item_level": 16,
+          "item_level": 28,
           "rarity": "rare",
           "primary_stats": {
-            "intellect": 8,
-            "spirit": 3
+            "intellect": 5,
+            "spirit": 2
           },
           "flavor_text": "Pennarin's own ring, offered in thanks. 'Rustveil wore one just like it, once.'",
           "secondary_stats": {
-            "healing_power": 5
+            "healing_power": 3.1
           }
         }
-      ]
+      ],
+      "_xp_factor": 1.386,
+      "_gold_factor": 1.667
     },
     {
       "quest_id": "ashenvale_wisp_lights",
@@ -242,12 +255,14 @@
           "count": 6
         }
       ],
-      "reward_exp": 550,
-      "reward_gold": 2200,
+      "reward_exp": 1200,
+      "reward_gold": 4000,
       "accept_text": "Not everything in Ashenvale needs killing. The dryads shed this freely, if you ask politely and take only what you need.",
       "turn_in_text": "Gently gathered, I can tell. The Grove remembers kindness. Thank you for this.",
-      "level_min": 10,
-      "level_max": 12
+      "level_min": 22,
+      "level_max": 24,
+      "_xp_factor": 0.647,
+      "_gold_factor": 0.746
     },
     {
       "quest_id": "ashenvale_refugees_belongings",
@@ -262,27 +277,28 @@
           "count": 1
         }
       ],
-      "reward_exp": 500,
-      "reward_gold": 3000,
+      "reward_exp": 1200,
+      "reward_gold": 5400,
       "accept_text": "It's not worth much to anyone else. It's worth everything to me. Please - if it's still out there, I need it back.",
       "turn_in_text": "You found it. I thought I'd never - thank you. Thank you, truly.",
-      "level_min": 10,
-      "level_max": 13,
-      "gear_reward_gear_level": 11,
+      "level_min": 22,
+      "level_max": 25,
+      "gear_reward_gear_level": 24,
       "unique_item_defs": [
         {
           "name": "Windrunner Family Locket (Keepsake)",
           "slot": "neck",
-          "item_level": 11,
+          "item_level": 24,
           "rarity": "uncommon",
           "primary_stats": {
-            "agility": 3,
-            "intellect": 3,
-            "stamina": 1
+            "agility": 2,
+            "intellect": 2
           },
           "flavor_text": "Thessaly insisted you keep a second one she'd had made, 'so someone carries the memory too.'"
         }
-      ]
+      ],
+      "_xp_factor": 0.588,
+      "_gold_factor": 1.017
     },
     {
       "quest_id": "ashenvale_nightsaber_thinning",
@@ -298,12 +314,14 @@
           "zone": "Ashenvale West"
         }
       ],
-      "reward_exp": 800,
-      "reward_gold": 3600,
+      "reward_exp": 1550,
+      "reward_gold": 7400,
       "accept_text": "I don't want anyone else going through what I did. If you're willing, thin their numbers near the trail.",
       "turn_in_text": "You've made the road safer for the next family that comes through. That matters more than you know.",
-      "level_min": 11,
-      "level_max": 14
+      "level_min": 23,
+      "level_max": 26,
+      "_xp_factor": 0.941,
+      "_gold_factor": 1.22
     },
     {
       "quest_id": "splintertree_burning_blade_scouts",
@@ -319,12 +337,14 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 900,
-      "reward_gold": 4000,
+      "reward_exp": 1450,
+      "reward_gold": 6200,
       "accept_text": "Cultists don't scout for no reason. Gorada wants eyes on them - I want them dead before they finish looking.",
       "turn_in_text": "Good. That buys the outpost some quiet. It won't last - it never does near the Throne.",
-      "level_min": 12,
-      "level_max": 15
+      "level_min": 20,
+      "level_max": 23,
+      "_xp_factor": 1.125,
+      "_gold_factor": 1.538
     },
     {
       "quest_id": "splintertree_charred_wolves",
@@ -340,28 +360,30 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 950,
-      "reward_gold": 4200,
+      "reward_exp": 1550,
+      "reward_gold": 6100,
       "accept_text": "They used to be normal wolves. The Wastes did something to them, same as it does to everything that wanders too close.",
       "turn_in_text": "Fewer burning wolves is always a good day's work. Thanks for this - truly.",
-      "level_min": 13,
-      "level_max": 16,
-      "gear_reward_gear_level": 14,
+      "level_min": 21,
+      "level_max": 24,
+      "gear_reward_gear_level": 23,
       "unique_item_defs": [
         {
           "name": "Charred Pack Mantle",
           "slot": "shoulder",
           "armor_type": "mail",
-          "item_level": 14,
+          "item_level": 23,
           "rarity": "uncommon",
           "primary_stats": {
-            "agility": 7,
-            "stamina": 3
+            "agility": 5,
+            "stamina": 2
           },
-          "armor_value": 25,
+          "armor_value": 53,
           "flavor_text": "Still smells faintly of smoke no matter how long it airs out."
         }
-      ]
+      ],
+      "_xp_factor": 1.056,
+      "_gold_factor": 1.2
     },
     {
       "quest_id": "splintertree_fel_imp_cache",
@@ -376,12 +398,14 @@
           "count": 5
         }
       ],
-      "reward_exp": 700,
-      "reward_gold": 3200,
+      "reward_exp": 1300,
+      "reward_gold": 5500,
       "accept_text": "Little bastards hoard anything shiny. Some of what they've got used to be ours. Go take it back.",
       "turn_in_text": "Half of this is actually useful. The other half's just shiny junk, but I'm not surprised.",
-      "level_min": 13,
-      "level_max": 16
+      "level_min": 23,
+      "level_max": 25,
+      "_xp_factor": 0.778,
+      "_gold_factor": 0.914
     },
     {
       "quest_id": "splintertree_satyr_ritual",
@@ -400,31 +424,33 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 1150,
-      "reward_gold": 5200,
+      "reward_exp": 1950,
+      "reward_gold": 6900,
       "accept_text": "Every prisoner I've questioned says the same thing - something's coming through at the Throne. I want it stopped before it arrives.",
       "turn_in_text": "The ritual's broken, for now. Lord Malgan is still out there orchestrating this, and he won't take the setback quietly.",
-      "level_min": 14,
-      "level_max": 17,
-      "gear_reward_gear_level": 15,
+      "level_min": 22,
+      "level_max": 25,
+      "gear_reward_gear_level": 24,
       "unique_item_defs": [
         {
           "name": "Interrogator's Confiscated Blade",
           "slot": "main_hand",
           "weapon_type": "dagger",
-          "item_level": 15,
+          "item_level": 24,
           "rarity": "uncommon",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 8,
-            "stamina": 4
+            "agility": 5,
+            "stamina": 1
           },
           "flavor_text": "Vashj took this off a satyr who talked eventually. Most of them do.",
           "secondary_stats": {
-            "crit_chance_physical": 2
+            "crit_chance_physical": 1.0
           }
         }
-      ]
+      ],
+      "_xp_factor": 1.211,
+      "_gold_factor": 1.444
     },
     {
       "quest_id": "splintertree_lord_malgan",
@@ -440,47 +466,49 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 1600,
-      "reward_gold": 7500,
+      "reward_exp": 2350,
+      "reward_gold": 8300,
       "accept_text": "Cut the head off and the rest of them panic. Malgan's the head. Go prove it.",
       "turn_in_text": "The Throne's gone quiet. It won't stay that way forever, but today, it's quiet. Well done.",
-      "level_min": 17,
-      "level_max": 18,
-      "gear_reward_gear_level": 18,
+      "level_min": 24,
+      "level_max": 25,
+      "gear_reward_gear_level": 25,
       "unique_item_defs": [
         {
           "name": "Malgan's Ritual Dagger",
           "slot": "main_hand",
           "weapon_type": "dagger",
-          "item_level": 18,
-          "rarity": "rare",
+          "item_level": 25,
+          "rarity": "uncommon",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 12,
-            "spirit": 5
+            "intellect": 5,
+            "spirit": 1
           },
           "flavor_text": "Still humming faintly with whatever it was meant to channel.",
           "secondary_stats": {
-            "spell_power": 8
+            "spell_power": 2.9
           }
         },
         {
           "name": "Satyr Lord's Warhide",
           "slot": "chest",
           "armor_type": "leather",
-          "item_level": 18,
-          "rarity": "rare",
+          "item_level": 25,
+          "rarity": "uncommon",
           "primary_stats": {
-            "agility": 12,
-            "stamina": 5
+            "agility": 7,
+            "stamina": 3
           },
-          "armor_value": 56,
+          "armor_value": 48,
           "flavor_text": "Malgan wore this through a dozen raids on the outpost. It's seen better days.",
           "secondary_stats": {
-            "crit_chance_physical": 3
+            "crit_chance_physical": 1.7
           }
         }
-      ]
+      ],
+      "_xp_factor": 1.455,
+      "_gold_factor": 1.838
     },
     {
       "quest_id": "splintertree_twilight_acolytes",
@@ -499,12 +527,14 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 1100,
-      "reward_gold": 5000,
+      "reward_exp": 1600,
+      "reward_gold": 6600,
       "accept_text": "I've felt a lot of dark magic in my time. The Barrow is worse. Go quiet them before I have to.",
       "turn_in_text": "The chanting's stopped, at least for now. The Barrow still feels wrong. I don't think silence fixes that.",
-      "level_min": 15,
-      "level_max": 17
+      "level_min": 21,
+      "level_max": 24,
+      "_xp_factor": 1.089,
+      "_gold_factor": 1.389
     },
     {
       "quest_id": "splintertree_twilight_overseer",
@@ -520,32 +550,34 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 1650,
-      "reward_gold": 7800,
+      "reward_exp": 2350,
+      "reward_gold": 8300,
       "accept_text": "Kill the Overseer and the ritual dies with it. I'd do this myself if Gorada would let me leave the post undefended.",
       "turn_in_text": "I felt that die from here. Whatever the Barrow was building, it's unraveling now. Good work.",
-      "level_min": 17,
-      "level_max": 18,
-      "gear_reward_gear_level": 18,
+      "level_min": 24,
+      "level_max": 25,
+      "gear_reward_gear_level": 25,
       "unique_item_defs": [
         {
           "name": "Overseer's Void-Touched Staff",
           "slot": "main_hand",
           "weapon_type": "staff",
-          "item_level": 18,
+          "item_level": 25,
           "rarity": "rare",
           "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 7,
-            "intellect": 7,
-            "stamina": 4
+            "strength": 9,
+            "intellect": 8,
+            "stamina": 5
           },
           "flavor_text": "The wood is void-black clear through, like it was never really wood at all.",
           "secondary_stats": {
-            "spell_power": 9
+            "spell_power": 11.0
           }
         }
-      ]
+      ],
+      "_xp_factor": 1.5,
+      "_gold_factor": 1.912
     },
     {
       "quest_id": "splintertree_pit_lord_emissary",
@@ -561,46 +593,48 @@
           "zone": "Ashenvale East"
         }
       ],
-      "reward_exp": 2300,
-      "reward_gold": 11000,
+      "reward_exp": 2350,
+      "reward_gold": 8300,
       "accept_text": "An emissary means something bigger is paying attention to Ashenvale. I'd much rather it didn't get the chance to report back.",
       "turn_in_text": "That's the quietest I've ever seen the Wastes. Whatever was coming, you just delayed it. I'll take delayed.",
-      "level_min": 23,
+      "level_min": 24,
       "level_max": 25,
-      "gear_reward_gear_level": 27,
+      "gear_reward_gear_level": 25,
       "unique_item_defs": [
         {
           "name": "Emissary's Fel-Forged Axe",
           "slot": "main_hand",
           "weapon_type": "axe_2h",
-          "item_level": 27,
-          "rarity": "rare",
+          "item_level": 25,
+          "rarity": "uncommon",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 20,
-            "stamina": 9
+            "strength": 10,
+            "stamina": 5
           },
           "flavor_text": "Too hot to hold bare-handed even now, days after it stopped moving.",
           "secondary_stats": {
-            "attack_power": 14
+            "attack_power": 7.2
           }
         },
         {
           "name": "Pit Lord's Binding Seal",
           "slot": "trinket",
-          "item_level": 27,
-          "rarity": "rare",
+          "item_level": 25,
+          "rarity": "uncommon",
           "primary_stats": {
-            "strength": 8,
-            "intellect": 8,
-            "stamina": 5
+            "strength": 2,
+            "intellect": 2,
+            "stamina": 1
           },
           "flavor_text": "Whatever it was meant to bind, it isn't bound anymore.",
           "secondary_stats": {
-            "hit_rating": 6
+            "hit_rating": 1.4
           }
         }
-      ]
+      ],
+      "_xp_factor": 1.377,
+      "_gold_factor": 1.818
     }
   ]
 }
