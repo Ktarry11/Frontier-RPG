@@ -204,12 +204,15 @@ class RecruitNPC:
             pass  # fails soft to an empty book rather than crashing recruitment
         char.ability_book = book
 
+        # His bar is EXACTLY his two abilities. Character.__init__ had already auto-filled the bar with the
+        # generic Paladin list; those ids are not in this book, so they crashed the combat screen
+        # (ability_book.get_ability() -> None) and showed up as blank "?" blocks on the skills screen.
         if hasattr(char, "hotbar"):
-            for i, ability_id in enumerate(("asher_wrath", "asher_resignation")):
-                if i < len(char.hotbar):
-                    char.hotbar[i] = ability_id
-            if hasattr(char, "hotbar_autofilled_ids"):
-                char.hotbar_autofilled_ids.update({"asher_wrath", "asher_resignation"})
+            size = max(len(char.hotbar), 20)
+            char.hotbar = ["asher_wrath", "asher_resignation"] + [None] * (size - 2)
+            char.hotbar_autofilled_ids = {"asher_wrath", "asher_resignation"}
+        if hasattr(char, "extra_slots"):
+            char.extra_slots = [None] * len(char.extra_slots)
 
     def _build_asher_kit(self, char):
         """Asher's unique, unchangeable ability book and gear.
@@ -249,8 +252,8 @@ class RecruitNPC:
                 icon_id=pick_armor_icon(slot, "plate"),
             )
 
-        chest = armor_item("chest", {"strength": 2, "stamina": 1}, "Coleman Family Breastplate")
-        legs = armor_item("legs", {"strength": 2, "stamina": 1}, "Coleman Family Greaves")
+        chest = armor_item("chest", {"strength": 2, "stamina": 1}, "Family Breastplate")
+        legs = armor_item("legs", {"strength": 2, "stamina": 1}, "Family Greaves")
 
         weapon = Item(
             item_id=f"asher_mainhand_{uuid.uuid4().hex[:6]}",

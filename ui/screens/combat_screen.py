@@ -1195,7 +1195,13 @@ class CombatScreen(BaseScreen):
                     # It's an ability
                     ability_id = hotbar_content
                     ability = player.ability_book.get_ability(ability_id)
-                    
+                    if ability is None:
+                        # Stale hotbar id (ability no longer in the book - old save, respec, fixed-kit recruit):
+                        # draw it as an empty slot instead of crashing the render loop.
+                        pygame.draw.rect(screen, (30, 30, 36), rect)
+                        pygame.draw.rect(screen, (90, 90, 90), rect, 1)
+                        continue
+
                     # Button color based on availability - is_usable_by()
                     # also checks form-gating (Mangle-style abilities that
                     # require Bear/Cat Form), not just cooldown, so an

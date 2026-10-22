@@ -257,7 +257,7 @@ class QuestManager:
                     "speaks. \"Whatever's out there, I expect it's got more of "
                     "what we just put down. Reckon I'll go looking for it myself, "
                     "if it's all the same to you.\" He doesn't wait for an answer. "
-                    "Asher Coleman has left the party."
+                    "Asher has left the party."
                 )
 
         return True

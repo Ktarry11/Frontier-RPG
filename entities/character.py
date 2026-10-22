@@ -2347,8 +2347,28 @@ class Character(StatusEffectMixin):
         char._recalculate_derived_stats()
         char.current_health = data.get("current_health", char.health)
         char.current_mana = data.get("current_mana", char.mana)
+        char.sanitize_hotbar()
+        if char.recruit_id == "asher_coleman":
+            # Kyle (2026-10-22): Asher's surname stays hidden early in the game; migrate older saves.
+            char.name = "Asher"
+            for it in char.equipment.slots.values():
+                if it is not None and getattr(it, "name", "").startswith("Coleman Family "):
+                    it.name = it.name.replace("Coleman Family ", "Family ")
         return char
-    
+
+    def sanitize_hotbar(self):
+        """Drop hotbar / extra-slot ability ids that are not in this character's ability_book (stale ids from old
+        saves, respecs or fixed-kit recruits) - they render as blank "?" blocks and used to crash combat."""
+        book = getattr(self, "ability_book", None)
+        if book is None:
+            return
+        for bar in (getattr(self, "hotbar", None), getattr(self, "extra_slots", None)):
+            if not bar:
+                continue
+            for i, c in enumerate(bar):
+                if isinstance(c, str) and book.get_ability(c) is None:
+                    bar[i] = None
+
     def equip_item(self, item):
         """
         Equip an item from inventory. Moves any displaced item(s) back to
