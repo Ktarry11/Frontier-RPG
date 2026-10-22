@@ -21,6 +21,7 @@ import pygame
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
+from ui.recruit_portrait import get_recruit_portrait
 
 
 class RecruitDialogScreen(BaseScreen):
@@ -110,7 +111,13 @@ class RecruitDialogScreen(BaseScreen):
         else:
             line = self.recruit.greeting or f"{self.recruit.name} looks you over."
 
-        self._draw_wrapped_text(screen, line, (40, 100), max_width=SCREEN_WIDTH - 80)
+        portrait = get_recruit_portrait(self.recruit.recruit_id, 200)
+        text_w = SCREEN_WIDTH - 80
+        if portrait is not None:
+            screen.blit(portrait, (SCREEN_WIDTH - 40 - portrait.get_width(), 20))
+            text_w -= portrait.get_width() + 20
+
+        self._draw_wrapped_text(screen, line, (40, 100), max_width=text_w)
 
         if self.recruit.backstory:
             self._draw_wrapped_text(screen, self.recruit.backstory, (40, 220),

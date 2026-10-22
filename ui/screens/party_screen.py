@@ -32,6 +32,7 @@ from config import (
 )
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
+from ui.recruit_portrait import get_recruit_portrait
 from entities.party import FRONT_ROW, BACK_ROW, MAX_PARTY_SIZE, BENCH_XP_RATIO
 
 
@@ -427,6 +428,11 @@ class PartyScreen(BaseScreen):
 
         x = panel.x + 16
         y = panel.y + 14
+
+        # Recruit portrait (top-right of the panel); the player has none.
+        portrait = get_recruit_portrait(getattr(member, "recruit_id", None), 120)
+        if portrait is not None:
+            screen.blit(portrait, (panel.right - portrait.get_width() - 14, panel.y + 10))
 
         self.renderer.draw_text(screen, member.name, (x, y),
                                 size="large", color=COLOR_GOLD)

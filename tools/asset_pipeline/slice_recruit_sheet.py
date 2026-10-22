@@ -29,37 +29,45 @@ def key(rgb):
     return alpha.astype(np.uint8)
 
 
-def main(sheet, out):
-    im = Image.open(sheet).convert("RGB")
-    rgb = np.asarray(im)
+def extract(sheet):
+    """Return 24 tight-cropped RGBA figures (row-major) from a magenta-background sheet.
+
+    Each connected piece is assigned to the grid cell holding most of its pixels (a hat finial or staff tip may poke
+    into the neighbouring cell's area), the 1px magenta rim is eroded away, and the next ring is de-magentaed."""
+    rgb = np.asarray(Image.open(sheet).convert("RGB"))
     alpha = key(rgb)
     H, W = alpha.shape
     solid = alpha > 128
     lab, n = ndimage.label(ndimage.binary_dilation(solid, iterations=3))
     cw, ch = W / COLS, H / ROWS
+    yy, xx = np.mgrid[0:H, 0:W]
+    cell = np.minimum(yy // int(np.ceil(ch)), ROWS - 1) * COLS + np.minimum(xx // int(np.ceil(cw)), COLS - 1)
+    owner = {}
+    for k in range(1, n + 1):
+        m = lab == k
+        if m.sum() < 400:
+            continue
+        owner[k] = int(np.bincount(cell[m & solid], minlength=COLS * ROWS).argmax())
+    inner = ndimage.binary_erosion(solid, iterations=1)
+    ring = inner & ~ndimage.binary_erosion(inner, iterations=2)
     crops = []
     for i in range(COLS * ROWS):
-        r, c = divmod(i, COLS)
-        x0, x1, y0, y1 = int(c * cw), int((c + 1) * cw), int(r * ch), int((r + 1) * ch)
-        sub = lab[y0:y1, x0:x1]
-        ids, counts = np.unique(sub[sub > 0], return_counts=True)
-        keep = [k for k, cnt in zip(ids, counts) if cnt > 400]          # drop specks, keep body + detached weapon bits
-        mask = np.isin(lab, keep)
-        mask[:y0], mask[y1:], mask[:, :x0], mask[:, x1:] = False, False, False, False
-        ys, xs = np.where(mask & solid)
+        mask = np.isin(lab, [k for k, o in owner.items() if o == i]) & inner
+        ys, xs = np.where(mask)
         bx0, bx1, by0, by1 = xs.min(), xs.max() + 1, ys.min(), ys.max() + 1
-        rgba = np.dstack([rgb, alpha])[by0:by1, bx0:bx1].copy()
-        m = ndimage.binary_dilation(mask, iterations=0)[by0:by1, bx0:bx1]
-        rgba[..., 3] = np.where(ndimage.binary_dilation(mask, iterations=2)[by0:by1, bx0:bx1], rgba[..., 3], 0)
-        # de-magenta the rim: any semi/edge pixel pulled towards the neighbouring solid colour
-        edge = (rgba[..., 3] > 0) & (rgba[..., 3] < 255)
-        r_, g_, b_ = rgba[..., 0].astype(int), rgba[..., 1].astype(int), rgba[..., 2].astype(int)
-        spill = edge & (np.minimum(r_, b_) > g_ + 25)
-        lim = np.maximum(g_, 0) + 25
+        rgba = np.dstack([rgb, np.where(mask, 255, 0).astype(np.uint8)])[by0:by1, bx0:bx1].copy()
+        r_, g_, b_ = (rgba[..., k].astype(int) for k in range(3))
+        spill = ring[by0:by1, bx0:bx1] & (np.minimum(r_, b_) > g_ + 25)
+        lim = g_ + 25
         rgba[..., 0] = np.where(spill, np.minimum(r_, lim), r_)
         rgba[..., 2] = np.where(spill, np.minimum(b_, lim), b_)
         crops.append(Image.fromarray(rgba, "RGBA"))
         print(IDS[i], crops[-1].size)
+    return crops
+
+
+def main(sheet, out):
+    crops = extract(sheet)
     cwid = max(c.width for c in crops) + 8
     chei = max(c.height for c in crops) + 4
     for cid, im_ in zip(IDS, crops):
