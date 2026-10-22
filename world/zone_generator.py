@@ -5616,8 +5616,8 @@ def create_all_zones():
         generate_ragefire_chasm,
     )
     from tools.handbuilt_ashenvale_west import generate_ashenvale_west
+    from tools.handbuilt_ashenvale_east import generate_ashenvale_east
     from tools.ashenvale_silverpine_fenris_generators import (
-        generate_ashenvale_east,
         generate_silverpine_north,
         generate_silverpine_south,
         generate_fenris_isle,

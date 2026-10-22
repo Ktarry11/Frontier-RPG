@@ -12128,6 +12128,175 @@
         "school": "shadow",
         "duration": 4
       }
+    ],
+    "furbolg_guardian": [
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thick Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 20
+        }
+      }
+    ],
+    "furbolg_warrior": [
+      {
+        "name": "Cleaving Strike",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sundering Blow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -15
+        }
+      }
+    ],
+    "furbolg_shaman": [
+      {
+        "name": "Lightning Bolt",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "nature"
+      },
+      {
+        "name": "Healing Totem",
+        "kind": "heal",
+        "amount": 30,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "nature"
+      }
+    ],
+    "ancient_treant": [
+      {
+        "name": "Branch Smash",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Barkskin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 30
+        }
+      }
+    ],
+    "twilight_cultist": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 24,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Weakness",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 20,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -14
+        }
+      }
+    ],
+    "ghost": [
+      {
+        "name": "Spectral Touch",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Drain Essence",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3
+      }
+    ],
+    "satyr": [
+      {
+        "name": "Fel Lash",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Agony",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 24,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "satyr_warrior": [
+      {
+        "name": "Wicked Slash",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bloodrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 16
+        }
+      }
     ]
   }
 }
