@@ -367,6 +367,99 @@ class Quest:
                 objective.progress = saved.get("progress", 0)
 
 
+#: Quest rewards are meant to stand out from what a mob of the same level drops (Kyle: "quest rewards are unremarkable
+#: in stats, level 10 rewards giving this?").  Authored quest items are built on the same stat budget as a drop of
+#: their item level, so at runtime every unique reward is lifted: +2 item levels and, once rare gear exists
+#: (item level 10+), one rarity tier above a drop - a green becomes a blue, like WoW's quest rewards.  Done here, not
+#: in the data, so rebuilding a quest file never undoes it and the authored JSON stays the baseline.
+QUEST_REWARD_ILVL_BONUS = 2
+#: On top of the item-level/rarity lift, quest gear gets a flat premium on its stat budget so the numbers are obviously
+#: better than a drop (a level-10 bracer was +1 Int/+1 Sta).  Stats are set from the REAL loot budget formula
+#: (ilvl * 0.36 * rarity * slot weight * premium) and never go below what the item was authored with, so items that were
+#: already generous aren't inflated further.  Armor takes a smaller premium; weapon damage none (weapon damage is the
+#: dominant damage term, so quest weapons must not outrun boss weapons).
+QUEST_STAT_PREMIUM = 1.5
+QUEST_ARMOR_PREMIUM = 1.2
+QUEST_WEAPON_PREMIUM = 1.0
+_ITEM_DATA = None
+
+
+def _item_data():
+    global _ITEM_DATA
+    if _ITEM_DATA is None:
+        import json, os
+        base = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "items")
+        try:
+            def load(n):
+                with open(os.path.join(base, n), encoding="utf-8") as fh:
+                    return json.load(fh)
+            _ITEM_DATA = {"rarity": {k: v["stat_budget_multiplier"] for k, v in load("rarity.json")["rarity_tiers"].items()},
+                          "slots": load("slots.json"), "weapons": load("weapon_types.json")["weapon_types"]}
+        except (OSError, ValueError, KeyError):
+            _ITEM_DATA = {"rarity": {"uncommon": 1.3, "rare": 1.7}, "slots": None, "weapons": {}}
+    return _ITEM_DATA
+
+
+def _slot_weight(item_def):
+    data = _item_data()
+    wt = item_def.get("weapon_type")
+    if wt:
+        w = data["weapons"].get(wt, {})
+        tier = "weapon_two_hand" if w.get("hand") == "two_hand" else "weapon_medium"
+        weights = (data["slots"] or {}).get("weight_tiers", {})
+        return weights.get(tier, 0.75) * w.get("budget_multiplier", 1.0)
+    slots = (data["slots"] or {}).get("slots", {})
+    tier = slots.get(item_def.get("slot"), {}).get("weight_tier", "minor")
+    return (data["slots"] or {}).get("weight_tiers", {}).get(tier, 0.5)
+
+
+def apply_quest_reward_bonus(item_def):
+    """Return a copy of an authored quest-reward item def lifted per the QUEST_* constants above."""
+    d = dict(item_def)
+    data = _item_data()
+    if d.get("quest_bonus_applied") or d.get("rarity") not in ("uncommon", "rare"):
+        return d
+    old_il = d.get("item_level", 1)
+    new_il = old_il + QUEST_REWARD_ILVL_BONUS
+    old_r = d["rarity"]
+    new_r = "rare" if (old_r == "uncommon" and new_il >= 10) else old_r
+    m_old, m_new = data["rarity"].get(old_r), data["rarity"].get(new_r)
+    if not m_old or not m_new or not old_il:
+        return d
+    ratio = (new_il * m_new) / (old_il * m_old)
+
+    prim = d.get("primary_stats") or {}
+    if prim:
+        old_total = sum(prim.values())
+        # starter gear (ilvl<10) ramps the premium in so +2..+4 greens don't leap to blue-tier totals
+        premium = 1.0 + (QUEST_STAT_PREMIUM - 1.0) * max(0.0, min(1.0, (new_il - 4) / 8.0))
+        budget = new_il * 0.36 * m_new * _slot_weight(d) * premium
+        target = min(max(old_total, round(budget)), old_total * 3)
+        # keep the authored split; spread the lifted total in proportion (largest remainder)
+        raw = {k: v * target / old_total for k, v in prim.items()}
+        out = {k: int(v) for k, v in raw.items()}
+        for k in sorted(raw, key=lambda k: raw[k] - out[k], reverse=True):
+            if sum(out.values()) >= target:
+                break
+            out[k] += 1
+        d["primary_stats"] = {k: max(v, prim[k]) for k, v in out.items()}
+    if d.get("secondary_stats"):
+        d["secondary_stats"] = {k: round(v * max(1.0, ratio * QUEST_STAT_PREMIUM), 1)
+                                for k, v in d["secondary_stats"].items()}
+    if d.get("armor_value"):
+        d["armor_value"] = int(d["armor_value"] * ratio * QUEST_ARMOR_PREMIUM)
+    if d.get("weapon_damage_max"):
+        wr = ((new_il * 1.1 + 6.4) * m_new) / ((old_il * 1.1 + 6.4) * m_old) * QUEST_WEAPON_PREMIUM
+        d["weapon_damage_min"] = max(1, int(d["weapon_damage_min"] * wr))
+        d["weapon_damage_max"] = max(d["weapon_damage_min"] + 1, int(d["weapon_damage_max"] * wr))
+    if d.get("block_value"):
+        d["block_value"] = int(d["block_value"] * ratio)
+    d["item_level"] = new_il
+    d["rarity"] = new_r
+    d["quest_bonus_applied"] = True
+    return d
+
+
 def build_unique_reward_set(item_defs):
     """Fixed, hand-authored unique reward items - real named gear
     instead of the procedural generator's "Reinforced Breastplate"
@@ -389,6 +482,7 @@ def build_unique_reward_set(item_defs):
 
     choices = []
     for item_def in item_defs:
+        item_def = apply_quest_reward_bonus(item_def)
         item_id = item_def.get("item_id") or f"unique_{item_def['name'].lower().replace(' ', '_')}_{uuid.uuid4().hex[:6]}"
         item = Item(
             item_id=item_id,

@@ -57,11 +57,18 @@ class ForgeManager:
     def get_forges_in_zone(self, zone):
         return self.forges_by_zone.get(self._zone_key(zone), [])
 
+    #: How close (in tiles, Chebyshev) you must be to a Forge to use it.  It used to be the exact tile, and a forge has
+    #: no sprite, so "smelt near the blacksmith" (Razor Hill: forge 3 tiles from the smith) never worked unless you
+    #: happened to stand on the one invisible tile.  3 tiles covers a smith standing beside his own forge.
+    FORGE_REACH = 3
+
     def get_forge_at_location(self, zone, x, y):
+        best, best_d = None, None
         for forge in self.get_forges_in_zone(zone):
-            if forge.x == x and forge.y == y:
-                return forge
-        return None
+            d = max(abs(forge.x - x), abs(forge.y - y))
+            if d <= self.FORGE_REACH and (best_d is None or d < best_d):
+                best, best_d = forge, d
+        return best
 
 
 _forge_manager = None

@@ -376,6 +376,32 @@ class QuestJournalScreen(BaseScreen):
             parts.append(f"{o.progress}/{o.count} {label}")
         return "  |  ".join(parts) if parts else "In progress"
 
+    #: Detail layout: objectives/story on the left, rewards (with the gear choices) on the right, so the gear you can
+    #: pick stays visible while you read the quest instead of only appearing on the accept/turn-in dialogs.
+    LEFT_W = 600
+    RIGHT_X = 660
+
+    def _where_to_find(self, objective):
+        """Quest helper: 'where do I find this' line for a kill/explore objective, or ''."""
+        from world.quest_locator import locate
+        if objective.objective_type in (ObjectiveType.KILL, ObjectiveType.KILL_BOSS):
+            zm = getattr(self.state_manager, "zone_manager", None)
+            zones = getattr(zm, "zones", None) or None
+            names = [objective.target] + list(getattr(objective, "alt_targets", None) or [])
+            places = []
+            for n in names:
+                for place in locate(n, zones):
+                    if place not in places:
+                        places.append(place)
+            if not places:
+                return ""
+            shown = places[:3]
+            more = f"  (+{len(places) - 3} more)" if len(places) > 3 else ""
+            return "Find them: " + "  /  ".join(shown) + more
+        if objective.objective_type == ObjectiveType.EXPLORE and objective.target:
+            return f"Go to: {str(objective.target).replace('_', ' ').title()}"
+        return ""
+
     def _render_detail(self, screen):
         quest = self.quest_mgr.quests.get(self.selected_quest_id)
         self.renderer.draw_button(screen, self.back_button, "Back")
@@ -383,10 +409,10 @@ class QuestJournalScreen(BaseScreen):
             return
 
         self.renderer.draw_text(screen, quest.title, (20, 130), color=COLOR_WHITE, size="large")
-        self._draw_wrapped_text(screen, quest.description, (20, 175), max_width=SCREEN_WIDTH - 40,
-                                color=(180, 180, 180))
+        y = self._draw_wrapped_text(screen, quest.description, (20, 175), max_width=self.LEFT_W,
+                                    color=(180, 180, 180), line_height=22)
 
-        y = 260
+        y += 14
         self.renderer.draw_text(screen, "Objectives:", (20, y), color=COLOR_GOLD)
         y += 30
         for o in quest.objectives:
@@ -397,31 +423,20 @@ class QuestJournalScreen(BaseScreen):
             color = (120, 220, 140) if done else COLOR_WHITE
             check = "[X]" if done else "[ ]"
             if o.objective_type == ObjectiveType.DIALOGUE:
-                # Same reasoning as QuestJournalScreen._objective_summary -
-                # progress/count are meaningless here, real progress is
-                # topics_asked vs topics.
+                # progress/count are meaningless here, real progress is topics_asked vs topics.
                 progress_text = f"{len(o.topics_asked)}/{len(o.topics)}"
             else:
                 progress_text = f"{o.progress}/{o.count}"
             self.renderer.draw_text(screen, f"{check} {label}: {progress_text}", (36, y), color=color)
             y += 26
+            if not done:
+                where = self._where_to_find(o)
+                if where:
+                    y = self._draw_wrapped_text(screen, where, (56, y), max_width=self.LEFT_W - 40,
+                                                color=(120, 170, 230), line_height=20, font_size=15)
+                    y += 6
 
-        y += 20
-        player_level = self.state_manager.player.level if self.state_manager.player else 1
-        scaled_exp = quest.get_scaled_exp_reward(player_level)
-        self.renderer.draw_text(screen, "Rewards:", (20, y), color=COLOR_GOLD)
-        y += 30
-        self.renderer.draw_text(screen, f"{scaled_exp} XP", (36, y))
-        y += 26
-        if quest.reward_gold:
-            self.renderer.draw_text(screen, f"{quest.reward_gold // 10000}g {(quest.reward_gold % 10000) // 100}s",
-                                    (36, y))
-            y += 26
-        if quest.gear_reward_gear_level is not None:
-            self.renderer.draw_text(screen, "Choice of gear on completion", (36, y), color=(170, 170, 170))
-            y += 26
-
-        y += 20
+        y += 14
         level_text = f"Level range: {quest.level_min}"
         if quest.level_max:
             level_text += f" - {quest.level_max}"
@@ -432,6 +447,8 @@ class QuestJournalScreen(BaseScreen):
             self.renderer.draw_text(screen, "Ready to turn in - return to the quest giver.",
                                     (20, y), color=COLOR_GOLD)
 
+        self._render_rewards(screen, quest)
+
         if quest.status in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN):
             if self.abandon_confirm_pending:
                 self.renderer.draw_text(screen, "Abandon this quest? All progress will be lost.",
@@ -441,15 +458,81 @@ class QuestJournalScreen(BaseScreen):
             else:
                 self.renderer.draw_button(screen, self.abandon_button, "Abandon Quest", color=(110, 40, 40))
 
-    def _draw_wrapped_text(self, screen, text, pos, max_width, color=COLOR_WHITE, line_height=24):
-        if not text:
+    def _render_rewards(self, screen, quest):
+        """Right column: XP/gold, then the real gear choices (same fixed set the turn-in screen will offer)."""
+        x = self.RIGHT_X
+        y = 130
+        player = self.state_manager.player
+        player_level = player.level if player else 1
+        self.renderer.draw_text(screen, "Rewards:", (x, y), color=COLOR_GOLD, size="large")
+        y += 36
+        line = f"{quest.get_scaled_exp_reward(player_level)} XP"
+        if quest.reward_gold:
+            line += f"     {quest.reward_gold // 10000}g {(quest.reward_gold % 10000) // 100}s"
+        self.renderer.draw_text(screen, line, (x, y))
+        y += 34
+
+        if quest.gear_reward_gear_level is None and not quest.unique_item_defs:
             return
+        choices = []
+        if player and quest.status != QuestStatus.COMPLETED:
+            try:
+                from entities.loot_generator import LootGenerator
+                choices = quest.get_gear_choices(LootGenerator(), player.char_class)
+            except Exception:
+                choices = []
+        if not choices:
+            self.renderer.draw_text(screen, "Choice of gear on completion", (x, y), color=(170, 170, 170))
+            return
+        self.renderer.draw_text(screen, "Choose one on turn-in:", (x, y), color=(170, 170, 170), font_size=16)
+        y += 26
+        gap = 10
+        card_w = (SCREEN_WIDTH - x - 20 - gap) // 2
+        card_h = 150
+        for i, choice in enumerate(choices[:6]):
+            rect = pygame.Rect(x + (i % 2) * (card_w + gap), y + (i // 2) * (card_h + gap), card_w, card_h)
+            if rect.bottom > SCREEN_HEIGHT - 10:
+                break
+            self._render_gear_card(screen, choice, rect)
+
+    def _render_gear_card(self, screen, choice, rect):
+        item = choice.item
+        pygame.draw.rect(screen, (26, 26, 32), rect)
+        pygame.draw.rect(screen, item.get_rarity_color(), rect, 2)
+        y = self._draw_wrapped_text(screen, item.name, (rect.x + 8, rect.y + 7), max_width=rect.width - 16,
+                                    color=item.get_rarity_color(), line_height=20)
+        self.renderer.draw_text(screen, choice.armor_type_label, (rect.x + 8, y), color=(120, 120, 130), font_size=12)
+        y += 20
+        parts = []
+        if item.armor_value:
+            parts.append(f"Armor {item.armor_value}")
+        if getattr(item, "weapon_damage_max", None):
+            parts.append(f"Dmg {item.weapon_damage_min}-{item.weapon_damage_max}")
+        if parts:
+            self.renderer.draw_text(screen, "   ".join(parts), (rect.x + 8, y), font_size=15)
+            y += 20
+        stat_names = {"strength": "Str", "agility": "Agi", "intellect": "Int", "stamina": "Sta", "spirit": "Spi"}
+        stats = [f"+{v} {stat_names.get(k, k.replace('_', ' ').title())}" for k, v in item.primary_stats.items()]
+        for k, v in (getattr(item, "secondary_stats", None) or {}).items():
+            stats.append(f"+{v} {k.replace('_', ' ').title()}")
+        if stats:
+            self._draw_wrapped_text(screen, "  ".join(stats), (rect.x + 8, y), max_width=rect.width - 16,
+                                    line_height=19, font_size=15)
+
+    def _draw_wrapped_text(self, screen, text, pos, max_width, color=COLOR_WHITE, line_height=24, font_size=None):
+        """Word-wrap text at pos; returns the y just below the last line (pos[1] if text is empty)."""
+        x, y = pos
+        if not text:
+            return y
+        font = self.renderer.font_normal
         words = text.split(" ")
         lines = []
         current = ""
         for word in words:
             test = f"{current} {word}".strip()
-            width = self.renderer.font_normal.size(test)[0]
+            width = font.size(test)[0]
+            if font_size:
+                width = int(width * font_size / 20)
             if width > max_width and current:
                 lines.append(current)
                 current = word
@@ -458,7 +541,10 @@ class QuestJournalScreen(BaseScreen):
         if current:
             lines.append(current)
 
-        x, y = pos
         for line in lines:
-            self.renderer.draw_text(screen, line, (x, y), color=color)
+            if font_size:
+                self.renderer.draw_text(screen, line, (x, y), color=color, font_size=font_size)
+            else:
+                self.renderer.draw_text(screen, line, (x, y), color=color)
             y += line_height
+        return y

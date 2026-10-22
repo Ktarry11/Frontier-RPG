@@ -172,18 +172,53 @@ class MapScreen(BaseScreen):
         # Approach" sit side by side and their names ran into each other.
         # Stable per-name vertical stagger (hash-based, not random per
         # frame) still spreads same-row neighbors across a couple of rows.
+        # A subzone authored as a CHAIN of rectangles (e.g. Southern Barrens' winding Rift canyon) is one region:
+        # group by name, outline only the outer boundary (no seams between chain links) and label it ONCE.
+        groups = {}
         for sz in tilemap.subzones:
             sx, sy = self._tile_to_screen(tilemap, rect, sz["x"], sz["y"])
             ex, ey = self._tile_to_screen(tilemap, rect,
                                           sz["x"] + sz["w"], sz["y"] + sz["h"])
             region = pygame.Rect(sx, sy, max(2, ex - sx), max(2, ey - sy))
-            pygame.draw.rect(screen, (170, 160, 110), region, 1)
+            groups.setdefault(sz["name"], []).append(region)
 
-            max_label_width = max(1, region.width - 8)
+        def _free_spans(lo, hi, covered):
+            """Pieces of [lo, hi] not inside any (a, b) interval in `covered`."""
+            spans = [(lo, hi)]
+            for a_, b_ in covered:
+                nxt = []
+                for l, h in spans:
+                    if b_ <= l or a_ >= h:
+                        nxt.append((l, h))
+                        continue
+                    if a_ > l:
+                        nxt.append((l, a_))
+                    if b_ < h:
+                        nxt.append((b_, h))
+                spans = nxt
+            return spans
+
+        outline = (170, 160, 110)
+        for name, regions in groups.items():
+            for r in regions:
+                pygame.draw.line(screen, outline, (r.left, r.top), (r.right, r.top))
+                pygame.draw.line(screen, outline, (r.left, r.bottom), (r.right, r.bottom))
+                # side edges: skip the stretch shared with a same-name neighbour (the chain's internal seams)
+                for edge_x, other_edge in ((r.left, "right"), (r.right, "left")):
+                    covered = [(o.top, o.bottom) for o in regions
+                               if o is not r and abs(getattr(o, other_edge) - edge_x) <= 1]
+                    for lo, hi in _free_spans(r.top, r.bottom, covered):
+                        pygame.draw.line(screen, outline, (edge_x, lo), (edge_x, hi))
+
+            # label once: on the link that holds the group's horizontal centre (single-rect groups: itself)
+            cx = (min(r.left for r in regions) + max(r.right for r in regions)) // 2
+            region = min(regions, key=lambda r: abs(r.centerx - cx)) if len(regions) > 1 else regions[0]
+            max_label_width = max(1, (max(r.right for r in regions) - min(r.left for r in regions)) - 8
+                                  if len(regions) > 1 else region.width - 8)
             label = None
             for font_size in (16, 14, 12, 10):
                 candidate = self.renderer._get_font(font_size=font_size).render(
-                    sz["name"], True, (200, 190, 140))
+                    name, True, (200, 190, 140))
                 if candidate.get_width() <= max_label_width:
                     label = candidate
                     break
@@ -193,12 +228,12 @@ class MapScreen(BaseScreen):
                 # place it just above instead of shrinking further into
                 # illegibility.
                 label = self.renderer._get_font(font_size=10).render(
-                    sz["name"], True, (200, 190, 140))
+                    name, True, (200, 190, 140))
                 lrect = label.get_rect(midbottom=(region.centerx, region.y - 2))
                 screen.blit(label, lrect)
                 continue
 
-            row_offset = (hash(sz["name"]) % 3) * 14
+            row_offset = (hash(name) % 3) * 14
             label_y = region.y + 12 + row_offset
             # If the staggered row would push the label below the
             # region's own bottom edge (small/short regions), clamp back
@@ -206,7 +241,8 @@ class MapScreen(BaseScreen):
             # name out of its own box.
             if label_y + label.get_height() > region.bottom:
                 label_y = region.centery - label.get_height() // 2
-            lrect = label.get_rect(center=(region.centerx, label_y + label.get_height() // 2))
+            lrect = label.get_rect(center=((cx if len(regions) > 1 else region.centerx),
+                                           label_y + label.get_height() // 2))
             screen.blit(label, lrect)
 
         # Points of interest from the interaction layer

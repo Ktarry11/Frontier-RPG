@@ -430,7 +430,7 @@ def quests():
         xp=1800, gold=6600))
     # ============== FIZZWICK, PART TWO: THE STAIR (Broodspiral dungeon chain, independent of the crater chain) ==============
     # Fizzwick's crater chain above ends with the stair open; this chain sends you down it.  Kills only count inside the dungeon.
-    a(Q("sb_down_the_stair", "Down the Stair", G, 20,
+    a(Q("sb_down_the_stair", "Down the Stairs", G, 20,
         ("The stair at the bottom of the crater doesn't go down so much as around. Fizzwick has measured it twice "
          "and gotten two different answers, which he finds deeply insulting. Drones and skulkers patrol the outer ring. "
          "Thin them out so he can chalk the walls."),
