@@ -32,14 +32,15 @@ from config import (
 )
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
-from ui.recruit_portrait import get_recruit_portrait
+from ui.recruit_portrait import get_recruit_portrait, get_recruit_face
 from entities.party import FRONT_ROW, BACK_ROW, MAX_PARTY_SIZE, BENCH_XP_RATIO
 
 
 ROSTER_X = 20
 ROSTER_Y = 90
 ROW_H = 62
-ROSTER_W = 380
+ROSTER_W = 400
+FACE = 48
 
 DETAIL_X = 430
 DETAIL_Y = 90
@@ -377,6 +378,18 @@ class PartyScreen(BaseScreen):
                                 COLOR_GOLD if selected else (70, 70, 80),
                                 fill=False)
 
+        # Portrait slot: the recruit's face, or an empty frame for the hero (no portrait yet).
+        frame = pygame.Rect(rect.x + 4, rect.y + (rect.height - FACE) // 2, FACE, FACE)
+        self.renderer.draw_rect(screen, frame, (22, 22, 28))
+        face = get_recruit_face(getattr(member, "recruit_id", None), FACE)
+        if face is not None:
+            if benched:
+                face = face.copy()
+                face.fill((150, 150, 150, 255), special_flags=pygame.BLEND_RGBA_MULT)
+            screen.blit(face, frame)
+        self.renderer.draw_rect(screen, frame, COLOR_GOLD if member is party.player else (95, 95, 108), fill=False)
+        tx = frame.right + 10
+
         row_tag = "F" if getattr(member, "row", FRONT_ROW) == FRONT_ROW else "B"
         name_color = COLOR_GOLD if member is party.player else COLOR_WHITE
         if benched:
@@ -385,14 +398,14 @@ class PartyScreen(BaseScreen):
         label = f"[{row_tag}] {member.name}"
         if member is party.player:
             label += "  (you)"
-        self.renderer.draw_text(screen, label, (rect.x + 10, rect.y + 6),
+        self.renderer.draw_text(screen, label, (tx, rect.y + 6),
                                 color=name_color)
 
         sub = f"Lv {member.level} {member.char_class}"
         locked = getattr(member, "locked_spec", None)
         if locked:
             sub += f" - {self._spec_label(member, locked)}"
-        self.renderer.draw_text(screen, sub, (rect.x + 10, rect.y + 30),
+        self.renderer.draw_text(screen, sub, (tx, rect.y + 30),
                                 font_size=14, color=COLOR_MUTED)
 
         # HP bar on the right of the row so you can see who came out of the
@@ -430,9 +443,13 @@ class PartyScreen(BaseScreen):
         y = panel.y + 14
 
         # Recruit portrait (top-right of the panel); the player has none.
-        portrait = get_recruit_portrait(getattr(member, "recruit_id", None), 120)
+        portrait = get_recruit_portrait(getattr(member, "recruit_id", None), 130)
+        pw = portrait.get_width() if portrait is not None else 118
+        pframe = pygame.Rect(panel.right - pw - 14, panel.y + 10, pw, 130)
+        self.renderer.draw_rect(screen, pframe, (22, 22, 28))
         if portrait is not None:
-            screen.blit(portrait, (panel.right - portrait.get_width() - 14, panel.y + 10))
+            screen.blit(portrait, pframe)
+        self.renderer.draw_rect(screen, pframe, COLOR_GOLD if member is party.player else (95, 95, 108), fill=False)
 
         self.renderer.draw_text(screen, member.name, (x, y),
                                 size="large", color=COLOR_GOLD)

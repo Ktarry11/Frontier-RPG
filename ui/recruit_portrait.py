@@ -28,3 +28,20 @@ def get_recruit_portrait(recruit_id, height=None):
             surf = None
     _cache[key] = surf
     return surf
+
+
+def get_recruit_face(recruit_id, size):
+    """Square head-and-shoulders thumbnail (top square of the bust) for roster rows, or None."""
+    if not recruit_id:
+        return None
+    key = (recruit_id, "face", size)
+    if key in _cache:
+        return _cache[key]
+    full = get_recruit_portrait(recruit_id)
+    face = None
+    if full is not None:
+        w, h = full.get_size()
+        side = min(w, h)
+        face = pygame.transform.smoothscale(full.subsurface((max(0, (w - side) // 2), 0, side, side)), (size, size))
+    _cache[key] = face
+    return face
