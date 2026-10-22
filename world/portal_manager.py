@@ -311,20 +311,21 @@ class PortalManager:
 
             # ===== TIRISFAL / UNDERCITY =====
             "Deathknell": {
-                (20, 30): ("Night Web's Hollow", 45, 71),
-                (70, 50): ("Scarlet Crypt", 47, 76),
+                # Hand-built valley (tools/handbuilt_deathknell.py): NW goldmine cave, NE Scarlet crypt, east pass out.
+                (17, 21): ("Night Web's Hollow", 45, 71),
+                (83, 19): ("Scarlet Crypt", 47, 76),
                 # Per the real Tirisfal Glades map: Deathknell sits SW of
                 # the region, Brill sits central/east near Undercity. This
                 # zone's "Western Tirisfal" is the one that actually has
                 # Brill on it, so Deathknell - being further southwest -
                 # should connect through THIS zone, not Eastern Tirisfal.
-                (45, 78): ("Western Tirisfal", 10, 44),
+                (96, 47): ("Western Tirisfal", 10, 44),
             },
             "Night Web's Hollow": {
-                (45, 71): ("Deathknell", 20, 30),
+                (45, 71): ("Deathknell", 17, 21),
             },
             "Scarlet Crypt": {
-                (47, 76): ("Deathknell", 70, 50),
+                (47, 76): ("Deathknell", 83, 19),
             },
             "Eastern Tirisfal": {
                 (10, 50): ("Western Tirisfal", 70, 40),
@@ -336,7 +337,7 @@ class PortalManager:
                 (45, 68): ("Eastern Tirisfal", 15, 80),
             },
             "Western Tirisfal": {
-                (10, 40): ("Deathknell", 45, 78),
+                (10, 40): ("Deathknell", 94, 49),
                 (70, 40): ("Eastern Tirisfal", 10, 50),
                 (40, 4): ("Silverpine North", 100, 8),
                 (40, 40): ("Brill", 35, 55),

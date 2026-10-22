@@ -1,11 +1,11 @@
 """
 Bake the Zeppelin Tower painting: a planked timber cross over a hazy drop to the ground far below.
 
-    python3 tools/bake_zeppelin_tower.py [--preview out.png] [--scale 14]
+    python3 tools/bake_zeppelin_tower.py [--skin orc|forsaken] [--preview out.png] [--scale 14]
 
 Deck shape comes from tools/handbuilt_zeppelin_tower.deck_field (the same function the tile grid is built from).  Plank direction
 follows each arm; the hub planks run east-west, with a girder where an arm meets it.  Writes
-assets/tiles/zeppelin_tower/baked/ground_<cx>_<cy>.jpg, shared by BOTH towers.
+assets/tiles/zeppelin_tower/baked[_forsaken]/ground_<cx>_<cy>.jpg.
 """
 import os
 import shutil
@@ -24,25 +24,37 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 from tools import handbuilt_zeppelin_tower as Z            # noqa: E402
 from tools.terrain_painter import Painter, smoothstep, TILE_PX  # noqa: E402
 
-SRC = ROOT / "assets/tiles/vot_cluster"
-MATERIALS = {
-    "planks":   ("vot_planks", None, 0.8),
-    "planks_r": ("planks_rot", None, 0.8),
-    "ground":   ("vot_clay_a", "vot_hardpan", 1.6),
-    "abyss":    ("vot_rock_dark", None, 1.6),
+V = lambda *c: np.array(c, np.float32)
+SKINS = {
+    "orc": dict(src=ROOT / "assets/tiles/vot_cluster", planks="vot_planks", planks_native="h",
+                ground=("vot_clay_a", "vot_hardpan"), abyss="vot_rock_dark", baked=Z.BAKED_DIR,
+                haze=V(108, 124, 154), iron=V(46, 44, 48), beam=V(58, 38, 22),
+                live=V(196, 70, 44), idle=V(150, 146, 140)),
+    # the Tirisfal twin: weathered grey boards, withered meadow far below, sickly haze, violet pads
+    "forsaken": dict(src=ROOT / "assets/tiles/tirisfal/materials", planks="tf_wood_planks", planks_native="v",
+                     ground=("tf_withered_meadow", "tf_dead_grass"), abyss="tf_blight_soil", baked=Z.BAKED_DIR + "_forsaken",
+                     haze=V(112, 130, 118), iron=V(40, 42, 44), beam=V(40, 36, 36),
+                     live=V(150, 80, 190), idle=V(150, 146, 140)),
 }
-HAZE = np.array([108.0, 124.0, 154.0], np.float32)
-IRON = np.array([46.0, 44.0, 48.0], np.float32)
-BEAM = np.array([58.0, 38.0, 22.0], np.float32)
-PAINT_LIVE = np.array([196.0, 70.0, 44.0], np.float32)
-PAINT_IDLE = np.array([150.0, 146.0, 140.0], np.float32)
+SKIN = SKINS["orc"]
+MATERIALS = {
+    "planks":   ("planks_h", None, 0.8),
+    "planks_r": ("planks_v", None, 0.8),
+    "ground":   ("ground_a", "ground_b", 1.6),
+    "abyss":    ("abyss", None, 1.6),
+}
 
 
-def make_tex_dir():
+def make_tex_dir(skin):
     d = Path(tempfile.mkdtemp(prefix="zep_tex_"))
-    for n in ("vot_planks", "vot_clay_a", "vot_hardpan", "vot_rock_dark"):
-        shutil.copy(SRC / f"{n}.png", d / f"{n}.png")
-    Image.open(SRC / "vot_planks.png").convert("RGB").transpose(Image.ROTATE_90).save(d / "planks_rot.png")
+    src = skin["src"]
+    shutil.copy(src / f"{skin['ground'][0]}.png", d / "ground_a.png")
+    shutil.copy(src / f"{skin['ground'][1]}.png", d / "ground_b.png")
+    shutil.copy(src / f"{skin['abyss']}.png", d / "abyss.png")
+    pl = Image.open(src / f"{skin['planks']}.png").convert("RGB")
+    rot = pl.transpose(Image.ROTATE_90)
+    (pl if skin["planks_native"] == "h" else rot).save(d / "planks_h.png")
+    (rot if skin["planks_native"] == "h" else pl).save(d / "planks_v.png")
     return d
 
 
@@ -78,7 +90,7 @@ def post(rgb, X, Y, P):
     cloud = P.sample_field(P.noise(9.0, "cloud", octaves=3), X, Y)
     haze = 0.46 + 0.16 * smoothstep(0.2, 0.9, cloud)
     far = out * 0.78
-    far = far * (1 - haze[..., None]) + HAZE * haze[..., None]
+    far = far * (1 - haze[..., None]) + SKIN['haze'] * haze[..., None]
     sh = Z.deck_field(gx - 1.1, gy - 1.9)                       # the deck's shadow on the ground far below
     shadow = smoothstep(-2.4, 2.4, sh)
     far = far * (1 - 0.30 * shadow[..., None])
@@ -95,14 +107,14 @@ def post(rgb, X, Y, P):
     ring |= np.hypot(dxc, dyc) < 0.55
     spoke = ((np.abs(dxc) < 0.10) | (np.abs(dyc) < 0.10)) & (np.hypot(dxc, dyc) < 6.4)
     metal = (gird | ring | spoke) & deck
-    out = np.where(metal[..., None], out * 0.35 + IRON * 0.65, out)
+    out = np.where(metal[..., None], out * 0.35 + SKIN['iron'] * 0.65, out)
     bolt = ((np.abs(dxc * 2 - np.round(dxc * 2)) < 0.07) & (np.abs(gird * 1.0) > 0)) & (np.abs(dyc) > 5)
     out = np.where((bolt & metal)[..., None], out * 0.7 + 70.0 * 0.3, out)
 
     # painted landing pads at every portal tile: red on the live berths, grey on the reserved ones
     for key, (px, py) in Z.PORTALS.items():
         r = np.hypot(gx - (px + 0.5), gy - (py + 0.5))
-        col = PAINT_LIVE if key in Z.LIVE_PORTALS else PAINT_IDLE
+        col = SKIN['live'] if key in Z.LIVE_PORTALS else SKIN['idle']
         band = (np.abs(r - 1.55) < 0.12) | (r < 0.18)
         out = np.where((band & deck)[..., None], out * 0.35 + col * 0.65, out)
 
@@ -114,22 +126,25 @@ def post(rgb, X, Y, P):
     # ---------------------------------------------------------------- rim: outer beam, then a lit top edge
     beam = deck & (d < 0.34)
     lip = deck & (d >= 0.34) & (d < 0.46)
-    out = np.where(beam[..., None], out * 0.28 + BEAM * 0.72, out)
+    out = np.where(beam[..., None], out * 0.28 + SKIN['beam'] * 0.72, out)
     out = np.where(lip[..., None], out * 0.8 + 40.0, out)
     # rail posts every two tiles around the rim
     along = np.where(np.abs(dxc) < np.abs(dyc), gy, gx)
     post_hit = deck & (d < 0.34) & (np.abs((along % 2.0) - 1.0) < 0.16)
-    out = np.where(post_hit[..., None], out * 0.4 + IRON * 0.6, out)
+    out = np.where(post_hit[..., None], out * 0.4 + SKIN['iron'] * 0.6, out)
     return out
 
 
 def main():
+    global SKIN
     preview = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
-    tex = make_tex_dir()
+    skin_name = sys.argv[sys.argv.index("--skin") + 1] if "--skin" in sys.argv else "orc"
+    SKIN = SKINS[skin_name]
+    tex = make_tex_dir(SKIN)
     try:
         P = Painter(Z.W, Z.H, tex, seed=57)
         scores = build_scores(P)
-        out = ROOT / Z.BAKED_DIR
+        out = ROOT / SKIN["baked"]
         written = P.bake(MATERIALS, scores, out, chunk_tiles=20, post=post)
     finally:
         shutil.rmtree(tex, ignore_errors=True)

@@ -10,10 +10,11 @@ ARCHETYPE: THE CROSS (hub + four arms).  Kyle's call: it is the continent's tran
 One octagonal hub in the middle holds the engine works and four searchlight towers; each arm is a 9-wide gangway ending in a
 15-wide docking apron.  Everything outside the deck is a sheer drop (collision "cliff", painted as haze over the far ground).
 
-The SAME layout + painting serves both towers; only the sign on the stair head differs:
+The SAME layout serves both towers; the Tirisfal twin gets its own skin (see below):
     SITES["Zeppelin Tower"]           the Durotar tower outside Orgrimmar (N berth -> Undercity)
     SITES["Undercity Zeppelin Tower"] its Tirisfal twin (N berth -> Orgrimmar)
-Painting: tools/bake_zeppelin_tower.py -> assets/tiles/zeppelin_tower/baked (shared by both zones, so no art duplication).
+Painting: tools/bake_zeppelin_tower.py [--skin orc|forsaken] -> assets/tiles/zeppelin_tower/baked / baked_forsaken (same deck, re-skinned:
+weathered grey planks, blighted ground, purple landing pads and Forsaken banners on the Tirisfal twin).
 
 HARD CONTRACTS (world/portal_manager.py): portal tiles N (32,6)  S (32,58); reserved E (58,32)  W (6,32).
 You land 3 tiles inside the arm from each portal: N (32,9)  S (32,55); reserved E (55,32)  W (9,32).
@@ -41,10 +42,11 @@ ARRIVALS = {"N": (32, 9), "S": (32, 55), "E": (55, 32), "W": (9, 32)}
 LIVE_PORTALS = ("N", "S")      # E / W berths are reserved for future routes
 
 SITES = {
-    "Zeppelin Tower": dict(region="Durotar", slug="zeppelin_tower",
+    "Zeppelin Tower": dict(region="Durotar", slug="zeppelin_tower", skin="orc", baked=BAKED_DIR,
                            desc="A creaking tower of lashed timber outside Orgrimmar's gates. "
                                 "Its airships run to the Undercity, and the berths to either side are waiting for more routes."),
     "Undercity Zeppelin Tower": dict(region="Eastern Kingdoms - Lordaeron", slug="undercity_zeppelin_tower",
+                                     skin="forsaken", baked=BAKED_DIR + "_forsaken",
                                      desc="The Horde's mooring tower above the Tirisfal glades, bolted together by goblin hands. "
                                           "Airships from Orgrimmar dock at the north berth."),
 }
@@ -161,7 +163,19 @@ def _terrain(L):
     z.set_tile(mx, my, "npc", "interaction")
 
 
-def _dress(L):
+UP = "assets/tiles/undercity/props/"
+KITS = {
+    "orc": dict(banner=OP + "war_banner.png", stair_lamp=OP + "orc_brazier.png", berth_lamp=CP + "dock_lantern_post.png",
+                crates=DP + "vot_crate_stack.png", cargo=GP + "gob_oil_drums.png",
+                east=GP + "gob_rocket_crates.png", west=GP + "gob_cannon.png"),
+    # Forsaken tower: same goblin engine, but Royal Apothecary banners, bone-and-iron lanterns, and coffins shipped as cargo
+    "forsaken": dict(banner=UP + "uc_royal_banner.png", stair_lamp=UP + "uc_skull_pillar.png", berth_lamp=UP + "uc_lantern_post.png",
+                     crates=UP + "uc_crate_stack.png", cargo=UP + "uc_coffin_stack.png",
+                     east=UP + "uc_crate_stack.png", west=UP + "uc_tool_rack.png"),
+}
+
+
+def _dress(L, kit):
     p = L.prop
     # ---- hub: a searchlight tower on each diagonal, the engine works to the north-east, cargo to the south-west
     for (x, y) in [(27, 27), (37, 27), (27, 37), (37, 37)]:
@@ -171,35 +185,35 @@ def _dress(L):
     # ---- north berth (live: Undercity): mooring bollards, lanterns, banners at the gate
     p(CP + "mooring_posts.png", 27, 8, 3)
     p(CP + "mooring_posts.png", 38, 8, 3)
-    p(CP + "dock_lantern_post.png", 28, 5, 4)
-    p(CP + "dock_lantern_post.png", 37, 5, 4)
-    p(OP + "war_banner.png", 29, 14, 5)
-    p(OP + "war_banner.png", 36, 14, 5)
+    p(kit["berth_lamp"], 28, 5, 4)
+    p(kit["berth_lamp"], 37, 5, 4)
+    p(kit["banner"], 29, 14, 5)
+    p(kit["banner"], 36, 14, 5)
     # ---- south stair head (live: the ground): braziers either side of the steps, cargo waiting to be hoisted
-    p(OP + "orc_brazier.png", 28, 58, 3)
-    p(OP + "orc_brazier.png", 37, 58, 3)
-    p(DP + "vot_crate_stack.png", 26, 55, 3)
-    p(GP + "gob_oil_drums.png", 38, 55, 3)
-    p(OP + "war_banner.png", 29, 50, 5)
-    p(OP + "war_banner.png", 36, 50, 5)
+    p(kit["stair_lamp"], 28, 58, 3)
+    p(kit["stair_lamp"], 37, 58, 3)
+    p(kit["crates"], 26, 55, 3)
+    p(kit["cargo"], 38, 55, 3)
+    p(kit["banner"], 29, 50, 5)
+    p(kit["banner"], 36, 50, 5)
     # ---- east berth (reserved): an empty berth - bollards, a rail of track, a crate or two for a route that is coming
     p(CP + "mooring_posts.png", 58, 27, 3)
     p(CP + "mooring_posts.png", 58, 38, 3)
-    p(GP + "gob_rocket_crates.png", 52, 27, 3)
-    p(OP + "war_banner.png", 50, 29, 5)
-    p(OP + "war_banner.png", 50, 36, 5)
+    p(kit["east"], 52, 27, 3)
+    p(kit["banner"], 50, 29, 5)
+    p(kit["banner"], 50, 36, 5)
     # ---- west berth (reserved)
     p(CP + "mooring_posts.png", 6, 27, 3)
     p(CP + "mooring_posts.png", 6, 38, 3)
-    p(GP + "gob_cannon.png", 11, 37, 3)
-    p(OP + "war_banner.png", 14, 29, 5)
-    p(OP + "war_banner.png", 14, 36, 5)
+    p(kit["west"], 11, 37, 3)
+    p(kit["banner"], 14, 29, 5)
+    p(kit["banner"], 14, 36, 5)
 
 
 def build_layout(site="Zeppelin Tower"):
     L = Layout(site)
     _terrain(L)
-    _dress(L)
+    _dress(L, KITS[SITES[site]["skin"]])
     return L
 
 
@@ -232,5 +246,5 @@ def register_baked(zone, baked_dir=BAKED_DIR, chunk=20):
 
 def generate(site="Zeppelin Tower"):
     L = build_layout(site)
-    register_baked(L.zone)
+    register_baked(L.zone, SITES[site]["baked"])
     return L.zone

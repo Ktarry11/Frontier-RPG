@@ -5609,6 +5609,7 @@ def create_all_zones():
     from tools import handbuilt_razor_hill as dcaves_razor
     from tools import handbuilt_orgrimmar as dorg
     from tools import handbuilt_zeppelin_tower as dzep
+    from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5648,7 +5649,7 @@ def create_all_zones():
         "Undercity Zeppelin Tower": dzep.generate("Undercity Zeppelin Tower"),  # its Tirisfal twin
         
         # ===== TIRISFAL SPLIT (3 zones from 1) + UNDERCITY =====
-        "Deathknell": generate_deathknell(),
+        "Deathknell": ddk.generate_deathknell(),  # hand-built (tools/handbuilt_deathknell.py)
         "Eastern Tirisfal": generate_eastern_tirisfal(),
         "Western Tirisfal": generate_western_tirisfal(),
         "Undercity": generate_undercity(),  # NEW: Forsaken capital
