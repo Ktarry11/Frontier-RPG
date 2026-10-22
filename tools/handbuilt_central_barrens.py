@@ -640,6 +640,9 @@ def dress(L):
     P("br_agave_spike", 268, 22, 3)
     # Ratchet pier head
     L.bld("harbor_tower", 262, 261, 7)
+    # the gate itself: a goblin gatehouse straddling the pier right over the portal tile, so the way to
+    # Ratchet reads from a distance (it was a bare white square on the planks)
+    L.bld("palisade_gatehouse", 285, 271, 7, solid=False, road_ok=True, shore_ok=True)
     L.bld("ratchet_docks_warehouse", 268, 263, 5, shore_ok=True)
     L.deco("fish_crates_traps", 289, 274, 3)
     L.deco("mooring_posts", 270, 272, 3)
