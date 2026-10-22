@@ -4,11 +4,13 @@ Versioned save/load system. Ensures saves survive feature additions across phase
 A save is a single JSON document:
 
     {
-      "version": 6,
+      "version": 7,
       "character": {...},          # the player
       "party":     {...},          # companions, bench, rows
       "recruits":  {...},          # which recruit NPCs have been taken
-      "world":     {...}           # zone name + tile the player is standing on
+      "world":     {...},          # zone name + tile the player is standing on
+      "quests":    {...},          # quest progress
+      "travel":    {...}           # hearth bind/cooldown, flight nodes, riding + mounts (v7)
     }
 
 Every block except "character" is optional, so a v4/v5 save still loads; the
@@ -33,7 +35,7 @@ class SaveSystem:
 
     def save_character(self, character, filename="character.json",
                        party=None, recruit_manager=None, zone_manager=None,
-                       quest_manager=None):
+                       quest_manager=None, travel_manager=None):
         """
         Write a full save.
 
@@ -57,6 +59,8 @@ class SaveSystem:
             save_data["world"] = self._world_state(zone_manager)
         if quest_manager is not None:
             save_data["quests"] = quest_manager.to_dict()
+        if travel_manager is not None:
+            save_data["travel"] = travel_manager.to_dict()
 
         save_path = self.save_dir / filename
         with open(save_path, "w") as f:

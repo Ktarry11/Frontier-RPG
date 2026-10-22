@@ -26,6 +26,7 @@ from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
 from world.quest import QuestStatus
+from world.travel_manager import get_travel_manager, services_for_npc
 
 
 class QuestDialogScreen(BaseScreen):
@@ -39,6 +40,9 @@ class QuestDialogScreen(BaseScreen):
         # from world/vendor_manager.py the same way it already is from
         # AmbientNPC/RecruitNPC).
         self.is_vendor = hasattr(npc, "vendor_id")
+        # Travel services this NPC offers (innkeeper bind, flight master, riding trainer, mount vendor) -
+        # see world/travel_manager.py. Shown as extra buttons in greeting mode.
+        self.services = services_for_npc(npc)
 
         # Which "mode" this screen is currently showing - recomputed in
         # _refresh() rather than decided once in __init__, since turning
@@ -237,17 +241,53 @@ class QuestDialogScreen(BaseScreen):
                 return
             return
 
-        if self.mode == "greeting" and self.is_vendor:
-            # Vendor with nothing quest-related right now: talk, then
-            # choose to shop or walk away, rather than the old behavior
-            # of skipping straight to the shop screen (Kyle's call).
-            if self.shop_button.collidepoint(mouse_pos):
-                self.state_manager.transition_to(GameState.VENDOR, current_vendor=self.npc)
-                return
-            if self.leave_button.collidepoint(mouse_pos):
-                self.state_manager.transition_to(GameState.OVERWORLD)
-                return
+        if self.mode == "greeting" and self._has_action_row():
+            for label, action, rect in self._greeting_buttons():
+                if rect.collidepoint(mouse_pos):
+                    self._do_greeting_action(action)
+                    return
             return
+
+    # ------------------------------------------------------------------ greeting action row
+    SERVICE_LABELS = {"inn": "Bind Hearthstone", "flight": "Fly", "riding": "Train Riding", "mounts": "Buy Mounts"}
+
+    def _has_action_row(self):
+        """Vendors (Shop/Leave) and travel-service NPCs get a row of action buttons instead of a lone Close."""
+        return self.is_vendor or bool(self.services)
+
+    def _greeting_buttons(self):
+        """[(label, action, rect)] - service buttons, then Shop for vendors, then Leave; centred in one row."""
+        entries = [(self.SERVICE_LABELS[s], s) for s in self.services if s in self.SERVICE_LABELS]
+        if self.is_vendor:
+            entries.append(("Shop", "shop"))
+        entries.append(("Leave", "leave"))
+        w, h, gap = 200, 50, 16
+        total = len(entries) * w + (len(entries) - 1) * gap
+        x = SCREEN_WIDTH // 2 - total // 2
+        y = SCREEN_HEIGHT - 90
+        out = []
+        for label, action in entries:
+            out.append((label, action, pygame.Rect(x, y, w, h)))
+            x += w + gap
+        return out
+
+    def _do_greeting_action(self, action):
+        travel = get_travel_manager()
+        sm = self.state_manager
+        if action == "leave":
+            sm.transition_to(GameState.OVERWORLD)
+        elif action == "shop":
+            # Vendor with nothing quest-related right now: talk, then choose to shop or walk away.
+            sm.transition_to(GameState.VENDOR, current_vendor=self.npc)
+        elif action == "inn":
+            zm = sm._live_zone_manager()
+            zone = zm.current_zone
+            travel.set_bind(zone.name, zm.player_x, zm.player_y, zone.name)
+            self.result_message = f"Your hearthstone is now bound to {zone.name}."
+        elif action in ("flight", "riding", "mounts"):
+            screen = sm.states.get(GameState.TRAVEL)
+            screen.open_service(action, self.npc)
+            sm.transition_to(GameState.TRAVEL)
 
     def update(self, dt):
         pass
@@ -272,16 +312,18 @@ class QuestDialogScreen(BaseScreen):
         # Vendor greeting mode shows Shop/Leave instead of the generic
         # Close button - Leave already covers "back to overworld", so
         # drawing Close too would be a redundant third exit option.
-        if not (self.mode == "greeting" and self.is_vendor):
+        if not (self.mode == "greeting" and self._has_action_row()):
             self.renderer.draw_button(screen, self.close_button, "Close")
 
     def _render_greeting(self, screen):
         greeting = getattr(self.npc, "greeting", "") or f"{self.npc.name} has nothing more to say right now."
         self._draw_wrapped_text(screen, greeting, (40, 100), max_width=SCREEN_WIDTH - 80)
 
-        if self.is_vendor:
-            self.renderer.draw_button(screen, self.shop_button, "Shop")
-            self.renderer.draw_button(screen, self.leave_button, "Leave")
+        if self._has_action_row():
+            for label, _action, rect in self._greeting_buttons():
+                self.renderer.draw_button(screen, rect, label)
+            if self.result_message:
+                self.renderer.draw_text(screen, self.result_message, (40, SCREEN_HEIGHT - 130), color=(120, 220, 140))
 
     def _render_offer(self, screen):
         quest = self.active_quest

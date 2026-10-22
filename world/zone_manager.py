@@ -216,6 +216,10 @@ class ZoneManager:
         self.player_x = new_x
         self.player_y = new_y
 
+        # Hearthstone cooldown is counted in overworld steps.
+        from world.travel_manager import get_travel_manager
+        get_travel_manager().on_step()
+
         # Position-gated EXPLORE quest objectives (e.g. "reach the
         # hallway", not just "enter the cave") - see
         # QuestManager.record_position_reached. Cheap no-op for the
@@ -270,7 +274,10 @@ class ZoneManager:
     def encounter_chance(self):
         """Per-step random-encounter chance for the player's current tile."""
         location_type, _ = self.get_location_context()
-        return self.ENCOUNTER_CHANCE.get(location_type, 0.02)
+        chance = self.ENCOUNTER_CHANCE.get(location_type, 0.02)
+        # Riding shaves the ambush rate (TravelManager.encounter_mult is 1.0 on foot). Caves never see a mounted player.
+        from world.travel_manager import get_travel_manager
+        return chance * get_travel_manager().encounter_mult()
 
     def active_kill_targets(self):
         """Names of creatures an active, unfinished quest still needs killed (incl. alternates)."""
@@ -386,6 +393,9 @@ class ZoneManager:
                              and spawn_x is not None and spawn_y is not None)
 
             self.current_zone = new_zone
+            if new_zone.name in self.cave_names:
+                from world.travel_manager import get_travel_manager
+                get_travel_manager().force_dismount()   # no riding in caves/dungeons
             # Same prewarm as __init__/reset_to_start - see that call's
             # comment. This is the path that actually matters most in
             # practice (every portal/cave transition during real play),

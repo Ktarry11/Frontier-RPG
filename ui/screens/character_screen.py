@@ -222,6 +222,8 @@ class CharacterCreationScreen(BaseScreen):
         from world.quest_manager import get_quest_manager, QuestManager
         import world.quest_manager as _qm_module
         _qm_module._quest_manager = QuestManager()  # fresh quest state for the new character
+        from world.travel_manager import reset_travel_manager
+        reset_travel_manager()  # fresh hearth bind / flight nodes / mounts for the new character
         
         # Set the player FIRST, then save through the state manager so the
         # (empty) party, recruit state and starting position are all written

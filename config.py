@@ -43,7 +43,7 @@ MAX_LEVEL = 60  # Base game level cap
 PRESTIGE_LEVEL = 60  # Prestige trigger: reset to level 1 and increment prestige_level
 
 # Save system
-SAVE_VERSION = 6  # v6: adds world position (zone/x/y) + per-character row & spec lock. v5 added the party roster; v4 added talent spend.
+SAVE_VERSION = 7  # v7: adds travel state (hearth bind/cooldown, flight nodes, riding + mounts). v6: adds world position (zone/x/y) + per-character row & spec lock. v5 added the party roster; v4 added talent spend.
 
 #: Number of save slots shown in the menu (Kyle, 2026-09-06: "improve save
 #: slots from 1 to 5" for external playtesting - multiple testers/characters

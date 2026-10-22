@@ -23,6 +23,7 @@ from ui.screens.form_screen import FormScreen
 from ui.screens.guardian_screen import GuardianScreen
 from ui.screens.cast_screen import CastScreen
 from ui.screens.background_screen import BackgroundScreen
+from ui.screens.travel_service_screen import TravelServiceScreen
 from config import save_slot_filename
 
 
@@ -70,6 +71,7 @@ class GameStateManager:
             GameState.COMBAT: CombatScreen(self),
             GameState.CAST: CastScreen(self, icon_ui_helper=self.icon_ui_helper),
             GameState.BACKGROUND: BackgroundScreen(self),
+            GameState.TRAVEL: TravelServiceScreen(self),
             # VendorScreen is created dynamically when entering vendor state
         }
 
@@ -145,6 +147,7 @@ class GameStateManager:
             return False
         from world.recruit_manager import get_recruit_manager
         from world.quest_manager import get_quest_manager
+        from world.travel_manager import get_travel_manager
         try:
             self._save_system().save_character(
                 self.player,
@@ -153,6 +156,7 @@ class GameStateManager:
                 recruit_manager=get_recruit_manager(),
                 zone_manager=self._live_zone_manager(),
                 quest_manager=get_quest_manager(),
+                travel_manager=get_travel_manager(),
             )
         except Exception as exc:
             print(f"Save failed: {exc}")
@@ -220,6 +224,11 @@ class GameStateManager:
         quest_data = data.get("quests")
         if quest_data:
             get_quest_manager().load_from_dict(quest_data)
+
+        # Travel state (hearth bind, flight nodes, riding, mounts) - same fresh-singleton-then-apply pattern as
+        # quests; a pre-v7 save has no "travel" block and simply loads with the defaults.
+        from world.travel_manager import reset_travel_manager
+        reset_travel_manager().load_from_dict(data.get("travel"))
 
         world = data.get("world")
         zone_manager = self._live_zone_manager()

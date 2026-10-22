@@ -233,6 +233,14 @@ class OverworldScreen(BaseScreen):
                     self._notify(f"{target_char.char_class}s cannot use Earthen Guardian.", (240, 140, 140))
                 return
 
+            # R = ride/dismount, H = hearthstone (world/travel_manager.py).
+            if event.key == pygame.K_r:
+                self._toggle_mount()
+                return
+            if event.key == pygame.K_h:
+                self._use_hearth()
+                return
+
             # F5 quicksave. Until now the game saved exactly once, at
             # character creation, and never again - so a recruited party,
             # every level gained and all loot found was lost on exit.
@@ -319,8 +327,59 @@ class OverworldScreen(BaseScreen):
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
+            if getattr(self, "mount_button_rect", None) and self.mount_button_rect.collidepoint(mouse_pos):
+                self._toggle_mount()
+                return
+            if getattr(self, "hearth_button_rect", None) and self.hearth_button_rect.collidepoint(mouse_pos):
+                self._use_hearth()
+                return
             self._handle_tab_click(mouse_pos)
     
+    def _release_movement_keys(self):
+        for k in self.keys_pressed:
+            self.keys_pressed[k] = False
+
+    def _toggle_mount(self):
+        from world.travel_manager import get_travel_manager
+        mounted, message = get_travel_manager().toggle_mount(self.zone_manager.is_in_cave())
+        self._notify(message, (140, 220, 160) if mounted or message == "You dismount." else (240, 140, 140))
+
+    def _use_hearth(self):
+        """Teleport to the innkeeper bind (outside caves/dungeons, off cooldown)."""
+        from world.travel_manager import get_travel_manager
+        travel = get_travel_manager()
+        reason = travel.hearth_block_reason(self.zone_manager.is_in_cave())
+        if reason:
+            self._notify(reason, (240, 140, 140))
+            return
+        bind = travel.use_hearth()
+        self._release_movement_keys()
+        if not self.zone_manager.transition_to_zone(bind["zone"], bind["x"], bind["y"]):
+            self._notify("Your hearth bind no longer exists. Visit an innkeeper.", (240, 140, 140))
+            return
+        self._notify(f"You return to {bind['name']}.", (140, 220, 160))
+
+    def _render_travel_hud(self, screen):
+        """Small ride/hearth strip under the viewport (click or press R / H)."""
+        from world.travel_manager import get_travel_manager
+        travel = get_travel_manager()
+        mount = travel.current_mount()
+        if travel.mounted and mount:
+            mlabel, mcolor = f"Dismount (R): {mount['name']}", (60, 120, 70)
+        elif mount:
+            mlabel, mcolor = f"Mount (R): {mount['name']}", (30, 90, 110)
+        else:
+            mlabel, mcolor = "Mount (R): none", (50, 50, 56)
+        self.mount_button_rect = pygame.Rect(20, 630, 235, 28)
+        self.renderer.draw_button(screen, self.mount_button_rect, mlabel, color=mcolor)
+
+        if travel.hearth_ready():
+            hlabel, hcolor = f"Hearth (H): {travel.bind['name']}", (30, 90, 110)
+        else:
+            hlabel, hcolor = f"Hearth (H): {travel.hearth_steps_left} steps", (50, 50, 56)
+        self.hearth_button_rect = pygame.Rect(265, 630, 235, 28)
+        self.renderer.draw_button(screen, self.hearth_button_rect, hlabel, color=hcolor)
+
     def _handle_tab_click(self, mouse_pos):
         """Dispatch a click against the right-edge tab column built in
         _render_tab_column(). "quest" has no rect (disabled/unbuilt), so
@@ -558,7 +617,8 @@ class OverworldScreen(BaseScreen):
                     moved = True
             
             if moved:
-                self.movement_cooldown = 0.1  # 100ms between tile moves
+                from world.travel_manager import get_travel_manager
+                self.movement_cooldown = 0.1 / get_travel_manager().speed_mult()  # 100ms/tile on foot, faster mounted
                 self.seconds_since_last_move = 0.0
 
                 # Out-of-combat resource regen/decay, once per tile actually
@@ -650,6 +710,7 @@ class OverworldScreen(BaseScreen):
         encounter_status = "ON" if self.encounters_enabled else "OFF"
         status_color = (100, 200, 100) if self.encounters_enabled else (200, 100, 100)
         self.renderer.draw_text(screen, f"Encounters: {encounter_status}", (20, 10), color=status_color)
+        self._render_travel_hud(screen)
         
         # Right-edge tab column - replaces the old flat Inventory/Character/
         # Menu buttons. Cast is included here too (transitions to
@@ -720,7 +781,7 @@ class OverworldScreen(BaseScreen):
         # the full keybind list here was redundant and was also the thing
         # running off the window edge.
         self.renderer.draw_text(
-            screen, "WSAD: Move | Space: Interact | E: Encounters",
+            screen, "WSAD: Move | Space: Interact | E: Encounters | R: Ride | H: Hearth",
             (20, SCREEN_HEIGHT - 30), size="small")
 
         if self.recruit_message:
