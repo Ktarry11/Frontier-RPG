@@ -346,6 +346,12 @@ def dress(L):
     L.bld("nightelf_house_small", 35, 150, 7)
     L.bld("druid_priestess_hut", 30, 146, 7)
     L.dp("vot_fire_pit", 30, 156, 2, solid=False)
+    A("ash_elune_statue", 30, 160, 7)
+    A("ash_moon_lantern", 23, 156, 6, solid="core")
+    A("ash_moon_lantern", 37, 156, 6, solid="core")
+    A("ash_living_gate_arch", 28, 141, 8, solid=False, road_ok=True)
+    A("ash_glow_mushroom_ring", 21, 150, 3, solid=False)
+    A("ash_foxglove_patch", 39, 153, 3, solid=False)
     A("fern_cluster", 23, 157, 3, solid=False)
     A("fern_cluster", 37, 157, 3, solid=False)
     A("fallen_log", 22, 146, 3, solid=False)
@@ -377,9 +383,10 @@ def dress(L):
     L.dp("bbc_fel_brazier", 131, 61, 4, solid=False)
     L.dp("skull_pile", 148, 70, 2)
     # a smaller satyr camp up the western wall
-    L.dp("bbc_tent", 112, 66, 5)
+    X("ashx_satyr_tent", 113, 70, 7)
+    X("ashx_skull_fence", 128, 77, 4)
+    X("ashx_skull_fence", 142, 78, 4)
     L.dp("bbc_fel_bonfire", 109, 68, 2, solid=False)
-    L.dp("rf_skull_spears", 114, 70, 3)
 
     # ---- Twilight Barrow: a ring of ruined columns round a void-crystal altar ---------------------------------
     for k in range(8):
@@ -392,6 +399,10 @@ def dress(L):
     L.dp("rf_void_crystals", 192, 98, 3)
     L.dp("sarcophagus", 178, 114, 3)
     L.dp("ritual_circle", 190, 114, 3, solid=False)
+    X("ashx_twilight_stone", 174, 103, 6)
+    X("ashx_twilight_stone", 198, 111, 6)
+    X("ashx_corrupt_moonwell", 188, 120, 5)
+    X("ashx_obsidian_spires", 196, 98, 6)
 
     # ---- Howling Barrows: the furbolg burial cave and its totems -----------------------------------------------
     A("furbolg_totem", 193, 44, 6, solid="core")
@@ -400,6 +411,10 @@ def dress(L):
     L.dp("skull_pile", 205, 49, 2)
     P("br_signpost", 197, 52, 5)
     A("dead_corrupted_tree", 189, 54, 7)
+    X("ashx_howling_standard", 196, 47, 7)
+    X("ashx_ice_stalagmites", 191, 47, 4)
+    X("ashx_ice_stalagmites", 209, 48, 4)
+    X("ashx_icicle_pillar", 206, 54, 5)
 
     # ---- The Demon Wastes: fel fire and wreckage -------------------------------------------------------------------
     for (bx, by) in ((150, 168), (160, 181), (174, 184), (180, 172)):
@@ -410,11 +425,23 @@ def dress(L):
     L.dp("rf_skull_spears", 148, 183, 3)
     L.dp("bbc_skull_pile", 158, 187, 2)
     L.dp("rf_fallen_pillar", 146, 174, 3)
+    X("ashx_demon_gate", 150, 178, 9, solid=False, road_ok=True)
+    X("ashx_charred_trunks", 144, 162, 6)
+    X("ashx_charred_trunks", 174, 187, 6)
+    X("ashx_demon_ribcage", 156, 186, 4)
+    X("ashx_burned_caravan", 142, 167, 5)
+    X("ashx_burned_treehouse", 187, 167, 9)
+    X("ashx_obsidian_spires", 190, 176, 6)
+    X("ashx_obsidian_spires", 144, 182, 5)
+    X("ashx_demon_skull_altar", 172, 184, 6)
+    X("ashx_orc_hero_tomb", 182, 182, 4)
+    X("ashx_nightmare_thorns", 156, 170, 3, solid=False)
+    X("ashx_nightmare_thorns", 175, 172, 3, solid=False)
     # Grom's Rest: Hellscream's memorial pillars flank the road to the cave
     L.dp("temple_column", 156, 178, 5)
     L.dp("temple_column", 174, 178, 5)
-    L.dp("vot_war_banner", 160, 174, 5)
-    L.dp("vot_war_banner", 170, 174, 5)
+    X("ashx_orc_memorial", 160, 175, 6)
+    X("ashx_shattered_orc_statue", 171, 175, 7)
     P("br_signpost", 160, 182, 5)
 
 

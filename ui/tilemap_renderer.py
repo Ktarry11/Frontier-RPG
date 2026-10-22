@@ -5,7 +5,7 @@ colors where no texture is mapped) with camera follow.
 import pygame
 from world.tiles import get_tile_color
 from world.tile_textures import TILE_SIZE, get_biome_for_zone, get_texture_entry, get_subzone_biome
-from ui.sprite_loader import get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite, get_feathered_chunk_sprite, get_npc_sprite
+from ui.sprite_loader import get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite, get_feathered_chunk_sprite, get_npc_sprite, get_mount_sprite
 from world.race_registry import sprite_base_path
 from world.gathering_manager import MATERIAL_TYPE_FOLDERS
 from boss_icons import get_boss_icon_path
@@ -711,7 +711,26 @@ class TilemapRenderer:
                     getattr(player, "appearance_variant", 0))
                 if base_path:
                     sprite = get_npc_sprite(base_path, player_facing, tile_height=int(self.tile_size * self.npc_sprite_scale))
-            if sprite is not None:
+            mount_art = None
+            try:
+                from world.travel_manager import get_travel_manager
+                _tm = get_travel_manager()
+                if _tm.mounted and _tm.current_mount():
+                    mount_art = get_mount_sprite(_tm.current_mount()["id"], player_facing, self.tile_size)
+            except Exception:
+                mount_art = None
+            if sprite is not None and mount_art is not None:
+                # Mounted: the mount stands on the tile (bottom-centre), the rider is drawn over its saddle with the
+                # legs hidden (cut at the seat) so they read as sitting rather than standing on the animal.
+                mount, seat = mount_art
+                mx = screen_x + (self.tile_size - mount.get_width()) // 2
+                my = screen_y + self.tile_size - mount.get_height() + self.tile_size // 6
+                screen.blit(mount, (mx, my))
+                seat_y = my + mount.get_height() - int(mount.get_height() * seat)
+                vis_h = max(1, int(sprite.get_height() * 0.74))
+                sx = screen_x + (self.tile_size - sprite.get_width()) // 2
+                screen.blit(sprite, (sx, seat_y - vis_h), pygame.Rect(0, 0, sprite.get_width(), vis_h))
+            elif sprite is not None:
                 # Anchor at the tile's bottom-center, not top-left - real
                 # character art (80x120 human frames) is taller than one
                 # tile, so it should stand ON the tile with its head/hair

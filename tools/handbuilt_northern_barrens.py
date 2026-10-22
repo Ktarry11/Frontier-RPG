@@ -36,6 +36,8 @@ from tools.handbuilt_central_barrens import (BP, DP, BLD, ENT, CP, blob, _wob, _
                                              ACACIAS, SCRUB, TUFTS, ROCKS, BONES)
 from world.tilemap import Tilemap
 
+GP = "assets/tiles/goblin_shared/props/"      # gob_* Venture Co. props (sheet C)
+
 BAKED_DIR = "assets/tiles/northern_barrens/baked"
 W, H = 280, 260
 
@@ -479,6 +481,11 @@ def dress(L):
     _grove(L, [("br_mossy_boulder", 3)], 100, 134, 36, 28, 5, 63, gap=8.0)
     P("br_driftwood_skull", 98, 140, 3)
     P("br_signpost", 142, 134, 5)
+    for (x, y) in ((108, 138), (120, 140), (128, 132)):
+        P("nb_fen_willow", x, y, 9)
+    for (x, y) in ((112, 136), (124, 128), (118, 146)):
+        L.deco("nb_lily_cattails", x, y, 3, path_dir=BP)
+    P("nb_boardwalk", 139, 144, 4, solid=False, road_ok=True, shore_ok=True)
     # fen warden's hut on the causeway mouth
     L.bld("generic_hut_a", 135, 150, 5)
     L.dp("vot_fire_pit", 141, 151, 2, solid=False)
@@ -486,8 +493,14 @@ def dress(L):
     L.dp("vot_hide_rack", 133, 144, 3)
 
     # ---- Harpy Roost: bone-and-feather nest bowl inside the spires --------------------------------------
-    for (x, y) in [(202, 34), (212, 31), (208, 42), (198, 26)]:
+    for (x, y) in [(202, 34), (208, 42)]:
         P("br_raptor_nest", x, y, 3)
+    for (x, y) in [(212, 31), (198, 26)]:
+        P("nb_harpy_eyrie", x, y, 4)
+    P("nb_harpy_totem", 205, 37, 8)
+    P("nb_guano_ledge", 200, 44, 5)
+    P("nb_guano_needle", 215, 38, 8)
+    P("nb_feather_charms", 210, 46, 6)
     P("br_vulture_roost", 194, 40, 4)
     P("br_vulture_roost", 218, 38, 4)
     P("br_dead_tree_vulture", 210, 24, 7)
@@ -498,24 +511,31 @@ def dress(L):
 
     # ---- Sludge Fen: the Venture Co. oil rig ----------------------------------------------------------------
     L.bld("scrapyard_workshop", 216, 72, 7)
-    L.bld("generic_tent_a", 224, 79, 5)
-    L.dp("vot_broken_cart", 212, 80, 3)
-    L.dp("vot_broken_cart", 242, 74, 3)
-    L.dp("rf_supply_crates", 228, 84, 3)
+    P("gob_tarp_leanto", 224, 79, 5, path_dir=GP)
+    P("gob_scrap_heap", 212, 80, 3, path_dir=GP)
+    P("gob_pipe_tangle", 242, 75, 5, path_dir=GP)
+    P("gob_boiler_tank", 230, 87, 6, path_dir=GP)
+    P("gob_oil_derrick", 238, 81, 10, path_dir=GP)
+    P("gob_searchlight_tower", 209, 73, 9, path_dir=GP)
+    P("gob_tar_sump", 214, 89, 4, path_dir=GP, solid=False)
+    P("gob_scrap_fence", 207, 80, 4, path_dir=GP)
     L.dp("rf_supply_crates", 218, 86, 3)
     L.dp("rf_tool_rack", 220, 70, 3)
-    L.dp("grotto_barrel_stack", 246, 64, 3)
-    L.dp("grotto_barrel_stack", 236, 60, 3)
-    L.dp("grotto_barrel_stack", 244, 82, 3)
-    L.dp("rf_golem_husk", 240, 86, 5)
-    L.dp("vot_crate_stack", 234, 82, 3)
+    for (x, y) in ((246, 64), (236, 60), (246, 83)):
+        P("gob_oil_drums", x, y, 4, path_dir=GP)
+    L.dp("rf_golem_husk", 240, 88, 5)
+    P("gob_explosive_barrels", 233, 83, 4, path_dir=GP)
     P("br_signpost", 206, 76, 5)
 
     # ---- Boulder Lode: surveyor's claim below the adit ------------------------------------------------------
-    L.bld("generic_tent_a", 244, 54, 5)
-    L.dp("rf_ore_cart", 252, 56, 3)
+    P("gob_tarp_leanto", 244, 54, 5, path_dir=GP)
+    P("gob_ore_cart", 252, 56, 4, path_dir=GP)
     L.dp("rf_tool_rack", 242, 50, 3)
-    L.dp("rf_supply_crates", 247, 58, 3)
+    P("gob_dynamite_crate", 247, 58, 3, path_dir=GP)
+    P("gob_mine_frame", 255, 51, 8, path_dir=GP, solid=False, road_ok=True)
+    P("gob_claim_marker", 249, 51, 6, path_dir=GP)
+    P("gob_ore_pile", 258, 56, 3, path_dir=GP)
+    P("gob_rail_stack", 252, 61, 3, path_dir=GP, solid=False)
     L.dp("vot_fire_pit", 250, 55, 2, solid=False)
     L.dp("den_rock_rubble", 258, 52, 3, solid=False)
     L.dp("den_rock_rubble", 238, 48, 3, solid=False)

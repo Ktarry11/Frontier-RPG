@@ -245,7 +245,7 @@ def sprinkle(L):
 
 CHEST_SPOTS = [
     (12, 40), (34, 27), (47, 102), (60, 124), (90, 108), (90, 150), (117, 86), (151, 14), (141, 60),
-    (167, 40), (200, 60), (183, 101), (177, 127), (189, 153), (152, 170), (72, 177), (198, 128),
+    (167, 40), (198, 64), (183, 101), (177, 127), (189, 153), (152, 170), (72, 177), (198, 128),
 ]
 
 
@@ -257,6 +257,7 @@ def chests(L):
 def dress(L):
     P = L.prop
     A = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=E.AP, **kw)
+    X = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=E.XP, **kw)
 
     # ---- Greenwood Gate: the ruined elven arch the road passes under, the east seam ------------------------
     P("ent_elven_ruin_arch", 210, 103, 8, path_dir=ENT, solid=False, road_ok=True)
@@ -273,6 +274,7 @@ def dress(L):
     L.cp("driftwood_pile", 10, 40, 3, shore_ok=True)
     L.cp("outrigger_canoe", 8, 36, 3, shore_ok=True)
     L.cp("fish_crates_traps", 20, 29, 3)
+    A("ash_canoe_jetty", 11, 35, 4, shore_ok=True, solid=False)
     P("br_signpost", 19, 28, 5)
 
     # ---- Blackfathom headland: the sea cave and its warning stones -----------------------------------------
@@ -290,9 +292,12 @@ def dress(L):
     for (fx, fy) in ((103, 96), (117, 97), (98, 89), (123, 90), (110, 99)):
         A("fern_cluster", fx, fy, 3, solid=False)
     P("br_signpost", 114, 86, 5)
+    A("ash_elune_statue", 105, 88, 7)
+    A("ash_moon_lantern", 103, 93, 6, solid="core")
+    A("ash_moon_lantern", 117, 93, 6, solid="core")
 
     # ---- Maestra's Post: a Sentinel watch-camp on the lake shore ---------------------------------------------
-    L.bld("moon_guard_tower", 96, 49, 11)
+    L.bld("moon_guard_tower", 90, 47, 11)
     L.bld("nightelf_house_small", 96, 61, 7)
     L.dp("vot_training_dummy", 92, 57, 3)
     L.dp("weapon_rack", 91, 50, 3)
@@ -300,6 +305,10 @@ def dress(L):
     L.dp("vot_fire_pit", 89, 59, 2, solid=False)
     P("br_signpost", 90, 65, 5)
     A("fallen_log", 68, 41, 3, solid=False)
+    A("ash_sentinel_tent", 87, 53, 6)
+    A("ash_sentinel_banner", 93, 54, 6, solid="core")
+    A("ash_glaive_thrower", 101, 63, 4)
+    A("ash_hippogryph_perch", 100, 51, 4)
 
     # ---- the fork at the bluff: where the coast road splits to Zoram and Blackfathom ----------------------------
     P("br_signpost", 28, 52, 5)
@@ -315,8 +324,10 @@ def dress(L):
 
     # ---- Ragged Highlands: furbolg country ---------------------------------------------------------------
     A("furbolg_den_entrance", 165, 46, 7)
-    for (tx, ty) in ((146, 36), (158, 41), (171, 53), (173, 38)):
+    for (tx, ty) in ((158, 41), (171, 53)):
         A("furbolg_totem", tx, ty, 6, solid="core")
+    for (tx, ty) in ((146, 36), (173, 38)):
+        X("ashx_corrupt_furbolg_totem", tx, ty, 6, solid="core")
     L.dp("vot_hide_rack", 161, 52, 4)
     L.dp("vot_hide_rack", 168, 50, 4)
     L.dp("vot_fire_pit", 164, 52, 3, solid=False)
@@ -327,6 +338,7 @@ def dress(L):
     L.dp("vot_hide_rack", 137, 70, 4)
     L.dp("vot_fire_pit", 135, 69, 2, solid=False)
     A("rock_outcrop_large", 150, 76, 5)
+    A("ash_waterfall_pool", 154, 58, 7)
 
     # ---- Moonwhisper Grove: a ring of ancient trees round the moon pond ---------------------------------------
     import math
@@ -337,12 +349,22 @@ def dress(L):
     for (fx, fy) in ((170, 114), (186, 116), (174, 120), (184, 105), (170, 104), (190, 110)):
         A("fern_cluster", fx, fy, 3, solid=False)
     A("fallen_log", 166, 118, 3, solid=False)
+    A("ash_giant_ash_tree", 178, 99, 15)
+    A("ash_moon_rune_stone", 169, 107, 6)
+    A("ash_moon_rune_stone", 187, 107, 6)
+    A("ash_nightbloom_bush", 168, 113, 3, solid=False)
+    A("ash_nightbloom_bush", 188, 113, 3, solid=False)
+    A("ash_glow_mushroom_ring", 178, 118, 3, solid=False)
 
     # ---- the ruined arch (Starfall ruins) -----------------------------------------------------------------------
     A("stone_archway", 176, 128, 7, solid="core")
     L.dp("broken_column", 170, 130, 4)
     L.dp("broken_column", 183, 131, 3)
     L.dp("broken_column", 173, 123, 3)
+    A("ash_elven_ruin_wall", 172, 126, 6)
+    A("ash_ivy_pillar", 182, 126, 6)
+    A("ash_elf_statue_head", 168, 129, 3)
+    A("ash_overgrown_steps", 177, 121, 4)
     A("fallen_log", 180, 124, 3, solid=False)
 
     # ---- Lake Elune'ara: the island shrine ---------------------------------------------------------------------

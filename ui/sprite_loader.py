@@ -286,6 +286,40 @@ def get_npc_sprite(base_path, direction, tile_width=None, tile_height=None):
     return scaled
 
 
+# Side-view length of each mount in TILES.  The four facings of one mount share one pixel scale (derived from its
+# left/right art) so turning on the spot never makes the animal grow or shrink.
+MOUNT_LENGTH_TILES = {
+    "timber_wolf": 3.8, "dire_wolf": 4.1, "brown_kodo": 4.9, "war_kodo": 5.6,
+    "razormane_raptor": 3.9, "swift_raptor": 4.2,
+}
+# Where the saddle seat sits, as a fraction of the sprite's height up from its feet, per view.
+MOUNT_SEAT = {"down": 0.56, "up": 0.56, "left": 0.52, "right": 0.52}
+
+
+def get_mount_sprite(mount_id, direction, tile_size):
+    """Scaled mount sprite (assets/mounts/<id>_<dir>.png) or None.  Returns (surface, seat_fraction)."""
+    if direction not in MOUNT_SEAT:
+        return None
+    cache_key = ("mount", mount_id, direction, tile_size)
+    if cache_key in _sprite_cache:
+        return _sprite_cache[cache_key]
+    result = None
+    try:
+        sheet = _load_sheet(f"assets/mounts/{mount_id}_{direction}.png")
+        sides = [_load_sheet(f"assets/mounts/{mount_id}_{d}.png") for d in ("left", "right")]
+        sides = [x for x in sides if x is not None]
+        if sheet is not None and sides:
+            avg_w = sum(x.get_width() for x in sides) / len(sides)
+            k = MOUNT_LENGTH_TILES.get(mount_id, 2.8) * tile_size / avg_w
+            scaled = pygame.transform.smoothscale(
+                sheet, (max(1, round(sheet.get_width() * k)), max(1, round(sheet.get_height() * k))))
+            result = (scaled, MOUNT_SEAT[direction])
+    except (pygame.error, ValueError, ZeroDivisionError):
+        result = None
+    _sprite_cache[cache_key] = result
+    return result
+
+
 def prewarm_chunk_sprites(tilemap, tile_size, feather_px=48):
     """Pre-scale every ground/water/obstacle chunk sprite for a zone,
     once, right when the zone is entered - rather than lazily on first
