@@ -1348,18 +1348,6 @@ VALLEY_OF_TRIALS_KITS = {
         ("Rising Fury", "buff", 0, 4, 0, "physical",
          {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 10}}),
     ],
-    "bulwark_sentinel": [
-        # The Bulwark's own defender - was previously (wrongly) sharing
-        # Fenris Guardian, a level 18-20 Fenris Isle name with no
-        # thematic connection to a Tirisfal Forsaken garrison and no
-        # level match to its level 13-16 roster. Real form distinction
-        # from Forsaken Deserter: a tankier defensive kit (armor buff)
-        # rather than the deserter's plain melee, matching a garrison
-        # soldier who holds a line versus a rank-and-file straggler.
-        ("Shield Bash", "damage", 26, 0, 0, "physical", {}),
-        ("Hold the Line", "buff", 0, 5, 0, "physical",
-         {"duration": 4, "self_only": True, "stat_mods": {"armor": 20}}),
-    ],
     "rampart_watchman": [
         # Mor'shan Rampart's own creature - previously this subzone had
         # ZERO creatures of its own, just Harpy Roost's exact roster

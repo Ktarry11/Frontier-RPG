@@ -400,17 +400,6 @@ def generate_western_tirisfal():
                 zone.collision_layer[y][x] = None
     zone.add_subzone("Cold Hearth Manor", 53, 13, 18, 14)
 
-    # The Bulwark - real confirmed Tirisfal location (Warcraft Wiki:
-    # Argent Dawn/Forsaken forces offering repairs). Southeast of Brill,
-    # a fortified stone outpost distinct from the farmland patches.
-    for dy in range(-6, 7):
-        for dx in range(-8, 9):
-            x, y = 62 + dx, 62 + dy
-            if 0 <= x < zone.width and 0 <= y < zone.height:
-                zone.set_tile(x, y, "stone", "base")
-                zone.collision_layer[y][x] = None
-    zone.add_subzone("The Bulwark", 54, 56, 16, 12)
-
     # Portals
     for (px, py) in [(10, 40), (70, 40)]:
         for dy in range(-2, 3):
@@ -421,13 +410,13 @@ def generate_western_tirisfal():
         zone.set_tile(px, py, "portal", "interaction")
 
     # NPCs - this session's new Western Tirisfal quest-line givers
-    # (wt_bulwark_quartermaster, wt_coldhearth_watcher, wt_relay_courier).
+    # (wt_coldhearth_watcher; the Bulwark is a high-level Plaguelands border post, not part of this zone).
     # Western Tirisfal had ZERO npc tiles before this pass (Brill, where
     # all its real named NPCs live, was pulled out as its own zone) -
     # placed in the open central clearing, clear of the forest fringe
     # (which only populates within 20 tiles of the map edge, well clear
     # of these), every portal carve-out, and both named subzone patches.
-    for (nx, ny) in [(25, 55), (55, 55), (45, 65)]:
+    for (nx, ny) in [(62, 25)]:                    # Watcher Pell, inside the Cold Hearth Manor yard
         zone.set_tile(nx, ny, "npc", "interaction")
         for dy in range(-2, 3):
             for dx in range(-2, 3):
@@ -457,7 +446,6 @@ def generate_western_tirisfal():
     farmland = "assets/tiles/undead_farmland"
     region_terrain = [
         {"rect": (53, 13, 18, 14), "variants": [f"{farmland}/farmstead_mud.png"]},            # Cold Hearth Manor
-        {"rect": (54, 56, 16, 12), "variants": [f"{farmland}/stone_crypt_floor.png"]},        # The Bulwark
     ]
     default_variants = [f"{farmland}/blighted_grass.png", f"{farmland}/blighted_grass_2.png"]
 
@@ -488,9 +476,8 @@ def generate_western_tirisfal():
             if gw > 0 and gh > 0:
                 zone.add_ground_chunk(f"{farmland}/packed_graveyard_dirt.png", gx, gy, gw, gh)
 
-    # Props - hay bale and gravestones around Cold Hearth Manor/Bulwark.
+    # Props - hay bale around Cold Hearth Manor.
     zone.add_landmark(f"{farmland}/props/hay_bale_rotted.png", 60, 20, 3, 3)
-    zone.add_landmark(f"{farmland}/props/gravestone_cluster.png", 62, 60, 3, 3)
     tree_i = 0
     for _ in range(8):
         x = random.randint(5, zone.width - 5)

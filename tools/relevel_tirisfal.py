@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 BASE = {                                        # creatures only these two zones use
-    "Manor Reaper": [5, 9], "Bulwark Sentinel": [9, 10],
+    "Manor Reaper": [5, 9],
     "Young Nightcrawler": [6, 8], "Scarlet Convert": [6, 9], "Darkeye Bonecaster": [7, 9],
     "Agamand Family Ghoul": [7, 10], "Agamand Servant": [7, 10], "Captured Farmer": [7, 10], "Thurman Agamand": [10, 10],
     "Solliden Farmhand": [6, 9], "Blighted Grain Thresher": [6, 9],
@@ -22,8 +22,7 @@ BASE = {                                        # creatures only these two zones
     "Scourge Warrior": [9, 12], "Scourge Necromancer": [9, 12],
 }
 OVERRIDES = {                                   # shared with Deathknell / each other / Silverpine -> per zone
-    "Western Tirisfal": {"Mangy Duskbat": [4, 7], "Wretched Zombie": [5, 8], "Rotting Dead": [6, 9],
-                         "Forsaken Deserter": [8, 10]},
+    "Western Tirisfal": {"Mangy Duskbat": [4, 7], "Wretched Zombie": [5, 8], "Rotting Dead": [6, 9]},
     "Eastern Tirisfal": {"Mangy Duskbat": [6, 8], "Wretched Zombie": [6, 9], "Rotting Dead": [7, 10],
                          "Ragged Scavenger": [6, 8], "Rattlecage Skeleton": [7, 9]},
 }
@@ -31,7 +30,6 @@ QUESTS = {
     "et_solliden_rot": (6, 9), "et_solliden_farmhands": (6, 9), "et_agamand_servants": (7, 10), "et_captured_farmers": (7, 10),
     "et_thurman_agamand": (10, 11), "et_scarlet_zealots": (9, 12), "et_scarlet_preacher_sermons": (10, 12),
     "et_interrogator_vishas": (12, 12),
-    "wt_bulwark_deserters": (8, 10), "wt_bulwark_sentinels": (9, 10), "wt_couriers_route": (7, 10),
 }
 
 

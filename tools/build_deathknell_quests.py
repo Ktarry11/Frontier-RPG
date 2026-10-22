@@ -15,7 +15,7 @@ MAP (100x90 valley)   Village square (50,42): Krell (50,38), Instructor (43,42),
   Weeping Pond .......... (13-33, 55-68)   west; Mourner Isolde (30,60)
   Burned Farmstead ...... (68-86, 64-77)   south-east; Gardener Orrel (73,68)
   Scarlet Forecourt ..... (72-91, 15-28)   north-east; Scout Verrick (72,28); cave Scarlet Crypt (83,19)
-  Valley exit ........... east (96,47)     -> Western Tirisfal, the Bulwark subzone at (54-70, 56-68)
+  Valley exit ........... east (96,47)     -> Western Tirisfal -> portal (40,40) -> Brill (Deathguard Rennick at (35,33))
 Levels  Krell 1-6 main chain | each other giver a short chain whose finale is a rare / cave boss
 """
 import json
@@ -170,15 +170,15 @@ def quests():
             ("Brood-Slayer's Fang", "main_hand", "of Agility", "A broken stinger, still tipped with something unkind.", "dagger"),
             ("Carapace Round Shield", "off_hand", "of Stamina", "Shell plate on a wood frame. It rings when struck.", "shield"),
             ("Hollow-Won Hauberk", "chest", "of the Bear", "Chain made from a hundred small sacrifices. Most of them were spiders.", "mail"),
-        ]), "dk_bulwark_bound"))
-    A(Q("dk_bulwark_bound", "Word for the Bulwark", KRELL, 6, 8,
+        ]), "dk_to_brill"))
+    A(Q("dk_to_brill", "Word for Brill", KRELL, 6, 8,
         "The valley is quiet for the first time since you were sewn together, and that is Krell's cue to be rid of you. "
-        "The road east leaves Deathknell for Western Tirisfal, where the Bulwark, the Forsaken garrison, "
-        "holds the line against the Scarlets. Krell has written a note for whoever is on the gate. It says "
+        "The road east leaves Deathknell for the Tirisfal Glades; follow it to the portal in the glade's heart and it "
+        "brings you to Brill, the Forsaken's first real town. Krell has written a note for Deathguard Rennick. It says "
         "'Take this one, they bite.' He is not sorry.",
-        [explore("western_tirisfal", 61, 62, 8)], 450, 1500,
-        "Follow the east road out of the valley and keep going until you see the Bulwark. Show the guard my note. "
-        "Tell them I didn't ruin you. They won't believe it.",
+        [explore("brill", 35, 33, 6)], 450, 1500,
+        "Take the east road out of the valley, cross the Tirisfal Glades, and follow the road into Brill. Find Deathguard "
+        "Rennick and show him my note. Tell him I didn't ruin you. He won't believe it.",
         "You made it out of the valley. Farther than most. The rest of the Forsaken are going to find you very inconvenient. Good.",
         pack(8, 6, "uncommon", [
             ("Krell's Farewell Cloak", "back", "of the Whale", "He's never admitted it, but he sewed the hem himself.", "cloth"),

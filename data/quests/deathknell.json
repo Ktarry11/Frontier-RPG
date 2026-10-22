@@ -370,7 +370,7 @@
       "reward_gold": 1800,
       "accept_text": "She's in the heart of the spiral. She stings, she poisons, and she wraps you. Kill the spiders on the way in and keep your head. The Dark Lady's name be with you, or whatever passes for luck down here.",
       "turn_in_text": "Dead. Properly dead. You have more teeth than I thought. I'll note it in the report - favourably, for once.",
-      "next_quest_id": "dk_bulwark_bound",
+      "next_quest_id": "dk_to_brill",
       "unique_item_defs": [
         {
           "name": "Nesh'ka's Silkguard Vest",
@@ -437,25 +437,25 @@
       "gear_reward_gear_level": 8
     },
     {
-      "quest_id": "dk_bulwark_bound",
-      "title": "Word for the Bulwark",
+      "quest_id": "dk_to_brill",
+      "title": "Word for Brill",
       "giver_npc_id": "dk_quest_overseer",
       "zone": "deathknell",
       "level_min": 6,
       "level_max": 8,
-      "description": "The valley is quiet for the first time since you were sewn together, and that is Krell's cue to be rid of you. The road east leaves Deathknell for Western Tirisfal, where the Bulwark, the Forsaken garrison, holds the line against the Scarlets. Krell has written a note for whoever is on the gate. It says 'Take this one, they bite.' He is not sorry.",
+      "description": "The valley is quiet for the first time since you were sewn together, and that is Krell's cue to be rid of you. The road east leaves Deathknell for the Tirisfal Glades; follow it to the portal in the glade's heart and it brings you to Brill, the Forsaken's first real town. Krell has written a note for Deathguard Rennick. It says 'Take this one, they bite.' He is not sorry.",
       "objectives": [
         {
           "type": "explore",
-          "target": "western_tirisfal",
-          "target_x": 61,
-          "target_y": 62,
-          "radius": 8
+          "target": "brill",
+          "target_x": 35,
+          "target_y": 33,
+          "radius": 6
         }
       ],
       "reward_exp": 450,
       "reward_gold": 1500,
-      "accept_text": "Follow the east road out of the valley and keep going until you see the Bulwark. Show the guard my note. Tell them I didn't ruin you. They won't believe it.",
+      "accept_text": "Take the east road out of the valley, cross the Tirisfal Glades, and follow the road into Brill. Find Deathguard Rennick and show him my note. Tell him I didn't ruin you. He won't believe it.",
       "turn_in_text": "You made it out of the valley. Farther than most. The rest of the Forsaken are going to find you very inconvenient. Good.",
       "next_quest_id": null,
       "unique_item_defs": [

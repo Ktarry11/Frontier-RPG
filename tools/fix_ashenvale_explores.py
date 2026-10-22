@@ -19,7 +19,7 @@ from world.zone_generator import create_all_zones   # noqa: E402
 WHERE = {   # subzone display name -> (zone, radius)
     "Ragged Highlands": ("Ashenvale West", 14), "The Night Run": ("Ashenvale West", 14),
     "Lake Elune'ara": ("Ashenvale West", 10), "Coast Bluffs": ("Ashenvale West", 10),
-    "The Demon Wastes": ("Ashenvale East", 12), "The Bulwark": ("Western Tirisfal", 8),
+    "The Demon Wastes": ("Ashenvale East", 12),
 }
 
 
