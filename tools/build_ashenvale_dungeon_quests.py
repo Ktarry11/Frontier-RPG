@@ -212,6 +212,72 @@ quest("groms_lord_nightmare", "Lord Nightmare", "splintertree_war_mage", "splint
       mult=1.6, boss=True)
 
 
+# ===================================================================== BLACKFATHOM DEEPS (West, 24-27, bosses 26)
+BF = "blackfathom_deeps"
+quest("bfd_garrison", "The Drowned Garrison", "zoram_sentinel", "zoram_strand", 24, 26,
+      "Lookout Taelanor has watched the naga come and go from a flooded temple under the cliffs for weeks. It's a garrison, not a raid. "
+      "She wants its warriors thinned before it empties onto the Strand.",
+      [kill("Naga Warrior", 8, BF)],
+      "I've counted them going in. I haven't counted them coming out. That's the part that frightens me. Go down in company and thin them.",
+      "Eight. They'll replace them, but not tonight. I wrote the number down. I'm glad it isn't higher.",
+      nxt="bfd_ghamoo_ra")
+quest("bfd_ghamoo_ra", "The Shell of Ghamoo-ra", "zoram_sentinel", "zoram_strand", 25, 26,
+      "A giant turtle the naga revere as a god guards the outer caverns. Taelanor wants the beast ended, and its shell broken, so the way inward is open.",
+      [boss("Ghamoo-ra", BF)],
+      "They worship it. I'd find that sweet if it weren't the size of a boat and hungry. Break it, and take the way.",
+      "A god, they said. It died as easily as a turtle. I will remember that when I next hear the naga pray.",
+      items=[item("Ghamoo-ra's Shell Plate", "chest", 26, "Thick as a doorframe, and a little too warm.",
+                  {"stamina": 7, "strength": 5}, rarity="rare", armor_type="mail")],
+      mult=1.3, nxt="bfd_lady_sarevess", boss=True)
+quest("bfd_lady_sarevess", "Lady Sarevess", "zoram_sentinel", "zoram_strand", 25, 26,
+      "Lady Sarevess commands the naga of the Deeps' upper halls. If she falls, her warriors will fight each other for her chair.",
+      [boss("Lady Sarevess", BF)],
+      "She will offer you terms. I wouldn't read them. Cut her down and spare me the sound of her voice in my dreams.",
+      "Without her, the halls will fight over her chair for a month. That's a month the Strand sleeps. Thank you.",
+      items=[item("Sarevess's Tidal Bracers", "wrist", 26, "Cool to the touch, and always a little wet.",
+                  {"intellect": 5, "spirit": 4}, rarity="rare", armor_type="cloth")],
+      mult=1.35, boss=True)
+quest("bfd_gelihast", "The Murloc King", "zoram_boatwright", "zoram_strand", 25, 26,
+      "Gelihast has gathered the Deeps' murlocs under one nasty banner. Illyen wants the net he wears as a crown, and wants the rest to scatter.",
+      [boss("Gelihast", BF)],
+      "He wears my boat's net as a crown. MY net. Bring it back. It's patched and stinks, and I want it.",
+      "That's my knot! Look at that, he left it. The fool. Thank you. I'll sink another boat in his honour.",
+      items=[item("Gelihast's Knotted Crown", "head", 26, "A net that remembers being a boat's.",
+                  {"agility": 6, "stamina": 5}, rarity="rare", armor_type="leather")],
+      mult=1.3, boss=True)
+quest("bfd_hydra_fangs", "Hydra Fangs", "zoram_boatwright", "zoram_strand", 25, 27,
+      "The murloc hydras of the Deeps shed fangs that hold an edge better than steel. Illyen wants six for her tool-rack.",
+      [fetch("hydra_fang", 6)],
+      "A hydra fang will cut a rope under tension and never go dull. Six of them and I'll have a tool rack to show off.",
+      "Six. And not a chip. These are going straight in the rack. I'll sharpen nothing for a year.")
+quest("bfd_tide_callers", "The Tide-Callers", "zoram_sentinel", "zoram_strand", 26, 27,
+      "Two of the Deeps' deeper masters hold its inner temple: Lorgus Jett, who commands the tide, and Old Serra'kis, who commands what the tide has swallowed.",
+      [boss("Lorgus Jett", BF), boss("Old Serra'kis", BF)],
+      "Two of them, deeper in. You'll have to go through both. It's not a job for fewer than a full party, Lookout or not.",
+      "Both. I felt the water settle. I'd have missed it if I'd been looking at the sea instead of at you.",
+      items=[item("Serra'kis's Fangmantle", "shoulder", 27, "Teeth, sewn into silk. It doesn't rattle. It listens.",
+                  {"agility": 7, "stamina": 5}, rarity="rare", armor_type="leather")],
+      mult=1.4, nxt="bfd_kelris", boss=True)
+quest("bfd_kelris", "The Twilight Lord", "zoram_sentinel", "zoram_strand", 26, 27,
+      "Twilight Lord Kelris hides at the temple's heart, putting the Twilight's Hammer's work in the mouths of dying men. Taelanor wants him silent.",
+      [boss("Twilight Lord Kelris", BF)],
+      "He works in whispers. Do not listen. Cut him down.",
+      "Silent. I'd forgotten silence could be so loud. One more below him, and it ends.",
+      items=[item("Kelris's Whispering Robe", "chest", 27, "It hums a lullaby, wrong in every key.",
+                  {"intellect": 8, "spirit": 5}, rarity="rare", armor_type="cloth")],
+      mult=1.4, nxt="bfd_aku_mai", boss=True)
+quest("bfd_aku_mai", "Aku'mai the Devourer", "zoram_sentinel", "zoram_strand", 27, 27,
+      "At the bottom of Blackfathom sleeps Aku'mai, a thing the naga call the Devourer. If it wakes, the Strand will be the least of the world's worries.",
+      [boss("Aku'mai", BF)],
+      "It is the last thing in the Deeps. Kill it while it sleeps, or don't go at all. I'll be on the wall. I will be watching the water.",
+      "Then it's over. I'll sleep tonight. You earned that, and the Strand's gratitude. Take the pearl, if it still glows.",
+      items=[item("Aku'mai's Deepwater Pearl", "trinket", 27, "It still glows. It never stops. It reminds you of the dark.",
+                  {"intellect": 5, "stamina": 5, "spirit": 3}, rarity="rare"),
+             item("Devourer's Barbed Spear", "main_hand", 27, "Barbs that curve back on themselves, wanting to be somewhere deeper.",
+                  {"agility": 8, "stamina": 5}, rarity="rare", weapon_type="polearm")],
+      mult=1.7, boss=True)
+
+
 def main():
     out = ROOT / "data/quests/ashenvale_dungeons.json"
     ids = [q["quest_id"] for q in QUESTS]
