@@ -2,6 +2,7 @@
 Tilemap visualizer. Renders zones as textured grids (falling back to flat
 colors where no texture is mapped) with camera follow.
 """
+import os
 import pygame
 from world.tiles import get_tile_color
 from world.tile_textures import TILE_SIZE, get_biome_for_zone, get_texture_entry, get_subzone_biome
@@ -786,11 +787,19 @@ class TilemapRenderer:
                 rect = pygame.Rect(screen_x, screen_y, self.tile_size, self.tile_size)
 
                 sprite = None
-                base_path = sprite_base_path(
-                    getattr(recruit, "race", "human"), getattr(recruit, "gender", "male"),
-                    getattr(recruit, "appearance_variant", 0))
-                if base_path:
-                    sprite = get_npc_sprite(base_path, getattr(recruit, "facing", "down"), tile_height=int(self.tile_size * self.npc_sprite_scale))
+                tile_h = int(self.tile_size * self.npc_sprite_scale)
+                # Each recruit has their own one-direction (facing down) sprite at
+                # assets/npcs/recruits/<recruit_id>/down.png; always drawn facing
+                # down. Falls back to the generic human variant if it is missing.
+                custom = f"assets/npcs/recruits/{recruit.recruit_id}"
+                if os.path.exists(f"{custom}/down.png"):
+                    sprite = get_npc_sprite(custom, "down", tile_height=tile_h)
+                if sprite is None:
+                    base_path = sprite_base_path(
+                        getattr(recruit, "race", "human"), getattr(recruit, "gender", "male"),
+                        getattr(recruit, "appearance_variant", 0))
+                    if base_path:
+                        sprite = get_npc_sprite(base_path, getattr(recruit, "facing", "down"), tile_height=tile_h)
 
                 if sprite is not None:
                     sx = screen_x + (self.tile_size - sprite.get_width()) // 2
