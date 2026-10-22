@@ -289,8 +289,13 @@ class SkillsScreen(BaseScreen):
             return
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
+            # Only left (1) and right (3) clicks act.  pygame also reports the scroll wheel as buttons
+            # 4/5; those used to fall through and wipe whichever hotbar slot the cursor was resting on.
+            if event.button not in (1, 3):
+                return
             mouse_x, mouse_y = pygame.mouse.get_pos()
             player = self._get_subject()
+            right_click = event.button == 3
 
             # Click a tab - switches active_tab and resets scroll, since a
             # scroll position from a longer tab's list could otherwise land
@@ -341,7 +346,10 @@ class SkillsScreen(BaseScreen):
                 slot_rect = pygame.Rect(slot_x, slot_y, 64, 64)
                 
                 if slot_rect.collidepoint(mouse_x, mouse_y):
-                    if self.selected_ability:
+                    if right_click:
+                        player.hotbar[i] = None       # right-click always clears
+                        self.selected_ability = None
+                    elif self.selected_ability:
                         # Slot the ability/consumable
                         if isinstance(self.selected_ability, Consumable):
                             player.hotbar[i] = self.selected_ability
@@ -357,7 +365,10 @@ class SkillsScreen(BaseScreen):
             # real hotbar, writes to player.extra_slots instead.
             for i, slot_rect in enumerate(self._extra_slot_rects()):
                 if slot_rect.collidepoint(mouse_x, mouse_y):
-                    if self.selected_ability:
+                    if right_click:
+                        player.extra_slots[i] = None
+                        self.selected_ability = None
+                    elif self.selected_ability:
                         if isinstance(self.selected_ability, Consumable):
                             player.extra_slots[i] = self.selected_ability
                         else:

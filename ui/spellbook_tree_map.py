@@ -11,9 +11,8 @@ trees in the same class touch the same school (Shaman: Elemental AND
 Enhancement both have Nature-flavored kit) - that needs real per-class
 knowledge this table encodes by hand.
 
-Scope (per Kyle): classic 9 only for now. CoA classes fall back to a
-simpler damage_school-first-match rule in skills_screen.py until this
-gets built out properly for them too.
+Scope: classic 9 use the tables below; the implemented CoA classes use
+data/spellbook_tabs_coa.json (generated from the CoA handoff's per-spec ability lists).
 
 Structure: CLASS_SCHOOL_TREE_MAP[class_name][damage_school] -> tree_id.
 A school not listed for a class means "no tree owns this school for this
@@ -168,6 +167,19 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "rogue_vanish": "rogue_subtlety",
     "rogue_feint": "rogue_subtlety",
     "rogue_rupture": "rogue_assassination",
+    "rogue_garrote": "rogue_assassination",
+    "rogue_deadly_poison": "rogue_assassination",
+    "rogue_crippling_poison": "rogue_assassination",
+    "rogue_envenom": "rogue_assassination",
+    "rogue_shiv": "rogue_assassination",
+    "rogue_ambush": "rogue_subtlety",
+    "rogue_cheap_shot": "rogue_subtlety",
+    "rogue_kidney_shot": "rogue_subtlety",
+    "rogue_blind": "rogue_subtlety",
+    "rogue_preparation": "rogue_subtlety",
+    "rogue_blade_flurry": "rogue_combat",
+    "rogue_killing_spree": "rogue_combat",
+    "rogue_fan_of_knives": "rogue_combat",
 
     # --- Hunter: Beast Mastery (pet), Marksmanship (ranged precision),
     # Survival (traps/DoTs, already covered by CLASS_SCHOOL_TREE_MAP for
@@ -185,6 +197,9 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "hunter_freezing_trap": "hunter_survival",
     "hunter_feign_death": "hunter_survival",
     "hunter_scare_beast": "hunter_survival",
+    # Arcane Shot is Marksmanship's baseline instant; Tame Beast is the Beast Mastery pet unlock.
+    "hunter_arcane_shot": "hunter_marksmanship",
+    "hunter_tame_beast": "hunter_beast_mastery",
 
     # --- Warlock: Affliction (DoTs/curses), Demonology (pet/self-buff),
     # Destruction (direct Fire/Shadow burst) ---
@@ -198,6 +213,10 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "warlock_fear": "warlock_affliction",
     "warlock_life_tap": "warlock_affliction",
     "warlock_banish": "warlock_affliction",
+    "warlock_summon_imp": "warlock_demonology",
+    "warlock_summon_voidwalker": "warlock_demonology",
+    "warlock_summon_succubus": "warlock_demonology",
+    "warlock_summon_felhunter": "warlock_demonology",
     "warlock_demon_armor": "warlock_demonology",
     "warlock_health_funnel": "warlock_demonology",
     "warlock_immolate": "warlock_destruction",
@@ -305,6 +324,24 @@ CLASS_ABILITY_TREE_OVERRIDES = {
 }
 
 
+_COA_TABS = None
+
+
+def _coa_tabs():
+    """Lazy-load {class: {ability_id: tree_id|"core"}} for the CoA classes."""
+    global _COA_TABS
+    if _COA_TABS is None:
+        import json, os
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                            "data", "spellbook_tabs_coa.json")
+        try:
+            with open(path, encoding="utf-8") as fh:
+                _COA_TABS = json.load(fh)
+        except (OSError, ValueError):
+            _COA_TABS = {}
+    return _COA_TABS
+
+
 def get_owning_tree(char_class, ability):
     """Real tree_id this ability belongs to for spellbook tab placement,
     or None if it belongs in Core (no tree owns it - a genuine passive/
@@ -340,6 +377,13 @@ def get_owning_tree(char_class, ability):
     caller (skills_screen.py) already has to walk anyway to build its
     unlock_ability reverse index, so it isn't duplicated here.
     """
+    # CoA classes: spec placement comes from data/spellbook_tabs_coa.json (built from the CoA handoff's
+    # per-spec ability lists by tools/build_coa_spellbook_tabs.py).  "core" = class kit / no single spec.
+    coa = _coa_tabs().get(char_class)
+    if coa is not None and ability.ability_id in coa:
+        tab = coa[ability.ability_id]
+        return None if tab == "core" else tab
+
     override = PHYSICAL_TREE_OVERRIDES.get(ability.ability_id)
     if override:
         return override
