@@ -8,6 +8,7 @@ from world.tiles import get_tile_color
 from world.tile_textures import TILE_SIZE, get_biome_for_zone, get_texture_entry, get_subzone_biome
 from ui.sprite_loader import get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite, get_feathered_chunk_sprite, get_npc_sprite, get_mount_sprite
 from world.race_registry import sprite_base_path
+from world.chest_looks import chest_look, chest_sprite, is_boss_chest
 from world.gathering_manager import MATERIAL_TYPE_FOLDERS
 from boss_icons import get_boss_icon_path
 
@@ -573,6 +574,10 @@ class TilemapRenderer:
                     # box"), so it's excluded the same way "landmark" is.
                     if layer_tile == "npc":
                         continue
+                    # "chest" is the same story: the real chest art is drawn
+                    # in its own pass below (world/chest_looks.py).
+                    if layer_tile == "chest":
+                        continue
                     # "boss_marker" is the same story as "npc" above - a
                     # placement marker, not a texture. The real boss visual
                     # is drawn separately, later in this function, from
@@ -694,6 +699,21 @@ class TilemapRenderer:
             if sprite is not None:
                 screen.blit(sprite, (lm_screen_x, lm_screen_y))
         
+        # Draw chests (unlooted chest tiles keep "chest" on the interaction layer; looting clears it)
+        for y in range(tile_top, tile_bottom):
+            for x in range(tile_left, tile_right):
+                if tilemap.get_tile(x, y, "interaction") != "chest":
+                    continue
+                look = chest_look(tilemap.name, x, y, is_boss_chest(tilemap, x, y), getattr(tilemap, "is_cave", False))
+                csprite = chest_sprite(look, self.tile_size)
+                if csprite is None:
+                    continue
+                cx, cy = camera.world_to_screen(x, y, self.tile_size)
+                cx += viewport_rect.x
+                cy += viewport_rect.y
+                screen.blit(csprite, (cx + (self.tile_size - csprite.get_width()) // 2,
+                                      cy + self.tile_size - csprite.get_height() + 4))
+
         # Draw player position
         if player_pos:
             player_x, player_y = player_pos
