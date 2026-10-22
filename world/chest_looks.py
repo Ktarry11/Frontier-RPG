@@ -9,7 +9,7 @@ PLAIN = ["plain_box", "rope_crate", "iron_banded", "burlap_crate", "travel_trunk
 # zone key -> regional look (used for roughly half the open-world chests there; the rest are plain)
 REGIONAL = {
     "valley_of_trials": "orc_hide", "durotar": "orc_hide", "orgrimmar": "orc_hide", "razor_hill": "orc_hide",
-    "splintertree_post": "orc_hide", "zeppelin_tower": "orc_hide",
+    "splintertree_post": "orc_hide", "zeppelin_tower": "orc_hide", "undercity_zeppelin_tower": "undead_rusted",
     "echo_isles": "troll_tiki",
     "central_barrens": "savannah", "northern_barrens": "savannah", "southern_barrens": "savannah", "camp_taurajo": "savannah",
     "crossroads": "savannah",

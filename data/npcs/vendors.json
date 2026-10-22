@@ -245,8 +245,8 @@
       "vendor_id": "zeppelin_master",
       "name": "Zeppelin Master Snurk",
       "zone": "zeppelin_tower",
-      "x": 14,
-      "y": 38,
+      "x": 36,
+      "y": 10,
       "tile_sprite": "npc",
       "sells": [
         "bread_and_cheese",
@@ -258,7 +258,7 @@
       "sells_gear": true,
       "race": "goblin",
       "appearance_variant": 2,
-      "greeting": "Zeppelin leaves on the hour, give or take a boiler malfunction. Stock up before you board."
+      "greeting": "Zeppelin to the Undercity leaves from the north berth, on the hour, give or take a boiler malfunction. East and west berths? Soon. Management says soon."
     },
     {
       "vendor_id": "deathknell_undertaker",
@@ -972,6 +972,25 @@
       "greeting": "Fresh from the tide, and the only honest scales on the coast.",
       "x": 29,
       "y": 27
+    },
+    {
+      "vendor_id": "undercity_zeppelin_master",
+      "name": "Zeppelin Master Grub",
+      "zone": "undercity_zeppelin_tower",
+      "x": 36,
+      "y": 10,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "healing_potion_minor"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 20,
+      "sells_gear": true,
+      "race": "goblin",
+      "appearance_variant": 5,
+      "greeting": "Orgrimmar bound? North berth. Mind the rail, the drop is a long one and nobody's coming to fetch you."
     }
   ]
 }

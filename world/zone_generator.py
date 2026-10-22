@@ -5608,6 +5608,7 @@ def create_all_zones():
     from tools import handbuilt_echo_caves as ecaves
     from tools import handbuilt_razor_hill as dcaves_razor
     from tools import handbuilt_orgrimmar as dorg
+    from tools import handbuilt_zeppelin_tower as dzep
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5643,7 +5644,8 @@ def create_all_zones():
         "Echo Isles": generate_echo_isles_handbuilt(),  # hand-built (tools/handbuilt_echo_isles.py)
         "Ratchet": generate_ratchet_handbuilt(),  # hand-built (tools/handbuilt_ratchet.py)
         "Orgrimmar": dorg.generate_orgrimmar(),  # hand-built (tools/handbuilt_orgrimmar.py)
-        "Zeppelin Tower": ZoneGenerator.generate_zeppelin_tower(),
+        "Zeppelin Tower": dzep.generate("Zeppelin Tower"),  # hand-built cross (tools/handbuilt_zeppelin_tower.py)
+        "Undercity Zeppelin Tower": dzep.generate("Undercity Zeppelin Tower"),  # its Tirisfal twin
         
         # ===== TIRISFAL SPLIT (3 zones from 1) + UNDERCITY =====
         "Deathknell": generate_deathknell(),

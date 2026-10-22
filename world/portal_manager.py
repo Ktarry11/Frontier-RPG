@@ -61,9 +61,9 @@ separate entries (one under each zone's key), which is more verbose but
 never has the "both directions must always agree" ambiguity that a
 symmetric-link system runs into with hub tiles.
 
-Zeppelin Tower is a fixed two-stop shuttle (Durotar <-> Eastern Tirisfal),
-not a multi-destination hub, so it needs no special origin-tracking logic -
-each of its two portal tiles has one static, correct destination.
+The Zeppelin Towers are cross-shaped hubs (one beside Orgrimmar, one in Tirisfal). Each arm is its own gate with
+one static, correct destination, so no origin-tracking logic is needed: the stair arm leads to the ground and the
+north berth leads to the other tower. East/west berths are reserved for future routes.
 """
 
 
@@ -100,7 +100,7 @@ class PortalManager:
                 # South Gate section.
                 (65, 26): ("Orgrimmar", 100, 197),
                 (95, 25): ("Drygulch Ravine", 47, 71),
-                (112, 35): ("Zeppelin Tower", 17, 41),
+                (112, 35): ("Zeppelin Tower", 32, 57),
                 (118, 60): ("Skull Rock", 55, 86),
                 (120, 40): ("Sunken Grotto of the Deep", 55, 92),
                 (5, 85): ("Central Barrens", 270, 30),
@@ -178,9 +178,17 @@ class PortalManager:
             "Ragefire Chasm": {
                 (120, 214): ("Orgrimmar", 34, 184),
             },
+            # Zeppelin Tower = a 4-arm cross (tools/handbuilt_zeppelin_tower.py). S arm = the stair down to the
+            # ground, N arm = airship berth to the twin tower. E (58,32) and W (6,32) berths are reserved for
+            # future routes (Grom'gol, Thunder Bluff) - add their links here when those zones exist.
+            # Destinations below are written 2 tiles SOUTH of where you land (the transition lands 2 tiles north).
             "Zeppelin Tower": {
-                (17, 41): ("Durotar", 112, 35),
-                (17, 6): ("Eastern Tirisfal", 90, 50),
+                (32, 58): ("Durotar", 112, 35),
+                (32, 6): ("Undercity Zeppelin Tower", 32, 11),
+            },
+            "Undercity Zeppelin Tower": {
+                (32, 58): ("Eastern Tirisfal", 90, 50),
+                (32, 6): ("Zeppelin Tower", 32, 11),
             },
 
             # ===== THE BARRENS =====
@@ -320,7 +328,7 @@ class PortalManager:
             },
             "Eastern Tirisfal": {
                 (10, 50): ("Western Tirisfal", 70, 40),
-                (90, 50): ("Zeppelin Tower", 17, 6),
+                (90, 50): ("Undercity Zeppelin Tower", 32, 57),
                 (30, 70): ("Undercity", 100, 12),
                 (15, 80): ("Scourge Cave", 45, 68),
             },

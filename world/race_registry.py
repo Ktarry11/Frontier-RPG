@@ -319,6 +319,7 @@ ZONE_POPULATION_MIX = {
     "burning_blade_coven": [("orc", 50), ("forsaken", 50)],
     "ratchet": [("goblin", 75), ("orc", 15), ("human", 10)],
     "zeppelin_tower": [("goblin", 80), ("orc", 20)],
+    "undercity_zeppelin_tower": [("goblin", 60), ("forsaken", 30), ("orc", 10)],
     "undercity": [("forsaken", 90), ("orc", 5), ("blood_elf", 5)],
     "eastern_tirisfal": [("forsaken", 90), ("orc", 5), ("blood_elf", 5)],
     "western_tirisfal": [("forsaken", 90), ("orc", 5), ("blood_elf", 5)],
