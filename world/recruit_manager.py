@@ -53,9 +53,15 @@ class RecruitNPC:
         self.char_class = data["char_class"]
         self.spec = data.get("spec")
         self.level = data.get("level", 1)
-        self.zone = data["zone"]
-        self.x = data["x"]
-        self.y = data["y"]
+        # Unplaced recruits ("placed": false) are fully authored but not
+        # standing anywhere yet - zone/x/y may be null until the zone that
+        # hosts them is built (several are earmarked for the Eastern
+        # Kingdoms; "suggested_zone" is only a hint).
+        self.placed = data.get("placed", True)
+        self.suggested_zone = data.get("suggested_zone", "")
+        self.zone = data.get("zone")
+        self.x = data.get("x")
+        self.y = data.get("y")
         self.row = data.get("row", "front")
         self.backstory = data.get("backstory", "")
         # Real 4-part background (Before/Adjustment/Now/Looking Forward -
@@ -121,6 +127,8 @@ class RecruitNPC:
         available. After Baneshadow is turned in: gone for good, per
         Kyle's "leaves the party to explore the world."
         """
+        if not self.placed or self.zone is None:
+            return False
         if self.recruit_id != "asher_coleman":
             return True
 
@@ -413,6 +421,8 @@ class RecruitManager:
         """
         positions = []
         for recruit in self.recruits.values():
+            if not recruit.placed or recruit.zone is None:
+                continue  # authored but not yet standing anywhere
             positions.append((recruit.zone, recruit.x, recruit.y))
             if recruit.has_home():
                 positions.append(recruit.home_location())
