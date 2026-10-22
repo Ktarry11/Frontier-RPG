@@ -243,47 +243,8 @@ def build_den():
 
     L.finish([DEN_PORTAL, DEN_BOSS] + DEN_CHESTS)
 
-    # --- hand-placed, VISIBLE trash (the pinned-boss cave used to rely on a 2% per-step roll, so a normal
-    # walk through could meet nothing at all).  Room by room, levels ramping with depth; no respawns until
-    # you leave and re-enter.  Each point snaps to the nearest walkable tile that is not a marker.
-    keep_clear = [DEN_PORTAL, DEN_BOSS] + DEN_CHESTS
-    wanted = [
-        # Burrow Mouth - the welcome party (L2-3)
-        (37, 61, "Cave Skitterer", 2), (47, 61, "Cave Skitterer", 2), (42, 56, "Den Webspinner", 3),
-        # The Larder (L3-4)
-        (59, 51, "Den Webspinner", 3), (65, 53, "Den Webspinner", 3), (62, 49, "Husk Crawler", 4),
-        # Weeping Pool hall (L3-4)
-        (33, 44, "Den Webspinner", 3), (51, 45, "Cave Skitterer", 3), (42, 47, "Husk Crawler", 4),
-        (30, 36, "Den Webspinner", 4), (55, 36, "Cave Skitterer", 3),
-        # Husk Warren (L4-5)
-        (13, 53, "Husk Crawler", 4), (20, 56, "Husk Crawler", 5), (9, 59, "Cave Skitterer", 4), (15, 58, "Husk Crawler", 5),
-        # Mushroom Grotto (L3-4)
-        (12, 21, "Cave Skitterer", 3), (17, 25, "Den Webspinner", 4), (9, 27, "Cave Skitterer", 3),
-        # The Nursery (L4-5): egg tenders guard the clutches
-        (65, 23, "Egg Tender", 4), (72, 22, "Egg Tender", 4), (74, 28, "Egg Tender", 5), (68, 27, "Husk Crawler", 5),
-        # Brood Throne approach and hall (L5)
-        (40, 23, "Husk Crawler", 5), (44, 23, "Husk Crawler", 5), (33, 12, "Egg Tender", 5), (51, 12, "Egg Tender", 5),
-    ]
-    taken = []
-    zone.trash_spawns = []
-    for (wx, wy, name, lvl) in wanted:
-        spot = None
-        for r in range(0, 6):
-            ring = [(wx + dx, wy + dy) for dx in range(-r, r + 1) for dy in range(-r, r + 1)
-                    if max(abs(dx), abs(dy)) == r]
-            for (x, y) in ring:
-                if (zone.is_walkable(x, y) and zone.get_tile(x, y, "base") not in ("deep_water", "shallow_water")
-                        and all(abs(x - kx) + abs(y - ky) > 3 for kx, ky in keep_clear)
-                        and all(abs(x - tx) + abs(y - ty) > 3 for tx, ty in taken)):
-                    spot = (x, y)
-                    break
-            if spot:
-                break
-        if spot is None:
-            raise RuntimeError(f"Den trash '{name}' near ({wx},{wy}) found no walkable tile")
-        taken.append(spot)
-        zone.trash_spawns.append((spot[0], spot[1], name, lvl))
-    zone.fixed_spawns = True
+    # Cave rule (Kyle): hand-placed mobs are for full multi-boss dungeons only.  The Den is a cave - boss pinned,
+    # trash from the random per-tile roll (zone.fixed_spawns = False, set at the top).
     return zone, L
 
 

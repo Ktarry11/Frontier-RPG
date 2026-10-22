@@ -5610,6 +5610,7 @@ def create_all_zones():
     from tools import handbuilt_orgrimmar as dorg
     from tools import handbuilt_zeppelin_tower as dzep
     from tools import handbuilt_deathknell as ddk
+    from tools import handbuilt_deathknell_caves as ddkc
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5767,8 +5768,8 @@ def create_all_zones():
     zones["Burning Blade Coven"] = vot_caves.generate_burning_blade_coven()  # hand-built
     zones["Tiragarde Keep"] = dcaves.generate_tiragarde_keep()  # hand-built
     zones["Skull Rock"] = dcaves.generate_skull_rock()  # hand-built
-    zones["Night Web's Hollow"] = ZoneGenerator.generate_night_webs_hollow()
-    zones["Scarlet Crypt"] = ZoneGenerator.generate_scarlet_crypt()
+    zones["Night Web's Hollow"] = ddkc.generate_night_webs_hollow()
+    zones["Scarlet Crypt"] = ddkc.generate_scarlet_crypt()
     zones["Scourge Cave"] = ZoneGenerator.generate_scourge_cave()
 
     # Drygulch Ravine is NOT run through generate_cave() - see that
