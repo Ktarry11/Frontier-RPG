@@ -56,6 +56,7 @@ class TownLayout(CB.Layout):
         self.zone = Tilemap(M.NAME, M.W, M.H, M.DESC)
         self.z = self.zone
         self.z.region = M.REGION
+        self.z.is_town = True                 # no gathering nodes in towns
         self.skipped, self.chests, self.placed = [], [], 0
         self.npc_xy = list(M.NPC_POSITIONS.values()) + list(getattr(M, "EXTRA_NPC_XY", []))
 
@@ -105,13 +106,16 @@ def seal_unreachable(L, start):
                 seen.add(n)
                 q.append(n)
     sealed = 0
+    L.sealed_land, L.sealed_water = [], []          # so a baker can paint sealed pockets as walls / deep water
     for y in range(M.H):
         for x in range(M.W):
             if (x, y) not in seen and z.is_walkable(x, y):
                 if z.base_layer[y][x] == "shallow_water":
                     z.set_tile(x, y, "deep_water", "base")
+                    L.sealed_water.append((x, y))
                 else:
                     z.set_tile(x, y, "cliff", "collision")
+                    L.sealed_land.append((x, y))
                 sealed += 1
     L.sealed = sealed
 

@@ -5617,6 +5617,9 @@ def create_all_zones():
     )
     from tools.handbuilt_ashenvale_west import generate_ashenvale_west
     from tools.handbuilt_ashenvale_east import generate_ashenvale_east
+    from tools.handbuilt_astranaar import generate_astranaar as generate_astranaar_handbuilt
+    from tools.handbuilt_splintertree import generate_splintertree as generate_splintertree_handbuilt
+    from tools.handbuilt_zoram import generate_zoram as generate_zoram_handbuilt
     from tools.ashenvale_silverpine_fenris_generators import (
         generate_silverpine_north,
         generate_silverpine_south,
@@ -5624,9 +5627,6 @@ def create_all_zones():
         generate_groms_rest,
         generate_ambermill_tower,
         generate_shadowpine_altar,
-        generate_astranaar,
-        generate_zoram_strand,
-        generate_splintertree_post,
         generate_the_sepulcher,
         generate_brill,
     )
@@ -5662,9 +5662,9 @@ def create_all_zones():
         # ===== ASHENVALE SPLIT (2 zones) =====
         "Ashenvale West": generate_ashenvale_west(),
         "Ashenvale East": generate_ashenvale_east(),
-        "Astranaar": generate_astranaar(),
-        "Zoram Strand": generate_zoram_strand(),
-        "Splintertree Post": generate_splintertree_post(),
+        "Astranaar": generate_astranaar_handbuilt(),  # hand-built (tools/handbuilt_astranaar.py)
+        "Zoram Strand": generate_zoram_handbuilt(),  # hand-built (tools/handbuilt_zoram.py)
+        "Splintertree Post": generate_splintertree_handbuilt(),  # hand-built (tools/handbuilt_splintertree.py)
         
         # ===== SILVERPINE SPLIT (2 zones) =====
         "Silverpine North": generate_silverpine_north(),

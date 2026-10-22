@@ -235,10 +235,10 @@ class PortalManager:
                 (165, 175): ("Grom's Rest", 120, 205),
                 (110, 195): ("Northern Barrens", 150, 4),
                 (200, 40): ("Howling Barrows", 47, 76),
-                (110, 160): ("Splintertree Post", 30, 47),
+                (110, 160): ("Splintertree Post", 45, 66),
             },
             "Splintertree Post": {
-                (30, 47): ("Ashenvale East", 110, 160),
+                (45, 66): ("Ashenvale East", 110, 160),
             },
             "Howling Barrows": {
                 (47, 76): ("Ashenvale East", 200, 40),

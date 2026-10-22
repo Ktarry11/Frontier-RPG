@@ -950,6 +950,28 @@
       "greeting": "Base Camp stores. Heavy on the jerky, light on the courtesy. What do you need?",
       "x": 150,
       "y": 66
+    },
+    {
+      "vendor_id": "zoram_fishmonger",
+      "name": "Fishmonger Sylra",
+      "zone": "zoram_strand",
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "healing_potion_standard",
+        "mana_potion_minor",
+        "bread_and_cheese",
+        "roasted_meat"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 14,
+      "sells_gear": false,
+      "race": "night_elf",
+      "appearance_variant": 3,
+      "greeting": "Fresh from the tide, and the only honest scales on the coast.",
+      "x": 29,
+      "y": 27
     }
   ]
 }
