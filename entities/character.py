@@ -437,6 +437,10 @@ class Character(StatusEffectMixin):
         
         # Single source of truth for point totals (see _grant_talent_points).
         self._grant_talent_points()
+        # The trees now exist, so re-run the talent gate: abilities were first marked learned in __init__ before any
+        # tree was loaded, which left every talent-granted spell known from its level (Golem Form at 8) without the talent.
+        if hasattr(self, "ability_book"):
+            self._refresh_ability_ranks()
     
     def apply_status_effect(self, effect):
         """Apply an effect, then recalculate derived stats so any stat_mods
@@ -1433,10 +1437,32 @@ class Character(StatusEffectMixin):
         next level-up to notice.
         """
         unlocked_ids = set(self.get_talent_unlocked_abilities())
+        newly = False
+        # Any ability that one of this character's talent nodes grants ("unlock_ability") is talent-gated, whether or not
+        # its data row carries requires_talent (189 of 273 granted abilities were missing the flag, so Golem Form was
+        # known from level 8 without the talent).  The talent tree is the source of truth.
+        granted_ids = set()
+        for tree in getattr(self, "talent_trees", {}).values():
+            for node in (tree.nodes.values() if hasattr(tree, "nodes") else []):
+                u = (getattr(node, "effects", None) or {}).get("unlock_ability")
+                if isinstance(u, str):
+                    granted_ids.add(u)
+                elif isinstance(u, (list, tuple)):
+                    granted_ids.update(u)
         for ability in self.ability_book.get_all_abilities():
+            if ability.ability_id in granted_ids:
+                ability.requires_talent = True
             if not ability.requires_talent:
                 continue  # no talent gate on this ability - never touched here
+            was = getattr(ability, "is_learned", True)
             ability.talent_unlocked = ability.ability_id in unlocked_ids
+            # Re-derive is_learned right away.  Spending a point only flipped talent_unlocked, and is_learned was only
+            # recomputed on the next level-up/load, so a freshly taken talent did not teach its spell until then.
+            ability.refresh_rank_for_level(self.level)
+            if ability.is_learned and not was:
+                newly = True
+        if newly:
+            self._autofill_hotbar()
 
     def get_learned_abilities(self):
         """Every ability this character has actually reached the level

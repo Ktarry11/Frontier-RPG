@@ -631,7 +631,13 @@ class Ability:
         # spent. talent_unlocked defaults True for ordinary abilities
         # (requires_talent=False), so this AND has no effect on them.
         level_met = level >= self.ranks[0]["level_req"]
-        self.is_learned = level_met and self.talent_unlocked
+        if self.requires_talent:
+            # A talent-granted ability is known the moment its talent has a point in it: the talent IS the lesson.  (It
+            # used to also demand rank 1's level, so a level-12 Warrior who took Mortal Strike - rank 1 at level 30 -
+            # never actually got it.)  Higher ranks still come from level via current_rank_index.
+            self.is_learned = bool(self.talent_unlocked)
+        else:
+            self.is_learned = level_met and self.talent_unlocked
 
     def is_form_ready(self, character):
         """True if this ability's form/stance requirement (if any) is
