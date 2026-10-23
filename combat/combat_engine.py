@@ -74,6 +74,9 @@ class CombatEngine:
         self.loot_dropped = None   # last Item dropped, for the victory screen
         self.exp_earned = 0        # total XP awarded this fight, for the victory screen
         self.loot_gained = []      # every Item dropped this fight
+        self.copper_earned = 0     # coin dropped this fight (humanoids only), for the victory screen
+        self.trash_gained = 0      # vendor trash items picked up this fight
+        self.trash_value = 0       # their total sell value in copper
         self.victory = False
 
         # Threat table: {enemy: {ally: threat_value}}. Per-enemy rather than
@@ -659,15 +662,33 @@ class CombatEngine:
                     self.combat_log.append(
                         f"{enemy.name} dropped {drop_def['name']}, but your bags are full!")
 
-        # Currency drop: base copper = enemy level * 10, plus 0-50% bonus.
-        # Goes to the party's shared purse (Party.copper), not the player
-        # individually - see entities/party.py's CURRENCY comment.
+        # Coin + vendor trash (entities/vendor_trash.py, data/items/vendor_trash.json). WoW logic: only humanoid-type
+        # creatures carry coin (dungeon mobs pay 1.5x, bosses 4x); everything else drops vendor trash by style (hides,
+        # claws, cores...) 30% of the time in the open world, 60% in caves/dungeons. Rolled once PER ENEMY, so group
+        # pulls pay per mob. Coin goes to the party's shared purse (Party.copper, see entities/party.py CURRENCY).
+        from entities.vendor_trash import roll_drops
+        from entities.loot_item import add_loot_item
         total_copper = 0
+        trash_count = 0
+        trash_value = 0
         for enemy in self.enemies:
-            base_copper = enemy.level * 10
-            total_copper += base_copper + int(base_copper * random.random() * 0.5)
-        self.party.add_currency(total_copper)
-        self.combat_log.append(f"Looted: {self.party.get_currency_string()}")
+            drop = roll_drops(enemy)
+            total_copper += drop["copper"]
+            for it in drop["items"]:
+                fit = add_loot_item(self.player, it["item_id"], it["name"], category="trash", amount=1,
+                                    description=it["description"], icon_id=it["icon_id"], sell_price=it["price"])
+                if fit:
+                    trash_count += 1
+                    trash_value += it["price"]
+                    self.combat_log.append(f"{enemy.name} dropped: {it['name']}.")
+                else:
+                    self.combat_log.append(f"{enemy.name} dropped {it['name']}, but your bags are full!")
+        self.trash_gained = trash_count
+        self.trash_value = trash_value
+        self.copper_earned = total_copper
+        if total_copper > 0:
+            self.party.add_currency(total_copper)
+            self.combat_log.append(f"Looted: {self.party.get_currency_string()}")
 
     def _format_level_gains(self):
         """Turn the player's aggregated level-up gains into combat log lines."""

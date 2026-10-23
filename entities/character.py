@@ -194,6 +194,7 @@ class Character(StatusEffectMixin):
         # for how bag slots cap the backpack.
         self.equipment = Equipment()
         self.inventory = []  # List[Item] - unequipped items the player is carrying
+        self.auto_sell_junk = False  # global: vendors auto-sell vendor trash when opened (Kyle's 'lazy' tick-box)
         
         # Consumables (Phase 6) - separate inventory from gear
         self.consumables = []  # List[Consumable] - potions, elixirs, food
@@ -2223,6 +2224,7 @@ class Character(StatusEffectMixin):
             "appearance_variant": self.appearance_variant,
             "equipment": self.equipment.to_dict(),
             "inventory": [item.to_dict() for item in self.inventory],
+            "auto_sell_junk": bool(getattr(self, "auto_sell_junk", False)),
             "consumables": [c.to_dict() for c in self.consumables],
             "materials": [m.to_dict() for m in self.materials],
             "profession_skills": dict(self.profession_skills),
@@ -2305,7 +2307,12 @@ class Character(StatusEffectMixin):
         # Restore equipment/inventory BEFORE recalculating derived stats,
         # so gear bonuses are correctly folded into health/mana/armor/etc.
         char.equipment = Equipment.from_dict(data.get("equipment"))
-        char.inventory = [Item.from_dict(i) for i in data.get("inventory", [])]
+        # Bags hold gear (Item) AND stackable LootItems (quest items / materials / vendor trash) - LootItem dicts have
+        # no "slot", so dispatch on that or Item.from_dict KeyErrors on any save that carries a LootItem.
+        from entities.loot_item import LootItem
+        char.inventory = [(Item.from_dict(i) if "slot" in i else LootItem.from_dict(i))
+                          for i in data.get("inventory", [])]
+        char.auto_sell_junk = bool(data.get("auto_sell_junk", False))
         
         # Restore consumables (Phase 6). Currency is no longer stored on
         # Character (see Party.copper) - but a legacy save's "copper" key

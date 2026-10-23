@@ -24,6 +24,7 @@ from ui.screens.base_screen import BaseScreen
 from ui.renderer import Renderer
 from entities.consumable_manager import get_consumable_manager
 from entities.loot_generator import LootGenerator
+from entities.loot_item import LootItem
 from config import SCREEN_WIDTH, SCREEN_HEIGHT
 from config import COLOR_WHITE, COLOR_GOLD, COLOR_GREEN, COLOR_RED, COLOR_DARK_GRAY
 
@@ -60,6 +61,17 @@ class VendorScreen(BaseScreen):
 
         self.vendor_inventory = self._build_vendor_consumables()
         self.vendor_gear = vendor.get_gear_stock(self.loot_generator)
+
+        self.on_open()
+
+    def on_open(self):
+        """Called every time the screen is shown (fresh build or reopen of the same vendor)."""
+        self.selected_vendor_item = None
+        self.selected_player_item = None
+        # Global "auto-sell vendor trash" tick-box: sweeps the grey stuff the moment any buying vendor opens.
+        player = self.state_manager.player
+        if getattr(player, "auto_sell_junk", False) and self.vendor.buys_from_player:
+            self._sell_all_junk(auto=True)
 
     def _build_vendor_consumables(self):
         items = []
@@ -118,7 +130,18 @@ class VendorScreen(BaseScreen):
                     self.selected_vendor_item = None
                     return
 
-            if self._get_buy_button_rect().collidepoint(pos):
+            if self._auto_box_rect().collidepoint(pos):
+                player = self.state_manager.player
+                player.auto_sell_junk = not getattr(player, "auto_sell_junk", False)
+                if player.auto_sell_junk:
+                    self._sell_all_junk()
+                else:
+                    self._show_message("Auto-sell junk off.", COLOR_WHITE)
+                return
+
+            if self._get_junk_button_rect().collidepoint(pos):
+                self._sell_all_junk()
+            elif self._get_buy_button_rect().collidepoint(pos):
                 self._buy_item()
             elif self._get_sell_button_rect().collidepoint(pos):
                 self._sell_item()
@@ -217,10 +240,51 @@ class VendorScreen(BaseScreen):
             party.add_currency(price)
             item.quantity -= 1
             if item.quantity <= 0:
-                player.remove_consumable(item)
+                if isinstance(item, LootItem):
+                    # LootItem stacks live in player.inventory (remove_consumable only looks at consumables).
+                    if item in player.inventory:
+                        player.inventory.remove(item)
+                else:
+                    player.remove_consumable(item)
             self._show_message(f"Sold {item.name} for {price}c.", COLOR_GREEN)
 
+        if getattr(item, "quantity", 0) > 0 and not self._is_gear(item):
+            return  # keep the stack selected so repeated Sell clicks / S presses work through it
         self.selected_player_item = None
+
+    def _junk_stacks(self):
+        player = self.state_manager.player
+        return [i for i in player.inventory
+                if isinstance(i, LootItem) and i.category == "trash" and i.is_sellable]
+
+    def _sell_all_junk(self, auto=False):
+        """Sell every vendor-trash (grey) stack. Never touches gear, materials, consumables or quest items."""
+        if not self.vendor.buys_from_player:
+            self._show_message(f"{self.vendor.name} doesn't buy from adventurers.", COLOR_RED)
+            return
+        player = self.state_manager.player
+        party = self.state_manager.get_party()
+        stacks = self._junk_stacks()
+        if not stacks:
+            if not auto:
+                self._show_message("No vendor trash to sell.", COLOR_WHITE)
+            return
+        count = sum(max(1, i.quantity) for i in stacks)
+        total = sum(i.sell_price * max(1, i.quantity) for i in stacks)
+        for i in stacks:
+            player.inventory.remove(i)
+        party.add_currency(total)
+        if self.selected_player_item in stacks:
+            self.selected_player_item = None
+        self._show_message(f"{'Auto-sold' if auto else 'Sold'} {count} junk item{'s' if count != 1 else ''} for {self._fmt(total)}.",
+                           COLOR_GREEN)
+
+    @staticmethod
+    def _fmt(copper):
+        g, rem = divmod(int(copper), 10000)
+        sv, c = divmod(rem, 100)
+        parts = ([f"{g}g"] if g else []) + ([f"{sv}s"] if sv else []) + ([f"{c}c"] if c or not (g or sv) else [])
+        return " ".join(parts)
 
     def _show_message(self, text, color):
         self.message = text
@@ -280,6 +344,23 @@ class VendorScreen(BaseScreen):
         self.renderer.draw_text(screen, "Sell", (sell_rect.x + 20, sell_rect.y + 10),
                                 color=COLOR_RED if sell_enabled else COLOR_DARK_GRAY)
 
+        junk_rect = self._get_junk_button_rect()
+        has_junk = bool(self._junk_stacks()) and self.vendor.buys_from_player
+        pygame.draw.rect(screen, (60, 60, 60) if has_junk else (30, 30, 30), junk_rect)
+        pygame.draw.rect(screen, (180, 180, 180) if has_junk else COLOR_DARK_GRAY, junk_rect, 2)
+        self.renderer.draw_text(screen, "Sell Junk", (junk_rect.x + 18, junk_rect.y + 10),
+                                color=(200, 200, 200) if has_junk else COLOR_DARK_GRAY)
+
+        box = self._auto_box_rect()
+        on = getattr(self.state_manager.player, "auto_sell_junk", False)
+        pygame.draw.rect(screen, (28, 28, 36), box)
+        pygame.draw.rect(screen, COLOR_GOLD if on else (150, 150, 160), box, 2)
+        if on:
+            pygame.draw.line(screen, COLOR_GOLD, (box.x + 4, box.centery), (box.x + 9, box.bottom - 5), 3)
+            pygame.draw.line(screen, COLOR_GOLD, (box.x + 9, box.bottom - 5), (box.right - 4, box.y + 4), 3)
+        self.renderer.draw_text(screen, "Auto-sell junk on open", (box.right + 10, box.y - 1),
+                                size="small", color=COLOR_GOLD if on else (170, 170, 180))
+
         pygame.draw.rect(screen, (40, 40, 45), close_rect)
         pygame.draw.rect(screen, COLOR_WHITE, close_rect, 2)
         self.renderer.draw_text(screen, "Close (Esc)", (close_rect.x + 12, close_rect.y + 10),
@@ -315,7 +396,9 @@ class VendorScreen(BaseScreen):
         else:
             pygame.draw.rect(screen, (24, 24, 30), rect)
 
-        name_color = item.get_rarity_color() if (is_gear or not getattr(item, "is_sellable", True)) else COLOR_WHITE
+        is_trash = getattr(item, "category", None) == "trash"
+        name_color = (item.get_rarity_color() if (is_gear or is_trash or not getattr(item, "is_sellable", True))
+                      else COLOR_WHITE)
         self.renderer.draw_text(screen, item.name, (rect.x + 10, rect.y + 6),
                                 size="small", color=name_color)
 
@@ -415,3 +498,10 @@ class VendorScreen(BaseScreen):
 
     def _get_close_button_rect(self):
         return pygame.Rect(SCREEN_WIDTH // 2 + 80, SCREEN_HEIGHT - 70, 140, 44)
+
+    def _get_junk_button_rect(self):
+        return pygame.Rect(SCREEN_WIDTH // 2 + 230, SCREEN_HEIGHT - 70, 140, 44)
+
+    def _auto_box_rect(self):
+        # sits under the "Your Items" panel, right-aligned with it
+        return pygame.Rect(self.PLAYER_PANEL_X, self.PANEL_Y + self.PANEL_HEIGHT + 12, 20, 20)

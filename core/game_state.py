@@ -250,6 +250,9 @@ class GameStateManager:
         screen = self.states.get(GameState.VENDOR)
         if screen is None or screen.vendor is not self.current_vendor:
             self.states[GameState.VENDOR] = VendorScreen(self, self.current_vendor)
+        elif self._entered_state_fresh and hasattr(screen, "on_open"):
+            # Same vendor reopened: keep the rolled stock (no re-roll exploit) but reset selection + run auto-sell.
+            screen.on_open()
 
     def _ensure_quest_dialog_screen(self):
         """

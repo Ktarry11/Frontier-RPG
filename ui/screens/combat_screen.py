@@ -1383,11 +1383,25 @@ class CombatScreen(BaseScreen):
                 if len(loots) > len(shown):
                     self.renderer.draw_text(screen, f"+{len(loots) - len(shown)} more (see log)", (loot_box.x + 12, ly), color=(150, 150, 150))
 
+            if player.is_alive():
+                bits = []
+                coin = getattr(self.combat_engine, "copper_earned", 0)
+                if coin:
+                    bits.append(f"Coin: {coin // 10000}g {coin % 10000 // 100}s {coin % 100}c".replace("0g ", "").replace(" 0s", "") if coin >= 100 else f"Coin: {coin}c")
+                trash_n = getattr(self.combat_engine, "trash_gained", 0)
+                if trash_n:
+                    bits.append(f"Vendor trash: {trash_n}")
+                if bits:
+                    line = "    ".join(bits)
+                    lw = self.renderer.font_normal.size(line)[0]
+                    self.renderer.draw_text(screen, line, (SCREEN_WIDTH // 2 - lw // 2, box_y + max(box_h, loot_h) + 2),
+                                            color=(190, 190, 150))
+
             prompt = "Click to return to overworld"
             prompt_width = self.renderer.font_normal.size(prompt)[0]
             self.renderer.draw_text(
                 screen, prompt,
-                (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + max(box_h, loot_h) + 25))
+                (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + max(box_h, loot_h) + 32))
 
     def _draw_buff_icons_mini(self, screen, combatant, pos):
         """

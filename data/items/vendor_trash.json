@@ -1,0 +1,88 @@
+{
+  "_notes": "Vendor trash (grey junk) drop tables. Read by entities/vendor_trash.py. Humanoid-type creatures (coin droppers) are the ONLY ones that drop copper; everything else drops trash by FAMILY (beasts: hides/claws; elementals: cores...). Price = tier.price_level x price_per_level x item.price (ITEM price multiplier). The same base item is reused per level tier with a tier adjective (item_id vt_<family item>_<tier>), and elemental items per element. 'icon' ids are planned names for the vendor trash icon sheet (claude/vendor_trash_icon_prompts.md); icons are optional until the art lands. Humanoids are reserved for cloth (tailoring) later: add a 'cloth' drop for humanoid-shaped creatures (NOT murlocs) when tailoring exists.",
+  "price_per_level": 14,
+  "tiers": [
+    {"max_level": 5,  "adjective": "Crude",    "price_level": 3},
+    {"max_level": 10, "adjective": "Worn",     "price_level": 8},
+    {"max_level": 15, "adjective": "Sound",    "price_level": 13},
+    {"max_level": 22, "adjective": "Fine",     "price_level": 19},
+    {"max_level": 29, "adjective": "Choice",   "price_level": 26},
+    {"max_level": 999, "adjective": "Pristine", "price_level": 33}
+  ],
+  "rates": {
+    "open_zone": {"trash_chance": 0.30, "junk_chance": 0.15, "coin_mult": 1.0},
+    "cave":      {"trash_chance": 0.60, "junk_chance": 0.30, "coin_mult": 1.5}
+  },
+  "boss": {"trash_items": [3, 5], "junk_items": [1, 2], "coin_mult": 4.0},
+  "coin": {"per_level": 10, "bonus_max": 0.5},
+  "elements": {
+    "fire": "Ember", "water": "Tidal", "earth": "Stone", "air": "Gale",
+    "ice": "Rime", "nature": "Verdant", "shadow": "Umbral", "arcane": "Arcane"
+  },
+  "families": {
+    "beast": [
+      {"id": "pelt", "name": "Pelt", "icon": "vt_pelt", "price": 1.0, "weight": 3},
+      {"id": "claw", "name": "Claw", "icon": "vt_claw", "price": 0.9, "weight": 3},
+      {"id": "fang", "name": "Fang", "icon": "vt_fang", "price": 0.9, "weight": 3},
+      {"id": "tusk", "name": "Tusk", "icon": "vt_tusk", "price": 1.0, "weight": 2},
+      {"id": "feathers", "name": "Feather Bundle", "icon": "vt_feathers", "price": 0.7, "weight": 2},
+      {"id": "horn", "name": "Horn Chunk", "icon": "vt_horn_chunk", "price": 1.0, "weight": 2},
+      {"id": "fur", "name": "Fur Tuft", "icon": "vt_fur_tuft", "price": 0.6, "weight": 3},
+      {"id": "membrane", "name": "Wing Membrane", "icon": "vt_wing_membrane", "price": 0.8, "weight": 1},
+      {"id": "hide", "name": "Raw Hide", "icon": "vt_raw_hide", "price": 1.0, "weight": 3},
+      {"id": "scales", "name": "Dried Scales", "icon": "vt_dried_scales", "price": 0.8, "weight": 2}
+    ],
+    "insect": [
+      {"id": "chitin", "name": "Chitin Plate", "icon": "vt_chitin_plate", "price": 1.0, "weight": 3},
+      {"id": "stinger", "name": "Stinger", "icon": "vt_stinger", "price": 1.0, "weight": 3},
+      {"id": "mandibles", "name": "Mandibles", "icon": "vt_mandibles", "price": 0.9, "weight": 2},
+      {"id": "gland", "name": "Venom Gland", "icon": "vt_venom_gland", "price": 1.2, "weight": 2},
+      {"id": "silk", "name": "Silk Ball", "icon": "vt_silk_ball", "price": 0.8, "weight": 3},
+      {"id": "eggsac", "name": "Egg Sac", "icon": "vt_egg_sac", "price": 0.9, "weight": 2}
+    ],
+    "aquatic": [
+      {"id": "fishscales", "name": "Fish Scales", "icon": "vt_fish_scales", "price": 0.8, "weight": 3},
+      {"id": "fin", "name": "Fin", "icon": "vt_fin", "price": 0.8, "weight": 3},
+      {"id": "shell", "name": "Shell", "icon": "vt_shell", "price": 1.0, "weight": 3},
+      {"id": "pearl", "name": "Dull Pearl", "icon": "vt_pearl", "price": 1.8, "weight": 1}
+    ],
+    "undead": [
+      {"id": "bone", "name": "Bone", "icon": "vt_bone", "price": 0.8, "weight": 4},
+      {"id": "jawbone", "name": "Jawbone", "icon": "vt_jawbone", "price": 0.9, "weight": 2},
+      {"id": "shroud", "name": "Shroud Scrap", "icon": "vt_shroud", "price": 0.7, "weight": 3},
+      {"id": "gravedust", "name": "Pouch of Grave Dust", "icon": "vt_grave_dust", "price": 1.0, "weight": 3},
+      {"id": "ghostvial", "name": "Vial of Wisp", "icon": "vt_ghost_vial", "price": 1.4, "weight": 1},
+      {"id": "gravering", "name": "Grave Ring", "icon": "vt_grave_ring", "price": 1.3, "weight": 1}
+    ],
+    "elemental": [
+      {"id": "core", "name": "Core", "icon": "vt_core", "price": 1.5, "weight": 3, "element": true},
+      {"id": "shard", "name": "Shard", "icon": "vt_shard", "price": 1.2, "weight": 3, "element": true},
+      {"id": "mote", "name": "Bottled Mote", "icon": "vt_mote", "price": 1.3, "weight": 2, "element": true},
+      {"id": "geode", "name": "Geode", "icon": "vt_geode", "price": 1.4, "weight": 1, "element": true, "elements": ["earth", "ice", "arcane", "fire"]},
+      {"id": "slag", "name": "Slag", "icon": "vt_slag", "price": 1.0, "weight": 2, "element": true, "elements": ["fire", "earth"]},
+      {"id": "ash", "name": "Ash", "icon": "vt_ash", "price": 0.9, "weight": 2, "element": true, "elements": ["fire", "shadow"]}
+    ],
+    "demon": [
+      {"id": "horn", "name": "Demon Horn", "icon": "vt_demon_horn", "price": 1.2, "weight": 3},
+      {"id": "brimstone", "name": "Brimstone", "icon": "vt_brimstone", "price": 1.0, "weight": 3},
+      {"id": "sigil", "name": "Branded Sigil", "icon": "vt_sigil", "price": 1.3, "weight": 2},
+      {"id": "charclaw", "name": "Charred Claw", "icon": "vt_charred_claw", "price": 1.0, "weight": 2}
+    ],
+    "plant": [
+      {"id": "bark", "name": "Bark Chunk", "icon": "vt_bark", "price": 0.8, "weight": 3},
+      {"id": "seedpod", "name": "Seed Pod", "icon": "vt_seed_pod", "price": 0.8, "weight": 3},
+      {"id": "thorns", "name": "Thorned Vine", "icon": "vt_thorn_vine", "price": 0.9, "weight": 3},
+      {"id": "sporecap", "name": "Spore Cap", "icon": "vt_spore_cap", "price": 1.1, "weight": 2}
+    ],
+    "junk": [
+      {"id": "dagger", "name": "Broken Dagger", "icon": "vt_broken_dagger", "price": 1.0, "weight": 3},
+      {"id": "cup", "name": "Battered Tin Cup", "icon": "vt_tin_cup", "price": 0.7, "weight": 3},
+      {"id": "locket", "name": "Tarnished Locket", "icon": "vt_locket", "price": 1.5, "weight": 1},
+      {"id": "map", "name": "Torn Map Scrap", "icon": "vt_map_scrap", "price": 0.9, "weight": 2},
+      {"id": "dice", "name": "Chipped Dice", "icon": "vt_dice", "price": 0.8, "weight": 2},
+      {"id": "idol", "name": "Crude Idol", "icon": "vt_idol", "price": 1.1, "weight": 2},
+      {"id": "arrowheads", "name": "Bent Arrowheads", "icon": "vt_arrowheads", "price": 0.8, "weight": 3},
+      {"id": "rags", "name": "Tattered Rags", "icon": "vt_rags", "price": 0.6, "weight": 3}
+    ]
+  }
+}
