@@ -863,7 +863,7 @@ def _finish(Z):
         n = q["next_quest_id"]
         assert n is None or n in ids, (q["quest_id"], n)
         for r in q.get("requires_quests", []):
-            assert r in ids or r.startswith(("sp_", "ets_", "etc_")), (q["quest_id"], r)
+            assert r in ids or r.startswith(("sp_", "ets_", "etc_", "spn_", "sps_", "sep_", "fen_")), (q["quest_id"], r)
     return out, ids
 
 

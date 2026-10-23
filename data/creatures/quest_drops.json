@@ -1531,6 +1531,115 @@
         "description": "A pale, waxy gland. Burns clean.",
         "chance": 0.42
       }
+    ],
+    "Venom Stalker": [
+      {
+        "item_id": "sp_wl_venomsac",
+        "name": "Stalker Venom Sac",
+        "category": "quest",
+        "description": "A swollen venom sac, thick as syrup.",
+        "chance": 0.42
+      }
+    ],
+    "Tome Wraith": [
+      {
+        "item_id": "sps_tome_page",
+        "name": "Torn Archive Page",
+        "category": "quest",
+        "description": "A hovering page, ink still wet.",
+        "chance": 0.42
+      }
+    ],
+    "Forsaken Alchemist": [
+      {
+        "item_id": "sps_reagent_vial",
+        "name": "Sealed Reagent Vial",
+        "category": "quest",
+        "description": "A wax-sealed vial. It's warm to the touch.",
+        "chance": 0.42
+      },
+      {
+        "item_id": "sps_helbrim_ledger",
+        "name": "Flask-Stained Ledger",
+        "category": "quest",
+        "description": "A ledger gone green at the edges.",
+        "chance": 0.14,
+        "starts_quest": "sps_at_ledger"
+      }
+    ],
+    "Haunted Servitor": [
+      {
+        "item_id": "sps_servitor_key",
+        "name": "Servant's Key Ring",
+        "category": "quest",
+        "description": "A heavy iron ring of keep keys, still faintly warm.",
+        "chance": 0.42
+      }
+    ],
+    "Isle Banshee": [
+      {
+        "item_id": "fen_banshee_lock",
+        "name": "Banshee's Lock of Hair",
+        "category": "quest",
+        "description": "A pale lock, cold as lake water.",
+        "chance": 0.42
+      }
+    ],
+    "Drowned Harpooner": [
+      {
+        "item_id": "fen_harpoon_head",
+        "name": "Bent Harpoon Head",
+        "category": "quest",
+        "description": "An iron head, bent the same way every time.",
+        "chance": 0.42
+      }
+    ],
+    "Feral Packmaster": [
+      {
+        "item_id": "fen_cur_collar",
+        "name": "Ashbury Hound Collar",
+        "category": "quest",
+        "description": "A studded collar stamped with the Ashbury crest.",
+        "chance": 0.42
+      }
+    ],
+    "Cursed Noble": [
+      {
+        "item_id": "fen_noble_signet",
+        "name": "Noble House Signet",
+        "category": "quest",
+        "description": "A cracked signet ring, still bearing a house's crest.",
+        "chance": 0.42
+      }
+    ],
+    "Moonhowl Worgen": [
+      {
+        "item_id": "fen_moon_fang",
+        "name": "Moonhowl Fang",
+        "category": "quest",
+        "description": "A curved fang, tinted pale as moonlight.",
+        "chance": 0.42
+      }
+    ],
+    "Brood Warden": [
+      {
+        "item_id": "sp_wl_journal",
+        "name": "Silk-Wrapped Journal Page",
+        "category": "quest",
+        "description": "A hunter's last page, wrapped in sticky silk.",
+        "chance": 0.14,
+        "starts_quest": "spn_wl_journal"
+      }
+    ],
+    "Drowned Sailor": [
+      {
+        "item_id": "fen_logbook_page",
+        "name": "Water-Stained Log Page",
+        "category": "quest",
+        "description": "A page from a ship's log, hard to read.",
+        "chance": 0.14,
+        "starts_quest": "fen_logbook_page"
+      }
     ]
   }
 }

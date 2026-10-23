@@ -1,0 +1,2660 @@
+{
+  "quests": [
+    {
+      "quest_id": "spn_wl_brood",
+      "title": "Cleaning the Comb",
+      "giver_npc_id": "sp_sd_webhunter",
+      "zone": "silverpine_north",
+      "level_min": 17,
+      "level_max": 17,
+      "description": "Corvane has seen the inside of the Widow's Lair's mouth and counted what lives there: hatchlings in the thousands and silk-bound weavers tending them. He wants the first rooms thinned before anyone tries the deeper ones.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lair Hatchling",
+          "count": 8,
+          "zone": "widows_lair"
+        },
+        {
+          "type": "kill",
+          "target": "Silkbound Weaver",
+          "count": 5,
+          "zone": "widows_lair"
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "Inside the Lair, around the Web Heart. Hatchlings first. The weavers sit above them and spit.",
+      "turn_in_text": "Fewer legs. That's the best thing I can say about the Lair right now. Take this.",
+      "next_quest_id": "spn_wl_silka",
+      "requires_quests": [
+        "spn_sd_lair"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Velaxis' Shoes",
+          "slot": "feet",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 3.3
+          },
+          "armor_type": "leather",
+          "armor_value": 15,
+          "label": "Leather Boots (Agi/Int/AP)"
+        },
+        {
+          "name": "Velaxis' Fists",
+          "slot": "hands",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 37,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Broodmother's Targe",
+          "slot": "off_hand",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 24,
+          "block_value": 31,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "spn_wl_silka",
+      "title": "The Broodmother",
+      "giver_npc_id": "sp_sd_webhunter",
+      "zone": "silverpine_north",
+      "level_min": 17,
+      "level_max": 17,
+      "description": "The hive buds off a single queen: Broodmother Silka, in the west lair of the Web Heart. Everything Longleg ever was came from her eggs. Corvane wants that line ended.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Broodmother Silka",
+          "count": 1,
+          "zone": "widows_lair"
+        }
+      ],
+      "reward_exp": 1404,
+      "reward_gold": 6240,
+      "accept_text": "West of the Web Heart. Follow the egg sacs. She is what they're all running from.",
+      "turn_in_text": "No more eggs. For the first time since the plague, the woods will have fewer legs than last year. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "spn_wl_brood"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Silk-Spun Boots",
+          "slot": "feet",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.3
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Boots (Agi/Int/AP)"
+        },
+        {
+          "name": "Velaxis' Waistguard",
+          "slot": "waist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.7,
+            "block_rating": 1.0,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Comb-Hardened Longsword",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        },
+        {
+          "name": "Larder-Cured Breeches",
+          "slot": "legs",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "spn_wl_skitter",
+      "title": "The Weaver in the East",
+      "giver_npc_id": "sp_sd_webhunter",
+      "zone": "silverpine_north",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "A second queen-brood sits in the east lair under a weaver named Skitter, who hangs her victims from the ceiling for later. Corvane has watched it from the mouth and wants to stop watching.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Weaver Skitter",
+          "count": 1,
+          "zone": "widows_lair"
+        }
+      ],
+      "reward_exp": 1508,
+      "reward_gold": 6630,
+      "accept_text": "East of the Web Heart. Look up before you step in.",
+      "turn_in_text": "Hung up like laundry. The whole east lair. Well. Not any more.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "spn_wl_brood"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Larder-Cured Leggings",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Sticky at the seams.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Velaxis' Chaps",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 5.0,
+            "parry_rating": 4.3
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Comb-Hardened Spear",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Sticky at the seams.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 21.3,
+            "parry_rating": 16.0
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 52,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        },
+        {
+          "name": "Velaxis' Treads",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "spn_wl_venom",
+      "title": "Venom for Pell",
+      "giver_npc_id": "sp_rg_apothecary",
+      "zone": "silverpine_north",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "Apothecary Pell's venom theory has a new requirement: stalker venom, which is stronger than Silverpine Spider glands by a good half. Bring five sacs from the Lair's Venom Stalkers, and please don't open them to look.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sp_wl_venomsac",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Venom Stalkers inside the Lair. Cut the sac at the base. Seal it. Run.",
+      "turn_in_text": "Oh, that is beautiful. Thick as syrup, green as a corpse. The Dark Lady's Apothecaries will want to hear about this.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "spn_wl_brood"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Silk-Spun Bracers",
+          "slot": "wrist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Sticky at the seams.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 3.6
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Bracers (Agi/Int/AP)"
+        },
+        {
+          "name": "Comb-Hardened Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 39,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Silk-Spun Signet",
+          "slot": "ring",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "spn_wl_larder",
+      "title": "Count the Larder",
+      "giver_npc_id": "sp_sd_webhunter",
+      "zone": "silverpine_north",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "Corvane wants to know how many people the hive has eaten. The answer is in two places, deep in the Lair: the Larder, where they hang the fresh ones, and the Husk Pit, where they drop what's left.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "widows_lair",
+          "target_x": 19,
+          "target_y": 47,
+          "radius": 5
+        },
+        {
+          "type": "explore",
+          "target": "widows_lair",
+          "target_x": 111,
+          "target_y": 47,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Far west and far east of the Web Heart. Stand in each long enough to count.",
+      "turn_in_text": "Forty-one, and I stopped counting. Thank you. I'll send a letter to a few families who'll hate me for it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "spn_wl_brood"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Hive-Cut Pauldrons",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.5
+          },
+          "armor_type": "leather",
+          "armor_value": 24,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Comb-Hardened Gauntlets",
+          "slot": "hands",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Hive-Cut Saber",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "spn_wl_journal",
+      "title": "A Hunter's Last Page",
+      "giver_npc_id": "item:sp_wl_journal",
+      "zone": "silverpine_north",
+      "level_min": 17,
+      "level_max": 19,
+      "description": "A silk-wrapped journal page, pulled from a Brood Warden's carapace. It's a hunter's hand: the last entry begins 'I have counted the exits, and there are only two.' Apothecary Pell was keeping a list of the missing.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sp_wl_journal",
+          "count": 1,
+          "label": "Bring the journal page to Apothecary Pell at the Rear Guard"
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "Pell, at the Rear Guard, with the cauldron. He keeps the list.",
+      "turn_in_text": "Marek Dunn. I had him as 'lost to wolves'. A spider is worse, and better. I'll correct the list.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_rg_apothecary",
+      "unique_item_defs": [
+        {
+          "name": "Larder-Cured Epaulets",
+          "slot": "shoulder",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.8
+          },
+          "armor_type": "leather",
+          "armor_value": 26,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Hive-Cut Circlet",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {
+            "stamina": 3,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Sta/Int/HP)"
+        },
+        {
+          "name": "Silk-Spun Saber",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 13.2,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "spn_wl_velaxis",
+      "title": "The Matriarch of the Spire",
+      "giver_npc_id": "sp_sd_webhunter",
+      "zone": "silverpine_north",
+      "level_min": 19,
+      "level_max": 19,
+      "description": "Above the Web Heart is the Matriarch's Spire, where Velaxis nests: older than Silka, larger than Skitter, and not fond of company. Corvane wants the hive's head cut off, and will not pretend it's anything but a death sentence for whoever tries.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Matriarch Velaxis",
+          "count": 1,
+          "zone": "widows_lair"
+        }
+      ],
+      "reward_exp": 1860,
+      "reward_gold": 8100,
+      "accept_text": "Up the north neck from the Web Heart. The Spire is lit by her eyes.",
+      "turn_in_text": "Eight eyes, all closed. I'll rest easy tonight, and so will the woods. You've earned every copper.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "spn_wl_silka",
+        "spn_wl_skitter"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Larder-Cured Shawl",
+          "slot": "shoulder",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 19,
+          "flavor_text": "Sticky at the seams.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Shoulders (Int/Sta/MP5)"
+        },
+        {
+          "name": "Hive-Cut Leggings",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 19,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {
+            "stamina": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.5
+          },
+          "armor_type": "mail",
+          "armor_value": 77,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Larder-Cured Talisman",
+          "slot": "neck",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 19,
+          "flavor_text": "Cut from a husk and sewn with its own silk.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        },
+        {
+          "name": "Hive-Cut Coif",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 19,
+          "flavor_text": "Spun by something with a great many opinions.",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.7,
+            "crit_chance_physical": 0.7
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_at_vestibule",
+      "title": "Through the Waygate",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 21,
+      "level_max": 21,
+      "description": "With Quillfire silent, Orsolo dares to wonder what the waygate was keeping. The tower's lowest rooms are a vestibule and a reading hall. He wants someone to stand in both and say whether the lamps are still lit.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "ambermill_tower",
+          "target_x": 75,
+          "target_y": 127,
+          "radius": 4
+        },
+        {
+          "type": "explore",
+          "target": "ambermill_tower",
+          "target_x": 75,
+          "target_y": 109,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "Step into the waygate. The vestibule is first. The reading hall is up the stair.",
+      "turn_in_text": "Still lit. Violet. So it's listening. Thank you, truly.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_quillfire"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Hawren's Bracers",
+          "slot": "wrist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Bracers (Int/Sta/MP5)"
+        },
+        {
+          "name": "Atiesh's Coif",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        },
+        {
+          "name": "Waygate-Scribed Band",
+          "slot": "ring",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.2
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 20
+    },
+    {
+      "quest_id": "sps_at_mages",
+      "title": "Lectern Guard",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 21,
+      "level_max": 22,
+      "description": "The reading hall is staffed by the dead: Kirin Tor and Forsaken mages who kept studying after they stopped breathing, and imps bound to the lecterns. Orsolo wants the hall cleared so a scribe can walk it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kirin Tor Mage",
+          "count": 6,
+          "zone": "ambermill_tower"
+        },
+        {
+          "type": "kill",
+          "target": "Forsaken Mage",
+          "count": 6,
+          "zone": "ambermill_tower"
+        },
+        {
+          "type": "kill",
+          "target": "Arcane-Bound Imp",
+          "count": 4,
+          "zone": "ambermill_tower"
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "The Reading Hall and the galleries above. Mages cast first. Imps hold the doors.",
+      "turn_in_text": "A scribe can walk it now. Perhaps even a very brave librarian.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_at_vestibule"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Ambermill Belt",
+          "slot": "waist",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.9
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Belt (Agi/Sta/AP)"
+        },
+        {
+          "name": "Archivist's Mantle",
+          "slot": "shoulder",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.7,
+            "mp5": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Shoulders (Int/SP/MP5)"
+        },
+        {
+          "name": "Waygate-Scribed Hammer",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 21
+    },
+    {
+      "quest_id": "sps_at_tomes",
+      "title": "Pages from the Reading Hall",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "Tome Wraiths are the pages of a book that learned to hover. Orsolo has a theory about who wrote the book. He needs six torn pages to prove it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_tome_page",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "Tome Wraiths haunt the galleries. Take the pages off them. Do not read aloud.",
+      "turn_in_text": "I know this hand. I know this hand. Hawren. It was Hawren all along. Hawren, who taught me to read.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_at_mages"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Orrery-Lit Breastplate",
+          "slot": "chest",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 98,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Orrery-Lit Cowl",
+          "slot": "head",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.7,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Helm (Int/SP/Crit)"
+        },
+        {
+          "name": "Waygate-Scribed Ring",
+          "slot": "ring",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 21
+    },
+    {
+      "quest_id": "sps_at_hawren",
+      "title": "Magister Hawren",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "Magister Hawren was Orsolo's teacher, and keeps the Archivist's Gallery. He no longer remembers a pupil's name. Orsolo cannot do it himself.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Magister Hawren",
+          "count": 1,
+          "zone": "ambermill_tower"
+        }
+      ],
+      "reward_exp": 1924,
+      "reward_gold": 8190,
+      "accept_text": "The Archivist's Gallery, west of the reading hall. He is surrounded by his own pages.",
+      "turn_in_text": "He'd want to be remembered for something better. I'll try to oblige.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_at_tomes"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Hawren's Chaps",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "crit_chance_physical": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Hawren's Cuisses",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 4.2,
+            "block_rating": 7.7,
+            "dodge_rating": 5.1
+          },
+          "armor_type": "plate",
+          "armor_value": 102,
+          "label": "Plate Legs (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Atiesh's Shortbow",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.0
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        },
+        {
+          "name": "Waygate-Scribed Armguards",
+          "slot": "wrist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 34,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_at_spellblades",
+      "title": "Saws That Cut Back",
+      "giver_npc_id": "sp_amber_millwright",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "The mill's saws were enchanted to run themselves. The tower's enchanted blades are the same kind of fool: bright, quick and indifferent to who they cut. Haskell has lost two apprentices to the lesser ones.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Animated Spellblade",
+          "count": 7,
+          "zone": "ambermill_tower"
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "All through the tower. They're the ones that glint. They don't tire.",
+      "turn_in_text": "Quieter. I've got my last two apprentices counting sawblades and sorting nails. That's all I'll ask of them for a month.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_at_vestibule"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Waygate-Scribed Coif",
+          "slot": "head",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 49,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Waygate-Scribed Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1.8,
+            "block_rating": 3.0,
+            "dodge_rating": 1.8
+          },
+          "armor_type": "plate",
+          "armor_value": 73,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Archivist's Knife",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 21
+    },
+    {
+      "quest_id": "sps_at_reagents",
+      "title": "Lab Reagents",
+      "giver_npc_id": "sp_amber_millwright",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "The Alchemy Lab was Dalaran's best-stocked apothecary outside the Violet Citadel, and its alchemists never stopped brewing. Haskell wants five sealed reagent vials, before the lab's slow poison gets out of hand.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_reagent_vial",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "The Alchemy Lab, north-east of the lower hall. Forsaken Alchemists carry them on their belts.",
+      "turn_in_text": "Sealed, thank the Light, and not yet leaking. I'll have them neutralised by dawn.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_at_vestibule"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Atiesh's Tunic",
+          "slot": "chest",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 10.4,
+            "crit_chance_spell": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 20,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "Waygate-Scribed Cuirass",
+          "slot": "chest",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 98,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Atiesh's Longbow",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 21
+    },
+    {
+      "quest_id": "sps_at_ledger",
+      "title": "A Ledger Gone Green",
+      "giver_npc_id": "item:sps_helbrim_ledger",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 23,
+      "description": "A flask-stained ledger pulled from an alchemist's coat. Page after page of orders for 'reagents of discretion', all initialled H.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sps_helbrim_ledger",
+          "count": 1,
+          "label": "Bring the ledger to Millwright Haskell at Ambermill"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "Haskell, at the mill. He'll recognise the initials.",
+      "turn_in_text": "H. Helbrim. He sold the mill its lamp-oil, and I'd have said he was a decent man. Not any more.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_amber_millwright",
+      "unique_item_defs": [
+        {
+          "name": "Atiesh's Leggings",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Orrery-Lit Chaps",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 5.9,
+            "parry_rating": 4.2
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Hawren's Shortbow",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Footnoted in three languages.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 22
+    },
+    {
+      "quest_id": "sps_at_helbrim",
+      "title": "Apothecary Helbrim",
+      "giver_npc_id": "sp_amber_millwright",
+      "zone": "silverpine_south",
+      "level_min": 23,
+      "level_max": 23,
+      "description": "Apothecary Helbrim runs the lab, if running is the word for a man who has been brewing the same batch for decades. He calls it research. Haskell calls it murder.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Apothecary Helbrim",
+          "count": 1,
+          "zone": "ambermill_tower"
+        }
+      ],
+      "reward_exp": 2028,
+      "reward_gold": 8580,
+      "accept_text": "The Alchemy Lab. Follow the smell. Wear something you'd be happy to burn.",
+      "turn_in_text": "It's over, then. Not a clean ending, but a final one. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_at_reagents"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Atiesh's Cuirass",
+          "slot": "chest",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "defense_rating": 0.8,
+            "dodge_rating": 0.8
+          },
+          "armor_type": "plate",
+          "armor_value": 107,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Waygate-Scribed Treads",
+          "slot": "feet",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 22,
+          "label": "Leather Boots (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Archivist's Hatchet",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Violet at the seam, ink at the cuff.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "armor": 18.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Orrery-Lit Bracers",
+          "slot": "wrist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Bracers (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_at_atiesh",
+      "title": "The Archmage at the Top",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 23,
+      "level_max": 23,
+      "description": "The tower's last occupant is Archmage Atiesh, who keeps the Observatory where the waygate was aimed. Orsolo wants to know what he was aiming at, and hopes the answer dies with him.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Archmage Atiesh",
+          "count": 1,
+          "zone": "ambermill_tower"
+        }
+      ],
+      "reward_exp": 2340,
+      "reward_gold": 9900,
+      "accept_text": "The very top, in the Observatory. The stair is long. Don't stop on the landings.",
+      "turn_in_text": "He aimed it at the stars. Just the stars. And then the stars aimed back. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_at_hawren",
+        "sps_at_helbrim"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Waygate-Scribed Belt",
+          "slot": "waist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Ambermill Breeches",
+          "slot": "legs",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 12.6,
+            "crit_chance_spell": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Legs (Int/SP/Crit)"
+        },
+        {
+          "name": "Ambermill Hatchet",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Footnoted in three languages.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        },
+        {
+          "name": "Archivist's Greathelm",
+          "slot": "head",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Dalaran-stitched and slightly haunted.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 80,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_at_orrery",
+      "title": "The Last Lamp in the Orrery",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 23,
+      "level_max": 23,
+      "description": "The Orrery is the Observatory's twin: a round room full of little worlds, all still turning. Orsolo wants someone to stand in both and put out the lamps by being there.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "ambermill_tower",
+          "target_x": 75,
+          "target_y": 16,
+          "radius": 5
+        },
+        {
+          "type": "explore",
+          "target": "ambermill_tower",
+          "target_x": 126,
+          "target_y": 15,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "Observatory first, then the Orrery to the east. Stand a minute each.",
+      "turn_in_text": "Dark. Both of them. The waygate sleeps. I'll lock it and keep the key somewhere stupid.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_amber_magister",
+      "requires_quests": [
+        "sps_at_atiesh"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Ambermill Wraps",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Boots (Int/Sta/MP5)"
+        },
+        {
+          "name": "Waygate-Scribed Waistguard",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.9,
+            "block_rating": 1.3,
+            "dodge_rating": 0.9
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Hawren's Necklace",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Footnoted in three languages.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 22
+    },
+    {
+      "quest_id": "sps_sfk_bailey",
+      "title": "Inside the Portcullis",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Nobody comes out of Shadowfang Keep and talks about the forecourt. Marl wants someone to walk past the gatehouse, into the Outer Bailey, and say what's inside.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "shadowfang_keep",
+          "target_x": 100,
+          "target_y": 170,
+          "radius": 4
+        },
+        {
+          "type": "explore",
+          "target": "shadowfang_keep",
+          "target_x": 100,
+          "target_y": 142,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "Through the portcullis, the gatehouse passage, and out into the bailey. Stand by the fountain. It's dry.",
+      "turn_in_text": "A dry fountain and a lot of bones. I'd imagined worse. You've got the nerve to go further.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_forecourt"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Arugal's Mitts",
+          "slot": "hands",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 7.2,
+            "mp5": 1.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Gloves (Int/SP/MP5)"
+        },
+        {
+          "name": "Shadowfang Bracers",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 18,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Keep-Hall Necklace",
+          "slot": "neck",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.8
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_sfk_hounds",
+      "title": "Keep Hounds",
+      "giver_npc_id": "sp_peril_packbreaker",
+      "zone": "silverpine_south",
+      "level_min": 20,
+      "level_max": 21,
+      "description": "Packbreaker Rynn knows the worgen on the hills. The ones in the keep are worse: Arugal's own hounds, kennelled and fed on things that were once people. She wants the kennels thinned before she calls them a pack.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Keep Worg",
+          "count": 8,
+          "zone": "shadowfang_keep"
+        },
+        {
+          "type": "kill",
+          "target": "Slavering Worg",
+          "count": 6,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "The Kennels, west of the bailey. They bark at nothing. It isn't nothing.",
+      "turn_in_text": "A thinner pack. Now it's a fight I can pick.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_bailey"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Moon-Marked Girdle",
+          "slot": "waist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.1
+          },
+          "armor_type": "mail",
+          "armor_value": 31,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Shadowfang Cord",
+          "slot": "waist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 7.6,
+            "crit_chance_spell": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Belt (Int/SP/Crit)"
+        },
+        {
+          "name": "Shadowfang Buckler",
+          "slot": "off_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "armor_value": 31,
+          "block_value": 39,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 20
+    },
+    {
+      "quest_id": "sps_sfk_rethilgore",
+      "title": "The Kennel-Master",
+      "giver_npc_id": "sp_peril_packbreaker",
+      "zone": "silverpine_south",
+      "level_min": 21,
+      "level_max": 21,
+      "description": "Rethilgore keeps the keep's hounds, and keeps them hungry. He was a decent man in Pyrewood. Rynn would like him buried before the keep makes him decent again.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Rethilgore",
+          "count": 1,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 1820,
+      "reward_gold": 7800,
+      "accept_text": "The Kennels, the big pen in the west wing. He'll have a chain.",
+      "turn_in_text": "He fed them first, even then. I can respect that, I suppose.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_hounds"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Silverlaine's Cloak",
+          "slot": "back",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Moon-Marked Vambraces",
+          "slot": "wrist",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 64,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Moon-Marked Longsword",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        },
+        {
+          "name": "Moon-Marked Belt",
+          "slot": "waist",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 6.9
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Belt (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_sfk_razorclaw",
+      "title": "The Butcher of the Yard",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "The Butcher's Yard is east of the bailey, and Razorclaw keeps it: a worgen with a cleaver where a hand ought to be. Marl has heard the chopping from the gate for years.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Razorclaw the Butcher",
+          "count": 1,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 1924,
+      "reward_gold": 8190,
+      "accept_text": "East of the bailey. Follow the sound.",
+      "turn_in_text": "The chopping's stopped. Thank the Light. I'll sleep, for the first time in a long while.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_bailey"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Shadowfang Sabatons",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Keep-Hall Hauberk",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 9.6
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Chest (Int/Hit/SP)"
+        },
+        {
+          "name": "Shadowfang Pendant",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.8
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        },
+        {
+          "name": "Keep-Hall Gauntlets",
+          "slot": "hands",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.0
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_sfk_guards",
+      "title": "The Unrelieved",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "The keep's old guard never left their posts. Guardsmen wail where they stood; officers keep giving orders to no one. Marl wants them relieved, one way or another.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Wailing Guardsman",
+          "count": 8,
+          "zone": "shadowfang_keep"
+        },
+        {
+          "type": "kill",
+          "target": "Tormented Officer",
+          "count": 5,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "The Great Hall and the passages around it. Officers first, then the men.",
+      "turn_in_text": "Relieved. All of them. It's a kindness, and I'm glad it wasn't me who had to.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_bailey"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Moon-Marked Greathelm",
+          "slot": "head",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 5.6
+          },
+          "armor_type": "plate",
+          "armor_value": 73,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Shadowfang Leggings",
+          "slot": "legs",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 3.2
+          },
+          "armor_type": "mail",
+          "armor_value": 65,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Kennel-Warden's Scepter",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 21
+    },
+    {
+      "quest_id": "sps_sfk_keys",
+      "title": "Servants' Keys",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "The Haunted Servitors still carry the keep's keys on their belts. Marl wants four, so the doors to the cloisters and the armoury stop being a gamble.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_servitor_key",
+          "count": 4
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "The Great Hall and the cloisters. Servitors carry a ring each. Take the ring.",
+      "turn_in_text": "The right doors, and none of them haunted. Almost enough to make a man hopeful.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_guards"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Keep-Hall Pauldrons",
+          "slot": "shoulder",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 73,
+          "label": "Plate Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Shadowfang Vest",
+          "slot": "chest",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 40,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Moon-Marked Charm",
+          "slot": "neck",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 21
+    },
+    {
+      "quest_id": "sps_sfk_silverlaine",
+      "title": "Baron Silverlaine",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 23,
+      "level_max": 23,
+      "description": "Baron Silverlaine owned Pyrewood and Shadowfang and half the pines between. He sits on his dais in the Great Hall and receives no one. Marl would prefer the hall empty.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Baron Silverlaine",
+          "count": 1,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 2028,
+      "reward_gold": 8580,
+      "accept_text": "The Great Hall, at the far end. He doesn't stand. He doesn't need to.",
+      "turn_in_text": "A fitting end, I suppose. He'd have called it a very modest funeral.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_keys"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Keep-Hall Cord",
+          "slot": "waist",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Belt (Int/Spi/HP)"
+        },
+        {
+          "name": "Arugal's Girdle",
+          "slot": "waist",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 70,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Keep-Hall Band",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "label": "Ring (Int/Spi/HP)"
+        },
+        {
+          "name": "Kennel-Warden's Bracers",
+          "slot": "wrist",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 7.4
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Bracers (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 23,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_sfk_moonwalkers",
+      "title": "Moon-Touched",
+      "giver_npc_id": "sp_peril_packbreaker",
+      "zone": "silverpine_south",
+      "level_min": 22,
+      "level_max": 23,
+      "description": "Arugal's cult is half sorcerers and half worgen who haven't yet decided. Rynn calls them moonwalkers and darksouls, and says the keep teems with them. She wants twelve of them down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shadowfang Moonwalker",
+          "count": 6,
+          "zone": "shadowfang_keep"
+        },
+        {
+          "type": "kill",
+          "target": "Shadowfang Darksoul",
+          "count": 6,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "All through the keep, wherever you hear chanting. Casters first.",
+      "turn_in_text": "Fewer chants. Perhaps the moon will go unremarked tonight.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_bailey"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Kennel-Warden's Shroud",
+          "slot": "back",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 6.4,
+            "hit_rating": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Cloak (Int/SP/Hit)"
+        },
+        {
+          "name": "Keep-Hall Leggings",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Moon-Marked Stiletto",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2.2,
+            "parry_rating": 1.6
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 22
+    },
+    {
+      "quest_id": "sps_sfk_cloister",
+      "title": "The Haunted Cloister",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 23,
+      "level_max": 23,
+      "description": "West of the Great Hall a stone cloister runs to Fenrus' crypt, and nobody has walked it in years. Marl wants it walked, start to end, by someone who'll tell him whether the crypt door is open.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "shadowfang_keep",
+          "target_x": 42,
+          "target_y": 92,
+          "radius": 4
+        },
+        {
+          "type": "explore",
+          "target": "shadowfang_keep",
+          "target_x": 33,
+          "target_y": 53,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "Out of the west door of the Great Hall, down the cloister, into the crypt.",
+      "turn_in_text": "Open. I'd hoped. I'd feared. Both, honestly.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_silverlaine"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Arugal's Jerkin",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.2
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Kennel-Warden's Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 51,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Kennel-Warden's Loop",
+          "slot": "ring",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 22
+    },
+    {
+      "quest_id": "sps_sfk_fenrus",
+      "title": "Fenrus the Devourer",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 24,
+      "level_max": 24,
+      "description": "Fenrus was Arugal's first experiment and his least successful. He devours things in the crypt, and nothing that goes in comes out. Marl would like to be the exception.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Fenrus the Devourer",
+          "count": 1,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 2132,
+      "reward_gold": 8970,
+      "accept_text": "In the crypt, at the end of the cloister. Mind the sarcophagi. They breathe.",
+      "turn_in_text": "He ate his handler, and then his handler's replacement. Thank you for being the exception.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_cloister"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Arugal's Helm",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "block_rating": 0.7,
+            "block_value": 6.4
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Silverlaine's Boots",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2.4,
+            "parry_rating": 1.9
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Silverlaine's Scepter",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 41,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        },
+        {
+          "name": "Shadowfang Skirt",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 77.9,
+            "mp5": 17.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Legs (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_sfk_sons",
+      "title": "Arugal's Get",
+      "giver_npc_id": "sp_peril_packbreaker",
+      "zone": "silverpine_south",
+      "level_min": 24,
+      "level_max": 24,
+      "description": "The inner keep is stocked with Arugal's best: Sons of Arugal in half-turned shapes, Lupine Horrors that don't fit through doors, and Deathsworn Captains who command them. Rynn will not call them a pack.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Son of Arugal",
+          "count": 6,
+          "zone": "shadowfang_keep"
+        },
+        {
+          "type": "kill",
+          "target": "Lupine Horror",
+          "count": 3,
+          "zone": "shadowfang_keep"
+        },
+        {
+          "type": "kill",
+          "target": "Deathsworn Captain",
+          "count": 4,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "The crypt, the armoury and the upper landing. Don't fight them in a corridor.",
+      "turn_in_text": "Not a pack. A cult, with fangs. Fewer of those is a victory.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_silverlaine"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Keep-Hall Chain Belt",
+          "slot": "waist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.8
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Keep-Hall Bracers",
+          "slot": "wrist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 53,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Arugal's Cleaver",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 23
+    },
+    {
+      "quest_id": "sps_sfk_arugal",
+      "title": "The Archmage's Folly",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 25,
+      "level_max": 25,
+      "description": "Archmage Arugal opened the door that let the worgen into Lordaeron, and now sits at the top of the keep with his tower of shadow. Marl has stood at his gate for years and would like to see the other side of it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Archmage Arugal",
+          "count": 1,
+          "zone": "shadowfang_keep"
+        }
+      ],
+      "reward_exp": 2752,
+      "reward_gold": 11520,
+      "accept_text": "The upper landing, and then the Sanctum. Don't stop. Don't answer when he speaks.",
+      "turn_in_text": "Arugal, dead. I'll lock the gate and sit for a while. Thank you. You'll never need to buy a drink at my post.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_sfk_silverlaine"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Silverlaine's Cuffs",
+          "slot": "wrist",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Torn at the sleeve by something large.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Bracers (Int/Sta/SP)"
+        },
+        {
+          "name": "Moon-Marked Gauntlets",
+          "slot": "hands",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Smells of wet fur and old candles.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 51,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Arugal's Hatchet",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "armor": 26.2,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 48,
+          "weapon_damage_max": 66,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Kennel-Warden's Belt",
+          "slot": "waist",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Worn in the keep, and not removed since.",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 31,
+          "label": "Leather Belt (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 25,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

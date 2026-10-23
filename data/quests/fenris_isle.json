@@ -1,0 +1,2433 @@
+{
+  "quests": [
+    {
+      "quest_id": "fen_walk_spine",
+      "title": "Walk the Spine Road",
+      "giver_npc_id": "fenris_pier_warden",
+      "zone": "fenris_isle",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "The only road on Fenris Isle runs from the pier to the manor. Pier-Warden Hask has not walked it since the crossing. He wants someone to walk it to the manor gate and tell him what's changed.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "fenris_isle",
+          "target_x": 80,
+          "target_y": 92,
+          "radius": 5
+        },
+        {
+          "type": "explore",
+          "target": "fenris_isle",
+          "target_x": 80,
+          "target_y": 64,
+          "radius": 5
+        },
+        {
+          "type": "explore",
+          "target": "fenris_isle",
+          "target_x": 80,
+          "target_y": 46,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Village, crossroads, manor gate. Stay on the road. The isle doesn't like strays.",
+      "turn_in_text": "The road holds. I thought it wouldn't. Thank you. Take this.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Cursed-Shore Mantle",
+          "slot": "back",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Salt in every seam.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Cloak (Sta/Int/HP)"
+        },
+        {
+          "name": "Tidewrack Greaves",
+          "slot": "legs",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Salt-Cursed Band",
+          "slot": "ring",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Dried on a driftwood fire.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "fen_shore_crawlers",
+      "title": "Crawlers on the Strand",
+      "giver_npc_id": "fenris_pier_warden",
+      "zone": "fenris_isle",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "The shore around the pier is crowded with tidewrack crawlers, picking at what the lake delivers, and rabid wolves that follow them. Hask wants a path he can walk without a knife.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tidewrack Crawler",
+          "count": 8,
+          "zone": "fenris_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Rabid Wolf",
+          "count": 6,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Anywhere along the shore. Crawlers dig. Wolves snap.",
+      "turn_in_text": "A shore a man can stand on. I'll hang a lantern and see who comes.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Salt-Cursed Cloak",
+          "slot": "back",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Salt in every seam.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.9,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Cloak (Int/SP/Crit)"
+        },
+        {
+          "name": "Cursed-Shore Vambraces",
+          "slot": "wrist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 1.0,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Cursed-Shore Ring",
+          "slot": "ring",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Dried on a driftwood fire.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.3
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "fen_cursed_shore",
+      "title": "The Cursed Shore",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "Elder Gravemoss guards what's left of Bloodmoon Village. The worgen stalkers have been creeping closer every night, and the cursed villagers have started to look in the windows.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Feral Worgen Stalker",
+          "count": 8,
+          "zone": "fenris_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Cursed Villager",
+          "count": 6,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Out in the open ground around the village. Stalkers hunt in threes. Villagers hunt in silence.",
+      "turn_in_text": "I can sleep, now, for a night or two. Thank you. It matters more than you'll know.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Salt-Cursed Mantle",
+          "slot": "back",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Strand-Worn Chestguard",
+          "slot": "chest",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Cursed-Shore Pendant",
+          "slot": "neck",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Dried on a driftwood fire.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "fen_isle_banshees",
+      "title": "Banshees of the Strand",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "The drowned still sing along the strand, and the banshees singing back are the worst of it. Gravemoss wants them quiet.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Isle Banshee",
+          "count": 8,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "The Cursed Shore, along the beaches. They sing at dusk.",
+      "turn_in_text": "Quiet. I'd forgotten the quiet. It's almost worse.",
+      "next_quest_id": "fen_banshee_locks",
+      "requires_quests": [
+        "fen_cursed_shore"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Isle-Hardened Fists",
+          "slot": "hands",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Salt in every seam.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Isle-Hardened Hood",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Dried on a driftwood fire.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Int/Sta/SP)"
+        },
+        {
+          "name": "Strand-Worn Hatchet",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 13.2,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "fen_banshee_locks",
+      "title": "A Lock of Hair",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "level_min": 19,
+      "level_max": 19,
+      "description": "Every banshee leaves a lock of hair behind when she fades. Gravemoss has a theory the locks are anchors, and wants five to bury under the village stones.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "fen_banshee_lock",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "From the banshees, after they fade. Gently. They remember being people.",
+      "turn_in_text": "They go in the ground by the well. It's the best I can do for them.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_isle_banshees"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Strand-Worn Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Cursed-Shore Visor",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Salt in every seam.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1.1,
+            "block_rating": 2.1,
+            "dodge_rating": 1.6
+          },
+          "armor_type": "plate",
+          "armor_value": 63,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Salt-Cursed Sword",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Salt in every seam.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 13.2,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "fen_ancient_curse_beast",
+      "title": "The Ancient Curse-Beast",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "level_min": 21,
+      "level_max": 21,
+      "description": "Something older than the curse walks the Cursed Shore: a bear the size of a barn, wrapped in its own rot. The villagers call it the Ancient Curse-Beast, and nobody who hunts it has gone twice.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ancient Curse-Beast",
+          "count": 1,
+          "zone": "fenris_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Rabid Wolf",
+          "count": 4,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1820,
+      "reward_gold": 7800,
+      "accept_text": "It wanders the Shore. Follow the destroyed trees. The wolves won't go near it.",
+      "turn_in_text": "It was already old when the curse came. I'd like to think it's resting.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_cursed_shore"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Salt-Cursed Cuffs",
+          "slot": "wrist",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "Salt in every seam.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Salt-Cursed Sash",
+          "slot": "waist",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Belt (Int/Sta/MP5)"
+        },
+        {
+          "name": "Salt-Cursed Spear",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "Dried on a driftwood fire.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6
+          },
+          "weapon_damage_min": 57,
+          "weapon_damage_max": 77,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        },
+        {
+          "name": "Cursed-Shore Pauldrons",
+          "slot": "shoulder",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 21,
+          "flavor_text": "The tide left it, and the curse kept it.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 96,
+          "label": "Plate Shoulders (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "fen_drowned_docks",
+      "title": "The Drowned Docks",
+      "giver_npc_id": "fenris_village_elder",
+      "zone": "fenris_isle",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "The south-west docks are where the drowned come ashore, and the bilge rats come with them. Huntsman Corwell lost a boat there, and a nephew, and wants the docks clear.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Sailor",
+          "count": 8,
+          "zone": "fenris_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Bilge Rat Swarm",
+          "count": 6,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The Drowned Docks, south-west of the village. Sailors on the beach, rats under the boards.",
+      "turn_in_text": "A cleaner dock. I won't pretend my nephew's coming back. But the boat's safe to look at.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Harpooner's Sabatons",
+          "slot": "feet",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Captain's Wraps",
+          "slot": "hands",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Gloves (Int/Spi/HP)"
+        },
+        {
+          "name": "Lakewater Flail",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "fen_harpoons",
+      "title": "Heads of Harpoons",
+      "giver_npc_id": "fenris_village_elder",
+      "zone": "fenris_isle",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "The Drowned Harpooners carry iron heads Corwell's family forged, and every one is bent the same way. He wants five for the smithy, to be melted and made right.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "fen_harpoon_head",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "From the Drowned Harpooners at the docks. Take the heads, not the poles.",
+      "turn_in_text": "Bent by cold lake. I'll bring them back to something honest.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_drowned_docks"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Brine-Stiff Vestments",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells like a drowned ship.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 9.6,
+            "crit_chance_spell": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "Brine-Stiff Boots",
+          "slot": "feet",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.7
+          },
+          "armor_type": "leather",
+          "armor_value": 18,
+          "label": "Leather Boots (Agi/Sta/AP)"
+        },
+        {
+          "name": "Lakewater Dagger",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Stiff with lake salt.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "fen_wretches",
+      "title": "What the Lake Gave Back",
+      "giver_npc_id": "fenris_village_elder",
+      "zone": "fenris_isle",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Waterlogged Wretches drag themselves up the beach at night. They were fishermen, once. Corwell would like to see them off.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Waterlogged Wretch",
+          "count": 8,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "The beach at the Drowned Docks, and the shingle west of the jetty.",
+      "turn_in_text": "I knew four of them. I'm sorry for all of them. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_drowned_docks"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Drowned-Docks Coat",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells like a drowned ship.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.1
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Harpooner's Byrnie",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells like a drowned ship.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 59,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Captain's Spear",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "fen_logbook_page",
+      "title": "A Water-Stained Page",
+      "giver_npc_id": "item:fen_logbook_page",
+      "zone": "fenris_isle",
+      "level_min": 18,
+      "level_max": 20,
+      "description": "A page from a ship's log, pulled from a Drowned Sailor's pocket. The last line reads: 'The Captain locked the hatch from the outside.' Corwell kept the drowned ship's roster.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "fen_logbook_page",
+          "count": 1,
+          "label": "Bring the page to Huntsman Corwell in Bloodmoon Village"
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "Corwell, in the village. He kept the roster.",
+      "turn_in_text": "So that's what happened to the Captain's crew. I'd wondered. Thank you.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "fenris_village_elder",
+      "unique_item_defs": [
+        {
+          "name": "Drowned-Docks Wraps",
+          "slot": "feet",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Smells like a drowned ship.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Boots (Sta/Int/HP)"
+        },
+        {
+          "name": "Harpooner's Helm",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Stiff with lake salt.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 44,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Captain's Pike",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 18.1,
+            "parry_rating": 13.6
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "fen_captains_ghost",
+      "title": "The Captain's Ghost",
+      "giver_npc_id": "fenris_village_elder",
+      "zone": "fenris_isle",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "The ship's Captain still walks the docks, wrapped in water and rage, hunting the men he locked below. Corwell has the roster and the shame of it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain's Ghost",
+          "count": 1,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1924,
+      "reward_gold": 8190,
+      "accept_text": "On the jetty at the Drowned Docks, at night. He looks for his crew.",
+      "turn_in_text": "He'll trouble no more crews. I hope the lake gives him back his rest.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_harpoons"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Brine-Stiff Gloves",
+          "slot": "hands",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 9.5,
+            "crit_chance_spell": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Gloves (Int/SP/Crit)"
+        },
+        {
+          "name": "Captain's Bracers",
+          "slot": "wrist",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 67,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Lakewater Scepter",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        },
+        {
+          "name": "Lakewater Gloves",
+          "slot": "hands",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Hauled out of a wreck and dried by hand.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 44,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "fen_curs_grave",
+      "title": "Cur's Grave",
+      "giver_npc_id": "fenris_grave_hunter",
+      "zone": "fenris_isle",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "The east of the isle is a boneyard for hounds: worgs and curs, bred for the Baron's hunt, buried with their masters. Gravehunter Selke says they've started to dig themselves out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Grave Worg",
+          "count": 8,
+          "zone": "fenris_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Bone-Strewn Cur",
+          "count": 6,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "The east lobe, past the crossroads. They dig around the old stones.",
+      "turn_in_text": "Fewer dogs underfoot. I'll take it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Selke's Slippers",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Hide-tough and bone-stitched.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 6.8,
+            "mp5": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Boots (Int/SP/MP5)"
+        },
+        {
+          "name": "Alpha's Boots",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Hide-tough and bone-stitched.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 5.0
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Boots (Agi/Int/AP)"
+        },
+        {
+          "name": "Alpha's Ring",
+          "slot": "ring",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Patchwork of ten different pelts.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "fen_collars",
+      "title": "Packmasters' Collars",
+      "giver_npc_id": "fenris_grave_hunter",
+      "zone": "fenris_isle",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "The Feral Packmasters wear the Baron's old collars: iron, studded, stamped with the Ashbury crest. Selke wants five, to be sure nobody wears them again.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "fen_cur_collar",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "The Packmasters in Cur's Grave. Cut the strap. Don't touch the studs.",
+      "turn_in_text": "A crest, five times over. The Baron owned everything on this isle, even the dogs.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_curs_grave"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Selke's Hood",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Hide-tough and bone-stitched.",
+          "primary_stats": {
+            "agility": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Cur's-Grave Cuffs",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Hide-tough and bone-stitched.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 29,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Alpha's Cleaver",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Chewed at the hem.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "fen_cur_wardens",
+      "title": "The Keepers of the Kennel",
+      "giver_npc_id": "fenris_grave_hunter",
+      "zone": "fenris_isle",
+      "level_min": 20,
+      "level_max": 21,
+      "description": "The Cur-Wardens keep the graves and the dogs in them, and they speak in a language nobody has heard since the curse. Selke wants six of them quiet.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cur-Warden",
+          "count": 6,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "Cur's Grave, among the stones. They chant at dusk.",
+      "turn_in_text": "Quiet, at last. I don't need to understand what they said.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_curs_grave"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Cur's-Grave Girdle",
+          "slot": "waist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Patchwork of ten different pelts.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.8
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Belt (Agi/Sta/AP)"
+        },
+        {
+          "name": "Cur's-Grave Breastplate",
+          "slot": "chest",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Hide-tough and bone-stitched.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 2.4,
+            "block_rating": 4.8,
+            "dodge_rating": 3.2
+          },
+          "armor_type": "plate",
+          "armor_value": 93,
+          "label": "Plate Chest (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Cur's-Grave Talisman",
+          "slot": "neck",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Patchwork of ten different pelts.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.4
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 20
+    },
+    {
+      "quest_id": "fen_alpha_cur",
+      "title": "The Alpha Cur",
+      "giver_npc_id": "fenris_grave_hunter",
+      "zone": "fenris_isle",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "The hounds of Cur's Grave follow one: a scarred, grey, impossibly large cur. The Baron's last hunt-leader. Selke wants it off the boneyard.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Alpha Cur",
+          "count": 1,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1924,
+      "reward_gold": 8190,
+      "accept_text": "The middle of the boneyard, among the stones. You'll hear it first.",
+      "turn_in_text": "He led them well. I'll bury him with the rest. It's the least I can do.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_collars"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Kennel-Cured Wraps",
+          "slot": "shoulder",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Chewed at the hem.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        },
+        {
+          "name": "Kennel-Cured Chausses",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Chewed at the hem.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Packmaster's Dirk",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Hide-tough and bone-stitched.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        },
+        {
+          "name": "Alpha's Sabatons",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Chewed at the hem.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "fen_manor_approach",
+      "title": "Eyes on the Gate",
+      "giver_npc_id": "fenris_keep_scout",
+      "zone": "fenris_isle",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Scout Merrin has been watching Baron Ashbury's manor for three nights and hasn't seen a living thing. She wants someone to walk to the gate and into the forecourt.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "fenris_isle",
+          "target_x": 80,
+          "target_y": 52,
+          "radius": 4
+        },
+        {
+          "type": "explore",
+          "target": "fenris_isle",
+          "target_x": 80,
+          "target_y": 44,
+          "radius": 3
+        },
+        {
+          "type": "explore",
+          "target": "fenris_isle",
+          "target_x": 80,
+          "target_y": 36,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "The spine road north. Past the ridge walls, through the cracked gate, up to the fountain.",
+      "turn_in_text": "Nothing stopped you. That's what worries me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Fenris Proper Cowl",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Stitched in better days.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.1,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Int/SP/Crit)"
+        },
+        {
+          "name": "Merrin's Greathelm",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 66,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Merrin's Stiletto",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.2
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "fen_manor_guards",
+      "title": "The Unrelieved Guard",
+      "giver_npc_id": "fenris_keep_scout",
+      "zone": "fenris_isle",
+      "level_min": 20,
+      "level_max": 21,
+      "description": "Ashbury's guard never left their posts. Footmen walk the forecourt; guardians hold the gate. Merrin wants them relieved.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Fenris Guardian",
+          "count": 6,
+          "zone": "fenris_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Ashbury's Footman",
+          "count": 6,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "The manor forecourt and the walls either side of the gate.",
+      "turn_in_text": "Relieved. The Baron will be lonely.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_manor_approach"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Manor-Born Spaulders",
+          "slot": "shoulder",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Gate-Watch Gauntlets",
+          "slot": "hands",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Stitched in better days.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.2,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Gloves (Dodge/Parry)"
+        },
+        {
+          "name": "Gate-Watch Rod",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Stitched in better days.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.6
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 20
+    },
+    {
+      "quest_id": "fen_manor_hounds",
+      "title": "Hounds of the Manor",
+      "giver_npc_id": "fenris_keep_scout",
+      "zone": "fenris_isle",
+      "level_min": 20,
+      "level_max": 21,
+      "description": "The Baron's hounds roam the manor grounds, and the worgen keepers who feed them. Merrin has seen the keepers eat what they were meant to feed.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Manor Hound",
+          "count": 6,
+          "zone": "fenris_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Worgen Keeper",
+          "count": 5,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "The grounds around the manor, east and west of the forecourt.",
+      "turn_in_text": "The grounds are quiet. The manor is not.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_manor_approach"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Fenris Proper Chausses",
+          "slot": "legs",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 62,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Fenris Proper Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Moth-eaten but dignified.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 70,
+          "label": "Plate Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Merrin's Ring",
+          "slot": "ring",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Moth-eaten but dignified.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.8
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 20
+    },
+    {
+      "quest_id": "fen_noble_signets",
+      "title": "Signets of the Cursed",
+      "giver_npc_id": "fenris_keep_scout",
+      "zone": "fenris_isle",
+      "level_min": 21,
+      "level_max": 21,
+      "description": "The Cursed Nobles of Fenris Proper still wear their house signets. Merrin wants four, to prove to the Rear Guard who sat at Ashbury's table.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "fen_noble_signet",
+          "count": 4
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "The Cursed Nobles in the forecourt and the manor grounds. Take the rings.",
+      "turn_in_text": "Four houses, four names. The Rear Guard will want these.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_manor_guards"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Ashbury's Handguards",
+          "slot": "hands",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Moth-eaten but dignified.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 31,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Manor-Born Mantle",
+          "slot": "back",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Cloak (Int/Spi/HP)"
+        },
+        {
+          "name": "Fenris Proper Hatchet",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 3.0,
+            "parry_rating": 2.4
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 20
+    },
+    {
+      "quest_id": "fen_baron_ashbury",
+      "title": "Baron Ashbury",
+      "giver_npc_id": "fenris_keep_scout",
+      "zone": "fenris_isle",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "Baron Ashbury ruled Fenris Isle alive, and rules it worse dead. He sits in the manor hall and waits for the next guest to disappoint him. Merrin would like to see him disappointed.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Baron Ashbury",
+          "count": 1,
+          "zone": "fenris_isle"
+        }
+      ],
+      "reward_exp": 2220,
+      "reward_gold": 9450,
+      "accept_text": "In the manor, past the forecourt. Dress for a funeral.",
+      "turn_in_text": "The manor's quiet. The Baron is down. It's an odd thing to say, after all this.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_manor_guards",
+        "fen_noble_signets"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Ashbury's Coif",
+          "slot": "head",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Moth-eaten but dignified.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 7.2
+          },
+          "armor_type": "mail",
+          "armor_value": 51,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Merrin's Cuirass",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Stitched in better days.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 102,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Manor-Born Saber",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        },
+        {
+          "name": "Fenris Proper Wristguards",
+          "slot": "wrist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Cut for a house that no longer stands.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Bracers (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "fen_altar_arch",
+      "title": "The Arch in the Ridge",
+      "giver_npc_id": "fenris_altar_warden",
+      "zone": "fenris_isle",
+      "level_min": 20,
+      "level_max": 20,
+      "description": "The curse was cast under the west ridge, in the Shadowpine Altar, and Warden Orlan has watched its arch for ten years. He wants someone to stand at the foot of the stair and tell him the air is still wrong.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "shadowpine_altar",
+          "target_x": 75,
+          "target_y": 111,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "The arch in the western ridge. The stair is below it.",
+      "turn_in_text": "Still wrong. Of course. Thank you for confirming.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Orlan's Hood",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Cut under a borrowed moon.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.1,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Int/SP/Hit)"
+        },
+        {
+          "name": "Orlan's Chain Belt",
+          "slot": "waist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Marked with something that looks back.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.1
+          },
+          "armor_type": "mail",
+          "armor_value": 29,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Fenris' Rod",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Cut under a borrowed moon.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.9,
+            "crit_chance_spell": 0.3
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "fen_altar_cultists",
+      "title": "The Shadowpine Circle",
+      "giver_npc_id": "fenris_altar_warden",
+      "zone": "fenris_isle",
+      "level_min": 20,
+      "level_max": 21,
+      "description": "The Shadowpine Circle never left: cultists and risen bone-warders keep the altar's rites going, long after the cause was lost. Orlan wants them thinned.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shadowpine Cultist",
+          "count": 8,
+          "zone": "shadowpine_altar"
+        },
+        {
+          "type": "kill",
+          "target": "Altar Bonewalker",
+          "count": 6,
+          "zone": "shadowpine_altar"
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "The Altar's passages and circles. Cultists cast. Bonewalkers shield.",
+      "turn_in_text": "The rites will go on, I suppose. But slower.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_altar_arch"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Fenris' Pauldrons",
+          "slot": "shoulder",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Cut under a borrowed moon.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 70,
+          "label": "Plate Shoulders (Str/Sta/Def)"
+        },
+        {
+          "name": "Bone-Circle Coif",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        },
+        {
+          "name": "Orlan's Hammer",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 20
+    },
+    {
+      "quest_id": "fen_altar_aldric",
+      "title": "Bonewarden Aldric",
+      "giver_npc_id": "fenris_altar_warden",
+      "zone": "fenris_isle",
+      "level_min": 21,
+      "level_max": 21,
+      "description": "Bonewarden Aldric keeps the Bone Circle, west of the stair, and has for centuries. He's made of the things he keeps. Orlan wants him unmade.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Bonewarden Aldric",
+          "count": 1,
+          "zone": "shadowpine_altar"
+        }
+      ],
+      "reward_exp": 1820,
+      "reward_gold": 7800,
+      "accept_text": "The Bone Circle, the western cavern. Walk the stair and turn left.",
+      "turn_in_text": "He was a good warden, once. He guarded the wrong thing.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_altar_cultists"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Shadowpine Shoes",
+          "slot": "feet",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Moon-Bound Gloves",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Gloves (Int/Sta/SP)"
+        },
+        {
+          "name": "Bone-Circle Longbow",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Marked with something that looks back.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.9
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        },
+        {
+          "name": "Fenris' Handguards",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 49,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 21,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "fen_altar_tael",
+      "title": "Curse Keeper Tael",
+      "giver_npc_id": "fenris_altar_warden",
+      "zone": "fenris_isle",
+      "level_min": 22,
+      "level_max": 22,
+      "description": "Curse Keeper Tael tends the Moon Circle in the east, feeding the moonstone with whatever the cult throws at it. He doesn't need to be there. He's been there for centuries.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Curse Keeper Tael",
+          "count": 1,
+          "zone": "shadowpine_altar"
+        }
+      ],
+      "reward_exp": 1924,
+      "reward_gold": 8190,
+      "accept_text": "The Moon Circle, east across the long road. Don't watch the moonstone.",
+      "turn_in_text": "He won't tend it any more. The stone will dim, or it won't. Either way, thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_altar_cultists"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Fenris' Tunic",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 7.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 28,
+          "label": "Cloth Chest (Int/Spi/HP)"
+        },
+        {
+          "name": "Orlan's Shoes",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Marked with something that looks back.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 28,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Orlan's Scepter",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.5
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        },
+        {
+          "name": "Bone-Circle Handguards",
+          "slot": "hands",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Cut under a borrowed moon.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 67,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 22,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "fen_altar_moonhowl",
+      "title": "Moonhowl",
+      "giver_npc_id": "fenris_altar_warden",
+      "zone": "fenris_isle",
+      "level_min": 22,
+      "level_max": 23,
+      "description": "The Altar's worgen howl at a moon the cavern can't see. Orlan wants eight of them down, five of the wraiths that walk with them, and five moon-fangs for the cairn.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Moonhowl Worgen",
+          "count": 8,
+          "zone": "shadowpine_altar"
+        },
+        {
+          "type": "kill",
+          "target": "Altar Wraith",
+          "count": 5,
+          "zone": "shadowpine_altar"
+        },
+        {
+          "type": "fetch",
+          "target": "fen_moon_fang",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "The Altar's circles and the long roads between. Fangs from the worgen.",
+      "turn_in_text": "A cairn of fangs. The curse should keep its distance for a season.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_altar_cultists"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Shadowpine Spaulders",
+          "slot": "shoulder",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Cut under a borrowed moon.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.6
+          },
+          "armor_type": "leather",
+          "armor_value": 32,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Fenris' Legplates",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Marked with something that looks back.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 3.4,
+            "block_rating": 5.9,
+            "dodge_rating": 4.2
+          },
+          "armor_type": "plate",
+          "armor_value": 102,
+          "label": "Plate Legs (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Fenris' Mace",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Cut under a borrowed moon.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "armor": 14.5,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 22
+    },
+    {
+      "quest_id": "fen_altar_fenris",
+      "title": "Alpha Fenris",
+      "giver_npc_id": "fenris_altar_warden",
+      "zone": "fenris_isle",
+      "level_min": 24,
+      "level_max": 24,
+      "description": "At the top of the Altar Ring, the curse has a shape: Alpha Fenris, the first worgen, the one the isle is named for. Orlan has waited ten years to see him dead.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Alpha Fenris",
+          "count": 1,
+          "zone": "shadowpine_altar"
+        }
+      ],
+      "reward_exp": 2624,
+      "reward_gold": 11040,
+      "accept_text": "The Altar Ring, at the top of the long climb. Take whichever road you prefer. They all end at his door.",
+      "turn_in_text": "Fenris is dead. After ten years, I'll sit, and stop watching the arch.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "fen_altar_aldric",
+        "fen_altar_tael"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Orlan's Chestguard",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Warm, faintly, where it touches skin.",
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "block_rating": 1.4,
+            "block_value": 14.6
+          },
+          "armor_type": "plate",
+          "armor_value": 146,
+          "label": "Plate Chest (Sta/Block/BV)"
+        },
+        {
+          "name": "Moon-Bound Bindings",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Cut under a borrowed moon.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 4.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Bracers (Int/Spi/HP)"
+        },
+        {
+          "name": "Ritual-Scribed Hatchet",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Marked with something that looks back.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "armor": 25.3,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 64,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Bone-Circle Spaulders",
+          "slot": "shoulder",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Marked with something that looks back.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.9,
+            "parry_rating": 0.7
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "fen_isle_reckoning",
+      "title": "The Isle's Reckoning",
+      "giver_npc_id": "bloodmoon_elder",
+      "zone": "fenris_isle",
+      "level_min": 21,
+      "level_max": 22,
+      "description": "Four reports have reached Gravemoss: the Curse-Beast, the Captain, the Alpha Cur and the Baron are all down. He'd like the person who carried those four threads back to stand at the well, where he can thank them properly.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "fenris_isle",
+          "target_x": 80,
+          "target_y": 104,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 2220,
+      "reward_gold": 9450,
+      "accept_text": "Back to the village square. Stand by the well.",
+      "turn_in_text": "Four bosses, four reports, one hero. Bloodmoon Village has no gold to give you, so it gives you what it has.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "bloodmoon_elder",
+      "requires_quests": [
+        "fen_ancient_curse_beast",
+        "fen_captains_ghost",
+        "fen_alpha_cur",
+        "fen_baron_ashbury"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Cursed-Shore Waistguard",
+          "slot": "waist",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Salt in every seam.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 5.0
+          },
+          "armor_type": "plate",
+          "armor_value": 49,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Cursed-Shore Legguards",
+          "slot": "legs",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Dried on a driftwood fire.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 3.2
+          },
+          "armor_type": "mail",
+          "armor_value": 65,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Cursed-Shore Talisman",
+          "slot": "neck",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Dried on a driftwood fire.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 21
+    }
+  ]
+}
