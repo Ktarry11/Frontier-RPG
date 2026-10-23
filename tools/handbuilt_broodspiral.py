@@ -274,14 +274,14 @@ def build_broodspiral():
     pack(3.9, [(Cr, 22), (Sp, 22)])
     pack(3.4, [(Cr, 22), (Sk, 22)])
     pack(2.95, [(Se, 22), (K, 22)])
-    room_pack(gx, gy, [(Lv, 22), (Lv, 22), (Lv, 22)], spread=7.5, start=0.9)              # larvae in their nursery
+    room_pack(gx, gy, [(Lv, 22), (Wv, 22), (Sp, 22)], spread=7.5, start=0.9)              # larvae in their nursery
     # ---- the last approach (23): queen's own guard
     pack(1.7, [(Se, 22), (Se, 23)])
     pack(1.2, [(Wv, 23), (Cr, 23)])
     pack(0.7, [(Se, 23), (Lv, 23), (Lv, 23)])
     room_pack(CX, CY, [(Se, 23), (Se, 23)], spread=11.0, start=2.4)                       # sentinels at the throne
     # ---- nurseries
-    for key, members in (("amberwing", [(D, 20), (D, 20)]), ("gnash", [(Lv, 22), (Lv, 22)]),
+    for key, members in (("amberwing", [(D, 20), (D, 20)]), ("gnash", [(Wv, 22), (Sp, 22)]),
                          ("skrix", [(Wv, 23), (Wv, 23)]), ("eggs", [(D, 20), (D, 20), (K, 21)])):
         x, y = nook_pos[key]
         room_pack(x, y, members, spread=3.8, start=1.1)

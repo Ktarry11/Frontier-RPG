@@ -55,9 +55,9 @@ def qd(item_id, name, desc, chance):
 
 QUEST_DROPS = {
     "Hive Weaver": [qd("hive_amber_shard", "Hive-Amber Shard",
-                       "A shard of hard golden resin with something very small, and very annoyed, preserved inside.", 0.5)],
+                       "A shard of hard golden resin with something very small, and very annoyed, preserved inside.", 1.0)],
     "Resin Spitter": [qd("hive_amber_shard", "Hive-Amber Shard",
-                         "A shard of hard golden resin with something very small, and very annoyed, preserved inside.", 0.25)],
+                         "A shard of hard golden resin with something very small, and very annoyed, preserved inside.", 0.6)],
 }
 
 
