@@ -642,12 +642,13 @@ class OverworldScreen(BaseScreen):
                     party_size = len(party.members) if party else 1
                     enemies = []
                     if self.zone_manager.is_in_cave():
-                        # Fixed cave spawns stay single-mob; the mob you see
-                        # is the mob you fight, by design. This also catches
-                        # the one pinned boss chamber in a random-roll cave.
-                        spawn = self.zone_manager.check_fixed_spawn()
+                        # Fixed cave spawns: the mobs you see are the mobs you
+                        # fight - a lone boss/rare, or a PACK of 3-4 that pulls
+                        # together (dungeon trash). This also catches the one
+                        # pinned boss chamber in a random-roll cave.
+                        spawn = self.zone_manager.check_fixed_spawn_group()
                         if spawn:
-                            enemies = [spawn]
+                            enemies = spawn
                         elif (not self.zone_manager.has_fixed_spawns()
                               and random.random() < self.zone_manager.encounter_chance()):
                             enemies = self.zone_manager.trigger_encounter_group(

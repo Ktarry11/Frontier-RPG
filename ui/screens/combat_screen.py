@@ -147,11 +147,12 @@ class CombatScreen(BaseScreen):
                                           enemies=enemies, zone=combat_zone_key)  # loot_dropped resets to None here
         self.message_log = []  # Clear old messages
 
+        foes = enemy.name if len(enemies) <= 1 else f"{len(enemies)} enemies ({', '.join(e.name for e in enemies)})"
         if len(party.members) > 1:
             self.message_log.append(
-                f"Combat started: {len(party.members)} party members vs {enemy.name}!")
+                f"Combat started: {len(party.members)} party members vs {foes}!")
         else:
-            self.message_log.append(f"Combat started: {player.name} vs {enemy.name}!")
+            self.message_log.append(f"Combat started: {player.name} vs {foes}!")
         self.message_log.append("---")
         
         # Auto-slot abilities if the hotbar is completely empty (first
@@ -1341,10 +1342,13 @@ class CombatScreen(BaseScreen):
             gap = 20
             exp_earned = getattr(self.combat_engine, "exp_earned", 0)
             loot = getattr(self.combat_engine, "loot_dropped", None)
+            # Multi-mob pulls roll loot once PER enemy, so show every drop (not just the last).
+            loots = list(getattr(self.combat_engine, "loot_gained", None) or ([loot] if loot else []))
+            loot_h = box_h if len(loots) <= 1 else 38 + 20 * min(5, len(loots)) + (20 if len(loots) > 5 else 0)
 
             # Two side-by-side boxes when both exist; a single centered box
             # when only one applies (e.g. a defeat with no loot roll).
-            boxes_shown = int(bool(player.is_alive())) + int(bool(loot))
+            boxes_shown = int(bool(player.is_alive())) + int(bool(loots))
             if boxes_shown == 2:
                 exp_box = pygame.Rect(SCREEN_WIDTH // 2 - box_w - gap // 2, box_y, box_w, box_h)
                 loot_box = pygame.Rect(SCREEN_WIDTH // 2 + gap // 2, box_y, box_w, box_h)
@@ -1362,24 +1366,28 @@ class CombatScreen(BaseScreen):
                     (exp_box.centerx - exp_text_w // 2, exp_box.y + 22),
                     size="large", color=COLOR_GOLD)
 
-            if loot:
-                loot_color = loot.get_rarity_color()
+            if loots:
+                shown = loots[:5]
+                if len(loots) > 1:
+                    loot_box = pygame.Rect(loot_box.x, loot_box.y, box_w + 60, loot_h)
                 self.renderer.draw_rect(screen, loot_box, (30, 30, 40))
-                self.renderer.draw_rect(screen, loot_box, loot_color, fill=False)
+                self.renderer.draw_rect(screen, loot_box, shown[-1].get_rarity_color(), fill=False)
                 self.renderer.draw_text(
-                    screen, "Loot:",
+                    screen, "Loot:" if len(loots) == 1 else f"Loot ({len(loots)}):",
                     (loot_box.x + 12, loot_box.y + 10), color=(180, 180, 180))
-                loot_lines = self.renderer.wrap_text(loot.name, loot_box.width - 24)
                 ly = loot_box.y + 32
-                for line in loot_lines[:2]:
-                    self.renderer.draw_text(screen, line, (loot_box.x + 12, ly), color=loot_color)
-                    ly += 20
+                for it in shown:
+                    for line in self.renderer.wrap_text(it.name, loot_box.width - 24)[:1 if len(loots) > 1 else 2]:
+                        self.renderer.draw_text(screen, line, (loot_box.x + 12, ly), color=it.get_rarity_color())
+                        ly += 20
+                if len(loots) > len(shown):
+                    self.renderer.draw_text(screen, f"+{len(loots) - len(shown)} more (see log)", (loot_box.x + 12, ly), color=(150, 150, 150))
 
             prompt = "Click to return to overworld"
             prompt_width = self.renderer.font_normal.size(prompt)[0]
             self.renderer.draw_text(
                 screen, prompt,
-                (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + box_h + 25))
+                (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + max(box_h, loot_h) + 25))
 
     def _draw_buff_icons_mini(self, screen, combatant, pos):
         """

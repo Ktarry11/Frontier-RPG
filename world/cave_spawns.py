@@ -26,13 +26,16 @@ import random
 class SpawnPoint:
     """A single fixed encounter sitting on a specific tile."""
 
-    def __init__(self, x, y, creature_name, is_boss=False, level=None):
+    def __init__(self, x, y, creature_name, is_boss=False, level=None, members=None):
         self.x = x
         self.y = y
         self.creature_name = creature_name
         self.is_boss = is_boss
         self.level = level
         self.defeated = False
+        # A PACK: every member is on its own tile and stepping next to ANY of them pulls them all into one fight
+        # (group dungeon pulls of 3-4). members = [(x, y, name, level), ...]; a plain spawn is a pack of one.
+        self.members = list(members) if members else [(x, y, creature_name, level)]
 
     def __repr__(self):
         state = "defeated" if self.defeated else "active"
@@ -203,7 +206,18 @@ class CaveSpawnManager:
         # Placed exactly where the layout author put them (room by room, level ramping with depth); the
         # random scatter below is only the fallback for dungeons that have not been authored yet.
         hand = getattr(cave_map, "trash_spawns", None)
-        if place_trash and hand:
+        packs = getattr(cave_map, "trash_packs", None)
+        if place_trash and packs:
+            # PACKS (tools/dungeon_pulls.py): each pack is one pull of 3-4 mobs that fight together.
+            for pack in packs:
+                for (hx, hy, hname, hlevel) in pack:
+                    if hname not in self.creature_manager.creatures:
+                        raise ValueError(f"{cave_map.name}: trash_packs creature '{hname}' has no entry in creatures.json")
+                    if not cave_map.is_walkable(hx, hy):
+                        raise ValueError(f"{cave_map.name}: trash_packs '{hname}' at ({hx},{hy}) is not walkable")
+                lead = pack[0]
+                self.spawns.append(SpawnPoint(lead[0], lead[1], lead[2], level=lead[3], members=pack))
+        elif place_trash and hand:
             for entry in hand:
                 hx, hy, hname = entry[0], entry[1], entry[2]
                 hlevel = entry[3] if len(entry) > 3 else None
@@ -239,13 +253,24 @@ class CaveSpawnManager:
         for sp in self.spawns:
             if sp.defeated:
                 continue
-            if abs(sp.x - x) <= self.TRIGGER_RADIUS and abs(sp.y - y) <= self.TRIGGER_RADIUS:
-                return sp
+            for (mx, my, _n, _l) in sp.members:
+                if abs(mx - x) <= self.TRIGGER_RADIUS and abs(my - y) <= self.TRIGGER_RADIUS:
+                    return sp
         return None
 
     def consume(self, spawn_point):
         """Mark a spawn as defeated so it never fires again this visit."""
         spawn_point.defeated = True
+
+    def build_monsters(self, spawn_point):
+        """Every Monster of a spawn point (a pack pulls together), tagged as cave kills."""
+        out = []
+        for (_x, _y, name, level) in spawn_point.members:
+            m = self.creature_manager.spawn_creature(name, level)
+            if m:
+                m.location_type = "cave"
+                out.append(m)
+        return out
 
     def build_monster(self, spawn_point):
         """Instantiate the Monster for a spawn point, tagged as a cave kill."""
@@ -274,4 +299,5 @@ class CaveSpawnManager:
         the map screen doesn't use this method at all (it reads
         self.spawns directly, see ui/screens/map_screen.py), so extending
         this tuple shape only affects the overworld live-view renderer."""
-        return [(s.x, s.y, s.is_boss, s.creature_name) for s in self.spawns if not s.defeated]
+        return [(mx, my, s.is_boss, mn) for s in self.spawns if not s.defeated
+                for (mx, my, mn, _ml) in s.members]

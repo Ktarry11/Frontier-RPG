@@ -527,6 +527,18 @@ class ZoneManager:
         self.pending_spawn = sp
         return monster
 
+    def check_fixed_spawn_group(self):
+        """Like check_fixed_spawn but returns the WHOLE pack (list of Monsters) - dungeon pulls of 3-4 fight together."""
+        if not self.is_in_cave():
+            return []
+        sp = self.cave_spawns.spawn_at(self.player_x, self.player_y)
+        if not sp:
+            return []
+        monsters = self.cave_spawns.build_monsters(sp)
+        self.cave_spawns.consume(sp)
+        self.pending_spawn = sp
+        return monsters
+
     def try_use_portal(self):
         """
         Check if the player is standing on a portal or boat tile and, if so,

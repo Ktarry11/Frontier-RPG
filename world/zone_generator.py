@@ -5793,4 +5793,9 @@ def create_all_zones():
     zones["Razorfen Kraul"] = generate_razorfen_kraul()
     zones["The Broodspiral"] = generate_the_broodspiral()
 
+    # Group pulls: dungeons with fixed trash get 3-4 mob packs (data/dungeons/trash_packs.json, built by
+    # tools/build_dungeon_pulls.py; no-op for a dungeon that has no entry).
+    from world.dungeon_packs import apply_packs
+    apply_packs(zones)
+
     return zones
