@@ -3622,6 +3622,110 @@ SILVERPINE_NORTH_KITS = {
     ],
 }
 
+SILVERPINE_SOUTH_KITS = {
+    # ================= SILVERPINE SOUTH rebuild (2026-10-23): L15-20 =============================================
+    # Bucklebree Farm (15-17)
+    "blightfed_hog": [
+        ("Tusk Gore", "damage", 28, 0, 0, "physical", {}),
+        ("Festering Tusk", "dot", 9, 4, 0, "nature", {"duration": 4}),
+    ],
+    "barn_ghoul": [
+        ("Hay-Rot Claw", "damage", 30, 0, 0, "physical", {}),
+        ("Mouldering Touch", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"armor": -16}}),
+    ],
+    "tusk_mother_gorra": [            # rare sow, Bucklebree Farm (L17)
+        ("Gore", "damage", 40, 0, 0, "physical", {}),
+        ("Trampling Charge", "damage", 30, 3, 0, "physical", {"is_aoe": True}),
+        ("Mother's Rage", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 24}}),
+    ],
+    # Deep Elem Mine (16-18)
+    "deep_elem_digger": [
+        ("Pick Strike", "damage", 31, 0, 0, "physical", {}),
+        ("Rock Throw", "damage", 38, 3, 0, "physical", {}),
+    ],
+    "mine_shambler": [
+        ("Crushing Fist", "damage", 33, 0, 0, "physical", {}),
+        ("Cave Dust", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+    "gnawbone_foreman": [             # rare kobold foreman, Deep Elem Mine (L18)
+        ("Bone Cleaver", "damage", 42, 0, 0, "physical", {}),
+        ("Cave-In", "damage", 32, 3, 0, "physical", {"is_aoe": True}),
+        ("Foreman's Roar", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 24}}),
+    ],
+    # Valgan's Field (16-18)
+    "field_deserter": [
+        ("Backstab", "damage", 33, 0, 0, "physical", {}),
+        ("Bleeding Cut", "dot", 11, 3, 0, "physical", {"duration": 4}),
+    ],
+    "battlefield_wight": [
+        ("Rusted Sword", "damage", 34, 0, 0, "physical", {}),
+        ("Dread Chill", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"attack_power": -16}}),
+    ],
+    # Berard's Talon (17-19)
+    "crag_stalker": [
+        ("Pounce", "damage", 35, 0, 0, "physical", {}),
+        ("Rake", "dot", 11, 3, 0, "physical", {"duration": 4}),
+    ],
+    "talon_wraith": [
+        ("Shadow Bolt", "damage", 35, 0, 18, "shadow", {}),
+        ("Keening Wail", "debuff", 0, 4, 16, "shadow", {"duration": 3, "stat_mods": {"intellect": -16}}),
+    ],
+    "berard_the_forgotten": [         # rare ghost, Berard's Talon (L19)
+        ("Phantom Blow", "damage", 44, 0, 0, "shadow", {}),
+        ("Soul Rend", "dot", 15, 3, 0, "shadow", {"duration": 4}),
+        ("Wailing Grief", "debuff", 0, 5, 0, "shadow", {"duration": 3, "stat_mods": {"armor": -20}}),
+    ],
+    # Beren's Peril (18-20)
+    "peril_packmaster": [
+        ("Savage Claw", "damage", 37, 0, 0, "physical", {}),
+        ("Rend Flesh", "dot", 12, 3, 0, "physical", {"duration": 4}),
+        ("Pack Howl", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 20}}),
+    ],
+    "bloodmaw_alpha": [               # rare alpha worgen, Beren's Peril (L20)
+        ("Maul", "damage", 46, 0, 0, "physical", {}),
+        ("Rending Bite", "dot", 16, 3, 0, "physical", {"duration": 4}),
+        ("Alpha's Howl", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 26}}),
+    ],
+    # Greymane Wall (18-20)
+    "wallbreaker_worgen": [
+        ("Leap Slash", "damage", 36, 0, 0, "physical", {}),
+        ("Frenzy", "buff", 0, 5, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 18}}),
+    ],
+    "wall_wraith": [
+        ("Spectral Blade", "damage", 37, 0, 0, "shadow", {}),
+        ("Grave Chill", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"armor": -18}}),
+    ],
+    "wall_warden": [                  # rare ghost warden, the Greymane Wall (L20)
+        ("Warden's Strike", "damage", 46, 0, 0, "physical", {}),
+        ("Cleave", "damage", 34, 3, 0, "physical", {"is_aoe": True}),
+        ("Shield Wall", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 50}}),
+    ],
+    # Ambermill (18-20)
+    "ambermill_ghost_mage": [
+        ("Frostbolt", "damage", 36, 0, 20, "frost", {}),
+        ("Arcane Missiles", "damage", 44, 3, 26, "arcane", {}),
+    ],
+    "ambermill_warden": [
+        ("Arcane Slam", "damage", 37, 0, 0, "arcane", {}),
+        ("Ward of the Mill", "buff", 0, 6, 0, "arcane", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+    ],
+    "magister_quillfire": [           # rare ghost magister, Ambermill (L20)
+        ("Arcane Barrage", "damage", 46, 0, 28, "arcane", {}),
+        ("Quill-Fire", "dot", 16, 3, 24, "fire", {"duration": 4}),
+        ("Mana Ward", "buff", 0, 6, 26, "arcane", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40, "intellect": 24}}),
+    ],
+    # The Decrepit Ferry (16-18)
+    "drowned_deckhand": [
+        ("Boat Hook", "damage", 31, 0, 0, "physical", {}),
+        ("Waterlogged", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+    "drowned_ferryman": [             # rare ghost, the Decrepit Ferry (L18)
+        ("Oar Smash", "damage", 41, 0, 0, "physical", {}),
+        ("Drowning Pull", "dot", 14, 3, 0, "nature", {"duration": 4}),
+        ("Lakewater Curse", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"attack_power": -20}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3631,7 +3735,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

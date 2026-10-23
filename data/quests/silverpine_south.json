@@ -1,0 +1,4038 @@
+{
+  "quests": [
+    {
+      "quest_id": "sps_scout_report",
+      "title": "A Report for the March",
+      "giver_npc_id": "sp_south_gate_scout",
+      "zone": "silverpine_south",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "Deathguard Lyle has watched the south road from the gate for months. He has a short, grim report for Sergeant Dallow at Valgan's Field and no one to send. He would very much like it to arrive without having been read.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sps_scout_report",
+          "count": 1,
+          "label": "Deliver the scout's report to Sergeant Dallow at Valgan's Field"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "South along the trunk road. The field camp is under the banners, past the crossroad. Dallow will take it from you.",
+      "turn_in_text": "Lyle always did write short. Two lines, a smudge, and a warning. I'll make something of it.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_south_march_sergeant",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sps_scout_report",
+            "name": "Lyle's Scout Report",
+            "description": "A single folded page, sealed with a drop of black wax.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Dallow's Waistguard",
+          "slot": "waist",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 35,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Dallow's Hood",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 12.6,
+            "mp5": 2.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Helm (HP/MP5)"
+        },
+        {
+          "name": "March-Issue Walking Stick",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.6
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 18,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sps_forsaken_march",
+      "title": "Clear the March",
+      "giver_npc_id": "sp_south_march_sergeant",
+      "zone": "silverpine_south",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "The March exists to keep the road to Ambermill open, and the road is full of wolves and the leavings of bears that died of something the Apothecaries haven't named. Dallow wants both thinned before the next supply train.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Diseased Wolf",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Zombie Bear",
+          "count": 5,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Anywhere in the pines south of the gate. Wolves and bears. If it's limping and drooling, it's the one.",
+      "turn_in_text": "Quieter roads, fewer drovers screaming. You're a credit to the March.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "March-Issue Vestments",
+          "slot": "chest",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.4,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "March-Issue Grips",
+          "slot": "hands",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 14,
+          "label": "Leather Gloves (Str/Agi/Sta)"
+        },
+        {
+          "name": "March-Issue Signet",
+          "slot": "ring",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.0
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sps_deserters",
+      "title": "Walk-Aways",
+      "giver_npc_id": "sp_south_march_sergeant",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 17,
+      "description": "Some of the March did not stay. A few dozen Forsaken, tired of orders, walked off Valgan's Field and set up as brigands on the farm. Dallow takes this personally, as the walking-off was done under his nose.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Field Deserter",
+          "count": 8,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "Valgan's Field, the ruined farm around my camp. They wear March coats with the insignia torn off.",
+      "turn_in_text": "I'd hoped they'd come back on their own. They didn't. Thank you for doing what I couldn't.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_forsaken_march"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Dallow's Visor",
+          "slot": "head",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "block_rating": 0.5,
+            "block_value": 4.7
+          },
+          "armor_type": "plate",
+          "armor_value": 56,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Cold-Rations Handguards",
+          "slot": "hands",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "armor_type": "mail",
+          "armor_value": 24,
+          "label": "Mail Gloves (Sta/Spi/HP)"
+        },
+        {
+          "name": "Field-Camp Wand",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.3,
+            "crit_chance_spell": 0.3
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "sps_deserter_tags",
+      "title": "Dog Tags",
+      "giver_npc_id": "sp_south_march_sergeant",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 17,
+      "description": "Every March soldier is issued an iron tag, stamped with a number. Dallow keeps the roll, and wants the tags of the deserters, so that when someone else asks who left, he can say who and by what number.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_deserter_tag",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "Off the bodies of the deserters. Iron tags on a cord. Six of them.",
+      "turn_in_text": "Six names off the roll. They'll be remembered, though perhaps not kindly.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_forsaken_march"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Dallow's Bindings",
+          "slot": "wrist",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 6.5,
+            "mp5": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Bracers (HP/MP5)"
+        },
+        {
+          "name": "Valgan's Treads",
+          "slot": "feet",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 37,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Field-Camp Flail",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 11.7,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 35,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "sps_deserter_letter",
+      "title": "The Letter in the Pocket",
+      "giver_npc_id": "item:sps_deserter_letter",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "A letter, taken from a dead deserter's pocket, addressed to someone in the Undercity. The seal is unbroken. Whatever it says, someone in the March ought to read it before it's posted.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sps_deserter_letter",
+          "count": 1,
+          "label": "Bring the letter to Sergeant Dallow"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Dallow, at Valgan's Field. He will want to know who the deserters were writing to.",
+      "turn_in_text": "A mother, in Brill. The man was nineteen. Gods. I'll see she's told the right way.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_south_march_sergeant",
+      "unique_item_defs": [
+        {
+          "name": "Cold-Rations Epaulets",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 24,
+          "label": "Leather Shoulders (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Field-Camp Skirt",
+          "slot": "legs",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Trench-Worn Charm",
+          "slot": "neck",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.3
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_wight_bones",
+      "title": "Bones for the Surgeon",
+      "giver_npc_id": "sp_valgan_surgeon",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "Field Surgeon Ashe has run out of replacement bone. The battlefield wights of Valgan's Field wear the bones of better men, and she is not too proud to recycle them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_wight_bone",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The wights on the field. Take the long bones - arms and legs. Cleaned, if you can.",
+      "turn_in_text": "These'll do. Slightly used, slightly regretful. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Field-Camp Cape",
+          "slot": "back",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.8
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Cloak (Agi/Int/AP)"
+        },
+        {
+          "name": "Dallow's Handguards",
+          "slot": "hands",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 26,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Valgan's Band",
+          "slot": "ring",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_deathguard_captain",
+      "title": "The Captain Who Never Stopped",
+      "giver_npc_id": "sp_south_march_sergeant",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "A Deathguard Captain has been fighting the Third War on Valgan's Field since before Dallow arrived. He does not answer to orders, rank, or reason, and the March cannot hold the field while he walks it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Deathguard Captain",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1508,
+      "reward_gold": 6630,
+      "accept_text": "Deep in the field, where the wights gather. He's the one still giving commands.",
+      "turn_in_text": "He was a good officer once. The best of us, maybe. Thank you for ending the watch.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_deserters"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Trench-Worn Circlet",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 24.5,
+            "mp5": 5.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (HP/MP5)"
+        },
+        {
+          "name": "Valgan's Sabatons",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "March-Issue Rod",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Seen more campaigns than winters.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 5.1,
+            "crit_chance_spell": 0.3
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 33,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        },
+        {
+          "name": "Trench-Worn Boots",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_hunter_pelts",
+      "title": "Pelts for the Hunter",
+      "giver_npc_id": "sp_south_hunter",
+      "zone": "silverpine_south",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "The Forsaken Hunter wants six clean wolf pelts. 'Diseased' is fine; 'dissolving' is not. He's making a cloak for someone he used to know, and refuses to say who.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_wolf_pelt",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "The diseased wolves along the road. Skin them carefully. The cloak is a gift.",
+      "turn_in_text": "Good work. A bit mangy, but a cloak that's been through something is worth more.",
+      "next_quest_id": "sps_hunter_roost",
+      "unique_item_defs": [
+        {
+          "name": "Trench-Worn Girdle",
+          "slot": "waist",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 35,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Cold-Rations Grips",
+          "slot": "hands",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 3.2
+          },
+          "armor_type": "leather",
+          "armor_value": 14,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Dallow's Dagger",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.7
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sps_hunter_roost",
+      "title": "Carrion Calls",
+      "giver_npc_id": "sp_south_hunter",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 17,
+      "description": "The carrion birds have been following the Hunter's traps and stealing the kills. He doesn't mind sharing, much. He minds the birds taking the traps.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Carrion Bird",
+          "count": 8,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "Anywhere in the pines. They're bold. Show them what boldness gets.",
+      "turn_in_text": "That'll teach them manners. Doubt it, but it's a start.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_hunter_pelts"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Cold-Rations Gauntlets",
+          "slot": "hands",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 15,
+          "label": "Leather Gloves (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Dallow's Chain Belt",
+          "slot": "waist",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "armor_type": "mail",
+          "armor_value": 24,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Trench-Worn Ring",
+          "slot": "ring",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Camp-mended, camp-stained.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.3
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "sps_hogs",
+      "title": "The Hogs Went First",
+      "giver_npc_id": "sp_buckle_farmer",
+      "zone": "silverpine_south",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "The Bucklebree hogs went wrong the same week the plague reached the farm. They still root in the dirt, but what they root up is worse. Farmer Bucklebree wants the herd put down before it breeds.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blightfed Hog",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Barn Ghoul",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "The pens and the barn. The hogs won't run. The ghouls will, and then come back.",
+      "turn_in_text": "It's quiet on the farm for the first time in months. Odd how much I miss the noise.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Pumpkin-Patch Boots",
+          "slot": "feet",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Smells of hay and old straw.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 35,
+          "label": "Plate Boots (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Quilted Gloves",
+          "slot": "hands",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Farm-spun and forgotten.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.2,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Gloves (Int/SP/Crit)"
+        },
+        {
+          "name": "Quilted Pendant",
+          "slot": "neck",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Farm-spun and forgotten.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sps_quilts",
+      "title": "The Missing Quilts",
+      "giver_npc_id": "sp_buckle_goodwife",
+      "zone": "silverpine_south",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "Merriam sewed a quilt for every child born on the farm. The barn ghouls drag them off and sleep on them. She wants six scraps back, to piece together whatever's left of the family.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_quilt_scrap",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "The barn ghouls. They keep the scraps tucked into their rags.",
+      "turn_in_text": "That's the blue one. That's my mother's stitching. Thank you. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hog-Pen Bindings",
+          "slot": "wrist",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Farm-spun and forgotten.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.2,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Bucklebree Cape",
+          "slot": "back",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Smells of hay and old straw.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 11,
+          "label": "Leather Cloak (Dodge/Parry)"
+        },
+        {
+          "name": "Bucklebree Roundshield",
+          "slot": "off_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Farm-spun and forgotten.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 23,
+          "block_value": 29,
+          "label": "Shield (Parry/Block/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sps_gorra",
+      "title": "Tusk-Mother Gorra",
+      "giver_npc_id": "sp_buckle_farmer",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 17,
+      "description": "The old sow of the Bucklebree herd was the biggest hog in Silverpine. She did not die with the others. She grew. Bucklebree has a knife, and no stomach to use it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Tusk-Mother Gorra",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1404,
+      "reward_gold": 6240,
+      "accept_text": "In the east field, past the fence. You'll hear her before you see her.",
+      "turn_in_text": "She nursed forty litters. She was a good mother, in her way. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_hogs"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Hog-Pen Circlet",
+          "slot": "head",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Patched by someone who still tries.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Helm (Int/Sta/MP5)"
+        },
+        {
+          "name": "Bucklebree Chausses",
+          "slot": "legs",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Patched by someone who still tries.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Quilted Buckler",
+          "slot": "off_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Farm-spun and forgotten.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 26,
+          "block_value": 33,
+          "label": "Shield (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Barn-Worn Cuisses",
+          "slot": "legs",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Patched by someone who still tries.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 17,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_pond_ooze",
+      "title": "What Moves in the Water",
+      "giver_npc_id": "sp_pond_marshwalker",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 17,
+      "description": "Marshwalker Thorne has walked the edge of Olivia's Pond for two years, and for the last three weeks something has walked it with him. Marsh oozes, swamp ghouls, bloated things. He'd like fewer companions.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Marsh Ooze",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Swamp Ghoul",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "Around the pond. The oozes hug the shore. The ghouls come out at dusk.",
+      "turn_in_text": "A little quieter. A little less of me sinking in the mud. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Marsh-Gas Cuirass",
+          "slot": "chest",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "The pond leaves its mark.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 74,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Peat-Stained Shroud",
+          "slot": "back",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "The pond leaves its mark.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.6,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Cloak (Int/SP/Hit)"
+        },
+        {
+          "name": "Bog-Fouled Buckler",
+          "slot": "off_hand",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "The pond leaves its mark.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 24,
+          "block_value": 31,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "sps_pond_edge",
+      "title": "The Pond's Edge",
+      "giver_npc_id": "sp_pond_marshwalker",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 17,
+      "description": "Thorne wants someone to circle the pond on foot and tell him what's changed. He has a theory about where the water is going, and a stronger theory about where it's coming from.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 42,
+          "target_y": 56,
+          "radius": 5
+        },
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 36,
+          "target_y": 70,
+          "radius": 5
+        },
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 22,
+          "target_y": 68,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "Three points: the east bank, the south bank, the south-west reeds. Count the dead fish. If there are none, run.",
+      "turn_in_text": "No fish at all. That's the answer I was afraid of.",
+      "next_quest_id": "sps_pond_samples",
+      "requires_quests": [
+        "sps_pond_ooze"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Peat-Stained Wraps",
+          "slot": "shoulder",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "The pond leaves its mark.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 5.5,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Shoulders (Int/SP/Crit)"
+        },
+        {
+          "name": "Peat-Stained Cuirass",
+          "slot": "chest",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "The pond leaves its mark.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1.9,
+            "block_rating": 3.1,
+            "dodge_rating": 1.9
+          },
+          "armor_type": "plate",
+          "armor_value": 74,
+          "label": "Plate Chest (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Marsh-Gas Dirk",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "The pond leaves its mark.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.9
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 35,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "sps_pond_samples",
+      "title": "Gas from the Bloated",
+      "giver_npc_id": "sp_pond_marshwalker",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "The bloated corpses of the pond carry bladders of marsh gas, and Thorne wants five, sealed, to test. He claims the gas is the source of the oozes. It has a simple remedy: stop it at the source.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_marsh_sample",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The bloated corpses, by the south bank. Pierce them carefully. Do not breathe.",
+      "turn_in_text": "That smell is worse than I'd hoped. That's how I know it's the right stuff.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_pond_ooze"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Reed-Cured Chaps",
+          "slot": "legs",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Damp, and not from the rain.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 33,
+          "label": "Leather Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Peat-Stained Greaves",
+          "slot": "feet",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Dried near a fire that never quite took.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 26,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Marsh-Gas Cleaver",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "The pond leaves its mark.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_bloated_one",
+      "title": "The Bloated One",
+      "giver_npc_id": "sp_pond_marshwalker",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "At the pond's heart lies a corpse so swollen it can no longer rise. It lashes at anything that comes near, and what it bursts into is worse than what it was. Thorne has finally found the source.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Bloated One",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1508,
+      "reward_gold": 6630,
+      "accept_text": "The middle of the pond, up to your ankles in muck. Strike and step back. Strike and step back.",
+      "turn_in_text": "It's burst, and it's done. I'll wash for a week. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_pond_ooze"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Peat-Stained Bracers",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Dried near a fire that never quite took.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 55,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Olivia's Coif",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Damp, and not from the rain.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 55,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Olivia's Buckler",
+          "slot": "off_hand",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Damp, and not from the rain.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "armor_value": 36,
+          "block_value": 45,
+          "label": "Shield (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Olivia's Chaps",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "The pond leaves its mark.",
+          "primary_stats": {
+            "agility": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.4
+          },
+          "armor_type": "leather",
+          "armor_value": 45,
+          "label": "Leather Legs (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_mine_kobolds",
+      "title": "Kobolds in the Gallery",
+      "giver_npc_id": "sp_elem_foreman",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 17,
+      "description": "Overseer Hobart held the Deep Elem Mine through the plague, the Scourge and the second strike. The kobolds that moved in after the collapse have moved in for good. He wants the gallery cleared, and he wants to see them go first.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Feral Rotting Kobold",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Deep Elem Digger",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "At the mine mouth and the old galleries. Kobolds, rotting and digging. Both bite.",
+      "turn_in_text": "That's a clear gallery. I can almost smell the ore again.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hobart's Boots",
+          "slot": "feet",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Dusted in ore.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 37,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Deep Elem Bracers",
+          "slot": "wrist",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Scuffed in the dark.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 24,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Pit-Lamp Loop",
+          "slot": "ring",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Dusted in ore.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.3
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "sps_mine_lamps",
+      "title": "Lamps in the Dark",
+      "giver_npc_id": "sp_elem_foreman",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "Shamblers of dead miners still walk Deep Elem's galleries, carrying the lamps they died with. Hobart wants six. 'They belonged to the company,' he says, a little too firmly.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_miner_lamp",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The shamblers at the mine mouth. Take the lamps from their hands. Mind the oil.",
+      "turn_in_text": "Six lamps, six names. The company will be pleased. I can stop pretending there's a company.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_mine_kobolds"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Deep Elem Visor",
+          "slot": "head",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Worn by a long shift that never ended.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 59,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Gallery Shoes",
+          "slot": "feet",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Dusted in ore.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 3.6
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Boots (Agi/Sta/AP)"
+        },
+        {
+          "name": "Kobold-Cut Necklace",
+          "slot": "neck",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Worn by a long shift that never ended.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.3
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_mine_gallery",
+      "title": "The Collapsed Gallery",
+      "giver_npc_id": "sp_elem_foreman",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "The main gallery collapsed the day of the plague, and Hobart has never been back to look. He wants someone to stand at its mouth, and tell him whether the supports held.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 18,
+          "target_y": 98,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The mine mouth to the west. Don't go in. Stand at the threshold, and tell me what you see.",
+      "turn_in_text": "Supports gone. Ore everywhere. And the foreman's lamp, still lit. I knew it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_mine_kobolds"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Pit-Lamp Armguards",
+          "slot": "wrist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Dusted in ore.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 26,
+          "label": "Mail Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Hobart's Gloves",
+          "slot": "hands",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Scuffed in the dark.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 3.6
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Pit-Lamp Necklace",
+          "slot": "neck",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Dusted in ore.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.3
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_gnawbone",
+      "title": "Gnawbone the Foreman",
+      "giver_npc_id": "sp_elem_foreman",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "Gnawbone was the kobold foreman of Deep Elem, and the only one that kept his job after the collapse. He wears the company's hard-hat and gives orders in a tongue Hobart half-remembers. He has to go.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gnawbone the Foreman",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1508,
+      "reward_gold": 6630,
+      "accept_text": "Deep in the mine, among the carts. He's the one with the bone pick and the helmet.",
+      "turn_in_text": "My old foreman's helmet... on a kobold. I'll take it back. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_mine_kobolds"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Deep Elem Cuirass",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Dusted in ore.",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 110,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Hobart's Leggings",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Scuffed in the dark.",
+          "primary_stats": {
+            "stamina": 5,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.9
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Gallery Band",
+          "slot": "ring",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Dusted in ore.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        },
+        {
+          "name": "Pit-Lamp Belt",
+          "slot": "waist",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Worn by a long shift that never ended.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.1
+          },
+          "armor_type": "leather",
+          "armor_value": 22,
+          "label": "Leather Belt (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_pyre_ambush",
+      "title": "The Pyrewood Ambush",
+      "giver_npc_id": "sp_pyre_hearthwarden",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "The worgen of Pyrewood Village were people once, and ambush from the treeline is still how they hunt. Hearthwarden Brand wants the ambushers and the ferals thinned before the dead come to the village next.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Worgen Ambusher",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Feral Worgen",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The village streets and the treeline. They hunt in packs. Don't be alone.",
+      "turn_in_text": "Fewer fangs in the dark. I'll almost let myself breathe.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ash-Singed Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 59,
+          "label": "Plate Shoulders (Str/Sta/Def)"
+        },
+        {
+          "name": "Burned-Hall Pauldrons",
+          "slot": "shoulder",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 24,
+          "label": "Leather Shoulders (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Burned-Hall Halberd",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "armor": 24.5,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_pyre_cultists",
+      "title": "The Ashen Cult",
+      "giver_npc_id": "sp_pyre_hearthwarden",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "A cult has taken up in Pyrewood's burned houses, casting spells over the dead hearths. Brand does not know which god they pray to. He knows it answers.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Pyrewood Cultist",
+          "count": 8,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "The burned houses on the east side. They chant. They don't stop for you.",
+      "turn_in_text": "Quiet at last. Whatever answered them has gone quiet too.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_pyre_ambush"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Hearthwarden's Wristguards",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Ash-Singed Sabatons",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Warm, long after the fire.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 42,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Pyrewood Halberd",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Scorched at every seam.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "armor": 28.4,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 52,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "sps_pyre_sigils",
+      "title": "The Cult's Sigils",
+      "giver_npc_id": "sp_pyre_hearthwarden",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "Each cultist carries an iron sigil, stamped with a cipher Brand doesn't recognise. He wants five, for a scholar in the Undercity who might.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_cult_sigil",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "From the cultists. Iron discs on cords. Don't read the cipher aloud.",
+      "turn_in_text": "I'll have them sent to Sennarath in the Undercity. If anyone can read them, she can.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_pyre_ambush"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Pyrewood Cuisses",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Warm, long after the fire.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Cinder-Hewn Boots",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 6.0
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Boots (Int/Hit/SP)"
+        },
+        {
+          "name": "Ash-Singed Sword",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 13.2,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 39,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "sps_pyre_hall",
+      "title": "The Hall at the Heart",
+      "giver_npc_id": "sp_pyre_hearthwarden",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "Pyrewood Hall stands at the north end of the village, its roof half-gone and its doors barred from the inside. Brand wants someone to stand at its steps and tell him what's behind them.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 88,
+          "target_y": 87,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "The Hall, at the north end of the green. Don't go in. Look at the doors.",
+      "turn_in_text": "Barred from the inside, as I feared. Whatever's in there wants to stay.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_pyre_ambush"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Embered Cap",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Scorched at every seam.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Embered Mantle",
+          "slot": "shoulder",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        },
+        {
+          "name": "Ash-Singed Loop",
+          "slot": "ring",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "sps_godfrey",
+      "title": "Lord Godfrey's Remnant",
+      "giver_npc_id": "sp_pyre_hearthwarden",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 19,
+      "description": "What stands in Pyrewood Hall is what the lord of the village left behind: a ghost in a noble's coat, pistol in one hand and cane in the other, still giving the dead orders.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lord Godfrey's Remnant",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1612,
+      "reward_gold": 7020,
+      "accept_text": "Inside the Hall. Mind the pistol. It never misses, and it never reloads.",
+      "turn_in_text": "He was a decent man, once. Not a good one. A decent one. That's more than most. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_pyre_ambush",
+        "sps_pyre_cultists"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Embered Cuffs",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 4.6,
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Bracers (Int/SP/MP5)"
+        },
+        {
+          "name": "Embered Vambraces",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Pyrewood's last good cloth.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 44,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Ash-Singed Pendant",
+          "slot": "neck",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Warm, long after the fire.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 6.8
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        },
+        {
+          "name": "Cinder-Hewn Gloves",
+          "slot": "hands",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Scorched at every seam.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 18,
+          "label": "Leather Gloves (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_talon_stalkers",
+      "title": "Stalkers on the Hill",
+      "giver_npc_id": "sp_talon_trapper",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "Berard's Talon is a ridge of broken stone above the old keep road. Crag stalkers hunt its slopes, and wraiths drift along its crest. Trapper Hask wants both cleared, so he can finally set his lines.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Crag Stalker",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Talon Wraith",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The hill west of the keep road. Stalkers on the rocks, wraiths on the crest.",
+      "turn_in_text": "The lines can go out tonight. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Talon-Hill Armguards",
+          "slot": "wrist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Cold to the touch and slow to warm.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 1.0,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Hask's Coat",
+          "slot": "chest",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Whispers when handled.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.6
+          },
+          "armor_type": "leather",
+          "armor_value": 33,
+          "label": "Leather Chest (Agi/Sta/AP)"
+        },
+        {
+          "name": "Wraith-Thread Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Snared, skinned, and sewn.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.7
+          },
+          "weapon_damage_min": 23,
+          "weapon_damage_max": 31,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_talon_tokens",
+      "title": "Grave-Tokens",
+      "giver_npc_id": "sp_talon_trapper",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "The wraiths of Berard's Talon carry small tokens of the dead - coins, buttons, rings - clutched in spectral fingers. Hask wants five, and plans to return them to the graves they came from.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_grave_token",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "Off the wraiths. Don't hold them too long. They remember.",
+      "turn_in_text": "Five graves to visit. It'll take all winter. Good. I'm not in a hurry.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_talon_stalkers"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Grief-Haunted Jerkin",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Whispers when handled.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 6.0
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Trapper's Chausses",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Snared, skinned, and sewn.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Wraith-Thread Crook",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Cold to the touch and slow to warm.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 14.3,
+            "mp5": 2.8
+          },
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "sps_berard",
+      "title": "Berard the Forgotten",
+      "giver_npc_id": "sp_talon_trapper",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 19,
+      "description": "The hill is named for Berard, a man whose face no longer appears in any record. He walks the ridge each night and no one remembers what he is looking for.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Berard the Forgotten",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1612,
+      "reward_gold": 7020,
+      "accept_text": "On the crest, under the old stone ring. He moves like a man trying to remember.",
+      "turn_in_text": "Maybe he'll rest now. Maybe someone will remember his face. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_talon_stalkers"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Berard's Girdle",
+          "slot": "waist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Whispers when handled.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 3.9
+          },
+          "armor_type": "plate",
+          "armor_value": 44,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Trapper's Skirt",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cold to the touch and slow to warm.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 12.5,
+            "mp5": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Legs (Int/SP/MP5)"
+        },
+        {
+          "name": "Trapper's Rod",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Snared, skinned, and sewn.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        },
+        {
+          "name": "Trapper's Boots",
+          "slot": "feet",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cold to the touch and slow to warm.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 29,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 19,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_peril_pack",
+      "title": "Break the Pack",
+      "giver_npc_id": "sp_peril_packbreaker",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "A worgen pack has dug in under the hills of Beren's Peril, led by packmasters who've learned to hold a line. Packbreaker Rynn wants the line broken, and the stalkers that run in front of it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Peril Packmaster",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Feral Worgen Stalker",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "The hills south-east of Pyrewood. They hold the high ground. Don't give them the high ground.",
+      "turn_in_text": "That's the pack broken. A good start. The alpha next.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Den-Cured Helm",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Torn once and stitched twice.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Peril-Marked Hood",
+          "slot": "head",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Torn once and stitched twice.",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 26,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Packbreaker's Pendant",
+          "slot": "neck",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "The pack's idea of fashion.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "sps_peril_teeth",
+      "title": "Teeth of the Packmasters",
+      "giver_npc_id": "sp_peril_packbreaker",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "A packmaster wears the teeth of every rival he has bested. Rynn wants five of those necklaces, to show the Dark Lady what the Peril has been chewing on.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_alpha_tooth",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "From the packmasters. They wear the teeth on their necks. Don't pull too hard.",
+      "turn_in_text": "That's a lot of rivals. I want the one who gave them the idea.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_peril_pack"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Claw-Torn Cap",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Torn once and stitched twice.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Moonlit Breeches",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "The pack's idea of fashion.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 9.6,
+            "crit_chance_spell": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Legs (Int/SP/Crit)"
+        },
+        {
+          "name": "Claw-Torn Glaive",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Torn once and stitched twice.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_bloodmaw",
+      "title": "Bloodmaw the Alpha",
+      "giver_npc_id": "sp_peril_packbreaker",
+      "zone": "silverpine_south",
+      "level_min": 20,
+      "level_max": 20,
+      "description": "At the heart of the Peril lives Bloodmaw, a grey-muzzled alpha who has outlived every challenger. He wears a collar of wolf teeth and a scar down his flank, and he is the only reason the pack still holds.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Bloodmaw the Alpha",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1716,
+      "reward_gold": 7410,
+      "accept_text": "At the den, deep in the hills. He isn't hiding. He's waiting.",
+      "turn_in_text": "A pack without an alpha scatters. We'll see how many come back. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_peril_pack"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Rynn's Bracers",
+          "slot": "wrist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Torn once and stitched twice.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 46,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Moonlit Hood",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Torn once and stitched twice.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 3.6,
+            "parry_rating": 3.0
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Den-Cured Ring",
+          "slot": "ring",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "The pack's idea of fashion.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        },
+        {
+          "name": "Moonlit Tunic",
+          "slot": "chest",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "The pack's idea of fashion.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 9.8,
+            "mp5": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 19,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_wall_breakers",
+      "title": "Wallbreakers",
+      "giver_npc_id": "sp_wall_corporal",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "Worgen throw themselves at the Greymane Wall every night, and the dead of the wall rise to meet them. Corporal Teague wants the breakers thinned, and the ghosts calmed, if either can be done.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Wallbreaker Worgen",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Wall Wraith",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "The long wall, along the southern edge. They come in waves. Meet them one at a time.",
+      "turn_in_text": "The wall holds. Another night. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Greymane Wristguards",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.7
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Stonework Mitts",
+          "slot": "hands",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Stonework Talisman",
+          "slot": "neck",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Marked with a lion's head.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "sps_wall_seals",
+      "title": "Seals of the Greymane Guard",
+      "giver_npc_id": "sp_wall_corporal",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "The ghosts of the Wall Guard carry the seals they swore their oaths on. Teague wants five, to lay on the shut gate when the next Forsaken relief arrives.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_gilnean_seal",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "From the wraiths. Iron seals, stamped with a lion. Handle gently.",
+      "turn_in_text": "They'll rest easier on the gate than on the dead. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_wall_breakers"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Teague's Coat",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Marked with a lion's head.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Stonework Legguards",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 59,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Teague's Charm",
+          "slot": "neck",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.8
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_shut_gate",
+      "title": "The Shut Gate",
+      "giver_npc_id": "sp_wall_corporal",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "The great gate in the Greymane Wall has not opened since the night Gilneas shut itself off from the world. Teague wants someone to stand before it and report whether there's any sign of change.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 120,
+          "target_y": 148,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "The gate's in the middle of the wall. Don't touch it. Don't knock. Just look.",
+      "turn_in_text": "Not a hair of change. Good. I'd rather the thing stay closed than learn what's behind it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_wall_breakers"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Gate-Watch Spaulders",
+          "slot": "shoulder",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Marked with a lion's head.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1.1,
+            "block_rating": 2.3,
+            "dodge_rating": 1.7
+          },
+          "armor_type": "plate",
+          "armor_value": 66,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Wall-Sworn Pauldrons",
+          "slot": "shoulder",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 7.2
+          },
+          "armor_type": "mail",
+          "armor_value": 44,
+          "label": "Mail Shoulders (Int/Hit/SP)"
+        },
+        {
+          "name": "Wall-Sworn Loop",
+          "slot": "ring",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cold stone and colder duty.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.2
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_wall_warden",
+      "title": "The Wall-Warden",
+      "giver_npc_id": "sp_wall_corporal",
+      "zone": "silverpine_south",
+      "level_min": 20,
+      "level_max": 20,
+      "description": "The ghost of the Wall's last commander still walks the parapet, enforcing a sentence that was never lifted: nothing in, nothing out. The Forsaken cannot pass him either. He has to be put down.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gilnean Wall-Warden",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1716,
+      "reward_gold": 7410,
+      "accept_text": "Along the parapet, by the gate. He challenges everyone. He means it.",
+      "turn_in_text": "He was doing his duty. I'm sorry it came to this. I'm sorry for all of us.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_wall_breakers"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Stonework Spaulders",
+          "slot": "shoulder",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 20,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 2.2,
+            "block_rating": 4.5,
+            "dodge_rating": 3.0
+          },
+          "armor_type": "plate",
+          "armor_value": 91,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Border-Held Leggings",
+          "slot": "legs",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 20,
+          "flavor_text": "Cold stone and colder duty.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 9.1
+          },
+          "armor_type": "leather",
+          "armor_value": 51,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        },
+        {
+          "name": "Gate-Watch Blade",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 20,
+          "flavor_text": "The wall's last uniform.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 55,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        },
+        {
+          "name": "Wall-Sworn Chausses",
+          "slot": "legs",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 20,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_amber_ghosts",
+      "title": "Ghosts at the Mill",
+      "giver_npc_id": "sp_amber_millwright",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 19,
+      "description": "Ambermill was a Dalaran lumber village until the plague took its mages. Their ghosts stayed behind, along with the wards they set on the mill. Millwright Haskell can't tell which are guarding the place, and which are guarding themselves.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ambermill Ghost-Mage",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Ambermill Warden",
+          "count": 6,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1240,
+      "reward_gold": 5400,
+      "accept_text": "The village and the mill-yard. The ghost-mages cast. The wardens hit.",
+      "turn_in_text": "Fewer ghosts, fewer wards. I might get a plank cut before dark.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Resin-Bound Belt",
+          "slot": "waist",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Mill-dust and spellwork.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 8.5,
+            "mp5": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Belt (HP/MP5)"
+        },
+        {
+          "name": "Ambermill Legguards",
+          "slot": "legs",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Smells of pitch and old magic.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.3
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Waygate-Lit Roundshield",
+          "slot": "off_hand",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Mill-dust and spellwork.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 28,
+          "block_value": 35,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 18
+    },
+    {
+      "quest_id": "sps_amber_resin",
+      "title": "Resin of the Wardens",
+      "giver_npc_id": "sp_amber_millwright",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "The mill's wardens are made of amber resin, hardened by magic. Haskell wants six lumps. 'Fuel for the stove,' he says, and then admits it's for the stove he plans to build in a house that isn't there any more.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_amber_resin",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "From the wardens. Warm to the touch. Don't lick them.",
+      "turn_in_text": "Six lumps. That's my winter. Thank you. Truly.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_amber_ghosts"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Orsolo's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Violet at the seams.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 6.0
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Orsolo's Cuffs",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells of pitch and old magic.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 9.4,
+            "mp5": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Bracers (HP/MP5)"
+        },
+        {
+          "name": "Sawmill Saber",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Mill-dust and spellwork.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_amber_waygate",
+      "title": "The Old Waygate",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Magister Orsolo studied the Ambermill waygate for forty years. It leads somewhere, and he has finally decided he does not want to know where. He wants someone to stand at the gate and tell him what it looks like now.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 138,
+          "target_y": 91,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "East of the mill, below the cliff. Stand at its feet. Don't touch the runes.",
+      "turn_in_text": "Violet. Brighter than it was. So it's still listening. Thank you. I'll keep my distance.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_amber_ghosts"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Waygate-Lit Cuffs",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells of pitch and old magic.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Bracers (Int/Sta/MP5)"
+        },
+        {
+          "name": "Resin-Bound Bracers",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Smells of pitch and old magic.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.4
+          },
+          "armor_type": "plate",
+          "armor_value": 44,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Ambermill Band",
+          "slot": "ring",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Mill-dust and spellwork.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.2
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_quillfire",
+      "title": "Magister Quillfire",
+      "giver_npc_id": "sp_amber_magister",
+      "zone": "silverpine_south",
+      "level_min": 20,
+      "level_max": 20,
+      "description": "Orsolo's colleague, Magister Quillfire, never left the tower. Now he casts spells on anyone who nears it, and the waygate answers him. Orsolo cannot bring himself to do it, and asks that you do.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Magister Quillfire",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1716,
+      "reward_gold": 7410,
+      "accept_text": "Near the waygate. He writes in the air. Don't read it.",
+      "turn_in_text": "He was a gentle man, and a better mage than I. I'm sorry it fell to you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_amber_ghosts"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Sawmill Handguards",
+          "slot": "hands",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Violet at the seams.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 46,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Orsolo's Sabatons",
+          "slot": "feet",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Mill-dust and spellwork.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "armor_type": "mail",
+          "armor_value": 31,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        },
+        {
+          "name": "Dalaran-Cut Shortbow",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Mill-dust and spellwork.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 1,
+            "stamina": 1
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        },
+        {
+          "name": "Waygate-Lit Cap",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Smells of pitch and old magic.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.5
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Helm (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 20,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_ferry_deckhands",
+      "title": "Waterlogged Crew",
+      "giver_npc_id": "sp_ferryman",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 17,
+      "description": "The ferry's crew drowned the night the boat went down, and walked back up the lake bed the next morning. They work the pier from dusk to dawn and will not let Gael sleep. He asks that you send them back.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Deckhand",
+          "count": 8,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Carrion Bird",
+          "count": 4,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1080,
+      "reward_gold": 4800,
+      "accept_text": "On and around the pier. The deckhands hold the boat-hooks. The birds hold grudges.",
+      "turn_in_text": "A quieter dock. I may even sleep.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dock-Rotted Cloak",
+          "slot": "back",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Waterlogged, and proud of it.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.7
+          },
+          "armor_type": "leather",
+          "armor_value": 12,
+          "label": "Leather Cloak (Agi/Int/AP)"
+        },
+        {
+          "name": "Mooring Wraps",
+          "slot": "feet",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Salt, moss and lake.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.5,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Boots (Int/SP/Hit)"
+        },
+        {
+          "name": "Mooring Staff",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Salt, moss and lake.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 105.5,
+            "mp5": 22.4
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "sps_ferry_crates",
+      "title": "Lost Cargo",
+      "giver_npc_id": "sp_ferry_dockhand",
+      "zone": "silverpine_south",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "Cargo crates wash up on the shore at all hours, and the deckhands guard them as if they were gold. Dockhand Pim wants five of them, delivered to the Rear Guard. 'If it's gold,' she says, 'the Dark Lady should have it.'",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sps_cargo_crate",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Off the deckhands. They carry them as if by instinct. Five crates.",
+      "turn_in_text": "It's mostly rotten fish. But five of them sealed with Dalaran wax? Someone's lost something.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_ferry_deckhands"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Tide-Tallied Legplates",
+          "slot": "legs",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Salt, moss and lake.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Legs (Str/Sta/Def)"
+        },
+        {
+          "name": "Mooring Shoes",
+          "slot": "feet",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "The lake keeps a tally.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Mooring Pendant",
+          "slot": "neck",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Waterlogged, and proud of it.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_ferry_ticket",
+      "title": "A Ticket to Somewhere",
+      "giver_npc_id": "item:sps_ferry_ticket",
+      "zone": "silverpine_south",
+      "level_min": 16,
+      "level_max": 18,
+      "description": "A ticket stub for the Decrepit Ferry, stamped with a date from the last winter before the plague. The destination is Fenris Isle. Gael may remember who it was sold to.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sps_ferry_ticket",
+          "count": 1,
+          "label": "Bring the ticket stub to Ferryman Gael"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The ferryman, at the pier. He keeps every stub.",
+      "turn_in_text": "Last passenger I carried to the isle. I never saw him come back.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_ferryman",
+      "unique_item_defs": [
+        {
+          "name": "Decrepit-Ferry Belt",
+          "slot": "waist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Waterlogged, and proud of it.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Belt (Sta/Int/HP)"
+        },
+        {
+          "name": "Tide-Tallied Girdle",
+          "slot": "waist",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Salt, moss and lake.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 1.0,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Decrepit-Ferry Shortbow",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 16,
+          "flavor_text": "Salt, moss and lake.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 23,
+          "weapon_damage_max": 31,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_ferryman",
+      "title": "The Drowned Ferryman",
+      "giver_npc_id": "sp_ferryman",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "The first ferryman drowned with the boat, and rose to take it back. He steers at night, and his passengers are not the sort who pay. Gael wants him put in his grave.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Drowned Ferryman",
+          "count": 1,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1508,
+      "reward_gold": 6630,
+      "accept_text": "On the pier head. He leans on his oar like it's holding him up.",
+      "turn_in_text": "He taught me the trade. He deserves a better ending than that. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_ferry_deckhands"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Lakewater Greaves",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Waterlogged, and proud of it.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 28,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Decrepit-Ferry Cuffs",
+          "slot": "wrist",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Waterlogged, and proud of it.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Bracers (Int/Sta/MP5)"
+        },
+        {
+          "name": "Decrepit-Ferry Signet",
+          "slot": "ring",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Salt, moss and lake.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.8
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        },
+        {
+          "name": "Lakewater Breastplate",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "The lake keeps a tally.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 18,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sps_fenris_crossing",
+      "title": "The Crossing to Fenris",
+      "giver_npc_id": "sp_ferryman",
+      "zone": "silverpine_south",
+      "level_min": 18,
+      "level_max": 18,
+      "description": "With the old ferryman gone, Gael has agreed to take passengers to Fenris Isle again. He says he'll go as far as the pier head and no farther, and wants you to check the moorings.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 149,
+          "target_y": 44,
+          "radius": 2
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "The end of the pier. The boat'll take you across when you're ready.",
+      "turn_in_text": "Moorings hold. The lake's flat. The isle's waiting, if you've the stomach.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sps_ferryman"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Dock-Rotted Cap",
+          "slot": "head",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "The lake keeps a tally.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 39,
+          "label": "Mail Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Mooring Boots",
+          "slot": "feet",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "Waterlogged, and proud of it.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "block_rating": 0.3,
+            "block_value": 3.0
+          },
+          "armor_type": "plate",
+          "armor_value": 39,
+          "label": "Plate Boots (Sta/Block/BV)"
+        },
+        {
+          "name": "Decrepit-Ferry Pike",
+          "slot": "main_hand",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 18,
+          "flavor_text": "The lake keeps a tally.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "armor": 24.5,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 17
+    },
+    {
+      "quest_id": "sps_sfk_pickets",
+      "title": "Pickets at the Portcullis",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Ghouls and stalkers crowd the keep road, drawn by whatever Arugal keeps inside. Gatekeeper Marl wants the road clear before the next party goes in.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rotting Ghoul",
+          "count": 6,
+          "zone": "silverpine_south"
+        },
+        {
+          "type": "kill",
+          "target": "Feral Worgen Stalker",
+          "count": 5,
+          "zone": "silverpine_south"
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "Near the gate. Ghouls on the road, stalkers in the trees.",
+      "turn_in_text": "A clear road. Whatever you're walking into, you'll walk in with fresh boots.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Greymane Leggings",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 37.8,
+            "mp5": 8.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Legs (HP/MP5)"
+        },
+        {
+          "name": "Stonework Cap",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Marked with a lion's head.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 44,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Border-Held Flail",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Marked with a lion's head.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "armor": 16.6,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_sfk_forecourt",
+      "title": "The Keep's Forecourt",
+      "giver_npc_id": "sp_sfk_gatekeeper",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Marl has stood at Shadowfang's gate for years and cannot say whether the howling has grown louder or he has grown used to it. He wants someone to stand in the forecourt and tell him honestly.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 49,
+          "target_y": 148,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "In front of the portcullis. Stand, listen, report.",
+      "turn_in_text": "Louder. I thought so. Gods help whoever's inside.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Stonework Shroud",
+          "slot": "back",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "The wall's last uniform.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Cloak (Sta/Int/HP)"
+        },
+        {
+          "name": "Stonework Handguards",
+          "slot": "hands",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cold stone and colder duty.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 29,
+          "label": "Mail Gloves (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Greymane Axe",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Cold stone and colder duty.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_dallow_reckoning",
+      "title": "The March's Reckoning",
+      "giver_npc_id": "sp_south_march_sergeant",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Five reports lie on Dallow's table: the Deathguard Captain is down, the Bloated One is down, Lord Godfrey's Remnant is down, Berard rests, and Bloodmaw's pack has scattered. The March has not seen five victories in a row since the war.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "silverpine_south",
+          "target_x": 70,
+          "target_y": 48,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 2112,
+      "reward_gold": 9120,
+      "accept_text": "Come back to Valgan's Field. Stand where the March can see you.",
+      "turn_in_text": "Five victories. A medal for each, if we had medals. Instead, take this. The March doesn't forget.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_south_march_sergeant",
+      "requires_quests": [
+        "sps_deathguard_captain",
+        "sps_bloated_one",
+        "sps_godfrey",
+        "sps_berard",
+        "sps_bloodmaw"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Trench-Worn Helm",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 66,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Valgan's Hood",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Issued by a sergeant who counts everything twice.",
+          "primary_stats": {
+            "agility": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Valgan's Signet",
+          "slot": "ring",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Seen more campaigns than winters.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 19
+    }
+  ]
+}

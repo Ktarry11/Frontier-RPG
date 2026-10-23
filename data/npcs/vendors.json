@@ -569,8 +569,8 @@
       "vendor_id": "sepulcher_relic_dealer",
       "name": "Curio Merchant Fenn",
       "zone": "sepulcher",
-      "x": 31,
-      "y": 26,
+      "x": 55,
+      "y": 58,
       "tile_sprite": "npc",
       "sells": [
         "healing_potion_minor",
@@ -590,8 +590,8 @@
       "vendor_id": "sepulcher_reagent_seller",
       "name": "Apothecary Wrenn",
       "zone": "sepulcher",
-      "x": 31,
-      "y": 28,
+      "x": 38,
+      "y": 38,
       "tile_sprite": "npc",
       "sells": [
         "mana_potion_minor",
@@ -611,8 +611,8 @@
       "vendor_id": "sepulcher_innkeeper",
       "name": "Innkeeper Doss",
       "zone": "sepulcher",
-      "x": 31,
-      "y": 30,
+      "x": 34,
+      "y": 58,
       "tile_sprite": "npc",
       "sells": [
         "healing_potion_standard",
@@ -632,8 +632,8 @@
       "vendor_id": "sepulcher_mortician_supplier",
       "name": "Mortician Grieve",
       "zone": "sepulcher",
-      "x": 31,
-      "y": 32,
+      "x": 24,
+      "y": 58,
       "tile_sprite": "npc",
       "sells": [
         "battle_elixir_minor",
@@ -1182,6 +1182,31 @@
       "appearance_variant": 11,
       "gender": "male",
       "greeting": "Rear Guard stores, signed for in duplicate. The duplicate is for the dead; the original is for the living."
+    },
+    {
+      "vendor_id": "sp_south_quartermaster",
+      "name": "Quartermaster Vorn",
+      "zone": "silverpine_south",
+      "x": 72,
+      "y": 53,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "healing_potion_standard",
+        "mana_potion_minor",
+        "mana_potion_standard",
+        "bread_and_cheese",
+        "roasted_meat",
+        "battle_elixir_minor"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 18,
+      "sells_gear": true,
+      "race": "forsaken",
+      "appearance_variant": 12,
+      "gender": "male",
+      "greeting": "Valgan's Field supply, signed in duplicate. Don't ask where the stock came from. Most of it fought back."
     }
   ]
 }

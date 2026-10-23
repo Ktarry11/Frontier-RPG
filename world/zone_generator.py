@@ -5612,6 +5612,8 @@ def create_all_zones():
     from tools import handbuilt_undercity as duc
     from tools import handbuilt_plague_depths as dpd
     from tools import handbuilt_silverpine_north as dspn
+    from tools import handbuilt_silverpine_south as dsps
+    from tools import handbuilt_sepulcher as dsep
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5678,8 +5680,8 @@ def create_all_zones():
         
         # ===== SILVERPINE SPLIT (2 zones) =====
         "Silverpine North": dspn.generate_silverpine_north(),  # hand-built pine woods (tools/handbuilt_silverpine_north.py)
-        "Silverpine South": generate_silverpine_south(),
-        "The Sepulcher": generate_the_sepulcher(),
+        "Silverpine South": dsps.generate_silverpine_south(),  # hand-built (tools/handbuilt_silverpine_south.py)
+        "The Sepulcher": dsep.generate_the_sepulcher(),  # hand-built (tools/handbuilt_sepulcher.py)
         
         # ===== BRILL (standalone town, was baked into Western Tirisfal) =====
         "Brill": generate_brill_handbuilt(),  # hand-built (tools/handbuilt_brill.py)

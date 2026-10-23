@@ -25,7 +25,8 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 from tools.terrain_painter import Painter, smoothstep, TILE_PX         # noqa: E402
 
 TEX_DIR = ROOT / "assets/tiles/silverpine/materials"
-ZONES = {"silverpine_north": "tools.handbuilt_silverpine_north", "silverpine_south": "tools.handbuilt_silverpine_south"}
+ZONES = {"silverpine_north": "tools.handbuilt_silverpine_north", "silverpine_south": "tools.handbuilt_silverpine_south",
+         "sepulcher": "tools.handbuilt_sepulcher"}
 
 MATERIALS = {
     "pine":    ("sp_pine_floor", None, 1.0),

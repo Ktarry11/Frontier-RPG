@@ -16,6 +16,8 @@ os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
 from tools.handbuilt_silverpine_north import NPC_POSITIONS as NORTH_POS   # noqa: E402
+from tools.handbuilt_silverpine_south import NPC_POSITIONS as SOUTH_POS   # noqa: E402
+from tools.handbuilt_sepulcher import NPC_POSITIONS as SEP_POS            # noqa: E402
 
 F, M = "female", "male"
 # id: (name, zone slug, race, gender, variant, facing, greeting)
@@ -59,6 +61,59 @@ NORTH_VENDORS = {
 }
 
 
+SOUTH_AMBIENT = {
+    "sp_south_gate_scout": ("Deathguard Lyle", "silverpine_south", "forsaken", M, 2, "down",
+                            "The Rear Guard marks the north. Past here the pines belong to whatever has the most teeth."),
+    "sp_south_hunter": ("Forsaken Hunter", "silverpine_south", "forsaken", M, 13, "down",
+                        "Even death didn't stop me from putting meat on the table. Old habits."),
+    "sp_buckle_farmer": ("Farmer Bucklebree", "silverpine_south", "forsaken", M, 6, "down",
+                         "Three generations on this farm. I'm the first to work it dead. I'd say the yield hasn't changed."),
+    "sp_buckle_goodwife": ("Goodwife Merriam", "silverpine_south", "forsaken", F, 7, "left",
+                           "The hogs went first. Then the quilts. I've lost track of what's left to lose."),
+    "sp_pond_marshwalker": ("Marshwalker Thorne", "silverpine_south", "forsaken", M, 9, "down",
+                            "Olivia's Pond was a pretty spot once. Now the water moves when nothing is stirring it."),
+    "sp_elem_foreman": ("Overseer Hobart", "silverpine_south", "forsaken", M, 4, "left",
+                        "Deep Elem paid well, until it didn't. The kobolds stayed. So did I. Neither of us got a pension."),
+    "sp_south_march_sergeant": ("Sergeant Dallow", "silverpine_south", "forsaken", M, 5, "down",
+                                "The March exists to keep the road to Ambermill open. Lately that's a full-time fight."),
+    "sp_valgan_surgeon": ("Field Surgeon Ashe", "silverpine_south", "forsaken", F, 3, "down",
+                          "I stitch what's torn and I remove what's gone off. The two jobs overlap more than you'd like."),
+    "sp_pyre_hearthwarden": ("Hearthwarden Brand", "silverpine_south", "forsaken", M, 8, "down",
+                             "Pyrewood burned for a reason. Whatever rose from the ashes didn't read the reasons."),
+    "sp_talon_trapper": ("Trapper Hask", "silverpine_south", "forsaken", M, 15, "left",
+                         "Traps still work on the dead. They just have to be bigger."),
+    "sp_peril_packbreaker": ("Packbreaker Rynn", "silverpine_south", "forsaken", F, 12, "down",
+                             "A pack leader is a promise to the pack. I intend to break a few promises."),
+    "sp_wall_corporal": ("Corporal Teague", "silverpine_south", "forsaken", M, 0, "down",
+                         "The Wall's been shut since the night the gate fell. We don't open it. We don't let anything open it."),
+    "sp_amber_millwright": ("Millwright Haskell", "silverpine_south", "forsaken", M, 11, "left",
+                            "Ambermill ran on Dalaran gold and Dalaran sawdust. Now it runs on ghosts and spite."),
+    "sp_amber_magister": ("Magister Orsolo", "silverpine_south", "forsaken", M, 14, "down",
+                          "The waygate was a mill-lift, once. Then someone aimed it somewhere worse."),
+    "sp_ferryman": ("Ferryman Gael", "silverpine_south", "forsaken", M, 1, "down",
+                    "The boat goes where the lake lets it. Pay up front. The lake keeps a tally."),
+    "sp_ferry_dockhand": ("Dockhand Pim", "silverpine_south", "forsaken", F, 10, "down",
+                          "Crates wash up all hours. Half of them are empty. The other half I don't open."),
+    "sp_sfk_gatekeeper": ("Gatekeeper Marl", "silverpine_south", "forsaken", M, 7, "down",
+                          "Behind that portcullis is Shadowfang Keep. If you hear howling, it's the draught. Say it's the draught."),
+}
+
+SOUTH_VENDORS = {
+    "sp_south_quartermaster": ("Quartermaster Vorn", "silverpine_south", "forsaken", M, 12, "down",
+                               "Valgan's Field supply, signed in duplicate. Don't ask where the stock came from. Most of it fought back.",
+                               ["healing_potion_minor", "healing_potion_standard", "mana_potion_minor", "mana_potion_standard",
+                                "bread_and_cheese", "roasted_meat", "battle_elixir_minor"], 18, True),
+}
+
+
+SEP_AMBIENT = {
+    "sepulcher_commander": ("Commander Halvard Vane", "sepulcher", "forsaken", M, 5, "down",
+                            "The Sepulcher holds the north-west of Silverpine. The dead have taken to it better than the living ever did."),
+    "sepulcher_adjutant": ("Adjutant Kess", "sepulcher", "forsaken", F, 12, "left",
+                           "The Commander speaks to you, or he doesn't. Either way, stand up straight. Not that it matters."),
+}
+
+
 def _upsert(data, key, id_key, rec):
     for i, r in enumerate(data[key]):
         if r.get(id_key) == rec[id_key]:
@@ -81,9 +136,28 @@ def main():
         added += _upsert(ven, "vendors", "vendor_id", dict(
             vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", sells=sells, buys_from_player=True,
             faction="forsaken", gear_level=gl, sells_gear=sg, race=race, appearance_variant=var, gender=gender, greeting=greet))
+    for nid, (name, zone, race, gender, var, facing, greet) in SOUTH_AMBIENT.items():
+        x, y = SOUTH_POS[nid]
+        added += _upsert(amb, "npcs", "npc_id", dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet,
+                                                      gender=gender, race=race, appearance_variant=var, facing=facing))
+    for vid, (name, zone, race, gender, var, facing, greet, sells, gl, sg) in SOUTH_VENDORS.items():
+        x, y = SOUTH_POS[vid]
+        added += _upsert(ven, "vendors", "vendor_id", dict(
+            vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", sells=sells, buys_from_player=True,
+            faction="forsaken", gear_level=gl, sells_gear=sg, race=race, appearance_variant=var, gender=gender, greeting=greet))
+    for nid, (name, zone, race, gender, var, facing, greet) in SEP_AMBIENT.items():
+        x, y = SEP_POS[nid]
+        added += _upsert(amb, "npcs", "npc_id", dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet,
+                                                      gender=gender, race=race, appearance_variant=var, facing=facing))
+    for rec in amb["npcs"]:                      # the nine ambient Sepulcher residents keep their records; the map moves them
+        if rec.get("zone") == "sepulcher" and rec["npc_id"] in SEP_POS:
+            rec["x"], rec["y"] = SEP_POS[rec["npc_id"]]
+    for rec in ven["vendors"]:
+        if rec.get("zone") == "sepulcher" and rec["vendor_id"] in SEP_POS:
+            rec["x"], rec["y"] = SEP_POS[rec["vendor_id"]]
     Path("data/npcs/ambient_npcs.json").write_text(json.dumps(amb, indent=2, ensure_ascii=False) + "\n")
     Path("data/npcs/vendors.json").write_text(json.dumps(ven, indent=2, ensure_ascii=False) + "\n")
-    print(f"ambient {len(NORTH_AMBIENT)}, vendors {len(NORTH_VENDORS)}, +{added} new records")
+    print(f"ambient {len(NORTH_AMBIENT) + len(SOUTH_AMBIENT) + len(SEP_AMBIENT)}, vendors {len(NORTH_VENDORS) + len(SOUTH_VENDORS)}, +{added} new records")
 
 
 if __name__ == "__main__":

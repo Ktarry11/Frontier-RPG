@@ -1269,6 +1269,21 @@
         "description": "A torn fragment of a ledger in the Cult's cipher, folded small.",
         "chance": 0.14,
         "starts_quest": "ucq_groundskeeper_scrap"
+      },
+      {
+        "item_id": "sep_relic_shard",
+        "name": "Grave-Goods Shard",
+        "category": "quest",
+        "description": "A ring-shard of tarnished silver, still warm from burial.",
+        "chance": 0.4
+      },
+      {
+        "item_id": "sep_cracked_locket",
+        "name": "Cracked Silver Locket",
+        "category": "quest",
+        "description": "A silver locket with a single pressed flower inside.",
+        "chance": 0.14,
+        "starts_quest": "sep_cracked_locket"
       }
     ],
     "Silverpine Spider": [
@@ -1278,6 +1293,13 @@
         "category": "quest",
         "description": "A greenish gland, still faintly pulsing.",
         "chance": 0.4
+      },
+      {
+        "item_id": "sep_spider_fat",
+        "name": "Silverpine Spider Fat",
+        "category": "quest",
+        "description": "A pale, waxy gland. Burns clean.",
+        "chance": 0.42
       }
     ],
     "Risen Farmhand": [
@@ -1287,6 +1309,13 @@
         "category": "quest",
         "description": "A small, singed sack of wheat seed.",
         "chance": 0.4
+      },
+      {
+        "item_id": "sep_wilted_wreath",
+        "name": "Wilted Offering",
+        "category": "quest",
+        "description": "A spray of flowers that never reached its grave.",
+        "chance": 0.42
       },
       {
         "item_id": "sp_farmhand_locket",
@@ -1350,6 +1379,157 @@
         "description": "A gold band, pecked loose from a nest. Inscribed on the inside.",
         "chance": 0.14,
         "starts_quest": "spn_df_ring"
+      }
+    ],
+    "Field Deserter": [
+      {
+        "item_id": "sps_deserter_tag",
+        "name": "March Deserter's Tag",
+        "category": "quest",
+        "description": "An iron tag stamped with a March number.",
+        "chance": 0.45
+      },
+      {
+        "item_id": "sps_deserter_letter",
+        "name": "Deserter's Sealed Letter",
+        "category": "quest",
+        "description": "A letter addressed to someone in the Undercity. The seal is unbroken.",
+        "chance": 0.14,
+        "starts_quest": "sps_deserter_letter"
+      }
+    ],
+    "Battlefield Wight": [
+      {
+        "item_id": "sps_wight_bone",
+        "name": "Battlefield Long-Bone",
+        "category": "quest",
+        "description": "A long bone, picked clean. Someone's arm, once.",
+        "chance": 0.42
+      }
+    ],
+    "Diseased Wolf": [
+      {
+        "item_id": "sps_wolf_pelt",
+        "name": "Diseased Wolf Pelt",
+        "category": "quest",
+        "description": "A mangy pelt. It will clean up, mostly.",
+        "chance": 0.42
+      }
+    ],
+    "Barn Ghoul": [
+      {
+        "item_id": "sps_quilt_scrap",
+        "name": "Bucklebree Quilt Scrap",
+        "category": "quest",
+        "description": "A square of hand-stitched quilt, stained with barn straw.",
+        "chance": 0.42
+      }
+    ],
+    "Bloated Corpse": [
+      {
+        "item_id": "sps_marsh_sample",
+        "name": "Sealed Marsh-Gas Bladder",
+        "category": "quest",
+        "description": "A swollen, foul bladder. It wobbles.",
+        "chance": 0.42
+      }
+    ],
+    "Mine Shambler": [
+      {
+        "item_id": "sps_miner_lamp",
+        "name": "Company Mining Lamp",
+        "category": "quest",
+        "description": "A battered brass lamp, stamped with the Deep Elem mark.",
+        "chance": 0.42
+      }
+    ],
+    "Pyrewood Cultist": [
+      {
+        "item_id": "sps_cult_sigil",
+        "name": "Pyrewood Cult Sigil",
+        "category": "quest",
+        "description": "A dull iron disc etched with a cipher you'd rather not read.",
+        "chance": 0.42
+      }
+    ],
+    "Talon Wraith": [
+      {
+        "item_id": "sps_grave_token",
+        "name": "Wraith-Held Token",
+        "category": "quest",
+        "description": "A small keepsake, cold as a gravestone.",
+        "chance": 0.42
+      }
+    ],
+    "Peril Packmaster": [
+      {
+        "item_id": "sps_alpha_tooth",
+        "name": "Packmaster's Tooth-Necklace",
+        "category": "quest",
+        "description": "A string of worgen teeth, each one a rival.",
+        "chance": 0.4
+      }
+    ],
+    "Wall Wraith": [
+      {
+        "item_id": "sps_gilnean_seal",
+        "name": "Wall Guard's Seal",
+        "category": "quest",
+        "description": "A lion-stamped iron seal, rubbed smooth.",
+        "chance": 0.42
+      }
+    ],
+    "Ambermill Warden": [
+      {
+        "item_id": "sps_amber_resin",
+        "name": "Warden's Amber Resin",
+        "category": "quest",
+        "description": "A warm lump of hardened resin.",
+        "chance": 0.42
+      }
+    ],
+    "Drowned Deckhand": [
+      {
+        "item_id": "sps_cargo_crate",
+        "name": "Waterlogged Cargo Crate",
+        "category": "quest",
+        "description": "A small crate, sealed with Dalaran wax.",
+        "chance": 0.42
+      },
+      {
+        "item_id": "sps_ferry_ticket",
+        "name": "Decrepit Ferry Ticket",
+        "category": "quest",
+        "description": "A water-stained ticket stub for a crossing to Fenris Isle.",
+        "chance": 0.14,
+        "starts_quest": "sps_ferry_ticket"
+      }
+    ],
+    "Risen Husk": [
+      {
+        "item_id": "sep_bone_marrow",
+        "name": "Dry Marrow-Bone",
+        "category": "quest",
+        "description": "A pale, dry shin-bone, ideal for carving.",
+        "chance": 0.4
+      }
+    ],
+    "Windfall Wasp": [
+      {
+        "item_id": "sep_wasp_sting",
+        "name": "Windfall Wasp Sting",
+        "category": "quest",
+        "description": "A glistening black barb, still wet.",
+        "chance": 0.42
+      }
+    ],
+    "Giant Spider": [
+      {
+        "item_id": "sep_spider_fat",
+        "name": "Silverpine Spider Fat",
+        "category": "quest",
+        "description": "A pale, waxy gland. Burns clean.",
+        "chance": 0.42
       }
     ]
   }

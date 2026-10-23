@@ -25,8 +25,12 @@ from tools import tirisfal_gear                         # noqa: E402
 from tools.tirisfal_gear import reward_pack             # noqa: E402
 
 OUT_N = ROOT / "data/quests/silverpine_north.json"
+OUT_S = ROOT / "data/quests/silverpine_south.json"
+OUT_SEP = ROOT / "data/quests/sepulcher.json"
+SEP = "sepulcher"
 DROPS = ROOT / "data/creatures/quest_drops.json"
 SPN = "silverpine_north"
+SPS = "silverpine_south"
 
 tirisfal_gear.THEMES.update({
     "spn_guard": (["Rear-Guard", "Palisade", "Vesk's", "Border-Watch", "Pine-Gate", "Sentry's"],
@@ -49,9 +53,39 @@ tirisfal_gear.THEMES.update({
                 ["Spun in the dark.", "The silk is stronger than the stitching.", "Cured in venom, worn in spite."]),
 })
 
+tirisfal_gear.THEMES.update({
+    "sep_keep": (["Sepulcher", "Keep-Hall", "Vane's", "Terrace-Worn", "Crypt-Stair", "Tomb-Warden's"],
+                 ["Climbed a hundred steps and came back for more.", "Stone-cold and spotlessly kept.",
+                  "The Keep issues it. The dead approve."]),
+})
+
+tirisfal_gear.THEMES.update({
+    "sps_camp": (["Valgan's", "March-Issue", "Field-Camp", "Dallow's", "Cold-Rations", "Trench-Worn"],
+                 ["Issued by a sergeant who counts everything twice.", "Seen more campaigns than winters.",
+                  "Camp-mended, camp-stained."]),
+    "sps_farm": (["Bucklebree", "Hog-Pen", "Quilted", "Barn-Worn", "Merriam's", "Pumpkin-Patch"],
+                 ["Farm-spun and forgotten.", "Smells of hay and old straw.", "Patched by someone who still tries."]),
+    "sps_marsh": (["Olivia's", "Marsh-Gas", "Reed-Cured", "Thorne's", "Bog-Fouled", "Peat-Stained"],
+                  ["Damp, and not from the rain.", "Dried near a fire that never quite took.", "The pond leaves its mark."]),
+    "sps_mine": (["Deep Elem", "Kobold-Cut", "Pit-Lamp", "Hobart's", "Gallery", "Candle-Guttered"],
+                 ["Dusted in ore.", "Scuffed in the dark.", "Worn by a long shift that never ended."]),
+    "sps_pyre": (["Pyrewood", "Ash-Singed", "Hearthwarden's", "Burned-Hall", "Cinder-Hewn", "Embered"],
+                 ["Warm, long after the fire.", "Scorched at every seam.", "Pyrewood's last good cloth."]),
+    "sps_talon": (["Talon-Hill", "Grief-Haunted", "Hask's", "Trapper's", "Wraith-Thread", "Berard's"],
+                  ["Cold to the touch and slow to warm.", "Whispers when handled.", "Snared, skinned, and sewn."]),
+    "sps_peril": (["Peril-Marked", "Packbreaker's", "Rynn's", "Den-Cured", "Moonlit", "Claw-Torn"],
+                  ["Torn once and stitched twice.", "Smells of wet fur and worse.", "The pack's idea of fashion."]),
+    "sps_wall": (["Greymane", "Wall-Sworn", "Teague's", "Gate-Watch", "Stonework", "Border-Held"],
+                 ["Cold stone and colder duty.", "Marked with a lion's head.", "The wall's last uniform."]),
+    "sps_amber": (["Ambermill", "Waygate-Lit", "Orsolo's", "Resin-Bound", "Dalaran-Cut", "Sawmill"],
+                  ["Smells of pitch and old magic.", "Violet at the seams.", "Mill-dust and spellwork."]),
+    "sps_ferry": (["Decrepit-Ferry", "Lakewater", "Gael's", "Dock-Rotted", "Mooring", "Tide-Tallied"],
+                  ["Salt, moss and lake.", "The lake keeps a tally.", "Waterlogged, and proud of it."]),
+})
+
 # ---- level tables (Undercity hub scale, +80 xp / +300 gold per level) ----------------------------------------------------------
-XP = {11: 600, 12: 680, 13: 760, 14: 840, 15: 920, 16: 1000, 17: 1080}
-GOLD = {11: 2700, 12: 3200, 13: 3600, 14: 3900, 15: 4200, 16: 4500, 17: 4800}
+XP = {11: 600, 12: 680, 13: 760, 14: 840, 15: 920, 16: 1000, 17: 1080, 18: 1160, 19: 1240, 20: 1320}
+GOLD = {11: 2700, 12: 3200, 13: 3600, 14: 3900, 15: 4200, 16: 4500, 17: 4800, 18: 5100, 19: 5400, 20: 5700}
 
 
 def explore(zone, x, y, radius=6):
@@ -316,6 +350,456 @@ def north():
     return Z
 
 
+def south():
+    Z = []
+    A = Z.append
+    LYLE, HUNT, DAL, ASHE = "sp_south_gate_scout", "sp_south_hunter", "sp_south_march_sergeant", "sp_valgan_surgeon"
+
+    # ============================================================================================ VALGAN'S FIELD (hub: the March)
+    A(Q("sps_scout_report", "A Report for the March", LYLE, SPS, 15, 16, "sps_camp",
+        "Deathguard Lyle has watched the south road from the gate for months. He has a short, grim report for Sergeant Dallow at "
+        "Valgan's Field and no one to send. He would very much like it to arrive without having been read.",
+        [deliver("sps_scout_report", "Deliver the scout's report to Sergeant Dallow at Valgan's Field")],
+        "South along the trunk road. The field camp is under the banners, past the crossroad. Dallow will take it from you.",
+        "Lyle always did write short. Two lines, a smudge, and a warning. I'll make something of it.", None,
+        turn_in_npc_id=DAL,
+        grant_items=carry("sps_scout_report", "Lyle's Scout Report", "A single folded page, sealed with a drop of black wax.")))
+    A(Q("sps_forsaken_march", "Clear the March", DAL, SPS, 15, 16, "sps_camp",
+        "The March exists to keep the road to Ambermill open, and the road is full of wolves and the leavings of bears that "
+        "died of something the Apothecaries haven't named. Dallow wants both thinned before the next supply train.",
+        [kill("Diseased Wolf", 8, zone=SPS), kill("Zombie Bear", 5, zone=SPS)],
+        "Anywhere in the pines south of the gate. Wolves and bears. If it's limping and drooling, it's the one.",
+        "Quieter roads, fewer drovers screaming. You're a credit to the March.", None))
+    A(Q("sps_deserters", "Walk-Aways", DAL, SPS, 16, 17, "sps_camp",
+        "Some of the March did not stay. A few dozen Forsaken, tired of orders, walked off Valgan's Field and set up as brigands "
+        "on the farm. Dallow takes this personally, as the walking-off was done under his nose.",
+        [kill("Field Deserter", 8, zone=SPS)],
+        "Valgan's Field, the ruined farm around my camp. They wear March coats with the insignia torn off.",
+        "I'd hoped they'd come back on their own. They didn't. Thank you for doing what I couldn't.", None,
+        requires_quests=["sps_forsaken_march"]))
+    A(Q("sps_deserter_tags", "Dog Tags", DAL, SPS, 16, 17, "sps_camp",
+        "Every March soldier is issued an iron tag, stamped with a number. Dallow keeps the roll, and wants the tags of the "
+        "deserters, so that when someone else asks who left, he can say who and by what number.",
+        [fetch("sps_deserter_tag", 6)],
+        "Off the bodies of the deserters. Iron tags on a cord. Six of them.",
+        "Six names off the roll. They'll be remembered, though perhaps not kindly.", None,
+        requires_quests=["sps_forsaken_march"]))
+    A(Q("sps_deserter_letter", "The Letter in the Pocket", "item:sps_deserter_letter", SPS, 16, 18, "sps_camp",
+        "A letter, taken from a dead deserter's pocket, addressed to someone in the Undercity. The seal is unbroken. "
+        "Whatever it says, someone in the March ought to read it before it's posted.",
+        [deliver("sps_deserter_letter", "Bring the letter to Sergeant Dallow")],
+        "Dallow, at Valgan's Field. He will want to know who the deserters were writing to.",
+        "A mother, in Brill. The man was nineteen. Gods. I'll see she's told the right way.", None,
+        turn_in_npc_id=DAL))
+    A(Q("sps_wight_bones", "Bones for the Surgeon", ASHE, SPS, 17, 18, "sps_camp",
+        "Field Surgeon Ashe has run out of replacement bone. The battlefield wights of Valgan's Field wear the bones of better "
+        "men, and she is not too proud to recycle them.",
+        [fetch("sps_wight_bone", 6)],
+        "The wights on the field. Take the long bones - arms and legs. Cleaned, if you can.",
+        "These'll do. Slightly used, slightly regretful. Thank you.", None))
+    A(Q("sps_deathguard_captain", "The Captain Who Never Stopped", DAL, SPS, 18, 18, "sps_camp",
+        "A Deathguard Captain has been fighting the Third War on Valgan's Field since before Dallow arrived. He does not "
+        "answer to orders, rank, or reason, and the March cannot hold the field while he walks it.",
+        [boss("Deathguard Captain", SPS)],
+        "Deep in the field, where the wights gather. He's the one still giving commands.",
+        "He was a good officer once. The best of us, maybe. Thank you for ending the watch.", None,
+        requires_quests=["sps_deserters"]))
+    A(Q("sps_hunter_pelts", "Pelts for the Hunter", HUNT, SPS, 15, 16, "sps_camp",
+        "The Forsaken Hunter wants six clean wolf pelts. 'Diseased' is fine; 'dissolving' is not. He's making a cloak for someone "
+        "he used to know, and refuses to say who.",
+        [fetch("sps_wolf_pelt", 6)],
+        "The diseased wolves along the road. Skin them carefully. The cloak is a gift.",
+        "Good work. A bit mangy, but a cloak that's been through something is worth more.", "sps_hunter_roost"))
+    A(Q("sps_hunter_roost", "Carrion Calls", HUNT, SPS, 16, 17, "sps_camp",
+        "The carrion birds have been following the Hunter's traps and stealing the kills. He doesn't mind sharing, much. He minds the "
+        "birds taking the traps.",
+        [kill("Carrion Bird", 8, zone=SPS)],
+        "Anywhere in the pines. They're bold. Show them what boldness gets.",
+        "That'll teach them manners. Doubt it, but it's a start.", None,
+        requires_quests=["sps_hunter_pelts"]))
+
+    # ============================================================================================ BUCKLEBREE FARM
+    FAR, GOO = "sp_buckle_farmer", "sp_buckle_goodwife"
+    A(Q("sps_hogs", "The Hogs Went First", FAR, SPS, 15, 16, "sps_farm",
+        "The Bucklebree hogs went wrong the same week the plague reached the farm. They still root in the dirt, but what they "
+        "root up is worse. Farmer Bucklebree wants the herd put down before it breeds.",
+        [kill("Blightfed Hog", 8, zone=SPS), kill("Barn Ghoul", 6, zone=SPS)],
+        "The pens and the barn. The hogs won't run. The ghouls will, and then come back.",
+        "It's quiet on the farm for the first time in months. Odd how much I miss the noise.", None))
+    A(Q("sps_quilts", "The Missing Quilts", GOO, SPS, 15, 16, "sps_farm",
+        "Merriam sewed a quilt for every child born on the farm. The barn ghouls drag them off and sleep on them. She wants six "
+        "scraps back, to piece together whatever's left of the family.",
+        [fetch("sps_quilt_scrap", 6)],
+        "The barn ghouls. They keep the scraps tucked into their rags.",
+        "That's the blue one. That's my mother's stitching. Thank you. Thank you.", None))
+    A(Q("sps_gorra", "Tusk-Mother Gorra", FAR, SPS, 17, 17, "sps_farm",
+        "The old sow of the Bucklebree herd was the biggest hog in Silverpine. She did not die with the others. She grew. "
+        "Bucklebree has a knife, and no stomach to use it.",
+        [boss("Tusk-Mother Gorra", SPS)],
+        "In the east field, past the fence. You'll hear her before you see her.",
+        "She nursed forty litters. She was a good mother, in her way. Thank you.", None,
+        requires_quests=["sps_hogs"]))
+
+    # ============================================================================================ OLIVIA'S POND
+    THO = "sp_pond_marshwalker"
+    A(Q("sps_pond_ooze", "What Moves in the Water", THO, SPS, 16, 17, "sps_marsh",
+        "Marshwalker Thorne has walked the edge of Olivia's Pond for two years, and for the last three weeks something has walked it "
+        "with him. Marsh oozes, swamp ghouls, bloated things. He'd like fewer companions.",
+        [kill("Marsh Ooze", 8, zone=SPS), kill("Swamp Ghoul", 6, zone=SPS)],
+        "Around the pond. The oozes hug the shore. The ghouls come out at dusk.",
+        "A little quieter. A little less of me sinking in the mud. Thank you.", None))
+    A(Q("sps_pond_edge", "The Pond's Edge", THO, SPS, 16, 17, "sps_marsh",
+        "Thorne wants someone to circle the pond on foot and tell him what's changed. He has a theory about where the water is "
+        "going, and a stronger theory about where it's coming from.",
+        [explore(SPS, 42, 56, 5), explore(SPS, 36, 70, 5), explore(SPS, 22, 68, 5)],
+        "Three points: the east bank, the south bank, the south-west reeds. Count the dead fish. If there are none, run.",
+        "No fish at all. That's the answer I was afraid of.", "sps_pond_samples",
+        requires_quests=["sps_pond_ooze"]))
+    A(Q("sps_pond_samples", "Gas from the Bloated", THO, SPS, 17, 18, "sps_marsh",
+        "The bloated corpses of the pond carry bladders of marsh gas, and Thorne wants five, sealed, to test. He claims the gas is "
+        "the source of the oozes. It has a simple remedy: stop it at the source.",
+        [fetch("sps_marsh_sample", 5)],
+        "The bloated corpses, by the south bank. Pierce them carefully. Do not breathe.",
+        "That smell is worse than I'd hoped. That's how I know it's the right stuff.", None,
+        requires_quests=["sps_pond_ooze"]))
+    A(Q("sps_bloated_one", "The Bloated One", THO, SPS, 18, 18, "sps_marsh",
+        "At the pond's heart lies a corpse so swollen it can no longer rise. It lashes at anything that comes near, and what it "
+        "bursts into is worse than what it was. Thorne has finally found the source.",
+        [boss("The Bloated One", SPS)],
+        "The middle of the pond, up to your ankles in muck. Strike and step back. Strike and step back.",
+        "It's burst, and it's done. I'll wash for a week. Thank you.", None,
+        requires_quests=["sps_pond_ooze"]))
+
+    # ============================================================================================ DEEP ELEM MINE
+    HOB = "sp_elem_foreman"
+    A(Q("sps_mine_kobolds", "Kobolds in the Gallery", HOB, SPS, 16, 17, "sps_mine",
+        "Overseer Hobart held the Deep Elem Mine through the plague, the Scourge and the second strike. The kobolds that moved "
+        "in after the collapse have moved in for good. He wants the gallery cleared, and he wants to see them go first.",
+        [kill("Feral Rotting Kobold", 8, zone=SPS), kill("Deep Elem Digger", 6, zone=SPS)],
+        "At the mine mouth and the old galleries. Kobolds, rotting and digging. Both bite.",
+        "That's a clear gallery. I can almost smell the ore again.", None))
+    A(Q("sps_mine_lamps", "Lamps in the Dark", HOB, SPS, 17, 18, "sps_mine",
+        "Shamblers of dead miners still walk Deep Elem's galleries, carrying the lamps they died with. Hobart wants six. "
+        "'They belonged to the company,' he says, a little too firmly.",
+        [fetch("sps_miner_lamp", 6)],
+        "The shamblers at the mine mouth. Take the lamps from their hands. Mind the oil.",
+        "Six lamps, six names. The company will be pleased. I can stop pretending there's a company.", None,
+        requires_quests=["sps_mine_kobolds"]))
+    A(Q("sps_mine_gallery", "The Collapsed Gallery", HOB, SPS, 17, 18, "sps_mine",
+        "The main gallery collapsed the day of the plague, and Hobart has never been back to look. He wants someone to stand "
+        "at its mouth, and tell him whether the supports held.",
+        [explore(SPS, 18, 98, 4)],
+        "The mine mouth to the west. Don't go in. Stand at the threshold, and tell me what you see.",
+        "Supports gone. Ore everywhere. And the foreman's lamp, still lit. I knew it.", None,
+        requires_quests=["sps_mine_kobolds"]))
+    A(Q("sps_gnawbone", "Gnawbone the Foreman", HOB, SPS, 18, 18, "sps_mine",
+        "Gnawbone was the kobold foreman of Deep Elem, and the only one that kept his job after the collapse. He wears the "
+        "company's hard-hat and gives orders in a tongue Hobart half-remembers. He has to go.",
+        [boss("Gnawbone the Foreman", SPS)],
+        "Deep in the mine, among the carts. He's the one with the bone pick and the helmet.",
+        "My old foreman's helmet... on a kobold. I'll take it back. Thank you.", None,
+        requires_quests=["sps_mine_kobolds"]))
+
+    # ============================================================================================ PYREWOOD VILLAGE
+    BRA = "sp_pyre_hearthwarden"
+    A(Q("sps_pyre_ambush", "The Pyrewood Ambush", BRA, SPS, 17, 18, "sps_pyre",
+        "The worgen of Pyrewood Village were people once, and ambush from the treeline is still how they hunt. Hearthwarden Brand wants "
+        "the ambushers and the ferals thinned before the dead come to the village next.",
+        [kill("Worgen Ambusher", 8, zone=SPS), kill("Feral Worgen", 6, zone=SPS)],
+        "The village streets and the treeline. They hunt in packs. Don't be alone.",
+        "Fewer fangs in the dark. I'll almost let myself breathe.", None))
+    A(Q("sps_pyre_cultists", "The Ashen Cult", BRA, SPS, 18, 19, "sps_pyre",
+        "A cult has taken up in Pyrewood's burned houses, casting spells over the dead hearths. Brand does not know which god "
+        "they pray to. He knows it answers.",
+        [kill("Pyrewood Cultist", 8, zone=SPS)],
+        "The burned houses on the east side. They chant. They don't stop for you.",
+        "Quiet at last. Whatever answered them has gone quiet too.", None,
+        requires_quests=["sps_pyre_ambush"]))
+    A(Q("sps_pyre_sigils", "The Cult's Sigils", BRA, SPS, 18, 19, "sps_pyre",
+        "Each cultist carries an iron sigil, stamped with a cipher Brand doesn't recognise. He wants five, for a scholar in the "
+        "Undercity who might.",
+        [fetch("sps_cult_sigil", 5)],
+        "From the cultists. Iron discs on cords. Don't read the cipher aloud.",
+        "I'll have them sent to Sennarath in the Undercity. If anyone can read them, she can.", None,
+        requires_quests=["sps_pyre_ambush"]))
+    A(Q("sps_pyre_hall", "The Hall at the Heart", BRA, SPS, 18, 19, "sps_pyre",
+        "Pyrewood Hall stands at the north end of the village, its roof half-gone and its doors barred from the inside. Brand wants "
+        "someone to stand at its steps and tell him what's behind them.",
+        [explore(SPS, 88, 87, 4)],
+        "The Hall, at the north end of the green. Don't go in. Look at the doors.",
+        "Barred from the inside, as I feared. Whatever's in there wants to stay.", None,
+        requires_quests=["sps_pyre_ambush"]))
+    A(Q("sps_godfrey", "Lord Godfrey's Remnant", BRA, SPS, 19, 19, "sps_pyre",
+        "What stands in Pyrewood Hall is what the lord of the village left behind: a ghost in a noble's coat, pistol in one hand "
+        "and cane in the other, still giving the dead orders.",
+        [boss("Lord Godfrey's Remnant", SPS)],
+        "Inside the Hall. Mind the pistol. It never misses, and it never reloads.",
+        "He was a decent man, once. Not a good one. A decent one. That's more than most. Thank you.", None,
+        requires_quests=["sps_pyre_ambush", "sps_pyre_cultists"]))
+
+    # ============================================================================================ BERARD'S TALON
+    HAS = "sp_talon_trapper"
+    A(Q("sps_talon_stalkers", "Stalkers on the Hill", HAS, SPS, 17, 18, "sps_talon",
+        "Berard's Talon is a ridge of broken stone above the old keep road. Crag stalkers hunt its slopes, and wraiths drift "
+        "along its crest. Trapper Hask wants both cleared, so he can finally set his lines.",
+        [kill("Crag Stalker", 8, zone=SPS), kill("Talon Wraith", 6, zone=SPS)],
+        "The hill west of the keep road. Stalkers on the rocks, wraiths on the crest.",
+        "The lines can go out tonight. Thank you.", None))
+    A(Q("sps_talon_tokens", "Grave-Tokens", HAS, SPS, 18, 19, "sps_talon",
+        "The wraiths of Berard's Talon carry small tokens of the dead - coins, buttons, rings - clutched in spectral fingers. "
+        "Hask wants five, and plans to return them to the graves they came from.",
+        [fetch("sps_grave_token", 5)],
+        "Off the wraiths. Don't hold them too long. They remember.",
+        "Five graves to visit. It'll take all winter. Good. I'm not in a hurry.", None,
+        requires_quests=["sps_talon_stalkers"]))
+    A(Q("sps_berard", "Berard the Forgotten", HAS, SPS, 19, 19, "sps_talon",
+        "The hill is named for Berard, a man whose face no longer appears in any record. He walks the ridge each night and "
+        "no one remembers what he is looking for.",
+        [boss("Berard the Forgotten", SPS)],
+        "On the crest, under the old stone ring. He moves like a man trying to remember.",
+        "Maybe he'll rest now. Maybe someone will remember his face. Thank you.", None,
+        requires_quests=["sps_talon_stalkers"]))
+
+    # ============================================================================================ BEREN'S PERIL
+    RYN = "sp_peril_packbreaker"
+    A(Q("sps_peril_pack", "Break the Pack", RYN, SPS, 18, 19, "sps_peril",
+        "A worgen pack has dug in under the hills of Beren's Peril, led by packmasters who've learned to hold a line. Packbreaker "
+        "Rynn wants the line broken, and the stalkers that run in front of it.",
+        [kill("Peril Packmaster", 8, zone=SPS), kill("Feral Worgen Stalker", 6, zone=SPS)],
+        "The hills south-east of Pyrewood. They hold the high ground. Don't give them the high ground.",
+        "That's the pack broken. A good start. The alpha next.", None))
+    A(Q("sps_peril_teeth", "Teeth of the Packmasters", RYN, SPS, 19, 20, "sps_peril",
+        "A packmaster wears the teeth of every rival he has bested. Rynn wants five of those necklaces, to show the Dark Lady what "
+        "the Peril has been chewing on.",
+        [fetch("sps_alpha_tooth", 5)],
+        "From the packmasters. They wear the teeth on their necks. Don't pull too hard.",
+        "That's a lot of rivals. I want the one who gave them the idea.", None,
+        requires_quests=["sps_peril_pack"]))
+    A(Q("sps_bloodmaw", "Bloodmaw the Alpha", RYN, SPS, 20, 20, "sps_peril",
+        "At the heart of the Peril lives Bloodmaw, a grey-muzzled alpha who has outlived every challenger. He wears a collar of "
+        "wolf teeth and a scar down his flank, and he is the only reason the pack still holds.",
+        [boss("Bloodmaw the Alpha", SPS)],
+        "At the den, deep in the hills. He isn't hiding. He's waiting.",
+        "A pack without an alpha scatters. We'll see how many come back. Thank you.", None,
+        requires_quests=["sps_peril_pack"]))
+
+    # ============================================================================================ THE GREYMANE WALL
+    TEA = "sp_wall_corporal"
+    A(Q("sps_wall_breakers", "Wallbreakers", TEA, SPS, 18, 19, "sps_wall",
+        "Worgen throw themselves at the Greymane Wall every night, and the dead of the wall rise to meet them. "
+        "Corporal Teague wants the breakers thinned, and the ghosts calmed, if either can be done.",
+        [kill("Wallbreaker Worgen", 8, zone=SPS), kill("Wall Wraith", 6, zone=SPS)],
+        "The long wall, along the southern edge. They come in waves. Meet them one at a time.",
+        "The wall holds. Another night. Thank you.", None))
+    A(Q("sps_wall_seals", "Seals of the Greymane Guard", TEA, SPS, 19, 20, "sps_wall",
+        "The ghosts of the Wall Guard carry the seals they swore their oaths on. Teague wants five, to lay on the shut gate "
+        "when the next Forsaken relief arrives.",
+        [fetch("sps_gilnean_seal", 5)],
+        "From the wraiths. Iron seals, stamped with a lion. Handle gently.",
+        "They'll rest easier on the gate than on the dead. Thank you.", None,
+        requires_quests=["sps_wall_breakers"]))
+    A(Q("sps_shut_gate", "The Shut Gate", TEA, SPS, 19, 20, "sps_wall",
+        "The great gate in the Greymane Wall has not opened since the night Gilneas shut itself off from the world. Teague wants "
+        "someone to stand before it and report whether there's any sign of change.",
+        [explore(SPS, 120, 148, 6)],
+        "The gate's in the middle of the wall. Don't touch it. Don't knock. Just look.",
+        "Not a hair of change. Good. I'd rather the thing stay closed than learn what's behind it.", None,
+        requires_quests=["sps_wall_breakers"]))
+    A(Q("sps_wall_warden", "The Wall-Warden", TEA, SPS, 20, 20, "sps_wall",
+        "The ghost of the Wall's last commander still walks the parapet, enforcing a sentence that was never lifted: nothing in, "
+        "nothing out. The Forsaken cannot pass him either. He has to be put down.",
+        [boss("Gilnean Wall-Warden", SPS)],
+        "Along the parapet, by the gate. He challenges everyone. He means it.",
+        "He was doing his duty. I'm sorry it came to this. I'm sorry for all of us.", None,
+        requires_quests=["sps_wall_breakers"]))
+
+    # ============================================================================================ AMBERMILL
+    HSK, ORS = "sp_amber_millwright", "sp_amber_magister"
+    A(Q("sps_amber_ghosts", "Ghosts at the Mill", HSK, SPS, 18, 19, "sps_amber",
+        "Ambermill was a Dalaran lumber village until the plague took its mages. Their ghosts stayed behind, along with the "
+        "wards they set on the mill. Millwright Haskell can't tell which are guarding the place, and which are guarding themselves.",
+        [kill("Ambermill Ghost-Mage", 8, zone=SPS), kill("Ambermill Warden", 6, zone=SPS)],
+        "The village and the mill-yard. The ghost-mages cast. The wardens hit.",
+        "Fewer ghosts, fewer wards. I might get a plank cut before dark.", None))
+    A(Q("sps_amber_resin", "Resin of the Wardens", HSK, SPS, 19, 20, "sps_amber",
+        "The mill's wardens are made of amber resin, hardened by magic. Haskell wants six lumps. 'Fuel for the stove,' he says, and "
+        "then admits it's for the stove he plans to build in a house that isn't there any more.",
+        [fetch("sps_amber_resin", 6)],
+        "From the wardens. Warm to the touch. Don't lick them.",
+        "Six lumps. That's my winter. Thank you. Truly.", None,
+        requires_quests=["sps_amber_ghosts"]))
+    A(Q("sps_amber_waygate", "The Old Waygate", ORS, SPS, 19, 20, "sps_amber",
+        "Magister Orsolo studied the Ambermill waygate for forty years. It leads somewhere, and he has finally decided he does not "
+        "want to know where. He wants someone to stand at the gate and tell him what it looks like now.",
+        [explore(SPS, 138, 91, 4)],
+        "East of the mill, below the cliff. Stand at its feet. Don't touch the runes.",
+        "Violet. Brighter than it was. So it's still listening. Thank you. I'll keep my distance.", None,
+        requires_quests=["sps_amber_ghosts"]))
+    A(Q("sps_quillfire", "Magister Quillfire", ORS, SPS, 20, 20, "sps_amber",
+        "Orsolo's colleague, Magister Quillfire, never left the tower. Now he casts spells on anyone who nears it, and the waygate "
+        "answers him. Orsolo cannot bring himself to do it, and asks that you do.",
+        [boss("Magister Quillfire", SPS)],
+        "Near the waygate. He writes in the air. Don't read it.",
+        "He was a gentle man, and a better mage than I. I'm sorry it fell to you.", None,
+        requires_quests=["sps_amber_ghosts"]))
+
+    # ============================================================================================ THE DECREPIT FERRY
+    GAE, PIM = "sp_ferryman", "sp_ferry_dockhand"
+    A(Q("sps_ferry_deckhands", "Waterlogged Crew", GAE, SPS, 16, 17, "sps_ferry",
+        "The ferry's crew drowned the night the boat went down, and walked back up the lake bed the next morning. They work the "
+        "pier from dusk to dawn and will not let Gael sleep. He asks that you send them back.",
+        [kill("Drowned Deckhand", 8, zone=SPS), kill("Carrion Bird", 4, zone=SPS)],
+        "On and around the pier. The deckhands hold the boat-hooks. The birds hold grudges.",
+        "A quieter dock. I may even sleep.", None))
+    A(Q("sps_ferry_crates", "Lost Cargo", PIM, SPS, 17, 18, "sps_ferry",
+        "Cargo crates wash up on the shore at all hours, and the deckhands guard them as if they were gold. Dockhand Pim wants "
+        "five of them, delivered to the Rear Guard. 'If it's gold,' she says, 'the Dark Lady should have it.'",
+        [fetch("sps_cargo_crate", 5)],
+        "Off the deckhands. They carry them as if by instinct. Five crates.",
+        "It's mostly rotten fish. But five of them sealed with Dalaran wax? Someone's lost something.", None,
+        requires_quests=["sps_ferry_deckhands"]))
+    A(Q("sps_ferry_ticket", "A Ticket to Somewhere", "item:sps_ferry_ticket", SPS, 16, 18, "sps_ferry",
+        "A ticket stub for the Decrepit Ferry, stamped with a date from the last winter before the plague. The destination is "
+        "Fenris Isle. Gael may remember who it was sold to.",
+        [deliver("sps_ferry_ticket", "Bring the ticket stub to Ferryman Gael")],
+        "The ferryman, at the pier. He keeps every stub.",
+        "Last passenger I carried to the isle. I never saw him come back.", None,
+        turn_in_npc_id=GAE))
+    A(Q("sps_ferryman", "The Drowned Ferryman", GAE, SPS, 18, 18, "sps_ferry",
+        "The first ferryman drowned with the boat, and rose to take it back. He steers at night, and his passengers are not "
+        "the sort who pay. Gael wants him put in his grave.",
+        [boss("Drowned Ferryman", SPS)],
+        "On the pier head. He leans on his oar like it's holding him up.",
+        "He taught me the trade. He deserves a better ending than that. Thank you.", None,
+        requires_quests=["sps_ferry_deckhands"]))
+    A(Q("sps_fenris_crossing", "The Crossing to Fenris", GAE, SPS, 18, 18, "sps_ferry",
+        "With the old ferryman gone, Gael has agreed to take passengers to Fenris Isle again. He says he'll go as far as the "
+        "pier head and no farther, and wants you to check the moorings.",
+        [explore(SPS, 149, 44, 2)],
+        "The end of the pier. The boat'll take you across when you're ready.",
+        "Moorings hold. The lake's flat. The isle's waiting, if you've the stomach.", None,
+        requires_quests=["sps_ferryman"]))
+
+    # ============================================================================================ SHADOWFANG KEEP GATE
+    MAR = "sp_sfk_gatekeeper"
+    A(Q("sps_sfk_pickets", "Pickets at the Portcullis", MAR, SPS, 19, 20, "sps_wall",
+        "Ghouls and stalkers crowd the keep road, drawn by whatever Arugal keeps inside. Gatekeeper Marl wants the road clear "
+        "before the next party goes in.",
+        [kill("Rotting Ghoul", 6, zone=SPS), kill("Feral Worgen Stalker", 5, zone=SPS)],
+        "Near the gate. Ghouls on the road, stalkers in the trees.",
+        "A clear road. Whatever you're walking into, you'll walk in with fresh boots.", None))
+    A(Q("sps_sfk_forecourt", "The Keep's Forecourt", MAR, SPS, 19, 20, "sps_wall",
+        "Marl has stood at Shadowfang's gate for years and cannot say whether the howling has grown louder or he has grown "
+        "used to it. He wants someone to stand in the forecourt and tell him honestly.",
+        [explore(SPS, 49, 148, 4)],
+        "In front of the portcullis. Stand, listen, report.",
+        "Louder. I thought so. Gods help whoever's inside.", None))
+
+    # ============================================================================================ THE LINKEN GATE (finale)
+    A(Q("sps_dallow_reckoning", "The March's Reckoning", DAL, SPS, 19, 20, "sps_camp",
+        "Five reports lie on Dallow's table: the Deathguard Captain is down, the Bloated One is down, Lord Godfrey's Remnant is down, "
+        "Berard rests, and Bloodmaw's pack has scattered. The March has not seen five victories in a row since the war.",
+        [explore(SPS, 70, 48, 4)],
+        "Come back to Valgan's Field. Stand where the March can see you.",
+        "Five victories. A medal for each, if we had medals. Instead, take this. The March doesn't forget.", None,
+        mult=1.6, turn_in_npc_id=DAL,
+        requires_quests=["sps_deathguard_captain", "sps_bloated_one", "sps_godfrey", "sps_berard", "sps_bloodmaw"]))
+    return Z
+
+
+def sepulcher():
+    Z = []
+    A = Z.append
+    VANE, DARNE, YS, WR, CASS, ELL, MOL, HER, OSK, MOUR, SOUL = (
+        "sepulcher_commander", "sepulcher_relic_hunter", "sepulcher_bone_carver", "sepulcher_reagent_seller",
+        "sepulcher_gravestone_reader", "sepulcher_tomb_keeper", "sepulcher_crypt_guard", "sepulcher_hermit",
+        "sepulcher_pilgrim", "sepulcher_mourner", "sepulcher_lost_soul")
+    A(Q("sep_keep_tour", "Know the Keep", VANE, SEP, 13, 14, "sep_keep",
+        "Commander Vane does not give orders to people who cannot find the latrines. Walk the terraces - the lower court, the middle "
+        "terrace and the graveyard wing - and report back. Do not touch anything that is not yours.",
+        [explore(SEP, 44, 56, 6), explore(SEP, 44, 36, 5), explore(SEP, 13, 33, 5)],
+        "Three stops: the court inside the gate, the middle terrace, and the Raven Hill graveyard to the west.",
+        "You didn't fall off anything. That's a better start than most.", None))
+    A(Q("sep_woods_cull", "The Woods Below", VANE, SEP, 13, 14, "sep_keep",
+        "The Keep sits above the pines, and the pines are full of worg and the leavings of the plague. Vane wants the approach to "
+        "the gate kept short of anything with teeth.",
+        [kill("Worg Prowler", 8, zone=SPN), kill("Feral Ghoul", 6, zone=SPN)],
+        "In the woods south of the Keep, along the road you walked in on.",
+        "Fewer teeth on the approach. I'll note it in the ledger.", None,
+        requires_quests=["sep_keep_tour"]))
+    A(Q("sep_dispatch", "A Dispatch for the Rear Guard", VANE, SEP, 14, 15, "sep_keep",
+        "Vane has written to Captain Vesk of the Rear Guard. It is three lines long. He would like it delivered by someone who "
+        "will not read it, and, failing that, someone who will not remember it.",
+        [deliver("sep_dispatch", "Deliver Vane's dispatch to Captain Vesk at the Rear Guard")],
+        "North along the road to the Rear Guard. Vesk is at the gate.",
+        "Three lines. Of course. It's rude, and exactly right.", None,
+        turn_in_npc_id="sp_rg_captain", requires_quests=["sep_keep_tour"],
+        grant_items=carry("sep_dispatch", "Vane's Dispatch", "A single sheet, folded thrice and sealed with the Keep's black wax.")))
+    A(Q("sep_relic_shards", "Shards of the Faithful", DARNE, SEP, 14, 15, "sep_keep",
+        "Relic Hunter Darne pays for grave-goods, and the skeletal groundskeepers of Raven Hill carry the best of them: ring-shards, "
+        "buckle-bone, whatever they were buried with. She wants six, intact.",
+        [fetch("sep_relic_shard", 6)],
+        "From the groundskeepers at Raven Hill, to the south. Don't chip them.",
+        "These are good. Old and honest. The collectors in Undercity will weep.", None))
+    A(Q("sep_marrow", "Marrow Work", YS, SEP, 14, 15, "sep_keep",
+        "Yseult carves bone into combs, buttons and, occasionally, regret. Risen husks have the best marrow, she says, and they "
+        "never complain about the harvest.",
+        [fetch("sep_bone_marrow", 6)],
+        "Risen husks, wherever the field is thickest. Six dry marrow-bones.",
+        "Dry and pale. I could carve a chapel out of these. I'll settle for a comb.", None))
+    A(Q("sep_wasp_stings", "Stings for the Apothecary", WR, SEP, 15, 16, "sep_keep",
+        "Windfall wasps in Malden's Orchard are full of a venom Wrenn has been trying to buy for years. The orchard won't sell it. "
+        "The wasps won't either. Wrenn would like it taken.",
+        [fetch("sep_wasp_sting", 6)],
+        "Malden's Orchard, north of the Raven Hill road. The stings are on the abdomen. Handle with tongs.",
+        "Six stings and no stinging. You have steadier hands than most.", None))
+    A(Q("sep_stone_names", "Names on the Stones", CASS, SEP, 14, 15, "sep_keep",
+        "Reader Cass reads the stones of the Raven Hill wing. Most are blank, rubbed smooth by rain and by something that rubs "
+        "back. She wants three clusters visited and the weeds pulled away. 'Read them aloud,' she says. 'It helps.'",
+        [explore(SEP, 8, 28, 4), explore(SEP, 16, 29, 4), explore(SEP, 11, 38, 4)],
+        "The graveyard wing, west of the middle terrace. Three clusters of stones.",
+        "Three more names. I'll write them on the wall, so they stay.", None))
+    A(Q("sep_ellowyn_sleepers", "Sleepers That Won't", ELL, SEP, 15, 16, "sep_keep",
+        "The tomb-keeper of the chapel yard counts sleepers each dusk. Some have stopped lying down. Groundskeepers and husks both "
+        "wander from the Raven Hill plots in search of a bed that isn't theirs.",
+        [kill("Skeletal Groundskeeper", 8, zone=SPN), kill("Risen Husk", 6, zone=SPN)],
+        "At Raven Hill, south of the Keep. Send them back where they belong.",
+        "Fewer wanderers. I'll sleep better. Metaphorically.", None))
+    A(Q("sep_gate_crows", "Crows at the Gate", MOL, SEP, 14, 15, "sep_keep",
+        "Crypt Guard Molsen is tired of the crows. They pick at the Keep's banners, steal buttons off his coat, and one of them has "
+        "learned to open the gate-latch.",
+        [kill("Blighted Crow", 8, zone=SPN), kill("Dead Field Harrower", 5, zone=SPN)],
+        "The Dead Field, east of the road. The harrowers feed them; thin both.",
+        "The latch-crow? Dead. Good. I owe you a drink I can't taste.", None,
+        requires_quests=["sep_keep_tour"]))
+    A(Q("sep_hermit_oil", "The Hermit's Oil", HER, SEP, 15, 16, "sep_keep",
+        "The Hermit has not left his lean-to since the Plague. His lamp is nearly dry. Spider-fat burns clean, he says, and he "
+        "cannot hunt it himself, because spiders have opinions about hermits.",
+        [fetch("sep_spider_fat", 5)],
+        "Silverpine spiders in the Skittering Dark. Five clean glands. Tell no one I asked.",
+        "I can read again. Not that there is much I wish to read.", None))
+    A(Q("sep_osk_road", "The Pilgrim's Road", OSK, SEP, 14, 15, "sep_keep",
+        "Osk walks between the Keep and Tirisfal every autumn, ostensibly to pray. He has no idea who he is praying to. He asks that "
+        "the road between be made less murderous.",
+        [kill("Silverpine Spider", 6, zone=SPN), kill("Corrupted Treant", 3, zone=SPN)],
+        "The woods north and east of the Keep. Spiders and treants, mainly.",
+        "A quieter road. I'll walk it once more before the snow.", None))
+    A(Q("sep_cracked_locket", "A Cracked Locket", "item:sep_cracked_locket", SEP, 14, 16, "sep_keep",
+        "Taken from a skeletal groundskeeper's rib-cage: a cracked silver locket, with a single pressed flower inside. The one at "
+        "the Keep who wanders the lower court without a name might know it.",
+        [deliver("sep_cracked_locket", "Bring the locket to Something That Was Once Named in the lower court")],
+        "The lower court of the Sepulcher. A figure who answers to nothing in particular.",
+        "...yes. That one. Thank you. I think... I think I had a daughter.", None,
+        turn_in_npc_id=SOUL))
+    A(Q("sep_wreaths", "Wreaths for the Quiet", MOUR, SEP, 14, 15, "sep_keep",
+        "The Mourner weaves wreaths from what the dead leave behind. Risen farmhands carry wilted sprays in their pockets - "
+        "last year's offerings, never delivered. She wants six.",
+        [fetch("sep_wilted_wreath", 6)],
+        "The farmhands of Olsen's Farthing, south of the Keep.",
+        "Even wilted, they mean something. I'll lay them where they were meant to go.", None))
+    return Z
+
+
 # ---- fetch items + drop-started items -------------------------------------------------------------------------------------------
 FETCH_DROPS = {         # item_id: (name, description, [(creature, chance)])
     "sp_venom_gland": ("Silverpine Venom Gland", "A greenish gland, still faintly pulsing.", [("Silverpine Spider", 0.40)]),
@@ -326,16 +810,44 @@ FETCH_DROPS = {         # item_id: (name, description, [(creature, chance)])
     "sp_slitherer_fang": ("Slitherer Fang", "A curved, wet fang. Handle with tongs.", [("Rot Hide Slitherer", 0.42)]),
     "sp_skitter_sac": ("Skitterer Egg Sac", "A silk-wrapped egg sac, warm to the touch.", [("Venomfang Skitterer", 0.42)]),
 }
+FETCH_DROPS.update({
+    "sep_relic_shard": ("Grave-Goods Shard", "A ring-shard of tarnished silver, still warm from burial.", [("Skeletal Groundskeeper", 0.40)]),
+    "sep_bone_marrow": ("Dry Marrow-Bone", "A pale, dry shin-bone, ideal for carving.", [("Risen Husk", 0.40)]),
+    "sep_wasp_sting": ("Windfall Wasp Sting", "A glistening black barb, still wet.", [("Windfall Wasp", 0.42)]),
+    "sep_spider_fat": ("Silverpine Spider Fat", "A pale, waxy gland. Burns clean.", [("Silverpine Spider", 0.42), ("Giant Spider", 0.42)]),
+    "sep_wilted_wreath": ("Wilted Offering", "A spray of flowers that never reached its grave.", [("Risen Farmhand", 0.42)]),
+})
+FETCH_DROPS.update({
+    "sps_deserter_tag": ("March Deserter's Tag", "An iron tag stamped with a March number.", [("Field Deserter", 0.45)]),
+    "sps_wight_bone": ("Battlefield Long-Bone", "A long bone, picked clean. Someone's arm, once.", [("Battlefield Wight", 0.42)]),
+    "sps_wolf_pelt": ("Diseased Wolf Pelt", "A mangy pelt. It will clean up, mostly.", [("Diseased Wolf", 0.42)]),
+    "sps_quilt_scrap": ("Bucklebree Quilt Scrap", "A square of hand-stitched quilt, stained with barn straw.", [("Barn Ghoul", 0.42)]),
+    "sps_marsh_sample": ("Sealed Marsh-Gas Bladder", "A swollen, foul bladder. It wobbles.", [("Bloated Corpse", 0.42)]),
+    "sps_miner_lamp": ("Company Mining Lamp", "A battered brass lamp, stamped with the Deep Elem mark.", [("Mine Shambler", 0.42)]),
+    "sps_cult_sigil": ("Pyrewood Cult Sigil", "A dull iron disc etched with a cipher you'd rather not read.", [("Pyrewood Cultist", 0.42)]),
+    "sps_grave_token": ("Wraith-Held Token", "A small keepsake, cold as a gravestone.", [("Talon Wraith", 0.42)]),
+    "sps_alpha_tooth": ("Packmaster's Tooth-Necklace", "A string of worgen teeth, each one a rival.", [("Peril Packmaster", 0.40)]),
+    "sps_gilnean_seal": ("Wall Guard's Seal", "A lion-stamped iron seal, rubbed smooth.", [("Wall Wraith", 0.42)]),
+    "sps_amber_resin": ("Warden's Amber Resin", "A warm lump of hardened resin.", [("Ambermill Warden", 0.42)]),
+    "sps_cargo_crate": ("Waterlogged Cargo Crate", "A small crate, sealed with Dalaran wax.", [("Drowned Deckhand", 0.42)]),
+})
 STARTER_DROPS = {      # item_id: (name, description, quest_id, [(creature, chance)])
     "sp_farmhand_locket": ("Farmhand's Silver Locket", "A small silver locket on a broken chain. The clasp is stuck.",
                            "spn_farmhand_locket", [("Risen Farmhand", 0.14)]),
     "sp_crow_ring": ("Tarnished Gold Ring", "A gold band, pecked loose from a nest. Inscribed on the inside.",
                      "spn_df_ring", [("Blighted Crow", 0.14)]),
 }
+STARTER_DROPS.update({
+    "sep_cracked_locket": ("Cracked Silver Locket", "A silver locket with a single pressed flower inside.",
+                           "sep_cracked_locket", [("Skeletal Groundskeeper", 0.14)]),
+    "sps_deserter_letter": ("Deserter's Sealed Letter", "A letter addressed to someone in the Undercity. The seal is unbroken.",
+                            "sps_deserter_letter", [("Field Deserter", 0.14)]),
+    "sps_ferry_ticket": ("Decrepit Ferry Ticket", "A water-stained ticket stub for a crossing to Fenris Isle.",
+                         "sps_ferry_ticket", [("Drowned Deckhand", 0.14)]),
+})
 
 
-def main():
-    Z = north()
+def _finish(Z):
     ids = set()
     out = []
     for q in Z:
@@ -352,13 +864,24 @@ def main():
         assert n is None or n in ids, (q["quest_id"], n)
         for r in q.get("requires_quests", []):
             assert r in ids or r.startswith(("sp_", "ets_", "etc_")), (q["quest_id"], r)
-    OUT_N.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n")
+    return out, ids
 
-    # the old one-line North quests are replaced by this pass
+
+def main():
+    out_n, ids_n = _finish(north())
+    OUT_N.write_text(json.dumps({"quests": out_n}, indent=2, ensure_ascii=False) + "\n")
+    out_s, ids_s = _finish(south())
+    OUT_S.write_text(json.dumps({"quests": out_s}, indent=2, ensure_ascii=False) + "\n")
+    out_p, ids_p = _finish(sepulcher())
+    OUT_SEP.write_text(json.dumps({"quests": out_p}, indent=2, ensure_ascii=False) + "\n")
+    ids = ids_n | ids_s | ids_p
+
+    # the old one-line quests are replaced by this pass
     fp = ROOT / "data/quests/forsaken_lands.json"
     fd = json.loads(fp.read_text())
     old = {"sp_raven_hill_risen", "sp_forsaken_watchman", "sp_pyrewood_worgen", "sp_lord_godfreys_remnant",
-           "sp_shadowspring_bog", "sp_muckmaw"}
+           "sp_shadowspring_bog", "sp_muckmaw",
+           "sp_forsaken_march", "sp_deathguard_captain", "sp_rotting_marshes", "sp_the_bloated_one"}
     fd["quests"] = [q for q in fd["quests"] if q["quest_id"] not in old]
     fp.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n")
 
@@ -376,7 +899,7 @@ def main():
             lst[:] = [d for d in lst if d["item_id"] != item_id]
             lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance, starts_quest=qid))
     DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
-    print(f"silverpine north quests: {len(out)}, items {sum(len(q['unique_item_defs']) for q in out)}")
+    print(f"silverpine quests: north {len(out_n)}, south {len(out_s)}, sepulcher {len(out_p)}")
 
 
 if __name__ == "__main__":

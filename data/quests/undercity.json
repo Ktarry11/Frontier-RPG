@@ -1229,53 +1229,53 @@
       "title": "The Pyrewood Pack",
       "giver_npc_id": "uc_hunter_trainer",
       "zone": "undercity",
-      "level_min": 13,
-      "level_max": 15,
+      "level_min": 15,
+      "level_max": 16,
       "description": "Ranger Isolde hunts what the Dark Lady needs hunted, and this season it's the worgen around Pyrewood Village: thickening in number, bolder in daylight, and very much not our friends. Thin the ambushers and the feral ones both.",
       "objectives": [
         {
           "type": "kill",
           "target": "Worgen Ambusher",
           "count": 6,
-          "zone": "silverpine_north"
+          "zone": "silverpine_south"
         },
         {
           "type": "kill",
           "target": "Feral Worgen",
           "count": 6,
-          "zone": "silverpine_north"
+          "zone": "silverpine_south"
         }
       ],
-      "reward_exp": 920,
-      "reward_gold": 4200,
-      "accept_text": "Pyrewood Village, Silverpine North. Watch the treeline. They love the treeline.",
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Pyrewood Village, Silverpine South. Watch the treeline. They love the treeline.",
       "turn_in_text": "Twelve less to watch. The Dark Lady will hear of it, if only because I'll tell her.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
           "name": "Shadow-Hide Boots",
           "slot": "feet",
-          "item_level": 14,
+          "item_level": 15,
           "rarity": "uncommon",
-          "required_level": 13,
+          "required_level": 15,
           "flavor_text": "The road dust has become the colour.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 1
+            "strength": 1,
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2
+            "defense_rating": 0.1
           },
           "armor_type": "plate",
-          "armor_value": 32,
+          "armor_value": 35,
           "label": "Plate Boots (Str/Sta/Def)"
         },
         {
           "name": "Rhyne's Gauntlets",
           "slot": "hands",
-          "item_level": 14,
+          "item_level": 15,
           "rarity": "uncommon",
-          "required_level": 13,
+          "required_level": 15,
           "flavor_text": "Silent soles, sharp edges.",
           "primary_stats": {
             "stamina": 3
@@ -1285,29 +1285,29 @@
             "dodge_rating": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 21,
+          "armor_value": 23,
           "label": "Mail Gloves (Sta/Def/Dodge)"
         },
         {
           "name": "Pathfinder's Glaive",
           "slot": "main_hand",
-          "item_level": 14,
+          "item_level": 15,
           "rarity": "uncommon",
-          "required_level": 13,
+          "required_level": 15,
           "flavor_text": "Cut for someone who walks and does not rattle.",
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 9.6,
-            "parry_rating": 7.2
+            "dodge_rating": 11.3,
+            "parry_rating": 7.8
           },
-          "weapon_damage_min": 32,
-          "weapon_damage_max": 43,
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
           "attack_speed": 3.3,
           "label": "Polearm (Dodge/Parry)"
         }
       ],
-      "gear_reward_gear_level": 14
+      "gear_reward_gear_level": 15
     },
     {
       "quest_id": "ucq_watchman",

@@ -277,36 +277,37 @@ class PortalManager:
             # sea cliffs (west), the spider cave in the east wall, the trunk road out to Silverpine South at the bottom.
             "Silverpine North": {
                 (80, 5): ("Eastern Tirisfal", 16, 134),            # arrive (16,132)
-                (32, 98): ("The Sepulcher", 35, 55),               # arrive (35,53)
+                (32, 98): ("The Sepulcher", 44, 65),               # arrive (44,63), inside the south gate
                 (150, 84): ("Widow's Lair", 70, 108),               # arrive (70,106)
-                (80, 156): ("Silverpine South", 100, 14),
+                (80, 156): ("Silverpine South", 80, 11),               # arrive (80,9)
             },
             "Widow's Lair": {
                 (70, 108): ("Silverpine North", 150, 84),          # cave exit: +3 -> arrive (150,85), south of the mouth
             },
             "Silverpine South": {
-                (100, 10): ("Silverpine North", 80, 154),          # arrive (80,152)
-                (160, 80): ("Ambermill Tower", 75, 128),
-                (100, 155): ("Shadowfang Keep", 85, 152),
-                (182, 138): ("Fenris Isle", 80, 125),  # boat, east coast dock
-                (45, 90): ("The Sepulcher", 35, 55),
+                # Hand-built (tools/handbuilt_silverpine_south.py): the road in from North at the top, Shadowfang's portcullis under the
+                # SW ridge, the Ambermill waygate in the east, the Decrepit Ferry pier into Lordamere.
+                (80, 5): ("Silverpine North", 80, 154),            # arrive (80,152)
+                (138, 90): ("Ambermill Tower", 75, 128),
+                (48, 144): ("Shadowfang Keep", 85, 152),
+                (151, 44): ("Fenris Isle", 80, 125),               # the ferry
             },
             "The Sepulcher": {
-                (35, 55): ("Silverpine North", 32, 102),           # arrive (32,100), south of the gate
+                (44, 67): ("Silverpine North", 32, 102),           # arrive (32,100), south of the gate
             },
             "Ambermill Tower": {
-                (75, 128): ("Silverpine South", 160, 78),
+                (75, 128): ("Silverpine South", 138, 90),          # cave exit: +3 -> arrive (138,91), south of the waygate
             },
             "Shadowfang Keep": {
                 # Was pointing back to Silverpine North's portal (100,10)
                 # instead of the actual Sepulcher-side entrance you walked
                 # in from (100,155) - so leaving the dungeon dumped you
                 # clear across the map instead of back at the door.
-                (85, 152): ("Silverpine South", 100, 155),
+                (85, 152): ("Silverpine South", 48, 144),          # cave exit: +3 -> arrive (48,145), south of the gate
             },
             "Fenris Isle": {
                 (25, 60): ("Shadowpine Altar", 75, 115),
-                (80, 125): ("Silverpine South", 182, 136),  # boat return
+                (80, 125): ("Silverpine South", 149, 46),   # boat return: arrive (149,44) on the pier
             },
             "Shadowpine Altar": {
                 (75, 115): ("Fenris Isle", 25, 58),

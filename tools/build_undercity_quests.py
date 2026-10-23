@@ -213,11 +213,11 @@ def quests():
 
     # ============================================================================================ HUB: HUNTERS + DEATHSTALKERS
     ISO, RHY = "uc_hunter_trainer", "uc_deathstalker"
-    A(Q("ucq_pyrewood_hunt", "The Pyrewood Pack", ISO, UC, 13, 15, "uc_scout",
+    A(Q("ucq_pyrewood_hunt", "The Pyrewood Pack", ISO, UC, 15, 16, "uc_scout",
         "Ranger Isolde hunts what the Dark Lady needs hunted, and this season it's the worgen around Pyrewood Village: thickening in "
         "number, bolder in daylight, and very much not our friends. Thin the ambushers and the feral ones both.",
-        [kill("Worgen Ambusher", 6, zone=SPN), kill("Feral Worgen", 6, zone=SPN)],
-        "Pyrewood Village, Silverpine North. Watch the treeline. They love the treeline.",
+        [kill("Worgen Ambusher", 6, zone="silverpine_south"), kill("Feral Worgen", 6, zone="silverpine_south")],
+        "Pyrewood Village, Silverpine South. Watch the treeline. They love the treeline.",
         "Twelve less to watch. The Dark Lady will hear of it, if only because I'll tell her.", None))
     A(Q("ucq_watchman", "The Watchman Who Stayed", RHY, UC, 15, 16, "uc_scout",
         "A Forsaken Watchman at Raven Hill never stopped his patrol. He no longer answers challenges, or his own name. Deathstalker "

@@ -1725,32 +1725,103 @@
     },
     "Silverpine South": {
       "open_zone": {
-        "name": "The Forsaken March",
+        "name": "The Silverpine Pines",
         "creatures": {
-          "Forsaken Deserter": 2,
-          "Diseased Wolf": 1,
-          "Plague Rat Swarm": 1,
-          "Rot Hound": 1,
-          "Blighted Bear": 0
+          "Diseased Wolf": 3,
+          "Zombie Bear": 2,
+          "Carrion Bird": 2,
+          "Rotting Ghoul": 2
         }
       },
       "subzones": {
-        "Undercity Path": {
-          "name": "Undercity Path",
+        "Bucklebree Farm": {
+          "name": "Bucklebree Farm",
           "creatures": {
-            "Forsaken Patrol": 2,
-            "Skeletal Sentry": 1,
-            "Plagued Courier": 1,
+            "Blightfed Hog": 4,
+            "Barn Ghoul": 3,
+            "Zombie Bear": 1,
+            "Tusk-Mother Gorra": 0
+          }
+        },
+        "Olivia's Pond": {
+          "name": "Olivia's Pond",
+          "creatures": {
+            "Marsh Ooze": 3,
+            "Swamp Ghoul": 3,
+            "Bloated Corpse": 2,
+            "The Bloated One": 0
+          }
+        },
+        "Deep Elem Mine": {
+          "name": "Deep Elem Mine",
+          "creatures": {
+            "Feral Rotting Kobold": 3,
+            "Deep Elem Digger": 3,
+            "Mine Shambler": 3,
+            "Gnawbone the Foreman": 0
+          }
+        },
+        "Valgan's Field": {
+          "name": "Valgan's Field",
+          "creatures": {
+            "Field Deserter": 3,
+            "Battlefield Wight": 3,
+            "Skeletal Sentry": 2,
             "Deathguard Captain": 0
           }
         },
-        "Rotting Marshes": {
-          "name": "Rotting Marshes",
+        "The Decrepit Ferry": {
+          "name": "The Decrepit Ferry",
           "creatures": {
-            "Marsh Ooze": 2,
-            "Bloated Corpse": 1,
-            "Swamp Ghoul": 1,
-            "The Bloated One": 0
+            "Drowned Deckhand": 4,
+            "Carrion Bird": 2,
+            "Rotting Ghoul": 1,
+            "Drowned Ferryman": 0
+          }
+        },
+        "Ambermill": {
+          "name": "Ambermill",
+          "creatures": {
+            "Ambermill Ghost-Mage": 3,
+            "Ambermill Warden": 3,
+            "Carrion Bird": 1,
+            "Magister Quillfire": 0
+          }
+        },
+        "Pyrewood Village": {
+          "name": "Pyrewood Village",
+          "creatures": {
+            "Worgen Ambusher": 3,
+            "Feral Worgen": 3,
+            "Pyrewood Cultist": 3,
+            "Lord Godfrey's Remnant": 0
+          }
+        },
+        "Berard's Talon": {
+          "name": "Berard's Talon",
+          "creatures": {
+            "Crag Stalker": 4,
+            "Talon Wraith": 3,
+            "Rotting Ghoul": 1,
+            "Berard the Forgotten": 0
+          }
+        },
+        "Beren's Peril": {
+          "name": "Beren's Peril",
+          "creatures": {
+            "Feral Worgen Stalker": 3,
+            "Peril Packmaster": 3,
+            "Worgen Ambusher": 2,
+            "Bloodmaw the Alpha": 0
+          }
+        },
+        "The Greymane Wall": {
+          "name": "The Greymane Wall",
+          "creatures": {
+            "Wallbreaker Worgen": 3,
+            "Wall Wraith": 3,
+            "Feral Worgen Stalker": 2,
+            "Gilnean Wall-Warden": 0
           }
         }
       },
@@ -1768,6 +1839,60 @@
             "Archmage Arugal": 0
           }
         }
+      },
+      "level_overrides": {
+        "Diseased Wolf": [
+          16,
+          18
+        ],
+        "Zombie Bear": [
+          16,
+          18
+        ],
+        "Carrion Bird": [
+          16,
+          18
+        ],
+        "Rotting Ghoul": [
+          16,
+          18
+        ],
+        "Feral Rotting Kobold": [
+          16,
+          18
+        ],
+        "Marsh Ooze": [
+          16,
+          18
+        ],
+        "Swamp Ghoul": [
+          16,
+          18
+        ],
+        "Bloated Corpse": [
+          16,
+          18
+        ],
+        "Skeletal Sentry": [
+          17,
+          18
+        ],
+        "Worgen Ambusher": [
+          17,
+          19
+        ],
+        "Feral Worgen": [
+          17,
+          19
+        ],
+        "Pyrewood Cultist": [
+          17,
+          19
+        ],
+        "Feral Worgen Stalker": [
+          18,
+          20
+        ]
       }
     },
     "Fenris Isle": {

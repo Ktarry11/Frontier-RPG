@@ -1,0 +1,1077 @@
+{
+  "quests": [
+    {
+      "quest_id": "sep_keep_tour",
+      "title": "Know the Keep",
+      "giver_npc_id": "sepulcher_commander",
+      "zone": "sepulcher",
+      "level_min": 13,
+      "level_max": 14,
+      "description": "Commander Vane does not give orders to people who cannot find the latrines. Walk the terraces - the lower court, the middle terrace and the graveyard wing - and report back. Do not touch anything that is not yours.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "sepulcher",
+          "target_x": 44,
+          "target_y": 56,
+          "radius": 6
+        },
+        {
+          "type": "explore",
+          "target": "sepulcher",
+          "target_x": 44,
+          "target_y": 36,
+          "radius": 5
+        },
+        {
+          "type": "explore",
+          "target": "sepulcher",
+          "target_x": 13,
+          "target_y": 33,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 840,
+      "reward_gold": 3900,
+      "accept_text": "Three stops: the court inside the gate, the middle terrace, and the Raven Hill graveyard to the west.",
+      "turn_in_text": "You didn't fall off anything. That's a better start than most.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tomb-Warden's Cap",
+          "slot": "head",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.7
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Terrace-Worn Bracers",
+          "slot": "wrist",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 20,
+          "label": "Mail Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Vane's Longsword",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 11.4,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "sep_woods_cull",
+      "title": "The Woods Below",
+      "giver_npc_id": "sepulcher_commander",
+      "zone": "sepulcher",
+      "level_min": 13,
+      "level_max": 14,
+      "description": "The Keep sits above the pines, and the pines are full of worg and the leavings of the plague. Vane wants the approach to the gate kept short of anything with teeth.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Worg Prowler",
+          "count": 8,
+          "zone": "silverpine_north"
+        },
+        {
+          "type": "kill",
+          "target": "Feral Ghoul",
+          "count": 6,
+          "zone": "silverpine_north"
+        }
+      ],
+      "reward_exp": 840,
+      "reward_gold": 3900,
+      "accept_text": "In the woods south of the Keep, along the road you walked in on.",
+      "turn_in_text": "Fewer teeth on the approach. I'll note it in the ledger.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sep_keep_tour"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Vane's Vest",
+          "slot": "chest",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2.0,
+            "parry_rating": 1.5
+          },
+          "armor_type": "leather",
+          "armor_value": 25,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Tomb-Warden's Leggings",
+          "slot": "legs",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Keep-Hall Longsword",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "sep_dispatch",
+      "title": "A Dispatch for the Rear Guard",
+      "giver_npc_id": "sepulcher_commander",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "Vane has written to Captain Vesk of the Rear Guard. It is three lines long. He would like it delivered by someone who will not read it, and, failing that, someone who will not remember it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sep_dispatch",
+          "count": 1,
+          "label": "Deliver Vane's dispatch to Captain Vesk at the Rear Guard"
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "North along the road to the Rear Guard. Vesk is at the gate.",
+      "turn_in_text": "Three lines. Of course. It's rude, and exactly right.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_rg_captain",
+      "requires_quests": [
+        "sep_keep_tour"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sep_dispatch",
+            "name": "Vane's Dispatch",
+            "description": "A single sheet, folded thrice and sealed with the Keep's black wax.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Tomb-Warden's Bindings",
+          "slot": "wrist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Bracers (Sta/Int/HP)"
+        },
+        {
+          "name": "Crypt-Stair Cuffs",
+          "slot": "wrist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Crypt-Stair Charm",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.9
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "sep_relic_shards",
+      "title": "Shards of the Faithful",
+      "giver_npc_id": "sepulcher_relic_hunter",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "Relic Hunter Darne pays for grave-goods, and the skeletal groundskeepers of Raven Hill carry the best of them: ring-shards, buckle-bone, whatever they were buried with. She wants six, intact.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sep_relic_shard",
+          "count": 6
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "From the groundskeepers at Raven Hill, to the south. Don't chip them.",
+      "turn_in_text": "These are good. Old and honest. The collectors in Undercity will weep.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Sepulcher Belt",
+          "slot": "waist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Belt (Dodge/Parry)"
+        },
+        {
+          "name": "Sepulcher Spaulders",
+          "slot": "shoulder",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 49,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Terrace-Worn Saber",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 12.2,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "sep_marrow",
+      "title": "Marrow Work",
+      "giver_npc_id": "sepulcher_bone_carver",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "Yseult carves bone into combs, buttons and, occasionally, regret. Risen husks have the best marrow, she says, and they never complain about the harvest.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sep_bone_marrow",
+          "count": 6
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "Risen husks, wherever the field is thickest. Six dry marrow-bones.",
+      "turn_in_text": "Dry and pale. I could carve a chapel out of these. I'll settle for a comb.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Vane's Spaulders",
+          "slot": "shoulder",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Shoulders (Str/Agi/Sta)"
+        },
+        {
+          "name": "Tomb-Warden's Spaulders",
+          "slot": "shoulder",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 32,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Tomb-Warden's Pendant",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 2.7
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "sep_wasp_stings",
+      "title": "Stings for the Apothecary",
+      "giver_npc_id": "sepulcher_reagent_seller",
+      "zone": "sepulcher",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "Windfall wasps in Malden's Orchard are full of a venom Wrenn has been trying to buy for years. The orchard won't sell it. The wasps won't either. Wrenn would like it taken.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sep_wasp_sting",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Malden's Orchard, north of the Raven Hill road. The stings are on the abdomen. Handle with tongs.",
+      "turn_in_text": "Six stings and no stinging. You have steadier hands than most.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Crypt-Stair Veil",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 12.6,
+            "mp5": 2.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Helm (HP/MP5)"
+        },
+        {
+          "name": "Sepulcher Cap",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Terrace-Worn Buckler",
+          "slot": "off_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 23,
+          "block_value": 29,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sep_stone_names",
+      "title": "Names on the Stones",
+      "giver_npc_id": "sepulcher_gravestone_reader",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "Reader Cass reads the stones of the Raven Hill wing. Most are blank, rubbed smooth by rain and by something that rubs back. She wants three clusters visited and the weeds pulled away. 'Read them aloud,' she says. 'It helps.'",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "sepulcher",
+          "target_x": 8,
+          "target_y": 28,
+          "radius": 4
+        },
+        {
+          "type": "explore",
+          "target": "sepulcher",
+          "target_x": 16,
+          "target_y": 29,
+          "radius": 4
+        },
+        {
+          "type": "explore",
+          "target": "sepulcher",
+          "target_x": 11,
+          "target_y": 38,
+          "radius": 4
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "The graveyard wing, west of the middle terrace. Three clusters of stones.",
+      "turn_in_text": "Three more names. I'll write them on the wall, so they stay.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Sepulcher Coat",
+          "slot": "chest",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Keep-Hall Treads",
+          "slot": "feet",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 32,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Terrace-Worn Dirk",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 3.8
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "sep_ellowyn_sleepers",
+      "title": "Sleepers That Won't",
+      "giver_npc_id": "sepulcher_tomb_keeper",
+      "zone": "sepulcher",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "The tomb-keeper of the chapel yard counts sleepers each dusk. Some have stopped lying down. Groundskeepers and husks both wander from the Raven Hill plots in search of a bed that isn't theirs.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Skeletal Groundskeeper",
+          "count": 8,
+          "zone": "silverpine_north"
+        },
+        {
+          "type": "kill",
+          "target": "Risen Husk",
+          "count": 6,
+          "zone": "silverpine_north"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "At Raven Hill, south of the Keep. Send them back where they belong.",
+      "turn_in_text": "Fewer wanderers. I'll sleep better. Metaphorically.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Crypt-Stair Cap",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.8
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Terrace-Worn Coat",
+          "slot": "chest",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2.9,
+            "parry_rating": 2.3
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Vane's Charm",
+          "slot": "neck",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.0
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sep_gate_crows",
+      "title": "Crows at the Gate",
+      "giver_npc_id": "sepulcher_crypt_guard",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "Crypt Guard Molsen is tired of the crows. They pick at the Keep's banners, steal buttons off his coat, and one of them has learned to open the gate-latch.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blighted Crow",
+          "count": 8,
+          "zone": "silverpine_north"
+        },
+        {
+          "type": "kill",
+          "target": "Dead Field Harrower",
+          "count": 5,
+          "zone": "silverpine_north"
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "The Dead Field, east of the road. The harrowers feed them; thin both.",
+      "turn_in_text": "The latch-crow? Dead. Good. I owe you a drink I can't taste.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "sep_keep_tour"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Vane's Fists",
+          "slot": "hands",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "block_rating": 0.3,
+            "block_value": 2.4
+          },
+          "armor_type": "plate",
+          "armor_value": 32,
+          "label": "Plate Gloves (Sta/Block/BV)"
+        },
+        {
+          "name": "Terrace-Worn Skirt",
+          "slot": "legs",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Legs (Int/Sta/SP)"
+        },
+        {
+          "name": "Terrace-Worn Loop",
+          "slot": "ring",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "sep_hermit_oil",
+      "title": "The Hermit's Oil",
+      "giver_npc_id": "sepulcher_hermit",
+      "zone": "sepulcher",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "The Hermit has not left his lean-to since the Plague. His lamp is nearly dry. Spider-fat burns clean, he says, and he cannot hunt it himself, because spiders have opinions about hermits.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sep_spider_fat",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Silverpine spiders in the Skittering Dark. Five clean glands. Tell no one I asked.",
+      "turn_in_text": "I can read again. Not that there is much I wish to read.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Sepulcher Cloak",
+          "slot": "back",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Cloak (Int/Sta/MP5)"
+        },
+        {
+          "name": "Sepulcher Vest",
+          "slot": "chest",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2.9,
+            "parry_rating": 2.3
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Terrace-Worn Roundshield",
+          "slot": "off_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 23,
+          "block_value": 29,
+          "label": "Shield (Parry/Block/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sep_osk_road",
+      "title": "The Pilgrim's Road",
+      "giver_npc_id": "sepulcher_pilgrim",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "Osk walks between the Keep and Tirisfal every autumn, ostensibly to pray. He has no idea who he is praying to. He asks that the road between be made less murderous.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Silverpine Spider",
+          "count": 6,
+          "zone": "silverpine_north"
+        },
+        {
+          "type": "kill",
+          "target": "Corrupted Treant",
+          "count": 3,
+          "zone": "silverpine_north"
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "The woods north and east of the Keep. Spiders and treants, mainly.",
+      "turn_in_text": "A quieter road. I'll walk it once more before the snow.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Crypt-Stair Armguards",
+          "slot": "wrist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Stone-cold and spotlessly kept.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Terrace-Worn Sandals",
+          "slot": "feet",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.9,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Boots (Int/SP/Hit)"
+        },
+        {
+          "name": "Keep-Hall Loop",
+          "slot": "ring",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "sep_cracked_locket",
+      "title": "A Cracked Locket",
+      "giver_npc_id": "item:sep_cracked_locket",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 16,
+      "description": "Taken from a skeletal groundskeeper's rib-cage: a cracked silver locket, with a single pressed flower inside. The one at the Keep who wanders the lower court without a name might know it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sep_cracked_locket",
+          "count": 1,
+          "label": "Bring the locket to Something That Was Once Named in the lower court"
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "The lower court of the Sepulcher. A figure who answers to nothing in particular.",
+      "turn_in_text": "...yes. That one. Thank you. I think... I think I had a daughter.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sepulcher_lost_soul",
+      "unique_item_defs": [
+        {
+          "name": "Crypt-Stair Pants",
+          "slot": "legs",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 6.3
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Keep-Hall Belt",
+          "slot": "waist",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.2,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Belt (Int/SP/Hit)"
+        },
+        {
+          "name": "Tomb-Warden's Talisman",
+          "slot": "neck",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "sep_wreaths",
+      "title": "Wreaths for the Quiet",
+      "giver_npc_id": "sepulcher_mourner",
+      "zone": "sepulcher",
+      "level_min": 14,
+      "level_max": 15,
+      "description": "The Mourner weaves wreaths from what the dead leave behind. Risen farmhands carry wilted sprays in their pockets - last year's offerings, never delivered. She wants six.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sep_wilted_wreath",
+          "count": 6
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "The farmhands of Olsen's Farthing, south of the Keep.",
+      "turn_in_text": "Even wilted, they mean something. I'll lay them where they were meant to go.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Terrace-Worn Girdle",
+          "slot": "waist",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Terrace-Worn Spaulders",
+          "slot": "shoulder",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "The Keep issues it. The dead approve.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.2,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Shoulders (Dodge/Parry)"
+        },
+        {
+          "name": "Terrace-Worn Longsword",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Climbed a hundred steps and came back for more.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    }
+  ]
+}

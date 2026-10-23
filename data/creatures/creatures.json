@@ -543,11 +543,11 @@
     "Drowned Deckhand": {
       "template": "undead_basic",
       "level_range": [
-        7,
-        10
+        16,
+        18
       ],
       "is_boss": false,
-      "ability_kit": "drowned_sailor"
+      "ability_kit": "drowned_deckhand"
     },
     "Voodoo Troll": {
       "template": "humanoid_caster",
@@ -2799,8 +2799,8 @@
     "Lord Godfrey's Remnant": {
       "template": "humanoid_ranged",
       "level_range": [
-        17,
-        17
+        19,
+        19
       ],
       "is_boss": true,
       "boss_multiplier": 2.5,
@@ -6425,6 +6425,193 @@
       ],
       "is_boss": true,
       "ability_kit": "longleg_the_stalker",
+      "boss_multiplier": 1.7
+    },
+    "Blightfed Hog": {
+      "template": "beast_basic",
+      "level_range": [
+        15,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "blightfed_hog"
+    },
+    "Barn Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        15,
+        17
+      ],
+      "is_boss": false,
+      "ability_kit": "barn_ghoul"
+    },
+    "Tusk-Mother Gorra": {
+      "template": "beast_basic",
+      "level_range": [
+        17,
+        17
+      ],
+      "is_boss": true,
+      "ability_kit": "tusk_mother_gorra",
+      "boss_multiplier": 1.7
+    },
+    "Deep Elem Digger": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "deep_elem_digger"
+    },
+    "Mine Shambler": {
+      "template": "undead_basic",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "mine_shambler"
+    },
+    "Gnawbone the Foreman": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "ability_kit": "gnawbone_foreman",
+      "boss_multiplier": 1.7
+    },
+    "Field Deserter": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        16,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "field_deserter"
+    },
+    "Battlefield Wight": {
+      "template": "undead_basic",
+      "level_range": [
+        17,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "battlefield_wight"
+    },
+    "Crag Stalker": {
+      "template": "beast_fast",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "crag_stalker"
+    },
+    "Talon Wraith": {
+      "template": "humanoid_caster",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "talon_wraith"
+    },
+    "Berard the Forgotten": {
+      "template": "undead_basic",
+      "level_range": [
+        19,
+        19
+      ],
+      "is_boss": true,
+      "ability_kit": "berard_the_forgotten",
+      "boss_multiplier": 1.7
+    },
+    "Peril Packmaster": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "peril_packmaster"
+    },
+    "Bloodmaw the Alpha": {
+      "template": "beast_fast",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "bloodmaw_alpha",
+      "boss_multiplier": 1.7
+    },
+    "Wallbreaker Worgen": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "wallbreaker_worgen"
+    },
+    "Wall Wraith": {
+      "template": "undead_basic",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "wall_wraith"
+    },
+    "Gilnean Wall-Warden": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "wall_warden",
+      "boss_multiplier": 1.7
+    },
+    "Ambermill Ghost-Mage": {
+      "template": "humanoid_caster",
+      "level_range": [
+        18,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "ambermill_ghost_mage"
+    },
+    "Ambermill Warden": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        19,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "ambermill_warden"
+    },
+    "Magister Quillfire": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        20
+      ],
+      "is_boss": true,
+      "ability_kit": "magister_quillfire",
+      "boss_multiplier": 1.7
+    },
+    "Drowned Ferryman": {
+      "template": "undead_basic",
+      "level_range": [
+        18,
+        18
+      ],
+      "is_boss": true,
+      "ability_kit": "drowned_ferryman",
       "boss_multiplier": 1.7
     }
   }
