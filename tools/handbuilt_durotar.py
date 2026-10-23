@@ -529,14 +529,14 @@ def _dress_ne(L):
     """Zeppelin landing, the Grotto's naga-touched mouth, Skull Rock's taint."""
     z = L.z
     p, b = L.prop, L.bld
-    z.add_landmark(f"{BLD}zeppelin_tower.png", 107, 29, 9, 5)
+    b("zep_tower_orc", 112, 32, 10, nudge=2)               # the zeppelin tower (portal tile at 112,35)
     p("vot_crate_stack", 108, 37, 3)
     p("vot_crate_stack", 116, 37, 3)
     p("vot_war_banner", 105, 36, 5)
     # Sunken Grotto
     p("grotto_naga_rune_stone", 116, 42, 5)
     p("grotto_tide_pool", 123, 45, 3, solid=False)
-    p("grotto_barnacle_pillar" if False else "vot_mesa_pillar", 114, 28, 6)
+    p("grotto_barnacle_pillar" if False else "vot_mesa_pillar", 119, 29, 6)
     # Skull Rock: Searing Blade stronghold approach
     p("bbc_banner", 112, 63, 5)
     p("bbc_banner", 124, 63, 5)

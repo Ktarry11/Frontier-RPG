@@ -178,7 +178,7 @@ def dress(L):
     p("ek_signpost", 10, 60, 4)
     p("ek_forsaken_banner", 7, 65, 5)
     # ---- the Zeppelin Landing: the tower, crates, a banner
-    L.z.add_landmark(T.BLD + "zeppelin_tower.png", 17, 91, 9, 5, solid=False)
+    b("zep_tower_undead", 21, 94, 11, nudge=1)                  # the Undercity zeppelin tower (portal tile at 21,97)
     p("ek_scarlet_crates", 26, 97, 3)
     p("ek_forsaken_banner", 16, 96, 5)
     p("ek_signpost", 12, 96, 4)

@@ -690,7 +690,7 @@ class ZoneGenerator:
         # headroom to grow it). ~2.3x, re-centered on the same (65,26)
         # portal tile the gate sits above so the entrance still lines up.
         zone.add_landmark("assets/buildings/orgrimmar_gate.png", 51, 10, 14, 11)
-        zone.add_landmark("assets/buildings/zeppelin_tower.png", 108, 29, 6, 4)
+        pass  # the Durotar zeppelin tower is placed by tools/handbuilt_durotar.py (zep_tower_orc)
         zone.add_landmark("assets/tiles/cave_entrances/cave_entrance_plain.png",
                            117, 34, 6, 4, mouth_offset=(3, 3))  # Sunken Grotto of the Deep
         zone.add_landmark("assets/tiles/cave_entrances/cave_entrance_banners.png",

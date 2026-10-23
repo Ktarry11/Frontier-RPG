@@ -419,7 +419,7 @@ def _dress(L):
     b("generic_hut_b", 86, 29, 7)                         # enchanter
     b("scrapyard_workshop", 114, 29, 8)                   # engineering
     p("rf_tool_rack", 120, 32, 3)
-    b("zeppelin_tower", 88, 51, 11)                       # the flight roost
+    b("zep_tower_orc", 88, 51, 12)                       # the flight roost
     p("spirit_brazier", 95, 40, 6, road_ok=True)
     p("spirit_brazier", 105, 40, 6, road_ok=True)
     p("bbc_candelabra", 82, 41, 4)
