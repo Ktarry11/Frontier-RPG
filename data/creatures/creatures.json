@@ -1774,7 +1774,7 @@
     "Forsaken Mage": {
       "template": "humanoid_caster",
       "level_range": [
-        22,
+        21,
         23
       ],
       "kit": "forsaken_mage"
@@ -1814,7 +1814,7 @@
     "Kirin Tor Mage": {
       "template": "humanoid_caster",
       "level_range": [
-        22,
+        21,
         23
       ],
       "kit": "kirin_tor_mage"
@@ -1822,20 +1822,22 @@
     "Rethilgore": {
       "template": "humanoid_warrior",
       "level_range": [
-        23,
-        23
+        21,
+        21
       ],
       "is_boss": true,
-      "ability_kit": "rethilgore"
+      "ability_kit": "rethilgore",
+      "boss_multiplier": 2.0
     },
     "Razorclaw the Butcher": {
       "template": "beast_fast",
       "level_range": [
-        23,
-        23
+        22,
+        22
       ],
       "is_boss": true,
-      "ability_kit": "razorclaw"
+      "ability_kit": "razorclaw",
+      "boss_multiplier": 2.0
     },
     "Baron Silverlaine": {
       "template": "humanoid_warrior",
@@ -1844,34 +1846,38 @@
         23
       ],
       "is_boss": true,
-      "ability_kit": "baron_silverlaine"
+      "ability_kit": "baron_silverlaine",
+      "boss_multiplier": 2.2
     },
     "Fenrus the Devourer": {
       "template": "beast_fast",
       "level_range": [
-        23,
-        23
+        24,
+        24
       ],
       "is_boss": true,
-      "ability_kit": "fenrus_devourer"
+      "ability_kit": "fenrus_devourer",
+      "boss_multiplier": 2.2
     },
     "Archmage Arugal": {
       "template": "humanoid_caster",
       "level_range": [
-        23,
-        23
+        25,
+        25
       ],
       "is_boss": true,
-      "ability_kit": "archmage_arugal"
+      "ability_kit": "archmage_arugal",
+      "boss_multiplier": 2.6
     },
     "Magister Hawren": {
       "template": "humanoid_caster",
       "level_range": [
-        23,
-        23
+        22,
+        22
       ],
       "is_boss": true,
-      "kit": "magister_hawren"
+      "boss_multiplier": 2.0,
+      "ability_kit": "magister_hawren"
     },
     "Apothecary Helbrim": {
       "template": "humanoid_caster",
@@ -1880,7 +1886,8 @@
         23
       ],
       "is_boss": true,
-      "kit": "apothecary_helbrim"
+      "boss_multiplier": 2.0,
+      "ability_kit": "apothecary_helbrim"
     },
     "Archmage Atiesh": {
       "template": "humanoid_caster",
@@ -1889,7 +1896,8 @@
         23
       ],
       "is_boss": true,
-      "kit": "archmage_atiesh"
+      "boss_multiplier": 2.4,
+      "ability_kit": "archmage_atiesh"
     },
     "Worgen Beast": {
       "template": "beast_fast",
@@ -2263,7 +2271,7 @@
     "Arcane-Bound Imp": {
       "template": "humanoid_caster",
       "level_range": [
-        22,
+        21,
         23
       ],
       "kit": "imp"
@@ -3827,31 +3835,31 @@
     "Broodmother Silka": {
       "template": "vermin_sneaky",
       "level_range": [
-        14,
-        14
+        17,
+        17
       ],
       "is_boss": true,
-      "boss_multiplier": 2.2,
+      "boss_multiplier": 2.0,
       "ability_kit": "broodmother_silka"
     },
     "Weaver Skitter": {
       "template": "beast_fast",
       "level_range": [
-        15,
-        15
+        18,
+        18
       ],
       "is_boss": true,
-      "boss_multiplier": 2.2,
+      "boss_multiplier": 2.1,
       "ability_kit": "weaver_skitter"
     },
     "Matriarch Velaxis": {
       "template": "vermin_sneaky",
       "level_range": [
-        17,
-        17
+        19,
+        19
       ],
       "is_boss": true,
-      "boss_multiplier": 2.5,
+      "boss_multiplier": 2.4,
       "ability_kit": "matriarch_velaxis"
     },
     "Dustwind Jackal": {
@@ -6613,6 +6621,177 @@
       "is_boss": true,
       "ability_kit": "drowned_ferryman",
       "boss_multiplier": 1.7
+    },
+    "Lair Hatchling": {
+      "template": "vermin_swarm",
+      "level_range": [
+        17,
+        18
+      ],
+      "is_boss": false,
+      "ability_kit": "lair_hatchling"
+    },
+    "Silkbound Weaver": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "silkbound_weaver"
+    },
+    "Brood Warden": {
+      "template": "beast_large",
+      "level_range": [
+        18,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "brood_warden"
+    },
+    "Venom Stalker": {
+      "template": "beast_fast",
+      "level_range": [
+        18,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "venom_stalker"
+    },
+    "Tome Wraith": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "tome_wraith"
+    },
+    "Animated Spellblade": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        22,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "animated_spellblade"
+    },
+    "Forsaken Alchemist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "forsaken_alchemist"
+    },
+    "Slavering Worg": {
+      "template": "beast_fast",
+      "level_range": [
+        20,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "slavering_worg"
+    },
+    "Wolfguard Worg": {
+      "template": "beast_large",
+      "level_range": [
+        21,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "wolfguard_worg"
+    },
+    "Shadowfang Moonwalker": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "shadowfang_moonwalker"
+    },
+    "Shadowfang Darksoul": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "shadowfang_darksoul"
+    },
+    "Arugal's Voidwalker": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        22,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "arugal_voidwalker"
+    },
+    "Haunted Servitor": {
+      "template": "undead_basic",
+      "level_range": [
+        22,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "haunted_servitor"
+    },
+    "Tormented Officer": {
+      "template": "undead_basic",
+      "level_range": [
+        22,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "tormented_officer"
+    },
+    "Wailing Guardsman": {
+      "template": "undead_basic",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "wailing_guardsman"
+    },
+    "Deathsworn Captain": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        23,
+        24
+      ],
+      "is_boss": false,
+      "ability_kit": "deathsworn_captain"
+    },
+    "Son of Arugal": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        23,
+        25
+      ],
+      "is_boss": false,
+      "ability_kit": "son_of_arugal"
+    },
+    "Lupine Horror": {
+      "template": "beast_large",
+      "level_range": [
+        24,
+        25
+      ],
+      "is_boss": false,
+      "ability_kit": "lupine_horror"
+    },
+    "Keep Worg": {
+      "template": "beast_fast",
+      "level_range": [
+        19,
+        20
+      ],
+      "is_boss": false,
+      "ability_kit": "keep_worg"
     }
   }
 }

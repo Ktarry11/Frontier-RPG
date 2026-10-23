@@ -278,18 +278,18 @@ class PortalManager:
             "Silverpine North": {
                 (80, 5): ("Eastern Tirisfal", 16, 134),            # arrive (16,132)
                 (32, 98): ("The Sepulcher", 44, 65),               # arrive (44,63), inside the south gate
-                (150, 84): ("Widow's Lair", 70, 108),               # arrive (70,106)
+                (150, 84): ("Widow's Lair", 65, 106),               # arrive (65,104)
                 (80, 156): ("Silverpine South", 80, 11),               # arrive (80,9)
             },
             "Widow's Lair": {
-                (70, 108): ("Silverpine North", 150, 84),          # cave exit: +3 -> arrive (150,85), south of the mouth
+                (65, 106): ("Silverpine North", 150, 84),          # cave exit: +3 -> arrive (150,85), south of the mouth
             },
             "Silverpine South": {
                 # Hand-built (tools/handbuilt_silverpine_south.py): the road in from North at the top, Shadowfang's portcullis under the
                 # SW ridge, the Ambermill waygate in the east, the Decrepit Ferry pier into Lordamere.
                 (80, 5): ("Silverpine North", 80, 154),            # arrive (80,152)
                 (138, 90): ("Ambermill Tower", 75, 128),
-                (48, 144): ("Shadowfang Keep", 85, 152),
+                (48, 144): ("Shadowfang Keep", 100, 172),
                 (151, 44): ("Fenris Isle", 80, 125),               # the ferry
             },
             "The Sepulcher": {
@@ -303,7 +303,7 @@ class PortalManager:
                 # instead of the actual Sepulcher-side entrance you walked
                 # in from (100,155) - so leaving the dungeon dumped you
                 # clear across the map instead of back at the door.
-                (85, 152): ("Silverpine South", 48, 144),          # cave exit: +3 -> arrive (48,145), south of the gate
+                (100, 172): ("Silverpine South", 48, 144),         # cave exit: +3 -> arrive (48,145), south of the gate
             },
             "Fenris Isle": {
                 (25, 60): ("Shadowpine Altar", 75, 115),

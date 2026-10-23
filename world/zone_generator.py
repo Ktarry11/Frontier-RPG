@@ -5614,6 +5614,9 @@ def create_all_zones():
     from tools import handbuilt_silverpine_north as dspn
     from tools import handbuilt_silverpine_south as dsps
     from tools import handbuilt_sepulcher as dsep
+    from tools import handbuilt_widows_lair as dwl
+    from tools import handbuilt_ambermill_tower as dat
+    from tools import handbuilt_shadowfang_keep as dsfk
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5622,8 +5625,6 @@ def create_all_zones():
     from tools import handbuilt_scourge_cave as hscourge
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
-        generate_widows_lair,
-        generate_shadowfang_keep,
         generate_sunken_grotto_of_the_deep,
         generate_ragefire_chasm,
     )
@@ -5636,7 +5637,6 @@ def create_all_zones():
         generate_silverpine_north,
         generate_silverpine_south,
         generate_fenris_isle,
-        generate_ambermill_tower,
         generate_shadowpine_altar,
         generate_the_sepulcher,
         generate_brill,
@@ -5693,9 +5693,9 @@ def create_all_zones():
         "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)
         "Plague Depths": dpd.generate_plague_depths(),  # hand-built ladder dungeon (tools/handbuilt_plague_depths.py)
         "Blackfathom Deeps": generate_blackfathom_deeps(),
-        "Widow's Lair": generate_widows_lair(),
-        "Shadowfang Keep": generate_shadowfang_keep(),
-        "Ambermill Tower": generate_ambermill_tower(),
+        "Widow's Lair": dwl.generate_widows_lair(),  # hive cluster (tools/handbuilt_widows_lair.py)
+        "Shadowfang Keep": dsfk.generate_shadowfang_keep(),  # stepped castle (tools/handbuilt_shadowfang_keep.py)
+        "Ambermill Tower": dat.generate_ambermill_tower(),  # tower climb (tools/handbuilt_ambermill_tower.py)
         "Shadowpine Altar": generate_shadowpine_altar(),
     }
 

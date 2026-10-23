@@ -11994,7 +11994,7 @@
       {
         "name": "Savage Bite",
         "kind": "damage",
-        "amount": 38,
+        "amount": 40,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -12002,11 +12002,20 @@
       {
         "name": "Rend",
         "kind": "dot",
-        "amount": 15,
+        "amount": 16,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
         "duration": 4
+      },
+      {
+        "name": "Kennel Frenzy",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
       },
       {
         "name": "Howl of Rage",
@@ -12018,7 +12027,7 @@
         "duration": 3,
         "self_only": true,
         "stat_mods": {
-          "attack_power": 22
+          "attack_power": 24
         }
       }
     ],
@@ -12026,7 +12035,7 @@
       {
         "name": "Butcher's Cleave",
         "kind": "damage",
-        "amount": 36,
+        "amount": 40,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -12034,21 +12043,64 @@
       {
         "name": "Gushing Wound",
         "kind": "dot",
-        "amount": 16,
+        "amount": 17,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
         "duration": 4
+      },
+      {
+        "name": "Meat Hook",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -22
+        }
+      },
+      {
+        "name": "Bloodlust",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 26
+        }
       }
     ],
     "baron_silverlaine": [
       {
         "name": "Noble's Strike",
         "kind": "damage",
-        "amount": 36,
+        "amount": 40,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
+      },
+      {
+        "name": "Cursed Blood",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Banshee Wail",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
       },
       {
         "name": "Veil of Shadow",
@@ -12059,24 +12111,15 @@
         "school": "shadow",
         "duration": 3,
         "stat_mods": {
-          "attack_power": -14
+          "attack_power": -16
         }
-      },
-      {
-        "name": "Cursed Blood",
-        "kind": "dot",
-        "amount": 14,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "shadow",
-        "duration": 4
       }
     ],
     "fenrus_devourer": [
       {
         "name": "Crushing Bite",
         "kind": "damage",
-        "amount": 40,
+        "amount": 44,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -12084,11 +12127,19 @@
       {
         "name": "Toxic Spittle",
         "kind": "dot",
-        "amount": 17,
+        "amount": 18,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 4
+      },
+      {
+        "name": "Devour",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       },
       {
         "name": "Devouring Rage",
@@ -12100,7 +12151,7 @@
         "duration": 3,
         "self_only": true,
         "stat_mods": {
-          "attack_power": 24
+          "attack_power": 26
         }
       }
     ],
@@ -12108,7 +12159,7 @@
       {
         "name": "Arcane Bolt",
         "kind": "damage",
-        "amount": 36,
+        "amount": 40,
         "cooldown": 0,
         "mana_cost": 12,
         "school": "magic"
@@ -12116,7 +12167,7 @@
       {
         "name": "Void Bolt",
         "kind": "damage",
-        "amount": 48,
+        "amount": 52,
         "cooldown": 2,
         "mana_cost": 18,
         "school": "shadow"
@@ -12130,13 +12181,13 @@
         "school": "shadow",
         "duration": 3,
         "stat_mods": {
-          "agility": -16
+          "agility": -18
         }
       },
       {
         "name": "Arugal's Curse",
         "kind": "dot",
-        "amount": 20,
+        "amount": 22,
         "cooldown": 3,
         "mana_cost": 18,
         "school": "shadow",
@@ -15636,6 +15687,533 @@
         }
       }
     ],
+    "lair_hatchling": [
+      {
+        "name": "Needle Bite",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hatchling Venom",
+        "kind": "dot",
+        "amount": 8,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "silkbound_weaver": [
+      {
+        "name": "Silk Bolt",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Binding Silk",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "brood_warden": [
+      {
+        "name": "Chitin Slam",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Harden Carapace",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 40
+        }
+      }
+    ],
+    "venom_stalker": [
+      {
+        "name": "Ambush Fang",
+        "kind": "damage",
+        "amount": 35,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Paralytic Sting",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "tome_wraith": [
+      {
+        "name": "Page-Cut Bolt",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 16,
+        "school": "shadow"
+      },
+      {
+        "name": "Forgotten Footnote",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 14,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -20
+        }
+      }
+    ],
+    "animated_spellblade": [
+      {
+        "name": "Rune-Etched Slash",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Arcane Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "magic_resistance": 30
+        }
+      }
+    ],
+    "forsaken_alchemist": [
+      {
+        "name": "Acid Flask",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Unstable Brew",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 14,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "magister_hawren": [
+      {
+        "name": "Arcane Missiles",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "magic"
+      },
+      {
+        "name": "Frost Nova",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Archivist's Hex",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -20
+        }
+      },
+      {
+        "name": "Mana Shield",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 45
+        }
+      }
+    ],
+    "apothecary_helbrim": [
+      {
+        "name": "Acid Splash",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Volatile Mixture",
+        "kind": "dot",
+        "amount": 19,
+        "cooldown": 3,
+        "mana_cost": 14,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Rot Flask",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Elixir of Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 26
+        }
+      }
+    ],
+    "archmage_atiesh": [
+      {
+        "name": "Arcane Barrage",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "magic"
+      },
+      {
+        "name": "Orrery Beam",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 2,
+        "mana_cost": 16,
+        "school": "magic"
+      },
+      {
+        "name": "Void Collapse",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Banishing Pulse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 14,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
+    "keep_worg": [
+      {
+        "name": "Ripping Bite",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnashing Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 16
+        }
+      }
+    ],
+    "slavering_worg": [
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Slavering Wound",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "wolfguard_worg": [
+      {
+        "name": "Shoulder Barge",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thick Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 40
+        }
+      }
+    ],
+    "shadowfang_moonwalker": [
+      {
+        "name": "Moonlit Bolt",
+        "kind": "damage",
+        "amount": 37,
+        "cooldown": 0,
+        "mana_cost": 16,
+        "school": "shadow"
+      },
+      {
+        "name": "Howling Dirge",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 14,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -16
+        }
+      }
+    ],
+    "shadowfang_darksoul": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 16,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Agony",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 14,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "arugal_voidwalker": [
+      {
+        "name": "Torment",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Consuming Shadows",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "haunted_servitor": [
+      {
+        "name": "Spectral Strike",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Chilling Touch",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -22
+        }
+      }
+    ],
+    "tormented_officer": [
+      {
+        "name": "Phantom Blade",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Last Orders",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 20
+        }
+      }
+    ],
+    "wailing_guardsman": [
+      {
+        "name": "Guardsman's Thrust",
+        "kind": "damage",
+        "amount": 35,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wail of the Fallen",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -16
+        }
+      }
+    ],
+    "deathsworn_captain": [
+      {
+        "name": "Captain's Cleave",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Death's Oath",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 24
+        }
+      }
+    ],
+    "son_of_arugal": [
+      {
+        "name": "Lupine Slash",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rending Claws",
+        "kind": "dot",
+        "amount": 15,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "lupine_horror": [
+      {
+        "name": "Crushing Lunge",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Horrid Howl",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",
@@ -16933,96 +17511,6 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical"
-      }
-    ],
-    "archmage_atiesh": [
-      {
-        "name": "Frostbolt",
-        "kind": "damage",
-        "amount": 42,
-        "cooldown": 0,
-        "mana_cost": 38,
-        "school": "magic"
-      },
-      {
-        "name": "Staff of Sorrows",
-        "kind": "damage",
-        "amount": 54,
-        "cooldown": 3,
-        "mana_cost": 46,
-        "school": "shadow"
-      },
-      {
-        "name": "Mana Shield",
-        "kind": "buff",
-        "cooldown": 5,
-        "mana_cost": 40,
-        "school": "magic",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {
-          "armor": 28
-        }
-      }
-    ],
-    "magister_hawren": [
-      {
-        "name": "Arcane Missiles",
-        "kind": "damage",
-        "amount": 40,
-        "cooldown": 0,
-        "mana_cost": 36,
-        "school": "magic"
-      },
-      {
-        "name": "Blink Strike",
-        "kind": "damage",
-        "amount": 48,
-        "cooldown": 3,
-        "mana_cost": 38,
-        "school": "magic"
-      },
-      {
-        "name": "Polymorph",
-        "kind": "debuff",
-        "cooldown": 5,
-        "mana_cost": 42,
-        "school": "magic",
-        "duration": 2,
-        "stat_mods": {
-          "attack_power": -25
-        }
-      }
-    ],
-    "apothecary_helbrim": [
-      {
-        "name": "Plague Bolt",
-        "kind": "damage",
-        "amount": 40,
-        "cooldown": 0,
-        "mana_cost": 36,
-        "school": "shadow"
-      },
-      {
-        "name": "Noxious Fumes",
-        "kind": "dot",
-        "amount": 30,
-        "cooldown": 3,
-        "mana_cost": 38,
-        "school": "shadow",
-        "duration": 4
-      },
-      {
-        "name": "Toxic Brew",
-        "kind": "buff",
-        "cooldown": 5,
-        "mana_cost": 36,
-        "school": "shadow",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {
-          "attack_power": 18
-        }
       }
     ],
     "curse_keeper_tael": [

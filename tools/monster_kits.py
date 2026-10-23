@@ -1955,33 +1955,39 @@ SILVERPINE_DUNGEON_KITS = {
         ("Rend Flesh", "dot", 11, 3, 0, "physical", {"duration": 3}),
     ],
     "rethilgore": [
-        ("Savage Bite", "damage", 38, 0, 0, "physical", {}),
-        ("Rend", "dot", 15, 3, 0, "physical", {"duration": 4}),
+        ("Savage Bite", "damage", 40, 0, 0, "physical", {}),
+        ("Rend", "dot", 16, 3, 0, "physical", {"duration": 4}),
+        ("Kennel Frenzy", "damage", 30, 3, 0, "physical", {"is_aoe": True}),
         ("Howl of Rage", "buff", 0, 5, 0, "physical",
-         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 22}}),
-    ],
-    "razorclaw": [
-        ("Butcher's Cleave", "damage", 36, 0, 0, "physical", {}),
-        ("Gushing Wound", "dot", 16, 3, 0, "physical", {"duration": 4}),
-    ],
-    "baron_silverlaine": [
-        ("Noble's Strike", "damage", 36, 0, 0, "physical", {}),
-        ("Veil of Shadow", "debuff", 0, 4, 0, "shadow",
-         {"duration": 3, "stat_mods": {"attack_power": -14}}),
-        ("Cursed Blood", "dot", 14, 3, 0, "shadow", {"duration": 4}),
-    ],
-    "fenrus_devourer": [
-        ("Crushing Bite", "damage", 40, 0, 0, "physical", {}),
-        ("Toxic Spittle", "dot", 17, 3, 0, "magic", {"duration": 4}),
-        ("Devouring Rage", "buff", 0, 6, 0, "physical",
          {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 24}}),
     ],
+    "razorclaw": [
+        ("Butcher's Cleave", "damage", 40, 0, 0, "physical", {}),
+        ("Gushing Wound", "dot", 17, 3, 0, "physical", {"duration": 4}),
+        ("Meat Hook", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"armor": -22}}),
+        ("Bloodlust", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 26}}),
+    ],
+    "baron_silverlaine": [
+        ("Noble's Strike", "damage", 40, 0, 0, "physical", {}),
+        ("Cursed Blood", "dot", 15, 3, 0, "shadow", {"duration": 4}),
+        ("Banshee Wail", "damage", 30, 3, 0, "shadow", {"is_aoe": True}),
+        ("Veil of Shadow", "debuff", 0, 4, 0, "shadow",
+         {"duration": 3, "stat_mods": {"attack_power": -16}}),
+    ],
+    "fenrus_devourer": [
+        ("Crushing Bite", "damage", 44, 0, 0, "physical", {}),
+        ("Toxic Spittle", "dot", 18, 3, 0, "nature", {"duration": 4}),
+        ("Devour", "damage", 54, 3, 0, "physical", {}),
+        ("Devouring Rage", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 26}}),
+    ],
     "archmage_arugal": [
-        ("Arcane Bolt", "damage", 36, 0, 12, "magic", {}),
-        ("Void Bolt", "damage", 48, 2, 18, "shadow", {}),
+        ("Arcane Bolt", "damage", 40, 0, 12, "magic", {}),
+        ("Void Bolt", "damage", 52, 2, 18, "shadow", {}),
         ("Curse of the Wolf", "debuff", 0, 4, 15, "shadow",
-         {"duration": 3, "stat_mods": {"agility": -16}}),
-        ("Arugal's Curse", "dot", 20, 3, 18, "shadow", {"duration": 4}),
+         {"duration": 3, "stat_mods": {"agility": -18}}),
+        ("Arugal's Curse", "dot", 22, 3, 18, "shadow", {"duration": 4}),
     ],
 }
 
@@ -3726,6 +3732,107 @@ SILVERPINE_SOUTH_KITS = {
     ],
 }
 
+SILVERPINE_DUNGEON_KITS_2 = {
+    # ================= SILVERPINE dungeon pass (2026-10-23): Widow's Lair 17-19, Ambermill Tower 21-23, Shadowfang Keep 19-25 =====
+    # Widow's Lair
+    "lair_hatchling": [
+        ("Needle Bite", "damage", 27, 0, 0, "physical", {}),
+        ("Hatchling Venom", "dot", 8, 3, 0, "nature", {"duration": 4}),
+    ],
+    "silkbound_weaver": [
+        ("Silk Bolt", "damage", 31, 0, 14, "nature", {}),
+        ("Binding Silk", "debuff", 0, 4, 12, "physical", {"duration": 3, "stat_mods": {"agility": -18}}),
+    ],
+    "brood_warden": [
+        ("Chitin Slam", "damage", 33, 0, 0, "physical", {}),
+        ("Harden Carapace", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+    ],
+    "venom_stalker": [
+        ("Ambush Fang", "damage", 35, 0, 0, "physical", {}),
+        ("Paralytic Sting", "dot", 12, 3, 0, "nature", {"duration": 4}),
+    ],
+    # Ambermill Tower
+    "tome_wraith": [
+        ("Page-Cut Bolt", "damage", 38, 0, 16, "shadow", {}),
+        ("Forgotten Footnote", "debuff", 0, 4, 14, "shadow", {"duration": 3, "stat_mods": {"intellect": -20}}),
+    ],
+    "animated_spellblade": [
+        ("Rune-Etched Slash", "damage", 40, 0, 0, "magic", {}),
+        ("Arcane Ward", "buff", 0, 6, 0, "magic", {"duration": 3, "self_only": True, "stat_mods": {"magic_resistance": 30}}),
+    ],
+    "forsaken_alchemist": [
+        ("Acid Flask", "damage", 38, 0, 14, "nature", {}),
+        ("Unstable Brew", "dot", 13, 3, 14, "nature", {"duration": 4}),
+    ],
+    "magister_hawren": [              # boss, the Archivist's Gallery (L22)
+        ("Arcane Missiles", "damage", 38, 0, 14, "magic", {}),
+        ("Frost Nova", "damage", 30, 3, 0, "frost", {"is_aoe": True}),
+        ("Archivist's Hex", "debuff", 0, 4, 12, "magic", {"duration": 3, "stat_mods": {"intellect": -20}}),
+        ("Mana Shield", "buff", 0, 6, 0, "magic", {"duration": 4, "self_only": True, "stat_mods": {"armor": 45}}),
+    ],
+    "apothecary_helbrim": [           # boss, the Alchemy Lab (L23)
+        ("Acid Splash", "damage", 40, 0, 14, "nature", {}),
+        ("Volatile Mixture", "dot", 19, 3, 14, "nature", {"duration": 4}),
+        ("Rot Flask", "damage", 32, 3, 12, "nature", {"is_aoe": True}),
+        ("Elixir of Fury", "buff", 0, 6, 0, "nature", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 26}}),
+    ],
+    "archmage_atiesh": [              # final boss, the Observatory (L23)
+        ("Arcane Barrage", "damage", 42, 0, 14, "magic", {}),
+        ("Orrery Beam", "damage", 54, 2, 16, "magic", {}),
+        ("Void Collapse", "damage", 34, 3, 12, "shadow", {"is_aoe": True}),
+        ("Banishing Pulse", "debuff", 0, 4, 14, "magic", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+    # Shadowfang Keep
+    "keep_worg": [
+        ("Ripping Bite", "damage", 32, 0, 0, "physical", {}),
+        ("Gnashing Frenzy", "buff", 0, 5, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 16}}),
+    ],
+    "slavering_worg": [
+        ("Maul", "damage", 34, 0, 0, "physical", {}),
+        ("Slavering Wound", "dot", 11, 3, 0, "physical", {"duration": 4}),
+    ],
+    "wolfguard_worg": [
+        ("Shoulder Barge", "damage", 36, 0, 0, "physical", {}),
+        ("Thick Hide", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+    ],
+    "shadowfang_moonwalker": [
+        ("Moonlit Bolt", "damage", 37, 0, 16, "shadow", {}),
+        ("Howling Dirge", "debuff", 0, 4, 14, "shadow", {"duration": 3, "stat_mods": {"attack_power": -16}}),
+    ],
+    "shadowfang_darksoul": [
+        ("Shadow Bolt", "damage", 38, 0, 16, "shadow", {}),
+        ("Curse of Agony", "dot", 13, 3, 14, "shadow", {"duration": 4}),
+    ],
+    "arugal_voidwalker": [
+        ("Torment", "damage", 38, 0, 0, "shadow", {}),
+        ("Consuming Shadows", "dot", 13, 3, 0, "shadow", {"duration": 4}),
+    ],
+    "haunted_servitor": [
+        ("Spectral Strike", "damage", 38, 0, 0, "shadow", {}),
+        ("Chilling Touch", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"armor": -22}}),
+    ],
+    "tormented_officer": [
+        ("Phantom Blade", "damage", 40, 0, 0, "shadow", {}),
+        ("Last Orders", "buff", 0, 6, 0, "shadow", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 20}}),
+    ],
+    "wailing_guardsman": [
+        ("Guardsman's Thrust", "damage", 35, 0, 0, "physical", {}),
+        ("Wail of the Fallen", "debuff", 0, 4, 12, "shadow", {"duration": 3, "stat_mods": {"intellect": -16}}),
+    ],
+    "deathsworn_captain": [
+        ("Captain's Cleave", "damage", 42, 0, 0, "physical", {}),
+        ("Death's Oath", "buff", 0, 6, 0, "shadow", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 24}}),
+    ],
+    "son_of_arugal": [
+        ("Lupine Slash", "damage", 42, 0, 0, "physical", {}),
+        ("Rending Claws", "dot", 15, 3, 0, "physical", {"duration": 4}),
+    ],
+    "lupine_horror": [
+        ("Crushing Lunge", "damage", 46, 0, 0, "physical", {}),
+        ("Horrid Howl", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3735,7 +3842,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")
