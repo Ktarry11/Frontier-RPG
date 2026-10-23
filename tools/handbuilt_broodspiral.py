@@ -255,23 +255,23 @@ def build_broodspiral():
     G, D, K, Sk, St = "Silithid Guardian", "Hive Drone", "Brood Tender", "Hive Skulker", "Silithid Stinger"
     Sp, Cr, Lv, Wv, Se = "Resin Spitter", "Carapace Crusher", "Gorged Larva", "Hive Weaver", "Amber Sentinel"
     # ---- outer ring (18-19): drones and guardians, the hive's rank and file
-    pack(13.1, [(D, 18), (D, 18)])
-    pack(12.3, [(G, 18), (D, 18)])
+    pack(13.1, [(D, 18), (Sk, 18)])
+    pack(12.3, [(G, 18), (Sk, 18)])
     pack(11.5, [(Sk, 19), (Sk, 19)])
-    pack(10.8, [(St, 19), (D, 19)])
+    pack(10.8, [(St, 19), (G, 19)])
     pack(10.1, [(G, 19), (G, 19)])
-    room_pack(wx, wy, [(D, 19), (D, 19), (St, 19)], spread=8.0, start=0.3)             # the Warden's egg-guards
+    room_pack(wx, wy, [(D, 19), (G, 19), (St, 19)], spread=8.0, start=0.3)             # the Warden's egg-guards
     # ---- mid ring (20-21): spitters, skulkers and the first tenders
     pack(8.8, [(Sk, 20), (Sp, 20)])
-    pack(8.1, [(St, 20), (St, 20)])
+    pack(8.1, [(St, 20), (K, 20)])
     pack(7.5, [(K, 20), (G, 20), (G, 20)])
-    pack(6.7, [(Sp, 20), (D, 20), (D, 20)])
+    pack(6.7, [(Sp, 20), (K, 20), (D, 20)])
     pack(6.1, [(Cr, 21), (G, 21)])
-    pack(5.6, [(Wv, 21), (G, 21)])
+    pack(5.6, [(Cr, 21), (G, 21)])
     room_pack(kx, ky, [(K, 21), (K, 21), (D, 21), (D, 21)], spread=8.5, start=0.6)        # the Broodkeeper's attendants
     # ---- the screen (22): larvae, weavers, sentinels
-    pack(4.5, [(Lv, 21), (Lv, 21)])
-    pack(3.9, [(Wv, 22), (Sp, 22)])
+    pack(4.5, [(Cr, 21), (Lv, 21)])
+    pack(3.9, [(Cr, 22), (Sp, 22)])
     pack(3.4, [(Cr, 22), (Sk, 22)])
     pack(2.95, [(Se, 22), (K, 22)])
     room_pack(gx, gy, [(Lv, 22), (Lv, 22), (Lv, 22)], spread=7.5, start=0.9)              # larvae in their nursery
