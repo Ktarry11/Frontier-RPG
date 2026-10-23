@@ -1,0 +1,2581 @@
+{
+  "quests": [
+    {
+      "quest_id": "ucq_rotunda_walk",
+      "title": "Know the Wheel",
+      "giver_npc_id": "uc_guard_2",
+      "zone": "undercity",
+      "level_min": 10,
+      "level_max": 10,
+      "description": "Deathguard Halloran has watched a hundred newly-arrived dead wander into the Canal because they could not tell the quarters from one another. Walk the four great halls - Royal, Magic, War and Apothecarium - and learn the wheel before it learns you.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "undercity",
+          "target_x": 46,
+          "target_y": 52,
+          "radius": 8
+        },
+        {
+          "type": "explore",
+          "target": "undercity",
+          "target_x": 154,
+          "target_y": 52,
+          "radius": 8
+        },
+        {
+          "type": "explore",
+          "target": "undercity",
+          "target_x": 46,
+          "target_y": 148,
+          "radius": 8
+        },
+        {
+          "type": "explore",
+          "target": "undercity",
+          "target_x": 154,
+          "target_y": 148,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "Four quarters, one wheel. Royal to the north-west, Magic north-east, War south-west, Apothecarium south-east. Walk them all.",
+      "turn_in_text": "You came back and you are not green. The Undercity has a use for you yet.",
+      "next_quest_id": "ucq_muster_slip",
+      "unique_item_defs": [
+        {
+          "name": "Rotunda Helm",
+          "slot": "head",
+          "item_level": 9,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 16,
+          "label": "Mail Helm (Str/Sta)"
+        },
+        {
+          "name": "Muster-Roll Robe",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Chest (Sta/Spi)"
+        },
+        {
+          "name": "Deathguard Knife",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 2
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 18,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "ucq_muster_slip",
+      "title": "A Slip for the Executor",
+      "giver_npc_id": "uc_guard_2",
+      "zone": "undercity",
+      "level_min": 10,
+      "level_max": 10,
+      "description": "Halloran has a muster slip for Executor Wrenfall, who holds the Royal Quarter's north gate. Halloran cannot leave his post. He would very much like it to be delivered without anyone reading it, as the Executor is touchy about her paperwork.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "uc_muster_slip",
+          "count": 1,
+          "label": "Take Halloran's muster slip to Executor Wrenfall"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "Along the north promenade, west of the elevator. The Executor will want it in her hand.",
+      "turn_in_text": "Halloran. Of course. Never a word wasted. Here, take something for your troubles.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "uc_executor",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "uc_muster_slip",
+            "name": "Halloran's Muster Slip",
+            "description": "A neatly-folded slip stamped with the Deathguard sigil.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Long-Descent Handguards",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Cold as the elevator shaft, and about as comforting.",
+          "primary_stats": {
+            "strength": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 21,
+          "label": "Plate Gloves (Str)"
+        },
+        {
+          "name": "Muster-Roll Vestments",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "The Forsaken wear what lasts.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Chest (Sta/Spi)"
+        },
+        {
+          "name": "Lamplit Hatchet",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 1
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "ucq_scarlet_pressure",
+      "title": "The Crusade at the Door",
+      "giver_npc_id": "uc_executor",
+      "zone": "undercity",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Scarlet Zealots and Bowmen are patrolling the Tirisfal road to the Ruins, close enough to see the portal. Executor Wrenfall has no intention of finding out whether they are brave enough to try the gate. Thin them out before they find out for her.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Zealot",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Bowman",
+          "count": 6,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "The Scarlet Watch Post, east of Brill. Zealots and bowmen. Leave none in sight of the road.",
+      "turn_in_text": "Good. The portal stays dark and the Crusade stays outside. Quarter-master's thanks, from me.",
+      "next_quest_id": "ucq_scarlet_orders",
+      "requires_quests": [
+        "ucq_muster_slip"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Deathguard Bindings",
+          "slot": "wrist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "The Forsaken wear what lasts.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.0,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Ward-Bell Boots",
+          "slot": "feet",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "The Forsaken wear what lasts.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 17,
+          "label": "Mail Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Deathguard Talisman",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ucq_scarlet_orders",
+      "title": "Orders in Scarlet Ink",
+      "giver_npc_id": "uc_executor",
+      "zone": "undercity",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "Wrenfall wants to read what the Crusade has been told. The Scarlet converts and initiates carry orders in a neat red hand; she needs five of them to piece together a picture.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "crusade_orders",
+          "count": 5
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "The Crusader's Outpost, east of Brill, and the farm roads. Anyone in Scarlet who can read. Bring me five.",
+      "turn_in_text": "A very tidy hand. They are afraid of us, and have been told to hide it. I find that touching.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Deathguard Cape",
+          "slot": "back",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.2
+          },
+          "armor_type": "leather",
+          "armor_value": 8,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Long-Descent Greaves",
+          "slot": "feet",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 17,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Rotunda Ring",
+          "slot": "ring",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Cold as the elevator shaft, and about as comforting.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ucq_tin_bars",
+      "title": "Tin for the Forge",
+      "giver_npc_id": "uc_blacksmith",
+      "zone": "undercity",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Smith Ironbrow has a bench, a quench trough, and no tin. The Undercity Forge in the War Quarter is cold because nobody has bothered to light it. Smelt three tin bars at the forge and he'll know the fire is yours.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bar_tin",
+          "count": 3,
+          "label": "Smelt tin bars at the Undercity Forge"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "Tin ore from the western hills if you've no stock. The forge is south-west of the War Hall. Light it, and smelt three bars.",
+      "turn_in_text": "Three bars, and not a cinder wasted. That's how you light a forge.",
+      "next_quest_id": "ucq_iron_bars",
+      "unique_item_defs": [
+        {
+          "name": "Ironbrow's Byrnie",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 26,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Pit-Scarred Hood",
+          "slot": "head",
+          "item_level": 11,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 12,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Pit-Scarred Signet",
+          "slot": "ring",
+          "item_level": 11,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
+          "primary_stats": {
+            "strength": 1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ucq_iron_bars",
+      "title": "Iron for the Guard",
+      "giver_npc_id": "uc_blacksmith",
+      "zone": "undercity",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "With tin in hand, Ironbrow wants rough iron for the Royal Guard's greaves. Smelt three rough iron bars at the Undercity Forge. He'll even let you use his good tongs.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bar_rough_iron",
+          "count": 3,
+          "label": "Smelt rough iron bars at the Undercity Forge"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "Rough iron, three bars. Don't touch the tongs on the left. They bite.",
+      "turn_in_text": "Rough iron, rough work. The Guard will wear them with pride, or at least with plates.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ironbrow's Coif",
+          "slot": "head",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.9,
+            "parry_rating": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Pit-Scarred Bracers",
+          "slot": "wrist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Bracers (Int/Sta/SP)"
+        },
+        {
+          "name": "Bone-Banded Charm",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.5
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ucq_drill_remnants",
+      "title": "Live Targets",
+      "giver_npc_id": "uc_drillmaster",
+      "zone": "undercity",
+      "level_min": 10,
+      "level_max": 11,
+      "description": "Drillmaster Hask is running out of recruits who do not mind being hit. The Lordaeron Remnants in the Ruins above are persistent and cheerfully hostile, and it is high time somebody used them for target practice.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lordaeron Remnant",
+          "count": 8,
+          "zone": "eastern_tirisfal"
+        },
+        {
+          "type": "fetch",
+          "target": "lordaeron_signet",
+          "count": 4
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "North, up the shaft, then south along the road to the Ruins. Eight remnants, four signets. Pretend you are teaching them.",
+      "turn_in_text": "Eight and four. The recruits will learn more from your signets than from my yelling.",
+      "next_quest_id": "ucq_drill_brennic",
+      "unique_item_defs": [
+        {
+          "name": "Recruit-Hardened Cap",
+          "slot": "head",
+          "item_level": 10,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 11,
+          "label": "Leather Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Pit-Scarred Boots",
+          "slot": "feet",
+          "item_level": 10,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.1,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 12,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Ironbrow's Necklace",
+          "slot": "neck",
+          "item_level": 10,
+          "rarity": "common",
+          "required_level": 10,
+          "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.1
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "ucq_drill_brennic",
+      "title": "A Captain for the Pit",
+      "giver_npc_id": "uc_drillmaster",
+      "zone": "undercity",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "Crusader Brennic holds the Scarlet outpost east of Brill. Hask would like him in the pit, in a manner of speaking.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Crusader Brennic",
+          "count": 1,
+          "zone": "eastern_tirisfal"
+        }
+      ],
+      "reward_exp": 884,
+      "reward_gold": 4160,
+      "accept_text": "The Crusader's Outpost. His armour is polished. His faith is brittle. Break one of them.",
+      "turn_in_text": "Polished and brittle indeed. Take your prize and tell the recruits you did not enjoy it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Drillyard Pauldrons",
+          "slot": "shoulder",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 36,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "War-Quarter Bracers",
+          "slot": "wrist",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 3.6
+          },
+          "armor_type": "plate",
+          "armor_value": 36,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Pit-Scarred Wand",
+          "slot": "main_hand",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        },
+        {
+          "name": "Bone-Banded Cloak",
+          "slot": "back",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "It has seen the pit and said nothing.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 12,
+          "label": "Leather Cloak (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 12,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ucq_valdis_relics",
+      "title": "Wards of the Old Crypt",
+      "giver_npc_id": "uc_mage_trainer",
+      "zone": "undercity",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Magistrix Valdis has been studying the Agamand wards, and the wards have been studying her. She needs five grave relics from the crypt-keepers in Western Tirisfal to complete her notes.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "grave_relic",
+          "count": 5
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "The Agamand Family Crypt, Western Tirisfal. The wights and graverobbers carry the relics. Five.",
+      "turn_in_text": "A ward of twelve strokes, carved by a mason who couldn't count. Delightful. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Sigil-Cut Wraps",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "The sigil inside is still warm.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        },
+        {
+          "name": "Sigil-Cut Boots",
+          "slot": "feet",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "The sigil inside is still warm.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 10,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Sigil-Cut Necklace",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Woven in a hall that hums.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ucq_kolven_ledger",
+      "title": "Whose Demon Is It?",
+      "giver_npc_id": "uc_warlock_trainer",
+      "zone": "undercity",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "Dreadmaster Kol'ven wants to know who the Cult of the Damned bargain with. The cultists carry ledger pages. The pages carry names. The names carry weight. Bring him six.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "cult_ledger_page",
+          "count": 6
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "Cult Farm, Eastern Tirisfal. Acolytes, fanatics. Don't read the last line of any page. Trust me.",
+      "turn_in_text": "Six pages. So it isn't one of mine. Pity - I'd have enjoyed the argument.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Candle-Gutter Skirt",
+          "slot": "legs",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Studied-over and, thankfully, mostly studied.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 4.2,
+            "hit_rating": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Legs (Int/SP/Hit)"
+        },
+        {
+          "name": "Magister's Cuffs",
+          "slot": "wrist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Woven in a hall that hums.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 17,
+          "label": "Mail Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Ritual-Stained Signet",
+          "slot": "ring",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "The sigil inside is still warm.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "ucq_marwen_sacs",
+      "title": "Venom for the Retorts",
+      "giver_npc_id": "uc_apothecary",
+      "zone": "undercity",
+      "level_min": 10,
+      "level_max": 11,
+      "description": "Apothecary Marwen runs on venom, bile and spite. The Venomweb skitterers east of Brill carry sacs that clear the throat of a retort like nothing else. Bring her six.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "venom_sac",
+          "count": 6
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "Venomweb Vale in Eastern Tirisfal. Sacs, not spiders - the spiders are mostly legs. Six, unbroken.",
+      "turn_in_text": "Fat, ripe and unburst. You have a gift. Here, for the effort.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Vial-Pocket Spaulders",
+          "slot": "shoulder",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Every pocket holds a stopper.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 35,
+          "label": "Plate Shoulders (Str/Sta/Def)"
+        },
+        {
+          "name": "Vial-Pocket Circlet",
+          "slot": "head",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Every pocket holds a stopper.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 7,
+          "label": "Cloth Helm (Sta/Int/HP)"
+        },
+        {
+          "name": "Reagent-Stained Spear",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Scorch marks that never came out.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 4.8,
+            "parry_rating": 3.6
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 35,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "ucq_stray_vial",
+      "title": "A Vial in the Wrong Hands",
+      "giver_npc_id": "item:uc_stray_vial",
+      "zone": "undercity",
+      "level_min": 13,
+      "level_max": 14,
+      "description": "A sealed vial taken off a Plagued Courier on the Silverpine road. The Apothecary Society's wax is on the stopper, and so is a hairline crack. Master Apothecary Sable will want to know why a Society vial is running about the forest.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "uc_stray_vial",
+          "count": 1,
+          "label": "Take the stray vial to Master Apothecary Sable"
+        }
+      ],
+      "reward_exp": 840,
+      "reward_gold": 3900,
+      "accept_text": "The Master Apothecary's lab, Apothecarium. Hand it over and tell her where you found it.",
+      "turn_in_text": "The wax is ours. The compound is not on any ledger I signed. Someone has been busy behind my back.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "uc_master_apothecary",
+      "unique_item_defs": [
+        {
+          "name": "Retort-Singed Waistguard",
+          "slot": "waist",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Scorch marks that never came out.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "block_rating": 0.2,
+            "block_value": 1.5
+          },
+          "armor_type": "plate",
+          "armor_value": 30,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Vial-Pocket Shroud",
+          "slot": "back",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Scorch marks that never came out.",
+          "primary_stats": {
+            "stamina": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Cloak (Sta/Int/HP)"
+        },
+        {
+          "name": "Marwen's Spear",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Every pocket holds a stopper.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 8.1,
+            "parry_rating": 5.9
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 41,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "ucq_sennarath_scroll",
+      "title": "A Scroll for Raven Hill",
+      "giver_npc_id": "uc_scholar",
+      "zone": "undercity",
+      "level_min": 12,
+      "level_max": 13,
+      "description": "Loremaster Sennarath has tracked the Cult's cipher across half of Lordaeron, and now believes Keeper Oswin at Raven Hill Cemetery has the missing key. The scroll is sealed in grave-wax and she is not letting it leave the Undercity except in a pair of steady hands.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "uc_sennarath_scroll",
+          "count": 1,
+          "label": "Take the scroll to Keeper Oswin, Raven Hill Cemetery, Silverpine North"
+        }
+      ],
+      "reward_exp": 760,
+      "reward_gold": 3600,
+      "accept_text": "North, by portal, into Silverpine. Raven Hill Cemetery. Oswin knows the cipher. Put it in his hand. Do not read it.",
+      "turn_in_text": "He frowns the way I do. A good sign. Give me a moment - there will be a reply.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sp_north_cemetery_keeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "uc_sennarath_scroll",
+            "name": "Sennarath's Sealed Scroll",
+            "description": "Grave-wax over parchment. It smells of old libraries.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Candle-Gutter Mantle",
+          "slot": "shoulder",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Studied-over and, thankfully, mostly studied.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Shoulders (Int/Sta/MP5)"
+        },
+        {
+          "name": "Hexed Treads",
+          "slot": "feet",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Studied-over and, thankfully, mostly studied.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.7
+          },
+          "armor_type": "leather",
+          "armor_value": 11,
+          "label": "Leather Boots (Agi/Sta/AP)"
+        },
+        {
+          "name": "Hexed Hatchet",
+          "slot": "main_hand",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "The sigil inside is still warm.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.0,
+            "parry_rating": 0.7
+          },
+          "weapon_damage_min": 21,
+          "weapon_damage_max": 29,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 12
+    },
+    {
+      "quest_id": "ucq_oswin_reply",
+      "title": "Oswin's Reply",
+      "giver_npc_id": "sp_north_cemetery_keeper",
+      "zone": "silverpine_north",
+      "level_min": 12,
+      "level_max": 13,
+      "description": "Keeper Oswin has read Sennarath's scroll twice and written a reply. The reply is short, and clearly not meant for the road. Take it back to Loremaster Sennarath in the Magic Quarter.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "uc_oswin_reply",
+          "count": 1,
+          "label": "Return Oswin's reply to Loremaster Sennarath in the Undercity"
+        }
+      ],
+      "reward_exp": 760,
+      "reward_gold": 3600,
+      "accept_text": "Back to the Undercity and Sennarath. Keep it dry. Keep it close. Keep your opinions to yourself.",
+      "turn_in_text": "'Yes, the key is in the husks.' Of course it is. Oswin always did like his answers buried.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ucq_sennarath_scroll"
+      ],
+      "turn_in_npc_id": "uc_scholar",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "uc_oswin_reply",
+            "name": "Oswin's Reply",
+            "description": "Two lines in a cramped hand. The ink is still damp.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Pathfinder's Sabatons",
+          "slot": "feet",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Silent soles, sharp edges.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 28,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Rhyne's Slippers",
+          "slot": "feet",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Cut for someone who walks and does not rattle.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.2,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Boots (Int/SP/Crit)"
+        },
+        {
+          "name": "Pathfinder's Hatchet",
+          "slot": "main_hand",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "The road dust has become the colour.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.0,
+            "parry_rating": 0.7
+          },
+          "weapon_damage_min": 21,
+          "weapon_damage_max": 29,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 12
+    },
+    {
+      "quest_id": "ucq_groundskeeper_scrap",
+      "title": "A Scrap in the Soil",
+      "giver_npc_id": "item:uc_groundskeeper_scrap",
+      "zone": "undercity",
+      "level_min": 12,
+      "level_max": 14,
+      "description": "Torn from the pocket of a Skeletal Groundskeeper at Raven Hill: a fragment of ledger in the Cult's cipher. Sennarath is the only person in the Undercity who might read it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "uc_groundskeeper_scrap",
+          "count": 1,
+          "label": "Deliver the scrap to Loremaster Sennarath"
+        }
+      ],
+      "reward_exp": 840,
+      "reward_gold": 3900,
+      "accept_text": "Sennarath, the Magic Quarter. She loves a scrap. She'll love this one more.",
+      "turn_in_text": "A line of the cipher, in a groundskeeper's pocket. How very careless of someone. Thank you.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "uc_scholar",
+      "unique_item_defs": [
+        {
+          "name": "Sigil-Cut Greathelm",
+          "slot": "head",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "The sigil inside is still warm.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 45,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Magister's Epaulets",
+          "slot": "shoulder",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Studied-over and, thankfully, mostly studied.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.7
+          },
+          "armor_type": "leather",
+          "armor_value": 19,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Violet-Spire Necklace",
+          "slot": "neck",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Woven in a hall that hums.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "ucq_pyrewood_hunt",
+      "title": "The Pyrewood Pack",
+      "giver_npc_id": "uc_hunter_trainer",
+      "zone": "undercity",
+      "level_min": 13,
+      "level_max": 15,
+      "description": "Ranger Isolde hunts what the Dark Lady needs hunted, and this season it's the worgen around Pyrewood Village: thickening in number, bolder in daylight, and very much not our friends. Thin the ambushers and the feral ones both.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Worgen Ambusher",
+          "count": 6,
+          "zone": "silverpine_north"
+        },
+        {
+          "type": "kill",
+          "target": "Feral Worgen",
+          "count": 6,
+          "zone": "silverpine_north"
+        }
+      ],
+      "reward_exp": 920,
+      "reward_gold": 4200,
+      "accept_text": "Pyrewood Village, Silverpine North. Watch the treeline. They love the treeline.",
+      "turn_in_text": "Twelve less to watch. The Dark Lady will hear of it, if only because I'll tell her.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Shadow-Hide Boots",
+          "slot": "feet",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "The road dust has become the colour.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 32,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Rhyne's Gauntlets",
+          "slot": "hands",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Silent soles, sharp edges.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Pathfinder's Glaive",
+          "slot": "main_hand",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "Cut for someone who walks and does not rattle.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 9.6,
+            "parry_rating": 7.2
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 43,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 14
+    },
+    {
+      "quest_id": "ucq_watchman",
+      "title": "The Watchman Who Stayed",
+      "giver_npc_id": "uc_deathstalker",
+      "zone": "undercity",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "A Forsaken Watchman at Raven Hill never stopped his patrol. He no longer answers challenges, or his own name. Deathstalker Rhyne has been asked to put him down quietly, and has decided the quiet option is you.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Skeletal Groundskeeper",
+          "count": 6,
+          "zone": "silverpine_north"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Forsaken Watchman",
+          "count": 1,
+          "zone": "silverpine_north"
+        }
+      ],
+      "reward_exp": 1300,
+      "reward_gold": 5850,
+      "accept_text": "Raven Hill Cemetery, Silverpine North. The groundskeepers first - they hear everything. Then the Watchman.",
+      "turn_in_text": "Quiet work. Efficient. I may recommend you to Rhyne's less dignified cousins.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Shadow-Hide Shroud",
+          "slot": "back",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Cut for someone who walks and does not rattle.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 8.6,
+            "mp5": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Cloak (HP/MP5)"
+        },
+        {
+          "name": "Night-Road Wristguards",
+          "slot": "wrist",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "The road dust has become the colour.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Bracers (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Rhyne's Rod",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "The road dust has become the colour.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 39,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        },
+        {
+          "name": "Night-Road Treads",
+          "slot": "feet",
+          "item_level": 16,
+          "rarity": "rare",
+          "required_level": 15,
+          "flavor_text": "Cut for someone who walks and does not rattle.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.8
+          },
+          "armor_type": "plate",
+          "armor_value": 48,
+          "label": "Plate Boots (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ucq_dark_ladys_ear",
+      "title": "The Dark Lady's Ear",
+      "giver_npc_id": "uc_executor",
+      "zone": "undercity",
+      "level_min": 14,
+      "level_max": 16,
+      "description": "Three separate reports have reached Wrenfall: the Scarlet interrogator's ledger, the Scourge Cave's necromancer, and the Agamand cipher in Silverpine. Each is a thread. Sylvanas would like to see them tied. Whoever carried those three threads should stand in front of her.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "undercity",
+          "target_x": 46,
+          "target_y": 46,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 1500,
+      "reward_gold": 6750,
+      "accept_text": "The Queen is in the Royal Quarter's great hall. Stand before her. Bow, if the knees allow it.",
+      "turn_in_text": "She has been told. She says: 'Remember the face.' I would take that as the highest praise she gives.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "uc_sylvanas",
+      "requires_quests": [
+        "sp_ledger_cipher",
+        "ets_vishas",
+        "etc_orvyn"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Sylvan Cuisses",
+          "slot": "legs",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "Lordaeron's colours, on Lordaeron's dead.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1.2,
+            "block_rating": 2.9,
+            "dodge_rating": 1.7
+          },
+          "armor_type": "plate",
+          "armor_value": 70,
+          "label": "Plate Legs (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Sylvan Pauldrons",
+          "slot": "shoulder",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "She doesn't give gifts. She issues them.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.3
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Sovereign's Charm",
+          "slot": "neck",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "She doesn't give gifts. She issues them.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.0
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "ucq_deeps_warning",
+      "title": "The Seal at the Bottom",
+      "giver_npc_id": "uc_gatewarden",
+      "zone": "undercity",
+      "level_min": 15,
+      "level_max": 16,
+      "description": "Gatewarden Sorrel keeps the iron door at the south end of the wheel. Nothing has come up from the Deeps for weeks, which she does not like. She wants someone to stand at the gate and see whether it feels as quiet as it sounds.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "undercity",
+          "target_x": 100,
+          "target_y": 178,
+          "radius": 5
+        }
+      ],
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "accept_text": "Stand at the iron door in the south. Count to thirty. Tell me if you hear anything. Do not open it.",
+      "turn_in_text": "You heard it too, then. Good. Come back when you are much stronger. There is work below.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Rotunda Armguards",
+          "slot": "wrist",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Issued in the Rotunda, mended in the dark.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.9
+          },
+          "armor_type": "mail",
+          "armor_value": 23,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Long-Descent Vambraces",
+          "slot": "wrist",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Cold as the elevator shaft, and about as comforting.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 35,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Long-Descent Roundshield",
+          "slot": "off_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Cold as the elevator shaft, and about as comforting.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_value": 23,
+          "block_value": 29,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 15
+    },
+    {
+      "quest_id": "ucq_pd_gate",
+      "title": "Cull the Cistern",
+      "giver_npc_id": "uc_gatewarden",
+      "zone": "undercity",
+      "level_min": 30,
+      "level_max": 31,
+      "description": "Sorrel is no longer certain what is coming up the Deeps stair. Whatever the Society's alchemists are breeding down there is flooding the Outer Cistern with rats, worms, hounds and walking corpses. She wants the first chamber quieter.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Plague Zombie",
+          "count": 8,
+          "zone": "plague_depths"
+        },
+        {
+          "type": "kill",
+          "target": "Plagued Hound",
+          "count": 6,
+          "zone": "plague_depths"
+        },
+        {
+          "type": "kill",
+          "target": "Rot Worm",
+          "count": 6,
+          "zone": "plague_depths"
+        }
+      ],
+      "reward_exp": 2500,
+      "reward_gold": 8300,
+      "accept_text": "Through the iron door, then down. The Outer Cistern. Bring friends. The Society's work is not for lone travellers.",
+      "turn_in_text": "You came up with all your limbs and a better colour than most. That is progress.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Sluice-Worn Bracers",
+          "slot": "wrist",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Stained green at every seam.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1.2,
+            "block_rating": 3.1,
+            "dodge_rating": 1.9
+          },
+          "armor_type": "plate",
+          "armor_value": 70,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Gutter-Pressed Mantle",
+          "slot": "back",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Marked with the Society's warning glyph.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Cloak (Int/Sta/SP)"
+        },
+        {
+          "name": "Quarantine Ring",
+          "slot": "ring",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Stained green at every seam.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 30
+    },
+    {
+      "quest_id": "ucq_pd_sump",
+      "title": "Sump Samples",
+      "giver_npc_id": "uc_master_apothecary",
+      "zone": "undercity",
+      "level_min": 30,
+      "level_max": 31,
+      "description": "Master Apothecary Lorrane Sable cannot prove it, but she suspects the sump water in the Plague Depths is carrying the plague to the Cistern's lower works. She wants six sealed vials of the sludge from the spore-things and the rot worms, to test.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pd_sump_vial",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2500,
+      "reward_gold": 8300,
+      "accept_text": "The Outer Cistern. Plague Spores and Rot Worms. Six vials, stoppers on. If you drop one, don't tell me.",
+      "turn_in_text": "Six. Green-grey. Warm. Not natural, not remotely. Someone is feeding this on purpose. Thank you.",
+      "next_quest_id": "ucq_pd_vex",
+      "unique_item_defs": [
+        {
+          "name": "Conduit Armguards",
+          "slot": "wrist",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Wet to the bone, even dry.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Gutter-Pressed Girdle",
+          "slot": "waist",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Stained green at every seam.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1.2,
+            "block_rating": 3.1,
+            "dodge_rating": 1.9
+          },
+          "armor_type": "plate",
+          "armor_value": 70,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Gutter-Pressed Band",
+          "slot": "ring",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Stained green at every seam.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 30
+    },
+    {
+      "quest_id": "ucq_pd_vex",
+      "title": "The Plagueweaver",
+      "giver_npc_id": "uc_master_apothecary",
+      "zone": "undercity",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "The sludge reads like a recipe: a familiar hand, a familiar flourish. It is Vex's. The Plagueweaver of the Society's inner circle weaves the plague through the Weaving Hall's looms, and she is not working for the Dark Lady any more.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Plagueweaver Vex",
+          "count": 1,
+          "zone": "plague_depths"
+        }
+      ],
+      "reward_exp": 3380,
+      "reward_gold": 11180,
+      "accept_text": "The Weaving Hall, west of the Mid Conduit. She was a friend once. That is the worst of it.",
+      "turn_in_text": "Her needle. Of course. She always did sew too tightly. Thank you - and I am sorry you had to do it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ucq_pd_sump"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Plague-Cellar Cord",
+          "slot": "waist",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Society-made, and not for the Society's good.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 31,
+          "label": "Leather Belt (Str/Agi/Sta)"
+        },
+        {
+          "name": "Plague-Cellar Treads",
+          "slot": "feet",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "It still twitches, now and then.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "block_rating": 0.7,
+            "block_value": 6.9
+          },
+          "armor_type": "plate",
+          "armor_value": 74,
+          "label": "Plate Boots (Sta/Block/BV)"
+        },
+        {
+          "name": "Alchemist's Wake Hatchet",
+          "slot": "main_hand",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "It still twitches, now and then.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 45,
+          "weapon_damage_max": 62,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        },
+        {
+          "name": "Alchemist's Wake Chain Belt",
+          "slot": "waist",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "It still twitches, now and then.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 49,
+          "label": "Mail Belt (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ucq_pd_notes",
+      "title": "The Surgeon's Notes",
+      "giver_npc_id": "uc_apothecary",
+      "zone": "undercity",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "Marwen has heard rumours that the Plague Surgeons are the Society's loyal hands, taking notes for a clinical record of the plague's progress. If there is a ledger of the spread, she wants it. Five pages from the surgeons.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pd_surgeon_notes",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 8600,
+      "accept_text": "The Lab wing. Plague Surgeons. The pages are bloodied but legible. Five.",
+      "turn_in_text": "Five pages. A neat hand, a steady one, and a growing unease in the last entries. We know how it spreads now.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Marwen's Leggings",
+          "slot": "legs",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Smells of cloves and something you'd rather not name.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 13.0,
+            "parry_rating": 9.1
+          },
+          "armor_type": "leather",
+          "armor_value": 60,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Distiller's Chain Belt",
+          "slot": "waist",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Smells of cloves and something you'd rather not name.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 7.8
+          },
+          "armor_type": "mail",
+          "armor_value": 48,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Vial-Pocket Saber",
+          "slot": "main_hand",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Every pocket holds a stopper.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 60,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 31
+    },
+    {
+      "quest_id": "ucq_pd_ledger",
+      "title": "The Court's Ledger",
+      "giver_npc_id": "uc_scholar",
+      "zone": "undercity",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "Loremaster Sennarath knows who the conspirators bribed, because the Blighted Courtiers of the Throne of Rot keep a ledger of every favour. She wants four copies of the courtier ledger from the Court, to compare against Wrenfall's lists.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pd_courtier_ledger",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 8600,
+      "accept_text": "The Court of Rot, north-west wing. The Blighted Courtiers. Four ledgers, any condition. I can read through a stain.",
+      "turn_in_text": "Names, dates, sums. Every one struck through, and every sum still correct. Terrifying and tidy. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Alchemist's Wake Gauntlets",
+          "slot": "hands",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "It still twitches, now and then.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 72,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Blight-Court Sabatons",
+          "slot": "feet",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Society-made, and not for the Society's good.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "armor_type": "mail",
+          "armor_value": 48,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        },
+        {
+          "name": "Plague-Cellar Dagger",
+          "slot": "main_hand",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Cut from the cellar and cured in the Cistern.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "crit_chance_physical": 0.6
+          },
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 60,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 31
+    },
+    {
+      "quest_id": "ucq_pd_noble",
+      "title": "The Infected Noble",
+      "giver_npc_id": "uc_executor",
+      "zone": "undercity",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "The Faulkner line was Lordaeron nobility. The last Faulkner was murdered in his bed, raised in a vat, and given a signet he does not remember. The Society dressed him as a figurehead for the coup. Wrenfall wants the figurehead removed and the signet recovered.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Infected Noble",
+          "count": 1,
+          "zone": "plague_depths"
+        },
+        {
+          "type": "fetch",
+          "target": "pd_noble_signet",
+          "count": 1
+        }
+      ],
+      "reward_exp": 3510,
+      "reward_gold": 11570,
+      "accept_text": "Throne of Rot, the Plague Depths' west wing. Kill him. Take the signet off the body. Do not wear it.",
+      "turn_in_text": "A dead man's ring on a dead man's finger. Good. It goes in the vault, and the vault stays shut.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ucq_pd_ledger"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Dark Lady's Belt",
+          "slot": "waist",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "She doesn't give gifts. She issues them.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Belt (Str/Agi/Sta)"
+        },
+        {
+          "name": "Banshee-Thread Byrnie",
+          "slot": "chest",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Lordaeron's colours, on Lordaeron's dead.",
+          "primary_stats": {
+            "stamina": 19
+          },
+          "secondary_stats": {
+            "defense_rating": 1.5,
+            "dodge_rating": 1.5
+          },
+          "armor_type": "mail",
+          "armor_value": 134,
+          "label": "Mail Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Royal-Quarter Charm",
+          "slot": "neck",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Black silk edged in a violet that does not fade.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sovereign's Helm",
+          "slot": "head",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Black silk edged in a violet that does not fade.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 151,
+          "label": "Plate Helm (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ucq_pd_voss",
+      "title": "Voss's Codex",
+      "giver_npc_id": "uc_scholar",
+      "zone": "undercity",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "Plague Keeper Voss keeps the Archive: a thousand recipes, a thousand formulae, and the notes that tie them together. Sennarath wants the Codex, in one piece, and Voss out of the way of it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Plague Keeper Voss",
+          "count": 1,
+          "zone": "plague_depths"
+        },
+        {
+          "type": "fetch",
+          "target": "pd_voss_codex",
+          "count": 1
+        }
+      ],
+      "reward_exp": 3510,
+      "reward_gold": 11570,
+      "accept_text": "The Blight Archive, east wing. Voss is a careful curator. Be more careful.",
+      "turn_in_text": "A thousand recipes, one ledger. The conspiracy is on every page. We may yet outpace it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ucq_pd_ledger"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Vat-Born Treads",
+          "slot": "feet",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "It still twitches, now and then.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 100,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Rot-Veined Cap",
+          "slot": "head",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "It still twitches, now and then.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 14.2,
+            "parry_rating": 11.4
+          },
+          "armor_type": "leather",
+          "armor_value": 63,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Plague-Cellar Pike",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Cut from the cellar and cured in the Cistern.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 28
+          },
+          "secondary_stats": {
+            "armor": 70.7,
+            "parry_rating": 1.5
+          },
+          "weapon_damage_min": 83,
+          "weapon_damage_max": 112,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Alchemist's Wake Belt",
+          "slot": "waist",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Cut from the cellar and cured in the Cistern.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 67,
+          "label": "Mail Belt (Sta/Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ucq_pd_vats",
+      "title": "Vat-Born Tissue",
+      "giver_npc_id": "uc_surgeon",
+      "zone": "undercity",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "Surgeon Halvard needs to see what the Society has been growing in the Vault of Flesh. The failed experiments carry fistfuls of tissue still working out what they were supposed to be. Five samples will tell him how long the vats have been running.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pd_vat_tissue",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2700,
+      "reward_gold": 8900,
+      "accept_text": "The Vault of Flesh, east wing. Failed Experiments. Gloves on. Don't think about the faces.",
+      "turn_in_text": "Five. Fresh, grey and still trying. The vats have been running longer than anyone told me.",
+      "next_quest_id": "ucq_pd_abomination",
+      "unique_item_defs": [
+        {
+          "name": "Overflow Shawl",
+          "slot": "shoulder",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Stained green at every seam.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 63.8,
+            "mp5": 13.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Shoulders (HP/MP5)"
+        },
+        {
+          "name": "Quarantine Chain Belt",
+          "slot": "waist",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Wet to the bone, even dry.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.1
+          },
+          "armor_type": "mail",
+          "armor_value": 49,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Sluice-Worn Band",
+          "slot": "ring",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Stained green at every seam.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 32
+    },
+    {
+      "quest_id": "ucq_pd_abomination",
+      "title": "What the Vats Grew",
+      "giver_npc_id": "uc_surgeon",
+      "zone": "undercity",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "The tissue samples point to a single source: a creature at the heart of the Vault of Flesh, still growing. Halvard calls it the Vile Plague Abomination. It does not recognise anything as a friend.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Vile Plague Abomination",
+          "count": 1,
+          "zone": "plague_depths"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 11960,
+      "accept_text": "The Vault of Flesh, deepest chamber. It is large, loud and wet. Bring a healer.",
+      "turn_in_text": "Growth stopped. Marvellous and terrible. The Society should be ashamed. Take the pick of what's left.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ucq_pd_vats"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Gutter-Pressed Armguards",
+          "slot": "wrist",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Marked with the Society's warning glyph.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Conduit Breeches",
+          "slot": "legs",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Wet to the bone, even dry.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "spell_power": 5.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 33,
+          "label": "Cloth Legs (Int/Sta/SP)"
+        },
+        {
+          "name": "Gutter-Pressed Spear",
+          "slot": "main_hand",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Stained green at every seam.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 80.5,
+            "parry_rating": 60.9
+          },
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 88,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        },
+        {
+          "name": "Gutter-Pressed Leggings",
+          "slot": "legs",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Wet to the bone, even dry.",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 66,
+          "label": "Leather Legs (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 34,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ucq_pd_zulketh",
+      "title": "The Heart of the Plague",
+      "giver_npc_id": "uc_master_apothecary",
+      "zone": "undercity",
+      "level_min": 34,
+      "level_max": 34,
+      "description": "Vex, the Noble, Voss and the Abomination were the Society's four limbs. Zul'keth is the heart, a Dark Sorcerer who believes the Dark Lady has failed, and who has built a pulsing furnace of plague under the city to prove it. End him, and the Society's coup ends with him.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Dark Sorcerer Zul'keth",
+          "count": 1,
+          "zone": "plague_depths"
+        }
+      ],
+      "reward_exp": 4480,
+      "reward_gold": 14720,
+      "accept_text": "The Plague Heart, the deepest room. Everything you've killed so far was his. Finish it.",
+      "turn_in_text": "It beats no more. The Society is leaderless and the Dark Lady is still on her throne. Take her gratitude, and mine.",
+      "next_quest_id": "ucq_pd_report",
+      "requires_quests": [
+        "ucq_pd_vex",
+        "ucq_pd_noble",
+        "ucq_pd_voss",
+        "ucq_pd_abomination"
+      ],
+      "grant_items": {
+        "on_turn_in": [
+          {
+            "item_id": "uc_sable_report",
+            "name": "Sable's Sealed Report",
+            "description": "Four pages and a seal. The conspiracy in full, signed off by the one person who could.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Plague-Cellar Cuirass",
+          "slot": "chest",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 34,
+          "flavor_text": "It still twitches, now and then.",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 208,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Cistern-Foul Bracers",
+          "slot": "wrist",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 34,
+          "flavor_text": "It still twitches, now and then.",
+          "primary_stats": {
+            "stamina": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.1
+          },
+          "armor_type": "mail",
+          "armor_value": 69,
+          "label": "Mail Bracers (Sta/Spi/HP)"
+        },
+        {
+          "name": "Alchemist's Wake Hammer",
+          "slot": "main_hand",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 34,
+          "flavor_text": "It still twitches, now and then.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "armor": 36.6,
+            "parry_rating": 0.8
+          },
+          "weapon_damage_min": 63,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Alchemist's Wake Mantle",
+          "slot": "back",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 34,
+          "flavor_text": "Cut from the cellar and cured in the Cistern.",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 34,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 34,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ucq_pd_report",
+      "title": "The Dark Lady's Gratitude",
+      "giver_npc_id": "uc_master_apothecary",
+      "zone": "undercity",
+      "level_min": 34,
+      "level_max": 34,
+      "description": "Master Apothecary Sable has written the whole sorry tale of the Society's coup into a sealed report. It needs to reach the Queen herself - not by messenger, not by raven, but by the hand that finished it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "uc_sable_report",
+          "count": 1,
+          "label": "Take Sable's report to Lady Sylvanas"
+        }
+      ],
+      "reward_exp": 3919,
+      "reward_gold": 12880,
+      "accept_text": "The Royal Quarter's great hall. Hand it to her. Do not say anything clever.",
+      "turn_in_text": "She reads it, slowly. She says nothing. Then she says: 'The Forsaken do not forget.' That is as close to thanks as the Dark Lady gets.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "uc_sylvanas",
+      "requires_quests": [
+        "ucq_pd_zulketh"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Banshee-Thread Leggings",
+          "slot": "legs",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Lordaeron's colours, on Lordaeron's dead.",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 6.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Legs (Int/Spi/HP)"
+        },
+        {
+          "name": "Sylvan Vest",
+          "slot": "chest",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "She doesn't give gifts. She issues them.",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 13.0
+          },
+          "armor_type": "leather",
+          "armor_value": 64,
+          "label": "Leather Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Sovereign's Saber",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Black silk edged in a violet that does not fade.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "armor": 24.2,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 33
+    }
+  ]
+}

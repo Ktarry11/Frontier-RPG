@@ -1250,6 +1250,26 @@
         "description": "A ledger bound in something that used to be skin. Every page is a recipe.",
         "chance": 1.0
       }
+    ],
+    "Plagued Courier": [
+      {
+        "item_id": "uc_stray_vial",
+        "name": "Unsealed Plague Vial",
+        "category": "quest",
+        "description": "A sealed vial taken off a courier, stamped with the Apothecary Society's wax. A hairline crack.",
+        "chance": 0.18,
+        "starts_quest": "ucq_stray_vial"
+      }
+    ],
+    "Skeletal Groundskeeper": [
+      {
+        "item_id": "uc_groundskeeper_scrap",
+        "name": "Groundskeeper's Ledger Scrap",
+        "category": "quest",
+        "description": "A torn fragment of a ledger in the Cult's cipher, folded small.",
+        "chance": 0.14,
+        "starts_quest": "ucq_groundskeeper_scrap"
+      }
     ]
   }
 }
