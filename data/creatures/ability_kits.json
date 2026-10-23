@@ -11599,7 +11599,7 @@
       {
         "name": "Meat Hook",
         "kind": "damage",
-        "amount": 25,
+        "amount": 34,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -11607,23 +11607,35 @@
       {
         "name": "Disease Cloud",
         "kind": "dot",
-        "amount": 10,
+        "amount": 13,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
         "duration": 4
       },
       {
-        "name": "Frenzy",
-        "kind": "buff",
+        "name": "Bone Shatter",
+        "kind": "debuff",
         "amount": 0,
         "cooldown": 5,
         "mana_cost": 0,
         "school": "physical",
         "duration": 3,
+        "stat_mods": {
+          "armor": -20
+        }
+      },
+      {
+        "name": "Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
         "self_only": true,
         "stat_mods": {
-          "attack_power": 16
+          "attack_power": 20
         }
       }
     ],
@@ -11631,17 +11643,17 @@
       {
         "name": "Shadow Bolt",
         "kind": "damage",
-        "amount": 22,
+        "amount": 27,
         "cooldown": 0,
-        "mana_cost": 20,
+        "mana_cost": 14,
         "school": "magic"
       },
       {
         "name": "Unholy Blight",
         "kind": "dot",
-        "amount": 10,
+        "amount": 11,
         "cooldown": 3,
-        "mana_cost": 30,
+        "mana_cost": 18,
         "school": "magic",
         "duration": 4
       },
@@ -11650,7 +11662,7 @@
         "kind": "buff",
         "amount": 0,
         "cooldown": 5,
-        "mana_cost": 28,
+        "mana_cost": 18,
         "school": "magic",
         "duration": 4,
         "self_only": true,
@@ -14153,6 +14165,110 @@
         }
       }
     ],
+    "scourge_warrior": [
+      {
+        "name": "Bone Blade",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Undying Swing",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "scourge_ghoul": [
+      {
+        "name": "Rending Claws",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ghoulish Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
+      }
+    ],
+    "ghoulmaster_krag": [
+      {
+        "name": "Bone Cleaver",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rotting Grip",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Call the Pack",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 18
+        }
+      }
+    ],
+    "plaguemaster_orvyn": [
+      {
+        "name": "Plague Bolt",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Festering Wound",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 4,
+        "mana_cost": 10,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Virulent Mist",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -16
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",
@@ -14518,24 +14634,6 @@
         "mana_cost": 0,
         "school": "shadow",
         "duration": 3
-      }
-    ],
-    "scourge_warrior": [
-      {
-        "name": "Bone Blade",
-        "kind": "damage",
-        "amount": 12,
-        "cooldown": 0,
-        "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Undying Swing",
-        "kind": "damage",
-        "amount": 15,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
       }
     ],
     "magma_elemental": [

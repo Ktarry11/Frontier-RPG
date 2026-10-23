@@ -1854,15 +1854,17 @@ UNDEAD_KITS = {
         ("Contagion", "dot", 9, 3, 0, "magic", {"duration": 4}),
     ],
     "scourge_abomination": [
-        ("Meat Hook", "damage", 25, 0, 0, "physical", {}),
-        ("Disease Cloud", "dot", 10, 3, 0, "magic", {"duration": 4}),
-        ("Frenzy", "buff", 0, 5, 0, "physical",
-         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 16}}),
+        ("Meat Hook", "damage", 34, 0, 0, "physical", {}),
+        ("Disease Cloud", "dot", 13, 3, 0, "magic", {"duration": 4}),
+        ("Bone Shatter", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -20}}),
+        ("Frenzy", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 20}}),
     ],
     "scourge_necromancer": [
-        ("Shadow Bolt", "damage", 22, 0, 20, "magic", {}),
-        ("Unholy Blight", "dot", 10, 3, 30, "magic", {"duration": 4}),
-        ("Unholy Frenzy", "buff", 0, 5, 28, "magic",
+        ("Shadow Bolt", "damage", 27, 0, 14, "magic", {}),
+        ("Unholy Blight", "dot", 11, 3, 18, "magic", {"duration": 4}),
+        ("Unholy Frenzy", "buff", 0, 5, 18, "magic",
          {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
     ],
     "scourge_lich": [
@@ -3438,6 +3440,28 @@ TIRISFAL_REBUILD_KITS = {
          {"duration": 3, "stat_mods": {"attack_power": -16}}),
         ("Dark Vigor", "buff", 0, 6, 14, "shadow",
          {"duration": 4, "self_only": True, "stat_mods": {"armor": 18}}),
+    ],
+    # ---- Scourge Cave (L10-13): the Cult of the Damned's cellar opens onto the bones of an Abomination
+    "scourge_warrior": [      # was only in legacy_kits.json (12/15 damage); rescaled to the L10-12 band
+        ("Bone Blade", "damage", 26, 0, 0, "physical", {}),
+        ("Undying Swing", "damage", 31, 3, 0, "physical", {}),
+    ],
+    "scourge_ghoul": [
+        ("Rending Claws", "damage", 27, 0, 0, "physical", {}),
+        ("Ghoulish Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 14}}),
+    ],
+    "ghoulmaster_krag": [
+        ("Bone Cleaver", "damage", 32, 0, 0, "physical", {}),
+        ("Rotting Grip", "dot", 12, 4, 0, "shadow", {"duration": 4}),
+        ("Call the Pack", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 18}}),
+    ],
+    "plaguemaster_orvyn": [
+        ("Plague Bolt", "damage", 30, 0, 14, "nature", {}),
+        ("Festering Wound", "dot", 11, 4, 10, "nature", {"duration": 4}),
+        ("Virulent Mist", "debuff", 0, 5, 12, "nature",
+         {"duration": 3, "stat_mods": {"armor": -16}}),
     ],
 }
 

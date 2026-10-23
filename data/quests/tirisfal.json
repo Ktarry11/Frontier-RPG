@@ -5891,6 +5891,705 @@
         }
       ],
       "gear_reward_gear_level": 13
+    },
+    {
+      "quest_id": "etc_descend",
+      "title": "Down the Spine",
+      "giver_npc_id": "et_cave_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 9,
+      "level_max": 11,
+      "description": "The Cult of the Damned dug their cellar into something that was never meant to be dug: the bones of a Scourge Abomination, so large its spine is a corridor. Boneward Calder wants to know how far the passage runs before anyone commits to it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "scourge_cave",
+          "target_x": 45,
+          "target_y": 40,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 600,
+      "reward_gold": 2700,
+      "accept_text": "The cave mouth is behind the cult's farm. Walk the spine to the middle of the ribs and come back. Don't pick anything up.",
+      "turn_in_text": "So it runs that far. Right. Then the rest is a matter of killing what lives in the ribs. Good work.",
+      "next_quest_id": "etc_warriors",
+      "unique_item_defs": [
+        {
+          "name": "Marrow-Bound Mantle",
+          "slot": "back",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Bone that learned to be armour.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Cloak (Int/SP/Crit)"
+        },
+        {
+          "name": "Spine-Walker's Chainmail",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "Cut from something that was already dead when it grew.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 31,
+          "label": "Mail Chest (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Rib-Wrought Ring",
+          "slot": "ring",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "required_level": 9,
+          "flavor_text": "The rune scratched inside has gone cold, but it hasn't gone quiet.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.4
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 10
+    },
+    {
+      "quest_id": "etc_warriors",
+      "title": "Bones That Walk",
+      "giver_npc_id": "et_cave_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Scourge Warriors wander the rib tunnels in loose patrols. They don't sleep, they don't tire, and they are very bad at hiding.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scourge Warrior",
+          "count": 8,
+          "zone": "scourge_cave"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "Eight of them. Fight in the tunnels, not the open hall, and let them come to you.",
+      "turn_in_text": "Eight fewer. The ribs sound quieter already. Take something.",
+      "next_quest_id": "etc_ghouls",
+      "unique_item_defs": [
+        {
+          "name": "Charnel Breeches",
+          "slot": "legs",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Cut from something that was already dead when it grew.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Scourge-Etched Girdle",
+          "slot": "waist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Bone that learned to be armour.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 17,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Spine-Walker's Targe",
+          "slot": "off_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Bone that learned to be armour.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_value": 17,
+          "block_value": 21,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "etc_ghouls",
+      "title": "Hungry Dead",
+      "giver_npc_id": "et_cave_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "The ghouls came with the Scourge, but they stayed for the plague cellar. They are fast and they travel in packs.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scourge Ghoul",
+          "count": 8,
+          "zone": "scourge_cave"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "They hunt by the sound of heartbeats, which makes you a very noisy guest. Eight.",
+      "turn_in_text": "Eight ghouls. Do you still have all your fingers? Good. Take your pick.",
+      "next_quest_id": "etc_runes",
+      "unique_item_defs": [
+        {
+          "name": "Charnel Girdle",
+          "slot": "waist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "The rune scratched inside has gone cold, but it hasn't gone quiet.",
+          "primary_stats": {
+            "agility": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "leather",
+          "armor_value": 10,
+          "label": "Leather Belt (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Scourge-Etched Wraps",
+          "slot": "hands",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Bone that learned to be armour.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.0,
+            "crit_chance_spell": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 5,
+          "label": "Cloth Gloves (Int/SP/Crit)"
+        },
+        {
+          "name": "Plague-Cellar Signet",
+          "slot": "ring",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "The rune scratched inside has gone cold, but it hasn't gone quiet.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "etc_runes",
+      "title": "Scourge Rune Shards",
+      "giver_npc_id": "et_cave_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "The Scourge Necromancers carve their wards onto black shards of stone, and the same wards hold the Abomination's bones in place. Calder wants a handful, to learn how to break them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "scourge_rune_shard",
+          "count": 6
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "The necromancers carry them. Six shards, uncracked. Don't read the runes aloud.",
+      "turn_in_text": "Six clean shards. Now I can see where the wards sit. The Abomination is next. Take your pick.",
+      "next_quest_id": "etc_abomination",
+      "unique_item_defs": [
+        {
+          "name": "Cellar-Dark Armguards",
+          "slot": "wrist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Bone that learned to be armour.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 0.9
+          },
+          "armor_type": "mail",
+          "armor_value": 17,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Cellar-Dark Greaves",
+          "slot": "legs",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Cut from something that was already dead when it grew.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Legs (Str/Sta/Def)"
+        },
+        {
+          "name": "Plague-Cellar Scepter",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Still smells of the cellar, and of what the cellar was dug into.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.8
+          },
+          "weapon_damage_min": 17,
+          "weapon_damage_max": 23,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "etc_abomination",
+      "title": "The Scourge Abomination",
+      "giver_npc_id": "et_cave_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 12,
+      "level_max": 13,
+      "description": "The Abomination sits in the skull at the head of the spine, wired into the cult's rune stones. Kill it, and the cellar is just a cellar again.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Scourge Abomination",
+          "count": 1,
+          "zone": "scourge_cave"
+        },
+        {
+          "type": "kill",
+          "target": "Scourge Necromancer",
+          "count": 4,
+          "zone": "scourge_cave"
+        }
+      ],
+      "reward_exp": 988,
+      "reward_gold": 4680,
+      "accept_text": "The skull throne, at the north end of the spine. Necromancers keep it standing. Take them first.",
+      "turn_in_text": "It's down. The cellar is quiet. I'll be sleeping with a candle on for a week. Take your pick of what it wore.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Plague-Cellar Spaulders",
+          "slot": "shoulder",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Still smells of the cellar, and of what the cellar was dug into.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.2,
+            "block_rating": 0.4,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 59,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Scourge-Etched Gauntlets",
+          "slot": "hands",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "The rune scratched inside has gone cold, but it hasn't gone quiet.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.1,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 26,
+          "label": "Mail Gloves (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Plague-Cellar Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Bone that learned to be armour.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.8
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        },
+        {
+          "name": "Spine-Walker's Vestments",
+          "slot": "chest",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Cut from something that was already dead when it grew.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.5,
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Chest (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 13,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etc_krag",
+      "title": "The Bone Pit",
+      "giver_npc_id": "et_cave_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "Ghoulmaster Krag keeps his pack in a bone-lined pit west of the ribs. He feeds them on what the cult leaves behind.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ghoulmaster Krag",
+          "count": 1,
+          "zone": "scourge_cave"
+        },
+        {
+          "type": "kill",
+          "target": "Scourge Ghoul",
+          "count": 4,
+          "zone": "scourge_cave"
+        }
+      ],
+      "reward_exp": 884,
+      "reward_gold": 4160,
+      "accept_text": "West of the second rib, down a side tunnel. He whistles for the pack when he's losing. Be quick.",
+      "turn_in_text": "Krag's whistle is silent. Take your pick of his trophies.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "etc_descend"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Plague-Cellar Armguards",
+          "slot": "wrist",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "The rune scratched inside has gone cold, but it hasn't gone quiet.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.9
+          },
+          "armor_type": "mail",
+          "armor_value": 24,
+          "label": "Mail Bracers (Sta/Spi/HP)"
+        },
+        {
+          "name": "Plague-Cellar Cloak",
+          "slot": "back",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Cut from something that was already dead when it grew.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 6,
+          "label": "Cloth Cloak (Int/Sta/SP)"
+        },
+        {
+          "name": "Spine-Walker's Saber",
+          "slot": "main_hand",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "It was lighter before you knew where it came from.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        },
+        {
+          "name": "Marrow-Bound Leggings",
+          "slot": "legs",
+          "item_level": 12,
+          "rarity": "rare",
+          "required_level": 11,
+          "flavor_text": "Bone that learned to be armour.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.4
+          },
+          "armor_type": "leather",
+          "armor_value": 30,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 12,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etc_orvyn",
+      "title": "The Plague Lab",
+      "giver_npc_id": "et_cave_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 12,
+      "level_max": 13,
+      "description": "Plaguemaster Orvyn runs the cult's laboratory in a side chamber east of the ribs, brewing the blight they pour on the farms above. Calder wants the vats cold.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Plaguemaster Orvyn",
+          "count": 1,
+          "zone": "scourge_cave"
+        },
+        {
+          "type": "kill",
+          "target": "Cult Acolyte",
+          "count": 3,
+          "zone": "scourge_cave"
+        }
+      ],
+      "reward_exp": 988,
+      "reward_gold": 4680,
+      "accept_text": "East of the third rib, past a tunnel of vials. His acolytes tend the vats. Keep your mouth covered.",
+      "turn_in_text": "The vats are cold. Whatever he was brewing, it won't reach the farms. Take your pick.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "etc_descend"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Spine-Walker's Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "It was lighter before you knew where it came from.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "block_rating": 0.3,
+            "block_value": 3.0
+          },
+          "armor_type": "plate",
+          "armor_value": 59,
+          "label": "Plate Shoulders (Sta/Block/BV)"
+        },
+        {
+          "name": "Spine-Walker's Bracers",
+          "slot": "wrist",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "It was lighter before you knew where it came from.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Scourge-Etched Charm",
+          "slot": "neck",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "It was lighter before you knew where it came from.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        },
+        {
+          "name": "Charnel Mitts",
+          "slot": "hands",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 12,
+          "flavor_text": "Still smells of the cellar, and of what the cellar was dug into.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Gloves (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 13,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "etc_formula",
+      "title": "The Plaguemaster's Formula",
+      "giver_npc_id": "item:plaguemaster_formula",
+      "zone": "eastern_tirisfal",
+      "level_min": 11,
+      "level_max": 13,
+      "description": "A sheaf of stained notes pulled from the Plaguemaster's belt: dosages, ingredients, and a diagram of the cult's delivery vats. Assistant Grael at the Brill Apothecary would pay dearly for this.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "plaguemaster_formula",
+          "count": 1,
+          "label": "Bring the formula to Assistant Grael in Brill"
+        }
+      ],
+      "reward_exp": 760,
+      "reward_gold": 3600,
+      "accept_text": "The handwriting is clinical. Every line ends in the same instruction: 'dilute before use'. Grael, at Brill's apothecary.",
+      "turn_in_text": "Grael reads it twice and goes slightly pale. 'They were going to put this in the wells. Thank you. Truly.'",
+      "next_quest_id": null,
+      "turn_in_npc_id": "brill_apothecary_asst",
+      "unique_item_defs": [
+        {
+          "name": "Scourge-Etched Leggings",
+          "slot": "legs",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "It was lighter before you knew where it came from.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Marrow-Bound Chain Belt",
+          "slot": "waist",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Cut from something that was already dead when it grew.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.1,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 18,
+          "label": "Mail Belt (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Cellar-Dark Pendant",
+          "slot": "neck",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Bone that learned to be armour.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 12
     }
   ]
 }

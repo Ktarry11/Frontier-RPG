@@ -11,6 +11,10 @@ quest id so re-running is byte-stable, and item names are unique across the whol
 import random
 
 THEMES = {
+    "scourge": (["Rib-Wrought", "Charnel", "Scourge-Etched", "Marrow-Bound", "Cellar-Dark", "Spine-Walker's", "Plague-Cellar"],
+                ["Cut from something that was already dead when it grew.", "Still smells of the cellar, and of what the cellar was dug into.",
+                 "The rune scratched inside has gone cold, but it hasn't gone quiet.", "Bone that learned to be armour.",
+                 "It was lighter before you knew where it came from."]),
     "vale": (["Nightmare", "Gloamwood", "Dusk-Vale", "Moth-Eaten", "Hollow-Hunter's", "Thorn-Torn"],
              ["Cut for someone who lived in the dark, and liked it.", "Smells of loam and wolf. Both are mostly gone.",
               "The Vale never lets you wash it out.", "Worn thin by thorn and branch.",

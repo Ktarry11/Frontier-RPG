@@ -1393,7 +1393,7 @@
     "Scourge Warrior": {
       "template": "undead_basic",
       "level_range": [
-        9,
+        10,
         12
       ],
       "ability_kit": "scourge_warrior"
@@ -1401,7 +1401,7 @@
     "Scourge Necromancer": {
       "template": "humanoid_caster",
       "level_range": [
-        9,
+        10,
         12
       ],
       "ability_kit": "scourge_necromancer"
@@ -6279,6 +6279,35 @@
       ],
       "is_boss": true,
       "ability_kit": "cult_overseer_thaddeus",
+      "boss_multiplier": 1.6
+    },
+    "Scourge Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        10,
+        12
+      ],
+      "is_boss": false,
+      "ability_kit": "scourge_ghoul"
+    },
+    "Ghoulmaster Krag": {
+      "template": "undead_basic",
+      "level_range": [
+        11,
+        11
+      ],
+      "is_boss": true,
+      "ability_kit": "ghoulmaster_krag",
+      "boss_multiplier": 1.6
+    },
+    "Plaguemaster Orvyn": {
+      "template": "humanoid_caster",
+      "level_range": [
+        12,
+        12
+      ],
+      "is_boss": true,
+      "ability_kit": "plaguemaster_orvyn",
       "boss_multiplier": 1.6
     }
   }

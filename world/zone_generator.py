@@ -5614,6 +5614,7 @@ def create_all_zones():
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
     from tools.handbuilt_brill import generate_brill as generate_brill_handbuilt
     from tools import handbuilt_deathknell_caves as ddkc
+    from tools import handbuilt_scourge_cave as hscourge
     from tools.handbuilt_dungeons import (
         generate_blackfathom_deeps,
         generate_widows_lair,
@@ -5773,7 +5774,7 @@ def create_all_zones():
     zones["Skull Rock"] = dcaves.generate_skull_rock()  # hand-built
     zones["Night Web's Hollow"] = ddkc.generate_night_webs_hollow()
     zones["Scarlet Crypt"] = ddkc.generate_scarlet_crypt()
-    zones["Scourge Cave"] = ZoneGenerator.generate_scourge_cave()
+    zones["Scourge Cave"] = hscourge.generate_scourge_cave()  # hand-built (tools/handbuilt_scourge_cave.py)
 
     # Drygulch Ravine is NOT run through generate_cave() - see that
     # function's own docstring note and generate_drygulch_ravine()'s

@@ -65,6 +65,10 @@ NEW_CREATURES = {
     "Mother Venomweb": C("vermin_sneaky", 11, 11, "mother_venomweb", True, 1.6),
     "Captain Vachon": C("humanoid_warrior", 11, 11, "captain_vachon", True, 1.6),
     "Cult Overseer Thaddeus": C("humanoid_caster", 12, 12, "cult_overseer_thaddeus", True, 1.6),
+    # ---- Scourge Cave (Eastern, L10-13)
+    "Scourge Ghoul": C("undead_basic", 10, 12, "scourge_ghoul"),
+    "Ghoulmaster Krag": C("undead_basic", 11, 11, "ghoulmaster_krag", True, 1.6),
+    "Plaguemaster Orvyn": C("humanoid_caster", 12, 12, "plaguemaster_orvyn", True, 1.6),
 }
 
 # creatures that only one Tirisfal zone uses now (global bands)
@@ -73,6 +77,7 @@ LEVEL_PATCH = {
     "Captured Farmer": (8, 10), "Agamand Servant": (8, 10), "Agamand Family Ghoul": (8, 10),
     "Thurman Agamand": (10, 10),
     "Scarlet Zealot": (10, 12), "Scarlet Bowman": (10, 12), "Scarlet Preacher": (10, 12), "Interrogator Vishas": (12, 12),
+    "Scourge Warrior": (10, 12), "Scourge Necromancer": (10, 12), "Scourge Abomination": (13, 13),
 }
 KIT_PATCH = {}
 
@@ -141,7 +146,12 @@ ENCOUNTERS = {
             "The Bulwark Road": {"name": "The Bulwark Road", "creatures": {
                 "Wretched Zombie": 2, "Bleak Worg": 2}},
         },
-        # caves stay as they are (Scourge Cave)
+        # the Scourge Cave (hand-built 2026-10-23, tools/handbuilt_scourge_cave.py): random trash, boss + 2 rares pinned
+        "caves": {
+            "Scourge Cave": {"name": "Scourge Cave", "creatures": {
+                "Scourge Warrior": 4, "Scourge Ghoul": 4, "Scourge Necromancer": 3, "Cult Acolyte": 2, "Cult Fanatic": 1,
+                "Scourge Abomination": 0, "Ghoulmaster Krag": 0, "Plaguemaster Orvyn": 0}},
+        },
     },
 }
 
@@ -313,6 +323,36 @@ def pools():
         mk("Confessor's Signet", "ring", "of the Prophet", 15,
            "Everyone who has worn it said exactly what he wanted to hear."),
     ]
+    P["Scourge Abomination"] = [        # L13 -> ilvl 16
+        mk("Abomination's Hook-Spear", "main_hand", "of the Juggernaut", 16,
+           "A butcher's hook the length of a lance. The meat is still on it.", weapon_type="polearm"),
+        mk("Stitched-Hide Cuirass", "chest", "of the Defender", 16,
+           "Plate riveted over a hide that was never meant to be worn.", armor_type="plate"),
+        mk("Scourge Sinew Cord", "waist", "of the Bear", 16,
+           "A belt of cured tendon. It tightens when you aren't looking.", armor_type="mail"),
+        mk("Ring of Borrowed Bone", "ring", "of the Soldier", 16,
+           "Carved from a rib that fit someone else, once."),
+    ]
+    P["Ghoulmaster Krag"] = [            # L11 -> ilvl 14
+        mk("Ghoulmaster's Bone Whip", "main_hand", "of the Assassin", 14,
+           "Knuckle-bones on a gut cord. The pack comes when it cracks.", weapon_type="dagger"),
+        mk("Pack-Leader's Mantle", "shoulder", "of the Bandit", 14,
+           "Tanned ghoul hide, still twitching at the edges.", armor_type="leather"),
+        mk("Gnawed Femur Cudgel", "main_hand", "of the Soldier", 14,
+           "Somebody's thigh bone, chewed to a handle.", weapon_type="mace_1h"),
+        mk("Marrowband Choker", "neck", "of the Tiger", 14,
+           "A string of small teeth. None of them are his."),
+    ]
+    P["Plaguemaster Orvyn"] = [          # L12 -> ilvl 15
+        mk("Orvyn's Plague Rod", "main_hand", "of the Invoker", 15,
+           "A glass rod with something alive swirling in it.", weapon_type="staff"),
+        mk("Alchemist's Stained Apron", "chest", "of the Sorcerer", 15,
+           "Every colour of rot, all of it permanent.", armor_type="cloth"),
+        mk("Vial-Studded Bracers", "wrist", "of the Seer", 15,
+           "The vials are corked. Most of them.", armor_type="cloth"),
+        mk("Formula-Etched Signet", "ring", "of the Archmage", 15,
+           "The recipe is engraved inside the band. You do not want to read it."),
+    ]
     return P
 
 
@@ -335,6 +375,8 @@ def main():
         z[zone]["open_zone"] = enc["open_zone"]
         z[zone]["subzones"] = enc["subzones"]
         z[zone]["level_overrides"] = {k: list(v) for k, v in OVERRIDES[zone].items()}
+        if "caves" in enc:
+            z[zone]["caves"] = enc["caves"]
     z.pop("Brill", None)                     # Brill is a town: nothing spawns there any more (Balnir moved to Eastern)
     p.write_text(json.dumps(data, indent=2) + "\n")
 

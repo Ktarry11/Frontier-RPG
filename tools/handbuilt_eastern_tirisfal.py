@@ -158,6 +158,7 @@ NPC_POSITIONS = {
     "et_hunter_ravel": (78, 69),             # Huntress Ravel, Venomweb Vale
     "et_balnir_edric": (36, 99),             # Stablehand Edric, Balnir Farmstead
     "et_cult_warden": (49, 116),             # Warden Ysolde Grave, Cult of the Damned Farm
+    "et_cave_warden": (55, 114),             # Boneward Calder, beside the Scourge Cave mouth
     "et_scarlet_watch_scout": (46, 40),      # Scout Hollowmere, watching the Watch Post from the lakeside slope
 }
 CHESTS = [(36, 70), (20, 122), (70, 80), (60, 34), (44, 122)]

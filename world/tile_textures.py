@@ -454,7 +454,7 @@ CAVE_BIOME = {
     # dedicated bone_hall-matched biome.
     "Night Web's Hollow": "cave_mossy",
     "Scarlet Crypt": "cave_dark",
-    "Scourge Cave": "cave_scourge_bone",
+    "Scourge Cave": "cave_dark",
 
     # Generic cave_specs caves that had NO entry (fell to "grassland", which maps no wall/cliff -> thousands of flat boxes).
     "Moonwell Hollow": "cave_mossy",      # flooded + roots

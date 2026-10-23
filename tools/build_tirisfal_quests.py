@@ -34,9 +34,10 @@ DK_FILE = ROOT / "data/quests/deathknell.json"
 NPCS = ROOT / "data/npcs/ambient_npcs.json"
 DROPS = ROOT / "data/creatures/quest_drops.json"
 WT, ET, BR = "western_tirisfal", "eastern_tirisfal", "brill"
+SC = "scourge_cave"
 
-XP = {4: 210, 5: 280, 6: 330, 7: 380, 8: 420, 9: 470, 10: 520, 11: 600, 12: 680}
-GOLD = {4: 550, 5: 850, 6: 1100, 7: 1500, 8: 1800, 9: 2100, 10: 2400, 11: 2700, 12: 3200}
+XP = {4: 210, 5: 280, 6: 330, 7: 380, 8: 420, 9: 470, 10: 520, 11: 600, 12: 680, 13: 760}
+GOLD = {4: 550, 5: 850, 6: 1100, 7: 1500, 8: 1800, 9: 2100, 10: 2400, 11: 2700, 12: 3200, 13: 3600}
 
 
 def k(target, n, zone):
@@ -534,6 +535,7 @@ def quests():
         "He's in the cells. His zealots guard the door. Take them first.",
         "Vishas is dead. The cells are open. Take your pick.", None))
     showcase(A)
+    scourge_cave(A)
     return Z
 
 
@@ -597,6 +599,62 @@ def showcase(A):
         None, exp=800, gold=1400, requires_quests=["etd_ledger_courier", "wta_thurman"]))
 
 
+def scourge_cave(A):
+    """The Scourge Cave line (2026-10-23).  A CAVE: kill / fetch / boss / explore only, no escorts."""
+    CAL = "et_cave_warden"
+    A(Q("etc_descend", "Down the Spine", CAL, ET, 9, 11, "scourge",
+        "The Cult of the Damned dug their cellar into something that was never meant to be dug: the bones of a Scourge "
+        "Abomination, so large its spine is a corridor. Boneward Calder wants to know how far the passage runs before "
+        "anyone commits to it.",
+        [explore(SC, 45, 40, 7)],
+        "The cave mouth is behind the cult's farm. Walk the spine to the middle of the ribs and come back. Don't pick anything up.",
+        "So it runs that far. Right. Then the rest is a matter of killing what lives in the ribs. Good work.", "etc_warriors"))
+    A(Q("etc_warriors", "Bones That Walk", CAL, ET, 10, 12, "scourge",
+        "Scourge Warriors wander the rib tunnels in loose patrols. They don't sleep, they don't tire, and they are very "
+        "bad at hiding.",
+        [k("Scourge Warrior", 8, SC)],
+        "Eight of them. Fight in the tunnels, not the open hall, and let them come to you.",
+        "Eight fewer. The ribs sound quieter already. Take something.", "etc_ghouls"))
+    A(Q("etc_ghouls", "Hungry Dead", CAL, ET, 10, 12, "scourge",
+        "The ghouls came with the Scourge, but they stayed for the plague cellar. They are fast and they travel in packs.",
+        [k("Scourge Ghoul", 8, SC)],
+        "They hunt by the sound of heartbeats, which makes you a very noisy guest. Eight.",
+        "Eight ghouls. Do you still have all your fingers? Good. Take your pick.", "etc_runes"))
+    A(Q("etc_runes", "Scourge Rune Shards", CAL, ET, 11, 12, "scourge",
+        "The Scourge Necromancers carve their wards onto black shards of stone, and the same wards hold the Abomination's "
+        "bones in place. Calder wants a handful, to learn how to break them.",
+        [fetch("scourge_rune_shard", 6)],
+        "The necromancers carry them. Six shards, uncracked. Don't read the runes aloud.",
+        "Six clean shards. Now I can see where the wards sit. The Abomination is next. Take your pick.", "etc_abomination"))
+    A(Q("etc_abomination", "The Scourge Abomination", CAL, ET, 12, 13, "scourge",
+        "The Abomination sits in the skull at the head of the spine, wired into the cult's rune stones. Kill it, and the "
+        "cellar is just a cellar again.",
+        [boss("Scourge Abomination", SC), k("Scourge Necromancer", 4, SC)],
+        "The skull throne, at the north end of the spine. Necromancers keep it standing. Take them first.",
+        "It's down. The cellar is quiet. I'll be sleeping with a candle on for a week. Take your pick of what it wore.", None))
+    # ---- optional side chambers: open once you've walked the spine
+    A(Q("etc_krag", "The Bone Pit", CAL, ET, 11, 12, "scourge",
+        "Ghoulmaster Krag keeps his pack in a bone-lined pit west of the ribs. He feeds them on what the cult leaves behind.",
+        [boss("Ghoulmaster Krag", SC), k("Scourge Ghoul", 4, SC)],
+        "West of the second rib, down a side tunnel. He whistles for the pack when he's losing. Be quick.",
+        "Krag's whistle is silent. Take your pick of his trophies.", None, requires_quests=["etc_descend"]))
+    A(Q("etc_orvyn", "The Plague Lab", CAL, ET, 12, 13, "scourge",
+        "Plaguemaster Orvyn runs the cult's laboratory in a side chamber east of the ribs, brewing the blight they pour on "
+        "the farms above. Calder wants the vats cold.",
+        [boss("Plaguemaster Orvyn", SC), k("Cult Acolyte", 3, SC)],
+        "East of the third rib, past a tunnel of vials. His acolytes tend the vats. Keep your mouth covered.",
+        "The vats are cold. Whatever he was brewing, it won't reach the farms. Take your pick.", None,
+        requires_quests=["etc_descend"]))
+    # ---- DROP-STARTED, cross-zone: the formula Orvyn carries goes to Brill's apothecary
+    A(Q("etc_formula", "The Plaguemaster's Formula", "item:plaguemaster_formula", ET, 11, 13, "scourge",
+        "A sheaf of stained notes pulled from the Plaguemaster's belt: dosages, ingredients, and a diagram of the cult's "
+        "delivery vats. Assistant Grael at the Brill Apothecary would pay dearly for this.",
+        [deliver("plaguemaster_formula", "Bring the formula to Assistant Grael in Brill")],
+        "The handwriting is clinical. Every line ends in the same instruction: 'dilute before use'. Grael, at Brill's apothecary.",
+        "Grael reads it twice and goes slightly pale. 'They were going to put this in the wells. Thank you. Truly.'",
+        None, turn_in_npc_id="brill_apothecary_asst"))
+
+
 # ----------------------------------------------------------------------
 NEW_NPCS = [
     # Western
@@ -631,6 +689,8 @@ NEW_NPCS = [
          facing="down", greeting="The horses are gone. The stable remains. So do I."),
     dict(npc_id="et_cult_warden", name="Warden Ysolde Grave", zone="eastern_tirisfal", gender="female",
          appearance_variant=5, facing="down", greeting="I came here to watch. Now I count."),
+    dict(npc_id="et_cave_warden", name="Boneward Calder", zone="eastern_tirisfal", gender="male",
+         appearance_variant=2, facing="left", greeting="That hole behind the farm breathes. Don't tell me it doesn't."),
 ]
 
 QUEST_DROPS = {
@@ -650,6 +710,8 @@ QUEST_DROPS = {
                   [("Venomweb Skitterer", 0.45), ("Vicious Night Web Spider", 0.25)]),
     "cult_ledger_page": ("Cult Ledger Page", "A page of names, tallies and debts.",
                          [("Cult Acolyte", 0.4), ("Cult Fanatic", 0.4)]),
+    "scourge_rune_shard": ("Scourge Rune Shard", "A shard of black rune-stone, etched and cold to the touch.",
+                           [("Scourge Necromancer", 0.45), ("Scourge Warrior", 0.15)]),
     "lordaeron_signet": ("Lordaeron Signet", "A tarnished ring bearing the old court's crest.",
                          [("Lordaeron Remnant", 0.4)]),
     "stolen_cargo": ("Stolen Cargo Crate", "A small crate, battered and half-opened.",
@@ -659,6 +721,8 @@ QUEST_DROPS = {
 
 # monster drops that START a quest (item -> (name, description, quest_id, [(creature, chance)]))
 STARTER_DROPS = {
+    "plaguemaster_formula": ("Plaguemaster's Formula", "Stained notes, dosages and a diagram of the cult's delivery vats.",
+                             "etc_formula", [("Plaguemaster Orvyn", 0.6)]),
     "moldering_locket": ("Moldering Locket", "A tarnished locket. The inscription on the back is still legible.", "brl_locket",
                          [("Solliden Farmhand", 0.12), ("Rotting Dead", 0.05)]),
     "scarlet_battle_orders": ("Bloodied Scarlet Orders", "Crusade orders, torn and stained. Troop positions and patrol times.",
