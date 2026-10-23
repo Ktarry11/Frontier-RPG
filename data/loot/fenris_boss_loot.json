@@ -1,0 +1,475 @@
+{
+  "_notes": "Fenris Isle + Shadowpine Altar boss/rare loot (2026-10-23). ONE item per kill from the pool; ilvl = creature level + 3.",
+  "Ancient Curse-Beast": [
+    {
+      "name": "Curse-Beast Hide Jerkin",
+      "slot": "chest",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Matted, stitched with its own sinew, and still faintly warm.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 61
+    },
+    {
+      "name": "Ironclaw of the Isle",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A claw the length of a forearm, bound to a bone grip.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 64,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Rotted Heartstone Pendant",
+      "slot": "neck",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Something that was once a heart, calcified and heavy.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.1
+      }
+    },
+    {
+      "name": "Cursed Fang Greaves",
+      "slot": "legs",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Plate studded with fangs. Not all of them were the beast's.",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "defense_rating": 0.5,
+        "dodge_rating": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 146
+    }
+  ],
+  "Baron Ashbury": [
+    {
+      "name": "Baron's Signet of Fenris",
+      "slot": "ring",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "The family seal, worn thin by a hand that would not let go.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "mp5": 0.5
+      }
+    },
+    {
+      "name": "Ashbury's Gilded Rapier",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A duelling blade for a man who never lost a duel and never forgave one.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "dodge_rating": 0.8,
+        "parry_rating": 0.6
+      },
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Mouldering Manor Cloak",
+      "slot": "back",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Velvet gone to moss. It still hangs with great dignity.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {
+        "healing_power": 2.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 12
+    },
+    {
+      "name": "Footman's Last Orders Mail",
+      "slot": "chest",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Mail issued to a house guard who was never relieved.",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.3
+      },
+      "armor_type": "mail",
+      "armor_value": 102
+    }
+  ],
+  "Captain's Ghost": [
+    {
+      "name": "Drowned Captain's Cutlass",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Salt-pitted but wickedly sharp. It drips on dry decks.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "attack_power": 6.9
+      },
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Barnacled Tricorn",
+      "slot": "head",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Crusted with shells, with a fish somehow still living in the brim.",
+      "primary_stats": {
+        "stamina": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 47
+    },
+    {
+      "name": "Spectral Logbook Charm",
+      "slot": "trinket",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "The last entry reads only: the water is inside the ship.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.4,
+        "hit_rating": 0.1
+      }
+    },
+    {
+      "name": "Harpooner's Brine Gloves",
+      "slot": "hands",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Waxed leather, stiff with salt and old blood.",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2
+      },
+      "armor_type": "leather",
+      "armor_value": 31
+    }
+  ],
+  "The Alpha Cur": [
+    {
+      "name": "Alpha's Gnawed Bone Club",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A thighbone worked into a club. Every notch is a tooth-mark.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3
+      },
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Packmaster's Studded Collar",
+      "slot": "neck",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A heavy collar. Some dog was very, very good.",
+      "primary_stats": {
+        "strength": 2,
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Cur-Hide Leggings",
+      "slot": "legs",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Patchwork of ten different pelts, all of them snarling.",
+      "primary_stats": {
+        "agility": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 63
+    },
+    {
+      "name": "Howling Skull Mantle",
+      "slot": "shoulder",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A skull on each shoulder. They howl in a stiff wind.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.4,
+        "parry_rating": 0.3
+      },
+      "armor_type": "mail",
+      "armor_value": 76
+    }
+  ],
+  "Bonewarden Aldric": [
+    {
+      "name": "Aldric's Femur Hammer",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Two-handed, ugly, and entirely made of someone's leg.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "armor": 49.6,
+        "parry_rating": 1.0
+      },
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 86,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Bone-Ward Pauldrons",
+      "slot": "shoulder",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Overlapping plates of knitted rib. They knock when you walk.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.4,
+        "block_rating": 0.7,
+        "dodge_rating": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 110
+    },
+    {
+      "name": "Ritual Knucklebone Ring",
+      "slot": "ring",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "A ring of finger-bone, with a stone that watches.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      }
+    },
+    {
+      "name": "Wardens' Shroud Belt",
+      "slot": "waist",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 21,
+      "flavor_text": "Burial linen, bound with knotted hair.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 1.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 15
+    }
+  ],
+  "Curse Keeper Tael": [
+    {
+      "name": "Tael's Moonlit Scepter",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A silver rod tipped with a glass moon. It's never quite full.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "spell_power": 16.5,
+        "crit_chance_spell": 0.8
+      },
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Keeper's Hexed Vestments",
+      "slot": "chest",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Robes cut so that every fold hides a smaller curse.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "spell_power": 3.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 31
+    },
+    {
+      "name": "Curse-Breaker's Bracers",
+      "slot": "wrist",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "Silvered leather bracers; they warm against a hex.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 4.6,
+        "spell_penetration": 1.9
+      },
+      "armor_type": "leather",
+      "armor_value": 31
+    },
+    {
+      "name": "Pendant of the Last Rite",
+      "slot": "neck",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "flavor_text": "A small wooden holy symbol. It has been reused too many times.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 3.4,
+        "mp5": 0.7
+      }
+    }
+  ],
+  "Alpha Fenris": [
+    {
+      "name": "Fenris' Cursed Fang",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A fang the length of a short sword, still wet at the root.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "attack_power": 7.4
+      },
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Alpha's Moonhide Hauberk",
+      "slot": "chest",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Silver-grey hide that shifts colour in moonlight.",
+      "primary_stats": {
+        "strength": 8,
+        "agility": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 68
+    },
+    {
+      "name": "Greaves of the Howling Dark",
+      "slot": "feet",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Plate boots with claw-marks cut deep down both shins.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 82
+    },
+    {
+      "name": "Moonbound Curse-Ring",
+      "slot": "ring",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A band that tightens each full moon and loosens after. It is a patient ring.",
+      "primary_stats": {
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "spell_power": 2.6,
+        "mp5": 0.5
+      }
+    }
+  ]
+}

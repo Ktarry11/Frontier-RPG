@@ -5617,6 +5617,8 @@ def create_all_zones():
     from tools import handbuilt_widows_lair as dwl
     from tools import handbuilt_ambermill_tower as dat
     from tools import handbuilt_shadowfang_keep as dsfk
+    from tools import handbuilt_fenris_isle as dfen
+    from tools import handbuilt_shadowpine_altar as dsa
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5636,8 +5638,6 @@ def create_all_zones():
     from tools.ashenvale_silverpine_fenris_generators import (
         generate_silverpine_north,
         generate_silverpine_south,
-        generate_fenris_isle,
-        generate_shadowpine_altar,
         generate_the_sepulcher,
         generate_brill,
     )
@@ -5687,7 +5687,7 @@ def create_all_zones():
         "Brill": generate_brill_handbuilt(),  # hand-built (tools/handbuilt_brill.py)
         
         # ===== FENRIS ISLE (new zone) =====
-        "Fenris Isle": generate_fenris_isle(),
+        "Fenris Isle": dfen.generate_fenris_isle(),  # hand-built island (tools/handbuilt_fenris_isle.py)
         
         # ===== EXPANSION DUNGEONS =====
         "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)
@@ -5696,7 +5696,7 @@ def create_all_zones():
         "Widow's Lair": dwl.generate_widows_lair(),  # hive cluster (tools/handbuilt_widows_lair.py)
         "Shadowfang Keep": dsfk.generate_shadowfang_keep(),  # stepped castle (tools/handbuilt_shadowfang_keep.py)
         "Ambermill Tower": dat.generate_ambermill_tower(),  # tower climb (tools/handbuilt_ambermill_tower.py)
-        "Shadowpine Altar": generate_shadowpine_altar(),
+        "Shadowpine Altar": dsa.generate_shadowpine_altar(),  # serpentine ritual caves (tools/handbuilt_shadowpine_altar.py)
     }
 
     # Caves are real maps now, not just encounter-table keys. Each is keyed

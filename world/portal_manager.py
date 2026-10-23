@@ -290,7 +290,7 @@ class PortalManager:
                 (80, 5): ("Silverpine North", 80, 154),            # arrive (80,152)
                 (138, 90): ("Ambermill Tower", 75, 128),
                 (48, 144): ("Shadowfang Keep", 100, 172),
-                (151, 44): ("Fenris Isle", 80, 125),               # the ferry
+                (151, 44): ("Fenris Isle", 80, 129),               # the ferry: arrive (80,127) on the pier
             },
             "The Sepulcher": {
                 (44, 67): ("Silverpine North", 32, 102),           # arrive (32,100), south of the gate
@@ -306,11 +306,11 @@ class PortalManager:
                 (100, 172): ("Silverpine South", 48, 144),         # cave exit: +3 -> arrive (48,145), south of the gate
             },
             "Fenris Isle": {
-                (25, 60): ("Shadowpine Altar", 75, 115),
-                (80, 125): ("Silverpine South", 149, 46),   # boat return: arrive (149,44) on the pier
+                (30, 55): ("Shadowpine Altar", 75, 115),
+                (80, 129): ("Silverpine South", 149, 46),   # boat return: arrive (149,44) on the pier
             },
             "Shadowpine Altar": {
-                (75, 115): ("Fenris Isle", 25, 58),
+                (75, 115): ("Fenris Isle", 30, 55),             # cave exit: +3 -> arrive (30,56), south of the ridge arch
             },
 
             # ===== TIRISFAL / UNDERCITY =====

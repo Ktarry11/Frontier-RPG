@@ -3833,6 +3833,114 @@ SILVERPINE_DUNGEON_KITS_2 = {
     ],
 }
 
+SILVERPINE_FENRIS_KITS = {
+    # ================= SILVERPINE Stage 4 (2026-10-23): Fenris Isle 17-22, Shadowpine Altar 20-24 =================
+    "fenris_stalker": [
+        ("Rending Pounce", "damage", 26, 0, 0, "physical", {}),
+        ("Lunge Wound", "dot", 10, 3, 0, "physical", {"duration": 3}),
+    ],
+    "rabid_shorewolf": [
+        ("Frothing Bite", "damage", 24, 0, 0, "physical", {}),
+        ("Rabid Frenzy", "buff", 0, 5, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 14}}),
+    ],
+    "tidewrack_crawler": [
+        ("Pincer Snap", "damage", 24, 0, 0, "physical", {}),
+        ("Shell Harden", "buff", 0, 5, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 30}}),
+    ],
+    "manor_hound": [
+        ("Manor Maul", "damage", 28, 0, 0, "physical", {}),
+        ("Guard Bark", "buff", 0, 5, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 12}}),
+    ],
+    "ashburys_footman": [
+        ("Rusted Halberd", "damage", 31, 0, 0, "physical", {}),
+        ("Hold the Line", "buff", 0, 5, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 36}}),
+    ],
+    "bilge_swarm": [
+        ("Gnaw", "damage", 20, 0, 0, "physical", {}),
+        ("Pestilent Nip", "dot", 7, 3, 0, "nature", {"duration": 3}),
+    ],
+    "waterlogged_wretch": [
+        ("Sodden Slam", "damage", 30, 0, 0, "physical", {}),
+        ("Drowning Grasp", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+    "drowned_harpooner": [
+        ("Harpoon Throw", "damage", 32, 0, 10, "physical", {}),
+        ("Barbed Line", "debuff", 0, 4, 10, "physical", {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "grave_worg": [
+        ("Grave Chomp", "damage", 28, 0, 0, "physical", {}),
+        ("Bone Shake", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"armor": -18}}),
+    ],
+    "bone_cur": [
+        ("Splintered Bite", "damage", 26, 0, 0, "physical", {}),
+        ("Rib Rake", "dot", 11, 3, 0, "physical", {"duration": 4}),
+    ],
+    "cur_warden": [
+        ("Hex Bolt", "damage", 33, 0, 14, "shadow", {}),
+        ("Curse of the Hound", "dot", 12, 3, 12, "shadow", {"duration": 4}),
+    ],
+    # rares / bosses: 4 abilities each (20+)
+    "curse_beast": [
+        ("Crushing Maul", "damage", 38, 0, 0, "physical", {}),
+        ("Festering Bite", "dot", 16, 3, 0, "nature", {"duration": 4}),
+        ("Curse Roar", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"attack_power": -20}}),
+        ("Blighted Stomp", "damage", 30, 3, 0, "nature", {"is_aoe": True}),
+    ],
+    "baron_ashbury_fenris": [
+        ("Noble's Blade", "damage", 40, 0, 0, "physical", {}),
+        ("Shadow Decree", "dot", 17, 3, 12, "shadow", {"duration": 4}),
+        ("Commanding Presence", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 26}}),
+        ("Grave Summons", "damage", 34, 3, 12, "shadow", {"is_aoe": True}),
+    ],
+    "captains_ghost_fenris": [
+        ("Spectral Cutlass", "damage", 40, 0, 0, "shadow", {}),
+        ("Drowning Curse", "dot", 17, 3, 12, "shadow", {"duration": 4}),
+        ("Ghostly Wail", "debuff", 0, 4, 12, "shadow", {"duration": 3, "stat_mods": {"agility": -20}}),
+        ("Capsize", "damage", 32, 3, 0, "magic", {"is_aoe": True}),
+    ],
+    "alpha_cur_fenris": [
+        ("Alpha Bite", "damage", 40, 0, 0, "physical", {}),
+        ("Savage Rend", "dot", 17, 3, 0, "physical", {"duration": 4}),
+        ("Pack Howl", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 26}}),
+        ("Bone-Crunch Leap", "damage", 34, 3, 0, "physical", {}),
+    ],
+    # Shadowpine Altar
+    "shadowpine_cultist": [
+        ("Shadow Bolt", "damage", 35, 0, 14, "shadow", {}),
+        ("Hex of Ruin", "debuff", 0, 4, 12, "shadow", {"duration": 3, "stat_mods": {"intellect": -18}}),
+    ],
+    "altar_bonewalker": [
+        ("Bone Cleave", "damage", 36, 0, 0, "physical", {}),
+        ("Rattling Guard", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+    ],
+    "moonhowl_worgen": [
+        ("Moonlit Rake", "damage", 36, 0, 0, "physical", {}),
+        ("Howl at the Moon", "buff", 0, 5, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 18}}),
+    ],
+    "altar_wraith": [
+        ("Spectral Touch", "damage", 34, 0, 0, "shadow", {}),
+        ("Chill of the Curse", "dot", 12, 3, 0, "shadow", {"duration": 4}),
+    ],
+    "bonewarden_aldric": [
+        ("Bone Hammer", "damage", 42, 0, 0, "physical", {}),
+        ("Grave Rot", "dot", 18, 3, 0, "shadow", {"duration": 4}),
+        ("Warden's Ward", "buff", 0, 6, 0, "shadow", {"duration": 4, "self_only": True, "stat_mods": {"armor": 50}}),
+        ("Marrow Shatter", "damage", 34, 3, 0, "physical", {"is_aoe": True}),
+    ],
+    "curse_keeper_tael": [
+        ("Curse Bolt", "damage", 44, 0, 14, "shadow", {}),
+        ("Curse of Fenris", "dot", 19, 3, 14, "shadow", {"duration": 4}),
+        ("Moonbane", "debuff", 0, 4, 12, "shadow", {"duration": 3, "stat_mods": {"attack_power": -22}}),
+        ("Lunar Eruption", "damage", 36, 3, 12, "magic", {"is_aoe": True}),
+    ],
+    "alpha_fenris": [
+        ("Cursed Maw", "damage", 48, 0, 0, "physical", {}),
+        ("Lycan Rend", "dot", 20, 3, 0, "physical", {"duration": 4}),
+        ("Howl of the Curse", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"armor": -30}}),
+        ("Moonfire Frenzy", "buff", 0, 6, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 32}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3842,7 +3950,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

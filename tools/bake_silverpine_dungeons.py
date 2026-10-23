@@ -147,7 +147,41 @@ def spec_keep():
     )
 
 
-REGISTRY = {"widows_lair": spec_widows, "ambermill_tower": spec_tower, "shadowfang_keep": spec_keep}
+def spec_altar():
+    from tools import handbuilt_shadowpine_altar as SA
+    R = SA.ROOMS
+    C._builds["build_altar_baked"] = SA.build_altar_baked
+    return dict(
+        build="build_altar_baked", seed=557, slug="shadowpine_altar",
+        materials={
+            "floor":  M(SP + "cave_floor", SP + "root_earth"),
+            "bone":   M(SP + "cemetery_earth"),
+            "ritual": M(SP + "ritual_floor"),
+            "crypt":  M(SP + "crypt_floor"),
+            "wall":   M(dim(SP + "cave_wall", 0.85)),
+            "rock":   M(SP + "rock_wall"),
+            "cwall":  M(SP + "sepulcher_wall"),
+            "water_s": M(SP + "pool_shallow_flat"),
+            "water_d": M(SP + "pool_deep_flat"),
+        },
+        floor_keys=["floor", "bone", "ritual", "crypt"],
+        wall_keys=["wall", "rock", "cwall"],
+        floors={
+            "bone":   [(R["bone"][0], R["bone"][1], 19, 14)],
+            "ritual": [(R["moon"][0], R["moon"][1], 11, 8), (R["bone"][0], R["bone"][1], 8, 6), (R["ring"][0], R["ring"][1] + 4, 12, 7)],
+            "crypt":  [(R["ring"][0], R["ring"][1], 29, 14)],
+        },
+        walls={
+            "cwall": [(R["ring"][0], R["ring"][1], 31, 16)],
+            "rock":  [(R["bone"][0], R["bone"][1], 20, 15), (R["moon"][0], R["moon"][1], 21, 16)],
+        },
+        pools=[],
+        cfg=dict(ao=0.48, depth=0.80, lip=18, lip_col=(0.82, 0.85, 1.0), deep_dark=0.2,
+                 foam_col=(220, 230, 245), glows=[]),
+    )
+
+
+REGISTRY = {"widows_lair": spec_widows, "ambermill_tower": spec_tower, "shadowfang_keep": spec_keep, "shadowpine_altar": spec_altar}
 
 
 def main():

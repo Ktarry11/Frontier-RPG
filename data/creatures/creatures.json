@@ -1943,11 +1943,13 @@
     "Curse Keeper Tael": {
       "template": "humanoid_caster",
       "level_range": [
-        24,
-        24
+        22,
+        22
       ],
       "is_boss": true,
-      "kit": "curse_keeper_tael"
+      "kit": "curse_keeper_tael",
+      "ability_kit": "curse_keeper_tael",
+      "boss_multiplier": 2.2
     },
     "Alpha Fenris": {
       "template": "beast_fast",
@@ -1956,8 +1958,9 @@
         24
       ],
       "is_boss": true,
-      "boss_multiplier": 2.0,
-      "kit": "alpha_fenris"
+      "boss_multiplier": 2.6,
+      "kit": "alpha_fenris",
+      "ability_kit": "alpha_fenris"
     },
     "Fire Imp": {
       "template": "humanoid_caster",
@@ -2938,10 +2941,10 @@
       "template": "beast_fast",
       "level_range": [
         17,
-        20
+        19
       ],
       "is_boss": false,
-      "ability_kit": "wolf"
+      "ability_kit": "fenris_stalker"
     },
     "Cursed Villager": {
       "template": "humanoid_warrior",
@@ -2956,10 +2959,10 @@
       "template": "beast_fast",
       "level_range": [
         17,
-        20
+        19
       ],
       "is_boss": false,
-      "ability_kit": "wolf"
+      "ability_kit": "rabid_shorewolf"
     },
     "Isle Banshee": {
       "template": "undead_basic",
@@ -2977,8 +2980,8 @@
         21
       ],
       "is_boss": true,
-      "boss_multiplier": 2.6,
-      "ability_kit": "zombie_bear"
+      "boss_multiplier": 2.0,
+      "ability_kit": "curse_beast"
     },
     "Worgen Keeper": {
       "template": "beast_fast",
@@ -3014,8 +3017,8 @@
         22
       ],
       "is_boss": true,
-      "boss_multiplier": 2.7,
-      "ability_kit": "baron_ashbury"
+      "boss_multiplier": 2.2,
+      "ability_kit": "baron_ashbury_fenris"
     },
     "Bilge Rat Swarm": {
       "template": "vermin_swarm",
@@ -3024,7 +3027,7 @@
         20
       ],
       "is_boss": false,
-      "ability_kit": "swarm"
+      "ability_kit": "bilge_swarm"
     },
     "Waterlogged Wretch": {
       "template": "undead_basic",
@@ -3033,7 +3036,7 @@
         20
       ],
       "is_boss": false,
-      "ability_kit": "zombie"
+      "ability_kit": "waterlogged_wretch"
     },
     "Captain's Ghost": {
       "template": "undead_basic",
@@ -3042,8 +3045,8 @@
         22
       ],
       "is_boss": true,
-      "boss_multiplier": 2.6,
-      "ability_kit": "cursed_spirit"
+      "boss_multiplier": 2.2,
+      "ability_kit": "captains_ghost_fenris"
     },
     "Grave Worg": {
       "template": "beast_fast",
@@ -3052,7 +3055,7 @@
         20
       ],
       "is_boss": false,
-      "ability_kit": "wolf"
+      "ability_kit": "grave_worg"
     },
     "Bone-Strewn Cur": {
       "template": "beast_fast",
@@ -3061,7 +3064,7 @@
         20
       ],
       "is_boss": false,
-      "ability_kit": "wolf"
+      "ability_kit": "bone_cur"
     },
     "Feral Packmaster": {
       "template": "humanoid_warrior",
@@ -3079,8 +3082,8 @@
         22
       ],
       "is_boss": true,
-      "boss_multiplier": 2.7,
-      "ability_kit": "the_alpha_cur"
+      "boss_multiplier": 2.2,
+      "ability_kit": "alpha_cur_fenris"
     },
     "Sentinel Scout": {
       "template": "humanoid_ranged",
@@ -6792,6 +6795,97 @@
       ],
       "is_boss": false,
       "ability_kit": "keep_worg"
+    },
+    "Tidewrack Crawler": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        17,
+        19
+      ],
+      "is_boss": false,
+      "ability_kit": "tidewrack_crawler"
+    },
+    "Manor Hound": {
+      "template": "beast_basic",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "manor_hound"
+    },
+    "Ashbury's Footman": {
+      "template": "undead_basic",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "ashburys_footman"
+    },
+    "Drowned Harpooner": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_harpooner"
+    },
+    "Cur-Warden": {
+      "template": "humanoid_caster",
+      "level_range": [
+        19,
+        21
+      ],
+      "is_boss": false,
+      "ability_kit": "cur_warden"
+    },
+    "Shadowpine Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "shadowpine_cultist"
+    },
+    "Altar Bonewalker": {
+      "template": "undead_basic",
+      "level_range": [
+        20,
+        22
+      ],
+      "is_boss": false,
+      "ability_kit": "altar_bonewalker"
+    },
+    "Moonhowl Worgen": {
+      "template": "beast_fast",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "moonhowl_worgen"
+    },
+    "Altar Wraith": {
+      "template": "undead_basic",
+      "level_range": [
+        21,
+        23
+      ],
+      "is_boss": false,
+      "ability_kit": "altar_wraith"
+    },
+    "Bonewarden Aldric": {
+      "template": "undead_basic",
+      "level_range": [
+        21,
+        21
+      ],
+      "is_boss": true,
+      "ability_kit": "bonewarden_aldric",
+      "boss_multiplier": 2.0
     }
   }
 }

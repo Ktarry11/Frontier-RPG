@@ -18,6 +18,7 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 from tools.handbuilt_silverpine_north import NPC_POSITIONS as NORTH_POS   # noqa: E402
 from tools.handbuilt_silverpine_south import NPC_POSITIONS as SOUTH_POS   # noqa: E402
 from tools.handbuilt_sepulcher import NPC_POSITIONS as SEP_POS            # noqa: E402
+from tools.handbuilt_fenris_isle import NPC_POSITIONS as FEN_POS          # noqa: E402
 
 F, M = "female", "male"
 # id: (name, zone slug, race, gender, variant, facing, greeting)
@@ -114,6 +115,24 @@ SEP_AMBIENT = {
 }
 
 
+FEN_AMBIENT = {
+    "fenris_pier_warden": ("Pier-Warden Hask", "fenris_isle", "forsaken", M, 7, "down",
+                           "The ferry leaves when the lake lets it. If you're staying, stay off the water. It remembers the crossing."),
+    "fenris_keep_scout": ("Scout Merrin", "fenris_isle", "forsaken", F, 9, "right",
+                          "Baron Ashbury's manor sits behind that gate. The guards haven't been relieved since the curse. Neither has the Baron."),
+    "fenris_altar_warden": ("Warden Orlan", "fenris_isle", "forsaken", M, 4, "down",
+                            "The arch in the ridge leads down to where the curse was cast. I keep watch so nothing climbs back up."),
+    "fenris_grave_hunter": ("Gravehunter Selke", "fenris_isle", "forsaken", F, 15, "left",
+                            "Cur's Grave is a kennel for ghosts. The dogs I can handle. It's the keeper I don't like the sound of."),
+}
+FEN_VENDORS = {
+    "fenris_provisioner": ("Provisioner Dunn", "fenris_isle", "forsaken", M, 11, "down",
+                           "Bloodmoon Village stores. Priced for people who aren't leaving soon.",
+                           ["healing_potion_minor", "healing_potion_standard", "mana_potion_minor", "bread_and_cheese",
+                            "roasted_meat", "battle_elixir_minor"], 20, True),
+}
+
+
 def _upsert(data, key, id_key, rec):
     for i, r in enumerate(data[key]):
         if r.get(id_key) == rec[id_key]:
@@ -149,6 +168,18 @@ def main():
         x, y = SEP_POS[nid]
         added += _upsert(amb, "npcs", "npc_id", dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet,
                                                       gender=gender, race=race, appearance_variant=var, facing=facing))
+    for nid, (name, zone, race, gender, var, facing, greet) in FEN_AMBIENT.items():
+        x, y = FEN_POS[nid]
+        added += _upsert(amb, "npcs", "npc_id", dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet,
+                                                      gender=gender, race=race, appearance_variant=var, facing=facing))
+    for vid, (name, zone, race, gender, var, facing, greet, sells, gl, sg) in FEN_VENDORS.items():
+        x, y = FEN_POS[vid]
+        added += _upsert(ven, "vendors", "vendor_id", dict(
+            vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", sells=sells, buys_from_player=True,
+            faction="forsaken", gear_level=gl, sells_gear=sg, race=race, appearance_variant=var, gender=gender, greeting=greet))
+    for rec in amb["npcs"]:                      # the two original Fenris NPCs keep their records; the map moves them
+        if rec.get("zone") == "fenris_isle" and rec["npc_id"] in FEN_POS:
+            rec["x"], rec["y"] = FEN_POS[rec["npc_id"]]
     for rec in amb["npcs"]:                      # the nine ambient Sepulcher residents keep their records; the map moves them
         if rec.get("zone") == "sepulcher" and rec["npc_id"] in SEP_POS:
             rec["x"], rec["y"] = SEP_POS[rec["npc_id"]]

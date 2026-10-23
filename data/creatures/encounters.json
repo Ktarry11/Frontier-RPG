@@ -1926,39 +1926,96 @@
       "open_zone": {
         "name": "The Cursed Shore",
         "creatures": {
-          "Feral Worgen Stalker": 2,
-          "Cursed Villager": 1,
-          "Rabid Wolf": 1,
-          "Isle Banshee": 1,
+          "Feral Worgen Stalker": 3,
+          "Rabid Wolf": 2,
+          "Cursed Villager": 2,
+          "Isle Banshee": 2,
+          "Tidewrack Crawler": 2,
           "Ancient Curse-Beast": 0
         }
       },
       "subzones": {
+        "Bloodmoon Village": {
+          "name": "Bloodmoon Village",
+          "creatures": {
+            "Cursed Villager": 3,
+            "Rabid Wolf": 1
+          }
+        },
         "Fenris Proper": {
           "name": "Fenris Proper",
           "creatures": {
-            "Worgen Keeper": 2,
-            "Fenris Guardian": 1,
-            "Cursed Noble": 1,
+            "Worgen Keeper": 3,
+            "Fenris Guardian": 2,
+            "Cursed Noble": 2,
+            "Manor Hound": 3,
+            "Ashbury's Footman": 3,
             "Baron Ashbury": 0
           }
         },
         "The Drowned Docks": {
           "name": "The Drowned Docks",
           "creatures": {
-            "Drowned Sailor": 2,
-            "Bilge Rat Swarm": 1,
-            "Waterlogged Wretch": 1,
+            "Drowned Sailor": 3,
+            "Bilge Rat Swarm": 2,
+            "Waterlogged Wretch": 3,
+            "Drowned Harpooner": 2,
             "Captain's Ghost": 0
           }
         },
         "Cur's Grave": {
           "name": "Cur's Grave",
           "creatures": {
-            "Grave Worg": 2,
-            "Bone-Strewn Cur": 1,
-            "Feral Packmaster": 1,
+            "Grave Worg": 3,
+            "Bone-Strewn Cur": 3,
+            "Feral Packmaster": 2,
+            "Cur-Warden": 2,
             "The Alpha Cur": 0
+          }
+        }
+      },
+      "level_overrides": {
+        "Cursed Villager": [
+          17,
+          19
+        ],
+        "Isle Banshee": [
+          18,
+          20
+        ],
+        "Worgen Keeper": [
+          19,
+          21
+        ],
+        "Fenris Guardian": [
+          19,
+          21
+        ],
+        "Cursed Noble": [
+          19,
+          21
+        ],
+        "Drowned Sailor": [
+          18,
+          20
+        ],
+        "Feral Packmaster": [
+          19,
+          21
+        ]
+      },
+      "caves": {
+        "Shadowpine Altar": {
+          "name": "Shadowpine Altar",
+          "creatures": {
+            "Shadowpine Cultist": 3,
+            "Altar Bonewalker": 3,
+            "Moonhowl Worgen": 3,
+            "Altar Wraith": 2,
+            "Worgen Warrior": 2,
+            "Bonewarden Aldric": 0,
+            "Curse Keeper Tael": 0,
+            "Alpha Fenris": 0
           }
         }
       }

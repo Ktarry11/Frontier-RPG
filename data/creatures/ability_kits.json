@@ -16214,6 +16214,613 @@
         }
       }
     ],
+    "fenris_stalker": [
+      {
+        "name": "Rending Pounce",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge Wound",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "rabid_shorewolf": [
+      {
+        "name": "Frothing Bite",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rabid Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 14
+        }
+      }
+    ],
+    "tidewrack_crawler": [
+      {
+        "name": "Pincer Snap",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shell Harden",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 30
+        }
+      }
+    ],
+    "manor_hound": [
+      {
+        "name": "Manor Maul",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Guard Bark",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 12
+        }
+      }
+    ],
+    "ashburys_footman": [
+      {
+        "name": "Rusted Halberd",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hold the Line",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 36
+        }
+      }
+    ],
+    "bilge_swarm": [
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 20,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pestilent Nip",
+        "kind": "dot",
+        "amount": 7,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "waterlogged_wretch": [
+      {
+        "name": "Sodden Slam",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drowning Grasp",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "drowned_harpooner": [
+      {
+        "name": "Harpoon Throw",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 10,
+        "school": "physical"
+      },
+      {
+        "name": "Barbed Line",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 10,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "grave_worg": [
+      {
+        "name": "Grave Chomp",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Shake",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -18
+        }
+      }
+    ],
+    "bone_cur": [
+      {
+        "name": "Splintered Bite",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rib Rake",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "cur_warden": [
+      {
+        "name": "Hex Bolt",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of the Hound",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "curse_beast": [
+      {
+        "name": "Crushing Maul",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Festering Bite",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Curse Roar",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -20
+        }
+      },
+      {
+        "name": "Blighted Stomp",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      }
+    ],
+    "baron_ashbury_fenris": [
+      {
+        "name": "Noble's Blade",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shadow Decree",
+        "kind": "dot",
+        "amount": 17,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Commanding Presence",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 26
+        }
+      },
+      {
+        "name": "Grave Summons",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "shadow",
+        "is_aoe": true
+      }
+    ],
+    "captains_ghost_fenris": [
+      {
+        "name": "Spectral Cutlass",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Drowning Curse",
+        "kind": "dot",
+        "amount": 17,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Ghostly Wail",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      },
+      {
+        "name": "Capsize",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "is_aoe": true
+      }
+    ],
+    "alpha_cur_fenris": [
+      {
+        "name": "Alpha Bite",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Savage Rend",
+        "kind": "dot",
+        "amount": 17,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Pack Howl",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 26
+        }
+      },
+      {
+        "name": "Bone-Crunch Leap",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "shadowpine_cultist": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 35,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "shadow"
+      },
+      {
+        "name": "Hex of Ruin",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -18
+        }
+      }
+    ],
+    "altar_bonewalker": [
+      {
+        "name": "Bone Cleave",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rattling Guard",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 40
+        }
+      }
+    ],
+    "moonhowl_worgen": [
+      {
+        "name": "Moonlit Rake",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Howl at the Moon",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 18
+        }
+      }
+    ],
+    "altar_wraith": [
+      {
+        "name": "Spectral Touch",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Chill of the Curse",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "bonewarden_aldric": [
+      {
+        "name": "Bone Hammer",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Warden's Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 50
+        }
+      },
+      {
+        "name": "Marrow Shatter",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "curse_keeper_tael": [
+      {
+        "name": "Curse Bolt",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Fenris",
+        "kind": "dot",
+        "amount": 19,
+        "cooldown": 3,
+        "mana_cost": 14,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Moonbane",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -22
+        }
+      },
+      {
+        "name": "Lunar Eruption",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "is_aoe": true
+      }
+    ],
+    "alpha_fenris": [
+      {
+        "name": "Cursed Maw",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lycan Rend",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Howl of the Curse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -30
+        }
+      },
+      {
+        "name": "Moonfire Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 32
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",
@@ -17511,67 +18118,6 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical"
-      }
-    ],
-    "curse_keeper_tael": [
-      {
-        "name": "Curse Bolt",
-        "kind": "damage",
-        "amount": 44,
-        "cooldown": 0,
-        "mana_cost": 40,
-        "school": "shadow"
-      },
-      {
-        "name": "Wither Curse",
-        "kind": "dot",
-        "amount": 32,
-        "cooldown": 3,
-        "mana_cost": 42,
-        "school": "shadow",
-        "duration": 4
-      },
-      {
-        "name": "Dark Ritual",
-        "kind": "buff",
-        "cooldown": 5,
-        "mana_cost": 40,
-        "school": "shadow",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {
-          "intellect": 20
-        }
-      }
-    ],
-    "alpha_fenris": [
-      {
-        "name": "Savage Maul",
-        "kind": "damage",
-        "amount": 46,
-        "cooldown": 0,
-        "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Pack Leader's Fury",
-        "kind": "damage",
-        "amount": 60,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Howl",
-        "kind": "buff",
-        "cooldown": 5,
-        "mana_cost": 0,
-        "school": "physical",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {
-          "attack_power": 25
-        }
       }
     ],
     "dread_mage_malik": [
