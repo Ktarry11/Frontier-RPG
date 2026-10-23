@@ -5609,6 +5609,7 @@ def create_all_zones():
     from tools import handbuilt_razor_hill as dcaves_razor
     from tools import handbuilt_orgrimmar as dorg
     from tools import handbuilt_zeppelin_tower as dzep
+    from tools import handbuilt_undercity as duc
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5657,7 +5658,7 @@ def create_all_zones():
         "Deathknell": ddk.generate_deathknell(),  # hand-built (tools/handbuilt_deathknell.py)
         "Eastern Tirisfal": generate_eastern_tirisfal_handbuilt(),  # hand-built (tools/handbuilt_eastern_tirisfal.py)
         "Western Tirisfal": generate_western_tirisfal_handbuilt(),  # hand-built (tools/handbuilt_western_tirisfal.py)
-        "Undercity": generate_undercity(),  # NEW: Forsaken capital
+        "Undercity": duc.generate_undercity(),  # hand-built wheel city (tools/handbuilt_undercity.py)
         
         # ===== BARRENS SPLIT (3 zones from 1) =====
         "Northern Barrens": generate_northern_barrens_handbuilt(),  # hand-built (tools/handbuilt_northern_barrens.py)

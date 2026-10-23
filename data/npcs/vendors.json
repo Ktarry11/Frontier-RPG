@@ -991,6 +991,174 @@
       "race": "goblin",
       "appearance_variant": 5,
       "greeting": "Orgrimmar bound? North berth. Mind the rail, the drop is a long one and nobody's coming to fetch you."
+    },
+    {
+      "vendor_id": "uc_innkeeper",
+      "name": "Innkeeper Nethra",
+      "zone": "undercity",
+      "x": 124,
+      "y": 135,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "spiced_wine",
+        "mushroom_broth"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 12,
+      "sells_gear": false,
+      "race": "forsaken",
+      "appearance_variant": 10,
+      "gender": "female",
+      "greeting": "Rest, if you can. If you can't, drink. Either way, it's a room with a roof."
+    },
+    {
+      "vendor_id": "uc_quartermaster",
+      "name": "Quartermaster Dolan",
+      "zone": "undercity",
+      "x": 26,
+      "y": 77,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "healing_potion_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 16,
+      "sells_gear": true,
+      "race": "forsaken",
+      "appearance_variant": 8,
+      "gender": "male",
+      "greeting": "The Royal Guard supplies, signed for in triplicate. I'll accept coin in lieu of a signature."
+    },
+    {
+      "vendor_id": "uc_provisioner",
+      "name": "Provisioner Nell",
+      "zone": "undercity",
+      "x": 28,
+      "y": 88,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "spiced_stew",
+        "healing_potion_minor"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 12,
+      "sells_gear": false,
+      "race": "forsaken",
+      "appearance_variant": 14,
+      "gender": "female",
+      "greeting": "Rations, field kits, bandages. If you're going down to the Depths, take more than you think."
+    },
+    {
+      "vendor_id": "uc_arcane_vendor",
+      "name": "Arcanist Welsh",
+      "zone": "undercity",
+      "x": 176,
+      "y": 87,
+      "tile_sprite": "npc",
+      "sells": [
+        "mana_potion_minor",
+        "mana_potion_standard",
+        "arcane_elixir"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 14,
+      "sells_gear": false,
+      "race": "forsaken",
+      "appearance_variant": 6,
+      "gender": "male",
+      "greeting": "Reagents, focus crystals, and the finest mana draughts in Lordaeron's ruins."
+    },
+    {
+      "vendor_id": "uc_demonic_vendor",
+      "name": "Imp-Keeper Zalnak",
+      "zone": "undercity",
+      "x": 168,
+      "y": 60,
+      "tile_sprite": "npc",
+      "sells": [
+        "mana_potion_minor",
+        "mana_potion_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 14,
+      "sells_gear": false,
+      "race": "forsaken",
+      "appearance_variant": 10,
+      "gender": "male",
+      "greeting": "Soul shards, sacrifices, and small sulking imps. Please don't feed the imps after midnight."
+    },
+    {
+      "vendor_id": "uc_elixir_trader",
+      "name": "Elixir Dealer Quill",
+      "zone": "undercity",
+      "x": 172,
+      "y": 150,
+      "tile_sprite": "npc",
+      "sells": [
+        "battle_elixir_minor",
+        "guardian_elixir_minor",
+        "battle_elixir_standard",
+        "guardian_elixir_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 16,
+      "sells_gear": false,
+      "race": "forsaken",
+      "appearance_variant": 7,
+      "gender": "female",
+      "greeting": "Elixirs for every occasion. The label is just a suggestion. Taste is up to you."
+    },
+    {
+      "vendor_id": "uc_reagent_vendor",
+      "name": "Reagent Dealer Hollis",
+      "zone": "undercity",
+      "x": 130,
+      "y": 172,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "mana_potion_minor",
+        "elixir_of_warding"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 12,
+      "sells_gear": false,
+      "race": "forsaken",
+      "appearance_variant": 13,
+      "gender": "male",
+      "greeting": "Powdered bone, grave-dirt, a hint of nightshade. Alchemists swear by it."
+    },
+    {
+      "vendor_id": "uc_poison_vendor",
+      "name": "Poisoner Sable",
+      "zone": "undercity",
+      "x": 25,
+      "y": 128,
+      "tile_sprite": "npc",
+      "sells": [
+        "elixir_of_agility",
+        "battle_elixir_minor"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 14,
+      "sells_gear": false,
+      "race": "forsaken",
+      "appearance_variant": 3,
+      "gender": "female",
+      "greeting": "A single drop is plenty. Treat every bottle as if it were your last."
     }
   ]
 }

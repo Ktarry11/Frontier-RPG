@@ -334,7 +334,7 @@ class PortalManager:
                 (4, 62): ("Western Tirisfal", 112, 62),
                 (6, 86): ("Brill", 87, 44),
                 (21, 97): ("Undercity Zeppelin Tower", 32, 57),
-                (10, 112): ("Undercity", 100, 12),
+                (10, 112): ("Undercity", 100, 17),      # arrive (100,15) at the foot of the Long Descent
                 (16, 136): ("Silverpine North", 100, 8),
                 (52, 112): ("Scourge Cave", 45, 68),
             },
@@ -351,11 +351,11 @@ class PortalManager:
                 (91, 44): ("Eastern Tirisfal", 10, 88),
             },
             "Undercity": {
-                (100, 10): ("Eastern Tirisfal", 10, 108),
-                (30, 180): ("Plague Depths", 120, 214),
+                (100, 11): ("Eastern Tirisfal", 10, 108),     # the Ruins elevator (tools/handbuilt_undercity.py)
+                (100, 185): ("Plague Depths", 120, 214),      # the Deeps Gate
             },
             "Plague Depths": {
-                (120, 214): ("Undercity", 30, 182),
+                (120, 214): ("Undercity", 100, 185),
             },
         }
 
