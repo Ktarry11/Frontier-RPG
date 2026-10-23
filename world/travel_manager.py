@@ -188,6 +188,17 @@ class TravelManager:
         return True
 
     @staticmethod
+    def continent_of(node_id):
+        node = travel_data()["flight_nodes"].get(node_id)
+        return node.get("continent", "kalimdor") if node else None
+
+    @classmethod
+    def can_fly_between(cls, from_node, to_node):
+        """Flight networks are per-continent: Kalimdor and Eastern Kingdoms never connect
+        (the Orgrimmar <-> Undercity zeppelin is the only way across)."""
+        return from_node is not None and cls.continent_of(from_node) == cls.continent_of(to_node)
+
+    @staticmethod
     def flight_cost(from_node, to_node):
         nodes = travel_data()["flight_nodes"]
         a, b = nodes[from_node]["pos"], nodes[to_node]["pos"]

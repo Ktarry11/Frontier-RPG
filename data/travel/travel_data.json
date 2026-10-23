@@ -97,7 +97,8 @@
    "pos": [
     0,
     0
-   ]
+   ],
+   "continent": "kalimdor"
   },
   "razor_hill": {
    "name": "Razor Hill",
@@ -106,7 +107,8 @@
    "pos": [
     12,
     22
-   ]
+   ],
+   "continent": "kalimdor"
   },
   "crossroads": {
    "name": "The Crossroads",
@@ -115,7 +117,8 @@
    "pos": [
     -8,
     40
-   ]
+   ],
+   "continent": "kalimdor"
   },
   "ratchet": {
    "name": "Ratchet",
@@ -124,7 +127,8 @@
    "pos": [
     24,
     62
-   ]
+   ],
+   "continent": "kalimdor"
   },
   "camp_taurajo": {
    "name": "Camp Taurajo",
@@ -133,7 +137,8 @@
    "pos": [
     -5,
     85
-   ]
+   ],
+   "continent": "kalimdor"
   },
   "southern_barrens": {
    "name": "Southern Barrens (Waystation)",
@@ -142,7 +147,8 @@
    "pos": [
     -5,
     115
-   ]
+   ],
+   "continent": "kalimdor"
   },
   "splintertree": {
    "name": "Splintertree Post",
@@ -151,7 +157,8 @@
    "pos": [
     -20,
     -60
-   ]
+   ],
+   "continent": "kalimdor"
   },
   "astranaar": {
    "name": "Astranaar",
@@ -160,7 +167,48 @@
    "pos": [
     -45,
     -50
-   ]
+   ],
+   "continent": "kalimdor"
+  },
+  "undercity": {
+   "name": "Undercity",
+   "zone": "Undercity",
+   "master": "uc_flight_master",
+   "pos": [
+    0,
+    0
+   ],
+   "continent": "eastern_kingdoms"
+  },
+  "brill": {
+   "name": "Brill",
+   "zone": "Brill",
+   "master": "brill_flight_master",
+   "pos": [
+    10,
+    -32
+   ],
+   "continent": "eastern_kingdoms"
+  },
+  "sepulcher": {
+   "name": "The Sepulcher",
+   "zone": "The Sepulcher",
+   "master": "sepulcher_flight_master",
+   "pos": [
+    -24,
+    26
+   ],
+   "continent": "eastern_kingdoms"
+  },
+  "silverpine_south": {
+   "name": "Silverpine South (Forsaken Rearguard)",
+   "zone": "Silverpine South",
+   "master": "sp_south_flight_master",
+   "pos": [
+    -30,
+    58
+   ],
+   "continent": "eastern_kingdoms"
   }
  },
  "flight_cost": {
@@ -239,6 +287,24 @@
   ],
   "uc_riding_trainer": [
    "riding"
+  ],
+  "uc_flight_master": [
+   "flight"
+  ],
+  "brill_flight_master": [
+   "flight"
+  ],
+  "sepulcher_flight_master": [
+   "flight"
+  ],
+  "sp_south_flight_master": [
+   "flight"
+  ],
+  "brill_innkeeper": [
+   "inn"
+  ],
+  "sepulcher_innkeeper": [
+   "inn"
   ]
  }
 }

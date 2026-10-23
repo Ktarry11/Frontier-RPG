@@ -74,7 +74,7 @@ class TravelServiceScreen(BaseScreen):
         if self.kind == "flight":
             here = self._current_node()
             for node_id, node in travel.nodes().items():
-                if node_id == here:
+                if node_id == here or not travel.can_fly_between(here, node_id):
                     continue
                 known = node_id in travel.known_nodes
                 cost = travel.flight_cost(here, node_id) if here else 0
@@ -131,6 +131,8 @@ class TravelServiceScreen(BaseScreen):
         node = travel.nodes().get(node_id)
         if node is None or node_id not in travel.known_nodes:
             return self._say("You haven't discovered that flight path.", RED)
+        if not travel.can_fly_between(here, node_id):
+            return self._say("There is no flight path across the sea.", RED)
         cost = travel.flight_cost(here, node_id) if here else 0
         if self._copper() < cost:
             return self._say("Not enough gold.", RED)
@@ -172,6 +174,8 @@ class TravelServiceScreen(BaseScreen):
     def render(self, screen):
         screen.fill((10, 10, 15))
         title = self.TITLES.get(self.kind, "Travel")
+        if self.kind == "flight" and get_travel_manager().continent_of(self._current_node()) == "eastern_kingdoms":
+            title = "Forsaken Bat Handler"
         self.renderer.draw_text(screen, getattr(self.npc, "name", title), (40, 24), size="large", color=COLOR_GOLD)
         self.renderer.draw_text(screen, title, (40, 62), color=GREY)
         self.renderer.draw_text(screen, f"Your gold: {format_copper(self._copper())}", (SCREEN_WIDTH - 340, 30),

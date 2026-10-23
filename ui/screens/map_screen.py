@@ -16,6 +16,9 @@ from boss_icons import get_boss_icon_path
 
 
 FLIGHT_GREEN = (80, 220, 100)
+INN_AMBER = (240, 170, 60)
+MOUNT_BLUE = (100, 170, 245)
+HEARTH_GOLD = (255, 215, 70)
 
 
 class MapScreen(BaseScreen):
@@ -296,18 +299,30 @@ class MapScreen(BaseScreen):
                     pygame.draw.circle(screen, (255, 0, 0), (px, py), 6)
                     pygame.draw.circle(screen, (20, 20, 20), (px, py), 6, 1)
 
-        # Flight masters: green "!" markers (windrider nodes), drawn above the other POIs
+        # Travel services: inns, riding trainers / mount vendors and flight masters. These NPCs live in two
+        # places (ambient NPCs and vendors), so both are scanned. Flight masters go on top.
         from world.ambient_npc_manager import get_ambient_npc_manager
-        from world.travel_manager import services_for_npc
-        flight_font = self.renderer._get_font(font_size=14)
-        for npc in get_ambient_npc_manager().get_npcs_in_zone(tilemap.name):
-            if "flight" not in services_for_npc(npc):
-                continue
-            fx, fy = self._tile_to_screen(tilemap, rect, npc.x, npc.y)
-            pygame.draw.circle(screen, (20, 20, 20), (fx, fy), 8)
-            pygame.draw.circle(screen, FLIGHT_GREEN, (fx, fy), 8, 2)
-            glyph = flight_font.render("!", True, FLIGHT_GREEN)
-            screen.blit(glyph, glyph.get_rect(center=(fx, fy)))
+        from world.travel_manager import services_for_npc, get_travel_manager
+        service_npcs = list(get_ambient_npc_manager().get_npcs_in_zone(tilemap.name))
+        vendor_mgr = getattr(zm, "vendor_manager", None)
+        if vendor_mgr is not None:
+            service_npcs += list(vendor_mgr.get_vendors_in_zone(tilemap.name))
+        markers = {"inn": set(), "ride": set(), "flight": set()}
+        for npc in service_npcs:
+            for svc in services_for_npc(npc):
+                kind = {"inn": "inn", "riding": "ride", "mounts": "ride", "flight": "flight"}.get(svc)
+                if kind:
+                    markers[kind].add((npc.x, npc.y))
+        # Hearthstone: a gold star behind the innkeeper icon (only when the bind is in this zone)
+        bind = get_travel_manager().bind
+        if bind and bind.get("zone") == tilemap.name:
+            hx, hy = self._tile_to_screen(tilemap, rect, bind["x"], bind["y"])
+            self._draw_service_icon(screen, "hearth", hx, hy)
+
+        for kind in ("inn", "ride", "flight"):
+            for tx, ty in sorted(markers[kind]):
+                fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
+                self._draw_service_icon(screen, kind, fx, fy)
 
         # Player marker, drawn last so it is never hidden
         px, py = self._tile_to_screen(tilemap, rect, zm.player_x, zm.player_y)
@@ -326,10 +341,15 @@ class MapScreen(BaseScreen):
             (poi_colors["npc"], "NPC / vendor"),
             (poi_colors["chest"], "Treasure"),
             (poi_colors["quest_marker"], "Point of interest"),
-            (FLIGHT_GREEN, "Flight master"),
         ]
         for color, text in legend:
             pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)
+            self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
+            ly += 26
+        # Service icons are glyphs, so the legend uses the same drawing code as the map.
+        for kind, text in (("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
+                           ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here")):
+            self._draw_service_icon(screen, kind, lx + 7, ly + 7, scale=0.7)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
             ly += 26
         # Boss portrait swatch drawn separately from the plain-circle
@@ -340,6 +360,37 @@ class MapScreen(BaseScreen):
         else:
             pygame.draw.circle(screen, (255, 0, 0), (lx + 7, ly + 7), 6)
         self.renderer.draw_text(screen, "Boss", (lx + 22, ly), color=(200, 200, 210))
+
+    def _draw_service_icon(self, screen, kind, cx, cy, scale=1.0):
+        """Small procedural map glyphs: flight '!' / inn house / horseshoe / hearth star."""
+        dark = (20, 20, 20)
+        if kind == "flight":
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, FLIGHT_GREEN, (cx, cy), 8, 2)
+            font = self.renderer._get_font(font_size=14)
+            glyph = font.render("!", True, FLIGHT_GREEN)
+            screen.blit(glyph, glyph.get_rect(center=(cx, cy)))
+        elif kind == "inn":
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, INN_AMBER, (cx, cy), 8, 2)
+            pygame.draw.polygon(screen, INN_AMBER, [(cx - 5, cy), (cx, cy - 5), (cx + 5, cy)])
+            pygame.draw.rect(screen, INN_AMBER, (cx - 3, cy, 6, 4))
+            pygame.draw.rect(screen, dark, (cx - 1, cy + 1, 2, 3))
+        elif kind == "ride":
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, MOUNT_BLUE, (cx, cy), 8, 2)
+            pygame.draw.arc(screen, MOUNT_BLUE, (cx - 4, cy - 4, 8, 8), 3.14159, 6.28318, 2)
+            pygame.draw.line(screen, MOUNT_BLUE, (cx - 4, cy), (cx - 4, cy - 3), 2)
+            pygame.draw.line(screen, MOUNT_BLUE, (cx + 3, cy), (cx + 3, cy - 3), 2)
+        elif kind == "hearth":
+            import math
+            pts = []
+            for i in range(10):
+                ang = -math.pi / 2 + i * math.pi / 5
+                r = (14 if i % 2 == 0 else 6.5) * scale
+                pts.append((cx + r * math.cos(ang), cy + r * math.sin(ang)))
+            pygame.draw.polygon(screen, dark, [(x + (x - cx) * 0.2, y + (y - cy) * 0.2) for x, y in pts])
+            pygame.draw.polygon(screen, HEARTH_GOLD, pts)
 
     def _get_boss_icon(self, template, size=18):
         """Loaded-and-scaled boss portrait Surface for a creature template,
