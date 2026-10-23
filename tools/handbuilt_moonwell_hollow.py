@@ -153,6 +153,7 @@ def dress(zone, L):
     P("vot_reeds", 33, 52, 3)
     P("fallen_log", 50, 48, 3)
     P("den_glow_mushrooms", 44, 56, 3)
+    P("ash_blue_stalagmite", 40, 49, 6, solid="core")
     P("ash_silver_saplings", 47, 58, 5)
     # ---- the root tunnel: sparse
     for key, t, name, h in (("west", 0.2, "den_rock_rubble", 2), ("west", 0.55, "fern_cluster", 3),
@@ -164,6 +165,7 @@ def dress(zone, L):
     P("moonwell_altar", ax - 4, ay - 1, 6, solid="core", avoid=1)
     P("ash_glow_mushroom_ring", ax - 4, ay + 2, 4)
     P("den_backpack", ax + 4, ay + 2, 2)
+    P("ash_herb_rack", ax + 3, ay - 3, 4, solid="core")
     # ---- Silverseep: reeds on the banks, one glowing growth
     for key, t, name, h in (("east", 0.18, "vot_reeds", 3), ("east", 0.5, "ash_nightbloom_bush", 4),
                             ("east", 0.85, "vot_reeds", 3)):
@@ -181,6 +183,7 @@ def dress(zone, L):
     P("ash_ivy_pillar", sx - 9, sy - 8, 6, solid="core")
     P("ash_ivy_pillar", sx + 9, sy - 8, 6, solid="core")
     P("ash_moon_rune_stone", sx - 18, sy + 2, 6)
+    P("ash_moonstone_crystals", sx + 16, sy + 6, 4, solid="core")
     P("ash_glow_mushroom_ring", sx + 16, sy + 5, 4)
     P("ashx_corrupt_moonwell", sx, sy - 8, 6, solid=False, near_ok=True, avoid=0)   # the blight at the boss's feet
     P("dead_corrupted_tree", sx - 11, sy - 6, 7, solid="core")

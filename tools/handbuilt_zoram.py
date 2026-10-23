@@ -82,7 +82,8 @@ def dress(L):
     A("fish_crates_traps", 21, 28, 3)
     A("rowboat_wreck", 16, 37, 4, shore_ok=True)
     A("driftwood_pile", 14, 20, 3, shore_ok=True)
-    A("driftwood_pile", 17, 31, 3, shore_ok=True)
+    A("ash_orc_skiff", 16, 32, 5, shore_ok=True)          # a Horde skiff beached by the coastguard's watch
+    V("ash_pier_segment", 11, 33, 5)                       # its little landing stage over the shallows
     A("ash_elune_statue", 44, 20, 8)
     for (x, y) in [(36, 41), (24, 20), (47, 31)]:
         F("ash_foxglove_patch", x, y, 3)

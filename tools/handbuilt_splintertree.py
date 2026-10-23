@@ -77,6 +77,7 @@ def dress(L):
     A("vot_war_banner", 56, 36, 6)
     F("vot_fire_pit", 45, 44, 2)
     A("rf_brazier", 38, 33, 4)
+    A("ash_orc_trophy_pole", 39, 41, 6, solid="core")        # captured glaives, tattered banner: why the post is here
     A("rf_brazier", 52, 33, 4)
     # ---- west: barracks, forge, the burned flank
     B("outpost_barracks", 21, 36, 9)
@@ -91,8 +92,11 @@ def dress(L):
     B("supply_depot", 67, 41, 11)
     A("rf_supply_crates", 65, 41, 3)
     B("guard_post", 80, 27, 8)
-    for (x, y) in [(66, 21), (71, 19), (77, 21), (74, 24)]:
+    for (x, y) in [(66, 21), (77, 21)]:
         A("vot_fallen_log", x, y, 3, solid="core")
+    A("ash_log_pile", 71, 20, 4)
+    A("ash_sawbuck", 67, 25, 3)
+    A("ash_felled_tree", 74, 24, 4, solid="core")
     A("vot_hide_rack", 69, 26, 4)
     A("rf_tool_rack", 79, 23, 3)
     A("gob_tarp_leanto", 71, 31, 6)

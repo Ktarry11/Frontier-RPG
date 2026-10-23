@@ -331,6 +331,9 @@ def dress(L):
     for (lx, ly) in ((44, 44), (47, 52), (37, 50), (55, 52)):
         A("fallen_log", lx, ly, 3, solid=False)
     L.dp("vot_war_banner", 43, 48, 5)
+    A("ash_log_pile", 45, 51, 4)
+    A("ash_sawbuck", 39, 47, 3)
+    A("ash_orc_trophy_pole", 52, 52, 6, solid="core")
     L.dp("vot_fire_pit", 41, 52, 2, solid=False)
     L.dp("vot_crate_stack", 39, 56, 3)
     L.dp("weapon_rack", 56, 45, 3)
@@ -352,6 +355,7 @@ def dress(L):
     A("ash_living_gate_arch", 28, 141, 8, solid=False, road_ok=True)
     A("ash_glow_mushroom_ring", 21, 150, 3, solid=False)
     A("ash_foxglove_patch", 39, 153, 3, solid=False)
+    A("ash_herb_rack", 34, 151, 4)
     A("fern_cluster", 23, 157, 3, solid=False)
     A("fern_cluster", 37, 157, 3, solid=False)
     A("fallen_log", 22, 146, 3, solid=False)

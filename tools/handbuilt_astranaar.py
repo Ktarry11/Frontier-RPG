@@ -100,11 +100,13 @@ def dress(L):
     A("ash_glaive_thrower", 18, 44, 6)
     A("ash_sentinel_banner", 28, 37, 7)
     B("training_pavilion", 21, 52, 11)
+    A("ash_archery_butts", 13, 56, 4)
     A("ash_silver_saplings", 15, 62, 6)
     A("ash_nightbloom_bush", 18, 69, 4)
     # ---- east: the inn, houses, the waterfall pool
     B("nightelf_house_medium", 83, 49, 12)
     A("ash_inn_sign", 76, 51, 6)
+    A("ash_travel_trunks", 80, 56, 3)
     B("nightelf_house_small", 94, 44, 11)
     B("nightelf_house_small", 92, 61, 11)
     A("ash_hollow_stump_door", 77, 41, 8)
@@ -113,12 +115,14 @@ def dress(L):
     # ---- south-east: druid grove + forge
     B("druid_priestess_hut", 90, 74, 13)
     A("ash_moon_rune_stone", 82, 69, 6)
+    A("ash_herbalist_table", 85, 80, 4)
     A("ash_foxglove_patch", 78, 77, 3)
     B("ash_elf_forge", 72, 70, 8)
     A("ash_nightbloom_bush", 66, 74, 4)
     # ---- south-west: the nightsaber stable
     B("ash_nightsaber_stall", 40, 71, 7)
     A("ash_sleeping_nightsaber", 47, 69, 4, solid=False)
+    A("ash_hay_pile", 34, 74, 3)
     A("ash_moon_well", 36, 63, 6)
     # ---- the pond: a jetty and the ruins above it
     A("ash_canoe_jetty", 21, 74, 5, shore_ok=True)

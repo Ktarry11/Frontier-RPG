@@ -311,6 +311,7 @@ def dress(L):
     A("ash_elune_statue", 105, 88, 7)
     A("ash_moon_lantern", 103, 93, 6, solid="core")
     A("ash_moon_lantern", 117, 93, 6, solid="core")
+    A("ash_moon_sigil_stone", 121, 102, 5, solid="core")
 
     # ---- Maestra's Post: a Sentinel watch-camp on the lake shore ---------------------------------------------
     L.bld("moon_guard_tower", 90, 47, 11)
@@ -325,6 +326,9 @@ def dress(L):
     A("ash_sentinel_banner", 93, 54, 6, solid="core")
     A("ash_glaive_thrower", 101, 63, 4)
     A("ash_hippogryph_perch", 100, 51, 4)
+    A("ash_archery_butts", 83, 59, 4)
+    A("ash_herbalist_table", 96, 49, 4)
+    A("ash_glaive_barricade", 84, 64, 4)
 
     # ---- the fork at the bluff: where the coast road splits to Zoram and Blackfathom ----------------------------
     P("br_signpost", 28, 52, 5)
@@ -347,11 +351,14 @@ def dress(L):
     L.dp("vot_hide_rack", 161, 52, 4)
     L.dp("vot_hide_rack", 168, 50, 4)
     L.dp("vot_fire_pit", 164, 52, 3, solid=False)
+    A("ash_furbolg_lodge", 155, 50, 6)
+    A("ash_furbolg_bonfire", 171, 58, 4)
     for (tx, ty) in ((151, 41), (176, 46), (156, 57)):
         A("dead_corrupted_tree", tx, ty, 7)
     # a second, lesser camp up the Mystral valley
     A("furbolg_totem", 134, 66, 6, solid="core")
     L.dp("vot_hide_rack", 137, 70, 4)
+    A("ash_furbolg_lodge", 142, 71, 5)
     L.dp("vot_fire_pit", 135, 69, 2, solid=False)
     A("rock_outcrop_large", 150, 76, 5)
     A("ash_waterfall_pool", 154, 58, 7)
