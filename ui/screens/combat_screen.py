@@ -12,6 +12,9 @@ from combat.status_effects import EffectType
 from ui.screens.base_screen import BaseScreen
 
 
+from ui.coin_format import format_coins
+
+
 class CombatScreen(BaseScreen):
     """Combat screen with redesigned UI layout."""
     
@@ -1387,7 +1390,7 @@ class CombatScreen(BaseScreen):
                 bits = []
                 coin = getattr(self.combat_engine, "copper_earned", 0)
                 if coin:
-                    bits.append(f"Coin: {coin // 10000}g {coin % 10000 // 100}s {coin % 100}c".replace("0g ", "").replace(" 0s", "") if coin >= 100 else f"Coin: {coin}c")
+                    bits.append(f"Coin: {format_coins(coin)}")
                 trash_n = getattr(self.combat_engine, "trash_gained", 0)
                 if trash_n:
                     bits.append(f"Vendor trash: {trash_n}")

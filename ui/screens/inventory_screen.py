@@ -76,6 +76,9 @@ MATERIALS_START_X = 40
 MATERIALS_START_Y = 110
 
 
+from ui.coin_format import format_coins
+
+
 class InventoryScreen(BaseScreen):
     """Equipment + inventory management screen."""
 
@@ -604,7 +607,7 @@ class InventoryScreen(BaseScreen):
         ]
         if material.description:
             lines.append(material.description)
-        lines.append(f"Sell price: {material.sell_price}c")
+        lines.append(f"Sell price: {format_coins(material.sell_price)}")
 
         padding = 8
         line_height = 20

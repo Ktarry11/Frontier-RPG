@@ -25,6 +25,7 @@ from ui.renderer import Renderer
 from entities.consumable_manager import get_consumable_manager
 from entities.loot_generator import LootGenerator
 from entities.loot_item import LootItem
+from ui.coin_format import format_coins
 from config import SCREEN_WIDTH, SCREEN_HEIGHT
 from config import COLOR_WHITE, COLOR_GOLD, COLOR_GREEN, COLOR_RED, COLOR_DARK_GRAY
 
@@ -164,7 +165,7 @@ class VendorScreen(BaseScreen):
         player = self.state_manager.player
         party = self.state_manager.get_party()
         if not party.remove_currency(price):
-            self._show_message(f"Not enough copper! Need {price}c.", COLOR_RED)
+            self._show_message(f"Not enough copper! Need {format_coins(price)}.", COLOR_RED)
             return
 
         if self._is_gear(item):
@@ -181,7 +182,7 @@ class VendorScreen(BaseScreen):
                 self._show_message("Your bags are full - purchase refunded.", COLOR_RED)
                 self.selected_vendor_item = None
                 return
-            self._show_message(f"Bought {item.name} for {price}c.", COLOR_GOLD)
+            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
         else:
             # THE ACTUAL BUG: previously this always created a brand new
             # Consumable instance and appended it, even if the player
@@ -198,7 +199,7 @@ class VendorScreen(BaseScreen):
             # is immediately visible.
             new_c = self.consumable_manager.get_consumable(item.consumable_id, quantity=1)
             player.add_consumable(new_c)
-            self._show_message(f"Bought {item.name} for {price}c.", COLOR_GOLD)
+            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
 
         self.selected_vendor_item = None
 
@@ -235,7 +236,7 @@ class VendorScreen(BaseScreen):
                 return
             player.inventory.remove(item)
             party.add_currency(price)
-            self._show_message(f"Sold {item.name} for {price}c.", COLOR_GREEN)
+            self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
         else:
             party.add_currency(price)
             item.quantity -= 1
@@ -246,7 +247,7 @@ class VendorScreen(BaseScreen):
                         player.inventory.remove(item)
                 else:
                     player.remove_consumable(item)
-            self._show_message(f"Sold {item.name} for {price}c.", COLOR_GREEN)
+            self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
 
         if getattr(item, "quantity", 0) > 0 and not self._is_gear(item):
             return  # keep the stack selected so repeated Sell clicks / S presses work through it
@@ -276,15 +277,10 @@ class VendorScreen(BaseScreen):
         party.add_currency(total)
         if self.selected_player_item in stacks:
             self.selected_player_item = None
-        self._show_message(f"{'Auto-sold' if auto else 'Sold'} {count} junk item{'s' if count != 1 else ''} for {self._fmt(total)}.",
+        self._show_message(f"{'Auto-sold' if auto else 'Sold'} {count} junk item{'s' if count != 1 else ''} for {format_coins(total)}.",
                            COLOR_GREEN)
 
-    @staticmethod
-    def _fmt(copper):
-        g, rem = divmod(int(copper), 10000)
-        sv, c = divmod(rem, 100)
-        parts = ([f"{g}g"] if g else []) + ([f"{sv}s"] if sv else []) + ([f"{c}c"] if c or not (g or sv) else [])
-        return " ".join(parts)
+
 
     def _show_message(self, text, color):
         self.message = text
@@ -406,7 +402,7 @@ class VendorScreen(BaseScreen):
             price = getattr(item, "vendor_price", None)
             if price is None:
                 price = max(1, int(item.sell_price * 4))
-            price_text = f"{price}c"
+            price_text = format_coins(price)
         elif not getattr(item, "is_sellable", True):
             # Quest item in the player's sell-list panel - shown with its
             # quantity but no price, since it can't actually be sold (see
@@ -420,8 +416,8 @@ class VendorScreen(BaseScreen):
             price_text = f"x{qty}  Quest" if qty is not None else "Quest"
         else:
             qty = getattr(item, "quantity", None)
-            price_text = (f"x{qty}  ->{item.sell_price}c" if qty is not None
-                          else f"->{item.sell_price}c")
+            price_text = (f"x{qty}  ->{format_coins(item.sell_price)}" if qty is not None
+                          else f"->{format_coins(item.sell_price)}")
 
         self.renderer.draw_text(screen, price_text, (rect.right - 140, rect.y + 6),
                                 size="small", color=COLOR_GOLD)
@@ -463,9 +459,9 @@ class VendorScreen(BaseScreen):
             price = getattr(item, "vendor_price", None)
             if price is None:
                 price = max(1, int(item.sell_price * 4))
-            lines.append(f"Price: {price}c")
+            lines.append(f"Price: {format_coins(price)}")
         elif getattr(item, "is_sellable", True):
-            lines.append(f"Sells for: {item.sell_price}c")
+            lines.append(f"Sells for: {format_coins(item.sell_price)}")
         # else: is_sellable is False - the "cannot be sold" line was
         # already appended above, no separate price line needed.
 
