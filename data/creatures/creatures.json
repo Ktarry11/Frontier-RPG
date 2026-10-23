@@ -2002,97 +2002,87 @@
     "Plagued Rat": {
       "template": "beast_basic",
       "level_range": [
-        28,
-        33
+        30,
+        31
       ],
       "is_boss": false,
-      "ability_kit": "plagued_rat"
+      "ability_kit": "pd_plagued_rat"
     },
     "Plague Zombie": {
       "template": "humanoid_warrior",
       "level_range": [
-        28,
-        33
+        30,
+        32
       ],
       "is_boss": false,
-      "stat_overrides": {
-        "stamina": 1.4
-      },
-      "ability_kit": "plague_zombie"
+      "ability_kit": "pd_plague_zombie"
     },
     "Blight Cultist": {
       "template": "humanoid_caster",
       "level_range": [
-        28,
-        33
+        31,
+        32
       ],
       "is_boss": false,
-      "ability_kit": "blight_cultist"
+      "ability_kit": "pd_blight_cultist"
     },
     "Plagued Hound": {
       "template": "beast_fast",
       "level_range": [
-        28,
-        33
+        30,
+        31
       ],
       "is_boss": false,
-      "ability_kit": "plagued_hound"
+      "ability_kit": "pd_plagued_hound"
     },
     "Forsaken Traitor": {
       "template": "humanoid_warrior",
       "level_range": [
-        28,
-        33
+        30,
+        32
       ],
       "is_boss": false,
-      "stat_overrides": {
-        "strength": 1.2
-      },
-      "ability_kit": "forsaken_traitor"
+      "ability_kit": "pd_forsaken_traitor"
     },
     "Plagueweaver Vex": {
       "template": "humanoid_caster",
       "level_range": [
-        34,
-        34
+        31,
+        31
       ],
       "is_boss": true,
-      "boss_multiplier": 2.4,
-      "ability_kit": "plagueweaver_vex"
+      "ability_kit": "pd_plagueweaver_vex",
+      "boss_multiplier": 2.3
     },
     "The Infected Noble": {
       "template": "humanoid_warrior",
       "level_range": [
-        34,
-        34
+        32,
+        32
       ],
       "is_boss": true,
-      "boss_multiplier": 2.5,
-      "ability_kit": "the_infected_noble"
+      "ability_kit": "pd_infected_noble",
+      "boss_multiplier": 2.4
     },
     "Plague Keeper Voss": {
       "template": "humanoid_caster",
       "level_range": [
-        34,
-        34
+        32,
+        32
       ],
       "is_boss": true,
-      "boss_multiplier": 2.6,
-      "ability_kit": "plague_keeper_voss"
+      "ability_kit": "pd_plague_keeper_voss",
+      "boss_multiplier": 2.4
     },
     "Vile Plague Abomination": {
       "template": "humanoid_warrior",
       "level_range": [
-        34,
-        34
+        33,
+        33
       ],
       "is_boss": true,
-      "boss_multiplier": 2.8,
-      "stat_overrides": {
-        "stamina": 1.5,
-        "strength": 1.3
-      },
-      "ability_kit": "vile_plague_abomination"
+      "ability_kit": "pd_vile_plague_abomination",
+      "boss_multiplier": 2.6
     },
     "Dark Sorcerer Zul'keth": {
       "template": "humanoid_caster",
@@ -2101,8 +2091,8 @@
         34
       ],
       "is_boss": true,
-      "boss_multiplier": 3.0,
-      "ability_kit": "dark_sorcerer_zulketh"
+      "ability_kit": "pd_dark_sorcerer_zulketh",
+      "boss_multiplier": 2.8
     },
     "Fire Cultist": {
       "template": "humanoid_warrior",
@@ -2192,50 +2182,47 @@
     "Plague Abomination": {
       "template": "humanoid_warrior",
       "level_range": [
-        28,
-        33
+        32,
+        32
       ],
       "is_boss": false,
-      "stat_overrides": {
-        "stamina": 1.3
-      },
-      "ability_kit": "plague_abomination"
+      "ability_kit": "pd_plague_abomination"
     },
     "Plague Spore": {
       "template": "vermin_swarm",
       "level_range": [
-        28,
-        33
+        30,
+        31
       ],
       "is_boss": false,
-      "ability_kit": "plague_spore"
+      "ability_kit": "pd_plague_spore"
     },
     "Rot Worm": {
       "template": "beast_basic",
       "level_range": [
-        28,
-        33
+        30,
+        31
       ],
       "is_boss": false,
-      "ability_kit": "rot_worm"
+      "ability_kit": "pd_rot_worm"
     },
     "Forsaken Witch": {
       "template": "humanoid_caster",
       "level_range": [
-        28,
-        33
+        30,
+        32
       ],
       "is_boss": false,
-      "ability_kit": "forsaken_witch"
+      "ability_kit": "pd_forsaken_witch"
     },
     "Plague Surgeon": {
       "template": "humanoid_caster",
       "level_range": [
-        28,
-        33
+        31,
+        32
       ],
       "is_boss": false,
-      "ability_kit": "plague_surgeon"
+      "ability_kit": "pd_plague_surgeon"
     },
     "Corrupted Felhound": {
       "template": "demon_hound",
@@ -6309,6 +6296,33 @@
       "is_boss": true,
       "ability_kit": "plaguemaster_orvyn",
       "boss_multiplier": 1.6
+    },
+    "Infected Retainer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        30,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "pd_infected_retainer"
+    },
+    "Blighted Courtier": {
+      "template": "humanoid_caster",
+      "level_range": [
+        31,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "pd_blighted_courtier"
+    },
+    "Failed Experiment": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        31,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "pd_failed_experiment"
     }
   }
 }

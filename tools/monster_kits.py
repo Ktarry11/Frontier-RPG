@@ -3465,6 +3465,107 @@ TIRISFAL_REBUILD_KITS = {
     ],
 }
 
+
+PLAGUE_DEPTHS_KITS = {
+    # ================= PLAGUE DEPTHS (L30-34, 5 bosses, 4 abilities each; trash 2-3) ===============================
+    # Cistern vermin (28-31)
+    "pd_plagued_rat": [
+        ("Infected Bite", "damage", 27, 0, 0, "physical", {}),
+        ("Plague Spit", "dot", 10, 3, 0, "nature", {"duration": 4}),
+    ],
+    "pd_rot_worm": [
+        ("Decaying Bite", "damage", 30, 0, 0, "nature", {}),
+        ("Rotting Wound", "dot", 11, 3, 0, "nature", {"duration": 4}),
+    ],
+    "pd_plagued_hound": [
+        ("Diseased Bite", "damage", 31, 0, 0, "physical", {}),
+        ("Pounce", "damage", 40, 3, 0, "physical", {}),
+        ("Pestilent Scratch", "dot", 11, 3, 0, "nature", {"duration": 4}),
+    ],
+    "pd_plague_spore": [
+        ("Spore Cloud", "damage", 25, 0, 0, "nature", {"is_aoe": True}),
+        ("Choking Dust", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -22}}),
+    ],
+    "pd_plague_zombie": [
+        ("Shambling Fist", "damage", 32, 0, 0, "physical", {}),
+        ("Putrid Slam", "damage", 43, 3, 0, "shadow", {}),
+        ("Undead Tenacity", "buff", 0, 6, 0, "shadow", {"duration": 3, "self_only": True, "stat_mods": {"armor": 44}}),
+    ],
+    # The Court (29-32)
+    "pd_forsaken_traitor": [
+        ("Betrayer's Blade", "damage", 33, 0, 0, "physical", {}),
+        ("Sinister Strike", "damage", 41, 3, 0, "physical", {}),
+        ("Curse of Betrayal", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"attack_power": -24}}),
+    ],
+    "pd_forsaken_witch": [
+        ("Shadow Bolt", "damage", 34, 0, 22, "shadow", {}),
+        ("Life Drain", "damage", 37, 3, 26, "shadow", {}),
+        ("Hex Curse", "debuff", 0, 4, 24, "shadow", {"duration": 3, "stat_mods": {"intellect": -24}}),
+    ],
+    "pd_infected_retainer": [
+        ("Rusted Halberd", "damage", 34, 0, 0, "physical", {}),
+        ("Retainer's Duty", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 52}}),
+        ("Sepsis", "dot", 12, 3, 0, "nature", {"duration": 4}),
+    ],
+    "pd_blighted_courtier": [
+        ("Gilded Venom", "damage", 34, 0, 22, "nature", {}),
+        ("Whispered Rot", "dot", 13, 3, 24, "shadow", {"duration": 4}),
+        ("Fawning Curse", "debuff", 0, 5, 22, "shadow", {"duration": 3, "stat_mods": {"strength": -24}}),
+    ],
+    # The Lab (30-33)
+    "pd_plague_surgeon": [
+        ("Plague Injection", "damage", 34, 0, 22, "nature", {}),
+        ("Corpse Explosion", "damage", 49, 4, 30, "shadow", {"is_aoe": True}),
+        ("Dark Mending", "heal", 56, 5, 28, "shadow", {}),
+    ],
+    "pd_blight_cultist": [
+        ("Plague Bolt", "damage", 34, 0, 22, "shadow", {}),
+        ("Blight", "dot", 13, 3, 24, "nature", {"duration": 4}),
+        ("Wither", "debuff", 0, 4, 22, "shadow", {"duration": 3, "stat_mods": {"stamina": -20}}),
+    ],
+    "pd_failed_experiment": [
+        ("Flailing Limbs", "damage", 36, 0, 0, "physical", {}),
+        ("Unstable Mass", "damage", 50, 4, 0, "nature", {"is_aoe": True}),
+        ("Stitched Hide", "buff", 0, 6, 0, "physical", {"duration": 4, "self_only": True, "stat_mods": {"armor": 60}}),
+    ],
+    "pd_plague_abomination": [
+        ("Crushing Blow", "damage", 40, 0, 0, "physical", {}),
+        ("Putrid Explosion", "damage", 52, 3, 0, "shadow", {"is_aoe": True}),
+        ("Plague Aura", "debuff", 0, 5, 0, "shadow", {"duration": 3, "is_aoe": True, "stat_mods": {"armor": -26}}),
+    ],
+    # ---- bosses
+    "pd_plagueweaver_vex": [        # L31 - the Weaving Hall: a thread of plague for everyone
+        ("Plague Wave", "damage", 45, 0, 40, "shadow", {"is_aoe": True}),
+        ("Pestilence", "dot", 19, 3, 38, "shadow", {"duration": 5}),
+        ("Wasting Thread", "debuff", 0, 4, 36, "shadow", {"duration": 3, "stat_mods": {"attack_power": -30, "intellect": -30}}),
+        ("Shadow Shield", "buff", 0, 7, 45, "shadow", {"duration": 4, "self_only": True, "stat_mods": {"armor": 74}}),
+    ],
+    "pd_infected_noble": [          # L32 - the Throne of Rot
+        ("Noble's Blade", "damage", 50, 0, 0, "physical", {}),
+        ("Corruption Strike", "damage", 61, 3, 0, "shadow", {}),
+        ("Curse of Nobility", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"strength": -32, "intellect": -32}}),
+        ("Undead Might", "buff", 0, 7, 0, "shadow", {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 50}}),
+    ],
+    "pd_plague_keeper_voss": [      # L32 - the Blight Archive: keeps the plague like a library
+        ("Archive Strike", "damage", 49, 0, 40, "shadow", {}),
+        ("Forbidden Knowledge", "damage", 65, 3, 55, "shadow", {}),
+        ("Plague Transmission", "dot", 21, 3, 38, "nature", {"duration": 5, "is_aoe": True}),
+        ("Keeper's Vigor", "heal", 86, 6, 50, "shadow", {}),
+    ],
+    "pd_vile_plague_abomination": [  # L33 - the Vault of Flesh
+        ("Corrupted Slam", "damage", 54, 0, 0, "physical", {}),
+        ("Putrid Explosion", "damage", 68, 3, 0, "shadow", {"is_aoe": True}),
+        ("Plague Aura", "debuff", 0, 4, 0, "shadow", {"duration": 3, "is_aoe": True, "stat_mods": {"armor": -42}}),
+        ("Abomination Roar", "buff", 0, 7, 0, "shadow", {"duration": 4, "self_only": True, "stat_mods": {"armor": 90, "stamina": 40}}),
+    ],
+    "pd_dark_sorcerer_zulketh": [   # L34 - the Plague Heart (final boss)
+        ("Plague Bolt", "damage", 56, 0, 48, "shadow", {}),
+        ("Plague Heart Power", "damage", 79, 3, 70, "shadow", {}),
+        ("Corruption Hex", "dot", 24, 3, 45, "shadow", {"duration": 5}),
+        ("Sorcerer's Aegis", "buff", 0, 7, 60, "shadow", {"duration": 4, "self_only": True, "stat_mods": {"armor": 84, "intellect": 40}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3474,7 +3575,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

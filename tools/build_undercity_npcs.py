@@ -96,7 +96,7 @@ AMBIENT = {
     "uc_apothecary": ("Apothecary Marwen", "forsaken", F, 1, "right",
                       "Plague research isn't for the squeamish. Neither is Undercity, come to that."),
     "uc_master_apothecary": ("Master Apothecary Lorrane Sable", "forsaken", F, 13, "down",
-                             "The Society's work reaches far beneath this city. Few who go down come back the same."),
+                             "Some of my own Society have turned their craft on the Dark Lady. The vaults below are theirs now. I want them cleaned out, and I want the ringleaders brought to account."),
     "uc_alchemist": ("Alchemist Dunmere", "forsaken", M, 3, "down",
                      "Stir clockwise. Always clockwise. The one time I didn't, I lost an arm. Again."),
     "uc_surgeon": ("Surgeon Halvard", "forsaken", M, 9, "left",
@@ -105,7 +105,7 @@ AMBIENT = {
                          "Don't touch the green one. Or the blue one. Or the one that looks like jam."),
     # ---- the Deeps Gate
     "uc_gatewarden": ("Gatewarden Sorrel", "forsaken", M, 6, "down",
-                      "Beyond the gate lies the Plague Depths. If you hear screaming down there, it isn't mine."),
+                      "Beyond the gate lie the Plague Depths, and a cabal of Apothecary traitors who want the Dark Lady dead. If you hear screaming down there, it isn't mine."),
     "uc_deeps_guard": ("Deathguard Marik", "forsaken", M, 2, "down",
                        "Nobody's gone through that gate who wasn't ordered to. Remember that when you feel brave."),
     "uc_riding_trainer": ("Riding Instructor Cask", "forsaken", M, 15, "down",

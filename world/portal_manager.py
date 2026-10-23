@@ -352,10 +352,10 @@ class PortalManager:
             },
             "Undercity": {
                 (100, 11): ("Eastern Tirisfal", 10, 108),     # the Ruins elevator (tools/handbuilt_undercity.py)
-                (100, 185): ("Plague Depths", 120, 214),      # the Deeps Gate
+                (100, 185): ("Plague Depths", 120, 205),      # the Deeps Gate (arrive (120,203))
             },
             "Plague Depths": {
-                (120, 214): ("Undercity", 100, 185),
+                (120, 205): ("Undercity", 100, 185),        # back up to the Deeps Gate (arrive (100,183))
             },
         }
 

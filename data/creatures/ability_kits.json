@@ -14269,6 +14269,583 @@
         }
       }
     ],
+    "pd_plagued_rat": [
+      {
+        "name": "Infected Bite",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Spit",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "pd_rot_worm": [
+      {
+        "name": "Decaying Bite",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Rotting Wound",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "pd_plagued_hound": [
+      {
+        "name": "Diseased Bite",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pounce",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pestilent Scratch",
+        "kind": "dot",
+        "amount": 11,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "pd_plague_spore": [
+      {
+        "name": "Spore Cloud",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Choking Dust",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -22
+        }
+      }
+    ],
+    "pd_plague_zombie": [
+      {
+        "name": "Shambling Fist",
+        "kind": "damage",
+        "amount": 32,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Putrid Slam",
+        "kind": "damage",
+        "amount": 43,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Undead Tenacity",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 44
+        }
+      }
+    ],
+    "pd_forsaken_traitor": [
+      {
+        "name": "Betrayer's Blade",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sinister Strike",
+        "kind": "damage",
+        "amount": 41,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Curse of Betrayal",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -24
+        }
+      }
+    ],
+    "pd_forsaken_witch": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "shadow"
+      },
+      {
+        "name": "Life Drain",
+        "kind": "damage",
+        "amount": 37,
+        "cooldown": 3,
+        "mana_cost": 26,
+        "school": "shadow"
+      },
+      {
+        "name": "Hex Curse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 24,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -24
+        }
+      }
+    ],
+    "pd_infected_retainer": [
+      {
+        "name": "Rusted Halberd",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Retainer's Duty",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 52
+        }
+      },
+      {
+        "name": "Sepsis",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "pd_blighted_courtier": [
+      {
+        "name": "Gilded Venom",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "nature"
+      },
+      {
+        "name": "Whispered Rot",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 24,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Fawning Curse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 22,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "strength": -24
+        }
+      }
+    ],
+    "pd_plague_surgeon": [
+      {
+        "name": "Plague Injection",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "nature"
+      },
+      {
+        "name": "Corpse Explosion",
+        "kind": "damage",
+        "amount": 49,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Dark Mending",
+        "kind": "heal",
+        "amount": 56,
+        "cooldown": 5,
+        "mana_cost": 28,
+        "school": "shadow"
+      }
+    ],
+    "pd_blight_cultist": [
+      {
+        "name": "Plague Bolt",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "shadow"
+      },
+      {
+        "name": "Blight",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 24,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Wither",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 22,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "stamina": -20
+        }
+      }
+    ],
+    "pd_failed_experiment": [
+      {
+        "name": "Flailing Limbs",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Unstable Mass",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Stitched Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 60
+        }
+      }
+    ],
+    "pd_plague_abomination": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Putrid Explosion",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Plague Aura",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "armor": -26
+        }
+      }
+    ],
+    "pd_plagueweaver_vex": [
+      {
+        "name": "Plague Wave",
+        "kind": "damage",
+        "amount": 45,
+        "cooldown": 0,
+        "mana_cost": 40,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Pestilence",
+        "kind": "dot",
+        "amount": 19,
+        "cooldown": 3,
+        "mana_cost": 38,
+        "school": "shadow",
+        "duration": 5
+      },
+      {
+        "name": "Wasting Thread",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 36,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -30,
+          "intellect": -30
+        }
+      },
+      {
+        "name": "Shadow Shield",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 45,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 74
+        }
+      }
+    ],
+    "pd_infected_noble": [
+      {
+        "name": "Noble's Blade",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Corruption Strike",
+        "kind": "damage",
+        "amount": 61,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Nobility",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "strength": -32,
+          "intellect": -32
+        }
+      },
+      {
+        "name": "Undead Might",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 50
+        }
+      }
+    ],
+    "pd_plague_keeper_voss": [
+      {
+        "name": "Archive Strike",
+        "kind": "damage",
+        "amount": 49,
+        "cooldown": 0,
+        "mana_cost": 40,
+        "school": "shadow"
+      },
+      {
+        "name": "Forbidden Knowledge",
+        "kind": "damage",
+        "amount": 65,
+        "cooldown": 3,
+        "mana_cost": 55,
+        "school": "shadow"
+      },
+      {
+        "name": "Plague Transmission",
+        "kind": "dot",
+        "amount": 21,
+        "cooldown": 3,
+        "mana_cost": 38,
+        "school": "nature",
+        "duration": 5,
+        "is_aoe": true
+      },
+      {
+        "name": "Keeper's Vigor",
+        "kind": "heal",
+        "amount": 86,
+        "cooldown": 6,
+        "mana_cost": 50,
+        "school": "shadow"
+      }
+    ],
+    "pd_vile_plague_abomination": [
+      {
+        "name": "Corrupted Slam",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Putrid Explosion",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Plague Aura",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "is_aoe": true,
+        "stat_mods": {
+          "armor": -42
+        }
+      },
+      {
+        "name": "Abomination Roar",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 90,
+          "stamina": 40
+        }
+      }
+    ],
+    "pd_dark_sorcerer_zulketh": [
+      {
+        "name": "Plague Bolt",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 0,
+        "mana_cost": 48,
+        "school": "shadow"
+      },
+      {
+        "name": "Plague Heart Power",
+        "kind": "damage",
+        "amount": 79,
+        "cooldown": 3,
+        "mana_cost": 70,
+        "school": "shadow"
+      },
+      {
+        "name": "Corruption Hex",
+        "kind": "dot",
+        "amount": 24,
+        "cooldown": 3,
+        "mana_cost": 45,
+        "school": "shadow",
+        "duration": 5
+      },
+      {
+        "name": "Sorcerer's Aegis",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 60,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 84,
+          "intellect": 40
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",

@@ -5610,6 +5610,7 @@ def create_all_zones():
     from tools import handbuilt_orgrimmar as dorg
     from tools import handbuilt_zeppelin_tower as dzep
     from tools import handbuilt_undercity as duc
+    from tools import handbuilt_plague_depths as dpd
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5687,7 +5688,7 @@ def create_all_zones():
         
         # ===== EXPANSION DUNGEONS =====
         "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)
-        "Plague Depths": generate_plague_depths(),  # NEW: In Undercity, Forsaken traitors
+        "Plague Depths": dpd.generate_plague_depths(),  # hand-built ladder dungeon (tools/handbuilt_plague_depths.py)
         "Blackfathom Deeps": generate_blackfathom_deeps(),
         "Widow's Lair": generate_widows_lair(),
         "Shadowfang Keep": generate_shadowfang_keep(),

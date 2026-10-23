@@ -1743,6 +1743,31 @@
       "open_zone": {
         "name": "Undercity",
         "creatures": {}
+      },
+      "caves": {
+        "Plague Depths": {
+          "name": "Plague Depths",
+          "creatures": {
+            "Plagued Rat": 3,
+            "Rot Worm": 3,
+            "Plagued Hound": 2,
+            "Plague Spore": 2,
+            "Plague Zombie": 3,
+            "Forsaken Traitor": 2,
+            "Forsaken Witch": 2,
+            "Infected Retainer": 2,
+            "Blighted Courtier": 2,
+            "Plague Surgeon": 2,
+            "Blight Cultist": 2,
+            "Failed Experiment": 2,
+            "Plague Abomination": 2,
+            "Plagueweaver Vex": 0,
+            "The Infected Noble": 0,
+            "Plague Keeper Voss": 0,
+            "Vile Plague Abomination": 0,
+            "Dark Sorcerer Zul'keth": 0
+          }
+        }
       }
     },
     "The Sepulcher": {
@@ -2043,72 +2068,6 @@
       {
         "creature": "Alpha Fenris",
         "count": 1
-      }
-    ]
-  },
-  "Plague Depths": {
-    "open_zone": [
-      {
-        "creature": "Plagued Rat",
-        "weight": 2
-      },
-      {
-        "creature": "Plague Zombie",
-        "weight": 3
-      },
-      {
-        "creature": "Blight Cultist",
-        "weight": 2
-      },
-      {
-        "creature": "Plagued Hound",
-        "weight": 2
-      },
-      {
-        "creature": "Forsaken Traitor",
-        "weight": 2
-      },
-      {
-        "creature": "Plague Abomination",
-        "weight": 2
-      },
-      {
-        "creature": "Plague Spore",
-        "weight": 1
-      },
-      {
-        "creature": "Rot Worm",
-        "weight": 2
-      },
-      {
-        "creature": "Forsaken Witch",
-        "weight": 2
-      },
-      {
-        "creature": "Plague Surgeon",
-        "weight": 1
-      }
-    ],
-    "boss": [
-      {
-        "creature": "Plagueweaver Vex",
-        "weight": 1
-      },
-      {
-        "creature": "The Infected Noble",
-        "weight": 1
-      },
-      {
-        "creature": "Plague Keeper Voss",
-        "weight": 1
-      },
-      {
-        "creature": "Vile Plague Abomination",
-        "weight": 1
-      },
-      {
-        "creature": "Dark Sorcerer Zul'keth",
-        "weight": 1
       }
     ]
   },

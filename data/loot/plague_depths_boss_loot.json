@@ -1,0 +1,344 @@
+{
+  "_notes": "Plague Depths boss loot (2026-10-23). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "Plagueweaver Vex": [
+    {
+      "name": "Plaguethread Spindle",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A bone needle as long as a forearm. The Society used it to sew the conspiracy together, and to unpick the loyal.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 5
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4,
+        "crit_chance_physical": 0.4
+      },
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Fevered-Silk Robes",
+      "slot": "chest",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Cloth spun from something that should not spin. It clings, and it is warm, and it is not yours.",
+      "primary_stats": {
+        "intellect": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "spell_power": 5.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 43
+    },
+    {
+      "name": "Weaver's Mourning Wraps",
+      "slot": "wrist",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Black thread over black leather. Each stitch is a name. She ran out of room.",
+      "primary_stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 43
+    },
+    {
+      "name": "Wand of Slow Rot",
+      "slot": "ranged",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A wand of grey wood, speckled where the blight has found it. It does not hurry.",
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 7.8
+      },
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 1.9
+    }
+  ],
+  "The Infected Noble": [
+    {
+      "name": "Faulkner's Rotting Claymore",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A nobleman's two-hander, still gilded at the quillons and green everywhere else.",
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 58
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 87,
+      "weapon_damage_max": 118,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Gilded Gauntlets of the Fallen House",
+      "slot": "hands",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Plate that remembers a coat of arms. The gilding is peeling, and so is the owner.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "block_rating": 0.5,
+        "block_value": 5.4
+      },
+      "armor_type": "plate",
+      "armor_value": 107
+    },
+    {
+      "name": "Moth-Eaten Ermine Mantle",
+      "slot": "shoulder",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A court mantle the moths found first. They left the dignity and took the rest.",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 6.4,
+        "mp5": 1.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 33
+    },
+    {
+      "name": "Signet of the Last Heir",
+      "slot": "ring",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A ring for a house with one name left. It is not the wearer's.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2
+      }
+    }
+  ],
+  "Plague Keeper Voss": [
+    {
+      "name": "Keeper's Index-Staff",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A long staff of bound spines. Each vertebra is a section of the catalogue, and none is out of order.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 20,
+        "stamina": 26
+      },
+      "secondary_stats": {
+        "hit_rating": 1.2
+      },
+      "weapon_damage_min": 35,
+      "weapon_damage_max": 48,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Archivist's Hood of Quiet",
+      "slot": "head",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A cowl lined with paper. It muffles every sound but the one you were hoping not to hear.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 9.0,
+        "mp5": 1.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 33
+    },
+    {
+      "name": "Codex-Bound Legwraps",
+      "slot": "legs",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Leather stamped with a library's mark. It was a very thorough library.",
+      "primary_stats": {
+        "agility": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "attack_power": 12.9
+      },
+      "armor_type": "leather",
+      "armor_value": 89
+    },
+    {
+      "name": "Ledger-Pin Brooch",
+      "slot": "neck",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A brass pin for holding a page. The page, when you look, is still there.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "mp5": 0.7
+      }
+    }
+  ],
+  "Vile Plague Abomination": [
+    {
+      "name": "Stitchwork Girdle",
+      "slot": "waist",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Mail sewn into hide sewn into mail. It stopped being clear which was holding which.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 73
+    },
+    {
+      "name": "Vatborn Maul",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "A two-handed mace of fused bone and iron, still warm from wherever it was grown.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "stamina": 30
+      },
+      "secondary_stats": {
+        "armor": 74.4,
+        "parry_rating": 1.5
+      },
+      "weapon_damage_min": 89,
+      "weapon_damage_max": 121,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Slab-Hide Pauldrons",
+      "slot": "shoulder",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Plate riveted to a hide that did not consent. The hide, to be fair, no longer objects.",
+      "primary_stats": {
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "defense_rating": 0.6,
+        "dodge_rating": 0.6
+      },
+      "armor_type": "plate",
+      "armor_value": 165
+    },
+    {
+      "name": "Gut-Ward Buckler",
+      "slot": "off_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "A shield of stretched hide on a bone ring. It flinches before the blow lands.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 9
+      },
+      "armor_value": 73,
+      "block_value": 91
+    }
+  ],
+  "Dark Sorcerer Zul'keth": [
+    {
+      "name": "Crown of the Plague Heart",
+      "slot": "head",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "A circlet of black iron, grown over with something that pulses in time with the Heart below.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "nature_spell_power": 8.5,
+        "shadow_spell_power": 8.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 35
+    },
+    {
+      "name": "Zul'keth's Corruption Rod",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "A short mace of dark glass. Strike something with it and the something remembers being healthy, briefly.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 5.4
+      },
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Heartbound Greatcloak",
+      "slot": "back",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "A cloak the colour of old bruises. It beats, faintly, at the shoulder.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.6,
+        "mp5": 0.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 18
+    },
+    {
+      "name": "Blightsworn Legplates",
+      "slot": "legs",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Plate of blackened iron, pitted by something patient. It fits the way an apology fits.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 226
+    }
+  ]
+}
