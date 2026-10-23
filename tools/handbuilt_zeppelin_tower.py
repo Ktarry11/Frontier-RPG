@@ -185,8 +185,6 @@ def _dress(L, kit):
     # ---- north berth (live: Undercity): mooring bollards, lanterns, banners at the gate
     p(CP + "mooring_posts.png", 27, 8, 3)
     p(CP + "mooring_posts.png", 38, 8, 3)
-    p(kit["berth_lamp"], 28, 5, 4)
-    p(kit["berth_lamp"], 37, 5, 4)
     p(kit["banner"], 29, 14, 5)
     p(kit["banner"], 36, 14, 5)
     # ---- south stair head (live: the ground): braziers either side of the steps, cargo waiting to be hoisted
@@ -210,10 +208,22 @@ def _dress(L, kit):
     p(kit["banner"], 14, 36, 5)
 
 
+SHIPS = {"orc": CP + "zeppelin_orc.png", "forsaken": CP + "zeppelin_undead.png"}
+
+
+def _ship(L, skin, height=8, cx=32, base_y=8):
+    """The airship moored at the live north berth, hovering over the apron with the portal tile (32,6) under its gondola.
+    Visual only (the berth lane stays walkable); side view, nose to the right, like every other sprite in the game."""
+    path = SHIPS[skin]
+    wt = max(1, round(height * _aspect(path)))
+    L.z.add_landmark(path, cx - wt // 2, base_y - height + 1, wt, height, solid=False)
+
+
 def build_layout(site="Zeppelin Tower"):
     L = Layout(site)
     _terrain(L)
     _dress(L, KITS[SITES[site]["skin"]])
+    _ship(L, SITES[site]["skin"])
     return L
 
 
