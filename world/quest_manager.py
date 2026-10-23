@@ -46,6 +46,24 @@ class QuestManager:
                 self.quests_by_giver.setdefault(quest.giver_npc_id, []).append(quest.quest_id)
                 self.quests_by_collector.setdefault(quest.collector_npc_id, []).append(quest.quest_id)
 
+        # Text overlays: data/quests/text/*.json = {quest_id: {title?, description?, accept_text?, turn_in_text?}}.
+        # Writing lives here (not in the generated zone files) so re-running a tools/build_*_quests.py never reverts a rewrite.
+        for path in sorted((quests_dir / "text").glob("*.json")):
+            try:
+                with open(path, "r") as f:
+                    overlay = json.load(f)
+            except json.JSONDecodeError as e:
+                print(f"ERROR: Failed to parse quest text overlay {path.name}: {e}")
+                continue
+            for quest_id, fields in overlay.items():
+                quest = self.quests.get(quest_id)
+                if quest is None:
+                    print(f"WARNING: quest text overlay {path.name} names unknown quest {quest_id}")
+                    continue
+                for key in ("title", "description", "accept_text", "turn_in_text"):
+                    if fields.get(key):
+                        setattr(quest, key, fields[key])
+
     @staticmethod
     def _slug(s):
         """Zone slug used by every zone-keyed lookup (zone_manager,
@@ -478,11 +496,8 @@ class QuestManager:
         all; this only gates the quest_drops.json roll in
         combat_engine._resolve_victory.
 
-        Also True (drop allowed) if NO active quest references this
-        item_id at all - a quest item picked up before its quest exists
-        yet, or a plain always-drops LootItem with category="quest" but
-        no active gating quest, isn't blocked by this check; it only
-        suppresses drops the player has ALREADY gotten enough of."""
+        If NO active quest references this item_id the answer is False (changed 2026-10-23): quest items only drop for
+        players who have actually accepted a quest that needs them."""
         from entities.loot_item import count_loot_items
         starter = self.quests_started_by_item(item_id)
         if starter:
@@ -502,7 +517,9 @@ class QuestManager:
                 have = count_loot_items(player, item_id)
                 if have < objective.count:
                     return True
-        return not found_any_objective
+        # Kyle (2026-10-23): "mobs drop quest items without even picking up the quests". A quest item now drops ONLY while
+        # an active quest still wants it - nothing active references it -> no drop (kills never clog bags with dead weight).
+        return False
 
     def quests_started_by_item(self, item_id):
         """Quests whose giver is the starter item `item_id` (giver id 'item:<item_id>')."""
