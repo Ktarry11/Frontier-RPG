@@ -194,7 +194,7 @@ class PortalManager:
             # ===== THE BARRENS =====
             "Central Barrens": {
                 (150, 4): ("Northern Barrens", 150, 256),
-                (270, 30): ("Durotar", 5, 85),
+                (270, 30): ("Durotar", 5, 86),   # portal is (5,85); arrival = 2 north of this = (5,84) on the road (2 north of the portal is a cliff)
                 (150, 150): ("Crossroads", 35, 65),
                 (75, 223): ("Wailing Caverns", 120, 210),
                 (285, 270): ("Ratchet", 2, 30),
