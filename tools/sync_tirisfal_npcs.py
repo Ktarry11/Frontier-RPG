@@ -38,6 +38,18 @@ def main():
         pos.update(M.NPC_POSITIONS)
     total = _patch("data/npcs/ambient_npcs.json", "npcs", "npc_id", pos)
     total += _patch("data/npcs/vendors.json", "vendors", "vendor_id", pos)
+    # Brill's forge is an interaction tile (data/npcs/forges.json), kept clear via the NPC_POSITIONS key "brill_forge"
+    ff = Path("data/npcs/forges.json")
+    fd = json.loads(ff.read_text())
+    bx, by = pos["brill_forge"]
+    rec = next((f for f in fd["forges"] if f["forge_id"] == "brill_forge"), None)
+    if rec is None:
+        fd["forges"].append({"forge_id": "brill_forge", "name": "Brill Forge", "zone": "brill", "x": bx, "y": by})
+        total += 1
+    elif (rec["x"], rec["y"]) != (bx, by):
+        rec["x"], rec["y"] = bx, by
+        total += 1
+    ff.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n")
     fp = Path("data/creatures/spawn_points.json")
     data = json.loads(fp.read_text())
     for zone, mod in MODULES.items():

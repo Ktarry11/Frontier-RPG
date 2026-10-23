@@ -317,6 +317,17 @@ class InventoryScreen(BaseScreen):
                 if rect.collidepoint(mouse_pos) and i < len(bag.inventory):
                     item = bag.inventory[i]
                     if not getattr(item, "is_gear", True):
+                        # A quest-STARTER item (a drop that begins a quest) opens its quest offer instead.
+                        starts = getattr(item, "starts_quest_id", None)
+                        if starts:
+                            from world.quest_manager import get_quest_manager
+                            from world.quest import QuestStatus, ItemQuestGiver
+                            qm = get_quest_manager()
+                            q = qm.quests.get(starts)
+                            if q is not None and q.status == QuestStatus.NOT_STARTED and qm._is_unlocked(starts):
+                                self.state_manager.transition_to(GameState.QUEST_DIALOG,
+                                                                 current_quest_npc=ItemQuestGiver(item))
+                                return
                         self.pending_destroy_item = item
                         return
                     self._equip_on_subject(subject, item)

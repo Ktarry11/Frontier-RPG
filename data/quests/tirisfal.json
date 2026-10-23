@@ -5358,6 +5358,539 @@
       ],
       "gear_reward_gear_level": 12,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "brl_dispatch",
+      "title": "A Dispatch for Faol's Rest",
+      "giver_npc_id": "brill_deathguard",
+      "zone": "brill",
+      "level_min": 8,
+      "level_max": 10,
+      "description": "Rennick doesn't trust the Faol's Rest gravekeeper's reports to arrive on their own, and he doesn't trust his own messenger boys to arrive at all. A sealed dispatch needs to reach Gravekeeper Morvyn, over the hills in the east.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "rennick_dispatch",
+          "count": 1,
+          "label": "Take Rennick's dispatch to Gravekeeper Morvyn"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2400,
+      "accept_text": "Eastern Tirisfal, the graveyard on the hill at Faol's Rest. Put it in her hand, not on her desk. Don't read it.",
+      "turn_in_text": "Rennick's seal. Hm. He worries so loudly for a man who never leaves the square. Here, for the road.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "et_gravekeeper_morvyn",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "rennick_dispatch",
+            "name": "Sealed Deathguard Dispatch",
+            "description": "Wax-sealed, stamped with Brill's gallows crest.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Gallows' End Bracers",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Brill makes do. This is proof.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 14,
+          "label": "Mail Bracers (Str/Agi)"
+        },
+        {
+          "name": "Brill Bindings",
+          "slot": "wrist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "It has been mended at least twice.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 4,
+          "label": "Cloth Bracers (Int/Spi)"
+        },
+        {
+          "name": "Square-Worn Band",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Survivors' stitching. Honest, even when it isn't pretty.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 9
+    },
+    {
+      "quest_id": "brl_guard_smelt",
+      "title": "Bars for the Gate",
+      "giver_npc_id": "brill_guard",
+      "zone": "brill",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "The gate guard's kit is falling apart, and Brill's new forge by the east market is going unused. Smelt two copper bars from Tirisfal ore and he'll show you what they're for.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bar_copper",
+          "count": 2,
+          "label": "Smelt copper bars at Brill's forge"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Copper ore is in the hills. Smelt two bars at the forge past the market and bring them. I'll supply the nagging.",
+      "turn_in_text": "Two bars. Clean, too. Let's make something of them.",
+      "next_quest_id": "brl_guard_bracers",
+      "unique_item_defs": [
+        {
+          "name": "Belltower Pauldrons",
+          "slot": "shoulder",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A village thing: cheap, mended and cared for.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 24,
+          "label": "Plate Shoulders (Sta)"
+        },
+        {
+          "name": "Ashen Wraps",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "It has been mended at least twice.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 3,
+          "label": "Cloth Gloves (Int)"
+        },
+        {
+          "name": "Town-Crier's Pendant",
+          "slot": "neck",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "It has been mended at least twice.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "brl_guard_bracers",
+      "title": "Bracers for the Gate",
+      "giver_npc_id": "brill_guard",
+      "zone": "brill",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "A pair of copper bracers, forged by your own hands at the Brill forge. The guard wants to see proof that the forge works before he trusts it with his armour.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "blacksmith_copper_bracers",
+          "count": 1,
+          "label": "Forge Copper Bracers at Brill's forge"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "Two bars, a hammer and some patience. Make the bracers. Mind the sparks.",
+      "turn_in_text": "Crooked, but sturdy. I'll wear them proudly. Here's something for your trouble.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gallows' End Greathelm",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "A village thing: cheap, mended and cared for.",
+          "primary_stats": {
+            "strength": 1,
+            "intellect": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 24,
+          "label": "Plate Helm (Str/Int)"
+        },
+        {
+          "name": "Town-Crier's Gloves",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "It has been mended at least twice.",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 6,
+          "label": "Leather Gloves (Agi/Sta)"
+        },
+        {
+          "name": "Ashen Rod",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Brill makes do. This is proof.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "spirit": 1
+          },
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 1.9,
+          "label": "Wand (Spi)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "brl_locket",
+      "title": "A Moldering Locket",
+      "giver_npc_id": "item:moldering_locket",
+      "zone": "western_tirisfal",
+      "level_min": 6,
+      "level_max": 8,
+      "description": "A tarnished locket, found on one of the wandering dead. The portrait inside is almost gone, but the inscription on the back is plain enough: 'For Marren, from Aldric'. The widow Marren lives at the Solliden Farmstead.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "moldering_locket",
+          "count": 1,
+          "label": "Return the locket to Widow Marren"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1800,
+      "accept_text": "You turn the locket over. The clasp has rusted shut, but the inscription is legible. Marren, at the Solliden fields.",
+      "turn_in_text": "Marren turns it over and over in her hands. 'Aldric.' She says nothing else for a while. Then: 'Thank you. Take this.'",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wt_solliden_farmer",
+      "unique_item_defs": [
+        {
+          "name": "Harvest-Blighted Chainmail",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "armor_type": "mail",
+          "armor_value": 21,
+          "label": "Mail Chest (Sta)"
+        },
+        {
+          "name": "Tithe-Barn Chaps",
+          "slot": "legs",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Straw in the seams and soil in the grain.",
+          "primary_stats": {
+            "agility": 2,
+            "spirit": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 13,
+          "label": "Leather Legs (Agi/Spi)"
+        },
+        {
+          "name": "Scarecrow's Loop",
+          "slot": "ring",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Rough, practical, and faintly sour.",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1
+          },
+          "label": "Ring (Str/Agi)"
+        }
+      ],
+      "gear_reward_gear_level": 7
+    },
+    {
+      "quest_id": "ets_bowman_orders",
+      "title": "Bloodied Scarlet Orders",
+      "giver_npc_id": "item:scarlet_battle_orders",
+      "zone": "eastern_tirisfal",
+      "level_min": 10,
+      "level_max": 12,
+      "description": "Scarlet Crusade orders, torn from a bowman's quiver: troop positions, patrol times and a map of the north coast. Deathguard Rennick will want these in Brill.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "scarlet_battle_orders",
+          "count": 1,
+          "label": "Bring the orders to Deathguard Rennick"
+        }
+      ],
+      "reward_exp": 680,
+      "reward_gold": 3200,
+      "accept_text": "You skim the orders. Troop positions, patrol times, a route along the coast. This belongs with Rennick in Brill.",
+      "turn_in_text": "Rennick reads it twice and swears quietly. 'Their patrols run to the hour. Good. This is worth a great deal.'",
+      "next_quest_id": null,
+      "turn_in_npc_id": "brill_deathguard",
+      "unique_item_defs": [
+        {
+          "name": "Preacher's Boots",
+          "slot": "feet",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Whoever wore it expected to be praised for it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.1,
+            "block_rating": 0.2,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 25,
+          "label": "Plate Boots (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Sunburst Spaulders",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Heavy with doctrine.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.1,
+            "parry_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 25,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Zealot's Wand",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Sunburst on the breast. There is no sun here.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.8
+          },
+          "weapon_damage_min": 17,
+          "weapon_damage_max": 23,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "etd_ledger_courier",
+      "title": "The Ledger Bundle",
+      "giver_npc_id": "et_cult_warden",
+      "zone": "eastern_tirisfal",
+      "level_min": 11,
+      "level_max": 12,
+      "description": "Ysolde has bound the ledger pages into a bundle and wants it in the hands of someone who can read the cult's cipher. The one she trusts is Keeper Oswin at Raven Hill Cemetery in Silverpine North, through the pass to the north-west.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cult_ledger_bundle",
+          "count": 1,
+          "label": "Carry the ledger bundle to Keeper Oswin in Silverpine North"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 1200,
+      "accept_text": "The portal at the edge of the Landing leads into Silverpine. Raven Hill Cemetery, Keeper Oswin. Don't let anyone read it.",
+      "turn_in_text": "Oswin turns the bundle over, and his face changes. 'The Agamand seal. Of course. Come back when you've seen their house.'",
+      "next_quest_id": null,
+      "requires_quests": [
+        "etd_ledger"
+      ],
+      "turn_in_npc_id": "sp_north_cemetery_keeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cult_ledger_bundle",
+            "name": "Cult Ledger Bundle",
+            "description": "Pages bound in black cord and sealed with grave-wax.",
+            "count": 1
+          }
+        ]
+      },
+      "unique_item_defs": [
+        {
+          "name": "Dark-Vestment Cap",
+          "slot": "head",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Found in a farm cellar. It was not alone.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 25,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Fanatic's Belt",
+          "slot": "waist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Stitched with a sigil you shouldn't look at for long.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "block_rating": 0.1,
+            "block_value": 1.3
+          },
+          "armor_type": "plate",
+          "armor_value": 25,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Sigil-Marked Pendant",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 11,
+          "flavor_text": "Stitched with a sigil you shouldn't look at for long.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 11
+    },
+    {
+      "quest_id": "sp_ledger_cipher",
+      "title": "The Agamand Cipher",
+      "giver_npc_id": "sp_north_cemetery_keeper",
+      "zone": "silverpine_north",
+      "level_min": 12,
+      "level_max": 14,
+      "description": "Oswin can read the cult's ledger, but only half of it. The cipher keys are the Agamand family seals, and only someone who has stood in the Agamand mansion could match them. He needs the husks buried behind Raven Hill thinned out first, so the dead stop interrupting his reading.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Risen Husk",
+          "count": 8,
+          "zone": "Silverpine North"
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 1400,
+      "accept_text": "You've been through the Agamand house, and you carried the ledger here. Good. Now clear the husks at Raven Hill so I can read in peace.",
+      "turn_in_text": "Eight husks, and the seals match. The ledger names the cult's patrons. Silverpine will want to hear this. Take your pick.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "etd_ledger_courier",
+        "wta_thurman"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Fanatic's Cuirass",
+          "slot": "chest",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Stitched with a sigil you shouldn't look at for long.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 60,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Cultist's Handguards",
+          "slot": "hands",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Whoever made it wanted to be remembered. Wrongly.",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 20,
+          "label": "Mail Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Sigil-Marked Talisman",
+          "slot": "neck",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Whoever made it wanted to be remembered. Wrongly.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 13
     }
   ]
 }

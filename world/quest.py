@@ -41,6 +41,10 @@ class ObjectiveType(Enum):
                               # or is completed externally by a scripted event/cutscene trigger
     DIALOGUE = "dialogue"    # ask the giver NPC about every topic in `topics`, in order - see
                               # QuestObjective.topics/topics_asked and world/quest_dialogue.py
+    DELIVER = "deliver"      # carry a quest item (usually handed over by the quest's grant_items) to the
+                              # quest's turn_in_npc_id; counted from the bag like FETCH and consumed at turn-in
+    CRAFT = "craft"          # make N of a profession recipe (target = recipe id; Blacksmithing recipe id or a
+                              # Smelting output id); advanced by QuestManager.record_craft
 
 
 class QuestObjective:
@@ -50,8 +54,11 @@ class QuestObjective:
 
     def __init__(self, objective_type, target=None, count=1, zone=None,
                  target_x=None, target_y=None, radius=6, alt_targets=None,
-                 topics=None):
+                 topics=None, label=None):
         self.objective_type = objective_type
+        #: Optional authored display name for the target (FETCH/GATHER/DELIVER item names, CRAFT recipe names) -
+        #: otherwise display_label() derives one from the id.
+        self.label = label
         #: For KILL/KILL_BOSS: the monster's real display name (Monster.name),
         #: e.g. "Vile Familiar" or "Yarrog Baneshadow". For GATHER/FETCH: the
         #: LootItem's item_id. For EXPLORE: the zone key. Unused for STORY.
@@ -163,6 +170,8 @@ class QuestObjective:
         count" when they actually do."""
         if self.objective_type == ObjectiveType.DIALOGUE:
             return "topics"
+        if self.label:
+            return self.label
         if not self.target:
             return "?"
         names = [self.target] + list(self.alt_targets)
@@ -230,8 +239,18 @@ class Quest:
                  gear_reward_gear_level=None, next_quest_id=None,
                  turn_in_text="", accept_text="", level_min=1, level_max=None,
                  gear_reward_slot="chest", gear_reward_rarity="uncommon",
-                 gear_reward_choices_plan=None, unique_item_defs=None):
+                 gear_reward_choices_plan=None, unique_item_defs=None,
+                 requires_quests=None, turn_in_npc_id=None, grant_items=None):
         self.quest_id = quest_id
+        #: Extra prerequisites beyond the next_quest_id chain: quest ids (any zone) that must ALL be COMPLETED
+        #: before this quest is offered - Linken's-Sword-style gates ("skip A in Durotar and C never opens").
+        self.requires_quests = list(requires_quests or [])
+        #: NPC who collects this quest, when that is NOT the giver (deliver / "report to" quests, possibly in
+        #: another zone).  None = the giver.
+        self.turn_in_npc_id = turn_in_npc_id
+        #: Quest-item grants: {"on_accept": [item defs], "on_turn_in": [item defs]}; an item def is
+        #: {item_id, name, description, count?, starts_quest_id?}.
+        self.grant_items = grant_items or {}
         self.title = title
         self.description = description
         #: npc_id of the ambient/vendor NPC who offers and collects this
@@ -298,6 +317,11 @@ class Quest:
         self.turn_in_text = turn_in_text
 
         self.status = QuestStatus.NOT_STARTED
+
+    @property
+    def collector_npc_id(self):
+        """Who this quest is handed in to."""
+        return self.turn_in_npc_id or self.giver_npc_id
 
     def is_complete(self):
         return all(o.is_complete() for o in self.objectives)
@@ -558,3 +582,14 @@ def get_weapon_flavor_text(weapon_type):
         except (OSError, json.JSONDecodeError):
             _weapon_flavor_text_cache = {}
     return _weapon_flavor_text_cache.get(weapon_type)
+
+
+class ItemQuestGiver:
+    """Stand-in 'NPC' for a quest-starter item: opening the item in the bag opens the quest dialog as if the item
+    were the giver (giver id 'item:<item_id>').  Duck-types the bits QuestDialogScreen reads from an NPC."""
+
+    def __init__(self, item):
+        self.npc_id = "item:" + item.item_id
+        self.name = item.name
+        self.greeting = item.description or f"{item.name} has nothing more to say."
+        self.zone = None

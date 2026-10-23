@@ -649,9 +649,12 @@ class CombatEngine:
                     icon_id=drop_def.get("icon_id"),
                     sell_price=drop_def.get("sell_price", 0),
                     rarity=drop_def.get("rarity"),
+                    starts_quest_id=drop_def.get("starts_quest"),
                 )
                 if fit:
                     self.combat_log.append(f"{enemy.name} dropped: {drop_def['name']}!")
+                    if drop_def.get("starts_quest"):
+                        self.combat_log.append("It looks important - open your bag and click it to read it.")
                 else:
                     self.combat_log.append(
                         f"{enemy.name} dropped {drop_def['name']}, but your bags are full!")

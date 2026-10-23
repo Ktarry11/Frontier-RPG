@@ -1039,6 +1039,14 @@
         "category": "quest",
         "description": "Swollen, grey-green and faintly warm.",
         "chance": 0.1
+      },
+      {
+        "item_id": "moldering_locket",
+        "name": "Moldering Locket",
+        "category": "quest",
+        "description": "A tarnished locket. The inscription on the back is still legible.",
+        "chance": 0.12,
+        "starts_quest": "brl_locket"
       }
     ],
     "Agamand Crypt Wight": [
@@ -1120,6 +1128,36 @@
         "category": "quest",
         "description": "A tarnished ring bearing the old court's crest.",
         "chance": 0.4
+      }
+    ],
+    "Rotting Dead": [
+      {
+        "item_id": "moldering_locket",
+        "name": "Moldering Locket",
+        "category": "quest",
+        "description": "A tarnished locket. The inscription on the back is still legible.",
+        "chance": 0.05,
+        "starts_quest": "brl_locket"
+      }
+    ],
+    "Scarlet Bowman": [
+      {
+        "item_id": "scarlet_battle_orders",
+        "name": "Bloodied Scarlet Orders",
+        "category": "quest",
+        "description": "Crusade orders, torn and stained. Troop positions and patrol times.",
+        "chance": 0.14,
+        "starts_quest": "ets_bowman_orders"
+      }
+    ],
+    "Scarlet Zealot": [
+      {
+        "item_id": "scarlet_battle_orders",
+        "name": "Bloodied Scarlet Orders",
+        "category": "quest",
+        "description": "Crusade orders, torn and stained. Troop positions and patrol times.",
+        "chance": 0.08,
+        "starts_quest": "ets_bowman_orders"
       }
     ]
   }

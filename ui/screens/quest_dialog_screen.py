@@ -98,6 +98,12 @@ class QuestDialogScreen(BaseScreen):
         self.gear_choice_stage = False
         self.selected_gear_index = None
 
+        # FETCH / DELIVER progress is read off the bag; bring it up to date so a quest whose items the player
+        # just collected (or was just handed on accept) is turn-in-ready the moment we look.
+        player = getattr(self.state_manager, "player", None)
+        if player is not None:
+            self.quest_mgr.refresh_gather_progress(player)
+
         turn_ins = self.quest_mgr.get_turn_in_ready_quests(self.npc_id)
         if turn_ins:
             self.mode = "turn_in"
@@ -205,7 +211,11 @@ class QuestDialogScreen(BaseScreen):
             player_level = self.state_manager.player.level
             available = self.quest_mgr.is_quest_available_to_player(self.active_quest, player_level)
             if available and self.accept_button.collidepoint(mouse_pos):
-                self.quest_mgr.accept_quest(self.active_quest.quest_id, player_level=player_level)
+                ok = self.quest_mgr.accept_quest(self.active_quest.quest_id, player_level=player_level,
+                                                 player=self.state_manager.player)
+                if not ok and getattr(self.quest_mgr, "last_error", None):
+                    self.result_message = self.quest_mgr.last_error
+                    return
                 self._refresh()
                 return
             if self.decline_button.collidepoint(mouse_pos):
@@ -357,6 +367,23 @@ class QuestDialogScreen(BaseScreen):
             from entities.loot_generator import LootGenerator
             choices = quest.get_gear_choices(LootGenerator(), self.state_manager.player.char_class)
             self._render_reward_preview_row(screen, choices, y=440)
+
+        # What this quest hands you / where it is handed in (deliver and "report to" quests).
+        info_y = 410 + 28
+        grants = (quest.grant_items or {}).get("on_accept") or []
+        if grants:
+            names = ", ".join(g["name"] for g in grants)
+            self.renderer.draw_text(screen, f"You will receive: {names}", (40, info_y),
+                                    color=(120, 170, 230), font_size=16)
+            info_y += 22
+        if quest.turn_in_npc_id:
+            from world.quest_locator import npc_place
+            where = npc_place(quest.turn_in_npc_id)
+            if where:
+                self.renderer.draw_text(screen, f"Hand in to: {where}", (40, info_y),
+                                        color=(120, 170, 230), font_size=16)
+        if self.result_message:
+            self.renderer.draw_text(screen, self.result_message, (40, SCREEN_HEIGHT - 130), color=(220, 120, 110))
 
         if available:
             self.renderer.draw_button(screen, self.accept_button, "Accept")

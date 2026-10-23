@@ -119,6 +119,7 @@ NPC_POSITIONS = {
     "brill_farmer": (42, 58),
     "brill_scarecrow_tender": (38, 63),
     "brill_newly_risen_farmhand": (45, 61),
+    "brill_forge": (67, 60),                 # the village forge (smelting + blacksmithing) beside the east market
 }
 CHESTS = [(14, 18), (84, 38), (30, 66), (50, 14)]
 
@@ -186,6 +187,7 @@ def dress(L):
     b("forsaken_house_small", 78, 54, 8, nudge=1)
     b("forsaken_house_medium", 62, 54, 9, nudge=1)
     p("ek_plague_cart", 74, 58, 4)
+    b("smithy", 67, 57, 8, nudge=1)                                       # Brill's forge (tile at 67,60)
     p("ek_signpost", 72, 46, 4)
     # ---- the south plots
     for (x, y) in [(36, 60), (46, 64), (40, 68)]:

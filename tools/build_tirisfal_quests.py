@@ -51,15 +51,33 @@ def explore(zone, x, y, radius=6):
     return dict(type="explore", target=zone, target_x=x, target_y=y, radius=radius)
 
 
-def Q(qid, title, giver, zone, lo, hi, theme, desc, objs, accept, done, nxt=None):
+def Q(qid, title, giver, zone, lo, hi, theme, desc, objs, accept, done, nxt=None, exp=None, gold=None, **engine):
+    """`engine` carries the quest-engine extras: requires_quests, turn_in_npc_id, grant_items (see world/quest.py)."""
     is_boss = any(o["type"] == "kill_boss" for o in objs)
     ilvl = max(3, hi if is_boss else hi - 1)
     rarity = "rare" if (is_boss and ilvl >= 10) else "uncommon"
     mult = 1.3 if is_boss else 1.0
-    return dict(quest_id=qid, title=title, giver_npc_id=giver, zone=zone, level_min=lo, level_max=hi,
-                description=desc, objectives=objs, reward_exp=int(XP[hi] * mult), reward_gold=int(GOLD[hi] * mult),
-                accept_text=accept, turn_in_text=done, next_quest_id=nxt,
-                rewards=reward_pack(qid, theme, ilvl, lo, rarity, 4 if is_boss else 3))
+    q = dict(quest_id=qid, title=title, giver_npc_id=giver, zone=zone, level_min=lo, level_max=hi,
+             description=desc, objectives=objs,
+             reward_exp=exp if exp is not None else int(XP[hi] * mult),
+             reward_gold=gold if gold is not None else int(GOLD[hi] * mult),
+             accept_text=accept, turn_in_text=done, next_quest_id=nxt,
+             rewards=reward_pack(qid, theme, ilvl, lo, rarity, 4 if is_boss else 3))
+    q.update({kk: vv for kk, vv in engine.items() if vv})
+    return q
+
+
+def deliver(item, label, n=1):
+    return dict(type="deliver", target=item, count=n, label=label)
+
+
+def craft(recipe, label, n=1):
+    return dict(type="craft", target=recipe, count=n, label=label)
+
+
+def carry(item_id, name, desc):
+    """grant_items for a quest that hands you something to carry."""
+    return {"on_accept": [dict(item_id=item_id, name=name, description=desc, count=1)]}
 
 
 def quests():
@@ -515,7 +533,68 @@ def quests():
         [boss("Interrogator Vishas", ET), k("Scarlet Zealot", 4, ET)],
         "He's in the cells. His zealots guard the door. Take them first.",
         "Vishas is dead. The cells are open. Take your pick.", None))
+    showcase(A)
     return Z
+
+
+def showcase(A):
+    """Quest-engine showcase (2026-10-23): deliver, craft, monster-drop starters and a Linken's-Sword multi-zone gate that bridges
+    into Silverpine North.  Not every quest is like this - these are the spice."""
+    # ---- DELIVER across Tirisfal: Brill -> Faol's Rest
+    A(Q("brl_dispatch", "A Dispatch for Faol's Rest", "brill_deathguard", BR, 8, 10, "brill",
+        "Rennick doesn't trust the Faol's Rest gravekeeper's reports to arrive on their own, and he doesn't trust his own "
+        "messenger boys to arrive at all. A sealed dispatch needs to reach Gravekeeper Morvyn, over the hills in the east.",
+        [deliver("rennick_dispatch", "Take Rennick's dispatch to Gravekeeper Morvyn")],
+        "Eastern Tirisfal, the graveyard on the hill at Faol's Rest. Put it in her hand, not on her desk. Don't read it.",
+        "Rennick's seal. Hm. He worries so loudly for a man who never leaves the square. Here, for the road.", None,
+        turn_in_npc_id="et_gravekeeper_morvyn",
+        grant_items=carry("rennick_dispatch", "Sealed Deathguard Dispatch", "Wax-sealed, stamped with Brill's gallows crest.")))
+    # ---- CRAFT: the gate guard wants proper kit.  Smelt, then forge.
+    A(Q("brl_guard_smelt", "Bars for the Gate", "brill_guard", BR, 6, 8, "brill",
+        "The gate guard's kit is falling apart, and Brill's new forge by the east market is going unused. Smelt two copper "
+        "bars from Tirisfal ore and he'll show you what they're for.",
+        [craft("bar_copper", "Smelt copper bars at Brill's forge", 2)],
+        "Copper ore is in the hills. Smelt two bars at the forge past the market and bring them. I'll supply the nagging.",
+        "Two bars. Clean, too. Let's make something of them.", "brl_guard_bracers"))
+    A(Q("brl_guard_bracers", "Bracers for the Gate", "brill_guard", BR, 6, 8, "brill",
+        "A pair of copper bracers, forged by your own hands at the Brill forge. The guard wants to see proof that the "
+        "forge works before he trusts it with his armour.",
+        [craft("blacksmith_copper_bracers", "Forge Copper Bracers at Brill's forge")],
+        "Two bars, a hammer and some patience. Make the bracers. Mind the sparks.",
+        "Crooked, but sturdy. I'll wear them proudly. Here's something for your trouble.", None))
+    # ---- MONSTER-DROP STARTERS
+    A(Q("brl_locket", "A Moldering Locket", "item:moldering_locket", WT, 6, 8, "farm",
+        "A tarnished locket, found on one of the wandering dead. The portrait inside is almost gone, but the inscription on the "
+        "back is plain enough: 'For Marren, from Aldric'. The widow Marren lives at the Solliden Farmstead.",
+        [deliver("moldering_locket", "Return the locket to Widow Marren")],
+        "You turn the locket over. The clasp has rusted shut, but the inscription is legible. Marren, at the Solliden fields.",
+        "Marren turns it over and over in her hands. 'Aldric.' She says nothing else for a while. Then: 'Thank you. Take this.'",
+        None, turn_in_npc_id="wt_solliden_farmer"))
+    A(Q("ets_bowman_orders", "Bloodied Scarlet Orders", "item:scarlet_battle_orders", ET, 10, 12, "watch",
+        "Scarlet Crusade orders, torn from a bowman's quiver: troop positions, patrol times and a map of the north coast. "
+        "Deathguard Rennick will want these in Brill.",
+        [deliver("scarlet_battle_orders", "Bring the orders to Deathguard Rennick")],
+        "You skim the orders. Troop positions, patrol times, a route along the coast. This belongs with Rennick in Brill.",
+        "Rennick reads it twice and swears quietly. 'Their patrols run to the hour. Good. This is worth a great deal.'",
+        None, turn_in_npc_id="brill_deathguard"))
+    # ---- LINKEN'S SWORD: the cult ledger bridge into Silverpine North (needs BOTH Eastern ledger work AND the Western Agamand work)
+    A(Q("etd_ledger_courier", "The Ledger Bundle", "et_cult_warden", ET, 11, 12, "cult",
+        "Ysolde has bound the ledger pages into a bundle and wants it in the hands of someone who can read the cult's cipher. "
+        "The one she trusts is Keeper Oswin at Raven Hill Cemetery in Silverpine North, through the pass to the north-west.",
+        [deliver("cult_ledger_bundle", "Carry the ledger bundle to Keeper Oswin in Silverpine North")],
+        "The portal at the edge of the Landing leads into Silverpine. Raven Hill Cemetery, Keeper Oswin. Don't let anyone read it.",
+        "Oswin turns the bundle over, and his face changes. 'The Agamand seal. Of course. Come back when you've seen their house.'",
+        None, requires_quests=["etd_ledger"], turn_in_npc_id="sp_north_cemetery_keeper",
+        grant_items=carry("cult_ledger_bundle", "Cult Ledger Bundle", "Pages bound in black cord and sealed with grave-wax."),
+        exp=520, gold=1200))
+    A(Q("sp_ledger_cipher", "The Agamand Cipher", "sp_north_cemetery_keeper", "silverpine_north", 12, 14, "cult",
+        "Oswin can read the cult's ledger, but only half of it. The cipher keys are the Agamand family seals, and only someone "
+        "who has stood in the Agamand mansion could match them. He needs the husks buried behind Raven Hill thinned out "
+        "first, so the dead stop interrupting his reading.",
+        [k("Risen Husk", 8, "Silverpine North")],
+        "You've been through the Agamand house, and you carried the ledger here. Good. Now clear the husks at Raven Hill so I can read in peace.",
+        "Eight husks, and the seals match. The ledger names the cult's patrons. Silverpine will want to hear this. Take your pick.",
+        None, exp=800, gold=1400, requires_quests=["etd_ledger_courier", "wta_thurman"]))
 
 
 # ----------------------------------------------------------------------
@@ -578,6 +657,15 @@ QUEST_DROPS = {
 }
 
 
+# monster drops that START a quest (item -> (name, description, quest_id, [(creature, chance)]))
+STARTER_DROPS = {
+    "moldering_locket": ("Moldering Locket", "A tarnished locket. The inscription on the back is still legible.", "brl_locket",
+                         [("Solliden Farmhand", 0.12), ("Rotting Dead", 0.05)]),
+    "scarlet_battle_orders": ("Bloodied Scarlet Orders", "Crusade orders, torn and stained. Troop positions and patrol times.",
+                              "ets_bowman_orders", [("Scarlet Bowman", 0.14), ("Scarlet Zealot", 0.08)]),
+}
+
+
 def main():
     Z = quests()
     ids = set()
@@ -629,6 +717,12 @@ def main():
             lst = drops.setdefault(creature, [])
             lst[:] = [d for d in lst if d["item_id"] != item_id]
             lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance))
+    for item_id, (name, desc, qid, srcs) in STARTER_DROPS.items():
+        assert qid in ids, qid
+        for creature, chance in srcs:
+            lst = drops.setdefault(creature, [])
+            lst[:] = [d for d in lst if d["item_id"] != item_id]
+            lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance, starts_quest=qid))
     DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
     print(f"tirisfal quests: {len(out)} (removed {before - len(data['quests'])} old), "
           f"items {sum(len(q['unique_item_defs']) for q in out)}")

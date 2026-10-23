@@ -122,6 +122,8 @@ class SmeltingManager:
             cumulative_cap = sum(TIER_SKILL_CAPS.values()) if tier_cap is not None else None
             character.gain_profession_skill("mining", 1, cap=cumulative_cap)
 
+        from world.quest_manager import get_quest_manager
+        get_quest_manager().record_craft(output_id)
         return output_material
 
 

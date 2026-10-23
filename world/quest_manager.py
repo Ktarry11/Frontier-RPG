@@ -20,6 +20,8 @@ class QuestManager:
     def __init__(self):
         self.quests = {}              # quest_id -> Quest (authored definition + live state)
         self.quests_by_giver = {}     # npc_id -> list[quest_id], in authored order
+        self.quests_by_collector = {}  # npc_id -> list[quest_id] handed in to that NPC (usually the giver)
+        self.last_error = None        # why the last accept_quest refused (shown by the dialog), else None
         # Set by turn_in_quest for one-off scripted companion departures
         # (currently just Asher Coleman's after the Baneshadow quest) -
         # None the rest of the time. See turn_in_quest's docstring.
@@ -42,6 +44,7 @@ class QuestManager:
                 quest = self._build_quest(q_def)
                 self.quests[quest.quest_id] = quest
                 self.quests_by_giver.setdefault(quest.giver_npc_id, []).append(quest.quest_id)
+                self.quests_by_collector.setdefault(quest.collector_npc_id, []).append(quest.quest_id)
 
     @staticmethod
     def _slug(s):
@@ -66,6 +69,7 @@ class QuestManager:
                 radius=o.get("radius", 6),
                 alt_targets=o.get("alt_targets"),
                 topics=o.get("topics"),
+                label=o.get("label"),
             )
             for o in q_def["objectives"]
         ]
@@ -91,6 +95,9 @@ class QuestManager:
             turn_in_text=q_def.get("turn_in_text", ""),
             level_min=q_def.get("level_min", 1),
             level_max=q_def.get("level_max"),
+            requires_quests=q_def.get("requires_quests"),
+            turn_in_npc_id=q_def.get("turn_in_npc_id"),
+            grant_items=q_def.get("grant_items"),
         )
 
     # ---------- Giver-facing queries (what does this NPC have to offer right now) ----------
@@ -129,7 +136,7 @@ class QuestManager:
         complete and are waiting for the player to talk to this NPC to
         collect the reward."""
         return [
-            self.quests[qid] for qid in self.quests_by_giver.get(npc_id, [])
+            self.quests[qid] for qid in self.quests_by_collector.get(npc_id, [])
             if self.quests[qid].status == QuestStatus.READY_TO_TURN_IN
         ]
 
@@ -164,7 +171,14 @@ class QuestManager:
         """A quest with no predecessor is always unlocked. A quest that
         IS the next_quest_id of some other quest only unlocks once that
         predecessor is COMPLETED - real chain gating (Kyle's "kill vile
-        familiars, then kill the boss" example)."""
+        familiars, then kill the boss" example).  `requires_quests` adds Linken's-Sword-style gates: every listed
+        quest (any zone, any giver) must be COMPLETED too."""
+        quest = self.quests.get(quest_id)
+        if quest is not None:
+            for req in quest.requires_quests:
+                other = self.quests.get(req)
+                if other is None or other.status != QuestStatus.COMPLETED:
+                    return False
         predecessor = self._find_predecessor(quest_id)
         if predecessor is None:
             return True
@@ -178,16 +192,34 @@ class QuestManager:
 
     # ---------- Player-facing actions ----------
 
-    def accept_quest(self, quest_id, player_level=None):
+    @staticmethod
+    def _grant(player, defs, quest_id):
+        """Hand quest items to the player (LootItem category 'quest').  Returns False if the bag can't hold them."""
+        from entities.loot_item import add_loot_item
+        ok = True
+        for d in defs or []:
+            ok = add_loot_item(player, d["item_id"], d["name"], category="quest", amount=d.get("count", 1),
+                               description=d.get("description", ""), icon_id=d.get("icon_id"), quest_id=quest_id,
+                               starts_quest_id=d.get("starts_quest_id")) and ok
+        return ok
+
+    def accept_quest(self, quest_id, player_level=None, player=None):
         """Accept a quest. player_level is optional for backward
         compatibility with any test/script call that doesn't care about
         gating, but real UI call sites MUST pass it - an ungated accept
         would let a level 1 character take a level 40 quest outright."""
+        self.last_error = None
         quest = self.quests.get(quest_id)
         if quest is None or quest.status != QuestStatus.NOT_STARTED:
             return False
         if player_level is not None and not self.is_quest_available_to_player(quest, player_level):
             return False
+        on_accept = (quest.grant_items or {}).get("on_accept")
+        if on_accept and player is not None:
+            free = player.inventory_capacity - len(player.inventory)
+            if free < len(on_accept) or not self._grant(player, on_accept, quest_id):
+                self.last_error = "Your bag is full - make room for the quest item first."
+                return False
         quest.status = QuestStatus.ACTIVE
         # A STORY objective with no real condition completes the instant
         # the quest is accepted, so the quest becomes turn-in-ready right
@@ -224,12 +256,20 @@ class QuestManager:
 
         from entities.loot_item import remove_loot_items
         for objective in quest.objectives:
-            if objective.objective_type == ObjectiveType.FETCH:
+            if objective.objective_type in (ObjectiveType.FETCH, ObjectiveType.DELIVER):
                 # Real removal, not just marking progress - a FETCH
                 # objective hands the items over, they leave the bag.
                 # GATHER objectives (the non-consuming variant) are left
                 # alone here on purpose - see ObjectiveType docstring.
                 remove_loot_items(player, objective.target, objective.count)
+
+        # Quest-starter items (a drop that began this quest) are spent when it is handed in.
+        for item in list(player.inventory):
+            if getattr(item, "starts_quest_id", None) == quest_id:
+                player.inventory.remove(item)
+        on_turn_in = (quest.grant_items or {}).get("on_turn_in")
+        if on_turn_in:
+            self._grant(player, on_turn_in, quest_id)
 
         if quest.reward_exp:
             scaled_exp = quest.get_scaled_exp_reward(player.level)
@@ -317,6 +357,23 @@ class QuestManager:
             if advanced and quest.is_complete():
                 quest.status = QuestStatus.READY_TO_TURN_IN
 
+    def record_craft(self, recipe_id, count=1):
+        """Called by the profession managers after a successful craft/smelt (recipe id or smelting output id).
+        Advances every ACTIVE quest with a matching CRAFT objective."""
+        for quest in self.quests.values():
+            if quest.status != QuestStatus.ACTIVE:
+                continue
+            advanced = False
+            for objective in quest.objectives:
+                if objective.objective_type != ObjectiveType.CRAFT or objective.target != recipe_id:
+                    continue
+                if objective.is_complete():
+                    continue
+                objective.progress = min(objective.count, objective.progress + count)
+                advanced = True
+            if advanced and quest.is_complete():
+                quest.status = QuestStatus.READY_TO_TURN_IN
+
     def record_zone_entered(self, zone):
         """Called on zone transition (see world/zone_manager.py). Advances
         any ACTIVE quest with a plain (non-position-gated) EXPLORE
@@ -387,13 +444,13 @@ class QuestManager:
             if quest.status not in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN):
                 continue
             has_gather_or_fetch = any(
-                o.objective_type in (ObjectiveType.GATHER, ObjectiveType.FETCH)
+                o.objective_type in (ObjectiveType.GATHER, ObjectiveType.FETCH, ObjectiveType.DELIVER)
                 for o in quest.objectives
             )
             if not has_gather_or_fetch:
                 continue
             for objective in quest.objectives:
-                if objective.objective_type not in (ObjectiveType.GATHER, ObjectiveType.FETCH):
+                if objective.objective_type not in (ObjectiveType.GATHER, ObjectiveType.FETCH, ObjectiveType.DELIVER):
                     continue
                 have = count_loot_items(player, objective.target)
                 objective.progress = min(have, objective.count)
@@ -427,6 +484,11 @@ class QuestManager:
         no active gating quest, isn't blocked by this check; it only
         suppresses drops the player has ALREADY gotten enough of."""
         from entities.loot_item import count_loot_items
+        starter = self.quests_started_by_item(item_id)
+        if starter:
+            # A quest-starter drop: only while that quest is still open to this player and they don't hold it yet.
+            return (any(q.status == QuestStatus.NOT_STARTED and self._is_unlocked(q.quest_id) for q in starter)
+                    and count_loot_items(player, item_id) == 0)
         found_any_objective = False
         for quest in self.quests.values():
             if quest.status not in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN):
@@ -441,6 +503,10 @@ class QuestManager:
                 if have < objective.count:
                     return True
         return not found_any_objective
+
+    def quests_started_by_item(self, item_id):
+        """Quests whose giver is the starter item `item_id` (giver id 'item:<item_id>')."""
+        return [self.quests[q] for q in self.quests_by_giver.get("item:" + item_id, [])]
 
     # ---------- Journal queries ----------
 

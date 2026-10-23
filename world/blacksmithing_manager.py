@@ -143,6 +143,8 @@ class BlacksmithingManager:
             character.add_material(output)
 
         character.gain_profession_skill("blacksmithing", 1)
+        from world.quest_manager import get_quest_manager
+        get_quest_manager().record_craft(recipe_id)
         return output
 
     def _generate_output(self, recipe_id, recipe):

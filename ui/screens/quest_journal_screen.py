@@ -407,6 +407,13 @@ class QuestJournalScreen(BaseScreen):
                 return ""
             more = f"  (+{len(sources) - 3} more)" if len(sources) > 3 else ""
             return "Dropped by: " + "  /  ".join(sources[:3]) + more
+        if objective.objective_type == ObjectiveType.DELIVER:
+            quest = next((q for q in self.quest_mgr.quests.values() if objective in q.objectives), None)
+            from world.quest_locator import npc_place
+            where = npc_place(quest.collector_npc_id) if quest else ""
+            return f"Deliver to: {where}" if where else ""
+        if objective.objective_type == ObjectiveType.CRAFT:
+            return "Craft it at a Forge (Professions, K)."
         if objective.objective_type == ObjectiveType.EXPLORE and objective.target:
             return f"Go to: {str(objective.target).replace('_', ' ').title()}"
         return ""
@@ -453,7 +460,12 @@ class QuestJournalScreen(BaseScreen):
 
         if quest.status == QuestStatus.READY_TO_TURN_IN:
             y += 40
-            self.renderer.draw_text(screen, "Ready to turn in - return to the quest giver.",
+            collector = ""
+            if quest.collector_npc_id != quest.giver_npc_id:
+                from world.quest_locator import npc_place
+                collector = npc_place(quest.collector_npc_id)
+            self.renderer.draw_text(screen, f"Ready to turn in - hand in to {collector}." if collector
+                                    else "Ready to turn in - return to the quest giver.",
                                     (20, y), color=COLOR_GOLD)
 
         self._render_rewards(screen, quest)

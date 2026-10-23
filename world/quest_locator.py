@@ -154,3 +154,22 @@ def locate_item(item_id, zones=None):
         places = locate(creature, zones)
         out.append(f"{creature} - {places[0]}" if places else creature)
     return out
+
+
+def npc_place(npc_id):
+    """'Name (Zone)' for an ambient or vendor NPC id, or '' when unknown - used by the deliver / hand-in hints."""
+    try:
+        from world.ambient_npc_manager import get_ambient_npc_manager
+        npc = get_ambient_npc_manager().npcs.get(npc_id)
+        if npc is not None:
+            return f"{npc.name} ({str(npc.zone).replace('_', ' ').title()})"
+    except Exception:
+        pass
+    try:
+        from world.vendor_manager import get_vendor_manager
+        v = get_vendor_manager().get_vendor(npc_id)
+        if v is not None:
+            return f"{v.name} ({str(v.zone).replace('_', ' ').title()})"
+    except Exception:
+        pass
+    return ""

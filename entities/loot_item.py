@@ -47,7 +47,7 @@ class LootItem:
     }
 
     def __init__(self, item_id, name, category="quest", description="", icon_id=None,
-                 stack_limit=20, quest_id=None, sell_price=0, rarity=None):
+                 stack_limit=20, quest_id=None, sell_price=0, rarity=None, starts_quest_id=None):
         if category not in ("quest", "material", "trash"):
             raise ValueError(f"LootItem category must be quest/material/trash, got {category!r}")
         self.item_id = item_id
@@ -74,6 +74,9 @@ class LootItem:
         #: for materials/trash and for generic quest collectibles not
         #: tied to a specific quest.
         self.quest_id = quest_id
+        #: A quest-STARTER item (a monster drop that begins a quest): clicking it in the bag opens that quest's
+        #: offer dialog (giver id "item:<item_id>").  None for ordinary items.
+        self.starts_quest_id = starts_quest_id
         self.quantity = 1
 
     def get_rarity_color(self):
@@ -110,6 +113,7 @@ class LootItem:
             "quest_id": self.quest_id,
             "sell_price": self.sell_price,
             "rarity": self.rarity,
+            "starts_quest_id": self.starts_quest_id,
             "quantity": self.quantity,
         }
 
@@ -125,6 +129,7 @@ class LootItem:
             quest_id=data.get("quest_id"),
             sell_price=data.get("sell_price", 0),
             rarity=data.get("rarity"),
+            starts_quest_id=data.get("starts_quest_id"),
         )
         obj.quantity = data.get("quantity", 1)
         return obj
@@ -167,7 +172,7 @@ def remove_loot_items(character, item_id, amount):
 
 
 def add_loot_item(character, item_id, name, category="quest", amount=1, description="",
-                   icon_id=None, quest_id=None, sell_price=0, rarity=None):
+                   icon_id=None, quest_id=None, sell_price=0, rarity=None, starts_quest_id=None):
     """Add `amount` of a loot item to a character's inventory, stacking
     onto an existing stack for the same item_id when there's room rather
     than always creating a new bag slot. Returns True if all of it fit,
@@ -193,7 +198,8 @@ def add_loot_item(character, item_id, name, category="quest", amount=1, descript
         if len(character.inventory) >= character.inventory_capacity:
             return False
         new_stack = LootItem(item_id, name, category=category, description=description,
-                              icon_id=icon_id, quest_id=quest_id, sell_price=sell_price, rarity=rarity)
+                              icon_id=icon_id, quest_id=quest_id, sell_price=sell_price, rarity=rarity,
+                              starts_quest_id=starts_quest_id)
         take = min(new_stack.stack_limit, remaining)
         new_stack.quantity = take
         character.inventory.append(new_stack)

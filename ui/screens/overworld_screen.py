@@ -689,6 +689,7 @@ class OverworldScreen(BaseScreen):
         from world.quest_manager import get_quest_manager
         from world.travel_manager import services_for_npc
         quest_mgr = get_quest_manager()
+        quest_mgr.refresh_gather_progress(player)       # FETCH / DELIVER quests flip to "?" as soon as the bag is full enough
         quest_indicators = {}
         for npc in list(vendors_in_zone) + list(ambient_npcs_in_zone):
             npc_id = getattr(npc, "vendor_id", None) or getattr(npc, "npc_id", None)
