@@ -60,6 +60,8 @@ def build_scores(P, M):
     deck = F["deck"].astype(np.float32)
     plank = getattr(M, "DECK_MAT", "pl_elf")
     on_deck = smoothstep(-0.30, 0.10, deck)
+    if not getattr(M, "DECK_PAINT", True):          # decks drawn as sprites (Astranaar's footbridges): leave the water painted
+        return S
     for k in list(S):
         if k.startswith(("cliff_", "canopy")) or k in ("pl_horde", "pl_elf", "pl_pier"):
             continue

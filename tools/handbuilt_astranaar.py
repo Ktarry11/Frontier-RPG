@@ -48,6 +48,7 @@ CLEARINGS = [(55, 52, 34, 28), (55, 26, 22, 13), (86, 50, 13, 15), (28, 30, 13, 
 DECKS = [(24.0, 33.0, 54.7, 58.9),           # west footbridge over the brook
          (30.0, 38.5, 28.8, 33.2)]           # north footbridge
 CLEARING_GRASS = True
+DECK_PAINT = False                           # the footbridges are sprites (ash_footbridge); the brook stays painted under them
 
 BLUEBELL_PATCHES = [(92, 30, 6, 4), (70, 78, 5, 3), (20, 62, 5, 3)]
 
@@ -76,6 +77,8 @@ def dress(L):
     for (x, y) in [(51, 77), (59, 77), (51, 70), (59, 70), (51, 64), (59, 64)]:
         V("ash_moon_lantern", x, y, 5)
     A("ash_signpost", 60, 80, 5)
+    V("ash_footbridge", 28, 58, 5)               # west footbridge over the brook
+    V("ash_footbridge", 34, 33, 5)               # north footbridge
     # ---- the plaza: moon pool, Elune, benches of light
     A("ash_elune_statue", 46, 47, 8)
     A("ash_elune_statue", 64, 47, 8)
