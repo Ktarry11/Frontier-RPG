@@ -126,14 +126,14 @@ def dress(zone, L):
     P("skull_pile", 34, 45, 2)
     # ---- lower nests (east alcove)
     nx, ny = R["nest_a"][:2]
-    P("br_raptor_nest", nx + 1, ny + 1, 3, where=BP)
+    P("nb_harpy_eyrie", nx - 1, ny + 1, 4, where=BP)
     P("den_leg_bones", nx - 3, ny + 2, 2)
     P("den_eggshell_pile", nx + 4, ny - 1, 2)
     # ---- the gorge: a nest on a shelf, a stalagmite spur
-    P("br_raptor_nest", 22, 40, 3, where=BP)
-    P("den_stalagmite_pair", 25, 35, 4, solid="core")
+    P("nb_harpy_eyrie", 23, 39, 4, where=BP)
+    P("nb_guano_needle", 25, 36, 7, where=BP, solid="core")
     # ---- west arm + feather ledge
-    P("br_raptor_nest", 11, 22, 3, where=BP)
+    P("nb_feather_charms", 11, 21, 5, where=BP)
     P("den_leg_bones", 8, 27, 2)
     P("skull_pile", 5, 23, 2)
     # ---- the braid: bones where prey was dropped
@@ -141,18 +141,17 @@ def dress(zone, L):
     P("den_stalagmites", 14, 18, 4, solid="core")
     # ---- Skreeva's perch: a windcaller's totem
     sx, sy = R["ledge"][:2]
-    P("vot_totem_pole", sx - 4, sy - 2, 6, solid="core", avoid=1)
-    P("br_raptor_nest", sx + 3, sy + 2, 3, where=BP)
+    P("nb_harpy_totem", sx - 5, sy - 2, 8, where=BP, solid="core", avoid=1)
+    P("nb_harpy_eyrie", sx + 3, sy + 2, 4, where=BP)
     P("den_leg_bones", sx - 2, sy + 3, 2)
     # ---- north bend
-    P("den_stalagmite_pair", 34, 13, 4, solid="core")
+    P("nb_guano_ledge", 34, 13, 4, where=BP)
     P("den_rock_rubble", 40, 14, 2)
     # ---- the roost: nest mounds round the matriarch's perch
     rx_, ry_ = R["roost"][:2]
     P("den_nest_mound", rx_, ry_ - 3, 6, solid="core", avoid=1)
-    P("br_raptor_nest", rx_ - 10, ry_ + 2, 3, where=BP)
-    P("br_raptor_nest", rx_ + 10, ry_ + 3, 3, where=BP)
-    P("br_raptor_nest", rx_ - 5, ry_ + 4, 3, where=BP)
+    P("nb_harpy_eyrie", rx_ - 12, ry_ + 2, 4, where=BP)
+    P("nb_harpy_eyrie", rx_ + 10, ry_ + 3, 4, where=BP)
     P("vot_beast_ribcage", rx_ + 5, ry_ + 4, 3)
     P("skull_pile", rx_ - 13, ry_ - 2, 2)
     P("den_eggshell_pile", rx_ + 12, ry_ - 1, 2)

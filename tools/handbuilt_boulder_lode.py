@@ -22,6 +22,7 @@ from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, DP, register_baked  # noqa: F401
 from tools.handbuilt_echo_caves import cavern, tube
 
+GP = "assets/tiles/goblin_shared/props/"          # gob_* Venture Co. props
 BAKED = "assets/tiles/boulder_lode_mine/baked"
 W, H = 100, 80
 PORTAL = (50, 76)
@@ -135,18 +136,20 @@ def dress(zone, L):
     # ---- adit mouth: braziers frame the door, one cart left where the shift stopped
     P("rf_brazier", 44, 73, 3)
     P("rf_brazier", 56, 73, 3)
-    P("rf_ore_cart", 41, 71, 3)
+    P("gob_ore_cart", 41, 71, 4, where=GP)
     P("vot_crate_stack", 59, 71, 3)
+    P("gob_mine_frame", 50, 73, 8, where=GP, solid=False)          # the adit's timber frame over the door
     # ---- lower gallery: the tool-and-haulage hall
-    P("rf_ore_cart", 20, 66, 3)
+    P("gob_ore_cart", 20, 66, 4, where=GP)
     P("rf_tool_rack", 30, 69, 3)
     P("rf_supply_crates", 66, 69, 3)
-    P("rf_ore_cart", 80, 67, 3)
+    P("gob_rail_stack", 33, 63, 3, where=GP, solid=False)
+    P("gob_ore_cart", 80, 67, 4, where=GP)
     P("den_rock_rubble", 56, 63, 2)
     P("den_torch", 14, 63, 4)
     P("den_torch", 86, 64, 4)
     # ---- haulage ramp east: a spilled cart
-    P("rf_ore_cart", 91, 57, 3)
+    P("gob_ore_cart", 91, 57, 4, where=GP)
     # ---- timbered gallery: crew quarters
     P("rf_supply_crates", 78, 52, 3)
     P("vot_crate_stack", 64, 52, 3)
@@ -161,11 +164,13 @@ def dress(zone, L):
     P("rf_tool_rack", cx - 4, cy + 1, 3)
     P("den_rock_rubble", cx - 5, cy - 1, 2)
     P("den_backpack", cx + 2, cy - 1, 2)
+    P("gob_claim_marker", cx, cy + 3, 6, where=GP)
+    P("gob_dynamite_crate", cx + 6, cy + 1, 3, where=GP)
     # ---- ramp west
-    P("rf_ore_cart", 10, 45, 3)
+    P("gob_ore_cart", 10, 45, 4, where=GP)
     # ---- upper gallery: the face being worked
     P("rf_tool_rack", 20, 36, 3)
-    P("rf_ore_cart", 50, 36, 3)
+    P("gob_ore_cart", 50, 36, 4, where=GP)
     P("rf_supply_crates", 82, 36, 3)
     P("rf_brazier", 36, 33, 3)
     P("rf_brazier", 72, 33, 3)
@@ -174,8 +179,9 @@ def dress(zone, L):
     qx, qy = R["collapse"][:2]
     P("den_rock_rubble", qx - 5, qy, 3, solid="core")
     P("den_rock_rubble", qx + 3, qy + 1, 3, solid="core")
-    P("rf_ore_cart", qx - 1, qy + 2, 3)
+    P("gob_ore_cart", qx - 1, qy + 2, 4, where=GP)
     P("den_stalagmite_pair", qx + 6, qy, 4, solid="core")
+    P("gob_ore_pile", qx - 8, qy, 3, where=GP)
     # ---- ramp east to the vein
     P("rf_brazier", 80, 18, 3)
     # ---- crystal vein chamber: the foreman's workshop round the vein
@@ -185,7 +191,7 @@ def dress(zone, L):
     P("rf_void_crystals", vx, vy - 6, 6, solid="core", avoid=1)
     P("rf_brazier", vx - 5, vy + 5, 3)
     P("rf_brazier", vx + 6, vy + 5, 3)
-    P("rf_ore_cart", vx - 12, vy + 4, 3)
+    P("gob_ore_cart", vx - 12, vy + 4, 4, where=GP)
     P("rf_supply_crates", vx + 13, vy + 3, 3)
     P("rf_tool_rack", vx + 3, vy + 6, 3)
     return zone, L
