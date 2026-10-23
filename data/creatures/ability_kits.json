@@ -14846,6 +14846,270 @@
         }
       }
     ],
+    "farthing_hound": [
+      {
+        "name": "Rabid Bite",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Feral Lunge",
+        "kind": "damage",
+        "amount": 31,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "risen_farmhand": [
+      {
+        "name": "Pitchfork Jab",
+        "kind": "damage",
+        "amount": 25,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 8,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "old_hob": [
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 33,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rending Bite",
+        "kind": "dot",
+        "amount": 12,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Hob's Howl",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {
+          "attack_power": 18
+        }
+      }
+    ],
+    "dead_field_harrower": [
+      {
+        "name": "Rusty Scythe",
+        "kind": "damage",
+        "amount": 27,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Harrowing Gaze",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -14
+        }
+      }
+    ],
+    "blighted_crow": [
+      {
+        "name": "Carrion Peck",
+        "kind": "damage",
+        "amount": 22,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pestilent Cry",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "gaunt_scarecrow_king": [
+      {
+        "name": "Straw-King's Blow",
+        "kind": "damage",
+        "amount": 35,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crow Swarm",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Hollow Crown",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -18
+        }
+      }
+    ],
+    "orchard_shambler": [
+      {
+        "name": "Rotting Fist",
+        "kind": "damage",
+        "amount": 28,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Windfall Rot",
+        "kind": "dot",
+        "amount": 9,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "windfall_wasp": [
+      {
+        "name": "Stinger",
+        "kind": "damage",
+        "amount": 24,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Fevered Sting",
+        "kind": "dot",
+        "amount": 8,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "orchardkeeper_gnarl": [
+      {
+        "name": "Root Slam",
+        "kind": "damage",
+        "amount": 37,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thorn Barrage",
+        "kind": "damage",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Bark Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {
+          "armor": 40
+        }
+      }
+    ],
+    "venomfang_skitterer": [
+      {
+        "name": "Venomfang Bite",
+        "kind": "damage",
+        "amount": 29,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Venom Spit",
+        "kind": "dot",
+        "amount": 10,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "longleg_the_stalker": [
+      {
+        "name": "Stalker's Lunge",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Paralytic Venom",
+        "kind": "dot",
+        "amount": 14,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Web Snare",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",

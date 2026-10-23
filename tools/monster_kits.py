@@ -3566,6 +3566,62 @@ PLAGUE_DEPTHS_KITS = {
     ],
 }
 
+SILVERPINE_NORTH_KITS = {
+    # ================= SILVERPINE NORTH rebuild (2026-10-23): L12-17 =============================================
+    # Olsen's Farthing (12-14)
+    "farthing_hound": [
+        ("Rabid Bite", "damage", 24, 0, 0, "physical", {}),
+        ("Feral Lunge", "damage", 31, 3, 0, "physical", {}),
+    ],
+    "risen_farmhand": [
+        ("Pitchfork Jab", "damage", 25, 0, 0, "physical", {}),
+        ("Grave Rot", "dot", 8, 4, 0, "nature", {"duration": 4}),
+    ],
+    "old_hob": [                      # rare hound, Olsen's Farthing (L14)
+        ("Maul", "damage", 33, 0, 0, "physical", {}),
+        ("Rending Bite", "dot", 12, 3, 0, "physical", {"duration": 4}),
+        ("Hob's Howl", "buff", 0, 5, 0, "physical", {"duration": 3, "self_only": True, "stat_mods": {"attack_power": 18}}),
+    ],
+    # The Dead Field (13-15)
+    "dead_field_harrower": [
+        ("Rusty Scythe", "damage", 27, 0, 0, "physical", {}),
+        ("Harrowing Gaze", "debuff", 0, 4, 0, "shadow", {"duration": 3, "stat_mods": {"attack_power": -14}}),
+    ],
+    "blighted_crow": [
+        ("Carrion Peck", "damage", 22, 0, 0, "physical", {}),
+        ("Pestilent Cry", "debuff", 0, 4, 0, "nature", {"duration": 3, "stat_mods": {"agility": -14}}),
+    ],
+    "gaunt_scarecrow_king": [         # rare, the Dead Field (L15)
+        ("Straw-King's Blow", "damage", 35, 0, 0, "physical", {}),
+        ("Crow Swarm", "damage", 26, 3, 0, "physical", {"is_aoe": True}),
+        ("Hollow Crown", "debuff", 0, 5, 0, "shadow", {"duration": 3, "stat_mods": {"armor": -18}}),
+    ],
+    # Malden's Orchard (14-16)
+    "orchard_shambler": [
+        ("Rotting Fist", "damage", 28, 0, 0, "physical", {}),
+        ("Windfall Rot", "dot", 9, 4, 0, "nature", {"duration": 4}),
+    ],
+    "windfall_wasp": [
+        ("Stinger", "damage", 24, 0, 0, "nature", {}),
+        ("Fevered Sting", "dot", 8, 3, 0, "nature", {"duration": 4}),
+    ],
+    "orchardkeeper_gnarl": [          # rare treant, Malden's Orchard (L16)
+        ("Root Slam", "damage", 37, 0, 0, "physical", {}),
+        ("Thorn Barrage", "damage", 30, 3, 0, "nature", {"is_aoe": True}),
+        ("Bark Hide", "buff", 0, 6, 0, "nature", {"duration": 4, "self_only": True, "stat_mods": {"armor": 40}}),
+    ],
+    # The Skittering Dark (15-17)
+    "venomfang_skitterer": [
+        ("Venomfang Bite", "damage", 29, 0, 0, "physical", {}),
+        ("Venom Spit", "dot", 10, 3, 0, "nature", {"duration": 4}),
+    ],
+    "longleg_the_stalker": [          # rare spider, the Skittering Dark (L17)
+        ("Stalker's Lunge", "damage", 38, 0, 0, "physical", {}),
+        ("Paralytic Venom", "dot", 14, 3, 0, "nature", {"duration": 4}),
+        ("Web Snare", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+}
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3575,7 +3631,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

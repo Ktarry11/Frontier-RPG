@@ -273,23 +273,26 @@ class PortalManager:
             "Blackfathom Deeps": {
                 (120, 205): ("Ashenvale West", 30, 20),
             },
+            # Hand-built Silverpine North (tools/handbuilt_silverpine_north.py): Tirisfal border at the top, the Sepulcher's gate on the
+            # sea cliffs (west), the spider cave in the east wall, the trunk road out to Silverpine South at the bottom.
             "Silverpine North": {
-                (100, 4): ("Eastern Tirisfal", 16, 132),
-                (100, 185): ("Silverpine South", 100, 10),
-                (170, 100): ("Widow's Lair", 70, 108),
+                (80, 5): ("Eastern Tirisfal", 16, 134),            # arrive (16,132)
+                (32, 98): ("The Sepulcher", 35, 55),               # arrive (35,53)
+                (150, 84): ("Widow's Lair", 70, 108),               # arrive (70,106)
+                (80, 156): ("Silverpine South", 100, 14),
             },
             "Widow's Lair": {
-                (70, 108): ("Silverpine North", 170, 98),
+                (70, 108): ("Silverpine North", 150, 84),          # cave exit: +3 -> arrive (150,85), south of the mouth
             },
             "Silverpine South": {
-                (100, 10): ("Silverpine North", 100, 185),
+                (100, 10): ("Silverpine North", 80, 154),          # arrive (80,152)
                 (160, 80): ("Ambermill Tower", 75, 128),
                 (100, 155): ("Shadowfang Keep", 85, 152),
                 (182, 138): ("Fenris Isle", 80, 125),  # boat, east coast dock
                 (45, 90): ("The Sepulcher", 35, 55),
             },
             "The Sepulcher": {
-                (35, 55): ("Silverpine South", 45, 90),
+                (35, 55): ("Silverpine North", 32, 102),           # arrive (32,100), south of the gate
             },
             "Ambermill Tower": {
                 (75, 128): ("Silverpine South", 160, 78),
@@ -335,7 +338,7 @@ class PortalManager:
                 (6, 86): ("Brill", 87, 44),
                 (21, 97): ("Undercity Zeppelin Tower", 32, 57),
                 (10, 112): ("Undercity", 100, 17),      # arrive (100,15) at the foot of the Long Descent
-                (16, 136): ("Silverpine North", 100, 8),
+                (16, 136): ("Silverpine North", 80, 11),             # arrive (80,9)
                 (52, 112): ("Scourge Cave", 45, 68),
             },
             "Scourge Cave": {

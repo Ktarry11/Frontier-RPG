@@ -1,0 +1,403 @@
+{
+  "_notes": "Silverpine rebuild boss / named-rare loot (2026-10-23). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "Old Hob": [
+    {
+      "name": "Hob's Gnawed Collar",
+      "slot": "neck",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Spiked leather, chewed through at the clasp. He got out. He did not stay out.",
+      "primary_stats": {
+        "strength": 1,
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Farthing Hound-Hide Jerkin",
+      "slot": "chest",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Cured from a dog that never learned to fear a pitchfork.",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "attack_power": 6.2
+      },
+      "armor_type": "leather",
+      "armor_value": 43
+    },
+    {
+      "name": "Boneyard Dog-Tooth Dirk",
+      "slot": "main_hand",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "A canine fang the length of a hand, set in a farmhand's knife handle.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 49,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Mud-Caked Hunter's Boots",
+      "slot": "feet",
+      "item_level": 17,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Silent on wet earth. Loud, somehow, in every other way.",
+      "primary_stats": {
+        "agility": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 21
+    }
+  ],
+  "Gaunt the Scarecrow-King": [
+    {
+      "name": "Straw-King's Hollow Crown",
+      "slot": "head",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Woven from stalks of the Dead Field. It whispers in the voice of the harvest.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 17
+    },
+    {
+      "name": "Gaunt's Threshing Flail",
+      "slot": "main_hand",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Two sticks, one chain, and a very long grudge against anything that grows.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "armor": 37.2,
+        "parry_rating": 0.7
+      },
+      "weapon_damage_min": 51,
+      "weapon_damage_max": 69,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Crow-Feather Cloak",
+      "slot": "back",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Black feathers, sewn in rows. Some of the rows are still muttering.",
+      "primary_stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 18
+    },
+    {
+      "name": "Burlap Belt of Binding",
+      "slot": "waist",
+      "item_level": 18,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Rough-spun sacking, knotted tight. It remembers what it was tied around.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 36
+    }
+  ],
+  "Orchardkeeper Gnarl": [
+    {
+      "name": "Gnarl's Windfall Staff",
+      "slot": "main_hand",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Apple-wood, split by lightning, healed over with something that is not bark.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 12.6,
+        "crit_chance_spell": 0.6
+      },
+      "weapon_damage_min": 21,
+      "weapon_damage_max": 29,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Rotapple-Studded Bracers",
+      "slot": "wrist",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Dried fruit and bark, bound with root. They smell sweeter than they should.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 3.3,
+        "mp5": 0.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 12
+    },
+    {
+      "name": "Orchard-Warden's Heartwood Shield",
+      "slot": "off_hand",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A slice from the old tree's heart. It has grown a little since you picked it up.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "armor_value": 38,
+      "block_value": 48
+    },
+    {
+      "name": "Malden's Last Harvest Ring",
+      "slot": "ring",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A band of polished root. Planted, it would probably grow.",
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Longleg the Stalker": [
+    {
+      "name": "Longleg's Venom-Barbed Spear",
+      "slot": "main_hand",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A leg-spine as long as a man, hollow, and still weeping.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.7
+      },
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Skitterer's Silk Leggings",
+      "slot": "legs",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Woven in the dark, soft as breath, and sticky in ways that do not wash out.",
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {
+        "healing_power": 3.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 25
+    },
+    {
+      "name": "Stalker's Carapace Pauldrons",
+      "slot": "shoulder",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Chitin plates laced with web. Each one is a different shade of wrong.",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "attack_power": 5.5
+      },
+      "armor_type": "leather",
+      "armor_value": 38
+    },
+    {
+      "name": "Dark-Eyed Fang Pendant",
+      "slot": "neck",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Eight small eyes, polished, set in a single fang. It does not like being worn.",
+      "primary_stats": {
+        "strength": 2,
+        "agility": 2
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Forsaken Watchman": [
+    {
+      "name": "Watchman's Rusted Lance",
+      "slot": "main_hand",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Still sharp at the tip. The rest of it has given up.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "defense_rating": 0.8
+      },
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Raven Hill Warden's Plate",
+      "slot": "chest",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Rust-red plate, dented from holding a gate that was never going to be attacked.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.4,
+        "dodge_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 116
+    },
+    {
+      "name": "Cemetery Keeper's Gauntlets",
+      "slot": "hands",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Gloves for digging and for not digging. They are good at both.",
+      "primary_stats": {
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "dodge_rating": 0.2,
+        "parry_rating": 0.2
+      },
+      "armor_type": "mail",
+      "armor_value": 38
+    },
+    {
+      "name": "Sentinel's Grave-Ward Signet",
+      "slot": "ring",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "An old guard's seal. It keeps the quiet dead quiet.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "parry_rating": 0.2,
+        "block_rating": 0.3,
+        "dodge_rating": 0.2
+      }
+    }
+  ],
+  "Muckmaw": [
+    {
+      "name": "Muckmaw's Gnashing Jaw",
+      "slot": "main_hand",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "An entire crocolisk jaw on a bone haft. It still snaps.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 11,
+        "agility": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Mire-Slick Hide Vest",
+      "slot": "chest",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Black, scaled, and never dry. It repels water and sympathy equally.",
+      "primary_stats": {
+        "stamina": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 48
+    },
+    {
+      "name": "Shadowspring Algae Bracers",
+      "slot": "wrist",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Green, slimy, and curiously healing. Do not ask where they were cut.",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 2
+      },
+      "secondary_stats": {
+        "healing_power": 1.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 12
+    },
+    {
+      "name": "Swamp-Tooth Totem Charm",
+      "slot": "neck",
+      "item_level": 19,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A tooth the size of a thumb, strung on mud-rope.",
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {}
+    }
+  ]
+}

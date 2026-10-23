@@ -1599,41 +1599,67 @@
     },
     "Silverpine North": {
       "open_zone": {
-        "name": "The Shadowed Woods",
+        "name": "The Silverpine Woods",
         "creatures": {
+          "Worg Prowler": 3,
           "Silverpine Spider": 2,
-          "Corrupted Treant": 1,
-          "Feral Ghoul": 1,
-          "Worg Prowler": 1,
-          "Fen Creeper": 0
+          "Feral Ghoul": 2,
+          "Corrupted Treant": 1
         }
       },
       "subzones": {
+        "Olsen's Farthing": {
+          "name": "Olsen's Farthing",
+          "creatures": {
+            "Farthing Hound": 4,
+            "Risen Farmhand": 3,
+            "Worg Prowler": 1,
+            "Old Hob": 0
+          }
+        },
         "Raven Hill Cemetery": {
           "name": "Raven Hill Cemetery",
           "creatures": {
-            "Risen Husk": 2,
-            "Grave Moss Creeper": 1,
-            "Skeletal Groundskeeper": 1,
+            "Risen Husk": 3,
+            "Grave Moss Creeper": 2,
+            "Skeletal Groundskeeper": 2,
             "The Forsaken Watchman": 0
+          }
+        },
+        "The Dead Field": {
+          "name": "The Dead Field",
+          "creatures": {
+            "Dead Field Harrower": 3,
+            "Blighted Crow": 3,
+            "Risen Husk": 1,
+            "Gaunt the Scarecrow-King": 0
+          }
+        },
+        "Malden's Orchard": {
+          "name": "Malden's Orchard",
+          "creatures": {
+            "Orchard Shambler": 3,
+            "Windfall Wasp": 3,
+            "Corrupted Treant": 2,
+            "Orchardkeeper Gnarl": 0
           }
         },
         "Shadowspring Pools": {
           "name": "Shadowspring Pools",
           "creatures": {
-            "Bog Beast": 2,
-            "Murky Crocolisk": 1,
-            "Rot Hide Slitherer": 1,
+            "Bog Beast": 3,
+            "Murky Crocolisk": 2,
+            "Rot Hide Slitherer": 2,
             "Muckmaw": 0
           }
         },
-        "Pyrewood Village": {
-          "name": "Pyrewood Village",
+        "The Skittering Dark": {
+          "name": "The Skittering Dark",
           "creatures": {
-            "Worgen Ambusher": 2,
-            "Feral Worgen": 1,
-            "Pyrewood Cultist": 1,
-            "Lord Godfrey's Remnant": 0
+            "Venomfang Skitterer": 4,
+            "Giant Spider": 2,
+            "Silverpine Spider": 2,
+            "Longleg the Stalker": 0
           }
         }
       },
@@ -1649,6 +1675,52 @@
             "Matriarch Velaxis": 0
           }
         }
+      },
+      "level_overrides": {
+        "Worg Prowler": [
+          11,
+          14
+        ],
+        "Feral Ghoul": [
+          11,
+          14
+        ],
+        "Silverpine Spider": [
+          11,
+          14
+        ],
+        "Corrupted Treant": [
+          12,
+          15
+        ],
+        "Risen Husk": [
+          12,
+          15
+        ],
+        "Grave Moss Creeper": [
+          12,
+          15
+        ],
+        "Skeletal Groundskeeper": [
+          12,
+          15
+        ],
+        "Bog Beast": [
+          13,
+          16
+        ],
+        "Murky Crocolisk": [
+          13,
+          16
+        ],
+        "Rot Hide Slitherer": [
+          13,
+          16
+        ],
+        "Giant Spider": [
+          15,
+          17
+        ]
       }
     },
     "Silverpine South": {
