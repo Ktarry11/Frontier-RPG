@@ -27,6 +27,29 @@ a quest giver, used at a future crafting station, or sold to a vendor.
 """
 
 
+_QUEST_ICON_TABLE = None
+
+
+def _default_icon_id(item_id, category):
+    """Icon for an item that was created without one: quest items via data/items/quest_item_icons.json, vendor
+    trash via its vt_<family>_<entry>[_<element>]_<tier> id.  None when there is no art for it."""
+    global _QUEST_ICON_TABLE
+    try:
+        if category == "quest":
+            if _QUEST_ICON_TABLE is None:
+                import json
+                from pathlib import Path
+                path = Path(__file__).resolve().parent.parent / "data" / "items" / "quest_item_icons.json"
+                _QUEST_ICON_TABLE = json.loads(path.read_text()).get("icons", {})
+            return _QUEST_ICON_TABLE.get(item_id)
+        if category == "trash":
+            from entities.vendor_trash import icon_for_item_id
+            return icon_for_item_id(item_id)
+    except Exception:
+        return None
+    return None
+
+
 class LootItem:
     """A stackable, non-equippable item - quest turn-in objectives,
     crafting materials, or vendor trash, distinguished by `category`."""
@@ -54,7 +77,8 @@ class LootItem:
         self.name = name
         self.category = category
         self.description = description
-        self.icon_id = icon_id
+        # Items built without an explicit icon (older saves, quest grants, hand-written drops) look theirs up by id.
+        self.icon_id = icon_id or _default_icon_id(item_id, category)
         self.stack_limit = stack_limit
         #: Quest items are never sellable (Kyle's explicit ruling) -
         #: materials and trash both are, since selling filler/materials

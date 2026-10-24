@@ -523,6 +523,12 @@ class IconRenderer:
     #: gear rendering as a bare rarity-colored box forever.
     GEAR_ICON_DIR = Path("assets/icons/gear")
 
+    #: Vendor trash (vt_*) and general quest item (qi_*) art, sliced from the two 48-icon sheets by
+    #: tools/slice_icon_sheet.py.  Item ids resolve to these via entities/vendor_trash.py and
+    #: data/items/quest_item_icons.json.
+    VENDOR_TRASH_ICON_DIR = Path("assets/icons/vendor_trash")
+    QUEST_ITEM_ICON_DIR = Path("assets/icons/quest_items")
+
     def __init__(self, icon_registry: IconRegistry, cache_dir: Path = Path("assets/icons")):
         self.registry = icon_registry
         self.cache_dir = cache_dir
@@ -554,7 +560,8 @@ class IconRenderer:
         # defaults icon_id to ability_id when the data doesn't specify one
         # explicitly). Check both directories - ability_id and talent_id
         # never collide, so trying abilities first then talents is safe.
-        for icon_dir in (self.ABILITY_ICON_DIR, self.TALENT_ICON_DIR, self.BAG_ICON_DIR, self.GEAR_ICON_DIR):
+        for icon_dir in (self.ABILITY_ICON_DIR, self.TALENT_ICON_DIR, self.BAG_ICON_DIR, self.GEAR_ICON_DIR,
+                         self.VENDOR_TRASH_ICON_DIR, self.QUEST_ITEM_ICON_DIR):
             real_path = icon_dir / f"{icon_id}.png"
             if real_path.exists():
                 try:

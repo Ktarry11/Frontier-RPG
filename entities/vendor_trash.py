@@ -136,10 +136,30 @@ def make_item(family, entry, level, element=None):
         name = f"{cfg['elements'][element]} {name}"
         item_id = f"vt_{family}_{entry['id']}_{element}_{ti}"
         icon = f"{icon}_{element}"
-    name = f"{tier['adjective']} {name}"
+    if not name.startswith(tier["adjective"]):      # "Crude Idol" at the Crude tier stays "Crude Idol"
+        name = f"{tier['adjective']} {name}"
     icon_id = icon if icon and os.path.exists(os.path.join(_ICON_DIR, f"{icon}.png")) else None
     return {"item_id": item_id, "name": name, "price": price, "icon_id": icon_id,
             "description": "Vendor trash. Worth a few coppers to any merchant."}
+
+
+def icon_for_item_id(item_id):
+    """Icon id for a trash item id of the form vt_<family>_<entry>[_<element>]_<tier> (None if unknown / no art)."""
+    parts = str(item_id).split("_")
+    if len(parts) < 4 or parts[0] != "vt":
+        return None
+    cfg = _config()
+    entries = cfg["families"].get(parts[1], [])
+    for entry in entries:
+        if entry["id"] != parts[2]:
+            continue
+        icon = entry.get("icon")
+        if entry.get("element") and len(parts) >= 5:
+            icon = f"{icon}_{parts[3]}"
+        if icon and os.path.exists(os.path.join(_ICON_DIR, f"{icon}.png")):
+            return icon
+        return None
+    return None
 
 
 def _pick(family, level, name):
