@@ -383,6 +383,7 @@ MATERIAL_TYPE_FOLDERS = {
     "fiber": "fibers",
     "pages": "pages",
     "cloth": "cloth",
+    "leather": "leather",  # 40-tier ladder art staged (Skinning not built yet)
     "bolt": "bolts",
 }
 

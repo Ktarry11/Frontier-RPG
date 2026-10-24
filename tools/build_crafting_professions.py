@@ -79,11 +79,11 @@ for mid, (name, price, desc) in PAGES.items():
                           icon_id=mid, description=desc, sell_price=price, skill_range=None)
 
 # cloth (dropped by humanoids) and bolts (tailoring)
-MATERIALS["cloth_linen"] = dict(name="Linen Cloth", material_type="cloth", profession="tailoring", tier="early", icon_id="linen_cloth",
+MATERIALS["cloth_linen"] = dict(name="Linen Cloth", material_type="cloth", profession="tailoring", tier="early", icon_id="cloth_linen",
                                 description="Coarse cloth cut from the clothes of fallen humanoids.", sell_price=4, skill_range=None)
-MATERIALS["cloth_wool"] = dict(name="Wool Cloth", material_type="cloth", profession="tailoring", tier="mid", icon_id="wool_cloth",
+MATERIALS["cloth_wool"] = dict(name="Wool Cloth", material_type="cloth", profession="tailoring", tier="mid", icon_id="cloth_wool",
                                description="Warm, heavy cloth. It smells faintly of sheep.", sell_price=9, skill_range=None)
-MATERIALS["cloth_silk"] = dict(name="Silk Cloth", material_type="cloth", profession="tailoring", tier="mid", icon_id="silk_cloth",
+MATERIALS["cloth_silk"] = dict(name="Silk Cloth", material_type="cloth", profession="tailoring", tier="mid", icon_id="cloth_silk",
                                description="Fine, smooth cloth with a faint shimmer.", sell_price=16, skill_range=None)
 MATERIALS["bolt_linen"] = dict(name="Bolt of Linen Cloth", material_type="bolt", profession="tailoring", tier="early", icon_id="bolt_linen",
                                description="Linen cloth woven into a tight bolt.", sell_price=9, skill_range=[5, 20, 35, 50])
