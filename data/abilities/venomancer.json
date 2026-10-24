@@ -284,6 +284,48 @@
           "level_req": 10,
           "cost": 30,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 35,
+          "effect_value": 118
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 41,
+          "effect_value": 136
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 46,
+          "effect_value": 155
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 52,
+          "effect_value": 173
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 59,
+          "effect_value": 197
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 66,
+          "effect_value": 221
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 74,
+          "effect_value": 245
         }
       ],
       "icon_id": null,
@@ -306,6 +348,42 @@
           "level_req": 14,
           "cost": 72,
           "effect_value": 90
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 84,
+          "effect_value": 105
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 95,
+          "effect_value": 119
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 111,
+          "effect_value": 139
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 126,
+          "effect_value": 158
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 142,
+          "effect_value": 178
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 158,
+          "effect_value": 197
         }
       ],
       "icon_id": null,
@@ -350,6 +428,42 @@
           "level_req": 16,
           "cost": 48,
           "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 55,
+          "effect_value": 69
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 63,
+          "effect_value": 78
+        },
+        {
+          "rank": 4,
+          "level_req": 36,
+          "cost": 73,
+          "effect_value": 91
+        },
+        {
+          "rank": 5,
+          "level_req": 44,
+          "cost": 82,
+          "effect_value": 103
+        },
+        {
+          "rank": 6,
+          "level_req": 52,
+          "cost": 92,
+          "effect_value": 115
+        },
+        {
+          "rank": 7,
+          "level_req": 60,
+          "cost": 102,
+          "effect_value": 128
         }
       ],
       "icon_id": null
@@ -378,6 +492,24 @@
           "level_req": 20,
           "cost": 36,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 44,
+          "effect_value": 123
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 54,
+          "effect_value": 151
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 66,
+          "effect_value": 184
         }
       ],
       "icon_id": null,
@@ -423,6 +555,18 @@
           "level_req": 28,
           "cost": 27,
           "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 32,
+          "effect_value": 45
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 39,
+          "effect_value": 54
         }
       ],
       "icon_id": "ability_melee"
@@ -446,6 +590,18 @@
           "level_req": 28,
           "cost": 45,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 54,
+          "effect_value": 120
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 64,
+          "effect_value": 143
         }
       ],
       "icon_id": null,
@@ -529,7 +685,9 @@
           "name": "Debilitating Venom",
           "effect_type": "debuff",
           "duration": 2,
-          "stat_mods": {"haste": -40},
+          "stat_mods": {
+            "haste": -40
+          },
           "dispel_type": "poison",
           "on_target": true
         }
@@ -552,6 +710,60 @@
           "level_req": 14,
           "cost": 22,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 26,
+          "effect_value": 100,
+          "proc": {
+            "smart_heal": 58
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 29,
+          "effect_value": 100,
+          "proc": {
+            "smart_heal": 66
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 34,
+          "effect_value": 100,
+          "proc": {
+            "smart_heal": 77
+          }
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 39,
+          "effect_value": 100,
+          "proc": {
+            "smart_heal": 88
+          }
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 43,
+          "effect_value": 100,
+          "proc": {
+            "smart_heal": 99
+          }
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 48,
+          "effect_value": 100,
+          "proc": {
+            "smart_heal": 109
+          }
         }
       ],
       "icon_id": null,
@@ -593,7 +805,9 @@
           "name": "Nullifying Venom",
           "effect_type": "debuff",
           "duration": 2,
-          "stat_mods": {"haste": -30},
+          "stat_mods": {
+            "haste": -30
+          },
           "dispel_type": "poison",
           "on_target": true
         }
@@ -699,6 +913,24 @@
           "level_req": 20,
           "cost": 122,
           "effect_value": 152
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 150,
+          "effect_value": 187
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 184,
+          "effect_value": 230
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 224,
+          "effect_value": 279
         }
       ],
       "icon_id": null
@@ -720,6 +952,24 @@
           "level_req": 22,
           "cost": 240,
           "effect_value": 300
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 293,
+          "effect_value": 367
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 357,
+          "effect_value": 447
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 432,
+          "effect_value": 540
         }
       ],
       "icon_id": null
@@ -741,6 +991,24 @@
           "level_req": 24,
           "cost": 230,
           "effect_value": 287
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 279,
+          "effect_value": 348
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 338,
+          "effect_value": 421
+        },
+        {
+          "rank": 4,
+          "level_req": 60,
+          "cost": 406,
+          "effect_value": 507
         }
       ],
       "icon_id": null
@@ -813,6 +1081,48 @@
           "level_req": 10,
           "cost": 15,
           "effect_value": 33
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 15,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 15,
+          "effect_value": 45
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 15,
+          "effect_value": 51
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 15,
+          "effect_value": 57
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 15,
+          "effect_value": 65
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 15,
+          "effect_value": 73
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 15,
+          "effect_value": 81
         }
       ],
       "icon_id": "ability_melee"
@@ -837,6 +1147,36 @@
           "level_req": 18,
           "cost": 25,
           "effect_value": 18
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 21
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 23
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 27
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 25,
+          "effect_value": 30
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 34
         }
       ],
       "icon_id": null,
@@ -861,6 +1201,12 @@
           "level_req": 34,
           "cost": 30,
           "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 30,
+          "effect_value": 46
         }
       ],
       "icon_id": null,
@@ -930,6 +1276,24 @@
           "level_req": 20,
           "cost": 20,
           "effect_value": 22
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 27
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 33
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 40
         }
       ],
       "icon_id": null,
@@ -951,6 +1315,24 @@
           "level_req": 20,
           "cost": 20,
           "effect_value": 24
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 30
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 36
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 44
         }
       ],
       "icon_id": null,
@@ -975,6 +1357,42 @@
           "level_req": 16,
           "cost": 20,
           "effect_value": 156
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 180
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 204
+        },
+        {
+          "rank": 4,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 236
+        },
+        {
+          "rank": 5,
+          "level_req": 44,
+          "cost": 20,
+          "effect_value": 268
+        },
+        {
+          "rank": 6,
+          "level_req": 52,
+          "cost": 20,
+          "effect_value": 300
+        },
+        {
+          "rank": 7,
+          "level_req": 60,
+          "cost": 20,
+          "effect_value": 332
         }
       ],
       "icon_id": null,
@@ -998,6 +1416,12 @@
           "level_req": 34,
           "cost": 30,
           "effect_value": 236
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 30,
+          "effect_value": 286
         }
       ],
       "icon_id": null,
@@ -1020,6 +1444,12 @@
           "level_req": 36,
           "cost": 25,
           "effect_value": 131
+        },
+        {
+          "rank": 2,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 158
         }
       ],
       "icon_id": null,
@@ -1044,6 +1474,24 @@
           "level_req": 20,
           "cost": 11,
           "effect_value": 106
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 14,
+          "effect_value": 131
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 17,
+          "effect_value": 160
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 195
         }
       ],
       "icon_id": null,
@@ -1065,6 +1513,24 @@
           "level_req": 20,
           "cost": 24,
           "effect_value": 78
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 36,
+          "effect_value": 118
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 44,
+          "effect_value": 143
         }
       ],
       "icon_id": null,
@@ -1088,6 +1554,24 @@
           "level_req": 24,
           "cost": 141,
           "effect_value": 202
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 171,
+          "effect_value": 245
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 207,
+          "effect_value": 297
+        },
+        {
+          "rank": 4,
+          "level_req": 60,
+          "cost": 249,
+          "effect_value": 357
         }
       ],
       "icon_id": null,
@@ -1133,6 +1617,54 @@
           "level_req": 1,
           "cost": 25,
           "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 30,
+          "effect_value": 48
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 36,
+          "effect_value": 58
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 43,
+          "effect_value": 68
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 49,
+          "effect_value": 78
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 57,
+          "effect_value": 92
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 66,
+          "effect_value": 105
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 74,
+          "effect_value": 118
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 82,
+          "effect_value": 132
         }
       ],
       "icon_id": null,

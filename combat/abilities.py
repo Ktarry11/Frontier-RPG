@@ -730,6 +730,23 @@ class Ability:
         return self.ranks[self.current_rank_index]
 
     @property
+    def active_proc(self):
+        """The proc payload this ability's buff/debuff carries at its CURRENT rank.
+
+        A rank dict may hold a partial "proc" override (e.g. {"bonus_pct": 0.18} or {"chance": 24}) that is merged
+        over the ability's base proc, so weapon imbues, seals and shields grow with rank instead of staying flat.
+        Nested payloads (grant_resource, on_judgement, apply_effect) are replaced whole, so give the full dict.
+        """
+        if not self.proc:
+            return None
+        override = self.current_rank.get("proc")
+        if not override:
+            return self.proc
+        merged = dict(self.proc)
+        merged.update(override)
+        return merged
+
+    @property
     def rank_number(self):
         return self.current_rank["rank"]
 
@@ -2120,7 +2137,10 @@ class Ability:
                     stat_mods=mods, source_name=caster.name,
                     real_time_seconds=real_time,
                     exclusive_group=self.exclusive_group,
-                    proc=self.proc,
+                    proc=self.active_proc,
+                    # a proc's bonus damage (weapon imbues) resolves through this school's resistance
+                    damage_school=(self.damage_school if isinstance(self.damage_school, str)
+                                   and self.damage_school in DamageSchool.ALL_SCHOOLS else "physical"),
                 )
                 recipient.apply_status_effect(effect)
 
@@ -2160,7 +2180,7 @@ class Ability:
                         real_time_seconds=real_time,
                         dispel_type=self.dispel_type,
                         exclusive_group=self.exclusive_group,
-                        proc=self.proc,
+                        proc=self.active_proc,
                         is_stun=self.is_stun,
                     )
                     t.apply_status_effect(effect)

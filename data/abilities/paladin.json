@@ -363,9 +363,21 @@
       "ranks": [
         {
           "rank": 1,
-          "level_req": 25,
+          "level_req": 26,
           "cost": 45,
           "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 55,
+          "effect_value": 74
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 67,
+          "effect_value": 89
         }
       ],
       "target_type": "ally",
@@ -388,6 +400,12 @@
           "level_req": 40,
           "cost": 50,
           "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 52,
+          "cost": 60,
+          "effect_value": 67
         }
       ],
       "requires_talent": true,
@@ -453,6 +471,24 @@
           "level_req": 20,
           "cost": 50,
           "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 62,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 76,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 92,
+          "effect_value": 92
         }
       ],
       "target_type": "ally",
@@ -530,6 +566,24 @@
           "level_req": 20,
           "cost": 60,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 74,
+          "effect_value": 123
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 91,
+          "effect_value": 151
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 110,
+          "effect_value": 184
         }
       ],
       "target_type": "party",
@@ -552,6 +606,24 @@
           "level_req": 20,
           "cost": 45,
           "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 55,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 68,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 83,
+          "effect_value": 92
         }
       ],
       "is_instant": true,
@@ -572,6 +644,102 @@
           "level_req": 1,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.121,
+            "on_judgement": {
+              "damage": 48
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.146,
+            "on_judgement": {
+              "damage": 58
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.171,
+            "on_judgement": {
+              "damage": 68
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.196,
+            "on_judgement": {
+              "damage": 78
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.229,
+            "on_judgement": {
+              "damage": 92
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.263,
+            "on_judgement": {
+              "damage": 105
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.296,
+            "on_judgement": {
+              "damage": 118
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.329,
+            "on_judgement": {
+              "damage": 132
+            }
+          }
         }
       ],
       "target_type": "self",
@@ -585,7 +753,8 @@
         "on_judgement": {
           "damage": 40
         }
-      }
+      },
+      "exclusive_group": "paladin_seal"
     },
     {
       "ability_id": "paladin_turn_evil",
@@ -623,6 +792,42 @@
           "level_req": 12,
           "cost": 0,
           "effect_value": 500
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 586
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 671
+        },
+        {
+          "rank": 4,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 786
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 900
+        },
+        {
+          "rank": 6,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 1014
+        },
+        {
+          "rank": 7,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 1129
         }
       ],
       "target_type": "ally",
@@ -644,6 +849,18 @@
           "level_req": 30,
           "cost": 0,
           "effect_value": 800
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 951
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 0,
+          "effect_value": 1132
         }
       ],
       "target_type": "ally",
@@ -665,6 +882,102 @@
           "level_req": 1,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.423,
+            "on_judgement": {
+              "damage": 85
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.51,
+            "on_judgement": {
+              "damage": 102
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.598,
+            "on_judgement": {
+              "damage": 120
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.685,
+            "on_judgement": {
+              "damage": 137
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.802,
+            "on_judgement": {
+              "damage": 160
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.919,
+            "on_judgement": {
+              "damage": 184
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 1.035,
+            "on_judgement": {
+              "damage": 207
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 1.152,
+            "on_judgement": {
+              "damage": 230
+            }
+          }
         }
       ],
       "target_type": "self",
@@ -679,7 +992,8 @@
         "on_judgement": {
           "damage": 70
         }
-      }
+      },
+      "exclusive_group": "paladin_seal"
     }
   ]
 }

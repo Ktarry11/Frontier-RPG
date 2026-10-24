@@ -321,7 +321,8 @@
       ],
       "target_type": "self",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "exclusive_group": "hunter_aspect"
     },
     {
       "ability_id": "hunter_explosive_trap",
@@ -406,6 +407,12 @@
           "level_req": 40,
           "cost": 50,
           "effect_value": 66
+        },
+        {
+          "rank": 2,
+          "level_req": 52,
+          "cost": 60,
+          "effect_value": 79
         }
       ],
       "requires_talent": true,
@@ -472,6 +479,48 @@
           "level_req": 6,
           "cost": 35,
           "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 12,
+          "cost": 42,
+          "effect_value": 48
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 49,
+          "effect_value": 57
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 57,
+          "effect_value": 65
+        },
+        {
+          "rank": 5,
+          "level_req": 30,
+          "cost": 64,
+          "effect_value": 73
+        },
+        {
+          "rank": 6,
+          "level_req": 38,
+          "cost": 74,
+          "effect_value": 84
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 83,
+          "effect_value": 95
+        },
+        {
+          "rank": 8,
+          "level_req": 54,
+          "cost": 93,
+          "effect_value": 106
         }
       ],
       "target_type": "ally",
@@ -493,6 +542,48 @@
           "level_req": 6,
           "cost": 40,
           "effect_value": 999
+        },
+        {
+          "rank": 2,
+          "level_req": 12,
+          "cost": 48,
+          "effect_value": 1206
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 57,
+          "effect_value": 1412
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 65,
+          "effect_value": 1619
+        },
+        {
+          "rank": 5,
+          "level_req": 30,
+          "cost": 73,
+          "effect_value": 1826
+        },
+        {
+          "rank": 6,
+          "level_req": 38,
+          "cost": 84,
+          "effect_value": 2101
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 95,
+          "effect_value": 2377
+        },
+        {
+          "rank": 8,
+          "level_req": 54,
+          "cost": 106,
+          "effect_value": 2653
         }
       ],
       "target_type": "ally",
@@ -631,7 +722,8 @@
       ],
       "target_type": "self",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "exclusive_group": "hunter_aspect"
     }
   ]
 }

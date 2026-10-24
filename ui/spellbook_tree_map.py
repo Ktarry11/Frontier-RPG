@@ -281,6 +281,7 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "shaman_stormstrike": "shaman_enhancement",
     "shaman_rockbiter_weapon": "shaman_enhancement",
     "shaman_flametongue_weapon": "shaman_enhancement",
+    "shaman_frostbrand_weapon": "shaman_enhancement",
     "shaman_windfury_weapon": "shaman_enhancement",
     "shaman_windfury_totem": "shaman_enhancement",
     "shaman_shamanistic_rage": "shaman_enhancement",

@@ -383,6 +383,18 @@
           "level_req": 30,
           "cost": 30,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 36,
+          "effect_value": 119
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 42,
+          "effect_value": 142
         }
       ],
       "requires_talent": true,
@@ -493,6 +505,12 @@
           "level_req": 40,
           "cost": 90,
           "effect_value": 480
+        },
+        {
+          "rank": 2,
+          "level_req": 52,
+          "cost": 107,
+          "effect_value": 571
         }
       ],
       "target_type": "ally",
@@ -513,9 +531,15 @@
       "ranks": [
         {
           "rank": 1,
-          "level_req": 35,
+          "level_req": 36,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 122
         }
       ],
       "target_type": "self",
@@ -538,6 +562,24 @@
           "level_req": 30,
           "cost": 70,
           "effect_value": 300
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 83,
+          "effect_value": 300,
+          "proc": {
+            "heal_flat": 357
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 99,
+          "effect_value": 300,
+          "proc": {
+            "heal_flat": 425
+          }
         }
       ],
       "target_type": "ally",
@@ -590,6 +632,54 @@
           "level_req": 4,
           "cost": 30,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 37,
+          "effect_value": 122
+        },
+        {
+          "rank": 3,
+          "level_req": 16,
+          "cost": 43,
+          "effect_value": 144
+        },
+        {
+          "rank": 4,
+          "level_req": 22,
+          "cost": 50,
+          "effect_value": 167
+        },
+        {
+          "rank": 5,
+          "level_req": 28,
+          "cost": 57,
+          "effect_value": 189
+        },
+        {
+          "rank": 6,
+          "level_req": 36,
+          "cost": 66,
+          "effect_value": 219
+        },
+        {
+          "rank": 7,
+          "level_req": 44,
+          "cost": 74,
+          "effect_value": 248
+        },
+        {
+          "rank": 8,
+          "level_req": 52,
+          "cost": 83,
+          "effect_value": 278
+        },
+        {
+          "rank": 9,
+          "level_req": 60,
+          "cost": 92,
+          "effect_value": 307
         }
       ],
       "target_type": "party",
@@ -612,6 +702,48 @@
           "level_req": 10,
           "cost": 25,
           "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 66
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 34,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 39,
+          "effect_value": 87
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 43,
+          "effect_value": 97
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 49,
+          "effect_value": 110
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 55,
+          "effect_value": 124
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 61,
+          "effect_value": 137
         }
       ],
       "is_instant": true,
@@ -649,13 +781,34 @@
       "effect_type": "buff",
       "duration": 5,
       "stat_mods": {},
-      "description": "Air totem. Real proc: melee attacks from every living party member have a chance to trigger an extra attack, matching Windfury Totem's real WOTLK identity (verified: applies to the whole party via target_type=party, each member gets their own independent proc roll).",
+      "description": "Air totem. Every living party member's melee attacks have a chance to trigger an extra attack (each member rolls independently). Higher ranks proc more often.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 60,
-          "effect_value": 100
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "chance": 20
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "chance": 23
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "chance": 26
+          }
         }
       ],
       "target_type": "party",
@@ -742,14 +895,92 @@
       "cooldown": 0,
       "effect_type": "buff",
       "duration": 5,
-      "stat_mods": {},
-      "description": "Real proc: melee attacks deal bonus physical damage on the same hit, matching Rockbiter's actual on-hit identity, rather than a flat Attack Power buff approximation.",
+      "stat_mods": {
+        "attack_power": 8,
+        "armor": 25
+      },
+      "description": "Imbue your weapon with the strength of stone: every melee hit deals bonus physical damage and you gain a little Attack Power and Armor. The steady, safe imbue. Only one imbue can be active at a time.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 1,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.1
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 121,
+          "proc": {
+            "bonus_pct": 0.118
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 146,
+          "proc": {
+            "bonus_pct": 0.135
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 171,
+          "proc": {
+            "bonus_pct": 0.152
+          }
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 196,
+          "proc": {
+            "bonus_pct": 0.17
+          }
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 229,
+          "proc": {
+            "bonus_pct": 0.188
+          }
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 262,
+          "proc": {
+            "bonus_pct": 0.205
+          }
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 296,
+          "proc": {
+            "bonus_pct": 0.222
+          }
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 329,
+          "proc": {
+            "bonus_pct": 0.24
+          }
         }
       ],
       "target_type": "self",
@@ -759,8 +990,9 @@
         "trigger": "on_weapon_swing",
         "chance": 100,
         "icd": 0,
-        "bonus_pct": 0.12
-      }
+        "bonus_pct": 0.1
+      },
+      "exclusive_group": "shaman_imbue"
     },
     {
       "ability_id": "shaman_flametongue_weapon",
@@ -769,14 +1001,82 @@
       "cooldown": 0,
       "effect_type": "buff",
       "duration": 5,
-      "stat_mods": {},
-      "description": "Real proc: melee attacks deal bonus Fire damage on the same hit, matching Flametongue's actual on-hit identity, rather than a flat Spell Power buff approximation.",
+      "stat_mods": {
+        "spell_power": 12
+      },
+      "description": "Imbue your weapon with living flame: every melee hit adds bonus Fire damage and your spells gain Spell Power. Hits harder than Rockbiter but gives no armor. Only one imbue can be active at a time.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 10,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.15
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 0,
+          "effect_value": 118,
+          "proc": {
+            "bonus_pct": 0.177
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 136,
+          "proc": {
+            "bonus_pct": 0.204
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 0,
+          "effect_value": 155,
+          "proc": {
+            "bonus_pct": 0.231
+          }
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 173,
+          "proc": {
+            "bonus_pct": 0.259
+          }
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 0,
+          "effect_value": 197,
+          "proc": {
+            "bonus_pct": 0.286
+          }
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 221,
+          "proc": {
+            "bonus_pct": 0.313
+          }
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 245,
+          "proc": {
+            "bonus_pct": 0.34
+          }
         }
       ],
       "target_type": "self",
@@ -787,6 +1087,80 @@
         "chance": 100,
         "icd": 0,
         "bonus_pct": 0.15
+      },
+      "damage_school": "fire",
+      "exclusive_group": "shaman_imbue"
+    },
+    {
+      "ability_id": "shaman_frostbrand_weapon",
+      "name": "Frostbrand Weapon",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "attack_power": 6
+      },
+      "damage_school": "frost",
+      "exclusive_group": "shaman_imbue",
+      "description": "Imbue your weapon with biting cold: 35% of your melee hits add a heavy Frost strike and slow the target. The control imbue. Only one imbue can be active at a time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "bonus_pct": 0.4
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 123,
+          "proc": {
+            "bonus_pct": 0.533
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 0,
+          "effect_value": 151,
+          "proc": {
+            "bonus_pct": 0.667
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 184,
+          "proc": {
+            "bonus_pct": 0.8
+          }
+        }
+      ],
+      "target_type": "self",
+      "is_instant": true,
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 35,
+        "icd": 0,
+        "bonus_pct": 0.4,
+        "apply_effect": {
+          "effect_id": "frostbrand_slow",
+          "name": "Frostbrand",
+          "effect_type": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": -25
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
       }
     },
     {
@@ -797,13 +1171,34 @@
       "effect_type": "buff",
       "duration": 5,
       "stat_mods": {},
-      "description": "Real proc: your melee attacks have a chance to trigger an extra attack (Windfury's actual WoW identity), rather than a flat Haste buff approximation.",
+      "description": "Imbue your weapon with the howling wind: your melee hits have a chance to trigger a free extra attack. Higher ranks proc more often. Only one imbue can be active at a time.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 30,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 100,
+          "proc": {
+            "chance": 20
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "chance": 24
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "chance": 28
+          }
         }
       ],
       "target_type": "self",
@@ -814,7 +1209,8 @@
         "chance": 20,
         "icd": 3,
         "extra_attack": true
-      }
+      },
+      "exclusive_group": "shaman_imbue"
     },
     {
       "ability_id": "shaman_hex",
@@ -874,6 +1270,24 @@
           "level_req": 20,
           "cost": 0,
           "effect_value": 400
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 493
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 0,
+          "effect_value": 605
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 735
         }
       ],
       "target_type": "self",
@@ -897,6 +1311,48 @@
           "level_req": 10,
           "cost": 25,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 118
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 34,
+          "effect_value": 136
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 39,
+          "effect_value": 155
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 43,
+          "effect_value": 173
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 49,
+          "effect_value": 197
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 55,
+          "effect_value": 221
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 61,
+          "effect_value": 245
         }
       ],
       "target_type": "self",
@@ -919,6 +1375,24 @@
           "level_req": 24,
           "cost": 40,
           "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 49,
+          "effect_value": 75
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 59,
+          "effect_value": 91
+        },
+        {
+          "rank": 4,
+          "level_req": 60,
+          "cost": 71,
+          "effect_value": 109
         }
       ],
       "target_type": "enemy_aoe",
@@ -942,6 +1416,18 @@
           "level_req": 30,
           "cost": 30,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 36,
+          "effect_value": 119
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 42,
+          "effect_value": 142
         }
       ],
       "target_type": "self",
@@ -966,6 +1452,48 @@
           "level_req": 6,
           "cost": 25,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 121
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 35,
+          "effect_value": 141
+        },
+        {
+          "rank": 4,
+          "level_req": 24,
+          "cost": 41,
+          "effect_value": 162
+        },
+        {
+          "rank": 5,
+          "level_req": 30,
+          "cost": 46,
+          "effect_value": 183
+        },
+        {
+          "rank": 6,
+          "level_req": 38,
+          "cost": 53,
+          "effect_value": 210
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 59,
+          "effect_value": 238
+        },
+        {
+          "rank": 8,
+          "level_req": 54,
+          "cost": 66,
+          "effect_value": 266
         }
       ],
       "target_type": "party",
@@ -990,6 +1518,18 @@
           "level_req": 40,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 52,
+          "cost": 0,
+          "effect_value": 100,
+          "proc": {
+            "grant_resource": {
+              "resource": "mana",
+              "amount": 54
+            }
+          }
         }
       ],
       "target_type": "self",
@@ -1021,6 +1561,24 @@
           "level_req": 20,
           "cost": 25,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 31,
+          "effect_value": 123
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 38,
+          "effect_value": 151
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 46,
+          "effect_value": 184
         }
       ],
       "ability_id": "shaman_fire_resistance_totem",
@@ -1045,6 +1603,24 @@
           "level_req": 20,
           "cost": 25,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 31,
+          "effect_value": 123
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 38,
+          "effect_value": 151
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 46,
+          "effect_value": 184
         }
       ],
       "ability_id": "shaman_frost_resistance_totem",
@@ -1069,6 +1645,24 @@
           "level_req": 20,
           "cost": 25,
           "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 31,
+          "effect_value": 123
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 38,
+          "effect_value": 151
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 46,
+          "effect_value": 184
         }
       ],
       "ability_id": "shaman_nature_resistance_totem",
