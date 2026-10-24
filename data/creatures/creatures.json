@@ -1012,7 +1012,9 @@
         25
       ],
       "is_boss": true,
-      "boss_multiplier": 1.0
+      "boss_multiplier": 1.0,
+      "ability_kit": "boss_hezrul_bloodmark",
+      "boss_kit_base": "soldier"
     },
     "Pool Murloc": {
       "template": "aquatic_basic",
@@ -1414,7 +1416,8 @@
       ],
       "is_boss": true,
       "boss_multiplier": 1.8,
-      "ability_kit": "scourge_abomination"
+      "ability_kit": "boss_scourge_abomination",
+      "boss_kit_base": "scourge_abomination"
     },
     "Dwarf Miner": {
       "template": "humanoid_warrior",
@@ -1504,7 +1507,9 @@
         28
       ],
       "is_boss": true,
-      "kit": "quilboar_priestess"
+      "kit": "quilboar_priestess",
+      "ability_kit": "boss_quilboar_priestess",
+      "boss_kit_base": "cultist_shadow"
     },
     "Slug": {
       "template": "vermin_sneaky",
@@ -2008,7 +2013,9 @@
         15
       ],
       "is_boss": true,
-      "boss_multiplier": 2.0
+      "boss_multiplier": 2.0,
+      "ability_kit": "boss_apprentice_plagueweaver",
+      "boss_kit_base": "cultist_shadow"
     },
     "Plagued Rat": {
       "template": "beast_basic",
@@ -2345,7 +2352,8 @@
       ],
       "is_boss": true,
       "boss_multiplier": 1.6,
-      "ability_kit": "spider"
+      "ability_kit": "boss_spider_boss",
+      "boss_kit_base": "spider"
     },
     "Searing Blade Scout": {
       "template": "humanoid_ranged",
@@ -2704,7 +2712,8 @@
       ],
       "is_boss": true,
       "boss_multiplier": 2.3,
-      "ability_kit": "swarm"
+      "ability_kit": "boss_fen_creeper",
+      "boss_kit_base": "swarm"
     },
     "Risen Husk": {
       "template": "undead_basic",
@@ -2741,7 +2750,8 @@
       ],
       "is_boss": true,
       "boss_multiplier": 2.5,
-      "ability_kit": "forsaken_knight"
+      "ability_kit": "boss_the_forsaken_watchman",
+      "boss_kit_base": "forsaken_knight"
     },
     "Bog Beast": {
       "template": "beast_large",

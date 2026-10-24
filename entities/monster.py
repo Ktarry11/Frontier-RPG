@@ -113,7 +113,8 @@ class MonsterAbility:
 
     def __init__(self, name, kind="damage", amount=0, cooldown=0,
                  mana_cost=0, school="physical", duration=0,
-                 stat_mods=None, self_only=False, is_aoe=False):
+                 stat_mods=None, self_only=False, is_aoe=False,
+                 rider=None, hp_below=None, lifesteal=0.0):
         if kind not in self.KINDS:
             raise ValueError(f"{name}: unknown ability kind '{kind}'")
         self.name = name
@@ -132,6 +133,18 @@ class MonsterAbility:
         # monster ability always hit exactly the single target passed to
         # use(), no matter how unambiguously AoE the name was.
         self.is_aoe = is_aoe
+        # Boss tools (2026-10-24: bosses were "glorified punching bags" because
+        # their kits were basic + two weak self-buffs/debuffs that cost a whole
+        # turn each).  A damage ability can now carry a RIDER - a buff on the
+        # caster or a debuff on every target it hits - so the buff/debuff comes
+        # with a real attack instead of replacing one.
+        #   rider = {"effect": "buff"|"debuff", "duration": n, "stat_mods": {...}}
+        self.rider = rider or None
+        # Phase gate: only usable while the caster is at or below this fraction
+        # of max health (enrage / desperation abilities).
+        self.hp_below = hp_below
+        # Fraction of damage dealt returned to the caster as healing.
+        self.lifesteal = lifesteal
 
         # Stable id so re-applying refreshes rather than stacks, matching
         # how player DoTs behave.
@@ -157,10 +170,41 @@ class MonsterAbility:
         whatsoever - a caster could never actually run dry."""
         if self.turns_remaining > 0:
             return False
-        if caster is not None and self.mana_cost > 0:
+        # A monster with NO mana pool (max_mana 0) treats mana costs as flavour:
+        # 23 kits (Maeve the Weeping, Lady Sarevess, Baron Ashbury, Thrumbone ...)
+        # authored costs on templates that have no mana at all, which made every
+        # one of those abilities - including the basic attack - permanently
+        # unavailable, so those monsters just "hesitated" for the whole fight.
+        if (caster is not None and self.mana_cost > 0
+                and getattr(caster, "max_mana", 0) > 0):
             if getattr(caster, "current_mana", 0) < self.mana_cost:
                 return False
+        if self.hp_below is not None and caster is not None:
+            if caster.current_health > caster.max_health * self.hp_below:
+                return False
         return True
+
+    @property
+    def rider_effect_id(self):
+        return self.effect_id + "_rider"
+
+    def _apply_rider(self, caster, hit_targets):
+        """Apply this damage ability's rider. Returns a list of log fragments."""
+        if not self.rider:
+            return []
+        rider = self.rider
+        is_buff = rider.get("effect") == "buff"
+        recipients = [caster] if is_buff else list(hit_targets)
+        out = []
+        for r in recipients:
+            effect = StatusEffect(
+                effect_id=self.rider_effect_id, name=self.name,
+                effect_type=EffectType.BUFF if is_buff else EffectType.DEBUFF,
+                duration=rider.get("duration", 3),
+                stat_mods=dict(rider.get("stat_mods") or {}),
+                source_name=caster.name, real_time_seconds=None)
+            out.append(r.apply_status_effect(effect))
+        return out
 
     def use(self, caster, target):
         """Execute this ability. Returns (success, message).
@@ -195,16 +239,31 @@ class MonsterAbility:
                 amount = int(amount * self.AOE_DAMAGE_MULTIPLIER)
             lines = []
             first_actual = None
+            total = 0
+            landed = []
             for t in targets:
                 actual = t.take_damage(amount, self.school,
                                         attacker_level=getattr(caster, "level", None))
                 lines.append(f"{actual} to {t.name}")
+                total += actual
+                if actual > 0:
+                    landed.append(t)
                 if first_actual is None:
                     first_actual = actual
             if self.is_aoe and len(targets) > 1:
-                return True, f"{caster.name} uses {self.name} on everyone ({', '.join(lines)})!"
-            return True, (f"{caster.name} uses {self.name} on "
-                          f"{targets[0].name} for {first_actual} damage!")
+                msg = f"{caster.name} uses {self.name} on everyone ({', '.join(lines)})!"
+            else:
+                msg = (f"{caster.name} uses {self.name} on "
+                       f"{targets[0].name} for {first_actual} damage!")
+            if self.lifesteal > 0 and total > 0:
+                healed = max(1, int(total * self.lifesteal))
+                caster.heal(healed)
+                msg += f" {caster.name} drains {healed} health."
+            # a dodged / parried / fully absorbed hit carries no debuff
+            extra = self._apply_rider(caster, landed)
+            if extra:
+                msg += " " + " ".join(extra)
+            return True, msg
 
         if self.kind == "dot":
             targets = self._resolve_targets(target)
@@ -371,6 +430,9 @@ class Monster(StatusEffectMixin):
                 stat_mods=entry.get("stat_mods"),
                 self_only=entry.get("self_only", False),
                 is_aoe=entry.get("is_aoe", False),
+                rider=entry.get("rider"),
+                hp_below=entry.get("hp_below"),
+                lifesteal=entry.get("lifesteal", 0.0),
             ))
 
         # Combat state
@@ -473,21 +535,26 @@ class Monster(StatusEffectMixin):
 
     def choose_action(self, target):
         """
-        Priority AI. The old version scanned abilities[1:], returned the
-        first available one ONLY if it happened to be a heal at low HP, and
-        otherwise fell through to the basic attack every single turn - so
-        Charge, Execute, Pounce and every other special in the game were
-        dead code. Monsters have literally never used their second ability.
+        Priority AI.
 
         Order:
           1. Heal when badly hurt.
-          2. Self-buff if not already running.
-          3. Apply a DoT/debuff the target isn't carrying yet.
-          4. Biggest affordable hit.
+          2. Phase abilities (hp_below gate: enrage / desperation) the moment they unlock.
+          3. Apply a DoT the target isn't carrying yet (and, for ordinary mobs, plain
+             debuffs / self-buffs - see below).
+          4. Damage abilities: first any with a rider whose effect has lapsed (the hit
+             that re-applies the buff/debuff), otherwise the biggest hit available.
           5. Basic attack.
+
+        Bosses never spend a turn on a pure self-buff or debuff while they have an
+        attack to throw: a "glorified punching bag" was exactly a boss that burned
+        a third of its turns re-casting +20 Attack Power. Their buffs/debuffs ride
+        on attacks (see MonsterAbility.rider); any plain one left in a kit is only
+        cast in place of the basic attack.
         """
         basic = self.abilities[0]
         options = [a for a in self.abilities[1:] if a.is_available(self)]
+        boss = getattr(self, "is_boss", False)
 
         hurt = self.current_health < self.max_health * 0.45
         for a in options:
@@ -495,18 +562,39 @@ class Monster(StatusEffectMixin):
                 return a
 
         for a in options:
-            if a.kind == "buff" and not self.has_status_effect(a.effect_id):
+            if a.hp_below is not None:
                 return a
 
+        if not boss:
+            for a in options:
+                if a.kind == "buff" and not self.has_status_effect(a.effect_id):
+                    return a
+
         for a in options:
-            if a.kind in ("dot", "debuff"):
+            if a.kind == "dot" or (a.kind == "debuff" and not boss):
                 recipient = self if a.self_only else target
                 if not recipient.has_status_effect(a.effect_id):
                     return a
 
         damage_options = [a for a in options if a.kind == "damage"]
         if damage_options:
+            lapsed = []
+            for a in damage_options:
+                if not a.rider:
+                    continue
+                recipient = self if a.rider.get("effect") == "buff" else target
+                if not recipient.has_status_effect(a.rider_effect_id):
+                    lapsed.append(a)
+            if lapsed:
+                return max(lapsed, key=lambda a: a.amount)
             return max(damage_options, key=lambda a: a.amount)
+
+        if boss:
+            for a in options:
+                if a.kind in ("buff", "debuff"):
+                    recipient = self if a.self_only else target
+                    if not recipient.has_status_effect(a.effect_id):
+                        return a
 
         return basic
 

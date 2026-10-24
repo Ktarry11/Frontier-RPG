@@ -41,6 +41,11 @@ def main():
         json.dump(kits_data, f, indent=2)
     print(f"  ✓ {len(kits_data['kits'])} kits")
 
+    # Boss kits are post-processed (buffs/debuffs ride on attacks, enrage phase, ...): see tools/rework_boss_kits.py.
+    # Regenerating overwrites ability_kits.json with the raw kits, so re-apply it here.
+    from rework_boss_kits import main as rework_boss_kits
+    rework_boss_kits()
+
     print("\nCreature data generated successfully.")
 
 
