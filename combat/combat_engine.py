@@ -683,6 +683,21 @@ class CombatEngine:
                     self.combat_log.append(f"{enemy.name} dropped: {it['name']}.")
                 else:
                     self.combat_log.append(f"{enemy.name} dropped {it['name']}, but your bags are full!")
+        # Cloth for Tailoring (entities/cloth_drops.py): humanoids only. Materials stack without a bag cap.
+        try:
+            from entities.cloth_drops import roll_cloth
+            from world.gathering_manager import get_gathering_node_manager
+            gm = get_gathering_node_manager()
+            for enemy in self.enemies:
+                for material_id, qty in roll_cloth(enemy):
+                    mat = gm.make_material_instance(material_id)
+                    if mat is None:
+                        continue
+                    mat.quantity = qty
+                    self.player.add_material(mat)
+                    self.combat_log.append(f"{enemy.name} dropped: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+        except Exception as exc:  # cloth is a bonus; never let it break victory
+            print(f"WARNING: cloth drop failed: {exc}")
         self.trash_gained = trash_count
         self.trash_value = trash_value
         self.copper_earned = total_copper

@@ -43,6 +43,7 @@ class AmbientNPC:
         # Class trainer (data/training/trainers.json lists the same ids): every town defines a trainer for ALL 18 classes on one
         # shared tile, but only the one for the player's own class is shown - see AmbientNPCManager.set_viewer_class.
         self.trains_class = data.get("trains_class")
+        self.trains_profession = data.get("trains_profession")
 
 
 class AmbientNPCManager:

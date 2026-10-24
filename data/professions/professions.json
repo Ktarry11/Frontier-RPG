@@ -1,0 +1,67 @@
+{
+  "_comment": "Profession list and training tiers. cost is copper; 3 primary professions per character.",
+  "max_primary": 3,
+  "professions": {
+    "mining": {
+      "name": "Mining",
+      "kind": "gathering",
+      "description": "Dig ore from veins. Smelt it into bars at a forge."
+    },
+    "herbalism": {
+      "name": "Herbalism",
+      "kind": "gathering",
+      "description": "Gather herbs. The ingredients for Alchemy."
+    },
+    "woodcutting": {
+      "name": "Woodcutting",
+      "kind": "gathering",
+      "description": "Fell trees. Saw logs into planks at a sawmill."
+    },
+    "blacksmithing": {
+      "name": "Blacksmithing",
+      "kind": "crafting",
+      "description": "Forge armor, weapons and upgrade kits from bars."
+    },
+    "alchemy": {
+      "name": "Alchemy",
+      "kind": "crafting",
+      "description": "Brew healing and mana potions and elixirs from herbs."
+    },
+    "tailoring": {
+      "name": "Tailoring",
+      "kind": "crafting",
+      "description": "Weave cloth into bolts, cloth armor and bags."
+    },
+    "woodworking": {
+      "name": "Woodworking",
+      "kind": "crafting",
+      "description": "Craft shields, staves, bows, crossbows, tomes and arrows from planks."
+    }
+  },
+  "tiers": [
+    {
+      "name": "Apprentice",
+      "cap": 75,
+      "required_level": 1,
+      "cost": 500
+    },
+    {
+      "name": "Journeyman",
+      "cap": 150,
+      "required_level": 10,
+      "cost": 20000
+    },
+    {
+      "name": "Expert",
+      "cap": 225,
+      "required_level": 25,
+      "cost": 150000
+    },
+    {
+      "name": "Artisan",
+      "cap": 300,
+      "required_level": 40,
+      "cost": 600000
+    }
+  ]
+}

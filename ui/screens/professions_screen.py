@@ -24,6 +24,9 @@ from ui.sprite_loader import get_tile_sprite
 from world.gathering_manager import TIER_SKILL_CAPS, MATERIAL_TYPE_FOLDERS, get_gathering_node_manager
 from world.smelting_manager import get_smelting_manager
 from world.blacksmithing_manager import get_blacksmithing_manager
+from world.crafting_manager import get_crafting_manager
+from world.sawmill_manager import get_sawmill_manager
+from world import profession_manager
 from world.upgrade_manager import get_kit_for_item, can_upgrade, upgrade_item, next_rarity_for, MAX_UPGRADE_COUNT
 
 
@@ -36,7 +39,20 @@ PROFESSION_DISPLAY_ORDER = [
     ("herbalism", "Herbalism"),
     ("mining", "Mining"),
     ("woodcutting", "Woodcutting"),
+    ("blacksmithing", "Blacksmithing"),
+    ("alchemy", "Alchemy"),
+    ("tailoring", "Tailoring"),
+    ("woodworking", "Woodworking"),
 ]
+
+#: Crafting tabs that share one generic recipe-list renderer: tab key -> (profession, label, needs station).
+CRAFT_TABS = {
+    "sawmill": ("woodcutting", "Sawmill", "sawmill"),
+    "blacksmithing": ("blacksmithing", "Blacksmithing", None),
+    "alchemy": ("alchemy", "Alchemy", None),
+    "tailoring": ("tailoring", "Tailoring", None),
+    "woodworking": ("woodworking", "Woodworking", None),
+}
 
 PANEL_X = 20
 PANEL_Y = 70
@@ -61,24 +77,13 @@ class ProfessionsScreen(BaseScreen):
         self.return_state = GameState.OVERWORLD
 
         self.active_tab = "overview"
-        self.overview_tab_button = pygame.Rect(SCREEN_WIDTH - 720, 20, 120, 36)
-        self.smelting_tab_button = pygame.Rect(SCREEN_WIDTH - 590, 20, 120, 36)
-        self.blacksmithing_tab_button = pygame.Rect(SCREEN_WIDTH - 460, 20, 150, 36)
-        #: Upgrade Kit tab - deliberately NOT tied to Blacksmithing, even
-        #: though Blacksmithing is the only profession that exists today.
-        #: Kyle, Oct 2026: "This will be for every crafting thing too.
-        #: Leather worker, tailor, etc." - every future crafting
-        #: profession will craft its OWN kits the same way (Kyle's
-        #: earlier "all crafters will craft their upgrade kits" rule),
-        #: and a crafted Leatherworked/Tailored item is just as eligible
-        #: as a crafted Blacksmithed one (upgrade_manager.py's own
-        #: can_upgrade/get_kit_for_item never check which profession made
-        #: the item, only item.is_crafted + its current rarity) - so this
-        #: lives as its own tab, scanning the ENTIRE inventory for any
-        #: crafted+eligible item, rather than being folded into
-        #: Blacksmithing's tab where it would need rebuilding the moment
-        #: a second crafting profession ships.
-        self.upgrade_tab_button = pygame.Rect(SCREEN_WIDTH - 300, 20, 130, 36)
+        #: tab key -> Rect; rebuilt every render from what the character has learned (see _tab_list)
+        self.tab_rects = {}
+        # Upgrade tab is deliberately NOT tied to one profession (Kyle, Oct 2026: "This will be for every crafting thing
+        # too") - it scans the whole bag for crafted, kit-eligible items.
+        self.craft_scroll = 0
+        self.crafting_manager = get_crafting_manager()
+        self.sawmill_manager = get_sawmill_manager()
 
         self.smelting_manager = get_smelting_manager()
         self.blacksmithing_manager = get_blacksmithing_manager()
@@ -138,32 +143,34 @@ class ProfessionsScreen(BaseScreen):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self._close()
             return
+        if event.type == pygame.MOUSEWHEEL and self.active_tab in CRAFT_TABS:
+            self.craft_scroll = max(0, self.craft_scroll - event.y * 2)
+            return
+        if event.type == pygame.KEYDOWN and self.active_tab in CRAFT_TABS:
+            if event.key == pygame.K_DOWN:
+                self.craft_scroll += 1
+            elif event.key == pygame.K_UP:
+                self.craft_scroll = max(0, self.craft_scroll - 1)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.close_button.collidepoint(event.pos):
                 self._close()
                 return
-            if self.overview_tab_button.collidepoint(event.pos):
-                self.active_tab = "overview"
-                return
-            if self.smelting_tab_button.collidepoint(event.pos):
-                self.active_tab = "smelting"
-                return
-            if self.blacksmithing_tab_button.collidepoint(event.pos):
-                self.active_tab = "blacksmithing"
-                return
-            if self.upgrade_tab_button.collidepoint(event.pos):
-                self.active_tab = "upgrade"
-                self.selected_upgrade_item = None
-                return
+            for key, rect in self.tab_rects.items():
+                if rect.collidepoint(event.pos):
+                    self.active_tab = key
+                    self.craft_scroll = 0
+                    if key == "upgrade":
+                        self.selected_upgrade_item = None
+                    return
             if self.active_tab == "smelting":
                 for i, rect in enumerate(self.recipe_rects):
                     if rect.collidepoint(event.pos):
                         self._attempt_smelt(i)
                         return
-            if self.active_tab == "blacksmithing":
-                for i, rect in enumerate(self.craft_recipe_rects):
+            if self.active_tab in CRAFT_TABS:
+                for recipe_id, rect in self.craft_recipe_rects:
                     if rect.collidepoint(event.pos):
-                        self._attempt_craft(i)
+                        self._attempt_craft(recipe_id)
                         return
             if self.active_tab == "upgrade":
                 for item, rect in self.upgrade_item_rects:
@@ -208,37 +215,32 @@ class ProfessionsScreen(BaseScreen):
             self.smelt_message_color = (140, 220, 160)
             self.smelt_message_timer = 3.0
 
-    def _attempt_craft(self, recipe_index):
-        """Craft the Blacksmithing recipe at recipe_index. Real WoW
-        Blacksmithing has no location requirement (unlike Smelting's
-        real "only at a Forge" rule) - no _at_forge()-equivalent check
-        here, matching this project's "what did WoW do?" north star.
-        Always the PLAYER's own materials/skill, same reasoning as
-        _attempt_smelt."""
-        player = self.state_manager.player
-        available = self.blacksmithing_manager.available_recipes(player)
-        recipe_ids = list(available.keys())
-        if recipe_index >= len(recipe_ids):
-            return
-        recipe_id = recipe_ids[recipe_index]
+    def _at_sawmill(self):
+        zone_manager = getattr(self.state_manager.states.get(GameState.OVERWORLD), "zone_manager", None)
+        return zone_manager is not None and zone_manager.get_sawmill_at_location() is not None
 
-        result = self.blacksmithing_manager.craft(player, recipe_id)
-        if result is None:
-            # can_craft already distinguishes "missing bars" from "bag
-            # full" internally, but craft() itself only returns None for
-            # either - re-check here just for the message, same
-            # "friendlier message, same underlying gate" pattern as
-            # _attempt_smelt's single generic failure string.
-            if len(player.inventory) >= player.inventory_capacity:
-                self.craft_message = "Your bags are full."
+    def _attempt_craft(self, recipe_id):
+        """Craft one recipe on the active generic crafting tab. Always the PLAYER's own materials and skill (same
+        reasoning as _attempt_smelt). Blacksmithing keeps its own manager; everything else goes through CraftingManager."""
+        player = self.state_manager.player
+        profession, _, station = CRAFT_TABS[self.active_tab]
+        if profession == "blacksmithing":
+            if not player.knows_profession("blacksmithing"):
+                ok, msg = False, "You haven't learned Blacksmithing."
             else:
-                self.craft_message = "Missing materials for that recipe."
-            self.craft_message_color = (240, 140, 140)
-            self.craft_message_timer = 3.0
+                result = self.blacksmithing_manager.craft(player, recipe_id)
+                if result is not None:
+                    ok, msg = True, f"Crafted {result.name}."
+                elif len(player.inventory) >= player.inventory_capacity:
+                    ok, msg = False, "Your bags are full."
+                else:
+                    ok, msg = False, "Missing materials for that recipe."
         else:
-            self.craft_message = f"Crafted {result.name}."
-            self.craft_message_color = (140, 220, 160)
-            self.craft_message_timer = 3.0
+            ok, msg, _ = self.crafting_manager.craft(player, profession, recipe_id,
+                                                     at_station=(station != "sawmill" or self._at_sawmill()))
+        self.craft_message = msg
+        self.craft_message_color = (140, 220, 160) if ok else (240, 140, 140)
+        self.craft_message_timer = 3.0
 
     def _attempt_upgrade(self, kit_material_id):
         """Apply kit_material_id to self.selected_upgrade_item. Always the
@@ -269,9 +271,9 @@ class ProfessionsScreen(BaseScreen):
             # the message needs to say which one just happened rather
             # than always claiming a rarity change.
             if result.upgrade_count == 1:
-                self.upgrade_message = f"{result.name} upgraded to {result.rarity.title()}!"
+                self.upgrade_message = f"{result.name} is now {result.rarity.title()}!"
             else:
-                self.upgrade_message = f"{result.name} refined further (stats boosted again)."
+                self.upgrade_message = f"{result.name}: stats boosted again."
             self.upgrade_message_color = (140, 220, 160)
             self.upgrade_message_timer = 3.0
             # The item may no longer be eligible for ANY kit (if it just
@@ -295,94 +297,81 @@ class ProfessionsScreen(BaseScreen):
             if self.upgrade_message_timer <= 0:
                 self.upgrade_message = None
 
+    def _tab_list(self):
+        """[(key, label)] - Overview, then one tab per learned crafting profession (plus Smelting / Sawmill for the
+        gathering professions that have a station), then Upgrade."""
+        player = self.state_manager.player
+        tabs = [("overview", "Overview")]
+        if player.knows_profession("mining") or self.active_tab == "smelting":
+            tabs.append(("smelting", "Smelting"))
+        if player.knows_profession("woodcutting") or self.active_tab == "sawmill":
+            tabs.append(("sawmill", "Sawmill"))
+        for key in ("blacksmithing", "alchemy", "tailoring", "woodworking"):
+            if player.knows_profession(key):
+                tabs.append((key, CRAFT_TABS[key][1]))
+        tabs.append(("upgrade", "Upgrade"))
+        return tabs
+
     def render(self, screen):
         subject = self._get_subject()
 
         player = self.state_manager.player
-        base_title = {
-            "overview": "PROFESSIONS",
-            "smelting": "SMELTING",
-            "blacksmithing": "BLACKSMITHING",
-            "upgrade": "UPGRADE GEAR",
-        }.get(self.active_tab, "PROFESSIONS")
+        tabs = self._tab_list()
+        if self.active_tab not in {k for k, _ in tabs}:
+            self.active_tab = "overview"
+        base_title = {"overview": "PROFESSIONS", "smelting": "SMELTING", "upgrade": "UPGRADE GEAR"}.get(
+            self.active_tab, (CRAFT_TABS.get(self.active_tab, ("", "PROFESSIONS"))[1]).upper())
         if subject is player:
             title = base_title
         else:
             title = f"{subject.name.upper()}'S {base_title}"
         self.renderer.draw_text(screen, title, (20, 20), size="large", color=COLOR_GOLD)
 
-        # ---- Sub-tab buttons - always visible ----
-        overview_color = COLOR_GOLD if self.active_tab == "overview" else (90, 90, 95)
-        smelting_color = COLOR_GOLD if self.active_tab == "smelting" else (90, 90, 95)
-        self.renderer.draw_rect(screen, self.overview_tab_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.overview_tab_button, overview_color, fill=False)
-        self.renderer.draw_text(screen, "Overview", (self.overview_tab_button.x + 20, self.overview_tab_button.y + 9), color=overview_color)
-        self.renderer.draw_rect(screen, self.smelting_tab_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.smelting_tab_button, smelting_color, fill=False)
-        self.renderer.draw_text(screen, "Smelting", (self.smelting_tab_button.x + 22, self.smelting_tab_button.y + 9), color=smelting_color)
-        blacksmithing_color = COLOR_GOLD if self.active_tab == "blacksmithing" else (90, 90, 95)
-        self.renderer.draw_rect(screen, self.blacksmithing_tab_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.blacksmithing_tab_button, blacksmithing_color, fill=False)
-        self.renderer.draw_text(screen, "Blacksmithing", (self.blacksmithing_tab_button.x + 12, self.blacksmithing_tab_button.y + 9), color=blacksmithing_color)
-        upgrade_color = COLOR_GOLD if self.active_tab == "upgrade" else (90, 90, 95)
-        self.renderer.draw_rect(screen, self.upgrade_tab_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.upgrade_tab_button, upgrade_color, fill=False)
-        self.renderer.draw_text(screen, "Upgrade", (self.upgrade_tab_button.x + 24, self.upgrade_tab_button.y + 9), color=upgrade_color)
+        # ---- Sub-tab buttons - right-aligned left of the Close button, sized to their label ----
+        self.tab_rects = {}
+        x = SCREEN_WIDTH - 140
+        for key, label in reversed(tabs):
+            w = max(80, 22 + 9 * len(label))
+            x -= w + 6
+            self.tab_rects[key] = pygame.Rect(x, 20, w, 36)
+        for key, label in tabs:
+            rect = self.tab_rects[key]
+            color = COLOR_GOLD if self.active_tab == key else (90, 90, 95)
+            self.renderer.draw_rect(screen, rect, (35, 35, 40))
+            self.renderer.draw_rect(screen, rect, color, fill=False)
+            self.renderer.draw_text(screen, label, (rect.x + 11, rect.y + 9), color=color)
 
         if self.active_tab == "smelting":
             self._render_smelting_tab(screen)
-            self.renderer.draw_button(screen, self.close_button, "Close")
-            return
-
-        if self.active_tab == "blacksmithing":
-            self._render_blacksmithing_tab(screen)
-            self.renderer.draw_button(screen, self.close_button, "Close")
-            return
-
-        if self.active_tab == "upgrade":
+        elif self.active_tab in CRAFT_TABS:
+            self._render_craft_tab(screen)
+        elif self.active_tab == "upgrade":
             self._render_upgrade_tab(screen)
-            self.renderer.draw_button(screen, self.close_button, "Close")
-            return
-
-        self._render_overview_tab(screen, subject)
+        else:
+            self._render_overview_tab(screen, subject)
         self.renderer.draw_button(screen, self.close_button, "Close")
 
     def _render_overview_tab(self, screen, subject):
         skills = subject.profession_skills or {}
+        known = list(getattr(subject, "known_professions", []))
+        slots = getattr(subject, "MAX_PRIMARY_PROFESSIONS", 3)
+        self.renderer.draw_text(screen, f"Professions known: {len(known)} / {slots}", (PANEL_X, 54), color=(180, 180, 190))
 
-        if not skills:
-            self.renderer.draw_text(screen, "No professions learned yet.",
-                                    (PANEL_X, PANEL_Y), color=(150, 150, 150))
+        if not known:
+            self.renderer.draw_text(screen, "No professions learned yet. Every town has trainers - look for the profession icon on the map.",
+                                    (PANEL_X, PANEL_Y + 10), color=(150, 150, 150))
             return
 
-        # Known professions first in a stable, sensible order; anything
-        # else the character has (a future profession not yet added to
-        # PROFESSION_DISPLAY_ORDER) still shows, appended after - so this
-        # screen can never silently hide a real profession just because
-        # the display-order list hasn't been updated yet.
-        known_keys = {key for key, _ in PROFESSION_DISPLAY_ORDER}
-        ordered = list(PROFESSION_DISPLAY_ORDER)
-        for key in skills:
-            if key not in known_keys:
-                ordered.append((key, key.title()))
-
-        y = PANEL_Y
+        labels = dict(PROFESSION_DISPLAY_ORDER)
+        ordered = [(k, labels[k]) for k, _ in PROFESSION_DISPLAY_ORDER if k in known]
+        ordered += [(k, k.title()) for k in known if k not in labels]
+        y = PANEL_Y + 10
         for prof_key, label in ordered:
-            if prof_key not in skills:
-                continue
-            self._render_profession_bar(screen, prof_key, label, skills[prof_key], y)
+            self._render_profession_bar(screen, prof_key, label, skills.get(prof_key, 0), y, subject)
             y += BAR_GAP
-
-        # ---- Recipes placeholder section (non-Mining professions only -
-        # Mining's real recipes now live in the Smelting sub-tab instead
-        # of this placeholder, see _render_smelting_tab) ----
-        y += 20
-        self.renderer.draw_text(screen, "RECIPES", (PANEL_X, y), color=COLOR_GOLD)
-        y += 30
-        self.renderer.draw_text(
-            screen,
-            "Herbalism recipes unlock once Alchemy is added. Mining recipes are under the Smelting tab above. Woodcutting recipes unlock once Carpentry/Bowyer-style crafting is added.",
-            (PANEL_X, y), color=(150, 150, 150))
+        y += 10
+        self.renderer.draw_text(screen, "Recipes are in the tabs above. Smelting needs a Forge, Sawmill recipes need a Sawmill.",
+                                (PANEL_X, y), size="small", color=(150, 150, 150))
 
     def _render_smelting_tab(self, screen):
         """Recipe list: known recipes (skill-gated) each show their
@@ -404,6 +393,11 @@ class ProfessionsScreen(BaseScreen):
         available = self.smelting_manager.available_recipes(player)
         self.recipe_rects = []
 
+        if not player.knows_profession("mining"):
+            self.renderer.draw_text(screen, "You haven't learned Mining. Find a Mining trainer in any town.",
+                                    (PANEL_X, PANEL_Y + 40), color=(220, 160, 120))
+            self._draw_smelt_message(screen)
+            return
         if not available:
             self.renderer.draw_text(screen, "No smelting recipes known yet - raise your Mining skill by gathering ore.",
                                     (PANEL_X, PANEL_Y + 40), color=(150, 150, 150))
@@ -451,68 +445,104 @@ class ProfessionsScreen(BaseScreen):
         if self.smelt_message:
             self.renderer.draw_text(screen, self.smelt_message, (PANEL_X, SCREEN_HEIGHT - 60), color=self.smelt_message_color)
 
-    def _render_blacksmithing_tab(self, screen):
-        """Recipe list for Blacksmithing - same row shape as
-        _render_smelting_tab, with two real differences: no Forge
-        requirement (real WoW Blacksmithing can be crafted anywhere,
-        unlike Smelting - see _attempt_craft's own docstring), and a
-        recipe's display name/inputs come from the recipe dict itself
-        (recipe["name"], e.g. "Copper Bracers") rather than looking up an
-        output material's name - a Blacksmithing recipe's OUTPUT is
-        either a freshly-generated Item (no material def exists for it)
-        or an upgrade-kit Material (whose def does exist, but the
-        recipe's own authored name is used for consistency with the item
-        recipes rather than branching the label lookup by output kind)."""
+    def _craft_recipes(self, profession):
+        if profession == "blacksmithing":
+            recipes = self.blacksmithing_manager.recipes
+        else:
+            recipes = self.crafting_manager.all_recipes(profession)
+        return sorted(recipes.items(), key=lambda kv: kv[1].get("skill_required", 0))
+
+    def _material_icon(self, material_id):
+        mat_def = self.gathering_manager.get_material_def(material_id)
+        if not mat_def or not mat_def.get("icon_id"):
+            return None
+        folder = MATERIAL_TYPE_FOLDERS.get(mat_def["material_type"], mat_def["material_type"])
+        return get_tile_sprite(f"assets/gathering_nodes/{folder}/{mat_def['icon_id']}.png", (0, 0, 32, 32), 40)
+
+    @staticmethod
+    def _difficulty_color(skill, recipe):
+        """WoW's recipe colours: orange = always skills up, yellow = usually, green = sometimes, grey = never."""
+        req = recipe.get("skill_required", 0)
+        orange, yellow, green, grey = recipe.get("skill_range") or (req + 5, req + 15, req + 25, req + 35)
+        if skill < orange:
+            return (255, 150, 40)
+        if skill < yellow:
+            return (235, 215, 70)
+        if skill < green:
+            return (110, 205, 110)
+        return (130, 130, 135)
+
+    def _render_craft_tab(self, screen):
+        """One scrolling recipe list for Blacksmithing / Alchemy / Tailoring / Woodworking / the Sawmill. Every recipe is
+        listed (locked ones greyed with the skill they need) so the player can see what they are working toward."""
         player = self.state_manager.player
-        available = self.blacksmithing_manager.available_recipes(player)
+        profession, label, station = CRAFT_TABS[self.active_tab]
         self.craft_recipe_rects = []
 
-        if not available:
-            self.renderer.draw_text(screen, "No Blacksmithing recipes known yet.",
-                                    (PANEL_X, PANEL_Y), color=(150, 150, 150))
+        if not player.knows_profession(profession):
+            self.renderer.draw_text(screen, f"You haven't learned {label}. Find a {label} trainer in any town.",
+                                    (PANEL_X, PANEL_Y), color=(220, 160, 120))
             self._draw_craft_message(screen)
             return
 
-        y = PANEL_Y
-        row_h = 56
-        for recipe_id, recipe in available.items():
-            name = recipe["name"]
+        skill = player.profession_skills.get(profession, 0)
+        cap = player.profession_cap(profession)
+        tier = profession_manager.tier_name(player.profession_tiers.get(profession, 0))
+        self.renderer.draw_text(screen, f"{tier} {label if profession != 'woodcutting' else 'Woodcutting'}:  skill {skill} / {cap}",
+                                (PANEL_X, PANEL_Y), color=COLOR_WHITE)
+        y = PANEL_Y + 30
+        if station == "sawmill":
+            if self._at_sawmill():
+                self.renderer.draw_text(screen, "At a Sawmill - ready to saw.", (PANEL_X, y), color=(140, 220, 160))
+            else:
+                self.renderer.draw_text(screen, "You are not at a Sawmill. Find one to saw planks.", (PANEL_X, y), color=(220, 160, 120))
+            y += 30
+        elif skill >= cap and cap < 300:
+            self.renderer.draw_text(screen, f"Skill cap reached - visit a {label} trainer to advance.", (PANEL_X, y), color=(220, 190, 120))
+            y += 30
 
-            rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH, row_h - 8)
-            can_craft = self.blacksmithing_manager.can_craft(player, recipe_id)
-            border_color = (140, 220, 160) if can_craft else (100, 100, 100)
-            self.renderer.draw_rect(screen, rect, (30, 30, 35))
-            self.renderer.draw_rect(screen, rect, border_color, fill=False)
+        recipes = self._craft_recipes(profession)
+        row_h = 52
+        visible = max(1, (SCREEN_HEIGHT - 80 - y) // row_h)
+        self.craft_scroll = max(0, min(self.craft_scroll, max(0, len(recipes) - visible)))
+        if len(recipes) > visible:
+            self.renderer.draw_text(screen, f"Scroll for more ({self.craft_scroll + 1}-{min(len(recipes), self.craft_scroll + visible)} of {len(recipes)})",
+                                    (SCREEN_WIDTH - 520, PANEL_Y), size="small", color=(150, 150, 150))
 
-            # Real bar icons (same MATERIAL_TYPE_FOLDERS/gathering_manager
-            # lookup smelting uses) - every current recipe's FIRST input
-            # is always a bar, so this draws that bar's icon as a stand-in
-            # for the recipe itself (there's no icon art for the output
-            # gear/kit yet - procedural items render as rarity-colored
-            # boxes elsewhere in the UI, not real sprites).
-            icon_drawn = False
-            first_input_id = next(iter(recipe["inputs"]), None)
-            input_def = self.gathering_manager.get_material_def(first_input_id) if first_input_id else None
-            if input_def and input_def.get("icon_id"):
-                folder = MATERIAL_TYPE_FOLDERS.get(input_def["material_type"], input_def["material_type"])
-                sprite = get_tile_sprite(f"assets/gathering_nodes/{folder}/{input_def['icon_id']}.png", (0, 0, 32, 32), 40)
-                if sprite is not None:
-                    screen.blit(sprite, (rect.x + 8, rect.y + 8))
-                    icon_drawn = True
+        for recipe_id, recipe in recipes[self.craft_scroll:self.craft_scroll + visible]:
+            rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH, row_h - 6)
+            req = recipe.get("skill_required", 0)
+            unlocked = skill >= req
+            if profession == "blacksmithing":
+                can_craft = self.blacksmithing_manager.can_craft(player, recipe_id)
+                name = recipe["name"]
+            else:
+                can_craft = self.crafting_manager.can_craft(player, profession, recipe_id)
+                name = self.crafting_manager.output_name(recipe)
+            border = (140, 220, 160) if can_craft else ((100, 100, 100) if unlocked else (60, 60, 65))
+            self.renderer.draw_rect(screen, rect, (30, 30, 35) if unlocked else (22, 22, 26))
+            self.renderer.draw_rect(screen, rect, border, fill=False)
 
-            text_x = rect.x + (56 if icon_drawn else 12)
-            input_parts = []
+            out = recipe.get("output", {})
+            sprite = self._material_icon(out.get("material_id")) if out.get("kind") == "material" else None
+            if sprite is None:
+                first_input = next(iter(recipe["inputs"]), None)
+                sprite = self._material_icon(first_input) if first_input else None
+            if sprite is not None:
+                screen.blit(sprite, (rect.x + 6, rect.y + 2))
+            text_x = rect.x + (54 if sprite is not None else 12)
+
+            parts = []
             for input_id, qty in recipe["inputs"].items():
                 mat_def = self.gathering_manager.get_material_def(input_id)
-                input_name = mat_def["name"] if mat_def else input_id
-                have = player.get_material_quantity(input_id)
-                input_parts.append(f"{input_name} {have}/{qty}")
-            input_line = "   ".join(input_parts)
-
-            self.renderer.draw_text(screen, name, (text_x, rect.y + 6), color=COLOR_WHITE)
-            self.renderer.draw_text(screen, input_line, (text_x, rect.y + 26), size="small", color=COLOR_LIGHT_GRAY)
-
-            self.craft_recipe_rects.append(rect)
+                parts.append(f"{mat_def['name'] if mat_def else input_id} {player.get_material_quantity(input_id)}/{qty}")
+            self.renderer.draw_text(screen, name, (text_x, rect.y + 4), color=COLOR_WHITE if unlocked else (120, 120, 125))
+            self.renderer.draw_text(screen, "   ".join(parts), (text_x, rect.y + 25), size="small", color=COLOR_LIGHT_GRAY if unlocked else (100, 100, 105))
+            if unlocked:
+                self.renderer.draw_text(screen, f"Skill {req}", (rect.right - 110, rect.y + 12), color=self._difficulty_color(skill, recipe))
+            else:
+                self.renderer.draw_text(screen, f"Requires {req}", (rect.right - 130, rect.y + 12), color=(200, 110, 110))
+            self.craft_recipe_rects.append((recipe_id, rect))
             y += row_h
 
         self._draw_craft_message(screen)
@@ -609,9 +639,9 @@ class ProfessionsScreen(BaseScreen):
         # to happen, not always claim a rarity change.
         if item.upgrade_count == 0:
             to_rarity = next_rarity_for(item.rarity)
-            effect_line = f"{item.rarity.title()} -> {to_rarity.title()}   (have {have_qty})"
+            effect_line = f"{item.rarity.title()} -> {to_rarity.title()}, +10% stats, Refined   (have {have_qty})"
         else:
-            effect_line = f"Refine further (1.5x stat bump, stays {item.rarity.title()})   (have {have_qty})"
+            effect_line = f"+20% stats, Superior, stays {item.rarity.title()}   (have {have_qty})"
 
         rect = pygame.Rect(panel_x, PANEL_Y + 32, 360, 64)
         can_apply = have_qty >= 1
@@ -631,7 +661,7 @@ class ProfessionsScreen(BaseScreen):
         if self.upgrade_message:
             self.renderer.draw_text(screen, self.upgrade_message, (PANEL_X, SCREEN_HEIGHT - 60), color=self.upgrade_message_color)
 
-    def _render_profession_bar(self, screen, prof_key, label, current_skill, y):
+    def _render_profession_bar(self, screen, prof_key, label, current_skill, y, subject=None):
         """One profession's row: label, current/cap numbers, and a real
         filled progress bar. Cap is the CUMULATIVE sum of every tier cap
         (see TIER_SKILL_CAPS - currently early=75 + mid=150 = 225 total),
@@ -646,10 +676,13 @@ class ProfessionsScreen(BaseScreen):
         available to fill toward - accurate today (nothing gates a
         player from smelting Silver once they hit the skill), revisit if
         tier access ever becomes a real gate."""
-        cap = sum(TIER_SKILL_CAPS.values())
+        # The bar fills toward the TRAINED tier's cap (Apprentice 75, Journeyman 150, ...), so a capped bar means
+        # "visit your trainer", not "done".
+        cap = subject.profession_cap(prof_key) if subject is not None else sum(TIER_SKILL_CAPS.values())
+        tier = profession_manager.tier_name(subject.profession_tiers.get(prof_key, 0)) if subject is not None else ""
         display_current = min(current_skill, cap)
 
-        self.renderer.draw_text(screen, f"{label}  ({display_current} / {cap})",
+        self.renderer.draw_text(screen, f"{label}  -  {tier}  ({display_current} / {cap})",
                                 (PANEL_X, y), color=COLOR_WHITE)
 
         bar_y = y + 26

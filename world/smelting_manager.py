@@ -45,6 +45,8 @@ class SmeltingManager:
         and viewable/plannable even when the player is temporarily out
         of ore, same as a WoW spellbook still shows a recipe you're out
         of reagents for rather than hiding it entirely."""
+        if not character.knows_profession("mining"):
+            return {}
         skill = character.profession_skills.get("mining", 0)
         return {
             output_id: recipe
@@ -57,7 +59,7 @@ class SmeltingManager:
         AND currently holds every required input at the needed
         quantity."""
         recipe = self.recipes.get(output_id)
-        if recipe is None:
+        if recipe is None or not character.knows_profession("mining"):
             return False
         skill = character.profession_skills.get("mining", 0)
         if skill < recipe.get("skill_required", 0):

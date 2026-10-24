@@ -377,6 +377,13 @@ MATERIAL_TYPE_FOLDERS = {
     # singular "wood" on disk, matching "ore" staying singular rather
     # than the "herb"->"herbs" pluralization.
     "wood": "wood",
+    # Crafting intermediates (Oct 2026). Art for these is still to come (prompts: claude/crafting_art_prompts.md);
+    # until a PNG exists the UI falls back to the usual text/rarity box.
+    "plank": "planks",
+    "fiber": "fibers",
+    "pages": "pages",
+    "cloth": "cloth",
+    "bolt": "bolts",
 }
 
 #: Skill cap per profession TIER, not an absolute profession cap - "early"

@@ -53,6 +53,12 @@ after the first version was built:
   bigger absolute bump from the same percentage) without inventing a
   second balance curve alongside the one LootGenerator already tunes.
 
+  CORRECTION 3 (Kyle, 2026-10-24 - the current rules; they supersede the ratio / 1.5x numbers described above):
+    1st kit: rarity moves up one rank, every stat +10% (about +2 item levels), tagged "Refined".
+    2nd kit: every stat gains another +20% of the original value (about +3 item levels), rarity stays, tagged "Superior".
+  Kits are meant to be somewhat expensive; EVERY crafting profession makes its own (copper/bronze, linen/wool/silk,
+  ashwood/ironbark...), and the item must have been crafted from that kit's material.
+
   "let's just start with copper and bronze to lvl 75 to test the system"
   - only Copper and Bronze material tiers have real kits/gear right now
   (40 total ores/herbs exist - more tiers are coming once crafting
@@ -73,6 +79,12 @@ from pathlib import Path
 MATERIAL_KITS = {
     "upgrade_kit_copper": "copper",
     "upgrade_kit_bronze": "bronze",
+    # Tailoring (cloth tiers) and Woodworking (early = ashwood, mid = ironbark)
+    "upgrade_kit_linen": "linen",
+    "upgrade_kit_wool": "wool",
+    "upgrade_kit_silk": "silk",
+    "upgrade_kit_ashwood": "ashwood",
+    "upgrade_kit_ironbark": "ironbark",
 }
 
 
@@ -151,6 +163,49 @@ def can_upgrade(character, item, kit_material_id):
     return character.get_material_quantity(kit_material_id) >= 1
 
 
+#: Per-application tuning (Kyle, 2026-10-24).
+FIRST_BUMP = 0.10          # +10% of every stat (and ~+2 item levels)
+SECOND_BUMP_MULT = 2.0     # second kit adds 2x the first kit's delta = another +20% of the original
+ILVL_GAIN = {1: 2, 2: 3}
+UPGRADE_TAGS = {1: "Refined", 2: "Superior"}
+_TAG_PREFIXES = tuple(t + " " for t in UPGRADE_TAGS.values())
+
+
+def upgrade_tag(item):
+    """'Refined' / 'Superior' / None - shown in the item name and tooltips."""
+    return UPGRADE_TAGS.get(getattr(item, "upgrade_count", 0))
+
+
+def _retag_name(item):
+    name = item.name
+    for prefix in _TAG_PREFIXES:
+        if name.startswith(prefix):
+            name = name[len(prefix):]
+            break
+    tag = upgrade_tag(item)
+    item.name = f"{tag} {name}" if tag else name
+
+
+def _grant_rarity_stats(item, new_rarity):
+    """A crafted COMMON item has no bonus stats (LootGenerator.STATLESS_RARITIES), but an uncommon one does. When a kit
+    lifts a stat-less item into a rarity that carries stats, give it the stats that rarity would have rolled at its item
+    level, so a "green" crafted piece is never a green with nothing on it."""
+    if item.primary_stats or item.secondary_stats:
+        return
+    try:
+        from entities.loot_generator import LootGenerator
+        gen = LootGenerator()
+        template = item.stat_template or "str_physical"
+        if item.weapon_type:
+            ref = gen.generate_weapon(item.slot, item.weapon_type, template, item.item_level, new_rarity)
+        else:
+            ref = gen.generate_armor_piece(item.slot, item.armor_type, template, item.item_level, new_rarity)
+    except Exception:
+        return
+    item.primary_stats = dict(ref.primary_stats)
+    item.secondary_stats = dict(ref.secondary_stats)
+
+
 def _stat_dict_delta(old_stats, bump_ratio):
     """{stat: new_value} and {stat: delta} for applying bump_ratio to
     every entry in old_stats via math.ceil (see upgrade_item's docstring
@@ -173,20 +228,12 @@ def upgrade_item(character, item, kit_material_id):
     automatically sees the upgrade with no swap-out step needed anywhere
     else in the codebase).
 
-    1ST application (item.upgrade_count == 0 going in): rarity moves up
-    exactly one rank, AND every existing stat gets the normal
-    ratio-based bump (rarity.json's stat_budget_multiplier ratio between
-    the old and new tier). The exact per-stat delta this produces is
-    recorded on item.upgrade_deltas.
+    1ST application (item.upgrade_count == 0 going in): rarity moves up exactly one rank, every stat gets +10% (at least
+    +1 each), item level +2, and the item is tagged "Refined". A stat-less common piece first receives the stats its new
+    rarity carries. The exact per-stat delta is recorded on item.upgrade_deltas.
 
-    2ND application (item.upgrade_count == 1 going in): rarity does NOT
-    move again - Kyle: "green stays green" - but every stat that got a
-    delta on the first application bumps AGAIN, by 1.5x that SAME
-    original delta (not 1.5x the current value, and not a fresh ratio
-    bump - Kyle's own example: first +1 stam/+1 str, second +1.5
-    stam/+1.5 str). math.ceil is applied to the 1.5x delta itself so a
-    +1 delta's 1.5x (=1.5) always becomes a real +2, never silently
-    rounding back down to +1.
+    2ND application (item.upgrade_count == 1 going in): rarity stays ("green stays green"), every stat gains 2x the
+    first application's delta (another +20% of the original), item level +3, tagged "Superior".
 
     Returns the same `item` on success, or None on failure (can_upgrade's
     checks re-run here rather than trusted from the caller, same
@@ -207,33 +254,12 @@ def upgrade_item(character, item, kit_material_id):
             # enough on the ladder to hit this - defensive only.
             return None
 
-        rarity_file = Path(__file__).parent.parent / "data" / "items" / "rarity.json"
-        with open(rarity_file, 'r') as f:
-            rarity_tiers = json.load(f)["rarity_tiers"]
-
-        old_mult = rarity_tiers[from_rarity]["stat_budget_multiplier"]
-        new_mult = rarity_tiers[to_rarity]["stat_budget_multiplier"]
-        # old_mult is never 0 for any tier a crafted item can actually
-        # start at (poor/common/uncommon/rare/epic all have real nonzero
-        # multipliers in rarity.json) - the only 0-multiplier tier is
-        # "quest", which _rarity_order() already excludes.
-        bump_ratio = new_mult / old_mult
-
+        bump_ratio = 1.0 + FIRST_BUMP
         item.rarity = to_rarity
+        _grant_rarity_stats(item, to_rarity)
 
-        # Every stat the item ALREADY has goes up by bump_ratio - no new
-        # stat lines added, no player choice of which to boost (Kyle:
-        # "Boost every existing stat"). math.ceil rather than int/round
-        # so even a tiny stat (e.g. a single +1) always goes up by AT
-        # LEAST 1 - a straight int() truncation would let 1 * 1.3 = 1.3
-        # round back down to 1, silently failing the entire point of an
-        # "upgrade" kit on exactly the low-level gear Kyle called out
-        # ("1 to 2 at lower levels"). A stat that is legitimately 0
-        # (most slots roll zero primary/secondary stats at low
-        # rarity/item_level - see LootGenerator) correctly stays 0:
-        # there is nothing to "boost by at least 1" on a stat the item
-        # never had in the first place, since this only touches stats
-        # already present in the dict.
+        # Every stat the item ALREADY has goes up by +10% - no new stat lines (beyond the rarity grant above), no player
+        # choice of which to boost. math.ceil so even a tiny stat (a single +1) always goes up by at least 1.
         new_primary, primary_deltas = _stat_dict_delta(item.primary_stats, bump_ratio)
         new_secondary, secondary_deltas = _stat_dict_delta(item.secondary_stats, bump_ratio)
         item.primary_stats = new_primary
@@ -251,6 +277,8 @@ def upgrade_item(character, item, kit_material_id):
 
         item.upgrade_deltas = deltas
         item.upgrade_count = 1
+        item.item_level += ILVL_GAIN[1]
+        item.sell_price = max(item.sell_price, int(item.sell_price * 1.15))
 
     else:
         # Second (and final) application - rarity frozen, stats bump
@@ -261,18 +289,21 @@ def upgrade_item(character, item, kit_material_id):
 
         for stat, delta in deltas.get("primary_stats", {}).items():
             if stat in item.primary_stats:
-                item.primary_stats[stat] += math.ceil(delta * 1.5)
+                item.primary_stats[stat] += math.ceil(delta * SECOND_BUMP_MULT)
         for stat, delta in deltas.get("secondary_stats", {}).items():
             if stat in item.secondary_stats:
-                item.secondary_stats[stat] += math.ceil(delta * 1.5)
+                item.secondary_stats[stat] += math.ceil(delta * SECOND_BUMP_MULT)
         for field in ("armor_value", "weapon_damage_min", "weapon_damage_max", "block_value"):
             delta = deltas.get(field, 0)
             if delta:
-                setattr(item, field, getattr(item, field) + math.ceil(delta * 1.5))
+                setattr(item, field, getattr(item, field) + math.ceil(delta * SECOND_BUMP_MULT))
 
         item.upgrade_count = 2
+        item.item_level += ILVL_GAIN[2]
+        item.sell_price = max(item.sell_price, int(item.sell_price * 1.2))
         # upgrade_deltas has done its job - clear it so nothing could
         # ever read it for a (nonexistent) 3rd application.
         item.upgrade_deltas = None
 
+    _retag_name(item)
     return item

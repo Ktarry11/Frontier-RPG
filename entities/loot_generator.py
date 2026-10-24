@@ -57,6 +57,7 @@ WEAPON_NAME_NOUNS = {
     "staff": ["Staff", "Rod"],
     "wand": ["Wand", "Rod"],
     "totem": ["Totem", "Fetish"],
+    "tome": ["Tome", "Grimoire", "Codex"],
     "shield": ["Shield", "Bulwark", "Aegis"],
 }
 
@@ -312,8 +313,8 @@ class LootGenerator:
             armor_value = int(item_level * 1.2 * rarity_data["stat_budget_multiplier"])
             # Block value scales similarly to armor - higher ilvl/rarity = better block
             block_value = int(item_level * 1.5 * rarity_data["stat_budget_multiplier"])
-        elif weapon_type == "totem":
-            # Totems are passive relic stat sticks (per design doc Section 2/3) - no auto-attack damage
+        elif weapon_type in ("totem", "tome"):
+            # Totems and tomes are passive stat sticks (per design doc Section 2/3) - no auto-attack damage
             pass
         else:
             # Melee weapons and wands: roll a damage range around a DPS

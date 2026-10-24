@@ -71,6 +71,8 @@ class Consumable:
             return False  # Can't stack two battle elixirs
         if self.buff_category == "food" and character.food_buff is not None:
             return False  # Can't stack two food buffs
+        if self.buff_category == "ammo" and character.ammo_buff is not None:
+            return False  # One quiver at a time
         return True
     
     def use(self, character, combat_log=None):
@@ -107,6 +109,13 @@ class Consumable:
             bonus_str = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in self.stat_bonuses.items())
             log_msg = f"Ate {self.name}: {bonus_str} for {self.effect_duration}s"
         
+        elif self.consumable_type == "ammo":
+            # Crafted arrows / bolts (Woodworking): a timed ranged-attack buff in its own slot, since the game has
+            # no ammunition mechanic.  Same flat-value treatment as elixirs and food.
+            character.apply_consumable_buff("ammo", self)
+            bonus_str = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in self.stat_bonuses.items())
+            log_msg = f"Nocked {self.name}: {bonus_str} for {int(self.effect_duration)}s"
+
         else:
             return False
         

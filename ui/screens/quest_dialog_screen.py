@@ -260,7 +260,7 @@ class QuestDialogScreen(BaseScreen):
 
     # ------------------------------------------------------------------ greeting action row
     SERVICE_LABELS = {"inn": "Bind Hearthstone", "flight": "Fly", "riding": "Train Riding", "mounts": "Buy Mounts",
-                      "train_class": "Train Skills"}
+                      "train_class": "Train Skills", "train_prof": "Train Profession"}
 
     def _has_action_row(self):
         """Vendors (Shop/Leave) and travel-service NPCs get a row of action buttons instead of a lone Close."""
@@ -295,7 +295,7 @@ class QuestDialogScreen(BaseScreen):
             zone = zm.current_zone
             travel.set_bind(zone.name, zm.player_x, zm.player_y, zone.name)
             self.result_message = f"Your hearthstone is now bound to {zone.name}."
-        elif action in ("flight", "riding", "mounts", "train_class"):
+        elif action in ("flight", "riding", "mounts", "train_class", "train_prof"):
             screen = sm.states.get(GameState.TRAVEL)
             screen.open_service(action, self.npc)
             sm.transition_to(GameState.TRAVEL)

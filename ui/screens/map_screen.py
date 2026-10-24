@@ -19,6 +19,10 @@ FLIGHT_GREEN = (80, 220, 100)
 INN_AMBER = (240, 170, 60)
 MOUNT_BLUE = (100, 170, 245)
 HEARTH_GOLD = (255, 215, 70)
+CLASS_VIOLET = (190, 130, 240)
+PROF_TEAL = (90, 210, 205)
+FORGE_ORANGE = (255, 125, 45)
+SAW_TAN = (210, 170, 105)
 
 
 class MapScreen(BaseScreen):
@@ -307,19 +311,25 @@ class MapScreen(BaseScreen):
         vendor_mgr = getattr(zm, "vendor_manager", None)
         if vendor_mgr is not None:
             service_npcs += list(vendor_mgr.get_vendors_in_zone(tilemap.name))
-        markers = {"inn": set(), "ride": set(), "flight": set()}
+        markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(), "forge": set(), "sawmill": set()}
         for npc in service_npcs:
             for svc in services_for_npc(npc):
-                kind = {"inn": "inn", "riding": "ride", "mounts": "ride", "flight": "flight"}.get(svc)
+                kind = {"inn": "inn", "riding": "ride", "mounts": "ride", "flight": "flight",
+                        "train_class": "class", "train_prof": "prof"}.get(svc)
                 if kind:
                     markers[kind].add((npc.x, npc.y))
+        # Crafting stations: forges (ore -> bars) and sawmills (logs -> planks)
+        for forge in getattr(zm, "forge_manager", None) and zm.forge_manager.get_forges_in_zone(tilemap.name) or []:
+            markers["forge"].add((forge.x, forge.y))
+        for mill in getattr(zm, "sawmill_manager", None) and zm.sawmill_manager.get_forges_in_zone(tilemap.name) or []:
+            markers["sawmill"].add((mill.x, mill.y))
         # Hearthstone: a gold star behind the innkeeper icon (only when the bind is in this zone)
         bind = get_travel_manager().bind
         if bind and bind.get("zone") == tilemap.name:
             hx, hy = self._tile_to_screen(tilemap, rect, bind["x"], bind["y"])
             self._draw_service_icon(screen, "hearth", hx, hy)
 
-        for kind in ("inn", "ride", "flight"):
+        for kind in ("forge", "sawmill", "prof", "class", "inn", "ride", "flight"):
             for tx, ty in sorted(markers[kind]):
                 fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
                 self._draw_service_icon(screen, kind, fx, fy)
@@ -348,7 +358,9 @@ class MapScreen(BaseScreen):
             ly += 26
         # Service icons are glyphs, so the legend uses the same drawing code as the map.
         for kind, text in (("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
-                           ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here")):
+                           ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here"),
+                           ("class", "Class trainer"), ("prof", "Profession trainers"),
+                           ("forge", "Forge (ore to bars)"), ("sawmill", "Sawmill (logs to planks)")):
             self._draw_service_icon(screen, kind, lx + 7, ly + 7, scale=0.7)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
             ly += 26
@@ -382,6 +394,32 @@ class MapScreen(BaseScreen):
             pygame.draw.arc(screen, MOUNT_BLUE, (cx - 4, cy - 4, 8, 8), 3.14159, 6.28318, 2)
             pygame.draw.line(screen, MOUNT_BLUE, (cx - 4, cy), (cx - 4, cy - 3), 2)
             pygame.draw.line(screen, MOUNT_BLUE, (cx + 3, cy), (cx + 3, cy - 3), 2)
+        elif kind == "class":
+            # sword: diagonal blade, crossguard, pommel
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, CLASS_VIOLET, (cx, cy), 8, 2)
+            pygame.draw.line(screen, CLASS_VIOLET, (cx - 4, cy + 4), (cx + 4, cy - 4), 2)
+            pygame.draw.line(screen, CLASS_VIOLET, (cx - 4, cy - 1), (cx + 1, cy + 4), 2)
+        elif kind == "prof":
+            # hammer: handle + head
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, PROF_TEAL, (cx, cy), 8, 2)
+            pygame.draw.line(screen, PROF_TEAL, (cx - 3, cy + 4), (cx + 2, cy - 2), 2)
+            pygame.draw.rect(screen, PROF_TEAL, (cx - 1, cy - 5, 6, 4))
+        elif kind == "forge":
+            # flame over an anvil base
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, FORGE_ORANGE, (cx, cy), 8, 2)
+            pygame.draw.polygon(screen, FORGE_ORANGE, [(cx, cy - 5), (cx + 3, cy), (cx + 2, cy + 3), (cx - 2, cy + 3), (cx - 3, cy)])
+            pygame.draw.rect(screen, dark, (cx - 1, cy - 1, 2, 3))
+        elif kind == "sawmill":
+            # circular saw blade
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, SAW_TAN, (cx, cy), 8, 2)
+            pygame.draw.circle(screen, SAW_TAN, (cx, cy), 4)
+            pygame.draw.circle(screen, dark, (cx, cy), 1)
+            for dx, dy in ((0, -5), (0, 5), (-5, 0), (5, 0)):
+                pygame.draw.rect(screen, SAW_TAN, (cx + dx - 1, cy + dy - 1, 2, 2))
         elif kind == "hearth":
             import math
             pts = []

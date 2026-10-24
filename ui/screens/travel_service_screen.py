@@ -5,6 +5,7 @@ TravelServiceScreen - the one screen behind every travel service NPC:
   riding  - Riding trainer: learn Apprentice (L20) / Journeyman (L30) Riding
   mounts  - Mount vendor: buy mounts your riding skill allows
   train_class - Class trainer: buy new abilities / higher ranks for your own class (world/training_manager.py)
+  train_prof  - Profession trainer: learn a profession, train up its tiers, or unlearn it (world/profession_manager.py)
 
 Opened from QuestDialogScreen's greeting buttons via open_service(kind, npc), then GameState.TRAVEL.
 All rules live in world/travel_manager.py; this screen is only presentation + the gold/teleport glue.
@@ -27,7 +28,7 @@ RED = (230, 130, 130)
 
 class TravelServiceScreen(BaseScreen):
     TITLES = {"flight": "Windrider Flight Master", "riding": "Riding Trainer", "mounts": "Mount Vendor",
-              "train_class": "Class Trainer"}
+              "train_class": "Class Trainer", "train_prof": "Profession Trainer"}
 
     def __init__(self, state_manager):
         super().__init__(state_manager)
@@ -38,6 +39,7 @@ class TravelServiceScreen(BaseScreen):
         self.close_button = pygame.Rect(SCREEN_WIDTH - 160, SCREEN_HEIGHT - 70, 120, 44)
         self._row_buttons = []   # [(rect, action, arg)] rebuilt every render
         self.scroll = 0          # first visible row (class trainers can list dozens)
+        self._unlearn_armed = False   # "Unlearn" needs a second click to confirm
 
     # ------------------------------------------------------------------ opening
     def open_service(self, kind, npc):
@@ -45,6 +47,7 @@ class TravelServiceScreen(BaseScreen):
         self.npc = npc
         self.message = None
         self.scroll = 0
+        self._unlearn_armed = False
         if kind == "flight":
             node_id = self._current_node()
             if node_id and get_travel_manager().discover_node(node_id):
@@ -99,6 +102,8 @@ class TravelServiceScreen(BaseScreen):
                                  action="learn", arg=rank))
         elif self.kind == "train_class":
             rows = self._train_rows(player, copper)
+        elif self.kind == "train_prof":
+            rows = self._prof_rows(player, copper)
         elif self.kind == "mounts":
             for mount in travel.mounts_for_vendor(self._npc_id()):
                 owned = mount["id"] in travel.owned_mounts
@@ -111,6 +116,27 @@ class TravelServiceScreen(BaseScreen):
     def _trainer_class(self):
         from world.training_manager import class_for_trainer
         return class_for_trainer(self._npc_id())
+
+    def _trainer_profession(self):
+        from world.profession_manager import profession_for_trainer
+        return profession_for_trainer(self._npc_id())
+
+    def _prof_rows(self, player, copper):
+        from world import profession_manager as pm
+        prof = self._trainer_profession()
+        rows = []
+        for o in pm.offers(player, prof):
+            if o["kind"] == "unlearn":
+                rows.append(dict(name=o["name"], sub="Click again to confirm - " + o["sub"] if self._unlearn_armed else o["sub"],
+                                 price=None, label="Confirm?" if self._unlearn_armed else "Unlearn", enabled=True,
+                                 action="prof_unlearn", arg=prof))
+                continue
+            ok = o["enabled"] and (o["cost"] is None or copper >= o["cost"])
+            reason = o["reason"] or ("Not enough gold" if o["enabled"] and not ok else None)
+            label = {"learn": "Learn", "advance": "Train", "info": "Locked"}.get(o["kind"], "Locked")
+            rows.append(dict(name=o["name"], sub=o["sub"], price=o["cost"], label=label, enabled=ok, reason=reason,
+                             action={"learn": "prof_learn", "advance": "prof_advance"}.get(o["kind"], "none"), arg=prof))
+        return rows
 
     def _train_rows(self, player, copper):
         from world import training_manager as tm
@@ -156,6 +182,19 @@ class TravelServiceScreen(BaseScreen):
                 learned += bool(ok)
             return self._say(f"You learned {learned} new skill{'s' if learned != 1 else ''}." if learned
                              else "You can't afford anything.", GREEN if learned else RED)
+        if action in ("prof_learn", "prof_advance", "prof_unlearn"):
+            from world import profession_manager as pm
+            player = self.state_manager.player
+            if action == "prof_unlearn":
+                if not self._unlearn_armed:
+                    self._unlearn_armed = True
+                    return self._say("Click Unlearn again to forget this profession and lose its skill.", RED)
+                self._unlearn_armed = False
+                ok, msg = pm.unlearn(player, arg)
+            else:
+                self._unlearn_armed = False
+                ok, msg = (pm.learn if action == "prof_learn" else pm.advance)(player, party, arg)
+            return self._say(msg, GREEN if ok else RED)
         if action == "learn":
             ok, reason = travel.can_learn_riding(self.state_manager.player.level, self._copper())
             if not ok:
@@ -247,6 +286,12 @@ class TravelServiceScreen(BaseScreen):
             hint = (f"I train {cls}s. Each skill is taught at the highest rank your level allows."
                     if cls == player.char_class else
                     f"I only train {cls}s. Find a {player.char_class} trainer.")
+        elif self.kind == "train_prof":
+            from world import profession_manager as pm
+            prof = self._trainer_profession()
+            player = self.state_manager.player
+            name = pm.professions()[prof]["name"] if prof else "a profession"
+            hint = (f"I teach {name}. You know {len(player.known_professions)} of {pm.max_primary()} professions.")
         else:
             hint = (f"Riding skill: {travel.riding_skill(travel.riding_rank)['name']}" if travel.riding_rank
                     else "You need to learn riding first (level 20, any riding trainer).")

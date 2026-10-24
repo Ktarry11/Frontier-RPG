@@ -10,6 +10,7 @@ from world.portal_manager import PortalManager
 from world.vendor_manager import get_vendor_manager
 from world.gathering_manager import get_gathering_node_manager
 from world.forge_manager import get_forge_manager
+from world.sawmill_manager import get_sawmill_manager
 from world.chest_manager import get_chest_manager
 from ui.sprite_loader import prewarm_chunk_sprites
 from world.tile_textures import TILE_SIZE
@@ -38,6 +39,7 @@ class ZoneManager:
         self.vendor_manager = get_vendor_manager()  # Phase 6: vendor NPCs
         self.gathering_manager = get_gathering_node_manager()
         self.forge_manager = get_forge_manager()
+        self.sawmill_manager = get_sawmill_manager()
         self.chest_manager = get_chest_manager()
         self._initialize_zones()
     
@@ -583,6 +585,14 @@ class ZoneManager:
         if not self.current_zone:
             return None
         return self.forge_manager.get_forge_at_location(
+            self.current_zone.name, self.player_x, self.player_y
+        )
+
+    def get_sawmill_at_location(self):
+        """Sawmill within reach of the player (same lookup as the Forge)."""
+        if not self.current_zone:
+            return None
+        return self.sawmill_manager.get_forge_at_location(
             self.current_zone.name, self.player_x, self.player_y
         )
 

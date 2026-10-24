@@ -197,6 +197,18 @@
       "base_attack_speed": 3.3,
       "icon_id": "rarity_common",
       "damage_tier": "two_hand"
+    },
+    "tome": {
+      "display_name": "Tome",
+      "hand": "off_hand",
+      "valid_stat_templates": [
+        "int_caster",
+        "str_int_hybrid",
+        "agi_int_hybrid"
+      ],
+      "budget_multiplier": 0.75,
+      "base_attack_speed": 0.0,
+      "icon_id": "rarity_common"
     }
   },
   "class_weapon_map": {
@@ -219,7 +231,8 @@
       "sword_2h",
       "mace_1h",
       "mace_2h",
-      "shield"
+      "shield",
+      "tome"
     ],
     "Hunter": [
       "sword_1h",
@@ -247,7 +260,8 @@
       "mace_1h",
       "dagger",
       "staff",
-      "wand"
+      "wand",
+      "tome"
     ],
     "Shaman": [
       "mace_1h",
@@ -258,51 +272,60 @@
       "staff",
       "fist_weapon",
       "totem",
-      "shield"
+      "shield",
+      "tome"
     ],
     "Mage": [
       "sword_1h",
       "dagger",
       "staff",
-      "wand"
+      "wand",
+      "tome"
     ],
     "Warlock": [
       "sword_1h",
       "dagger",
       "staff",
-      "wand"
+      "wand",
+      "tome"
     ],
     "Druid": [
       "mace_1h",
       "dagger",
       "staff",
       "fist_weapon",
-      "mace_2h"
+      "mace_2h",
+      "tome"
     ],
     "Necromancer": [
       "dagger",
       "staff",
-      "wand"
+      "wand",
+      "tome"
     ],
     "Pyromancer": [
       "staff",
       "wand",
-      "dagger"
+      "dagger",
+      "tome"
     ],
     "Runemaster": [
       "staff",
       "wand",
-      "mace_1h"
+      "mace_1h",
+      "tome"
     ],
     "Chronomancer": [
       "staff",
       "wand",
-      "dagger"
+      "dagger",
+      "tome"
     ],
     "Stormbringer": [
       "staff",
       "mace_1h",
-      "totem"
+      "totem",
+      "tome"
     ],
     "Barbarian": [
       "axe_1h",
@@ -318,7 +341,8 @@
       "staff",
       "totem",
       "dagger",
-      "fist_weapon"
+      "fist_weapon",
+      "tome"
     ],
     "Felsworn": [
       "axe_1h",
@@ -360,14 +384,16 @@
       "staff",
       "shield",
       "polearm",
-      "gun"
+      "gun",
+      "tome"
     ],
     "Venomancer": [
       "dagger",
       "fist_weapon",
       "thrown",
       "gun",
-      "crossbow"
+      "crossbow",
+      "tome"
     ],
     "Reaper": [
       "sword_2h",
@@ -378,7 +404,8 @@
       "mace_1h",
       "staff",
       "totem",
-      "fist_weapon"
+      "fist_weapon",
+      "tome"
     ],
     "Knight of Xoroth": [
       "sword_1h",
@@ -394,17 +421,20 @@
     "Cultist": [
       "dagger",
       "mace_1h",
-      "staff"
+      "staff",
+      "tome"
     ],
     "Starcaller": [
       "staff",
       "wand",
-      "mace_1h"
+      "mace_1h",
+      "tome"
     ],
     "Sun Cleric": [
       "mace_1h",
       "mace_2h",
-      "shield"
+      "shield",
+      "tome"
     ]
   },
   "damage_tiers": {

@@ -21,19 +21,24 @@ class Forge:
 
 
 class ForgeManager:
+    #: SawmillManager reuses this whole class with different data (Oct 2026) - same fixed interaction object, same reach.
+    DATA_FILE = "forges.json"
+    LIST_KEY = "forges"
+    ID_KEY = "forge_id"
+
     def __init__(self):
         self.forges = {}  # forge_id -> Forge
         self.forges_by_zone = {}  # normalized zone key -> list of Forge
         self._load_forges()
 
     def _load_forges(self):
-        forges_path = Path(__file__).parent.parent / "data" / "npcs" / "forges.json"
+        forges_path = Path(__file__).parent.parent / "data" / "npcs" / self.DATA_FILE
         try:
             with open(forges_path, 'r') as f:
                 data = json.load(f)
-            for forge_def in data.get("forges", []):
+            for forge_def in data.get(self.LIST_KEY, []):
                 forge = Forge(
-                    forge_def["forge_id"],
+                    forge_def[self.ID_KEY],
                     forge_def["name"],
                     forge_def["zone"],
                     forge_def["x"],

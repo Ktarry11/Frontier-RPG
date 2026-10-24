@@ -58,6 +58,8 @@ class BlacksmithingManager:
         the order they appear in the data file. Does NOT check materials -
         same reasoning as SmeltingManager.available_recipes: a known
         recipe should still be listed even while temporarily out of bars."""
+        if not character.knows_profession("blacksmithing"):
+            return {}
         skill = character.profession_skills.get("blacksmithing", 0)
         return {
             recipe_id: recipe
@@ -69,7 +71,7 @@ class BlacksmithingManager:
         """True if the character both knows this recipe (skill-gated) AND
         currently holds every required bar at the needed quantity."""
         recipe = self.recipes.get(recipe_id)
-        if recipe is None:
+        if recipe is None or not character.knows_profession("blacksmithing"):
             return False
         skill = character.profession_skills.get("blacksmithing", 0)
         if skill < recipe.get("skill_required", 0):

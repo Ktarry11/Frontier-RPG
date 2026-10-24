@@ -269,9 +269,16 @@ class OverworldScreen(BaseScreen):
                 ambient_npc = None if (vendor or recruit) else self.zone_manager.get_ambient_npc_at_location()
                 gathering_node = None if (vendor or recruit or ambient_npc) else self.zone_manager.get_gathering_node_at_location()
                 forge = None if (vendor or recruit or ambient_npc or gathering_node) else self.zone_manager.get_forge_at_location()
-                chest = None if (vendor or recruit or ambient_npc or gathering_node or forge) else self.zone_manager.get_chest_at_location()
+                sawmill = None if (vendor or recruit or ambient_npc or gathering_node or forge) else self.zone_manager.get_sawmill_at_location()
+                chest = None if (vendor or recruit or ambient_npc or gathering_node or forge or sawmill) else self.zone_manager.get_chest_at_location()
 
-                if forge:
+                if sawmill:
+                    professions_screen = self.state_manager.states.get(GameState.PROFESSIONS)
+                    if professions_screen is not None:
+                        professions_screen.set_subject(None, return_state=GameState.OVERWORLD)
+                        professions_screen.active_tab = "sawmill"
+                    self.state_manager.transition_to(GameState.PROFESSIONS)
+                elif forge:
                     # Walking onto a Forge and pressing space jumps
                     # straight to the Professions screen's Smelting tab -
                     # same "the interaction IS the shortcut to the
@@ -535,7 +542,12 @@ class OverworldScreen(BaseScreen):
         from world.gathering_manager import TIER_SKILL_CAPS
         current_skill = player.profession_skills.get(material.profession, 0)
         skilled_up = gathering_manager.roll_skill_up(material_id, current_skill)
-        if skilled_up:
+        label = material.profession.title()
+        if not player.knows_profession(material.profession):
+            self._notify(f"Gathered {material.name}. (You haven't learned {label} - find a trainer to improve it.)", (140, 220, 160))
+        elif skilled_up and current_skill >= player.profession_cap(material.profession):
+            self._notify(f"Gathered {material.name}. ({label} is at its cap - visit your trainer to advance.)", (220, 190, 120))
+        elif skilled_up:
             cap = TIER_SKILL_CAPS.get(material.tier)
             player.gain_profession_skill(material.profession, 1, cap=cap)
             self._notify(f"Gathered {material.name}. ({material.profession.title()} skill up!)", (140, 220, 160))

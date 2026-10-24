@@ -138,7 +138,9 @@
       "vendor_price": 50,
       "sell_price": 15,
       "buff_category": "guardian",
-      "stat_bonuses": {"stamina": 5}
+      "stat_bonuses": {
+        "stamina": 5
+      }
     },
     {
       "consumable_id": "guardian_elixir_standard",
@@ -154,7 +156,9 @@
       "vendor_price": 150,
       "sell_price": 40,
       "buff_category": "guardian",
-      "stat_bonuses": {"stamina": 10}
+      "stat_bonuses": {
+        "stamina": 10
+      }
     },
     {
       "consumable_id": "guardian_elixir_superior",
@@ -170,7 +174,9 @@
       "vendor_price": 400,
       "sell_price": 100,
       "buff_category": "guardian",
-      "stat_bonuses": {"stamina": 16}
+      "stat_bonuses": {
+        "stamina": 16
+      }
     },
     {
       "consumable_id": "elixir_of_warding",
@@ -186,7 +192,9 @@
       "vendor_price": 150,
       "sell_price": 40,
       "buff_category": "guardian",
-      "stat_bonuses": {"spirit": 8}
+      "stat_bonuses": {
+        "spirit": 8
+      }
     },
     {
       "consumable_id": "battle_elixir_minor",
@@ -202,7 +210,9 @@
       "vendor_price": 50,
       "sell_price": 15,
       "buff_category": "battle",
-      "stat_bonuses": {"strength": 4}
+      "stat_bonuses": {
+        "strength": 4
+      }
     },
     {
       "consumable_id": "battle_elixir_standard",
@@ -218,7 +228,9 @@
       "vendor_price": 150,
       "sell_price": 40,
       "buff_category": "battle",
-      "stat_bonuses": {"strength": 8}
+      "stat_bonuses": {
+        "strength": 8
+      }
     },
     {
       "consumable_id": "battle_elixir_superior",
@@ -234,7 +246,9 @@
       "vendor_price": 400,
       "sell_price": 100,
       "buff_category": "battle",
-      "stat_bonuses": {"strength": 14}
+      "stat_bonuses": {
+        "strength": 14
+      }
     },
     {
       "consumable_id": "elixir_of_agility",
@@ -250,7 +264,9 @@
       "vendor_price": 150,
       "sell_price": 40,
       "buff_category": "battle",
-      "stat_bonuses": {"agility": 8}
+      "stat_bonuses": {
+        "agility": 8
+      }
     },
     {
       "consumable_id": "elixir_of_greater_agility",
@@ -266,7 +282,9 @@
       "vendor_price": 400,
       "sell_price": 100,
       "buff_category": "battle",
-      "stat_bonuses": {"agility": 14}
+      "stat_bonuses": {
+        "agility": 14
+      }
     },
     {
       "consumable_id": "arcane_elixir",
@@ -282,7 +300,9 @@
       "vendor_price": 150,
       "sell_price": 40,
       "buff_category": "battle",
-      "stat_bonuses": {"intellect": 8}
+      "stat_bonuses": {
+        "intellect": 8
+      }
     },
     {
       "consumable_id": "greater_arcane_elixir",
@@ -298,7 +318,9 @@
       "vendor_price": 400,
       "sell_price": 100,
       "buff_category": "battle",
-      "stat_bonuses": {"intellect": 14}
+      "stat_bonuses": {
+        "intellect": 14
+      }
     },
     {
       "consumable_id": "elixir_of_firepower",
@@ -314,7 +336,9 @@
       "vendor_price": 200,
       "sell_price": 50,
       "buff_category": "battle",
-      "stat_bonuses": {"spell_power": 6}
+      "stat_bonuses": {
+        "spell_power": 6
+      }
     }
   ],
   "food": [
@@ -332,7 +356,10 @@
       "vendor_price": 30,
       "sell_price": 10,
       "buff_category": "food",
-      "stat_bonuses": {"strength": 3, "stamina": 2}
+      "stat_bonuses": {
+        "strength": 3,
+        "stamina": 2
+      }
     },
     {
       "consumable_id": "roasted_meat",
@@ -348,7 +375,10 @@
       "vendor_price": 100,
       "sell_price": 30,
       "buff_category": "food",
-      "stat_bonuses": {"strength": 6, "stamina": 4}
+      "stat_bonuses": {
+        "strength": 6,
+        "stamina": 4
+      }
     },
     {
       "consumable_id": "spiced_stew",
@@ -364,7 +394,10 @@
       "vendor_price": 300,
       "sell_price": 75,
       "buff_category": "food",
-      "stat_bonuses": {"strength": 10, "stamina": 7}
+      "stat_bonuses": {
+        "strength": 10,
+        "stamina": 7
+      }
     },
     {
       "consumable_id": "spiced_wine",
@@ -380,7 +413,10 @@
       "vendor_price": 100,
       "sell_price": 30,
       "buff_category": "food",
-      "stat_bonuses": {"agility": 6, "stamina": 4}
+      "stat_bonuses": {
+        "agility": 6,
+        "stamina": 4
+      }
     },
     {
       "consumable_id": "honeyed_fruit",
@@ -396,7 +432,10 @@
       "vendor_price": 100,
       "sell_price": 30,
       "buff_category": "food",
-      "stat_bonuses": {"intellect": 6, "spell_power": 3}
+      "stat_bonuses": {
+        "intellect": 6,
+        "spell_power": 3
+      }
     },
     {
       "consumable_id": "mushroom_broth",
@@ -412,7 +451,120 @@
       "vendor_price": 100,
       "sell_price": 30,
       "buff_category": "food",
-      "stat_bonuses": {"spirit": 6, "healing_power": 3}
+      "stat_bonuses": {
+        "spirit": 6,
+        "healing_power": 3
+      }
+    }
+  ],
+  "ammo": [
+    {
+      "consumable_id": "rough_arrows",
+      "name": "Rough Arrows",
+      "consumable_type": "ammo",
+      "description": "Crude arrows for a bow. Grants +4 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 24,
+      "sell_price": 8,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 4
+      }
+    },
+    {
+      "consumable_id": "rough_bolts",
+      "name": "Rough Bolts",
+      "consumable_type": "ammo",
+      "description": "Crude bolts for a crossbow. Grants +4 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 24,
+      "sell_price": 8,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 4
+      }
+    },
+    {
+      "consumable_id": "sturdy_arrows",
+      "name": "Sturdy Arrows",
+      "consumable_type": "ammo",
+      "description": "Well-fletched arrows with sharpened heads. Grants +9 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 15,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 54,
+      "sell_price": 18,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 9
+      }
+    },
+    {
+      "consumable_id": "sturdy_bolts",
+      "name": "Sturdy Bolts",
+      "consumable_type": "ammo",
+      "description": "Straight, weighted bolts with iron tips. Grants +9 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 15,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 54,
+      "sell_price": 18,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 9
+      }
+    },
+    {
+      "consumable_id": "heavy_arrows",
+      "name": "Heavy Arrows",
+      "consumable_type": "ammo",
+      "description": "Broad-headed arrows that hit like a hammer. Grants +15 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 30,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 30,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 15
+      }
+    },
+    {
+      "consumable_id": "heavy_bolts",
+      "name": "Heavy Bolts",
+      "consumable_type": "ammo",
+      "description": "Heavy bolts that punch through plate. Grants +15 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 30,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 30,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 15
+      }
     }
   ]
 }
