@@ -572,6 +572,10 @@ class Ability:
         # Set properly by refresh_rank_for_level(); defaults True so any
         # ability constructed and used without a level refresh still works.
         self.is_learned = True
+        # Class trainers (Oct 2026): a trainable ability is only KNOWN, and only at the rank bought, once the player has
+        # paid a class trainer (Character.trained_ranks).  Talent abilities, the universal Shoot/Wand and every companion's
+        # book are not trainable - they keep the old "known from level" behaviour.
+        self.trainable = False
 
         # Only meaningful when requires_talent is set. Character sets this
         # directly (see _sync_talent_unlocked_abilities) rather than
@@ -606,16 +610,26 @@ class Ability:
         #     Icy Penance heals 3 allies this way per Kyle.
         self.heal_scope = heal_scope if heal_scope in ("lowest_ally", "party") or isinstance(heal_scope, int) else "lowest_ally"
 
-    def refresh_rank_for_level(self, level):
+    def refresh_rank_for_level(self, level, trained_rank=None):
         """Update current_rank_index to the highest rank this level qualifies
         for. Called by Character whenever level changes (level-up, load from
-        save, prestige reset)."""
+        save, prestige reset).
+
+        trained_rank: None = ordinary level-based learning.  An int (0 = never trained, n = rank n bought from a class
+        trainer) only matters for `trainable` abilities: the ability is unknown at 0, and the rank in use is capped at
+        the trained one even when the level would allow more.  Training a higher rank later raises the cap."""
         best = 0
         for i, r in enumerate(self.ranks):
             if level >= r["level_req"]:
                 best = i
             else:
                 break
+        trained_gate = True
+        if trained_rank is not None and self.trainable:
+            if trained_rank < 1:
+                trained_gate = False
+            else:
+                best = min(best, trained_rank - 1)
         self.current_rank_index = best
 
         # An ability is only KNOWN once the character reaches rank 1's level
@@ -637,7 +651,7 @@ class Ability:
             # never actually got it.)  Higher ranks still come from level via current_rank_index.
             self.is_learned = bool(self.talent_unlocked)
         else:
-            self.is_learned = level_met and self.talent_unlocked
+            self.is_learned = level_met and self.talent_unlocked and trained_gate
 
     def is_form_ready(self, character):
         """True if this ability's form/stance requirement (if any) is
@@ -2681,7 +2695,9 @@ def get_class_abilities(char_class):
     """
     book = AbilityBook()
     for entry in _load_class_ability_data(char_class):
-        book.add_ability(_ability_from_data(entry))
+        ability = _ability_from_data(entry)
+        ability.trainable = not ability.requires_talent
+        book.add_ability(ability)
     for entry in _load_universal_ability_data():
         book.add_ability(_ability_from_data(entry))
     return book

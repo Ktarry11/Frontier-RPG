@@ -4,6 +4,7 @@ TravelServiceScreen - the one screen behind every travel service NPC:
   flight  - Windrider/flight master: discovered nodes, gold cost, fly there (instant hop)
   riding  - Riding trainer: learn Apprentice (L20) / Journeyman (L30) Riding
   mounts  - Mount vendor: buy mounts your riding skill allows
+  train_class - Class trainer: buy new abilities / higher ranks for your own class (world/training_manager.py)
 
 Opened from QuestDialogScreen's greeting buttons via open_service(kind, npc), then GameState.TRAVEL.
 All rules live in world/travel_manager.py; this screen is only presentation + the gold/teleport glue.
@@ -25,7 +26,8 @@ RED = (230, 130, 130)
 
 
 class TravelServiceScreen(BaseScreen):
-    TITLES = {"flight": "Windrider Flight Master", "riding": "Riding Trainer", "mounts": "Mount Vendor"}
+    TITLES = {"flight": "Windrider Flight Master", "riding": "Riding Trainer", "mounts": "Mount Vendor",
+              "train_class": "Class Trainer"}
 
     def __init__(self, state_manager):
         super().__init__(state_manager)
@@ -35,12 +37,14 @@ class TravelServiceScreen(BaseScreen):
         self.message_color = GREEN
         self.close_button = pygame.Rect(SCREEN_WIDTH - 160, SCREEN_HEIGHT - 70, 120, 44)
         self._row_buttons = []   # [(rect, action, arg)] rebuilt every render
+        self.scroll = 0          # first visible row (class trainers can list dozens)
 
     # ------------------------------------------------------------------ opening
     def open_service(self, kind, npc):
         self.kind = kind
         self.npc = npc
         self.message = None
+        self.scroll = 0
         if kind == "flight":
             node_id = self._current_node()
             if node_id and get_travel_manager().discover_node(node_id):
@@ -93,6 +97,8 @@ class TravelServiceScreen(BaseScreen):
                 rows.append(dict(name=skill["name"], sub=f"Level {skill['level']}+  -  {skill['blurb']}",
                                  price=skill["price"], label="Learn", enabled=ok, reason=reason,
                                  action="learn", arg=rank))
+        elif self.kind == "train_class":
+            rows = self._train_rows(player, copper)
         elif self.kind == "mounts":
             for mount in travel.mounts_for_vendor(self._npc_id()):
                 owned = mount["id"] in travel.owned_mounts
@@ -102,10 +108,54 @@ class TravelServiceScreen(BaseScreen):
                                  enabled=ok, reason=reason, action="buy", arg=mount["id"]))
         return rows
 
+    def _trainer_class(self):
+        from world.training_manager import class_for_trainer
+        return class_for_trainer(self._npc_id())
+
+    def _train_rows(self, player, copper):
+        from world import training_manager as tm
+        cls = self._trainer_class()
+        if cls != player.char_class:
+            return []
+        offers = tm.offers(player)
+        rows = []
+        total = sum(o["cost"] for o in offers)
+        if len(offers) > 1:
+            affordable = [o for o in offers if o["cost"] <= copper]
+            rows.append(dict(name="Learn everything you can afford",
+                             sub=f"{len(affordable)} of {len(offers)} available  -  cheapest first",
+                             price=total, label="Learn all", enabled=bool(affordable),
+                             reason="Not enough gold", action="train_all", arg=None))
+        for o in offers:
+            sub = (f"New ability  -  requires level {o['level_req']}" if o["new"]
+                   else f"Rank {o['from_rank']} -> {o['rank']}  -  requires level {o['level_req']}")
+            name = o["name"] if o["rank"] == 1 else f"{o['name']}  (Rank {o['rank']})"
+            ok = copper >= o["cost"]
+            rows.append(dict(name=name, sub=sub, price=o["cost"], label="Learn", enabled=ok,
+                             reason=None if ok else "Not enough gold", action="train",
+                             arg=o["ability"].ability_id))
+        for u in tm.upcoming(player, limit=4):
+            what = u["name"] if u["rank"] == 1 else f"{u['name']}  (Rank {u['rank']})"
+            rows.append(dict(name=what, sub=f"Available at level {u['level_req']}", price=None, label="Locked",
+                             enabled=False, action="none", arg=None))
+        return rows
+
     # ------------------------------------------------------------------ actions
     def _act(self, action, arg):
         travel = get_travel_manager()
         party = self._party()
+        if action in ("train", "train_all"):
+            from world import training_manager as tm
+            player = self.state_manager.player
+            if action == "train":
+                ok, msg = tm.train(player, party, arg)
+                return self._say(msg, GREEN if ok else RED)
+            learned = 0
+            for o in tm.offers(player):
+                ok, _ = tm.train(player, party, o["ability"].ability_id)
+                learned += bool(ok)
+            return self._say(f"You learned {learned} new skill{'s' if learned != 1 else ''}." if learned
+                             else "You can't afford anything.", GREEN if learned else RED)
         if action == "learn":
             ok, reason = travel.can_learn_riding(self.state_manager.player.level, self._copper())
             if not ok:
@@ -154,6 +204,9 @@ class TravelServiceScreen(BaseScreen):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self.state_manager.transition_to(GameState.OVERWORLD)
             return
+        if event.type == pygame.MOUSEWHEEL:
+            self.scroll = max(0, self.scroll - event.y)
+            return
         if event.type != pygame.MOUSEBUTTONDOWN or event.button != 1:
             return
         if self.close_button.collidepoint(event.pos):
@@ -188,6 +241,12 @@ class TravelServiceScreen(BaseScreen):
         elif self.kind == "riding":
             hint = ("Riding makes you faster and shaves down random ambushes. Press R in the overworld to mount."
                     if travel.riding_rank < 2 else "You have mastered riding.")
+        elif self.kind == "train_class":
+            cls = self._trainer_class()
+            player = self.state_manager.player
+            hint = (f"I train {cls}s. Each skill is taught at the highest rank your level allows."
+                    if cls == player.char_class else
+                    f"I only train {cls}s. Find a {player.char_class} trainer.")
         else:
             hint = (f"Riding skill: {travel.riding_skill(travel.riding_rank)['name']}" if travel.riding_rank
                     else "You need to learn riding first (level 20, any riding trainer).")
@@ -198,11 +257,16 @@ class TravelServiceScreen(BaseScreen):
         rows = self._rows()
         if not rows:
             self.renderer.draw_text(screen, "Nothing available here right now.", (LIST_X, y), color=GREY)
-        for row in rows:
+        visible = max(1, (SCREEN_HEIGHT - 90 - y) // (ROW_H + ROW_GAP))
+        self.scroll = max(0, min(self.scroll, max(0, len(rows) - visible)))
+        if len(rows) > visible:
+            self.renderer.draw_text(screen, f"Scroll for more ({self.scroll + 1}-{min(len(rows), self.scroll + visible)} of {len(rows)})",
+                                    (SCREEN_WIDTH - 420, 62), size="small", color=GREY)
+        for row in rows[self.scroll:self.scroll + visible]:
             panel = pygame.Rect(LIST_X, y, LIST_W, ROW_H)
             pygame.draw.rect(screen, (24, 24, 34), panel)
             pygame.draw.rect(screen, (70, 70, 90), panel, 1)
-            name_color = COLOR_WHITE if row["enabled"] or row["label"] == "Owned" else GREY
+            name_color = COLOR_WHITE if row["enabled"] or row["label"] in ("Owned",) else GREY
             self.renderer.draw_text(screen, row["name"], (panel.x + 14, panel.y + 8), color=name_color)
             self.renderer.draw_text(screen, row["sub"], (panel.x + 14, panel.y + 34), size="small", color=GREY)
             if row["price"] is not None:

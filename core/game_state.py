@@ -93,6 +93,17 @@ class GameStateManager:
         self.current_state = new_state
         self._entered_state_fresh = True
     
+    @property
+    def player(self):
+        return self._player
+
+    @player.setter
+    def player(self, value):
+        self._player = value
+        # Class trainers are only shown for the player's own class (world/ambient_npc_manager.py).
+        from world.ambient_npc_manager import get_ambient_npc_manager
+        get_ambient_npc_manager().set_viewer_class(getattr(value, "char_class", None))
+
     def get_party(self):
         """
         The player's Party, created on first use.

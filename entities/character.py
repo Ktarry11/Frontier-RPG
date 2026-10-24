@@ -220,6 +220,11 @@ class Character(StatusEffectMixin):
             "mining": 0,
             "woodcutting": 0,
         }
+        # Profession learning (Oct 2026): a profession must be learned from a profession trainer (3 primary slots).
+        # Gathering without it still picks things up but never skills up; crafting needs it. profession_tiers maps a
+        # profession to its trained tier (0 Apprentice, 1 Journeyman, ...), which sets the skill cap.
+        self.known_professions = []
+        self.profession_tiers = {}
         
         # Buff slots (Phase 6) - 1 guardian, 1 battle, 1 food buff active at a time
         self.guardian_buff = None  # (consumable, remaining_duration)
@@ -251,6 +256,11 @@ class Character(StatusEffectMixin):
         # Kept as a separate list rather than extending hotbar to 28 so
         # existing keybind math (_key_to_hotbar_slot, slot_ability's 0-19
         # bound) never has to think about "which slots have no key".
+        # Class training (Oct 2026).  Only the PLAYER's character is trained at a class trainer (character creation turns
+        # training_enabled on); companions, enemies and previews keep ability learning purely level-based.
+        #   trained_ranks - ability_id -> highest rank number bought (or granted free, see FREE_TRAINING_LEVEL)
+        self.training_enabled = False
+        self.trained_ranks = {}
         self._refresh_ability_ranks()  # unlock whatever ranks self.level already qualifies for
         
         # Talent Trees (Phase 4.5) - will be populated by character creation screen
@@ -1378,9 +1388,51 @@ class Character(StatusEffectMixin):
         self._sync_talent_unlocked_abilities()
         self._sync_talent_procs()
         self._sync_cryo_converted_abilities()
+        self._grant_free_training()
         for ability in self.ability_book.get_all_abilities():
-            ability.refresh_rank_for_level(self.level)
+            trained = None
+            if self.training_enabled and getattr(ability, "trainable", False):
+                trained = self.trained_ranks.get(ability.ability_id, 0)
+            ability.refresh_rank_for_level(self.level, trained)
         self._autofill_hotbar()
+
+    #: Ranks whose level requirement is at or below this are taught for free the moment you qualify (the starter kit).
+    FREE_TRAINING_LEVEL = 3
+
+    def _grant_free_training(self):
+        """Starter abilities need no trainer: every rank at level <= FREE_TRAINING_LEVEL is trained automatically once the
+        character's level allows it.  No-op for characters that don't use trainers."""
+        if not self.training_enabled:
+            return
+        for ability in self.ability_book.get_all_abilities():
+            if not getattr(ability, "trainable", False):
+                continue
+            for number, rank in enumerate(ability.ranks, start=1):
+                if rank["level_req"] <= self.FREE_TRAINING_LEVEL and self.level >= rank["level_req"]:
+                    if self.trained_ranks.get(ability.ability_id, 0) < number:
+                        self.trained_ranks[ability.ability_id] = number
+
+    def enable_training(self, grandfather=False):
+        """Turn class trainers on for this character.  grandfather=True (old saves) marks every rank the character already
+        qualifies for as trained, so nobody loses a spell they could cast yesterday."""
+        self.training_enabled = True
+        if grandfather:
+            for ability in self.ability_book.get_all_abilities():
+                if not getattr(ability, "trainable", False):
+                    continue
+                best = 0
+                for number, rank in enumerate(ability.ranks, start=1):
+                    if self.level >= rank["level_req"]:
+                        best = number
+                if best:
+                    self.trained_ranks[ability.ability_id] = max(self.trained_ranks.get(ability.ability_id, 0), best)
+        self._refresh_ability_ranks()
+
+    def train_ability(self, ability_id, rank_number):
+        """Record that `rank_number` of an ability was bought, then re-resolve ranks (the new spell is auto-slotted)."""
+        if rank_number > self.trained_ranks.get(ability_id, 0):
+            self.trained_ranks[ability_id] = rank_number
+        self._refresh_ability_ranks()
 
     def _sync_cryo_converted_abilities(self):
         """Set cryo_converted=True on Frostbolt/Ice Lance once the matching
@@ -2228,6 +2280,10 @@ class Character(StatusEffectMixin):
             "consumables": [c.to_dict() for c in self.consumables],
             "materials": [m.to_dict() for m in self.materials],
             "profession_skills": dict(self.profession_skills),
+            "known_professions": list(self.known_professions),
+            "profession_tiers": dict(self.profession_tiers),
+            "training_enabled": bool(self.training_enabled),
+            "trained_ranks": dict(self.trained_ranks),
             "consumable_cooldown": self.consumable_cooldown,
             "guardian_buff": self.guardian_buff,
             "battle_buff": self.battle_buff,
@@ -2327,6 +2383,14 @@ class Character(StatusEffectMixin):
         from entities.material import Material
         char.materials = [Material.from_dict(m) for m in data.get("materials", [])]
         char.profession_skills = data.get("profession_skills", {"herbalism": 0, "mining": 0, "woodcutting": 0})
+        # Profession learning (save v8).  Older saves: every profession the character has any skill in counts as learned
+        # (even past the 3-slot limit - they just can't learn more), and skill above 75 means Journeyman.
+        if "known_professions" in data:
+            char.known_professions = list(data["known_professions"])
+            char.profession_tiers = {k: int(v) for k, v in data.get("profession_tiers", {}).items()}
+        else:
+            char.known_professions = [p for p, v in char.profession_skills.items() if v > 0]
+            char.profession_tiers = {p: 1 for p in char.known_professions if char.profession_skills[p] > 75}
         char.consumable_cooldown = data.get("consumable_cooldown", 0.0)
         char.guardian_buff = data.get("guardian_buff")
         char.battle_buff = data.get("battle_buff")
@@ -2350,6 +2414,15 @@ class Character(StatusEffectMixin):
                         node.points_spent = min(points, node.max_points)
             char.talent_points_available = data.get(
                 "talent_points_available", char.talent_points_available)
+
+        # Class training (save v8).  A save without the field predates trainers: the player's character is grandfathered
+        # with every rank their level already allows; companions stay level-based.
+        if "training_enabled" in data:
+            char.training_enabled = bool(data["training_enabled"])
+            char.trained_ranks = {k: int(v) for k, v in data.get("trained_ranks", {}).items()}
+            char._refresh_ability_ranks()
+        elif not char.recruit_id:
+            char.enable_training(grandfather=True)
 
         char._recalculate_derived_stats()
         char.current_health = data.get("current_health", char.health)
@@ -2577,6 +2650,37 @@ class Character(StatusEffectMixin):
                 self.materials.remove(stack)
         return True
 
+    #: Skill cap by trained tier: Apprentice 75, Journeyman 150, Expert 225, Artisan 300.
+    PROFESSION_TIER_CAPS = (75, 150, 225, 300)
+    MAX_PRIMARY_PROFESSIONS = 3
+
+    def knows_profession(self, profession):
+        return profession in self.known_professions
+
+    def profession_cap(self, profession):
+        tier = min(self.profession_tiers.get(profession, 0), len(self.PROFESSION_TIER_CAPS) - 1)
+        return self.PROFESSION_TIER_CAPS[tier]
+
+    def learn_profession(self, profession):
+        """Learn a primary profession. False if already known or all slots are used."""
+        if profession in self.known_professions:
+            return False
+        if len(self.known_professions) >= self.MAX_PRIMARY_PROFESSIONS:
+            return False
+        self.known_professions.append(profession)
+        self.profession_tiers.setdefault(profession, 0)
+        self.profession_skills.setdefault(profession, 0)
+        return True
+
+    def unlearn_profession(self, profession):
+        """Forget a profession; its skill and tier reset (re-learning starts from zero)."""
+        if profession not in self.known_professions:
+            return False
+        self.known_professions.remove(profession)
+        self.profession_tiers.pop(profession, None)
+        self.profession_skills[profession] = 0
+        return True
+
     def gain_profession_skill(self, profession, amount=1, cap=None):
         """Increase a gathering profession's skill level, clamped to cap
         if given (see world.gathering_manager.TIER_SKILL_CAPS - 75 for
@@ -2589,9 +2693,13 @@ class Character(StatusEffectMixin):
         level than world, not the other way around)."""
         if profession not in self.profession_skills:
             self.profession_skills[profession] = 0
+        # Skill only grows for a LEARNED profession, and never past the trained tier's cap.
+        if profession not in self.known_professions:
+            return False
+        tier_cap = self.profession_cap(profession)
+        cap = tier_cap if cap is None else min(cap, tier_cap)
         new_value = self.profession_skills[profession] + amount
-        if cap is not None:
-            new_value = min(new_value, cap)
+        new_value = min(new_value, max(cap, self.profession_skills[profession]))
         self.profession_skills[profession] = new_value
         return False
     

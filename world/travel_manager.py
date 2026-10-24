@@ -237,9 +237,13 @@ class TravelManager:
 
 
 def services_for_npc(npc):
-    """Travel services an NPC offers ('inn', 'flight', 'riding', 'mounts'), looked up by vendor_id/npc_id."""
+    """Services an NPC offers ('inn', 'flight', 'riding', 'mounts', 'train_class'), looked up by vendor_id/npc_id."""
     npc_id = getattr(npc, "vendor_id", None) or getattr(npc, "npc_id", None)
-    return list(travel_data()["services"].get(npc_id, []))
+    services = list(travel_data()["services"].get(npc_id, []))
+    from world.training_manager import class_for_trainer
+    if class_for_trainer(npc_id) and "train_class" not in services:
+        services.append("train_class")
+    return services
 
 
 def format_copper(copper):

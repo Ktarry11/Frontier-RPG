@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+"""Class trainers: one trainer per class in every town (idempotent).
+
+Every town gets an ambient NPC for ALL 18 classes standing on ONE shared tile; the game only shows the trainer for the
+player's own class (AmbientNPCManager.set_viewer_class), so a plaza never fills with 18 trainers. The tile is chosen near the
+town's service anchor (innkeeper / flight master / vendor): walkable, connected to the town, free of NPCs, portals, forges,
+chests and gathering nodes, with open neighbours so it never blocks a lane.
+
+Writes: data/npcs/ambient_npcs.json  (npc ids  ct_<town>_<class>)   and   data/training/trainers.json
+Run from the repo root:   python3 tools/build_class_trainers.py [--dry-run]
+"""
+import json
+import os
+import sys
+from collections import Counter, deque
+from pathlib import Path
+
+os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+CLASSES = ["Warrior", "Rogue", "Hunter", "Mage", "Warlock", "Priest", "Druid", "Shaman", "Paladin",
+           "Stormbringer", "Tinker", "Venomancer", "Primalist", "Runemaster", "Cultist", "Starcaller", "Sun Cleric"]
+
+# zone display name -> (npc slug, anchor npc id)
+TOWNS = {
+    "Valley of Trials": ("vot", None),
+    "Echo Isles": ("echo", None),
+    "Razor Hill": ("razorhill", "razorhill_innkeep"),
+    "Orgrimmar": ("org", "org_innkeeper"),
+    "Crossroads": ("crossroads", "crossroads_innkeeper"),
+    "Camp Taurajo": ("taurajo", "taurajo_innkeeper"),
+    "Ratchet": ("ratchet", "ratchet_tavern_keeper"),
+    "Southern Barrens": ("sbarrens", "sb_innkeeper"),
+    "Splintertree Post": ("splintertree", "splintertree_innkeeper"),
+    "Astranaar": ("astranaar", "astranaar_innkeeper"),
+    "Zoram Strand": ("zoram", None),
+    "Deathknell": ("deathknell", None),
+    "Brill": ("brill", "brill_innkeeper"),
+    "The Sepulcher": ("sepulcher", "sepulcher_innkeeper"),
+    "Undercity": ("uc", "uc_innkeeper"),
+    "Silverpine South": ("spsouth", "sp_south_flight_master"),
+}
+
+CLASS_TITLE = {c: c for c in CLASSES}
+
+# Names by race pool (deterministic pick by town+class)
+NAMES = {
+    "orc": ["Grokk", "Thurgan", "Durza", "Kagra", "Mogor", "Vashka", "Brakka", "Zogar", "Hulda", "Garrek", "Naruk",
+            "Shazra", "Drogan", "Urzul", "Karga", "Rokan", "Bruga", "Tazgul", "Orgha", "Skarn"],
+    "troll": ["Zul'jin", "Vol'ka", "Sen'zo", "Mojari", "Tor'jan", "Zalara", "Jin'ta", "Ras'kal", "Nezla", "Vanjo",
+              "Sa'rok", "Kazu", "Mala'ki", "Dazo", "Zephra"],
+    "tauren": ["Baine", "Ahnu", "Kaga", "Moonfeather", "Tahn", "Runetotem", "Hamuul", "Greyhoof", "Nara", "Omak",
+               "Sunwalker", "Stonehorn", "Bloodhoof", "Mistpaw"],
+    "goblin": ["Fizzbolt", "Snicker", "Grimble", "Zippo", "Nix", "Gadget", "Sprocket", "Wrenchy", "Bazil", "Kaz",
+               "Tinkle", "Gizmo", "Cogsworth", "Vexa"],
+    "forsaken": ["Caldwell", "Mortimer", "Ysolde", "Harken", "Veyra", "Osric", "Thessaly", "Grimsby", "Lenore",
+                 "Aldous", "Mirela", "Corvin", "Edda", "Rothgar", "Verity", "Bleak"],
+    "human": ["Alden", "Marta", "Corwin", "Elara", "Thomas", "Ingrid", "Gareth", "Lysa"],
+    "night_elf": ["Shandris", "Tyrande", "Elaria", "Maiev", "Ilyenna", "Valen", "Thalanil"],
+}
+RACE_FOR_ZONE_FALLBACK = "orc"
+# the zone field existing ambient NPCs use where it differs from the display name
+ZONE_FIELD = {"The Sepulcher": "sepulcher"}
+DRY = "--dry-run" in sys.argv
+
+
+def flood(z, start):
+    seen = {start}
+    q = deque([start])
+    while q:
+        x, y = q.popleft()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            n = (x + dx, y + dy)
+            if n not in seen and 0 <= n[0] < z.width and 0 <= n[1] < z.height and z.is_walkable(*n):
+                seen.add(n)
+                q.append(n)
+    return seen
+
+
+def main():
+    import pygame
+    pygame.init()
+    pygame.display.set_mode((1, 1))
+    from world.zone_generator import create_all_zones
+    from world.race_registry import get_zone_default_race, get_race
+    zones = create_all_zones()
+
+    amb_path = ROOT / "data" / "npcs" / "ambient_npcs.json"
+    amb = json.loads(amb_path.read_text())
+    npcs = [n for n in amb["npcs"] if not n["npc_id"].startswith("ct_")]
+    vend = json.loads((ROOT / "data" / "npcs" / "vendors.json").read_text())["vendors"]
+    forges = json.loads((ROOT / "data" / "npcs" / "forges.json").read_text()).get("forges", [])
+
+    def norm(s):
+        return s.lower().replace(" ", "_").replace("'", "")
+
+    new_npcs, class_trainers, report = [], {}, []
+    for zone_name, (slug, anchor_id) in TOWNS.items():
+        z = zones.get(zone_name)
+        if z is None:
+            print("MISSING ZONE", zone_name)
+            continue
+        zk = ZONE_FIELD.get(zone_name, norm(zone_name))
+        here = [n for n in npcs if norm(n["zone"]) == zk]
+        here_v = [v for v in vend if norm(v.get("zone", "")) == zk]
+        occupied = {(n["x"], n["y"]) for n in here} | {(v["x"], v["y"]) for v in here_v if "x" in v}
+        occupied |= {(f["x"], f["y"]) for f in forges if norm(f["zone"]) == zk}
+        anchor = None
+        if anchor_id:
+            for n in here + here_v:
+                if n.get("npc_id", n.get("vendor_id")) == anchor_id:
+                    anchor = (n["x"], n["y"])
+        if anchor is None:
+            pool = [(n["x"], n["y"]) for n in here + here_v if "x" in n]
+            if not pool:
+                print("NO ANCHOR", zone_name)
+                continue
+            cx = sorted(p[0] for p in pool)[len(pool) // 2]
+            cy = sorted(p[1] for p in pool)[len(pool) // 2]
+            anchor = min(pool, key=lambda p: abs(p[0] - cx) + abs(p[1] - cy))
+        # connected region around the anchor
+        start = next(((anchor[0] + dx, anchor[1] + dy) for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1), (0, 2), (2, 0))
+                      if z.is_walkable(anchor[0] + dx, anchor[1] + dy)), None)
+        if start is None:
+            print("ANCHOR UNREACHABLE", zone_name, anchor)
+            continue
+        region = flood(z, start)
+        best, best_score = None, -1e9
+        for (x, y) in region:
+            d = abs(x - anchor[0]) + abs(y - anchor[1])
+            if d < 2 or d > 8 or (x, y) in occupied:
+                continue
+            if z.interaction_layer[y][x]:
+                continue
+            open_n = sum((x + dx, y + dy) in region for dx in (-1, 0, 1) for dy in (-1, 0, 1) if (dx or dy))
+            near_npc = min([abs(x - ox) + abs(y - oy) for ox, oy in occupied] or [9])
+            if open_n < 7 or near_npc < 2:
+                continue
+            score = -abs(d - 4) * 2 + open_n * 0.5 + min(near_npc, 4)
+            if score > best_score:
+                best, best_score = (x, y), score
+        if best is None:
+            print("NO TILE", zone_name, anchor)
+            continue
+        races = Counter(n.get("race") for n in here if n.get("race"))
+        race = races.most_common(1)[0][0] if races else (get_zone_default_race(zone_name) or RACE_FOR_ZONE_FALLBACK)
+        pool = NAMES.get(race, NAMES[RACE_FOR_ZONE_FALLBACK])
+        opt = get_race(race)
+        genders = [g for g in (opt.genders if opt else [])] or []
+        for i, cls in enumerate(CLASSES):
+            nid = f"ct_{slug}_{norm(cls)}"
+            name = f"{cls} Trainer {pool[(i * 3 + len(slug)) % len(pool)]}"
+            g = genders[(i + len(slug)) % len(genders)] if genders else None
+            gender = g.gender_id if g else "male"
+            nvar = len(g.variants) if g and g.variants else 1
+            rec = {"npc_id": nid, "name": name, "zone": ZONE_FIELD.get(zone_name, zone_name if " " not in zone_name else norm(zone_name)),
+                   "x": best[0], "y": best[1],
+                   "greeting": f"Train under me, and you'll learn what a {cls} is really worth. Bring gold.",
+                   "gender": gender, "race": race, "appearance_variant": (i * 5 + len(slug)) % nvar,
+                   "facing": "down", "trains_class": cls}
+            new_npcs.append(rec)
+            class_trainers[nid] = cls
+        report.append((zone_name, anchor, best, race, len(region)))
+    for r in report:
+        print("%-20s anchor %-10s trainer %-10s %-9s region %d" % (r[0], r[1], r[2], r[3], r[4]))
+    if DRY:
+        print("dry run: would add", len(new_npcs), "trainer NPCs")
+        return
+    amb["npcs"] = npcs + new_npcs
+    amb_path.write_text(json.dumps(amb, indent=2) + "\n")
+    tdir = ROOT / "data" / "training"
+    tdir.mkdir(exist_ok=True)
+    tpath = tdir / "trainers.json"
+    cur = json.loads(tpath.read_text()) if tpath.exists() else {}
+    cur["class_trainers"] = class_trainers
+    tpath.write_text(json.dumps(cur, indent=2) + "\n")
+    print("wrote", len(new_npcs), "trainer NPCs")
+
+
+if __name__ == "__main__":
+    main()

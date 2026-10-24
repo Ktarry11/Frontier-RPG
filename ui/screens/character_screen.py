@@ -191,6 +191,7 @@ class CharacterCreationScreen(BaseScreen):
         """Create character and move to overworld."""
         char = Character(self.character_name, self.classes[self.selected_class])
         # Hotbar is now auto-populated in Character.__init__
+        char.enable_training()   # abilities above the starter kit are bought from class trainers
 
         # White starter weapon (+ ranged if that weapon_type occupies the
         # Ranged slot) and chest/legs/feet armor - see

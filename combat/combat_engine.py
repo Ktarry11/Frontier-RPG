@@ -716,6 +716,15 @@ class CombatEngine:
             points = gains["talent_points"]
             lines.append(f"  +{points} talent point{'s' if points != 1 else ''}!")
 
+        # Class training: new abilities / ranks are bought from a trainer of your class (any town)
+        try:
+            from world import training_manager
+            waiting = len(training_manager.offers(self.player))
+        except Exception:
+            waiting = 0
+        if waiting:
+            lines.append(f"  {waiting} new skill{'s' if waiting != 1 else ''} to learn - visit your class trainer!")
+
         return lines
 
     def _calculate_exp_reward(self, enemy=None):

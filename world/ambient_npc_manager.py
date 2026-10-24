@@ -40,6 +40,9 @@ class AmbientNPC:
         self.gender = data.get("gender", "male")
         self.appearance_variant = data.get("appearance_variant", 0)
         self.facing = data.get("facing", "down")
+        # Class trainer (data/training/trainers.json lists the same ids): every town defines a trainer for ALL 18 classes on one
+        # shared tile, but only the one for the player's own class is shown - see AmbientNPCManager.set_viewer_class.
+        self.trains_class = data.get("trains_class")
 
 
 class AmbientNPCManager:
@@ -82,9 +85,15 @@ class AmbientNPCManager:
         display name or the slug form interchangeably."""
         return zone.lower().replace(" ", "_")
 
+    def set_viewer_class(self, char_class):
+        """The player's class: class trainers for any OTHER class are hidden (18 trainers per town would bury the plaza)."""
+        self.viewer_class = char_class
+
     def get_npcs_in_zone(self, zone):
-        """All ambient NPCs in a zone (accepts display name or slug)."""
-        return self.npcs_by_zone.get(self._zone_key(zone), [])
+        """All ambient NPCs in a zone (accepts display name or slug). Trainers of other classes are not listed."""
+        npcs = self.npcs_by_zone.get(self._zone_key(zone), [])
+        viewer = getattr(self, "viewer_class", None)
+        return [n for n in npcs if not n.trains_class or n.trains_class == viewer]
 
     def get_npc_at_location(self, zone, x, y):
         """Ambient NPC at a specific tile, if any."""
