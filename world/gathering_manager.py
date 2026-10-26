@@ -386,6 +386,19 @@ MATERIAL_TYPE_FOLDERS = {
     "cloth": "cloth",
     "leather": "leather",  # 40-tier ladder art staged (Skinning not built yet)
     "bolt": "bolts",
+    # Essence Harvesting (Oct 2026) - the Frontier-original gathering
+    # profession feeding Engineering. "essence" drops off slain elementals
+    # (entities/essence_drops.py); "crystal" comes out of world nodes and so
+    # is the first NEW node type since wood - it renders on the ground through
+    # this same mapping, which is why the entry matters here and not only in
+    # the bag. No art yet for either; the UI falls back to its text box until
+    # there is.
+    "essence": "essences",
+    "crystal": "crystals",
+    # Crafting reagents bought from vendors rather than gathered (thread,
+    # vials, flux, ...). They never appear as a world node, but they do show
+    # in the bag and on vendor rows, both of which route through here.
+    "reagent": "reagents",
 }
 
 #: Skill cap per profession TIER, not an absolute profession cap - "early"

@@ -3220,6 +3220,261 @@
       "sell_price": 30,
       "icon_id": "upgrade_kit_iron",
       "skill_range": null
+    },
+    "essence_cinder": {
+      "name": "Cinder Mote",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "early",
+      "description": "A coal-warm speck that never quite goes out. Still hot an hour after the elemental fell.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 2,
+      "icon_id": "cinder",
+      "skill_range": [
+        5,
+        20,
+        35,
+        50
+      ]
+    },
+    "essence_runoff": {
+      "name": "Runoff Mote",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "early",
+      "description": "A bead of water that holds its shape in the palm and refuses to soak in.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 2,
+      "icon_id": "runoff",
+      "skill_range": [
+        5,
+        20,
+        35,
+        50
+      ]
+    },
+    "essence_draft": {
+      "name": "Draft Mote",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "early",
+      "description": "Caught air that pushes faintly against the jar it is kept in.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 2,
+      "icon_id": "draft",
+      "skill_range": [
+        10,
+        25,
+        40,
+        55
+      ]
+    },
+    "essence_grit": {
+      "name": "Grit Mote",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "early",
+      "description": "Packed earth and stone-dust, heavier in the hand than its size allows.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 2,
+      "icon_id": "grit",
+      "skill_range": [
+        10,
+        25,
+        40,
+        55
+      ]
+    },
+    "essence_static": {
+      "name": "Static Mote",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "early",
+      "description": "It lifts the hair on your arm from inside a closed pouch.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 2,
+      "icon_id": "static",
+      "skill_range": [
+        15,
+        30,
+        45,
+        60
+      ]
+    },
+    "essence_ember": {
+      "name": "Ember Heart",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "The fire-elemental's core, banked but not out. Warm through a leather glove.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 5,
+      "icon_id": "ember",
+      "skill_range": [
+        45,
+        65,
+        80,
+        95
+      ]
+    },
+    "essence_brine": {
+      "name": "Brine Heart",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "Dense, cold salt-water held in a shell of its own surface tension.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 5,
+      "icon_id": "brine",
+      "skill_range": [
+        45,
+        65,
+        80,
+        95
+      ]
+    },
+    "essence_gale": {
+      "name": "Gale Heart",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "A knot of moving air. Put it down and it drifts, slowly, toward the door.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 6,
+      "icon_id": "gale",
+      "skill_range": [
+        50,
+        70,
+        85,
+        100
+      ]
+    },
+    "essence_granite": {
+      "name": "Granite Heart",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "A fist of living stone, grain still shifting if you watch too long.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 6,
+      "icon_id": "granite",
+      "skill_range": [
+        50,
+        70,
+        85,
+        100
+      ]
+    },
+    "essence_umbral": {
+      "name": "Umbral Heart",
+      "material_type": "essence",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "Light bends around it rather than off it. Harvesters wrap these twice.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 7,
+      "icon_id": "umbral",
+      "skill_range": [
+        60,
+        80,
+        95,
+        110
+      ]
+    },
+    "crystal_quartz": {
+      "name": "Rough Quartz",
+      "material_type": "crystal",
+      "profession": "essence_harvesting",
+      "tier": "early",
+      "description": "Cloudy, common, and the first thing every harvester learns to pry loose.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 3,
+      "icon_id": "quartz",
+      "skill_range": [
+        5,
+        20,
+        35,
+        50
+      ]
+    },
+    "crystal_azure": {
+      "name": "Azure Crystal",
+      "material_type": "crystal",
+      "profession": "essence_harvesting",
+      "tier": "early",
+      "description": "Pale blue and cold to hold. Rings faintly when struck.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 3,
+      "icon_id": "azure",
+      "skill_range": [
+        15,
+        30,
+        45,
+        60
+      ]
+    },
+    "crystal_emberglass": {
+      "name": "Emberglass",
+      "material_type": "crystal",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "Fire-born glass, red through the middle, sharp enough to cut a glove.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 7,
+      "icon_id": "emberglass",
+      "skill_range": [
+        45,
+        65,
+        80,
+        95
+      ]
+    },
+    "crystal_tideglass": {
+      "name": "Tideglass",
+      "material_type": "crystal",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "Sea-green and faintly wet to the touch however long it has been dry.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "icon_id": "tideglass",
+      "skill_range": [
+        50,
+        70,
+        85,
+        100
+      ]
+    },
+    "crystal_voidglass": {
+      "name": "Voidglass",
+      "material_type": "crystal",
+      "profession": "essence_harvesting",
+      "tier": "mid",
+      "description": "Black, flawless, and noticeably heavier than it looks. Engineers pay well.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 10,
+      "icon_id": "voidglass",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
     }
   }
 }
