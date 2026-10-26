@@ -472,7 +472,11 @@ class InventoryScreen(BaseScreen):
                     screen, item, pygame.Rect(rect.x + 2, rect.y + 18, 24, 24))
                 text_x = rect.x + (32 if icon_drawn else 6)
                 self.renderer.draw_text(screen, label, (rect.x + 6, rect.y + 2), color=COLOR_LIGHT_GRAY)
-                self.renderer.draw_text(screen, item.name, (text_x, rect.y + 20), color=color)
+                # Fit to whatever width is left in the slot box after the
+                # icon, measured rather than guessed - a long name used to
+                # run straight out of the box and over the next column.
+                name = self.renderer.truncate(item.name, rect.right - text_x - 6)
+                self.renderer.draw_text(screen, name, (text_x, rect.y + 20), color=color)
             else:
                 self.renderer.draw_rect(screen, rect, (25, 25, 28))
                 self.renderer.draw_rect(screen, rect, (70, 70, 70), fill=False)
@@ -493,7 +497,7 @@ class InventoryScreen(BaseScreen):
                 self.renderer.draw_rect(screen, rect, color, fill=False)
                 icon_drawn = self._draw_item_icon(screen, item, rect, size=rect.width - 8)
                 if not icon_drawn:
-                    self.renderer.draw_text(screen, item.name[:10],
+                    self.renderer.draw_text(screen, self.renderer.truncate(item.name, rect.width - 8, size="small"),
                                             (rect.x + 4, rect.y + 4),
                                             size="small", color=color)
                 self.renderer.draw_text(screen, f"+{item.bag_capacity}",
@@ -535,9 +539,7 @@ class InventoryScreen(BaseScreen):
                     # Text fallback for anything without real icon art yet
                     # (procedural gear gear_icons.py couldn't match, or an
                     # older save item generated before this system).
-                    display_name = item.name
-                    if len(display_name) > 14:
-                        display_name = display_name[:12] + ".."
+                    display_name = self.renderer.truncate(item.name, rect.width - 8)
                     self.renderer.draw_text(screen, display_name, (rect.x + 4, rect.y + 4), color=color)
                     self.renderer.draw_text(screen, corner_text, (rect.x + 4, rect.y + rect.height - 20), color=(180, 180, 180))
                 else:
@@ -608,9 +610,7 @@ class InventoryScreen(BaseScreen):
 
             icon_drawn = self._draw_material_icon(screen, material, rect, size=rect.width - 12)
             if not icon_drawn:
-                display_name = material.name
-                if len(display_name) > 10:
-                    display_name = display_name[:8] + ".."
+                display_name = self.renderer.truncate(material.name, rect.width - 8, size="small")
                 self.renderer.draw_text(screen, display_name, (rect.x + 4, rect.y + 4),
                                         size="small", color=COLOR_LIGHT_GRAY)
 

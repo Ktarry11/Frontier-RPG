@@ -139,7 +139,8 @@ class TilemapRenderer:
         cy = sprite_top_y - 12
         pygame.draw.circle(screen, (20, 20, 20), (cx, cy), 9)
         pygame.draw.circle(screen, color, (cx, cy), 9, 2)
-        font = pygame.font.Font(None, 20)
+        from ui import theme
+        font = pygame.font.Font(theme.FONT_REGULAR, 14)
         text_surf = font.render(glyph, True, color)
         text_rect = text_surf.get_rect(center=(cx, cy))
         screen.blit(text_surf, text_rect)

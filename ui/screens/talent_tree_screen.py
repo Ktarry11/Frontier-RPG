@@ -23,9 +23,14 @@ class TalentTreeScreen:
         # never passed in, so the ESC handler always found None and did
         # nothing - there was literally no way out of this screen.
         self.state_manager = state_manager
-        self.font_small = pygame.font.Font(None, 20)
-        self.font_medium = pygame.font.Font(None, 24)
-        self.font_large = pygame.font.Font(None, 28)
+        # Themed fonts, not pygame's default - this screen builds its own
+        # rather than using Renderer, so it would otherwise have been the one
+        # screen the font swap missed. Sizes use the theme's width-matched
+        # mapping (old default 20/24/28 -> Lora 14/17/20).
+        from ui import theme
+        self.font_small = pygame.font.Font(theme.FONT_REGULAR, 14)
+        self.font_medium = pygame.font.Font(theme.FONT_REGULAR, 17)
+        self.font_large = pygame.font.Font(theme.FONT_BOLD, 20)
         
         # UI state
         self.current_tree_id = None  # Which tree we're viewing (e.g., "warrior_arms")
