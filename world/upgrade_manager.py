@@ -94,6 +94,10 @@ MATERIAL_KITS = {
     # Woodworking — wood tiers
     "upgrade_kit_ashwood":   "ashwood",
     "upgrade_kit_ironbark":  "ironbark",
+    # Engineering — its gear is tagged copper/bronze/iron/steel and reuses
+    # Blacksmithing's kits for those, so the only new entry is its own
+    # crystal-bound tier.
+    "upgrade_kit_resonant":  "resonant",
     # Leatherworking — leather tiers
     "upgrade_kit_scrap":     "scrap",
     "upgrade_kit_light":     "light",

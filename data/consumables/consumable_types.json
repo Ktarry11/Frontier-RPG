@@ -1441,5 +1441,137 @@
         "attack_power": 15
       }
     }
+  ],
+  "explosives": [
+    {
+      "consumable_id": "bomb_rough",
+      "name": "Rough Blasting Charge",
+      "consumable_type": "explosive",
+      "description": "A clay pot of powder and scrap. Throw it, then look away.",
+      "effect_value": 40,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 10,
+      "stack_limit": 20,
+      "vendor_price": 120,
+      "sell_price": 30
+    },
+    {
+      "consumable_id": "bomb_iron",
+      "name": "Iron Grenade",
+      "consumable_type": "explosive",
+      "description": "Cast iron, scored to fragment. Noticeably heavier than it looks.",
+      "effect_value": 110,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 18,
+      "cooldown_seconds": 10,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125
+    },
+    {
+      "consumable_id": "bomb_emberglass",
+      "name": "Emberglass Charge",
+      "consumable_type": "explosive",
+      "description": "Emberglass shards packed around an ember heart. Burns what it breaks.",
+      "effect_value": 240,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 28,
+      "cooldown_seconds": 10,
+      "stack_limit": 20,
+      "vendor_price": 1400,
+      "sell_price": 350
+    }
+  ],
+  "gadgets": [
+    {
+      "consumable_id": "kit_field_repair",
+      "name": "Field Repair Kit",
+      "consumable_type": "gadget",
+      "description": "Wire, solder and a small hammer. Enough to get a day more out of failing gear.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 0,
+      "stack_limit": 20,
+      "vendor_price": 150,
+      "sell_price": 37
+    },
+    {
+      "consumable_id": "goggle_lens_spare",
+      "name": "Spare Lens",
+      "consumable_type": "gadget",
+      "description": "A ground crystal lens. Engineers break a lot of these.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 12,
+      "cooldown_seconds": 0,
+      "stack_limit": 20,
+      "vendor_price": 300,
+      "sell_price": 75
+    },
+    {
+      "consumable_id": "device_recall",
+      "name": "Recall Beacon",
+      "consumable_type": "gadget",
+      "description": "A brass device that hums when pointed toward somewhere you have been.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 22,
+      "cooldown_seconds": 0,
+      "stack_limit": 20,
+      "vendor_price": 900,
+      "sell_price": 225
+    }
+  ],
+  "ammos": [
+    {
+      "consumable_id": "shot_rough",
+      "name": "Rough Shot",
+      "consumable_type": "ammo",
+      "description": "Hand-cast lead balls, more or less round.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 0,
+      "stack_limit": 200,
+      "vendor_price": 40,
+      "sell_price": 10
+    },
+    {
+      "consumable_id": "shot_iron",
+      "name": "Iron Shot",
+      "consumable_type": "ammo",
+      "description": "Milled iron shot, consistent enough to aim with.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 14,
+      "cooldown_seconds": 0,
+      "stack_limit": 200,
+      "vendor_price": 200,
+      "sell_price": 50
+    },
+    {
+      "consumable_id": "shot_charged",
+      "name": "Charged Shot",
+      "consumable_type": "ammo",
+      "description": "Iron shot with a static mote set in the core. Cracks on impact.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 26,
+      "cooldown_seconds": 0,
+      "stack_limit": 200,
+      "vendor_price": 800,
+      "sell_price": 200
+    }
   ]
 }
