@@ -87,11 +87,14 @@ class TalentManager:
         Get all talent trees for a class.
         E.g., get_trees_for_class("Warrior") returns [Arms, Fury, Protection trees]
         """
-        class_lower = class_name.lower()
+        # Normalise "Sun Cleric" -> "sun_cleric" so multi-word CoA class
+        # names match tree IDs like "sun_cleric_piety" (which are stored
+        # with underscores since they come from filenames).
+        class_prefix = class_name.lower().replace(" ", "_") + "_"
         return {
-            tree_id: tree 
-            for tree_id, tree in self.trees.items() 
-            if tree.tree_id.startswith(class_lower + "_")
+            tree_id: tree
+            for tree_id, tree in self.trees.items()
+            if tree.tree_id.startswith(class_prefix)
         }
     
     def get_all_trees(self):
