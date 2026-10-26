@@ -66,6 +66,17 @@ WEAPON_NAME_NOUNS = {
     "totem": ["Totem", "Fetish"],
     "tome": ["Tome", "Grimoire", "Codex"],
     "shield": ["Shield", "Bulwark", "Aegis"],
+    # The five ranged/polearm types were defined in data/items/weapon_types.json
+    # but never given nouns here, so every one of them fell through to the
+    # generic "Weapon" fallback - a crafted bow came out as "Reinforced Weapon
+    # of the Wolf". That hit 27 crafted recipes (15 bows, 4 crossbows, 8
+    # polearms) AND all procedural ranged loot. Guns are included because
+    # Engineering makes them.
+    "bow": ["Bow", "Shortbow", "Longbow"],
+    "crossbow": ["Crossbow", "Repeater"],
+    "gun": ["Rifle", "Blunderbuss", "Musket"],
+    "thrown": ["Throwing Knife", "Throwing Axe"],
+    "polearm": ["Polearm", "Halberd", "Spear"],
 }
 
 
