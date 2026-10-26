@@ -12,12 +12,15 @@
         "mana_potion_minor",
         "bread_and_cheese",
         "guardian_elixir_minor",
-        "battle_elixir_minor"
+        "battle_elixir_minor",
+        "vial_empty",
+        "thread_coarse",
+        "flux_weak"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 3,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "orc",
       "appearance_variant": 17,
       "greeting": "New recruits always need more than the valley gives them. I try to fill the gap."
@@ -39,7 +42,11 @@
         "guardian_elixir_minor",
         "guardian_elixir_standard",
         "battle_elixir_minor",
-        "battle_elixir_standard"
+        "battle_elixir_standard",
+        "vial_empty",
+        "thread_coarse",
+        "flux_weak",
+        "salt"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -57,24 +64,29 @@
       "y": 57,
       "tile_sprite": "npc",
       "sells": [
+        "healing_potion_minor",
         "healing_potion_standard",
-        "healing_potion_superior",
+        "mana_potion_minor",
         "mana_potion_standard",
-        "mana_potion_superior",
+        "bread_and_cheese",
         "roasted_meat",
-        "spiced_stew",
         "guardian_elixir_standard",
-        "guardian_elixir_superior",
         "battle_elixir_standard",
-        "battle_elixir_superior"
+        "vial_empty",
+        "parchment",
+        "thread_coarse",
+        "thread_fine",
+        "dye_mild",
+        "salt",
+        "fletching"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 12,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "troll",
       "appearance_variant": 17,
-      "greeting": "The isles keep their own counsel, but a sage still needs coin same as anyone."
+      "greeting": "The islands provide much, but some things must be bought."
     },
     {
       "vendor_id": "durotar_vendor",
@@ -85,23 +97,21 @@
       "tile_sprite": "npc",
       "sells": [
         "healing_potion_minor",
-        "healing_potion_standard",
         "mana_potion_minor",
-        "mana_potion_standard",
         "bread_and_cheese",
-        "roasted_meat",
         "guardian_elixir_minor",
-        "guardian_elixir_standard",
-        "battle_elixir_minor",
-        "battle_elixir_standard"
+        "vial_empty",
+        "thread_coarse",
+        "flux_weak",
+        "salt"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 10,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "orc",
       "appearance_variant": 20,
-      "greeting": "Durotar's a hard place to run low on supplies in. Good thing I'm here."
+      "greeting": "Far from the city, but I keep the essentials."
     },
     {
       "vendor_id": "crossroads_provisioner",
@@ -117,16 +127,21 @@
         "mana_potion_standard",
         "bread_and_cheese",
         "roasted_meat",
-        "guardian_elixir_standard",
-        "battle_elixir_standard"
+        "guardian_elixir_minor",
+        "battle_elixir_minor",
+        "vial_empty",
+        "thread_coarse",
+        "thread_fine",
+        "flux_weak",
+        "salt"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 16,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "orc",
       "appearance_variant": 4,
-      "greeting": "Every caravan stops at the Crossroads eventually. I make sure they leave stocked."
+      "greeting": "Everything a traveler needs, all under one roof."
     },
     {
       "vendor_id": "crossroads_alchemist",
@@ -140,16 +155,20 @@
         "healing_potion_superior",
         "mana_potion_standard",
         "mana_potion_superior",
-        "battle_elixir_standard",
-        "guardian_elixir_standard"
+        "vial_empty",
+        "vial_leaded",
+        "parchment",
+        "elixir_of_warding",
+        "elixir_of_agility",
+        "arcane_elixir"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 16,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 9,
-      "greeting": "Potions, elixirs, the occasional thing that shouldn't technically work. Ask no questions."
+      "greeting": "Vials, reagents, and the potions you can't brew yet \u2014 that's my trade."
     },
     {
       "vendor_id": "southern_durotar_trader",
@@ -160,19 +179,20 @@
       "tile_sprite": "npc",
       "sells": [
         "healing_potion_minor",
-        "healing_potion_standard",
         "mana_potion_minor",
-        "mana_potion_standard",
         "bread_and_cheese",
-        "roasted_meat"
+        "vial_empty",
+        "thread_coarse",
+        "salt",
+        "whetstone"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 10,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "orc",
       "appearance_variant": 20,
-      "greeting": "Long road down from Orgrimmar. Figured I'd save you the trip back up for supplies."
+      "greeting": "Small trade post. Take what you need."
     },
     {
       "vendor_id": "ratchet_trader",
@@ -188,15 +208,20 @@
         "mana_potion_standard",
         "bread_and_cheese",
         "roasted_meat",
-        "battle_elixir_standard"
+        "vial_empty",
+        "thread_fine",
+        "flux_medium",
+        "coal",
+        "component_string",
+        "parchment"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 18,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 3,
-      "greeting": "Cousin Gazlowe says I've got the family knack for a deal. He's not wrong."
+      "greeting": "Ratchet moves goods. I'm part of that."
     },
     {
       "vendor_id": "ratchet_dockmaster",
@@ -208,15 +233,17 @@
       "sells": [
         "healing_potion_standard",
         "mana_potion_standard",
-        "guardian_elixir_standard"
+        "guardian_elixir_standard",
+        "bread_and_cheese",
+        "spiced_wine"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 18,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 5,
-      "greeting": "Ships come and go. My stock doesn't leave the dock, though - not unless you're buying."
+      "greeting": "Ships need a dockmaster. Dockmaster needs a drink."
     },
     {
       "vendor_id": "taurajo_quartermaster",
@@ -231,7 +258,12 @@
         "mana_potion_minor",
         "mana_potion_standard",
         "bread_and_cheese",
-        "roasted_meat"
+        "roasted_meat",
+        "guardian_elixir_minor",
+        "battle_elixir_minor",
+        "vial_empty",
+        "thread_coarse",
+        "flux_weak"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -239,7 +271,7 @@
       "sells_gear": true,
       "race": "tauren",
       "appearance_variant": 15,
-      "greeting": "Windhoof keeps this camp running. Supplies included."
+      "greeting": "Taurajo runs lean. What you see is what we've got."
     },
     {
       "vendor_id": "zeppelin_master",
@@ -250,15 +282,17 @@
       "tile_sprite": "npc",
       "sells": [
         "bread_and_cheese",
-        "healing_potion_minor"
+        "healing_potion_minor",
+        "vial_empty",
+        "parchment"
       ],
       "buys_from_player": true,
       "faction": "horde",
       "gear_level": 20,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 2,
-      "greeting": "Zeppelin to the Undercity leaves from the north berth, on the hour, give or take a boiler malfunction. East and west berths? Soon. Management says soon."
+      "greeting": "Long flights, short supplies. Stock up before you board."
     },
     {
       "vendor_id": "deathknell_undertaker",
@@ -272,15 +306,18 @@
         "mana_potion_minor",
         "bread_and_cheese",
         "guardian_elixir_minor",
-        "battle_elixir_minor"
+        "mana_potion_minor",
+        "vial_empty",
+        "parchment",
+        "thread_coarse"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
       "gear_level": 3,
-      "sells_gear": true,
+      "sells_gear": false,
       "appearance_variant": 8,
       "race": "forsaken",
-      "greeting": "Mordo's been burying and un-burying this town's dead for longer than you'd believe. Business is steady."
+      "greeting": "The Forsaken require supplies like any living thing. Mostly."
     },
     {
       "vendor_id": "brill_innkeeper",
@@ -296,15 +333,17 @@
         "mana_potion_standard",
         "bread_and_cheese",
         "roasted_meat",
-        "battle_elixir_minor"
+        "spiced_wine",
+        "guardian_elixir_minor",
+        "guardian_elixir_standard"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
       "gear_level": 8,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "forsaken",
       "appearance_variant": 6,
-      "greeting": "Rest here a while. The dead don't need sleep, but I hear the living still do."
+      "greeting": "Rest your feet. I'll have food on the table."
     },
     {
       "vendor_id": "crossroads_general_goods",
@@ -314,21 +353,30 @@
       "y": 28,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_minor",
-        "healing_potion_standard",
-        "mana_potion_minor",
-        "mana_potion_standard",
-        "bread_and_cheese",
-        "roasted_meat"
+        "vial_empty",
+        "thread_coarse",
+        "thread_fine",
+        "flux_weak",
+        "flux_medium",
+        "coal",
+        "salt",
+        "tanning_reagent",
+        "component_string",
+        "fletching",
+        "dye_mild",
+        "parchment",
+        "whetstone",
+        "resin",
+        "glue"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 14,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Thundertusk's General Goods. If the Crossroads needs it, I've probably got it."
+      "greeting": "If you make things, I sell what goes into them."
     },
     {
       "vendor_id": "crossroads_weaponsmith",
@@ -338,6 +386,10 @@
       "y": 44,
       "tile_sprite": "npc",
       "sells": [
+        "flux_weak",
+        "flux_medium",
+        "coal",
+        "whetstone",
         "battle_elixir_minor",
         "battle_elixir_standard",
         "elixir_of_agility"
@@ -349,7 +401,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "female",
-      "greeting": "Ironbind steel. Ask any grunt who's walked out of a fight they shouldn't have won."
+      "greeting": "Good steel needs good flux. I sell both."
     },
     {
       "vendor_id": "crossroads_stablemaster",
@@ -361,6 +413,8 @@
       "sells": [
         "guardian_elixir_minor",
         "guardian_elixir_standard",
+        "bread_and_cheese",
+        "roasted_meat",
         "spiced_wine"
       ],
       "buys_from_player": false,
@@ -370,7 +424,7 @@
       "race": "orc",
       "appearance_variant": 20,
       "gender": "male",
-      "greeting": "No mounts today, just the elixirs that keep a traveler upright for the long road."
+      "greeting": "The mounts eat well. You should too."
     },
     {
       "vendor_id": "crossroads_fletcher",
@@ -380,19 +434,22 @@
       "y": 54,
       "tile_sprite": "npc",
       "sells": [
+        "component_string",
+        "fletching",
+        "resin",
+        "glue",
         "healing_potion_standard",
         "mana_potion_standard",
-        "elixir_of_greater_agility",
-        "honeyed_fruit"
+        "elixir_of_greater_agility"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 16,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "Trueshot's the name. Arrows, elixirs, the odd bit of honeyed fruit for the road."
+      "greeting": "String, feathers, resin \u2014 everything that turns a plank into a bow."
     },
     {
       "vendor_id": "taurajo_hide_trader",
@@ -402,19 +459,22 @@
       "y": 36,
       "tile_sprite": "npc",
       "sells": [
+        "salt",
+        "tanning_reagent",
+        "curing_salt",
+        "sinew",
         "healing_potion_minor",
         "healing_potion_standard",
-        "guardian_elixir_minor",
-        "guardian_elixir_standard"
+        "guardian_elixir_minor"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 15,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "tauren",
       "appearance_variant": 10,
       "gender": "male",
-      "greeting": "Bloodhorn's hides. Every strip tanned proper, every sale fair. Ask around."
+      "greeting": "Hides come in, leather goes out. I sell what helps the middle part."
     },
     {
       "vendor_id": "taurajo_provisioner",
@@ -424,10 +484,12 @@
       "y": 45,
       "tile_sprite": "npc",
       "sells": [
-        "bread_and_cheese",
         "roasted_meat",
         "spiced_stew",
-        "mana_potion_minor"
+        "bread_and_cheese",
+        "spiced_wine",
+        "healing_potion_minor",
+        "healing_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -436,7 +498,7 @@
       "race": "tauren",
       "appearance_variant": 14,
       "gender": "female",
-      "greeting": "Grain, meat, stew - the camp eats well because I make sure of it."
+      "greeting": "The plains provide the meat. I do the cooking."
     },
     {
       "vendor_id": "taurajo_totem_crafter",
@@ -448,6 +510,8 @@
       "sells": [
         "elixir_of_warding",
         "battle_elixir_standard",
+        "vial_empty",
+        "parchment",
         "mushroom_broth"
       ],
       "buys_from_player": false,
@@ -457,7 +521,7 @@
       "race": "tauren",
       "appearance_variant": 5,
       "gender": "male",
-      "greeting": "Every totem I carve carries a piece of the spirit that gave it. Treat them with respect."
+      "greeting": "Spirits require preparation. So do adventurers."
     },
     {
       "vendor_id": "taurajo_beast_trainer",
@@ -469,7 +533,9 @@
       "sells": [
         "healing_potion_standard",
         "spiced_wine",
-        "guardian_elixir_standard"
+        "guardian_elixir_standard",
+        "salt",
+        "sinew"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -478,7 +544,7 @@
       "race": "tauren",
       "appearance_variant": 2,
       "gender": "female",
-      "greeting": "Kodo, hawks, the occasional stubborn ram. I've got a way with all of them."
+      "greeting": "Beasts and their trainers both need keeping."
     },
     {
       "vendor_id": "brill_general_goods",
@@ -488,19 +554,25 @@
       "y": 47,
       "tile_sprite": "npc",
       "sells": [
+        "vial_empty",
+        "thread_coarse",
+        "thread_fine",
+        "flux_weak",
+        "salt",
+        "tanning_reagent",
+        "dye_mild",
+        "parchment",
         "healing_potion_minor",
-        "healing_potion_standard",
-        "mana_potion_minor",
-        "bread_and_cheese"
+        "healing_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
       "gear_level": 8,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "forsaken",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Fennimore's Goods. Same stock as any town, if a little dustier."
+      "greeting": "A little of everything. That's Brill for you."
     },
     {
       "vendor_id": "brill_reagent_dealer",
@@ -510,10 +582,13 @@
       "y": 33,
       "tile_sprite": "npc",
       "sells": [
+        "vial_empty",
+        "vial_leaded",
+        "parchment",
         "mana_potion_minor",
         "mana_potion_standard",
         "elixir_of_warding",
-        "mushroom_broth"
+        "arcane_elixir"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -522,7 +597,7 @@
       "race": "forsaken",
       "appearance_variant": 1,
       "gender": "male",
-      "greeting": "Grimme's reagents. The Apothecarium doesn't buy from just anyone. I'm the exception."
+      "greeting": "Mages and warlocks keep me busy. I don't ask why."
     },
     {
       "vendor_id": "brill_butcher",
@@ -534,6 +609,8 @@
       "sells": [
         "roasted_meat",
         "spiced_stew",
+        "bread_and_cheese",
+        "salt",
         "healing_potion_minor"
       ],
       "buys_from_player": true,
@@ -543,7 +620,7 @@
       "race": "forsaken",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "Fresh cuts, daily. Don't ask where the meat comes from in a town like this. Just eat."
+      "greeting": "Fresh cuts, cured meats, and something to wash it down."
     },
     {
       "vendor_id": "brill_tailor",
@@ -553,17 +630,22 @@
       "y": 47,
       "tile_sprite": "npc",
       "sells": [
-        "battle_elixir_minor",
-        "guardian_elixir_minor"
+        "thread_coarse",
+        "thread_fine",
+        "thread_silken",
+        "dye_mild",
+        "dye_bright",
+        "bleach",
+        "parchment"
       ],
       "buys_from_player": false,
       "faction": "forsaken",
       "gear_level": 10,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "forsaken",
       "appearance_variant": 14,
       "gender": "female",
-      "greeting": "Vance's stitching. I mend more than clothes around here, if you catch my meaning."
+      "greeting": "Thread, dye, and the knowledge to use them. The garments are your business."
     },
     {
       "vendor_id": "sepulcher_relic_dealer",
@@ -573,18 +655,21 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_minor",
+        "vial_empty",
+        "vial_leaded",
+        "parchment",
+        "elixir_of_warding",
         "mana_potion_minor",
-        "elixir_of_warding"
+        "healing_potion_minor"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
       "gear_level": 9,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "forsaken",
       "appearance_variant": 12,
       "gender": "female",
-      "greeting": "Curiosities pulled from the tombs. Some are worth coin. Some are worth leaving buried."
+      "greeting": "Old things, new uses. That's the Forsaken way."
     },
     {
       "vendor_id": "sepulcher_reagent_seller",
@@ -594,9 +679,14 @@
       "y": 38,
       "tile_sprite": "npc",
       "sells": [
+        "vial_empty",
+        "vial_leaded",
+        "vial_crystal",
+        "parchment",
         "mana_potion_minor",
         "mana_potion_standard",
-        "arcane_elixir"
+        "arcane_elixir",
+        "greater_arcane_elixir"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -605,7 +695,7 @@
       "race": "forsaken",
       "appearance_variant": 1,
       "gender": "male",
-      "greeting": "Wrenn's reagents. The tombs give up strange ingredients, if you know where to dig."
+      "greeting": "The arcane requires discipline. And proper vials."
     },
     {
       "vendor_id": "sepulcher_innkeeper",
@@ -617,7 +707,10 @@
       "sells": [
         "healing_potion_standard",
         "bread_and_cheese",
-        "spiced_stew"
+        "spiced_stew",
+        "spiced_wine",
+        "roasted_meat",
+        "guardian_elixir_minor"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -626,7 +719,7 @@
       "race": "forsaken",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Not much of an inn. Not much of a town, either. But the bed's real, at least."
+      "greeting": "The Sepulcher's cold, but my hearth isn't."
     },
     {
       "vendor_id": "sepulcher_mortician_supplier",
@@ -636,17 +729,21 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "salt",
+        "tanning_reagent",
+        "curing_salt",
+        "sinew",
         "battle_elixir_minor",
         "guardian_elixir_minor"
       ],
       "buys_from_player": false,
       "faction": "forsaken",
       "gear_level": 12,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "forsaken",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "Grieve's supplies. I outfit the dead for their rest. Sometimes it even takes."
+      "greeting": "Preservation is an art. Salt is its foundation."
     },
     {
       "vendor_id": "ratchet_shipping_trader",
@@ -656,18 +753,23 @@
       "y": 33,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_standard",
-        "mana_potion_standard",
-        "bread_and_cheese"
+        "flux_medium",
+        "flux_strong",
+        "coal",
+        "tanning_reagent",
+        "curing_salt",
+        "thread_silken",
+        "vial_leaded",
+        "resin"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 18,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 20,
       "gender": "male",
-      "greeting": "Blix, Cargo Master. Anything that fits on a ship, I can get it moving."
+      "greeting": "I ship what others can't source locally."
     },
     {
       "vendor_id": "ratchet_explosives_dealer",
@@ -678,7 +780,10 @@
       "tile_sprite": "npc",
       "sells": [
         "battle_elixir_standard",
-        "elixir_of_firepower"
+        "elixir_of_firepower",
+        "flux_medium",
+        "coal",
+        "whetstone"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -687,7 +792,7 @@
       "race": "goblin",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Boomwick's the name, and yes, that's relevant to what I sell. Handle with care."
+      "greeting": "Explosives, elixirs \u2014 close enough business."
     },
     {
       "vendor_id": "ratchet_black_market_fence",
@@ -699,16 +804,18 @@
       "sells": [
         "healing_potion_superior",
         "mana_potion_superior",
-        "elixir_of_greater_agility"
+        "elixir_of_greater_agility",
+        "elixir_of_greater_firepower",
+        "greater_arcane_elixir"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 20,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 23,
       "gender": "female",
-      "greeting": "Don't ask where it came from. Just ask what it costs."
+      "greeting": "What you're looking for isn't on the shelf. That's why you came to me."
     },
     {
       "vendor_id": "ratchet_tavern_keeper",
@@ -721,7 +828,9 @@
         "spiced_wine",
         "roasted_meat",
         "spiced_stew",
-        "guardian_elixir_standard"
+        "mushroom_broth",
+        "healing_potion_minor",
+        "mana_potion_minor"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -730,7 +839,7 @@
       "race": "goblin",
       "appearance_variant": 14,
       "gender": "female",
-      "greeting": "Molka's Tavern. Drink, eat, forget your troubles for an hour. Ratchet prices, though."
+      "greeting": "Sit down. I'll get you something."
     },
     {
       "vendor_id": "org_reagent_vendor",
@@ -740,9 +849,14 @@
       "y": 31,
       "tile_sprite": "npc",
       "sells": [
+        "vial_empty",
+        "vial_leaded",
+        "vial_crystal",
+        "parchment",
         "mana_potion_minor",
         "mana_potion_standard",
-        "arcane_elixir"
+        "arcane_elixir",
+        "greater_arcane_elixir"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -751,7 +865,7 @@
       "race": "tauren",
       "appearance_variant": 2,
       "gender": "female",
-      "greeting": "Reagents from every corner of Kalimdor. The spirits provide, and I make sure it's stocked."
+      "greeting": "Reagents for every school. I don't play favorites."
     },
     {
       "vendor_id": "org_beast_vendor",
@@ -761,9 +875,13 @@
       "y": 27,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_standard",
         "roasted_meat",
-        "spiced_stew"
+        "spiced_stew",
+        "bread_and_cheese",
+        "salt",
+        "sinew",
+        "tanning_reagent",
+        "healing_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -772,7 +890,7 @@
       "race": "orc",
       "appearance_variant": 15,
       "gender": "male",
-      "greeting": "Feed for beasts, feed for riders. Everyone eats before the hunt."
+      "greeting": "Beasts of Durotar, fed and cared for."
     },
     {
       "vendor_id": "orgrimmar_quartermaster",
@@ -782,11 +900,18 @@
       "y": 44,
       "tile_sprite": "npc",
       "sells": [
+        "healing_potion_minor",
         "healing_potion_standard",
+        "mana_potion_minor",
         "mana_potion_standard",
         "bread_and_cheese",
+        "roasted_meat",
+        "battle_elixir_standard",
         "guardian_elixir_standard",
-        "battle_elixir_standard"
+        "flux_weak",
+        "flux_medium",
+        "whetstone",
+        "coal"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -795,7 +920,7 @@
       "race": "orc",
       "appearance_variant": 15,
       "gender": "male",
-      "greeting": "The capital doesn't run on banners and good intentions. It runs on this."
+      "greeting": "The Horde marches on full bellies and sharp steel."
     },
     {
       "vendor_id": "org_demonic_vendor",
@@ -806,7 +931,10 @@
       "tile_sprite": "npc",
       "sells": [
         "mana_potion_standard",
-        "elixir_of_firepower"
+        "elixir_of_firepower",
+        "vial_empty",
+        "parchment",
+        "dye_bright"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -815,7 +943,7 @@
       "race": "blood_elf",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "What I sell isn't for the curious. It's for the committed."
+      "greeting": "The Burning Blade has its needs. I supply them \u2014 no questions."
     },
     {
       "vendor_id": "org_engineer",
@@ -825,6 +953,11 @@
       "y": 32,
       "tile_sprite": "npc",
       "sells": [
+        "flux_weak",
+        "flux_medium",
+        "flux_strong",
+        "coal",
+        "whetstone",
         "healing_potion_minor",
         "healing_potion_standard"
       ],
@@ -835,7 +968,7 @@
       "race": "goblin",
       "appearance_variant": 2,
       "gender": "male",
-      "greeting": "Gadgets, gizmos, the occasional thing that explodes when it's not supposed to. Buyer beware."
+      "greeting": "Good machines start with good materials."
     },
     {
       "vendor_id": "org_scout",
@@ -845,6 +978,9 @@
       "y": 24,
       "tile_sprite": "npc",
       "sells": [
+        "component_string",
+        "fletching",
+        "resin",
         "healing_potion_minor",
         "mana_potion_minor"
       ],
@@ -855,7 +991,7 @@
       "race": "orc",
       "appearance_variant": 2,
       "gender": "female",
-      "greeting": "Word from the Barrens - the Crossroads still holds. For now."
+      "greeting": "Light, fast, prepared. That's a good scout."
     },
     {
       "vendor_id": "orgrimmar_provisioner",
@@ -867,7 +1003,10 @@
       "sells": [
         "roasted_meat",
         "spiced_stew",
-        "healing_potion_standard"
+        "roasted_meat",
+        "healing_potion_standard",
+        "guardian_elixir_standard",
+        "spiced_wine"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -876,7 +1015,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Ironhide's stock. Built to last, same as everything else with that name on it."
+      "greeting": "Orgrimmar eats well. I make sure of it."
     },
     {
       "vendor_id": "orgrimmar_elixir_trader",
@@ -887,8 +1026,12 @@
       "tile_sprite": "npc",
       "sells": [
         "battle_elixir_standard",
+        "battle_elixir_minor",
         "guardian_elixir_standard",
-        "elixir_of_agility"
+        "guardian_elixir_minor",
+        "elixir_of_agility",
+        "elixir_of_warding",
+        "elixir_of_swiftness"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -897,7 +1040,7 @@
       "race": "orc",
       "appearance_variant": 6,
       "gender": "female",
-      "greeting": "Zeeka doesn't sell junk. Every elixir here earns its price."
+      "greeting": "Pre-brewed and ready. Saves you the vials."
     },
     {
       "vendor_id": "sb_waystation_vendor",
@@ -910,18 +1053,20 @@
         "mana_potion_minor",
         "mana_potion_standard",
         "bread_and_cheese",
-        "roasted_meat",
-        "guardian_elixir_standard",
-        "battle_elixir_standard"
+        "vial_empty",
+        "thread_fine",
+        "flux_medium",
+        "salt",
+        "component_string"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 22,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "orc",
       "appearance_variant": 14,
       "gender": "female",
-      "greeting": "Waystation stores, fresh from Taurajo and only slightly rained on. What'll it be?",
+      "greeting": "Southern Barrens waypost. We carry what fits in a saddle bag.",
       "x": 138,
       "y": 113
     },
@@ -936,18 +1081,20 @@
         "mana_potion_minor",
         "mana_potion_standard",
         "bread_and_cheese",
-        "roasted_meat",
-        "guardian_elixir_standard",
-        "battle_elixir_standard"
+        "vial_empty",
+        "flux_medium",
+        "coal",
+        "tanning_reagent",
+        "whetstone"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 20,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Base Camp stores. Heavy on the jerky, light on the courtesy. What do you need?",
+      "greeting": "Northern Barrens basecamp. Moving fast \u2014 grab what you need.",
       "x": 150,
       "y": 66
     },
@@ -959,9 +1106,11 @@
       "sells": [
         "healing_potion_minor",
         "healing_potion_standard",
-        "mana_potion_minor",
         "bread_and_cheese",
-        "roasted_meat"
+        "roasted_meat",
+        "salt",
+        "vial_empty",
+        "resin"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -969,7 +1118,7 @@
       "sells_gear": false,
       "race": "night_elf",
       "appearance_variant": 3,
-      "greeting": "Fresh from the tide, and the only honest scales on the coast.",
+      "greeting": "Remote post. I trade what washes up and what I haul in.",
       "x": 29,
       "y": 27
     },
@@ -982,15 +1131,17 @@
       "tile_sprite": "npc",
       "sells": [
         "bread_and_cheese",
-        "healing_potion_minor"
+        "healing_potion_minor",
+        "vial_empty",
+        "parchment"
       ],
       "buys_from_player": true,
       "faction": "horde",
       "gear_level": 20,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 5,
-      "greeting": "Orgrimmar bound? North berth. Mind the rail, the drop is a long one and nobody's coming to fetch you."
+      "greeting": "The zeppelin waits for no one. Least of all the unprepared."
     },
     {
       "vendor_id": "uc_innkeeper",
@@ -1003,7 +1154,9 @@
         "bread_and_cheese",
         "roasted_meat",
         "spiced_wine",
-        "mushroom_broth"
+        "spiced_stew",
+        "healing_potion_minor",
+        "mana_potion_minor"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1012,7 +1165,7 @@
       "race": "forsaken",
       "appearance_variant": 10,
       "gender": "female",
-      "greeting": "Rest, if you can. If you can't, drink. Either way, it's a room with a roof."
+      "greeting": "The Undercity doesn't sleep. Neither do I."
     },
     {
       "vendor_id": "uc_quartermaster",
@@ -1022,8 +1175,15 @@
       "y": 77,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_minor",
-        "healing_potion_standard"
+        "healing_potion_standard",
+        "healing_potion_superior",
+        "mana_potion_standard",
+        "mana_potion_superior",
+        "battle_elixir_standard",
+        "guardian_elixir_standard",
+        "flux_medium",
+        "whetstone",
+        "vial_empty"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1032,7 +1192,7 @@
       "race": "forsaken",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "The Royal Guard supplies, signed for in triplicate. I'll accept coin in lieu of a signature."
+      "greeting": "The Dark Lady's forces demand the best. I provide it."
     },
     {
       "vendor_id": "uc_provisioner",
@@ -1045,7 +1205,10 @@
         "bread_and_cheese",
         "roasted_meat",
         "spiced_stew",
-        "healing_potion_minor"
+        "mushroom_broth",
+        "thread_coarse",
+        "thread_fine",
+        "salt"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1054,7 +1217,7 @@
       "race": "forsaken",
       "appearance_variant": 14,
       "gender": "female",
-      "greeting": "Rations, field kits, bandages. If you're going down to the Depths, take more than you think."
+      "greeting": "Provisioning the dead is still provisioning."
     },
     {
       "vendor_id": "uc_arcane_vendor",
@@ -1064,9 +1227,14 @@
       "y": 87,
       "tile_sprite": "npc",
       "sells": [
+        "vial_empty",
+        "vial_leaded",
+        "vial_crystal",
+        "parchment",
         "mana_potion_minor",
         "mana_potion_standard",
-        "arcane_elixir"
+        "arcane_elixir",
+        "greater_arcane_elixir"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1075,7 +1243,7 @@
       "race": "forsaken",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Reagents, focus crystals, and the finest mana draughts in Lordaeron's ruins."
+      "greeting": "The Undercity breeds scholars. I supply them."
     },
     {
       "vendor_id": "uc_demonic_vendor",
@@ -1086,7 +1254,10 @@
       "tile_sprite": "npc",
       "sells": [
         "mana_potion_minor",
-        "mana_potion_standard"
+        "mana_potion_standard",
+        "vial_empty",
+        "parchment",
+        "elixir_of_firepower"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1095,7 +1266,7 @@
       "race": "forsaken",
       "appearance_variant": 10,
       "gender": "male",
-      "greeting": "Soul shards, sacrifices, and small sulking imps. Please don't feed the imps after midnight."
+      "greeting": "We don't discuss where these come from."
     },
     {
       "vendor_id": "uc_elixir_trader",
@@ -1106,9 +1277,12 @@
       "tile_sprite": "npc",
       "sells": [
         "battle_elixir_minor",
-        "guardian_elixir_minor",
         "battle_elixir_standard",
-        "guardian_elixir_standard"
+        "guardian_elixir_minor",
+        "guardian_elixir_standard",
+        "elixir_of_warding",
+        "elixir_of_agility",
+        "elixir_of_toughness"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1117,7 +1291,7 @@
       "race": "forsaken",
       "appearance_variant": 7,
       "gender": "female",
-      "greeting": "Elixirs for every occasion. The label is just a suggestion. Taste is up to you."
+      "greeting": "Every soldier needs an edge. I sell them."
     },
     {
       "vendor_id": "uc_reagent_vendor",
@@ -1127,9 +1301,16 @@
       "y": 172,
       "tile_sprite": "npc",
       "sells": [
+        "thread_fine",
+        "thread_silken",
+        "dye_mild",
+        "dye_bright",
+        "salt",
+        "tanning_reagent",
+        "curing_salt",
+        "sinew",
         "healing_potion_minor",
-        "mana_potion_minor",
-        "elixir_of_warding"
+        "mana_potion_minor"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1138,7 +1319,7 @@
       "race": "forsaken",
       "appearance_variant": 13,
       "gender": "male",
-      "greeting": "Powdered bone, grave-dirt, a hint of nightshade. Alchemists swear by it."
+      "greeting": "The craft guilds send me their shopping lists."
     },
     {
       "vendor_id": "uc_poison_vendor",
@@ -1149,7 +1330,10 @@
       "tile_sprite": "npc",
       "sells": [
         "elixir_of_agility",
-        "battle_elixir_minor"
+        "elixir_of_greater_agility",
+        "battle_elixir_minor",
+        "vial_empty",
+        "parchment"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1158,7 +1342,7 @@
       "race": "forsaken",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "A single drop is plenty. Treat every bottle as if it were your last."
+      "greeting": "Assassination is a craft. I supply the materials."
     },
     {
       "vendor_id": "sp_rg_quartermaster",
@@ -1171,8 +1355,14 @@
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
+        "mana_potion_standard",
         "bread_and_cheese",
-        "roasted_meat"
+        "guardian_elixir_minor",
+        "battle_elixir_minor",
+        "vial_empty",
+        "flux_weak",
+        "salt",
+        "thread_coarse"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1181,7 +1371,7 @@
       "race": "forsaken",
       "appearance_variant": 11,
       "gender": "male",
-      "greeting": "Rear Guard stores, signed for in duplicate. The duplicate is for the dead; the original is for the living."
+      "greeting": "Silverpine is dangerous. Come prepared."
     },
     {
       "vendor_id": "sp_south_quartermaster",
@@ -1197,7 +1387,11 @@
         "mana_potion_standard",
         "bread_and_cheese",
         "roasted_meat",
-        "battle_elixir_minor"
+        "guardian_elixir_standard",
+        "vial_empty",
+        "thread_fine",
+        "flux_medium",
+        "coal"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1206,7 +1400,7 @@
       "race": "forsaken",
       "appearance_variant": 12,
       "gender": "male",
-      "greeting": "Valgan's Field supply, signed in duplicate. Don't ask where the stock came from. Most of it fought back."
+      "greeting": "Southern Silverpine post. The wolves don't wait."
     },
     {
       "vendor_id": "fenris_provisioner",
@@ -1219,18 +1413,20 @@
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
-        "bread_and_cheese",
-        "roasted_meat",
-        "battle_elixir_minor"
+        "mana_potion_standard",
+        "vial_empty",
+        "salt",
+        "tanning_reagent",
+        "component_string"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
       "gear_level": 20,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "forsaken",
       "appearance_variant": 11,
       "gender": "male",
-      "greeting": "Bloodmoon Village stores. Priced for people who aren't leaving soon."
+      "greeting": "Fenris Isle doesn't get many supply ships. Make it count."
     }
   ]
 }

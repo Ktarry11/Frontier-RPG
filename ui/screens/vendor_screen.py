@@ -1,22 +1,25 @@
 """
-Vendor Screen - buy and sell consumables AND gear from vendor NPCs.
+Vendor Screen - buy and sell items from vendor NPCs.
 
-Rewritten from the original consumables-only version. Two real bugs fixed:
+Overhauled from the tabs-based version:
 
-1. No gear for sale at all - vendors only stocked potions/food/elixirs.
-   WoW vendors sell basic armor too (mostly white, a little green, rarely
-   blue) - now wired through LootGenerator via VendorNPC.get_gear_stock().
+1. No more "consumables" / "gear" tabs.  Each vendor shows a single unified
+   item list that reflects their role — an alchemist's supplier sells vials
+   and parchment, a blacksmith's supplier sells flux and coal, an innkeeper
+   sells food and drink.  The tab machinery is gone; only one list renders.
 
-2. Buying an item deducted gold but the item never actually reached the
-   player - add_consumable()/inventory.append() were being called, but
-   nothing refreshed the player-side list the SAME FRAME, and the "buy"
-   path for a Consumable created a brand new instance every purchase
-   without checking whether the player already had a stack of that same
-   consumable_id, silently creating duplicate un-stacked entries instead
-   of growing the existing one. Fixed by stacking onto an existing
-   consumable of the same id when present, and always re-reading
-   player.consumables / player.inventory fresh each render rather than
-   caching a stale reference at screen construction.
+2. Vendors now sell Materials (crafting reagents: thread, vials, flux, …) as
+   first-class buyable items alongside consumables and gear.  The buy path
+   dispatches on the item type:
+     • gear      → player.add_to_inventory()
+     • consumable → player.add_consumable()   (stacks onto existing)
+     • material   → player.add_material()     (stacks onto existing)
+
+3. The sell-side ("Your Items") panel now includes player.materials so reagents
+   the player picked up or bought can be sold back.
+
+4. Tooltip for materials shows description + price; no level requirement
+   since reagents aren't level-gated.
 """
 import pygame
 from core.game_states import GameState
@@ -31,7 +34,7 @@ from config import COLOR_WHITE, COLOR_GOLD, COLOR_GREEN, COLOR_RED, COLOR_DARK_G
 
 
 class VendorScreen(BaseScreen):
-    """UI screen for buying/selling consumables and gear at vendor NPCs."""
+    """UI screen for buying/selling consumables, gear, and crafting reagents."""
 
     ITEM_ROW_HEIGHT = 44
     VISIBLE_ROWS = 9
@@ -42,8 +45,6 @@ class VendorScreen(BaseScreen):
         self.renderer = Renderer()
         self.consumable_manager = get_consumable_manager()
         self.loot_generator = LootGenerator()
-
-        self.vendor_tab = "consumables"  # "consumables" or "gear"
 
         self.selected_vendor_item = None
         self.selected_player_item = None
@@ -60,49 +61,211 @@ class VendorScreen(BaseScreen):
         self.PANEL_WIDTH = 540
         self.PLAYER_PANEL_X = SCREEN_WIDTH - 40 - self.PANEL_WIDTH
 
-        self.vendor_inventory = self._build_vendor_consumables()
-        self.vendor_gear = vendor.get_gear_stock(self.loot_generator)
+        # Unified vendor stock: consumables + materials from vendor.sells,
+        # plus gear from vendor.get_gear_stock() when sells_gear is True.
+        self.vendor_inventory = self._build_vendor_stock()
 
         self.on_open()
 
     def on_open(self):
-        """Called every time the screen is shown (fresh build or reopen of the same vendor)."""
+        """Called every time the screen is shown."""
         self.selected_vendor_item = None
         self.selected_player_item = None
-        # Global "auto-sell vendor trash" tick-box: sweeps the grey stuff the moment any buying vendor opens.
         player = self.state_manager.player
         if getattr(player, "auto_sell_junk", False) and self.vendor.buys_from_player:
             self._sell_all_junk(auto=True)
 
-    def _build_vendor_consumables(self):
+    # ------------------------------------------------------------------ build
+
+    def _build_vendor_stock(self):
+        """Resolve all items this vendor sells into a unified list.
+
+        Ordering: consumables and materials (sorted by vendor_price) first,
+        then gear (sorted by required_level so lower-level stuff is at top).
+        This matches the WoW vendor convention where gear is after supplies.
+        """
+        from world.gathering_manager import GatheringNodeManager
+        gathering_mgr = GatheringNodeManager()
+
         items = []
-        for consumable_id in self.vendor.sells:
-            c = self.consumable_manager.get_consumable(consumable_id, quantity=1)
+        for item_id in self.vendor.sells:
+            # Try consumable first
+            c = self.consumable_manager.get_consumable(item_id, quantity=1)
             if c:
                 items.append(c)
-        items.sort(key=lambda c: c.vendor_price)
+                continue
+            # Try material (reagent or gathered mat)
+            mat = gathering_mgr.make_material_instance(item_id)
+            if mat:
+                items.append(mat)
+                continue
+            # Unknown ID — warn and skip rather than crash
+            print(f"[VendorScreen] WARNING: unknown sell ID '{item_id}' on vendor '{self.vendor.vendor_id}'")
+
+        items.sort(key=lambda x: getattr(x, "vendor_price", 0))
+
+        # Gear appended after supplies when the vendor has a gear stock
+        if getattr(self.vendor, "sells_gear", False):
+            gear = self.vendor.get_gear_stock(self.loot_generator)
+            gear.sort(key=lambda g: getattr(g, "required_level", 0))
+            items.extend(gear)
+
         return items
 
-    def _current_vendor_stock(self):
-        return self.vendor_gear if self.vendor_tab == "gear" else self.vendor_inventory
+    # ------------------------------------------------------------------ queries
+
+    def _is_gear(self, thing):
+        return hasattr(thing, "slot") and hasattr(thing, "armor_value")
+
+    def _is_material(self, thing):
+        from entities.material import Material
+        return isinstance(thing, Material)
 
     def _player_stock(self):
-        """Player's own consumables + inventory gear, read fresh every call
-        so a just-bought item shows up immediately instead of waiting for
-        the screen to be rebuilt."""
+        """Player's consumables + materials + inventory gear, read fresh every
+        call so newly bought items appear immediately."""
         player = self.state_manager.player
-        return list(player.consumables) + list(player.inventory)
+        return list(player.consumables) + list(getattr(player, "materials", [])) + list(player.inventory)
+
+    # ------------------------------------------------------------------ actions
+
+    def _buy_item(self):
+        item = self.selected_vendor_item
+        if item is None:
+            self._show_message("Select something to buy first.", COLOR_RED)
+            return
+
+        price = getattr(item, "vendor_price", None)
+        if price is None:
+            price = max(1, int(item.sell_price * 4))
+
+        player = self.state_manager.player
+        party = self.state_manager.get_party()
+        if not party.remove_currency(price):
+            self._show_message(f"Not enough copper! Need {format_coins(price)}.", COLOR_RED)
+            return
+
+        if self._is_gear(item):
+            if not player.add_to_inventory(item):
+                party.add_currency(price)
+                self._show_message("Your bags are full - purchase refunded.", COLOR_RED)
+                self.selected_vendor_item = None
+                return
+            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
+
+        elif self._is_material(item):
+            # Create a fresh instance from the gathering manager so we don't
+            # mutate the vendor's display copy.
+            from world.gathering_manager import GatheringNodeManager
+            mat = GatheringNodeManager().make_material_instance(item.material_id)
+            if mat is None:
+                party.add_currency(price)
+                self._show_message("Couldn't resolve that item — refunded.", COLOR_RED)
+                self.selected_vendor_item = None
+                return
+            player.add_material(mat)
+            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
+
+        else:
+            # Consumable — stack onto existing entry with the same id
+            new_c = self.consumable_manager.get_consumable(item.consumable_id, quantity=1)
+            player.add_consumable(new_c)
+            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
+
+        self.selected_vendor_item = None
+
+    def _sell_item(self):
+        item = self.selected_player_item
+        if item is None:
+            self._show_message("Select something to sell first.", COLOR_RED)
+            return
+        if not self.vendor.buys_from_player:
+            self._show_message(f"{self.vendor.name} doesn't buy from adventurers.", COLOR_RED)
+            return
+        if not getattr(item, "is_sellable", True):
+            self._show_message(f"{item.name} is a quest item and cannot be sold.", COLOR_RED)
+            return
+
+        player = self.state_manager.player
+        party = self.state_manager.get_party()
+        price = item.sell_price
+
+        if self._is_gear(item):
+            equipped_items = player.equipment.to_dict().values()
+            if item in equipped_items:
+                self._show_message("Unequip that item before selling it.", COLOR_RED)
+                return
+            if item not in player.inventory:
+                self._show_message("You don't have that anymore.", COLOR_RED)
+                return
+            player.inventory.remove(item)
+            party.add_currency(price)
+            self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
+
+        elif self._is_material(item):
+            party.add_currency(price)
+            item.quantity -= 1
+            if item.quantity <= 0:
+                mats = getattr(player, "materials", [])
+                if item in mats:
+                    mats.remove(item)
+            self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
+
+        else:
+            # Consumable
+            party.add_currency(price)
+            item.quantity -= 1
+            if item.quantity <= 0:
+                if isinstance(item, LootItem):
+                    if item in player.inventory:
+                        player.inventory.remove(item)
+                else:
+                    player.remove_consumable(item)
+            self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
+
+        if getattr(item, "quantity", 0) > 0 and not self._is_gear(item):
+            return  # keep selected so repeated presses sell through the stack
+        self.selected_player_item = None
+
+    def _junk_stacks(self):
+        player = self.state_manager.player
+        return [i for i in player.inventory
+                if isinstance(i, LootItem) and i.category == "trash" and i.is_sellable]
+
+    def _sell_all_junk(self, auto=False):
+        if not self.vendor.buys_from_player:
+            self._show_message(f"{self.vendor.name} doesn't buy from adventurers.", COLOR_RED)
+            return
+        player = self.state_manager.player
+        party = self.state_manager.get_party()
+        stacks = self._junk_stacks()
+        if not stacks:
+            if not auto:
+                self._show_message("No vendor trash to sell.", COLOR_WHITE)
+            return
+        count = sum(max(1, i.quantity) for i in stacks)
+        total = sum(i.sell_price * max(1, i.quantity) for i in stacks)
+        for i in stacks:
+            player.inventory.remove(i)
+        party.add_currency(total)
+        if self.selected_player_item in stacks:
+            self.selected_player_item = None
+        self._show_message(
+            f"{'Auto-sold' if auto else 'Sold'} {count} junk item{'s' if count != 1 else ''} for {format_coins(total)}.",
+            COLOR_GREEN)
+
+    def _show_message(self, text, color):
+        self.message = text
+        self.message_color = color
+        self.message_timer = 3.0
+
+    # ------------------------------------------------------------------ update
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 self.state_manager.transition_to(GameState.OVERWORLD)
                 return
-
-            # "S" shortcut to sell the currently-selected player item, so
-            # selling a stack doesn't require re-clicking the Sell button
-            # after every single item. _sell_item() already handles "nothing
-            # selected" with its own message, so no extra guard needed here.
             if event.key == pygame.K_s:
                 self._sell_item()
                 return
@@ -110,20 +273,14 @@ class VendorScreen(BaseScreen):
         elif event.type == pygame.MOUSEBUTTONDOWN:
             pos = event.pos
 
-            for tab_id, rect in self._tab_rects().items():
-                if rect.collidepoint(pos):
-                    self.vendor_tab = tab_id
-                    self.selected_vendor_item = None
-                    self.scroll_vendor = 0
-                    return
-
-            stock = self._current_vendor_stock()
-            for i, item in enumerate(stock[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
+            # Vendor item list
+            for i, item in enumerate(self.vendor_inventory[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
                 if self._row_rect(self.VENDOR_PANEL_X, i).collidepoint(pos):
                     self.selected_vendor_item = item
                     self.selected_player_item = None
                     return
 
+            # Player item list
             player_stock = self._player_stock()
             for i, item in enumerate(player_stock[self.scroll_player:self.scroll_player + self.VISIBLE_ROWS]):
                 if self._row_rect(self.PLAYER_PANEL_X, i).collidepoint(pos):
@@ -149,171 +306,28 @@ class VendorScreen(BaseScreen):
             elif self._get_close_button_rect().collidepoint(pos):
                 self.state_manager.transition_to(GameState.OVERWORLD)
 
-    def _is_gear(self, thing):
-        return hasattr(thing, "slot") and hasattr(thing, "armor_value")
-
-    def _buy_item(self):
-        item = self.selected_vendor_item
-        if item is None:
-            self._show_message("Select something to buy first.", COLOR_RED)
-            return
-
-        price = getattr(item, "vendor_price", None)
-        if price is None:
-            price = max(1, int(item.sell_price * 4))
-
-        player = self.state_manager.player
-        party = self.state_manager.get_party()
-        if not party.remove_currency(price):
-            self._show_message(f"Not enough copper! Need {format_coins(price)}.", COLOR_RED)
-            return
-
-        if self._is_gear(item):
-            # This is a fresh Item instance from the vendor's rolled stock -
-            # give the player their own copy directly. Vendor stock is a
-            # display of what's on offer, not a shared pool.
-            #
-            # Bag space check happens AFTER the currency charge above -
-            # refunded immediately if it doesn't fit, so a full-bag buy
-            # attempt costs nothing rather than silently eating the item
-            # the player just paid for.
-            if not player.add_to_inventory(item):
-                party.add_currency(price)
-                self._show_message("Your bags are full - purchase refunded.", COLOR_RED)
-                self.selected_vendor_item = None
-                return
-            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
-        else:
-            # THE ACTUAL BUG: previously this always created a brand new
-            # Consumable instance and appended it, even if the player
-            # already had that same potion. add_consumable() is supposed to
-            # stack onto an existing entry of the same id - if it silently
-            # failed to find the existing stack (e.g. because the new
-            # instance's consumable_id didn't match, or add_consumable's
-            # stacking check compared object identity instead of id), the
-            # new item could end up appended somewhere that never actually
-            # rendered, making it look like the purchase vanished. Buying a
-            # fresh instance and explicitly logging what we added, plus
-            # reading player.consumables fresh in _player_stock() every
-            # frame (see above), makes sure whatever add_consumable() does
-            # is immediately visible.
-            new_c = self.consumable_manager.get_consumable(item.consumable_id, quantity=1)
-            player.add_consumable(new_c)
-            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
-
-        self.selected_vendor_item = None
-
-    def _sell_item(self):
-        item = self.selected_player_item
-        if item is None:
-            self._show_message("Select something to sell first.", COLOR_RED)
-            return
-        if not self.vendor.buys_from_player:
-            self._show_message(f"{self.vendor.name} doesn't buy from adventurers.", COLOR_RED)
-            return
-
-        # Quest items are never sellable, regardless of sell_price -
-        # Kyle's explicit ruling. Checked via the explicit is_sellable
-        # attribute (same style as _is_gear above) rather than an
-        # isinstance check, so any future non-gear, non-sellable item
-        # type gets the same protection for free just by setting
-        # is_sellable = False, without this code needing to know about it.
-        if not getattr(item, "is_sellable", True):
-            self._show_message(f"{item.name} is a quest item and cannot be sold.", COLOR_RED)
-            return
-
-        player = self.state_manager.player
-        party = self.state_manager.get_party()
-        price = item.sell_price
-
-        if self._is_gear(item):
-            equipped_items = player.equipment.to_dict().values()
-            if item in equipped_items:
-                self._show_message("Unequip that item before selling it.", COLOR_RED)
-                return
-            if item not in player.inventory:
-                self._show_message("You don't have that anymore.", COLOR_RED)
-                return
-            player.inventory.remove(item)
-            party.add_currency(price)
-            self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
-        else:
-            party.add_currency(price)
-            item.quantity -= 1
-            if item.quantity <= 0:
-                if isinstance(item, LootItem):
-                    # LootItem stacks live in player.inventory (remove_consumable only looks at consumables).
-                    if item in player.inventory:
-                        player.inventory.remove(item)
-                else:
-                    player.remove_consumable(item)
-            self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
-
-        if getattr(item, "quantity", 0) > 0 and not self._is_gear(item):
-            return  # keep the stack selected so repeated Sell clicks / S presses work through it
-        self.selected_player_item = None
-
-    def _junk_stacks(self):
-        player = self.state_manager.player
-        return [i for i in player.inventory
-                if isinstance(i, LootItem) and i.category == "trash" and i.is_sellable]
-
-    def _sell_all_junk(self, auto=False):
-        """Sell every vendor-trash (grey) stack. Never touches gear, materials, consumables or quest items."""
-        if not self.vendor.buys_from_player:
-            self._show_message(f"{self.vendor.name} doesn't buy from adventurers.", COLOR_RED)
-            return
-        player = self.state_manager.player
-        party = self.state_manager.get_party()
-        stacks = self._junk_stacks()
-        if not stacks:
-            if not auto:
-                self._show_message("No vendor trash to sell.", COLOR_WHITE)
-            return
-        count = sum(max(1, i.quantity) for i in stacks)
-        total = sum(i.sell_price * max(1, i.quantity) for i in stacks)
-        for i in stacks:
-            player.inventory.remove(i)
-        party.add_currency(total)
-        if self.selected_player_item in stacks:
-            self.selected_player_item = None
-        self._show_message(f"{'Auto-sold' if auto else 'Sold'} {count} junk item{'s' if count != 1 else ''} for {format_coins(total)}.",
-                           COLOR_GREEN)
-
-
-
-    def _show_message(self, text, color):
-        self.message = text
-        self.message_color = color
-        self.message_timer = 3.0
-
     def update(self, dt):
         if self.message_timer > 0:
             self.message_timer -= dt
             if self.message_timer <= 0:
                 self.message = None
 
+    # ------------------------------------------------------------------ render
+
     def render(self, screen):
         screen.fill((18, 18, 26))
 
         self.renderer.draw_text(screen, self.vendor.name, (SCREEN_WIDTH // 2 - 100, 20),
                                 size="large", color=COLOR_GOLD)
+        if hasattr(self.vendor, "greeting") and self.vendor.greeting:
+            self.renderer.draw_text(screen, f'"{self.vendor.greeting}"',
+                                    (SCREEN_WIDTH // 2 - 300, 58), size="small", color=(180, 180, 160))
         currency_str = self.state_manager.get_party().get_currency_string()
         self.renderer.draw_text(screen, f"Party gold: {currency_str}",
-                                (SCREEN_WIDTH // 2 - 100, 55), color=COLOR_WHITE)
-
-        for tab_id, rect in self._tab_rects().items():
-            active = tab_id == self.vendor_tab
-            color = COLOR_GOLD if active else COLOR_DARK_GRAY
-            pygame.draw.rect(screen, (50, 45, 30) if active else (35, 35, 40), rect)
-            pygame.draw.rect(screen, color, rect, 2)
-            label = "Wares" if tab_id == "consumables" else "Gear"
-            self.renderer.draw_text(screen, label, (rect.x + 14, rect.y + 8),
-                                    size="small", color=color)
+                                (SCREEN_WIDTH // 2 - 100, 100), color=COLOR_WHITE)
 
         self._draw_panel_header(screen, self.VENDOR_PANEL_X, "Vendor Stock")
-        stock = self._current_vendor_stock()
-        for i, item in enumerate(stock[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
+        for i, item in enumerate(self.vendor_inventory[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
             self._draw_item_row(screen, self.VENDOR_PANEL_X, i, item,
                                 selected=(item is self.selected_vendor_item), mode="buy")
 
@@ -372,6 +386,8 @@ class VendorScreen(BaseScreen):
         elif self.selected_player_item:
             self._render_tooltip(screen, self.selected_player_item, "sell")
 
+    # ------------------------------------------------------------------ helpers
+
     def _draw_panel_header(self, screen, x, label):
         panel_rect = pygame.Rect(x, self.PANEL_Y, self.PANEL_WIDTH, self.PANEL_HEIGHT)
         pygame.draw.rect(screen, (28, 28, 36), panel_rect)
@@ -385,6 +401,7 @@ class VendorScreen(BaseScreen):
     def _draw_item_row(self, screen, panel_x, row_index, item, selected, mode):
         rect = self._row_rect(panel_x, row_index)
         is_gear = self._is_gear(item)
+        is_mat = self._is_material(item)
 
         if selected:
             pygame.draw.rect(screen, (60, 55, 30), rect)
@@ -393,8 +410,13 @@ class VendorScreen(BaseScreen):
             pygame.draw.rect(screen, (24, 24, 30), rect)
 
         is_trash = getattr(item, "category", None) == "trash"
-        name_color = (item.get_rarity_color() if (is_gear or is_trash or not getattr(item, "is_sellable", True))
-                      else COLOR_WHITE)
+        if is_gear or is_trash or not getattr(item, "is_sellable", True):
+            name_color = item.get_rarity_color()
+        elif is_mat:
+            name_color = (180, 210, 180)  # soft green for reagents — distinguishable from white consumables
+        else:
+            name_color = COLOR_WHITE
+
         self.renderer.draw_text(screen, item.name, (rect.x + 10, rect.y + 6),
                                 size="small", color=name_color)
 
@@ -404,14 +426,6 @@ class VendorScreen(BaseScreen):
                 price = max(1, int(item.sell_price * 4))
             price_text = format_coins(price)
         elif not getattr(item, "is_sellable", True):
-            # Quest item in the player's sell-list panel - shown with its
-            # quantity but no price, since it can't actually be sold (see
-            # _sell_item's is_sellable gate). A blank/zero price here
-            # would read as "vendor pays nothing" rather than "this can't
-            # be sold at all", which is a different, clearer message.
-            # Kept short ("Quest") rather than "(quest item)" - the
-            # longer form ran off the right edge of the row at this
-            # panel width once a quantity prefix was added too.
             qty = getattr(item, "quantity", None)
             price_text = f"x{qty}  Quest" if qty is not None else "Quest"
         else:
@@ -426,12 +440,19 @@ class VendorScreen(BaseScreen):
             slot_label = item.slot.replace("_", " ").title()
             self.renderer.draw_text(screen, slot_label, (rect.x + 10, rect.y + 24),
                                     size="small", color=(160, 160, 170))
+        elif is_mat:
+            # Show the profession tag as a sub-label (e.g. "Alchemy · Reagent")
+            prof = item.profession.replace("_", " ").title()
+            self.renderer.draw_text(screen, prof, (rect.x + 10, rect.y + 24),
+                                    size="small", color=(120, 160, 120))
 
     def _render_tooltip(self, screen, item, mode):
         is_gear = self._is_gear(item)
+        is_mat = self._is_material(item)
         lines = [item.name]
+
         if is_gear:
-            lines.append(f"{item.rarity.title()} - {item.slot.replace('_', ' ').title()}")
+            lines.append(f"{item.rarity.title()} — {item.slot.replace('_', ' ').title()}")
             if item.armor_value:
                 lines.append(f"Armor: {item.armor_value}")
             for stat, val in item.primary_stats.items():
@@ -439,17 +460,19 @@ class VendorScreen(BaseScreen):
             for stat, val in item.secondary_stats.items():
                 lines.append(f"+{val} {stat.replace('_', ' ').title()}")
             if item.weapon_damage_max:
-                lines.append(f"Damage: {item.weapon_damage_min}-{item.weapon_damage_max}")
+                lines.append(f"Damage: {item.weapon_damage_min}–{item.weapon_damage_max}")
             lines.append(f"Requires level {item.required_level}")
+
+        elif is_mat:
+            lines.append(f"{item.profession.replace('_', ' ').title()} Reagent")
+            if item.description:
+                lines.append(item.description)
+
         elif not getattr(item, "is_sellable", True):
-            # QuestItem - neither gear nor a real Consumable, so it has
-            # none of the fields the branch below assumes
-            # (consumable_type, required_level). A plain description +
-            # "cannot be sold" reads better than crashing on a missing
-            # attribute or showing a fake "Requires level 1".
             if getattr(item, "description", ""):
                 lines.append(item.description)
-            lines.append("Quest Item - cannot be sold")
+            lines.append("Quest Item — cannot be sold")
+
         else:
             lines.append(f"Type: {item.consumable_type}")
             lines.append(f"Requires level {item.required_level}")
@@ -462,8 +485,6 @@ class VendorScreen(BaseScreen):
             lines.append(f"Price: {format_coins(price)}")
         elif getattr(item, "is_sellable", True):
             lines.append(f"Sells for: {format_coins(item.sell_price)}")
-        # else: is_sellable is False - the "cannot be sold" line was
-        # already appended above, no separate price line needed.
 
         mouse_pos = pygame.mouse.get_pos()
         box_width = 320
@@ -479,13 +500,6 @@ class VendorScreen(BaseScreen):
             self.renderer.draw_text(screen, line, (tooltip_x + 8, tooltip_y + 6 + i * line_height),
                                     size="small", color=COLOR_WHITE)
 
-    def _tab_rects(self):
-        y = 95
-        return {
-            "consumables": pygame.Rect(self.VENDOR_PANEL_X, y, 120, 32),
-            "gear": pygame.Rect(self.VENDOR_PANEL_X + 130, y, 120, 32),
-        }
-
     def _get_buy_button_rect(self):
         return pygame.Rect(SCREEN_WIDTH // 2 - 220, SCREEN_HEIGHT - 70, 140, 44)
 
@@ -499,5 +513,4 @@ class VendorScreen(BaseScreen):
         return pygame.Rect(SCREEN_WIDTH // 2 + 230, SCREEN_HEIGHT - 70, 140, 44)
 
     def _auto_box_rect(self):
-        # sits under the "Your Items" panel, right-aligned with it
         return pygame.Rect(self.PLAYER_PANEL_X, self.PANEL_Y + self.PANEL_HEIGHT + 12, 20, 20)

@@ -19,7 +19,7 @@ class Material:
 
     def __init__(self, material_id, name, material_type, profession,
                  tier, description="", stack_limit=20, sell_price=0,
-                 icon_id=None, skill_range=None):
+                 icon_id=None, skill_range=None, vendor_price=0):
         """
         Args:
             material_id: unique identifier (e.g., "ore_copper", "herb_peacebloom")
@@ -58,6 +58,7 @@ class Material:
         self.sell_price = sell_price
         self.icon_id = icon_id
         self.skill_range = skill_range
+        self.vendor_price = vendor_price  # copper cost to buy from a vendor (0 = not sold by vendors)
 
         self.quantity = 1  # number in this stack
 
@@ -72,6 +73,7 @@ class Material:
             "description": self.description,
             "stack_limit": self.stack_limit,
             "sell_price": self.sell_price,
+            "vendor_price": self.vendor_price,
             "icon_id": self.icon_id,
             "skill_range": self.skill_range,
             "quantity": self.quantity,
@@ -91,6 +93,7 @@ class Material:
             data.get("sell_price", 0),
             data.get("icon_id"),
             data.get("skill_range"),
+            data.get("vendor_price", 0),
         )
         m.quantity = data.get("quantity", 1)
         return m

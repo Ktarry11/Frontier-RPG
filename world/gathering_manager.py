@@ -288,6 +288,7 @@ class GatheringNodeManager:
             sell_price=data.get("sell_price", 0),
             icon_id=data.get("icon_id"),
             skill_range=data.get("skill_range"),
+            vendor_price=data.get("vendor_price", 0),
         )
 
     def roll_skill_up(self, material_id, current_skill):
