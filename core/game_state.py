@@ -264,6 +264,7 @@ class GameStateManager:
         elif self._entered_state_fresh and hasattr(screen, "on_open"):
             # Same vendor reopened: keep the rolled stock (no re-roll exploit) but reset selection + run auto-sell.
             screen.on_open()
+        self._entered_state_fresh = False
 
     def _ensure_quest_dialog_screen(self):
         """
