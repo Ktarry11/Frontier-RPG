@@ -27,7 +27,8 @@ from world.blacksmithing_manager import get_blacksmithing_manager
 from world.crafting_manager import get_crafting_manager
 from world.sawmill_manager import get_sawmill_manager
 from world import profession_manager
-from world.upgrade_manager import get_kit_for_item, can_upgrade, upgrade_item, next_rarity_for, MAX_UPGRADE_COUNT
+from world.upgrade_manager import (get_kit_for_item, can_upgrade, upgrade_item, next_rarity_for,
+                                   MAX_UPGRADE_COUNT, UPGRADE_TAGS)
 from world.attachment_manager import (ATTACHMENTS, is_attachable, attachments_for_item,
                                       attach, attachment_label)
 
@@ -701,7 +702,9 @@ class ProfessionsScreen(BaseScreen):
             to_rarity = next_rarity_for(item.rarity)
             effect_line = f"{item.rarity.title()} -> {to_rarity.title()}, +10% stats, Refined   (have {have_qty})"
         else:
-            effect_line = f"+20% stats, Superior, stays {item.rarity.title()}   (have {have_qty})"
+            # Read the tag from UPGRADE_TAGS rather than hardcoding the word,
+            # so renaming a tier never leaves the button lying about it.
+            effect_line = f"+20% stats, {UPGRADE_TAGS[2]}, stays {item.rarity.title()}   (have {have_qty})"
 
         rect = pygame.Rect(panel_x, PANEL_Y + 32, 360, 64)
         can_apply = have_qty >= 1

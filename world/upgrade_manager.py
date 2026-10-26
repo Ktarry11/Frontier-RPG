@@ -55,7 +55,7 @@ after the first version was built:
 
   CORRECTION 3 (Kyle, 2026-10-24 - the current rules; they supersede the ratio / 1.5x numbers described above):
     1st kit: rarity moves up one rank, every stat +10% (about +2 item levels), tagged "Refined".
-    2nd kit: every stat gains another +20% of the original value (about +3 item levels), rarity stays, tagged "Superior".
+    2nd kit: every stat gains another +20% of the original value (about +3 item levels), rarity stays, tagged "Flawless".
   Kits are meant to be somewhat expensive; EVERY crafting profession makes its own (copper/bronze, linen/wool/silk,
   ashwood/ironbark...), and the item must have been crafted from that kit's material.
 
@@ -188,11 +188,25 @@ def can_upgrade(character, item, kit_material_id):
 FIRST_BUMP = 0.10          # +10% of every stat (and ~+2 item levels)
 SECOND_BUMP_MULT = 2.0     # second kit adds 2x the first kit's delta = another +20% of the original
 ILVL_GAIN = {1: 2, 2: 3}
-UPGRADE_TAGS = {1: "Refined", 2: "Superior"}
+#: The badge an upgraded item carries, by upgrade_count.
+#:
+#: The second tier was "Superior" until 2026-10-26, which collided head-on
+#: with LootGenerator's own rare-tier prefixes
+#: (ARMOR_NAME_PREFIXES["rare"] = ["Superior", "Masterwork", "Battleworn"]).
+#: Every blue item in the game is already named "Superior Something", so a
+#: second, unrelated meaning for the same word made an ordinary rare drop read
+#: as an upgraded item - which is exactly how Kyle read it off a screenshot.
+#: Taking the tag out of the item's NAME (done earlier the same day) fixed the
+#: display but not the vocabulary clash; this fixes the word itself.
+#:
+#: "Flawless" is checked free against every prefix, noun and suffix table, and
+#: works across all five crafting professions - unlike a metal-specific word
+#: like "Tempered", which would read oddly on a tailored robe.
+UPGRADE_TAGS = {1: "Refined", 2: "Flawless"}
 
 
 def upgrade_tag(item):
-    """'Refined' / 'Superior' / None - the badge an upgraded item carries.
+    """'Refined' / 'Flawless' / None - the badge an upgraded item carries.
 
     Kyle, 2026-10-26: "the name does not change ... it doesnt become
     'improved iron sword' or 'refined iron sword' but its still 'iron sword'
@@ -261,7 +275,7 @@ def upgrade_item(character, item, kit_material_id):
     rarity carries. The exact per-stat delta is recorded on item.upgrade_deltas.
 
     2ND application (item.upgrade_count == 1 going in): rarity stays ("green stays green"), every stat gains 2x the
-    first application's delta (another +20% of the original), item level +3, tagged "Superior".
+    first application's delta (another +20% of the original), item level +3, tagged "Flawless".
 
     Returns the same `item` on success, or None on failure (can_upgrade's
     checks re-run here rather than trusted from the caller, same
