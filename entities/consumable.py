@@ -45,6 +45,8 @@ class Consumable:
         self.consumable_id = consumable_id
         self.name = name
         self.consumable_type = consumable_type
+        # NOTE: icon_id is a derived property further down, not a stored
+        # field - see its docstring for why.
         self.description = description
         self.effect_value = effect_value
         self.effect_duration = effect_duration
@@ -127,7 +129,28 @@ class Consumable:
             combat_log.append(log_msg)
         
         return True
-    
+
+    @property
+    def icon_id(self):
+        """The icon file stem for this consumable, or None if it has no art.
+
+        Derived from consumable_id rather than stored, for two reasons:
+
+        1. No save migration. Every Consumable in every existing save picks
+           up its art the moment the files land, including ones built by
+           from_dict from a save written before the art existed.
+        2. No drift. A stored icon_id in the JSON (68 entries) would have to
+           be kept in step by hand every time a consumable is renamed or a
+           power tier is added; deriving it means consumable_icons.py is the
+           single place the mapping lives.
+
+        The UI reads this through icon_ui_helper.get_item_icon_surface, which
+        already does getattr(consumable, "icon_id", None), so nothing on the
+        rendering side needed changing.
+        """
+        from entities.consumable_icons import icon_for
+        return icon_for(self.consumable_id)
+
     def to_dict(self):
         """Serialize for save/load."""
         return {

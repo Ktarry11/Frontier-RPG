@@ -18,6 +18,27 @@ ROOT = Path(__file__).resolve().parent.parent
 COLS, ROWS = 8, 6
 OUT_SIZE = 96
 
+#: Sheets whose icons must keep their RELATIVE size instead of each being
+#: normalised to fill its own cell.
+#:
+#: The default (normalise everything) is right for the trash and quest sheets:
+#: those are unrelated objects - a feather and a strongbox - where drawing the
+#: feather smaller would just read as a lower-resolution icon.
+#:
+#: It is wrong for the potion sheet, where size IS the information. The art
+#: deliberately ascends 119 -> 164px across the four healing potions and
+#: 117 -> 174px across the mana line, and every elixir's greater bottle is
+#: 8-20% taller than its lesser. Normalising each icon to its own bounding box
+#: threw all of that away: at 32px in the bag the four healing potions became
+#: indistinguishable, and most lesser/greater pairs read identically.
+#:
+#: In this mode every icon is scaled against the LARGEST icon on the sheet, so
+#: the biggest bottles still fill their cell and the smaller ones stay visibly
+#: smaller. MIN_RELATIVE_SCALE floors it so even the smallest icon stays chunky
+#: rather than shrinking to a dot.
+PRESERVE_SCALE = {"potions"}
+MIN_RELATIVE_SCALE = 0.62
+
 NAMES = {
     "trash": ("vendor_trash", [
         "vt_pelt", "vt_claw", "vt_fang", "vt_tusk", "vt_feathers", "vt_horn_chunk", "vt_fur_tuft", "vt_wing_membrane",
@@ -34,6 +55,42 @@ NAMES = {
         "qi_ore", "qi_crystal", "qi_amber", "qi_coral", "qi_gem", "qi_tablet", "qi_headstone", "qi_heart_stone",
         "qi_herbs", "qi_petals", "qi_moss", "qi_pumpkin", "qi_seed_packet", "qi_wreath", "qi_dewleaf", "qi_root",
         "qi_horn", "qi_lantern", "qi_harpoon", "qi_pennant", "qi_totem", "qi_trophy_cord", "qi_chalice", "qi_gold_thread",
+    ]),
+    # Potions and elixirs (claude/alchemy_art_prompts.md). Row 1 is the two
+    # potion lines as four ascending sizes each; rows 2-6 are 20 elixir
+    # effect-families as lesser/greater PAIRS, left cell lesser, right cell
+    # greater. The middle power tier of a family reuses its lesser art -
+    # see consumable_icons.py's CONSUMABLE_ICONS for which of the 68
+    # consumables maps onto each of these 48 files.
+    "potions": ("consumables", [
+        # Row 1 - health x4 ascending, mana x4 ascending
+        "healing_potion_minor", "healing_potion_standard", "healing_potion_superior", "healing_potion_mega",
+        "mana_potion_minor", "mana_potion_standard", "mana_potion_superior", "mana_potion_mega",
+        # Row 2 - strength, agility, intellect, spell power
+        "elixir_strength_lesser", "elixir_strength_greater",
+        "elixir_agility_lesser", "elixir_agility_greater",
+        "elixir_intellect_lesser", "elixir_intellect_greater",
+        "elixir_spellpower_lesser", "elixir_spellpower_greater",
+        # Row 3 - attack power, physical crit, spell crit, haste
+        "elixir_attackpower_lesser", "elixir_attackpower_greater",
+        "elixir_crit_physical_lesser", "elixir_crit_physical_greater",
+        "elixir_crit_spell_lesser", "elixir_crit_spell_greater",
+        "elixir_haste_lesser", "elixir_haste_greater",
+        # Row 4 - str+int, agi+int, stamina, spirit
+        "elixir_str_int_lesser", "elixir_str_int_greater",
+        "elixir_agi_int_lesser", "elixir_agi_int_greater",
+        "elixir_stamina_lesser", "elixir_stamina_greater",
+        "elixir_spirit_lesser", "elixir_spirit_greater",
+        # Row 5 - stam+spirit fortitude, armor, mana regen, dodge
+        "elixir_fortitude_lesser", "elixir_fortitude_greater",
+        "elixir_armor_lesser", "elixir_armor_greater",
+        "elixir_mana_regen_lesser", "elixir_mana_regen_greater",
+        "elixir_dodge_lesser", "elixir_dodge_greater",
+        # Row 6 - the four resistance wards
+        "elixir_ward_fire_lesser", "elixir_ward_fire_greater",
+        "elixir_ward_frost_lesser", "elixir_ward_frost_greater",
+        "elixir_ward_nature_lesser", "elixir_ward_nature_greater",
+        "elixir_ward_shadow_lesser", "elixir_ward_shadow_greater",
     ]),
 }
 
@@ -81,7 +138,11 @@ def slice_sheet(kind, sheet_path, out_dir=None):
         cell = (int(ys.mean() // ch), int(xs.mean() // cw))
         cells.setdefault(cell, []).append((labels == lab) & solid)
     problems = []
-    written = 0
+
+    # Pass 1 - cut every icon out of the sheet. Collected rather than written
+    # immediately because PRESERVE_SCALE mode needs the largest icon on the
+    # whole sheet before it can size any individual one.
+    crops = {}
     for idx, name in enumerate(names):
         r, c = divmod(idx, COLS)
         blobs = cells.get((r, c))
@@ -95,7 +156,23 @@ def slice_sheet(kind, sheet_path, out_dir=None):
         bx0, bx1, by0, by1 = xs.min(), xs.max() + 1, ys.min(), ys.max() + 1
         crop = rgba[by0:by1, bx0:bx1].copy()
         crop[..., 3] = np.where(mask[by0:by1, bx0:bx1], crop[..., 3], 0)
-        side = int(max(crop.shape[0], crop.shape[1]) * 1.10) + 2
+        crops[name] = crop
+
+    preserve = kind in PRESERVE_SCALE
+    sheet_max = max((max(c.shape[0], c.shape[1]) for c in crops.values()), default=1)
+
+    # Pass 2 - pad to a square and resize.
+    written = 0
+    for name, crop in crops.items():
+        if preserve:
+            # Scale against the biggest icon on the sheet, so relative size
+            # survives into the game. The square canvas is sized so this icon
+            # occupies `scale` of it; the resize to OUT_SIZE then preserves
+            # that fraction exactly.
+            scale = max(MIN_RELATIVE_SCALE, max(crop.shape[0], crop.shape[1]) / sheet_max)
+            side = int(max(crop.shape[0], crop.shape[1]) / scale) + 2
+        else:
+            side = int(max(crop.shape[0], crop.shape[1]) * 1.10) + 2
         canvas = np.zeros((side, side, 4))
         oy, ox = (side - crop.shape[0]) // 2, (side - crop.shape[1]) // 2
         canvas[oy:oy + crop.shape[0], ox:ox + crop.shape[1]] = crop

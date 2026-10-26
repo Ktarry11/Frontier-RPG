@@ -529,6 +529,12 @@ class IconRenderer:
     VENDOR_TRASH_ICON_DIR = Path("assets/icons/vendor_trash")
     QUEST_ITEM_ICON_DIR = Path("assets/icons/quest_items")
 
+    #: Potion and elixir art, sliced from the 48-icon alchemy sheet by
+    #: tools/slice_icon_sheet.py. Consumables resolve to these through
+    #: entities/consumable_icons.py, which maps all 68 potions/elixirs onto
+    #: the 48 files (each elixir family shares a lesser and a greater bottle).
+    CONSUMABLE_ICON_DIR = Path("assets/icons/consumables")
+
     def __init__(self, icon_registry: IconRegistry, cache_dir: Path = Path("assets/icons")):
         self.registry = icon_registry
         self.cache_dir = cache_dir
@@ -561,7 +567,7 @@ class IconRenderer:
         # explicitly). Check both directories - ability_id and talent_id
         # never collide, so trying abilities first then talents is safe.
         for icon_dir in (self.ABILITY_ICON_DIR, self.TALENT_ICON_DIR, self.BAG_ICON_DIR, self.GEAR_ICON_DIR,
-                         self.VENDOR_TRASH_ICON_DIR, self.QUEST_ITEM_ICON_DIR):
+                         self.VENDOR_TRASH_ICON_DIR, self.QUEST_ITEM_ICON_DIR, self.CONSUMABLE_ICON_DIR):
             real_path = icon_dir / f"{icon_id}.png"
             if real_path.exists():
                 try:
