@@ -701,7 +701,7 @@ class CombatEngine:
         # Leather for Leatherworking (entities/skinning_drops.py): beasts only, Skinning gated.
         try:
             from entities.skinning_drops import roll_leather
-            from world.gathering_manager import get_gathering_node_manager
+            from world.gathering_manager import get_gathering_node_manager, TIER_SKILL_CAPS
             gm = get_gathering_node_manager()
             for enemy in self.enemies:
                 for material_id, qty in roll_leather(enemy, player=self.player):
@@ -711,6 +711,25 @@ class CombatEngine:
                     mat.quantity = qty
                     self.player.add_material(mat)
                     self.combat_log.append(f"You skinned {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+
+                    # Skinning skill-up. This was missing entirely: leather was
+                    # handed over but the skill never moved, so Skinning would
+                    # have sat at 0 forever and never tiered up - the one
+                    # gathering profession that didn't progress. Same shape as
+                    # the node-gathering path in overworld_screen._gather:
+                    # roll against the material's own orange/yellow/green/grey
+                    # skill_range, then award 1 point capped to the material's
+                    # tier, and say so rather than leaving it silent.
+                    current = self.player.profession_skills.get("skinning", 0)
+                    if not gm.roll_skill_up(material_id, current):
+                        continue
+                    if current >= self.player.profession_cap("skinning"):
+                        self.combat_log.append(
+                            "Skinning is at its cap - visit your trainer to advance.")
+                    else:
+                        self.player.gain_profession_skill(
+                            "skinning", 1, cap=TIER_SKILL_CAPS.get(mat.tier))
+                        self.combat_log.append("Skinning skill up!")
         except Exception as exc:  # skinning is a bonus; never let it break victory
             print(f"WARNING: skinning drop failed: {exc}")
         self.trash_gained = trash_count

@@ -219,6 +219,7 @@ class Character(StatusEffectMixin):
             "herbalism": 0,
             "mining": 0,
             "woodcutting": 0,
+            "skinning": 0,
         }
         # Profession learning (Oct 2026): a profession must be learned from a profession trainer (3 primary slots).
         # Gathering without it still picks things up but never skills up; crafting needs it. profession_tiers maps a
@@ -2391,7 +2392,11 @@ class Character(StatusEffectMixin):
         char.consumables = [Consumable.from_dict(c) for c in data.get("consumables", [])]
         from entities.material import Material
         char.materials = [Material.from_dict(m) for m in data.get("materials", [])]
-        char.profession_skills = data.get("profession_skills", {"herbalism": 0, "mining": 0, "woodcutting": 0})
+        char.profession_skills = data.get("profession_skills", {"herbalism": 0, "mining": 0, "woodcutting": 0, "skinning": 0})
+        # Skinning was added after this field shipped, so a save written before
+        # it exists has the key missing rather than zero. setdefault rather than
+        # a rewrite so a real skill value in a newer save is never clobbered.
+        char.profession_skills.setdefault("skinning", 0)
         # Profession learning (save v8).  Older saves: every profession the character has any skill in counts as learned
         # (even past the 3-slot limit - they just can't learn more), and skill above 75 means Journeyman.
         if "known_professions" in data:
