@@ -51,20 +51,22 @@ class LeatherworkingManager:
                                 if not k.startswith("_comment")}
 
     def available_recipes(self, character):
-        """Recipes the character's current Leatherworking skill permits."""
+        """Recipes the character may craft: profession learned + skill high enough + recipe known."""
         if not character.knows_profession("leatherworking"):
             return {}
         skill = character.profession_skills.get("leatherworking", 0)
         return {
             rid: recipe
             for rid, recipe in self.recipes.items()
-            if skill >= recipe.get("skill_required", 0)
+            if skill >= recipe.get("skill_required", 0) and character.knows_recipe(rid)
         }
 
     def can_craft(self, character, recipe_id):
-        """True if the character knows LW at sufficient skill AND has all materials."""
+        """True if the character knows this recipe, has the skill, and holds all materials."""
         recipe = self.recipes.get(recipe_id)
         if recipe is None or not character.knows_profession("leatherworking"):
+            return False
+        if not character.knows_recipe(recipe_id):
             return False
         skill = character.profession_skills.get("leatherworking", 0)
         if skill < recipe.get("skill_required", 0):
@@ -101,11 +103,31 @@ class LeatherworkingManager:
         else:
             character.add_material(output)
 
-        character.gain_profession_skill("leatherworking", 1)
+        self._skill_up(character, recipe)
         self._award_craft_xp(character, recipe)
         from world.quest_manager import get_quest_manager
         get_quest_manager().record_craft(recipe_id)
         return output
+
+    def _skill_up(self, character, recipe):
+        """WoW-style color-window skill-up. skill_range = [orange_end, yellow_end, green_end, grey_at]."""
+        import random
+        skill = character.profession_skills.get("leatherworking", 0)
+        req = recipe.get("skill_required", 0)
+        orange, yellow, green, grey = recipe.get("skill_range") or (req + 5, req + 15, req + 25, req + 35)
+        if skill >= grey:
+            return False
+        if skill < orange:
+            chance = 1.0
+        elif skill < yellow:
+            chance = 0.75
+        elif skill < green:
+            chance = 0.35
+        else:
+            chance = 0.10
+        if random.random() < chance:
+            return character.gain_profession_skill("leatherworking", 1)
+        return False
 
     def _award_craft_xp(self, character, recipe):
         """Award character XP proportional to the item_level of the crafted gear.

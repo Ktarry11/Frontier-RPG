@@ -13,7 +13,14 @@
             "kind": "material",
             "material_id": "plank_softpine"
           },
-          "station": "sawmill"
+          "station": "sawmill",
+          "skill_range": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "source": "trainer"
         },
         "plank_ashwood": {
           "name": "Ashwood Plank",
@@ -25,7 +32,14 @@
             "kind": "material",
             "material_id": "plank_ashwood"
           },
-          "station": "sawmill"
+          "station": "sawmill",
+          "skill_range": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "source": "trainer"
         },
         "plank_oakheart": {
           "name": "Oakheart Plank",
@@ -37,7 +51,14 @@
             "kind": "material",
             "material_id": "plank_oakheart"
           },
-          "station": "sawmill"
+          "station": "sawmill",
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "source": "trainer"
         },
         "plank_driftwood": {
           "name": "Driftwood Plank",
@@ -49,7 +70,14 @@
             "kind": "material",
             "material_id": "plank_driftwood"
           },
-          "station": "sawmill"
+          "station": "sawmill",
+          "skill_range": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "source": "trainer"
         },
         "plank_ironbark": {
           "name": "Ironbark Plank",
@@ -61,7 +89,14 @@
             "kind": "material",
             "material_id": "plank_ironbark"
           },
-          "station": "sawmill"
+          "station": "sawmill",
+          "skill_range": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "source": "trainer"
         },
         "plank_frostpine": {
           "name": "Frostpine Plank",
@@ -73,7 +108,14 @@
             "kind": "material",
             "material_id": "plank_frostpine"
           },
-          "station": "sawmill"
+          "station": "sawmill",
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "trainer"
         },
         "plank_bramblewood": {
           "name": "Bramblewood Plank",
@@ -85,7 +127,14 @@
             "kind": "material",
             "material_id": "plank_bramblewood"
           },
-          "station": "sawmill"
+          "station": "sawmill",
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer"
         }
       }
     },
@@ -101,7 +150,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "healing_potion_minor"
-          }
+          },
+          "skill_range": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "source": "trainer"
         },
         "alch_minor_mana": {
           "name": "Minor Mana Potion",
@@ -113,7 +169,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "mana_potion_minor"
-          }
+          },
+          "skill_range": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "source": "trainer"
         },
         "alch_guardian_minor": {
           "name": "Minor Guardian Elixir",
@@ -125,7 +188,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "guardian_elixir_minor"
-          }
+          },
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "source": "trainer"
         },
         "alch_battle_minor": {
           "name": "Minor Battle Elixir",
@@ -137,7 +207,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "battle_elixir_minor"
-          }
+          },
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "source": "trainer"
         },
         "alch_agility": {
           "name": "Elixir of Agility",
@@ -149,7 +226,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "elixir_of_agility"
-          }
+          },
+          "skill_range": [
+            45,
+            55,
+            65,
+            75
+          ],
+          "source": "trainer"
         },
         "alch_healing_standard": {
           "name": "Healing Potion",
@@ -161,7 +245,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "healing_potion_standard"
-          }
+          },
+          "skill_range": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "source": "trainer"
         },
         "alch_arcane": {
           "name": "Arcane Elixir",
@@ -173,7 +264,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "arcane_elixir"
-          }
+          },
+          "skill_range": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "source": "trainer"
         },
         "alch_mana_standard": {
           "name": "Mana Potion",
@@ -185,7 +283,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "mana_potion_standard"
-          }
+          },
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "trainer"
         },
         "alch_warding": {
           "name": "Elixir of Warding",
@@ -197,7 +302,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "elixir_of_warding"
-          }
+          },
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "source": "trainer"
         },
         "alch_guardian_standard": {
           "name": "Guardian Elixir",
@@ -209,7 +321,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "guardian_elixir_standard"
-          }
+          },
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "trainer"
         },
         "alch_battle_standard": {
           "name": "Battle Elixir",
@@ -221,7 +340,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "battle_elixir_standard"
-          }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "trainer"
         },
         "alch_firepower": {
           "name": "Elixir of Firepower",
@@ -233,7 +359,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "elixir_of_firepower"
-          }
+          },
+          "skill_range": [
+            105,
+            115,
+            125,
+            135
+          ],
+          "source": "trainer"
         },
         "alch_healing_superior": {
           "name": "Superior Healing Potion",
@@ -245,7 +378,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "healing_potion_superior"
-          }
+          },
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "trainer"
         },
         "alch_mana_superior": {
           "name": "Superior Mana Potion",
@@ -257,7 +397,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "mana_potion_superior"
-          }
+          },
+          "skill_range": [
+            120,
+            130,
+            140,
+            150
+          ],
+          "source": "trainer"
         },
         "alch_battle_superior": {
           "name": "Superior Battle Elixir",
@@ -269,7 +416,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "battle_elixir_superior"
-          }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "trainer"
         },
         "alch_guardian_superior": {
           "name": "Superior Guardian Elixir",
@@ -281,7 +435,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "guardian_elixir_superior"
-          }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "trainer"
         },
         "alch_greater_arcane": {
           "name": "Greater Arcane Elixir",
@@ -293,7 +454,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "greater_arcane_elixir"
-          }
+          },
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "trainer"
         },
         "alch_greater_agility": {
           "name": "Elixir of Greater Agility",
@@ -305,7 +473,14 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "elixir_of_greater_agility"
-          }
+          },
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "trainer"
         }
       }
     },
@@ -320,7 +495,14 @@
           "output": {
             "kind": "material",
             "material_id": "bolt_linen"
-          }
+          },
+          "skill_range": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "source": "trainer"
         },
         "tail_linen_boots": {
           "name": "Linen Boots",
@@ -336,7 +518,14 @@
             "item_level": 4,
             "rarity": "common",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer"
         },
         "tail_linen_cloak": {
           "name": "Linen Cloak",
@@ -352,7 +541,14 @@
             "item_level": 5,
             "rarity": "common",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "source": "trainer"
         },
         "tail_linen_belt": {
           "name": "Linen Belt",
@@ -368,7 +564,14 @@
             "item_level": 6,
             "rarity": "common",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "source": "trainer"
         },
         "tail_linen_bracers": {
           "name": "Linen Bracers",
@@ -384,7 +587,14 @@
             "item_level": 7,
             "rarity": "common",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer"
         },
         "tail_linen_bag": {
           "name": "Clasped Traveling Bag",
@@ -395,7 +605,14 @@
           "output": {
             "kind": "bag",
             "bag_id": "clasped_traveling_bag"
-          }
+          },
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer"
         },
         "tail_linen_gloves": {
           "name": "Linen Gloves",
@@ -411,7 +628,14 @@
             "item_level": 8,
             "rarity": "common",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "source": "trainer"
         },
         "tail_linen_robe": {
           "name": "Linen Robe",
@@ -427,7 +651,14 @@
             "item_level": 9,
             "rarity": "common",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "trainer"
         },
         "tail_linen_hood": {
           "name": "Linen Hood",
@@ -443,7 +674,14 @@
             "item_level": 10,
             "rarity": "common",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            40,
+            50,
+            60,
+            70
+          ],
+          "source": "trainer"
         },
         "tail_kit_linen": {
           "name": "Linen Upgrade Kit",
@@ -454,7 +692,14 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_linen"
-          }
+          },
+          "skill_range": [
+            40,
+            50,
+            60,
+            70
+          ],
+          "source": "trainer"
         },
         "tail_bolt_wool": {
           "name": "Bolt of Wool Cloth",
@@ -465,7 +710,14 @@
           "output": {
             "kind": "material",
             "material_id": "bolt_wool"
-          }
+          },
+          "skill_range": [
+            45,
+            55,
+            65,
+            75
+          ],
+          "source": "trainer"
         },
         "tail_wool_boots": {
           "name": "Wool Boots",
@@ -481,7 +733,14 @@
             "item_level": 13,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "source": "trainer"
         },
         "tail_wool_cloak": {
           "name": "Wool Cloak",
@@ -497,7 +756,14 @@
             "item_level": 14,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "trainer"
         },
         "tail_wool_belt": {
           "name": "Wool Belt",
@@ -513,7 +779,14 @@
             "item_level": 15,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "trainer"
         },
         "tail_wool_bracers": {
           "name": "Wool Bracers",
@@ -529,7 +802,14 @@
             "item_level": 16,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "source": "trainer"
         },
         "tail_wool_gloves": {
           "name": "Wool Gloves",
@@ -545,7 +825,14 @@
             "item_level": 17,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer"
         },
         "tail_wool_bag": {
           "name": "Sage Clasped Bag",
@@ -556,7 +843,14 @@
           "output": {
             "kind": "bag",
             "bag_id": "sage_clasped_bag"
-          }
+          },
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer"
         },
         "tail_wool_robe": {
           "name": "Wool Robe",
@@ -572,7 +866,14 @@
             "item_level": 18,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "trainer"
         },
         "tail_wool_hood": {
           "name": "Wool Hood",
@@ -588,7 +889,14 @@
             "item_level": 19,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "trainer"
         },
         "tail_kit_wool": {
           "name": "Wool Upgrade Kit",
@@ -599,7 +907,14 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_wool"
-          }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "trainer"
         },
         "tail_bolt_silk": {
           "name": "Bolt of Silk Cloth",
@@ -610,7 +925,14 @@
           "output": {
             "kind": "material",
             "material_id": "bolt_silk"
-          }
+          },
+          "skill_range": [
+            95,
+            105,
+            115,
+            125
+          ],
+          "source": "trainer"
         },
         "tail_silk_boots": {
           "name": "Silk Boots",
@@ -626,7 +948,14 @@
             "item_level": 23,
             "rarity": "uncommon",
             "material_tier": "silk"
-          }
+          },
+          "skill_range": [
+            105,
+            115,
+            125,
+            135
+          ],
+          "source": "trainer"
         },
         "tail_silk_cloak": {
           "name": "Silk Cloak",
@@ -642,7 +971,14 @@
             "item_level": 24,
             "rarity": "uncommon",
             "material_tier": "silk"
-          }
+          },
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "trainer"
         },
         "tail_silk_belt": {
           "name": "Silk Belt",
@@ -658,7 +994,14 @@
             "item_level": 25,
             "rarity": "uncommon",
             "material_tier": "silk"
-          }
+          },
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "trainer"
         },
         "tail_silk_bag": {
           "name": "Locked Drawstring Pack",
@@ -669,7 +1012,14 @@
           "output": {
             "kind": "bag",
             "bag_id": "locked_drawstring_pack"
-          }
+          },
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "trainer"
         },
         "tail_silk_bracers": {
           "name": "Silk Bracers",
@@ -685,7 +1035,14 @@
             "item_level": 26,
             "rarity": "uncommon",
             "material_tier": "silk"
-          }
+          },
+          "skill_range": [
+            120,
+            130,
+            140,
+            150
+          ],
+          "source": "trainer"
         },
         "tail_silk_gloves": {
           "name": "Silk Gloves",
@@ -701,7 +1058,14 @@
             "item_level": 27,
             "rarity": "uncommon",
             "material_tier": "silk"
-          }
+          },
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "source": "trainer"
         },
         "tail_kit_silk": {
           "name": "Silk Upgrade Kit",
@@ -712,7 +1076,14 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_silk"
-          }
+          },
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "source": "trainer"
         },
         "tail_silk_robe": {
           "name": "Silk Robe",
@@ -728,7 +1099,14 @@
             "item_level": 28,
             "rarity": "rare",
             "material_tier": "silk"
-          }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "trainer"
         },
         "tail_silk_hood": {
           "name": "Silk Hood",
@@ -744,7 +1122,14 @@
             "item_level": 29,
             "rarity": "rare",
             "material_tier": "silk"
-          }
+          },
+          "skill_range": [
+            135,
+            145,
+            155,
+            165
+          ],
+          "source": "trainer"
         },
         "tail_bolt_cotton": {
           "name": "Bolt of Cotton Cloth",
@@ -761,7 +1146,8 @@
           "output": {
             "kind": "material",
             "material_id": "bolt_cotton"
-          }
+          },
+          "source": "trainer"
         },
         "tail_cotton_boots": {
           "name": "Supple Cotton Slippers",
@@ -777,7 +1163,14 @@
             "item_level": 5,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer"
         },
         "tail_cotton_belt": {
           "name": "Cotton Cord",
@@ -793,7 +1186,14 @@
             "item_level": 6,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            13,
+            23,
+            33,
+            43
+          ],
+          "source": "trainer"
         },
         "tail_cotton_bracers": {
           "name": "Cotton Bindings",
@@ -809,7 +1209,14 @@
             "item_level": 7,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            17,
+            27,
+            37,
+            47
+          ],
+          "source": "trainer"
         },
         "tail_cotton_cloak": {
           "name": "Cotton Cloak",
@@ -825,7 +1232,14 @@
             "item_level": 8,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            21,
+            31,
+            41,
+            51
+          ],
+          "source": "trainer"
         },
         "tail_cotton_gloves": {
           "name": "Cotton Gloves",
@@ -841,7 +1255,14 @@
             "item_level": 9,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer"
         },
         "tail_cotton_pants": {
           "name": "Cotton Trousers",
@@ -857,7 +1278,14 @@
             "item_level": 10,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "source": "trainer"
         },
         "tail_cotton_vestments": {
           "name": "Cotton Vestments",
@@ -873,7 +1301,14 @@
             "item_level": 11,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "trainer"
         },
         "tail_cotton_cowl": {
           "name": "Cotton Cowl",
@@ -889,7 +1324,14 @@
             "item_level": 12,
             "rarity": "common",
             "material_tier": "cotton"
-          }
+          },
+          "skill_range": [
+            43,
+            53,
+            63,
+            73
+          ],
+          "source": "trainer"
         },
         "tail_kit_cotton": {
           "name": "Cotton Upgrade Kit",
@@ -900,7 +1342,14 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_cotton"
-          }
+          },
+          "skill_range": [
+            45,
+            55,
+            65,
+            75
+          ],
+          "source": "trainer"
         },
         "tail_linen_cotton_robe": {
           "name": "Woven Cloth Robe",
@@ -917,7 +1366,14 @@
             "item_level": 11,
             "rarity": "uncommon",
             "material_tier": "linen"
-          }
+          },
+          "skill_range": [
+            40,
+            50,
+            60,
+            70
+          ],
+          "source": "trainer"
         },
         "tail_bolt_hempen": {
           "name": "Bolt of Hempen Cloth",
@@ -934,7 +1390,8 @@
           "output": {
             "kind": "material",
             "material_id": "bolt_hempen"
-          }
+          },
+          "source": "trainer"
         },
         "tail_hempen_boots": {
           "name": "Hempen Sandals",
@@ -950,7 +1407,14 @@
             "item_level": 14,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "source": "trainer"
         },
         "tail_hempen_belt": {
           "name": "Hempen Sash",
@@ -966,7 +1430,14 @@
             "item_level": 15,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "trainer"
         },
         "tail_hempen_bracers": {
           "name": "Hempen Cuffs",
@@ -982,7 +1453,14 @@
             "item_level": 16,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "trainer"
         },
         "tail_hempen_cloak": {
           "name": "Hempen Cloak",
@@ -998,7 +1476,14 @@
             "item_level": 17,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            67,
+            77,
+            87,
+            97
+          ],
+          "source": "trainer"
         },
         "tail_hempen_gloves": {
           "name": "Hempen Handwraps",
@@ -1014,7 +1499,14 @@
             "item_level": 18,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "source": "trainer"
         },
         "tail_hempen_pants": {
           "name": "Hempen Leggings",
@@ -1030,7 +1522,14 @@
             "item_level": 19,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer"
         },
         "tail_hempen_robe": {
           "name": "Hempen Robe",
@@ -1046,7 +1545,14 @@
             "item_level": 20,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "trainer"
         },
         "tail_hempen_hood": {
           "name": "Hempen Hood",
@@ -1062,7 +1568,14 @@
             "item_level": 21,
             "rarity": "common",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "trainer"
         },
         "tail_kit_hempen": {
           "name": "Hempen Upgrade Kit",
@@ -1073,7 +1586,14 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_hempen"
-          }
+          },
+          "skill_range": [
+            90,
+            100,
+            110,
+            120
+          ],
+          "source": "trainer"
         },
         "tail_wool_cotton_vestments": {
           "name": "Reinforced Cotton Vestments",
@@ -1090,7 +1610,14 @@
             "item_level": 19,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "trainer"
         },
         "tail_hempen_wool_pants": {
           "name": "Woven Hempen Leggings",
@@ -1107,7 +1634,14 @@
             "item_level": 22,
             "rarity": "uncommon",
             "material_tier": "hempen"
-          }
+          },
+          "skill_range": [
+            95,
+            105,
+            115,
+            125
+          ],
+          "source": "trainer"
         }
       }
     },
@@ -1123,7 +1657,14 @@
             "kind": "material",
             "material_id": "fiber_coarse"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "source": "trainer"
         },
         "ww_fiber_ashwood": {
           "name": "Ashwood Fiber",
@@ -1135,7 +1676,14 @@
             "kind": "material",
             "material_id": "fiber_coarse"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "source": "trainer"
         },
         "ww_rough_arrows": {
           "name": "Rough Arrows (5)",
@@ -1148,7 +1696,14 @@
             "kind": "consumable",
             "consumable_id": "rough_arrows"
           },
-          "count": 5
+          "count": 5,
+          "skill_range": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "source": "trainer"
         },
         "ww_pages_softpine": {
           "name": "Softpine Pages",
@@ -1160,7 +1715,14 @@
             "kind": "material",
             "material_id": "pages_rough"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer"
         },
         "ww_pages_ashwood": {
           "name": "Ashwood Pages",
@@ -1172,7 +1734,14 @@
             "kind": "material",
             "material_id": "pages_rough"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer"
         },
         "ww_softpine_staff": {
           "name": "Softpine Quarterstaff",
@@ -1189,7 +1758,14 @@
             "item_level": 4,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer"
         },
         "ww_softpine_buckler": {
           "name": "Softpine Buckler",
@@ -1206,7 +1782,14 @@
             "item_level": 4,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer"
         },
         "ww_rough_bolts": {
           "name": "Rough Bolts (5)",
@@ -1219,7 +1802,14 @@
             "kind": "consumable",
             "consumable_id": "rough_bolts"
           },
-          "count": 5
+          "count": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer"
         },
         "ww_softpine_bow": {
           "name": "Softpine Shortbow",
@@ -1236,7 +1826,14 @@
             "item_level": 5,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "source": "trainer"
         },
         "ww_softpine_primer": {
           "name": "Softpine Primer",
@@ -1254,7 +1851,14 @@
             "item_level": 5,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "source": "trainer"
         },
         "ww_fiber_oakheart": {
           "name": "Oakheart Fiber",
@@ -1266,7 +1870,14 @@
             "kind": "material",
             "material_id": "fiber_supple"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "source": "trainer"
         },
         "ww_pages_oakheart": {
           "name": "Oakheart Pages",
@@ -1278,7 +1889,14 @@
             "kind": "material",
             "material_id": "pages_pressed"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer"
         },
         "ww_ashwood_staff": {
           "name": "Ashwood Staff",
@@ -1295,7 +1913,14 @@
             "item_level": 7,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer"
         },
         "ww_ashwood_crossbow": {
           "name": "Ashwood Crossbow",
@@ -1313,7 +1938,14 @@
             "item_level": 7,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer"
         },
         "ww_ashwood_shield": {
           "name": "Ashwood Shield",
@@ -1330,7 +1962,14 @@
             "item_level": 7,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer"
         },
         "ww_fiber_driftwood": {
           "name": "Driftwood Fiber",
@@ -1342,7 +1981,14 @@
             "kind": "material",
             "material_id": "fiber_supple"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "source": "trainer"
         },
         "ww_ashwood_bow": {
           "name": "Ashwood Hunting Bow",
@@ -1359,7 +2005,14 @@
             "item_level": 8,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "source": "trainer"
         },
         "ww_pages_driftwood": {
           "name": "Driftwood Pages",
@@ -1371,7 +2024,14 @@
             "kind": "material",
             "material_id": "pages_pressed"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "trainer"
         },
         "ww_ashwood_tome": {
           "name": "Ashwood Tome",
@@ -1389,7 +2049,14 @@
             "item_level": 9,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "trainer"
         },
         "ww_kit_ashwood": {
           "name": "Ashwood Upgrade Kit",
@@ -1401,7 +2068,14 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_ashwood"
-          }
+          },
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "trainer"
         },
         "ww_oakheart_staff": {
           "name": "Oakheart Staff",
@@ -1418,7 +2092,14 @@
             "item_level": 11,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            45,
+            55,
+            65,
+            75
+          ],
+          "source": "trainer"
         },
         "ww_oakheart_shield": {
           "name": "Oakheart Shield",
@@ -1435,7 +2116,14 @@
             "item_level": 11,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            45,
+            55,
+            65,
+            75
+          ],
+          "source": "trainer"
         },
         "ww_sturdy_arrows": {
           "name": "Sturdy Arrows (5)",
@@ -1448,7 +2136,14 @@
             "kind": "consumable",
             "consumable_id": "sturdy_arrows"
           },
-          "count": 5
+          "count": 5,
+          "skill_range": [
+            45,
+            55,
+            65,
+            75
+          ],
+          "source": "trainer"
         },
         "ww_oakheart_bow": {
           "name": "Oakheart Longbow",
@@ -1465,7 +2160,14 @@
             "item_level": 12,
             "rarity": "common",
             "material_tier": "ashwood"
-          }
+          },
+          "skill_range": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "source": "trainer"
         },
         "ww_sturdy_bolts": {
           "name": "Sturdy Bolts (5)",
@@ -1479,7 +2181,14 @@
             "kind": "consumable",
             "consumable_id": "sturdy_bolts"
           },
-          "count": 5
+          "count": 5,
+          "skill_range": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "source": "trainer"
         },
         "ww_fiber_ironbark": {
           "name": "Ironbark Fiber",
@@ -1491,7 +2200,14 @@
             "kind": "material",
             "material_id": "fiber_tough"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "source": "trainer"
         },
         "ww_driftwood_staff": {
           "name": "Driftwood Staff",
@@ -1508,7 +2224,14 @@
             "item_level": 13,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "source": "trainer"
         },
         "ww_oakheart_crossbow": {
           "name": "Oakheart Crossbow",
@@ -1526,7 +2249,14 @@
             "item_level": 13,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "source": "trainer"
         },
         "ww_driftwood_mask": {
           "name": "Driftwood Mask",
@@ -1543,7 +2273,14 @@
             "item_level": 13,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "source": "trainer"
         },
         "ww_pages_ironbark": {
           "name": "Ironbark Pages",
@@ -1555,7 +2292,14 @@
             "kind": "material",
             "material_id": "pages_fine"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "trainer"
         },
         "ww_driftwood_targe": {
           "name": "Driftwood Targe",
@@ -1572,7 +2316,14 @@
             "item_level": 14,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "trainer"
         },
         "ww_oakheart_grimoire": {
           "name": "Oakheart Grimoire",
@@ -1590,7 +2341,14 @@
             "item_level": 14,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "trainer"
         },
         "ww_fiber_frostpine": {
           "name": "Frostpine Fiber",
@@ -1602,7 +2360,14 @@
             "kind": "material",
             "material_id": "fiber_tough"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "trainer"
         },
         "ww_pages_frostpine": {
           "name": "Frostpine Pages",
@@ -1614,7 +2379,14 @@
             "kind": "material",
             "material_id": "pages_fine"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "source": "trainer"
         },
         "ww_fiber_bramblewood": {
           "name": "Bramblewood Fiber",
@@ -1626,7 +2398,14 @@
             "kind": "material",
             "material_id": "fiber_tough"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer"
         },
         "ww_oakheart_charm": {
           "name": "Carved Oakheart Charm",
@@ -1644,7 +2423,14 @@
             "item_level": 17,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer"
         },
         "ww_pages_bramblewood": {
           "name": "Bramblewood Pages",
@@ -1656,7 +2442,14 @@
             "kind": "material",
             "material_id": "pages_fine"
           },
-          "count": 2
+          "count": 2,
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "trainer"
         },
         "ww_ironbark_staff": {
           "name": "Ironbark Staff",
@@ -1673,7 +2466,14 @@
             "item_level": 19,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "trainer"
         },
         "ww_ironbark_shield": {
           "name": "Ironbark Shield",
@@ -1690,7 +2490,14 @@
             "item_level": 19,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "trainer"
         },
         "ww_ironbark_bow": {
           "name": "Ironbark Recurve",
@@ -1707,7 +2514,14 @@
             "item_level": 20,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            90,
+            100,
+            110,
+            120
+          ],
+          "source": "trainer"
         },
         "ww_ironbark_crossbow": {
           "name": "Ironbark Crossbow",
@@ -1725,7 +2539,14 @@
             "item_level": 20,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            90,
+            100,
+            110,
+            120
+          ],
+          "source": "trainer"
         },
         "ww_ironbark_helm": {
           "name": "Ironbark Helm",
@@ -1743,7 +2564,14 @@
             "item_level": 20,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            90,
+            100,
+            110,
+            120
+          ],
+          "source": "trainer"
         },
         "ww_kit_ironbark": {
           "name": "Ironbark Upgrade Kit",
@@ -1755,7 +2583,14 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_ironbark"
-          }
+          },
+          "skill_range": [
+            90,
+            100,
+            110,
+            120
+          ],
+          "source": "trainer"
         },
         "ww_ironbark_codex": {
           "name": "Ironbark Codex",
@@ -1773,7 +2608,14 @@
             "item_level": 21,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            95,
+            105,
+            115,
+            125
+          ],
+          "source": "trainer"
         },
         "ww_heavy_arrows": {
           "name": "Heavy Arrows (5)",
@@ -1786,7 +2628,14 @@
             "kind": "consumable",
             "consumable_id": "heavy_arrows"
           },
-          "count": 5
+          "count": 5,
+          "skill_range": [
+            95,
+            105,
+            115,
+            125
+          ],
+          "source": "trainer"
         },
         "ww_heavy_bolts": {
           "name": "Heavy Bolts (5)",
@@ -1800,7 +2649,14 @@
             "kind": "consumable",
             "consumable_id": "heavy_bolts"
           },
-          "count": 5
+          "count": 5,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "trainer"
         },
         "ww_frostpine_staff": {
           "name": "Frostpine Staff",
@@ -1817,7 +2673,14 @@
             "item_level": 23,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            105,
+            115,
+            125,
+            135
+          ],
+          "source": "trainer"
         },
         "ww_frostpine_bow": {
           "name": "Frostpine Longbow",
@@ -1834,7 +2697,14 @@
             "item_level": 24,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "trainer"
         },
         "ww_frostpine_shield": {
           "name": "Frostpine Shield",
@@ -1851,7 +2721,14 @@
             "item_level": 24,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "trainer"
         },
         "ww_frostpine_crossbow": {
           "name": "Frostpine Crossbow",
@@ -1869,7 +2746,14 @@
             "item_level": 25,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "trainer"
         },
         "ww_frostpine_grimoire": {
           "name": "Frostpine Grimoire",
@@ -1887,7 +2771,14 @@
             "item_level": 25,
             "rarity": "uncommon",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "trainer"
         },
         "ww_bramblewood_staff": {
           "name": "Bramblewood Staff",
@@ -1904,7 +2795,14 @@
             "item_level": 28,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "trainer"
         },
         "ww_bramblewood_bow": {
           "name": "Bramblewood War Bow",
@@ -1921,7 +2819,14 @@
             "item_level": 28,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "trainer"
         },
         "ww_bramblewood_bulwark": {
           "name": "Bramblewood Bulwark",
@@ -1938,7 +2843,14 @@
             "item_level": 28,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "trainer"
         },
         "ww_bramblewood_crown": {
           "name": "Bramblewood Crown",
@@ -1956,7 +2868,14 @@
             "item_level": 28,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "trainer"
         },
         "ww_bramblewood_codex": {
           "name": "Bramblewood Codex",
@@ -1974,7 +2893,14 @@
             "item_level": 29,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            135,
+            145,
+            155,
+            165
+          ],
+          "source": "trainer"
         },
         "ww_heartwood_idol": {
           "name": "Heartwood Idol",
@@ -1992,7 +2918,14 @@
             "item_level": 29,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "skill_range": [
+            135,
+            145,
+            155,
+            165
+          ],
+          "source": "trainer"
         }
       }
     }

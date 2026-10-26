@@ -225,6 +225,12 @@ class Character(StatusEffectMixin):
         # profession to its trained tier (0 Apprentice, 1 Journeyman, ...), which sets the skill cap.
         self.known_professions = []
         self.profession_tiers = {}
+        # Recipe discovery (Oct 2026): recipes must be explicitly learned — either taught by a trainer, found as
+        # world drops, bought from a vendor, or rewarded from a quest. A recipe item in the inventory has a
+        # recipe_id field; right-clicking it calls learn_recipe() which checks skill_required and adds the id here.
+        # available_recipes() in every crafting manager filters against this set rather than auto-granting all
+        # recipes at the current skill tier — players must actively discover and learn each one.
+        self.known_recipes: set = set()
         
         # Buff slots (Phase 6) - 1 guardian, 1 battle, 1 food buff active at a time
         self.guardian_buff = None  # (consumable, remaining_duration)
@@ -2282,6 +2288,7 @@ class Character(StatusEffectMixin):
             "materials": [m.to_dict() for m in self.materials],
             "profession_skills": dict(self.profession_skills),
             "known_professions": list(self.known_professions),
+            "known_recipes": list(self.known_recipes),
             "profession_tiers": dict(self.profession_tiers),
             "training_enabled": bool(self.training_enabled),
             "trained_ranks": dict(self.trained_ranks),
@@ -2393,6 +2400,13 @@ class Character(StatusEffectMixin):
         else:
             char.known_professions = [p for p, v in char.profession_skills.items() if v > 0]
             char.profession_tiers = {p: 1 for p in char.known_professions if char.profession_skills[p] > 75}
+        # Recipe discovery (save v9). Older saves had no known_recipes — treat all trainer-source recipes at or
+        # below the character's current skill as already known (graceful migration: existing characters keep access
+        # to everything they could already craft).
+        if "known_recipes" in data:
+            char.known_recipes = set(data["known_recipes"])
+        else:
+            char._migrate_known_recipes()
         char.consumable_cooldown = data.get("consumable_cooldown", 0.0)
         char.guardian_buff = data.get("guardian_buff")
         char.battle_buff = data.get("battle_buff")
@@ -2659,6 +2673,65 @@ class Character(StatusEffectMixin):
 
     def knows_profession(self, profession):
         return profession in self.known_professions
+
+    # ------------------------------------------------------------------ recipe discovery
+    def knows_recipe(self, recipe_id):
+        """True if this recipe has been explicitly learned (trainer, drop, vendor, or quest)."""
+        return recipe_id in self.known_recipes
+
+    def learn_recipe(self, recipe_id, profession, skill_required=0):
+        """Add recipe_id to known_recipes.
+
+        Returns (True, msg) on success, (False, msg) on failure.
+        Callers should check skill_required before calling — the check is
+        duplicated here as a hard gate so a race condition or UI bug can
+        never sneak an unlearnable recipe into known_recipes.
+        """
+        if recipe_id in self.known_recipes:
+            return False, "You already know that recipe."
+        current = self.profession_skills.get(profession, 0)
+        if current < skill_required:
+            return False, f"Requires {profession.title()} skill {skill_required} (you have {current})."
+        if not self.knows_profession(profession):
+            return False, f"You haven't learned {profession.title()}."
+        self.known_recipes.add(recipe_id)
+        return True, "Recipe learned."
+
+    def learn_trainer_recipes(self, profession, recipes_dict):
+        """Called when visiting a trainer. Automatically teaches every recipe whose
+        source is 'trainer' and whose skill_required <= the character's current skill.
+        Returns a list of newly-learned recipe IDs for the trainer UI to display."""
+        learned = []
+        current = self.profession_skills.get(profession, 0)
+        for rid, recipe in recipes_dict.items():
+            if recipe.get("source") == "trainer" and recipe.get("skill_required", 0) <= current:
+                if rid not in self.known_recipes:
+                    self.known_recipes.add(rid)
+                    learned.append(rid)
+        return learned
+
+    def _migrate_known_recipes(self):
+        """Graceful migration for saves that pre-date the recipe-discovery system.
+        Auto-learn all trainer-source recipes at or below current skill so existing
+        characters don't lose access to recipes they could already craft."""
+        try:
+            from world.crafting_manager import get_crafting_manager
+            from world.blacksmithing_manager import get_blacksmithing_manager
+            from world.leatherworking_manager import get_leatherworking_manager
+            managers = [
+                ("tailoring", get_crafting_manager().all_recipes("tailoring")),
+                ("alchemy", get_crafting_manager().all_recipes("alchemy")),
+                ("woodworking", get_crafting_manager().all_recipes("woodworking")),
+                ("blacksmithing", get_blacksmithing_manager().recipes),
+                ("leatherworking", get_leatherworking_manager().recipes),
+            ]
+            for prof, recipes in managers:
+                skill = self.profession_skills.get(prof, 0)
+                for rid, recipe in recipes.items():
+                    if recipe.get("source", "trainer") == "trainer" and recipe.get("skill_required", 0) <= skill:
+                        self.known_recipes.add(rid)
+        except Exception:
+            pass  # Migration is best-effort; newer recipes will be learned normally
 
     def profession_cap(self, profession):
         tier = min(self.profession_tiers.get(profession, 0), len(self.PROFESSION_TIER_CAPS) - 1)

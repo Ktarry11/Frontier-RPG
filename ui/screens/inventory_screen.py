@@ -320,6 +320,10 @@ class InventoryScreen(BaseScreen):
                 if rect.collidepoint(mouse_pos) and i < len(bag.inventory):
                     item = bag.inventory[i]
                     if not getattr(item, "is_gear", True):
+                        # Recipe scroll: right-click to learn the recipe it contains.
+                        if getattr(item, "recipe_id", None):
+                            self._use_recipe_scroll(subject, bag, item)
+                            return
                         # A quest-STARTER item (a drop that begins a quest) opens its quest offer instead.
                         starts = getattr(item, "starts_quest_id", None)
                         if starts:
@@ -336,6 +340,35 @@ class InventoryScreen(BaseScreen):
                     self._equip_on_subject(subject, item)
                     self.selected_item = None
                     return
+
+    def _use_recipe_scroll(self, character, bag, item):
+        """Handle clicking a recipe scroll item in inventory.
+
+        WoW rules:
+        - If recipe already known → show error, item stays in bag.
+        - If profession not learned → show error, item stays.
+        - If skill too low → show greyed error ("Requires Blacksmithing 75"), item stays.
+        - If all requirements met → learn recipe, remove scroll from bag, show success.
+        """
+        recipe_id = item.recipe_id
+        profession = item.recipe_profession
+
+        # Pull skill_required from the recipe data
+        try:
+            from world.recipe_manager import get_recipe_info
+            _, recipe_data = get_recipe_info(recipe_id)
+            skill_req = recipe_data.get("skill_required", 0) if recipe_data else 0
+        except Exception:
+            skill_req = 0
+
+        ok, msg = character.learn_recipe(recipe_id, profession, skill_required=skill_req)
+        if ok:
+            # Remove the scroll from the bag now that it's been learned
+            bag.inventory.remove(item)
+            self.equip_error = f"Learned: {item.name.replace('Plans: ', '').replace('Pattern: ', '').replace('Recipe: ', '').replace('Schematic: ', '')}"
+        else:
+            self.equip_error = msg
+        self.equip_error_timer = 3.0
 
     def _close(self):
         """Return where we came from, and always release the subject."""
@@ -685,8 +718,66 @@ class InventoryScreen(BaseScreen):
                 - Character.mitigation_from(base)) * 100.0
         return f"  ({gain:+.1f}% phys reduction)"
 
+    def _draw_recipe_scroll_tooltip(self, screen, item, mouse_pos):
+        """WoW-style recipe scroll tooltip: name (rarity-coloured), profession + skill requirement,
+        known/learnable/locked state, and flavor text."""
+        subject = self._get_subject()
+        recipe_id = item.recipe_id
+        profession = item.recipe_profession or ""
+
+        # Pull skill_required from the recipe data
+        try:
+            from world.recipe_manager import get_recipe_info
+            _, recipe_data = get_recipe_info(recipe_id)
+            skill_req = recipe_data.get("skill_required", 0) if recipe_data else 0
+        except Exception:
+            skill_req = 0
+
+        rarity_color = getattr(item, "get_rarity_color", lambda: COLOR_WHITE)()
+
+        lines = [(item.name, rarity_color)]
+        if profession:
+            lines.append((f"{profession.title()}", (170, 170, 170)))
+
+        # State line: already known / skill too low / click to learn
+        if subject:
+            if subject.knows_recipe(recipe_id):
+                lines.append(("Already known.", (170, 170, 170)))
+            else:
+                current_skill = subject.profession_skills.get(profession, 0)
+                if not subject.knows_profession(profession):
+                    lines.append((f"Requires {profession.title()} (not learned)", (220, 70, 70)))
+                elif current_skill < skill_req:
+                    lines.append((f"Requires {profession.title()} ({skill_req})", (220, 70, 70)))
+                    lines.append((f"Your skill: {current_skill}", (170, 120, 120)))
+                else:
+                    lines.append(("Click to learn this recipe.", (120, 220, 140)))
+
+        if skill_req > 0:
+            lines.append((f"Skill Required: {skill_req}", (200, 200, 140)))
+
+        flavor = getattr(item, "flavor_text", "") or ""
+        # Don't repeat the auto-generated flavor — just show a short version
+        short_flavor = f"Teaches: {recipe_data.get('name', recipe_id)}" if recipe_data else ""
+        if short_flavor:
+            lines.append((short_flavor, (130, 180, 220)))
+
+        box_w = 280
+        box_h = 20 * len(lines) + 16
+        x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
+        y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
+        box_rect = pygame.Rect(x, y, box_w, box_h)
+        pygame.draw.rect(screen, (15, 15, 25), box_rect)
+        pygame.draw.rect(screen, rarity_color, box_rect, 1)
+        for i, (text, color) in enumerate(lines):
+            self.renderer.draw_text(screen, text, (x + 8, y + 8 + i * 20), color=color)
+
     def _draw_item_tooltip(self, screen, item, mouse_pos):
         if not getattr(item, "is_gear", True):
+            # Recipe scrolls get a richer tooltip showing profession, skill gate, and state.
+            if getattr(item, "recipe_id", None):
+                self._draw_recipe_scroll_tooltip(screen, item, mouse_pos)
+                return
             # QuestItem (or any future non-equippable bag object) - a
             # much simpler tooltip, since none of the gear-specific
             # fields below (item_level, rarity, armor_type, weapon

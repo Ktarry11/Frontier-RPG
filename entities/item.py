@@ -17,7 +17,8 @@ class Item:
                  weapon_damage_min=0, weapon_damage_max=0, attack_speed=0.0,
                  block_value=0, bag_capacity=0, icon_id=None,
                  is_crafted=False, crafting_material=None,
-                 upgrade_count=0, upgrade_deltas=None):
+                 upgrade_count=0, upgrade_deltas=None,
+                 recipe_id=None, recipe_profession=None):
         self.item_id = item_id
         self.name = name
         self.slot = slot  # e.g. "chest", "main_hand", "ring1", "bag1"-"bag4"
@@ -124,6 +125,13 @@ class Item:
         # happens, and never read again after the second.
         self.upgrade_deltas = upgrade_deltas
 
+        # Recipe scrolls / pattern items (Oct 2026): an item with a recipe_id is a learnable
+        # recipe scroll. Right-clicking calls character.learn_recipe(recipe_id, recipe_profession,
+        # skill_required). recipe_profession is the profession this recipe belongs to
+        # (e.g. "blacksmithing"). Both are None for all normal gear/consumable/material items.
+        self.recipe_id = recipe_id
+        self.recipe_profession = recipe_profession
+
     def get_dps(self):
         """Damage per second for weapons. Returns 0 for non-weapons/shields.
 
@@ -200,6 +208,8 @@ class Item:
             "crafting_material": self.crafting_material,
             "upgrade_count": self.upgrade_count,
             "upgrade_deltas": self.upgrade_deltas,
+            "recipe_id": self.recipe_id,
+            "recipe_profession": self.recipe_profession,
         }
 
     @classmethod
@@ -233,6 +243,8 @@ class Item:
             crafting_material=data.get("crafting_material"),
             upgrade_count=data.get("upgrade_count", 0),
             upgrade_deltas=data.get("upgrade_deltas"),
+            recipe_id=data.get("recipe_id"),
+            recipe_profession=data.get("recipe_profession"),
         )
 
     def __repr__(self):

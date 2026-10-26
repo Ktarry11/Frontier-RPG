@@ -39,15 +39,25 @@ class CraftingManager:
         return character.profession_skills.get(profession, 0)
 
     def available_recipes(self, character, profession):
-        """Recipes the character may craft right now (profession learned + skill high enough)."""
+        """Recipes the character may craft right now: profession learned + skill high enough + recipe known.
+
+        Trainer-source recipes are auto-taught on trainer visit (character.learn_trainer_recipes).
+        Drop/vendor/quest recipes must be explicitly learned by using a recipe scroll item.
+        Both paths ultimately write to character.known_recipes; this filter trusts that set.
+        """
         if not character.knows_profession(profession):
             return {}
         skill = self.skill(character, profession)
-        return {rid: r for rid, r in self.all_recipes(profession).items() if skill >= r.get("skill_required", 0)}
+        return {
+            rid: r for rid, r in self.all_recipes(profession).items()
+            if skill >= r.get("skill_required", 0) and character.knows_recipe(rid)
+        }
 
     def can_craft(self, character, profession, recipe_id):
         r = self.all_recipes(profession).get(recipe_id)
         if r is None or not character.knows_profession(profession):
+            return False
+        if not character.knows_recipe(recipe_id):
             return False
         if self.skill(character, profession) < r.get("skill_required", 0):
             return False
