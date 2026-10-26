@@ -745,39 +745,6 @@
       "stack_limit": 20,
       "sell_price": 4,
       "icon_id": "cloth_linen",
-      "skill_range": null
-    },
-    "cloth_wool": {
-      "name": "Wool Cloth",
-      "material_type": "cloth",
-      "profession": "tailoring",
-      "tier": "mid",
-      "description": "Warm, heavy cloth. It smells faintly of sheep.",
-      "stack_limit": 20,
-      "sell_price": 9,
-      "icon_id": "cloth_wool",
-      "skill_range": null
-    },
-    "cloth_silk": {
-      "name": "Silk Cloth",
-      "material_type": "cloth",
-      "profession": "tailoring",
-      "tier": "mid",
-      "description": "Fine, smooth cloth with a faint shimmer.",
-      "stack_limit": 20,
-      "sell_price": 16,
-      "icon_id": "cloth_silk",
-      "skill_range": null
-    },
-    "bolt_linen": {
-      "name": "Bolt of Linen Cloth",
-      "material_type": "bolt",
-      "profession": "tailoring",
-      "tier": "early",
-      "description": "Linen cloth woven into a tight bolt.",
-      "stack_limit": 20,
-      "sell_price": 9,
-      "icon_id": "bolt_linen",
       "skill_range": [
         5,
         20,
@@ -785,37 +752,85 @@
         50
       ]
     },
+    "cloth_wool": {
+      "name": "Wool Cloth",
+      "material_type": "cloth",
+      "profession": "tailoring",
+      "tier": "early",
+      "description": "Thick woven cloth from mid-range humanoid enemies.",
+      "stack_limit": 20,
+      "sell_price": 5,
+      "icon_id": "cloth_wool",
+      "skill_range": [
+        15,
+        30,
+        45,
+        60
+      ]
+    },
+    "cloth_silk": {
+      "name": "Silk Cloth",
+      "material_type": "cloth",
+      "profession": "tailoring",
+      "tier": "mid",
+      "description": "Fine smooth silk from dangerous humanoid enemies.",
+      "stack_limit": 20,
+      "sell_price": 10,
+      "icon_id": "cloth_silk",
+      "skill_range": [
+        50,
+        70,
+        90,
+        110
+      ]
+    },
+    "bolt_linen": {
+      "name": "Bolt of Linen Cloth",
+      "material_type": "bolt",
+      "tier": "early",
+      "skill_range": [
+        15,
+        30,
+        45,
+        60
+      ],
+      "sell_price": 9,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_linen",
+      "description": "Linen Cloth woven into a tight bolt ready for tailoring."
+    },
     "bolt_wool": {
       "name": "Bolt of Wool Cloth",
       "material_type": "bolt",
-      "profession": "tailoring",
-      "tier": "mid",
-      "description": "Wool cloth woven into a thick bolt.",
-      "stack_limit": 20,
-      "sell_price": 24,
-      "icon_id": "bolt_wool",
+      "tier": "early",
       "skill_range": [
-        45,
-        60,
-        75,
-        90
-      ]
+        25,
+        40,
+        55,
+        70
+      ],
+      "sell_price": 11,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_wool",
+      "description": "Wool Cloth woven into a tight bolt ready for tailoring."
     },
     "bolt_silk": {
       "name": "Bolt of Silk Cloth",
       "material_type": "bolt",
-      "profession": "tailoring",
       "tier": "mid",
-      "description": "Silk cloth woven into a gleaming bolt.",
-      "stack_limit": 20,
-      "sell_price": 52,
-      "icon_id": "bolt_silk",
       "skill_range": [
-        95,
-        110,
-        125,
-        140
-      ]
+        60,
+        80,
+        100,
+        120
+      ],
+      "sell_price": 21,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_silk",
+      "description": "Silk Cloth woven into a tight bolt ready for tailoring."
     },
     "upgrade_kit_linen": {
       "name": "Linen Upgrade Kit",
@@ -871,6 +886,1830 @@
       "sell_price": 60,
       "icon_id": "upgrade_kit_ironbark",
       "skill_range": null
+    },
+    "cloth_cotton": {
+      "name": "Cotton Cloth",
+      "material_type": "cloth",
+      "tier": "early",
+      "skill_range": [
+        20,
+        35,
+        50,
+        65
+      ],
+      "sell_price": 6,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_cotton",
+      "description": "Clean soft cotton cloth from skilled humanoid foes."
+    },
+    "cloth_hempen": {
+      "name": "Hempen Cloth",
+      "material_type": "cloth",
+      "tier": "early",
+      "skill_range": [
+        25,
+        40,
+        55,
+        70
+      ],
+      "sell_price": 7,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_hempen",
+      "description": "Coarse fibrous cloth woven from tough hemp fibres."
+    },
+    "cloth_mageweave": {
+      "name": "Mageweave Cloth",
+      "material_type": "cloth",
+      "tier": "mid",
+      "skill_range": [
+        60,
+        80,
+        100,
+        120
+      ],
+      "sell_price": 12,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_mageweave",
+      "description": "Deep indigo cloth threaded with arcane silver."
+    },
+    "cloth_spidersilk": {
+      "name": "Spidersilk Cloth",
+      "material_type": "cloth",
+      "tier": "mid",
+      "skill_range": [
+        70,
+        90,
+        110,
+        130
+      ],
+      "sell_price": 14,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_spidersilk",
+      "description": "Web-like cloth harvested from silken creatures."
+    },
+    "cloth_dusk_velvet": {
+      "name": "Dusk Velvet",
+      "material_type": "cloth",
+      "tier": "mid",
+      "skill_range": [
+        80,
+        100,
+        120,
+        140
+      ],
+      "sell_price": 16,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_dusk_velvet",
+      "description": "Plush plum-hued velvet from shadowed humanoids."
+    },
+    "cloth_gossamer": {
+      "name": "Gossamer Cloth",
+      "material_type": "cloth",
+      "tier": "mid",
+      "skill_range": [
+        90,
+        110,
+        130,
+        150
+      ],
+      "sell_price": 18,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_gossamer",
+      "description": "Sheer translucent sky-blue cloth from airy foes."
+    },
+    "cloth_thistledown": {
+      "name": "Thistledown Cloth",
+      "material_type": "cloth",
+      "tier": "mid",
+      "skill_range": [
+        100,
+        120,
+        140,
+        160
+      ],
+      "sell_price": 20,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_thistledown",
+      "description": "Fluffy lilac-grey cloth from highland humanoids."
+    },
+    "cloth_runecloth": {
+      "name": "Runecloth",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        125,
+        150,
+        170,
+        200
+      ],
+      "sell_price": 24,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_runecloth",
+      "description": "Cream cloth bearing embroidered crimson runes."
+    },
+    "cloth_netherweave": {
+      "name": "Netherweave Cloth",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        140,
+        165,
+        185,
+        215
+      ],
+      "sell_price": 26,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_netherweave",
+      "description": "Dark violet-grey cloth shot through with teal thread."
+    },
+    "cloth_frostweave": {
+      "name": "Frostweave Cloth",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        155,
+        180,
+        200,
+        230
+      ],
+      "sell_price": 28,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_frostweave",
+      "description": "Icy pale blue cloth crusted with frost crystals."
+    },
+    "cloth_emberweave": {
+      "name": "Emberweave Cloth",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        170,
+        195,
+        215,
+        245
+      ],
+      "sell_price": 30,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_emberweave",
+      "description": "Warm orange-red cloth glowing with ember threads."
+    },
+    "cloth_moonsilk": {
+      "name": "Moonsilk",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        185,
+        210,
+        230,
+        260
+      ],
+      "sell_price": 32,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_moonsilk",
+      "description": "Silver-blue shimmering cloth, pale as moonlight."
+    },
+    "cloth_shadowsilk": {
+      "name": "Shadowsilk",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        200,
+        225,
+        245,
+        275
+      ],
+      "sell_price": 34,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_shadowsilk",
+      "description": "Black-grey silk with a faint violet sheen."
+    },
+    "cloth_starweave": {
+      "name": "Starweave Cloth",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        215,
+        240,
+        260,
+        290
+      ],
+      "sell_price": 36,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_starweave",
+      "description": "Midnight-blue cloth woven with tiny glowing star points."
+    },
+    "cloth_bloodsilk": {
+      "name": "Bloodsilk",
+      "material_type": "cloth",
+      "tier": "late",
+      "skill_range": [
+        230,
+        255,
+        275,
+        305
+      ],
+      "sell_price": 38,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_bloodsilk",
+      "description": "Deep crimson glossy silk from the most dangerous foes."
+    },
+    "cloth_felcloth": {
+      "name": "Felcloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        250,
+        275,
+        295,
+        325
+      ],
+      "sell_price": 45,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_felcloth",
+      "description": "Dark green-black cloth laced with toxic fel threads."
+    },
+    "cloth_soulcloth": {
+      "name": "Soulcloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        260,
+        285,
+        305,
+        335
+      ],
+      "sell_price": 48,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_soulcloth",
+      "description": "Pale ghostly teal-white translucent cloth."
+    },
+    "cloth_windwool": {
+      "name": "Windwool Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        270,
+        295,
+        315,
+        345
+      ],
+      "sell_price": 50,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_windwool",
+      "description": "Airy white-grey cloud-like cloth."
+    },
+    "cloth_imperial_silk": {
+      "name": "Imperial Silk",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        280,
+        305,
+        325,
+        355
+      ],
+      "sell_price": 55,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_imperial_silk",
+      "description": "Royal purple and gold brocade of the highest courts."
+    },
+    "cloth_voidweave": {
+      "name": "Voidweave Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        290,
+        315,
+        335,
+        365
+      ],
+      "sell_price": 58,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_voidweave",
+      "description": "Black cloth shot with violet void-energy threads."
+    },
+    "cloth_sunthread": {
+      "name": "Sunthread Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        300,
+        325,
+        345,
+        375
+      ],
+      "sell_price": 60,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_sunthread",
+      "description": "Gleaming golden-orange cloth woven from sunlight."
+    },
+    "cloth_dreamsilk": {
+      "name": "Dreamsilk",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ],
+      "sell_price": 65,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_dreamsilk",
+      "description": "Iridescent pastel cloth shifting between peach and lavender."
+    },
+    "cloth_chronoweave": {
+      "name": "Chronoweave Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ],
+      "sell_price": 68,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_chronoweave",
+      "description": "Pale blue-gold cloth with glowing clock-like threads."
+    },
+    "cloth_abyssal_velvet": {
+      "name": "Abyssal Velvet",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        330,
+        355,
+        375,
+        405
+      ],
+      "sell_price": 70,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_abyssal_velvet",
+      "description": "Deep blue-black velvet with glowing cyan threads."
+    },
+    "cloth_stormweave": {
+      "name": "Stormweave Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ],
+      "sell_price": 72,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_stormweave",
+      "description": "Slate-grey cloth threaded with blue lightning."
+    },
+    "cloth_lightwoven": {
+      "name": "Lightwoven Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ],
+      "sell_price": 75,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_lightwoven",
+      "description": "Radiant white-gold shining cloth."
+    },
+    "cloth_wyrmsilk": {
+      "name": "Wyrmsilk",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ],
+      "sell_price": 78,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_wyrmsilk",
+      "description": "Dark green silk with a shimmering scale pattern."
+    },
+    "cloth_phoenix_cloth": {
+      "name": "Phoenix Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        360,
+        385,
+        405,
+        435
+      ],
+      "sell_price": 80,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_phoenix_cloth",
+      "description": "Flame orange-gold cloth with a feather-like shimmer."
+    },
+    "cloth_arcanoweave": {
+      "name": "Arcanoweave Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ],
+      "sell_price": 85,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_arcanoweave",
+      "description": "Bright violet-blue cloth with glowing arcane glyphs."
+    },
+    "cloth_titanweave": {
+      "name": "Titanweave Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ],
+      "sell_price": 88,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_titanweave",
+      "description": "Heavy bronze-grey cloth bearing a golden titan rune."
+    },
+    "cloth_spiritwoven": {
+      "name": "Spiritwoven Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        370,
+        395,
+        415,
+        445
+      ],
+      "sell_price": 90,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_spiritwoven",
+      "description": "Translucent pale blue-green cloth with glowing spirit wisps."
+    },
+    "cloth_nightmare_lace": {
+      "name": "Nightmare Lace",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ],
+      "sell_price": 92,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_nightmare_lace",
+      "description": "Black lace emanating a sickly green-violet nightmare glow."
+    },
+    "cloth_ghostgauze": {
+      "name": "Ghostgauze",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        374,
+        399,
+        419,
+        449
+      ],
+      "sell_price": 95,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_ghostgauze",
+      "description": "Pale see-through grey-white gauze like concentrated mist."
+    },
+    "cloth_starsilk": {
+      "name": "Starsilk",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ],
+      "sell_price": 98,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_starsilk",
+      "description": "Deep indigo-black silk embroidered with bright gold stars."
+    },
+    "cloth_worldweave": {
+      "name": "Worldweave Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        378,
+        403,
+        423,
+        453
+      ],
+      "sell_price": 100,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_worldweave",
+      "description": "Rich green-gold cloth bearing a glowing leaf-and-vine pattern."
+    },
+    "cloth_genesis_cloth": {
+      "name": "Genesis Cloth",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        380,
+        405,
+        425,
+        455
+      ],
+      "sell_price": 110,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_genesis_cloth",
+      "description": "Pearlescent cloth shimmering in rainbow colours."
+    },
+    "cloth_primordial_weave": {
+      "name": "Primordial Weave",
+      "material_type": "cloth",
+      "tier": "endgame",
+      "skill_range": [
+        385,
+        410,
+        430,
+        460
+      ],
+      "sell_price": 125,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "cloth_primordial_weave",
+      "description": "Luminous white-gold cloth with a swirling cosmic glow."
+    },
+    "leather_scrap": {
+      "name": "Scrap Leather",
+      "material_type": "leather",
+      "tier": "early",
+      "skill_range": [
+        5,
+        20,
+        35,
+        50
+      ],
+      "sell_price": 4,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_scrap",
+      "description": "Ragged offcuts of dull-brown leather from weak beasts."
+    },
+    "leather_light": {
+      "name": "Light Leather",
+      "material_type": "leather",
+      "tier": "early",
+      "skill_range": [
+        15,
+        30,
+        45,
+        60
+      ],
+      "sell_price": 5,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_light",
+      "description": "Pale tan, thin and supple leather from young beasts."
+    },
+    "leather_medium": {
+      "name": "Medium Leather",
+      "material_type": "leather",
+      "tier": "early",
+      "skill_range": [
+        20,
+        35,
+        50,
+        65
+      ],
+      "sell_price": 6,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_medium",
+      "description": "Warm mid-brown leather of decent quality."
+    },
+    "leather_heavy": {
+      "name": "Heavy Leather",
+      "material_type": "leather",
+      "tier": "early",
+      "skill_range": [
+        25,
+        40,
+        55,
+        70
+      ],
+      "sell_price": 7,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_heavy",
+      "description": "Dark brown thick leather with a stitched edge."
+    },
+    "leather_thick": {
+      "name": "Thick Leather",
+      "material_type": "leather",
+      "tier": "mid",
+      "skill_range": [
+        50,
+        70,
+        90,
+        110
+      ],
+      "sell_price": 10,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_thick",
+      "description": "Very thick dark russet slabs from large beasts."
+    },
+    "leather_rugged": {
+      "name": "Rugged Leather",
+      "material_type": "leather",
+      "tier": "mid",
+      "skill_range": [
+        60,
+        80,
+        100,
+        120
+      ],
+      "sell_price": 12,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_rugged",
+      "description": "Rough weathered grey-brown leather scarred from hard use."
+    },
+    "leather_cragscale": {
+      "name": "Cragscale Leather",
+      "material_type": "leather",
+      "tier": "mid",
+      "skill_range": [
+        70,
+        90,
+        110,
+        130
+      ],
+      "sell_price": 14,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_cragscale",
+      "description": "Stone-grey leather with a rocky scale texture."
+    },
+    "leather_stormscale": {
+      "name": "Stormscale Leather",
+      "material_type": "leather",
+      "tier": "mid",
+      "skill_range": [
+        80,
+        100,
+        120,
+        140
+      ],
+      "sell_price": 16,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_stormscale",
+      "description": "Blue-grey scaled leather with faint electric-blue edges."
+    },
+    "leather_stonebound": {
+      "name": "Stonebound Leather",
+      "material_type": "leather",
+      "tier": "mid",
+      "skill_range": [
+        90,
+        110,
+        130,
+        150
+      ],
+      "sell_price": 18,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_stonebound",
+      "description": "Tan-grey leather with embedded stone flecks."
+    },
+    "leather_dredged": {
+      "name": "Dredged Leather",
+      "material_type": "leather",
+      "tier": "mid",
+      "skill_range": [
+        100,
+        120,
+        140,
+        160
+      ],
+      "sell_price": 20,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_dredged",
+      "description": "Dark teal-brown damp leather barnacled from the deep."
+    },
+    "leather_fiendish": {
+      "name": "Fiendish Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        125,
+        150,
+        170,
+        200
+      ],
+      "sell_price": 24,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_fiendish",
+      "description": "Dark red-black ridged leather with a faint ember glow."
+    },
+    "leather_pristine": {
+      "name": "Pristine Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        140,
+        165,
+        185,
+        215
+      ],
+      "sell_price": 26,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_pristine",
+      "description": "Flawless pale gold-cream leather of exceptional quality."
+    },
+    "leather_savage": {
+      "name": "Savage Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        155,
+        180,
+        200,
+        230
+      ],
+      "sell_price": 28,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_savage",
+      "description": "Rough rust-orange leather streaked with dark claw marks."
+    },
+    "leather_frostscale": {
+      "name": "Frostscale Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        170,
+        195,
+        215,
+        245
+      ],
+      "sell_price": 30,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_frostscale",
+      "description": "Pale blue-white frosty scaled leather from cold-dwelling beasts."
+    },
+    "leather_emberscale": {
+      "name": "Emberscale Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        185,
+        210,
+        230,
+        260
+      ],
+      "sell_price": 32,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_emberscale",
+      "description": "Dark red-orange scaled leather with glowing ember edges."
+    },
+    "leather_mossback": {
+      "name": "Mossback Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        200,
+        225,
+        245,
+        275
+      ],
+      "sell_price": 34,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_mossback",
+      "description": "Green-brown ridged leather with patches of natural moss."
+    },
+    "leather_duskfang": {
+      "name": "Duskfang Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        215,
+        240,
+        260,
+        290
+      ],
+      "sell_price": 36,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_duskfang",
+      "description": "Dark purple-grey leather marked with pale fang-shaped scars."
+    },
+    "leather_bloodtanned": {
+      "name": "Bloodtanned Leather",
+      "material_type": "leather",
+      "tier": "late",
+      "skill_range": [
+        230,
+        255,
+        275,
+        305
+      ],
+      "sell_price": 38,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_bloodtanned",
+      "description": "Deep crimson-brown glossy leather tanned in the old ways."
+    },
+    "leather_wyvern": {
+      "name": "Wyvern Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        250,
+        275,
+        295,
+        325
+      ],
+      "sell_price": 45,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_wyvern",
+      "description": "Deep green finely scaled leather from a wyvern."
+    },
+    "leather_basilisk": {
+      "name": "Basilisk Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        260,
+        285,
+        305,
+        335
+      ],
+      "sell_price": 48,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_basilisk",
+      "description": "Ochre-green scaled leather with stone-grey patches."
+    },
+    "leather_hydra": {
+      "name": "Hydra Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        270,
+        295,
+        315,
+        345
+      ],
+      "sell_price": 50,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_hydra",
+      "description": "Slick teal-green multi-toned scaled leather."
+    },
+    "leather_netherdrake": {
+      "name": "Netherdrake Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        280,
+        305,
+        325,
+        355
+      ],
+      "sell_price": 55,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_netherdrake",
+      "description": "Purple-blue scaled leather with glowing violet spots."
+    },
+    "leather_frostwyrm": {
+      "name": "Frostwyrm Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        290,
+        315,
+        335,
+        365
+      ],
+      "sell_price": 58,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_frostwyrm",
+      "description": "Icy blue-white thick scales from a wyrm of the frozen north."
+    },
+    "leather_behemoth": {
+      "name": "Behemoth Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        300,
+        325,
+        345,
+        375
+      ],
+      "sell_price": 60,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_behemoth",
+      "description": "Huge thick grey-brown wrinkled leather from a behemoth."
+    },
+    "leather_manticore": {
+      "name": "Manticore Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ],
+      "sell_price": 65,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_manticore",
+      "description": "Tawny gold-brown leather with dark manticore stripes."
+    },
+    "leather_chimera": {
+      "name": "Chimera Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ],
+      "sell_price": 68,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_chimera",
+      "description": "Patchwork of three leathers stitched from a chimera."
+    },
+    "leather_phoenix": {
+      "name": "Phoenix Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        330,
+        355,
+        375,
+        405
+      ],
+      "sell_price": 70,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_phoenix",
+      "description": "Red-gold leather with a warm feathery glow."
+    },
+    "leather_kraken": {
+      "name": "Kraken Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ],
+      "sell_price": 72,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_kraken",
+      "description": "Deep blue-green slick leather with sucker-ring texture."
+    },
+    "leather_thunderlizard": {
+      "name": "Thunderlizard Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ],
+      "sell_price": 75,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_thunderlizard",
+      "description": "Slate-blue scaled leather with yellow lightning stripes."
+    },
+    "leather_nightsaber": {
+      "name": "Nightsaber Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ],
+      "sell_price": 78,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_nightsaber",
+      "description": "Indigo-black leather with silver stripes from a nightsaber."
+    },
+    "leather_lavahound": {
+      "name": "Lavahound Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        360,
+        385,
+        405,
+        435
+      ],
+      "sell_price": 80,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_lavahound",
+      "description": "Black leather cracked with glowing lava-orange fissures."
+    },
+    "leather_sandwurm": {
+      "name": "Sandwurm Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ],
+      "sell_price": 85,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_sandwurm",
+      "description": "Dusty tan-ochre leather in heavy armoured segments."
+    },
+    "leather_voidstalker": {
+      "name": "Voidstalker Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ],
+      "sell_price": 88,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_voidstalker",
+      "description": "Black leather with a violet shimmer and void-tendril veins."
+    },
+    "leather_dreamstag": {
+      "name": "Dreamstag Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        370,
+        395,
+        415,
+        445
+      ],
+      "sell_price": 90,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_dreamstag",
+      "description": "Soft pastel peach and mint leather with a dream-touched glow."
+    },
+    "leather_sunhawk": {
+      "name": "Sunhawk Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ],
+      "sell_price": 92,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_sunhawk",
+      "description": "Bright golden-orange leather with a sun-hawk feathered texture."
+    },
+    "leather_chronodrake": {
+      "name": "Chronodrake Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        374,
+        399,
+        419,
+        449
+      ],
+      "sell_price": 95,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_chronodrake",
+      "description": "Pale gold-blue scaled leather with a glowing cyan ring pattern."
+    },
+    "leather_abyssal": {
+      "name": "Abyssal Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ],
+      "sell_price": 98,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_abyssal",
+      "description": "Blue-black leather with glowing cyan abyssal veins."
+    },
+    "leather_worldserpent": {
+      "name": "Worldserpent Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        378,
+        403,
+        423,
+        453
+      ],
+      "sell_price": 100,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_worldserpent",
+      "description": "Emerald green leather with gold-edged huge scales."
+    },
+    "leather_primordial": {
+      "name": "Primordial Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        380,
+        405,
+        425,
+        455
+      ],
+      "sell_price": 110,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_primordial",
+      "description": "Ancient amber-brown crackled leather with luminous gold seams."
+    },
+    "leather_genesis": {
+      "name": "Genesis Leather",
+      "material_type": "leather",
+      "tier": "endgame",
+      "skill_range": [
+        385,
+        410,
+        430,
+        460
+      ],
+      "sell_price": 125,
+      "stack_limit": 20,
+      "profession": "leatherworking",
+      "icon_id": "leather_genesis",
+      "description": "Pearlescent leather shimmering in rainbow colours."
+    },
+    "bolt_cotton": {
+      "name": "Bolt of Cotton Cloth",
+      "material_type": "bolt",
+      "tier": "early",
+      "skill_range": [
+        30,
+        45,
+        60,
+        75
+      ],
+      "sell_price": 13,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_cotton",
+      "description": "Cotton Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_hempen": {
+      "name": "Bolt of Hempen Cloth",
+      "material_type": "bolt",
+      "tier": "early",
+      "skill_range": [
+        35,
+        50,
+        65,
+        80
+      ],
+      "sell_price": 15,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_hempen",
+      "description": "Hempen Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_mageweave": {
+      "name": "Bolt of Mageweave",
+      "material_type": "bolt",
+      "tier": "mid",
+      "skill_range": [
+        70,
+        90,
+        110,
+        130
+      ],
+      "sell_price": 25,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_mageweave",
+      "description": "Mageweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_spidersilk": {
+      "name": "Bolt of Spidersilk",
+      "material_type": "bolt",
+      "tier": "mid",
+      "skill_range": [
+        80,
+        100,
+        120,
+        140
+      ],
+      "sell_price": 29,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_spidersilk",
+      "description": "Spidersilk Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_dusk_velvet": {
+      "name": "Bolt of Dusk Velvet",
+      "material_type": "bolt",
+      "tier": "mid",
+      "skill_range": [
+        90,
+        110,
+        130,
+        150
+      ],
+      "sell_price": 33,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_dusk_velvet",
+      "description": "Dusk Velvet woven into a tight bolt ready for tailoring."
+    },
+    "bolt_gossamer": {
+      "name": "Bolt of Gossamer",
+      "material_type": "bolt",
+      "tier": "mid",
+      "skill_range": [
+        100,
+        120,
+        140,
+        160
+      ],
+      "sell_price": 37,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_gossamer",
+      "description": "Gossamer Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_thistledown": {
+      "name": "Bolt of Thistledown",
+      "material_type": "bolt",
+      "tier": "mid",
+      "skill_range": [
+        110,
+        130,
+        150,
+        170
+      ],
+      "sell_price": 41,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_thistledown",
+      "description": "Thistledown Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_runecloth": {
+      "name": "Bolt of Runecloth",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        135,
+        160,
+        180,
+        210
+      ],
+      "sell_price": 49,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_runecloth",
+      "description": "Runecloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_netherweave": {
+      "name": "Bolt of Netherweave",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        150,
+        175,
+        195,
+        225
+      ],
+      "sell_price": 53,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_netherweave",
+      "description": "Netherweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_frostweave": {
+      "name": "Bolt of Frostweave",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        165,
+        190,
+        210,
+        240
+      ],
+      "sell_price": 57,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_frostweave",
+      "description": "Frostweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_emberweave": {
+      "name": "Bolt of Emberweave",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        180,
+        205,
+        225,
+        255
+      ],
+      "sell_price": 61,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_emberweave",
+      "description": "Emberweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_moonsilk": {
+      "name": "Bolt of Moonsilk",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        195,
+        220,
+        240,
+        270
+      ],
+      "sell_price": 65,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_moonsilk",
+      "description": "Moonsilk woven into a tight bolt ready for tailoring."
+    },
+    "bolt_shadowsilk": {
+      "name": "Bolt of Shadowsilk",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        210,
+        235,
+        255,
+        285
+      ],
+      "sell_price": 69,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_shadowsilk",
+      "description": "Shadowsilk woven into a tight bolt ready for tailoring."
+    },
+    "bolt_starweave": {
+      "name": "Bolt of Starweave",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        225,
+        250,
+        270,
+        300
+      ],
+      "sell_price": 73,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_starweave",
+      "description": "Starweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_bloodsilk": {
+      "name": "Bolt of Bloodsilk",
+      "material_type": "bolt",
+      "tier": "late",
+      "skill_range": [
+        240,
+        265,
+        285,
+        315
+      ],
+      "sell_price": 77,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_bloodsilk",
+      "description": "Bloodsilk woven into a tight bolt ready for tailoring."
+    },
+    "bolt_felcloth": {
+      "name": "Bolt of Felcloth",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        260,
+        285,
+        305,
+        335
+      ],
+      "sell_price": 91,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_felcloth",
+      "description": "Felcloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_soulcloth": {
+      "name": "Bolt of Soulcloth",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        270,
+        295,
+        315,
+        345
+      ],
+      "sell_price": 97,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_soulcloth",
+      "description": "Soulcloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_windwool": {
+      "name": "Bolt of Windwool",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        280,
+        305,
+        325,
+        355
+      ],
+      "sell_price": 101,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_windwool",
+      "description": "Windwool Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_imperial_silk": {
+      "name": "Bolt of Imperial Silk",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        290,
+        315,
+        335,
+        365
+      ],
+      "sell_price": 111,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_imperial_silk",
+      "description": "Imperial Silk woven into a tight bolt ready for tailoring."
+    },
+    "bolt_voidweave": {
+      "name": "Bolt of Voidweave",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        300,
+        325,
+        345,
+        375
+      ],
+      "sell_price": 117,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_voidweave",
+      "description": "Voidweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_sunthread": {
+      "name": "Bolt of Sunthread",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ],
+      "sell_price": 121,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_sunthread",
+      "description": "Sunthread Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_dreamsilk": {
+      "name": "Bolt of Dreamsilk",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ],
+      "sell_price": 131,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_dreamsilk",
+      "description": "Dreamsilk woven into a tight bolt ready for tailoring."
+    },
+    "bolt_chronoweave": {
+      "name": "Bolt of Chronoweave",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        330,
+        355,
+        375,
+        405
+      ],
+      "sell_price": 137,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_chronoweave",
+      "description": "Chronoweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_abyssal_velvet": {
+      "name": "Bolt of Abyssal Velvet",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ],
+      "sell_price": 141,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_abyssal_velvet",
+      "description": "Abyssal Velvet woven into a tight bolt ready for tailoring."
+    },
+    "bolt_stormweave": {
+      "name": "Bolt of Stormweave",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ],
+      "sell_price": 145,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_stormweave",
+      "description": "Stormweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_lightwoven": {
+      "name": "Bolt of Lightwoven Cloth",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        360,
+        385,
+        405,
+        435
+      ],
+      "sell_price": 151,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_lightwoven",
+      "description": "Lightwoven Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_wyrmsilk": {
+      "name": "Bolt of Wyrmsilk",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ],
+      "sell_price": 157,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_wyrmsilk",
+      "description": "Wyrmsilk woven into a tight bolt ready for tailoring."
+    },
+    "bolt_phoenix_cloth": {
+      "name": "Bolt of Phoenix Cloth",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        370,
+        395,
+        415,
+        445
+      ],
+      "sell_price": 161,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_phoenix_cloth",
+      "description": "Phoenix Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_arcanoweave": {
+      "name": "Bolt of Arcanoweave",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        375,
+        400,
+        420,
+        450
+      ],
+      "sell_price": 171,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_arcanoweave",
+      "description": "Arcanoweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_titanweave": {
+      "name": "Bolt of Titanweave",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        378,
+        403,
+        423,
+        453
+      ],
+      "sell_price": 177,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_titanweave",
+      "description": "Titanweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_spiritwoven": {
+      "name": "Bolt of Spiritwoven Cloth",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        380,
+        405,
+        425,
+        455
+      ],
+      "sell_price": 181,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_spiritwoven",
+      "description": "Spiritwoven Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_nightmare_lace": {
+      "name": "Bolt of Nightmare Lace",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        382,
+        407,
+        427,
+        457
+      ],
+      "sell_price": 185,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_nightmare_lace",
+      "description": "Nightmare Lace woven into a tight bolt ready for tailoring."
+    },
+    "bolt_ghostgauze": {
+      "name": "Bolt of Ghostgauze",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        384,
+        409,
+        429,
+        459
+      ],
+      "sell_price": 191,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_ghostgauze",
+      "description": "Ghostgauze woven into a tight bolt ready for tailoring."
+    },
+    "bolt_starsilk": {
+      "name": "Bolt of Starsilk",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        386,
+        411,
+        431,
+        461
+      ],
+      "sell_price": 197,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_starsilk",
+      "description": "Starsilk woven into a tight bolt ready for tailoring."
+    },
+    "bolt_worldweave": {
+      "name": "Bolt of Worldweave",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        388,
+        413,
+        433,
+        463
+      ],
+      "sell_price": 201,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_worldweave",
+      "description": "Worldweave Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_genesis_cloth": {
+      "name": "Bolt of Genesis Cloth",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        390,
+        415,
+        435,
+        465
+      ],
+      "sell_price": 221,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_genesis_cloth",
+      "description": "Genesis Cloth woven into a tight bolt ready for tailoring."
+    },
+    "bolt_primordial_weave": {
+      "name": "Bolt of Primordial Weave",
+      "material_type": "bolt",
+      "tier": "endgame",
+      "skill_range": [
+        395,
+        420,
+        440,
+        470
+      ],
+      "sell_price": 251,
+      "stack_limit": 20,
+      "profession": "tailoring",
+      "icon_id": "bolt_primordial_weave",
+      "description": "Primordial Weave woven into a tight bolt ready for tailoring."
     }
   }
 }

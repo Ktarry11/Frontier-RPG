@@ -698,6 +698,21 @@ class CombatEngine:
                     self.combat_log.append(f"{enemy.name} dropped: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
         except Exception as exc:  # cloth is a bonus; never let it break victory
             print(f"WARNING: cloth drop failed: {exc}")
+        # Leather for Leatherworking (entities/skinning_drops.py): beasts only, Skinning gated.
+        try:
+            from entities.skinning_drops import roll_leather
+            from world.gathering_manager import get_gathering_node_manager
+            gm = get_gathering_node_manager()
+            for enemy in self.enemies:
+                for material_id, qty in roll_leather(enemy, player=self.player):
+                    mat = gm.make_material_instance(material_id)
+                    if mat is None:
+                        continue
+                    mat.quantity = qty
+                    self.player.add_material(mat)
+                    self.combat_log.append(f"You skinned {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+        except Exception as exc:  # skinning is a bonus; never let it break victory
+            print(f"WARNING: skinning drop failed: {exc}")
         self.trash_gained = trash_count
         self.trash_value = trash_value
         self.copper_earned = total_copper

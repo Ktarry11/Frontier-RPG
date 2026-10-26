@@ -1,5 +1,5 @@
 {
-  "_comment": "Per-zone gathering node pools for OVERWORLD zones. 'slots' is the number of candidate spawn points GatheringNodeManager rolls random walkable tiles for on every zone entry. 'active_percent' is the fraction of those slots that actually spawn a node each visit (Kyle's 'reroll a % every time you leave/re-enter' design). 'table' is a weighted material pool this zone draws from - only early-tier ore/herb materials are wired for Phase 1, other zones are intentionally left out rather than guessed at. Valley of Trials and Razor Hill are both treated as newbie zones (Kyle, 2026-09-12) and deliberately exclude Tin/Mageroyal - those stay Durotar-and-beyond materials. Cave ore pools are NOT authored here - see gathering_manager.py's CAVE_TO_PARENT_ZONE + populate()'s cave branch, which derives a cave's ore table from its own parent zone's 'table' above rather than needing a second copy of the same data. Eastern Kingdoms zones (Deathknell, Eastern Tirisfal, Western Tirisfal, Silverpine North, Silverpine South) are deliberately herb-heavy vs ore (Kyle, 2026-09-12: 'more herb rich than mining rich') - Brill and The Sepulcher are excluded entirely, both are zone.is_town=True (same convention as every other town having no node pool). Deathknell is the Forsaken's tutorial zone (their Valley of Trials equivalent) so it gets the gentlest materials only, same newbie-zone logic as Valley of Trials itself. Northern/Central Barrens stay Early-tier only (Kyle: 'keep some basic in central Barrens') - Southern Barrens and both Ashenvale zones introduce a SLOW creep of Mid-tier materials (Briarthorn, Iron, Silver) at low weight (1, vs Copper's 3) so they show up as genuinely rare finds, not a full tier jump (Kyle, 2026-09-12: 'slow creeping of materials'). Astranaar/Zoram Strand/Splintertree Post excluded as towns, same convention. WOODCUTTING (Oct 2026, only the 4 Early Woods exist so far): Kyle - 'less wood in dry areas and more wood in wooded areas, just like some zones are better for mining or herbalism.' Durotar/Razor Hill/Valley of Trials/the 3 Barrens zones are real-WoW savanna/desert, so they get Ashwood only, at low weight (1) - scrubby, sparse trees, not a real woodcutting destination. Echo Isles (tropical island) and the Tirisfal/Deathknell zones (real-WoW dark forest) get a moderate early spread. Silverpine (real-WoW's actual dense-forest zone) and Ashenvale (the densest forest zone in Classic WoW) get the full 4-wood spread at higher weights, making them the genuine 'go here to woodcut' destinations, same role ore/herb-rich zones already play for Mining/Herbalism. Driftwood Stump (coastal flavor - 'found where water meets shore') is weighted up specifically in the zones that actually border water in real WoW (Echo Isles' islands, Silverpine's coast, Ashenvale's Zoram Strand coast) and left out of inland zones entirely, rather than spread evenly.",
+  "_comment": "Per-zone gathering node pools for OVERWORLD zones. 'slots' = candidate spawn points rolled per zone entry. 'active_percent' = fraction that actually spawn each visit. 'table' = weighted material pool. PROGRESSION DESIGN (audited 2026-10-26): Early zones (1-15) use Copper/Weakstone ore only; Tin creeps in at Northern Barrens (10-20); Iron first appears Southern Barrens (18-25) at weight 1; Iron becomes mid-weight in Ashenvale (20-32). NO Copper in Ashenvale - player is 20+ and has long graduated past it. NO Silver/Coal until Ashenvale. Mid herbs (Bruiseweed) first appear Central Barrens; Briarthorn/Liferoot appear Southern Barrens/Silverpine; Kingsblood/Goldthorn are Silverpine South / Ashenvale. Tirisfal (4-14) is early-only - no mid herbs or Ironbark. Fenris Isle (16-22) is newly added: herb/coastal-wood-rich wolf island. Wood: Ashwood/Oakheart early, Softpine/Ironbark mid (Silverpine+), Frostpine/Bramblewood late (Ashenvale). Bramblewood is Ashenvale-only (densest forest). Cave ore pools are derived from parent zone table by gathering_manager.py - not authored here. Town zones (Brill, Sepulcher, Astranaar, etc.) have no pool - same convention everywhere.",
   "zones": {
     "valley_of_trials": {
       "slots": 10,
@@ -10,6 +10,18 @@
         "herb_earthroot": 2,
         "ore_copper": 3,
         "ore_weakstone": 2,
+        "wood_ashwood": 1
+      }
+    },
+    "razor_hill": {
+      "slots": 8,
+      "active_percent": 0.4,
+      "table": {
+        "herb_peacebloom": 2,
+        "herb_silverleaf": 2,
+        "herb_fadeleaf": 1,
+        "ore_copper": 2,
+        "ore_weakstone": 1,
         "wood_ashwood": 1
       }
     },
@@ -24,18 +36,6 @@
         "ore_copper": 3,
         "ore_tin": 2,
         "ore_weakstone": 2,
-        "wood_ashwood": 1
-      }
-    },
-    "razor_hill": {
-      "slots": 8,
-      "active_percent": 0.4,
-      "table": {
-        "herb_peacebloom": 2,
-        "herb_silverleaf": 2,
-        "herb_fadeleaf": 1,
-        "ore_copper": 2,
-        "ore_weakstone": 1,
         "wood_ashwood": 1
       }
     },
@@ -78,9 +78,7 @@
         "ore_weakstone": 1,
         "wood_ashwood": 2,
         "wood_oakheart_stump": 2,
-        "wood_softpine": 1,
-        "herb_bruiseweed": 1,
-        "wood_ironbark_stump": 1
+        "wood_softpine": 1
       }
     },
     "western_tirisfal": {
@@ -96,8 +94,53 @@
         "ore_tin": 1,
         "wood_ashwood": 2,
         "wood_oakheart_stump": 2,
-        "wood_softpine": 1,
+        "wood_softpine": 1
+      }
+    },
+    "northern_barrens": {
+      "slots": 20,
+      "active_percent": 0.4,
+      "table": {
+        "herb_peacebloom": 3,
+        "herb_silverleaf": 3,
+        "herb_earthroot": 2,
+        "ore_copper": 3,
+        "ore_tin": 1,
+        "ore_weakstone": 1,
+        "wood_ashwood": 1
+      }
+    },
+    "central_barrens": {
+      "slots": 22,
+      "active_percent": 0.4,
+      "table": {
+        "herb_peacebloom": 3,
+        "herb_silverleaf": 2,
+        "herb_earthroot": 2,
+        "herb_mageroyal": 1,
         "herb_bruiseweed": 1,
+        "ore_copper": 2,
+        "ore_tin": 2,
+        "ore_weakstone": 1,
+        "wood_ashwood": 1
+      }
+    },
+    "southern_barrens": {
+      "slots": 20,
+      "active_percent": 0.4,
+      "table": {
+        "herb_peacebloom": 1,
+        "herb_silverleaf": 2,
+        "herb_earthroot": 2,
+        "herb_mageroyal": 2,
+        "herb_briarthorn": 1,
+        "herb_bruiseweed": 2,
+        "herb_liferoot": 1,
+        "ore_copper": 1,
+        "ore_tin": 3,
+        "ore_rough_iron": 2,
+        "ore_iron": 1,
+        "wood_ashwood": 1,
         "wood_ironbark_stump": 1
       }
     },
@@ -110,16 +153,15 @@
         "herb_fadeleaf": 3,
         "herb_dewgrass": 2,
         "herb_mageroyal": 2,
-        "ore_copper": 2,
+        "herb_bruiseweed": 2,
+        "herb_liferoot": 1,
+        "ore_copper": 1,
         "ore_tin": 2,
-        "ore_rough_iron": 1,
+        "ore_rough_iron": 2,
         "wood_ashwood": 3,
         "wood_oakheart_stump": 2,
         "wood_softpine": 2,
         "wood_driftwood_stump": 1,
-        "herb_bruiseweed": 2,
-        "herb_liferoot": 1,
-        "herb_kingsblood": 1,
         "wood_ironbark_stump": 2,
         "wood_frostpine": 1
       }
@@ -128,98 +170,64 @@
       "slots": 22,
       "active_percent": 0.4,
       "table": {
-        "herb_silverleaf": 3,
+        "herb_silverleaf": 2,
         "herb_earthroot": 3,
         "herb_fadeleaf": 3,
         "herb_dewgrass": 2,
         "herb_mageroyal": 2,
-        "ore_copper": 2,
+        "herb_bruiseweed": 2,
+        "herb_liferoot": 2,
+        "herb_kingsblood": 1,
         "ore_tin": 2,
-        "ore_rough_iron": 1,
+        "ore_rough_iron": 2,
+        "ore_iron": 1,
         "wood_ashwood": 3,
         "wood_oakheart_stump": 2,
         "wood_softpine": 2,
         "wood_driftwood_stump": 1,
-        "herb_bruiseweed": 2,
-        "herb_liferoot": 2,
-        "herb_kingsblood": 1,
-        "herb_goldthorn": 1,
         "wood_ironbark_stump": 2,
         "wood_frostpine": 2
       }
     },
-    "northern_barrens": {
-      "slots": 20,
-      "active_percent": 0.4,
+    "fenris_isle": {
+      "slots": 12,
+      "active_percent": 0.45,
       "table": {
-        "herb_peacebloom": 3,
-        "herb_silverleaf": 3,
         "herb_earthroot": 2,
-        "ore_copper": 3,
-        "ore_weakstone": 2,
-        "wood_ashwood": 1
-      }
-    },
-    "central_barrens": {
-      "slots": 22,
-      "active_percent": 0.4,
-      "table": {
-        "herb_peacebloom": 3,
-        "herb_silverleaf": 3,
-        "herb_earthroot": 2,
-        "ore_copper": 3,
-        "ore_weakstone": 2,
-        "wood_ashwood": 1,
-        "herb_bruiseweed": 1
-      }
-    },
-    "southern_barrens": {
-      "slots": 20,
-      "active_percent": 0.4,
-      "table": {
-        "herb_peacebloom": 2,
-        "herb_silverleaf": 2,
-        "herb_earthroot": 2,
+        "herb_fadeleaf": 2,
+        "herb_dewgrass": 3,
         "herb_mageroyal": 2,
-        "herb_briarthorn": 1,
-        "ore_copper": 3,
-        "ore_tin": 2,
-        "ore_rough_iron": 1,
-        "ore_iron": 1,
-        "ore_silver": 1,
-        "ore_coal": 1,
-        "wood_ashwood": 1,
         "herb_bruiseweed": 2,
         "herb_liferoot": 1,
-        "herb_kingsblood": 1,
-        "wood_ironbark_stump": 1
+        "ore_tin": 1,
+        "ore_rough_iron": 1,
+        "wood_oakheart_stump": 2,
+        "wood_softpine": 2,
+        "wood_driftwood_stump": 2
       }
     },
     "ashenvale_west": {
       "slots": 22,
       "active_percent": 0.4,
       "table": {
-        "herb_silverleaf": 2,
-        "herb_earthroot": 2,
         "herb_fadeleaf": 2,
         "herb_mageroyal": 2,
         "herb_briarthorn": 2,
-        "ore_copper": 2,
-        "ore_tin": 2,
-        "ore_rough_iron": 1,
-        "ore_iron": 1,
-        "ore_silver": 1,
-        "ore_coal": 1,
-        "wood_ashwood": 3,
-        "wood_oakheart_stump": 3,
-        "wood_softpine": 2,
-        "wood_driftwood_stump": 1,
         "herb_bruiseweed": 2,
         "herb_liferoot": 2,
         "herb_kingsblood": 2,
         "herb_goldthorn": 1,
+        "ore_tin": 1,
+        "ore_rough_iron": 2,
+        "ore_iron": 2,
+        "ore_silver": 1,
+        "ore_coal": 1,
+        "wood_ashwood": 2,
+        "wood_oakheart_stump": 3,
+        "wood_softpine": 2,
+        "wood_driftwood_stump": 1,
         "wood_ironbark_stump": 2,
-        "wood_frostpine": 1,
+        "wood_frostpine": 2,
         "wood_bramblewood": 2
       }
     },
@@ -227,28 +235,25 @@
       "slots": 22,
       "active_percent": 0.4,
       "table": {
-        "herb_silverleaf": 2,
-        "herb_earthroot": 2,
         "herb_fadeleaf": 2,
         "herb_mageroyal": 2,
         "herb_briarthorn": 2,
-        "ore_copper": 2,
-        "ore_tin": 2,
-        "ore_rough_iron": 1,
-        "ore_iron": 1,
-        "ore_silver": 1,
-        "ore_coal": 1,
-        "wood_ashwood": 3,
-        "wood_oakheart_stump": 3,
-        "wood_softpine": 2,
-        "wood_driftwood_stump": 1,
         "herb_bruiseweed": 2,
         "herb_liferoot": 2,
         "herb_kingsblood": 2,
         "herb_goldthorn": 2,
+        "ore_tin": 1,
+        "ore_rough_iron": 2,
+        "ore_iron": 2,
+        "ore_silver": 1,
+        "ore_coal": 1,
+        "wood_ashwood": 2,
+        "wood_oakheart_stump": 3,
+        "wood_softpine": 2,
+        "wood_driftwood_stump": 1,
         "wood_ironbark_stump": 2,
         "wood_frostpine": 2,
-        "wood_bramblewood": 2
+        "wood_bramblewood": 3
       }
     }
   }
