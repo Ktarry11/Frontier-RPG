@@ -33,6 +33,19 @@ class ConsumableManager:
         except json.JSONDecodeError as e:
             print(f"ERROR: Failed to parse consumable types JSON: {e}")
     
+    def has_consumable(self, consumable_id):
+        """True if this id is a known consumable.
+
+        Lets a caller that accepts SEVERAL item kinds (the vendor screen
+        resolves a sell-list id as either a consumable or a crafting
+        material) test membership without going through get_consumable,
+        which logs a WARNING for an unknown id. That warning is right for a
+        genuine typo but wrong for an ordinary "is it this kind?" probe - it
+        was printing ~190 false warnings on every vendor open, one per
+        reagent, which buries the real warnings it exists to surface.
+        """
+        return consumable_id in self.consumables_db
+
     def get_consumable(self, consumable_id, quantity=1):
         """
         Create a new Consumable instance from a definition.

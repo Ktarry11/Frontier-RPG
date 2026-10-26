@@ -81,6 +81,7 @@ MATERIAL_KITS = {
     "upgrade_kit_copper":    "copper",
     "upgrade_kit_bronze":    "bronze",
     "upgrade_kit_rough_iron":"rough_iron",
+    "upgrade_kit_iron":     "iron",
     "upgrade_kit_steel":     "steel",
     # Tailoring — cloth tiers (WoW anchors + Frontier tiers woven in)
     "upgrade_kit_linen":     "linen",
@@ -184,22 +185,29 @@ FIRST_BUMP = 0.10          # +10% of every stat (and ~+2 item levels)
 SECOND_BUMP_MULT = 2.0     # second kit adds 2x the first kit's delta = another +20% of the original
 ILVL_GAIN = {1: 2, 2: 3}
 UPGRADE_TAGS = {1: "Refined", 2: "Superior"}
-_TAG_PREFIXES = tuple(t + " " for t in UPGRADE_TAGS.values())
 
 
 def upgrade_tag(item):
-    """'Refined' / 'Superior' / None - shown in the item name and tooltips."""
+    """'Refined' / 'Superior' / None - the badge an upgraded item carries.
+
+    Kyle, 2026-10-26: "the name does not change ... it doesnt become
+    'improved iron sword' or 'refined iron sword' but its still 'iron sword'
+    with an indication that its refined on the item card etc."
+
+    So this is purely a DISPLAY value: an Iron Sword stays named "Iron
+    Sword" forever, and the UI renders this tag beside it (item card,
+    tooltip, inventory row). upgrade_item never touches item.name.
+
+    An earlier version did rename the item, which was wrong twice over -
+    against the design above, and buggy: "Superior" is also one of
+    LootGenerator's rare-tier quality prefixes
+    (ARMOR_NAME_PREFIXES["rare"] = ["Superior", "Masterwork",
+    "Battleworn"]), so the rename logic stripped that legitimately-rolled
+    word off any crafted rare it touched, and a twice-upgraded one read
+    "Superior Superior Chestguard". Keeping the tag out of the name
+    sidesteps the collision completely.
+    """
     return UPGRADE_TAGS.get(getattr(item, "upgrade_count", 0))
-
-
-def _retag_name(item):
-    name = item.name
-    for prefix in _TAG_PREFIXES:
-        if name.startswith(prefix):
-            name = name[len(prefix):]
-            break
-    tag = upgrade_tag(item)
-    item.name = f"{tag} {name}" if tag else name
 
 
 def _grant_rarity_stats(item, new_rarity):
@@ -321,5 +329,7 @@ def upgrade_item(character, item, kit_material_id):
         # ever read it for a (nonexistent) 3rd application.
         item.upgrade_deltas = None
 
-    _retag_name(item)
+    # item.name is deliberately NOT touched - an upgraded Iron Sword is still
+    # "Iron Sword". The "Refined"/"Superior" state is read off upgrade_count
+    # by the UI via upgrade_tag(item) and drawn as a badge beside the name.
     return item

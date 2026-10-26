@@ -3123,6 +3123,103 @@
       "vendor_price": 4,
       "sell_price": 1,
       "icon_id": "glue"
+    },
+    "herb_stranglekelp": {
+      "name": "Stranglekelp",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "mid",
+      "description": "A ropey strand of coastal kelp, still slick with brine. Alchemists prize it for elixirs that quicken the blood.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 4,
+      "icon_id": "stranglekelp",
+      "skill_range": [
+        85,
+        135,
+        175,
+        215
+      ]
+    },
+    "herb_khadgar": {
+      "name": "Khadgar's Whisker",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "mid",
+      "description": "Fine silver filaments that tremble without any wind. Named for the archmage, though nobody agrees why.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "icon_id": "khadgar",
+      "skill_range": [
+        160,
+        210,
+        250,
+        290
+      ]
+    },
+    "herb_firebloom": {
+      "name": "Firebloom",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "late",
+      "description": "Petals that hold a dry heat long after cutting. Handle it with gloves; it has scorched more than one careless herbalist.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 10,
+      "icon_id": "firebloom",
+      "skill_range": [
+        205,
+        255,
+        295,
+        335
+      ]
+    },
+    "herb_sungrass": {
+      "name": "Sungrass",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "late",
+      "description": "Pale blades that store the day's light and give it back at dusk. A steadying reagent in guardian elixirs.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 11,
+      "icon_id": "sungrass",
+      "skill_range": [
+        230,
+        280,
+        320,
+        360
+      ]
+    },
+    "herb_blindweed": {
+      "name": "Blindweed",
+      "material_type": "herb",
+      "profession": "herbalism",
+      "tier": "late",
+      "description": "A marsh creeper whose sap clouds the eyes on contact. Diluted properly, it sharpens them instead.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 11,
+      "icon_id": "blindweed",
+      "skill_range": [
+        235,
+        285,
+        325,
+        365
+      ]
+    },
+    "upgrade_kit_iron": {
+      "name": "Iron Upgrade Kit",
+      "material_type": "kit",
+      "profession": "blacksmithing",
+      "tier": "kit",
+      "description": "Iron shims, rivets and a tin of grinding paste. Reworks iron-forged gear into something a smith will admit to having made.",
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "icon_id": "upgrade_kit_iron",
+      "skill_range": null
     }
   }
 }

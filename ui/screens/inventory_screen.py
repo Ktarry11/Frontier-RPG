@@ -799,7 +799,17 @@ class InventoryScreen(BaseScreen):
                 self.renderer.draw_text(screen, line, (x + 8, y + 8 + i * 20), color=color)
             return
 
-        lines = [item.name, f"Item Level {item.item_level}  |  {item.rarity.capitalize()}"]
+        # Upgrade-kit state rides on this line as a badge rather than in the
+        # item's name - Kyle, 2026-10-26: an upgraded Iron Sword is still
+        # called "Iron Sword", with the Refined/Superior state shown on the
+        # card. upgrade_tag() returns None for anything never upgraded, so
+        # unupgraded and non-crafted gear reads exactly as it did before.
+        from world.upgrade_manager import upgrade_tag
+        tag = upgrade_tag(item)
+        header = f"Item Level {item.item_level}  |  {item.rarity.capitalize()}"
+        if tag:
+            header += f"  |  {tag}"
+        lines = [item.name, header]
         if item.armor_type and item.armor_type not in ("accessory", "weapon"):
             lines.append(item.armor_type.capitalize())
             lines.append(f"Armor: {item.armor_value}{self._armor_reduction_note(item)}")

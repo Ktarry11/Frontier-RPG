@@ -89,17 +89,20 @@ class VendorScreen(BaseScreen):
 
         items = []
         for item_id in self.vendor.sells:
-            # Try consumable first
-            c = self.consumable_manager.get_consumable(item_id, quantity=1)
-            if c:
-                items.append(c)
+            # Membership test BEFORE get_consumable, not a get-and-check:
+            # get_consumable logs a WARNING for an unknown id, and an id that
+            # is a crafting reagent rather than a consumable is the normal
+            # case here, not an error. Probing with get_consumable printed
+            # one false warning per reagent (~190 per vendor open).
+            if self.consumable_manager.has_consumable(item_id):
+                items.append(self.consumable_manager.get_consumable(item_id, quantity=1))
                 continue
-            # Try material (reagent or gathered mat)
+            # Crafting reagent or gathered material
             mat = gathering_mgr.make_material_instance(item_id)
             if mat:
                 items.append(mat)
                 continue
-            # Unknown ID — warn and skip rather than crash
+            # Genuinely unknown ID — warn and skip rather than crash
             print(f"[VendorScreen] WARNING: unknown sell ID '{item_id}' on vendor '{self.vendor.vendor_id}'")
 
         items.sort(key=lambda x: getattr(x, "vendor_price", 0))
@@ -437,7 +440,11 @@ class VendorScreen(BaseScreen):
                                 size="small", color=COLOR_GOLD)
 
         if is_gear:
+            from world.upgrade_manager import upgrade_tag
             slot_label = item.slot.replace("_", " ").title()
+            tag = upgrade_tag(item)
+            if tag:
+                slot_label = f"{slot_label}  ·  {tag}"
             self.renderer.draw_text(screen, slot_label, (rect.x + 10, rect.y + 24),
                                     size="small", color=(160, 160, 170))
         elif is_mat:
@@ -452,7 +459,13 @@ class VendorScreen(BaseScreen):
         lines = [item.name]
 
         if is_gear:
-            lines.append(f"{item.rarity.title()} — {item.slot.replace('_', ' ').title()}")
+            # Refined/Superior shown as a badge, never folded into the name.
+            from world.upgrade_manager import upgrade_tag
+            tag = upgrade_tag(item)
+            head = f"{item.rarity.title()} — {item.slot.replace('_', ' ').title()}"
+            if tag:
+                head += f" — {tag}"
+            lines.append(head)
             if item.armor_value:
                 lines.append(f"Armor: {item.armor_value}")
             for stat, val in item.primary_stats.items():
