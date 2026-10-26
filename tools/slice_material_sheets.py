@@ -34,9 +34,15 @@ PLANKS = ["ashwood", "oakheart", "softpine", "driftwood", "redbark", "ironbark",
           "moonpetal", "thornveil", "voidwood", "sunheart", "felbark", "starforged_oak", "bloodroot", "frostheart",
           "molten_ironwood", "stormoak", "nightshade", "radiant_ashenwood", "dreamwillow", "worldbranch", "chronoak", "abysswood",
           "sunderedwood", "wyrmscak", "astral_birch", "ebonthorn", "sylvanheart", "cataclysm_root", "genesis_bough", "worldtree_heartwood"]
+BOLTS = ["linen", "wool", "cotton", "hempen", "silk", "mageweave", "spidersilk", "dusk_velvet",
+         "gossamer", "thistledown", "runecloth", "netherweave", "frostweave", "emberweave", "moonsilk", "shadowsilk",
+         "starweave", "bloodsilk", "felcloth", "soulcloth", "windwool", "imperial_silk", "voidweave", "sunthread",
+         "dreamsilk", "chronoweave", "abyssal_velvet", "stormweave", "lightwoven", "wyrmsilk", "phoenix_cloth", "arcanoweave",
+         "titanweave", "spiritwoven", "nightmare_lace", "ghostgauze", "starsilk", "worldweave", "genesis_cloth", "primordial_weave"]
 SHEETS = {"cloth": ("cloth_sheet.png", "cloth", "cloth", CLOTH),
           "leather": ("leather_sheet.png", "leather", "leather", LEATHER),
-          "planks": ("plank_sheet.png", "planks", "plank", PLANKS)}
+          "planks": ("plank_sheet.png", "planks", "plank", PLANKS),
+          "bolts": ("bolt_sheet.png", "cloth", "bolt", BOLTS)}
 
 
 def slice_sheet(kind):
