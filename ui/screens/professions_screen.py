@@ -28,6 +28,8 @@ from world.crafting_manager import get_crafting_manager
 from world.sawmill_manager import get_sawmill_manager
 from world import profession_manager
 from world.upgrade_manager import get_kit_for_item, can_upgrade, upgrade_item, next_rarity_for, MAX_UPGRADE_COUNT
+from world.attachment_manager import (ATTACHMENTS, is_attachable, attachments_for_item,
+                                      attach, attachment_label)
 
 
 #: Display order and label for each known gathering profession. A
@@ -105,6 +107,12 @@ class ProfessionsScreen(BaseScreen):
         self.selected_upgrade_item = None
         self.upgrade_item_rects = []  # eligible crafted items in the bag
         self.upgrade_kit_button_rects = []  # one rect per kit the player holds that fits the selected item
+        #: One rect per weapon ATTACHMENT that fits the selected item (scopes,
+        #: limbs). Separate list from the kit rects because the two are
+        #: different systems with different rules - see
+        #: world/attachment_manager.py's header - and a weapon can legitimately
+        #: offer both at once.
+        self.attachment_button_rects = []
         self.upgrade_message = None
         self.upgrade_message_color = (140, 220, 160)
         self.upgrade_message_timer = 0.0
@@ -184,6 +192,10 @@ class ProfessionsScreen(BaseScreen):
                 for kit_id, rect in self.upgrade_kit_button_rects:
                     if rect.collidepoint(event.pos):
                         self._attempt_upgrade(kit_id)
+                        return
+                for attach_id, rect in self.attachment_button_rects:
+                    if rect.collidepoint(event.pos):
+                        self._attempt_attach(attach_id)
                         return
 
     def _attempt_smelt(self, recipe_index):
@@ -282,6 +294,29 @@ class ProfessionsScreen(BaseScreen):
             # an item that might not even still list a kit button under
             # it next render.
             self.selected_upgrade_item = None
+
+    def _attempt_attach(self, attachment_id):
+        """Fit a weapon attachment to the selected item.
+
+        Same division of responsibility as _attempt_upgrade: attach() re-runs
+        its own eligibility checks, so this only turns the result into a
+        message. The selection is cleared on success because an attachment is
+        permanent and single - the weapon has nothing left to offer, and a
+        stale selection would keep rendering buttons attach() would refuse.
+        """
+        player = self.state_manager.player
+        item = self.selected_upgrade_item
+        if item is None:
+            return
+        result = attach(player, item, attachment_id)
+        if result is None:
+            self.upgrade_message = "That doesn't fit this weapon."
+            self.upgrade_message_color = (240, 140, 140)
+        else:
+            self.upgrade_message = f"{attachment_label(result)} fitted to {result.name}."
+            self.upgrade_message_color = (140, 220, 160)
+            self.selected_upgrade_item = None
+        self.upgrade_message_timer = 3.0
 
     def update(self, dt):
         if self.smelt_message_timer > 0:
@@ -571,17 +606,25 @@ class ProfessionsScreen(BaseScreen):
         player = self.state_manager.player
         self.upgrade_item_rects = []
         self.upgrade_kit_button_rects = []
+        self.attachment_button_rects = []
 
-        eligible = [item for item in player.inventory if getattr(item, "is_crafted", False) and get_kit_for_item(item) is not None]
+        # Two independent reasons an item can appear here, so the tab is one
+        # place for "permanently improve this item" rather than two:
+        #   - a crafted piece with an upgrade kit still available, or
+        #   - a ranged weapon that can still take an attachment (which does
+        #     NOT require is_crafted - a scope goes on a dropped rifle too).
+        eligible = [item for item in player.inventory
+                    if (getattr(item, "is_crafted", False) and get_kit_for_item(item) is not None)
+                    or (is_attachable(item) and attachments_for_item(item))]
 
         if not eligible:
             self.renderer.draw_text(
                 screen,
-                "No crafted gear is eligible for an upgrade right now.",
+                "Nothing in your bags can be improved right now.",
                 (PANEL_X, PANEL_Y), color=(150, 150, 150))
             self.renderer.draw_text(
                 screen,
-                "Craft gear from a profession (e.g. Blacksmithing) first - only crafted items can be upgraded.",
+                "Crafted gear takes upgrade kits; guns, bows and crossbows take scopes and limbs.",
                 (PANEL_X, PANEL_Y + 28), size="small", color=(120, 120, 120))
             self._draw_upgrade_message(screen)
             return
@@ -597,7 +640,12 @@ class ProfessionsScreen(BaseScreen):
             self.renderer.draw_rect(screen, rect, (30, 30, 35))
             self.renderer.draw_rect(screen, rect, border_color, fill=False)
             self.renderer.draw_text(screen, item.name, (rect.x + 10, rect.y + 6), color=COLOR_WHITE)
-            status = f"{item.rarity.title()}   ({item.upgrade_count}/{MAX_UPGRADE_COUNT} upgrades used)"
+            status = f"{item.rarity.title()}"
+            if getattr(item, "is_crafted", False):
+                status += f"   ({item.upgrade_count}/{MAX_UPGRADE_COUNT} upgrades used)"
+            if is_attachable(item):
+                fitted = attachment_label(item)
+                status += f"   [{fitted}]" if fitted else "   [no attachment]"
             self.renderer.draw_text(screen, status, (rect.x + 10, rect.y + 24), size="small", color=COLOR_LIGHT_GRAY)
             self.upgrade_item_rects.append((item, rect))
             y += row_h
@@ -614,7 +662,19 @@ class ProfessionsScreen(BaseScreen):
             return
 
         item = self.selected_upgrade_item
-        kit_id = get_kit_for_item(item)
+        kit_id = get_kit_for_item(item) if getattr(item, "is_crafted", False) else None
+        fits = attachments_for_item(item)
+        next_y = PANEL_Y + 32
+
+        if kit_id is None and fits:
+            # Attachment-only item (a dropped rifle, or a crafted one whose
+            # kits are spent). Skip the kit panel entirely rather than showing
+            # the "fully upgraded" dead end, which would be misleading when
+            # there IS still something to fit.
+            self._draw_attachment_buttons(screen, player, item, panel_x, next_y, fits)
+            self._draw_upgrade_message(screen)
+            return
+
         if kit_id is None:
             # item.upgrade_count has hit MAX_UPGRADE_COUNT (2) - both
             # applications (rank+stats, then stats-only) are already
@@ -655,7 +715,40 @@ class ProfessionsScreen(BaseScreen):
             (rect.x + 10, rect.y + 32), size="small", color=COLOR_LIGHT_GRAY)
         self.upgrade_kit_button_rects.append((kit_id, rect))
 
+        # A crafted gun can take BOTH a kit and a scope, so the attachments
+        # render under the kit rather than instead of it.
+        if fits:
+            self._draw_attachment_buttons(screen, player, item, panel_x, rect.bottom + 16, fits)
+
         self._draw_upgrade_message(screen)
+
+    def _draw_attachment_buttons(self, screen, player, item, panel_x, y, fits):
+        """One button per attachment that fits this weapon.
+
+        Unlike upgrade kits - where get_kit_for_item returns at most one match,
+        so there is never a choice - several attachments fit a given weapon
+        type at once (a rifle accepts any of the four scopes). They are listed
+        strongest-first so the obvious pick is at the top, with the ones the
+        player does not hold greyed rather than hidden, so the line is visible
+        as something to work toward.
+        """
+        self.renderer.draw_text(screen, "FIT ATTACHMENT", (panel_x, y), color=COLOR_GOLD)
+        y += 30
+        for aid in sorted(fits, key=lambda a: -ATTACHMENTS[a]["damage"]):
+            spec = ATTACHMENTS[aid]
+            have = player.get_material_quantity(aid)
+            rect = pygame.Rect(panel_x, y, 360, 44)
+            can = have >= 1
+            self.renderer.draw_rect(screen, rect, (30, 30, 35))
+            self.renderer.draw_rect(screen, rect, (140, 220, 160) if can else (100, 100, 100), fill=False)
+            self.renderer.draw_text(screen, spec["name"], (rect.x + 10, rect.y + 5),
+                                    color=COLOR_WHITE if can else (130, 130, 130))
+            self.renderer.draw_text(
+                screen, f"+{spec['damage']} weapon damage, permanent   (have {have})",
+                (rect.x + 10, rect.y + 24), size="small", color=COLOR_LIGHT_GRAY)
+            if can:
+                self.attachment_button_rects.append((aid, rect))
+            y += 50
 
     def _draw_upgrade_message(self, screen):
         if self.upgrade_message:

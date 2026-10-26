@@ -6560,6 +6560,89 @@
             "material_tier": "ironbark"
           },
           "vendor_location": "Astranaar"
+        },
+        "ww_nock_horn": {
+          "name": "Horn Nock",
+          "skill_required": 28,
+          "skill_range": [
+            33,
+            43,
+            53,
+            63
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "plank_ashwood": 1,
+            "fiber_coarse": 1
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "nock_horn"
+          }
+        },
+        "ww_limbs_laminated": {
+          "name": "Laminated Limbs",
+          "skill_required": 66,
+          "skill_range": [
+            71,
+            81,
+            91,
+            101
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "plank_ironbark": 2,
+            "fiber_supple": 2
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "limbs_laminated"
+          }
+        },
+        "ww_pin_truesight": {
+          "name": "Truesight Pin",
+          "skill_required": 104,
+          "skill_range": [
+            109,
+            119,
+            129,
+            139
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "plank_ironbark": 1,
+            "bar_bronze": 1,
+            "fiber_tough": 1
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "pin_truesight"
+          }
+        },
+        "ww_limbs_heartwood": {
+          "name": "Heartwood Limbs",
+          "skill_required": 140,
+          "skill_range": [
+            145,
+            155,
+            165,
+            175
+          ],
+          "count": 1,
+          "source": "drop",
+          "drop_zone": "Blackfathom Deeps",
+          "inputs": {
+            "plank_ironbark": 3,
+            "fiber_tough": 2,
+            "component_string": 1
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "limbs_heartwood"
+          }
         }
       }
     },
@@ -7096,8 +7179,7 @@
             "bar_iron": 3,
             "part_bronze_tube": 1,
             "part_wooden_stock": 1,
-            "part_flint_striker": 1,
-            "scope_crude": 1
+            "part_flint_striker": 1
           },
           "output": {
             "kind": "weapon",
@@ -7123,8 +7205,7 @@
             "bar_iron": 4,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "part_unstable_trigger": 1,
-            "scope_standard": 1
+            "part_unstable_trigger": 1
           },
           "output": {
             "kind": "weapon",
@@ -7150,8 +7231,7 @@
             "bar_iron": 4,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "part_unstable_trigger": 1,
-            "scope_standard": 1
+            "part_unstable_trigger": 1
           },
           "output": {
             "kind": "weapon",
@@ -7178,8 +7258,7 @@
             "bar_steel": 5,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "part_unstable_trigger": 1,
-            "scope_precision": 1
+            "part_unstable_trigger": 1
           },
           "output": {
             "kind": "weapon",
@@ -7206,7 +7285,6 @@
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
             "part_unstable_trigger": 1,
-            "scope_resonant": 1,
             "part_void_regulator": 1
           },
           "output": {

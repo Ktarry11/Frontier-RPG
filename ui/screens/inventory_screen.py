@@ -814,7 +814,14 @@ class InventoryScreen(BaseScreen):
             lines.append(item.armor_type.capitalize())
             lines.append(f"Armor: {item.armor_value}{self._armor_reduction_note(item)}")
         if item.weapon_damage_max > 0:
-            lines.append(f"Damage: {item.weapon_damage_min} - {item.weapon_damage_max}")
+            # A fitted attachment's bonus is already baked into these numbers
+            # (attachment_manager.attach adds it at fit time), so it is named
+            # on the damage line rather than listed as a separate modifier -
+            # otherwise it would read as if it applied twice.
+            from world.attachment_manager import attachment_label
+            fitted = attachment_label(item)
+            dmg = f"Damage: {item.weapon_damage_min} - {item.weapon_damage_max}"
+            lines.append(f"{dmg}   ({fitted})" if fitted else dmg)
         if item.block_value > 0:
             lines.append(f"Block Value: {item.block_value}")
         for stat, value in item.primary_stats.items():

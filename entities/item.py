@@ -17,7 +17,7 @@ class Item:
                  weapon_damage_min=0, weapon_damage_max=0, attack_speed=0.0,
                  block_value=0, bag_capacity=0, icon_id=None,
                  is_crafted=False, crafting_material=None,
-                 upgrade_count=0, upgrade_deltas=None,
+                 upgrade_count=0, upgrade_deltas=None, attachment=None,
                  recipe_id=None, recipe_profession=None):
         self.item_id = item_id
         self.name = name
@@ -125,6 +125,17 @@ class Item:
         # happens, and never read again after the second.
         self.upgrade_deltas = upgrade_deltas
 
+        # The permanent attachment fitted to this weapon (a scope, a set of
+        # limbs) as its material_id, or None. See world/attachment_manager.py -
+        # a separate system from upgrade kits on purpose: an attachment goes on
+        # ANY ranged weapon including dropped ones, is matched by weapon_type
+        # rather than crafting_material, applies exactly once, and gives flat
+        # weapon damage. An item can carry both; they never touch each other's
+        # fields. The damage is baked into weapon_damage_min/max at fit time,
+        # so this field is a record of WHAT was fitted (for the item card and
+        # to block a second one), not a modifier anything re-applies on load.
+        self.attachment = attachment
+
         # Recipe scrolls / pattern items (Oct 2026): an item with a recipe_id is a learnable
         # recipe scroll. Right-clicking calls character.learn_recipe(recipe_id, recipe_profession,
         # skill_required). recipe_profession is the profession this recipe belongs to
@@ -208,6 +219,7 @@ class Item:
             "crafting_material": self.crafting_material,
             "upgrade_count": self.upgrade_count,
             "upgrade_deltas": self.upgrade_deltas,
+            "attachment": self.attachment,
             "recipe_id": self.recipe_id,
             "recipe_profession": self.recipe_profession,
         }
@@ -243,6 +255,7 @@ class Item:
             crafting_material=data.get("crafting_material"),
             upgrade_count=data.get("upgrade_count", 0),
             upgrade_deltas=data.get("upgrade_deltas"),
+            attachment=data.get("attachment"),
             recipe_id=data.get("recipe_id"),
             recipe_profession=data.get("recipe_profession"),
         )
