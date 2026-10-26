@@ -1,78 +1,81 @@
 """Leather for Leatherworking: beasts drop leather when the killer has Skinning.
 
-Only characters who know the Skinning profession can skin a defeated beast.
-The leather tier tracks the 40-entry ladder in materials.json and mirrors the
-cloth_drops.py band structure: overlapping level windows produce a gradual
-cross-fade so players see new leathers creeping in rather than hard cut-offs.
+WoW anchor leathers (recognizable milestone tiers) woven throughout the ladder:
+    leather_scrap   → mob levels  5-17   (WoW: Ruined Leather Scraps)
+    leather_light   → mob levels  5-27   (WoW: Light Leather)
+    leather_medium  → mob levels 15-38   (WoW: Medium Leather)
+    leather_heavy   → mob levels 26-46   (WoW: Heavy Leather)
+    leather_thick   → mob levels 35-58   (WoW: Thick Leather)
+    leather_rugged  → mob levels 45-60   (WoW: Rugged Leather)
 
-Families that can be skinned (open to extension):
-    beast – the primary source
-Families that CANNOT be skinned:
-    humanoid, undead, elemental, demon, insect, aquatic, plant
+Frontier leathers weave in throughout — some appear BEFORE the WoW anchors
+(e.g. cragscale creeping in at 28 alongside Heavy), some fill gaps, some
+extend past Rugged into pure Frontier endgame (tiers 19-40, levels 60-99).
 
-The 40-leather ladder:
-    Early  (scrap, light, medium, heavy)              levels  1-25
-    Mid    (thick .. dredged)                         levels 18-50
-    Late   (fiendish .. bloodtanned)                  levels 40-70
-    Endgame (wyvern .. genesis)                       levels 60+
+Families that can be skinned:
+    beast – the only source of leather
+Everything else (humanoid, undead, elemental, demon, insect, aquatic, plant) cannot.
 """
 import random
-import re
 
 from entities.vendor_trash import classify
 
-# Only these families yield leather
 SKINNABLE = {"beast"}
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Each entry: (min_level, max_level, {material_id: weight})
+# Overlapping bands produce a gradual cross-fade.
+# WoW anchors are marked with their tier index for readability.
 # ──────────────────────────────────────────────────────────────────────────────
 BANDS = [
-    # ── Early ──────────────────────────────────────────────────────────────────
-    (1,  12,  {"leather_scrap": 3}),
-    (8,  18,  {"leather_scrap": 2, "leather_light": 2}),
-    (14, 22,  {"leather_light": 3, "leather_medium": 1}),
-    (18, 28,  {"leather_light": 2, "leather_medium": 2, "leather_heavy": 1}),
-    (22, 30,  {"leather_medium": 2, "leather_heavy": 2}),
-    # ── Mid ────────────────────────────────────────────────────────────────────
-    (18, 28,  {"leather_thick": 1}),
-    (24, 34,  {"leather_heavy": 1, "leather_thick": 2, "leather_rugged": 1}),
-    (30, 40,  {"leather_thick": 2, "leather_rugged": 2, "leather_cragscale": 1}),
-    (36, 46,  {"leather_rugged": 2, "leather_cragscale": 2, "leather_stormscale": 1}),
-    (42, 52,  {"leather_cragscale": 1, "leather_stormscale": 2, "leather_stonebound": 2}),
-    (48, 58,  {"leather_stormscale": 1, "leather_stonebound": 2, "leather_dredged": 2}),
-    # ── Late ───────────────────────────────────────────────────────────────────
-    (40, 50,  {"leather_fiendish": 1}),
-    (46, 56,  {"leather_dredged": 1, "leather_fiendish": 2, "leather_pristine": 1}),
-    (52, 62,  {"leather_fiendish": 2, "leather_pristine": 2, "leather_savage": 1}),
-    (58, 68,  {"leather_pristine": 1, "leather_savage": 2, "leather_frostscale": 2}),
-    (62, 72,  {"leather_savage": 1, "leather_frostscale": 2, "leather_emberscale": 2, "leather_mossback": 1}),
-    (66, 76,  {"leather_emberscale": 2, "leather_mossback": 2, "leather_duskfang": 1}),
-    (70, 80,  {"leather_mossback": 1, "leather_duskfang": 2, "leather_bloodtanned": 2}),
-    # ── Endgame ────────────────────────────────────────────────────────────────
-    (60, 70,  {"leather_wyvern": 1}),
-    (64, 74,  {"leather_wyvern": 2, "leather_basilisk": 1}),
-    (68, 78,  {"leather_wyvern": 1, "leather_basilisk": 2, "leather_hydra": 1}),
-    (72, 82,  {"leather_basilisk": 1, "leather_hydra": 2, "leather_netherdrake": 1}),
-    (76, 86,  {"leather_hydra": 1, "leather_netherdrake": 2, "leather_frostwyrm": 1, "leather_behemoth": 1}),
-    (80, 90,  {"leather_netherdrake": 1, "leather_frostwyrm": 2, "leather_behemoth": 2, "leather_manticore": 1}),
-    (84, 94,  {"leather_manticore": 2, "leather_chimera": 2, "leather_phoenix": 1}),
-    (88, 98,  {"leather_chimera": 1, "leather_phoenix": 2, "leather_kraken": 2}),
+    # ── Very early — before Light Leather kicks in ─────────────────────────────
+    (1,   8,  {"leather_scrap": 4}),                                              # only scraps at the start
+    (5,  14,  {"leather_scrap": 3, "leather_light": 1}),                          # Light (T2) creeps in
+    (10, 20,  {"leather_scrap": 2, "leather_light": 3}),                          # Light dominant, scraps fade
+    # ── Early — Light dominant, Medium and first Frontier tiers mix in ─────────
+    (15, 24,  {"leather_light": 3, "leather_medium": 1}),                         # Medium (T3) first appears
+    (18, 28,  {"leather_light": 2, "leather_medium": 2, "leather_heavy": 1}),     # Heavy (T4) first appears at 18 — early hint
+    (22, 32,  {"leather_medium": 3, "leather_heavy": 1, "leather_cragscale": 1}), # Cragscale (T7) weaves in — Frontier
+    # ── Early-mid — Medium/Heavy dominant, Frontier filling gaps ───────────────
+    (26, 36,  {"leather_medium": 2, "leather_heavy": 2, "leather_cragscale": 2}),
+    (30, 40,  {"leather_heavy": 3, "leather_cragscale": 2, "leather_stormscale": 1}), # Stormscale (T8)
+    (34, 44,  {"leather_heavy": 2, "leather_thick": 1, "leather_cragscale": 1, "leather_stormscale": 2}), # Thick (T5) first appears
+    # ── Mid — Heavy fades, Thick and Frontier tiers take over ──────────────────
+    (38, 48,  {"leather_thick": 2, "leather_stormscale": 2, "leather_stonebound": 1}), # Stonebound (T9)
+    (42, 52,  {"leather_thick": 3, "leather_stonebound": 2, "leather_rugged": 1}),     # Rugged (T6) first appears
+    (45, 55,  {"leather_thick": 2, "leather_rugged": 2, "leather_stonebound": 1, "leather_dredged": 1}), # Dredged (T10)
+    # ── Mid-late — Rugged dominant, Frontier late tiers mixing in ──────────────
+    (48, 58,  {"leather_rugged": 3, "leather_dredged": 2, "leather_fiendish": 1}),     # Fiendish (T11)
+    (52, 62,  {"leather_rugged": 2, "leather_dredged": 1, "leather_fiendish": 2, "leather_pristine": 1}), # Pristine (T12)
+    (56, 66,  {"leather_rugged": 1, "leather_fiendish": 2, "leather_pristine": 2, "leather_savage": 1}),  # Savage (T13)
+    # ── Late — Rugged fades, Frontier late tiers dominant ──────────────────────
+    (60, 70,  {"leather_fiendish": 1, "leather_pristine": 2, "leather_savage": 2, "leather_frostscale": 1}), # Frostscale (T14)
+    (63, 73,  {"leather_savage": 2, "leather_frostscale": 2, "leather_emberscale": 1}),                       # Emberscale (T15)
+    (66, 76,  {"leather_frostscale": 1, "leather_emberscale": 2, "leather_mossback": 2, "leather_duskfang": 1}), # Mossback (T16), Duskfang (T17)
+    (70, 80,  {"leather_emberscale": 1, "leather_mossback": 2, "leather_duskfang": 2, "leather_bloodtanned": 1}), # Bloodtanned (T18)
+    # ── Late-endgame — Frontier tiers 19-28 ────────────────────────────────────
+    (65, 75,  {"leather_wyvern": 1}),                                                 # Wyvern (T19) — rare early endgame hint
+    (68, 78,  {"leather_wyvern": 2, "leather_basilisk": 1}),                          # Basilisk (T20)
+    (72, 82,  {"leather_wyvern": 1, "leather_basilisk": 2, "leather_hydra": 1}),      # Hydra (T21)
+    (76, 86,  {"leather_basilisk": 1, "leather_hydra": 2, "leather_netherdrake": 1}), # Netherdrake (T22)
+    (80, 90,  {"leather_hydra": 1, "leather_netherdrake": 2, "leather_frostwyrm": 1, "leather_behemoth": 1}), # T23/T24
+    (83, 92,  {"leather_netherdrake": 1, "leather_frostwyrm": 2, "leather_behemoth": 2, "leather_manticore": 1}), # T25
+    (86, 95,  {"leather_manticore": 2, "leather_chimera": 2, "leather_phoenix": 1}),  # T26/T27
+    (89, 97,  {"leather_chimera": 1, "leather_phoenix": 2, "leather_kraken": 2}),     # T28
+    # ── Pure endgame — Frontier tiers 29-40 ────────────────────────────────────
     (92, 99,  {"leather_kraken": 1, "leather_thunderlizard": 2, "leather_nightsaber": 2, "leather_lavahound": 1}),
     (95, 99,  {"leather_lavahound": 1, "leather_sandwurm": 2, "leather_voidstalker": 2, "leather_dreamstag": 1}),
     (97, 99,  {"leather_voidstalker": 1, "leather_dreamstag": 2, "leather_sunhawk": 2, "leather_chronodrake": 1}),
     (98, 99,  {"leather_chronodrake": 1, "leather_abyssal": 2, "leather_worldserpent": 2,
-                "leather_primordial": 1, "leather_genesis": 1}),
+               "leather_primordial": 1, "leather_genesis": 1}),
 ]
 
-# Base drop chance and quantity
-CHANCE = {"open_zone": 0.70, "cave": 0.80}   # higher than cloth since beasts are the *only* source
+CHANCE = {"open_zone": 0.70, "cave": 0.80}
 NORMAL_QTY = (1, 2)
-BOSS_QTY = (3, 5)
+BOSS_QTY   = (3, 5)
 
 
 def _pick_material(level: int, rng) -> str:
-    """Return a leather material_id appropriate for `level`."""
     pool: dict[str, float] = {}
     for lo, hi, weights in BANDS:
         if lo <= level <= hi:
@@ -88,21 +91,13 @@ def roll_leather(enemy, player=None, rng=random):
 
     Parameters
     ----------
-    enemy:
-        The defeated enemy object (must have .name, .level, optionally .is_boss
-        and .location_type attributes).
-    player:
-        The player Character.  If None (e.g. during tests), skinning check is
-        skipped and leather always drops.  If provided, the player must know the
-        Skinning profession.
-    rng:
-        RNG instance (defaults to stdlib random for easy testing).
+    enemy  : defeated enemy (needs .name, .level; optionally .is_boss, .location_type)
+    player : Character — must know Skinning.  None skips the check (for tests).
+    rng    : RNG instance (defaults to stdlib random).
     """
-    # Profession gate — only skinners get leather
     if player is not None and not getattr(player, "knows_profession", lambda p: True)("skinning"):
         return []
 
-    # Family gate — only skinnable creatures
     name = getattr(enemy, "name", "")
     family, _coin = classify(name)
     if family not in SKINNABLE:
