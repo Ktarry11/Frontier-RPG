@@ -43,27 +43,15 @@ ARMOR_NAME_NOUNS = {
     "back":  {"_default": "Cloak"},
     "neck":  {"_default": "Amulet"},
     "ring":  {"_default": "Ring"},
+    # Keyed on the GENERIC slot identity, matching ACCESSORY_SLOTS above and
+    # Equipment.PAIRED_SLOTS - an item's slot is "ring"/"trinket", never
+    # "ring1"/"trinket2". Deliberately NOT normalised to accept a concrete
+    # paired slot: an item generated with slot="trinket1" is a real bug (it
+    # can never fill an empty trinket2 - see ACCESSORY_SLOTS' comment), and
+    # falling through to "Item" here is a loud, useful signal that it
+    # happened rather than something to paper over.
     "trinket": {"_default": "Charm"},
 }
-
-
-def _noun_slot(slot):
-    """Strip the paired-slot index so ARMOR_NAME_NOUNS matches.
-
-    Equipment has TWO ring slots and TWO trinket slots, named "ring1"/"ring2"
-    and "trinket1"/"trinket2" (see entities/equipment.py). ARMOR_NAME_NOUNS is
-    keyed on the unindexed "ring" and "trinket", so every lookup for a real
-    slot missed and fell through to the "_default": "Item" fallback - which is
-    why EVERY ring and trinket in the game was named e.g. "Reinforced Item of
-    the Champion" instead of "Reinforced Ring of the Champion". Not a crafted-
-    gear bug: it hit all procedural loot too, and had done since the name
-    tables were written.
-
-    Normalising here rather than duplicating the ring/trinket entries under
-    four keys keeps one row per concept, and means a future ring3 needs no
-    change.
-    """
-    return slot[:-1] if slot[:-1] in ARMOR_NAME_NOUNS and slot[-1:].isdigit() else slot
 WEAPON_NAME_NOUNS = {
     "sword_1h": ["Sword", "Blade", "Shortsword"],
     "sword_2h": ["Greatsword", "Longsword"],
@@ -708,7 +696,7 @@ class LootGenerator:
         fallback path, in which case the name has no suffix at all,
         same as before this system existed."""
         prefix = random.choice(ARMOR_NAME_PREFIXES.get(rarity, ARMOR_NAME_PREFIXES["common"]))
-        noun_map = ARMOR_NAME_NOUNS.get(_noun_slot(slot), {"_default": "Item"})
+        noun_map = ARMOR_NAME_NOUNS.get(slot, {"_default": "Item"})
         noun = noun_map.get(stat_template, noun_map.get("_default", "Item"))
         base_name = f"{prefix} {noun}"
         return f"{base_name} {suffix_name}" if suffix_name else base_name
