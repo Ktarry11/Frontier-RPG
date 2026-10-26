@@ -1554,6 +1554,48 @@
       "stack_limit": 20,
       "vendor_price": 1800,
       "sell_price": 450
+    },
+    {
+      "consumable_id": "bomb_dynamite",
+      "name": "Stick of Dynamite",
+      "consumable_type": "explosive",
+      "description": "A waxed stick and a short fuse. Shorter than you would like.",
+      "effect_value": 55,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 10,
+      "stack_limit": 20,
+      "vendor_price": 180,
+      "sell_price": 45
+    },
+    {
+      "consumable_id": "bomb_sapper",
+      "name": "Sapper Charge",
+      "consumable_type": "explosive",
+      "description": "Strapped on, not thrown. Engineers argue about this one.",
+      "effect_value": 260,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 26,
+      "cooldown_seconds": 10,
+      "stack_limit": 20,
+      "vendor_price": 1300,
+      "sell_price": 325
+    },
+    {
+      "consumable_id": "bomb_ember_cluster",
+      "name": "Ember Cluster",
+      "consumable_type": "explosive",
+      "description": "Three charges on one fuse. Scatters burning glass.",
+      "effect_value": 280,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 27,
+      "cooldown_seconds": 10,
+      "stack_limit": 20,
+      "vendor_price": 1500,
+      "sell_price": 375
     }
   ],
   "gadgets": [
@@ -1696,6 +1738,48 @@
       "stack_limit": 20,
       "vendor_price": 950,
       "sell_price": 237
+    },
+    {
+      "consumable_id": "device_target_dummy",
+      "name": "Clockwork Target Dummy",
+      "consumable_type": "gadget",
+      "description": "Clatters, waves, and is convincingly annoying for half a minute.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 17,
+      "cooldown_seconds": 0,
+      "stack_limit": 20,
+      "vendor_price": 620,
+      "sell_price": 155
+    },
+    {
+      "consumable_id": "device_jumper_cables",
+      "name": "Jumper Cables",
+      "consumable_type": "gadget",
+      "description": "Two leads and a crank. Results vary, loudly.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 23,
+      "cooldown_seconds": 0,
+      "stack_limit": 20,
+      "vendor_price": 1000,
+      "sell_price": 250
+    },
+    {
+      "consumable_id": "device_repair_bot",
+      "name": "Repair Bot",
+      "consumable_type": "gadget",
+      "description": "Trundles out, fixes what it can reach, falls over.",
+      "effect_value": 0,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 27,
+      "cooldown_seconds": 0,
+      "stack_limit": 20,
+      "vendor_price": 1700,
+      "sell_price": 425
     }
   ],
   "ammos": [
