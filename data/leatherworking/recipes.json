@@ -1,7 +1,6 @@
 {
   "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) \u2014 it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
   "recipes": {
-    "_comment_apprentice": "=== APPRENTICE 1-75: Scrap and Light Leather ===",
     "lw_light_armor_kit": {
       "name": "Light Armor Kit",
       "inputs": {
@@ -309,7 +308,6 @@
       ],
       "source": "trainer"
     },
-    "_comment_journeyman": "=== JOURNEYMAN 75-150: Medium and Heavy Leather ===",
     "lw_medium_armor_kit": {
       "name": "Medium Armor Kit",
       "inputs": {
@@ -645,7 +643,6 @@
       ],
       "source": "trainer"
     },
-    "_comment_expert": "=== EXPERT 150-225: Thick and Rugged Leather + Frontier tiers 7-10 ===",
     "lw_thick_armor_kit": {
       "name": "Thick Armor Kit",
       "inputs": {
@@ -959,7 +956,6 @@
       ],
       "source": "trainer"
     },
-    "_comment_artisan": "=== ARTISAN 225-300: Frontier tiers 11-18 (Fiendish through Bloodtanned) ===",
     "lw_dredged_shoulders": {
       "name": "Dredged Leather Spaulders",
       "inputs": {
@@ -1328,6 +1324,2133 @@
         "rarity": "uncommon",
         "material_tier": "medium_leather"
       }
+    },
+    "lw_scrap_str_boots": {
+      "name": "Scrapbound Boots",
+      "skill_required": 2,
+      "skill_range": [
+        7,
+        17,
+        27,
+        37
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_scrap": 2
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 1,
+        "rarity": "common",
+        "material_tier": "scrap_leather"
+      }
+    },
+    "lw_scrap_int_gloves": {
+      "name": "Tattered Spirit Gloves",
+      "skill_required": 8,
+      "skill_range": [
+        13,
+        23,
+        33,
+        43
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_scrap": 2
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 2,
+        "rarity": "common",
+        "material_tier": "scrap_leather"
+      }
+    },
+    "lw_light_str_gloves": {
+      "name": "Light Leather Gauntlets",
+      "skill_required": 22,
+      "skill_range": [
+        27,
+        37,
+        47,
+        57
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 5,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_str_bracers": {
+      "name": "Roughhide Bracers",
+      "skill_required": 28,
+      "skill_range": [
+        33,
+        43,
+        53,
+        63
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 6,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_str_boots": {
+      "name": "Roughhide Boots",
+      "skill_required": 32,
+      "skill_range": [
+        37,
+        47,
+        57,
+        67
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 7,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_str_helm": {
+      "name": "Roughhide Helm",
+      "skill_required": 45,
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 10,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_str_leggings": {
+      "name": "Roughhide Leggings",
+      "skill_required": 55,
+      "skill_range": [
+        60,
+        70,
+        80,
+        90
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 12,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_str_vest": {
+      "name": "Roughhide Vest",
+      "skill_required": 65,
+      "skill_range": [
+        70,
+        80,
+        90,
+        100
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 14,
+        "rarity": "uncommon",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_int_gloves": {
+      "name": "Spirithide Gloves",
+      "skill_required": 24,
+      "skill_range": [
+        29,
+        39,
+        49,
+        59
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 5,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_int_belt": {
+      "name": "Spirithide Belt",
+      "skill_required": 26,
+      "skill_range": [
+        31,
+        41,
+        51,
+        61
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 6,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_int_boots": {
+      "name": "Spirithide Boots",
+      "skill_required": 34,
+      "skill_range": [
+        39,
+        49,
+        59,
+        69
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 7,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_int_bracers": {
+      "name": "Spirithide Bracers",
+      "skill_required": 38,
+      "skill_range": [
+        43,
+        53,
+        63,
+        73
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 8,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_int_helm": {
+      "name": "Spirithide Helm",
+      "skill_required": 48,
+      "skill_range": [
+        53,
+        63,
+        73,
+        83
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 10,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_int_leggings": {
+      "name": "Spirithide Leggings",
+      "skill_required": 58,
+      "skill_range": [
+        63,
+        73,
+        83,
+        93
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 12,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_int_vest": {
+      "name": "Spirithide Vest",
+      "skill_required": 68,
+      "skill_range": [
+        73,
+        83,
+        93,
+        103
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 14,
+        "rarity": "uncommon",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_agint_bracers": {
+      "name": "Hexhide Bracers",
+      "skill_required": 30,
+      "skill_range": [
+        35,
+        45,
+        55,
+        65
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 7,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_agint_belt": {
+      "name": "Hexhide Belt",
+      "skill_required": 42,
+      "skill_range": [
+        47,
+        57,
+        67,
+        77
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 9,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_agint_helm": {
+      "name": "Hexhide Helm",
+      "skill_required": 52,
+      "skill_range": [
+        57,
+        67,
+        77,
+        87
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 11,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_agint_leggings": {
+      "name": "Hexhide Leggings",
+      "skill_required": 60,
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 13,
+        "rarity": "uncommon",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_stint_gloves": {
+      "name": "Ironhide Leather Gloves",
+      "skill_required": 36,
+      "skill_range": [
+        41,
+        51,
+        61,
+        71
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 8,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_light_stint_helm": {
+      "name": "Ironhide Leather Helm",
+      "skill_required": 50,
+      "skill_range": [
+        55,
+        65,
+        75,
+        85
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_light": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 11,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      }
+    },
+    "lw_medium_str_gloves": {
+      "name": "Toughened Leather Gloves",
+      "skill_required": 78,
+      "skill_range": [
+        83,
+        93,
+        103,
+        113
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 16,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_str_bracers": {
+      "name": "Toughened Leather Bracers",
+      "skill_required": 82,
+      "skill_range": [
+        87,
+        97,
+        107,
+        117
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 17,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_str_helm": {
+      "name": "Toughened Leather Helm",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 19,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_str_vest": {
+      "name": "Toughened Leather Vest",
+      "skill_required": 105,
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 22,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_str_leggings": {
+      "name": "Toughened Leather Leggings",
+      "skill_required": 112,
+      "skill_range": [
+        117,
+        127,
+        137,
+        147
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 23,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_int_bracers": {
+      "name": "Mistweave Bracers",
+      "skill_required": 80,
+      "skill_range": [
+        85,
+        95,
+        105,
+        115
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 17,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_int_helm": {
+      "name": "Mistweave Helm",
+      "skill_required": 88,
+      "skill_range": [
+        93,
+        103,
+        113,
+        123
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 18,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_int_spaulders": {
+      "name": "Mistweave Spaulders",
+      "skill_required": 93,
+      "skill_range": [
+        98,
+        108,
+        118,
+        128
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 19,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_int_vest": {
+      "name": "Mistweave Vest",
+      "skill_required": 108,
+      "skill_range": [
+        113,
+        123,
+        133,
+        143
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 22,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_int_leggings": {
+      "name": "Mistweave Leggings",
+      "skill_required": 118,
+      "skill_range": [
+        123,
+        133,
+        143,
+        153
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_agint_spaulders": {
+      "name": "Voodoo Spaulders",
+      "skill_required": 85,
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 18,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_agint_vest": {
+      "name": "Voodoo Vest",
+      "skill_required": 103,
+      "skill_range": [
+        108,
+        118,
+        128,
+        138
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 21,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_agint_helm": {
+      "name": "Voodoo Helm",
+      "skill_required": 110,
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 23,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_stint_spaulders": {
+      "name": "Ironweald Spaulders",
+      "skill_required": 87,
+      "skill_range": [
+        92,
+        102,
+        112,
+        122
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 18,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_medium_stint_vest": {
+      "name": "Ironweald Vest",
+      "skill_required": 106,
+      "skill_range": [
+        111,
+        121,
+        131,
+        141
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 22,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_int_mail_boots": {
+      "name": "Ironweave Mail Boots",
+      "skill_required": 128,
+      "skill_range": [
+        133,
+        143,
+        153,
+        163
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_int_mail_belt": {
+      "name": "Ironweave Mail Belt",
+      "skill_required": 133,
+      "skill_range": [
+        138,
+        148,
+        158,
+        168
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_int_mail_gloves": {
+      "name": "Ironweave Mail Gloves",
+      "skill_required": 137,
+      "skill_range": [
+        142,
+        152,
+        162,
+        172
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 28,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_int_mail_helm": {
+      "name": "Ironweave Mail Helm",
+      "skill_required": 145,
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_int_mail_vest": {
+      "name": "Ironweave Mail Vest",
+      "skill_required": 148,
+      "skill_range": [
+        153,
+        163,
+        173,
+        183
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_stint_mail_boots": {
+      "name": "Earthbound Mail Boots",
+      "skill_required": 126,
+      "skill_range": [
+        131,
+        141,
+        151,
+        161
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_stint_mail_helm": {
+      "name": "Earthbound Mail Helm",
+      "skill_required": 142,
+      "skill_range": [
+        147,
+        157,
+        167,
+        177
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 29,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_stint_mail_vest": {
+      "name": "Earthbound Mail Vest",
+      "skill_required": 146,
+      "skill_range": [
+        151,
+        161,
+        171,
+        181
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_agint_mail_gloves": {
+      "name": "Predator Mail Gloves",
+      "skill_required": 130,
+      "skill_range": [
+        135,
+        145,
+        155,
+        165
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_heavy_agint_mail_vest": {
+      "name": "Predator Mail Vest",
+      "skill_required": 144,
+      "skill_range": [
+        149,
+        159,
+        169,
+        179
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 29,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      }
+    },
+    "lw_thick_str_helm": {
+      "name": "Warbear Helm",
+      "skill_required": 158,
+      "skill_range": [
+        163,
+        173,
+        183,
+        193
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 32,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      }
+    },
+    "lw_thick_str_vest": {
+      "name": "Warbear Vest",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 34,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      }
+    },
+    "lw_thick_int_helm": {
+      "name": "Wildwood Helm",
+      "skill_required": 160,
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 33,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      }
+    },
+    "lw_thick_int_vest": {
+      "name": "Wildwood Vest",
+      "skill_required": 168,
+      "skill_range": [
+        173,
+        183,
+        193,
+        203
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 34,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      }
+    },
+    "lw_thick_agint_helm": {
+      "name": "Shadowfell Helm",
+      "skill_required": 163,
+      "skill_range": [
+        168,
+        178,
+        188,
+        198
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 33,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      }
+    },
+    "lw_thick_agint_vest": {
+      "name": "Shadowfell Vest",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 35,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      }
+    },
+    "lw_thick_int_mail_vest": {
+      "name": "Mistscale Mail Vest",
+      "skill_required": 173,
+      "skill_range": [
+        178,
+        188,
+        198,
+        208
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 35,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      }
+    },
+    "lw_rugged_str_vest": {
+      "name": "Ironhide Vest",
+      "skill_required": 220,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 45,
+        "rarity": "rare",
+        "material_tier": "thick_leather"
+      }
+    },
+    "lw_rugged_int_vest": {
+      "name": "Archdruid Vest",
+      "skill_required": 225,
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 46,
+        "rarity": "rare",
+        "material_tier": "thick_leather"
+      }
+    },
+    "lw_rugged_agint_vest": {
+      "name": "Hexbinder Vest",
+      "skill_required": 228,
+      "skill_range": [
+        233,
+        243,
+        253,
+        263
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 46,
+        "rarity": "rare",
+        "material_tier": "thick_leather"
+      }
+    },
+    "lw_rugged_int_mail_vest": {
+      "name": "Stormcaller Mail Vest",
+      "skill_required": 232,
+      "skill_range": [
+        237,
+        247,
+        257,
+        267
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "thick_leather"
+      }
+    },
+    "lw_serpentkin_leather_vest": {
+      "name": "Serpentkin Leather Vest",
+      "skill_required": 95,
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 20,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Wailing Caverns"
+    },
+    "lw_fang_leather_spaulders": {
+      "name": "Fang Leather Spaulders",
+      "skill_required": 92,
+      "skill_range": [
+        97,
+        107,
+        117,
+        127
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 19,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Wailing Caverns"
+    },
+    "lw_serpent_int_mail_helm": {
+      "name": "Serpent Mail Coif",
+      "skill_required": 97,
+      "skill_range": [
+        102,
+        112,
+        122,
+        132
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 20,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Wailing Caverns"
+    },
+    "lw_verdant_scale_gloves": {
+      "name": "Verdant Scale Gloves",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 19,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Wailing Caverns"
+    },
+    "lw_shadowpelt_cloak": {
+      "name": "Shadowpelt Cloak",
+      "skill_required": 140,
+      "skill_range": [
+        145,
+        155,
+        165,
+        175
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 29,
+        "rarity": "rare",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Shadowfang Keep"
+    },
+    "lw_cursed_leather_leggings": {
+      "name": "Cursed Leather Leggings",
+      "skill_required": 143,
+      "skill_range": [
+        148,
+        158,
+        168,
+        178
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 29,
+        "rarity": "rare",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Shadowfang Keep"
+    },
+    "lw_cursed_mail_bracers": {
+      "name": "Cursed Mail Bracers",
+      "skill_required": 138,
+      "skill_range": [
+        143,
+        153,
+        163,
+        173
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 28,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Shadowfang Keep"
+    },
+    "lw_chitin_leather_helm": {
+      "name": "Chitinous Leather Helm",
+      "skill_required": 110,
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 23,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "The Broodspiral"
+    },
+    "lw_chitinscale_mail_vest": {
+      "name": "Chitinscale Mail Vest",
+      "skill_required": 115,
+      "skill_range": [
+        120,
+        130,
+        140,
+        150
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "The Broodspiral"
+    },
+    "lw_brood_venom_bracers": {
+      "name": "Broodvenom Bracers",
+      "skill_required": 108,
+      "skill_range": [
+        113,
+        123,
+        133,
+        143
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 22,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "The Broodspiral"
+    },
+    "lw_quilboar_spined_spaulders": {
+      "name": "Quilboar Spined Spaulders",
+      "skill_required": 175,
+      "skill_range": [
+        180,
+        190,
+        200,
+        210
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_heavy": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 36,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "drop_zone": "Razorfen Kraul"
+    },
+    "lw_razorboar_mail_helm": {
+      "name": "Razorboar Mail Helm",
+      "skill_required": 180,
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_heavy": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 37,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "drop_zone": "Razorfen Kraul"
+    },
+    "lw_razorfang_leather_vest": {
+      "name": "Razorfang Leather Vest",
+      "skill_required": 178,
+      "skill_range": [
+        183,
+        193,
+        203,
+        213
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_heavy": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 36,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "drop_zone": "Razorfen Kraul"
+    },
+    "lw_deepscale_leather_vest": {
+      "name": "Deepscale Leather Vest",
+      "skill_required": 160,
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_heavy": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 33,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "drop_zone": "Blackfathom Deeps"
+    },
+    "lw_brine_mail_gloves": {
+      "name": "Brine Mail Gloves",
+      "skill_required": 155,
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_heavy": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 32,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      },
+      "drop_zone": "Blackfathom Deeps"
+    },
+    "lw_plagued_leather_helm": {
+      "name": "Plagued Leather Helm",
+      "skill_required": 212,
+      "skill_range": [
+        217,
+        227,
+        237,
+        247
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_thick": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 43,
+        "rarity": "rare",
+        "material_tier": "thick_leather"
+      },
+      "drop_zone": "Plague Depths"
+    },
+    "lw_rot_scale_mail_vest": {
+      "name": "Rotscale Mail Vest",
+      "skill_required": 215,
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_thick": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 44,
+        "rarity": "rare",
+        "material_tier": "thick_leather"
+      },
+      "drop_zone": "Plague Depths"
+    },
+    "lw_putrescent_leggings": {
+      "name": "Putrescent Leggings",
+      "skill_required": 210,
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_thick": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 43,
+        "rarity": "rare",
+        "material_tier": "thick_leather"
+      },
+      "drop_zone": "Plague Depths"
+    },
+    "lw_demonhide_vest": {
+      "name": "Demonhide Vest",
+      "skill_required": 192,
+      "skill_range": [
+        197,
+        207,
+        217,
+        227
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_heavy": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 39,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "drop_zone": "Grom's Rest"
+    },
+    "lw_nightstalker_spaulders": {
+      "name": "Nightstalker Spaulders",
+      "skill_required": 188,
+      "skill_range": [
+        193,
+        203,
+        213,
+        223
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_heavy": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 38,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "drop_zone": "Grom's Rest"
+    },
+    "lw_tidal_leather_belt": {
+      "name": "Tidal Leather Belt",
+      "skill_required": 35,
+      "skill_range": [
+        40,
+        50,
+        60,
+        70
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_light": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 8,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      },
+      "drop_zone": "Echo Isles"
+    },
+    "lw_scaled_isle_boots": {
+      "name": "Scaled Isle Boots",
+      "skill_required": 42,
+      "skill_range": [
+        47,
+        57,
+        67,
+        77
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_light": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 9,
+        "rarity": "common",
+        "material_tier": "light_leather"
+      },
+      "drop_zone": "Echo Isles"
+    },
+    "lw_silkweb_leather_bracers": {
+      "name": "Silkweb Leather Bracers",
+      "skill_required": 123,
+      "skill_range": [
+        128,
+        138,
+        148,
+        158
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Widow's Lair"
+    },
+    "lw_venom_sac_spaulders": {
+      "name": "Venom Sac Spaulders",
+      "skill_required": 120,
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_medium": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "drop_zone": "Widow's Lair"
+    },
+    "lw_astranaar_druid_helm": {
+      "name": "Moonleaf Helm",
+      "skill_required": 135,
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_medium": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 28,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "vendor_location": "Astranaar"
+    },
+    "lw_astranaar_druid_spaulders": {
+      "name": "Moonleaf Spaulders",
+      "skill_required": 140,
+      "skill_range": [
+        145,
+        155,
+        165,
+        175
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_medium": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 29,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "vendor_location": "Astranaar"
+    },
+    "lw_ratchet_goblin_gloves": {
+      "name": "Goblin-Stitched Gloves",
+      "skill_required": 72,
+      "skill_range": [
+        77,
+        87,
+        97,
+        107
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_light": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 15,
+        "rarity": "uncommon",
+        "material_tier": "light_leather"
+      },
+      "vendor_location": "Ratchet"
+    },
+    "lw_ratchet_tinker_vest": {
+      "name": "Copper-Seam Leather Vest",
+      "skill_required": 75,
+      "skill_range": [
+        80,
+        90,
+        100,
+        110
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_medium": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 16,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "vendor_location": "Ratchet"
+    },
+    "lw_splintertree_shaman_helm": {
+      "name": "Galewind Mail Coif",
+      "skill_required": 152,
+      "skill_range": [
+        157,
+        167,
+        177,
+        187
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 31,
+        "rarity": "uncommon",
+        "material_tier": "heavy_leather"
+      },
+      "vendor_location": "Splintertree Post"
+    },
+    "lw_taurajo_primalist_vest": {
+      "name": "Earthwalker Mail Vest",
+      "skill_required": 148,
+      "skill_range": [
+        153,
+        163,
+        173,
+        183
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_medium": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "medium_leather"
+      },
+      "vendor_location": "Camp Taurajo"
+    },
+    "lw_undercity_shade_vest": {
+      "name": "Shade-Blessed Leather Vest",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "spi_healer",
+        "item_level": 41,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "vendor_location": "Undercity"
+    },
+    "lw_fenris_mail_spaulders": {
+      "name": "Fenris Mail Spaulders",
+      "skill_required": 162,
+      "skill_range": [
+        167,
+        177,
+        187,
+        197
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 33,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "vendor_location": "Fenris Isle (hidden)"
+    },
+    "lw_wolfhide_helm": {
+      "name": "Wolfhide Helm",
+      "skill_required": 158,
+      "skill_range": [
+        163,
+        173,
+        183,
+        193
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "str_physical",
+        "item_level": 32,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "vendor_location": "Fenris Isle (hidden)"
+    },
+    "lw_razorfen_tusk_bracers": {
+      "name": "Razorfen Tusk Bracers",
+      "skill_required": 168,
+      "skill_range": [
+        173,
+        183,
+        193,
+        203
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 34,
+        "rarity": "rare",
+        "material_tier": "heavy_leather"
+      },
+      "vendor_location": "Razorfen Approach (hidden)"
     }
   }
 }

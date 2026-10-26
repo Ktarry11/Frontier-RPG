@@ -481,6 +481,156 @@
             170
           ],
           "source": "trainer"
+        },
+        "alch_elixir_fortitude_drop": {
+          "name": "Elixir of Fortitude",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_kingsblood": 2,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_fortitude"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "alch_potion_free_action_drop": {
+          "name": "Free Action Potion",
+          "skill_required": 130,
+          "skill_range": [
+            135,
+            145,
+            155,
+            165
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_stranglekelp": 2,
+            "herb_liferoot": 1,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "potion_free_action"
+          },
+          "drop_zone": "Shadowfang Keep"
+        },
+        "alch_elixir_shadow_power_drop": {
+          "name": "Elixir of Shadow Power",
+          "skill_required": 160,
+          "skill_range": [
+            165,
+            175,
+            185,
+            195
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_fadeleaf": 2,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_shadow_power"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "alch_flask_mending_drop": {
+          "name": "Flask of Mending",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_goldthorn": 3,
+            "herb_blindweed": 1,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "flask_mending"
+          },
+          "drop_zone": "Blackfathom Deeps"
+        },
+        "alch_elixir_agility_drop": {
+          "name": "Elixir of Greater Agility",
+          "skill_required": 175,
+          "skill_range": [
+            180,
+            190,
+            200,
+            210
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_sungrass": 2,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_greater_agility"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "alch_transmute_iron_gold_vendor": {
+          "name": "Transmute: Iron to Gold",
+          "skill_required": 225,
+          "skill_range": [
+            230,
+            240,
+            250,
+            260
+          ],
+          "count": 1,
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 4,
+            "herb_goldthorn": 2
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "transmute_iron_gold"
+          },
+          "vendor_location": "Undercity"
+        },
+        "alch_potion_invulnerability_vendor": {
+          "name": "Potion of Invulnerability",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "count": 1,
+          "source": "vendor",
+          "inputs": {
+            "herb_blindweed": 3,
+            "herb_firebloom": 1,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "potion_invulnerability"
+          },
+          "vendor_location": "Ratchet"
         }
       }
     },
@@ -1642,6 +1792,1333 @@
             125
           ],
           "source": "trainer"
+        },
+        "tai_linen_agint_gloves": {
+          "name": "Bloodweave Gloves",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 2,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          }
+        },
+        "tai_linen_agint_belt": {
+          "name": "Bloodweave Belt",
+          "skill_required": 12,
+          "skill_range": [
+            17,
+            27,
+            37,
+            47
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 3,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          }
+        },
+        "tai_linen_agint_bracers": {
+          "name": "Bloodweave Bracers",
+          "skill_required": 18,
+          "skill_range": [
+            23,
+            33,
+            43,
+            53
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 4,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          }
+        },
+        "tai_cotton_agint_boots": {
+          "name": "Felstitched Boots",
+          "skill_required": 55,
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_cotton": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 12,
+            "rarity": "common",
+            "material_tier": "cloth_cotton"
+          }
+        },
+        "tai_cotton_agint_helm": {
+          "name": "Felstitched Cowl",
+          "skill_required": 65,
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 14,
+            "rarity": "common",
+            "material_tier": "cloth_cotton"
+          }
+        },
+        "tai_cotton_agint_leggings": {
+          "name": "Felstitched Leggings",
+          "skill_required": 70,
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 15,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          }
+        },
+        "tai_cotton_agint_vest": {
+          "name": "Felstitched Robe",
+          "skill_required": 75,
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 16,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          }
+        },
+        "tai_wool_agint_spaulders": {
+          "name": "Darkweave Spaulders",
+          "skill_required": 105,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulders",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 22,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          }
+        },
+        "tai_wool_agint_helm": {
+          "name": "Darkweave Hood",
+          "skill_required": 112,
+          "skill_range": [
+            117,
+            127,
+            137,
+            147
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 23,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          }
+        },
+        "tai_wool_agint_vest": {
+          "name": "Darkweave Robe",
+          "skill_required": 118,
+          "skill_range": [
+            123,
+            133,
+            143,
+            153
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 24,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          }
+        },
+        "tai_silk_agint_spaulders": {
+          "name": "Soulthread Spaulders",
+          "skill_required": 182,
+          "skill_range": [
+            187,
+            197,
+            207,
+            217
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulders",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 37,
+            "rarity": "uncommon",
+            "material_tier": "cloth_silk"
+          }
+        },
+        "tai_silk_agint_helm": {
+          "name": "Soulthread Hood",
+          "skill_required": 188,
+          "skill_range": [
+            193,
+            203,
+            213,
+            223
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 38,
+            "rarity": "uncommon",
+            "material_tier": "cloth_silk"
+          }
+        },
+        "tai_silk_agint_vest": {
+          "name": "Soulthread Robe",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 40,
+            "rarity": "uncommon",
+            "material_tier": "cloth_silk"
+          }
+        },
+        "tai_linen_stint_gloves": {
+          "name": "Pilgrim's Gloves",
+          "skill_required": 8,
+          "skill_range": [
+            13,
+            23,
+            33,
+            43
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 2,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          }
+        },
+        "tai_cotton_stint_helm": {
+          "name": "Pilgrim's Hood",
+          "skill_required": 60,
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 13,
+            "rarity": "common",
+            "material_tier": "cloth_cotton"
+          }
+        },
+        "tai_wool_stint_vest": {
+          "name": "Pilgrim's Robe",
+          "skill_required": 100,
+          "skill_range": [
+            105,
+            115,
+            125,
+            135
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 21,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          }
+        },
+        "tai_silk_stint_vest": {
+          "name": "Radiant Robe",
+          "skill_required": 175,
+          "skill_range": [
+            180,
+            190,
+            200,
+            210
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_silk": 8
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 36,
+            "rarity": "uncommon",
+            "material_tier": "cloth_silk"
+          }
+        },
+        "tai_shadowfang_robe": {
+          "name": "Shadowfang Robes",
+          "skill_required": 145,
+          "skill_range": [
+            150,
+            160,
+            170,
+            180
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 7
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Shadowfang Keep"
+        },
+        "tai_shadowweave_hood": {
+          "name": "Shadowweave Hood",
+          "skill_required": 143,
+          "skill_range": [
+            148,
+            158,
+            168,
+            178
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 7
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 29,
+            "rarity": "rare",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Shadowfang Keep"
+        },
+        "tai_plagueweave_robe": {
+          "name": "Plagueweave Robe",
+          "skill_required": 208,
+          "skill_range": [
+            213,
+            223,
+            233,
+            243
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_silk": 10
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 42,
+            "rarity": "rare",
+            "material_tier": "cloth_silk"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "tai_virulentthread_gloves": {
+          "name": "Virulent-Thread Gloves",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_silk": 10
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 42,
+            "rarity": "rare",
+            "material_tier": "cloth_silk"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "tai_amberweave_spaulders": {
+          "name": "Amberweave Spaulders",
+          "skill_required": 148,
+          "skill_range": [
+            153,
+            163,
+            173,
+            183
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 7
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulders",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Ambermill Tower"
+        },
+        "tai_nagasilk_robe": {
+          "name": "Nagasilk Robe",
+          "skill_required": 162,
+          "skill_range": [
+            167,
+            177,
+            187,
+            197
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 8
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 33,
+            "rarity": "rare",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Blackfathom Deeps"
+        },
+        "tai_demonthread_leggings": {
+          "name": "Demonthread Leggings",
+          "skill_required": 192,
+          "skill_range": [
+            197,
+            207,
+            217,
+            227
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 39,
+            "rarity": "rare",
+            "material_tier": "cloth_silk"
+          },
+          "drop_zone": "Grom's Rest"
+        },
+        "tai_verdant_robe": {
+          "name": "Verdant Druid Robe",
+          "skill_required": 100,
+          "skill_range": [
+            105,
+            115,
+            125,
+            135
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 21,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "tai_undercity_darkrobe": {
+          "name": "Dark Elegance Robe",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 40,
+            "rarity": "rare",
+            "material_tier": "cloth_silk"
+          },
+          "vendor_location": "Undercity"
+        },
+        "tai_org_battlemage_robe": {
+          "name": "Battlemage Robe",
+          "skill_required": 122,
+          "skill_range": [
+            127,
+            137,
+            147,
+            157
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_wool": 6
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 25,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "vendor_location": "Orgrimmar"
+        },
+        "tai_astranaar_moonrobe": {
+          "name": "Astranaar Moonrobe",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_wool": 8
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 34,
+            "rarity": "rare",
+            "material_tier": "cloth_wool"
+          },
+          "vendor_location": "Astranaar"
+        },
+        "tai_ratchet_felrobe": {
+          "name": "Fel-Stitched Robe",
+          "skill_required": 80,
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_cotton": 4
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 17,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          },
+          "vendor_location": "Ratchet"
+        },
+        "tai_fireweave_cowl": {
+          "name": "Fireweave Cowl",
+          "skill_required": 88,
+          "skill_range": [
+            93,
+            103,
+            113,
+            123
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_cotton": 4
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 18,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          },
+          "drop_zone": "Ragefire Chasm"
+        },
+        "tai_ember_cloth_leggings": {
+          "name": "Ember Cloth Leggings",
+          "skill_required": 92,
+          "skill_range": [
+            97,
+            107,
+            117,
+            127
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_cotton": 4
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 19,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          },
+          "drop_zone": "Ragefire Chasm"
+        },
+        "tai_blazethread_robes": {
+          "name": "Blazethread Robes",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_cotton": 4
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 20,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          },
+          "drop_zone": "Ragefire Chasm"
+        },
+        "tai_hex_cloth_gloves": {
+          "name": "Hex Cloth Gloves",
+          "skill_required": 18,
+          "skill_range": [
+            23,
+            33,
+            43,
+            53
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 4,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          },
+          "drop_zone": "Echo Isles"
+        },
+        "tai_fetish_belt": {
+          "name": "Fetish Belt",
+          "skill_required": 22,
+          "skill_range": [
+            27,
+            37,
+            47,
+            57
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 5,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          },
+          "drop_zone": "Echo Isles"
+        },
+        "tai_mojo_bracers": {
+          "name": "Mojo Bracers",
+          "skill_required": 25,
+          "skill_range": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 6,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          },
+          "drop_zone": "Echo Isles"
+        },
+        "tai_silkspun_robe": {
+          "name": "Silkspun Robe",
+          "skill_required": 108,
+          "skill_range": [
+            113,
+            123,
+            133,
+            143
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 22,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Widow's Lair"
+        },
+        "tai_webweave_spaulders": {
+          "name": "Webweave Spaulders",
+          "skill_required": 105,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulders",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 22,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Widow's Lair"
+        },
+        "tai_venom_cord_belt": {
+          "name": "Venom Cord Belt",
+          "skill_required": 102,
+          "skill_range": [
+            107,
+            117,
+            127,
+            137
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 21,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Widow's Lair"
+        },
+        "tai_chitin_thread_vest": {
+          "name": "Chitin-Thread Robe",
+          "skill_required": 118,
+          "skill_range": [
+            123,
+            133,
+            143,
+            153
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 24,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "The Broodspiral"
+        },
+        "tai_carapace_mantle": {
+          "name": "Carapace Mantle",
+          "skill_required": 115,
+          "skill_range": [
+            120,
+            130,
+            140,
+            150
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulders",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 24,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "The Broodspiral"
+        },
+        "tai_mistweave_robe_drop": {
+          "name": "Mistweave Robe",
+          "skill_required": 100,
+          "skill_range": [
+            105,
+            115,
+            125,
+            135
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 5
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 21,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "tai_vine_woven_leggings": {
+          "name": "Vine-Woven Leggings",
+          "skill_required": 98,
+          "skill_range": [
+            103,
+            113,
+            123,
+            133
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_cotton": 4
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 20,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "tai_briarweave_robe": {
+          "name": "Briarweave Robe",
+          "skill_required": 172,
+          "skill_range": [
+            177,
+            187,
+            197,
+            207
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 8
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 35,
+            "rarity": "rare",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "tai_bristle_spaulders": {
+          "name": "Bristle Spaulders",
+          "skill_required": 168,
+          "skill_range": [
+            173,
+            183,
+            193,
+            203
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 8
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulders",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 34,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "tai_bloodsoaked_robe": {
+          "name": "Bloodsoaked Robe",
+          "skill_required": 75,
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 16,
+            "rarity": "uncommon",
+            "material_tier": "cloth_cotton"
+          },
+          "drop_zone": "Scarlet Crypt"
+        },
+        "tai_scarlet_sash": {
+          "name": "Scarlet Sash",
+          "skill_required": 72,
+          "skill_range": [
+            77,
+            87,
+            97,
+            107
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 15,
+            "rarity": "common",
+            "material_tier": "cloth_cotton"
+          },
+          "drop_zone": "Scarlet Crypt"
+        },
+        "tai_arcane_scholar_robe": {
+          "name": "Arcane Scholar's Robe",
+          "skill_required": 150,
+          "skill_range": [
+            155,
+            165,
+            175,
+            185
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 7
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 31,
+            "rarity": "rare",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Ambermill Tower"
+        },
+        "tai_amber_inscribed_hood": {
+          "name": "Amber-Inscribed Hood",
+          "skill_required": 147,
+          "skill_range": [
+            152,
+            162,
+            172,
+            182
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_wool": 7
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "cloth_wool"
+          },
+          "drop_zone": "Ambermill Tower"
+        },
+        "tai_soulscorch_vestments": {
+          "name": "Soulscorch Vestments",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 40,
+            "rarity": "rare",
+            "material_tier": "cloth_silk"
+          },
+          "drop_zone": "Grom's Rest"
+        },
+        "tai_voidthread_leggings": {
+          "name": "Voidthread Leggings",
+          "skill_required": 192,
+          "skill_range": [
+            197,
+            207,
+            217,
+            227
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 39,
+            "rarity": "rare",
+            "material_tier": "cloth_silk"
+          },
+          "drop_zone": "Grom's Rest"
+        },
+        "tai_infernal_cowl": {
+          "name": "Infernal Cowl",
+          "skill_required": 190,
+          "skill_range": [
+            195,
+            205,
+            215,
+            225
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_silk": 9
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 39,
+            "rarity": "rare",
+            "material_tier": "cloth_silk"
+          },
+          "drop_zone": "Grom's Rest"
+        },
+        "tai_silverpine_mournerobe": {
+          "name": "Silverpine Mournerobe",
+          "skill_required": 135,
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_wool": 6
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 28,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "vendor_location": "The Sepulcher"
+        },
+        "tai_hillsbrad_rustic_robe": {
+          "name": "Hillsbrad Rustic Robe",
+          "skill_required": 40,
+          "skill_range": [
+            45,
+            55,
+            65,
+            75
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_linen": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 9,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          },
+          "vendor_location": "Hillsbrad (Southshore)"
+        },
+        "tai_camp_taurajo_wardrobe": {
+          "name": "Taurajo Warbands",
+          "skill_required": 55,
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_cotton": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 12,
+            "rarity": "common",
+            "material_tier": "cloth_cotton"
+          },
+          "vendor_location": "Camp Taurajo"
+        },
+        "tai_orgrimmar_felweave": {
+          "name": "Orgrimmar Felweave Robe",
+          "skill_required": 128,
+          "skill_range": [
+            133,
+            143,
+            153,
+            163
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_wool": 6
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 26,
+            "rarity": "uncommon",
+            "material_tier": "cloth_wool"
+          },
+          "vendor_location": "Orgrimmar"
+        },
+        "tai_razor_hill_traveler": {
+          "name": "Traveler's Cloth Robe",
+          "skill_required": 12,
+          "skill_range": [
+            17,
+            27,
+            37,
+            47
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_linen": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 3,
+            "rarity": "common",
+            "material_tier": "cloth_linen"
+          },
+          "vendor_location": "Razor Hill"
         }
       }
     },
@@ -2926,6 +4403,1125 @@
             165
           ],
           "source": "trainer"
+        },
+        "ww_staff_agint_light": {
+          "name": "Shadowroot Staff",
+          "skill_required": 15,
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 4,
+            "rarity": "common"
+          }
+        },
+        "ww_staff_agint_medium": {
+          "name": "Darkthorn Staff",
+          "skill_required": 80,
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 17,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_staff_agint_heavy": {
+          "name": "Felwood Staff",
+          "skill_required": 160,
+          "skill_range": [
+            165,
+            175,
+            185,
+            195
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 33,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_staff_spi_light": {
+          "name": "Healer's Ashwood Staff",
+          "skill_required": 20,
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 5,
+            "rarity": "common"
+          }
+        },
+        "ww_staff_spi_medium": {
+          "name": "Grove-Blessed Staff",
+          "skill_required": 90,
+          "skill_range": [
+            95,
+            105,
+            115,
+            125
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 19,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_staff_spi_heavy": {
+          "name": "Lifebark Staff",
+          "skill_required": 170,
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 35,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_staff_stint_light": {
+          "name": "Pilgrim's Staff",
+          "skill_required": 25,
+          "skill_range": [
+            30,
+            40,
+            50,
+            60
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "str_int_hybrid",
+            "item_level": 6,
+            "rarity": "common"
+          }
+        },
+        "ww_staff_stint_medium": {
+          "name": "Warden's Staff",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "str_int_hybrid",
+            "item_level": 20,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_staff_stint_heavy": {
+          "name": "Crusader's Staff",
+          "skill_required": 175,
+          "skill_range": [
+            180,
+            190,
+            200,
+            210
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "str_int_hybrid",
+            "item_level": 36,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_wand_int_light": {
+          "name": "Thornwood Wand",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 2,
+            "rarity": "common"
+          }
+        },
+        "ww_wand_int_medium": {
+          "name": "Mystic Oak Wand",
+          "skill_required": 70,
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 15,
+            "rarity": "common"
+          }
+        },
+        "ww_wand_spi_light": {
+          "name": "Healer's Wand",
+          "skill_required": 10,
+          "skill_range": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "spi_healer",
+            "item_level": 3,
+            "rarity": "common"
+          }
+        },
+        "ww_wand_spi_medium": {
+          "name": "Blessed Ashwand",
+          "skill_required": 75,
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "spi_healer",
+            "item_level": 16,
+            "rarity": "common"
+          }
+        },
+        "ww_wand_agint_light": {
+          "name": "Hexwood Wand",
+          "skill_required": 12,
+          "skill_range": [
+            17,
+            27,
+            37,
+            47
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 3,
+            "rarity": "common"
+          }
+        },
+        "ww_polearm_agi_light": {
+          "name": "Ashwood Spear",
+          "skill_required": 30,
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 7,
+            "rarity": "common"
+          }
+        },
+        "ww_polearm_agi_medium": {
+          "name": "Ironwood Lance",
+          "skill_required": 105,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_medium": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 22,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_polearm_stint_medium": {
+          "name": "Warden's Halberd",
+          "skill_required": 98,
+          "skill_range": [
+            103,
+            113,
+            123,
+            133
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "str_int_hybrid",
+            "item_level": 20,
+            "rarity": "uncommon"
+          }
+        },
+        "ww_bow_wailing_caverns": {
+          "name": "Serpentwood Bow",
+          "skill_required": 88,
+          "skill_range": [
+            93,
+            103,
+            113,
+            123
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 5,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 18,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "ww_staff_blackfathom": {
+          "name": "Naga Driftwood Staff",
+          "skill_required": 158,
+          "skill_range": [
+            163,
+            173,
+            183,
+            193
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "item_level": 32,
+            "rarity": "rare"
+          },
+          "drop_zone": "Blackfathom Deeps"
+        },
+        "ww_staff_plague_depths": {
+          "name": "Plague-Bleached Staff",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_hardwood": 6
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 42,
+            "rarity": "rare"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "ww_bow_sfk": {
+          "name": "Shadowfang Longbow",
+          "skill_required": 142,
+          "skill_range": [
+            147,
+            157,
+            167,
+            177
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 6,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 29,
+            "rarity": "rare"
+          },
+          "drop_zone": "Shadowfang Keep"
+        },
+        "ww_wand_grom": {
+          "name": "Demon-Touched Wand",
+          "skill_required": 192,
+          "skill_range": [
+            197,
+            207,
+            217,
+            227
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 6
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 39,
+            "rarity": "rare"
+          },
+          "drop_zone": "Grom's Rest"
+        },
+        "ww_polearm_rfk": {
+          "name": "Razortusk Polearm",
+          "skill_required": 178,
+          "skill_range": [
+            183,
+            193,
+            203,
+            213
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "str_physical",
+            "item_level": 36,
+            "rarity": "rare"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "ww_staff_orgrimmar_vendor": {
+          "name": "Stormcaller's Staff",
+          "skill_required": 118,
+          "skill_range": [
+            123,
+            133,
+            143,
+            153
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_medium": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "str_int_hybrid",
+            "item_level": 24,
+            "rarity": "uncommon"
+          },
+          "vendor_location": "Orgrimmar"
+        },
+        "ww_bow_crossroads_vendor": {
+          "name": "Plains Longbow",
+          "skill_required": 82,
+          "skill_range": [
+            87,
+            97,
+            107,
+            117
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_light": 5,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 17,
+            "rarity": "uncommon"
+          },
+          "vendor_location": "The Crossroads"
+        },
+        "ww_wand_undercity_vendor": {
+          "name": "Shadow-Etched Wand",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_medium": 6
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 40,
+            "rarity": "rare"
+          },
+          "vendor_location": "Undercity"
+        },
+        "ww_staff_astranaar_vendor": {
+          "name": "Grove Staff",
+          "skill_required": 155,
+          "skill_range": [
+            160,
+            170,
+            180,
+            190
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 32,
+            "rarity": "rare"
+          },
+          "vendor_location": "Astranaar"
+        },
+        "ww_polearm_ratchet_vendor": {
+          "name": "Ratchet War-Spear",
+          "skill_required": 65,
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 14,
+            "rarity": "common"
+          },
+          "vendor_location": "Ratchet"
+        },
+        "ww_charoak_bow": {
+          "name": "Charred Oak Bow",
+          "skill_required": 90,
+          "skill_range": [
+            95,
+            105,
+            115,
+            125
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_light": 5,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 19,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Ragefire Chasm"
+        },
+        "ww_ember_staff": {
+          "name": "Emberwood Staff",
+          "skill_required": 88,
+          "skill_range": [
+            93,
+            103,
+            113,
+            123
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_light": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "item_level": 18,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Ragefire Chasm"
+        },
+        "ww_tiki_staff": {
+          "name": "Tiki Staff",
+          "skill_required": 30,
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 7,
+            "rarity": "common"
+          },
+          "drop_zone": "Echo Isles"
+        },
+        "ww_bone_wand": {
+          "name": "Bone-Tipped Wand",
+          "skill_required": 28,
+          "skill_range": [
+            33,
+            43,
+            53,
+            63
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_light": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 6,
+            "rarity": "common"
+          },
+          "drop_zone": "Echo Isles"
+        },
+        "ww_venom_stave": {
+          "name": "Venomwood Staff",
+          "skill_required": 120,
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "item_level": 25,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Widow's Lair"
+        },
+        "ww_silk_bow": {
+          "name": "Silkweb Shortbow",
+          "skill_required": 118,
+          "skill_range": [
+            123,
+            133,
+            143,
+            153
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 4,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 24,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Widow's Lair"
+        },
+        "ww_chitin_haft_polearm": {
+          "name": "Chitin-Hafted Polearm",
+          "skill_required": 115,
+          "skill_range": [
+            120,
+            130,
+            140,
+            150
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 24,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "The Broodspiral"
+        },
+        "ww_brood_wand": {
+          "name": "Brood-Stung Wand",
+          "skill_required": 112,
+          "skill_range": [
+            117,
+            127,
+            137,
+            147
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 23,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "The Broodspiral"
+        },
+        "ww_serpentwood_staff": {
+          "name": "Serpentwood Staff",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "item_level": 20,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "ww_venomthorn_bow": {
+          "name": "Venomthorn Bow",
+          "skill_required": 93,
+          "skill_range": [
+            98,
+            108,
+            118,
+            128
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 4,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 19,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "ww_fang_polearm": {
+          "name": "Fang-Tipped Spear",
+          "skill_required": 88,
+          "skill_range": [
+            93,
+            103,
+            113,
+            123
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 18,
+            "rarity": "uncommon"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "ww_amber_wand_arcane": {
+          "name": "Amber-Etched Wand",
+          "skill_required": 145,
+          "skill_range": [
+            150,
+            160,
+            170,
+            180
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "rare"
+          },
+          "drop_zone": "Ambermill Tower"
+        },
+        "ww_amberwood_staff": {
+          "name": "Amberwood Staff",
+          "skill_required": 148,
+          "skill_range": [
+            153,
+            163,
+            173,
+            183
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_medium": 5
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 30,
+            "rarity": "rare"
+          },
+          "drop_zone": "Ambermill Tower"
+        },
+        "ww_scarlet_ash_wand": {
+          "name": "Scarlet Ash Wand",
+          "skill_required": 72,
+          "skill_range": [
+            77,
+            87,
+            97,
+            107
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_light": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "spi_healer",
+            "item_level": 15,
+            "rarity": "common"
+          },
+          "drop_zone": "Scarlet Crypt"
+        },
+        "ww_piety_staff": {
+          "name": "Staff of Piety",
+          "skill_required": 75,
+          "skill_range": [
+            80,
+            90,
+            100,
+            110
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_light": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 16,
+            "rarity": "common"
+          },
+          "drop_zone": "Scarlet Crypt"
+        },
+        "ww_crossroads_shortbow": {
+          "name": "Barrens Short Bow",
+          "skill_required": 45,
+          "skill_range": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_light": 3,
+            "component_string": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 10,
+            "rarity": "common"
+          },
+          "vendor_location": "The Crossroads"
+        },
+        "ww_sepulcher_shadow_wand": {
+          "name": "Shadow-Burned Wand",
+          "skill_required": 135,
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_medium": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 28,
+            "rarity": "uncommon"
+          },
+          "vendor_location": "The Sepulcher"
+        },
+        "ww_ratchet_blunderbuss": {
+          "name": "Ratchet Blunderbuss",
+          "skill_required": 78,
+          "skill_range": [
+            83,
+            93,
+            103,
+            113
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_light": 5,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 16,
+            "rarity": "uncommon"
+          },
+          "vendor_location": "Ratchet"
+        },
+        "ww_taurajo_spirit_staff": {
+          "name": "Taurajo Spirit Staff",
+          "skill_required": 88,
+          "skill_range": [
+            93,
+            103,
+            113,
+            123
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_medium": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 18,
+            "rarity": "uncommon"
+          },
+          "vendor_location": "Camp Taurajo"
+        },
+        "ww_undercity_cursed_wand": {
+          "name": "Undercity Cursed Wand",
+          "skill_required": 188,
+          "skill_range": [
+            193,
+            203,
+            213,
+            223
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_hardwood": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "wand",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 38,
+            "rarity": "rare"
+          },
+          "vendor_location": "Undercity"
+        },
+        "ww_astranaar_elven_bow": {
+          "name": "Astranaar Elven Bow",
+          "skill_required": 162,
+          "skill_range": [
+            167,
+            177,
+            187,
+            197
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_medium": 6,
+            "component_string": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 33,
+            "rarity": "rare"
+          },
+          "vendor_location": "Astranaar"
         }
       }
     }

@@ -229,6 +229,2385 @@
         "rarity": "uncommon",
         "material_tier": "bronze"
       }
+    },
+    "bs_copper_chain_gloves": {
+      "name": "Copper Chain Gloves",
+      "skill_required": 5,
+      "skill_range": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 2,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_chain_boots": {
+      "name": "Copper Chain Boots",
+      "skill_required": 18,
+      "skill_range": [
+        23,
+        33,
+        43,
+        53
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 4,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_chain_coif": {
+      "name": "Copper Chain Coif",
+      "skill_required": 25,
+      "skill_range": [
+        30,
+        40,
+        50,
+        60
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 6,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_chain_spaulders": {
+      "name": "Copper Chain Spaulders",
+      "skill_required": 45,
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 10,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_chain_leggings": {
+      "name": "Copper Chain Leggings",
+      "skill_required": 55,
+      "skill_range": [
+        60,
+        70,
+        80,
+        90
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 12,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_scale_bracers": {
+      "name": "Copper Scale Bracers",
+      "skill_required": 65,
+      "skill_range": [
+        70,
+        80,
+        90,
+        100
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 14,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_scale_helm": {
+      "name": "Copper Scale Helm",
+      "skill_required": 80,
+      "skill_range": [
+        85,
+        95,
+        105,
+        115
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 17,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_spellchain_belt": {
+      "name": "Copper Spellchain Belt",
+      "skill_required": 10,
+      "skill_range": [
+        15,
+        25,
+        35,
+        45
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 3,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_spellchain_boots": {
+      "name": "Copper Spellchain Boots",
+      "skill_required": 20,
+      "skill_range": [
+        25,
+        35,
+        45,
+        55
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 5,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_runic_bracers": {
+      "name": "Copper Runic Bracers",
+      "skill_required": 40,
+      "skill_range": [
+        45,
+        55,
+        65,
+        75
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 9,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_runic_coif": {
+      "name": "Copper Runic Coif",
+      "skill_required": 60,
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 13,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_runic_leggings": {
+      "name": "Copper Runic Leggings",
+      "skill_required": 75,
+      "skill_range": [
+        80,
+        90,
+        100,
+        110
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 16,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_warden_gloves": {
+      "name": "Copper Warden Gloves",
+      "skill_required": 30,
+      "skill_range": [
+        35,
+        45,
+        55,
+        65
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 7,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_warden_leggings": {
+      "name": "Copper Warden Leggings",
+      "skill_required": 70,
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 9
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 15,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      }
+    },
+    "bs_bronze_plate_belt": {
+      "name": "Bronze Plate Belt",
+      "skill_required": 102,
+      "skill_range": [
+        107,
+        117,
+        127,
+        137
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 21,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_plate_gloves": {
+      "name": "Bronze Plate Gloves",
+      "skill_required": 106,
+      "skill_range": [
+        111,
+        121,
+        131,
+        141
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 22,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_plate_helm": {
+      "name": "Bronze Plate Helm",
+      "skill_required": 112,
+      "skill_range": [
+        117,
+        127,
+        137,
+        147
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 23,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_plate_spaulders": {
+      "name": "Bronze Plate Spaulders",
+      "skill_required": 118,
+      "skill_range": [
+        123,
+        133,
+        143,
+        153
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_plate_boots": {
+      "name": "Bronze Plate Boots",
+      "skill_required": 122,
+      "skill_range": [
+        127,
+        137,
+        147,
+        157
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_plate_bracers": {
+      "name": "Bronze Plate Bracers",
+      "skill_required": 125,
+      "skill_range": [
+        130,
+        140,
+        150,
+        160
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_crusader_belt": {
+      "name": "Bronze Crusader Belt",
+      "skill_required": 110,
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 23,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_crusader_gloves": {
+      "name": "Bronze Crusader Gloves",
+      "skill_required": 114,
+      "skill_range": [
+        119,
+        129,
+        139,
+        149
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 23,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_crusader_helm": {
+      "name": "Bronze Crusader Helm",
+      "skill_required": 120,
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_crusader_spaulders": {
+      "name": "Bronze Crusader Spaulders",
+      "skill_required": 126,
+      "skill_range": [
+        131,
+        141,
+        151,
+        161
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_crusader_boots": {
+      "name": "Bronze Crusader Boots",
+      "skill_required": 130,
+      "skill_range": [
+        135,
+        145,
+        155,
+        165
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_chaplain_helm": {
+      "name": "Bronze Chaplain Helm",
+      "skill_required": 116,
+      "skill_range": [
+        121,
+        131,
+        141,
+        151
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 24,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_chaplain_gloves": {
+      "name": "Bronze Chaplain Gloves",
+      "skill_required": 124,
+      "skill_range": [
+        129,
+        139,
+        149,
+        159
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 25,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_belt": {
+      "name": "Iron Plate Belt",
+      "skill_required": 155,
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 32,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_boots": {
+      "name": "Iron Plate Boots",
+      "skill_required": 160,
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 33,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_gloves": {
+      "name": "Iron Plate Gloves",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 34,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_leggings": {
+      "name": "Iron Plate Leggings",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 35,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_helm": {
+      "name": "Iron Plate Helm",
+      "skill_required": 175,
+      "skill_range": [
+        180,
+        190,
+        200,
+        210
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 36,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_spaulders": {
+      "name": "Iron Plate Spaulders",
+      "skill_required": 180,
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 37,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_cuirass": {
+      "name": "Iron Plate Cuirass",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 16
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 38,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_plate_bracers": {
+      "name": "Iron Plate Bracers",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 34,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_crusader_leggings": {
+      "name": "Iron Crusader Leggings",
+      "skill_required": 162,
+      "skill_range": [
+        167,
+        177,
+        187,
+        197
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 33,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_crusader_cuirass": {
+      "name": "Iron Crusader Cuirass",
+      "skill_required": 190,
+      "skill_range": [
+        195,
+        205,
+        215,
+        225
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 16
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 39,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_crusader_helm": {
+      "name": "Iron Crusader Helm",
+      "skill_required": 195,
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 40,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_crusader_bracers": {
+      "name": "Iron Crusader Bracers",
+      "skill_required": 168,
+      "skill_range": [
+        173,
+        183,
+        193,
+        203
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 34,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_mail_belt": {
+      "name": "Iron Scale Belt",
+      "skill_required": 152,
+      "skill_range": [
+        157,
+        167,
+        177,
+        187
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 31,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_mail_boots": {
+      "name": "Iron Scale Boots",
+      "skill_required": 157,
+      "skill_range": [
+        162,
+        172,
+        182,
+        192
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 32,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_mail_gloves": {
+      "name": "Iron Scale Gloves",
+      "skill_required": 163,
+      "skill_range": [
+        168,
+        178,
+        188,
+        198
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 33,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_mail_leggings": {
+      "name": "Iron Scale Leggings",
+      "skill_required": 172,
+      "skill_range": [
+        177,
+        187,
+        197,
+        207
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 35,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_mail_helm": {
+      "name": "Iron Scale Helm",
+      "skill_required": 178,
+      "skill_range": [
+        183,
+        193,
+        203,
+        213
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 36,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_mail_cuirass": {
+      "name": "Iron Scale Cuirass",
+      "skill_required": 188,
+      "skill_range": [
+        193,
+        203,
+        213,
+        223
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 38,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_runic_leggings": {
+      "name": "Iron Runic Leggings",
+      "skill_required": 158,
+      "skill_range": [
+        163,
+        173,
+        183,
+        193
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 32,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_runic_cuirass": {
+      "name": "Iron Runic Cuirass",
+      "skill_required": 182,
+      "skill_range": [
+        187,
+        197,
+        207,
+        217
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 37,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_copper_sword": {
+      "name": "Copper Shortsword",
+      "skill_required": 5,
+      "skill_range": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 5
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword",
+        "stat_template": "str_physical",
+        "item_level": 2,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_axe": {
+      "name": "Copper Hand Axe",
+      "skill_required": 15,
+      "skill_range": [
+        20,
+        30,
+        40,
+        50
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 5
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe",
+        "stat_template": "str_physical",
+        "item_level": 4,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_mace": {
+      "name": "Copper Mace",
+      "skill_required": 25,
+      "skill_range": [
+        30,
+        40,
+        50,
+        60
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 5
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace",
+        "stat_template": "str_physical",
+        "item_level": 6,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_copper_shield": {
+      "name": "Copper Shield",
+      "skill_required": 10,
+      "skill_range": [
+        15,
+        25,
+        35,
+        45
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_copper": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_physical",
+        "item_level": 3,
+        "rarity": "common",
+        "material_tier": "copper"
+      }
+    },
+    "bs_bronze_longsword": {
+      "name": "Bronze Longsword",
+      "skill_required": 103,
+      "skill_range": [
+        108,
+        118,
+        128,
+        138
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword",
+        "stat_template": "str_physical",
+        "item_level": 21,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_battle_axe": {
+      "name": "Bronze Battle Axe",
+      "skill_required": 107,
+      "skill_range": [
+        112,
+        122,
+        132,
+        142
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe",
+        "stat_template": "str_physical",
+        "item_level": 22,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_warhammer": {
+      "name": "Bronze Warhammer",
+      "skill_required": 113,
+      "skill_range": [
+        118,
+        128,
+        138,
+        148
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 9
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace",
+        "stat_template": "str_int_hybrid",
+        "item_level": 23,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_shield": {
+      "name": "Bronze Heater Shield",
+      "skill_required": 108,
+      "skill_range": [
+        113,
+        123,
+        133,
+        143
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_physical",
+        "item_level": 22,
+        "rarity": "common",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_2h_sword": {
+      "name": "Bronze Greatsword",
+      "skill_required": 119,
+      "skill_range": [
+        124,
+        134,
+        144,
+        154
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "sword",
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_bronze_2h_axe": {
+      "name": "Bronze Great Axe",
+      "skill_required": 127,
+      "skill_range": [
+        132,
+        142,
+        152,
+        162
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "axe",
+        "stat_template": "str_physical",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_sword": {
+      "name": "Iron Longsword",
+      "skill_required": 155,
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword",
+        "stat_template": "str_physical",
+        "item_level": 32,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_axe": {
+      "name": "Iron Battle Axe",
+      "skill_required": 162,
+      "skill_range": [
+        167,
+        177,
+        187,
+        197
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe",
+        "stat_template": "str_physical",
+        "item_level": 33,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_mace": {
+      "name": "Iron Warhammer",
+      "skill_required": 168,
+      "skill_range": [
+        173,
+        183,
+        193,
+        203
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace",
+        "stat_template": "str_int_hybrid",
+        "item_level": 34,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_shield": {
+      "name": "Iron Tower Shield",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_physical",
+        "item_level": 35,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_2h_sword": {
+      "name": "Iron Claymore",
+      "skill_required": 176,
+      "skill_range": [
+        181,
+        191,
+        201,
+        211
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 16
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "sword",
+        "stat_template": "str_physical",
+        "item_level": 36,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_iron_2h_polearm": {
+      "name": "Iron Halberd",
+      "skill_required": 183,
+      "skill_range": [
+        188,
+        198,
+        208,
+        218
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "polearm",
+        "stat_template": "str_int_hybrid",
+        "item_level": 37,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      }
+    },
+    "bs_upgrade_kit_iron": {
+      "name": "Iron Upgrade Kit",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_iron": 4
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "lw_kit_iron"
+      }
+    },
+    "bs_smelted_plate_gauntlets": {
+      "name": "Smelted Plate Gauntlets",
+      "skill_required": 115,
+      "skill_range": [
+        120,
+        130,
+        140,
+        150
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Ragefire Chasm"
+    },
+    "bs_forgeborn_spaulders": {
+      "name": "Forgeborn Spaulders",
+      "skill_required": 118,
+      "skill_range": [
+        123,
+        133,
+        143,
+        153
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Ragefire Chasm"
+    },
+    "bs_silverfang_greaves": {
+      "name": "Silverfang Greaves",
+      "skill_required": 150,
+      "skill_range": [
+        155,
+        165,
+        175,
+        185
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 31,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Shadowfang Keep"
+    },
+    "bs_duskplate_cuirass": {
+      "name": "Duskplate Cuirass",
+      "skill_required": 155,
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 18
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 32,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Shadowfang Keep"
+    },
+    "bs_moonhowl_mail_vest": {
+      "name": "Moonhowl Mail Vest",
+      "skill_required": 148,
+      "skill_range": [
+        153,
+        163,
+        173,
+        183
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Shadowfang Keep"
+    },
+    "bs_carapace_mail_gloves": {
+      "name": "Carapace Mail Gloves",
+      "skill_required": 130,
+      "skill_range": [
+        135,
+        145,
+        155,
+        165
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Widow's Lair"
+    },
+    "bs_venomed_scale_bracers": {
+      "name": "Venomed Scale Bracers",
+      "skill_required": 132,
+      "skill_range": [
+        137,
+        147,
+        157,
+        167
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Widow's Lair"
+    },
+    "bs_plague_iron_helm": {
+      "name": "Plagued Iron Helm",
+      "skill_required": 210,
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_iron": 16
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 43,
+        "rarity": "rare",
+        "material_tier": "iron"
+      },
+      "drop_zone": "Plague Depths"
+    },
+    "bs_putrid_mail_cuirass": {
+      "name": "Putrid Mail Cuirass",
+      "skill_required": 205,
+      "skill_range": [
+        210,
+        220,
+        230,
+        240
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_iron": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 42,
+        "rarity": "rare",
+        "material_tier": "iron"
+      },
+      "drop_zone": "Plague Depths"
+    },
+    "bs_rotboned_shield": {
+      "name": "Rotboned Bulwark",
+      "skill_required": 208,
+      "skill_range": [
+        213,
+        223,
+        233,
+        243
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_iron": 12
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_int_hybrid",
+        "item_level": 42,
+        "rarity": "rare",
+        "material_tier": "iron"
+      },
+      "drop_zone": "Plague Depths"
+    },
+    "bs_thornscale_mail_spaulders": {
+      "name": "Thornscale Spaulders",
+      "skill_required": 138,
+      "skill_range": [
+        143,
+        153,
+        163,
+        173
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 28,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Wailing Caverns"
+    },
+    "bs_serpentscale_bracers": {
+      "name": "Serpentscale Bracers",
+      "skill_required": 140,
+      "skill_range": [
+        145,
+        155,
+        165,
+        175
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 29,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Wailing Caverns"
+    },
+    "bs_fangplate_gloves": {
+      "name": "Fangplate Gauntlets",
+      "skill_required": 145,
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Wailing Caverns"
+    },
+    "bs_boarplate_cuirass": {
+      "name": "Boarplate Cuirass",
+      "skill_required": 180,
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 18
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 37,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Razorfen Kraul"
+    },
+    "bs_razortusk_2h_axe": {
+      "name": "Razortusk Cleaver",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 20
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "axe",
+        "stat_template": "str_physical",
+        "item_level": 38,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Razorfen Kraul"
+    },
+    "bs_blademark_mail_helm": {
+      "name": "Blademark Mail Helm",
+      "skill_required": 175,
+      "skill_range": [
+        180,
+        190,
+        200,
+        210
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 36,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Razorfen Kraul"
+    },
+    "bs_deepsea_mail_vest": {
+      "name": "Deepsea Mail Vest",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 34,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Blackfathom Deeps"
+    },
+    "bs_tideguard_shield": {
+      "name": "Tideguard Bulwark",
+      "skill_required": 168,
+      "skill_range": [
+        173,
+        183,
+        193,
+        203
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "spi_healer",
+        "item_level": 34,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Blackfathom Deeps"
+    },
+    "bs_arcane_plate_bracers": {
+      "name": "Arcane Plate Bracers",
+      "skill_required": 148,
+      "skill_range": [
+        153,
+        163,
+        173,
+        183
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Ambermill Tower"
+    },
+    "bs_stormblessed_mail_helm": {
+      "name": "Stormblessed Coif",
+      "skill_required": 143,
+      "skill_range": [
+        148,
+        158,
+        168,
+        178
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 29,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Ambermill Tower"
+    },
+    "bs_saltcrusted_mail_gloves": {
+      "name": "Saltcrusted Mail Gloves",
+      "skill_required": 52,
+      "skill_range": [
+        57,
+        67,
+        77,
+        87
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_copper": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 11,
+        "rarity": "common",
+        "material_tier": "copper"
+      },
+      "drop_zone": "Echo Isles"
+    },
+    "bs_troll_bronze_axe": {
+      "name": "Troll-Wrought Axe",
+      "skill_required": 50,
+      "skill_range": [
+        55,
+        65,
+        75,
+        85
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_copper": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe",
+        "stat_template": "agi_physical",
+        "item_level": 11,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "drop_zone": "Echo Isles"
+    },
+    "bs_demonshard_mail_bracers": {
+      "name": "Demonshard Mail Bracers",
+      "skill_required": 188,
+      "skill_range": [
+        193,
+        203,
+        213,
+        223
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 38,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Grom's Rest"
+    },
+    "bs_felhewn_plate_helm": {
+      "name": "Felhewn Plate Helm",
+      "skill_required": 192,
+      "skill_range": [
+        197,
+        207,
+        217,
+        227
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 39,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Grom's Rest"
+    },
+    "bs_accursed_2h_sword": {
+      "name": "Accursed Greatsword",
+      "skill_required": 195,
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bronze": 20
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "sword",
+        "stat_template": "str_int_hybrid",
+        "item_level": 40,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Grom's Rest"
+    },
+    "bs_warsong_mail_helm": {
+      "name": "Warsong Chain Coif",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 19,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "vendor_location": "Orgrimmar"
+    },
+    "bs_warsong_plate_spaulders": {
+      "name": "Warsong Plate Spaulders",
+      "skill_required": 128,
+      "skill_range": [
+        133,
+        143,
+        153,
+        163
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Orgrimmar"
+    },
+    "bs_plains_scale_vest": {
+      "name": "Plains Scale Vest",
+      "skill_required": 85,
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 18,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "vendor_location": "The Crossroads"
+    },
+    "bs_thunderfist_gauntlets": {
+      "name": "Thunderfist Gauntlets",
+      "skill_required": 135,
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 28,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "The Crossroads"
+    },
+    "bs_stonemace": {
+      "name": "Stonemace",
+      "skill_required": 95,
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 8
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace",
+        "stat_template": "str_int_hybrid",
+        "item_level": 20,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "vendor_location": "The Crossroads"
+    },
+    "bs_bonegraft_mail_spaulders": {
+      "name": "Bonegraft Mail Spaulders",
+      "skill_required": 132,
+      "skill_range": [
+        137,
+        147,
+        157,
+        167
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulders",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "The Sepulcher"
+    },
+    "bs_shroudsteel_helm": {
+      "name": "Shroudsteel Helm",
+      "skill_required": 138,
+      "skill_range": [
+        143,
+        153,
+        163,
+        173
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 28,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "The Sepulcher"
+    },
+    "bs_runeplate_cuirass": {
+      "name": "Runeplate Cuirass",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 18
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 41,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Undercity"
+    },
+    "bs_runescale_leggings": {
+      "name": "Runescale Leggings",
+      "skill_required": 198,
+      "skill_range": [
+        203,
+        213,
+        223,
+        233
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 40,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Undercity"
+    },
+    "bs_stonehoof_mail_boots": {
+      "name": "Stonehoof Mail Boots",
+      "skill_required": 105,
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 22,
+        "rarity": "common",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Camp Taurajo"
+    },
+    "bs_earthshaker_mace": {
+      "name": "Earthshaker Mace",
+      "skill_required": 112,
+      "skill_range": [
+        117,
+        127,
+        137,
+        147
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace",
+        "stat_template": "str_int_hybrid",
+        "item_level": 23,
+        "rarity": "uncommon",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Camp Taurajo"
+    },
+    "bs_naga_scale_vest": {
+      "name": "Naga Scale Vest",
+      "skill_required": 160,
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 14
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 33,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Zoram Strand (hidden)"
+    },
+    "bs_tidesurge_shield": {
+      "name": "Tidesurge Bulwark",
+      "skill_required": 162,
+      "skill_range": [
+        167,
+        177,
+        187,
+        197
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "spi_healer",
+        "item_level": 33,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Zoram Strand (hidden)"
     }
   }
 }
