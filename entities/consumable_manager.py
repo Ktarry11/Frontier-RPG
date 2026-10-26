@@ -57,6 +57,7 @@ class ConsumableManager:
             data["vendor_price"],
             data["sell_price"],
             data.get("buff_category"),
+            data.get("stat_bonuses"),
         )
         c.quantity = min(quantity, data["stack_limit"])
         return c

@@ -339,6 +339,881 @@
       "stat_bonuses": {
         "spell_power": 6
       }
+    },
+    {
+      "consumable_id": "elixir_of_strength",
+      "name": "Elixir of Strength",
+      "consumable_type": "elixir",
+      "description": "+4 Strength for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "strength": 4
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_strength",
+      "name": "Elixir of Greater Strength",
+      "consumable_type": "elixir",
+      "description": "+14 Strength for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 30,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 400,
+      "sell_price": 100,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "strength": 14
+      }
+    },
+    {
+      "consumable_id": "elixir_of_lesser_agility",
+      "name": "Elixir of Lesser Agility",
+      "consumable_type": "elixir",
+      "description": "+4 Agility for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "agility": 4
+      }
+    },
+    {
+      "consumable_id": "elixir_of_lesser_intellect",
+      "name": "Elixir of Lesser Intellect",
+      "consumable_type": "elixir",
+      "description": "+4 Intellect for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "intellect": 4
+      }
+    },
+    {
+      "consumable_id": "elixir_of_lesser_firepower",
+      "name": "Elixir of Lesser Firepower",
+      "consumable_type": "elixir",
+      "description": "+3 Spell Power for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "spell_power": 3
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_firepower",
+      "name": "Elixir of Greater Firepower",
+      "consumable_type": "elixir",
+      "description": "+12 Spell Power for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 30,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 450,
+      "sell_price": 112,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "spell_power": 12
+      }
+    },
+    {
+      "consumable_id": "elixir_of_brutality",
+      "name": "Elixir of Brutality",
+      "consumable_type": "elixir",
+      "description": "+8 Attack Power for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "attack_power": 8
+      }
+    },
+    {
+      "consumable_id": "elixir_of_the_mongoose",
+      "name": "Elixir of the Mongoose",
+      "consumable_type": "elixir",
+      "description": "+16 Attack Power for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 15,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 170,
+      "sell_price": 42,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "attack_power": 16
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_mongoose",
+      "name": "Elixir of Greater Mongoose",
+      "consumable_type": "elixir",
+      "description": "+28 Attack Power for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 30,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 450,
+      "sell_price": 112,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "attack_power": 28
+      }
+    },
+    {
+      "consumable_id": "elixir_of_precision",
+      "name": "Elixir of Precision",
+      "consumable_type": "elixir",
+      "description": "+1.5 Crit Chance Physical for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 114,
+      "sell_price": 28,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "crit_chance_physical": 1.5
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_precision",
+      "name": "Elixir of Greater Precision",
+      "consumable_type": "elixir",
+      "description": "+3.0 Crit Chance Physical for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 20,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 210,
+      "sell_price": 52,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "crit_chance_physical": 3.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_deadly_strikes",
+      "name": "Elixir of Deadly Strikes",
+      "consumable_type": "elixir",
+      "description": "+5.0 Crit Chance Physical for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "crit_chance_physical": 5.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_insight",
+      "name": "Elixir of Insight",
+      "consumable_type": "elixir",
+      "description": "+1.5 Crit Chance Spell for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 114,
+      "sell_price": 28,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "crit_chance_spell": 1.5
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_insight",
+      "name": "Elixir of Greater Insight",
+      "consumable_type": "elixir",
+      "description": "+3.0 Crit Chance Spell for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 20,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 210,
+      "sell_price": 52,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "crit_chance_spell": 3.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_arcane_fury",
+      "name": "Elixir of Arcane Fury",
+      "consumable_type": "elixir",
+      "description": "+5.0 Crit Chance Spell for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "crit_chance_spell": 5.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_swiftness",
+      "name": "Elixir of Swiftness",
+      "consumable_type": "elixir",
+      "description": "+2.0 Haste for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 10,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 130,
+      "sell_price": 32,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "haste": 2.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_swiftness",
+      "name": "Elixir of Greater Swiftness",
+      "consumable_type": "elixir",
+      "description": "+4.0 Haste for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 22,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 226,
+      "sell_price": 56,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "haste": 4.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_the_wind",
+      "name": "Elixir of the Wind",
+      "consumable_type": "elixir",
+      "description": "+7.0 Haste for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 35,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "haste": 7.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_devotion",
+      "name": "Elixir of Devotion",
+      "consumable_type": "elixir",
+      "description": "+3 Strength, +3 Intellect for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 114,
+      "sell_price": 28,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "strength": 3,
+        "intellect": 3
+      }
+    },
+    {
+      "consumable_id": "elixir_of_holy_fury",
+      "name": "Elixir of Holy Fury",
+      "consumable_type": "elixir",
+      "description": "+6 Strength, +6 Intellect for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 20,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 210,
+      "sell_price": 52,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "strength": 6,
+        "intellect": 6
+      }
+    },
+    {
+      "consumable_id": "elixir_of_the_crusader",
+      "name": "Elixir of the Crusader",
+      "consumable_type": "elixir",
+      "description": "+10 Strength, +10 Intellect for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "strength": 10,
+        "intellect": 10
+      }
+    },
+    {
+      "consumable_id": "elixir_of_cunning",
+      "name": "Elixir of Cunning",
+      "consumable_type": "elixir",
+      "description": "+3 Agility, +3 Intellect for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 114,
+      "sell_price": 28,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "agility": 3,
+        "intellect": 3
+      }
+    },
+    {
+      "consumable_id": "elixir_of_the_trickster",
+      "name": "Elixir of the Trickster",
+      "consumable_type": "elixir",
+      "description": "+6 Agility, +6 Intellect for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 20,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 210,
+      "sell_price": 52,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "agility": 6,
+        "intellect": 6
+      }
+    },
+    {
+      "consumable_id": "elixir_of_shadow_cunning",
+      "name": "Elixir of Shadow Cunning",
+      "consumable_type": "elixir",
+      "description": "+10 Agility, +10 Intellect for 30 min. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "agility": 10,
+        "intellect": 10
+      }
+    },
+    {
+      "consumable_id": "elixir_of_endurance",
+      "name": "Elixir of Endurance",
+      "consumable_type": "elixir",
+      "description": "+5 Stamina for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "stamina": 5
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_endurance",
+      "name": "Elixir of Greater Endurance",
+      "consumable_type": "elixir",
+      "description": "+20 Stamina for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 450,
+      "sell_price": 112,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "stamina": 20
+      }
+    },
+    {
+      "consumable_id": "elixir_of_minor_warding",
+      "name": "Elixir of Minor Warding",
+      "consumable_type": "elixir",
+      "description": "+4 Spirit for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "spirit": 4
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_warding",
+      "name": "Elixir of Greater Warding",
+      "consumable_type": "elixir",
+      "description": "+14 Spirit, +4 Mp5 for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 30,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 450,
+      "sell_price": 112,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "spirit": 14,
+        "mp5": 4
+      }
+    },
+    {
+      "consumable_id": "elixir_of_toughness",
+      "name": "Elixir of Toughness",
+      "consumable_type": "elixir",
+      "description": "+30 Armor for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 114,
+      "sell_price": 28,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "armor": 30
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_toughness",
+      "name": "Elixir of Greater Toughness",
+      "consumable_type": "elixir",
+      "description": "+60 Armor for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 20,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 210,
+      "sell_price": 52,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "armor": 60
+      }
+    },
+    {
+      "consumable_id": "elixir_of_ironskin",
+      "name": "Elixir of Ironskin",
+      "consumable_type": "elixir",
+      "description": "+100 Armor for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 33,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "armor": 100
+      }
+    },
+    {
+      "consumable_id": "elixir_of_wisdom",
+      "name": "Elixir of Wisdom",
+      "consumable_type": "elixir",
+      "description": "+5 Intellect for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 114,
+      "sell_price": 28,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "intellect": 5
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_wisdom",
+      "name": "Elixir of Greater Wisdom",
+      "consumable_type": "elixir",
+      "description": "+10 Intellect for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 20,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 210,
+      "sell_price": 52,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "intellect": 10
+      }
+    },
+    {
+      "consumable_id": "elixir_of_the_sage",
+      "name": "Elixir of the Sage",
+      "consumable_type": "elixir",
+      "description": "+16 Intellect, +6 Mp5 for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 480,
+      "sell_price": 120,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "intellect": 16,
+        "mp5": 6
+      }
+    },
+    {
+      "consumable_id": "elixir_of_evasion",
+      "name": "Elixir of Evasion",
+      "consumable_type": "elixir",
+      "description": "+1.5 Dodge for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 114,
+      "sell_price": 28,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "dodge": 1.5
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_evasion",
+      "name": "Elixir of Greater Evasion",
+      "consumable_type": "elixir",
+      "description": "+3.0 Dodge for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 22,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 226,
+      "sell_price": 56,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "dodge": 3.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_the_mongoose_guard",
+      "name": "Elixir of the Mongoose's Grace",
+      "consumable_type": "elixir",
+      "description": "+5.0 Dodge for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 34,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "dodge": 5.0
+      }
+    },
+    {
+      "consumable_id": "elixir_of_fire_ward",
+      "name": "Elixir of Fire Ward",
+      "consumable_type": "elixir",
+      "description": "+15 Fire Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 10,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 130,
+      "sell_price": 32,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "fire_resistance": 15
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_fire_ward",
+      "name": "Elixir of Greater Fire Ward",
+      "consumable_type": "elixir",
+      "description": "+30 Fire Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 25,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 350,
+      "sell_price": 87,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "fire_resistance": 30
+      }
+    },
+    {
+      "consumable_id": "elixir_of_frost_ward",
+      "name": "Elixir of Frost Ward",
+      "consumable_type": "elixir",
+      "description": "+15 Frost Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 10,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 130,
+      "sell_price": 32,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "frost_resistance": 15
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_frost_ward",
+      "name": "Elixir of Greater Frost Ward",
+      "consumable_type": "elixir",
+      "description": "+30 Frost Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 25,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 350,
+      "sell_price": 87,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "frost_resistance": 30
+      }
+    },
+    {
+      "consumable_id": "elixir_of_nature_ward",
+      "name": "Elixir of Nature Ward",
+      "consumable_type": "elixir",
+      "description": "+15 Nature Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 10,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 130,
+      "sell_price": 32,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "nature_resistance": 15
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_nature_ward",
+      "name": "Elixir of Greater Nature Ward",
+      "consumable_type": "elixir",
+      "description": "+30 Nature Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 25,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 350,
+      "sell_price": 87,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "nature_resistance": 30
+      }
+    },
+    {
+      "consumable_id": "elixir_of_shadow_ward",
+      "name": "Elixir of Shadow Ward",
+      "consumable_type": "elixir",
+      "description": "+15 Shadow Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 10,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 130,
+      "sell_price": 32,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "shadow_resistance": 15
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_shadow_ward",
+      "name": "Elixir of Greater Shadow Ward",
+      "consumable_type": "elixir",
+      "description": "+30 Shadow Resistance for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 25,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 350,
+      "sell_price": 87,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "shadow_resistance": 30
+      }
+    },
+    {
+      "consumable_id": "elixir_of_minor_fortitude",
+      "name": "Elixir of Minor Fortitude",
+      "consumable_type": "elixir",
+      "description": "+3 Stamina, +3 Spirit for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 90,
+      "sell_price": 22,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "stamina": 3,
+        "spirit": 3
+      }
+    },
+    {
+      "consumable_id": "elixir_of_fortitude",
+      "name": "Elixir of Fortitude",
+      "consumable_type": "elixir",
+      "description": "+8 Stamina, +5 Spirit for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 18,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 194,
+      "sell_price": 48,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "stamina": 8,
+        "spirit": 5
+      }
+    },
+    {
+      "consumable_id": "elixir_of_greater_fortitude",
+      "name": "Elixir of Greater Fortitude",
+      "consumable_type": "elixir",
+      "description": "+14 Stamina, +8 Spirit for 30 min. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 450,
+      "sell_price": 112,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "stamina": 14,
+        "spirit": 8
+      }
     }
   ],
   "food": [

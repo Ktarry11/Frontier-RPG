@@ -631,6 +631,995 @@
             "consumable_id": "potion_invulnerability"
           },
           "vendor_location": "Ratchet"
+        },
+        "alch_elixir_of_strength": {
+          "name": "Elixir of Strength",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_strength"
+          }
+        },
+        "alch_elixir_of_greater_strength": {
+          "name": "Elixir of Greater Strength",
+          "skill_required": 125,
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_kingsblood": 2,
+            "herb_goldthorn": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_strength"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "alch_elixir_of_lesser_agility": {
+          "name": "Elixir of Lesser Agility",
+          "skill_required": 8,
+          "skill_range": [
+            13,
+            23,
+            33,
+            43
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_silverleaf": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_lesser_agility"
+          }
+        },
+        "alch_elixir_of_lesser_intellect": {
+          "name": "Elixir of Lesser Intellect",
+          "skill_required": 8,
+          "skill_range": [
+            13,
+            23,
+            33,
+            43
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 1,
+            "herb_mageroyal": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_lesser_intellect"
+          }
+        },
+        "alch_elixir_of_lesser_firepower": {
+          "name": "Elixir of Lesser Firepower",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_earthroot": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_lesser_firepower"
+          }
+        },
+        "alch_elixir_of_greater_firepower": {
+          "name": "Elixir of Greater Firepower",
+          "skill_required": 130,
+          "skill_range": [
+            135,
+            145,
+            155,
+            165
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_goldthorn": 2,
+            "herb_khadgar": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_firepower"
+          },
+          "drop_zone": "Shadowfang Keep"
+        },
+        "alch_elixir_of_brutality": {
+          "name": "Elixir of Brutality",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_earthroot": 1,
+            "herb_silverleaf": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_brutality"
+          }
+        },
+        "alch_elixir_of_the_mongoose": {
+          "name": "Elixir of the Mongoose",
+          "skill_required": 45,
+          "skill_range": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_bruiseweed": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_mongoose"
+          }
+        },
+        "alch_elixir_of_greater_mongoose": {
+          "name": "Elixir of Greater Mongoose",
+          "skill_required": 135,
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_goldthorn": 2,
+            "herb_sungrass": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_mongoose"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "alch_elixir_of_precision": {
+          "name": "Elixir of Precision",
+          "skill_required": 12,
+          "skill_range": [
+            17,
+            27,
+            37,
+            47
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_mageroyal": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_precision"
+          }
+        },
+        "alch_elixir_of_greater_precision": {
+          "name": "Elixir of Greater Precision",
+          "skill_required": 60,
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_bruiseweed": 1,
+            "herb_stranglekelp": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_precision"
+          }
+        },
+        "alch_elixir_of_deadly_strikes": {
+          "name": "Elixir of Deadly Strikes",
+          "skill_required": 140,
+          "skill_range": [
+            145,
+            155,
+            165,
+            175
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_sungrass": 2,
+            "herb_firebloom": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_deadly_strikes"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "alch_elixir_of_insight": {
+          "name": "Elixir of Insight",
+          "skill_required": 12,
+          "skill_range": [
+            17,
+            27,
+            37,
+            47
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 1,
+            "herb_mageroyal": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_insight"
+          }
+        },
+        "alch_elixir_of_greater_insight": {
+          "name": "Elixir of Greater Insight",
+          "skill_required": 60,
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_mageroyal": 1,
+            "herb_liferoot": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_insight"
+          }
+        },
+        "alch_elixir_of_arcane_fury": {
+          "name": "Elixir of Arcane Fury",
+          "skill_required": 145,
+          "skill_range": [
+            150,
+            160,
+            170,
+            180
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_khadgar": 2,
+            "herb_blindweed": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_arcane_fury"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "alch_elixir_of_swiftness": {
+          "name": "Elixir of Swiftness",
+          "skill_required": 15,
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_briarthorn": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_swiftness"
+          }
+        },
+        "alch_elixir_of_greater_swiftness": {
+          "name": "Elixir of Greater Swiftness",
+          "skill_required": 70,
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_liferoot": 1,
+            "herb_stranglekelp": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_swiftness"
+          }
+        },
+        "alch_elixir_of_the_wind": {
+          "name": "Elixir of the Wind",
+          "skill_required": 150,
+          "skill_range": [
+            155,
+            165,
+            175,
+            185
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_sungrass": 2,
+            "herb_khadgar": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_wind"
+          },
+          "drop_zone": "Blackfathom Deeps"
+        },
+        "alch_elixir_of_devotion": {
+          "name": "Elixir of Devotion",
+          "skill_required": 15,
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 1,
+            "herb_earthroot": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_devotion"
+          }
+        },
+        "alch_elixir_of_holy_fury": {
+          "name": "Elixir of Holy Fury",
+          "skill_required": 65,
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_bruiseweed": 1,
+            "herb_liferoot": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_holy_fury"
+          }
+        },
+        "alch_elixir_of_the_crusader": {
+          "name": "Elixir of the Crusader",
+          "skill_required": 148,
+          "skill_range": [
+            153,
+            163,
+            173,
+            183
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_goldthorn": 1,
+            "herb_khadgar": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_crusader"
+          },
+          "drop_zone": "Ambermill Tower"
+        },
+        "alch_elixir_of_cunning": {
+          "name": "Elixir of Cunning",
+          "skill_required": 15,
+          "skill_range": [
+            20,
+            30,
+            40,
+            50
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_silverleaf": 1,
+            "herb_mageroyal": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_cunning"
+          }
+        },
+        "alch_elixir_of_the_trickster": {
+          "name": "Elixir of the Trickster",
+          "skill_required": 65,
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_fadeleaf": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_trickster"
+          }
+        },
+        "alch_elixir_of_shadow_cunning": {
+          "name": "Elixir of Shadow Cunning",
+          "skill_required": 150,
+          "skill_range": [
+            155,
+            165,
+            175,
+            185
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_fadeleaf": 2,
+            "herb_blindweed": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_shadow_cunning"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "alch_elixir_of_endurance": {
+          "name": "Elixir of Endurance",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_endurance"
+          }
+        },
+        "alch_elixir_of_greater_endurance": {
+          "name": "Elixir of Greater Endurance",
+          "skill_required": 138,
+          "skill_range": [
+            143,
+            153,
+            163,
+            173
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_goldthorn": 2,
+            "herb_blindweed": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_endurance"
+          },
+          "drop_zone": "Grom's Rest"
+        },
+        "alch_elixir_of_minor_warding": {
+          "name": "Elixir of Minor Warding",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 1,
+            "herb_silverleaf": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_minor_warding"
+          }
+        },
+        "alch_elixir_of_greater_warding": {
+          "name": "Elixir of Greater Warding",
+          "skill_required": 128,
+          "skill_range": [
+            133,
+            143,
+            153,
+            163
+          ],
+          "count": 1,
+          "source": "vendor",
+          "inputs": {
+            "herb_goldthorn": 2,
+            "herb_liferoot": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_warding"
+          },
+          "vendor_location": "The Sepulcher"
+        },
+        "alch_elixir_of_toughness": {
+          "name": "Elixir of Toughness",
+          "skill_required": 10,
+          "skill_range": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_earthroot": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_toughness"
+          }
+        },
+        "alch_elixir_of_greater_toughness": {
+          "name": "Elixir of Greater Toughness",
+          "skill_required": 55,
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_bruiseweed": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_toughness"
+          }
+        },
+        "alch_elixir_of_ironskin": {
+          "name": "Elixir of Ironskin",
+          "skill_required": 140,
+          "skill_range": [
+            145,
+            155,
+            165,
+            175
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_goldthorn": 2,
+            "herb_firebloom": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_ironskin"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "alch_elixir_of_wisdom": {
+          "name": "Elixir of Wisdom",
+          "skill_required": 10,
+          "skill_range": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 1,
+            "herb_mageroyal": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_wisdom"
+          }
+        },
+        "alch_elixir_of_greater_wisdom": {
+          "name": "Elixir of Greater Wisdom",
+          "skill_required": 55,
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_mageroyal": 2,
+            "herb_liferoot": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_wisdom"
+          }
+        },
+        "alch_elixir_of_the_sage": {
+          "name": "Elixir of the Sage",
+          "skill_required": 142,
+          "skill_range": [
+            147,
+            157,
+            167,
+            177
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_khadgar": 2,
+            "herb_goldthorn": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_sage"
+          },
+          "drop_zone": "Blackfathom Deeps"
+        },
+        "alch_elixir_of_evasion": {
+          "name": "Elixir of Evasion",
+          "skill_required": 12,
+          "skill_range": [
+            17,
+            27,
+            37,
+            47
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_mageroyal": 1,
+            "herb_briarthorn": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_evasion"
+          }
+        },
+        "alch_elixir_of_greater_evasion": {
+          "name": "Elixir of Greater Evasion",
+          "skill_required": 65,
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_stranglekelp": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_evasion"
+          }
+        },
+        "alch_elixir_of_mongoose_grace": {
+          "name": "Elixir of the Mongoose's Grace",
+          "skill_required": 145,
+          "skill_range": [
+            150,
+            160,
+            170,
+            180
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_sungrass": 2,
+            "herb_stranglekelp": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_mongoose_guard"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "alch_elixir_of_fire_ward": {
+          "name": "Elixir of Fire Ward",
+          "skill_required": 20,
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_firebloom": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_fire_ward"
+          }
+        },
+        "alch_elixir_of_greater_fire_ward": {
+          "name": "Elixir of Greater Fire Ward",
+          "skill_required": 105,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "count": 1,
+          "source": "vendor",
+          "inputs": {
+            "herb_firebloom": 3,
+            "herb_goldthorn": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_fire_ward"
+          },
+          "vendor_location": "Orgrimmar"
+        },
+        "alch_elixir_of_frost_ward": {
+          "name": "Elixir of Frost Ward",
+          "skill_required": 20,
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_stranglekelp": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_frost_ward"
+          }
+        },
+        "alch_elixir_of_greater_frost_ward": {
+          "name": "Elixir of Greater Frost Ward",
+          "skill_required": 105,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "count": 1,
+          "source": "vendor",
+          "inputs": {
+            "herb_stranglekelp": 3,
+            "herb_blindweed": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_frost_ward"
+          },
+          "vendor_location": "The Sepulcher"
+        },
+        "alch_elixir_of_nature_ward": {
+          "name": "Elixir of Nature Ward",
+          "skill_required": 20,
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_briarthorn": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_nature_ward"
+          }
+        },
+        "alch_elixir_of_greater_nature_ward": {
+          "name": "Elixir of Greater Nature Ward",
+          "skill_required": 105,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "count": 1,
+          "source": "vendor",
+          "inputs": {
+            "herb_briarthorn": 3,
+            "herb_liferoot": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_nature_ward"
+          },
+          "vendor_location": "Astranaar"
+        },
+        "alch_elixir_of_shadow_ward": {
+          "name": "Elixir of Shadow Ward",
+          "skill_required": 20,
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_fadeleaf": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_shadow_ward"
+          }
+        },
+        "alch_elixir_of_greater_shadow_ward": {
+          "name": "Elixir of Greater Shadow Ward",
+          "skill_required": 105,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_fadeleaf": 3,
+            "herb_blindweed": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_shadow_ward"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "alch_elixir_of_minor_fortitude": {
+          "name": "Elixir of Minor Fortitude",
+          "skill_required": 5,
+          "skill_range": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "herb_peacebloom": 2,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_minor_fortitude"
+          }
+        },
+        "alch_elixir_of_greater_fortitude": {
+          "name": "Elixir of Greater Fortitude",
+          "skill_required": 138,
+          "skill_range": [
+            143,
+            153,
+            163,
+            173
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "herb_goldthorn": 2,
+            "herb_sungrass": 1,
+            "herb_vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_greater_fortitude"
+          },
+          "drop_zone": "Shadowfang Keep"
         }
       }
     },
