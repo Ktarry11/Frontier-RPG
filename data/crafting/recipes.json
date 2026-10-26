@@ -7270,6 +7270,1531 @@
             "material_id": "upgrade_kit_resonant"
           },
           "count": 1
+        },
+        "eng_trinket_copper_pulse_fob": {
+          "name": "Copper Pulse Fob",
+          "skill_required": 18,
+          "skill_range": [
+            23,
+            33,
+            43,
+            53
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_runoff": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "spi_healer",
+            "item_level": 4,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_trinket_keyed_winding_charm": {
+          "name": "Keyed Winding Charm",
+          "skill_required": 22,
+          "skill_range": [
+            27,
+            37,
+            47,
+            57
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_draft": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 5,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_trinket_smiths_luck_token": {
+          "name": "Smith's Luck Token",
+          "skill_required": 28,
+          "skill_range": [
+            33,
+            43,
+            53,
+            63
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_grit": 1,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "str_physical",
+            "item_level": 6,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_trinket_quartz_focusing_stud": {
+          "name": "Quartz Focusing Stud",
+          "skill_required": 32,
+          "skill_range": [
+            37,
+            47,
+            57,
+            67
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 3,
+            "essence_static": 1,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 7,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_trinket_ratchet_escapement": {
+          "name": "Ratchet Escapement",
+          "skill_required": 38,
+          "skill_range": [
+            43,
+            53,
+            63,
+            73
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_copper": 3,
+            "essence_draft": 1,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 8,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          },
+          "vendor_location": "Ratchet"
+        },
+        "eng_trinket_dampening_bob": {
+          "name": "Dampening Bob",
+          "skill_required": 42,
+          "skill_range": [
+            47,
+            57,
+            67,
+            77
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_runoff": 1,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "spi_healer",
+            "item_level": 9,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_trinket_bronze_governor": {
+          "name": "Bronze Governor",
+          "skill_required": 48,
+          "skill_range": [
+            53,
+            63,
+            73,
+            83
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_grit": 1,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "str_physical",
+            "item_level": 10,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_trinket_azure_tuning_fork": {
+          "name": "Azure Tuning Fork",
+          "skill_required": 52,
+          "skill_range": [
+            57,
+            67,
+            77,
+            87
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_static": 2,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 11,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_trinket_flywheel_charm": {
+          "name": "Flywheel Charm",
+          "skill_required": 58,
+          "skill_range": [
+            63,
+            73,
+            83,
+            93
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_draft": 2,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 12,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_trinket_crossroads_timepiece": {
+          "name": "Crossroads Timepiece",
+          "skill_required": 62,
+          "skill_range": [
+            67,
+            77,
+            87,
+            97
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_runoff": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "spi_healer",
+            "item_level": 13,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          },
+          "vendor_location": "The Crossroads"
+        },
+        "eng_trinket_geared_mainspring": {
+          "name": "Geared Mainspring",
+          "skill_required": 70,
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_grit": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "str_physical",
+            "item_level": 15,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_trinket_resonance_housing": {
+          "name": "Resonance Housing",
+          "skill_required": 78,
+          "skill_range": [
+            83,
+            93,
+            103,
+            113
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_static": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 16,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "eng_trinket_iron_escapement": {
+          "name": "Iron Escapement",
+          "skill_required": 88,
+          "skill_range": [
+            93,
+            103,
+            113,
+            123
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 4,
+            "essence_gale": 2,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 18,
+            "rarity": "uncommon",
+            "material_tier": "iron"
+          }
+        },
+        "eng_trinket_tidewright_regulator": {
+          "name": "Tidewright Regulator",
+          "skill_required": 98,
+          "skill_range": [
+            103,
+            113,
+            123,
+            133
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_brine": 2,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "spi_healer",
+            "item_level": 20,
+            "rarity": "uncommon",
+            "material_tier": "iron"
+          }
+        },
+        "eng_trinket_emberglass_capacitor": {
+          "name": "Emberglass Capacitor",
+          "skill_required": 108,
+          "skill_range": [
+            113,
+            123,
+            133,
+            143
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_ember": 3,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 22,
+            "rarity": "rare",
+            "material_tier": "iron"
+          },
+          "drop_zone": "Razorfen Kraul"
+        },
+        "eng_trinket_counterweighted_core": {
+          "name": "Counterweighted Core",
+          "skill_required": 118,
+          "skill_range": [
+            123,
+            133,
+            143,
+            153
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_granite": 3,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "str_physical",
+            "item_level": 24,
+            "rarity": "rare",
+            "material_tier": "iron"
+          }
+        },
+        "eng_goggles_copper_eyeshields": {
+          "name": "Copper Eyeshields",
+          "skill_required": 8,
+          "skill_range": [
+            13,
+            23,
+            33,
+            43
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_grit": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "str_physical",
+            "item_level": 2,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_goggles_smoked_lenses": {
+          "name": "Smoked Lenses",
+          "skill_required": 22,
+          "skill_range": [
+            27,
+            37,
+            47,
+            57
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_draft": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "agi_physical",
+            "item_level": 5,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_goggles_bronze_visor": {
+          "name": "Bronze Visor",
+          "skill_required": 48,
+          "skill_range": [
+            53,
+            63,
+            73,
+            83
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_grit": 1,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 10,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_goggles_prism_goggles": {
+          "name": "Prism Goggles",
+          "skill_required": 68,
+          "skill_range": [
+            73,
+            83,
+            93,
+            103
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_runoff": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 14,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_goggles_seamfinder_goggles": {
+          "name": "Seamfinder Goggles",
+          "skill_required": 96,
+          "skill_range": [
+            101,
+            111,
+            121,
+            131
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_granite": 2,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 20,
+            "rarity": "uncommon",
+            "material_tier": "iron"
+          },
+          "vendor_location": "Orgrimmar"
+        },
+        "eng_goggles_resonance_lenses": {
+          "name": "Resonance Lenses",
+          "skill_required": 128,
+          "skill_range": [
+            133,
+            143,
+            153,
+            163
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_steel": 6,
+            "essence_umbral": 3,
+            "crystal_voidglass": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 26,
+            "rarity": "rare",
+            "material_tier": "steel"
+          },
+          "drop_zone": "Ambermill Tower"
+        },
+        "eng_gloves_tinkers_gloves": {
+          "name": "Tinker's Gloves",
+          "skill_required": 14,
+          "skill_range": [
+            19,
+            29,
+            39,
+            49
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_static": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 3,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_gloves_riveted_workgloves": {
+          "name": "Riveted Workgloves",
+          "skill_required": 26,
+          "skill_range": [
+            31,
+            41,
+            51,
+            61
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_grit": 1,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 6,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_gloves_fine_manipulators": {
+          "name": "Fine Manipulators",
+          "skill_required": 44,
+          "skill_range": [
+            49,
+            59,
+            69,
+            79
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_draft": 1,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "agi_physical",
+            "item_level": 9,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_gloves_bronze_knuckle_gauntlets": {
+          "name": "Bronze Knuckle Gauntlets",
+          "skill_required": 56,
+          "skill_range": [
+            61,
+            71,
+            81,
+            91
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_grit": 2,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 12,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_gloves_insulated_handwraps": {
+          "name": "Insulated Handwraps",
+          "skill_required": 66,
+          "skill_range": [
+            71,
+            81,
+            91,
+            101
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_runoff": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 14,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_gloves_sparkproof_gauntlets": {
+          "name": "Sparkproof Gauntlets",
+          "skill_required": 82,
+          "skill_range": [
+            87,
+            97,
+            107,
+            117
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_iron": 4,
+            "essence_umbral": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 17,
+            "rarity": "uncommon",
+            "material_tier": "iron"
+          },
+          "drop_zone": "Ragefire Chasm"
+        },
+        "eng_gloves_precision_gauntlets": {
+          "name": "Precision Gauntlets",
+          "skill_required": 94,
+          "skill_range": [
+            99,
+            109,
+            119,
+            129
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_gale": 2,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 19,
+            "rarity": "uncommon",
+            "material_tier": "iron"
+          }
+        },
+        "eng_gloves_emberweave_manipulators": {
+          "name": "Emberweave Manipulators",
+          "skill_required": 112,
+          "skill_range": [
+            117,
+            127,
+            137,
+            147
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_ember": 3,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 23,
+            "rarity": "rare",
+            "material_tier": "iron"
+          }
+        },
+        "eng_gloves_voidtouched_gauntlets": {
+          "name": "Voidtouched Gauntlets",
+          "skill_required": 132,
+          "skill_range": [
+            137,
+            147,
+            157,
+            167
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_steel": 6,
+            "essence_umbral": 3,
+            "crystal_voidglass": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 27,
+            "rarity": "rare",
+            "material_tier": "steel"
+          },
+          "drop_zone": "Shadowfang Keep"
+        },
+        "eng_gloves_masterwrights_gloves": {
+          "name": "Masterwright's Gloves",
+          "skill_required": 146,
+          "skill_range": [
+            151,
+            161,
+            171,
+            181
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_steel": 6,
+            "essence_granite": 3,
+            "crystal_voidglass": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "steel"
+          },
+          "vendor_location": "Undercity"
+        },
+        "eng_belt_copper_toolbelt": {
+          "name": "Copper Toolbelt",
+          "skill_required": 16,
+          "skill_range": [
+            21,
+            31,
+            41,
+            51
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 2,
+            "essence_grit": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 4,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_belt_pouched_workbelt": {
+          "name": "Pouched Workbelt",
+          "skill_required": 30,
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 3,
+            "essence_static": 1,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 7,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_belt_bandolier_of_charges": {
+          "name": "Bandolier of Charges",
+          "skill_required": 46,
+          "skill_range": [
+            51,
+            61,
+            71,
+            81
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 3,
+            "essence_draft": 1,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 10,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_belt_bronze_utility_girdle": {
+          "name": "Bronze Utility Girdle",
+          "skill_required": 60,
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_grit": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 13,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_belt_sealed_flask_belt": {
+          "name": "Sealed Flask Belt",
+          "skill_required": 72,
+          "skill_range": [
+            77,
+            87,
+            97,
+            107
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_runoff": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 15,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_belt_iron_tool_harness": {
+          "name": "Iron Tool Harness",
+          "skill_required": 90,
+          "skill_range": [
+            95,
+            105,
+            115,
+            125
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_granite": 2,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "mail",
+            "stat_template": "str_physical",
+            "item_level": 19,
+            "rarity": "uncommon",
+            "material_tier": "iron"
+          }
+        },
+        "eng_belt_quickdraw_bandolier": {
+          "name": "Quickdraw Bandolier",
+          "skill_required": 102,
+          "skill_range": [
+            107,
+            117,
+            127,
+            137
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_gale": 3,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "iron"
+          },
+          "drop_zone": "Blackfathom Deeps"
+        },
+        "eng_belt_resonant_girdle": {
+          "name": "Resonant Girdle",
+          "skill_required": 116,
+          "skill_range": [
+            121,
+            131,
+            141,
+            151
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_umbral": 3,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 24,
+            "rarity": "rare",
+            "material_tier": "iron"
+          }
+        },
+        "eng_belt_deepwater_beltrig": {
+          "name": "Deepwater Beltrig",
+          "skill_required": 126,
+          "skill_range": [
+            131,
+            141,
+            151,
+            161
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_steel": 6,
+            "essence_brine": 3,
+            "crystal_voidglass": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 26,
+            "rarity": "rare",
+            "material_tier": "steel"
+          },
+          "vendor_location": "Ratchet"
+        },
+        "eng_belt_voidglass_bandolier": {
+          "name": "Voidglass Bandolier",
+          "skill_required": 142,
+          "skill_range": [
+            147,
+            157,
+            167,
+            177
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_steel": 6,
+            "essence_umbral": 3,
+            "crystal_voidglass": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 29,
+            "rarity": "rare",
+            "material_tier": "steel"
+          },
+          "drop_zone": "Plague Depths"
+        },
+        "eng_device_handheld_bellows": {
+          "name": "Handheld Bellows",
+          "skill_required": 34,
+          "skill_range": [
+            39,
+            49,
+            59,
+            69
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 3,
+            "essence_cinder": 1,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "off_hand",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 7,
+            "rarity": "uncommon",
+            "material_tier": "copper"
+          }
+        },
+        "eng_device_pocket_orrery": {
+          "name": "Pocket Orrery",
+          "skill_required": 64,
+          "skill_range": [
+            69,
+            79,
+            89,
+            99
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 4,
+            "essence_static": 2,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "off_hand",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 13,
+            "rarity": "uncommon",
+            "material_tier": "bronze"
+          }
+        },
+        "eng_device_signal_lantern": {
+          "name": "Signal Lantern",
+          "skill_required": 86,
+          "skill_range": [
+            91,
+            101,
+            111,
+            121
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 4,
+            "essence_brine": 2,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "off_hand",
+            "armor_type": "accessory",
+            "stat_template": "spi_healer",
+            "item_level": 18,
+            "rarity": "uncommon",
+            "material_tier": "iron"
+          }
+        },
+        "eng_device_spring-loaded_buckler": {
+          "name": "Spring-Loaded Buckler",
+          "skill_required": 106,
+          "skill_range": [
+            111,
+            121,
+            131,
+            141
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 5,
+            "essence_granite": 3,
+            "crystal_emberglass": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "off_hand",
+            "armor_type": "accessory",
+            "stat_template": "str_physical",
+            "item_level": 22,
+            "rarity": "rare",
+            "material_tier": "iron"
+          }
+        },
+        "eng_device_umbral_resonator": {
+          "name": "Umbral Resonator",
+          "skill_required": 136,
+          "skill_range": [
+            141,
+            151,
+            161,
+            171
+          ],
+          "source": "drop",
+          "inputs": {
+            "bar_steel": 6,
+            "essence_umbral": 3,
+            "crystal_voidglass": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "off_hand",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 28,
+            "rarity": "rare",
+            "material_tier": "steel"
+          },
+          "drop_zone": "Grom's Rest"
+        },
+        "eng_device_tidewrights_astrolabe": {
+          "name": "Tidewright's Astrolabe",
+          "skill_required": 150,
+          "skill_range": [
+            155,
+            165,
+            175,
+            185
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_steel": 7,
+            "essence_brine": 4,
+            "crystal_voidglass": 3
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "off_hand",
+            "armor_type": "accessory",
+            "stat_template": "spi_healer",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "steel"
+          },
+          "vendor_location": "The Sepulcher"
+        },
+        "eng_bomb_shrapnel": {
+          "name": "Shrapnel Charge",
+          "skill_required": 20,
+          "skill_range": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "count": 3,
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 1,
+            "essence_grit": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_shrapnel"
+          }
+        },
+        "eng_bomb_static": {
+          "name": "Static Charge",
+          "skill_required": 55,
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "count": 3,
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 1,
+            "essence_static": 1,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_static"
+          }
+        },
+        "eng_bomb_concussion": {
+          "name": "Concussion Charge",
+          "skill_required": 80,
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "count": 3,
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 1,
+            "essence_gale": 2,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_concussion"
+          }
+        },
+        "eng_bomb_brine": {
+          "name": "Brine Flask",
+          "skill_required": 104,
+          "skill_range": [
+            109,
+            119,
+            129,
+            139
+          ],
+          "count": 2,
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 1,
+            "essence_brine": 2,
+            "crystal_emberglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_brine"
+          },
+          "vendor_location": "Ratchet"
+        },
+        "eng_bomb_voidsplit": {
+          "name": "Voidsplit Charge",
+          "skill_required": 144,
+          "skill_range": [
+            149,
+            159,
+            169,
+            179
+          ],
+          "count": 2,
+          "source": "drop",
+          "inputs": {
+            "bar_steel": 1,
+            "essence_umbral": 3,
+            "crystal_voidglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_voidsplit"
+          },
+          "drop_zone": "Shadowfang Keep"
+        },
+        "eng_kit_reinforce": {
+          "name": "Reinforcement Kit",
+          "skill_required": 24,
+          "skill_range": [
+            29,
+            39,
+            49,
+            59
+          ],
+          "count": 2,
+          "source": "trainer",
+          "inputs": {
+            "bar_copper": 1,
+            "essence_grit": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "kit_reinforce"
+          }
+        },
+        "eng_device_lantern": {
+          "name": "Clockwork Lantern",
+          "skill_required": 42,
+          "skill_range": [
+            47,
+            57,
+            67,
+            77
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 1,
+            "essence_cinder": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "device_lantern"
+          }
+        },
+        "eng_lens_fitting": {
+          "name": "Lens Fitting Set",
+          "skill_required": 58,
+          "skill_range": [
+            63,
+            73,
+            83,
+            93
+          ],
+          "count": 2,
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 1,
+            "essence_static": 1,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "device_goggleset"
+          }
+        },
+        "eng_device_compass": {
+          "name": "Resonant Compass",
+          "skill_required": 76,
+          "skill_range": [
+            81,
+            91,
+            101,
+            111
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 1,
+            "essence_static": 2,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "device_compass"
+          }
+        },
+        "eng_device_decoy": {
+          "name": "Clockwork Decoy",
+          "skill_required": 110,
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "count": 1,
+          "source": "drop",
+          "inputs": {
+            "bar_iron": 1,
+            "essence_gale": 2,
+            "crystal_emberglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "device_decoy"
+          },
+          "drop_zone": "Wailing Caverns"
+        },
+        "eng_device_repair_hv": {
+          "name": "Heavy Repair Kit",
+          "skill_required": 122,
+          "skill_range": [
+            127,
+            137,
+            147,
+            157
+          ],
+          "count": 2,
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 1,
+            "essence_granite": 3,
+            "crystal_emberglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "device_repair_hv"
+          }
+        },
+        "eng_device_grapple": {
+          "name": "Grapple Launcher",
+          "skill_required": 138,
+          "skill_range": [
+            143,
+            153,
+            163,
+            173
+          ],
+          "count": 1,
+          "source": "vendor",
+          "inputs": {
+            "bar_steel": 1,
+            "essence_gale": 3,
+            "crystal_voidglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "device_grapple"
+          },
+          "vendor_location": "Orgrimmar"
+        },
+        "eng_shot_brine": {
+          "name": "Brine Shot",
+          "skill_required": 68,
+          "skill_range": [
+            73,
+            83,
+            93,
+            103
+          ],
+          "count": 20,
+          "source": "trainer",
+          "inputs": {
+            "bar_bronze": 1,
+            "essence_runoff": 2,
+            "crystal_azure": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "shot_brine"
+          }
+        },
+        "eng_shot_emberglass": {
+          "name": "Emberglass Shot",
+          "skill_required": 112,
+          "skill_range": [
+            117,
+            127,
+            137,
+            147
+          ],
+          "count": 20,
+          "source": "trainer",
+          "inputs": {
+            "bar_iron": 1,
+            "essence_ember": 2,
+            "crystal_emberglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "shot_emberglass"
+          }
+        },
+        "eng_shot_void": {
+          "name": "Voidglass Shot",
+          "skill_required": 148,
+          "skill_range": [
+            153,
+            163,
+            173,
+            183
+          ],
+          "count": 20,
+          "source": "drop",
+          "inputs": {
+            "bar_steel": 1,
+            "essence_umbral": 3,
+            "crystal_voidglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "shot_void"
+          },
+          "drop_zone": "Razorfen Kraul"
         }
       }
     }
