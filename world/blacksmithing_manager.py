@@ -145,9 +145,25 @@ class BlacksmithingManager:
             character.add_material(output)
 
         character.gain_profession_skill("blacksmithing", 1)
+        self._award_craft_xp(character, recipe)
         from world.quest_manager import get_quest_manager
         get_quest_manager().record_craft(recipe_id)
         return output
+
+    def _award_craft_xp(self, character, recipe):
+        """Award character XP proportional to the item_level of the crafted gear.
+        Same calibration as CraftingManager._award_craft_xp: ~2% of level-up XP."""
+        try:
+            from config import get_exp_needed_for_level
+            out = recipe["output"]
+            item_level = out.get("item_level")
+            if item_level is None:
+                skill = recipe.get("skill_required", 0)
+                item_level = max(1, int(skill * 60 / 300) + 1)
+            xp = max(5, int(get_exp_needed_for_level(max(1, item_level)) * 0.02))
+            character.gain_experience(xp)
+        except Exception:
+            pass
 
     def _generate_output(self, recipe_id, recipe):
         """Build the real Item or Material this recipe produces.

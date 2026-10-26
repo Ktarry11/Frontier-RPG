@@ -745,6 +745,369 @@
             "rarity": "rare",
             "material_tier": "silk"
           }
+        },
+        "tail_bolt_cotton": {
+          "name": "Bolt of Cotton Cloth",
+          "inputs": {
+            "cloth_cotton": 2
+          },
+          "skill_required": 1,
+          "skill_range": [
+            1,
+            15,
+            25,
+            35
+          ],
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_cotton"
+          }
+        },
+        "tail_cotton_boots": {
+          "name": "Supple Cotton Slippers",
+          "inputs": {
+            "bolt_cotton": 2
+          },
+          "skill_required": 5,
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 5,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_cotton_belt": {
+          "name": "Cotton Cord",
+          "inputs": {
+            "bolt_cotton": 2
+          },
+          "skill_required": 8,
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 6,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_cotton_bracers": {
+          "name": "Cotton Bindings",
+          "inputs": {
+            "bolt_cotton": 2
+          },
+          "skill_required": 12,
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 7,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_cotton_cloak": {
+          "name": "Cotton Cloak",
+          "inputs": {
+            "bolt_cotton": 2
+          },
+          "skill_required": 16,
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 8,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_cotton_gloves": {
+          "name": "Cotton Gloves",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "skill_required": 20,
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 9,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_cotton_pants": {
+          "name": "Cotton Trousers",
+          "inputs": {
+            "bolt_cotton": 3
+          },
+          "skill_required": 25,
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 10,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_cotton_vestments": {
+          "name": "Cotton Vestments",
+          "inputs": {
+            "bolt_cotton": 4
+          },
+          "skill_required": 30,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 11,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_cotton_cowl": {
+          "name": "Cotton Cowl",
+          "inputs": {
+            "bolt_cotton": 4
+          },
+          "skill_required": 38,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 12,
+            "rarity": "common",
+            "material_tier": "cotton"
+          }
+        },
+        "tail_kit_cotton": {
+          "name": "Cotton Upgrade Kit",
+          "inputs": {
+            "bolt_cotton": 5
+          },
+          "skill_required": 40,
+          "output": {
+            "kind": "material",
+            "material_id": "upgrade_kit_cotton"
+          }
+        },
+        "tail_linen_cotton_robe": {
+          "name": "Woven Cloth Robe",
+          "inputs": {
+            "bolt_linen": 2,
+            "bolt_cotton": 2
+          },
+          "skill_required": 35,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "str_int_hybrid",
+            "item_level": 11,
+            "rarity": "uncommon",
+            "material_tier": "linen"
+          }
+        },
+        "tail_bolt_hempen": {
+          "name": "Bolt of Hempen Cloth",
+          "inputs": {
+            "cloth_hempen": 3
+          },
+          "skill_required": 45,
+          "skill_range": [
+            45,
+            60,
+            75,
+            90
+          ],
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_hempen"
+          }
+        },
+        "tail_hempen_boots": {
+          "name": "Hempen Sandals",
+          "inputs": {
+            "bolt_hempen": 2
+          },
+          "skill_required": 50,
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 14,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_hempen_belt": {
+          "name": "Hempen Sash",
+          "inputs": {
+            "bolt_hempen": 2
+          },
+          "skill_required": 55,
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 15,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_hempen_bracers": {
+          "name": "Hempen Cuffs",
+          "inputs": {
+            "bolt_hempen": 2
+          },
+          "skill_required": 60,
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 16,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_hempen_cloak": {
+          "name": "Hempen Cloak",
+          "inputs": {
+            "bolt_hempen": 2
+          },
+          "skill_required": 62,
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 17,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_hempen_gloves": {
+          "name": "Hempen Handwraps",
+          "inputs": {
+            "bolt_hempen": 3
+          },
+          "skill_required": 65,
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 18,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_hempen_pants": {
+          "name": "Hempen Leggings",
+          "inputs": {
+            "bolt_hempen": 3
+          },
+          "skill_required": 70,
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 19,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_hempen_robe": {
+          "name": "Hempen Robe",
+          "inputs": {
+            "bolt_hempen": 4
+          },
+          "skill_required": 75,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 20,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_hempen_hood": {
+          "name": "Hempen Hood",
+          "inputs": {
+            "bolt_hempen": 4
+          },
+          "skill_required": 80,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 21,
+            "rarity": "common",
+            "material_tier": "hempen"
+          }
+        },
+        "tail_kit_hempen": {
+          "name": "Hempen Upgrade Kit",
+          "inputs": {
+            "bolt_hempen": 5
+          },
+          "skill_required": 85,
+          "output": {
+            "kind": "material",
+            "material_id": "upgrade_kit_hempen"
+          }
+        },
+        "tail_wool_cotton_vestments": {
+          "name": "Reinforced Cotton Vestments",
+          "inputs": {
+            "bolt_wool": 2,
+            "bolt_cotton": 2
+          },
+          "skill_required": 75,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 19,
+            "rarity": "uncommon",
+            "material_tier": "wool"
+          }
+        },
+        "tail_hempen_wool_pants": {
+          "name": "Woven Hempen Leggings",
+          "inputs": {
+            "bolt_hempen": 2,
+            "bolt_wool": 2
+          },
+          "skill_required": 90,
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 22,
+            "rarity": "uncommon",
+            "material_tier": "hempen"
+          }
         }
       }
     },

@@ -90,6 +90,7 @@ class CraftingManager:
                 return False, "Your bags are full.", None
 
         self._skill_up(character, profession, r)
+        self._award_craft_xp(character, r)
         try:
             from world.quest_manager import get_quest_manager
             get_quest_manager().record_craft(recipe_id)
@@ -98,6 +99,32 @@ class CraftingManager:
         except Exception:
             pass
         return True, f"Crafted {self.output_name(r)}.", product
+
+    def _award_craft_xp(self, character, recipe):
+        """Award a small amount of character XP for completing a craft.
+
+        Calibration: crafting should be a supplement to combat XP, not a
+        replacement. A recipe whose output sits at item_level N awards about
+        the same XP as killing a level-N mob would give a same-level player
+        (i.e. 1-2% of the XP needed to level at that point). For material
+        outputs (bolts, upgrade kits) we use skill_required as a proxy for
+        difficulty, mapping it to a rough item_level equivalent.
+        """
+        try:
+            from config import get_exp_needed_for_level
+            out = recipe["output"]
+            # Determine the effective item level for XP calculation
+            item_level = out.get("item_level")
+            if item_level is None:
+                # Material/consumable recipes: derive item_level from skill_required
+                # skill 0 = level 1, skill 300 = level 60 (WoW-like linear mapping)
+                skill = recipe.get("skill_required", 0)
+                item_level = max(1, int(skill * 60 / 300) + 1)
+            # XP ≈ 2% of exp needed to go from item_level to item_level+1
+            xp = max(5, int(get_exp_needed_for_level(max(1, item_level)) * 0.02))
+            character.gain_experience(xp)
+        except Exception:
+            pass
 
     def _skill_up(self, character, profession, recipe):
         skill = self.skill(character, profession)

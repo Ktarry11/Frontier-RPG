@@ -70,9 +70,7 @@ BANDS = [
                "leather_primordial": 1, "leather_genesis": 1}),
 ]
 
-CHANCE = {"open_zone": 0.70, "cave": 0.80}
-NORMAL_QTY = (1, 2)
-BOSS_QTY   = (3, 5)
+BOSS_QTY = (2, 4)   # bosses give a small extra handful
 
 
 def _pick_material(level: int, rng) -> str:
@@ -89,9 +87,13 @@ def _pick_material(level: int, rng) -> str:
 def roll_leather(enemy, player=None, rng=random):
     """Return [(material_id, quantity)] from skinning a defeated beast.
 
+    WoW rule: every beast yields exactly 1 leather when skinned — 100% rate,
+    exactly 1 piece, no RNG on whether you get it. The only gate is whether the
+    player has learned the Skinning profession. Bosses are generous (2-4 pieces).
+
     Parameters
     ----------
-    enemy  : defeated enemy (needs .name, .level; optionally .is_boss, .location_type)
+    enemy  : defeated enemy (needs .name, .level; optionally .is_boss)
     player : Character — must know Skinning.  None skips the check (for tests).
     rng    : RNG instance (defaults to stdlib random).
     """
@@ -108,10 +110,5 @@ def roll_leather(enemy, player=None, rng=random):
     if getattr(enemy, "is_boss", False):
         return [(_pick_material(level, rng), rng.randint(*BOSS_QTY))]
 
-    location_type = getattr(enemy, "location_type", "open_zone")
-    place = "cave" if location_type == "cave" else "open_zone"
-    if rng.random() < CHANCE[place]:
-        qty = rng.randint(*NORMAL_QTY)
-        return [(_pick_material(level, rng), qty)]
-
-    return []
+    # Normal beast: always exactly 1 leather — 100% rate, no luck involved.
+    return [(_pick_material(level, rng), 1)]

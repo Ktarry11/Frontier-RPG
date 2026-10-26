@@ -32,17 +32,17 @@ ARMOR_NAME_PREFIXES = {
     "legendary": ["Mythic", "Godforged", "Eternal"],
 }
 ARMOR_NAME_NOUNS = {
-    "head": {"str_physical": "Helm", "agi_physical": "Hood", "int_caster": "Circlet", "_default": "Cap"},
-    "shoulder": {"str_physical": "Pauldrons", "agi_physical": "Shoulderguards", "int_caster": "Mantle", "_default": "Shoulderguards"},
-    "chest": {"str_physical": "Breastplate", "agi_physical": "Chestguard", "int_caster": "Robe", "_default": "Tunic"},
-    "wrist": {"str_physical": "Bracers", "agi_physical": "Wristguards", "int_caster": "Cuffs", "_default": "Bracers"},
-    "hands": {"str_physical": "Gauntlets", "agi_physical": "Gloves", "int_caster": "Handwraps", "_default": "Gloves"},
-    "waist": {"str_physical": "Girdle", "agi_physical": "Belt", "int_caster": "Sash", "_default": "Belt"},
-    "legs": {"str_physical": "Legplates", "agi_physical": "Legguards", "int_caster": "Leggings", "_default": "Leggings"},
-    "feet": {"str_physical": "Greaves", "agi_physical": "Boots", "int_caster": "Sandals", "_default": "Boots"},
-    "back": {"_default": "Cloak"},
-    "neck": {"_default": "Amulet"},
-    "ring": {"_default": "Ring"},
+    "head":     {"str_physical": "Helm",     "agi_physical": "Hood",          "int_caster": "Circlet",    "spi_healer": "Cowl",       "_default": "Cap"},
+    "shoulder": {"str_physical": "Pauldrons","agi_physical": "Shoulderguards","int_caster": "Mantle",     "spi_healer": "Shoulderpads","_default": "Shoulderguards"},
+    "chest":    {"str_physical": "Breastplate","agi_physical":"Chestguard",   "int_caster": "Robe",       "spi_healer": "Vestments",  "_default": "Tunic"},
+    "wrist":    {"str_physical": "Bracers",  "agi_physical": "Wristguards",   "int_caster": "Cuffs",      "spi_healer": "Bindings",   "_default": "Bracers"},
+    "hands":    {"str_physical": "Gauntlets","agi_physical": "Gloves",        "int_caster": "Handwraps",  "spi_healer": "Gloves",     "_default": "Gloves"},
+    "waist":    {"str_physical": "Girdle",   "agi_physical": "Belt",          "int_caster": "Sash",       "spi_healer": "Cord",       "_default": "Belt"},
+    "legs":     {"str_physical": "Legplates","agi_physical": "Legguards",     "int_caster": "Leggings",   "spi_healer": "Trousers",   "_default": "Leggings"},
+    "feet":     {"str_physical": "Greaves",  "agi_physical": "Boots",         "int_caster": "Sandals",    "spi_healer": "Slippers",   "_default": "Boots"},
+    "back":  {"_default": "Cloak"},
+    "neck":  {"_default": "Amulet"},
+    "ring":  {"_default": "Ring"},
     "trinket": {"_default": "Charm"},
 }
 WEAPON_NAME_NOUNS = {

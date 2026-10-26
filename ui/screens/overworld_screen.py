@@ -564,6 +564,23 @@ class OverworldScreen(BaseScreen):
         else:
             self._notify(f"Gathered {material.name}.", (140, 220, 160))
 
+        # Award a small amount of character XP for gathering.
+        # Calibration: ~1% of the XP needed to level at the material's
+        # effective level (half the skill cap of this material tier, mapped
+        # linearly to level 1-60 against a 300-skill max cap).
+        try:
+            from config import get_exp_needed_for_level
+            mat_skill_range = material.skill_range
+            if mat_skill_range:
+                skill_mid = (mat_skill_range[0] + mat_skill_range[-1]) / 2
+            else:
+                skill_mid = current_skill
+            eff_level = max(1, int(skill_mid * 60 / 300) + 1)
+            xp = max(3, int(get_exp_needed_for_level(eff_level) * 0.01))
+            player.gain_experience(xp)
+        except Exception:
+            pass
+
     def _open_chest(self, chest_pos):
         """Open a chest the player is standing on - roll loot (or empty,
         a real outcome, see chest_manager.py), add it to the player's

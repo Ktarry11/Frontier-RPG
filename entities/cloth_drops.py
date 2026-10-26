@@ -86,7 +86,16 @@ def _pick_material(level: int, rng) -> str:
 
 
 def roll_cloth(enemy, rng=random):
-    """Return [(material_id, quantity)] dropped by one defeated enemy (usually [])."""
+    """Return [(material_id, quantity)] dropped by one defeated humanoid enemy.
+
+    Cloth drops WITHOUT a Tailoring profession gate — any player can pick it up.
+    The quantity is 1-3 raw cloth per kill (bosses get the full 2-4 range).
+    Players need to craft raw cloth into bolts at the Tailoring bench before
+    the cloth is useful, which is the in-game reason to learn Tailoring.
+
+    Drop chance: 35% in open zones, 50% in caves (cloth-wearers congregate
+    indoors in WoW and Frontier uses the same intuition).
+    """
     name = getattr(enemy, "name", "")
     if NO_CLOTH.search(name):
         return []
@@ -99,6 +108,8 @@ def roll_cloth(enemy, rng=random):
     location_type = getattr(enemy, "location_type", "open_zone")
     place = "cave" if location_type == "cave" else "open_zone"
     if rng.random() < CHANCE[place]:
-        qty = 1 if rng.random() < 0.75 else 2
+        # 1-3 cloth per kill: ~50% chance of 1, ~35% chance of 2, ~15% chance of 3
+        roll = rng.random()
+        qty = 1 if roll < 0.50 else (2 if roll < 0.85 else 3)
         return [(_pick_material(level, rng), qty)]
     return []

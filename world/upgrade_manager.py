@@ -77,14 +77,30 @@ from pathlib import Path
 #: matching recipe that crafts the kit and tags its gear with that same
 #: tier string - nothing else in this module needs to change.
 MATERIAL_KITS = {
-    "upgrade_kit_copper": "copper",
-    "upgrade_kit_bronze": "bronze",
-    # Tailoring (cloth tiers) and Woodworking (early = ashwood, mid = ironbark)
-    "upgrade_kit_linen": "linen",
-    "upgrade_kit_wool": "wool",
-    "upgrade_kit_silk": "silk",
-    "upgrade_kit_ashwood": "ashwood",
-    "upgrade_kit_ironbark": "ironbark",
+    # Blacksmithing — metal tiers
+    "upgrade_kit_copper":    "copper",
+    "upgrade_kit_bronze":    "bronze",
+    "upgrade_kit_rough_iron":"rough_iron",
+    "upgrade_kit_steel":     "steel",
+    # Tailoring — cloth tiers (WoW anchors + Frontier tiers woven in)
+    "upgrade_kit_linen":     "linen",
+    "upgrade_kit_cotton":    "cotton",    # Frontier T4 — spi_healer leaning
+    "upgrade_kit_wool":      "wool",
+    "upgrade_kit_hempen":    "hempen",    # Frontier T5 — int_caster leaning
+    "upgrade_kit_silk":      "silk",
+    "upgrade_kit_mageweave": "mageweave",
+    "upgrade_kit_runecloth":  "runecloth",
+    # Woodworking — wood tiers
+    "upgrade_kit_ashwood":   "ashwood",
+    "upgrade_kit_ironbark":  "ironbark",
+    # Leatherworking — leather tiers
+    "upgrade_kit_scrap":     "scrap",
+    "upgrade_kit_light":     "light",
+    "upgrade_kit_medium":    "medium",
+    "upgrade_kit_heavy":     "heavy",
+    "upgrade_kit_thick":     "thick",
+    "upgrade_kit_rugged":    "rugged",
+    "upgrade_kit_fiendish":  "fiendish",
 }
 
 
