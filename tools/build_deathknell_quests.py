@@ -99,7 +99,7 @@ def quests():
         "Overseer Krell says the dead don't get a day off just because they only just died. The Mangy Duskbats nesting "
         "round the village treeline are as gentle a test as the valley offers. Prove the body still answers, even if "
         "the mind is still catching up.",
-        [vk("Mangy Duskbat", 6)], 150, 300,
+        [vk("Mangy Duskbat", 5)], 180, 300,
         "You woke up dead. Congratulations. Now go prove the rest of you still works - the duskbats won't test you hard.",
         "Still standing. Good. That's most of the battle, this early.",
         pack(3, 1, "common", [
@@ -111,7 +111,7 @@ def quests():
         "The village stores have been shrinking, and not because anyone in Deathknell eats. Ragged scavengers have been "
         "dragging off salt tins, rope, bandages - whatever glints. Krell wants every piece back; the Dark Lady's "
         "bookkeeping is meticulous and so is his.",
-        [fetch("stolen_village_scrap", 5)], 170, 400,
+        [fetch("stolen_village_scrap", 5)], 200, 400,
         "Birds. A man dies, rises, goes to work, and the birds are robbing him. Bring me five scraps back.",
         "That's the rope. That's the salt. That's - what is that? Never mind. Good work.",
         pack(3, 1, "common", [
@@ -123,7 +123,7 @@ def quests():
         "Dogs and rats came to the graveyard the way they always do - for what's in the ground. Something in the soil "
         "has sickened them. The plagued strays now tear at the gravediggers and the Newly Risen alike, and the rats "
         "carry it into the village stores. Krell wants them thinned before it spreads.",
-        [vk("Plagued Stray", 7), vk("Grave Rat", 4)], 210, 550,
+        [vk("Plagued Stray", 5), vk("Grave Rat", 3)], 250, 550,
         "They bite, and then you rot a little faster than you were already rotting. Cull them. Seven strays, four rats.",
         "Fewer teeth in the dark. I can sleep - metaphorically - a little easier. Take something from the pile.",
         pack(4, 2, "uncommon", [
@@ -135,7 +135,7 @@ def quests():
         "The old goldmine to the north-west was a decent little operation until the spiders arrived. Now the camp is "
         "web, bone and bad news - and Foreman Gresk is still there, which is its own kind of miracle. Clear the claim's "
         "spiders so Gresk can breathe, then see what he needs.",
-        [vk("Claim Spider", 8)], 280, 850,
+        [vk("Claim Spider", 6)], 340, 850,
         "North-west, past the old gold-road. Eight spiders. Then talk to Gresk - he's at the mine camp, he's cranky, and he's right.",
         "Eight? Good. The Dark Lady has plans for that gold, and none of them include spiders.",
         pack(5, 3, "uncommon", [
@@ -148,7 +148,7 @@ def quests():
         "The spiders aren't just wandering in - they're being fed. A web-choked cave beside the claim, Night Web's "
         "Hollow, pours them out like a spring. Krell wants eyes on the cave's inner strand before anyone commits to "
         "a fight, because someone in the Undercity asks questions, and he'd like to have the answers.",
-        [explore(NWH, 28, 34, 6)], 300, 900,
+        [explore(NWH, 28, 34, 6)], 360, 900,
         "Past the claim's camp there's a cave mouth wrapped in web. Walk the spiral and keep walking until you reach the inner "
         "strand. Do not poke anything. Come back and tell me what you saw.",
         "A broodmother. Of course there's a broodmother. All right - now we know. Next time we go in with a purpose.",
@@ -161,7 +161,7 @@ def quests():
         "At the centre of the Hollow, wrapped in her own silk, sits Nesh'ka. Every spider the claim has ever "
         "seen came from her, and while she lives the cave will keep filling the valley. Krell does not need a "
         "diplomatic solution. He needs a corpse, and a handful of her brood for the report.",
-        [boss("Broodmother Nesh'ka", NWH), ck("Night Web Spider", 6, NWH)], 520, 1800,
+        [boss("Broodmother Nesh'ka", NWH), ck("Night Web Spider", 5, NWH)], 620, 1800,
         "She's in the heart of the spiral. She stings, she poisons, and she wraps you. Kill the spiders on the way in and "
         "keep your head. The Dark Lady's name be with you, or whatever passes for luck down here.",
         "Dead. Properly dead. You have more teeth than I thought. I'll note it in the report - favourably, for once.",
@@ -176,7 +176,7 @@ def quests():
         "The road east leaves Deathknell for the Tirisfal Glades; follow it to the portal in the glade's heart and it "
         "brings you to Brill, the Forsaken's first real town. Krell has written a note for Deathguard Rennick. It says "
         "'Take this one, they bite.' He is not sorry.",
-        [explore("brill", 35, 33, 6)], 450, 1500,
+        [explore("brill", 35, 33, 6)], 540, 1500,
         "Take the east road out of the valley, cross the Tirisfal Glades, and follow the road into Brill. Find Deathguard "
         "Rennick and show him my note. Tell him I didn't ruin you. He won't believe it.",
         "You made it out of the valley. Farther than most. The rest of the Forsaken are going to find you very inconvenient. Good.",
@@ -192,7 +192,7 @@ def quests():
         "The woman beside the graves can't remember her own name, but she remembers the sound they make - the scratching "
         "from underneath. Grave-Dwellers, freshly risen and not yet coherent, claw their way out of the mass grave and "
         "wander the field in the dark. She wants them put back where they belong.",
-        [vk("Restless Grave-Dweller", 6)], 150, 300,
+        [vk("Restless Grave-Dweller", 5)], 180, 300,
         "They don't know they're dead yet. Please - quickly, before they figure it out.",
         "Thank you. I think I knew one of them. I don't know which. Please - take this. It doesn't feel like mine.",
         pack(3, 1, "common", [
@@ -204,7 +204,7 @@ def quests():
         "Grave markers are meant to be names. Up here they're mostly splinters, and the restless dead keep tearing them "
         "out of the ground and carrying them off, as though they still wanted to read their own. The Newly Risen "
         "thinks if she can gather enough of them, she might find hers.",
-        [fetch("weathered_grave_marker", 5)], 200, 600,
+        [fetch("weathered_grave_marker", 5)], 240, 600,
         "The Grave-Dwellers carry them. I think they're looking, too. Please bring five back - I'll sort them by hand.",
         "...Not one of them is mine. But this one has a name I almost - no. Never mind. Thank you.",
         pack(4, 2, "uncommon", [
@@ -216,7 +216,7 @@ def quests():
         "One of the plagued strays has grown larger than the rest - a gaunt, grey dog that leads the others through the "
         "graves at night, and drags off whatever it likes. The villagers call it Mawgrin. The Newly Risen calls it "
         "'the one who sits on my grave'.",
-        [boss("Mawgrin the Gaunt"), vk("Plagued Stray", 5)], 330, 1000,
+        [boss("Mawgrin the Gaunt"), vk("Plagued Stray", 4)], 400, 1000,
         "He's out in the field. You'll hear him first. He's bigger than the others and angrier than he looks.",
         "...Gone? That's - good. That's very good. I can sit by my grave in peace. Please - take whatever you like.",
         pack(6, 3, "uncommon", [
@@ -231,7 +231,7 @@ def quests():
         "The Instructor believes a Forsaken learns by hitting things that are already dead. Rattlecage Skeletons - "
         "crypt-dwellers, long dead and bad-tempered about it - pace the Shadow Grave to the south, and they make the "
         "best sparring partners the valley offers. They never complain and they never stay down.",
-        [vk("Rattlecage Skeleton", 8)], 230, 700,
+        [vk("Rattlecage Skeleton", 6)], 280, 700,
         "Shadow Grave, south of the graves. Skeletons. Hit them until they stop. Then hit them a little more.",
         "Not graceful. Not clever. But you're upright and they aren't, and that is the entire syllabus.",
         pack(4, 2, "uncommon", [
@@ -243,7 +243,7 @@ def quests():
         "Wights are a different kind of dead - the kind that never got the Dark Lady's gift of will, just hunger. "
         "They haunt the Shadow Grave's old stones and drain the living of whatever's left. The Instructor wants "
         "them put down before they wander up into the village proper.",
-        [vk("Shadow Grave Wight", 8)], 290, 900,
+        [vk("Shadow Grave Wight", 6)], 350, 900,
         "They aren't like us. No will behind the eyes. Just hunger wearing a corpse. Put them down.",
         "That's the kind of mercy they can't thank you for, but it's mercy all the same. Take your pick.",
         pack(5, 3, "uncommon", [
@@ -256,7 +256,7 @@ def quests():
         "One of the Shadow Grave's dead refuses to stay in his hole. Ossric was a sexton once - he buried half the "
         "village. Now he rises every night with the spade still in his hand, searching for the grave nobody dug for him. "
         "The Instructor would very much like someone to dig it.",
-        [boss("Ossric the Unburied"), vk("Wretched Zombie", 4)], 380, 1200,
+        [boss("Ossric the Unburied"), vk("Wretched Zombie", 3)], 460, 1200,
         "He's in the crypt-yard, by the old headstones. Zombies follow him around like mourners. Clear the mourners, then Ossric.",
         "Finally. He can rest. And for what it's worth - you did that well. Take something from the pile. I mean it.",
         pack(7, 4, "uncommon", [
@@ -271,7 +271,7 @@ def quests():
         "Sexton Marrow tends the Shadow Grave's crypt-yard, and he takes pride in never leaving anyone uncovered. The "
         "zombies and skeletons wandering the yard wear scraps of burial shroud - his shrouds, the good linen. He'd like "
         "them back, preferably before the next burial.",
-        [fetch("tattered_burial_shroud", 6)], 220, 650,
+        [fetch("tattered_burial_shroud", 6)], 260, 650,
         "I stitched every one of them myself. The zombies took them off the corpses. Bring them back, and mind the stains.",
         "These are still good. Washed and pressed, they'll do someone another burial. You've a good eye for linen. Take your pick.",
         pack(4, 2, "uncommon", [
@@ -285,7 +285,7 @@ def quests():
         "Gresk's crew was undead before the spiders arrived - which turned out to be convenient for the spiders. The "
         "dead diggers kept working after Gresk gave up supervising them, and now they swing their picks at anyone who "
         "comes near the shaft. He cannot reason with them. He'd like you to try something else.",
-        [vk("Dead Digger", 8)], 270, 800,
+        [vk("Dead Digger", 6)], 320, 800,
         "My crew. Every one of them. They don't stop. They don't recognise me. They just dig. Please put them out of it.",
         "I thought I'd feel worse. I don't. Honest work, that, and quick. Take something for it.",
         pack(5, 3, "uncommon", [
@@ -297,7 +297,7 @@ def quests():
         "The spiders weave with more than silk. They've been lacing real gold dust through their webs - taken from the "
         "old veins and spun into lines that glint in the dark. Gresk wants every strand back; the Dark Lady likes gold "
         "and Gresk likes being alive.",
-        [fetch("spun_gold_thread", 5)], 300, 950,
+        [fetch("spun_gold_thread", 5)], 360, 950,
         "Look for the spiders that sparkle. They've got gold in their webs, and I want it in my ledger.",
         "That's gold. Honest gold. Spider-spun, but gold. You've saved my neck - what's left of it.",
         pack(6, 4, "uncommon", [
@@ -308,7 +308,7 @@ def quests():
     A(Q("dk_gresk_goldfang", "Goldfang", GRESK, 5, 7,
         "One of the claim's spiders has grown fat on the gold, and bright with it - its fangs have gone yellow-bright "
         "and it hunts the crew's old tunnels. The diggers call it Goldfang. Gresk calls it a problem with a price.",
-        [boss("Goldfang"), vk("Claim Spider", 5)], 360, 1200,
+        [boss("Goldfang"), vk("Claim Spider", 4)], 430, 1200,
         "It's big, it's gold-toothed, and it's mine. Not literally - but the gold in its fangs is the Dark Lady's, and I want it back.",
         "There it is. Pure gold, in a spider's jaw. The world is a funny place. Take your pick of the lot.",
         pack(8, 5, "uncommon", [
@@ -321,7 +321,7 @@ def quests():
         "The Hollow's hatchery is where the claim's spiders come from - a chamber in the north-west of the cave where "
         "egg-clutches hang in the silk, guarded by Hatchery Warden Skrix. The Pale Weaver lurks on the far side, "
         "spinning cocoons around the dead. Gresk wants both gone, and the clutches cleared with them.",
-        [boss("Hatchery Warden Skrix", NWH), boss("The Pale Weaver", NWH), ck("Brood Hatchling", 6, NWH)],
+        [boss("Hatchery Warden Skrix", NWH), boss("The Pale Weaver", NWH), ck("Brood Hatchling", 5, NWH)],
         480, 1700,
         "The Hollow's four corners are nurseries. Skrix guards the north-west one. The Weaver's in the south-east brood chamber. "
         "Kill both, and thin the hatchlings while you're at it.",
@@ -338,7 +338,7 @@ def quests():
         "The pond west of the graves was a mourners' spot once, a place to sit and talk to the dead. Now the dead "
         "talk back - the drowned wretches that crawl from the silt, dripping and moaning, grabbing at anyone near the "
         "bank. Isolde sits there all day anyway. She asks only that the pond be quiet when she comes.",
-        [vk("Drowned Wretch", 8)], 260, 800,
+        [vk("Drowned Wretch", 6)], 310, 800,
         "They crawl out of the water at dusk, grey as the silt, and they cry. I can't hear myself think. Please.",
         "Quieter. Thank you. It's a poor kind of grief that has to compete with the dead for volume.",
         pack(5, 3, "uncommon", [
@@ -350,7 +350,7 @@ def quests():
         "Isolde lost more than a husband to this pond. The mourners who came here left tokens on the bank - rings, "
         "lockets, ribbon - and the pond-dead have collected them, as if hoarding grief. She would like them returned "
         "to the families, or to someone, or to herself.",
-        [fetch("tarnished_keepsake", 5)], 300, 950,
+        [fetch("tarnished_keepsake", 5)], 360, 950,
         "The wretches and the shades both carry them. They don't know what they mean - they just know they were loved.",
         "...Oh. This one's mine. This one's... someone's. Thank you. I'll see they're kept. Take your pick of mine.",
         pack(6, 4, "uncommon", [
@@ -362,7 +362,7 @@ def quests():
         "There's one wail in the pond that's louder than the rest. The Mourning Wren - a shade that stands on the "
         "water at night, weeping in a voice that chills every other thing into following. Isolde has heard that voice "
         "since she arrived. She thinks she knows who it is, and she'd rather it didn't last.",
-        [boss("Mourning Wren"), vk("Weeping Shade", 5)], 370, 1200,
+        [boss("Mourning Wren"), vk("Weeping Shade", 4)], 440, 1200,
         "She stands on the water at night. The shades follow her. End the Wren and the pond will go quiet.",
         "...Gone. Finally. I thought it would feel different. It's only quiet. That's - enough. Please, take whatever helps.",
         pack(8, 5, "uncommon", [
@@ -377,7 +377,7 @@ def quests():
         "Orrel tended these fields before the fire, and he still does, in his own way. The scarecrows he built to "
         "keep the crows off have got up and begun walking the furrows, flailing at anything that moves. He assumes it's "
         "his own fault. He'd like you to correct it.",
-        [vk("Blighted Scarecrow", 8)], 310, 950,
+        [vk("Blighted Scarecrow", 6)], 370, 950,
         "I stuffed them myself. With straw, and some other things I didn't think about. They hit hard. Please be careful.",
         "I'll rebuild them. Properly, this time. Without - whatever it was. Take something for the trouble.",
         pack(6, 4, "uncommon", [
@@ -389,7 +389,7 @@ def quests():
         "The fire took the house and most of the harvest, but not the seed-packets. Orrel buried them in the cellar and "
         "the burned farmhands have been digging them up, as though they remember what the seeds were for. He wants "
         "them back - nothing grows in Tirisfal, but he intends to try.",
-        [fetch("unburnt_seed_packet", 5)], 340, 1050,
+        [fetch("unburnt_seed_packet", 5)], 410, 1050,
         "The farmhands keep them in their pockets. Maybe it's habit. Maybe they still hope. Bring me five.",
         "Five. Enough for a row. Maybe two. It's a stubborn kind of hope, I know - but it's mine. Take your pick.",
         pack(7, 5, "uncommon", [
@@ -401,7 +401,7 @@ def quests():
         "Gaffer Thorne owned the farm. When the fire came he stayed to save the barn, and when the barn went he "
         "stayed anyway. He still walks the burned rows with a rusted scythe, cutting down whatever he finds, "
         "convinced it's harvest. Orrel owes him a decent burial and will not do it himself.",
-        [boss("Gaffer Thorne"), vk("Burned Farmhand", 5)], 450, 1500,
+        [boss("Gaffer Thorne"), vk("Burned Farmhand", 4)], 540, 1500,
         "He's at the far end of the rows, scythe in hand. Don't talk to him - he won't hear it. Just stop him, for both our sakes.",
         "...He's at rest. The harvest's in. Thank you. I'll bury him myself, in the end. Take whatever you need from his barn.",
         pack(9, 6, "uncommon", [
@@ -416,7 +416,7 @@ def quests():
         "The Scarlet Crusade has made a camp outside the old crypt at the valley's north-east edge - pickets, "
         "torchbearers and a great deal of righteous noise. Verrick has watched them for a week from the rocks and "
         "concluded they will not leave on their own. He'd like fewer of them.",
-        [vk("Scarlet Picket", 6), vk("Scarlet Torchbearer", 4)], 360, 1100,
+        [vk("Scarlet Picket", 5), vk("Scarlet Torchbearer", 3)], 430, 1100,
         "They burn what they can't convert. They convert what they can't burn. Thin them out before they burn the valley.",
         "Good. Quiet, clean and no survivors to report. You've done this before - maybe in a life you don't remember.",
         pack(6, 5, "uncommon", [
@@ -428,7 +428,7 @@ def quests():
         "The Scarlets write everything down - dispatches, sermons, orders for the next day's burning. Verrick wants "
         "those orders. A dispatch in hand tells him what the Crusade plans, which tells him what to plan against. "
         "The pickets and torchbearers carry them stuffed in their belts.",
-        [fetch("scarlet_dispatch", 4)], 370, 1150,
+        [fetch("scarlet_dispatch", 4)], 440, 1150,
         "Their pockets are full of paper. Paper is wonderful. Bring me four dispatches and I'll bring you the war.",
         "Hm. They plan to move on the crypt's reliquary. A patrol, a priest, a lot of banners. This is useful. Take your pick.",
         pack(6, 5, "uncommon", [
@@ -440,7 +440,7 @@ def quests():
         "Sergeant Halbrook runs the Crusade's picket line - eight years of service, a halberd he named, and a "
         "certainty that undeath is a sin. Verrick has marked him for the longest time. If the forecourt loses its "
         "sergeant, the pickets lose their spine.",
-        [boss("Sergeant Halbrook"), vk("Scarlet Picket", 4)], 430, 1400,
+        [boss("Sergeant Halbrook"), vk("Scarlet Picket", 3)], 520, 1400,
         "He stands by the crypt gate. Big, loud, and disciplined. Break the line and he'll break with it.",
         "Without Halbrook that camp is a rabble with torches. Excellent. Now we can talk about the crypt.",
         pack(9, 6, "uncommon", [
@@ -453,7 +453,7 @@ def quests():
         "The Scarlet Crypt is the Crusade's foothold in the valley - a chapel, an ossuary, a reliquary and a High "
         "Inquisitor with a fondness for confessions. Verrick wants someone to walk its nave and tell him what's holding "
         "the doors shut. He won't go himself. He's seen what happens to scouts who do.",
-        [explore(CRYPT, 47, 32, 7)], 400, 1300,
+        [explore(CRYPT, 47, 32, 7)], 480, 1300,
         "The crypt gate's behind the picket line. Go down the stair, through the nave, to the chapel crossing. See it. Come back and tell me.",
         "A chapel crossing, an inquisitor, vaults on both sides. It's worse than I thought and better than I feared. Take your pick.",
         pack(8, 6, "uncommon", [
@@ -465,7 +465,7 @@ def quests():
         "High Inquisitor Fairbanks has broken more Forsaken than the valley holds. He sits at the sanctum's far end, "
         "behind a loop of candlelit corridors, and he does not leave. Verrick has no clever plan. He has only "
         "an axiom: nobody who goes down there should expect to come back, and so far the exception is you.",
-        [boss("High Inquisitor Fairbanks", CRYPT), ck("Scarlet Initiate", 6, CRYPT)], 640, 2400,
+        [boss("High Inquisitor Fairbanks", CRYPT), ck("Scarlet Initiate", 5, CRYPT)], 770, 2400,
         "The sanctum, past the penitent's walk. He smites, he curses, and he cleanses. Kill the initiates first - they'll heal him otherwise.",
         "Fairbanks. Dead. The Crusade will bleed for it. I won't - but I'll drink to it, in the way the dead drink. Take your reward.",
         pack(11, 7, "rare", [
@@ -478,7 +478,7 @@ def quests():
         "Fairbanks is dead, but the crypt still keeps its secrets. The ossuary to the west holds the dead the Crusade "
         "never finished burying, under Valdric Bonewarden. The reliquary to the east belongs to Brother Wystan, who "
         "keeps whatever the Scarlets thought worth saving. Verrick wants both vaults opened.",
-        [boss("Valdric Bonewarden", CRYPT), boss("Brother Wystan", CRYPT)], 600, 2200,
+        [boss("Valdric Bonewarden", CRYPT), boss("Brother Wystan", CRYPT)], 720, 2200,
         "West vault: bones and a warden. East vault: relics and a priest. Two doors, two keepers. Both need to go.",
         "Both vaults open. You have done in an afternoon what my scouts failed at for a month. I'll tell the Undercity. Quietly.",
         pack(11, 7, "rare", [

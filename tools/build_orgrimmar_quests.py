@@ -36,8 +36,8 @@ def quests():
                      "loud: picks, drums, and a smell of sulphur that does not belong to nature. Troggs who have not "
                      "come near the city in a generation are streaming up out of Ragefire Chasm, and behind them there "
                      "is something with a purpose. Thrall does not like things with a purpose that he has not given them."),
-        objectives=[kill("Ragefire Trogg", 8), kill("Ragefire Shaman", 5)],
-        reward_exp=900, reward_gold=3600,
+        objectives=[kill("Ragefire Trogg", 6), kill("Ragefire Shaman", 4)],
+        reward_exp=1080, reward_gold=3600,
         accept_text=("Go down through the Cleft. The troggs first - they are the loud part - and their shamans, who are "
                      "keeping them loud. Bring me back what the chasm has become. I will not send a tide of warriors "
                      "into a place I do not understand."),
@@ -62,7 +62,7 @@ def quests():
                      "Someone has been feeding him, binding him, and pointing him at Orgrimmar. A bound spirit of that "
                      "size is not a weapon. It is a fuse."),
         objectives=[kill("Taragaman the Hungerer", 1)],
-        reward_exp=1500, reward_gold=5600,
+        reward_exp=1800, reward_gold=5600,
         accept_text=("Beyond the antechamber the chasm opens onto a lake of fire with two stone bridges across it. "
                      "Taragaman sits where they cross. Do not fight him on the bridges for longer than you must."),
         turn_in_text=("He is out. The Hungerer is out. I felt the vents quiet from here. Thank you - for the first time in "
@@ -86,8 +86,8 @@ def quests():
         description=("Every cult needs a blade, and the Searing Blade's is a trogg-hater named Bazzalan. He sits on an "
                      "obsidian throne at the end of the chasm, in a hall that was an orc shrine before it was theirs. "
                      "He does not shout. He does not pose. He waits for you to look at the wrong corner of the room."),
-        objectives=[kill("Searing Blade Fanatic", 6), kill("Bazzalan", 1)],
-        reward_exp=1700, reward_gold=6400,
+        objectives=[kill("Searing Blade Fanatic", 5), kill("Bazzalan", 1)],
+        reward_exp=2040, reward_gold=6400,
         accept_text=("His walkway lies beyond the Invoker's ritual hall. Take your time and your healers. "
                      "A cult is a body, and Bazzalan is the knife it holds in the dark."),
         turn_in_text=("Bring the throne to dust, they said, and you did more than that. The Searing Blade's hold on my "
@@ -116,8 +116,8 @@ def quests():
                      "whoever claims the quiet. A cult calling itself the Searing Blade has been using the Cleft's own "
                      "back tunnels to run their ritual stock into the chasm below. The Shade is not pleased. A thief has "
                      "a code, and the code does not include sacrifices."),
-        objectives=[kill("Searing Blade Cultist", 6), kill("Searing Blade Fanatic", 4), kill("Searing Blade Invoker", 3)],
-        reward_exp=1000, reward_gold=3800,
+        objectives=[kill("Searing Blade Cultist", 5), kill("Searing Blade Fanatic", 3), kill("Searing Blade Invoker", 2)],
+        reward_exp=1200, reward_gold=3800,
         accept_text=("They hide behind candlelight. You can use that. Go in through the gate in the Cleft and take them "
                      "as they come - the cultists first, the fanatics who guard them, the invokers who command them."),
         turn_in_text=("Their whispers have gone quiet. Good. I will be back to my usual clientele by dusk. "
@@ -140,8 +140,8 @@ def quests():
                      "built a chamber in the chasm and a cult around the idea that it ends nowhere. Voidwalkers he did "
                      "not earn walk his ritual hall. Malzhet recognises the shape of the mistake - it is his own, "
                      "twenty years ago - and has no wish to see it repeated at city scale."),
-        objectives=[kill("Voidwalker Minion", 5), kill("Jergosh the Invoker", 1)],
-        reward_exp=1550, reward_gold=5800,
+        objectives=[kill("Voidwalker Minion", 4), kill("Jergosh the Invoker", 1)],
+        reward_exp=1860, reward_gold=5800,
         accept_text=("Jergosh's chamber lies north of the lake. Mind the voidwalkers - they are his hands, and he has "
                      "never once had to use his own. When he falls, break the circle. Do not read what is in it."),
         turn_in_text=("The circle is broken. Then the debt is paid, at least in part. Take it - a better warlock than "
@@ -170,7 +170,7 @@ def quests():
                      "He wants more. The troggs digging it up and the elementals warming it down below are, in his view, "
                      "a very small obstacle."),
         objectives=[fetch("ragefire_ore_sample", 8)],
-        reward_exp=900, reward_gold=3400,
+        reward_exp=1080, reward_gold=3400,
         accept_text=("Troggs mine it. Elementals nest in it. Bring me eight lumps - black, shot with orange. "
                      "You will know it when you pick it up. It will want to burn your hand."),
         turn_in_text=("Look at that grain. Look at it. I could make a blade from this that would sing. "
@@ -193,8 +193,8 @@ def quests():
                      "with a miner's grudge, and a hammer that has broken more pit-props than Krunk has forged blades. "
                      "Nobody mines the black seam while Grulgash is breathing. Krunk would pay a fair bit to see "
                      "that change."),
-        objectives=[kill("Ragefire Digger", 6), kill("Grulgash the Pitbreaker", 1)],
-        reward_exp=1250, reward_gold=4800,
+        objectives=[kill("Ragefire Digger", 5), kill("Grulgash the Pitbreaker", 1)],
+        reward_exp=1500, reward_gold=4800,
         accept_text=("West of the warrens, past the supply racks. The diggers first - they keep him informed. "
                      "Grulgash is bigger than he looks and angrier than he sounds."),
         turn_in_text=("The seam is open. I'll have the smiths down there before the week is out. "
@@ -223,7 +223,7 @@ def quests():
                      "brought back for a week, and he has learned that every sample points the same way: down the "
                      "chasm, to a priestess called Zhurra Bloodhex."),
         objectives=[fetch("searing_ritual_ash", 6), kill("Acolyte Zhurra Bloodhex", 1)],
-        reward_exp=1300, reward_gold=5000,
+        reward_exp=1560, reward_gold=5000,
         accept_text=("Pyromancers and cultists carry the ash. Zhurra is the one who makes it mean something. "
                      "She holds the altar in the antechamber, behind the cages. Do not touch the ash with bare skin."),
         turn_in_text=("I will not ask what you saw. I will say that the sample matches. "
@@ -251,8 +251,8 @@ def quests():
                      "wolf has taken to the shores of the lava lake beneath the city. The troggs call it Cinderfang. "
                      "They keep their distance. Rethok keeps a list of animals he has failed to bring home, and the "
                      "list is short."),
-        objectives=[kill("Cinder Salamander", 6), kill("Cinderfang", 1)],
-        reward_exp=1350, reward_gold=5200,
+        objectives=[kill("Cinder Salamander", 5), kill("Cinderfang", 1)],
+        reward_exp=1620, reward_gold=5200,
         accept_text=("It lairs on the north-east shore of the lake. The lesser ones lead you to it - they are always "
                      "near a bigger one. Keep to the stone, do not touch the lava, and do not run."),
         turn_in_text=("A clean kill. I have seen that pelt on a trogg's wall once. Not now. "

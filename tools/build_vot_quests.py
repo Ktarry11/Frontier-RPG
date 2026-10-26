@@ -58,9 +58,9 @@ def new_quests():
                      "walking straight through the training dummies on Sagebrush Flat as if they were an insult. "
                      "The recruits call it Old Tusk. Grulnok calls it a matter of time before someone's mother gets bad news. "
                      "Thin out the boars on the flat, and when the old one shows himself, put him down."),
-        objectives=[dict(type="kill", target="Mottled Boar", count=4),
+        objectives=[dict(type="kill", target="Mottled Boar", count=3),
                     dict(type="kill", target="Old Tusk", count=1)],
-        reward_exp=230, reward_gold=700,
+        reward_exp=280, reward_gold=700,
         accept_text=("West of camp, on the flat. You'll know him when you see him - he's the one that doesn't run. "
                      "Don't fight him on open ground with your back to a hill. Use the dummies. He hates the dummies."),
         turn_in_text=("Tusk's down? Good. Good. That's a lot of years of that animal off the ridge in one afternoon. "
@@ -88,9 +88,9 @@ def new_quests():
                      "in the afternoons, patient as tax collectors, and the jackals that follow them keep creeping closer "
                      "to the fire. He says it's nothing personal. He says it with the look of someone who has taken it personally. "
                      "Clear out the vultures and the jackals running with them until the sky gets boring again."),
-        objectives=[dict(type="kill", target="Carrion Vulture", count=5),
-                    dict(type="kill", target="Dustwind Jackal", count=5)],
-        reward_exp=210, reward_gold=650,
+        objectives=[dict(type="kill", target="Carrion Vulture", count=4),
+                    dict(type="kill", target="Dustwind Jackal", count=4)],
+        reward_exp=250, reward_gold=650,
         accept_text=("They think I'm already dead. I'd like to change their minds. Vultures first - "
                      "the jackals only get brave when there's something circling. Don't tell Nakhtar I'm giving out quests."),
         turn_in_text=("Quiet sky. You have no idea how nice that is. Take something - Nakhtar says "
@@ -118,9 +118,9 @@ def new_quests():
                      "and lately Old Marta can't brew a clean batch with water from it. Marsh skimmers have been skating over "
                      "the shallows in numbers she's never seen, and the toads are bolder than toads should be. "
                      "She isn't asking for a massacre - just enough dead things that the water runs clear again."),
-        objectives=[dict(type="kill", target="Marsh Skimmer", count=6),
-                    dict(type="kill", target="Trailwater Toad", count=4)],
-        reward_exp=150, reward_gold=450,
+        objectives=[dict(type="kill", target="Marsh Skimmer", count=5),
+                    dict(type="kill", target="Trailwater Toad", count=3)],
+        reward_exp=180, reward_gold=450,
         accept_text=("Go south to the lake. Mind the mud, it's deeper than it looks. "
                      "Skimmers and toads - I don't care which you reach first, I just want the shallows still for an hour."),
         turn_in_text=("Clear water, at last. Smell that? That's a remedy that works. And look at you - "
@@ -148,8 +148,8 @@ def new_quests():
                      "use for weather. It's been eating whatever drifts in, and now it's eating whatever walks in. "
                      "Marta needs the spring back. Bring a friend if you can find one. Bring a plan if you can't."),
         objectives=[dict(type="kill", target="Old Gulpjaw", count=1),
-                    dict(type="kill", target="Trailwater Toad", count=3)],
-        reward_exp=260, reward_gold=800,
+                    dict(type="kill", target="Trailwater Toad", count=2)],
+        reward_exp=310, reward_gold=800,
         accept_text=("He sits at the bottom of the shallows and waits. Don't wade in. Pull him out onto the bank - "
                      "everything slow is worse in water than out of it."),
         turn_in_text=("Gulpjaw, gone. The water's already settling. You've done this valley more good than you know - "
@@ -178,9 +178,9 @@ def new_quests():
                      "walking - thornroot saplings, quick and mean - and something older has begun to move among them. "
                      "Bramblethorn the Ancient has been in that grove longer than the valley has had a name. "
                      "She doesn't ask you to fell it. She asks that it stop."),
-        objectives=[dict(type="kill", target="Thornroot Sapling", count=6),
+        objectives=[dict(type="kill", target="Thornroot Sapling", count=5),
                     dict(type="kill", target="Bramblethorn the Ancient", count=1)],
-        reward_exp=290, reward_gold=900,
+        reward_exp=350, reward_gold=900,
         accept_text=("It's the grove's own heart gone sour. Saplings first - they'll tell you where the old one is. "
                      "Fire works, if you have it. It also makes the grove very angry, so do it quickly."),
         turn_in_text=("The grove's quiet again. Listen to it. That is what a valley sounds like when it isn't being watched. "
@@ -209,10 +209,10 @@ def new_quests():
                      "its guardians are only as dangerous as the numbers behind them. "
                      "Thin them out - skitterers and webspinners in the halls, egg tenders in the nursery - "
                      "so that whatever comes for the guardian does not come into a room full of its children."),
-        objectives=[dict(type="kill", target="Cave Skitterer", count=4, zone="the_den"),
-                    dict(type="kill", target="Den Webspinner", count=4, zone="the_den"),
-                    dict(type="kill", target="Egg Tender", count=3, zone="the_den")],
-        reward_exp=300, reward_gold=900,
+        objectives=[dict(type="kill", target="Cave Skitterer", count=3, zone="the_den"),
+                    dict(type="kill", target="Den Webspinner", count=3, zone="the_den"),
+                    dict(type="kill", target="Egg Tender", count=2, zone="the_den")],
+        reward_exp=360, reward_gold=900,
         accept_text=("Caves lie. They tell you the next room is safe because it's quiet. "
                      "Then you step in and find out why it was quiet. Clear the halls, then the nursery. "
                      "One room at a time."),
@@ -240,9 +240,9 @@ def new_quests():
                      "southeast of camp is saying something he doesn't like. Dust devils have been walking the road with intent, "
                      "and sandpincer crawlers keep pushing up out of the sand where there was nothing before. "
                      "He wants the dunes quiet before whatever is stirring them decides to finish waking."),
-        objectives=[dict(type="kill", target="Dust Devil", count=5),
-                    dict(type="kill", target="Sandpincer Crawler", count=4)],
-        reward_exp=300, reward_gold=950,
+        objectives=[dict(type="kill", target="Dust Devil", count=4),
+                    dict(type="kill", target="Sandpincer Crawler", count=3)],
+        reward_exp=360, reward_gold=950,
         accept_text=("Southeast, down the road to the dunes. Don't chase the dust. Let it come to you. "
                      "Sandpincers hide under the surface - if the sand moves, move first."),
         turn_in_text=("Quieter already. I can hear the road again. There's one more place that's wrong, "
@@ -270,10 +270,10 @@ def new_quests():
                      "called Smolderhide has been seen walking at night with fire on its back. "
                      "Elder Kuraw wants it dealt with before the wastes creep any closer to the lake. "
                      "This is the hardest thing he has ever asked of a recruit. He asks it quietly."),
-        objectives=[dict(type="kill", target="Ember Wisp", count=5),
-                    dict(type="kill", target="Ashback Basilisk", count=3),
+        objectives=[dict(type="kill", target="Ember Wisp", count=4),
+                    dict(type="kill", target="Ashback Basilisk", count=2),
                     dict(type="kill", target="Smolderhide", count=1)],
-        reward_exp=420, reward_gold=1300,
+        reward_exp=500, reward_gold=1300,
         accept_text=("Go south, past the lake, and keep the road under your feet until it stops being a road. "
                      "Don't fight on the black stone. It holds heat. Smolderhide will find you - "
                      "it always finds you. Be ready when it does."),
@@ -303,9 +303,9 @@ def new_quests():
                      "He has not decided how he'll do it, which is why he is asking you. "
                      "Thin the pack, find the old one, and bring him proof. His mother has opinions about the whole idea. "
                      "She may be right. Do it anyway."),
-        objectives=[dict(type="kill", target="Dustwind Jackal", count=5),
+        objectives=[dict(type="kill", target="Dustwind Jackal", count=4),
                     dict(type="kill", target="Sandfang", count=1)],
-        reward_exp=330, reward_gold=1000,
+        reward_exp=400, reward_gold=1000,
         accept_text=("It's a white one. Scar over the left eye. Quick as anything, but it's old - old things get careless. "
                      "I'd do it myself except... my mother. You understand."),
         turn_in_text=("You actually did it! She's going to be so angry. I'm going to tell everyone you did it, I swear - "
@@ -335,7 +335,7 @@ def new_quests():
                      "to measure what's wrong with them. He is fairly sure it's not dangerous. "
                      "He is also fairly sure it was on fire a moment ago."),
         objectives=[dict(type="fetch", target="fel_shard", count=5, zone="burning_blade_coven")],
-        reward_exp=260, reward_gold=850,
+        reward_exp=310, reward_gold=850,
         accept_text=("The acolytes keep them on their belts. Don't touch them with bare hands. "
                      "Use tongs. Or a stick. Or a different hand. I'll be here, doing my own science."),
         turn_in_text=("Oh, that's wonderful. That's - oh no. Okay, it's fine, nothing to see. "
@@ -364,7 +364,7 @@ def new_quests():
                      "Not a ratty hide thing - silk, strong enough to turn a scorpid sting, the kind the webspinners "
                      "in the Den spin in their halls. Six spools. She has the loom. She does not have the nerve to go into that cave."),
         objectives=[dict(type="fetch", target="den_silk", count=6, zone="the_den")],
-        reward_exp=200, reward_gold=650,
+        reward_exp=240, reward_gold=650,
         accept_text=("Spools, from the webspinners. They keep them at their backs. Don't take the loose thread - "
                      "it's sticky. The spools are what you want. Be careful. Please."),
         turn_in_text=("This is good silk. Strong. Feel that? That'll turn a stinger. "
@@ -392,9 +392,9 @@ def new_quests():
                      "than the Horde has held the valley, and she is the reason the workers keep coming. "
                      "Nakhtar doesn't want you to fight her. He wants you to fight everything around her first, "
                      "and then to decide whether you're ready. He suspects you'll go anyway."),
-        objectives=[dict(type="kill", target="Venomtail Scorpid", count=4),
+        objectives=[dict(type="kill", target="Venomtail Scorpid", count=3),
                     dict(type="kill", target="Broodmother Sarrix", count=1)],
-        reward_exp=360, reward_gold=1200,
+        reward_exp=430, reward_gold=1200,
         accept_text=("Northeast. Past the camp road, where the sand turns dark. She rarely leaves the nest and never leaves it unguarded. "
                      "Be sure of your health before you commit to the fight. It's long, and it's patient."),
         turn_in_text=("Sarrix is dead. The nest will keep moving without her for a season and then settle. "
@@ -422,9 +422,9 @@ def new_quests():
                      "a real one, with a real summoning, in a hall the Valley Grunt has only seen from a distance. "
                      "Initiates guard the approaches and ritual guards stand between them and any fool with a sword. "
                      "Break up the ritual before it finishes, or there won't be a Baneshadow to fight. There will be something worse."),
-        objectives=[dict(type="kill", target="Burning Blade Initiate", count=5, zone="burning_blade_coven"),
+        objectives=[dict(type="kill", target="Burning Blade Initiate", count=4, zone="burning_blade_coven"),
                     dict(type="kill", target="Coven Ritual Guard", count=2, zone="burning_blade_coven")],
-        reward_exp=330, reward_gold=1000,
+        reward_exp=400, reward_gold=1000,
         accept_text=("Initiates in the outer halls. Ritual guards in the hall with the circle. "
                      "Kill the guards first if you can - they're the ones who'll finish it. "
                      "I'll hold the road behind you."),

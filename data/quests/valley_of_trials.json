@@ -671,7 +671,7 @@
         {
           "type": "kill",
           "target": "Mottled Boar",
-          "count": 4
+          "count": 3
         },
         {
           "type": "kill",
@@ -679,7 +679,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 230,
+      "reward_exp": 280,
       "reward_gold": 700,
       "accept_text": "West of camp, on the flat. You'll know him when you see him - he's the one that doesn't run. Don't fight him on open ground with your back to a hill. Use the dummies. He hates the dummies.",
       "turn_in_text": "Tusk's down? Good. Good. That's a lot of years of that animal off the ridge in one afternoon. Take these - the old boar's had them coming since before you woke up.",
@@ -707,7 +707,8 @@
           "required_level": 2,
           "flavor_text": "Stiff bristles across the knuckles, soft silk where it counts.",
           "primary_stats": {
-            "intellect": 1
+            "intellect": 1,
+            "spirit": 1
           },
           "armor_type": "cloth",
           "armor_value": 2,
@@ -721,7 +722,8 @@
           "required_level": 2,
           "flavor_text": "Cut from the part of the hide that doesn't squeak.",
           "primary_stats": {
-            "agility": 1
+            "agility": 1,
+            "stamina": 1
           },
           "armor_type": "leather",
           "armor_value": 4,
@@ -735,7 +737,8 @@
           "required_level": 2,
           "flavor_text": "Heavier than it looks and about as comfortable as it sounds.",
           "primary_stats": {
-            "strength": 1
+            "strength": 1,
+            "agility": 1
           },
           "armor_type": "mail",
           "armor_value": 7,
@@ -757,15 +760,15 @@
         {
           "type": "kill",
           "target": "Carrion Vulture",
-          "count": 5
+          "count": 4
         },
         {
           "type": "kill",
           "target": "Dustwind Jackal",
-          "count": 5
+          "count": 4
         }
       ],
-      "reward_exp": 210,
+      "reward_exp": 250,
       "reward_gold": 650,
       "accept_text": "They think I'm already dead. I'd like to change their minds. Vultures first - the jackals only get brave when there's something circling. Don't tell Nakhtar I'm giving out quests.",
       "turn_in_text": "Quiet sky. You have no idea how nice that is. Take something - Nakhtar says I'm not allowed to hand out coin, but nobody said anything about gear I can't wear anymore.",
@@ -774,7 +777,7 @@
           "name": "Vulture-Feather Cloak",
           "slot": "back",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "Lighter than air, warmer than it has any right to be.",
           "primary_stats": {},
@@ -784,44 +787,45 @@
           "name": "Scavenger's Cord",
           "slot": "waist",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "Everything useful ends up tied to it eventually.",
           "primary_stats": {
-            "agility": 1
+            "agility": 1,
+            "intellect": 1
           },
           "armor_type": "leather",
-          "armor_value": 3,
+          "armor_value": 4,
           "label": "Leather Belt (Agi/Int)"
         },
         {
           "name": "Bonepicker's Legguards",
           "slot": "legs",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "Plated with what the birds left behind.",
           "primary_stats": {
             "strength": 2
           },
           "armor_type": "plate",
-          "armor_value": 18,
+          "armor_value": 23,
           "label": "Plate Legs (Str)"
         },
         {
           "name": "Torgak's Spare Crutch",
           "slot": "main_hand",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "It has a lot of opinions about leaning.",
           "weapon_type": "staff",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 1
+            "intellect": 3,
+            "spirit": 3
           },
-          "weapon_damage_min": 5,
-          "weapon_damage_max": 7,
+          "weapon_damage_min": 7,
+          "weapon_damage_max": 9,
           "attack_speed": 3.2,
           "label": "Staff (Int/Spi)"
         }
@@ -842,15 +846,15 @@
         {
           "type": "kill",
           "target": "Marsh Skimmer",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
           "target": "Trailwater Toad",
-          "count": 4
+          "count": 3
         }
       ],
-      "reward_exp": 150,
+      "reward_exp": 180,
       "reward_gold": 450,
       "accept_text": "Go south to the lake. Mind the mud, it's deeper than it looks. Skimmers and toads - I don't care which you reach first, I just want the shallows still for an hour.",
       "turn_in_text": "Clear water, at last. Smell that? That's a remedy that works. And look at you - hardly wet. You're learning the trick of it faster than most.",
@@ -859,7 +863,7 @@
           "name": "Reed-Wrapped Bracers",
           "slot": "wrist",
           "item_level": 3,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 1,
           "flavor_text": "Waterproof, mostly. Fragrant, definitely.",
           "primary_stats": {},
@@ -871,7 +875,7 @@
           "name": "Skimmer-Silk Sash",
           "slot": "waist",
           "item_level": 3,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 1,
           "flavor_text": "Spun from something that spends its life on water. It sheds it beautifully.",
           "primary_stats": {},
@@ -883,7 +887,7 @@
           "name": "Springstone Charm",
           "slot": "neck",
           "item_level": 3,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 1,
           "flavor_text": "A smooth stone from the lake bottom. It's calmer than you are.",
           "primary_stats": {
@@ -895,12 +899,12 @@
           "name": "Mudcaked Greaves",
           "slot": "feet",
           "item_level": 3,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 1,
           "flavor_text": "They've never been clean and never will be. They don't slip, either.",
           "primary_stats": {},
           "armor_type": "mail",
-          "armor_value": 3,
+          "armor_value": 4,
           "label": "Mail Boots (Str/Spi)"
         }
       ],
@@ -923,10 +927,10 @@
         {
           "type": "kill",
           "target": "Trailwater Toad",
-          "count": 3
+          "count": 2
         }
       ],
-      "reward_exp": 260,
+      "reward_exp": 310,
       "reward_gold": 800,
       "accept_text": "He sits at the bottom of the shallows and waits. Don't wade in. Pull him out onto the bank - everything slow is worse in water than out of it.",
       "turn_in_text": "Gulpjaw, gone. The water's already settling. You've done this valley more good than you know - and I'll keep telling people so, whether you like it or not.",
@@ -971,7 +975,7 @@
           "required_level": 3,
           "flavor_text": "Water beads right off. So, honestly, does most criticism.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "armor_type": "cloth",
@@ -1009,7 +1013,7 @@
         {
           "type": "kill",
           "target": "Thornroot Sapling",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
@@ -1017,7 +1021,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 290,
+      "reward_exp": 350,
       "reward_gold": 900,
       "accept_text": "It's the grove's own heart gone sour. Saplings first - they'll tell you where the old one is. Fire works, if you have it. It also makes the grove very angry, so do it quickly.",
       "turn_in_text": "The grove's quiet again. Listen to it. That is what a valley sounds like when it isn't being watched. Take something. You've earned more than I'll ever be able to give.",
@@ -1046,7 +1050,7 @@
           "required_level": 3,
           "flavor_text": "Woven so tightly even the thorns couldn't find the gaps.",
           "primary_stats": {
-            "agility": 2,
+            "agility": 1,
             "spirit": 1
           },
           "armor_type": "leather",
@@ -1100,23 +1104,23 @@
         {
           "type": "kill",
           "target": "Cave Skitterer",
-          "count": 4,
+          "count": 3,
           "zone": "the_den"
         },
         {
           "type": "kill",
           "target": "Den Webspinner",
-          "count": 4,
+          "count": 3,
           "zone": "the_den"
         },
         {
           "type": "kill",
           "target": "Egg Tender",
-          "count": 3,
+          "count": 2,
           "zone": "the_den"
         }
       ],
-      "reward_exp": 300,
+      "reward_exp": 360,
       "reward_gold": 900,
       "accept_text": "Caves lie. They tell you the next room is safe because it's quiet. Then you step in and find out why it was quiet. Clear the halls, then the nursery. One room at a time.",
       "turn_in_text": "You walk different than you did. Good. Fewer of them behind you means fewer in front. The guardian is next, and it's the last thing in that cave that matters.",
@@ -1125,55 +1129,57 @@
           "name": "Skitterer-Chitin Helm",
           "slot": "head",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "Doesn't fit anyone. Fits you now.",
           "primary_stats": {
-            "strength": 1
+            "strength": 1,
+            "stamina": 1
           },
           "armor_type": "plate",
-          "armor_value": 13,
+          "armor_value": 17,
           "label": "Plate Helm (Str/Sta)"
         },
         {
           "name": "Webwoven Gloves",
           "slot": "hands",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "Sticky on the inside only. Tested.",
           "primary_stats": {
             "agility": 1
           },
           "armor_type": "leather",
-          "armor_value": 3,
+          "armor_value": 4,
           "label": "Leather Gloves (Agi)"
         },
         {
           "name": "Husk-Plated Vambraces",
           "slot": "wrist",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "Chitin plates over a boiled hide.",
           "primary_stats": {
-            "strength": 1
+            "strength": 1,
+            "spirit": 1
           },
           "armor_type": "mail",
-          "armor_value": 6,
+          "armor_value": 7,
           "label": "Mail Bracers (Str/Spi)"
         },
         {
           "name": "Egg-Tender's Wand",
           "slot": "ranged",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "It hums when you stand near anything fragile.",
           "weapon_type": "wand",
           "primary_stats": {},
-          "weapon_damage_min": 8,
-          "weapon_damage_max": 11,
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 15,
           "attack_speed": 1.9,
           "label": "Wand (Int/Spi)"
         }
@@ -1193,15 +1199,15 @@
         {
           "type": "kill",
           "target": "Dust Devil",
-          "count": 5
+          "count": 4
         },
         {
           "type": "kill",
           "target": "Sandpincer Crawler",
-          "count": 4
+          "count": 3
         }
       ],
-      "reward_exp": 300,
+      "reward_exp": 360,
       "reward_gold": 950,
       "accept_text": "Southeast, down the road to the dunes. Don't chase the dust. Let it come to you. Sandpincers hide under the surface - if the sand moves, move first.",
       "turn_in_text": "Quieter already. I can hear the road again. There's one more place that's wrong, and it's the worst one. We'll talk about it.",
@@ -1210,7 +1216,7 @@
           "name": "Dustveil Wraps",
           "slot": "chest",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "Layered cloth, stained in the shape of a very long road.",
           "primary_stats": {
@@ -1218,18 +1224,19 @@
             "stamina": 1
           },
           "armor_type": "cloth",
-          "armor_value": 4,
+          "armor_value": 5,
           "label": "Cloth Chest (Int/Sta)"
         },
         {
           "name": "Sandglass Pendant",
           "slot": "neck",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "The sand inside never finishes falling.",
           "primary_stats": {
-            "agility": 1
+            "agility": 1,
+            "intellect": 1
           },
           "label": "Necklace (Agi/Int)"
         },
@@ -1237,15 +1244,16 @@
           "name": "Dunewalker's Crossbow",
           "slot": "ranged",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "Lightweight, accurate, and forgiving of sand in the mechanism.",
           "weapon_type": "crossbow",
           "primary_stats": {
-            "agility": 1
+            "agility": 1,
+            "stamina": 1
           },
-          "weapon_damage_min": 9,
-          "weapon_damage_max": 12,
+          "weapon_damage_min": 12,
+          "weapon_damage_max": 16,
           "attack_speed": 2.4,
           "label": "Crossbow (Agi/Sta)"
         },
@@ -1253,7 +1261,7 @@
           "name": "Crawler-Shell Cuirass",
           "slot": "chest",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "Heavy. Hot. Excellent against things that bite.",
           "primary_stats": {
@@ -1261,7 +1269,7 @@
             "stamina": 1
           },
           "armor_type": "plate",
-          "armor_value": 21,
+          "armor_value": 28,
           "label": "Plate Chest (Str/Sta)"
         }
       ],
@@ -1279,12 +1287,12 @@
         {
           "type": "kill",
           "target": "Ember Wisp",
-          "count": 5
+          "count": 4
         },
         {
           "type": "kill",
           "target": "Ashback Basilisk",
-          "count": 3
+          "count": 2
         },
         {
           "type": "kill",
@@ -1292,7 +1300,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 420,
+      "reward_exp": 500,
       "reward_gold": 1300,
       "accept_text": "Go south, past the lake, and keep the road under your feet until it stops being a road. Don't fight on the black stone. It holds heat. Smolderhide will find you - it always finds you. Be ready when it does.",
       "turn_in_text": "Smolderhide, dead. Then the valley's dangerous things are done, or as done as they get. You have the look of someone who survived a lot. That's the only graduation I recognize.",
@@ -1320,7 +1328,7 @@
           "flavor_text": "Singed in all the right places. Tough in all the others.",
           "primary_stats": {
             "strength": 2,
-            "agility": 1
+            "agility": 2
           },
           "armor_type": "leather",
           "armor_value": 13,
@@ -1335,7 +1343,7 @@
           "flavor_text": "The seams still glow faintly at night.",
           "primary_stats": {
             "agility": 2,
-            "intellect": 1
+            "intellect": 2
           },
           "armor_type": "mail",
           "armor_value": 21,
@@ -1369,7 +1377,7 @@
         {
           "type": "kill",
           "target": "Dustwind Jackal",
-          "count": 5
+          "count": 4
         },
         {
           "type": "kill",
@@ -1377,7 +1385,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 330,
+      "reward_exp": 400,
       "reward_gold": 1000,
       "accept_text": "It's a white one. Scar over the left eye. Quick as anything, but it's old - old things get careless. I'd do it myself except... my mother. You understand.",
       "turn_in_text": "You actually did it! She's going to be so angry. I'm going to tell everyone you did it, I swear - I'll say it was both of us. Here, take something. For the trouble.",
@@ -1391,10 +1399,10 @@
           "flavor_text": "Longer than a shopping cart and nearly as steerable.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 5
+            "strength": 8
           },
-          "weapon_damage_min": 19,
-          "weapon_damage_max": 26,
+          "weapon_damage_min": 15,
+          "weapon_damage_max": 21,
           "attack_speed": 3.3,
           "label": "Polearm (Str)"
         },
@@ -1407,7 +1415,8 @@
           "flavor_text": "Not exactly a gentleman's weapon. You're not exactly a gentleman.",
           "weapon_type": "thrown",
           "primary_stats": {
-            "agility": 1
+            "agility": 1,
+            "stamina": 1
           },
           "weapon_damage_min": 12,
           "weapon_damage_max": 16,
@@ -1434,7 +1443,8 @@
           "required_level": 4,
           "flavor_text": "He wore them for a day. They did not feel lucky.",
           "primary_stats": {
-            "strength": 1
+            "strength": 1,
+            "spirit": 1
           },
           "armor_type": "plate",
           "armor_value": 14,
@@ -1460,7 +1470,7 @@
           "zone": "burning_blade_coven"
         }
       ],
-      "reward_exp": 260,
+      "reward_exp": 310,
       "reward_gold": 850,
       "accept_text": "The acolytes keep them on their belts. Don't touch them with bare hands. Use tongs. Or a stick. Or a different hand. I'll be here, doing my own science.",
       "turn_in_text": "Oh, that's wonderful. That's - oh no. Okay, it's fine, nothing to see. Take whatever you want from the bench - I'm going to be busy.",
@@ -1469,13 +1479,13 @@
           "name": "Sprocketspin Rangefinder",
           "slot": "ranged",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "It clicks. You aren't sure what it measures. You choose to trust it.",
           "weapon_type": "gun",
           "primary_stats": {},
-          "weapon_damage_min": 8,
-          "weapon_damage_max": 11,
+          "weapon_damage_min": 11,
+          "weapon_damage_max": 15,
           "attack_speed": 2.6,
           "label": "Gun (Agi/Sta)"
         },
@@ -1483,35 +1493,37 @@
           "name": "Goggles of Questionable Safety",
           "slot": "head",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "Rated for two explosions. You've already worn it through four.",
           "primary_stats": {
-            "agility": 1
+            "agility": 1,
+            "intellect": 1
           },
           "armor_type": "leather",
-          "armor_value": 5,
+          "armor_value": 7,
           "label": "Leather Helm (Agi/Int)"
         },
         {
           "name": "Shard-Studded Gauntlets",
           "slot": "hands",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "Tiny crystals hum at the knuckles. Do not make a fist near anything flammable.",
           "primary_stats": {
-            "intellect": 1
+            "intellect": 1,
+            "stamina": 1
           },
           "armor_type": "mail",
-          "armor_value": 6,
+          "armor_value": 7,
           "label": "Mail Gloves (Int/Sta)"
         },
         {
           "name": "Fuse-Wire Ring",
           "slot": "ring",
           "item_level": 5,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 3,
           "flavor_text": "Shorter fuse, bigger idea.",
           "primary_stats": {},
@@ -1537,7 +1549,7 @@
           "zone": "the_den"
         }
       ],
-      "reward_exp": 200,
+      "reward_exp": 240,
       "reward_gold": 650,
       "accept_text": "Spools, from the webspinners. They keep them at their backs. Don't take the loose thread - it's sticky. The spools are what you want. Be careful. Please.",
       "turn_in_text": "This is good silk. Strong. Feel that? That'll turn a stinger. Here - I made extra. It's the least I can do for the one who made me less afraid.",
@@ -1546,11 +1558,12 @@
           "name": "Rhaka's Silkwoven Mantle",
           "slot": "shoulder",
           "item_level": 4,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "Made by a mother who has worried a lot and sewn better for it.",
           "primary_stats": {
-            "stamina": 1
+            "stamina": 1,
+            "spirit": 1
           },
           "armor_type": "cloth",
           "armor_value": 2,
@@ -1560,7 +1573,7 @@
           "name": "Mother's Travel Cloak",
           "slot": "back",
           "item_level": 4,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "It's not magic. It's just very well made.",
           "primary_stats": {
@@ -1572,7 +1585,7 @@
           "name": "Den-Silk Slippers",
           "slot": "feet",
           "item_level": 4,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "Quiet on stone, soft on blisters.",
           "primary_stats": {},
@@ -1584,7 +1597,7 @@
           "name": "Silk-Laced Marching Boots",
           "slot": "feet",
           "item_level": 4,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 2,
           "flavor_text": "She added one extra stitch for luck.",
           "primary_stats": {},
@@ -1609,7 +1622,7 @@
         {
           "type": "kill",
           "target": "Venomtail Scorpid",
-          "count": 4
+          "count": 3
         },
         {
           "type": "kill",
@@ -1617,7 +1630,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 360,
+      "reward_exp": 430,
       "reward_gold": 1200,
       "accept_text": "Northeast. Past the camp road, where the sand turns dark. She rarely leaves the nest and never leaves it unguarded. Be sure of your health before you commit to the fight. It's long, and it's patient.",
       "turn_in_text": "Sarrix is dead. The nest will keep moving without her for a season and then settle. You did something this valley has needed for a long time. I won't forget it.",
@@ -1647,7 +1660,7 @@
           "flavor_text": "The hide shrugs off everything except compliments.",
           "primary_stats": {
             "agility": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "armor_type": "leather",
           "armor_value": 13,
@@ -1662,7 +1675,7 @@
           "flavor_text": "Heavy, and it doesn't care.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "armor_type": "plate",
           "armor_value": 32,
@@ -1699,7 +1712,7 @@
         {
           "type": "kill",
           "target": "Burning Blade Initiate",
-          "count": 5,
+          "count": 4,
           "zone": "burning_blade_coven"
         },
         {
@@ -1709,7 +1722,7 @@
           "zone": "burning_blade_coven"
         }
       ],
-      "reward_exp": 330,
+      "reward_exp": 400,
       "reward_gold": 1000,
       "accept_text": "Initiates in the outer halls. Ritual guards in the hall with the circle. Kill the guards first if you can - they're the ones who'll finish it. I'll hold the road behind you.",
       "turn_in_text": "The circle's broken. The air smells normal again, and I didn't know I'd been smelling it. There's only one left to finish. Take this and go.",
@@ -1718,15 +1731,15 @@
           "name": "Shattered Ritual Blade",
           "slot": "main_hand",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "Cracked down the middle and still sharp enough. Both halves are on the wall of your room back home.",
           "weapon_type": "sword_1h",
           "primary_stats": {
             "strength": 2
           },
-          "weapon_damage_min": 11,
-          "weapon_damage_max": 14,
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
           "attack_speed": 2.4,
           "label": "Sword (Str)"
         },
@@ -1734,11 +1747,12 @@
           "name": "Acolyte's Sash",
           "slot": "waist",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "The sigil on the buckle is facing the wrong way. It's fine.",
           "primary_stats": {
-            "intellect": 1
+            "intellect": 1,
+            "stamina": 1
           },
           "armor_type": "cloth",
           "armor_value": 2,
@@ -1748,25 +1762,27 @@
           "name": "Fel-Scorched Greaves",
           "slot": "feet",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "Blackened but sturdy. Don't kick anything flammable.",
           "primary_stats": {
-            "strength": 1
+            "strength": 1,
+            "stamina": 1
           },
           "armor_type": "plate",
-          "armor_value": 10,
+          "armor_value": 14,
           "label": "Plate Boots (Str/Sta)"
         },
         {
           "name": "Coven-Marked Band",
           "slot": "ring",
           "item_level": 6,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 4,
           "flavor_text": "The mark has faded. The strength hasn't.",
           "primary_stats": {
-            "strength": 1
+            "strength": 1,
+            "agility": 1
           },
           "label": "Ring (Str/Agi)"
         }

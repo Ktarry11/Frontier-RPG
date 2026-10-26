@@ -80,7 +80,7 @@ quest("moonwell_gloomcap_sacs", "A Fungus Among Us", "astranaar_sentinel_liaison
 quest("moonwell_hollow_cull", "Silence the Hollow", "astranaar_grove_warden", "astranaar", 22, 25,
       "The corrupted things beneath the Moonwell are growing bolder. Thin the Rotlashers and Moon Guards so the next party "
       "can reach the grove at the bottom.",
-      [kill("Hollow Rotlasher", 8, MW), kill("Corrupted Moon Guard", 6, MW), kill("Twilight Rootbinder", 4, MW)],
+      [kill("Hollow Rotlasher", 6, MW), kill("Corrupted Moon Guard", 5, MW), kill("Twilight Rootbinder", 3, MW)],
       "Go down in company. The Hollow was never meant to be walked alone, and it is not what it was.",
       "You came back. That is more than the last party managed, and they were braver than they were wise.",
       nxt="moonwell_mosshide")
@@ -117,7 +117,7 @@ quest("barrows_hunters_horns", "Horns of the Wild Hunt", "splintertree_grunt", "
 quest("barrows_rimebone_cull", "Rimebone and Wight", "splintertree_interrogator", "splintertree_post", 21, 24,
       "Vashj needs the Barrows quiet. The frozen hounds and wights keep the Hunt-King's road, and as long as they walk the "
       "place will keep singing the Hunt's old song.",
-      [kill("Rimebone Hound", 8, HB), kill("Barrow Wight", 6, HB), kill("Howling Wraith", 4, HB)],
+      [kill("Rimebone Hound", 6, HB), kill("Barrow Wight", 5, HB), kill("Howling Wraith", 3, HB)],
       "Dead things in a cold hole. It is not complicated. Go in with friends, come out with the job done.",
       "The howling's thinner. Not gone. Not yet. That's your next job.",
       nxt="barrows_wintermaw")
@@ -146,7 +146,7 @@ GR = "groms_rest"
 quest("groms_garrison_cull", "Thin the Garrison", "splintertree_war_mage", "splintertree_post", 26, 29,
       "Grom's Rest has become a demon barracks. Satyrs, imps and fel-touched hounds crowd the hall beyond the gate. War Mage "
       "Grimtotem wants the garrison thinned so a real party can push through.",
-      [kill("Satyr Cultist", 10, GR), kill("Dread Imp", 8, GR), kill("Corrupted Felhound", 6, GR)],
+      [kill("Satyr Cultist", 8, GR), kill("Dread Imp", 6, GR), kill("Corrupted Felhound", 5, GR)],
       "This is a dungeon, not a stroll. Bring a full party and bring your potions. Then bring me proof the hall is clearer.",
       "Good. The gate is no longer a wall of bodies. Now find out what they are guarding.",
       items=[item("Grimtotem's Wardstone", "neck", 28, "A pebble of warded basalt. It hums when demons are close.",
@@ -217,7 +217,7 @@ BF = "blackfathom_deeps"
 quest("bfd_garrison", "The Drowned Garrison", "zoram_sentinel", "zoram_strand", 24, 26,
       "Lookout Taelanor has watched the naga come and go from a flooded temple under the cliffs for weeks. It's a garrison, not a raid. "
       "She wants its warriors thinned before it empties onto the Strand.",
-      [kill("Naga Warrior", 8, BF)],
+      [kill("Naga Warrior", 6, BF)],
       "I've counted them going in. I haven't counted them coming out. That's the part that frightens me. Go down in company and thin them.",
       "Eight. They'll replace them, but not tonight. I wrote the number down. I'm glad it isn't higher.",
       nxt="bfd_ghamoo_ra")

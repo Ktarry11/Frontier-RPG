@@ -12,13 +12,13 @@
         {
           "type": "kill",
           "target": "Lair Hatchling",
-          "count": 8,
+          "count": 6,
           "zone": "widows_lair"
         },
         {
           "type": "kill",
           "target": "Silkbound Weaver",
-          "count": 5,
+          "count": 4,
           "zone": "widows_lair"
         }
       ],
@@ -39,11 +39,11 @@
           "required_level": 17,
           "flavor_text": "Spun by something with a great many opinions.",
           "primary_stats": {
-            "agility": 2,
+            "agility": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 3.3
+            "attack_power": 2.2
           },
           "armor_type": "leather",
           "armor_value": 15,
@@ -114,54 +114,54 @@
           "name": "Silk-Spun Boots",
           "slot": "feet",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Spun by something with a great many opinions.",
           "primary_stats": {
             "agility": 2,
-            "intellect": 1
+            "intellect": 2
           },
           "secondary_stats": {
-            "attack_power": 2.3
+            "attack_power": 3.1
           },
           "armor_type": "leather",
-          "armor_value": 16,
+          "armor_value": 21,
           "label": "Leather Boots (Agi/Int/AP)"
         },
         {
           "name": "Velaxis' Waistguard",
           "slot": "waist",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 0.7,
-            "block_rating": 1.0,
-            "dodge_rating": 0.7
+            "parry_rating": 0.2,
+            "block_rating": 0.3,
+            "dodge_rating": 0.2
           },
           "armor_type": "plate",
-          "armor_value": 39,
+          "armor_value": 52,
           "label": "Plate Belt (Parry/Block/Dodge)"
         },
         {
           "name": "Comb-Hardened Longsword",
           "slot": "main_hand",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Spun by something with a great many opinions.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 3
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.1
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 27,
-          "weapon_damage_max": 37,
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
           "attack_speed": 2.4,
           "label": "Sword (Str/Sta/Crit)"
         },
@@ -169,18 +169,18 @@
           "name": "Larder-Cured Breeches",
           "slot": "legs",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Spun by something with a great many opinions.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 4
+            "intellect": 4,
+            "stamina": 5
           },
           "secondary_stats": {
-            "mp5": 0.6
+            "mp5": 0.8
           },
           "armor_type": "cloth",
-          "armor_value": 16,
+          "armor_value": 21,
           "label": "Cloth Legs (Int/Sta/MP5)"
         }
       ],
@@ -216,51 +216,51 @@
           "name": "Larder-Cured Leggings",
           "slot": "legs",
           "item_level": 18,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 18,
           "flavor_text": "Sticky at the seams.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 5
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 56,
+          "armor_value": 73,
           "label": "Mail Legs (Str/Sta/Crit)"
         },
         {
           "name": "Velaxis' Chaps",
           "slot": "legs",
           "item_level": 18,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 18,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 5.0,
-            "parry_rating": 4.3
+            "dodge_rating": 0.7,
+            "parry_rating": 0.6
           },
           "armor_type": "leather",
-          "armor_value": 35,
+          "armor_value": 45,
           "label": "Leather Legs (Dodge/Parry)"
         },
         {
           "name": "Comb-Hardened Spear",
           "slot": "main_hand",
           "item_level": 18,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 18,
           "flavor_text": "Sticky at the seams.",
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 21.3,
-            "parry_rating": 16.0
+            "dodge_rating": 2.0,
+            "parry_rating": 1.5
           },
-          "weapon_damage_min": 39,
-          "weapon_damage_max": 52,
+          "weapon_damage_min": 51,
+          "weapon_damage_max": 69,
           "attack_speed": 3.3,
           "label": "Polearm (Dodge/Parry)"
         },
@@ -268,18 +268,18 @@
           "name": "Velaxis' Treads",
           "slot": "feet",
           "item_level": 18,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 18,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.3,
-            "dodge_rating": 0.3
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
           },
           "armor_type": "plate",
-          "armor_value": 42,
+          "armor_value": 55,
           "label": "Plate Boots (Sta/Def/Dodge)"
         }
       ],
@@ -318,11 +318,11 @@
           "required_level": 18,
           "flavor_text": "Sticky at the seams.",
           "primary_stats": {
-            "agility": 2,
+            "agility": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 3.6
+            "attack_power": 2.4
           },
           "armor_type": "leather",
           "armor_value": 16,
@@ -336,11 +336,11 @@
           "required_level": 18,
           "flavor_text": "Spun by something with a great many opinions.",
           "primary_stats": {
-            "stamina": 5
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.3,
-            "dodge_rating": 0.3
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
           },
           "armor_type": "mail",
           "armor_value": 39,
@@ -354,11 +354,11 @@
           "required_level": 18,
           "flavor_text": "Spun by something with a great many opinions.",
           "primary_stats": {
-            "strength": 2,
+            "strength": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.1
           },
           "label": "Ring (Str/Sta/Crit)"
         }
@@ -406,11 +406,11 @@
           "required_level": 18,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {
-            "agility": 3,
+            "agility": 2,
             "intellect": 2
           },
           "secondary_stats": {
-            "attack_power": 4.5
+            "attack_power": 3.6
           },
           "armor_type": "leather",
           "armor_value": 24,
@@ -488,11 +488,11 @@
           "required_level": 17,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {
-            "agility": 3,
+            "agility": 2,
             "intellect": 2
           },
           "secondary_stats": {
-            "attack_power": 4.8
+            "attack_power": 3.8
           },
           "armor_type": "leather",
           "armor_value": 26,
@@ -506,11 +506,11 @@
           "required_level": 17,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {
-            "stamina": 3,
+            "stamina": 2,
             "intellect": 2
           },
           "secondary_stats": {
-            "healing_power": 1.9
+            "healing_power": 1.5
           },
           "armor_type": "cloth",
           "armor_value": 13,
@@ -525,11 +525,11 @@
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "stamina": 5
+            "stamina": 3
           },
           "secondary_stats": {
-            "armor": 13.2,
-            "parry_rating": 0.3
+            "armor": 7.9,
+            "parry_rating": 0.2
           },
           "weapon_damage_min": 28,
           "weapon_damage_max": 39,
@@ -591,11 +591,11 @@
           "required_level": 19,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {
-            "stamina": 5,
-            "spirit": 5
+            "stamina": 4,
+            "spirit": 4
           },
           "secondary_stats": {
-            "healing_power": 3.5
+            "healing_power": 2.8
           },
           "armor_type": "mail",
           "armor_value": 77,
@@ -609,11 +609,11 @@
           "required_level": 19,
           "flavor_text": "Cut from a husk and sewn with its own silk.",
           "primary_stats": {
-            "intellect": 3,
+            "intellect": 2,
             "stamina": 2
           },
           "secondary_stats": {
-            "mp5": 0.5
+            "mp5": 0.4
           },
           "label": "Necklace (Int/Sta/MP5)"
         },
@@ -625,11 +625,11 @@
           "required_level": 19,
           "flavor_text": "Spun by something with a great many opinions.",
           "primary_stats": {
-            "agility": 7
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.7,
-            "crit_chance_physical": 0.7
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
           },
           "armor_type": "leather",
           "armor_value": 36,
@@ -698,11 +698,11 @@
           "required_level": 21,
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {
-            "stamina": 3,
-            "spirit": 3
+            "stamina": 2,
+            "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 2.5
+            "healing_power": 1.7
           },
           "armor_type": "mail",
           "armor_value": 46,
@@ -716,11 +716,11 @@
           "required_level": 21,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "spell_power": 5.2
+            "hit_rating": 0.1,
+            "spell_power": 1.3
           },
           "label": "Ring (Int/Hit/SP)"
         }
@@ -739,19 +739,19 @@
         {
           "type": "kill",
           "target": "Kirin Tor Mage",
-          "count": 6,
+          "count": 5,
           "zone": "ambermill_tower"
         },
         {
           "type": "kill",
           "target": "Forsaken Mage",
-          "count": 6,
+          "count": 5,
           "zone": "ambermill_tower"
         },
         {
           "type": "kill",
           "target": "Arcane-Bound Imp",
-          "count": 4,
+          "count": 3,
           "zone": "ambermill_tower"
         }
       ],
@@ -790,11 +790,11 @@
           "required_level": 21,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 8.7,
-            "mp5": 1.8
+            "spell_power": 2.9,
+            "mp5": 0.6
           },
           "armor_type": "cloth",
           "armor_value": 15,
@@ -855,11 +855,11 @@
           "required_level": 22,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "stamina": 8
+            "stamina": 5
           },
           "secondary_stats": {
-            "defense_rating": 0.6,
-            "dodge_rating": 0.6
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
           },
           "armor_type": "plate",
           "armor_value": 98,
@@ -873,11 +873,11 @@
           "required_level": 22,
           "flavor_text": "Violet at the seam, ink at the cuff.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 8.7,
-            "crit_chance_spell": 0.3
+            "spell_power": 2.9,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 15,
@@ -891,11 +891,11 @@
           "required_level": 22,
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2
+            "intellect": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 2.6
+            "healing_power": 1.3
           },
           "label": "Ring (Int/Spi/HP)"
         }
@@ -931,42 +931,42 @@
           "name": "Hawren's Chaps",
           "slot": "legs",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "agility": 8
+            "agility": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "crit_chance_physical": 0.6
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
           },
           "armor_type": "leather",
-          "armor_value": 42,
+          "armor_value": 56,
           "label": "Leather Legs (Agi/Hit/Crit)"
         },
         {
           "name": "Hawren's Cuisses",
           "slot": "legs",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Violet at the seam, ink at the cuff.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 4.2,
-            "block_rating": 7.7,
-            "dodge_rating": 5.1
+            "parry_rating": 0.5,
+            "block_rating": 0.9,
+            "dodge_rating": 0.6
           },
           "armor_type": "plate",
-          "armor_value": 102,
+          "armor_value": 134,
           "label": "Plate Legs (Parry/Block/Dodge)"
         },
         {
           "name": "Atiesh's Shortbow",
           "slot": "main_hand",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "weapon_type": "bow",
@@ -977,8 +977,8 @@
           "secondary_stats": {
             "attack_power": 3.0
           },
-          "weapon_damage_min": 28,
-          "weapon_damage_max": 38,
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
           "attack_speed": 2.8,
           "label": "Bow (Agi/Int/AP)"
         },
@@ -986,18 +986,18 @@
           "name": "Waygate-Scribed Armguards",
           "slot": "wrist",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.3,
-            "dodge_rating": 0.3
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 34,
+          "armor_value": 44,
           "label": "Mail Bracers (Sta/Def/Dodge)"
         }
       ],
@@ -1016,7 +1016,7 @@
         {
           "type": "kill",
           "target": "Animated Spellblade",
-          "count": 7,
+          "count": 5,
           "zone": "ambermill_tower"
         }
       ],
@@ -1037,11 +1037,11 @@
           "required_level": 22,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 3
           },
           "secondary_stats": {
-            "dodge_rating": 0.6,
-            "parry_rating": 0.4
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
           },
           "armor_type": "mail",
           "armor_value": 49,
@@ -1056,9 +1056,9 @@
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 1.8,
-            "block_rating": 3.0,
-            "dodge_rating": 1.8
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 73,
@@ -1073,11 +1073,11 @@
           "flavor_text": "Violet at the seam, ink at the cuff.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 5
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "crit_chance_physical": 0.3
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "weapon_damage_min": 32,
           "weapon_damage_max": 44,
@@ -1119,11 +1119,11 @@
           "required_level": 22,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "intellect": 8
+            "intellect": 3
           },
           "secondary_stats": {
-            "spell_power": 10.4,
-            "crit_chance_spell": 0.5
+            "spell_power": 3.9,
+            "crit_chance_spell": 0.2
           },
           "armor_type": "cloth",
           "armor_value": 20,
@@ -1138,7 +1138,7 @@
           "flavor_text": "Violet at the seam, ink at the cuff.",
           "primary_stats": {
             "strength": 3,
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
@@ -1156,7 +1156,7 @@
           "flavor_text": "Footnoted in three languages.",
           "weapon_type": "bow",
           "primary_stats": {
-            "strength": 2,
+            "strength": 1,
             "agility": 1,
             "stamina": 1
           },
@@ -1200,7 +1200,7 @@
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {
             "strength": 4,
-            "stamina": 4
+            "stamina": 5
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
@@ -1218,8 +1218,8 @@
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 5.9,
-            "parry_rating": 4.2
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
           },
           "armor_type": "leather",
           "armor_value": 42,
@@ -1235,7 +1235,7 @@
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -1277,55 +1277,55 @@
           "name": "Atiesh's Cuirass",
           "slot": "chest",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {
-            "stamina": 9
+            "stamina": 6
           },
           "secondary_stats": {
-            "defense_rating": 0.8,
-            "dodge_rating": 0.8
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
           },
           "armor_type": "plate",
-          "armor_value": 107,
+          "armor_value": 140,
           "label": "Plate Chest (Sta/Def/Dodge)"
         },
         {
           "name": "Waygate-Scribed Treads",
           "slot": "feet",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Violet at the seam, ink at the cuff.",
           "primary_stats": {
-            "agility": 4
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "crit_chance_physical": 0.3
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "armor_type": "leather",
-          "armor_value": 22,
+          "armor_value": 29,
           "label": "Leather Boots (Agi/Hit/Crit)"
         },
         {
           "name": "Archivist's Hatchet",
           "slot": "main_hand",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Violet at the seam, ink at the cuff.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 7
+            "stamina": 5
           },
           "secondary_stats": {
-            "armor": 18.5,
-            "parry_rating": 0.4
+            "armor": 13.2,
+            "parry_rating": 0.3
           },
-          "weapon_damage_min": 35,
-          "weapon_damage_max": 47,
+          "weapon_damage_min": 45,
+          "weapon_damage_max": 61,
           "attack_speed": 2.6,
           "label": "Axe (Sta/Armor/Parry)"
         },
@@ -1333,18 +1333,18 @@
           "name": "Orrery-Lit Bracers",
           "slot": "wrist",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 2
+            "stamina": 3
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
           },
           "armor_type": "mail",
-          "armor_value": 35,
+          "armor_value": 46,
           "label": "Mail Bracers (Str/Sta/Crit)"
         }
       ],
@@ -1381,7 +1381,7 @@
           "name": "Waygate-Scribed Belt",
           "slot": "waist",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {
@@ -1392,44 +1392,44 @@
             "healing_power": 1.7
           },
           "armor_type": "mail",
-          "armor_value": 35,
+          "armor_value": 46,
           "label": "Mail Belt (Sta/Spi/HP)"
         },
         {
           "name": "Ambermill Breeches",
           "slot": "legs",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "intellect": 9
+            "intellect": 4
           },
           "secondary_stats": {
-            "spell_power": 12.6,
-            "crit_chance_spell": 0.7
+            "spell_power": 5.6,
+            "crit_chance_spell": 0.3
           },
           "armor_type": "cloth",
-          "armor_value": 22,
+          "armor_value": 29,
           "label": "Cloth Legs (Int/SP/Crit)"
         },
         {
           "name": "Ambermill Hatchet",
           "slot": "main_hand",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Footnoted in three languages.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 5
           },
           "secondary_stats": {
-            "defense_rating": 0.2
+            "defense_rating": 0.3
           },
-          "weapon_damage_min": 35,
-          "weapon_damage_max": 47,
+          "weapon_damage_min": 45,
+          "weapon_damage_max": 61,
           "attack_speed": 2.6,
           "label": "Axe (Str/Sta/Def)"
         },
@@ -1437,18 +1437,18 @@
           "name": "Archivist's Greathelm",
           "slot": "head",
           "item_level": 23,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 23,
           "flavor_text": "Dalaran-stitched and slightly haunted.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 5
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
           },
           "armor_type": "plate",
-          "armor_value": 80,
+          "armor_value": 105,
           "label": "Plate Helm (Str/Sta/Crit)"
         }
       ],
@@ -1516,9 +1516,9 @@
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 0.9,
-            "block_rating": 1.3,
-            "dodge_rating": 0.9
+            "parry_rating": 0.2,
+            "block_rating": 0.3,
+            "dodge_rating": 0.2
           },
           "armor_type": "plate",
           "armor_value": 51,
@@ -1532,11 +1532,11 @@
           "required_level": 23,
           "flavor_text": "Footnoted in three languages.",
           "primary_stats": {
-            "stamina": 2,
-            "spirit": 2
+            "stamina": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 2.0
+            "healing_power": 1.0
           },
           "label": "Necklace (Sta/Spi/HP)"
         }
@@ -1584,11 +1584,11 @@
           "required_level": 19,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 7.2,
-            "mp5": 1.6
+            "spell_power": 1.8,
+            "mp5": 0.4
           },
           "armor_type": "cloth",
           "armor_value": 9,
@@ -1618,11 +1618,11 @@
           "required_level": 19,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "stamina": 2,
-            "spirit": 2
+            "stamina": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 1.8
+            "healing_power": 0.9
           },
           "label": "Necklace (Sta/Spi/HP)"
         }
@@ -1641,13 +1641,13 @@
         {
           "type": "kill",
           "target": "Keep Worg",
-          "count": 8,
+          "count": 6,
           "zone": "shadowfang_keep"
         },
         {
           "type": "kill",
           "target": "Slavering Worg",
-          "count": 6,
+          "count": 5,
           "zone": "shadowfang_keep"
         }
       ],
@@ -1686,11 +1686,11 @@
           "required_level": 20,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 7.6,
-            "crit_chance_spell": 0.4
+            "spell_power": 1.9,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 9,
@@ -1747,11 +1747,11 @@
           "required_level": 21,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
-            "agility": 5
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.5,
-            "crit_chance_physical": 0.5
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "armor_type": "leather",
           "armor_value": 21,
@@ -1766,7 +1766,7 @@
           "flavor_text": "Worn in the keep, and not removed since.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
@@ -1784,11 +1784,11 @@
           "flavor_text": "Smells of wet fur and old candles.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 6
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "defense_rating": 0.4
+            "defense_rating": 0.3
           },
           "weapon_damage_min": 42,
           "weapon_damage_max": 57,
@@ -1803,11 +1803,11 @@
           "required_level": 21,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "spell_power": 6.9
+            "hit_rating": 0.2,
+            "spell_power": 2.3
           },
           "armor_type": "mail",
           "armor_value": 42,
@@ -1846,51 +1846,51 @@
           "name": "Shadowfang Sabatons",
           "slot": "feet",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 2
+            "stamina": 3
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
           },
           "armor_type": "plate",
-          "armor_value": 51,
+          "armor_value": 67,
           "label": "Plate Boots (Str/Sta/Crit)"
         },
         {
           "name": "Keep-Hall Hauberk",
           "slot": "chest",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
-            "intellect": 8
+            "intellect": 4
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "spell_power": 9.6
+            "hit_rating": 0.3,
+            "spell_power": 4.8
           },
           "armor_type": "mail",
-          "armor_value": 68,
+          "armor_value": 89,
           "label": "Mail Chest (Int/Hit/SP)"
         },
         {
           "name": "Shadowfang Pendant",
           "slot": "neck",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "spell_power": 3.8
+            "hit_rating": 0.1,
+            "spell_power": 1.9
           },
           "label": "Necklace (Int/Hit/SP)"
         },
@@ -1898,7 +1898,7 @@
           "name": "Keep-Hall Gauntlets",
           "slot": "hands",
           "item_level": 22,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 22,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
@@ -1909,7 +1909,7 @@
             "attack_power": 4.0
           },
           "armor_type": "leather",
-          "armor_value": 21,
+          "armor_value": 28,
           "label": "Leather Gloves (Agi/Int/AP)"
         }
       ],
@@ -1928,13 +1928,13 @@
         {
           "type": "kill",
           "target": "Wailing Guardsman",
-          "count": 8,
+          "count": 6,
           "zone": "shadowfang_keep"
         },
         {
           "type": "kill",
           "target": "Tormented Officer",
-          "count": 5,
+          "count": 4,
           "zone": "shadowfang_keep"
         }
       ],
@@ -1955,11 +1955,11 @@
           "required_level": 22,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 4
           },
           "secondary_stats": {
-            "block_rating": 0.6,
-            "block_value": 5.6
+            "block_rating": 0.4,
+            "block_value": 3.7
           },
           "armor_type": "plate",
           "armor_value": 73,
@@ -1973,11 +1973,11 @@
           "required_level": 22,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
-            "stamina": 4,
-            "spirit": 4
+            "stamina": 3,
+            "spirit": 3
           },
           "secondary_stats": {
-            "healing_power": 3.2
+            "healing_power": 2.4
           },
           "armor_type": "mail",
           "armor_value": 65,
@@ -1993,10 +1993,10 @@
           "weapon_type": "wand",
           "primary_stats": {
             "intellect": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "mp5": 0.4
+            "mp5": 0.3
           },
           "weapon_damage_min": 27,
           "weapon_damage_max": 37,
@@ -2058,7 +2058,7 @@
           "primary_stats": {
             "strength": 3,
             "agility": 3,
-            "stamina": 2
+            "stamina": 3
           },
           "armor_type": "leather",
           "armor_value": 40,
@@ -2072,11 +2072,11 @@
           "required_level": 22,
           "flavor_text": "Worn in the keep, and not removed since.",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2
+            "intellect": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 2.6
+            "healing_power": 1.3
           },
           "label": "Necklace (Int/Spi/HP)"
         }
@@ -2116,11 +2116,11 @@
           "required_level": 23,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "intellect": 4,
-            "spirit": 3
+            "intellect": 2,
+            "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 4.0
+            "healing_power": 2.3
           },
           "armor_type": "cloth",
           "armor_value": 14,
@@ -2134,11 +2134,11 @@
           "required_level": 23,
           "flavor_text": "Worn in the keep, and not removed since.",
           "primary_stats": {
-            "stamina": 7
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.7,
-            "dodge_rating": 0.7
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 70,
@@ -2152,11 +2152,11 @@
           "required_level": 23,
           "flavor_text": "Worn in the keep, and not removed since.",
           "primary_stats": {
-            "intellect": 3,
-            "spirit": 3
+            "intellect": 2,
+            "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 2.7
+            "healing_power": 1.8
           },
           "label": "Ring (Int/Spi/HP)"
         },
@@ -2168,11 +2168,11 @@
           "required_level": 23,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 3
+            "agility": 2,
+            "intellect": 2
           },
           "secondary_stats": {
-            "attack_power": 7.4
+            "attack_power": 4.2
           },
           "armor_type": "leather",
           "armor_value": 29,
@@ -2194,13 +2194,13 @@
         {
           "type": "kill",
           "target": "Shadowfang Moonwalker",
-          "count": 6,
+          "count": 5,
           "zone": "shadowfang_keep"
         },
         {
           "type": "kill",
           "target": "Shadowfang Darksoul",
-          "count": 6,
+          "count": 5,
           "zone": "shadowfang_keep"
         }
       ],
@@ -2221,11 +2221,11 @@
           "required_level": 22,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 6.4,
-            "hit_rating": 0.4
+            "spell_power": 1.6,
+            "hit_rating": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -2259,8 +2259,8 @@
           "weapon_type": "dagger",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 2.2,
-            "parry_rating": 1.6
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
@@ -2329,11 +2329,11 @@
           "required_level": 23,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 4
           },
           "secondary_stats": {
-            "defense_rating": 0.4,
-            "dodge_rating": 0.4
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
           },
           "armor_type": "mail",
           "armor_value": 51,
@@ -2348,10 +2348,10 @@
           "flavor_text": "Worn in the keep, and not removed since.",
           "primary_stats": {
             "intellect": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "mp5": 0.4
+            "mp5": 0.3
           },
           "label": "Ring (Int/Sta/MP5)"
         }
@@ -2387,41 +2387,41 @@
           "name": "Arugal's Helm",
           "slot": "head",
           "item_level": 24,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 24,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "stamina": 7
+            "stamina": 6
           },
           "secondary_stats": {
-            "block_rating": 0.7,
-            "block_value": 6.4
+            "block_rating": 0.6,
+            "block_value": 5.5
           },
           "armor_type": "plate",
-          "armor_value": 84,
+          "armor_value": 110,
           "label": "Plate Helm (Sta/Block/BV)"
         },
         {
           "name": "Silverlaine's Boots",
           "slot": "feet",
           "item_level": 24,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 24,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 2.4,
-            "parry_rating": 1.9
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
           },
           "armor_type": "leather",
-          "armor_value": 23,
+          "armor_value": 30,
           "label": "Leather Boots (Dodge/Parry)"
         },
         {
           "name": "Silverlaine's Scepter",
           "slot": "main_hand",
           "item_level": 24,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 24,
           "flavor_text": "Smells of wet fur and old candles.",
           "weapon_type": "wand",
@@ -2432,8 +2432,8 @@
           "secondary_stats": {
             "mp5": 0.4
           },
-          "weapon_damage_min": 30,
-          "weapon_damage_max": 41,
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
           "attack_speed": 1.9,
           "label": "Wand (Int/Sta/MP5)"
         },
@@ -2441,16 +2441,16 @@
           "name": "Shadowfang Skirt",
           "slot": "legs",
           "item_level": 24,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 24,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 77.9,
-            "mp5": 17.1
+            "healing_power": 8.2,
+            "mp5": 1.8
           },
           "armor_type": "cloth",
-          "armor_value": 23,
+          "armor_value": 30,
           "label": "Cloth Legs (HP/MP5)"
         }
       ],
@@ -2469,19 +2469,19 @@
         {
           "type": "kill",
           "target": "Son of Arugal",
-          "count": 6,
+          "count": 5,
           "zone": "shadowfang_keep"
         },
         {
           "type": "kill",
           "target": "Lupine Horror",
-          "count": 3,
+          "count": 2,
           "zone": "shadowfang_keep"
         },
         {
           "type": "kill",
           "target": "Deathsworn Captain",
-          "count": 4,
+          "count": 3,
           "zone": "shadowfang_keep"
         }
       ],
@@ -2502,11 +2502,11 @@
           "required_level": 24,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "spell_power": 3.8
+            "hit_rating": 0.1,
+            "spell_power": 1.9
           },
           "armor_type": "mail",
           "armor_value": 35,
@@ -2586,11 +2586,11 @@
           "required_level": 25,
           "flavor_text": "Torn at the sleeve by something large.",
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 4
+            "intellect": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 2.4
+            "spell_power": 1.8
           },
           "armor_type": "cloth",
           "armor_value": 15,
@@ -2604,11 +2604,11 @@
           "required_level": 25,
           "flavor_text": "Smells of wet fur and old candles.",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 4
+            "strength": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.3
+            "crit_chance_physical": 0.2
           },
           "armor_type": "mail",
           "armor_value": 51,
@@ -2623,11 +2623,11 @@
           "flavor_text": "Worn in the keep, and not removed since.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 11
+            "stamina": 6
           },
           "secondary_stats": {
-            "armor": 26.2,
-            "parry_rating": 0.5
+            "armor": 14.3,
+            "parry_rating": 0.3
           },
           "weapon_damage_min": 48,
           "weapon_damage_max": 66,
@@ -2642,11 +2642,11 @@
           "required_level": 25,
           "flavor_text": "Worn in the keep, and not removed since.",
           "primary_stats": {
-            "agility": 8
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.5,
-            "crit_chance_physical": 0.5
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "armor_type": "leather",
           "armor_value": 31,

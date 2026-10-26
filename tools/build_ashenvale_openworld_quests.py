@@ -218,7 +218,7 @@ def explore(zone):
 # ---------------------------------------------------------------- WEST: Maestra's Post
 Q("ashenvale_lake_naiads", "Troubled Water", "maestras_post_sentinel", "ashenvale_west", 23, 25,
   "The lake naiads of Elune'ara have turned on the Sentinels' fishing parties. Maestra wants seven of them calmed, by the only means they respect.",
-  [kill("Lake Naiad", 7, WEST)],
+  [kill("Lake Naiad", 5, WEST)],
   "They've always sung to us from the water. Lately they sing and drag. I won't say the lake is a danger, Elune help me, "
   "but I'll say seven of its daughters are. Settle them.",
   "Seven, and the water calmed. I never thought I'd be grateful to see a naiad go quiet. Remind me to pour one out for them.")
@@ -230,7 +230,7 @@ Q("ashenvale_night_run_watch", "Eyes on the Night Run", "maestras_post_sentinel"
   "Wraith-light on the old tree line, you say? Then it's worse than the cats. I'll send for Eltharaen. And I'll find you more work.")
 Q("ashenvale_wraith_toll", "The Wraith's Toll", "maestras_post_sentinel", "ashenvale_west", 24, 26,
   "The Night Run's wraiths take a toll from every passing wagon. Maestra wants eight of them ended, and the road reopened.",
-  [kill("Ashenvale Wraith", 8, WEST)],
+  [kill("Ashenvale Wraith", 6, WEST)],
   "The dead of the Run don't want revenge. They want company. Eight of them in the ground and the rest might remember they were people.",
   "The road is open, and we owe it to a stranger. The Sentinels will remember that, even if we say it badly.",
   items=[item("Maestra's Wardstitch Belt", "waist", 25, "She stitched the ward-sigils herself, and she did not do it gently.",
@@ -238,13 +238,13 @@ Q("ashenvale_wraith_toll", "The Wraith's Toll", "maestras_post_sentinel", "ashen
 # ---------------------------------------------------------------- WEST: Astranaar
 Q("ashenvale_commander_spiders", "Webs on the Trade Road", "astranaar_sentinel_commander", "astranaar", 22, 24,
   "Sentinel Eltharaen is losing supply wagons to forest spiders along the trade road. He distrusts asking the Horde for help, but he is not a fool.",
-  [kill("Forest Spider", 9, WEST)],
+  [kill("Forest Spider", 7, WEST)],
   "I do not enjoy asking this of you. My people are stretched, and you are here, and the spiders do not care whose wagons they take. "
   "Nine, from the road. I will remember that it was asked and answered.",
   "Nine. The road is clear. I will say this plainly: I did not expect to thank a Horde blade today. I find that I do.")
 Q("ashenvale_dryads_gone_quiet", "A Quiet Grove", "astranaar_grove_warden", "astranaar", 24, 26,
   "The dryad sentinels of the Moonwhisper Grove have stopped answering Pennarin's calls. Whatever has them is not letting them go. She asks that six be released.",
-  [kill("Dryad Sentinel", 6, WEST)],
+  [kill("Dryad Sentinel", 5, WEST)],
   "The dryads answer when I sing. They have not answered in a week. I think the grove's corruption is in them now, and it will not leave "
   "unless it is made to. I am sorry to ask for six of them.",
   "The grove is a little less loud. I hope they're at peace. I hope the grove forgives me. Rustveil is next, I'm afraid.")
@@ -257,19 +257,19 @@ Q("ashenvale_lake_survey", "Marks on the Water", "astranaar_moon_guard", "astran
 # ---------------------------------------------------------------- WEST: Zoram Strand
 Q("zoram_murloc_nets", "Nets Full of Teeth", "zoram_fisher", "zoram_strand", 24, 26,
   "Old Maelis' nets come up shredded, and the culprits are the murloc spearfishers working the coast. He wants ten of them dealt with.",
-  [kill("Murloc Spearfisher", 10, WEST)],
+  [kill("Murloc Spearfisher", 8, WEST)],
   "Forty years I've fished this strand and the murlocs never touched a line. Now they cut my nets with bone knives. "
   "Ten of them, and I'll tell you the story of the big silverfin. It's a very good story.",
   "Ten! My boy, my nets will live. Now sit, sit, about the silverfin. It was longer than a dock and it winked.")
 Q("zoram_crab_traps", "Cracked Traps", "zoram_fisher", "zoram_strand", 25, 27,
   "The big shore crabs have been crushing Maelis' traps against the rocks. He wants eight of them gone before he has to give up crab for good.",
-  [kill("Tide-Wrecker Crab", 8, WEST)],
+  [kill("Tide-Wrecker Crab", 6, WEST)],
   "The crabs got bold when the naga started wandering the shallows. Nothing's afraid of old Maelis anymore. "
   "Eight of the big ones, and I'll be able to eat dinner like a free man.",
   "Eight. I can already smell the pot. You've done an old man a kindness, and kindness is rare on this coast.")
 Q("zoram_naga_coastguard", "Splinters", "zoram_boatwright", "zoram_strand", 25, 27,
   "Boatwright Illyen has lost three boats this month to naga raiders. She wants eight coastguards driven back before she finishes the fourth.",
-  [kill("Naga Coastguard", 8, WEST)],
+  [kill("Naga Coastguard", 6, WEST)],
   "I build a boat in a week and they sink it in a night. I'm not asking you to be brave, I'm asking you to be efficient. Eight of them.",
   "Eight. Hm. I'll build the fourth boat a little faster. You'll forgive me if I name it after you, I name them all after people who've been useful.")
 Q("zoram_tidecaller_pearls", "Pearls of the Tide", "zoram_boatwright", "zoram_strand", 26, 28,
@@ -288,7 +288,7 @@ Q("zoram_lookout_bluffs", "The Long Watch", "zoram_sentinel", "zoram_strand", 24
 # ---------------------------------------------------------------- EAST: Splintertree Post
 Q("splintertree_timber_quota", "The Quota", "splintertree_commander", "splintertree_post", 20, 22,
   "Overseer Gorada has a lumber quota, a post to feed and grizzlies eating the loggers. He wants eight of the biggest bears dealt with.",
-  [kill("Ashenvale Grizzly", 8, EAST)],
+  [kill("Ashenvale Grizzly", 6, EAST)],
   "Orgrimmar wants timber and I want my loggers alive. The bears have decided otherwise. Eight of them. "
   "I'm told the Warchief is very reasonable about this sort of thing, which is why I'm not asking him.",
   "Eight, and the quota's back on track. You're hired. Not formally. I don't do paperwork, but I'll remember your name.")
@@ -299,7 +299,7 @@ Q("splintertree_blood_orders", "Orders in Blood", "splintertree_scout", "splinte
   "Hm. Written in blood, signed in ash. Whoever's behind this wants to be found, eventually. I'd rather be ready.")
 Q("splintertree_wraiths", "Wraiths in the Timber", "splintertree_barracks_sergeant", "splintertree_post", 22, 24,
   "Sergeant Krull is tired of burying scouts. The wraiths haunting the timber east of the post have to be ended.",
-  [kill("Ashenvale Wraith", 7, EAST)],
+  [kill("Ashenvale Wraith", 5, EAST)],
   "I've buried four recruits this week, and they were four that I trained! There are wraiths in the timber and I want them back in the dirt. "
   "Seven. DON'T TELL ME THEY'RE ALREADY DEAD.",
   "Seven? SEVEN. I can't say good job in front of the recruits so I'll say it here. Good job.")
@@ -310,7 +310,7 @@ Q("splintertree_demon_wastes_watch", "Eyes on the Wastes", "splintertree_watch_s
   "Hm. Smoke without a fire, you say? Some things burn the other way. I'll tell Gorada. He'll curse a lot.")
 Q("splintertree_voidwalkers", "Remnants", "splintertree_watch_sentry", "splintertree_post", 24, 25,
   "Voidwalker remnants drift through the Wastes at night. Mokka wants six of them dispersed before they find the wall.",
-  [kill("Voidwalker Remnant", 6, EAST)],
+  [kill("Voidwalker Remnant", 5, EAST)],
   "They're not alive, and not dead, and not made for the world. Six of them, before they find how thin the wall is.",
   "Six. The wall is quiet. I'll sleep tonight, which is more than I can say for the Wastes.",
   items=[item("Mokka's Watchcord", "neck", 24, "Knotted for every night that nothing came over the wall.",
@@ -318,7 +318,7 @@ Q("splintertree_voidwalkers", "Remnants", "splintertree_watch_sentry", "splinter
 # ---------------------------------------------------------------- EAST: Warsong Lumber Camp (new NPC Foreman Gruzak)
 Q("lumber_felling_season", "Felling Season", "warsong_foreman", "ashenvale_east", 20, 23,
   "Foreman Gruzak's crews can't fell a tree without a timberling guarding it. He wants eight of them cleared from the stand east of the camp.",
-  [kill("Timberling", 8, EAST)],
+  [kill("Timberling", 6, EAST)],
   "A good tree dies in four swings. These walkers take it back with a root in the ear. Clear eight so my boys can work, and don't leave any standing.",
   "Eight. I owe you a few logs' worth of thanks. Take your pick of the leftover axes. They're not good, but they're mine.")
 Q("lumber_elder_stump", "The Elder Stump", "warsong_foreman", "ashenvale_east", 23, 25,
@@ -336,7 +336,7 @@ Q("lumber_silk_slings", "Silk for the Slings", "warsong_foreman", "ashenvale_eas
 # ---------------------------------------------------------------- EAST: Raynewood Retreat (new NPC Warden Aelyndra)
 Q("raynewood_cats", "Cats at the Door", "raynewood_warden", "ashenvale_east", 21, 24,
   "Warden Aelyndra keeps the quiet at Raynewood Retreat, and the nightsabers have stopped respecting it. She wants seven driven off.",
-  [kill("Nightsaber Stalker", 7, EAST)],
+  [kill("Nightsaber Stalker", 5, EAST)],
   "I do not generally welcome strangers, and I certainly do not generally welcome the Horde. But the cats don't distinguish. "
   "Seven of them, and the retreat can go back to being quiet.",
   "Seven. The retreat is quiet. I will say a thing I haven't said to a stranger in years: thank you.")
@@ -347,7 +347,7 @@ Q("raynewood_vigil_lights", "Vigil Lights", "raynewood_warden", "ashenvale_east"
   "Six. That will see us through the new moon. Walk carefully out there. I'd rather not add you to the vigil.")
 Q("raynewood_dryads", "The Dryads Sleep", "raynewood_warden", "ashenvale_east", 22, 24,
   "The dryads of Raynewood have gone to sleep and wake angry. Aelyndra asks that five be put to rest rather than left to suffer.",
-  [kill("Dryad Sentinel", 5, EAST)],
+  [kill("Dryad Sentinel", 4, EAST)],
   "They sleep, and what wakes in them is not them. I'd do it myself if my hands were what they used to be. Five. Quickly, please.",
   "I will light a candle for each. Thank you for doing what I could not. It will be remembered at Raynewood.",
   items=[item("Aelyndra's Vigil Wrap", "wrist", 23, "Woven for a night that never ends, and carried through it.",

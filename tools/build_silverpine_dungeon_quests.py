@@ -56,7 +56,7 @@ def dungeons():
     A(Q("spn_wl_brood", "Cleaning the Comb", COR, SPN, 17, 17, "spn_hive",
         "Corvane has seen the inside of the Widow's Lair's mouth and counted what lives there: hatchlings in the thousands and silk-bound "
         "weavers tending them. He wants the first rooms thinned before anyone tries the deeper ones.",
-        [kill("Lair Hatchling", 8, zone=WL), kill("Silkbound Weaver", 5, zone=WL)],
+        [kill("Lair Hatchling", 6, zone=WL), kill("Silkbound Weaver", 4, zone=WL)],
         "Inside the Lair, around the Web Heart. Hatchlings first. The weavers sit above them and spit.",
         "Fewer legs. That's the best thing I can say about the Lair right now. Take this.", "spn_wl_silka",
         requires_quests=["spn_sd_lair"]))
@@ -115,7 +115,7 @@ def dungeons():
     A(Q("sps_at_mages", "Lectern Guard", ORS, SPS, 21, 22, "sps_tower",
         "The reading hall is staffed by the dead: Kirin Tor and Forsaken mages who kept studying after they stopped breathing, and imps "
         "bound to the lecterns. Orsolo wants the hall cleared so a scribe can walk it.",
-        [kill("Kirin Tor Mage", 6, zone=AT), kill("Forsaken Mage", 6, zone=AT), kill("Arcane-Bound Imp", 4, zone=AT)],
+        [kill("Kirin Tor Mage", 5, zone=AT), kill("Forsaken Mage", 5, zone=AT), kill("Arcane-Bound Imp", 3, zone=AT)],
         "The Reading Hall and the galleries above. Mages cast first. Imps hold the doors.",
         "A scribe can walk it now. Perhaps even a very brave librarian.", None,
         requires_quests=["sps_at_vestibule"]))
@@ -136,7 +136,7 @@ def dungeons():
     A(Q("sps_at_spellblades", "Saws That Cut Back", HSK, SPS, 22, 22, "sps_tower",
         "The mill's saws were enchanted to run themselves. The tower's enchanted blades are the same kind of fool: bright, quick and "
         "indifferent to who they cut. Haskell has lost two apprentices to the lesser ones.",
-        [kill("Animated Spellblade", 7, zone=AT)],
+        [kill("Animated Spellblade", 5, zone=AT)],
         "All through the tower. They're the ones that glint. They don't tire.",
         "Quieter. I've got my last two apprentices counting sawblades and sorting nails. That's all I'll ask of them for a month.", None,
         requires_quests=["sps_at_vestibule"]))
@@ -187,7 +187,7 @@ def dungeons():
     A(Q("sps_sfk_hounds", "Keep Hounds", RYN, SPS, 20, 21, "sps_keep",
         "Packbreaker Rynn knows the worgen on the hills. The ones in the keep are worse: Arugal's own hounds, kennelled and fed on things "
         "that were once people. She wants the kennels thinned before she calls them a pack.",
-        [kill("Keep Worg", 8, zone=SK), kill("Slavering Worg", 6, zone=SK)],
+        [kill("Keep Worg", 6, zone=SK), kill("Slavering Worg", 5, zone=SK)],
         "The Kennels, west of the bailey. They bark at nothing. It isn't nothing.",
         "A thinner pack. Now it's a fight I can pick.", None,
         requires_quests=["sps_sfk_bailey"]))
@@ -208,7 +208,7 @@ def dungeons():
     A(Q("sps_sfk_guards", "The Unrelieved", MAR, SPS, 22, 22, "sps_keep",
         "The keep's old guard never left their posts. Guardsmen wail where they stood; officers keep giving orders to no one. Marl "
         "wants them relieved, one way or another.",
-        [kill("Wailing Guardsman", 8, zone=SK), kill("Tormented Officer", 5, zone=SK)],
+        [kill("Wailing Guardsman", 6, zone=SK), kill("Tormented Officer", 4, zone=SK)],
         "The Great Hall and the passages around it. Officers first, then the men.",
         "Relieved. All of them. It's a kindness, and I'm glad it wasn't me who had to.", None,
         requires_quests=["sps_sfk_bailey"]))
@@ -229,7 +229,7 @@ def dungeons():
     A(Q("sps_sfk_moonwalkers", "Moon-Touched", RYN, SPS, 22, 23, "sps_keep",
         "Arugal's cult is half sorcerers and half worgen who haven't yet decided. Rynn calls them moonwalkers and darksouls, and says "
         "the keep teems with them. She wants twelve of them down.",
-        [kill("Shadowfang Moonwalker", 6, zone=SK), kill("Shadowfang Darksoul", 6, zone=SK)],
+        [kill("Shadowfang Moonwalker", 5, zone=SK), kill("Shadowfang Darksoul", 5, zone=SK)],
         "All through the keep, wherever you hear chanting. Casters first.",
         "Fewer chants. Perhaps the moon will go unremarked tonight.", None,
         requires_quests=["sps_sfk_bailey"]))
@@ -250,7 +250,7 @@ def dungeons():
     A(Q("sps_sfk_sons", "Arugal's Get", RYN, SPS, 24, 24, "sps_keep",
         "The inner keep is stocked with Arugal's best: Sons of Arugal in half-turned shapes, Lupine Horrors that don't fit through "
         "doors, and Deathsworn Captains who command them. Rynn will not call them a pack.",
-        [kill("Son of Arugal", 6, zone=SK), kill("Lupine Horror", 3, zone=SK), kill("Deathsworn Captain", 4, zone=SK)],
+        [kill("Son of Arugal", 5, zone=SK), kill("Lupine Horror", 2, zone=SK), kill("Deathsworn Captain", 3, zone=SK)],
         "The crypt, the armoury and the upper landing. Don't fight them in a corridor.",
         "Not a pack. A cult, with fangs. Fewer of those is a victory.", None,
         requires_quests=["sps_sfk_silverlaine"]))
@@ -279,18 +279,18 @@ def fenris():
     A(Q("fen_shore_crawlers", "Crawlers on the Strand", PIER, FEN, 17, 18, "fen_shore",
         "The shore around the pier is crowded with tidewrack crawlers, picking at what the lake delivers, and rabid wolves that "
         "follow them. Hask wants a path he can walk without a knife.",
-        [kill("Tidewrack Crawler", 8, zone=FEN), kill("Rabid Wolf", 6, zone=FEN)],
+        [kill("Tidewrack Crawler", 6, zone=FEN), kill("Rabid Wolf", 5, zone=FEN)],
         "Anywhere along the shore. Crawlers dig. Wolves snap.",
         "A shore a man can stand on. I'll hang a lantern and see who comes.", None))
     A(Q("fen_cursed_shore", "The Cursed Shore", ELD, FEN, 17, 18, "fen_shore",
         "Elder Gravemoss guards what's left of Bloodmoon Village. The worgen stalkers have been creeping closer every night, and the "
         "cursed villagers have started to look in the windows.",
-        [kill("Feral Worgen Stalker", 8, zone=FEN), kill("Cursed Villager", 6, zone=FEN)],
+        [kill("Feral Worgen Stalker", 6, zone=FEN), kill("Cursed Villager", 5, zone=FEN)],
         "Out in the open ground around the village. Stalkers hunt in threes. Villagers hunt in silence.",
         "I can sleep, now, for a night or two. Thank you. It matters more than you'll know.", None))
     A(Q("fen_isle_banshees", "Banshees of the Strand", ELD, FEN, 18, 19, "fen_shore",
         "The drowned still sing along the strand, and the banshees singing back are the worst of it. Gravemoss wants them quiet.",
-        [kill("Isle Banshee", 8, zone=FEN)],
+        [kill("Isle Banshee", 6, zone=FEN)],
         "The Cursed Shore, along the beaches. They sing at dusk.",
         "Quiet. I'd forgotten the quiet. It's almost worse.", "fen_banshee_locks",
         requires_quests=["fen_cursed_shore"]))
@@ -304,7 +304,7 @@ def fenris():
     A(Q("fen_ancient_curse_beast", "The Ancient Curse-Beast", ELD, FEN, 21, 21, "fen_shore",
         "Something older than the curse walks the Cursed Shore: a bear the size of a barn, wrapped in its own rot. The villagers call "
         "it the Ancient Curse-Beast, and nobody who hunts it has gone twice.",
-        [boss("Ancient Curse-Beast", FEN), kill("Rabid Wolf", 4, zone=FEN)],
+        [boss("Ancient Curse-Beast", FEN), kill("Rabid Wolf", 3, zone=FEN)],
         "It wanders the Shore. Follow the destroyed trees. The wolves won't go near it.",
         "It was already old when the curse came. I'd like to think it's resting.", None,
         requires_quests=["fen_cursed_shore"]))
@@ -312,7 +312,7 @@ def fenris():
     A(Q("fen_drowned_docks", "The Drowned Docks", COR, FEN, 18, 18, "fen_docks",
         "The south-west docks are where the drowned come ashore, and the bilge rats come with them. Huntsman Corwell lost a boat there, "
         "and a nephew, and wants the docks clear.",
-        [kill("Drowned Sailor", 8, zone=FEN), kill("Bilge Rat Swarm", 6, zone=FEN)],
+        [kill("Drowned Sailor", 6, zone=FEN), kill("Bilge Rat Swarm", 5, zone=FEN)],
         "The Drowned Docks, south-west of the village. Sailors on the beach, rats under the boards.",
         "A cleaner dock. I won't pretend my nephew's coming back. But the boat's safe to look at.", None))
     A(Q("fen_harpoons", "Heads of Harpoons", COR, FEN, 19, 20, "fen_docks",
@@ -324,7 +324,7 @@ def fenris():
         requires_quests=["fen_drowned_docks"]))
     A(Q("fen_wretches", "What the Lake Gave Back", COR, FEN, 19, 20, "fen_docks",
         "Waterlogged Wretches drag themselves up the beach at night. They were fishermen, once. Corwell would like to see them off.",
-        [kill("Waterlogged Wretch", 8, zone=FEN)],
+        [kill("Waterlogged Wretch", 6, zone=FEN)],
         "The beach at the Drowned Docks, and the shingle west of the jetty.",
         "I knew four of them. I'm sorry for all of them. Thank you.", None,
         requires_quests=["fen_drowned_docks"]))
@@ -346,7 +346,7 @@ def fenris():
     A(Q("fen_curs_grave", "Cur's Grave", HUNT, FEN, 18, 19, "fen_grave",
         "The east of the isle is a boneyard for hounds: worgs and curs, bred for the Baron's hunt, buried with their masters. Gravehunter "
         "Selke says they've started to dig themselves out.",
-        [kill("Grave Worg", 8, zone=FEN), kill("Bone-Strewn Cur", 6, zone=FEN)],
+        [kill("Grave Worg", 6, zone=FEN), kill("Bone-Strewn Cur", 5, zone=FEN)],
         "The east lobe, past the crossroads. They dig around the old stones.",
         "Fewer dogs underfoot. I'll take it.", None))
     A(Q("fen_collars", "Packmasters' Collars", HUNT, FEN, 19, 20, "fen_grave",
@@ -359,7 +359,7 @@ def fenris():
     A(Q("fen_cur_wardens", "The Keepers of the Kennel", HUNT, FEN, 20, 21, "fen_grave",
         "The Cur-Wardens keep the graves and the dogs in them, and they speak in a language nobody has heard since the curse. Selke wants "
         "six of them quiet.",
-        [kill("Cur-Warden", 6, zone=FEN)],
+        [kill("Cur-Warden", 5, zone=FEN)],
         "Cur's Grave, among the stones. They chant at dusk.",
         "Quiet, at last. I don't need to understand what they said.", None,
         requires_quests=["fen_curs_grave"]))
@@ -379,14 +379,14 @@ def fenris():
         "Nothing stopped you. That's what worries me.", None))
     A(Q("fen_manor_guards", "The Unrelieved Guard", SCOUT, FEN, 20, 21, "fen_manor",
         "Ashbury's guard never left their posts. Footmen walk the forecourt; guardians hold the gate. Merrin wants them relieved.",
-        [kill("Fenris Guardian", 6, zone=FEN), kill("Ashbury's Footman", 6, zone=FEN)],
+        [kill("Fenris Guardian", 5, zone=FEN), kill("Ashbury's Footman", 5, zone=FEN)],
         "The manor forecourt and the walls either side of the gate.",
         "Relieved. The Baron will be lonely.", None,
         requires_quests=["fen_manor_approach"]))
     A(Q("fen_manor_hounds", "Hounds of the Manor", SCOUT, FEN, 20, 21, "fen_manor",
         "The Baron's hounds roam the manor grounds, and the worgen keepers who feed them. Merrin has seen the keepers eat what they "
         "were meant to feed.",
-        [kill("Manor Hound", 6, zone=FEN), kill("Worgen Keeper", 5, zone=FEN)],
+        [kill("Manor Hound", 5, zone=FEN), kill("Worgen Keeper", 4, zone=FEN)],
         "The grounds around the manor, east and west of the forecourt.",
         "The grounds are quiet. The manor is not.", None,
         requires_quests=["fen_manor_approach"]))
@@ -414,7 +414,7 @@ def fenris():
     A(Q("fen_altar_cultists", "The Shadowpine Circle", ALT, FEN, 20, 21, "fen_altar",
         "The Shadowpine Circle never left: cultists and risen bone-warders keep the altar's rites going, long after the cause was lost. "
         "Orlan wants them thinned.",
-        [kill("Shadowpine Cultist", 8, zone=SA), kill("Altar Bonewalker", 6, zone=SA)],
+        [kill("Shadowpine Cultist", 6, zone=SA), kill("Altar Bonewalker", 5, zone=SA)],
         "The Altar's passages and circles. Cultists cast. Bonewalkers shield.",
         "The rites will go on, I suppose. But slower.", None,
         requires_quests=["fen_altar_arch"]))
@@ -435,7 +435,7 @@ def fenris():
     A(Q("fen_altar_moonhowl", "Moonhowl", ALT, FEN, 22, 23, "fen_altar",
         "The Altar's worgen howl at a moon the cavern can't see. Orlan wants eight of them down, five of the wraiths that walk with "
         "them, and five moon-fangs for the cairn.",
-        [kill("Moonhowl Worgen", 8, zone=SA), kill("Altar Wraith", 5, zone=SA), fetch("fen_moon_fang", 5)],
+        [kill("Moonhowl Worgen", 6, zone=SA), kill("Altar Wraith", 4, zone=SA), fetch("fen_moon_fang", 5)],
         "The Altar's circles and the long roads between. Fangs from the worgen.",
         "A cairn of fangs. The curse should keep its distance for a season.", None,
         requires_quests=["fen_altar_cultists"]))

@@ -15,7 +15,7 @@
           "count": 6
         }
       ],
-      "reward_exp": 420,
+      "reward_exp": 500,
       "reward_gold": 1500,
       "accept_text": "Da crabs on da beaches are hoardin' it - big as a kodo's head, shell like a shield. Six pieces, mon. Dey'll fight you for it. Dey'll lose.",
       "turn_in_text": "Dis is good stock! Palisade goes up by week's end. You didn't have to help build somethin' dat's not your home. Dat you did anyway - I notice dat.",
@@ -24,32 +24,32 @@
           "name": "Reef-Binder's Buckler",
           "slot": "off_hand",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Two coral slabs bound in sinew. Heavier than it looks and prouder than it is.",
           "weapon_type": "shield",
           "primary_stats": {
             "stamina": 2
           },
-          "armor_value": 15,
-          "block_value": 19,
+          "armor_value": 20,
+          "block_value": 25,
           "label": "Shield (Sta/Block)"
         },
         {
           "name": "Palisade-Builder's Mallet",
           "slot": "main_hand",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "A mallet for driving posts. It also drives opinions.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 1,
-            "agility": 1,
-            "stamina": 1
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
           },
-          "weapon_damage_min": 17,
-          "weapon_damage_max": 23,
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
           "attack_speed": 2.6,
           "label": "Mace (Str/Agi/Sta)"
         },
@@ -57,15 +57,15 @@
           "name": "Coralstitch Sandals",
           "slot": "feet",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Cloth wrapped on a coral sole. The sea-spirits like them, says Rask'jin, and he is usually right.",
           "primary_stats": {
-            "intellect": 1,
-            "stamina": 1
+            "intellect": 2,
+            "stamina": 2
           },
           "armor_type": "cloth",
-          "armor_value": 4,
+          "armor_value": 6,
           "label": "Cloth Boots (Int/Sta)"
         }
       ],
@@ -90,7 +90,7 @@
           "radius": 9
         }
       ],
-      "reward_exp": 360,
+      "reward_exp": 430,
       "reward_gold": 1100,
       "accept_text": "Cross da east bridge, take da trail past Kang'ari's village and keep goin' north to da camp. Don't engage. Look, remember, come back. We fight smart on dis one, not angry.",
       "turn_in_text": "Dat many? ... Good. Now we know what we're walkin' into. Most people who die out dere die because dey walked in blind. Next job's closer to home, and louder.",
@@ -99,7 +99,7 @@
           "name": "Lookout's Windcloak",
           "slot": "back",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Dyed the grey of an overcast sky. You can stand in it for an hour and no one blinks.",
           "primary_stats": {
@@ -107,14 +107,14 @@
             "stamina": 1
           },
           "armor_type": "cloth",
-          "armor_value": 3,
+          "armor_value": 5,
           "label": "Cloak (Agi/Sta)"
         },
         {
           "name": "Watcher's Spyglass-Bow",
           "slot": "ranged",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "A short bow with a brass sight she added herself. It is, apparently, not for sale.",
           "weapon_type": "bow",
@@ -122,8 +122,8 @@
             "agility": 1,
             "stamina": 1
           },
-          "weapon_damage_min": 14,
-          "weapon_damage_max": 20,
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
           "attack_speed": 2.8,
           "label": "Bow (Agi/Sta/Hit)"
         },
@@ -131,18 +131,18 @@
           "name": "Tree-Line Vest",
           "slot": "chest",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Woven leaf-cloth. It hums faintly when the wind turns.",
           "primary_stats": {
-            "intellect": 1,
-            "stamina": 2
+            "intellect": 2,
+            "stamina": 3
           },
           "secondary_stats": {
-            "mp5": 0.3
+            "mp5": 0.5
           },
           "armor_type": "cloth",
-          "armor_value": 9,
+          "armor_value": 12,
           "label": "Cloth Chest (Int/Sta/MP5)"
         }
       ],
@@ -160,15 +160,15 @@
         {
           "type": "kill",
           "target": "Isle Screecher",
-          "count": 8
+          "count": 6
         },
         {
           "type": "kill",
           "target": "Bloodtalon Raptor",
-          "count": 4
+          "count": 3
         }
       ],
-      "reward_exp": 520,
+      "reward_exp": 620,
       "reward_gold": 1800,
       "accept_text": "Dey nest in da canopy all around da Landing, and da raptors trail dem like dogs. Eight birds, four raptors. I want to hear da wind again.",
       "turn_in_text": "Quiet. Actually quiet. I forgot what dat sounded like. Take one of dese - I made dem for myself.",
@@ -197,8 +197,8 @@
           "flavor_text": "Raptor talons lashed under the head. It tears as it goes in.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 4,
-            "agility": 4
+            "strength": 9,
+            "agility": 9
           },
           "weapon_damage_min": 32,
           "weapon_damage_max": 43,
@@ -213,11 +213,11 @@
           "required_level": 11,
           "flavor_text": "A charred bead on a thong. Warm when something is coming.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 3.0,
-            "crit_chance_spell": 0.3
+            "spell_power": 1.0,
+            "crit_chance_spell": 0.1
           },
           "label": "Necklace (Int/SP/Crit)"
         }
@@ -238,15 +238,15 @@
         {
           "type": "kill",
           "target": "Flatfin Stinger",
-          "count": 8
+          "count": 6
         },
         {
           "type": "kill",
           "target": "Sand Burrower",
-          "count": 6
+          "count": 5
         }
       ],
-      "reward_exp": 500,
+      "reward_exp": 600,
       "reward_gold": 1700,
       "accept_text": "Walk south from da Landing till da sand goes grey and da water goes to your shins. Stingers first - dey hide under da silt. Den da burrowers. Watch your feet, hear?",
       "turn_in_text": "Dat's two good tides of fishing I got back. Not safe yet - da big one's still out dere - but you've earned a pick off my best work.",
@@ -255,7 +255,7 @@
           "name": "Stingray-Barb Dirk",
           "slot": "main_hand",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "A stingray's barb on a bone grip. It is nasty and it knows it.",
           "weapon_type": "dagger",
@@ -266,8 +266,8 @@
           "secondary_stats": {
             "attack_power": 2.3
           },
-          "weapon_damage_min": 17,
-          "weapon_damage_max": 23,
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
           "attack_speed": 1.7,
           "label": "Dagger (Agi/Sta/AP)"
         },
@@ -275,30 +275,30 @@
           "name": "Tarna's Tideproof Waders",
           "slot": "legs",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Oiled hide that has never once been dry on the inside. Strangely, that is the point.",
           "primary_stats": {
-            "stamina": 2,
-            "spirit": 1
+            "stamina": 3,
+            "spirit": 3
           },
           "armor_type": "leather",
-          "armor_value": 19,
+          "armor_value": 25,
           "label": "Leather Legs (Sta/Spi)"
         },
         {
           "name": "Net-Weaver's Wrist-Cords",
           "slot": "wrist",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Knotted by a woman who has had a lot of time to practise.",
           "primary_stats": {
-            "intellect": 1,
-            "spirit": 1
+            "intellect": 2,
+            "spirit": 2
           },
           "armor_type": "cloth",
-          "armor_value": 4,
+          "armor_value": 6,
           "label": "Cloth Bracers (Int/Spi)"
         }
       ],
@@ -316,7 +316,7 @@
         {
           "type": "kill",
           "target": "Sand Burrower",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -324,7 +324,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 720,
+      "reward_exp": 860,
       "reward_gold": 2500,
       "accept_text": "He comes up when da trailing crabs go quiet. Kill his courtiers and he'll come lookin'. Don't try to out-wait him - he's patient. Hit him from da side, mon, not da front.",
       "turn_in_text": "Ha! Forty years of crab, and he went down like a bad knot. My anchor?! Oh, you found it. Take whatever you like off his shell, I got what I wanted.",
@@ -337,11 +337,11 @@
           "required_level": 11,
           "flavor_text": "The carapace is half an inch thick and still not yielding.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.4,
-            "dodge_rating": 0.4
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
           },
           "armor_type": "plate",
           "armor_value": 68,
@@ -356,11 +356,11 @@
           "flavor_text": "A long barbed harpoon that throws like a spear and reels in like a promise.",
           "weapon_type": "thrown",
           "primary_stats": {
-            "agility": 2,
+            "agility": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 3.2
+            "attack_power": 2.1
           },
           "weapon_damage_min": 28,
           "weapon_damage_max": 38,
@@ -376,8 +376,8 @@
           "flavor_text": "Shell beads strung by the sea. Tarna says every one of them is a drowned name.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 103.9,
-            "mp5": 20.2
+            "healing_power": 2.1,
+            "mp5": 0.4
           },
           "label": "Necklace (Healing/MP5)"
         }
@@ -401,7 +401,7 @@
           "count": 6
         }
       ],
-      "reward_exp": 560,
+      "reward_exp": 670,
       "reward_gold": 1900,
       "accept_text": "Take da east bridge, go through da troll village, past da north camp, and wade north-east till da water goes to your knees. Da wreck crabs will pester you. Da eels will shock you. Six good lengths of cord. I'll know if you cheat.",
       "turn_in_text": "Oh, that's lovely. Smooth as silk and mean as a snake. I'll mend every net on the Landing with this. And I'll make you something with what's left over.",
@@ -415,7 +415,7 @@
           "flavor_text": "Supple, slick, and surprisingly warm. The eels would be upset.",
           "primary_stats": {
             "agility": 3,
-            "stamina": 2
+            "stamina": 3
           },
           "armor_type": "leather",
           "armor_value": 27,
@@ -431,8 +431,8 @@
           "weapon_type": "dagger",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 11.6,
-            "parry_rating": 8.2
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -447,11 +447,11 @@
           "required_level": 11,
           "flavor_text": "A pierced coin on a braided cord. It was never spent. It was loved.",
           "primary_stats": {
-            "stamina": 2,
+            "stamina": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "healing_power": 0.9
+            "healing_power": 0.6
           },
           "label": "Necklace (Sta/Int/Healing)"
         }
@@ -477,7 +477,7 @@
           "radius": 9
         }
       ],
-      "reward_exp": 640,
+      "reward_exp": 770,
       "reward_gold": 2100,
       "accept_text": "Cross da west bridge to da Grotto isle, follow da north trail and wade da Sunken Steps to da naga isle. Stand in da middle of dem and listen. Don't talk. Don't take anything. Just listen.",
       "turn_in_text": "So dey spoke to you too. Not in words. In order. Dey're guarding somethin' - and dey are afraid of what comes after dem. Let me think about dis. Come back when you're ready for da next part.",
@@ -486,19 +486,19 @@
           "name": "Tidecaller's Spiral-Wand",
           "slot": "ranged",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "A hand's length of lacquered coral with a spiral cut round it. It sings very softly in the wet.",
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 4.2,
-            "mp5": 0.9
+            "spell_power": 1.4,
+            "mp5": 0.3
           },
-          "weapon_damage_min": 21,
-          "weapon_damage_max": 29,
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
           "attack_speed": 1.9,
           "label": "Wand (Int/SP/MP5)"
         },
@@ -506,33 +506,33 @@
           "name": "Vashj's Salt-Cord Belt",
           "slot": "waist",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "Knotted in the Landing's old style. The knots are the prayer.",
           "primary_stats": {
             "stamina": 2,
-            "spirit": 1
+            "spirit": 2
           },
           "armor_type": "leather",
-          "armor_value": 14,
+          "armor_value": 19,
           "label": "Leather Belt (Sta/Spi)"
         },
         {
           "name": "Echo-Stone Greaves",
           "slot": "legs",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "Grey stone greaves with a faint ring to them. You can hear the ruins in your steps.",
           "primary_stats": {
             "strength": 3,
-            "stamina": 3
+            "stamina": 4
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 46,
+          "armor_value": 61,
           "label": "Mail Legs (Str/Sta/Crit)"
         }
       ],
@@ -555,7 +555,7 @@
           "count": 6
         }
       ],
-      "reward_exp": 680,
+      "reward_exp": 820,
       "reward_gold": 2300,
       "accept_text": "Da coastguards and tidecallers wear dem. Take dem from da ones who don't need dem anymore. Six scales. And please - wash your hands afterwards.",
       "turn_in_text": "... it is a seal. Dey are not guardin' da temple. Dey're guardin' da door under da temple, and Ssaleth is da key-keeper. Dat's da name, mon: Warden Ssaleth. End him and da door stays shut.",
@@ -564,53 +564,53 @@
           "name": "Runereader's Sash",
           "slot": "waist",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "A cloth sash worked with sixty runes. Vashj spent a year on it and gave it away in a minute.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 2.2
+            "healing_power": 1.5
           },
           "armor_type": "cloth",
-          "armor_value": 7,
+          "armor_value": 9,
           "label": "Cloth Belt (Int/Spi/Healing)"
         },
         {
           "name": "Scale-Etched Hauberk",
           "slot": "chest",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "Overlapping scales with tide-runes. It looks borrowed. It acts inherited.",
           "primary_stats": {
-            "strength": 2,
-            "agility": 2,
-            "stamina": 2
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
           },
           "armor_type": "mail",
-          "armor_value": 46,
+          "armor_value": 61,
           "label": "Mail Chest (Str/Agi/Sta)"
         },
         {
           "name": "Spiral-Carved Mace",
           "slot": "main_hand",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "A short mace carved with a spiral from end to end. Every blow feels slightly like a wave.",
           "weapon_type": "mace_1h",
           "primary_stats": {
             "strength": 2,
-            "stamina": 2
+            "stamina": 3
           },
           "secondary_stats": {
             "hit_rating": 0.1
           },
-          "weapon_damage_min": 25,
-          "weapon_damage_max": 34,
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 44,
           "attack_speed": 2.6,
           "label": "Mace (Str/Sta/Hit)"
         }
@@ -630,7 +630,7 @@
         {
           "type": "kill",
           "target": "Naga Coastguard",
-          "count": 6,
+          "count": 5,
           "alt_targets": [
             "Naga Tidecaller"
           ]
@@ -641,7 +641,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 1000,
+      "reward_exp": 1200,
       "reward_gold": 3500,
       "accept_text": "Go back to da ruins, thin da guard and find Ssaleth. He stands where da stones are highest. His trident cuts, and when you stand still he weakens you. Keep moving, don't stand in da water.",
       "turn_in_text": "Da stones are silent. Not gone - silent. I haven't heard dat in years. You've bought us a season, at least. Dis is for you, from da Landing.",
@@ -655,11 +655,11 @@
           "flavor_text": "A coral pike, spiral-fluted, built for a naga hand and surprisingly well balanced for a human one.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 7
+            "strength": 9,
+            "stamina": 12
           },
           "secondary_stats": {
-            "defense_rating": 0.4
+            "defense_rating": 0.7
           },
           "weapon_damage_min": 46,
           "weapon_damage_max": 63,
@@ -674,11 +674,11 @@
           "required_level": 13,
           "flavor_text": "A cowl embroidered with an old naga rite. It does not itch. It remembers.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 8.7,
-            "hit_rating": 0.3
+            "spell_power": 2.9,
+            "hit_rating": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 15,
@@ -710,11 +710,11 @@
           "required_level": 13,
           "flavor_text": "A ring for someone who finishes what they start.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "label": "Ring (Sta/Def/Dodge)"
         }
@@ -736,7 +736,7 @@
         {
           "type": "kill",
           "target": "Bloodtalon Raptor",
-          "count": 10,
+          "count": 8,
           "alt_targets": [
             "Jungle Panther",
             "Isle Serpent",
@@ -745,7 +745,7 @@
           ]
         }
       ],
-      "reward_exp": 560,
+      "reward_exp": 670,
       "reward_gold": 2000,
       "accept_text": "Ten of dem, any mix - raptor, panther, serpent, crab, bird. Da interior's thick with all of dem. Nothin' personal in dis one. Just clearin' ground. Come back when da road is walkable.",
       "turn_in_text": "Good. Da trail's quieter now. Not safe - dis island hasn't been safe in longer than you'd guess - but quieter. Now. About what's really wrong with dis place.",
@@ -754,7 +754,7 @@
           "name": "Bloodtalon Fang Blade",
           "slot": "main_hand",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "A raptor's foreclaw, hafted on a bone grip. Faster than it looks.",
           "weapon_type": "dagger",
@@ -765,8 +765,8 @@
             "hit_rating": 0.1,
             "crit_chance_physical": 0.1
           },
-          "weapon_damage_min": 17,
-          "weapon_damage_max": 23,
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
           "attack_speed": 1.7,
           "label": "Dagger (Agi/Hit/Crit)"
         },
@@ -774,30 +774,30 @@
           "name": "Panther-Hide Wraps",
           "slot": "hands",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Soft, quiet, a little snarly around the cuffs.",
           "primary_stats": {
-            "agility": 1,
-            "intellect": 1
+            "agility": 2,
+            "intellect": 2
           },
           "armor_type": "leather",
-          "armor_value": 9,
+          "armor_value": 12,
           "label": "Leather Gloves (Agi/Int)"
         },
         {
           "name": "Serpent-Scale Waistguard",
           "slot": "waist",
           "item_level": 13,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Small interlocking scales; surprisingly tough, surprisingly light.",
           "primary_stats": {
-            "strength": 1,
-            "stamina": 1
+            "strength": 2,
+            "stamina": 2
           },
           "armor_type": "mail",
-          "armor_value": 15,
+          "armor_value": 20,
           "label": "Mail Belt (Str/Sta)"
         }
       ],
@@ -816,7 +816,7 @@
         {
           "type": "kill",
           "target": "Voodoo Troll",
-          "count": 12,
+          "count": 9,
           "alt_targets": [
             "Hex Troll",
             "Zalazane Berserker",
@@ -825,7 +825,7 @@
           ]
         }
       ],
-      "reward_exp": 720,
+      "reward_exp": 860,
       "reward_gold": 2600,
       "accept_text": "Twelve of dem. I won't lie to you about what dat means - every one of dem used to be someone's kin. Do it anyway. Dey're not comin' back from what he did to dem. North trail and south trail - start where Vessa's report said.",
       "turn_in_text": "It's done. I felt every one of dose losses. Da camps are quiet now. Zalazane still has da Hollow in da south-east, and da temple below da west isle's still drowned. But first I need something of yours.",
@@ -839,11 +839,11 @@
           "flavor_text": "A cleaver for Zalazane's rank and file. It does not discriminate.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 4
+            "strength": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -859,11 +859,11 @@
           "flavor_text": "A fetish-rod taken from a man who deserved better. It hums with a leashed spell.",
           "weapon_type": "staff",
           "primary_stats": {
-            "intellect": 8
+            "intellect": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "spell_power": 10.2
+            "hit_rating": 0.4,
+            "spell_power": 6.4
           },
           "weapon_damage_min": 13,
           "weapon_damage_max": 17,
@@ -907,7 +907,7 @@
           "count": 5
         }
       ],
-      "reward_exp": 640,
+      "reward_exp": 770,
       "reward_gold": 2200,
       "accept_text": "Five totems. Bring dem to me, don't touch da magic still on dem if you can help it. I've seen what dat kind of hex does to someone who handles it careless.",
       "turn_in_text": "Dis tells me more dan I expected. Da hex isn't as permanent as I feared. Dere may be a way back for some of dem, someday. Not today. But someday. Keep dat hope wherever you carry hope.",
@@ -920,11 +920,11 @@
           "required_level": 12,
           "flavor_text": "A hexed totem, scrubbed and re-blessed. It smells of smoke and fresh water.",
           "primary_stats": {
-            "stamina": 2,
+            "stamina": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 0.9
+            "healing_power": 0.6
           },
           "label": "Necklace (Sta/Spi/Healing)"
         },
@@ -982,7 +982,7 @@
           "zone": "sunken_temple_grotto"
         }
       ],
-      "reward_exp": 1000,
+      "reward_exp": 1200,
       "reward_gold": 3600,
       "accept_text": "Da temple's door is at da end of da west trail, past da bridge. Gharesh moves with da tide - strong when da water's high, slower when it's low. Time it right and dis fight is winnable. Time it wrong and you're fightin' a flood dat hits back.",
       "turn_in_text": "Da temple's quiet. Whatever dat thing was guardin', it's safe now. One name left, mon. Da one dat started all of dis.",
@@ -995,11 +995,11 @@
           "required_level": 13,
           "flavor_text": "A fist-sized sphere of moving water. It pulls toward the sea, and so do you.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 8.7,
-            "mp5": 1.8
+            "spell_power": 2.9,
+            "mp5": 0.6
           },
           "label": "Off-hand Orb (Int/SP/MP5)"
         },
@@ -1011,11 +1011,11 @@
           "required_level": 13,
           "flavor_text": "Plate bracers hammered in a tidal forge. They hold their shape through anything.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.4,
-            "dodge_rating": 0.4
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
           },
           "armor_type": "plate",
           "armor_value": 48,
@@ -1029,11 +1029,11 @@
           "required_level": 13,
           "flavor_text": "A cloak that never quite dries. It makes you feel slightly faster.",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 1,
+            "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 4.8
+            "attack_power": 2.4
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -1059,7 +1059,7 @@
           "zone": "zalazanes_hollow"
         }
       ],
-      "reward_exp": 1500,
+      "reward_exp": 1800,
       "reward_gold": 5600,
       "accept_text": "He's da strongest hexer I've ever seen, and I've seen a few. He'll try to turn your own party against you before he ever raises a weapon himself. Break da hex fast or don't let it land at all. Dat's da whole fight, really.",
       "turn_in_text": "It's over. Zalazane is finished, and dis island belongs to da livin' again. I've carried dis a long time. I don't fully know how to put down a weight dat old, but I suspect I'll figure it out startin' today. Take what he had. You've more than earned it.",
@@ -1074,8 +1074,8 @@
           "weapon_type": "staff",
           "primary_stats": {},
           "secondary_stats": {
-            "shadow_spell_power": 40885.6,
-            "arcane_spell_power": 40885.6
+            "shadow_spell_power": 14.9,
+            "arcane_spell_power": 14.9
           },
           "weapon_damage_min": 20,
           "weapon_damage_max": 28,
@@ -1091,8 +1091,8 @@
           "flavor_text": "A circlet of beaten bronze with the Darkspear mark. It was returned by the one who earned it.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 1577.8,
-            "mp5": 343.0
+            "healing_power": 4.6,
+            "mp5": 1.0
           },
           "armor_type": "mail",
           "armor_value": 55,
@@ -1107,11 +1107,11 @@
           "flavor_text": "A slim curved knife that cuts hexes more than flesh. It does both without complaint.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 3
+            "agility": 2,
+            "stamina": 2
           },
           "secondary_stats": {
-            "attack_power": 6.3
+            "attack_power": 4.2
           },
           "weapon_damage_min": 37,
           "weapon_damage_max": 51,
@@ -1154,7 +1154,7 @@
           "count": 6
         }
       ],
-      "reward_exp": 640,
+      "reward_exp": 770,
       "reward_gold": 2200,
       "accept_text": "Carvers work da camp fires and da deeper dens of da Hollow. Take da shards off dem, don't touch da names. Six. I need to read dem together.",
       "turn_in_text": "... all one hand. All one rhythm. It's a weaver, mon - someone in da Hollow who stitches dese hexes into da bone. I'll tell you where to look. Take dis for da trouble.",
@@ -1167,11 +1167,11 @@
           "required_level": 12,
           "flavor_text": "Soft, clean, and never quite dry. They remember every fever they have broken.",
           "primary_stats": {
-            "stamina": 2,
+            "stamina": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "healing_power": 1.2
+            "healing_power": 0.8
           },
           "armor_type": "cloth",
           "armor_value": 6,
@@ -1186,11 +1186,11 @@
           "flavor_text": "A needle too long for a healer. She uses it for what the needle was meant for.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 3
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -1207,8 +1207,8 @@
           "weapon_type": "totem",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 8.5,
-            "mp5": 1.6
+            "healing_power": 1.1,
+            "mp5": 0.2
           },
           "weapon_damage_min": 20,
           "weapon_damage_max": 27,
@@ -1230,7 +1230,7 @@
         {
           "type": "kill",
           "target": "Voodoo Adept",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -1239,7 +1239,7 @@
           "zone": "zalazanes_hollow"
         }
       ],
-      "reward_exp": 1000,
+      "reward_exp": 1200,
       "reward_gold": 3500,
       "accept_text": "He's in da west of da Hollow, in a den below Zalazane's own sanctum. Don't let him finish da weave - interrupt him if you can, kill him quick if you can't. And bring back what's left of da loom.",
       "turn_in_text": "Forty hexes, unmade in one breath. I felt dem go. Dat's da best medicine I've ever tasted. Take dis - and remember, mon: da healin' was never da hard part. It's da stoppin'.",
@@ -1248,7 +1248,7 @@
           "name": "Hexweaver's Mourning Robe",
           "slot": "chest",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "A black robe stitched with a hundred names, uncrossed. Zathra personally uncrossed them.",
           "primary_stats": {
@@ -1259,26 +1259,26 @@
             "healing_power": 3.1
           },
           "armor_type": "cloth",
-          "armor_value": 15,
+          "armor_value": 20,
           "label": "Cloth Chest (Int/Spi/Healing)"
         },
         {
           "name": "Loomcutter's Cleaver",
           "slot": "main_hand",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "A heavy cleaver for cutting thread. It cuts other things equally well.",
           "weapon_type": "axe_2h",
           "primary_stats": {
-            "strength": 9
+            "strength": 11
           },
           "secondary_stats": {
-            "hit_rating": 0.7,
-            "crit_chance_physical": 0.7
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
           },
-          "weapon_damage_min": 35,
-          "weapon_damage_max": 48,
+          "weapon_damage_min": 46,
+          "weapon_damage_max": 63,
           "attack_speed": 3.6,
           "label": "Axe (Str/Hit/Crit)"
         },
@@ -1286,7 +1286,7 @@
           "name": "Spirit-Spun Gauntlets",
           "slot": "hands",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "Leather gloves threaded with spirit-silk. They turn blows better than they should.",
           "primary_stats": {
@@ -1297,7 +1297,7 @@
             "dodge_rating": 0.2
           },
           "armor_type": "leather",
-          "armor_value": 15,
+          "armor_value": 20,
           "label": "Leather Gloves (Sta/Agi/Dodge)"
         }
       ],
@@ -1321,7 +1321,7 @@
           "count": 5
         }
       ],
-      "reward_exp": 640,
+      "reward_exp": 770,
       "reward_gold": 2200,
       "accept_text": "Da Lost Fleet is up north-east, past da shallows. Da drowned crewmen still carry dere charts - dey cannot let go of da job. Five. Don't read dem in da rain.",
       "turn_in_text": "A ring of islands, and a red cross. It's not a treasure map, mon - it's a warnin'. Da man who drew dis was runnin' from somethin'. One of his mates still guards da wreck. I'll tell you where.",
@@ -1334,7 +1334,7 @@
           "required_level": 12,
           "flavor_text": "A canvas cloak the colour of sand and seaweed. You are very hard to see.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "armor_type": "cloth",
@@ -1367,7 +1367,7 @@
           "flavor_text": "Light leather boots for someone who has walked a lot of beach.",
           "primary_stats": {
             "agility": 2,
-            "intellect": 1
+            "intellect": 2
           },
           "armor_type": "leather",
           "armor_value": 13,
@@ -1388,7 +1388,7 @@
         {
           "type": "kill",
           "target": "Wreck Scavenger",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -1396,7 +1396,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 900,
+      "reward_exp": 1080,
       "reward_gold": 3200,
       "accept_text": "Wreck Shallows, up north-east. Da crabs gather where he walks. Kill dem and he'll come lookin' for da noise. He fights like a man who's already dead. Dat is not a metaphor.",
       "turn_in_text": "... He's restin'. I could feel him let go. I'm not a sentimental man, but I'll light dis lantern tonight for him, and for da crew. Take whatever you like off his belt.",
@@ -1405,19 +1405,19 @@
           "name": "Mate's Boarding Pike",
           "slot": "main_hand",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "A short boarding pike, hooked at the back to drag a rail. Still tastes of rum.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 5
+            "strength": 9,
+            "stamina": 12
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.5
           },
-          "weapon_damage_min": 35,
-          "weapon_damage_max": 48,
+          "weapon_damage_min": 46,
+          "weapon_damage_max": 63,
           "attack_speed": 3.3,
           "label": "Polearm (Str/Sta/Crit)"
         },
@@ -1425,25 +1425,25 @@
           "name": "Lanternbearer's Hood",
           "slot": "head",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "A hood with a tiny lantern-hook at the temple. Something warm in the dark.",
           "primary_stats": {
             "stamina": 3,
-            "spirit": 2
+            "spirit": 3
           },
           "secondary_stats": {
-            "healing_power": 1.5
+            "healing_power": 1.8
           },
           "armor_type": "leather",
-          "armor_value": 23,
+          "armor_value": 30,
           "label": "Leather Helm (Sta/Spi/Healing)"
         },
         {
           "name": "Captain's Mate Flintlock",
           "slot": "ranged",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "An old naval pistol, spotless on the inside. He never did fire it.",
           "weapon_type": "gun",
@@ -1454,8 +1454,8 @@
           "secondary_stats": {
             "hit_rating": 0.1
           },
-          "weapon_damage_min": 22,
-          "weapon_damage_max": 30,
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 39,
           "attack_speed": 2.6,
           "label": "Gun (Agi/Sta/Hit)"
         }
@@ -1477,15 +1477,15 @@
         {
           "type": "kill",
           "target": "Murloc Spearfisher",
-          "count": 8
+          "count": 6
         },
         {
           "type": "kill",
           "target": "Causeway Siren",
-          "count": 4
+          "count": 3
         }
       ],
-      "reward_exp": 640,
+      "reward_exp": 770,
       "reward_gold": 2400,
       "accept_text": "It's a toll road now, friend, and the toll is MY LIFE. Eight spearfishers, four sirens, and I'll make it worth your while. Don't ask where the money's from.",
       "turn_in_text": "You, friend, are a miracle. A violent, wet miracle. And a business partner, I hope. There's still the seer on the rocks who runs the choir. Come back when you're ready.",
@@ -1494,7 +1494,7 @@
           "name": "Dritt's Cutthroat Cutlass",
           "slot": "main_hand",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "A goblin cutlass. Cheap alloy, expensive attitude.",
           "weapon_type": "sword_1h",
@@ -1505,8 +1505,8 @@
           "secondary_stats": {
             "attack_power": 4.1
           },
-          "weapon_damage_min": 25,
-          "weapon_damage_max": 34,
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 44,
           "attack_speed": 2.4,
           "label": "Sword (Agi/Sta/AP)"
         },
@@ -1514,30 +1514,30 @@
           "name": "Salvager's Rigging Belt",
           "slot": "waist",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "Pockets on every pocket. A wise goblin carries his own warehouse.",
           "primary_stats": {
             "agility": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "armor_type": "leather",
-          "armor_value": 14,
+          "armor_value": 19,
           "label": "Leather Belt (Agi/Sta)"
         },
         {
           "name": "Wrangler's Brass Whistle",
           "slot": "neck",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "A little brass whistle that Dritt promises will call a sea-beast. It calls a bad feeling.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "spell_power": 1.4
+            "spell_power": 0.9
           },
           "label": "Necklace (Int/Sta/SP)"
         }
@@ -1558,7 +1558,7 @@
         {
           "type": "kill",
           "target": "Causeway Siren",
-          "count": 4
+          "count": 3
         },
         {
           "type": "kill_boss",
@@ -1566,7 +1566,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 820,
+      "reward_exp": 980,
       "reward_gold": 3000,
       "accept_text": "Don't listen to her sing. I mean it. Plug your ears. Put wax in your ears. Go deaf. Whatever it takes, friend, my crew weren't smart enough and now they're fish.",
       "turn_in_text": "Silent! You saved my life and about nine thousand gold in lost cargo. I'll find you a bonus, I'm just not quite sure where.",
@@ -1597,11 +1597,11 @@
           "required_level": 13,
           "flavor_text": "A coil of braided brine-pearl. Heavy for a ring and nimble for a weapon.",
           "primary_stats": {
-            "strength": 4
+            "strength": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
           },
           "label": "Ring (Str/Hit/Crit)"
         },
@@ -1613,11 +1613,11 @@
           "required_level": 13,
           "flavor_text": "Studded leather boots that grip wet stone like a crab.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "dodge_rating": 0.4,
-            "parry_rating": 0.2
+            "dodge_rating": 0.2,
+            "parry_rating": 0.1
           },
           "armor_type": "leather",
           "armor_value": 20,
@@ -1640,7 +1640,7 @@
         {
           "type": "kill",
           "target": "Drowned Crewman",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -1648,7 +1648,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 1000,
+      "reward_exp": 1200,
       "reward_gold": 3800,
       "accept_text": "North-east, past da troll isle. Da flagship's the big one. He's got a cutlass and a temper and probably a grudge. Bring me da strongbox and I'll buy you a drink. Several.",
       "turn_in_text": "... it's empty. Is it? No. No, it's not. THERE'S A FALSE BOTTOM! Friend, I'm going to cry in a minute. Take your cut, take it all, take the boat.",
@@ -1657,33 +1657,33 @@
           "name": "Morrow's Saltstained Epaulets",
           "slot": "shoulder",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "Dress-uniform epaulets, heavy with brass, which has not tarnished. Disgraceful.",
           "primary_stats": {
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
-            "armor": 12.2,
+            "armor": 9.8,
             "parry_rating": 0.2
           },
           "armor_type": "plate",
-          "armor_value": 59,
+          "armor_value": 78,
           "label": "Plate Shoulders (Sta/Armor/Parry)"
         },
         {
           "name": "Dead Reckoning Compass-Charm",
           "slot": "neck",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "A brass compass whose needle points at whatever you want to find. The rest is up to you.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 5.1,
-            "hit_rating": 0.3
+            "spell_power": 1.7,
+            "hit_rating": 0.1
           },
           "label": "Necklace (Int/SP/Hit)"
         },
@@ -1691,17 +1691,17 @@
           "name": "Quartermaster's Boarding Axe",
           "slot": "main_hand",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 13,
           "flavor_text": "A balanced boarding axe with a hook at the back. It parts a deck rail like paper.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 2,
-            "agility": 2,
-            "stamina": 1
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
           },
-          "weapon_damage_min": 27,
-          "weapon_damage_max": 37,
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
           "attack_speed": 2.6,
           "label": "Axe (Str/Agi/Sta)"
         }
@@ -1721,7 +1721,7 @@
         {
           "type": "kill",
           "target": "Shadowfang Guardian",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -1730,7 +1730,7 @@
           "zone": "zalazanes_hollow"
         }
       ],
-      "reward_exp": 1000,
+      "reward_exp": 1200,
       "reward_gold": 3600,
       "accept_text": "Hounds first, so the master comes out. He'll whip his pack into a frenzy - kill him before the frenzy sets in, friend, or you'll be buyin' a lot of bandages.",
       "turn_in_text": "Dead quiet! The whistle's gone and the hounds are asleep. I haven't slept in two weeks. I'm going to sleep for two more. Take dis, with my thanks. And my sympathies for his dogs.",
@@ -1779,7 +1779,7 @@
           "flavor_text": "Hound-pelt, tanned black. It stays dark where the sun does not reach.",
           "primary_stats": {
             "agility": 4,
-            "spirit": 3
+            "spirit": 4
           },
           "armor_type": "leather",
           "armor_value": 32,
@@ -1806,7 +1806,7 @@
           "count": 5
         }
       ],
-      "reward_exp": 640,
+      "reward_exp": 770,
       "reward_gold": 2200,
       "accept_text": "Go in at da temple door, mon, at da end of da Grotto trail. Da murlocs hoard dem in da shallows and da tidal elementals wear dem like bad jewellery. Five pearls. Keep dem wet.",
       "turn_in_text": "Five. Perfect. Da tide is already softer. Dese pearls are why da temple's guardians never left. Dey're still lookin' for da last offering. Dere's a drowned warrior down dere who needs rest.",
@@ -1819,11 +1819,11 @@
           "required_level": 12,
           "flavor_text": "Tide-worn beads on a thong. They taste faintly of salt and rain.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 1.2
+            "healing_power": 0.8
           },
           "label": "Necklace (Int/Spi/Healing)"
         },
@@ -1837,7 +1837,7 @@
           "weapon_type": "staff",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 9062.4
+            "nature_spell_power": 17.7
           },
           "weapon_damage_min": 13,
           "weapon_damage_max": 17,
@@ -1853,7 +1853,7 @@
           "flavor_text": "Thick hide, sewn tight. It smells of wet fur and woodsmoke.",
           "primary_stats": {
             "strength": 3,
-            "agility": 2
+            "agility": 3
           },
           "armor_type": "leather",
           "armor_value": 27,
@@ -1874,7 +1874,7 @@
         {
           "type": "kill",
           "target": "Drowned Troll",
-          "count": 6,
+          "count": 5,
           "zone": "sunken_temple_grotto"
         },
         {
@@ -1884,7 +1884,7 @@
           "zone": "sunken_temple_grotto"
         }
       ],
-      "reward_exp": 900,
+      "reward_exp": 1080,
       "reward_gold": 3200,
       "accept_text": "Da crypt is off da west gate of da rotunda. He'll be at da back, mon. Treat him as a warrior, not a monster - he'd want dat. And bring him peace as quick as you can.",
       "turn_in_text": "He's at rest. I felt it as he went, like a held breath comin' out. Dat's what da pearls were for. Take dis - da shrine and I are even.",
@@ -1899,8 +1899,8 @@
           "weapon_type": "sword_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 135.2,
-            "parry_rating": 109.8
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
           },
           "weapon_damage_min": 34,
           "weapon_damage_max": 46,
@@ -1931,11 +1931,11 @@
           "required_level": 13,
           "flavor_text": "A robe of sea-dyed cloth. Anyone who sleeps in it dreams of the temple.",
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 5
+            "intellect": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "mp5": 1.0
+            "mp5": 0.8
           },
           "armor_type": "cloth",
           "armor_value": 20,
@@ -1966,10 +1966,10 @@
         {
           "type": "kill",
           "target": "Stepstone Sentinel",
-          "count": 6
+          "count": 5
         }
       ],
-      "reward_exp": 500,
+      "reward_exp": 600,
       "reward_gold": 1800,
       "accept_text": "From da Grotto isle take da north trail into da water. Da steps are right below. Reach da middle step, break six sentinels, come back and tell me I'm brave.",
       "turn_in_text": "You did it! You actually did it! Now I can say I know someone who did it. Which is nearly as good. Okay - I need to tell you about my brother.",
@@ -1984,7 +1984,7 @@
           "weapon_type": "dagger",
           "primary_stats": {
             "agility": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "weapon_damage_min": 22,
           "weapon_damage_max": 30,
@@ -2000,7 +2000,7 @@
           "flavor_text": "Woven from three kinds of kelp. They stay cool and never tangle.",
           "primary_stats": {
             "agility": 3,
-            "intellect": 2
+            "intellect": 3
           },
           "armor_type": "leather",
           "armor_value": 25,
@@ -2037,7 +2037,7 @@
         {
           "type": "kill",
           "target": "Razorjaw Whelp",
-          "count": 6,
+          "count": 5,
           "alt_targets": [
             "Razorjaw Lurker",
             "Reef Stalker"
@@ -2049,7 +2049,7 @@
           "count": 1
         }
       ],
-      "reward_exp": 980,
+      "reward_exp": 1180,
       "reward_gold": 3400,
       "accept_text": "Go down the south trail till da water, den west across da shallows. His whelps hunt in packs and he comes when dey scream. He hits hard, and he gets angrier as it goes. Hit and move, mon.",
       "turn_in_text": "... It's really gone? I didn't think anyone could. Thank you. Thank you from my brother too. He's going to be insufferable, now.",
@@ -2058,19 +2058,19 @@
           "name": "Razorjaw Tooth Hatchet",
           "slot": "main_hand",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "A tooth the size of a hand, hafted. Cuts like it still wants to.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 5
+            "strength": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "crit_chance_physical": 0.3
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 26,
-          "weapon_damage_max": 35,
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
           "attack_speed": 2.6,
           "label": "Axe (Str/Hit/Crit)"
         },
@@ -2078,7 +2078,7 @@
           "name": "Reef-Hunter's Scale Shirt",
           "slot": "chest",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "Scale from a reef predator, stitched to leather. Light, flexible, and quite hard to hit.",
           "primary_stats": {
@@ -2089,20 +2089,20 @@
             "attack_power": 5.9
           },
           "armor_type": "mail",
-          "armor_value": 49,
+          "armor_value": 65,
           "label": "Mail Chest (Agi/Int/AP)"
         },
         {
           "name": "Brother's Mending Pendant",
           "slot": "neck",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 12,
           "flavor_text": "A pendant his brother carved while the leg healed. It has a gentle effect.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 59.3,
-            "mp5": 13.5
+            "healing_power": 2.2,
+            "mp5": 0.5
           },
           "label": "Necklace (Healing/MP5)"
         }

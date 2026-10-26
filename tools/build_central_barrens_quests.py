@@ -59,7 +59,7 @@ def quests():
         ("Magra Dustwalker has run kodo north of the Crossroads for twenty years, and it has never been this bad. "
          "Barrens hyenas have learned that a calf separated from the herd is a calf that does not come home. "
          "They shadow the herd at a distance, patient as a debt collector, and pick off whatever lags."),
-        [kill("Barrens Hyena", 8)],
+        [kill("Barrens Hyena", 6)],
         ("Look out over the plain - brown-grey, spotted, grinning. Eight of them, and they will not run. "
          "They have never had a reason to."),
         ("That's quieter. Kodo don't flinch like that when something's after them - they just stop eating. "
@@ -98,7 +98,7 @@ def quests():
         ("The Sentinel Rocks - the sandstone teeth north-west of the Crossroads - are the best shelter on the plains, "
          "and for three weeks no kodo has slept there. Redstone scorpids have claimed the crevices, and something "
          "bigger has claimed the scorpids. Magra says a brood-queen is nesting in the rocks."),
-        [kill("Redstone Scorpid", 8), boss("Redrock Matriarch")],
+        [kill("Redstone Scorpid", 6), boss("Redrock Matriarch")],
         ("Red-brown, size of a dog, tail like a sickle. Eight of them, and the big mother if she shows her face. "
          "She will. They always do, when you've made a mess of her nursery."),
         ("Quiet in the rocks? Good. My herd will be glad of that shade. You've earned more than thanks."),
@@ -116,7 +116,7 @@ def quests():
         ("Every herder's story has a villain. Magra's is a bull giraffe the height of a watchtower with a hide "
          "the colour of the dry grass he stands in. Old Sunhide doesn't hunt. He wanders. Wherever he wanders, "
          "kodo calves end up flat. She doesn't hold it against him, exactly. She's tired of burying calves."),
-        [kill("Barrens Giraffe", 6), boss("Old Sunhide")],
+        [kill("Barrens Giraffe", 5), boss("Old Sunhide")],
         ("He walks the plain between here and the Crossroads. You'll see him a long way off, and you'll "
          "want to - nothing his size should sneak. Six of his herd first, to thin the cover. Then him."),
         ("Gone? ... Good. I won't say I'm not sorry. He was a good giraffe, in his way. Take these. "
@@ -135,7 +135,7 @@ def quests():
         ("East of the Sentinel Rocks, the plain rises into a shallow bowl that the kodo have always walked into "
          "when it was their time. Magra has made that walk with three herds. Lately it's not quiet. "
          "The dead kodo don't stay dead, and the vultures have gotten bold."),
-        [explore(205, 120, 12), kill("Kodo Wraith", 8), boss("Hollowhorn")],
+        [explore(205, 120, 12), kill("Kodo Wraith", 6), boss("Hollowhorn")],
         ("Walk in, look around, come back out - and bring me what the bowl's still holding. "
          "Wraiths first. The big horned one second, if he's still wandering."),
         ("Kodo are not meant to come back. Every one you put down is a favour. Take this, from the old herd."),
@@ -174,7 +174,7 @@ def quests():
         ("The Kolkar outpost is a way-station for their war-parties: tents, a hitching line, and a lot of "
          "centaur with spears. Dorn wants it hurt. Drudges carry the supplies. Taskmasters keep the drudges in line. "
          "Break the line and the outpost folds."),
-        [kill("Kolkar Drudge", 8), kill("Kolkar Taskmaster", 4)],
+        [kill("Kolkar Drudge", 6), kill("Kolkar Taskmaster", 3)],
         ("Drudges are the ones with clubs and no ambition. Taskmasters are the ones with whips and plenty. "
          "Eight and four. Come back with your armour a little dented."),
         ("That did something. I could hear their drum change tempo from here. They don't like being surprised. "
@@ -211,7 +211,7 @@ def quests():
         ("The map's cross leads to the Kolkar war camp, deep in the plains east of the Kodo Graveyard. Dorn "
          "has never been close. He wants to know how many tents, how many marauders, and how bad the drum sounds "
          "at close range."),
-        [explore(238, 112, 10), kill("Kolkar Marauder", 8)],
+        [explore(238, 112, 10), kill("Kolkar Marauder", 6)],
         ("Go to the camp. Take a look, take a few of them down before you leave. Marauders are the ones on the "
          "outside. If you're running past them, you're too deep."),
         ("A hundred tents. A hundred! And a banner I haven't seen in years - Gorrak's. "
@@ -228,7 +228,7 @@ def quests():
         ("Warbringer Gorrak has led three Kolkar marches on the Crossroads, and each one left a wall a little "
          "shorter than before. He is old, he is huge, and he does not retreat. Dorn will not ask you to do this "
          "for glory. He will ask you to do it because the next march is already in the drum."),
-        [kill("Kolkar Taskmaster", 6), boss("Warbringer Gorrak")],
+        [kill("Kolkar Taskmaster", 5), boss("Warbringer Gorrak")],
         ("He rides the war camp's edge when the drum starts. Break the taskmasters first - they keep the herd in "
          "line. Then him. Quick and hard."),
         ("It's quiet. For the first time in three years, I can hear the wind and nothing else. "
@@ -252,7 +252,7 @@ def quests():
         ("Kranal Fiss has farmed Grol'dom since before Orgrimmar had proper walls. Quilboar press him from two "
          "sides some seasons; this season the problem is smaller and sneakier. Poachers have started working the "
          "farm after dark - lifting sacks, cutting traces, laughing over the wall."),
-        [kill("Farm Poacher", 8)],
+        [kill("Farm Poacher", 6)],
         ("They hide in the furrows - small men in the colour of dirt. Eight of them, and I'll sleep through the night "
          "for the first time in a month."),
         ("It's been quiet since last night. I did not hear a single laugh. That is better than gold. Next, the sacks."),
@@ -288,7 +288,7 @@ def quests():
         ("Every gang has a chief, and the poachers' chief is a brute called Bazz who wields a stolen pitchfork like it "
          "owes him money. He doesn't work the fields. He runs the ones who do. Kranal would like him gone, "
          "and the pitchfork back."),
-        [kill("Farm Poacher", 6), boss("Looter-Chief Bazz")],
+        [kill("Farm Poacher", 5), boss("Looter-Chief Bazz")],
         ("Big, loud, carries my pitchfork. The tines are bent but I'd know it anywhere. Six of his crew first - "
          "they keep the field between you and him."),
         ("You took the pitchfork back? Hah! ... Still bent. Never mind, keep it. The farm is quiet. That's the prize."),
@@ -314,7 +314,7 @@ def quests_oases():
         ("Lushwater has been the first drink on the road to the Wailing Caverns for as long as the Tauren have "
          "had a road. Waterkeeper Sanu Goldenhoof keeps it that way. This season the silithid have pushed up out of "
          "the south dunes in a tide of chitin, fouling the reeds, and he cannot clear them alone."),
-        [kill("Silithid Swarmer", 10), kill("Silithid Creeper", 6)],
+        [kill("Silithid Swarmer", 8), kill("Silithid Creeper", 5)],
         ("Swarmers in the grass, creepers in the reeds. They are not here to drink - they are here to breed. "
          "Cut them back before the pool goes brown."),
         ("The water runs clear again. The Earth Mother will notice. The silithid are patient, however. "
@@ -333,7 +333,7 @@ def quests_oases():
         ("The springs at Lushwater are fed from below, and the thing that feeds them has started growing. "
          "Tangle-vines have strangled the east spring until it no longer reaches the surface. Sanu needs the vines "
          "cut, and he needs their hearts - because a tangle-vine heart, planted in clear soil, becomes a reed bed."),
-        [kill("Oasis Tangle-Vine", 6), fetch("tangle_vine_heart", 4)],
+        [kill("Oasis Tangle-Vine", 5), fetch("tangle_vine_heart", 4)],
         ("They hang on the north shore, thick as a leg, quiet as a prayer until you step too close. "
          "Cut them back. Bring me four hearts. And do not let them take your boots."),
         ("The vine hearts will grow where I plant them, and the spring will drink again. "
@@ -352,7 +352,7 @@ def quests_oases():
         ("Every swarm has a mother. Queen Skitterwing rules this one from a nest in the north reeds, a queen "
          "the size of a horse, with wings that hum a note you feel in your teeth. Sanu will not harm anything "
          "needlessly. He has made an exception."),
-        [kill("Silithid Creeper", 8), boss("Queen Skitterwing")],
+        [kill("Silithid Creeper", 6), boss("Queen Skitterwing")],
         ("The creepers guard the north reeds. The queen is behind them. Do it cleanly and don't linger - "
          "her song is not a lullaby."),
         ("The reeds are silent. Not the silence of death - the silence of rest. "
@@ -392,7 +392,7 @@ def quests_oases():
         ("The murlocs came up the old river after the pilgrims stopped coming. They fish the pools, foul the "
          "springs, and have started to build something that looks a lot like a shrine of their own. Torga is "
          "not a violent woman. She is, however, tired of explaining herself to a fish."),
-        [kill("Pool Murloc", 8), kill("Murloc Flesheater", 6)],
+        [kill("Pool Murloc", 6), kill("Murloc Flesheater", 5)],
         ("Pool murlocs are the ones on the shore. The Flesheaters are the ones who've been in the deep too long. "
          "Fourteen between them. Be careful of the Flesheaters; they bite."),
         ("Clear water. Well, clearer. Take this. It was a gift from a pilgrim, and I'm not one for heirlooms."),
@@ -410,7 +410,7 @@ def quests_oases():
         ("One of the pilgrims never stopped walking. Maeve the Weeping walks the water's edge in a wedding veil, "
          "singing a song nobody remembers the words to, and the pool-water follows her like a train. "
          "She's not malicious. She's very, very sad, and sadness has teeth."),
-        [kill("Drowned Pilgrim", 6), boss("Maeve the Weeping")],
+        [kill("Drowned Pilgrim", 5), boss("Maeve the Weeping")],
         ("She walks the south pool at dusk. Do what you must, but be gentle about it. "
          "She does not know she's dead. That's all the sorrow."),
         ("I heard her stop. I will read her prayer at dawn. Take this - she would have wanted somebody to carry it."),
@@ -428,7 +428,7 @@ def quests_oases():
         ("Gaharrz is not a murloc, exactly. He's what happens when a murloc warlord drowns in a sacred pool and "
          "refuses to be done. He's the reason the shrine goes quiet at dusk, and the reason Torga keeps one "
          "hand on her cleaver at night."),
-        [kill("Water Elemental", 4), boss("Gaharrz the Drowned")],
+        [kill("Water Elemental", 3), boss("Gaharrz the Drowned")],
         ("He lives in the middle pool. The elementals guard him - they were pool spirits once. "
          "Kill them, then him. It's the only way the shrine can sleep."),
         ("The pool's still. For the first time since I came here, it is still. "
@@ -452,7 +452,7 @@ def quests_oases():
         ("The Shrine of the Fallen Warrior marks the place where a champion of the plains died holding a pass "
          "against a war-party three times his number. Keeper Ahnmar tends the stone. Lately the stone is not "
          "alone: mourning spirits drift in at dusk and will not leave, and the sound they make is very hard to bear."),
-        [kill("Mourning Spirit", 8)],
+        [kill("Mourning Spirit", 6)],
         ("They gather around the shrine's stone at sunset. They do not mean harm - they simply cannot stop weeping. "
          "Release them. Be kind about it."),
         ("The shrine is quiet. That is the most sacred sound it knows. Thank you for your gentleness."),
@@ -470,7 +470,7 @@ def quests_oases():
         ("The warrior who died here did not go quietly. Something of him lingers at the shrine - an echo, not "
          "a ghost: a memory of the fight, replaying itself for anyone who walks in. Ahnmar believes the echo is "
          "caught, and cannot leave until it is shown the battle is over."),
-        [kill("Mourning Spirit", 6), boss("Echo of the Fallen Warrior")],
+        [kill("Mourning Spirit", 5), boss("Echo of the Fallen Warrior")],
         ("Face him as an equal. He will not stop for words. When he falls, tell him the pass held. "
          "That is all he needs to hear."),
         ("The pass held. I told him. He... nodded. Take this - it belongs to the warrior, "
@@ -498,7 +498,7 @@ def quests_south():
         ("Dogan Ironcart has run the Raider's Rest waystation since the Crossroads was a hitching post, and he "
          "pays his taxes to the right people. Somebody else has been collecting on the south road: bandits who "
          "call themselves toll-men and leave nobody with change."),
-        [kill("Bandit Outrider", 8), kill("Bandit Cutthroat", 6)],
+        [kill("Bandit Outrider", 6), kill("Bandit Cutthroat", 5)],
         ("Outriders on the road, Cutthroats in the oasis grass. Fourteen between them, and I'll "
          "pay the difference myself. You'll be paid in gold, and in pride."),
         ("The roads run smoother already. You can feel it in the cart-wheels. "
@@ -535,7 +535,7 @@ def quests_south():
         ("Raider's Rest has water, and where there's water there are things that want you in it. The watering-hole "
          "crocolisks have taken three of Dogan's oxen this season and one of his best guards. "
          "He'd like them gone, and the smugglers who feed them."),
-        [kill("Watering Hole Crocolisk", 6), kill("Raider's Rest Smuggler", 6)],
+        [kill("Watering Hole Crocolisk", 5), kill("Raider's Rest Smuggler", 5)],
         ("Crocs in the shallows, smugglers on the shore. Both need removing. The smugglers have been "
          "feeding the crocs - for fun, I think. Fewer of both would be an improvement."),
         ("Quiet shore, and the oxen are safe. You have the thanks of a very tired merchant."),
@@ -553,7 +553,7 @@ def quests_south():
         ("The smugglers have a captain, and the captain has a name: Silas Quickfinger. He's been the single "
          "most expensive man on the south road for two years, and he's never once been caught holding "
          "anything. Dogan has finally had enough."),
-        [kill("Raider's Rest Smuggler", 8), boss("Silas Quickfinger")],
+        [kill("Raider's Rest Smuggler", 6), boss("Silas Quickfinger")],
         ("He runs the oasis-island camp. You'll know him by the lack of anything in his hands. "
          "Check your pockets before and after. Bring me what's left of him."),
         ("You found the ledger? ... That's an enormous help. I'd hoped you wouldn't touch it, "
@@ -615,7 +615,7 @@ def quests_south():
         ("Veshra is the cult's field commander: a voidcaller with a smile like a razor and a list of "
          "things she's summoned. She's stationed at the canyon mouth, supervising the ritual circle. "
          "If she falls, the ritual falters. Zarla would like it to falter."),
-        [kill("Dreadmist Cultist", 8), boss("Voidcaller Veshra")],
+        [kill("Dreadmist Cultist", 6), boss("Voidcaller Veshra")],
         ("Cultists around the ritual circle, the Voidcaller at the centre. Take down the cultists first - "
          "they feed her power. Then her."),
         ("The ritual faltered. I felt it from the ridge. Something snapped, and the whole canyon went quiet. "
@@ -655,7 +655,7 @@ def quests_south():
         ("Across the road, the Bristleback keep a different kind of weapon: battleboars, trained to charge "
          "anything on two legs and bred to be angrier each generation. Kishi wants tusks - to prove the boars "
          "are being bred, not found - and wants the weavers who breed them silenced."),
-        [fetch("battleboar_tusk", 5), kill("Bristleback Briarweaver", 4)],
+        [fetch("battleboar_tusk", 5), kill("Bristleback Briarweaver", 3)],
         ("Briarweavers keep the boars calm. The battleboars carry the tusks. Five tusks, four weavers. "
          "The boars won't be calm without them."),
         ("That's the evidence. The Bristleback are breeding a war-herd, and now the Warchief will know. "
@@ -674,7 +674,7 @@ def quests_south():
         ("Wardchief Thulg commands the Razormane at Bramblescar from a thorn-throne at the camp's heart. "
          "He is clever, brutal, and unburdened by doubt. Kishi believes the war between the quilboar tribes "
          "hangs on his command, and a Razormane without a Wardchief is a Razormane without a war."),
-        [kill("Razormane Veteran", 6), boss("Wardchief Thulg")],
+        [kill("Razormane Veteran", 5), boss("Wardchief Thulg")],
         ("He sits at the heart of Bramblescar. The veterans guard the approach. Cut through them, "
          "and finish him before he's up."),
         ("The Razormane are leaderless. That won't last, but it's a start. Take this."),
@@ -692,7 +692,7 @@ def quests_south():
         ("Across the road, the Bristleback tribe has its own mother: Sow-Mother Grunka, the Brood-Matriarch, "
          "who has sired half the war-herd. Kishi wants the other side of the war dealt with too - "
          "fairness being a rare luxury in a quilboar war."),
-        [kill("Bristleback Raider", 6), boss("Sow-Mother Grunka")],
+        [kill("Bristleback Raider", 5), boss("Sow-Mother Grunka")],
         ("The Bristleback camp at Agama'gor is a horror of mud and tusks. The Sow-Mother sits in the middle. "
          "Her raiders will try to stop you. Don't let them."),
         ("Both chiefs gone. The war will stumble now. It was never going to be quiet - but it will be quieter."),
@@ -733,7 +733,7 @@ def quests_south():
         ("With the pilings armoured, the next threat is the sky and the shore. Sunscale screechers have taken "
          "to dive-bombing travellers at the Barrens end of the bridge, and the snappers haven't learned their lesson. "
          "Karga wants the bank clear before the next caravan crosses."),
-        [kill("Sunscale Screecher", 6), kill("Riverbank Snapper", 6)],
+        [kill("Sunscale Screecher", 5), kill("Riverbank Snapper", 5)],
         ("Screechers from above, snappers from below. A bridge-warden's life, friend. Twelve between them, "
          "and I'll pay you in coin and curses."),
         ("Quiet at last! Caravans can cross in peace. Take this - and remember me kindly when you cross."),
@@ -766,7 +766,7 @@ def quests_wailing():
         ("The Wailing Caverns are the oasis's other half: every spring at Lushwater is fed from the green warren "
          "beneath it, and for a season now something in that warren has been dreaming wrong. The pools run cold at "
          "dusk and the animals come up from the mouth already mad. Sanu wants the entrance cleared before he walks anyone in."),
-        [kill("Deviate Raptor", 8, zone=WZ), kill("Deviate Python", 6, zone=WZ), kill("Deviate Crocolisk", 4, zone=WZ)],
+        [kill("Deviate Raptor", 6, zone=WZ), kill("Deviate Python", 5, zone=WZ), kill("Deviate Crocolisk", 3, zone=WZ)],
         ("The mouth is south of the bluff. Raptors on the bank, pythons in the reeds, crocolisks where the "
          "water's deepest. They're not wild; they're sick. Be quick, and don't take it personally."),
         ("They were beautiful once, you know. Come, there is more to understand."),
@@ -778,7 +778,7 @@ def quests_wailing():
         ("Where the dreaming leaks out, it condenses. Sanu has been collecting a particular dew from the wisps that "
          "drift in the warren's mid-halls: beads that do not evaporate, that show you what the sleeper sees. He wants "
          "five, and the broodlings that guard the nests cleared while you are there."),
-        [kill("Nightmare Wisp", 8, zone=WZ), fetch("nightmare_dewdrop", 5), kill("Deviate Broodling", 6, zone=WZ)],
+        [kill("Nightmare Wisp", 6, zone=WZ), fetch("nightmare_dewdrop", 5), kill("Deviate Broodling", 5, zone=WZ)],
         ("Wisps drift past the river, over the cavern floor. Collect their dew. Do not stare into it. "
          "I mean that kindly."),
         ("Five drops, and none of them spilled. Look at what it shows. The sleeper is not alone. The Fang have his ear."),
@@ -790,7 +790,7 @@ def quests_wailing():
         ("The Druids of the Fang were a school of healers, once. Now they are a cult, and the cult has initiates who still "
          "believe they are healing. Sanu needs evidence the school is one body, and the shards the initiates break at the "
          "end of each rite will prove it. Bring four, and thin the druids guarding the west arm."),
-        [kill("Druid of the Fang", 8, zone=WZ), kill("Fang Initiate", 6, zone=WZ), fetch("fang_totem_shard", 4)],
+        [kill("Druid of the Fang", 6, zone=WZ), kill("Fang Initiate", 5, zone=WZ), fetch("fang_totem_shard", 4)],
         ("Fang Initiates break one shard at the end of each rite. Don't linger to watch it. "
          "The druids will not be kind about interruptions."),
         ("Four shards, and they fit together. A single seal, a single hand. It is time to name the hand."),
@@ -802,7 +802,7 @@ def quests_wailing():
         ("Lady Anacondra was Sanu's student, once, long ago, and the first of the Fang to forget which was the lesson "
          "and which the sickness. She keeps the north platform of the Serpentbloom Cavern and her druids guard the "
          "river crossing. He asks that you end it gently. He knows that is not how it will go."),
-        [kill("Deviate Lasher", 6, zone=WZ), wboss("Lady Anacondra")],
+        [kill("Deviate Lasher", 5, zone=WZ), wboss("Lady Anacondra")],
         ("Lasher vines grip at the river's edge. Lady Anacondra waits above. She will heal through anything you throw "
          "at her unless you move on her fast."),
         ("She was clever, once. She could have been so much more. Take this. It is what she was supposed to become."),
@@ -814,7 +814,7 @@ def quests_wailing():
         ("Two of the warren's masters sit on the western ring: Lord Cobrahn, who has begun to prefer his serpent form, "
          "and Kresh, a river-turtle old enough to remember when the pool was a pool. Kresh is not evil. Kresh is "
          "hurt. Sanu says it will not matter to the fight, but it matters to him."),
-        [wboss("Lord Cobrahn"), wboss("Kresh"), kill("Deviate Shambler", 6, zone=WZ)],
+        [wboss("Lord Cobrahn"), wboss("Kresh"), kill("Deviate Shambler", 5, zone=WZ)],
         ("West around the cavern. Cobrahn in his den, Kresh in the pool further north. Kresh retreats into its shell and "
          "hits hard when it comes out. Cobrahn's venom lingers. Bring a way to cure it."),
         ("Both done. The west ring is quiet. I did not think I would miss the sound of the old turtle shifting in the water. I do."),
@@ -825,7 +825,7 @@ def quests_wailing():
     a(Q("cb_thunder_and_slumber", "Thunder and Slumber", G, 21,
         ("Lord Pythas guards the east gallery with thunder and sleep. Skum, the old lizard, guards the north with "
          "thunder alone. Sanu wants both gone: the ring cannot be walked in either direction while they stand."),
-        [wboss("Lord Pythas"), wboss("Skum"), kill("Deviate Ravager", 6, zone=WZ)],
+        [wboss("Lord Pythas"), wboss("Skum"), kill("Deviate Ravager", 5, zone=WZ)],
         ("Pythas east, Skum north. Pythas casts sleep: have a trinket, a friend or both. Skum's roar weakens your arms; "
          "kill him before it stacks."),
         ("The ring's open. The Fang's gallery waits at its heart. Be careful. It is quieter there than it should be."),
@@ -837,7 +837,7 @@ def quests_wailing():
         ("At the heart of the ring, in the Chamber of the Fang, stand Lord Serpentis, the cult's last and most "
          "devoted lord, and Verdan the Everliving, a thing of bark and root that the cult has been feeding for years. "
          "They stand between you and the sleeper's door."),
-        [wboss("Lord Serpentis"), wboss("Verdan the Everliving"), kill("Fang Initiate", 8, zone=WZ)],
+        [wboss("Lord Serpentis"), wboss("Verdan the Everliving"), kill("Fang Initiate", 6, zone=WZ)],
         ("Serpentis shields himself with warding before every fight; strip it with burst, not patience. "
          "Verdan hits like a falling tree. Do not stand in the vines."),
         ("Both lie still. Behind them is the way to Naralex's Dream. I wish I could go with you. I will wait here."),

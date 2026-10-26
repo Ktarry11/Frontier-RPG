@@ -524,11 +524,23 @@ class OverworldScreen(BaseScreen):
         - matches how consumables/inventory are already per-character
         rather than shared like currency (see Character.add_consumable's
         Phase 6 comment above)."""
+        # Check profession before consuming the node - if the player hasn't
+        # learned this gathering profession, block the gather entirely and
+        # leave the node on the ground so they can come back after training.
+        gathering_manager = self.zone_manager.gathering_manager
+        mat_def = gathering_manager.get_material_def(node.material_id)
+        if mat_def is not None:
+            prof = mat_def.get("profession", "")
+            player = self.state_manager.player
+            if prof and not player.knows_profession(prof):
+                label = prof.title()
+                self._notify(f"You need to learn {label} first - find a trainer.", (220, 160, 80))
+                return
+
         material_id = self.zone_manager.gather_node(node)
         if material_id is None:
             return
 
-        gathering_manager = self.zone_manager.gathering_manager
         material = gathering_manager.make_material_instance(material_id)
         if material is None:
             return
@@ -543,9 +555,7 @@ class OverworldScreen(BaseScreen):
         current_skill = player.profession_skills.get(material.profession, 0)
         skilled_up = gathering_manager.roll_skill_up(material_id, current_skill)
         label = material.profession.title()
-        if not player.knows_profession(material.profession):
-            self._notify(f"Gathered {material.name}. (You haven't learned {label} - find a trainer to improve it.)", (140, 220, 160))
-        elif skilled_up and current_skill >= player.profession_cap(material.profession):
+        if skilled_up and current_skill >= player.profession_cap(material.profession):
             self._notify(f"Gathered {material.name}. ({label} is at its cap - visit your trainer to advance.)", (220, 190, 120))
         elif skilled_up:
             cap = TIER_SKILL_CAPS.get(material.tier)

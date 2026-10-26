@@ -362,7 +362,13 @@ class QuestManager:
                 wants_normal = objective.objective_type == ObjectiveType.KILL
                 if not (wants_boss or wants_normal):
                     continue
-                if wants_boss != is_boss:
+                # KILL_BOSS objectives require the creature to actually be a
+                # boss (is_boss=True). Plain KILL objectives accept any kill -
+                # boss or normal - so named boss mobs (e.g. "Broodmother Sarrix",
+                # "Bramblethorn the Ancient") count toward kill objectives
+                # authored as type="kill". The old check (wants_boss != is_boss)
+                # silently blocked boss kills from satisfying plain KILL objectives.
+                if wants_boss and not is_boss:
                     continue
                 if not objective.matches_target(monster_name):
                     continue

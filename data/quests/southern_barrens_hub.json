@@ -12,7 +12,7 @@
         {
           "type": "kill",
           "target": "Rift Cliffhawk",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1084,
@@ -45,11 +45,11 @@
           "flavor_text": "Long enough to reach over a rail. Short enough to still stab someone.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 7
+            "strength": 9,
+            "stamina": 12
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.3
+            "crit_chance_physical": 0.5
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 59,
@@ -105,8 +105,8 @@
           "flavor_text": "Leather bound with rock-crystal. They hum a little. They've never told anyone why.",
           "primary_stats": {
             "strength": 2,
-            "agility": 1,
-            "stamina": 1
+            "agility": 2,
+            "stamina": 2
           },
           "armor_type": "leather",
           "armor_value": 20,
@@ -156,7 +156,7 @@
         {
           "type": "kill",
           "target": "Rift Sabertooth",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -174,34 +174,34 @@
           "name": "Sabertooth-Hide Jerkin",
           "slot": "chest",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "Spotted pelt over riveted leather. It still smells like the cat.",
           "primary_stats": {
-            "strength": 7,
-            "agility": 6
+            "strength": 5,
+            "agility": 5
           },
           "armor_type": "leather",
-          "armor_value": 56,
+          "armor_value": 42,
           "label": "Leather Chest (Str/Agi)"
         },
         {
           "name": "Dustmaw-Tooth Dirk",
           "slot": "main_hand",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "A fang as long as your hand, set in a wrapped grip. It still looks hungry.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 9
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "crit_chance_physical": 0.6
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 44,
-          "weapon_damage_max": 59,
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
           "attack_speed": 1.7,
           "label": "Dagger (Agi)"
         },
@@ -209,15 +209,15 @@
           "name": "Canyon-Warden's Signet",
           "slot": "ring",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "A plain band hammered from an old ramp-spike. It has held a lot of weight.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 3
+            "strength": 1,
+            "stamina": 2
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.1
           },
           "label": "Ring (Str/Sta)"
         }
@@ -259,26 +259,26 @@
           "name": "Rimrunner's Leggings",
           "slot": "legs",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "Hide leggings with reinforced knees. For people who spend their lives climbing in and out of holes.",
           "primary_stats": {
-            "agility": 7,
-            "stamina": 6
+            "agility": 5,
+            "stamina": 5
           },
           "armor_type": "leather",
-          "armor_value": 56,
+          "armor_value": 42,
           "label": "Leather Legs (Agi/Sta)"
         },
         {
           "name": "Waystation Warhorn",
           "slot": "neck",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "A small horn on a cord. One blast gets the whole ramp's attention.",
           "primary_stats": {
-            "agility": 3,
+            "agility": 2,
             "intellect": 2
           },
           "label": "Necklace (Agi/Int)"
@@ -287,17 +287,17 @@
           "name": "Crossing-Keeper's Truncheon",
           "slot": "main_hand",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "Short, heavy and well-balanced. Persuasive in a traffic dispute.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 4,
+            "strength": 3,
             "agility": 3,
             "stamina": 3
           },
-          "weapon_damage_min": 44,
-          "weapon_damage_max": 59,
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
           "attack_speed": 2.6,
           "label": "Mace 1H (Str/Agi/Sta)"
         }
@@ -317,7 +317,7 @@
         {
           "type": "kill",
           "target": "Giantbone Hyena",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1084,
@@ -334,8 +334,8 @@
           "required_level": 18,
           "flavor_text": "Lots of pockets. Each one smells of something dead.",
           "primary_stats": {
-            "agility": 4,
-            "stamina": 4
+            "agility": 5,
+            "stamina": 5
           },
           "armor_type": "leather",
           "armor_value": 40,
@@ -409,8 +409,8 @@
           "required_level": 19,
           "flavor_text": "Linked giant knuckle-plates. The belt weighs more than it should and holds up better than it looks.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 2
+            "strength": 3,
+            "stamina": 3
           },
           "armor_type": "plate",
           "armor_value": 51,
@@ -426,7 +426,7 @@
           "weapon_type": "wand",
           "primary_stats": {},
           "secondary_stats": {
-            "shadow_spell_power": 225.1
+            "shadow_spell_power": 3.9
           },
           "weapon_damage_min": 28,
           "weapon_damage_max": 38,
@@ -462,7 +462,7 @@
         {
           "type": "kill",
           "target": "Aged Kodo",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -484,11 +484,11 @@
           "required_level": 20,
           "flavor_text": "A horned helm shaped from a matriarch's horn. It's heavy, and it's warm, and it remembers.",
           "primary_stats": {
-            "stamina": 7
+            "stamina": 4
           },
           "secondary_stats": {
-            "defense_rating": 0.5,
-            "dodge_rating": 0.5
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 80,
@@ -503,8 +503,8 @@
           "flavor_text": "Soft hide, long fur. It looks like it's meant to hold something small.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 190.7,
-            "mp5": 40.9
+            "healing_power": 2.4,
+            "mp5": 0.5
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -519,11 +519,11 @@
           "flavor_text": "A hard, curved horn bound to a haft. Not made to be gentle.",
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 8
+            "strength": 10,
+            "stamina": 13
           },
           "secondary_stats": {
-            "defense_rating": 0.5
+            "defense_rating": 0.8
           },
           "weapon_damage_min": 47,
           "weapon_damage_max": 63,
@@ -546,7 +546,7 @@
         {
           "type": "kill",
           "target": "Bone-Dust Wraith",
-          "count": 8
+          "count": 6
         },
         {
           "type": "kill_boss",
@@ -564,19 +564,19 @@
           "name": "Wraith-Hunter's Marrow-Staff",
           "slot": "main_hand",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "A hollow giant femur, polished by a lot of wind. It sings if you hold it up to the sun.",
           "weapon_type": "staff",
           "primary_stats": {
-            "intellect": 11,
-            "spirit": 11
+            "intellect": 9,
+            "spirit": 9
           },
           "secondary_stats": {
-            "healing_power": 11.9
+            "healing_power": 9.7
           },
-          "weapon_damage_min": 26,
-          "weapon_damage_max": 35,
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
           "attack_speed": 3.2,
           "label": "Staff (Int/Spi)"
         },
@@ -584,36 +584,36 @@
           "name": "Rattlebone Wraps",
           "slot": "wrist",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "Strings of small bones on cloth. They click in time with your heart.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 4
+            "intellect": 2,
+            "stamina": 3
           },
           "secondary_stats": {
             "hit_rating": 0.1
           },
           "armor_type": "cloth",
-          "armor_value": 15,
+          "armor_value": 11,
           "label": "Cloth Bracers (Int/Sta)"
         },
         {
           "name": "Giantbone Breastplate",
           "slot": "chest",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "Sections of giant rib over iron. Bigger than it needs to be, tougher than it looks.",
           "primary_stats": {
-            "stamina": 14
+            "stamina": 6
           },
           "secondary_stats": {
-            "armor": 32.7,
-            "parry_rating": 0.7
+            "armor": 14.0,
+            "parry_rating": 0.3
           },
           "armor_type": "plate",
-          "armor_value": 146,
+          "armor_value": 112,
           "label": "Plate Chest (Sta)"
         }
       ],
@@ -668,11 +668,11 @@
           "flavor_text": "Narrow, curved, and extremely sharp. The grip is wrapped in a stranger's good intentions.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 3,
+            "agility": 2,
             "stamina": 2
           },
           "secondary_stats": {
-            "attack_power": 4.9
+            "attack_power": 3.9
           },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
@@ -708,12 +708,12 @@
         {
           "type": "kill",
           "target": "Blackthorn Boarhound",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
           "target": "Razormane Stalker",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1200,
@@ -730,8 +730,8 @@
           "required_level": 20,
           "flavor_text": "Tough bristled hide, hard to cut and harder to wear to a formal occasion.",
           "primary_stats": {
-            "agility": 2,
-            "spirit": 2
+            "agility": 3,
+            "spirit": 3
           },
           "armor_type": "leather",
           "armor_value": 22,
@@ -747,7 +747,7 @@
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -766,7 +766,7 @@
           "flavor_text": "Mail over leather with thorn-points riveted in. They make for a respectful hug.",
           "primary_stats": {
             "agility": 4,
-            "intellect": 3
+            "intellect": 4
           },
           "armor_type": "mail",
           "armor_value": 53,
@@ -788,7 +788,7 @@
         {
           "type": "kill",
           "target": "Razormane Seer",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -806,37 +806,37 @@
           "name": "Garn-Slayer's Patchwork Leggings",
           "slot": "legs",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "Hide in three colours. They look good, if you can ignore the stitching.",
           "primary_stats": {
-            "agility": 7,
-            "intellect": 7
+            "agility": 4,
+            "intellect": 4
           },
           "secondary_stats": {
-            "attack_power": 11.7
+            "attack_power": 6.7
           },
           "armor_type": "leather",
-          "armor_value": 61,
+          "armor_value": 46,
           "label": "Leather Legs (Agi/Int)"
         },
         {
           "name": "Garn's Flensing Hook",
           "slot": "main_hand",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "A curved blade for lifting pelts. It could also lift other things.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 9
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "crit_chance_physical": 0.6
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 47,
-          "weapon_damage_max": 64,
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
           "attack_speed": 1.7,
           "label": "Dagger (Agi)"
         },
@@ -844,15 +844,15 @@
           "name": "Many-Hide Cloak",
           "slot": "back",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "A cloak sewn from several different animals. Uncomfortably well-made.",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 3
+            "agility": 2,
+            "stamina": 2
           },
           "armor_type": "leather",
-          "armor_value": 24,
+          "armor_value": 18,
           "label": "Cloak (Agi/Sta)"
         }
       ],
@@ -871,12 +871,12 @@
         {
           "type": "kill",
           "target": "Razorfen Bramble-Guard",
-          "count": 8
+          "count": 6
         },
         {
           "type": "kill",
           "target": "Thornhide Boar",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -894,16 +894,16 @@
           "name": "Bramblequeen's Thorned Staff",
           "slot": "main_hand",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "A staff of grown thorn. It's alive. It's a little offended.",
           "weapon_type": "staff",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 359943.8
+            "nature_spell_power": 31.6
           },
-          "weapon_damage_min": 26,
-          "weapon_damage_max": 36,
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
           "attack_speed": 3.2,
           "label": "Staff"
         },
@@ -911,35 +911,35 @@
           "name": "Bramble-Court Hood",
           "slot": "head",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "A hood of woven vine. It sprouts small flowers when you cast something kind.",
           "primary_stats": {
-            "intellect": 11
+            "intellect": 3
           },
           "secondary_stats": {
-            "spell_power": 12.8,
-            "crit_chance_spell": 0.7
+            "spell_power": 3.5,
+            "crit_chance_spell": 0.2
           },
           "armor_type": "cloth",
-          "armor_value": 23,
+          "armor_value": 18,
           "label": "Cloth Helm (Int)"
         },
         {
           "name": "Thornhide Warplate",
           "slot": "chest",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "Plate studded with sharpened thorns. They didn't have to do that, but they did.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 1350.0,
-            "block_rating": 2700.0,
-            "dodge_rating": 1687.5
+            "parry_rating": 0.4,
+            "block_rating": 0.8,
+            "dodge_rating": 0.5
           },
           "armor_type": "plate",
-          "armor_value": 153,
+          "armor_value": 117,
           "label": "Plate Chest"
         }
       ],
@@ -958,7 +958,7 @@
         {
           "type": "kill",
           "target": "Dwarf Miner",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1142,
@@ -975,8 +975,8 @@
           "required_level": 19,
           "flavor_text": "Thick-soled, quiet and easy to run in. A scout's best friend.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 2
+            "intellect": 3,
+            "stamina": 3
           },
           "armor_type": "leather",
           "armor_value": 21,
@@ -1010,11 +1010,11 @@
           "required_level": 19,
           "flavor_text": "A tiny brass spyglass on a cord. You can see a surprising amount through it.",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 1,
+            "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 5.0
+            "attack_power": 2.5
           },
           "label": "Necklace (Agi/Int)"
         }
@@ -1052,11 +1052,11 @@
           "flavor_text": "A short blade set with a glowing shard. It hums when you cast.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "intellect": 4,
+            "intellect": 3,
             "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 2.2
+            "spell_power": 1.9
           },
           "weapon_damage_min": 35,
           "weapon_damage_max": 47,
@@ -1071,11 +1071,11 @@
           "required_level": 20,
           "flavor_text": "Stone-faced plate. They don't scrape. They crush.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
-            "block_rating": 0.4,
-            "block_value": 3.6
+            "block_rating": 0.3,
+            "block_value": 2.7
           },
           "armor_type": "plate",
           "armor_value": 53,
@@ -1089,11 +1089,11 @@
           "required_level": 20,
           "flavor_text": "Grey cloth, stiff with dust. It shakes off magic better than it shakes off dirt.",
           "primary_stats": {
-            "intellect": 7
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 11.2,
-            "mp5": 2.1
+            "spell_power": 3.2,
+            "mp5": 0.6
           },
           "armor_type": "cloth",
           "armor_value": 16,
@@ -1115,12 +1115,12 @@
         {
           "type": "kill",
           "target": "Modan Overseer",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
           "target": "Dwarf Engineer",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1258,
@@ -1137,8 +1137,8 @@
           "required_level": 21,
           "flavor_text": "Leather with brass studs. Good for crowd control and intimidation.",
           "primary_stats": {
-            "strength": 5,
-            "agility": 5
+            "strength": 6,
+            "agility": 6
           },
           "armor_type": "leather",
           "armor_value": 46,
@@ -1153,11 +1153,11 @@
           "flavor_text": "A wrench you can break a skull with. It was designed for pipes.",
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 14
+            "strength": 12
           },
           "secondary_stats": {
-            "hit_rating": 1.1,
-            "crit_chance_physical": 1.1
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
           },
           "weapon_damage_min": 48,
           "weapon_damage_max": 66,
@@ -1173,7 +1173,7 @@
           "flavor_text": "Mail links on a studded strap. It holds everything you own, and all of it rattles.",
           "primary_stats": {
             "agility": 3,
-            "intellect": 2
+            "intellect": 3
           },
           "armor_type": "mail",
           "armor_value": 37,
@@ -1213,55 +1213,55 @@
           "name": "Quarry-Boss's Iron Cap",
           "slot": "head",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "A stout iron cap with a lantern-hook. Dented from every ceiling in the quarry.",
           "primary_stats": {
-            "stamina": 11
+            "stamina": 4
           },
           "secondary_stats": {
-            "block_rating": 1.1,
-            "block_value": 11.6
+            "block_rating": 0.4,
+            "block_value": 4.2
           },
           "armor_type": "plate",
-          "armor_value": 110,
+          "armor_value": 84,
           "label": "Plate Helm (Sta)"
         },
         {
           "name": "Ledger-Keeper's Wraps",
           "slot": "wrist",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "Cloth wraps stitched with a tally pattern. Counting suits you.",
           "primary_stats": {
-            "intellect": 7
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 7.7,
-            "hit_rating": 0.4
+            "spell_power": 2.2,
+            "hit_rating": 0.1
           },
           "armor_type": "cloth",
-          "armor_value": 15,
+          "armor_value": 11,
           "label": "Cloth Bracers (Int)"
         },
         {
           "name": "Quarry-Breaker's Pick",
           "slot": "main_hand",
           "item_level": 24,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 21,
           "flavor_text": "A heavy pick with a short haft. It was used for digging, but it works for other things too.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 6
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "defense_rating": 0.3
+            "defense_rating": 0.2
           },
-          "weapon_damage_min": 47,
-          "weapon_damage_max": 64,
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
           "attack_speed": 2.6,
           "label": "Axe 1H (Str/Sta)"
         }
@@ -1288,7 +1288,7 @@
         {
           "type": "kill",
           "target": "Bael'dun Rifleman",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1258,
@@ -1305,8 +1305,8 @@
           "required_level": 21,
           "flavor_text": "Soft hide, dyed in the colours of dusk. It disappears in grass and in rumours.",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 5
+            "agility": 6,
+            "stamina": 6
           },
           "armor_type": "leather",
           "armor_value": 46,
@@ -1322,7 +1322,7 @@
           "weapon_type": "crossbow",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -1361,7 +1361,7 @@
         {
           "type": "kill",
           "target": "Keep Mastiff",
-          "count": 6
+          "count": 5
         },
         {
           "type": "fetch",
@@ -1384,8 +1384,8 @@
           "flavor_text": "Heavy mail with leather straps. Whatever you walk, it walks where you tell it.",
           "primary_stats": {
             "strength": 4,
-            "agility": 3,
-            "stamina": 3
+            "agility": 4,
+            "stamina": 4
           },
           "armor_type": "mail",
           "armor_value": 78,
@@ -1399,7 +1399,7 @@
           "required_level": 22,
           "flavor_text": "Light, fast and quiet. It doesn't flap. It doesn't dare.",
           "primary_stats": {
-            "agility": 3,
+            "agility": 2,
             "stamina": 2
           },
           "armor_type": "leather",
@@ -1442,7 +1442,7 @@
         {
           "type": "kill",
           "target": "Dwarf Explosives Expert",
-          "count": 8
+          "count": 6
         },
         {
           "type": "fetch",
@@ -1465,8 +1465,8 @@
           "flavor_text": "Thin leather, thick insulation. Made for people who do delicate work near explosives.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 50.0,
-            "parry_rating": 37.5
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "armor_type": "leather",
           "armor_value": 24,
@@ -1480,11 +1480,11 @@
           "required_level": 22,
           "flavor_text": "A brass horn on a chain. It never explodes. It threatens to.",
           "primary_stats": {
-            "intellect": 3,
+            "intellect": 2,
             "stamina": 2
           },
           "secondary_stats": {
-            "spell_power": 1.4
+            "spell_power": 1.1
           },
           "label": "Necklace (Int/Sta)"
         },
@@ -1519,7 +1519,7 @@
         {
           "type": "kill",
           "target": "Bael'dun Sergeant",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill_boss",
@@ -1537,37 +1537,37 @@
           "name": "Ironvein's Gatekeeper Plate",
           "slot": "chest",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "Thick dwarven plate with a vein of bright ore. It rings when struck, and holds.",
           "primary_stats": {
-            "stamina": 16
+            "stamina": 6
           },
           "secondary_stats": {
-            "defense_rating": 1.1,
-            "dodge_rating": 1.1
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
           },
           "armor_type": "plate",
-          "armor_value": 159,
+          "armor_value": 121,
           "label": "Plate Chest (Sta)"
         },
         {
           "name": "Sergeant's Marching Axe",
           "slot": "main_hand",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "A short axe built for crowded places. Fast, honest, and meaner than it looks.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 7
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.3
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 50,
-          "weapon_damage_max": 68,
+          "weapon_damage_min": 38,
+          "weapon_damage_max": 52,
           "attack_speed": 2.6,
           "label": "Axe 1H (Str/Sta)"
         },
@@ -1575,12 +1575,12 @@
           "name": "Keep-Marcher's Ring",
           "slot": "ring",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "A band of dark iron. It looks heavy and feels reassuring.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 3
+            "strength": 2,
+            "stamina": 2
           },
           "label": "Ring (Str/Sta)"
         }
@@ -1600,7 +1600,7 @@
         {
           "type": "kill",
           "target": "Windspire Harpy",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1200,
@@ -1618,7 +1618,7 @@
           "flavor_text": "Soft down and long flight feathers. It rustles when you aren't moving.",
           "primary_stats": {
             "intellect": 4,
-            "stamina": 3
+            "stamina": 4
           },
           "armor_type": "leather",
           "armor_value": 33,
@@ -1634,7 +1634,7 @@
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -1653,7 +1653,7 @@
           "flavor_text": "Mail leggings with wind-cut slits. They breathe in the heat and still turn a blade.",
           "primary_stats": {
             "agility": 5,
-            "intellect": 4
+            "intellect": 5
           },
           "armor_type": "mail",
           "armor_value": 71,
@@ -1680,7 +1680,7 @@
         {
           "type": "kill",
           "target": "Hoodoo Dust Devil",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1258,
@@ -1699,7 +1699,7 @@
           "weapon_type": "wand",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 314.2
+            "nature_spell_power": 4.2
           },
           "weapon_damage_min": 30,
           "weapon_damage_max": 41,
@@ -1778,19 +1778,19 @@
           "name": "Matron's Storm-Feather Wand",
           "slot": "ranged",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "A long feather tipped with a spark. It crackles when you point it.",
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 10.8,
-            "mp5": 2.4
+            "spell_power": 1.8,
+            "mp5": 0.4
           },
-          "weapon_damage_min": 41,
-          "weapon_damage_max": 56,
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 43,
           "attack_speed": 1.9,
           "label": "Wand (Int)"
         },
@@ -1798,25 +1798,25 @@
           "name": "Spire-Weave Robes",
           "slot": "chest",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "Light cloth that doesn't catch on thorns or ideas.",
           "primary_stats": {
-            "intellect": 7,
-            "stamina": 8
+            "intellect": 4,
+            "stamina": 5
           },
           "secondary_stats": {
-            "mp5": 1.5
+            "mp5": 0.9
           },
           "armor_type": "cloth",
-          "armor_value": 31,
+          "armor_value": 24,
           "label": "Cloth Chest (Int/Sta)"
         },
         {
           "name": "Skyshriek-Talon Spear",
           "slot": "main_hand",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "A long spear tipped with a harpy talon. It screams on release.",
           "weapon_type": "polearm",
@@ -1827,8 +1827,8 @@
           "secondary_stats": {
             "attack_power": 19.0
           },
-          "weapon_damage_min": 66,
-          "weapon_damage_max": 89,
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
           "attack_speed": 3.3,
           "label": "Polearm (Agi/Int)"
         }
@@ -1848,12 +1848,12 @@
         {
           "type": "kill",
           "target": "Sunscale Stalker",
-          "count": 8
+          "count": 6
         },
         {
           "type": "kill",
           "target": "Sunscale Lashtail",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1258,
@@ -1870,11 +1870,11 @@
           "required_level": 21,
           "flavor_text": "Overlapping scales over soft hide. It sheds sand and the occasional dagger.",
           "primary_stats": {
-            "agility": 5,
-            "intellect": 5
+            "agility": 4,
+            "intellect": 4
           },
           "secondary_stats": {
-            "attack_power": 8.4
+            "attack_power": 6.7
           },
           "armor_type": "leather",
           "armor_value": 46,
@@ -1890,7 +1890,7 @@
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -1909,7 +1909,7 @@
           "flavor_text": "Gauntlets barbed with lashtail spines. Use caution when applauding.",
           "primary_stats": {
             "strength": 3,
-            "agility": 2
+            "agility": 3
           },
           "armor_type": "mail",
           "armor_value": 37,
@@ -1931,7 +1931,7 @@
         {
           "type": "kill",
           "target": "Nest-Mother Raptor",
-          "count": 4
+          "count": 3
         },
         {
           "type": "kill_boss",
@@ -1949,19 +1949,19 @@
           "name": "Nestwarden's Raptorbone Bow",
           "slot": "ranged",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "Strung with sinew from the alpha herself. It twangs like something remembering how to hunt.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 3
+            "agility": 2,
+            "stamina": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2
+            "hit_rating": 0.1
           },
-          "weapon_damage_min": 42,
-          "weapon_damage_max": 58,
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
           "attack_speed": 2.8,
           "label": "Bow (Agi/Sta)"
         },
@@ -1969,30 +1969,30 @@
           "name": "Nestbreaker's Scale Vest",
           "slot": "chest",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "Overlapping raptor scales over soft hide. It sheds sand and rumours.",
           "primary_stats": {
-            "strength": 8,
-            "agility": 8
+            "strength": 6,
+            "agility": 6
           },
           "armor_type": "leather",
-          "armor_value": 66,
+          "armor_value": 50,
           "label": "Leather Chest (Str/Agi)"
         },
         {
           "name": "Cloak of the Spared Egg",
           "slot": "back",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "Feathered and speckled. Smells faintly of gratitude.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 2,
+            "stamina": 2
           },
           "armor_type": "cloth",
-          "armor_value": 13,
+          "armor_value": 10,
           "label": "Cloak (Int/Sta)"
         }
       ],
@@ -2011,7 +2011,7 @@
         {
           "type": "kill",
           "target": "Sinkhole Burrower",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1316,
@@ -2028,8 +2028,8 @@
           "required_level": 22,
           "flavor_text": "Thick hide with extra pockets. It smells of dirt and ambition.",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 5
+            "strength": 6,
+            "stamina": 6
           },
           "armor_type": "leather",
           "armor_value": 48,
@@ -2045,7 +2045,7 @@
           "weapon_type": "mace_1h",
           "primary_stats": {
             "strength": 3,
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
             "hit_rating": 0.2
@@ -2063,11 +2063,11 @@
           "required_level": 22,
           "flavor_text": "Plates of hardened shell, strapped over mail. They hurt anything that hurts them.",
           "primary_stats": {
-            "stamina": 5
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.3,
-            "dodge_rating": 0.3
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
           },
           "armor_type": "mail",
           "armor_value": 39,
@@ -2089,7 +2089,7 @@
         {
           "type": "kill",
           "target": "Brood Tunnel-Guard",
-          "count": 6
+          "count": 5
         },
         {
           "type": "fetch",
@@ -2111,11 +2111,11 @@
           "required_level": 23,
           "flavor_text": "Layered chitin over plate. It rings when you hit it, and it hits back.",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 6
           },
           "secondary_stats": {
-            "armor": 25.3,
-            "parry_rating": 0.5
+            "armor": 15.2,
+            "parry_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 121,
@@ -2130,11 +2130,11 @@
           "flavor_text": "A long blade ground from a tunnel-guard's claw. The edge is chitin-fine.",
           "weapon_type": "sword_2h",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 9
+            "strength": 11,
+            "stamina": 15
           },
           "secondary_stats": {
-            "defense_rating": 0.6
+            "defense_rating": 0.9
           },
           "weapon_damage_min": 52,
           "weapon_damage_max": 70,
@@ -2150,10 +2150,10 @@
           "flavor_text": "Light chitin over cloth. Insects tend to leave you alone while you wear it.",
           "primary_stats": {
             "intellect": 3,
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
-            "mp5": 0.8
+            "mp5": 0.7
           },
           "armor_type": "cloth",
           "armor_value": 19,
@@ -2195,17 +2195,17 @@
           "name": "Queen-Slayer's Brood-Mace",
           "slot": "main_hand",
           "item_level": 27,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 24,
           "flavor_text": "A scepter of fused chitin with a pulsing sac at the tip. Do not squeeze it.",
           "weapon_type": "mace_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "spell_power": 9849.6,
-            "spell_penetration": 4147.2
+            "spell_power": 5.7,
+            "spell_penetration": 2.4
           },
-          "weapon_damage_min": 52,
-          "weapon_damage_max": 70,
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 53,
           "attack_speed": 2.6,
           "label": "Mace 1H"
         },
@@ -2213,29 +2213,29 @@
           "name": "Tunnel-Slayer's Chitin Cowl",
           "slot": "head",
           "item_level": 27,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 24,
           "flavor_text": "Hard shell plates, stitched with sinew. The cavities hold amber, and the amber holds something.",
           "primary_stats": {
-            "strength": 4,
-            "agility": 4,
-            "stamina": 4
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
           },
           "armor_type": "mail",
-          "armor_value": 82,
+          "armor_value": 63,
           "label": "Mail Helm (Str/Agi/Sta)"
         },
         {
           "name": "Hive-Amber Signet",
           "slot": "ring",
           "item_level": 27,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 24,
           "flavor_text": "A bead of resin, warm to the touch. Something small inside kicks whenever you heal.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 808.4,
-            "mp5": 174.5
+            "healing_power": 2.8,
+            "mp5": 0.6
           },
           "label": "Ring"
         }
@@ -2255,13 +2255,13 @@
         {
           "type": "kill",
           "target": "Hive Drone",
-          "count": 8,
+          "count": 6,
           "zone": "the_broodspiral"
         },
         {
           "type": "kill",
           "target": "Hive Skulker",
-          "count": 6,
+          "count": 5,
           "zone": "the_broodspiral"
         }
       ],
@@ -2280,7 +2280,7 @@
           "flavor_text": "Quilted hide, chalk-stained at the cuffs. Every pocket has a drawing of a tunnel in it.",
           "primary_stats": {
             "strength": 5,
-            "stamina": 4
+            "stamina": 5
           },
           "armor_type": "leather",
           "armor_value": 44,
@@ -2296,7 +2296,7 @@
           "weapon_type": "dagger",
           "primary_stats": {
             "strength": 2,
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
@@ -2352,11 +2352,11 @@
           "required_level": 21,
           "flavor_text": "A cap of cloth with a lens of hive-amber. Everything you look at takes on a golden cast, and a faint resentment.",
           "primary_stats": {
-            "intellect": 4,
+            "intellect": 3,
             "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 2.3
+            "spell_power": 2.0
           },
           "armor_type": "cloth",
           "armor_value": 17,
@@ -2371,7 +2371,7 @@
           "flavor_text": "Resin-hardened hide. Sticky only if you want them to be.",
           "primary_stats": {
             "strength": 3,
-            "agility": 2
+            "agility": 3
           },
           "armor_type": "leather",
           "armor_value": 23,
@@ -2408,7 +2408,7 @@
         {
           "type": "kill",
           "target": "Brood Tender",
-          "count": 6,
+          "count": 5,
           "zone": "the_broodspiral"
         },
         {
@@ -2428,53 +2428,53 @@
           "name": "Keeper's Resin-Leggings",
           "slot": "legs",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "Cloth stiffened with brood-resin. It cracks when you kneel, which is a good reason to stay standing.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 22275.0,
-            "mp5": 4725.0
+            "healing_power": 6.6,
+            "mp5": 1.4
           },
           "armor_type": "cloth",
-          "armor_value": 31,
+          "armor_value": 24,
           "label": "Cloth Legs"
         },
         {
           "name": "Tender-Plate Gauntlets",
           "slot": "hands",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "Chitin over steel. Every plate remembers a different hive.",
           "primary_stats": {
-            "stamina": 8
+            "stamina": 3
           },
           "secondary_stats": {
-            "armor": 19.5,
-            "parry_rating": 0.3
+            "armor": 7.3,
+            "parry_rating": 0.1
           },
           "armor_type": "plate",
-          "armor_value": 76,
+          "armor_value": 58,
           "label": "Plate Gloves (Sta)"
         },
         {
           "name": "Brood-Chamber Thumper",
           "slot": "main_hand",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 22,
           "flavor_text": "A carapace-headed mace. Hits like a tunnel collapsing.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 6
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "hit_rating": 0.3
+            "hit_rating": 0.2
           },
-          "weapon_damage_min": 48,
-          "weapon_damage_max": 66,
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
           "attack_speed": 2.6,
           "label": "Mace 1H (Str/Sta)"
         }
@@ -2500,7 +2500,7 @@
         {
           "type": "kill",
           "target": "Carapace Crusher",
-          "count": 6,
+          "count": 5,
           "zone": "the_broodspiral"
         }
       ],
@@ -2514,19 +2514,19 @@
           "name": "Screenwarden's Crushing Axe",
           "slot": "main_hand",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "A two-handed axe with a carapace-plate head. The Broodguard wore the blade first.",
           "weapon_type": "axe_2h",
           "primary_stats": {
-            "strength": 10,
-            "stamina": 13
+            "strength": 11,
+            "stamina": 15
           },
           "secondary_stats": {
-            "defense_rating": 0.8
+            "defense_rating": 0.9
           },
-          "weapon_damage_min": 68,
-          "weapon_damage_max": 92,
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 70,
           "attack_speed": 3.6,
           "label": "Axe 2H (Str/Sta)"
         },
@@ -2534,36 +2534,36 @@
           "name": "Larval-Silk Mantle",
           "slot": "shoulder",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "Pale silk, spun by something that should have been a moth. Cool to the touch.",
           "primary_stats": {
-            "intellect": 6,
-            "stamina": 6
+            "intellect": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 4.4
+            "spell_power": 2.2
           },
           "armor_type": "cloth",
-          "armor_value": 24,
+          "armor_value": 19,
           "label": "Cloth Shoulders (Int/Sta)"
         },
         {
           "name": "Hollow-Edge Spaulders",
           "slot": "shoulder",
           "item_level": 26,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 23,
           "flavor_text": "Mail laced with hive-amber. A faint glow when anything ugly gets close.",
           "primary_stats": {
-            "intellect": 5,
-            "stamina": 7
+            "intellect": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "mp5": 1.2
+            "mp5": 0.7
           },
           "armor_type": "mail",
-          "armor_value": 79,
+          "armor_value": 60,
           "label": "Mail Shoulders (Int/Sta)"
         }
       ],
@@ -2582,13 +2582,13 @@
         {
           "type": "kill",
           "target": "Razorfen Spearhide",
-          "count": 8,
+          "count": 6,
           "zone": "razorfen_kraul"
         },
         {
           "type": "kill",
           "target": "Razorfen Beast Trainer",
-          "count": 6,
+          "count": 5,
           "zone": "razorfen_kraul"
         }
       ],
@@ -2606,8 +2606,8 @@
           "required_level": 25,
           "flavor_text": "Quilted hide with thorn-guards sewn into the shoulders. It smells of the hill and of Oggra's tobacco.",
           "primary_stats": {
-            "agility": 6,
-            "intellect": 6
+            "agility": 7,
+            "intellect": 7
           },
           "armor_type": "leather",
           "armor_value": 54,
@@ -2622,11 +2622,11 @@
           "flavor_text": "A short hooked blade for cutting thorn, and, if need be, quilboar.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 5
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "hit_rating": 0.3
+            "hit_rating": 0.2
           },
           "weapon_damage_min": 41,
           "weapon_damage_max": 55,
@@ -2642,7 +2642,7 @@
           "flavor_text": "A ring of carved bone. The Spearhide who owned it was no longer using it.",
           "primary_stats": {
             "intellect": 3,
-            "stamina": 2
+            "stamina": 3
           },
           "label": "Ring (Int/Sta)"
         }
@@ -2662,7 +2662,7 @@
         {
           "type": "kill",
           "target": "Razorfen Geomancer",
-          "count": 6,
+          "count": 5,
           "zone": "razorfen_kraul"
         },
         {
@@ -2685,11 +2685,11 @@
           "required_level": 26,
           "flavor_text": "A robe stitched with living briar. Each thorn points away from the wearer, which is considerate.",
           "primary_stats": {
-            "intellect": 6,
-            "stamina": 6
+            "intellect": 5,
+            "stamina": 5
           },
           "secondary_stats": {
-            "spell_power": 4.0
+            "spell_power": 3.3
           },
           "armor_type": "cloth",
           "armor_value": 28,
@@ -2705,7 +2705,7 @@
           "weapon_type": "wand",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 673.3
+            "nature_spell_power": 5.1
           },
           "weapon_damage_min": 35,
           "weapon_damage_max": 48,
@@ -2743,7 +2743,7 @@
         {
           "type": "kill",
           "target": "Razorfen Defender",
-          "count": 6,
+          "count": 5,
           "zone": "razorfen_kraul"
         },
         {
@@ -2768,7 +2768,7 @@
           "flavor_text": "Mail woven through with vine-rope. It creaks when you move and it dares you to climb something.",
           "primary_stats": {
             "strength": 7,
-            "agility": 6
+            "agility": 7
           },
           "armor_type": "mail",
           "armor_value": 96,
@@ -2784,7 +2784,7 @@
           "weapon_type": "mace_1h",
           "primary_stats": {
             "strength": 4,
-            "stamina": 6
+            "stamina": 5
           },
           "secondary_stats": {
             "defense_rating": 0.3
@@ -2802,8 +2802,8 @@
           "required_level": 28,
           "flavor_text": "Soft leather boots, treaded for narrow places and falling.",
           "primary_stats": {
-            "agility": 3,
-            "intellect": 3
+            "agility": 4,
+            "intellect": 4
           },
           "armor_type": "leather",
           "armor_value": 30,
@@ -2849,11 +2849,11 @@
           "required_level": 30,
           "flavor_text": "Cloth sewn with thorn and prayer-beads. It hums quietly with other people's voices.",
           "primary_stats": {
-            "intellect": 14
+            "intellect": 5
           },
           "secondary_stats": {
-            "spell_power": 17.4,
-            "mp5": 3.4
+            "spell_power": 6.2,
+            "mp5": 1.2
           },
           "armor_type": "cloth",
           "armor_value": 32,
@@ -2867,11 +2867,11 @@
           "required_level": 30,
           "flavor_text": "A plate helm with a stylised boar-snout. The tusks are real, which is sad.",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 5
           },
           "secondary_stats": {
-            "defense_rating": 0.8,
-            "dodge_rating": 0.8
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
           },
           "armor_type": "plate",
           "armor_value": 115,
@@ -2887,7 +2887,7 @@
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 2,
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -2913,7 +2913,7 @@
         {
           "type": "kill",
           "target": "Thornback Sow",
-          "count": 6,
+          "count": 5,
           "zone": "razorfen_kraul"
         },
         {
@@ -2933,36 +2933,36 @@
           "name": "Boarlord's Tusk-Plate",
           "slot": "chest",
           "item_level": 35,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 32,
           "flavor_text": "Plate grown over a pen-keeper's rib-guard. The tusk-spikes are decoration, mostly.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 4800.0,
-            "block_rating": 8800.0,
-            "dodge_rating": 5600.0
+            "parry_rating": 0.6,
+            "block_rating": 1.1,
+            "dodge_rating": 0.7
           },
           "armor_type": "plate",
-          "armor_value": 214,
+          "armor_value": 163,
           "label": "Plate Chest"
         },
         {
           "name": "Pen-Breaker's Maul",
           "slot": "main_hand",
           "item_level": 35,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 32,
           "flavor_text": "A two-handed maul with a boar's skull for a head. It hits like a collapsing corral.",
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 30
+            "strength": 18
           },
           "secondary_stats": {
-            "hit_rating": 2.2,
-            "crit_chance_physical": 2.2
+            "hit_rating": 1.3,
+            "crit_chance_physical": 1.3
           },
-          "weapon_damage_min": 87,
-          "weapon_damage_max": 118,
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
           "attack_speed": 3.6,
           "label": "Mace 2H (Str)"
         },
@@ -2970,15 +2970,15 @@
           "name": "Overlord's Warcloak",
           "slot": "back",
           "item_level": 35,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 32,
           "flavor_text": "A heavy cloak of boar-hide. It rustles and whispers menacing little oaths.",
           "primary_stats": {
-            "intellect": 5,
-            "stamina": 4
+            "intellect": 3,
+            "stamina": 3
           },
           "armor_type": "cloth",
-          "armor_value": 17,
+          "armor_value": 13,
           "label": "Cloak (Int/Sta)"
         }
       ],
@@ -2997,7 +2997,7 @@
         {
           "type": "kill",
           "target": "Razorfen Ward-Keeper",
-          "count": 5,
+          "count": 4,
           "zone": "razorfen_kraul"
         },
         {
@@ -3022,34 +3022,34 @@
           "name": "Pit-Warden's Stoneward Shield",
           "slot": "off_hand",
           "item_level": 35,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 32,
           "flavor_text": "A shield of warded stone. It still hums with the binding that held the beast.",
           "weapon_type": "shield",
           "primary_stats": {
-            "stamina": 9
+            "stamina": 7
           },
-          "armor_value": 71,
-          "block_value": 89,
+          "armor_value": 54,
+          "block_value": 68,
           "label": "Shield (Sta)"
         },
         {
           "name": "Beastcaller's Fang-Dagger",
           "slot": "main_hand",
           "item_level": 35,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 32,
           "flavor_text": "A dagger carved from a beast-pit fang. It likes your hand.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 13
+            "agility": 4
           },
           "secondary_stats": {
-            "hit_rating": 1.0,
-            "crit_chance_physical": 1.0
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
           },
-          "weapon_damage_min": 64,
-          "weapon_damage_max": 87,
+          "weapon_damage_min": 49,
+          "weapon_damage_max": 67,
           "attack_speed": 1.7,
           "label": "Dagger (Agi)"
         },
@@ -3057,12 +3057,12 @@
           "name": "Ward-Stone Pendant",
           "slot": "neck",
           "item_level": 35,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 32,
           "flavor_text": "A seal-stone pendant, still faintly warm. It dulls the blows you take.",
           "primary_stats": {
-            "stamina": 5,
-            "spirit": 4
+            "stamina": 3,
+            "spirit": 3
           },
           "label": "Necklace (Sta/Spi)"
         }
@@ -3082,7 +3082,7 @@
         {
           "type": "kill",
           "target": "Razorfen Totemic",
-          "count": 6,
+          "count": 5,
           "zone": "razorfen_kraul"
         },
         {
@@ -3102,70 +3102,70 @@
           "name": "Razorflank's Thornweave Mantle",
           "slot": "shoulder",
           "item_level": 37,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 34,
           "flavor_text": "Cloth woven from living briar. It pulses faintly when something nearby needs healing.",
           "primary_stats": {
-            "stamina": 9,
-            "intellect": 8
+            "stamina": 5,
+            "intellect": 5
           },
           "secondary_stats": {
-            "healing_power": 5.3
+            "healing_power": 3.1
           },
           "armor_type": "cloth",
-          "armor_value": 35,
+          "armor_value": 27,
           "label": "Cloth Shoulders (Sta/Int)"
         },
         {
           "name": "Chieftain's Thorn-Guard Greaves",
           "slot": "legs",
           "item_level": 37,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 34,
           "flavor_text": "Plate legguards edged with thorn. Enemies bleed before they have the sense to run.",
           "primary_stats": {
-            "stamina": 23
+            "stamina": 9
           },
           "secondary_stats": {
-            "armor": 55.2,
-            "parry_rating": 1.0
+            "armor": 21.6,
+            "parry_rating": 0.4
           },
           "armor_type": "plate",
-          "armor_value": 226,
+          "armor_value": 173,
           "label": "Plate Legs (Sta)"
         },
         {
           "name": "Agamaggan's Boarhide Belt",
           "slot": "waist",
           "item_level": 37,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 34,
           "flavor_text": "A belt of ancient boar-hide, scarred and thick. It makes you feel hunted, and quick.",
           "primary_stats": {
-            "strength": 6,
-            "agility": 5
+            "strength": 4,
+            "agility": 4
           },
           "armor_type": "leather",
-          "armor_value": 47,
+          "armor_value": 36,
           "label": "Leather Belt (Str/Agi)"
         },
         {
           "name": "Quilboar Queen's Longbow",
           "slot": "ranged",
           "item_level": 37,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 34,
           "flavor_text": "A great bow of quilboar-bone and sinew. It sings when strung.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 5
+            "agility": 2,
+            "stamina": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.2
+            "hit_rating": 0.1
           },
-          "weapon_damage_min": 57,
-          "weapon_damage_max": 78,
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 59,
           "attack_speed": 2.8,
           "label": "Bow (Agi/Sta)"
         }
@@ -3185,7 +3185,7 @@
         {
           "type": "kill",
           "target": "Razorfen Handler",
-          "count": 8,
+          "count": 6,
           "zone": "razorfen_kraul"
         },
         {
@@ -3209,11 +3209,11 @@
           "required_level": 29,
           "flavor_text": "Soft leather, cut for quiet movement. It hushes the sound of your breath, and your boots.",
           "primary_stats": {
-            "agility": 6,
-            "stamina": 8
+            "agility": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "hit_rating": 0.4
+            "hit_rating": 0.3
           },
           "armor_type": "leather",
           "armor_value": 62,
@@ -3228,11 +3228,11 @@
           "flavor_text": "A dagger with a handle wrapped in cord to find the grip by feel.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 9
+            "agility": 4
           },
           "secondary_stats": {
-            "hit_rating": 0.7,
-            "crit_chance_physical": 0.7
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
           },
           "weapon_damage_min": 45,
           "weapon_damage_max": 62,

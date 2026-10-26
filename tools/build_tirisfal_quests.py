@@ -36,7 +36,7 @@ DROPS = ROOT / "data/creatures/quest_drops.json"
 WT, ET, BR = "western_tirisfal", "eastern_tirisfal", "brill"
 SC = "scourge_cave"
 
-XP = {4: 210, 5: 280, 6: 330, 7: 380, 8: 420, 9: 470, 10: 520, 11: 600, 12: 680, 13: 760}
+XP = {4: 250, 5: 340, 6: 400, 7: 460, 8: 500, 9: 560, 10: 620, 11: 720, 12: 820, 13: 910}
 GOLD = {4: 550, 5: 850, 6: 1100, 7: 1500, 8: 1800, 9: 2100, 10: 2400, 11: 2700, 12: 3200, 13: 3600}
 
 
@@ -94,7 +94,7 @@ def quests():
     A(Q("brl_wolves", "Wolves at the Door", RENNICK, BR, 6, 8, "vale",
         "Bleak Worgs have been trotting up the Deathknell road after dark. They haven't bitten anyone in Brill yet, which Rennick "
         "considers a stroke of luck and a warning. Thin the pack in Nightmare Vale before the luck runs out.",
-        [k("Bleak Worg", 8, WT)],
+        [k("Bleak Worg", 5, WT)],
         "Take the west road down to the Vale. Eight worgs. Bring me the count and I'll pretend I'm not worried.",
         "Eight? Good. Brill sleeps lighter than it admits. Take something from the crate.", "brl_nightmare"))
     A(Q("brl_nightmare", "Into the Nightmare Vale", RENNICK, BR, 7, 9, "vale",
@@ -106,7 +106,7 @@ def quests():
     A(Q("brl_glades", "Thin the Glades", GUARD, BR, 6, 8, "brill",
         "The Wretched Zombies that wander the glades west of Brill have started drifting toward the gate. They are slow and "
         "stupid and mean no harm, but the gate guard has a quota of corpses he is willing to step over.",
-        [k("Wretched Zombie", 8, WT)],
+        [k("Wretched Zombie", 5, WT)],
         "Out along the road west. Zombies. Put eight of them down and I'll let you back in without a lecture.",
         "That's the road clear. I was getting a crick from all the stepping over.", None))
     A(Q("brl_news_landing", "Tidings from the Landing", WEX, BR, 7, 9, "landing",
@@ -142,7 +142,7 @@ def quests():
     A(Q("brl_hollis_robbers", "Fresh Graves, Empty", HOLLIS, BR, 8, 10, "haunt",
         "Gravedigger Hollis has been digging graves for thirty years, living and dead, and he knows when one's been robbed. "
         "Rot Hide gnolls up at Garren's Haunt are doing it, and they leave the bodies in the wrong places.",
-        [k("Rot Hide Graverobber", 6, WT)],
+        [k("Rot Hide Graverobber", 4, WT)],
         "The graverobbers use shovels. I recognise the shovels. They're mine. Put them in the ground.",
         "Six less. I'd say rest in peace, but they never earned it. Take your pick.", "brl_hollis_relics"))
     A(Q("brl_hollis_relics", "Returned to the Earth", HOLLIS, BR, 8, 10, "crypt",
@@ -160,25 +160,25 @@ def quests():
     A(Q("brl_nettles_crows", "Crows Over Brill", NETTLES, BR, 6, 8, "farm",
         "Old Farmer Nettles swears the duskbats over the glades are the crows that used to eat his barley, and that they're "
         "still after it. Nothing grows, but he insists on the principle.",
-        [k("Mangy Duskbat", 8, WT)],
+        [k("Mangy Duskbat", 5, WT)],
         "Out in the glades, the big grey ones. They've had my crop and my patience. Eight of them, if you please.",
         "Eight. I'll hang them on the fence. It's what you do. Take some of the old tack.", None))
     A(Q("brl_pruit_straw", "Straw and Sorrow", PRUIT, BR, 6, 8, "farm",
         "Pruit tends the scarecrows that guard Brill's plots. The Rotting Dead that stumble in from the glades keep knocking "
         "them down and, worse, leaving their own shapes on the posts. He wants them cleared.",
-        [k("Rotting Dead", 7, WT)],
+        [k("Rotting Dead", 4, WT)],
         "Seven, and don't bring them back. I'll make do with straw.",
         "Straw's easier to stand up than they are. Thank you, friend. Take what you need.", None))
     A(Q("brl_ohmsted_toll", "A Toll for the Drowned", OHM, BR, 8, 10, "lake",
         "The bell-ringer rings once a day for those lost at Brightwater Lake. Lately the Drowned Wretches ring back, from "
         "the water. He wants them quiet.",
-        [k("Drowned Wretch", 7, ET)],
+        [k("Drowned Wretch", 4, ET)],
         "East past Brill, the big lake on the north side. They rise at dusk and wail. Seven, please.",
         "Quieter, I think. Or I've gone deaf. Either way, thank you.", "brl_ohmsted_shades"))
     A(Q("brl_ohmsted_shades", "Silence the Weeping", OHM, BR, 8, 10, "lake",
         "The Weeping Shades answer the toll with their own. It is the worst sound in Tirisfal. Ohmsted would like them "
         "gone, or at least discouraged.",
-        [k("Weeping Shade", 6, ET)],
+        [k("Weeping Shade", 4, ET)],
         "Same lake. The shades. They're rather high-handed about it. Six, if you can stomach it.",
         "I can hear the bell again. It's a lovely sound, if you're me.", None))
     A(Q("brl_joss_home", "The Old Homestead", JOSS, BR, 9, 11, "balnir",
@@ -204,45 +204,45 @@ def quests():
     A(Q("wtv_wolves", "Howls in the Vale", CORVIN, WT, 5, 7, "vale",
         "Ranger Corvin Ashe walks the Vale's edge for the Deathguard, and the Bleak Worgs have been getting bolder. He "
         "needs the pack thinned before it learns to climb the road.",
-        [k("Bleak Worg", 8, WT)],
+        [k("Bleak Worg", 5, WT)],
         "They hunt in the dusk. Eight should keep them wary. Aim for the grey ones, they lead.",
         "That's quieter. Nobody ever thanks a ranger for what doesn't happen. I'm thanking you.", "wtv_crawlers"))
     A(Q("wtv_crawlers", "Crawling Things", CORVIN, WT, 5, 7, "vale",
         "Nightcrawlers burrow in the Vale's loam and snap at anyone who walks overhead. Corvin has lost two boots to them "
         "and more dignity than he cares to admit.",
-        [k("Young Nightcrawler", 7, WT)],
+        [k("Young Nightcrawler", 4, WT)],
         "Under the roots. You'll feel them before you see them. Seven, please, before they grow.",
         "Good. A man can walk again. Take a piece of the kit.", "wtv_needler"))
     A(Q("wtv_needler", "The Needler", CORVIN, WT, 6, 8, "vale",
         "A big old duskbat called Ressan the Needler nests above the Vale road. Needle-sharp teeth, a taste for ankles, "
         "and a flock that follows him. Corvin has had enough.",
-        [boss("Ressan the Needler", WT), k("Mangy Duskbat", 4, WT)],
+        [boss("Ressan the Needler", WT), k("Mangy Duskbat", 2, WT)],
         "He's a brute, flies low, and screams. Clear his flock and then him. I'll watch from here, with my boots on.",
         "He's down. I can hear myself think. Well done. Take your pick.", None))
     # ---- Pell: Cold Hearth Manor
     A(Q("wt_manor_reapers", "Reapers at the Door", PELL, WT, 6, 8, "manor",
         "Watcher Pell has kept the Cold Hearth gate for a year and the reapers have never stopped coming. They come "
         "up out of the manor cellars with scythes and no manners.",
-        [k("Manor Reaper", 8, WT)],
+        [k("Manor Reaper", 5, WT)],
         "Eight, and be careful with the scythes. They've been sharpened since before you died.",
         "Eight. That's the first quiet watch in a month. Take something from the pile.", "wt_manor_dead"))
     A(Q("wt_manor_dead", "The Hall Fills Up", PELL, WT, 7, 9, "manor",
         "The reapers aren't the only thing in the hall. Zombies and Rotting Dead pour out of the grounds as if the manor "
         "were calling them home.",
-        [k("Wretched Zombie", 6, WT), k("Rotting Dead", 4, WT)],
+        [k("Wretched Zombie", 4, WT), k("Rotting Dead", 2, WT)],
         "Clear the gardens. Zombies and the rotted ones. The sooner they stop coming, the sooner I stop watching.",
         "The gardens are empty. For now. Thank you. Your pick of the lot.", "wt_aldous"))
     A(Q("wt_aldous", "The Reaper-Lord", PELL, WT, 8, 9, "manor",
         "Reaper-Lord Aldous is what the manor's dead report to: a tall, scythe-armed wreck who thinks the hall is still "
         "his. Pell would like him to be wrong.",
-        [boss("Reaper-Lord Aldous", WT), k("Manor Reaper", 4, WT)],
+        [boss("Reaper-Lord Aldous", WT), k("Manor Reaper", 2, WT)],
         "Inside the hall, at the hearth. His reapers will guard him. Take them first, then Aldous.",
         "The Lord of the Hall, in pieces. I'll have the hearth lit again. Take what you want.", None))
     # ---- Quillon: Whispering Shore
     A(Q("wts_puddlejumpers", "Vile Fins on the Strand", QUILLON, WT, 6, 8, "shore",
         "Fisher Quillon's nets are in tatters and his boat is gone. The Vile Fin murlocs on Whispering Shore took the boat "
         "and use the nets as hats. He wants them put in their place.",
-        [k("Vile Fin Puddlejumper", 8, WT)],
+        [k("Vile Fin Puddlejumper", 5, WT)],
         "Along the strand to the north-west. The little ones. Eight, and bring back my dignity if you find it.",
         "That'll teach them. Probably not, but it'll teach me something. Take a piece of what's left.", "wts_pearls"))
     A(Q("wts_pearls", "Oracle's Pearls", QUILLON, WT, 7, 9, "shore",
@@ -254,70 +254,70 @@ def quests():
     A(Q("wts_gillrot", "Old Gillrot", QUILLON, WT, 8, 9, "shore",
         "Old Gillrot leads the Vile Fins, a withered oracle with a staff made from a drowned man's mast. He's the one "
         "who stole the boat. Quillon wants it back.",
-        [boss("Old Gillrot", WT), k("Vile Fin Minor Oracle", 4, WT)],
+        [boss("Old Gillrot", WT), k("Vile Fin Minor Oracle", 2, WT)],
         "He sits on the biggest rock. His oracles heal him, so thin them first, then Gillrot.",
         "My boat's still rotten, but it's mine. Take whatever you like from his trove.", None))
     # ---- Dessa: Crusader Outpost
     A(Q("wto_converts", "Fresh Converts", DESSA, WT, 7, 9, "outpost",
         "Scout Dessa Vane watches the Crusader Outpost from the thorn-line. New recruits arrive weekly, wide-eyed and "
         "fanatical. The Deathguard would like fewer of them.",
-        [k("Scarlet Convert", 8, WT)],
+        [k("Scarlet Convert", 5, WT)],
         "They're green and enthusiastic. That makes them dangerous. Eight, and keep to the shadows.",
         "Fewer recruits, fewer problems. The Crusade bleeds. Take your pick.", "wto_initiates"))
     A(Q("wto_initiates", "Initiates and Banners", DESSA, WT, 8, 9, "outpost",
         "Behind the converts stand the Initiates: trained, armed and devout. They carry the Crusade's banners and the "
         "outpost's stubbornness. Dessa wants them cut down before they march on Brill.",
-        [k("Scarlet Initiate", 6, WT)],
+        [k("Scarlet Initiate", 4, WT)],
         "They're better than the converts. Don't engage more than two at once. Six, please.",
         "A good cut. I'd say the Crusade will feel that. Take what you can carry.", "wto_korgal"))
     A(Q("wto_korgal", "Meven Korgal", DESSA, WT, 8, 9, "outpost",
         "Meven Korgal commands the Crusader Outpost: a veteran, a zealot and an excellent shot with a prayer. If he "
         "falls, the outpost will fall with him.",
-        [boss("Meven Korgal", WT), k("Scarlet Convert", 4, WT)],
+        [boss("Meven Korgal", WT), k("Scarlet Convert", 2, WT)],
         "He's at the heart of the camp. His recruits will rally. Take them first, then him.",
         "Korgal's dead. The camp's a rabble. That'll buy Brill a season. Take your pick.", None))
     # ---- Marren: Solliden Farmstead
     A(Q("wtf_farmhands", "Hands Without Masters", MARREN, WT, 6, 8, "farm",
         "Widow Marren's farmhands stayed on after the master died, and after they died. They work the fields all hours "
         "with rusted tools and no direction.",
-        [k("Solliden Farmhand", 8, WT)],
+        [k("Solliden Farmhand", 5, WT)],
         "They don't know any better. Put them down gently. They were good men.",
         "Thank you. I'll sit with the ones who remain. Please, take something.", "wtf_threshers"))
     A(Q("wtf_threshers", "Blighted Harvest", MARREN, WT, 6, 8, "farm",
         "The grain threshers, blighted machines that run themselves, have eaten the last of the harvest and are looking for "
         "more. Marren cannot stop them.",
-        [k("Blighted Grain Thresher", 7, WT)],
+        [k("Blighted Grain Thresher", 4, WT)],
         "They're iron and rot. Seven of them, before they find the house.",
         "The fields are quiet. Still ruined, but quiet. Take some of the old tack.", "wtf_goodman"))
     A(Q("wtf_goodman", "Goodman Solliden", MARREN, WT, 7, 8, "farm",
         "Her husband, Goodman Solliden, walks the fields with a pitchfork and a blighted grin. She wants him laid to rest, "
         "and doesn't want to watch.",
-        [boss("Goodman Solliden", WT), k("Solliden Farmhand", 4, WT)],
+        [boss("Goodman Solliden", WT), k("Solliden Farmhand", 2, WT)],
         "He's out among the pumpkins. His men will guard him. Be kind to him, if you can.",
         "...Thank you. He was a good man once. Take his things. I can't look at them.", None))
     # ---- Oswin: Stillwater Pond
     A(Q("wtp_lurkers", "Things in the Silt", OSWIN, WT, 5, 7, "pond",
         "Hermit Oswin lives by Stillwater Pond because no one else will. The crab-like lurkers in the silt are the only "
         "neighbours he has, and they bite.",
-        [k("Stillwater Lurker", 8, WT)],
+        [k("Stillwater Lurker", 5, WT)],
         "They hide in the mud and pinch. Eight, and watch your ankles.",
         "Fewer pincers. A man can wash his feet again. Thanks.", "wtp_dead"))
     A(Q("wtp_dead", "The Drowned Choir", OSWIN, WT, 6, 8, "pond",
         "The Rotting Dead shuffle out of the pond at all hours, singing a hymn no one remembers. Oswin finds it unrestful.",
-        [k("Rotting Dead", 7, WT)],
+        [k("Rotting Dead", 4, WT)],
         "They hum. I can't stand the humming. Seven, please.",
         "Silence at last. I think I'll sleep. Take your pick.", "wtp_murk"))
     A(Q("wtp_murk", "Murk the Bloated", OSWIN, WT, 6, 7, "pond",
         "Something large sits at the bottom of the pond. Oswin calls it Murk. It bloats with every drowned thing and "
         "belches them up on the shore.",
-        [boss("Murk the Bloated", WT), k("Stillwater Lurker", 4, WT)],
+        [boss("Murk the Bloated", WT), k("Stillwater Lurker", 2, WT)],
         "It comes up when you splash. Clear the lurkers, then call it out. Don't fight in the water.",
         "The pond's clear. Well, clearer. Take his treasures. I've no use for them.", None))
     # ---- Sorren: Agamand Mills
     A(Q("wta_servants", "The Agamand Staff", SORREN, WT, 8, 10, "mills",
         "Envoy Sorren speaks for Brill at the old mill. The Agamand servants still tend the house they died in, and "
         "they'll murder anyone who tries to take the grain.",
-        [k("Agamand Servant", 8, WT)],
+        [k("Agamand Servant", 5, WT)],
         "They're stubborn, not smart. Eight, and don't let them corner you in the mill-race.",
         "That'll thin the household. Sorren thanks you. Take your pick.", "wta_keys"))
     A(Q("wta_keys", "Keys to the Cellar", SORREN, WT, 8, 10, "mills",
@@ -329,39 +329,39 @@ def quests():
     A(Q("wta_thurman", "Thurman Agamand", SORREN, WT, 9, 10, "mills",
         "Thurman Agamand was the miller, then the lord, then something worse. He reigns in the mill-house with a "
         "family of ghouls. Sorren wants the house back.",
-        [boss("Thurman Agamand", WT), k("Agamand Family Ghoul", 4, WT)],
+        [boss("Thurman Agamand", WT), k("Agamand Family Ghoul", 2, WT)],
         "He's at the heart of the mill. His ghouls come first. Be ready.",
         "The mill's ours. The Agamands are dust. Take what you like from the strongbox.", None))
     # ---- Halvard: Agamand Family Crypt
     A(Q("wtc_wights", "Wights Below", HALVARD, WT, 9, 10, "crypt",
         "Keeper Halvard guards the Agamand crypt gate and has not been inside since the wights woke. They hold the "
         "vaults now, and he wants them cleared.",
-        [k("Agamand Crypt Wight", 8, WT)],
+        [k("Agamand Crypt Wight", 5, WT)],
         "They're strong, hungry and old. Eight, and don't let them gang up.",
         "That's the vaults breathing easier. Thank you. Take something.", "wtc_dargol"))
     A(Q("wtc_dargol", "Captain Dargol", HALVARD, WT, 9, 10, "crypt",
         "Captain Dargol, last of the Agamand guard, rose to defend a family that is already dust. He fights anything that "
         "comes near the dead.",
-        [boss("Captain Dargol", WT), k("Agamand Crypt Wight", 4, WT)],
+        [boss("Captain Dargol", WT), k("Agamand Crypt Wight", 2, WT)],
         "He's at the deepest vault. His wights guard the door. Clear them, then him.",
         "Dargol's at rest. The vault is ours. Take your pick of the old arms.", None))
     # ---- Brask: Garren's Haunt
     A(Q("wth_mongrels", "Mongrels in the Fields", BRASK, WT, 8, 10, "haunt",
         "Warden Brask holds the line at Garren's Haunt. The Rot Hide mongrels that follow the gnolls have turned the "
         "fields into a kennel.",
-        [k("Rot Hide Mongrel", 8, WT)],
+        [k("Rot Hide Mongrel", 5, WT)],
         "They come in packs, mangy and starved. Eight, please.",
         "That's the field quiet. Take a piece of the kit.", "wth_gnolls"))
     A(Q("wth_gnolls", "Gnoll Camp", BRASK, WT, 8, 10, "haunt",
         "Behind the mongrels stand the Rot Hide gnolls: brutes in stitched hide with clubs as long as your arm. They "
         "dig up graves for fun. Brask is not amused.",
-        [k("Rot Hide Gnoll", 7, WT)],
+        [k("Rot Hide Gnoll", 4, WT)],
         "They have clubs and bad tempers. Seven should get the message across.",
         "Seven fewer clubs. Excellent. Your pick.", "wth_maggot"))
     A(Q("wth_maggot", "Maggot Eye", BRASK, WT, 9, 10, "haunt",
         "Maggot Eye is the gnoll chieftain: scarred, rotted and bigger than the rest. His tribe follows him because he "
         "bites harder than they do.",
-        [boss("Maggot Eye", WT), k("Rot Hide Gnoll", 4, WT)],
+        [boss("Maggot Eye", WT), k("Rot Hide Gnoll", 2, WT)],
         "He sits in the middle of the camp. His guards come first. Be quick.",
         "Maggot Eye's gone. The tribe will scatter. Take your pick of the camp's loot.", None))
 
@@ -375,19 +375,19 @@ def quests():
     A(Q("etl_dusk", "Dusk Over the Landing", LINNEA, ET, 7, 9, "landing",
         "Deathguard Linnea keeps order at the zeppelin landing. Duskbats roost in the ropes and drop on passengers. It "
         "is, she says, bad for business.",
-        [k("Mangy Duskbat", 8, ET)],
+        [k("Mangy Duskbat", 5, ET)],
         "Up in the ropes and along the road. Eight, please, before the next boat.",
         "The landing is quieter. Thank you. Take something from the supply crate.", "etl_dead"))
     A(Q("etl_dead", "Walkers on the Brill Road", LINNEA, ET, 7, 9, "landing",
         "Zombies wander the road between Brill and the landing, blocking carts. They are slow and sullen and utterly "
         "uninterested in being moved.",
-        [k("Wretched Zombie", 8, ET)],
+        [k("Wretched Zombie", 5, ET)],
         "They block the road and the carts. Eight, and drag them off the verge.",
         "The road is clear. Now we can complain about something else. Take your pick.", "etl_remnants"))
     A(Q("etl_remnants", "Ghosts of the Throne", LINNEA, ET, 9, 11, "ruins",
         "South of the landing lie the Ruins of Lordaeron: the old capital, the Undercity gate, and a thousand remnants of "
         "men who never left. They snap at anyone who passes.",
-        [k("Lordaeron Remnant", 8, ET)],
+        [k("Lordaeron Remnant", 5, ET)],
         "Go south, to the ruins. The remnants are tireless. Eight, and don't stand in the open.",
         "That will give the road a rest. Take what you need.", "etl_signets"))
     A(Q("etl_signets", "Signets of Lordaeron", LINNEA, ET, 9, 11, "ruins",
@@ -400,7 +400,7 @@ def quests():
     A(Q("etm_restless", "The Restless of Faol", MORVYN, ET, 8, 10, "faol",
         "Gravekeeper Morvyn tends Faol's Rest, the old pilgrims' graveyard. The dead there will not stay put; they claw up "
         "through the soil and stand in the rows.",
-        [k("Faol's Restless", 8, ET)],
+        [k("Faol's Restless", 5, ET)],
         "They wander the rows. Eight, and be gentle with the stones.",
         "Back in the ground, or near enough. Thank you. Take your pick.", "etm_seals"))
     A(Q("etm_seals", "Faol's Seal", MORVYN, ET, 8, 10, "faol",
@@ -412,14 +412,14 @@ def quests():
     A(Q("etm_melrache", "Captain Melrache", MORVYN, ET, 9, 10, "faol",
         "A Scarlet captain, Melrache, has made Faol's Rest his camp, digging up graves and calling it a crusade. Morvyn "
         "would like him to dig his own.",
-        [boss("Captain Melrache", ET), k("Faol's Restless", 4, ET)],
+        [boss("Captain Melrache", ET), k("Faol's Restless", 2, ET)],
         "He sits at the north end of the rows. Clear the restless, then him.",
         "Melrache's dead. Faol can rest. Take your pick of the camp.", None))
     # ---- Gunther: Brightwater Lake
     A(Q("etg_wretches", "Lake of the Drowned", GUNTHER, ET, 8, 10, "lake",
         "Warden Gunther Lorn watches Brightwater Lake. Drowned Wretches crawl out of it at dusk, moaning the names of "
         "the lost. He wants them back in the water.",
-        [k("Drowned Wretch", 8, ET)],
+        [k("Drowned Wretch", 5, ET)],
         "They come out at dusk. Eight, and keep your feet dry if you can.",
         "That's the shore quiet. Thanks. Take your pick.", "etg_ice"))
     A(Q("etg_ice", "Shards of the Cold Lake", GUNTHER, ET, 8, 10, "lake",
@@ -431,33 +431,33 @@ def quests():
     A(Q("etg_bethor", "Bethor Iceshard", GUNTHER, ET, 9, 10, "lake",
         "Bethor Iceshard is a shade who has grown too cold to die. He stands at the centre of the lake and drains the "
         "warmth from anything near.",
-        [boss("Bethor Iceshard", ET), k("Weeping Shade", 4, ET)],
+        [boss("Bethor Iceshard", ET), k("Weeping Shade", 2, ET)],
         "He stands where the ice is thickest. His shades guard him. Take them first.",
         "The lake is warming already. I can feel it. Take your pick.", None))
     # ---- Hallam: Crusader's Outpost
     A(Q("eth_converts", "Recruits on the Rise", HALLAM, ET, 8, 10, "outpost",
         "Scout Hallam watches the Crusader's Outpost east of Brill. The recruits there are loud, young and entirely "
         "unprepared. They're also a month away from being a threat.",
-        [k("Scarlet Convert", 8, ET)],
+        [k("Scarlet Convert", 5, ET)],
         "They train in the yard. Eight, and keep them from the road.",
         "Fewer recruits, fewer problems. Take your pick.", "eth_initiates"))
     A(Q("eth_initiates", "Initiates of the Outpost", HALLAM, ET, 9, 10, "outpost",
         "Behind the recruits come the Initiates: drilled, armed and fanatical. They guard the outpost's gate and its "
         "secrets.",
-        [k("Scarlet Initiate", 6, ET)],
+        [k("Scarlet Initiate", 4, ET)],
         "Don't take more than two at a time. Six should give them pause.",
         "Six. They'll be rattled. Take something from the supply.", "eth_brennic"))
     A(Q("eth_brennic", "Crusader Brennic", HALLAM, ET, 9, 10, "outpost",
         "Crusader Brennic commands the outpost. He's strong, devout and utterly merciless. Without him, the garrison "
         "will fall.",
-        [boss("Crusader Brennic", ET), k("Scarlet Convert", 4, ET)],
+        [boss("Crusader Brennic", ET), k("Scarlet Convert", 2, ET)],
         "He's in the tower. His recruits rally to him. Take them first, then him.",
         "Brennic's down. The outpost is leaderless. Take your pick.", None))
     # ---- Ravel: Venomweb Vale
     A(Q("etr_skitterers", "Skitterers of the Vale", RAVEL, ET, 10, 11, "venom",
         "Huntress Ravel tracks the spiders of Venomweb Vale. The skitterers breed faster than she can hunt them, and "
         "their bite paralyses.",
-        [k("Venomweb Skitterer", 8, ET)],
+        [k("Venomweb Skitterer", 5, ET)],
         "They hide in the webs. Eight, and watch for the big one.",
         "The Vale is quieter. Thanks. Take something.", "etr_sacs"))
     A(Q("etr_sacs", "Venom for the Apothecary", RAVEL, ET, 10, 11, "venom",
@@ -469,33 +469,33 @@ def quests():
     A(Q("etr_mother", "Mother Venomweb", RAVEL, ET, 10, 11, "venom",
         "Mother Venomweb is the matriarch of the Vale: a huge spider, venom-fat and cunning. Every skitterer in the "
         "Vale is her brood.",
-        [boss("Mother Venomweb", ET), k("Venomweb Skitterer", 4, ET)],
+        [boss("Mother Venomweb", ET), k("Venomweb Skitterer", 2, ET)],
         "She sits at the heart of the web. Her brood guards her. Take them first.",
         "The Mother's dead. The Vale is yours. Take your pick of her hoard.", None))
     # ---- Edric: Balnir Farmstead
     A(Q("etb_worgs", "Worgs in the Paddock", EDRIC, ET, 9, 10, "balnir",
         "Stablehand Edric tends what remains of the Balnir farmstead. The Bleak Worgs have taken over the paddock and "
         "eat whatever stumbles in.",
-        [k("Bleak Worg", 8, ET)],
+        [k("Bleak Worg", 5, ET)],
         "They hide in the hay. Eight, and keep to the fences.",
         "That's the paddock clear. Take something from the tack.", "etb_stableboys"))
     A(Q("etb_stableboys", "The Stableboys' Rest", EDRIC, ET, 9, 11, "balnir",
         "The stableboys never left the farm. They roam the paddock with pitchforks, loyal to a master who died long "
         "ago. Edric wants them put to rest.",
-        [k("Balnir Stableboy", 8, ET)],
+        [k("Balnir Stableboy", 5, ET)],
         "They don't know. Treat them kindly. Eight.",
         "They're at rest. Thank you. Take your pick.", "etb_vachon"))
     A(Q("etb_vachon", "Captain Vachon", EDRIC, ET, 10, 11, "balnir",
         "Captain Vachon led the Balnir militia. He now leads the dead, a stubborn old soldier who refuses to give up "
         "the farm.",
-        [boss("Captain Vachon", ET), k("Balnir Stableboy", 4, ET)],
+        [boss("Captain Vachon", ET), k("Balnir Stableboy", 2, ET)],
         "He's at the farmhouse. His stableboys guard him. Take them first.",
         "Vachon's at peace. The farm is quiet. Take your pick.", None))
     # ---- Ysolde: Cult of the Damned Farm
     A(Q("etd_acolytes", "Acolytes of the Damned", YSOLDE, ET, 10, 12, "cult",
         "Warden Ysolde Grave watches the Cult of the Damned farm. Its acolytes call on powers no one should, and the "
         "Undercity wants them silenced.",
-        [k("Cult Acolyte", 8, ET)],
+        [k("Cult Acolyte", 5, ET)],
         "They chant in the cellar. Eight, and don't let them finish a verse.",
         "That will quiet the cellar. Take something.", "etd_ledger"))
     A(Q("etd_ledger", "The Cult's Ledger", YSOLDE, ET, 10, 12, "cult",
@@ -507,31 +507,31 @@ def quests():
     A(Q("etd_thaddeus", "Overseer Thaddeus", YSOLDE, ET, 11, 12, "cult",
         "Overseer Thaddeus leads the cult. He sits in the farm's deepest cellar, issuing orders to the damned. His "
         "death would unravel the lot.",
-        [boss("Cult Overseer Thaddeus", ET), k("Cult Fanatic", 4, ET)],
+        [boss("Cult Overseer Thaddeus", ET), k("Cult Fanatic", 2, ET)],
         "He's in the cellar. His fanatics guard the stairs. Take them first.",
         "The cult is leaderless. Excellent. Take your pick of his robes.", None))
     # ---- Hollowmere: Scarlet Watch Post / North Coast
     A(Q("ets_bowmen", "Archers on the Coast", HOLLOW, ET, 10, 12, "watch",
         "Scout Hollowmere watches the Scarlet Watch Post from the lakeside slope. Their bowmen patrol the north coast "
         "road and pick off anyone who passes.",
-        [k("Scarlet Bowman", 8, ET)],
+        [k("Scarlet Bowman", 5, ET)],
         "Stay low. They shoot first. Eight, and watch the shadows.",
         "That's the road open. Thank you. Take something.", "ets_zealots"))
     A(Q("ets_zealots", "Zealots of the Watch", HOLLOW, ET, 10, 12, "watch",
         "The Watch Post is held by zealots, who preach as they fight. Hollowmere would like them to stop preaching.",
-        [k("Scarlet Zealot", 8, ET)],
+        [k("Scarlet Zealot", 5, ET)],
         "They don't stop. Eight, and keep your ears covered.",
         "Quieter. For a while. Take your pick.", "ets_preachers"))
     A(Q("ets_preachers", "Sermons in Fire", HOLLOW, ET, 10, 12, "watch",
         "The preachers are the worst of them. They call down fire on the faithless. Hollowmere has the burn scars to "
         "prove it.",
-        [k("Scarlet Preacher", 6, ET)],
+        [k("Scarlet Preacher", 4, ET)],
         "They stand on the steps and burn things. Six, and don't stand in the fire.",
         "Six sermons ended. Thank you. Take something.", "ets_vishas"))
     A(Q("ets_vishas", "Interrogator Vishas", HOLLOW, ET, 11, 12, "watch",
         "Interrogator Vishas runs the Watch Post's cells. He's patient, methodical and cruel. Hollowmere wants him dead, "
         "and the cells emptied.",
-        [boss("Interrogator Vishas", ET), k("Scarlet Zealot", 4, ET)],
+        [boss("Interrogator Vishas", ET), k("Scarlet Zealot", 2, ET)],
         "He's in the cells. His zealots guard the door. Take them first.",
         "Vishas is dead. The cells are open. Take your pick.", None))
     showcase(A)
@@ -593,7 +593,7 @@ def showcase(A):
         "Oswin can read the cult's ledger, but only half of it. The cipher keys are the Agamand family seals, and only someone "
         "who has stood in the Agamand mansion could match them. He needs the husks buried behind Raven Hill thinned out "
         "first, so the dead stop interrupting his reading.",
-        [k("Risen Husk", 8, "Silverpine North")],
+        [k("Risen Husk", 5, "Silverpine North")],
         "You've been through the Agamand house, and you carried the ledger here. Good. Now clear the husks at Raven Hill so I can read in peace.",
         "Eight husks, and the seals match. The ledger names the cult's patrons. Silverpine will want to hear this. Take your pick.",
         None, exp=800, gold=1400, requires_quests=["etd_ledger_courier", "wta_thurman"]))
@@ -612,12 +612,12 @@ def scourge_cave(A):
     A(Q("etc_warriors", "Bones That Walk", CAL, ET, 10, 12, "scourge",
         "Scourge Warriors wander the rib tunnels in loose patrols. They don't sleep, they don't tire, and they are very "
         "bad at hiding.",
-        [k("Scourge Warrior", 8, SC)],
+        [k("Scourge Warrior", 5, SC)],
         "Eight of them. Fight in the tunnels, not the open hall, and let them come to you.",
         "Eight fewer. The ribs sound quieter already. Take something.", "etc_ghouls"))
     A(Q("etc_ghouls", "Hungry Dead", CAL, ET, 10, 12, "scourge",
         "The ghouls came with the Scourge, but they stayed for the plague cellar. They are fast and they travel in packs.",
-        [k("Scourge Ghoul", 8, SC)],
+        [k("Scourge Ghoul", 5, SC)],
         "They hunt by the sound of heartbeats, which makes you a very noisy guest. Eight.",
         "Eight ghouls. Do you still have all your fingers? Good. Take your pick.", "etc_runes"))
     A(Q("etc_runes", "Scourge Rune Shards", CAL, ET, 11, 12, "scourge",
@@ -629,19 +629,19 @@ def scourge_cave(A):
     A(Q("etc_abomination", "The Scourge Abomination", CAL, ET, 12, 13, "scourge",
         "The Abomination sits in the skull at the head of the spine, wired into the cult's rune stones. Kill it, and the "
         "cellar is just a cellar again.",
-        [boss("Scourge Abomination", SC), k("Scourge Necromancer", 4, SC)],
+        [boss("Scourge Abomination", SC), k("Scourge Necromancer", 2, SC)],
         "The skull throne, at the north end of the spine. Necromancers keep it standing. Take them first.",
         "It's down. The cellar is quiet. I'll be sleeping with a candle on for a week. Take your pick of what it wore.", None))
     # ---- optional side chambers: open once you've walked the spine
     A(Q("etc_krag", "The Bone Pit", CAL, ET, 11, 12, "scourge",
         "Ghoulmaster Krag keeps his pack in a bone-lined pit west of the ribs. He feeds them on what the cult leaves behind.",
-        [boss("Ghoulmaster Krag", SC), k("Scourge Ghoul", 4, SC)],
+        [boss("Ghoulmaster Krag", SC), k("Scourge Ghoul", 2, SC)],
         "West of the second rib, down a side tunnel. He whistles for the pack when he's losing. Be quick.",
         "Krag's whistle is silent. Take your pick of his trophies.", None, requires_quests=["etc_descend"]))
     A(Q("etc_orvyn", "The Plague Lab", CAL, ET, 12, 13, "scourge",
         "Plaguemaster Orvyn runs the cult's laboratory in a side chamber east of the ribs, brewing the blight they pour on "
         "the farms above. Calder wants the vats cold.",
-        [boss("Plaguemaster Orvyn", SC), k("Cult Acolyte", 3, SC)],
+        [boss("Plaguemaster Orvyn", SC), k("Cult Acolyte", 2, SC)],
         "East of the third rib, past a tunnel of vials. His acolytes tend the vats. Keep your mouth covered.",
         "The vats are cold. Whatever he was brewing, it won't reach the farms. Take your pick.", None,
         requires_quests=["etc_descend"]))

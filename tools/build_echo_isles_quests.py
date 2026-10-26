@@ -58,7 +58,7 @@ def quests():
                      "not the pretty kind in the shallows. The coconut crabs along the beaches drag it up the sand to "
                      "line their burrows, so the quickest way to get it is to get it back off them."),
         objectives=[fetch("sturdy_reef_coral", 6)],
-        reward_exp=420, reward_gold=1500,
+        reward_exp=500, reward_gold=1500,
         accept_text=("Da crabs on da beaches are hoardin' it - big as a kodo's head, shell like a shield. "
                      "Six pieces, mon. Dey'll fight you for it. Dey'll lose."),
         turn_in_text=("Dis is good stock! Palisade goes up by week's end. You didn't have to help build "
@@ -84,7 +84,7 @@ def quests():
                      "north trail runs to the old Darkspear camps - now Zalazane's. She wants a pair of eyes on the "
                      "north camp before anyone commits to a fight."),
         objectives=[explore(134, 42, 9)],
-        reward_exp=360, reward_gold=1100,
+        reward_exp=430, reward_gold=1100,
         accept_text=("Cross da east bridge, take da trail past Kang'ari's village and keep goin' north to da camp. "
                      "Don't engage. Look, remember, come back. We fight smart on dis one, not angry."),
         turn_in_text=("Dat many? ... Good. Now we know what we're walkin' into. Most people who die out dere die "
@@ -106,8 +106,8 @@ def quests():
         description=("Vessa's signal fires keep going out. Isle screechers - green-and-red jungle birds with a voice like "
                      "a knife on a whetstone - nest in the canopy right above her watch-post and mob anything that "
                      "moves. A raptor or two has learned to follow the birds. She is tired of shouting over them."),
-        objectives=[kill("Isle Screecher", 8), kill("Bloodtalon Raptor", 4)],
-        reward_exp=520, reward_gold=1800,
+        objectives=[kill("Isle Screecher", 6), kill("Bloodtalon Raptor", 3)],
+        reward_exp=620, reward_gold=1800,
         accept_text=("Dey nest in da canopy all around da Landing, and da raptors trail dem like dogs. "
                      "Eight birds, four raptors. I want to hear da wind again."),
         turn_in_text="Quiet. Actually quiet. I forgot what dat sounded like. Take one of dese - I made dem for myself.",
@@ -131,8 +131,8 @@ def quests():
                      "sea leaves its worst behind - used to be Tarna's best fishing. Now every net comes back torn and every "
                      "ankle comes back stung. Flatfin stingers and burrowing crabs have moved in, and they are not "
                      "interested in sharing."),
-        objectives=[kill("Flatfin Stinger", 8), kill("Sand Burrower", 6)],
-        reward_exp=500, reward_gold=1700,
+        objectives=[kill("Flatfin Stinger", 6), kill("Sand Burrower", 5)],
+        reward_exp=600, reward_gold=1700,
         accept_text=("Walk south from da Landing till da sand goes grey and da water goes to your shins. "
                      "Stingers first - dey hide under da silt. Den da burrowers. Watch your feet, hear?"),
         turn_in_text=("Dat's two good tides of fishing I got back. Not safe yet - da big one's still out dere - "
@@ -155,8 +155,8 @@ def quests():
                      "hut lives under the cays - a crab, she says, grown for forty years on the flats' leavings. "
                      "Shellcrusher Kragg takes the whole boat when it's feeling hungry and lets the fisherman swim. "
                      "Tarna wants a trophy. And her skiff's anchor."),
-        objectives=[kill("Sand Burrower", 6), boss("Shellcrusher Kragg")],
-        reward_exp=720, reward_gold=2500,
+        objectives=[kill("Sand Burrower", 5), boss("Shellcrusher Kragg")],
+        reward_exp=860, reward_gold=2500,
         accept_text=("He comes up when da trailing crabs go quiet. Kill his courtiers and he'll come lookin'. "
                      "Don't try to out-wait him - he's patient. Hit him from da side, mon, not da front."),
         turn_in_text=("Ha! Forty years of crab, and he went down like a bad knot. My anchor?! Oh, you found it. "
@@ -182,7 +182,7 @@ def quests():
                      "Shallows - the knee-deep flats between the troll island and the Lost Fleet, in the far "
                      "north-east. Talra's hands ache, and she is out."),
         objectives=[fetch("eel_hide_cord", 6)],
-        reward_exp=560, reward_gold=1900,
+        reward_exp=670, reward_gold=1900,
         accept_text=("Take da east bridge, go through da troll village, past da north camp, and wade north-east till da water "
                      "goes to your knees. Da wreck crabs will pester you. Da eels will shock you. "
                      "Six good lengths of cord. I'll know if you cheat."),
@@ -210,7 +210,7 @@ def quests():
                      "something old. The Naga Ruins, on the north-west island: over the west bridge to the Grotto isle, up its north trail and across the Sunken Steps ford. "
                      "She does not ask you to fight. Just to stand in the old stones and hear what she hears."),
         objectives=[explore(24, 48, 9)],
-        reward_exp=640, reward_gold=2100,
+        reward_exp=770, reward_gold=2100,
         accept_text=("Cross da west bridge to da Grotto isle, follow da north trail and wade da Sunken Steps to da naga isle. "
                      "Stand in da middle of dem and listen. Don't talk. Don't take anything. Just listen."),
         turn_in_text=("So dey spoke to you too. Not in words. In order. Dey're guarding somethin' - and dey are "
@@ -235,7 +235,7 @@ def quests():
                      "scales, each marked with a spiral that is half writing and half weather. Six of them and she may "
                      "finally understand what the guards are protecting - and what they are afraid of."),
         objectives=[fetch("tide_etched_scale", 6)],
-        reward_exp=680, reward_gold=2300,
+        reward_exp=820, reward_gold=2300,
         accept_text=("Da coastguards and tidecallers wear dem. Take dem from da ones who don't need dem anymore. "
                      "Six scales. And please - wash your hands afterwards."),
         turn_in_text=("... it is a seal. Dey are not guardin' da temple. Dey're guardin' da door under da temple, "
@@ -258,8 +258,8 @@ def quests():
         description=("Warden Ssaleth keeps the Naga Ruins the way a lock keeps a door: not out of hatred but out of "
                      "oath. Vashj can feel the oath, and she can also feel that it is fraying. If he falls, the door "
                      "stays shut a while longer. If he is ignored, someone with worse manners will come along."),
-        objectives=[kill("Naga Coastguard", 6, alt=["Naga Tidecaller"]), boss("Warden Ssaleth")],
-        reward_exp=1000, reward_gold=3500,
+        objectives=[kill("Naga Coastguard", 5, alt=["Naga Tidecaller"]), boss("Warden Ssaleth")],
+        reward_exp=1200, reward_gold=3500,
         accept_text=("Go back to da ruins, thin da guard and find Ssaleth. He stands where da stones are highest. "
                      "His trident cuts, and when you stand still he weakens you. Keep moving, don't stand in da water."),
         turn_in_text=("Da stones are silent. Not gone - silent. I haven't heard dat in years. "
@@ -288,9 +288,9 @@ def quests():
                      "Zalazane's fires have driven them out of the north. The trail between the Landing and the troll "
                      "village is not safe to walk. Before anything else gets sorted out on this island, the road "
                      "needs clearing."),
-        objectives=[kill("Bloodtalon Raptor", 10, alt=["Jungle Panther", "Isle Serpent", "Isle Coconut Crab",
+        objectives=[kill("Bloodtalon Raptor", 8, alt=["Jungle Panther", "Isle Serpent", "Isle Coconut Crab",
                                                       "Isle Screecher"])],
-        reward_exp=560, reward_gold=2000,
+        reward_exp=670, reward_gold=2000,
         accept_text=("Ten of dem, any mix - raptor, panther, serpent, crab, bird. Da interior's thick with all of dem. "
                      "Nothin' personal in dis one. Just clearin' ground. Come back when da road is walkable."),
         turn_in_text=("Good. Da trail's quieter now. Not safe - dis island hasn't been safe in longer than you'd guess "
@@ -314,9 +314,9 @@ def quests():
                      "trails. Voodoo trolls, hex trolls, Zalazane's berserkers, headhunters and fetish-carvers: all "
                      "of them Darkspear once, all of them lost to whatever hold Zalazane has over them now. Kang'ari "
                      "doesn't ask you to feel good about this fight. He asks you to finish it."),
-        objectives=[kill("Voodoo Troll", 12, alt=["Hex Troll", "Zalazane Berserker", "Isle Headhunter",
+        objectives=[kill("Voodoo Troll", 9, alt=["Hex Troll", "Zalazane Berserker", "Isle Headhunter",
                                                  "Zalazane Fetish-Carver"])],
-        reward_exp=720, reward_gold=2600,
+        reward_exp=860, reward_gold=2600,
         accept_text=("Twelve of dem. I won't lie to you about what dat means - every one of dem used to be someone's "
                      "kin. Do it anyway. Dey're not comin' back from what he did to dem. North trail and south trail - "
                      "start where Vessa's report said."),
@@ -343,7 +343,7 @@ def quests():
                      "trolls carry them; so do the fetish-carvers who tend the camp fires. He wants to study what was "
                      "done and maybe find a way back for the trolls still lost."),
         objectives=[gather("hexed_darkspear_totem", 5)],
-        reward_exp=640, reward_gold=2200,
+        reward_exp=770, reward_gold=2200,
         accept_text=("Five totems. Bring dem to me, don't touch da magic still on dem if you can help it. "
                      "I've seen what dat kind of hex does to someone who handles it careless."),
         turn_in_text=("Dis tells me more dan I expected. Da hex isn't as permanent as I feared. Dere may be a way back "
@@ -368,7 +368,7 @@ def quests():
                      "drowned chambers: Tidelord Gharesh, an elemental that Kang'ari suspects Zalazane either "
                      "summoned or simply failed to stop. It guards ground the Darkspear held sacred."),
         objectives=[boss("Tidelord Gharesh", "sunken_temple_grotto")],
-        reward_exp=1000, reward_gold=3600,
+        reward_exp=1200, reward_gold=3600,
         accept_text=("Da temple's door is at da end of da west trail, past da bridge. Gharesh moves with da tide - "
                      "strong when da water's high, slower when it's low. Time it right and dis fight is winnable. "
                      "Time it wrong and you're fightin' a flood dat hits back."),
@@ -393,7 +393,7 @@ def quests():
                      "island, at the end of the long bridge from the Landing. Kang'ari has waited a long time to say "
                      "this name to someone capable of ending it."),
         objectives=[boss("Zalazane", "zalazanes_hollow")],
-        reward_exp=1500, reward_gold=5600,
+        reward_exp=1800, reward_gold=5600,
         accept_text=("He's da strongest hexer I've ever seen, and I've seen a few. He'll try to turn your own party "
                      "against you before he ever raises a weapon himself. Break da hex fast or don't let it land at all. "
                      "Dat's da whole fight, really."),
@@ -425,7 +425,7 @@ def quests():
                      "then crossed out. The fetish-carvers make them. If she can see the carving she can find the "
                      "weaver behind it, and if she can find the weaver she can stop treating the symptoms."),
         objectives=[fetch("hex_bone_shard", 6)],
-        reward_exp=640, reward_gold=2200,
+        reward_exp=770, reward_gold=2200,
         accept_text=("Carvers work da camp fires and da deeper dens of da Hollow. Take da shards off dem, don't touch "
                      "da names. Six. I need to read dem together."),
         turn_in_text=("... all one hand. All one rhythm. It's a weaver, mon - someone in da Hollow who stitches dese "
@@ -448,8 +448,8 @@ def quests():
                      "into bone. Zathra has treated forty of his victims. She'd like to stop treating them, and the "
                      "only way to do that is to take the loom out of his hands. His adepts will rally round him; "
                      "go through them."),
-        objectives=[kill("Voodoo Adept", 6), boss("Mam'toth the Hexweaver", "zalazanes_hollow")],
-        reward_exp=1000, reward_gold=3500,
+        objectives=[kill("Voodoo Adept", 5), boss("Mam'toth the Hexweaver", "zalazanes_hollow")],
+        reward_exp=1200, reward_gold=3500,
         accept_text=("He's in da west of da Hollow, in a den below Zalazane's own sanctum. Don't let him finish da weave - interrupt him "
                      "if you can, kill him quick if you can't. And bring back what's left of da loom."),
         turn_in_text=("Forty hexes, unmade in one breath. I felt dem go. Dat's da best medicine I've ever tasted. "
@@ -476,7 +476,7 @@ def quests():
                      "ships of the Lost Fleet in the north-east. He wants the rest of them. Whoever sailed those ships "
                      "knew where the old reefs were, and he suspects the old reefs are where Zalazane's power comes from."),
         objectives=[fetch("waterlogged_chart", 5)],
-        reward_exp=640, reward_gold=2200,
+        reward_exp=770, reward_gold=2200,
         accept_text=("Da Lost Fleet is up north-east, past da shallows. Da drowned crewmen still carry dere charts - "
                      "dey cannot let go of da job. Five. Don't read dem in da rain."),
         turn_in_text=("A ring of islands, and a red cross. It's not a treasure map, mon - it's a warnin'. "
@@ -500,8 +500,8 @@ def quests():
                      "wrecks, lantern in one hand, axe in the other, looking for the captain's orders. The crabs "
                      "that infest his flats have gone feral on him. Jin'zil would like the lantern, and the old man "
                      "to rest."),
-        objectives=[kill("Wreck Scavenger", 6), boss("Old Barnacle-Beard")],
-        reward_exp=900, reward_gold=3200,
+        objectives=[kill("Wreck Scavenger", 5), boss("Old Barnacle-Beard")],
+        reward_exp=1080, reward_gold=3200,
         accept_text=("Wreck Shallows, up north-east. Da crabs gather where he walks. Kill dem and he'll come lookin' for "
                      "da noise. He fights like a man who's already dead. Dat is not a metaphor."),
         turn_in_text=("... He's restin'. I could feel him let go. I'm not a sentimental man, but I'll light dis lantern "
@@ -527,8 +527,8 @@ def quests():
                      "pay off the creditors. The plan's single flaw is the Drowned Causeway - the knee-deep ford "
                      "that runs north from his camp on the south-east island to the troll isle. Murloc spearfishers "
                      "hold it and sirens sing from the rocks. He cannot cross it. He cannot even look at it."),
-        objectives=[kill("Murloc Spearfisher", 8), kill("Causeway Siren", 4)],
-        reward_exp=640, reward_gold=2400,
+        objectives=[kill("Murloc Spearfisher", 6), kill("Causeway Siren", 3)],
+        reward_exp=770, reward_gold=2400,
         accept_text=("It's a toll road now, friend, and the toll is MY LIFE. Eight spearfishers, four sirens, "
                      "and I'll make it worth your while. Don't ask where the money's from."),
         turn_in_text=("You, friend, are a miracle. A violent, wet miracle. And a business partner, I hope. "
@@ -552,8 +552,8 @@ def quests():
                      "sits on a rock halfway down the Drowned Causeway and does not let a sailor pass. Dritt says "
                      "she once charmed his entire crew into walking off the end of a pier. He would like to be "
                      "paid back in gold, but will settle for her silence."),
-        objectives=[kill("Causeway Siren", 4), boss("Seer Sshara")],
-        reward_exp=820, reward_gold=3000,
+        objectives=[kill("Causeway Siren", 3), boss("Seer Sshara")],
+        reward_exp=980, reward_gold=3000,
         accept_text=("Don't listen to her sing. I mean it. Plug your ears. Put wax in your ears. Go deaf. Whatever it "
                      "takes, friend, my crew weren't smart enough and now they're fish."),
         turn_in_text=("Silent! You saved my life and about nine thousand gold in lost cargo. I'll find you a bonus, "
@@ -577,8 +577,8 @@ def quests():
                      "down with his ship and his strongbox, and the Lost Fleet's captain still stalks his deck "
                      "in the north-east, dead and unsociable. The strongbox is on his flagship. Dritt wants it. "
                      "Dritt wants it very, very much."),
-        objectives=[kill("Drowned Crewman", 6), boss("Captain Morrow")],
-        reward_exp=1000, reward_gold=3800,
+        objectives=[kill("Drowned Crewman", 5), boss("Captain Morrow")],
+        reward_exp=1200, reward_gold=3800,
         accept_text=("North-east, past da troll isle. Da flagship's the big one. He's got a cutlass and a temper "
                      "and probably a grudge. Bring me da strongbox and I'll buy you a drink. Several."),
         turn_in_text=("... it's empty. Is it? No. No, it's not. THERE'S A FALSE BOTTOM! Friend, I'm going to cry "
@@ -601,8 +601,8 @@ def quests():
                      "whistles up the shadowfang hounds that prowl his perimeter. Houndmaster Gor'tek keeps the kennels "
                      "in the middle of the Hollow, past the Thrall Pens, and the whistle is his. A goblin cannot sleep "
                      "near a whistle like that."),
-        objectives=[kill("Shadowfang Guardian", 6), boss("Houndmaster Gor'tek", "zalazanes_hollow")],
-        reward_exp=1000, reward_gold=3600,
+        objectives=[kill("Shadowfang Guardian", 5), boss("Houndmaster Gor'tek", "zalazanes_hollow")],
+        reward_exp=1200, reward_gold=3600,
         accept_text=("Hounds first, so the master comes out. He'll whip his pack into a frenzy - kill him before the "
                      "frenzy sets in, friend, or you'll be buyin' a lot of bandages."),
         turn_in_text=("Dead quiet! The whistle's gone and the hounds are asleep. I haven't slept in two weeks. "
@@ -629,7 +629,7 @@ def quests():
                      "always a tide-touched pearl: grey, damp, impossible to dry. The spirits are asking again. "
                      "The murlocs and tide-spirits inside the temple hold the only pearls left."),
         objectives=[fetch("tide_touched_pearl", 5)],
-        reward_exp=640, reward_gold=2200,
+        reward_exp=770, reward_gold=2200,
         accept_text=("Go in at da temple door, mon, at da end of da Grotto trail. Da murlocs hoard dem in da shallows and da "
                      "tidal elementals wear dem like bad jewellery. Five pearls. Keep dem wet."),
         turn_in_text=("Five. Perfect. Da tide is already softer. Dese pearls are why da temple's guardians never left. "
@@ -652,9 +652,9 @@ def quests():
                      "has been walking the same tide-flooded corridor for forty years. He is not malicious. He is "
                      "not sane either. The drowned trolls with him have followed his example. Kesh's offering does "
                      "not take until the crypt is quiet."),
-        objectives=[kill("Drowned Troll", 6, zone="sunken_temple_grotto"),
+        objectives=[kill("Drowned Troll", 5, zone="sunken_temple_grotto"),
                     boss("Moj'bashi the Drowned", "sunken_temple_grotto")],
-        reward_exp=900, reward_gold=3200,
+        reward_exp=1080, reward_gold=3200,
         accept_text=("Da crypt is off da west gate of da rotunda. He'll be at da back, mon. Treat him as a "
                      "warrior, not a monster - he'd want dat. And bring him peace as quick as you can."),
         turn_in_text=("He's at rest. I felt it as he went, like a held breath comin' out. Dat's what da pearls were for. "
@@ -680,8 +680,8 @@ def quests():
                      "stone that rises from the knee-deep water south of the Naga Ruins, between his island and the "
                      "naga's - are where he has been proving it. The steps are guarded by slab-like sentinels, and "
                      "the murloc spearfishers have taken an interest. He wants a witness."),
-        objectives=[explore(28, 69, 8), kill("Stepstone Sentinel", 6)],
-        reward_exp=500, reward_gold=1800,
+        objectives=[explore(28, 69, 8), kill("Stepstone Sentinel", 5)],
+        reward_exp=600, reward_gold=1800,
         accept_text=("From da Grotto isle take da north trail into da water. Da steps are right below. Reach da middle "
                      "step, break six sentinels, come back and tell me I'm brave."),
         turn_in_text=("You did it! You actually did it! Now I can say I know someone who did it. "
@@ -704,8 +704,8 @@ def quests():
                      "it is called the Razorjaw: a great reef predator that has ruled the south-west for a decade, "
                      "that circles the shallows below the Razorjaw Reef island when blood is in the water. "
                      "Muzka does not want revenge. He wants it to stop."),
-        objectives=[kill("Razorjaw Whelp", 6, alt=["Razorjaw Lurker", "Reef Stalker"]), boss("The Razorjaw")],
-        reward_exp=980, reward_gold=3400,
+        objectives=[kill("Razorjaw Whelp", 5, alt=["Razorjaw Lurker", "Reef Stalker"]), boss("The Razorjaw")],
+        reward_exp=1180, reward_gold=3400,
         accept_text=("Go down the south trail till da water, den west across da shallows. His whelps hunt in packs and "
                      "he comes when dey scream. He hits hard, and he gets angrier as it goes. Hit and move, mon."),
         turn_in_text=("... It's really gone? I didn't think anyone could. Thank you. Thank you from my brother too. "

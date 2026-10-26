@@ -28,11 +28,10 @@
           "rarity": "uncommon",
           "flavor_text": "Braided from roots that were green when she wove them.",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 4,
+            "stamina": 3
           },
-          "armor_type": "leather",
-          "armor_value": 22
+          "armor_type": "leather"
         }
       ]
     },
@@ -64,11 +63,10 @@
           "rarity": "uncommon",
           "flavor_text": "Cloth wrapped twice, then waxed. For the smell.",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2
+            "intellect": 3,
+            "spirit": 3
           },
-          "armor_type": "cloth",
-          "armor_value": 11
+          "armor_type": "cloth"
         }
       ]
     },
@@ -84,19 +82,19 @@
         {
           "type": "kill",
           "target": "Hollow Rotlasher",
-          "count": 8,
-          "zone": "moonwell_hollow"
-        },
-        {
-          "type": "kill",
-          "target": "Corrupted Moon Guard",
           "count": 6,
           "zone": "moonwell_hollow"
         },
         {
           "type": "kill",
+          "target": "Corrupted Moon Guard",
+          "count": 5,
+          "zone": "moonwell_hollow"
+        },
+        {
+          "type": "kill",
           "target": "Twilight Rootbinder",
-          "count": 4,
+          "count": 3,
           "zone": "moonwell_hollow"
         }
       ],
@@ -133,14 +131,13 @@
           "name": "Elder's Mosscloak",
           "slot": "back",
           "item_level": 25,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "flavor_text": "Moss grown so thick it has its own weather.",
           "primary_stats": {
-            "stamina": 3,
-            "agility": 2
+            "stamina": 4,
+            "agility": 3
           },
-          "armor_type": "cloth",
-          "armor_value": 9
+          "armor_type": "cloth"
         }
       ]
     },
@@ -173,8 +170,8 @@
           "rarity": "rare",
           "flavor_text": "A white flower pressed in glass. It stopped wilting.",
           "primary_stats": {
-            "intellect": 3,
-            "spirit": 3
+            "intellect": 5,
+            "spirit": 4
           }
         },
         {
@@ -187,8 +184,7 @@
             "stamina": 4,
             "agility": 4
           },
-          "armor_type": "leather",
-          "armor_value": 31
+          "armor_type": "leather"
         }
       ]
     },
@@ -220,8 +216,8 @@
           "rarity": "uncommon",
           "flavor_text": "A hunting horn that no longer needs breath.",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 1
+            "agility": 4,
+            "stamina": 2
           },
           "weapon_type": "bow"
         }
@@ -239,19 +235,19 @@
         {
           "type": "kill",
           "target": "Rimebone Hound",
-          "count": 8,
-          "zone": "howling_barrows"
-        },
-        {
-          "type": "kill",
-          "target": "Barrow Wight",
           "count": 6,
           "zone": "howling_barrows"
         },
         {
           "type": "kill",
+          "target": "Barrow Wight",
+          "count": 5,
+          "zone": "howling_barrows"
+        },
+        {
+          "type": "kill",
           "target": "Howling Wraith",
-          "count": 4,
+          "count": 3,
           "zone": "howling_barrows"
         }
       ],
@@ -291,11 +287,10 @@
           "rarity": "uncommon",
           "flavor_text": "Whoever repaired these did it badly and with love.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 2
+            "strength": 4,
+            "stamina": 3
           },
-          "armor_type": "mail",
-          "armor_value": 35
+          "armor_type": "mail"
         }
       ]
     },
@@ -328,11 +323,10 @@
           "rarity": "rare",
           "flavor_text": "Frost clings to it in the warmest room.",
           "primary_stats": {
-            "agility": 4,
-            "stamina": 2
+            "agility": 5,
+            "stamina": 3
           },
-          "armor_type": "cloth",
-          "armor_value": 12
+          "armor_type": "cloth"
         },
         {
           "name": "Frostbrand Whetstone Charm",
@@ -341,8 +335,8 @@
           "rarity": "rare",
           "flavor_text": "A sharpening stone on a cord. The blade it sharpened is long gone.",
           "primary_stats": {
-            "strength": 2,
-            "agility": 2,
+            "strength": 3,
+            "agility": 3,
             "stamina": 2
           }
         }
@@ -360,19 +354,19 @@
         {
           "type": "kill",
           "target": "Satyr Cultist",
-          "count": 10,
-          "zone": "groms_rest"
-        },
-        {
-          "type": "kill",
-          "target": "Dread Imp",
           "count": 8,
           "zone": "groms_rest"
         },
         {
           "type": "kill",
-          "target": "Corrupted Felhound",
+          "target": "Dread Imp",
           "count": 6,
+          "zone": "groms_rest"
+        },
+        {
+          "type": "kill",
+          "target": "Corrupted Felhound",
+          "count": 5,
           "zone": "groms_rest"
         }
       ],
@@ -389,8 +383,8 @@
           "rarity": "uncommon",
           "flavor_text": "A pebble of warded basalt. It hums when demons are close.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 2
+            "intellect": 4,
+            "stamina": 3
           }
         }
       ]
@@ -423,11 +417,10 @@
           "rarity": "uncommon",
           "flavor_text": "Stamped by the Legion; reforged by a Horde smith.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 3
+            "strength": 4,
+            "stamina": 4
           },
-          "armor_type": "plate",
-          "armor_value": 67
+          "armor_type": "plate"
         }
       ]
     },
@@ -460,8 +453,8 @@
           "rarity": "rare",
           "flavor_text": "Notched, horned and smug.",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 5
+            "strength": 6,
+            "stamina": 4
           },
           "weapon_type": "axe_1h"
         }
@@ -493,14 +486,13 @@
           "name": "Handmaiden's Forgotten Veil",
           "slot": "head",
           "item_level": 29,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "flavor_text": "It fits like it has been waiting for you.",
           "primary_stats": {
-            "intellect": 5,
+            "intellect": 6,
             "spirit": 4
           },
-          "armor_type": "cloth",
-          "armor_value": 21
+          "armor_type": "cloth"
         }
       ]
     },
@@ -531,14 +523,13 @@
           "name": "Sentinel's Ashen Greaves",
           "slot": "legs",
           "item_level": 29,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "flavor_text": "Ash still falls from the seams.",
           "primary_stats": {
-            "strength": 7,
+            "strength": 6,
             "stamina": 5
           },
-          "armor_type": "plate",
-          "armor_value": 135
+          "armor_type": "plate"
         }
       ]
     },
@@ -569,11 +560,11 @@
           "name": "Ancient's Heartwood Charm",
           "slot": "trinket",
           "item_level": 30,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "flavor_text": "A knot of wood that still, very slowly, wants to grow.",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2,
+            "intellect": 3,
+            "spirit": 3,
             "stamina": 2
           }
         }
@@ -609,11 +600,10 @@
           "rarity": "rare",
           "flavor_text": "The chains clink when you do not move.",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 7
+            "strength": 6,
+            "stamina": 6
           },
-          "armor_type": "plate",
-          "armor_value": 142
+          "armor_type": "plate"
         }
       ]
     },
@@ -646,8 +636,8 @@
           "rarity": "rare",
           "flavor_text": "A band of black glass. It does not reflect, but it does watch.",
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 4
+            "intellect": 5,
+            "stamina": 5
           }
         },
         {
@@ -657,11 +647,10 @@
           "rarity": "rare",
           "flavor_text": "Cloth that fell from a ceiling that is no longer there.",
           "primary_stats": {
-            "intellect": 8,
-            "spirit": 6
+            "intellect": 6,
+            "spirit": 5
           },
-          "armor_type": "cloth",
-          "armor_value": 30
+          "armor_type": "cloth"
         }
       ]
     },
@@ -677,7 +666,7 @@
         {
           "type": "kill",
           "target": "Naga Warrior",
-          "count": 8,
+          "count": 6,
           "zone": "blackfathom_deeps"
         }
       ],
@@ -714,14 +703,13 @@
           "name": "Ghamoo-ra's Shell Plate",
           "slot": "chest",
           "item_level": 26,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "flavor_text": "Thick as a doorframe, and a little too warm.",
           "primary_stats": {
-            "stamina": 6,
-            "strength": 4
+            "stamina": 7,
+            "strength": 5
           },
-          "armor_type": "mail",
-          "armor_value": 81
+          "armor_type": "mail"
         }
       ]
     },
@@ -754,11 +742,10 @@
           "rarity": "rare",
           "flavor_text": "Cool to the touch, and always a little wet.",
           "primary_stats": {
-            "intellect": 4,
+            "intellect": 5,
             "spirit": 4
           },
-          "armor_type": "cloth",
-          "armor_value": 16
+          "armor_type": "cloth"
         }
       ]
     },
@@ -788,14 +775,13 @@
           "name": "Gelihast's Knotted Crown",
           "slot": "head",
           "item_level": 26,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "flavor_text": "A net that remembers being a boat's.",
           "primary_stats": {
-            "agility": 4,
-            "stamina": 4
+            "agility": 6,
+            "stamina": 5
           },
-          "armor_type": "leather",
-          "armor_value": 38
+          "armor_type": "leather"
         }
       ]
     },
@@ -858,8 +844,7 @@
             "agility": 7,
             "stamina": 5
           },
-          "armor_type": "leather",
-          "armor_value": 51
+          "armor_type": "leather"
         }
       ]
     },
@@ -890,14 +875,13 @@
           "name": "Kelris's Whispering Robe",
           "slot": "chest",
           "item_level": 27,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "flavor_text": "It hums a lullaby, wrong in every key.",
           "primary_stats": {
-            "intellect": 7,
-            "spirit": 4
+            "intellect": 8,
+            "spirit": 5
           },
-          "armor_type": "cloth",
-          "armor_value": 26
+          "armor_type": "cloth"
         }
       ]
     },
@@ -930,9 +914,9 @@
           "rarity": "rare",
           "flavor_text": "It still glows. It never stops. It reminds you of the dark.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3,
-            "spirit": 1
+            "intellect": 5,
+            "stamina": 5,
+            "spirit": 3
           }
         },
         {
@@ -942,8 +926,8 @@
           "rarity": "rare",
           "flavor_text": "Barbs that curve back on themselves, wanting to be somewhere deeper.",
           "primary_stats": {
-            "agility": 15,
-            "stamina": 9
+            "agility": 8,
+            "stamina": 5
           },
           "weapon_type": "polearm"
         }

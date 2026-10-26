@@ -46,8 +46,8 @@
           "flavor_text": "Issued at the northern gate, patched at the northern gate.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 0.4,
-            "parry_rating": 0.2
+            "dodge_rating": 0.2,
+            "parry_rating": 0.1
           },
           "armor_type": "leather",
           "armor_value": 10,
@@ -81,8 +81,8 @@
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 5.4,
-            "parry_rating": 4.2
+            "dodge_rating": 0.9,
+            "parry_rating": 0.7
           },
           "weapon_damage_min": 27,
           "weapon_damage_max": 37,
@@ -104,13 +104,13 @@
         {
           "type": "kill",
           "target": "Worg Prowler",
-          "count": 8,
+          "count": 6,
           "zone": "silverpine_north"
         },
         {
           "type": "kill",
           "target": "Feral Ghoul",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_north"
         }
       ],
@@ -131,11 +131,11 @@
           "required_level": 11,
           "flavor_text": "Smells of pine-smoke and old orders.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 25,
@@ -149,11 +149,11 @@
           "required_level": 11,
           "flavor_text": "Issued at the northern gate, patched at the northern gate.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 4.2,
-            "crit_chance_spell": 0.2
+            "spell_power": 2.1,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 10,
@@ -223,8 +223,8 @@
           "flavor_text": "Issued at the northern gate, patched at the northern gate.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 1.8,
-            "parry_rating": 1.3
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "armor_type": "leather",
           "armor_value": 23,
@@ -291,8 +291,8 @@
           "flavor_text": "Smells of pine-smoke and old orders.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 3.6,
-            "mp5": 0.7
+            "healing_power": 1.6,
+            "mp5": 0.3
           },
           "armor_type": "cloth",
           "armor_value": 5,
@@ -306,11 +306,11 @@
           "required_level": 12,
           "flavor_text": "The Rear Guard wears what lasts.",
           "primary_stats": {
-            "agility": 4
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "crit_chance_physical": 0.4
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "armor_type": "leather",
           "armor_value": 23,
@@ -325,11 +325,11 @@
           "flavor_text": "The Rear Guard wears what lasts.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "armor": 7.9,
-            "parry_rating": 0.2
+            "armor": 5.3,
+            "parry_rating": 0.1
           },
           "weapon_damage_min": 21,
           "weapon_damage_max": 29,
@@ -384,11 +384,11 @@
           "required_level": 13,
           "flavor_text": "Smells of pine-smoke and old orders.",
           "primary_stats": {
-            "intellect": 3,
+            "intellect": 2,
             "stamina": 2
           },
           "secondary_stats": {
-            "spell_power": 1.9
+            "spell_power": 1.5
           },
           "armor_type": "cloth",
           "armor_value": 12,
@@ -402,11 +402,11 @@
           "required_level": 13,
           "flavor_text": "The Rear Guard wears what lasts.",
           "primary_stats": {
-            "intellect": 2
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "spell_power": 2.2
+            "hit_rating": 0.1,
+            "spell_power": 1.1
           },
           "armor_type": "mail",
           "armor_value": 20,
@@ -443,13 +443,13 @@
         {
           "type": "kill",
           "target": "Farthing Hound",
-          "count": 8,
+          "count": 6,
           "zone": "silverpine_north"
         },
         {
           "type": "kill",
           "target": "Risen Farmhand",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_north"
         }
       ],
@@ -468,7 +468,8 @@
           "flavor_text": "The mud has outlived the farm.",
           "primary_stats": {
             "strength": 1,
-            "agility": 1
+            "agility": 1,
+            "stamina": 1
           },
           "armor_type": "leather",
           "armor_value": 11,
@@ -482,11 +483,11 @@
           "required_level": 12,
           "flavor_text": "A farmer's make-do.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
-            "block_rating": 0.4,
-            "block_value": 3.7
+            "block_rating": 0.3,
+            "block_value": 2.8
           },
           "armor_type": "plate",
           "armor_value": 56,
@@ -501,11 +502,11 @@
           "flavor_text": "Stitched by someone who still believed in next year's crop.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.3
           },
           "weapon_damage_min": 29,
           "weapon_damage_max": 39,
@@ -547,11 +548,11 @@
           "required_level": 13,
           "flavor_text": "Stitched by someone who still believed in next year's crop.",
           "primary_stats": {
-            "stamina": 2
+            "stamina": 1
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 20,
@@ -584,11 +585,11 @@
           "flavor_text": "The mud has outlived the farm.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "armor": 11.4,
-            "parry_rating": 0.2
+            "armor": 5.7,
+            "parry_rating": 0.1
           },
           "weapon_damage_min": 22,
           "weapon_damage_max": 30,
@@ -627,55 +628,55 @@
           "name": "Furrow-Worn Cuisses",
           "slot": "legs",
           "item_level": 14,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 14,
           "flavor_text": "A farmer's make-do.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 3
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "defense_rating": 0.1
+            "defense_rating": 0.2
           },
           "armor_type": "plate",
-          "armor_value": 65,
+          "armor_value": 85,
           "label": "Plate Legs (Str/Sta/Def)"
         },
         {
           "name": "Barn-Dust Girdle",
           "slot": "waist",
           "item_level": 14,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 14,
           "flavor_text": "Stitched by someone who still believed in next year's crop.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "spell_power": 4.5
+            "hit_rating": 0.1,
+            "spell_power": 1.5
           },
           "armor_type": "mail",
-          "armor_value": 21,
+          "armor_value": 28,
           "label": "Mail Belt (Int/Hit/SP)"
         },
         {
           "name": "Farthing Cudgel",
           "slot": "main_hand",
           "item_level": 14,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 14,
           "flavor_text": "A farmer's make-do.",
           "weapon_type": "mace_1h",
           "primary_stats": {
             "strength": 2,
-            "stamina": 2
+            "stamina": 3
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
           },
-          "weapon_damage_min": 24,
-          "weapon_damage_max": 32,
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
           "attack_speed": 2.6,
           "label": "Mace (Str/Sta/Crit)"
         },
@@ -683,18 +684,18 @@
           "name": "Barn-Dust Cowl",
           "slot": "head",
           "item_level": 14,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 14,
           "flavor_text": "A farmer's make-do.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 5.2,
-            "crit_chance_spell": 0.2
+            "spell_power": 2.6,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
-          "armor_value": 10,
+          "armor_value": 13,
           "label": "Cloth Helm (Int/SP/Crit)"
         }
       ],
@@ -769,11 +770,11 @@
           "flavor_text": "The mud has outlived the farm.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 3
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
           },
           "weapon_damage_min": 22,
           "weapon_damage_max": 30,
@@ -795,7 +796,7 @@
         {
           "type": "kill",
           "target": "Risen Husk",
-          "count": 8,
+          "count": 6,
           "zone": "silverpine_north"
         }
       ],
@@ -831,11 +832,11 @@
           "required_level": 12,
           "flavor_text": "The dead don't mind. Mostly.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 7.2,
-            "crit_chance_spell": 0.4
+            "spell_power": 1.8,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 9,
@@ -892,11 +893,11 @@
           "required_level": 13,
           "flavor_text": "The dead don't mind. Mostly.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "block_rating": 0.4,
-            "block_value": 4.6
+            "block_rating": 0.2,
+            "block_value": 2.3
           },
           "armor_type": "plate",
           "armor_value": 45,
@@ -928,11 +929,11 @@
           "required_level": 13,
           "flavor_text": "Keeper's cut, keeper's wear.",
           "primary_stats": {
-            "intellect": 2
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "spell_power": 1.8
+            "hit_rating": 0.1,
+            "spell_power": 0.9
           },
           "label": "Ring (Int/Hit/SP)"
         }
@@ -980,51 +981,51 @@
           "name": "Vigil-Worn Wraps",
           "slot": "shoulder",
           "item_level": 14,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 14,
           "flavor_text": "Dug up, dusted off, declared fit.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 2,
+            "stamina": 2
           },
           "secondary_stats": {
-            "spell_power": 1.8
+            "spell_power": 1.2
           },
           "armor_type": "cloth",
-          "armor_value": 13,
+          "armor_value": 10,
           "label": "Cloth Shoulders (Int/Sta/SP)"
         },
         {
           "name": "Grave-Keeper's Sabatons",
           "slot": "feet",
           "item_level": 14,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 14,
           "flavor_text": "Keeper's cut, keeper's wear.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "plate",
-          "armor_value": 42,
+          "armor_value": 32,
           "label": "Plate Boots (Sta/Def/Dodge)"
         },
         {
           "name": "Cemetery-Shadowed Necklace",
           "slot": "neck",
           "item_level": 14,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 14,
           "flavor_text": "Dug up, dusted off, declared fit.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "spell_power": 2.7
+            "hit_rating": 0.1,
+            "spell_power": 0.9
           },
           "label": "Necklace (Int/Hit/SP)"
         }
@@ -1060,53 +1061,53 @@
           "name": "Oswin's Belt",
           "slot": "waist",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "The dead don't mind. Mostly.",
           "primary_stats": {
-            "strength": 1,
-            "agility": 1,
-            "stamina": 1
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
           },
           "armor_type": "leather",
-          "armor_value": 15,
+          "armor_value": 20,
           "label": "Leather Belt (Str/Agi/Sta)"
         },
         {
           "name": "Raven Hill Girdle",
           "slot": "waist",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "Dug up, dusted off, declared fit.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "spell_power": 5.4
+            "hit_rating": 0.1,
+            "spell_power": 1.8
           },
           "armor_type": "mail",
-          "armor_value": 24,
+          "armor_value": 32,
           "label": "Mail Belt (Int/Hit/SP)"
         },
         {
           "name": "Grave-Keeper's Dirk",
           "slot": "main_hand",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "The dead don't mind. Mostly.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 4
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "crit_chance_physical": 0.4
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 26,
-          "weapon_damage_max": 35,
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
           "attack_speed": 1.7,
           "label": "Dagger (Agi/Hit/Crit)"
         },
@@ -1114,18 +1115,18 @@
           "name": "Grave-Keeper's Breeches",
           "slot": "legs",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "The dead don't mind. Mostly.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 3
           },
           "secondary_stats": {
-            "spell_power": 7.8,
-            "mp5": 1.6
+            "spell_power": 3.9,
+            "mp5": 0.8
           },
           "armor_type": "cloth",
-          "armor_value": 15,
+          "armor_value": 20,
           "label": "Cloth Legs (Int/SP/MP5)"
         }
       ],
@@ -1144,7 +1145,7 @@
         {
           "type": "kill",
           "target": "Blighted Crow",
-          "count": 10,
+          "count": 8,
           "zone": "silverpine_north"
         }
       ],
@@ -1180,11 +1181,11 @@
           "required_level": 13,
           "flavor_text": "Stitched with a farmer's last ounce of hope.",
           "primary_stats": {
-            "stamina": 3,
+            "stamina": 2,
             "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 1.9
+            "healing_power": 1.5
           },
           "armor_type": "mail",
           "armor_value": 40,
@@ -1221,7 +1222,7 @@
         {
           "type": "kill",
           "target": "Dead Field Harrower",
-          "count": 8,
+          "count": 6,
           "zone": "silverpine_north"
         }
       ],
@@ -1240,7 +1241,8 @@
           "flavor_text": "Nothing grows here. This is the proof.",
           "primary_stats": {
             "strength": 1,
-            "agility": 1
+            "agility": 1,
+            "stamina": 1
           },
           "armor_type": "leather",
           "armor_value": 12,
@@ -1315,11 +1317,11 @@
           "required_level": 14,
           "flavor_text": "Nothing grows here. This is the proof.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "plate",
           "armor_value": 32,
@@ -1333,11 +1335,11 @@
           "required_level": 14,
           "flavor_text": "Nothing grows here. This is the proof.",
           "primary_stats": {
-            "intellect": 5
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 6.5,
-            "crit_chance_spell": 0.2
+            "spell_power": 2.6,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 13,
@@ -1353,8 +1355,8 @@
           "weapon_type": "dagger",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 1.0,
-            "parry_rating": 0.7
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -1395,11 +1397,11 @@
           "required_level": 13,
           "flavor_text": "Straw in the seams and a feather in the lining.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 3.0,
-            "hit_rating": 0.3
+            "spell_power": 1.0,
+            "hit_rating": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 5,
@@ -1413,11 +1415,11 @@
           "required_level": 13,
           "flavor_text": "Straw in the seams and a feather in the lining.",
           "primary_stats": {
-            "strength": 2,
+            "strength": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.1
           },
           "armor_type": "plate",
           "armor_value": 32,
@@ -1431,11 +1433,11 @@
           "required_level": 13,
           "flavor_text": "Straw in the seams and a feather in the lining.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 1.2
+            "healing_power": 0.8
           },
           "label": "Necklace (Int/Spi/HP)"
         }
@@ -1472,43 +1474,43 @@
           "name": "Dead Field Boots",
           "slot": "feet",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "Nothing grows here. This is the proof.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "secondary_stats": {
             "defense_rating": 0.1
           },
           "armor_type": "plate",
-          "armor_value": 35,
+          "armor_value": 45,
           "label": "Plate Boots (Str/Sta/Def)"
         },
         {
           "name": "Harrower's Bracers",
           "slot": "wrist",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "Straw in the seams and a feather in the lining.",
           "primary_stats": {
             "agility": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "secondary_stats": {
-            "attack_power": 2.1
+            "attack_power": 2.8
           },
           "armor_type": "leather",
-          "armor_value": 14,
+          "armor_value": 19,
           "label": "Leather Bracers (Agi/Sta/AP)"
         },
         {
           "name": "Harrower's Stiletto",
           "slot": "main_hand",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "Stitched with a farmer's last ounce of hope.",
           "weapon_type": "dagger",
@@ -1519,8 +1521,8 @@
           "secondary_stats": {
             "attack_power": 3.5
           },
-          "weapon_damage_min": 25,
-          "weapon_damage_max": 34,
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 44,
           "attack_speed": 1.7,
           "label": "Dagger (Agi/Sta/AP)"
         },
@@ -1528,18 +1530,18 @@
           "name": "Gaunt's Cord",
           "slot": "waist",
           "item_level": 15,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 15,
           "flavor_text": "Stitched with a farmer's last ounce of hope.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 5.4,
-            "mp5": 1.2
+            "spell_power": 1.8,
+            "mp5": 0.4
           },
           "armor_type": "cloth",
-          "armor_value": 7,
+          "armor_value": 9,
           "label": "Cloth Belt (Int/SP/MP5)"
         }
       ],
@@ -1558,13 +1560,13 @@
         {
           "type": "kill",
           "target": "Corrupted Treant",
-          "count": 5,
+          "count": 4,
           "zone": "silverpine_north"
         },
         {
           "type": "kill",
           "target": "Feral Ghoul",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_north"
         }
       ],
@@ -1582,11 +1584,11 @@
           "required_level": 13,
           "flavor_text": "The Rear Guard wears what lasts.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "dodge_rating": 0.4,
-            "parry_rating": 0.2
+            "dodge_rating": 0.2,
+            "parry_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 30,
@@ -1619,11 +1621,11 @@
           "flavor_text": "Issued at the northern gate, patched at the northern gate.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "armor": 11.4,
-            "parry_rating": 0.2
+            "armor": 5.7,
+            "parry_rating": 0.1
           },
           "weapon_damage_min": 22,
           "weapon_damage_max": 30,
@@ -1645,13 +1647,13 @@
         {
           "type": "kill",
           "target": "Orchard Shambler",
-          "count": 8,
+          "count": 6,
           "zone": "silverpine_north"
         },
         {
           "type": "kill",
           "target": "Windfall Wasp",
-          "count": 8,
+          "count": 6,
           "zone": "silverpine_north"
         }
       ],
@@ -1669,11 +1671,11 @@
           "required_level": 14,
           "flavor_text": "Cut from a branch that kept walking.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 3.9,
-            "hit_rating": 0.3
+            "spell_power": 1.3,
+            "hit_rating": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 6,
@@ -1705,11 +1707,11 @@
           "required_level": 14,
           "flavor_text": "Sweet, rotten, and surprisingly durable.",
           "primary_stats": {
-            "stamina": 2,
+            "stamina": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 0.9
+            "healing_power": 0.6
           },
           "label": "Ring (Sta/Spi/HP)"
         }
@@ -1748,11 +1750,11 @@
           "required_level": 15,
           "flavor_text": "Cut from a branch that kept walking.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.6,
-            "dodge_rating": 0.6
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 70,
@@ -1782,11 +1784,11 @@
           "required_level": 15,
           "flavor_text": "Sweet, rotten, and surprisingly durable.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 1.4
+            "healing_power": 0.9
           },
           "label": "Necklace (Int/Spi/HP)"
         }
@@ -1822,25 +1824,25 @@
           "name": "Malden's Vambraces",
           "slot": "wrist",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "Sweet, rotten, and surprisingly durable.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "secondary_stats": {
             "defense_rating": 0.1
           },
           "armor_type": "plate",
-          "armor_value": 37,
+          "armor_value": 48,
           "label": "Plate Bracers (Str/Sta/Def)"
         },
         {
           "name": "Orchard-Warden's Skirt",
           "slot": "legs",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "Cut from a branch that kept walking.",
           "primary_stats": {
@@ -1851,29 +1853,29 @@
             "spell_power": 2.4
           },
           "armor_type": "cloth",
-          "armor_value": 15,
+          "armor_value": 20,
           "label": "Cloth Legs (Int/Sta/SP)"
         },
         {
           "name": "Rotapple Targe",
           "slot": "off_hand",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "Sweet, rotten, and surprisingly durable.",
           "weapon_type": "shield",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 4
           },
-          "armor_value": 24,
-          "block_value": 31,
+          "armor_value": 32,
+          "block_value": 40,
           "label": "Shield (Sta/Def/Dodge)"
         },
         {
           "name": "Malden's Pants",
           "slot": "legs",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "Smells of fruit that never ripened.",
           "primary_stats": {
@@ -1884,7 +1886,7 @@
             "attack_power": 5.9
           },
           "armor_type": "leather",
-          "armor_value": 31,
+          "armor_value": 40,
           "label": "Leather Legs (Agi/Int/AP)"
         }
       ],
@@ -1903,13 +1905,13 @@
         {
           "type": "kill",
           "target": "Bog Beast",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_north"
         },
         {
           "type": "kill",
           "target": "Murky Crocolisk",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_north"
         }
       ],
@@ -1945,11 +1947,11 @@
           "required_level": 13,
           "flavor_text": "Salvaged from the shallows.",
           "primary_stats": {
-            "stamina": 2
+            "stamina": 1
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 20,
@@ -2003,11 +2005,11 @@
           "required_level": 14,
           "flavor_text": "Salvaged from the shallows.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "plate",
           "armor_value": 32,
@@ -2021,11 +2023,11 @@
           "required_level": 14,
           "flavor_text": "Salvaged from the shallows.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.4,
-            "dodge_rating": 0.4
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
           },
           "armor_type": "mail",
           "armor_value": 32,
@@ -2039,11 +2041,11 @@
           "required_level": 14,
           "flavor_text": "Dried, but never entirely.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "mp5": 0.3
+            "mp5": 0.2
           },
           "label": "Ring (Int/Sta/MP5)"
         }
@@ -2079,55 +2081,55 @@
           "name": "Reed-Cut Chausses",
           "slot": "legs",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "Salvaged from the shallows.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 5
           },
           "secondary_stats": {
-            "dodge_rating": 0.5,
-            "parry_rating": 0.4
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "armor_type": "mail",
-          "armor_value": 49,
+          "armor_value": 65,
           "label": "Mail Legs (Sta/Dodge/Parry)"
         },
         {
           "name": "Black-Water Bracers",
           "slot": "wrist",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "Dried, but never entirely.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
           },
           "armor_type": "plate",
-          "armor_value": 37,
+          "armor_value": 48,
           "label": "Plate Bracers (Str/Sta/Crit)"
         },
         {
           "name": "Black-Water Stiletto",
           "slot": "main_hand",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "Salvaged from the shallows.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 4
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "crit_chance_physical": 0.4
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 26,
-          "weapon_damage_max": 35,
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
           "attack_speed": 1.7,
           "label": "Dagger (Agi/Hit/Crit)"
         },
@@ -2135,18 +2137,18 @@
           "name": "Fen-Hardened Wraps",
           "slot": "shoulder",
           "item_level": 16,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 16,
           "flavor_text": "The spring runs black. So does the stitching.",
           "primary_stats": {
             "intellect": 3,
-            "stamina": 2
+            "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 1.5
+            "spell_power": 1.8
           },
           "armor_type": "cloth",
-          "armor_value": 11,
+          "armor_value": 15,
           "label": "Cloth Shoulders (Int/Sta/SP)"
         }
       ],
@@ -2165,13 +2167,13 @@
         {
           "type": "kill",
           "target": "Venomfang Skitterer",
-          "count": 8,
+          "count": 6,
           "zone": "silverpine_north"
         },
         {
           "type": "kill",
           "target": "Giant Spider",
-          "count": 4,
+          "count": 3,
           "zone": "silverpine_north"
         }
       ],
@@ -2189,11 +2191,11 @@
           "required_level": 15,
           "flavor_text": "The silk is stronger than the stitching.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 23,
@@ -2208,8 +2210,8 @@
           "flavor_text": "Spun in the dark.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 5.8,
-            "mp5": 1.2
+            "healing_power": 2.0,
+            "mp5": 0.4
           },
           "armor_type": "cloth",
           "armor_value": 7,
@@ -2224,11 +2226,11 @@
           "flavor_text": "The silk is stronger than the stitching.",
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 3.3,
-            "crit_chance_spell": 0.3
+            "spell_power": 1.1,
+            "crit_chance_spell": 0.1
           },
           "weapon_damage_min": 21,
           "weapon_damage_max": 29,
@@ -2288,11 +2290,11 @@
           "required_level": 16,
           "flavor_text": "The silk is stronger than the stitching.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "spell_power": 3.9
+            "hit_rating": 0.1,
+            "spell_power": 1.3
           },
           "armor_type": "mail",
           "armor_value": 23,
@@ -2350,69 +2352,69 @@
           "name": "Skittering Hauberk",
           "slot": "chest",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Cured in venom, worn in spite.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 5
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 53,
+          "armor_value": 69,
           "label": "Mail Chest (Str/Sta/Crit)"
         },
         {
           "name": "Silk-Wrapped Bindings",
           "slot": "wrist",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Spun in the dark.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 3.2,
-            "hit_rating": 0.2
+            "spell_power": 2.1,
+            "hit_rating": 0.1
           },
           "armor_type": "cloth",
-          "armor_value": 8,
+          "armor_value": 10,
           "label": "Cloth Bracers (Int/SP/Hit)"
         },
         {
           "name": "Silk-Wrapped Roundshield",
           "slot": "off_hand",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Spun in the dark.",
           "weapon_type": "shield",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 4
           },
-          "armor_value": 26,
-          "block_value": 33,
+          "armor_value": 34,
+          "block_value": 43,
           "label": "Shield (Sta/Def/Dodge)"
         },
         {
           "name": "Skittering Shoulderplates",
           "slot": "shoulder",
           "item_level": 17,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 17,
           "flavor_text": "Spun in the dark.",
           "primary_stats": {
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
-            "defense_rating": 0.4,
-            "dodge_rating": 0.4
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
-          "armor_value": 59,
+          "armor_value": 78,
           "label": "Plate Shoulders (Sta/Def/Dodge)"
         }
       ],
@@ -2471,11 +2473,11 @@
           "required_level": 17,
           "flavor_text": "The silk is stronger than the stitching.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 9.0,
-            "mp5": 1.8
+            "spell_power": 3.0,
+            "mp5": 0.6
           },
           "armor_type": "cloth",
           "armor_value": 15,
@@ -2490,11 +2492,11 @@
           "flavor_text": "Cured in venom, worn in spite.",
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "mp5": 0.3
+            "mp5": 0.2
           },
           "weapon_damage_min": 22,
           "weapon_damage_max": 30,
@@ -2560,11 +2562,11 @@
           "required_level": 16,
           "flavor_text": "Smells of pine-smoke and old orders.",
           "primary_stats": {
-            "stamina": 3,
+            "stamina": 2,
             "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 1.6
+            "healing_power": 1.3
           },
           "armor_type": "mail",
           "armor_value": 37,
@@ -2578,11 +2580,11 @@
           "required_level": 16,
           "flavor_text": "Smells of pine-smoke and old orders.",
           "primary_stats": {
-            "stamina": 2,
+            "stamina": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 1.0
+            "healing_power": 0.7
           },
           "label": "Ring (Sta/Spi/HP)"
         }

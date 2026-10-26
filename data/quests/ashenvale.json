@@ -657,7 +657,7 @@
         {
           "type": "kill",
           "target": "Lake Naiad",
-          "count": 7,
+          "count": 5,
           "zone": "Ashenvale West"
         }
       ],
@@ -677,10 +677,8 @@
       "objectives": [
         {
           "type": "explore",
-          "target": "ashenvale_west",
-          "target_x": 165,
-          "target_y": 169,
-          "radius": 14
+          "target": null,
+          "zone": "The Night Run"
         }
       ],
       "reward_exp": 1600,
@@ -701,7 +699,7 @@
         {
           "type": "kill",
           "target": "Ashenvale Wraith",
-          "count": 8,
+          "count": 6,
           "zone": "Ashenvale West"
         }
       ],
@@ -718,11 +716,10 @@
           "rarity": "uncommon",
           "flavor_text": "She stitched the ward-sigils herself, and she did not do it gently.",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 2
+            "agility": 5,
+            "stamina": 3
           },
-          "armor_type": "leather",
-          "armor_value": 24
+          "armor_type": "leather"
         }
       ]
     },
@@ -738,7 +735,7 @@
         {
           "type": "kill",
           "target": "Forest Spider",
-          "count": 9,
+          "count": 7,
           "zone": "Ashenvale West"
         }
       ],
@@ -759,7 +756,7 @@
         {
           "type": "kill",
           "target": "Dryad Sentinel",
-          "count": 6,
+          "count": 5,
           "zone": "Ashenvale West"
         }
       ],
@@ -780,10 +777,8 @@
       "objectives": [
         {
           "type": "explore",
-          "target": "ashenvale_west",
-          "target_x": 110,
-          "target_y": 128,
-          "radius": 10
+          "target": null,
+          "zone": "Lake Elune'ara"
         }
       ],
       "reward_exp": 1600,
@@ -803,7 +798,7 @@
         {
           "type": "kill",
           "target": "Murloc Spearfisher",
-          "count": 10,
+          "count": 8,
           "zone": "Ashenvale West"
         }
       ],
@@ -825,7 +820,7 @@
         {
           "type": "kill",
           "target": "Tide-Wrecker Crab",
-          "count": 8,
+          "count": 6,
           "zone": "Ashenvale West"
         }
       ],
@@ -846,7 +841,7 @@
         {
           "type": "kill",
           "target": "Naga Coastguard",
-          "count": 8,
+          "count": 6,
           "zone": "Ashenvale West"
         }
       ],
@@ -884,11 +879,10 @@
           "rarity": "uncommon",
           "flavor_text": "Tarred against the water. Tarred against everything, really.",
           "primary_stats": {
-            "stamina": 3,
-            "strength": 3
+            "stamina": 5,
+            "strength": 4
           },
-          "armor_type": "mail",
-          "armor_value": 42
+          "armor_type": "mail"
         }
       ]
     },
@@ -903,10 +897,8 @@
       "objectives": [
         {
           "type": "explore",
-          "target": "ashenvale_west",
-          "target_x": 40,
-          "target_y": 116,
-          "radius": 10
+          "target": null,
+          "zone": "Coast Bluffs"
         }
       ],
       "reward_exp": 1800,
@@ -926,7 +918,7 @@
         {
           "type": "kill",
           "target": "Ashenvale Grizzly",
-          "count": 8,
+          "count": 6,
           "zone": "Ashenvale East"
         }
       ],
@@ -967,7 +959,7 @@
         {
           "type": "kill",
           "target": "Ashenvale Wraith",
-          "count": 7,
+          "count": 5,
           "zone": "Ashenvale East"
         }
       ],
@@ -987,10 +979,8 @@
       "objectives": [
         {
           "type": "explore",
-          "target": "ashenvale_east",
-          "target_x": 168,
-          "target_y": 176,
-          "radius": 12
+          "target": null,
+          "zone": "The Demon Wastes"
         }
       ],
       "reward_exp": 1600,
@@ -1011,7 +1001,7 @@
         {
           "type": "kill",
           "target": "Voidwalker Remnant",
-          "count": 6,
+          "count": 5,
           "zone": "Ashenvale East"
         }
       ],
@@ -1028,8 +1018,8 @@
           "rarity": "uncommon",
           "flavor_text": "Knotted for every night that nothing came over the wall.",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 4,
+            "stamina": 3
           }
         }
       ]
@@ -1046,7 +1036,7 @@
         {
           "type": "kill",
           "target": "Timberling",
-          "count": 8,
+          "count": 6,
           "zone": "Ashenvale East"
         }
       ],
@@ -1082,11 +1072,11 @@
           "name": "Gruzak's Splitting Maul",
           "slot": "main_hand",
           "item_level": 25,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "flavor_text": "Heavy as a stump and smells like one.",
           "primary_stats": {
-            "strength": 15,
-            "stamina": 7
+            "strength": 6,
+            "stamina": 3
           },
           "weapon_type": "mace_2h"
         }
@@ -1124,7 +1114,7 @@
         {
           "type": "kill",
           "target": "Nightsaber Stalker",
-          "count": 7,
+          "count": 5,
           "zone": "Ashenvale East"
         }
       ],
@@ -1167,7 +1157,7 @@
         {
           "type": "kill",
           "target": "Dryad Sentinel",
-          "count": 5,
+          "count": 4,
           "zone": "Ashenvale East"
         }
       ],
@@ -1181,14 +1171,13 @@
           "name": "Aelyndra's Vigil Wrap",
           "slot": "wrist",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "flavor_text": "Woven for a night that never ends, and carried through it.",
           "primary_stats": {
             "intellect": 4,
             "spirit": 3
           },
-          "armor_type": "cloth",
-          "armor_value": 14
+          "armor_type": "cloth"
         }
       ]
     }

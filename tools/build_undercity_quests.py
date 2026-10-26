@@ -116,7 +116,7 @@ def quests():
     A(Q("ucq_scarlet_pressure", "The Crusade at the Door", EXE, UC, 10, 12, "uc_hall",
         "Scarlet Zealots and Bowmen are patrolling the Tirisfal road to the Ruins, close enough to see the portal. Executor Wrenfall "
         "has no intention of finding out whether they are brave enough to try the gate. Thin them out before they find out for her.",
-        [kill("Scarlet Zealot", 8, zone=ET), kill("Scarlet Bowman", 6, zone=ET)],
+        [kill("Scarlet Zealot", 6, zone=ET), kill("Scarlet Bowman", 5, zone=ET)],
         "The Scarlet Watch Post, east of Brill. Zealots and bowmen. Leave none in sight of the road.",
         "Good. The portal stays dark and the Crusade stays outside. Quarter-master's thanks, from me.", "ucq_scarlet_orders",
         requires_quests=["ucq_muster_slip"]))
@@ -144,7 +144,7 @@ def quests():
     A(Q("ucq_drill_remnants", "Live Targets", HASK, UC, 10, 11, "uc_war",
         "Drillmaster Hask is running out of recruits who do not mind being hit. The Lordaeron Remnants in the Ruins above are persistent "
         "and cheerfully hostile, and it is high time somebody used them for target practice.",
-        [kill("Lordaeron Remnant", 8, zone=ET), fetch("lordaeron_signet", 4)],
+        [kill("Lordaeron Remnant", 6, zone=ET), fetch("lordaeron_signet", 4)],
         "North, up the shaft, then south along the road to the Ruins. Eight remnants, four signets. Pretend you are teaching them.",
         "Eight and four. The recruits will learn more from your signets than from my yelling.", "ucq_drill_brennic"))
     A(Q("ucq_drill_brennic", "A Captain for the Pit", HASK, UC, 11, 12, "uc_war",
@@ -216,13 +216,13 @@ def quests():
     A(Q("ucq_pyrewood_hunt", "The Pyrewood Pack", ISO, UC, 15, 16, "uc_scout",
         "Ranger Isolde hunts what the Dark Lady needs hunted, and this season it's the worgen around Pyrewood Village: thickening in "
         "number, bolder in daylight, and very much not our friends. Thin the ambushers and the feral ones both.",
-        [kill("Worgen Ambusher", 6, zone="silverpine_south"), kill("Feral Worgen", 6, zone="silverpine_south")],
+        [kill("Worgen Ambusher", 5, zone="silverpine_south"), kill("Feral Worgen", 5, zone="silverpine_south")],
         "Pyrewood Village, Silverpine South. Watch the treeline. They love the treeline.",
         "Twelve less to watch. The Dark Lady will hear of it, if only because I'll tell her.", None))
     A(Q("ucq_watchman", "The Watchman Who Stayed", RHY, UC, 15, 16, "uc_scout",
         "A Forsaken Watchman at Raven Hill never stopped his patrol. He no longer answers challenges, or his own name. Deathstalker "
         "Rhyne has been asked to put him down quietly, and has decided the quiet option is you.",
-        [kill("Skeletal Groundskeeper", 6, zone=SPN), boss("The Forsaken Watchman", SPN)],
+        [kill("Skeletal Groundskeeper", 5, zone=SPN), boss("The Forsaken Watchman", SPN)],
         "Raven Hill Cemetery, Silverpine North. The groundskeepers first - they hear everything. Then the Watchman.",
         "Quiet work. Efficient. I may recommend you to Rhyne's less dignified cousins.", None))
 
@@ -248,7 +248,7 @@ def quests():
     A(Q("ucq_pd_gate", "Cull the Cistern", GAT, UC, 30, 31, "uc_sump",
         "Sorrel is no longer certain what is coming up the Deeps stair. Whatever the Society's alchemists are breeding down there is "
         "flooding the Outer Cistern with rats, worms, hounds and walking corpses. She wants the first chamber quieter.",
-        [kill("Plague Zombie", 8, zone=PD), kill("Plagued Hound", 6, zone=PD), kill("Rot Worm", 6, zone=PD)],
+        [kill("Plague Zombie", 6, zone=PD), kill("Plagued Hound", 5, zone=PD), kill("Rot Worm", 5, zone=PD)],
         "Through the iron door, then down. The Outer Cistern. Bring friends. The Society's work is not for lone travellers.",
         "You came up with all your limbs and a better colour than most. That is progress.", None))
     A(Q("ucq_pd_sump", "Sump Samples", SAB, UC, 30, 31, "uc_sump",

@@ -74,8 +74,8 @@ def new_quests():
                      "watching back. Rustfang hyenas have started tailing the caravans out of Orgrimmar, hanging a hundred paces "
                      "behind the last wagon and picking off whatever falls behind. Wagons are late. Drivers are quitting. "
                      "The Outrider would deal with it herself, but the gate is hers to hold, and someone has to be seen to be doing something."),
-        objectives=[kill("Rustfang Hyena", 8)],
-        reward_exp=300, reward_gold=1200,
+        objectives=[kill("Rustfang Hyena", 6)],
+        reward_exp=360, reward_gold=1200,
         accept_text=("Out on the Red Wastes, either side of the highway. They come in threes and fours, rust-red, "
                      "grinning like they know something. They do not know anything. Make that clear to them."),
         turn_in_text=("Fewer of them on the road already - I can hear it. Quiet, I mean. "
@@ -100,8 +100,8 @@ def new_quests():
                      "one ear torn to a notch, bigger than a pony and smarter than most of the guards at the gate. He doesn't charge. "
                      "He circles, he waits, he lets the others bleed you first. The Outrider has a bounty on him that's older than "
                      "some of the recruits."),
-        objectives=[kill("Rustfang Hyena", 4), kill("Old Redtooth", 1)],
-        reward_exp=760, reward_gold=2600,
+        objectives=[kill("Rustfang Hyena", 3), kill("Old Redtooth", 1)],
+        reward_exp=910, reward_gold=2600,
         accept_text=("He keeps to the open ground off the highway, not far from the gate road. Don't fight him with your back to a hill - "
                      "he'll have two friends up there before you finish the thought."),
         turn_in_text=("That's the notch, right there. Redtooth's done. Good. Keep the pelt if you want, but I think you'll want what he guarded."),
@@ -127,8 +127,8 @@ def new_quests():
         description=("The Sentry's patrol cuts across the east side of the highway and every year around this time the armored scorpids "
                      "come out from under their rocks to mate, or fight, or - he's honestly never been clear which. What he is clear on "
                      "is that his boots are not made for it. Thin them out before they spread to the road."),
-        objectives=[kill("Armored Scorpid", 8)],
-        reward_exp=320, reward_gold=1300,
+        objectives=[kill("Armored Scorpid", 6)],
+        reward_exp=380, reward_gold=1300,
         accept_text=("Out past the road, near the rock shelves. The plates are thick, so hit the gaps. "
                      "They don't hunt you. They just don't move out of your way."),
         turn_in_text=("Quieter already. I'll be able to walk the whole beat in peace for a week. Take something from the stores - "
@@ -157,7 +157,7 @@ def new_quests():
                      "the child has been sleeping on a bedroll thin enough to read through. Prowler pelts are the warmest thing for "
                      "a hundred miles. Grosk has too many knees to hunt them himself."),
         objectives=[fetch("durotar_prowler_pelt", 6)],
-        reward_exp=300, reward_gold=1000,
+        reward_exp=360, reward_gold=1000,
         accept_text=("Durotar Prowlers - the big sand-coloured cats. They den in the rough ground west of the highway. "
                      "Six good pelts, no holes in them. The boy's small, but he's not that small."),
         turn_in_text=("Look at that. He's asleep already and I haven't even tucked it in. You've done a better thing than most do all year. "
@@ -185,8 +185,8 @@ def new_quests():
                      "Thunder lizards and their cousins the thunderhides are wandering down off the slopes in numbers, "
                      "crowding the approach to the cave and snapping at anyone who gets between them and the water. "
                      "He wants the traffic thinned before something worse follows them down."),
-        objectives=[kill("Thunder Lizard", 6, alt=["Crackling Thunderhide"])],
-        reward_exp=420, reward_gold=1600,
+        objectives=[kill("Thunder Lizard", 5, alt=["Crackling Thunderhide"])],
+        reward_exp=500, reward_gold=1600,
         accept_text=("North-west of the highway, up the gravel basin. You'll hear them before you see them. "
                      "If the ground hums, step to the side. Seriously."),
         turn_in_text=("Better. Not good, but better. You noticed the other ones up there, though - the ones that talk? "
@@ -211,8 +211,8 @@ def new_quests():
         description=("The lizards aren't coming down on their own. Something has been feeding the storm on the ridge - Kurr has "
                      "watched Ridge Stormbinders chanting at the cliff edge with their arms raised, and every time they finish, "
                      "a flock of static hatchlings spills out of the rocks. Whatever they're building toward, he doesn't want to be there for it."),
-        objectives=[kill("Ridge Stormbinder", 5), kill("Static Hatchling", 6)],
-        reward_exp=520, reward_gold=1800,
+        objectives=[kill("Ridge Stormbinder", 4), kill("Static Hatchling", 5)],
+        reward_exp=620, reward_gold=1800,
         accept_text=("Higher up the ridge, where the rock goes dark. Take the binders first - the hatchlings stop swarming when "
                      "the chanting stops. Don't stand in anything that's glowing."),
         turn_in_text=("Quiet. Truly quiet. Which means he's awake. Rumblejaw - the big one. "
@@ -237,8 +237,8 @@ def new_quests():
         description=("There's a lizard on Thunder Ridge the length of two ox-carts with a jaw that cracks stone. The scouts call him Rumblejaw "
                      "because they feel him before they hear him. He's never been seen beyond the high shelves, but Kurr says that's changing: "
                      "the stormbinders have been feeding him. Cut the head off the problem."),
-        objectives=[kill("Thunder Lizard", 4, alt=["Crackling Thunderhide"]), kill("Rumblejaw", 1)],
-        reward_exp=840, reward_gold=2900,
+        objectives=[kill("Thunder Lizard", 3, alt=["Crackling Thunderhide"]), kill("Rumblejaw", 1)],
+        reward_exp=1010, reward_gold=2900,
         accept_text=("Top of the ridge, in the rock shelf above the basin. When the ground stops shaking, he's about to hit you. Move when it stops, not when it starts."),
         turn_in_text=("Rumblejaw's down? I can hear the quiet from here. That's the first real silence the ridge has had in ten years. Take whatever fits."),
         rewards=[
@@ -264,8 +264,8 @@ def new_quests():
                      "but today it's coming up the path in clouds. Burning Blade torchbearers are burning their way across the approach to clear "
                      "ground for something, and a swarm of cinder imps follows them to feed on the embers. If that fire reaches the road, "
                      "the Wastes are going to burn for a week."),
-        objectives=[kill("Cinder Imp", 6), kill("Burning Blade Torchbearer", 4)],
-        reward_exp=480, reward_gold=1700,
+        objectives=[kill("Cinder Imp", 5), kill("Burning Blade Torchbearer", 3)],
+        reward_exp=580, reward_gold=1700,
         accept_text=("Down the cliff path, toward the cave mouth. Torchbearers first - they light everything they pass. "
                      "The imps are small, but they're quick, and they bite where you least expect."),
         turn_in_text=("The wind's clean for the first time since spring. I could cry. I won't, but I could. "
@@ -290,8 +290,8 @@ def new_quests():
         description=("Houndmaster Kraygh keeps his dogs on the approach and his whip in his hand and he's never once been seen sleeping. "
                      "The Burning Blade bring him fresh hounds from the caves and he sets them on any traveler who looks too far in. "
                      "He's good with a whip. He's better with an excuse. The Watcher wants him gone before the hounds find a way down to the road."),
-        objectives=[kill("Searing Blade Raider", 4), kill("Houndmaster Kraygh", 1)],
-        reward_exp=900, reward_gold=3000,
+        objectives=[kill("Searing Blade Raider", 3), kill("Houndmaster Kraygh", 1)],
+        reward_exp=1080, reward_gold=3000,
         accept_text=("Down by the cave mouth, with his pack. Cut the guards down first - they hold the hounds back until he gives the word. "
                      "When the whip cracks, run. Not away. Past him."),
         turn_in_text=("The whip's silent. Do you hear that? Nothing's barking. Take his things. He won't be wanting them."),
@@ -319,7 +319,7 @@ def new_quests():
                      "concentrate glittering ore. Fitz would love to know how. He'd love it more if someone brought him a sample "
                      "without making him go near the teeth."),
         objectives=[fetch("mesa_ore", 6)],
-        reward_exp=400, reward_gold=1500,
+        reward_exp=480, reward_gold=1500,
         accept_text=("Mesa Stonebiters. Big, grey, hungry. They drop little glittering chunks when you cut them open - "
                      "yes, I know how that sounds. Six chunks. I'll pay a finder's cut and not ask questions."),
         turn_in_text=("Oh, that's lovely. It's practically jewelry. Don't tell Gazlowe, he'll want a cut. "
@@ -346,8 +346,8 @@ def new_quests():
         description=("Borka the Watchful keeps one eye on the road and the other on Rocktusk Farm, where the quilboar have taken over a "
                      "stolen homestead and put the previous owners' razorbacks to work. The farmhands are quilboar who've learned that a "
                      "pitchfork works on people. The tamed razorbacks have learned much the same. Neither is a good neighbor."),
-        objectives=[kill("Rocktusk Farmhand", 6), kill("Tamed Razorback", 4)],
-        reward_exp=320, reward_gold=1300,
+        objectives=[kill("Rocktusk Farmhand", 5), kill("Tamed Razorback", 3)],
+        reward_exp=380, reward_gold=1300,
         accept_text=("South-west, through the gate in the farm palisade. The farmhands patrol the furrows; the razorbacks follow whoever's holding the slops. "
                      "Don't be holding the slops."),
         turn_in_text=("Farm's quieter. Mostly. There's a sow in the back barn - the Matron. She's been breeding war-pigs in there since spring. "
@@ -371,8 +371,8 @@ def new_quests():
         description=("She was an ordinary sow once, the farm's breeding stock, before the quilboar fed her whatever it is they feed things. "
                      "Now she's the size of a cart and twice as bitter. The razorbacks follow her. The farmhands pray to her. "
                      "Borka wants her gone before she decides the road is next."),
-        objectives=[kill("Tamed Razorback", 4), kill("Matron Sowbelly", 1)],
-        reward_exp=700, reward_gold=2400,
+        objectives=[kill("Tamed Razorback", 3), kill("Matron Sowbelly", 1)],
+        reward_exp=840, reward_gold=2400,
         accept_text=("Farm barn, back of the furrows. She hits hard and she smells worse. Don't fight her in the open - the razorbacks will join in."),
         turn_in_text=("Matron's down. That's a lot of bacon, though I wouldn't touch it. Take the good stuff - she's done with it."),
         rewards=[
@@ -397,8 +397,8 @@ def new_quests():
         description=("Sylthressa Windmourne imports silk from places with names she says better than you could. She also imports it, regrettably, "
                      "through Scuttle Coast, where the murlocs have taken to stringing nets across the beach and the saltcrust crabs have taken to "
                      "living in them. Her caravans arrive late, tangled, and mildly crab-flavored. She would like this to stop."),
-        objectives=[kill("Murloc Netcaster", 6), kill("Saltcrust Crab", 6)],
-        reward_exp=420, reward_gold=1600,
+        objectives=[kill("Murloc Netcaster", 5), kill("Saltcrust Crab", 5)],
+        reward_exp=500, reward_gold=1600,
         accept_text=("East, on the shore. The netcasters throw first and ask questions never. The crabs just pinch. "
                      "Clear both out and my silk can arrive dry."),
         turn_in_text=("Dry silk! You've no idea what that means to me. And there's something else on that coast - a murloc with a hook. "
@@ -423,8 +423,8 @@ def new_quests():
         description=("Every murloc tribe has one who learned to use a blade, and on Scuttle Coast it's Gillfin. He cuts nets, he cuts lines, "
                      "and when he's bored, he cuts the traders' ropes. Sylthressa's drivers swear he took a wagon wheel once, for the hub. "
                      "She'd like him out of business."),
-        objectives=[kill("Murloc Netcaster", 4), kill("Gillfin the Net-Cutter", 1)],
-        reward_exp=780, reward_gold=2700,
+        objectives=[kill("Murloc Netcaster", 3), kill("Gillfin the Net-Cutter", 1)],
+        reward_exp=940, reward_gold=2700,
         accept_text=("Shoreline, east. He moves between the netted rocks, and he'll mend himself if you let him. Don't."),
         turn_in_text=("The Net-Cutter is done? Gods. I could kiss you. I won't - business first - but I will pay you extremely well in finery."),
         rewards=[
@@ -449,8 +449,8 @@ def new_quests():
         description=("Wyll Marrow was a cartwright out of Stormwind when the Kolkar took his caravan at the Crag and left him alive "
                      "as an afterthought. The Horde found him two days later, half-starved and swearing, and he's never quite forgiven them "
                      "for the rescue or the centaur for the ambush. Now he wants the war-riders paid back, in the only currency they understand."),
-        objectives=[kill("Kolkar Warrider", 8, alt=["Kolkar Outrunner", "Kolkar Wrangler", "Kolkar Pack Runner", "Kolkar Windchaser"])],
-        reward_exp=470, reward_gold=1800,
+        objectives=[kill("Kolkar Warrider", 6, alt=["Kolkar Outrunner", "Kolkar Wrangler", "Kolkar Pack Runner", "Kolkar Windchaser"])],
+        reward_exp=560, reward_gold=1800,
         accept_text=("The Crag's the bowl south-west of the Barrens road. They ride in circles like they own it. "
                      "Fair enough - they do. Thin the war-riders out and I'll sleep easier."),
         turn_in_text=("There. Somewhere in a Stormwind graveyard, my brother's smiling. There's one of them I can't get out of my head - "
@@ -475,8 +475,8 @@ def new_quests():
         description=("The Kolkar tell stories about their outriders, and about the one called Bloodhoof they tell quieter. "
                      "A crippled rider with a withered foreleg who kept charging anyway, long after any sensible centaur would have retired. "
                      "He has taken more caravans than the rest of the Crag combined. Wyll wants him on his back, in the dust, where he put the wagons."),
-        objectives=[kill("Kolkar Warrider", 4), kill("Bloodhoof the Lamed", 1)],
-        reward_exp=860, reward_gold=3000,
+        objectives=[kill("Kolkar Warrider", 3), kill("Bloodhoof the Lamed", 1)],
+        reward_exp=1030, reward_gold=3000,
         accept_text=("He rides alone, at the edge of the Crag, where the ground drops. He hits like a cart and runs like a deer. Don't chase him. Make him come to you."),
         turn_in_text=("Lamed Bloodhoof's down. I almost feel for him. Almost. Take whatever he carried - he won't be riding again."),
         rewards=[
@@ -503,7 +503,7 @@ def new_quests():
                      "care of the burnt caravan on the highway south-west of Grosk's camp. The ink's too faded to say who's expecting it. "
                      "It doesn't say it has to be delivered. But somebody has to."),
         objectives=[dict(type="explore", target="durotar", target_x=72, target_y=80, radius=6)],
-        reward_exp=360, reward_gold=1100,
+        reward_exp=430, reward_gold=1100,
         accept_text=("(The bones don't speak. The letter is addressed in a shaky hand, and the ring is warm in your palm.) "
                      "The highway south-west of the traveler's camp. Where the wagons burned."),
         turn_in_text=("(You lay the letter among the ash, as best you can. When you return, the signet is a little less cracked than it was. "
@@ -530,8 +530,8 @@ def new_quests():
         description=("Southbound Grekka has walked the road between Razor Hill and the Valley of Trials longer than most recruits have been alive. "
                      "Lately she can't make it past the Rocktusk Farm turnoff without a quilboar scout shaking her down for the privilege. "
                      "Recruits shouldn't have to start their first week on the Wastes with their coin purse already lighter."),
-        objectives=[kill("Razormane Scout", 6), kill("Razormane Geomancer", 3)],
-        reward_exp=340, reward_gold=1300,
+        objectives=[kill("Razormane Scout", 5), kill("Razormane Geomancer", 2)],
+        reward_exp=410, reward_gold=1300,
         accept_text=("The road south of the gateway, near the farm. The scouts watch from above; the geomancers throw rocks from behind. "
                      "Take the geomancers first, if you can find them."),
         turn_in_text=("You're a good one. Now new recruits get a clean road and I get to keep what I earn. Here - a spare from my own pack."),
@@ -557,7 +557,7 @@ def new_quests():
                      "The quilboar have started doing the same - collecting it, that is. Their quilboar-sized toll pouches turn up in their packs every time "
                      "someone's gotten past them, and Bok figures that's his coin. He'd like his coin."),
         objectives=[fetch("razormane_toll_pouch", 6)],
-        reward_exp=380, reward_gold=1500,
+        reward_exp=460, reward_gold=1500,
         accept_text=("Razormane quilboar, out on the Wastes. They carry leather pouches on their belts - you'll know them. "
                      "Six pouches, and I'll consider the road tax paid."),
         turn_in_text=("My coin! Smaller than I remembered, but still mine. Now take a cut - you've earned it, and I always pay my debts."),

@@ -12,7 +12,7 @@
         {
           "type": "kill",
           "target": "Road Bandit",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 852,
@@ -30,7 +30,7 @@
           "flavor_text": "Heavy canvas, waxed against the rain. It has outlasted three previous owners.",
           "primary_stats": {
             "strength": 4,
-            "stamina": 3
+            "stamina": 4
           },
           "armor_type": "leather",
           "armor_value": 33,
@@ -65,7 +65,7 @@
           "flavor_text": "Broken in on ten thousand miles of rut. Your feet will never feel the difference.",
           "primary_stats": {
             "agility": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "armor_type": "leather",
           "armor_value": 16,
@@ -105,7 +105,7 @@
           "flavor_text": "Thick lenses in a bent wire frame. Numbers stand still when you look at them.",
           "primary_stats": {
             "intellect": 3,
-            "stamina": 2
+            "stamina": 3
           },
           "armor_type": "cloth",
           "armor_value": 13,
@@ -135,11 +135,11 @@
           "flavor_text": "Thin, light, perfect for opening letters and, occasionally, people.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 5
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.5,
-            "crit_chance_physical": 0.5
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "weapon_damage_min": 28,
           "weapon_damage_max": 39,
@@ -162,12 +162,12 @@
         {
           "type": "kill",
           "target": "Bandit Cutthroat",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
           "target": "Bandit Outrider",
-          "count": 5
+          "count": 4
         }
       ],
       "reward_exp": 1020,
@@ -180,37 +180,37 @@
           "name": "Roadwarden's Mail Hauberk",
           "slot": "chest",
           "item_level": 19,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 16,
           "flavor_text": "Riveted mail, patched with road-iron. It has stopped a few too many knives.",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 6
+            "strength": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.3
+            "crit_chance_physical": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 77,
+          "armor_value": 59,
           "label": "Mail Chest (Str/Sta)"
         },
         {
           "name": "Outrider's Short-Bow",
           "slot": "ranged",
           "item_level": 19,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 16,
           "flavor_text": "Light and quick. Built for shooting from a moving mount.",
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
           },
-          "weapon_damage_min": 33,
-          "weapon_damage_max": 45,
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
           "attack_speed": 2.8,
           "label": "Bow (Agi/Sta)"
         },
@@ -218,11 +218,11 @@
           "name": "Gold Road Signet",
           "slot": "ring",
           "item_level": 19,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 16,
           "flavor_text": "A ring cast from a mile-marker. It makes the road feel a little shorter.",
           "primary_stats": {
-            "agility": 3,
+            "agility": 2,
             "intellect": 2
           },
           "label": "Ring (Agi/Int)"
@@ -243,7 +243,7 @@
         {
           "type": "kill",
           "target": "Tide-Wrecker Crab",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 852,
@@ -261,9 +261,9 @@
           "flavor_text": "Shell plates sewn onto a leather vest. Don't wear it in the surf. It floats.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 88.7,
-            "block_rating": 146.7,
-            "dodge_rating": 120.0
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
           },
           "armor_type": "mail",
           "armor_value": 53,
@@ -279,8 +279,8 @@
           "weapon_type": "sword_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 50.0,
-            "parry_rating": 37.5
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "weapon_damage_min": 27,
           "weapon_damage_max": 37,
@@ -296,7 +296,7 @@
           "flavor_text": "Stiff with salt. It keeps its shape even when you don't.",
           "primary_stats": {
             "stamina": 2,
-            "spirit": 1
+            "spirit": 2
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -336,7 +336,7 @@
           "flavor_text": "Slick and tarry. Rain and spilled rum slide right off.",
           "primary_stats": {
             "intellect": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "armor_type": "cloth",
           "armor_value": 6,
@@ -371,7 +371,7 @@
           "flavor_text": "Thick palms and reinforced thumbs. They stop splinters and some bad decisions.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "armor_type": "leather",
           "armor_value": 16,
@@ -393,12 +393,12 @@
         {
           "type": "kill",
           "target": "Southsea Cannoneer",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
           "target": "Southsea Brigand",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 910,
@@ -416,7 +416,7 @@
           "flavor_text": "Black with soot at the fingertips. They never quite wash out.",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -434,11 +434,11 @@
           "flavor_text": "A short dagger with a notch in the blade. For fuses. Mostly.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 5
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.5,
-            "crit_chance_physical": 0.5
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "weapon_damage_min": 28,
           "weapon_damage_max": 39,
@@ -484,7 +484,7 @@
         {
           "type": "kill",
           "target": "Southsea Brigand",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1080,
@@ -497,35 +497,35 @@
           "name": "Saltspray's Tricorn",
           "slot": "head",
           "item_level": 19,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 16,
           "flavor_text": "A battered pirate hat, still damp. It's taller than it looks.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 152.2,
-            "parry_rating": 116.0
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "armor_type": "leather",
-          "armor_value": 36,
+          "armor_value": 27,
           "label": "Leather Helm"
         },
         {
           "name": "Beachmaster's Grudge-Blade",
           "slot": "main_hand",
           "item_level": 19,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 16,
           "flavor_text": "A heavy cutlass. It's a pirate's. It doesn't care whose pocket it's in.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 2,
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.3
+            "defense_rating": 0.2
           },
-          "weapon_damage_min": 39,
-          "weapon_damage_max": 53,
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
           "attack_speed": 2.4,
           "label": "Sword 1H (Str/Sta)"
         },
@@ -533,11 +533,11 @@
           "name": "Harbour-Keeper's Seal",
           "slot": "neck",
           "item_level": 19,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 16,
           "flavor_text": "A brass pendant with a cannon stamped on it. Cold to the touch, warm to the conscience.",
           "primary_stats": {
-            "stamina": 3,
+            "stamina": 2,
             "spirit": 2
           },
           "label": "Necklace (Sta/Spi)"
@@ -546,19 +546,19 @@
           "name": "Southsea Buccaneer's Pistol",
           "slot": "ranged",
           "item_level": 19,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 16,
           "flavor_text": "A flintlock with a stolen engraving. It has fewer opinions than its former owner.",
           "weapon_type": "gun",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 1,
+            "stamina": 1
           },
           "secondary_stats": {
-            "attack_power": 4.0
+            "attack_power": 2.0
           },
-          "weapon_damage_min": 33,
-          "weapon_damage_max": 45,
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
           "attack_speed": 2.6,
           "label": "Gun (Agi/Sta)"
         }
@@ -578,7 +578,7 @@
         {
           "type": "kill",
           "target": "Dervish Hound",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1026,
@@ -595,8 +595,8 @@
           "required_level": 17,
           "flavor_text": "Sun-bleached leather with a flap for the neck. It smells strongly of dog.",
           "primary_stats": {
-            "agility": 3,
-            "spirit": 3
+            "agility": 4,
+            "spirit": 4
           },
           "armor_type": "leather",
           "armor_value": 29,
@@ -669,7 +669,7 @@
           "flavor_text": "Heavy rings and a leather lining. It dents blades instead of being dented.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
@@ -703,8 +703,8 @@
           "weapon_type": "sword_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 108.0,
-            "parry_rating": 86.4
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
           },
           "weapon_damage_min": 31,
           "weapon_damage_max": 42,
@@ -727,7 +727,7 @@
         {
           "type": "kill",
           "target": "Kolkar Stormcaller",
-          "count": 5
+          "count": 4
         }
       ],
       "reward_exp": 1084,
@@ -763,11 +763,11 @@
           "flavor_text": "A small stone totem carved with lightning. It hums when thunder is near.",
           "weapon_type": "totem",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "mp5": 0.3
+            "mp5": 0.2
           },
           "weapon_damage_min": 27,
           "weapon_damage_max": 37,
@@ -782,11 +782,11 @@
           "required_level": 18,
           "flavor_text": "A bent copper pendant on a thong. It dips when water is within a day's walk.",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2
+            "intellect": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 2.6
+            "healing_power": 1.3
           },
           "label": "Necklace (Int/Spi)"
         }
@@ -811,7 +811,7 @@
         {
           "type": "kill",
           "target": "Kolkar Dervish",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1220,
@@ -824,52 +824,52 @@
           "name": "Verog's Spinning-Belt",
           "slot": "waist",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "A broad belt studded with iron spikes. It never stops swinging, even when you do.",
           "primary_stats": {
-            "strength": 4,
+            "strength": 3,
             "agility": 3
           },
           "armor_type": "leather",
-          "armor_value": 28,
+          "armor_value": 21,
           "label": "Leather Belt (Str/Agi)"
         },
         {
           "name": "Dervish-Slayer's Greaves",
           "slot": "legs",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "Mail legguards, notched where blades struck and failed. The notches are a record.",
           "primary_stats": {
-            "stamina": 13
+            "stamina": 5
           },
           "secondary_stats": {
-            "armor": 33.5,
-            "parry_rating": 0.8
+            "armor": 12.9,
+            "parry_rating": 0.3
           },
           "armor_type": "mail",
-          "armor_value": 89,
+          "armor_value": 68,
           "label": "Mail Legs (Sta)"
         },
         {
           "name": "Verog's Twin Scimitar",
           "slot": "main_hand",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "A pair of curved blades riveted together. It's heavier than it looks and prouder than it should be.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "strength": 10
+            "strength": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.7,
-            "crit_chance_physical": 0.7
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 44,
-          "weapon_damage_max": 59,
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
           "attack_speed": 2.4,
           "label": "Sword 1H (Str)"
         },
@@ -877,11 +877,11 @@
           "name": "Oasis Warden's Medallion",
           "slot": "neck",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "A coin of old stone from the oasis shore. It gets warmer when allies are near.",
           "primary_stats": {
-            "intellect": 3,
+            "intellect": 2,
             "stamina": 2
           },
           "label": "Necklace (Int/Sta)"
@@ -902,7 +902,7 @@
         {
           "type": "kill",
           "target": "Kolkar Raider",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 910,
@@ -938,8 +938,8 @@
           "flavor_text": "A long ash spear with a sharp iron head. Best used before the raiders reach the wall.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 5
+            "strength": 11,
+            "stamina": 11
           },
           "weapon_damage_min": 39,
           "weapon_damage_max": 52,
@@ -955,7 +955,7 @@
           "flavor_text": "A plain iron ring stamped with a tower. It's cold in the morning and warm after a fight.",
           "primary_stats": {
             "stamina": 2,
-            "spirit": 1
+            "spirit": 2
           },
           "label": "Ring (Sta/Spi)"
         }
@@ -993,7 +993,7 @@
           "flavor_text": "A strip of dyed hide cut into a cloak. It flaps beautifully in a wind.",
           "primary_stats": {
             "agility": 2,
-            "intellect": 1
+            "intellect": 2
           },
           "armor_type": "cloth",
           "armor_value": 7,
@@ -1008,7 +1008,7 @@
           "flavor_text": "Mail bracers taken from a Kolkar standard-bearer. They fit better than they should.",
           "primary_stats": {
             "strength": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
@@ -1053,12 +1053,12 @@
         {
           "type": "kill",
           "target": "Kolkar Scoutrider",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
           "target": "Kolkar Drudge",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 968,
@@ -1091,11 +1091,11 @@
           "flavor_text": "A short, light crossbow built to fire from a moving mount.",
           "weapon_type": "crossbow",
           "primary_stats": {
-            "agility": 2,
+            "agility": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 3.0
+            "attack_power": 2.0
           },
           "weapon_damage_min": 25,
           "weapon_damage_max": 34,
@@ -1138,7 +1138,7 @@
         {
           "type": "kill",
           "target": "Kolkar Warbrand",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1170,
@@ -1151,37 +1151,37 @@
           "name": "Wall-Breaker's Ram-Horn Helm",
           "slot": "head",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A ram's horns on a mail coif. It looks fierce and weighs more than it should.",
           "primary_stats": {
-            "stamina": 8
+            "stamina": 4
           },
           "secondary_stats": {
-            "armor": 17.6,
-            "parry_rating": 0.4
+            "armor": 8.8,
+            "parry_rating": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 61,
+          "armor_value": 46,
           "label": "Mail Helm (Sta)"
         },
         {
           "name": "Kragg's Battering Maul",
           "slot": "main_hand",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A massive two-handed maul. It breaks walls. And more.",
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 15
+            "strength": 10
           },
           "secondary_stats": {
-            "hit_rating": 1.2,
-            "crit_chance_physical": 1.2
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
           },
-          "weapon_damage_min": 55,
-          "weapon_damage_max": 74,
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
           "attack_speed": 3.6,
           "label": "Mace 2H (Str)"
         },
@@ -1189,30 +1189,30 @@
           "name": "Ram-Hide Waistguard",
           "slot": "waist",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "Thick hide with iron studs. It's heavy and nearly bite-proof.",
           "primary_stats": {
-            "strength": 3,
+            "strength": 2,
             "stamina": 2
           },
           "armor_type": "leather",
-          "armor_value": 25,
+          "armor_value": 19,
           "label": "Leather Belt (Str/Sta)"
         },
         {
           "name": "Far Watch Commander's Cloak",
           "slot": "back",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A cloak edged in the Post's colours. It catches the wind and holds your head high.",
           "primary_stats": {
-            "intellect": 3,
+            "intellect": 2,
             "stamina": 2
           },
           "armor_type": "cloth",
-          "armor_value": 10,
+          "armor_value": 7,
           "label": "Cloak (Int/Sta)"
         }
       ],
@@ -1231,7 +1231,7 @@
         {
           "type": "kill",
           "target": "Slug",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 910,
@@ -1249,7 +1249,7 @@
           "flavor_text": "Waxed leather with a mud-shedding finish. It's never quite clean.",
           "primary_stats": {
             "strength": 4,
-            "stamina": 3
+            "stamina": 4
           },
           "armor_type": "leather",
           "armor_value": 35,
@@ -1323,11 +1323,11 @@
           "required_level": 15,
           "flavor_text": "Treated leather that resists most poisons. Not all. Don't test it.",
           "primary_stats": {
-            "agility": 4
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
           },
           "armor_type": "leather",
           "armor_value": 17,
@@ -1342,11 +1342,11 @@
           "flavor_text": "A narrow blade with a groove for venom. Neat, nasty, fast.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 5
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.5,
-            "crit_chance_physical": 0.5
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "weapon_damage_min": 28,
           "weapon_damage_max": 39,
@@ -1388,7 +1388,7 @@
         {
           "type": "kill",
           "target": "Peat Shambler",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 968,
@@ -1436,11 +1436,11 @@
           "flavor_text": "A heavy staff of bog-oak. It's still faintly warm.",
           "weapon_type": "staff",
           "primary_stats": {
-            "intellect": 5,
-            "stamina": 6
+            "intellect": 8,
+            "stamina": 11
           },
           "secondary_stats": {
-            "mp5": 1.1
+            "mp5": 1.9
           },
           "weapon_damage_min": 16,
           "weapon_damage_max": 22,
@@ -1468,7 +1468,7 @@
         {
           "type": "kill",
           "target": "Fenwater Crocolisk",
-          "count": 5
+          "count": 4
         }
       ],
       "reward_exp": 1020,
@@ -1481,37 +1481,37 @@
           "name": "Mire-Maw's Scaled Jerkin",
           "slot": "chest",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "Scales from the old croc. They shed water and blows with equal contempt.",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 5
           },
           "secondary_stats": {
-            "armor": 23.4,
-            "parry_rating": 0.4
+            "armor": 11.7,
+            "parry_rating": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 81,
+          "armor_value": 62,
           "label": "Mail Chest (Sta)"
         },
         {
           "name": "Maw-Tooth Cleaver",
           "slot": "main_hand",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A great axe edged with a crocolisk's tooth. It bites twice.",
           "weapon_type": "axe_2h",
           "primary_stats": {
-            "strength": 15
+            "strength": 10
           },
           "secondary_stats": {
-            "hit_rating": 1.2,
-            "crit_chance_physical": 1.2
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
           },
-          "weapon_damage_min": 55,
-          "weapon_damage_max": 74,
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
           "attack_speed": 3.6,
           "label": "Axe 2H (Str)"
         },
@@ -1519,11 +1519,11 @@
           "name": "Fenwarden's Oath-Ring",
           "slot": "ring",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A ring of bog-iron cast from a warden's old chain. It's heavier than it looks.",
           "primary_stats": {
-            "strength": 3,
+            "strength": 2,
             "stamina": 2
           },
           "label": "Ring (Str/Sta)"
@@ -1544,7 +1544,7 @@
         {
           "type": "kill",
           "target": "Venture Co. Oil Driller",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1026,
@@ -1561,8 +1561,8 @@
           "required_level": 17,
           "flavor_text": "Black with oil and old grease. It stops most things, even a bad smell.",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 4
+            "strength": 5,
+            "stamina": 5
           },
           "armor_type": "leather",
           "armor_value": 39,
@@ -1577,11 +1577,11 @@
           "flavor_text": "A heavy two-handed wrench. It's built for pipes. It works on skulls too.",
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 7
+            "strength": 9,
+            "stamina": 11
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.3
+            "crit_chance_physical": 0.5
           },
           "weapon_damage_min": 42,
           "weapon_damage_max": 57,
@@ -1596,8 +1596,8 @@
           "required_level": 17,
           "flavor_text": "Thick lenses, scratched and oily. They show you the world in sepia.",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 3
+            "agility": 4,
+            "stamina": 4
           },
           "armor_type": "cloth",
           "armor_value": 14,
@@ -1624,7 +1624,7 @@
         {
           "type": "kill",
           "target": "Pumpjack Guard",
-          "count": 5
+          "count": 4
         }
       ],
       "reward_exp": 1084,
@@ -1658,8 +1658,8 @@
           "weapon_type": "dagger",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 52.0,
-            "parry_rating": 38.8
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "weapon_damage_min": 32,
           "weapon_damage_max": 44,
@@ -1675,7 +1675,7 @@
           "flavor_text": "A brass ring with a tiny valve. It hisses when you're angry.",
           "primary_stats": {
             "strength": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
@@ -1703,7 +1703,7 @@
         {
           "type": "kill",
           "target": "Sludge Elemental",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1084,
@@ -1736,7 +1736,7 @@
           "flavor_text": "Mail legguards stained black. They look awful and stop blows.",
           "primary_stats": {
             "strength": 3,
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
@@ -1753,11 +1753,11 @@
           "required_level": 18,
           "flavor_text": "A drop of cured crude in glass. It's weirdly beautiful and heavy.",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2
+            "intellect": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 2.6
+            "healing_power": 1.3
           },
           "label": "Necklace (Int/Spi)"
         }
@@ -1782,7 +1782,7 @@
         {
           "type": "kill",
           "target": "Venture Co. Oil Driller",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1100,
@@ -1799,11 +1799,11 @@
           "required_level": 18,
           "flavor_text": "Heavy gloves slick with old oil. They don't slip, which is annoying.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "armor": 12.2,
-            "parry_rating": 0.2
+            "armor": 6.1,
+            "parry_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 32,
@@ -1818,7 +1818,7 @@
           "flavor_text": "A brass whistle on a chain. One blast and the shift ends, usually badly.",
           "primary_stats": {
             "strength": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
@@ -1866,7 +1866,7 @@
         {
           "type": "kill",
           "target": "Pumpjack Guard",
-          "count": 5
+          "count": 4
         }
       ],
       "reward_exp": 1200,
@@ -1879,69 +1879,69 @@
           "name": "Whirleygig's Goggles",
           "slot": "head",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "Brass goggles with seven lenses. You can see far, and also hear a faint ticking.",
           "primary_stats": {
-            "intellect": 10
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 15.5,
-            "mp5": 3.0
+            "spell_power": 3.1,
+            "mp5": 0.6
           },
           "armor_type": "cloth",
-          "armor_value": 21,
+          "armor_value": 16,
           "label": "Cloth Helm (Int)"
         },
         {
           "name": "Engineer's Shock-Mail",
           "slot": "chest",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "Mail wired with copper. It crackles when you're hit.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 978.8,
-            "block_rating": 1704.5,
-            "dodge_rating": 1214.5
+            "parry_rating": 0.4,
+            "block_rating": 0.7,
+            "dodge_rating": 0.5
           },
           "armor_type": "mail",
-          "armor_value": 89,
+          "armor_value": 68,
           "label": "Mail Chest"
         },
         {
           "name": "Sprocket-Spun Boots",
           "slot": "feet",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "Leather boots with tiny gears on the heels. They tick as you walk.",
           "primary_stats": {
-            "agility": 4,
+            "agility": 3,
             "stamina": 3
           },
           "armor_type": "leather",
-          "armor_value": 28,
+          "armor_value": 21,
           "label": "Leather Boots (Agi/Sta)"
         },
         {
           "name": "Clockwork Pistol",
           "slot": "ranged",
           "item_level": 22,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 19,
           "flavor_text": "A small pistol with a spring-driven action. It jams only when you least expect it.",
           "weapon_type": "gun",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 3
+            "agility": 1,
+            "stamina": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2
+            "hit_rating": 0.1
           },
-          "weapon_damage_min": 37,
-          "weapon_damage_max": 50,
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
           "attack_speed": 2.6,
           "label": "Gun (Agi/Sta)"
         }
@@ -1961,7 +1961,7 @@
         {
           "type": "kill",
           "target": "Venture Co. Miner",
-          "count": 8,
+          "count": 6,
           "zone": "boulder_lode_mine"
         }
       ],
@@ -1980,7 +1980,7 @@
           "flavor_text": "Leather loops and pockets for every kind of tool. It jingles in a way you quickly forget.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "armor_type": "leather",
           "armor_value": 16,
@@ -2015,7 +2015,7 @@
           "flavor_text": "An iron cap with a lantern bracket. You will bump your head. It won't hurt as much.",
           "primary_stats": {
             "stamina": 3,
-            "spirit": 2
+            "spirit": 3
           },
           "armor_type": "mail",
           "armor_value": 39,
@@ -2042,7 +2042,7 @@
         {
           "type": "kill",
           "target": "Cavern Rock Elemental",
-          "count": 5,
+          "count": 4,
           "zone": "boulder_lode_mine"
         }
       ],
@@ -2061,7 +2061,7 @@
           "flavor_text": "A jeweller's loupe in a leather cap. It shows seams you didn't know were there.",
           "primary_stats": {
             "intellect": 3,
-            "stamina": 2
+            "stamina": 3
           },
           "armor_type": "cloth",
           "armor_value": 13,
@@ -2095,11 +2095,11 @@
           "required_level": 15,
           "flavor_text": "A tiny crystal on a cord. It pulses faintly when you walk past ore.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 1.7
+            "healing_power": 1.1
           },
           "label": "Necklace (Int/Spi)"
         }
@@ -2124,7 +2124,7 @@
         {
           "type": "kill",
           "target": "Ore Sprite",
-          "count": 6,
+          "count": 5,
           "zone": "boulder_lode_mine"
         }
       ],
@@ -2142,11 +2142,11 @@
           "required_level": 15,
           "flavor_text": "Fine silk lined with thread of copper. It never quite stops tingling.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 2
+            "intellect": 1,
+            "stamina": 1
           },
           "secondary_stats": {
-            "spell_power": 2.0
+            "spell_power": 1.0
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -2176,11 +2176,11 @@
           "flavor_text": "A thin brass wand with a crystal tip. It buzzes near ore.",
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 3.9,
-            "mp5": 0.9
+            "spell_power": 1.3,
+            "mp5": 0.3
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 33,
@@ -2209,7 +2209,7 @@
         {
           "type": "kill",
           "target": "Venture Co. Tinkerer",
-          "count": 5,
+          "count": 4,
           "zone": "boulder_lode_mine"
         }
       ],
@@ -2228,7 +2228,7 @@
           "flavor_text": "A long dust-coat with a hundred pockets. They're mostly empty.",
           "primary_stats": {
             "agility": 3,
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
             "hit_rating": 0.2
@@ -2246,11 +2246,11 @@
           "flavor_text": "A long-barrelled rifle, scratched and oiled. It's very accurate, if you can stand the smell.",
           "weapon_type": "gun",
           "primary_stats": {
-            "agility": 2,
+            "agility": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 3.0
+            "attack_power": 2.0
           },
           "weapon_damage_min": 25,
           "weapon_damage_max": 34,
@@ -2292,7 +2292,7 @@
         {
           "type": "kill",
           "target": "Venture Co. Overseer",
-          "count": 4,
+          "count": 3,
           "zone": "boulder_lode_mine"
         }
       ],
@@ -2306,37 +2306,37 @@
           "name": "Foreman's Iron Hat",
           "slot": "head",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A heavy iron hat with a dented crown. It has survived worse than you.",
           "primary_stats": {
-            "stamina": 8
+            "stamina": 4
           },
           "secondary_stats": {
-            "armor": 17.6,
-            "parry_rating": 0.4
+            "armor": 8.8,
+            "parry_rating": 0.2
           },
           "armor_type": "mail",
-          "armor_value": 61,
+          "armor_value": 46,
           "label": "Mail Helm (Sta)"
         },
         {
           "name": "Grills' Bullhorn-Blade",
           "slot": "main_hand",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A heavy sword with a flared guard, shaped suspiciously like a horn.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 5
+            "strength": 2,
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.3
+            "defense_rating": 0.2
           },
-          "weapon_damage_min": 41,
-          "weapon_damage_max": 55,
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
           "attack_speed": 2.4,
           "label": "Sword 1H (Str/Sta)"
         },
@@ -2344,15 +2344,15 @@
           "name": "Vein-Heart Crystal",
           "slot": "neck",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A chunk of blue crystal from the top of the vein. It glows in the dark.",
           "primary_stats": {
-            "intellect": 5
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 7.5,
-            "mp5": 1.5
+            "spell_power": 1.5,
+            "mp5": 0.3
           },
           "label": "Necklace (Int)"
         },
@@ -2360,17 +2360,17 @@
           "name": "Lodeguard's Mail Shoulders",
           "slot": "shoulder",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "Mail shoulders chipped from a day's labour. They bear the Company's stamp, scratched out.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 84.0,
-            "block_rating": 213.8,
-            "dodge_rating": 123.8
+            "parry_rating": 0.2,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
           },
           "armor_type": "mail",
-          "armor_value": 61,
+          "armor_value": 46,
           "label": "Mail Shoulders"
         }
       ],
@@ -2389,7 +2389,7 @@
         {
           "type": "kill",
           "target": "Kolkar Warbrand",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 968,
@@ -2421,11 +2421,11 @@
           "required_level": 16,
           "flavor_text": "A grey wolf-pelt cloak. It still has a little of the wolf's attitude.",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 1,
+            "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 4.2
+            "attack_power": 2.1
           },
           "armor_type": "cloth",
           "armor_value": 7,
@@ -2440,11 +2440,11 @@
           "flavor_text": "A long spear for guarding tent-lines. It reaches further than you think.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 6
+            "strength": 8,
+            "stamina": 11
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.3
+            "crit_chance_physical": 0.5
           },
           "weapon_damage_min": 40,
           "weapon_damage_max": 55,
@@ -2467,7 +2467,7 @@
         {
           "type": "kill",
           "target": "Kolkar Scoutrider",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 968,
@@ -2545,7 +2545,7 @@
         {
           "type": "kill",
           "target": "Kolkar Raider",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1020,
@@ -2558,7 +2558,7 @@
           "name": "Vrek's Hawk-Feather Hood",
           "slot": "head",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A hood trimmed with hawk feathers. The wind lifts them as if the hawk were still alive.",
           "primary_stats": {
@@ -2566,24 +2566,24 @@
             "intellect": 4
           },
           "armor_type": "leather",
-          "armor_value": 38,
+          "armor_value": 29,
           "label": "Leather Helm (Agi/Int)"
         },
         {
           "name": "Scout-Captain's Spyglass-Blade",
           "slot": "main_hand",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A narrow blade with a small spyglass set in the pommel. Impractical, delightful.",
           "weapon_type": "sword_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 213.8,
-            "parry_rating": 168.8
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
           },
-          "weapon_damage_min": 41,
-          "weapon_damage_max": 55,
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
           "attack_speed": 2.4,
           "label": "Sword 1H"
         },
@@ -2591,15 +2591,15 @@
           "name": "Warsong Pathfinder's Belt",
           "slot": "waist",
           "item_level": 20,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 17,
           "flavor_text": "A broad leather belt marked with Warsong runes. It never quite fits, and never falls off.",
           "primary_stats": {
-            "intellect": 3,
+            "intellect": 2,
             "stamina": 2
           },
           "armor_type": "leather",
-          "armor_value": 25,
+          "armor_value": 19,
           "label": "Leather Belt (Int/Sta)"
         }
       ],
@@ -2618,12 +2618,12 @@
         {
           "type": "kill",
           "target": "Sentinel Picket",
-          "count": 6
+          "count": 5
         },
         {
           "type": "kill",
           "target": "Sentinel Archer",
-          "count": 4
+          "count": 3
         }
       ],
       "reward_exp": 1026,
@@ -2641,9 +2641,9 @@
           "flavor_text": "Heavy mail edged with the Rampart's old iron. It's stopped bigger things.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 153.6,
-            "block_rating": 307.2,
-            "dodge_rating": 204.8
+            "parry_rating": 0.3,
+            "block_rating": 0.6,
+            "dodge_rating": 0.4
           },
           "armor_type": "mail",
           "armor_value": 62,
@@ -2658,11 +2658,11 @@
           "flavor_text": "A long spear taken from a night elf picket. The balance is annoyingly perfect.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 7
+            "strength": 9,
+            "stamina": 11
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.3
+            "crit_chance_physical": 0.5
           },
           "weapon_damage_min": 42,
           "weapon_damage_max": 57,
@@ -2715,11 +2715,11 @@
           "required_level": 18,
           "flavor_text": "Quiet boots in dark leather. You'll startle people.",
           "primary_stats": {
-            "agility": 4
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
           },
           "armor_type": "leather",
           "armor_value": 20,
@@ -2776,7 +2776,7 @@
         {
           "type": "kill",
           "target": "Sentinel Moonspeaker",
-          "count": 5
+          "count": 4
         }
       ],
       "reward_exp": 1142,
@@ -2794,8 +2794,8 @@
           "flavor_text": "A thin silver circlet, cold as moonlight. It makes you feel watched.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 1113.7,
-            "mp5": 231.4
+            "healing_power": 4.3,
+            "mp5": 0.9
           },
           "armor_type": "cloth",
           "armor_value": 16,
@@ -2828,11 +2828,11 @@
           "flavor_text": "A narrow silver dagger that glows faintly. It's beautiful and wicked.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 5
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "crit_chance_physical": 0.3
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
@@ -2860,7 +2860,7 @@
         {
           "type": "kill",
           "target": "Sentinel Picket",
-          "count": 6
+          "count": 5
         }
       ],
       "reward_exp": 1280,
@@ -2873,36 +2873,36 @@
           "name": "Ilthae's Silverleaf Helm",
           "slot": "head",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A helm of silver-leafed mail. It's too light for its strength.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 342.3,
-            "block_rating": 573.3,
-            "dodge_rating": 463.1
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
           },
           "armor_type": "mail",
-          "armor_value": 70,
+          "armor_value": 53,
           "label": "Mail Helm"
         },
         {
           "name": "Warden's Moonglaive",
           "slot": "main_hand",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A two-handed glaive with a curved blade. It sings in the moonlight.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 21
+            "strength": 12
           },
           "secondary_stats": {
-            "hit_rating": 1.6,
-            "crit_chance_physical": 1.6
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
           },
-          "weapon_damage_min": 61,
-          "weapon_damage_max": 83,
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
           "attack_speed": 3.3,
           "label": "Polearm (Str)"
         },
@@ -2910,30 +2910,30 @@
           "name": "Sentinel's Cloak of Moonwool",
           "slot": "back",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A soft grey cloak. It's warmer than it looks.",
           "primary_stats": {
-            "stamina": 3,
-            "spirit": 3
+            "stamina": 2,
+            "spirit": 2
           },
           "armor_type": "cloth",
-          "armor_value": 11,
+          "armor_value": 8,
           "label": "Cloak (Sta/Spi)"
         },
         {
           "name": "Gatekeeper's Medal",
           "slot": "neck",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A medal for holding the Rampart. It's heavy.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 3
+            "strength": 2,
+            "stamina": 2
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.1
           },
           "label": "Necklace (Str/Sta)"
         }
@@ -2953,7 +2953,7 @@
         {
           "type": "kill",
           "target": "Witchwing Harpy",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1142,
@@ -2970,8 +2970,8 @@
           "required_level": 19,
           "flavor_text": "Hide leathers dyed to match the hills. It's practically invisible.",
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 4
+            "intellect": 5,
+            "stamina": 5
           },
           "armor_type": "leather",
           "armor_value": 42,
@@ -3002,7 +3002,7 @@
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
             "hit_rating": 0.1
@@ -3033,7 +3033,7 @@
         {
           "type": "kill",
           "target": "Witchwing Windcaller",
-          "count": 4
+          "count": 3
         }
       ],
       "reward_exp": 1200,
@@ -3088,11 +3088,11 @@
           "required_level": 20,
           "flavor_text": "A harpy-feather pendant. It trembles in a rising wind.",
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2
+            "intellect": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 2.8
+            "healing_power": 1.4
           },
           "label": "Necklace (Int/Spi)"
         }
@@ -3112,7 +3112,7 @@
         {
           "type": "kill",
           "target": "Hillcrest Stalker",
-          "count": 8
+          "count": 6
         }
       ],
       "reward_exp": 1200,
@@ -3130,7 +3130,7 @@
           "flavor_text": "Grey fur leggings that muffle your steps. They're warmer than you'd like.",
           "primary_stats": {
             "strength": 5,
-            "agility": 4
+            "agility": 5
           },
           "armor_type": "leather",
           "armor_value": 44,
@@ -3145,11 +3145,11 @@
           "flavor_text": "A light crossbow with a snap-draw lever. It's very quick.",
           "weapon_type": "crossbow",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 1,
+            "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 4.8
+            "attack_power": 2.4
           },
           "weapon_damage_min": 29,
           "weapon_damage_max": 40,
@@ -3164,8 +3164,8 @@
           "required_level": 20,
           "flavor_text": "Stout boots for rough ridges. Your ankles will thank you.",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 3,
+            "stamina": 3
           },
           "armor_type": "leather",
           "armor_value": 22,
@@ -3192,7 +3192,7 @@
         {
           "type": "kill",
           "target": "Witchwing Slayer",
-          "count": 5
+          "count": 4
         }
       ],
       "reward_exp": 1260,
@@ -3205,34 +3205,34 @@
           "name": "Serena's Bloodfeather Mantle",
           "slot": "shoulder",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "Crimson feathers stitched to leather. It's gaudy and fierce.",
           "primary_stats": {
-            "intellect": 5,
-            "stamina": 5
+            "intellect": 4,
+            "stamina": 4
           },
           "armor_type": "leather",
-          "armor_value": 43,
+          "armor_value": 33,
           "label": "Leather Shoulders (Int/Sta)"
         },
         {
           "name": "Bloodfeather Talon-Blade",
           "slot": "main_hand",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A curved talon-dagger from Serena's own hand. It's sharp as a prayer.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 9
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "crit_chance_physical": 0.6
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
-          "weapon_damage_min": 45,
-          "weapon_damage_max": 61,
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
           "attack_speed": 1.7,
           "label": "Dagger (Agi)"
         },
@@ -3240,15 +3240,15 @@
           "name": "Windcaller's Hex-Ring",
           "slot": "ring",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A ring of black feather and silver. It tingles when you lie.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 2,
+            "stamina": 2
           },
           "secondary_stats": {
-            "spell_power": 1.5
+            "spell_power": 1.0
           },
           "label": "Ring (Int/Sta)"
         },
@@ -3256,19 +3256,19 @@
           "name": "Matron's Hunt-Bow",
           "slot": "ranged",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A long bow strung with harpy sinew. It sings when you draw.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 3,
-            "intellect": 2
+            "agility": 1,
+            "intellect": 1
           },
           "secondary_stats": {
-            "attack_power": 6.0
+            "attack_power": 2.4
           },
-          "weapon_damage_min": 38,
-          "weapon_damage_max": 52,
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 40,
           "attack_speed": 2.8,
           "label": "Bow (Agi/Int)"
         }
@@ -3288,7 +3288,7 @@
         {
           "type": "kill",
           "target": "Roost Bonepicker",
-          "count": 6,
+          "count": 5,
           "zone": "serenas_hollow"
         }
       ],
@@ -3306,8 +3306,8 @@
           "required_level": 17,
           "flavor_text": "Woven roots and hide. It smells like the first rain.",
           "primary_stats": {
-            "stamina": 4,
-            "spirit": 4
+            "stamina": 5,
+            "spirit": 5
           },
           "armor_type": "leather",
           "armor_value": 39,
@@ -3337,11 +3337,11 @@
           "flavor_text": "A long spear for reaching nests. It also reaches harpies.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 7
+            "strength": 9,
+            "stamina": 11
           },
           "secondary_stats": {
-            "hit_rating": 0.3
+            "hit_rating": 0.5
           },
           "weapon_damage_min": 42,
           "weapon_damage_max": 57,
@@ -3369,7 +3369,7 @@
         {
           "type": "kill",
           "target": "Harpy Sky-Sentry",
-          "count": 4,
+          "count": 3,
           "zone": "serenas_hollow"
         }
       ],
@@ -3403,10 +3403,10 @@
           "flavor_text": "A small carved totem on a cord. It hums when spirits are near.",
           "primary_stats": {
             "intellect": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "mp5": 0.4
+            "mp5": 0.3
           },
           "label": "Necklace (Int/Sta)"
         },
@@ -3447,7 +3447,7 @@
         {
           "type": "kill",
           "target": "Harpy Windcaller",
-          "count": 4,
+          "count": 3,
           "zone": "serenas_hollow"
         }
       ],
@@ -3461,35 +3461,35 @@
           "name": "Skreeva's Wind-Caller Robe",
           "slot": "chest",
           "item_level": 21,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 18,
           "flavor_text": "A pale cloth robe that lifts in the faintest breeze.",
           "primary_stats": {
-            "intellect": 7,
-            "stamina": 6
+            "intellect": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 5.2
+            "spell_power": 2.4
           },
           "armor_type": "cloth",
-          "armor_value": 26,
+          "armor_value": 20,
           "label": "Cloth Chest (Int/Sta)"
         },
         {
           "name": "Perch-Warden's Totem",
           "slot": "off_hand",
           "item_level": 21,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 18,
           "flavor_text": "A small wind-totem of grey stone. It hums softly.",
           "weapon_type": "totem",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 97.9,
-            "mp5": 22.4
+            "healing_power": 1.7,
+            "mp5": 0.4
           },
-          "weapon_damage_min": 36,
-          "weapon_damage_max": 49,
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
           "attack_speed": 0.0,
           "label": "Totem"
         },
@@ -3497,15 +3497,15 @@
           "name": "Windcaller's Feather-Ring",
           "slot": "ring",
           "item_level": 21,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 18,
           "flavor_text": "A ring of woven feather and silver wire. It's weightless.",
           "primary_stats": {
-            "intellect": 3,
-            "spirit": 2
+            "intellect": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 3.2
+            "healing_power": 1.3
           },
           "label": "Ring (Int/Spi)"
         }
@@ -3531,7 +3531,7 @@
         {
           "type": "kill",
           "target": "Harpy",
-          "count": 6,
+          "count": 5,
           "zone": "serenas_hollow"
         }
       ],
@@ -3545,35 +3545,35 @@
           "name": "Matriarch's Down-Mantle",
           "slot": "shoulder",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A soft white mantle woven from the Matriarch's own down. It hums with a lullaby.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 5203.8,
-            "mp5": 1157.1
+            "healing_power": 4.5,
+            "mp5": 1.0
           },
           "armor_type": "cloth",
-          "armor_value": 21,
+          "armor_value": 16,
           "label": "Cloth Shoulders"
         },
         {
           "name": "Roost-Breaker's Maul",
           "slot": "main_hand",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A heavy two-handed maul with a nest-twig handle. It's rough, but it hits.",
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 21
+            "strength": 12
           },
           "secondary_stats": {
-            "hit_rating": 1.6,
-            "crit_chance_physical": 1.6
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
           },
-          "weapon_damage_min": 61,
-          "weapon_damage_max": 83,
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
           "attack_speed": 3.6,
           "label": "Mace 2H (Str)"
         },
@@ -3581,29 +3581,29 @@
           "name": "Gorge-Warden's Greaves",
           "slot": "legs",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "Mail greaves with feathered trim. They keep you steady on a cliff.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 1097.6,
-            "block_rating": 1920.8,
-            "dodge_rating": 1372.0
+            "parry_rating": 0.4,
+            "block_rating": 0.7,
+            "dodge_rating": 0.5
           },
           "armor_type": "mail",
-          "armor_value": 93,
+          "armor_value": 71,
           "label": "Mail Legs"
         },
         {
           "name": "Earthcaller's Eagle-Eye Amulet",
           "slot": "neck",
           "item_level": 23,
-          "rarity": "rare",
+          "rarity": "uncommon",
           "required_level": 20,
           "flavor_text": "A carved eagle of grey stone. Its eyes glow faintly when something circles above.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 2,
+            "stamina": 2
           },
           "label": "Necklace (Int/Sta)"
         }

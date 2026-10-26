@@ -53,7 +53,7 @@ def quests():
         ("The Gold Road is the only honest thing in the Northern Barrens, and someone has started charging for "
          "it. Road Bandits wait at the bends, polite for exactly one sentence, and every wagon that can't pay "
          "gets lighter. Hargak runs the waystation and has run out of patience."),
-        [kill("Road Bandit", 8)],
+        [kill("Road Bandit", 6)],
         ("They wear their coats the wrong way round so you can't tell who they are. I can tell. Thin them out "
          "along the bends and bring me what you find."),
         ("Fewer coats, more wagons. That's the arithmetic I like. Here, the waystation's thanks."),
@@ -75,7 +75,7 @@ def quests():
     a(Q("nb_cutthroats_on_the_road", "Cutthroats on the Road", G, 16,
         ("The pages named a crew: cutthroats on foot, outriders on beasts, working the stretch of road between "
          "the oasis fork and the coast. They are not toll collectors. They do not ask first."),
-        [kill("Bandit Cutthroat", 6), kill("Bandit Outrider", 5)],
+        [kill("Bandit Cutthroat", 5), kill("Bandit Outrider", 4)],
         ("Cutthroats move in pairs and outriders cover them from a distance. Take the outriders' bows first if "
          "you can. They hurt more than they look."),
         ("The road's quiet. That's the first time in a season. You've earned more than I can pay, but this is what I have."),
@@ -90,7 +90,7 @@ def quests():
         ("The Merchant Coast is the Barrens' loading dock, which is why every crab in the bay has decided it "
          "owns the pier. Tide-Wreckers pry the planks off cargo crates, drag them out to sea and nobody sees "
          "either again. Kizzle has asked nicely. She's now asking differently."),
-        [kill("Tide-Wrecker Crab", 8)],
+        [kill("Tide-Wrecker Crab", 6)],
         ("Big, red, sulky. They hide in the surf. Crack a few and the rest will remember they have other places to be."),
         ("Listen to that, bro. Nothing! Not one claw! Take this, with the beachmaster's gratitude."),
         [R(14, "Crabshell Beach-Plate", "chest", "of the Bastion", "Shell plates sewn onto a leather vest. Don't wear it in the surf. It floats.", "mail"),
@@ -112,7 +112,7 @@ def quests():
         ("The Southsea crews have mounted three cannons on the cliffs and are using them for target practice on "
          "anything that floats. Kizzle has a Ratchet-built guarantee that her pier is 'definitely not in range'. "
          "It definitely is."),
-        [kill("Southsea Cannoneer", 6), kill("Southsea Brigand", 6)],
+        [kill("Southsea Cannoneer", 5), kill("Southsea Brigand", 5)],
         ("Cannoneers stand behind the brigands. Cut through the brigands. Don't stand in a line."),
         ("Quiet again! Well, 'quiet' for a harbour. Here, take this. It's cleaner than it looks."),
         [R(15, "Cannoneer's Powder-Burnt Gloves", "hands", "of the Marksman", "Black with soot at the fingertips. They never quite wash out.", "leather"),
@@ -122,7 +122,7 @@ def quests():
     a(Q("nb_captain_saltspray", "Captain Saltspray", G, 16,
         ("Captain Saltspray runs the Southsea crew. He's not very good at it, but he is very loud, and the loud "
          "ones make the cannoneers brave. Take him down and the harbour might finally get some peace."),
-        [boss("Captain Saltspray"), kill("Southsea Brigand", 6)],
+        [boss("Captain Saltspray"), kill("Southsea Brigand", 5)],
         ("He shows himself when his crew is winning. Make them stop winning. Then make him regret showing himself."),
         ("The captain's down, and the beach is ours again. Come back in a week; there'll be a drink with your name on it."),
         [R(16, "Saltspray's Tricorn", "head", "of the Duelist", "A battered pirate hat, still damp. It's taller than it looks.", "leather"),
@@ -137,7 +137,7 @@ def quests():
         ("The Stagnant Oasis hasn't been fit to drink from in years, but it still draws every wanderer in the "
          "plains. Lately it also draws dervish hounds, lean, mange-ridden things that Kolkar dervishes breed "
          "and set loose. Mahri wants them gone before they learn what a campfire is for."),
-        [kill("Dervish Hound", 8)],
+        [kill("Dervish Hound", 6)],
         ("They circle first and bite after. Keep your back to something solid. A cliff, a tent, anything."),
         ("They've stopped howling. I never realised how much of the night they filled. Take this."),
         [R(17, "Oasis Scout's Leather Cap", "head", "of the Wolf", "Sun-bleached leather with a flap for the neck. It smells strongly of dog.", "leather"),
@@ -158,7 +158,7 @@ def quests():
         ("A band of Kolkar Stormcallers has taken up at the far side of the oasis, drawing lightning out of a "
          "sky that hasn't seen rain in months. It's not working. It's still giving everyone a headache. Mahri "
          "would like to be able to think again."),
-        [kill("Kolkar Stormcaller", 5)],
+        [kill("Kolkar Stormcaller", 4)],
         ("They stay together in the middle and the dervishes ring them. Break the ring, then the casters. "
          "Don't stand in the lightning. I mean that literally."),
         ("The sky is quiet. Wonderful. I can even hear the wind. Take this, with the camp's thanks."),
@@ -170,7 +170,7 @@ def quests():
         ("Verog leads the dervishes. He's fast, he's patient, and he's quick to be offended, which makes him "
          "the best bait the Kolkar could have used and the worst enemy anyone could have. The oasis will never "
          "be safe while he spins at the heart of it."),
-        [boss("Verog the Dervish"), kill("Kolkar Dervish", 6)],
+        [boss("Verog the Dervish"), kill("Kolkar Dervish", 5)],
         ("He spins when he's angry and he's always angry. Wait for the spin to wind down, then hit him. "
          "Dervishes around him first, though. You want him alone."),
         ("Verog's dead. I never thought I'd see it. Take this, and let me be the first to buy you a drink."),
@@ -186,7 +186,7 @@ def quests():
         ("Far Watch Post holds the eastern road, and the Kolkar know it. Every dawn another band of raiders "
          "rides up the headland, circles the watchtower and tests the palisade. Kelsara has counted forty "
          "since last full moon. She's stopped counting them as people."),
-        [kill("Kolkar Raider", 8)],
+        [kill("Kolkar Raider", 6)],
         ("They test the weak spots. There aren't any. Convince them of that with a spear."),
         ("Nothing at the palisade for an hour now. Almost suspicious. Take this and don't question luck."),
         [R(15, "Watch-Post Studded Vest", "chest", "of the Soldier", "Leather studded with iron nails. It stops a blade or two.", "leather"),
@@ -208,7 +208,7 @@ def quests():
         ("Kolkar Scoutriders ride the headland every night, measuring the watchtower's blind spots. Kelsara has "
          "no blind spots. She does have a lot of drudges stealing from the supply line while the scouts watch. "
          "She'd like both problems gone."),
-        [kill("Kolkar Scoutrider", 6), kill("Kolkar Drudge", 6)],
+        [kill("Kolkar Scoutrider", 5), kill("Kolkar Drudge", 5)],
         ("Scoutriders on beasts, drudges on foot. Cut the drudges down first. They're slow, and the scouts will "
          "come to rescue them."),
         ("The headland's quiet again. You earned this, and a place in my orders."),
@@ -219,7 +219,7 @@ def quests():
     a(Q("nb_kragg_the_wall_breaker", "Kragg the Wall-Breaker", G, 17,
         ("Kragg is a warbrand chief who has never met a palisade he couldn't test. He rides a hide-clad "
          "warbeast and brings a ram. Far Watch's wall has stood for ten years and he's decided that's too long."),
-        [boss("Kragg the Wall-Breaker"), kill("Kolkar Warbrand", 6)],
+        [boss("Kragg the Wall-Breaker"), kill("Kolkar Warbrand", 5)],
         ("He comes at dusk, usually. Warbrands first, then him. If he reaches the wall, we all know what happens."),
         ("Kragg's down. The wall holds. I'll raise a drink and a banner. Take this, the Post's thanks."),
         [R(17, "Wall-Breaker's Ram-Horn Helm", "head", "of the Juggernaut", "A ram's horns on a mail coif. It looks fierce and weighs more than it should.", "mail"),
@@ -234,7 +234,7 @@ def quests():
         ("The Slug Fens used to be only slow, wet and quiet. Then the slugs got big. Dugmok's wardens keep "
          "the causeway open, but the slugs are creeping across it at night, and nobody wants to explain why a "
          "caravan went in and the cargo came out as soup."),
-        [kill("Slug", 8)],
+        [kill("Slug", 6)],
         ("Pale, fat, and bigger than a dog. Cut them back from the causeway. If they wriggle, hit harder."),
         ("Quiet. Thick, wet, honest quiet. Thank you. Take this, with the fen's thanks."),
         [R(15, "Fenwarden's Mudproof Coat", "chest", "of the Bear", "Waxed leather with a mud-shedding finish. It's never quite clean.", "leather"),
@@ -255,7 +255,7 @@ def quests():
         ("Deep in the fens the peat has started to move. Peat Shamblers, mud and root and old bog-oak, "
          "shuffle along the causeway at night. At the heart of each is a warm core that Dugmok can burn "
          "through a cold winter, if he can get it out."),
-        [fetch("peat_heart", 5), kill("Peat Shambler", 6)],
+        [fetch("peat_heart", 5), kill("Peat Shambler", 5)],
         ("You'll have to break them. Hit the middle. The heart's a lump the size of your fist."),
         ("Ha! Warm already. You're a wonder. Take this."),
         [R(16, "Peatwalker's Mossweave Hood", "head", "of the Whale", "A cloth hood grown over with moss. It smells like the fen, which is oddly comforting.", "cloth"),
@@ -266,7 +266,7 @@ def quests():
         ("Something old and very hungry lives at the bottom of the deep fen, Old Mire-Maw, a crocolisk "
          "older than the causeway and wider than a wagon. Dugmok has lost three wardens to it. He's decided "
          "that's enough."),
-        [boss("Old Mire-Maw"), kill("Fenwater Crocolisk", 5)],
+        [boss("Old Mire-Maw"), kill("Fenwater Crocolisk", 4)],
         ("It hides in the deep pools, at the end of the causeway. Don't stand in the water. Don't stand near "
          "the water. If you can, don't stand."),
         ("Mire-Maw's dead. I never thought I'd say it. Come back and I'll carve you something from its tooth."),
@@ -281,7 +281,7 @@ def quests():
         ("Nix used to work for the Venture Company, before he learned what they were doing in the fen. Now he "
          "watches the rig from a rusted shack and counts the crews. They've been drilling day and night, and "
          "the ground is bleeding black. He wants the crews gone, preferably without anyone he likes in the way."),
-        [kill("Venture Co. Oil Driller", 8)],
+        [kill("Venture Co. Oil Driller", 6)],
         ("The drillers are the loud ones. Stop the noise and the guards come out. They're quieter, and nastier."),
         ("Quiet! Real quiet. The fen has a pulse again. Take this, from a man who knows what it's worth."),
         [R(17, "Driller's Soot-Stained Vest", "chest", "of the Bear", "Black with oil and old grease. It stops most things, even a bad smell.", "leather"),
@@ -292,7 +292,7 @@ def quests():
         ("Every rig has a gauge, and every gauge tells a story: how hard they're drilling, how deep, and how "
          "close the whole fen is to blowing. Nix wants five of them from the pumpjack guards. He's lost the "
          "nerve to ask nicely."),
-        [fetch("oil_pressure_gauge", 5), kill("Pumpjack Guard", 5)],
+        [fetch("oil_pressure_gauge", 5), kill("Pumpjack Guard", 4)],
         ("Pumpjack guards keep them on a chain. Cut the chain. Don't cut the guard's friends. They fight back."),
         ("Ha. Look at that needle. They're drilling too deep. It's going to blow. Take this and keep your distance."),
         [R(18, "Pumpjack-Guard's Rubber Gloves", "hands", "of the Bear", "Thick and chemical-proof. They make you feel invincible, which is dangerous.", "leather"),
@@ -303,7 +303,7 @@ def quests():
         ("Where the oil's pooled, the sludge has started to move. Sludge Elementals, black, sticky, and very "
          "angry. Nix wants samples to prove to the Company that its drilling is doing this. He'd also like "
          "not to be near them while they're collected."),
-        [fetch("crude_sludge_sample", 6), kill("Sludge Elemental", 6)],
+        [fetch("crude_sludge_sample", 6), kill("Sludge Elemental", 5)],
         ("Take the samples from the middle. They leave a slick. Careful. The goop doesn't come off."),
         ("Look at that. Pure, black, and very illegal. They won't be able to deny it. Take this."),
         [R(18, "Slickwalker's Oilcloth Cloak", "back", "of the Whale", "Treated cloth that sheds oil and the occasional curse.", "cloth"),
@@ -313,7 +313,7 @@ def quests():
     a(Q("nb_supervisor_lugwizzle", "Supervisor Lugwizzle", G, 18,
         ("Lugwizzle runs the rig. He screams a lot, throws wrenches, and signs every order. If he stops, the "
          "rig stops. If the rig stops, the fen heals. Nix has drawn you a map to the pumphouse."),
-        [boss("Supervisor Lugwizzle"), kill("Venture Co. Oil Driller", 6)],
+        [boss("Supervisor Lugwizzle"), kill("Venture Co. Oil Driller", 5)],
         ("He's usually in the pumphouse, shouting. He throws oil. Don't stand in it."),
         ("Lugwizzle's down, and the rig's quiet. Take this. I owe you more than I'll ever have."),
         [R(18, "Lugwizzle's Greasy Gauntlets", "hands", "of the Juggernaut", "Heavy gloves slick with old oil. They don't slip, which is annoying.", "mail"),
@@ -324,7 +324,7 @@ def quests():
         ("With Lugwizzle gone the engineer is panicking. Whirleygig is the one who actually made the "
          "drillers work, and he's building something large and noisy in the back of the shop. Nix says it "
          "is going to explode. Nix says a lot of things, but he's usually right about that one."),
-        [boss("Engineer Whirleygig"), kill("Pumpjack Guard", 5)],
+        [boss("Engineer Whirleygig"), kill("Pumpjack Guard", 4)],
         ("He's got turrets. Kill the guards, then him. Don't be near him when he trips the switch."),
         ("The thing's dead, the engineer's dead, and the fen will heal in time. Take this. It's the last of what I own that's worth giving."),
         [R(19, "Whirleygig's Goggles", "head", "of the Archmage", "Brass goggles with seven lenses. You can see far, and also hear a faint ticking.", "cloth"),
@@ -339,7 +339,7 @@ def quests():
         ("The Boulder Lode was a Horde claim before the Venture Company moved in. Now Miners swing picks on "
          "its walls and Overseers shout in its tunnels, and Gruda has the paperwork to prove who owns the "
          "ore. The paperwork is not helping."),
-        [kill("Venture Co. Miner", 8, zone=MINE)],
+        [kill("Venture Co. Miner", 6, zone=MINE)],
         ("Go in and clear the miners from the lower galleries. They're not soldiers. They'll still hit you "
          "with a pick."),
         ("The lower galleries are ours again. I can hear the dust settling. Take this."),
@@ -351,7 +351,7 @@ def quests():
         ("The Elementals in the mine are made of the same rock as the walls, and the walls are laced with "
          "crystal. If Gruda can read the vein, she can tell how much the Company has already taken. "
          "Sample cores from the big ones."),
-        [fetch("vein_core_sample", 5, ), kill("Cavern Rock Elemental", 5, zone=MINE)],
+        [fetch("vein_core_sample", 5, ), kill("Cavern Rock Elemental", 4, zone=MINE)],
         ("Break them open. You'll find a glowing core in each. Bring me five. I'll read the vein."),
         ("The vein's rich. Richer than they let on. And they've taken nearly half. Take this, with my thanks."),
         [R(15, "Vein-Reader's Loupe", "head", "of the Eagle", "A jeweller's loupe in a leather cap. It shows seams you didn't know were there.", "cloth"),
@@ -361,7 +361,7 @@ def quests():
     a(Q("nb_sprites_in_the_seams", "Sprites in the Seams", G, 15,
         ("The ore sprites are small, bright and mean. They live in the crystal seams and bite anything that "
          "gets close. Gruda wants their shards, a chip off each, for her assay table."),
-        [fetch("ore_sprite_shard", 6), kill("Ore Sprite", 6, zone=MINE)],
+        [fetch("ore_sprite_shard", 6), kill("Ore Sprite", 5, zone=MINE)],
         ("Quick and glowing. Hit them while they're pausing to sparkle. Don't breathe their dust."),
         ("Beautiful. And they test out rich, too. Take this, with the claim's thanks."),
         [R(15, "Sprite-Catcher's Gloves", "hands", "of the Sorcerer", "Fine silk lined with thread of copper. It never quite stops tingling.", "cloth"),
@@ -372,7 +372,7 @@ def quests():
         ("Delvik was Gruda's partner once. He sold the claim's map to the Venture Company for a promise and "
          "a bag of silver, and now hides in a side adit with a rifle and a bad conscience. Gruda would "
          "like him to explain himself, if possible. If not, it won't be a surprise."),
-        [boss("Prospector Delvik", zone=MINE), kill("Venture Co. Tinkerer", 5, zone=MINE)],
+        [boss("Prospector Delvik", zone=MINE), kill("Venture Co. Tinkerer", 4, zone=MINE)],
         ("He's in a side adit off the middle gallery, behind a pile of rubble. He shoots first. "
          "Tinkerers will keep him company. Clear them out and you've done most of it."),
         ("So he did get what he deserved. I'd wish it a quieter end, but I'm not sorry. Take this."),
@@ -384,7 +384,7 @@ def quests():
         ("At the top of the mine, round a vein of blue crystal, Foreman Grills runs the Company's crew. He "
          "wears an iron hat, shouts orders through a bullhorn and is, in his own estimation, the cleverest "
          "man ever to hold a pick. Gruda says he's only the loudest."),
-        [boss("Foreman Grills", zone=MINE), kill("Venture Co. Overseer", 4, zone=MINE)],
+        [boss("Foreman Grills", zone=MINE), kill("Venture Co. Overseer", 3, zone=MINE)],
         ("He's at the top, in the crystal chamber. Overseers guard the way up. Take them out and he's alone, "
          "if you can call a man with a bullhorn alone."),
         ("Grills is dead, the claim's ours, and the vein will outlast us all. Take this, with the claim's honour."),
@@ -400,7 +400,7 @@ def quests():
         ("Mor'shan Base Camp sits under the Rampart like a thorn in the Kaldorei's side. Kolkar Warbrands "
          "surround it. Dask doesn't blame them: he'd attack, too. He'd like the Warbrands to stop camping "
          "on the supply road."),
-        [kill("Kolkar Warbrand", 6)],
+        [kill("Kolkar Warbrand", 5)],
         ("Warbrands are tough, loud and always in a group of four. Break one group and the rest will think "
          "twice. Don't think twice yourself."),
         ("The supply road's clear! Well, clearer. Take this, from a grateful outrider."),
@@ -411,7 +411,7 @@ def quests():
     a(Q("nb_break_the_scouts", "Break the Scouts", G, 16,
         ("Scoutriders ride the hills above the Base Camp and report every movement to the Rampart. Dask "
          "doesn't mind being watched. He minds being shot at, which the scouts do for sport."),
-        [kill("Kolkar Scoutrider", 8)],
+        [kill("Kolkar Scoutrider", 6)],
         ("They shoot from range and run. Chase the slow ones. The fast ones will come back."),
         ("They've stopped watching. Good. I can have a quiet breakfast. Take this."),
         [R(16, "Scout-Breaker's Boots", "feet", "of the Monkey", "Light boots for chasing riders. They're very quiet.", "leather"),
@@ -422,7 +422,7 @@ def quests():
         ("Vrek commands the Rampart-watchers and is the one who tells the Kaldorei when to shoot. He rides "
          "a swift, sharp-eyed hawk and sees everything on the plain. Dask wants him blinded, preferably "
          "permanently."),
-        [boss("Scout-Captain Vrek"), kill("Kolkar Raider", 6)],
+        [boss("Scout-Captain Vrek"), kill("Kolkar Raider", 5)],
         ("He hides among the scoutriders. If you can get to him, he's weak. If he gets to you, you're not."),
         ("Vrek's down. The Rampart can't see us for a day or two. That may be all we need. Take this."),
         [R(17, "Vrek's Hawk-Feather Hood", "head", "of the Falcon", "A hood trimmed with hawk feathers. The wind lifts them as if the hawk were still alive.", "leather"),
@@ -436,7 +436,7 @@ def quests():
         ("The Rampart is the Horde's wall against the Kaldorei, and it's a wall with a very thin side. "
          "Sentinel Pickets and Archers hold the strip just north of it, firing at anyone who gets near the "
          "gate. Korvash wants the strip cleared. He's tired of being polite."),
-        [kill("Sentinel Picket", 6), kill("Sentinel Archer", 4)],
+        [kill("Sentinel Picket", 5), kill("Sentinel Archer", 3)],
         ("The pickets hold the line. The archers cover them from the cliffs. Take the archers first if you "
          "can. Don't be proud."),
         ("The strip's quiet. For now. They'll send more. They always do. Take this."),
@@ -457,7 +457,7 @@ def quests():
     a(Q("nb_moonspeakers", "Moonspeakers", G, 19,
         ("Behind the pickets stand Moonspeakers, night elf priestesses who call down light on anyone who "
          "falls. They're the reason the pickets keep coming back. Take them out and the line breaks."),
-        [kill("Sentinel Moonspeaker", 5)],
+        [kill("Sentinel Moonspeaker", 4)],
         ("They stay in the back, glowing. Close on them quickly. They run if you wait."),
         ("The line's breaking. That's what we've been waiting for. Take this, with the Rampart's thanks."),
         [R(19, "Moonspeaker's Silver Circlet", "head", "of the Restorer", "A thin silver circlet, cold as moonlight. It makes you feel watched.", "cloth"),
@@ -467,7 +467,7 @@ def quests():
     a(Q("nb_warden_ilthae", "Warden Ilthae", G, 20,
         ("The Sentinels' commander at the wall is Warden Ilthae, an old, steady, silver-haired woman who "
          "hasn't lost a skirmish in twenty years. Korvash respects her. He'd still like her dead."),
-        [boss("Warden Ilthae"), kill("Sentinel Picket", 6)],
+        [boss("Warden Ilthae"), kill("Sentinel Picket", 5)],
         ("She's got a glaive, a bad temper and no fear. Don't fight her in the open. Don't fight her at all, "
          "if you can avoid it. But you can't."),
         ("Ilthae's dead. The strip is ours. Take this, and may the wall hold a little longer."),
@@ -482,7 +482,7 @@ def quests():
     a(Q("nb_feathers_on_the_wind", "Feathers on the Wind", G, 19,
         ("The Dry Hills belong to the Witchwings, harpies who've learned a few tricks from somewhere dark. "
          "Zan'ula tracks them for a living. She'd like fewer of them to track."),
-        [kill("Witchwing Harpy", 8)],
+        [kill("Witchwing Harpy", 6)],
         ("They fly low over the ridges and strike from behind. Keep your back to a hill and you'll be fine."),
         ("Good. Quiet in the hills. For a day or so. Take this."),
         [R(19, "Zan'ula's Hunter-Leathers", "chest", "of the Eagle", "Hide leathers dyed to match the hills. It's practically invisible.", "leather"),
@@ -492,7 +492,7 @@ def quests():
     a(Q("nb_hexed_totems", "Hexed Totems", G, 20,
         ("The Witchwing Windcallers carve hex-totems and hang them in the high rocks. Zan'ula doesn't know "
          "what they do, only that she dreams badly near them. She'd like them taken down."),
-        [fetch("witchwing_hex_totem", 5), kill("Witchwing Windcaller", 4)],
+        [fetch("witchwing_hex_totem", 5), kill("Witchwing Windcaller", 3)],
         ("Pull the totems from the Windcallers. Don't look at them for long."),
         ("Mm. They feel wrong, even in a bag. I'll burn them. Thank you. Take this."),
         [R(20, "Hex-Breaker's Gloves", "hands", "of the Seer", "Cloth gloves stitched with protective sigils. They itch if a hex is near.", "cloth"),
@@ -502,7 +502,7 @@ def quests():
     a(Q("nb_hillcrest_stalkers", "Hillcrest Stalkers", G, 20,
         ("Hillcrest Stalkers have been hunting the trail between the hills. They're patient, grey and "
          "cunning. Zan'ula wants a dozen pelts and the hills quiet again."),
-        [kill("Hillcrest Stalker", 8)],
+        [kill("Hillcrest Stalker", 6)],
         ("Stalkers wait on the high ledges. Look up before you walk under a ridge."),
         ("Good pelts. I'll sell the rest at the Crossroads. Take this."),
         [R(20, "Stalker-Pelt Leggings", "legs", "of the Tiger", "Grey fur leggings that muffle your steps. They're warmer than you'd like.", "leather"),
@@ -512,7 +512,7 @@ def quests():
     a(Q("nb_serena_bloodfeather", "Serena Bloodfeather", G, 20,
         ("Serena Bloodfeather leads the Witchwings. She has an old blood-feud with the Horde and a long "
          "memory. Zan'ula has tracked her for years and never gotten close. You might. You'll certainly try."),
-        [boss("Serena Bloodfeather"), kill("Witchwing Slayer", 5)],
+        [boss("Serena Bloodfeather"), kill("Witchwing Slayer", 4)],
         ("She flies in at the end of a long hunt. Slayers first, always. If Serena sees you, run to the "
          "nearest ridge and fight there."),
         ("Serena's dead. The hills are quiet. I can't believe it. Take this, with a hunter's thanks."),
@@ -528,7 +528,7 @@ def quests():
         ("Serena's Hollow is a cliff-gorge that winds up to a harpy roost, and the harpies who live there "
          "don't love visitors. Rohna is an earthcaller, a spirit-speaker, and she can feel the roost "
          "crying out. It's a bad cry. She wants it quieted."),
-        [kill("Roost Bonepicker", 6, zone=HOLLOW)],
+        [kill("Roost Bonepicker", 5, zone=HOLLOW)],
         ("Go in through the cave mouth. Bonepickers hold the lower nests. They're small, mean, and love "
          "the taste of tauren."),
         ("Better. The earth is calmer. Take this, with the spirits' thanks."),
@@ -539,7 +539,7 @@ def quests():
     a(Q("nb_down_from_the_roost", "Down from the Roost", G, 17,
         ("The harpies line their nests with down. Fine, white, and warm. Rohna's totem-carvers use it in "
          "their rites. She'd like six handfuls, and no more harpies in her sleep."),
-        [fetch("harpy_roost_down", 6), kill("Harpy Sky-Sentry", 4, zone=HOLLOW)],
+        [fetch("harpy_roost_down", 6), kill("Harpy Sky-Sentry", 3, zone=HOLLOW)],
         ("Pull the down from the nests. Mind the sentries; they watch from the high ledges."),
         ("Soft as a promise. Thank you. The spirits will be pleased. Take this."),
         [R(17, "Feather-Light Cloak", "back", "of the Eagle", "A cloak lined with soft down. It weighs almost nothing.", "cloth"),
@@ -550,7 +550,7 @@ def quests():
         ("High in the gorge sits a perch where Windcaller Skreeva commands the winds that blow the harpies "
          "up and down the cliff. Rohna says the winds listen to her. She'd rather they listened to someone "
          "else."),
-        [boss("Windcaller Skreeva", zone=HOLLOW), kill("Harpy Windcaller", 4, zone=HOLLOW)],
+        [boss("Windcaller Skreeva", zone=HOLLOW), kill("Harpy Windcaller", 3, zone=HOLLOW)],
         ("She stands on the east ledge, above the middle of the gorge. Her Windcallers keep the air thick. "
          "Take them first, then her."),
         ("Skreeva's dead. The winds are quiet. I can hear them breathing. Take this."),
@@ -562,7 +562,7 @@ def quests():
         ("At the top of the gorge sits the roost, a great bowl of nests, and in the centre of it, the "
          "Matriarch, mother of every harpy in the hills. Rohna says her cry is the one the earth keeps "
          "answering. End it, and the hollow will be quiet."),
-        [boss("Harpy Matriarch", zone=HOLLOW), kill("Harpy", 6, zone=HOLLOW)],
+        [boss("Harpy Matriarch", zone=HOLLOW), kill("Harpy", 5, zone=HOLLOW)],
         ("She won't leave the nest. She'll call every harpy in the roost the moment she sees you. Don't "
          "fight her with the whole flock watching."),
         ("The Matriarch's dead. The roost is silent, and the earth is quiet. I'll sing the spirits home. "

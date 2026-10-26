@@ -48,45 +48,45 @@
           "name": "Rotunda Helm",
           "slot": "head",
           "item_level": 9,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Issued in the Rotunda, mended in the dark.",
           "primary_stats": {
-            "strength": 1,
-            "stamina": 1
+            "strength": 2,
+            "stamina": 2
           },
           "armor_type": "mail",
-          "armor_value": 16,
+          "armor_value": 21,
           "label": "Mail Helm (Str/Sta)"
         },
         {
           "name": "Muster-Roll Robe",
           "slot": "chest",
           "item_level": 9,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Issued in the Rotunda, mended in the dark.",
           "primary_stats": {
             "stamina": 2,
-            "spirit": 1
+            "spirit": 2
           },
           "armor_type": "cloth",
-          "armor_value": 6,
+          "armor_value": 8,
           "label": "Cloth Chest (Sta/Spi)"
         },
         {
           "name": "Deathguard Knife",
           "slot": "main_hand",
           "item_level": 9,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Issued in the Rotunda, mended in the dark.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 2
+            "agility": 3
           },
-          "weapon_damage_min": 13,
-          "weapon_damage_max": 18,
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
           "attack_speed": 1.7,
           "label": "Dagger (Agi)"
         }
@@ -165,7 +165,7 @@
           "weapon_type": "axe_1h",
           "primary_stats": {
             "strength": 2,
-            "agility": 1
+            "agility": 2
           },
           "weapon_damage_min": 18,
           "weapon_damage_max": 24,
@@ -187,13 +187,13 @@
         {
           "type": "kill",
           "target": "Scarlet Zealot",
-          "count": 8,
+          "count": 6,
           "zone": "eastern_tirisfal"
         },
         {
           "type": "kill",
           "target": "Scarlet Bowman",
-          "count": 6,
+          "count": 5,
           "zone": "eastern_tirisfal"
         }
       ],
@@ -214,11 +214,11 @@
           "required_level": 10,
           "flavor_text": "The Forsaken wear what lasts.",
           "primary_stats": {
-            "intellect": 2
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 2.0,
-            "crit_chance_spell": 0.2
+            "spell_power": 1.0,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 5,
@@ -308,11 +308,11 @@
           "required_level": 11,
           "flavor_text": "Issued in the Rotunda, mended in the dark.",
           "primary_stats": {
-            "stamina": 2
+            "stamina": 1
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 17,
@@ -363,45 +363,46 @@
           "name": "Ironbrow's Byrnie",
           "slot": "chest",
           "item_level": 11,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
           "primary_stats": {
             "strength": 2,
-            "stamina": 1
+            "stamina": 2
           },
           "secondary_stats": {
             "crit_chance_physical": 0.1
           },
           "armor_type": "mail",
-          "armor_value": 26,
+          "armor_value": 34,
           "label": "Mail Chest (Str/Sta/Crit)"
         },
         {
           "name": "Pit-Scarred Hood",
           "slot": "head",
           "item_level": 11,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 0.6,
-            "parry_rating": 0.4
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
           },
           "armor_type": "leather",
-          "armor_value": 12,
+          "armor_value": 16,
           "label": "Leather Helm (Dodge/Parry)"
         },
         {
           "name": "Pit-Scarred Signet",
           "slot": "ring",
           "item_level": 11,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
           "primary_stats": {
-            "strength": 1
+            "strength": 1,
+            "stamina": 1
           },
           "label": "Ring (Str/Sta/Crit)"
         }
@@ -439,8 +440,8 @@
           "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 0.9,
-            "parry_rating": 0.6
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
           },
           "armor_type": "leather",
           "armor_value": 16,
@@ -495,7 +496,7 @@
         {
           "type": "kill",
           "target": "Lordaeron Remnant",
-          "count": 8,
+          "count": 6,
           "zone": "eastern_tirisfal"
         },
         {
@@ -514,22 +515,23 @@
           "name": "Recruit-Hardened Cap",
           "slot": "head",
           "item_level": 10,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
           "primary_stats": {
             "strength": 1,
-            "agility": 1
+            "agility": 1,
+            "stamina": 1
           },
           "armor_type": "leather",
-          "armor_value": 11,
+          "armor_value": 14,
           "label": "Leather Helm (Str/Agi/Sta)"
         },
         {
           "name": "Pit-Scarred Boots",
           "slot": "feet",
           "item_level": 10,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
           "primary_stats": {
@@ -540,18 +542,19 @@
             "parry_rating": 0.1
           },
           "armor_type": "mail",
-          "armor_value": 12,
+          "armor_value": 15,
           "label": "Mail Boots (Sta/Dodge/Parry)"
         },
         {
           "name": "Ironbrow's Necklace",
           "slot": "neck",
           "item_level": 10,
-          "rarity": "common",
+          "rarity": "uncommon",
           "required_level": 10,
           "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
           "primary_stats": {
-            "intellect": 1
+            "intellect": 1,
+            "stamina": 1
           },
           "secondary_stats": {
             "mp5": 0.1
@@ -591,11 +594,11 @@
           "required_level": 11,
           "flavor_text": "Beaten into shape by a drillmaster who has all the time in the world.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 3
           },
           "secondary_stats": {
-            "dodge_rating": 0.4,
-            "parry_rating": 0.2
+            "dodge_rating": 0.2,
+            "parry_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 36,
@@ -609,11 +612,11 @@
           "required_level": 11,
           "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "block_rating": 0.4,
-            "block_value": 3.6
+            "block_rating": 0.2,
+            "block_value": 1.8
           },
           "armor_type": "plate",
           "armor_value": 36,
@@ -628,11 +631,11 @@
           "flavor_text": "Stamped with the forge's mark and the smith's opinion.",
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "mp5": 0.3
+            "mp5": 0.2
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -688,11 +691,11 @@
           "required_level": 10,
           "flavor_text": "The sigil inside is still warm.",
           "primary_stats": {
-            "intellect": 2,
+            "intellect": 1,
             "stamina": 1
           },
           "secondary_stats": {
-            "spell_power": 1.4
+            "spell_power": 0.9
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -707,7 +710,8 @@
           "flavor_text": "The sigil inside is still warm.",
           "primary_stats": {
             "strength": 1,
-            "agility": 1
+            "agility": 1,
+            "stamina": 1
           },
           "armor_type": "leather",
           "armor_value": 10,
@@ -761,11 +765,11 @@
           "required_level": 11,
           "flavor_text": "Studied-over and, thankfully, mostly studied.",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 4.2,
-            "hit_rating": 0.2
+            "spell_power": 2.1,
+            "hit_rating": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 10,
@@ -852,11 +856,11 @@
           "required_level": 10,
           "flavor_text": "Every pocket holds a stopper.",
           "primary_stats": {
-            "stamina": 2,
+            "stamina": 1,
             "intellect": 1
           },
           "secondary_stats": {
-            "healing_power": 1.2
+            "healing_power": 0.8
           },
           "armor_type": "cloth",
           "armor_value": 7,
@@ -872,8 +876,8 @@
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 4.8,
-            "parry_rating": 3.6
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
           },
           "weapon_damage_min": 25,
           "weapon_damage_max": 35,
@@ -952,8 +956,8 @@
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 8.1,
-            "parry_rating": 5.9
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
           },
           "weapon_damage_min": 30,
           "weapon_damage_max": 41,
@@ -1042,8 +1046,8 @@
           "weapon_type": "axe_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 1.0,
-            "parry_rating": 0.7
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
           },
           "weapon_damage_min": 21,
           "weapon_damage_max": 29,
@@ -1097,11 +1101,11 @@
           "required_level": 12,
           "flavor_text": "Silent soles, sharp edges.",
           "primary_stats": {
-            "stamina": 2
+            "stamina": 1
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "plate",
           "armor_value": 28,
@@ -1115,11 +1119,11 @@
           "required_level": 12,
           "flavor_text": "Cut for someone who walks and does not rattle.",
           "primary_stats": {
-            "intellect": 2
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 2.2,
-            "crit_chance_spell": 0.2
+            "spell_power": 1.1,
+            "crit_chance_spell": 0.1
           },
           "armor_type": "cloth",
           "armor_value": 5,
@@ -1135,8 +1139,8 @@
           "weapon_type": "axe_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 1.0,
-            "parry_rating": 0.7
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
           },
           "weapon_damage_min": 21,
           "weapon_damage_max": 29,
@@ -1236,13 +1240,13 @@
         {
           "type": "kill",
           "target": "Worgen Ambusher",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_south"
         },
         {
           "type": "kill",
           "target": "Feral Worgen",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_south"
         }
       ],
@@ -1278,11 +1282,11 @@
           "required_level": 15,
           "flavor_text": "Silent soles, sharp edges.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "mail",
           "armor_value": 23,
@@ -1298,8 +1302,8 @@
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 11.3,
-            "parry_rating": 7.8
+            "dodge_rating": 1.3,
+            "parry_rating": 0.9
           },
           "weapon_damage_min": 34,
           "weapon_damage_max": 46,
@@ -1321,7 +1325,7 @@
         {
           "type": "kill",
           "target": "Skeletal Groundskeeper",
-          "count": 6,
+          "count": 5,
           "zone": "silverpine_north"
         },
         {
@@ -1346,8 +1350,8 @@
           "flavor_text": "Cut for someone who walks and does not rattle.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 8.6,
-            "mp5": 2.0
+            "healing_power": 2.2,
+            "mp5": 0.5
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -1361,11 +1365,11 @@
           "required_level": 15,
           "flavor_text": "The road dust has become the colour.",
           "primary_stats": {
-            "agility": 4
+            "agility": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
           },
           "armor_type": "leather",
           "armor_value": 20,
@@ -1381,10 +1385,10 @@
           "weapon_type": "wand",
           "primary_stats": {
             "intellect": 1,
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "mp5": 0.4
+            "mp5": 0.3
           },
           "weapon_damage_min": 29,
           "weapon_damage_max": 39,
@@ -1399,11 +1403,11 @@
           "required_level": 15,
           "flavor_text": "Cut for someone who walks and does not rattle.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 2
           },
           "secondary_stats": {
-            "block_rating": 0.4,
-            "block_value": 4.8
+            "block_rating": 0.2,
+            "block_value": 2.4
           },
           "armor_type": "plate",
           "armor_value": 48,
@@ -1451,9 +1455,9 @@
           "flavor_text": "Lordaeron's colours, on Lordaeron's dead.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 1.2,
-            "block_rating": 2.9,
-            "dodge_rating": 1.7
+            "parry_rating": 0.2,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 70,
@@ -1485,11 +1489,11 @@
           "required_level": 14,
           "flavor_text": "She doesn't give gifts. She issues them.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "spell_power": 3.0
+            "hit_rating": 0.1,
+            "spell_power": 1.0
           },
           "label": "Necklace (Int/Hit/SP)"
         }
@@ -1527,11 +1531,11 @@
           "required_level": 15,
           "flavor_text": "Issued in the Rotunda, mended in the dark.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 1
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "spell_power": 3.9
+            "hit_rating": 0.1,
+            "spell_power": 1.3
           },
           "armor_type": "mail",
           "armor_value": 23,
@@ -1545,11 +1549,11 @@
           "required_level": 15,
           "flavor_text": "Cold as the elevator shaft, and about as comforting.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 2
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.1,
+            "dodge_rating": 0.1
           },
           "armor_type": "plate",
           "armor_value": 35,
@@ -1585,19 +1589,19 @@
         {
           "type": "kill",
           "target": "Plague Zombie",
-          "count": 8,
+          "count": 6,
           "zone": "plague_depths"
         },
         {
           "type": "kill",
           "target": "Plagued Hound",
-          "count": 6,
+          "count": 5,
           "zone": "plague_depths"
         },
         {
           "type": "kill",
           "target": "Rot Worm",
-          "count": 6,
+          "count": 5,
           "zone": "plague_depths"
         }
       ],
@@ -1616,9 +1620,9 @@
           "flavor_text": "Stained green at every seam.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 1.2,
-            "block_rating": 3.1,
-            "dodge_rating": 1.9
+            "parry_rating": 0.2,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 70,
@@ -1632,11 +1636,11 @@
           "required_level": 30,
           "flavor_text": "Marked with the Society's warning glyph.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 2,
+            "stamina": 2
           },
           "secondary_stats": {
-            "spell_power": 2.0
+            "spell_power": 1.3
           },
           "armor_type": "cloth",
           "armor_value": 11,
@@ -1650,11 +1654,11 @@
           "required_level": 30,
           "flavor_text": "Stained green at every seam.",
           "primary_stats": {
-            "stamina": 3,
-            "spirit": 3
+            "stamina": 2,
+            "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 2.0
+            "healing_power": 1.3
           },
           "label": "Ring (Sta/Spi/HP)"
         }
@@ -1690,11 +1694,11 @@
           "required_level": 30,
           "flavor_text": "Wet to the bone, even dry.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 3
           },
           "secondary_stats": {
-            "defense_rating": 0.6,
-            "dodge_rating": 0.6
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
           },
           "armor_type": "mail",
           "armor_value": 46,
@@ -1709,9 +1713,9 @@
           "flavor_text": "Stained green at every seam.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 1.2,
-            "block_rating": 3.1,
-            "dodge_rating": 1.9
+            "parry_rating": 0.2,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
           },
           "armor_type": "plate",
           "armor_value": 70,
@@ -1726,10 +1730,10 @@
           "flavor_text": "Stained green at every seam.",
           "primary_stats": {
             "intellect": 2,
-            "stamina": 4
+            "stamina": 3
           },
           "secondary_stats": {
-            "mp5": 0.5
+            "mp5": 0.4
           },
           "label": "Ring (Int/Sta/MP5)"
         }
@@ -1765,53 +1769,53 @@
           "name": "Plague-Cellar Cord",
           "slot": "waist",
           "item_level": 32,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 31,
           "flavor_text": "Society-made, and not for the Society's good.",
           "primary_stats": {
             "strength": 3,
-            "agility": 2,
-            "stamina": 2
+            "agility": 3,
+            "stamina": 3
           },
           "armor_type": "leather",
-          "armor_value": 31,
+          "armor_value": 40,
           "label": "Leather Belt (Str/Agi/Sta)"
         },
         {
           "name": "Plague-Cellar Treads",
           "slot": "feet",
           "item_level": 32,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 31,
           "flavor_text": "It still twitches, now and then.",
           "primary_stats": {
-            "stamina": 7
+            "stamina": 5
           },
           "secondary_stats": {
-            "block_rating": 0.7,
-            "block_value": 6.9
+            "block_rating": 0.5,
+            "block_value": 4.9
           },
           "armor_type": "plate",
-          "armor_value": 74,
+          "armor_value": 97,
           "label": "Plate Boots (Sta/Block/BV)"
         },
         {
           "name": "Alchemist's Wake Hatchet",
           "slot": "main_hand",
           "item_level": 32,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 31,
           "flavor_text": "It still twitches, now and then.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 6
+            "strength": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "defense_rating": 0.3
+            "defense_rating": 0.4
           },
-          "weapon_damage_min": 45,
-          "weapon_damage_max": 62,
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 81,
           "attack_speed": 2.6,
           "label": "Axe (Str/Sta/Def)"
         },
@@ -1819,18 +1823,18 @@
           "name": "Alchemist's Wake Chain Belt",
           "slot": "waist",
           "item_level": 32,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 31,
           "flavor_text": "It still twitches, now and then.",
           "primary_stats": {
-            "stamina": 7
+            "stamina": 5
           },
           "secondary_stats": {
-            "defense_rating": 0.6,
-            "dodge_rating": 0.6
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
           },
           "armor_type": "mail",
-          "armor_value": 49,
+          "armor_value": 65,
           "label": "Mail Belt (Sta/Def/Dodge)"
         }
       ],
@@ -1867,8 +1871,8 @@
           "flavor_text": "Smells of cloves and something you'd rather not name.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 13.0,
-            "parry_rating": 9.1
+            "dodge_rating": 1.0,
+            "parry_rating": 0.7
           },
           "armor_type": "leather",
           "armor_value": 60,
@@ -1882,11 +1886,11 @@
           "required_level": 31,
           "flavor_text": "Smells of cloves and something you'd rather not name.",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 2
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "spell_power": 7.8
+            "hit_rating": 0.2,
+            "spell_power": 2.6
           },
           "armor_type": "mail",
           "armor_value": 48,
@@ -1902,7 +1906,7 @@
           "weapon_type": "sword_1h",
           "primary_stats": {
             "strength": 4,
-            "stamina": 6
+            "stamina": 5
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
@@ -1981,11 +1985,11 @@
           "flavor_text": "Cut from the cellar and cured in the Cistern.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 8
+            "agility": 4
           },
           "secondary_stats": {
-            "hit_rating": 0.6,
-            "crit_chance_physical": 0.6
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 60,
@@ -2033,7 +2037,7 @@
           "required_level": 32,
           "flavor_text": "She doesn't give gifts. She issues them.",
           "primary_stats": {
-            "strength": 4,
+            "strength": 3,
             "agility": 3,
             "stamina": 3
           },
@@ -2049,11 +2053,11 @@
           "required_level": 32,
           "flavor_text": "Lordaeron's colours, on Lordaeron's dead.",
           "primary_stats": {
-            "stamina": 19
+            "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 1.5,
-            "dodge_rating": 1.5
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
           },
           "armor_type": "mail",
           "armor_value": 134,
@@ -2068,7 +2072,7 @@
           "flavor_text": "Black silk edged in a violet that does not fade.",
           "primary_stats": {
             "strength": 3,
-            "stamina": 5
+            "stamina": 4
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
@@ -2083,11 +2087,11 @@
           "required_level": 32,
           "flavor_text": "Black silk edged in a violet that does not fade.",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 8
+            "strength": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "defense_rating": 0.5
+            "defense_rating": 0.4
           },
           "armor_type": "plate",
           "armor_value": 151,
@@ -2136,7 +2140,7 @@
           "flavor_text": "It still twitches, now and then.",
           "primary_stats": {
             "strength": 4,
-            "stamina": 6
+            "stamina": 5
           },
           "secondary_stats": {
             "crit_chance_physical": 0.2
@@ -2154,8 +2158,8 @@
           "flavor_text": "It still twitches, now and then.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 14.2,
-            "parry_rating": 11.4
+            "dodge_rating": 1.0,
+            "parry_rating": 0.8
           },
           "armor_type": "leather",
           "armor_value": 63,
@@ -2170,11 +2174,11 @@
           "flavor_text": "Cut from the cellar and cured in the Cistern.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "stamina": 28
+            "stamina": 27
           },
           "secondary_stats": {
-            "armor": 70.7,
-            "parry_rating": 1.5
+            "armor": 68.2,
+            "parry_rating": 1.4
           },
           "weapon_damage_min": 83,
           "weapon_damage_max": 112,
@@ -2189,11 +2193,11 @@
           "required_level": 32,
           "flavor_text": "Cut from the cellar and cured in the Cistern.",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 5
           },
           "secondary_stats": {
-            "dodge_rating": 0.8,
-            "parry_rating": 0.6
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
           },
           "armor_type": "mail",
           "armor_value": 67,
@@ -2233,8 +2237,8 @@
           "flavor_text": "Stained green at every seam.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 63.8,
-            "mp5": 13.2
+            "healing_power": 6.3,
+            "mp5": 1.3
           },
           "armor_type": "cloth",
           "armor_value": 23,
@@ -2248,11 +2252,11 @@
           "required_level": 32,
           "flavor_text": "Wet to the bone, even dry.",
           "primary_stats": {
-            "stamina": 4,
+            "stamina": 3,
             "spirit": 3
           },
           "secondary_stats": {
-            "healing_power": 2.1
+            "healing_power": 1.8
           },
           "armor_type": "mail",
           "armor_value": 49,
@@ -2266,11 +2270,11 @@
           "required_level": 32,
           "flavor_text": "Stained green at every seam.",
           "primary_stats": {
-            "intellect": 3,
-            "spirit": 3
+            "intellect": 2,
+            "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 2.8
+            "healing_power": 1.9
           },
           "label": "Ring (Int/Spi/HP)"
         }
@@ -2306,25 +2310,25 @@
           "name": "Gutter-Pressed Armguards",
           "slot": "wrist",
           "item_level": 34,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 33,
           "flavor_text": "Marked with the Society's warning glyph.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 4,
+            "stamina": 5
           },
           "secondary_stats": {
-            "defense_rating": 0.2
+            "defense_rating": 0.3
           },
           "armor_type": "plate",
-          "armor_value": 79,
+          "armor_value": 104,
           "label": "Plate Bracers (Str/Sta/Def)"
         },
         {
           "name": "Conduit Breeches",
           "slot": "legs",
           "item_level": 34,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 33,
           "flavor_text": "Wet to the bone, even dry.",
           "primary_stats": {
@@ -2335,24 +2339,24 @@
             "spell_power": 5.0
           },
           "armor_type": "cloth",
-          "armor_value": 33,
+          "armor_value": 43,
           "label": "Cloth Legs (Int/Sta/SP)"
         },
         {
           "name": "Gutter-Pressed Spear",
           "slot": "main_hand",
           "item_level": 34,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 33,
           "flavor_text": "Stained green at every seam.",
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 80.5,
-            "parry_rating": 60.9
+            "dodge_rating": 3.7,
+            "parry_rating": 2.8
           },
-          "weapon_damage_min": 65,
-          "weapon_damage_max": 88,
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
           "attack_speed": 3.3,
           "label": "Polearm (Dodge/Parry)"
         },
@@ -2360,16 +2364,16 @@
           "name": "Gutter-Pressed Leggings",
           "slot": "legs",
           "item_level": 34,
-          "rarity": "uncommon",
+          "rarity": "rare",
           "required_level": 33,
           "flavor_text": "Wet to the bone, even dry.",
           "primary_stats": {
-            "strength": 5,
-            "agility": 5,
-            "stamina": 4
+            "strength": 7,
+            "agility": 7,
+            "stamina": 7
           },
           "armor_type": "leather",
-          "armor_value": 66,
+          "armor_value": 86,
           "label": "Leather Legs (Str/Agi/Sta)"
         }
       ],
@@ -2422,11 +2426,11 @@
           "required_level": 34,
           "flavor_text": "It still twitches, now and then.",
           "primary_stats": {
-            "strength": 9,
-            "stamina": 11
+            "strength": 7,
+            "stamina": 9
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.5
+            "crit_chance_physical": 0.4
           },
           "armor_type": "plate",
           "armor_value": 208,
@@ -2440,11 +2444,11 @@
           "required_level": 34,
           "flavor_text": "It still twitches, now and then.",
           "primary_stats": {
-            "stamina": 5,
-            "spirit": 5
+            "stamina": 4,
+            "spirit": 4
           },
           "secondary_stats": {
-            "healing_power": 3.1
+            "healing_power": 2.5
           },
           "armor_type": "mail",
           "armor_value": 69,
@@ -2459,11 +2463,11 @@
           "flavor_text": "It still twitches, now and then.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "stamina": 15
+            "stamina": 8
           },
           "secondary_stats": {
-            "armor": 36.6,
-            "parry_rating": 0.8
+            "armor": 19.5,
+            "parry_rating": 0.4
           },
           "weapon_damage_min": 63,
           "weapon_damage_max": 85,
@@ -2478,11 +2482,11 @@
           "required_level": 34,
           "flavor_text": "Cut from the cellar and cured in the Cistern.",
           "primary_stats": {
-            "agility": 8
+            "agility": 3
           },
           "secondary_stats": {
-            "hit_rating": 0.5,
-            "crit_chance_physical": 0.5
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
           },
           "armor_type": "leather",
           "armor_value": 34,
@@ -2526,11 +2530,11 @@
           "required_level": 34,
           "flavor_text": "Lordaeron's colours, on Lordaeron's dead.",
           "primary_stats": {
-            "intellect": 7,
-            "spirit": 7
+            "intellect": 5,
+            "spirit": 5
           },
           "secondary_stats": {
-            "healing_power": 6.9
+            "healing_power": 4.9
           },
           "armor_type": "cloth",
           "armor_value": 32,
@@ -2544,11 +2548,11 @@
           "required_level": 34,
           "flavor_text": "She doesn't give gifts. She issues them.",
           "primary_stats": {
-            "agility": 7,
-            "intellect": 7
+            "agility": 5,
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 13.0
+            "attack_power": 9.3
           },
           "armor_type": "leather",
           "armor_value": 64,
@@ -2563,11 +2567,11 @@
           "flavor_text": "Black silk edged in a violet that does not fade.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 6
           },
           "secondary_stats": {
-            "armor": 24.2,
-            "parry_rating": 0.5
+            "armor": 14.5,
+            "parry_rating": 0.3
           },
           "weapon_damage_min": 47,
           "weapon_damage_max": 63,

@@ -135,7 +135,7 @@ def north():
     A(Q("spn_worg_cull", "Thin the Woods", VESK, SPN, 11, 12, "spn_guard",
         "The worgs have taken to the verge of the road, and the ghouls have taken to the worgs' leavings. Vesk would like both pushed "
         "back out of range of the Trunk Road, preferably in pieces.",
-        [kill("Worg Prowler", 8, zone=SPN), kill("Feral Ghoul", 6, zone=SPN)],
+        [kill("Worg Prowler", 6, zone=SPN), kill("Feral Ghoul", 5, zone=SPN)],
         "Anywhere in the Silverpine woods. Worg Prowlers and Feral Ghouls. Make them think twice about the road.",
         "A quieter road. Nobody will notice, which is exactly how it should be.", None,
         requires_quests=["spn_trunk_walk"]))
@@ -166,7 +166,7 @@ def north():
     A(Q("spn_farthing_hounds", "The Hounds of the Farthing", OLS, SPN, 12, 13, "spn_farm",
         "Gaffer Olsen kept hounds for forty years. Since the plague, they've kept him: hungry, rabid, and pacing the fence at night. "
         "The risen farmhands let them through the gate. He wants both dealt with, and is not above admitting he is afraid of his own dogs.",
-        [kill("Farthing Hound", 8, zone=SPN), kill("Risen Farmhand", 6, zone=SPN)],
+        [kill("Farthing Hound", 6, zone=SPN), kill("Risen Farmhand", 5, zone=SPN)],
         "The fields around my farm. The hounds first. The farmhands - well. They were good lads once.",
         "Quieter. Thank you. I'll fill the troughs again, I think, when I'm brave enough.", "spn_olsens_seed"))
     A(Q("spn_olsens_seed", "Seed for Next Year", OLS, SPN, 13, 14, "spn_farm",
@@ -194,7 +194,7 @@ def north():
     A(Q("spn_rh_husks", "What Won't Stay Buried", OSW, SPN, 12, 14, "spn_grave",
         "Oswin has buried the same corpse three times this month. The risen husks of Raven Hill pull themselves out of the soil "
         "faster than he can fill the graves. Thin them out, and he'll try the burial again.",
-        [kill("Risen Husk", 8, zone=SPN)],
+        [kill("Risen Husk", 6, zone=SPN)],
         "Raven Hill Cemetery. They climb out at dusk. Beat them back.",
         "That will keep the shovel busy for another night, at least.", "spn_rh_moss"))
     A(Q("spn_rh_moss", "Moss on the Mourning Stones", DES, SPN, 13, 14, "spn_grave",
@@ -223,13 +223,13 @@ def north():
     A(Q("spn_df_crows", "Carrion Calls", VER, SPN, 13, 14, "spn_field",
         "Huntress Verrel has been trying to shoot the crows of the Dead Field for a week. They don't die the way crows should; they "
         "just look at her, and settle on the next fence-post. She hands you a bow she's stopped trusting.",
-        [kill("Blighted Crow", 10, zone=SPN)],
+        [kill("Blighted Crow", 8, zone=SPN)],
         "The Dead Field, east of the Trunk Road. Blighted crows. Aim for the eyes. They notice.",
         "Fewer eyes on me, finally. I'm in your debt. Take a bow, if you like. I won't use it.", None))
     A(Q("spn_df_harrowers", "Harrowers in the Furrows", TOB, SPN, 13, 14, "spn_field",
         "Tobb the farmhand was the last to leave the Dead Field and the first to come back. He sleeps in the barn. He says the "
         "scarecrows walk at night, and he's tired of watching them from the loft.",
-        [kill("Dead Field Harrower", 8, zone=SPN)],
+        [kill("Dead Field Harrower", 6, zone=SPN)],
         "In the furrows, and along the fence lines. They wear farm coats. Don't mistake them for farmers.",
         "I sleep a little easier. I'll sleep a lot easier when I know where the straw goes.", "spn_df_straw"))
     A(Q("spn_df_straw", "Where the Straw Goes", TOB, SPN, 14, 15, "spn_field",
@@ -258,7 +258,7 @@ def north():
     A(Q("spn_gate_hold", "Hold the Gate", ILS, SPN, 13, 14, "spn_guard",
         "Gatewarden Ilsa guards the iron door of the Sepulcher. The dead are welcome inside; the things that follow them are not. "
         "Treants and ghouls have been crowding the approach, and she's run out of patience.",
-        [kill("Corrupted Treant", 5, zone=SPN), kill("Feral Ghoul", 6, zone=SPN)],
+        [kill("Corrupted Treant", 4, zone=SPN), kill("Feral Ghoul", 5, zone=SPN)],
         "The woods around the gate. Treants, ghouls. Anything that shuffles toward the door.",
         "The door stays closed to what should be kept out. Welcome inside, whenever you like.", None))
 
@@ -267,7 +267,7 @@ def north():
     A(Q("spn_orchard_blight", "The Blight in the Boughs", MAL, SPN, 14, 15, "spn_orchard",
         "Malden's Orchard has not borne fruit in years, but the trees still drop it: a brown, heavy windfall that moves on its own. "
         "The orchard-warden wants the shamblers cleared and the wasps that hive in the rot driven out.",
-        [kill("Orchard Shambler", 8, zone=SPN), kill("Windfall Wasp", 8, zone=SPN)],
+        [kill("Orchard Shambler", 6, zone=SPN), kill("Windfall Wasp", 6, zone=SPN)],
         "Under the old trees. The shamblers wear bark. The wasps wear a grudge.",
         "Fewer shamblers means more room for the trees to recover. Maybe.", "spn_orchard_cores"))
     A(Q("spn_orchard_cores", "Cores of Rotapple", MAL, SPN, 15, 16, "spn_orchard",
@@ -290,7 +290,7 @@ def north():
     A(Q("spn_pools_beasts", "Teeth in the Water", YAE, SPN, 13, 14, "spn_pool",
         "The Shadowspring Pools were a Forsaken drinking-hole before the springs turned black. Now bog beasts and crocolisks "
         "hunt the shallows. Yaelis wants the pools made safe enough to stand beside.",
-        [kill("Bog Beast", 6, zone=SPN), kill("Murky Crocolisk", 6, zone=SPN)],
+        [kill("Bog Beast", 5, zone=SPN), kill("Murky Crocolisk", 5, zone=SPN)],
         "The three pools, south-east of the crossroads. Don't wade. They can swim, and you can't.",
         "A quieter shoreline. I'll stand a little closer to the water now.", "spn_pools_fangs"))
     A(Q("spn_pools_fangs", "Fangs of the Mire", YAE, SPN, 14, 15, "spn_pool",
@@ -313,7 +313,7 @@ def north():
     A(Q("spn_sd_skitterers", "Eight Legs, Too Many", COR, SPN, 15, 16, "spn_web",
         "Webhunter Corvane has tracked the spiders of the Skittering Dark for months, and the last month has been the worst: "
         "bigger, bolder, drifting toward the Trunk Road. He wants the breeding stock culled before they swarm.",
-        [kill("Venomfang Skitterer", 8, zone=SPN), kill("Giant Spider", 4, zone=SPN)],
+        [kill("Venomfang Skitterer", 6, zone=SPN), kill("Giant Spider", 3, zone=SPN)],
         "East of the Crossroads, in the hollows. Keep to the road till you see the webs.",
         "Fewer eyes in the dark. I'll almost sleep tonight.", "spn_sd_sacs"))
     A(Q("spn_sd_sacs", "Egg Sacs of the Dark", COR, SPN, 16, 16, "spn_web",
@@ -367,13 +367,13 @@ def south():
     A(Q("sps_forsaken_march", "Clear the March", DAL, SPS, 15, 16, "sps_camp",
         "The March exists to keep the road to Ambermill open, and the road is full of wolves and the leavings of bears that "
         "died of something the Apothecaries haven't named. Dallow wants both thinned before the next supply train.",
-        [kill("Diseased Wolf", 8, zone=SPS), kill("Zombie Bear", 5, zone=SPS)],
+        [kill("Diseased Wolf", 6, zone=SPS), kill("Zombie Bear", 4, zone=SPS)],
         "Anywhere in the pines south of the gate. Wolves and bears. If it's limping and drooling, it's the one.",
         "Quieter roads, fewer drovers screaming. You're a credit to the March.", None))
     A(Q("sps_deserters", "Walk-Aways", DAL, SPS, 16, 17, "sps_camp",
         "Some of the March did not stay. A few dozen Forsaken, tired of orders, walked off Valgan's Field and set up as brigands "
         "on the farm. Dallow takes this personally, as the walking-off was done under his nose.",
-        [kill("Field Deserter", 8, zone=SPS)],
+        [kill("Field Deserter", 6, zone=SPS)],
         "Valgan's Field, the ruined farm around my camp. They wear March coats with the insignia torn off.",
         "I'd hoped they'd come back on their own. They didn't. Thank you for doing what I couldn't.", None,
         requires_quests=["sps_forsaken_march"]))
@@ -413,7 +413,7 @@ def south():
     A(Q("sps_hunter_roost", "Carrion Calls", HUNT, SPS, 16, 17, "sps_camp",
         "The carrion birds have been following the Hunter's traps and stealing the kills. He doesn't mind sharing, much. He minds the "
         "birds taking the traps.",
-        [kill("Carrion Bird", 8, zone=SPS)],
+        [kill("Carrion Bird", 6, zone=SPS)],
         "Anywhere in the pines. They're bold. Show them what boldness gets.",
         "That'll teach them manners. Doubt it, but it's a start.", None,
         requires_quests=["sps_hunter_pelts"]))
@@ -423,7 +423,7 @@ def south():
     A(Q("sps_hogs", "The Hogs Went First", FAR, SPS, 15, 16, "sps_farm",
         "The Bucklebree hogs went wrong the same week the plague reached the farm. They still root in the dirt, but what they "
         "root up is worse. Farmer Bucklebree wants the herd put down before it breeds.",
-        [kill("Blightfed Hog", 8, zone=SPS), kill("Barn Ghoul", 6, zone=SPS)],
+        [kill("Blightfed Hog", 6, zone=SPS), kill("Barn Ghoul", 5, zone=SPS)],
         "The pens and the barn. The hogs won't run. The ghouls will, and then come back.",
         "It's quiet on the farm for the first time in months. Odd how much I miss the noise.", None))
     A(Q("sps_quilts", "The Missing Quilts", GOO, SPS, 15, 16, "sps_farm",
@@ -445,7 +445,7 @@ def south():
     A(Q("sps_pond_ooze", "What Moves in the Water", THO, SPS, 16, 17, "sps_marsh",
         "Marshwalker Thorne has walked the edge of Olivia's Pond for two years, and for the last three weeks something has walked it "
         "with him. Marsh oozes, swamp ghouls, bloated things. He'd like fewer companions.",
-        [kill("Marsh Ooze", 8, zone=SPS), kill("Swamp Ghoul", 6, zone=SPS)],
+        [kill("Marsh Ooze", 6, zone=SPS), kill("Swamp Ghoul", 5, zone=SPS)],
         "Around the pond. The oozes hug the shore. The ghouls come out at dusk.",
         "A little quieter. A little less of me sinking in the mud. Thank you.", None))
     A(Q("sps_pond_edge", "The Pond's Edge", THO, SPS, 16, 17, "sps_marsh",
@@ -475,7 +475,7 @@ def south():
     A(Q("sps_mine_kobolds", "Kobolds in the Gallery", HOB, SPS, 16, 17, "sps_mine",
         "Overseer Hobart held the Deep Elem Mine through the plague, the Scourge and the second strike. The kobolds that moved "
         "in after the collapse have moved in for good. He wants the gallery cleared, and he wants to see them go first.",
-        [kill("Feral Rotting Kobold", 8, zone=SPS), kill("Deep Elem Digger", 6, zone=SPS)],
+        [kill("Feral Rotting Kobold", 6, zone=SPS), kill("Deep Elem Digger", 5, zone=SPS)],
         "At the mine mouth and the old galleries. Kobolds, rotting and digging. Both bite.",
         "That's a clear gallery. I can almost smell the ore again.", None))
     A(Q("sps_mine_lamps", "Lamps in the Dark", HOB, SPS, 17, 18, "sps_mine",
@@ -505,13 +505,13 @@ def south():
     A(Q("sps_pyre_ambush", "The Pyrewood Ambush", BRA, SPS, 17, 18, "sps_pyre",
         "The worgen of Pyrewood Village were people once, and ambush from the treeline is still how they hunt. Hearthwarden Brand wants "
         "the ambushers and the ferals thinned before the dead come to the village next.",
-        [kill("Worgen Ambusher", 8, zone=SPS), kill("Feral Worgen", 6, zone=SPS)],
+        [kill("Worgen Ambusher", 6, zone=SPS), kill("Feral Worgen", 5, zone=SPS)],
         "The village streets and the treeline. They hunt in packs. Don't be alone.",
         "Fewer fangs in the dark. I'll almost let myself breathe.", None))
     A(Q("sps_pyre_cultists", "The Ashen Cult", BRA, SPS, 18, 19, "sps_pyre",
         "A cult has taken up in Pyrewood's burned houses, casting spells over the dead hearths. Brand does not know which god "
         "they pray to. He knows it answers.",
-        [kill("Pyrewood Cultist", 8, zone=SPS)],
+        [kill("Pyrewood Cultist", 6, zone=SPS)],
         "The burned houses on the east side. They chant. They don't stop for you.",
         "Quiet at last. Whatever answered them has gone quiet too.", None,
         requires_quests=["sps_pyre_ambush"]))
@@ -542,7 +542,7 @@ def south():
     A(Q("sps_talon_stalkers", "Stalkers on the Hill", HAS, SPS, 17, 18, "sps_talon",
         "Berard's Talon is a ridge of broken stone above the old keep road. Crag stalkers hunt its slopes, and wraiths drift "
         "along its crest. Trapper Hask wants both cleared, so he can finally set his lines.",
-        [kill("Crag Stalker", 8, zone=SPS), kill("Talon Wraith", 6, zone=SPS)],
+        [kill("Crag Stalker", 6, zone=SPS), kill("Talon Wraith", 5, zone=SPS)],
         "The hill west of the keep road. Stalkers on the rocks, wraiths on the crest.",
         "The lines can go out tonight. Thank you.", None))
     A(Q("sps_talon_tokens", "Grave-Tokens", HAS, SPS, 18, 19, "sps_talon",
@@ -565,7 +565,7 @@ def south():
     A(Q("sps_peril_pack", "Break the Pack", RYN, SPS, 18, 19, "sps_peril",
         "A worgen pack has dug in under the hills of Beren's Peril, led by packmasters who've learned to hold a line. Packbreaker "
         "Rynn wants the line broken, and the stalkers that run in front of it.",
-        [kill("Peril Packmaster", 8, zone=SPS), kill("Feral Worgen Stalker", 6, zone=SPS)],
+        [kill("Peril Packmaster", 6, zone=SPS), kill("Feral Worgen Stalker", 5, zone=SPS)],
         "The hills south-east of Pyrewood. They hold the high ground. Don't give them the high ground.",
         "That's the pack broken. A good start. The alpha next.", None))
     A(Q("sps_peril_teeth", "Teeth of the Packmasters", RYN, SPS, 19, 20, "sps_peril",
@@ -588,7 +588,7 @@ def south():
     A(Q("sps_wall_breakers", "Wallbreakers", TEA, SPS, 18, 19, "sps_wall",
         "Worgen throw themselves at the Greymane Wall every night, and the dead of the wall rise to meet them. "
         "Corporal Teague wants the breakers thinned, and the ghosts calmed, if either can be done.",
-        [kill("Wallbreaker Worgen", 8, zone=SPS), kill("Wall Wraith", 6, zone=SPS)],
+        [kill("Wallbreaker Worgen", 6, zone=SPS), kill("Wall Wraith", 5, zone=SPS)],
         "The long wall, along the southern edge. They come in waves. Meet them one at a time.",
         "The wall holds. Another night. Thank you.", None))
     A(Q("sps_wall_seals", "Seals of the Greymane Guard", TEA, SPS, 19, 20, "sps_wall",
@@ -618,7 +618,7 @@ def south():
     A(Q("sps_amber_ghosts", "Ghosts at the Mill", HSK, SPS, 18, 19, "sps_amber",
         "Ambermill was a Dalaran lumber village until the plague took its mages. Their ghosts stayed behind, along with the "
         "wards they set on the mill. Millwright Haskell can't tell which are guarding the place, and which are guarding themselves.",
-        [kill("Ambermill Ghost-Mage", 8, zone=SPS), kill("Ambermill Warden", 6, zone=SPS)],
+        [kill("Ambermill Ghost-Mage", 6, zone=SPS), kill("Ambermill Warden", 5, zone=SPS)],
         "The village and the mill-yard. The ghost-mages cast. The wardens hit.",
         "Fewer ghosts, fewer wards. I might get a plank cut before dark.", None))
     A(Q("sps_amber_resin", "Resin of the Wardens", HSK, SPS, 19, 20, "sps_amber",
@@ -648,7 +648,7 @@ def south():
     A(Q("sps_ferry_deckhands", "Waterlogged Crew", GAE, SPS, 16, 17, "sps_ferry",
         "The ferry's crew drowned the night the boat went down, and walked back up the lake bed the next morning. They work the "
         "pier from dusk to dawn and will not let Gael sleep. He asks that you send them back.",
-        [kill("Drowned Deckhand", 8, zone=SPS), kill("Carrion Bird", 4, zone=SPS)],
+        [kill("Drowned Deckhand", 6, zone=SPS), kill("Carrion Bird", 3, zone=SPS)],
         "On and around the pier. The deckhands hold the boat-hooks. The birds hold grudges.",
         "A quieter dock. I may even sleep.", None))
     A(Q("sps_ferry_crates", "Lost Cargo", PIM, SPS, 17, 18, "sps_ferry",
@@ -685,7 +685,7 @@ def south():
     A(Q("sps_sfk_pickets", "Pickets at the Portcullis", MAR, SPS, 19, 20, "sps_wall",
         "Ghouls and stalkers crowd the keep road, drawn by whatever Arugal keeps inside. Gatekeeper Marl wants the road clear "
         "before the next party goes in.",
-        [kill("Rotting Ghoul", 6, zone=SPS), kill("Feral Worgen Stalker", 5, zone=SPS)],
+        [kill("Rotting Ghoul", 5, zone=SPS), kill("Feral Worgen Stalker", 4, zone=SPS)],
         "Near the gate. Ghouls on the road, stalkers in the trees.",
         "A clear road. Whatever you're walking into, you'll walk in with fresh boots.", None))
     A(Q("sps_sfk_forecourt", "The Keep's Forecourt", MAR, SPS, 19, 20, "sps_wall",
@@ -723,7 +723,7 @@ def sepulcher():
     A(Q("sep_woods_cull", "The Woods Below", VANE, SEP, 13, 14, "sep_keep",
         "The Keep sits above the pines, and the pines are full of worg and the leavings of the plague. Vane wants the approach to "
         "the gate kept short of anything with teeth.",
-        [kill("Worg Prowler", 8, zone=SPN), kill("Feral Ghoul", 6, zone=SPN)],
+        [kill("Worg Prowler", 6, zone=SPN), kill("Feral Ghoul", 5, zone=SPN)],
         "In the woods south of the Keep, along the road you walked in on.",
         "Fewer teeth on the approach. I'll note it in the ledger.", None,
         requires_quests=["sep_keep_tour"]))
@@ -762,13 +762,13 @@ def sepulcher():
     A(Q("sep_ellowyn_sleepers", "Sleepers That Won't", ELL, SEP, 15, 16, "sep_keep",
         "The tomb-keeper of the chapel yard counts sleepers each dusk. Some have stopped lying down. Groundskeepers and husks both "
         "wander from the Raven Hill plots in search of a bed that isn't theirs.",
-        [kill("Skeletal Groundskeeper", 8, zone=SPN), kill("Risen Husk", 6, zone=SPN)],
+        [kill("Skeletal Groundskeeper", 6, zone=SPN), kill("Risen Husk", 5, zone=SPN)],
         "At Raven Hill, south of the Keep. Send them back where they belong.",
         "Fewer wanderers. I'll sleep better. Metaphorically.", None))
     A(Q("sep_gate_crows", "Crows at the Gate", MOL, SEP, 14, 15, "sep_keep",
         "Crypt Guard Molsen is tired of the crows. They pick at the Keep's banners, steal buttons off his coat, and one of them has "
         "learned to open the gate-latch.",
-        [kill("Blighted Crow", 8, zone=SPN), kill("Dead Field Harrower", 5, zone=SPN)],
+        [kill("Blighted Crow", 6, zone=SPN), kill("Dead Field Harrower", 4, zone=SPN)],
         "The Dead Field, east of the road. The harrowers feed them; thin both.",
         "The latch-crow? Dead. Good. I owe you a drink I can't taste.", None,
         requires_quests=["sep_keep_tour"]))
@@ -781,7 +781,7 @@ def sepulcher():
     A(Q("sep_osk_road", "The Pilgrim's Road", OSK, SEP, 14, 15, "sep_keep",
         "Osk walks between the Keep and Tirisfal every autumn, ostensibly to pray. He has no idea who he is praying to. He asks that "
         "the road between be made less murderous.",
-        [kill("Silverpine Spider", 6, zone=SPN), kill("Corrupted Treant", 3, zone=SPN)],
+        [kill("Silverpine Spider", 5, zone=SPN), kill("Corrupted Treant", 2, zone=SPN)],
         "The woods north and east of the Keep. Spiders and treants, mainly.",
         "A quieter road. I'll walk it once more before the snow.", None))
     A(Q("sep_cracked_locket", "A Cracked Locket", "item:sep_cracked_locket", SEP, 14, 16, "sep_keep",
