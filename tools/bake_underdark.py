@@ -3,7 +3,8 @@ Bake the Crystalline Underdark cluster.
 
     PYTHONPATH=. python3 tools/bake_underdark.py [frostward_descent ...] [--preview DIR]
 
-Currently holds the Frostward Descent; the Underdark itself, the Hollow Geode and the Deep Bloom land here too.
+Holds the Frostward Descent, the Hollow Geode and the Deep Bloom. The open zone and Kael's Bastion are surface
+bakes and live in tools/bake_underdark_zone.py instead.
 
 LIGHT IS THE WHOLE POINT, AND THE BAKER FIGHTS IT BY DEFAULT. Every other cave in the game is dark, so the shared
 cave baker leans hard on ambient occlusion and depth-darkening - Hillsbrad's three interiors run ao 0.48-0.52 and
@@ -19,6 +20,7 @@ import sys
 
 from tools import bake_durotar_caves as BD
 from tools import handbuilt_frostward_descent as FD
+from tools import handbuilt_deep_bloom as DB
 from tools import handbuilt_hollow_geode as HG
 from tools.bake_durotar_caves import M
 
@@ -99,8 +101,71 @@ def spec_hollow_geode():
     )
 
 
-MODULES = {"frostward_descent": FD, "hollow_geode": HG}
-SPECS = {"frostward_descent": spec_frostward_descent, "hollow_geode": spec_hollow_geode}
+def spec_deep_bloom():
+    """THE GRADIENT RUNS IN THE MATERIALS AS WELL AS THE CARVING.
+
+    tools/handbuilt_deep_bloom.py puts the Bloom's whole idea into its geometry - exact rects at the Portico,
+    chamfered rects at the Scriptorium, ellipse lobes at the Heart - and the paint has to agree with it or the
+    map argues with itself. So the bands run bottom to top, Dalaran masonry to raw tissue:
+
+        y 124-150   dalaran / dalaran_cracked      stone the Bloom salvaged and relaid almost correctly
+        y 100-130   bloom over shelf walls         floor going soft, walls still standing in library ranks
+        y  64-100   bloom + spore drift            the Repeated Wing, where it is losing the thread
+        y  42- 68   drift                          the Scriptorium
+        y  20- 42   cap litter over fungal mat     no masonry left anywhere below here
+        y   2- 20   bloom_dark + myc threads       the Heart
+
+    The bands are wide shallow ellipses, same as the Descent's ice-to-crystal, so the handover wanders instead
+    of ruling a line across the map.
+
+    THE DESCENT IS INTO SATURATION, NOT INTO BRIGHTNESS. The first version ran ud_fungal_mat as the field for
+    the bottom two sections and the Heart came out a pale grey wash - the climax of the dungeon was the flattest
+    thing on the map. Measured, fungal_mat is luma 126 at saturation 27: it is a highlight, not a ground. The
+    organic materials with any blood in them are the DARK ones (bloom_dark 40/49, cap_litter 40/23), so the
+    Heart leads with those and the player walks from pale salvaged masonry at the door down into deep violet
+    tissue. The props carry the light down there, which is what props in a lair are for.
+
+    Lit, but not as lit as the crystal maps: fungal bioluminescence is a dimmer thing than arcane crystal and
+    the Heart should feel like being inside something. ao 0.42 / depth 0.78 sits between the Underdark cluster's
+    0.30-0.36 and Hillsbrad's 0.48-0.52.
+    """
+    return dict(
+        build="build_deep_bloom_baked", seed=1433, slug="deep_bloom",
+        materials={
+            "bloom":    M(UD + "ud_bloom_floor", UD + "ud_bloom_dark"),
+            "dalaran":  M(UD + "ud_dalaran_floor", UD + "ud_dalaran_cracked"),
+            "drift":    M(UD + "ud_spore_drift"),
+            # litter LEADS with cap_litter: the pale fungal mat shows through it in patches instead of being
+            # the field, which is the only way that texture earns its brightness.
+            "litter":   M(UD + "ud_cap_litter", UD + "ud_fungal_mat"),
+            "heart":    M(UD + "ud_bloom_dark", UD + "ud_myc_threads"),
+            "bloom_w":  M(UD + "ud_bloom_wall"),
+            "shelf_w":  M(UD + "ud_shelf_wall"),
+            "dalaran_w": M(UD + "ud_dalaran_wall"),
+        },
+        floor_keys=["bloom", "dalaran", "drift", "litter", "heart"],
+        wall_keys=["bloom_w", "shelf_w", "dalaran_w"],
+        floors={
+            "dalaran": [(65, 136, 44, 14), (65, 120, 50, 10)],
+            "drift":   [(65, 80, 60, 18), (65, 56, 54, 14)],
+            "litter":  [(66, 32, 60, 16)],
+            "heart":   [(68, 12, 36, 11)],   # follows the lobe east with the geometry
+        },
+        walls={
+            # Shelf walls hold the ranks of the Stacks and the Repeated Wing; Dalaran masonry only at the
+            # Portico, where the Bloom was still copying faithfully.
+            "dalaran_w": [(65, 136, 46, 16)],
+            "shelf_w":   [(65, 112, 60, 22), (65, 82, 60, 22)],
+        },
+        pools=[],
+        cfg=dict(ao=0.42, depth=0.78, lip=13, lip_col=(0.74, 0.88, 0.70), deep_dark=0.44,
+                 foam_col=(170, 210, 160), glows=[]),
+    )
+
+
+MODULES = {"frostward_descent": FD, "hollow_geode": HG, "deep_bloom": DB}
+SPECS = {"frostward_descent": spec_frostward_descent, "hollow_geode": spec_hollow_geode,
+         "deep_bloom": spec_deep_bloom}
 
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None

@@ -329,8 +329,16 @@ class PortalManager:
                 (58, 8): ("The Crystalline Underdark", 85, 12),     # out onto the shelf above the cavern floor
             },
             "The Crystalline Underdark": {
-                # The Deep Bloom (34,142) is carved and marked in the layout but stays unregistered until
-                # that map exists, and fails safe in the meantime.
+                # The Deep Bloom (34,142) is carved and marked in the layout and the map now EXISTS
+                # (tools/handbuilt_deep_bloom.py, baked, tools/verify_deep_bloom.py green). It stays
+                # unregistered for one more pass because the dungeon's five creatures - Bloom Thrall,
+                # Shelf-Grown, Spore Scribe, Mycelial Binder, Pulpwright - are not in creatures.json yet, and
+                # world/cave_spawns.py raises on a trash_packs member with no entry. The monster pass adds
+                # those, registers "The Deep Bloom" in world/zone_generator.py, and wires this pair:
+                #     (34, 142): ("The Deep Bloom", 65, 142)      # arrive (65,140), inside the Portico
+                #     and on the Bloom side  (65, 144): ("The Crystalline Underdark", 34, 145)
+                # An unregistered portal tile fails safe (try_use_portal returns False), so until then the
+                # player simply cannot open it.
                 (150, 62): ("The Hollow Geode", 55, 102),          # arrive (55,100), inside the crack
                 (85, 12): ("The Frostward Descent", 58, 11),        # arrive just inside the threshold
                 (72, 80): ("Kael's Bastion", 48, 84),               # arrive (48,82), inside the gate

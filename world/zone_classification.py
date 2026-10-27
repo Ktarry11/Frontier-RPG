@@ -50,6 +50,10 @@ DUNGEONS = [
     "Razorfen Kraul",
     "The Broodspiral",
     "Sunken Grotto of the Deep",
+    # Added 2026-10-27 with the Crystalline Underdark cluster. The Hollow Geode next door is deliberately NOT
+    # on this list - it is a cave, so it keeps the Underdark's ore and herbs. The Deep Bloom is a grown thing
+    # with fixed packs and nothing in it worth gathering.
+    "The Deep Bloom",
 ]
 
 
