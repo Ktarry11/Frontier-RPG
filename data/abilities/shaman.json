@@ -331,7 +331,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_chain_lightning",
@@ -399,7 +400,8 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_elemental_mastery_cast",
@@ -467,7 +469,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_natures_swiftness",
@@ -546,7 +549,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_earth_shield",
@@ -887,7 +891,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_rockbiter_weapon",
@@ -993,7 +998,8 @@
         "icd": 0,
         "bonus_pct": 0.1
       },
-      "exclusive_group": "shaman_imbue"
+      "exclusive_group": "shaman_imbue",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_flametongue_weapon",
@@ -1090,7 +1096,8 @@
         "bonus_pct": 0.15
       },
       "damage_school": "fire",
-      "exclusive_group": "shaman_imbue"
+      "exclusive_group": "shaman_imbue",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_frostbrand_weapon",
@@ -1162,7 +1169,8 @@
           "dispel_type": "magic",
           "on_target": true
         }
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_windfury_weapon",
@@ -1211,7 +1219,8 @@
         "icd": 3,
         "extra_attack": true
       },
-      "exclusive_group": "shaman_imbue"
+      "exclusive_group": "shaman_imbue",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_hex",
@@ -1232,7 +1241,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_earthbind_totem",
@@ -1254,7 +1264,8 @@
         }
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "shaman_reincarnation",
@@ -1545,7 +1556,8 @@
           "resource": "mana",
           "amount": 45
         }
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "resource_type": "mana",

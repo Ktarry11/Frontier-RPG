@@ -247,7 +247,8 @@
         }
       ],
       "target_type": "party",
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "paladin_hammer_of_justice",
@@ -281,7 +282,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "paladin_divine_shield",
@@ -454,7 +456,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "paladin_flash_of_light",
@@ -755,7 +758,8 @@
           "damage": 40
         }
       },
-      "exclusive_group": "paladin_seal"
+      "exclusive_group": "paladin_seal",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "paladin_turn_evil",
@@ -776,7 +780,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "paladin_redemption",
@@ -994,7 +999,8 @@
           "damage": 70
         }
       },
-      "exclusive_group": "paladin_seal"
+      "exclusive_group": "paladin_seal",
+      "buff_scope": "combat"
     }
   ]
 }

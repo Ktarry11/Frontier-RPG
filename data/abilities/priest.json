@@ -276,7 +276,8 @@
         }
       ],
       "target_type": "party",
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "priest_mind_blast",
@@ -496,7 +497,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "priest_mind_flay",
@@ -592,7 +594,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "priest_psychic_scream",
@@ -613,7 +616,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "priest_dispel_magic",

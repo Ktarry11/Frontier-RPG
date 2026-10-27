@@ -279,7 +279,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "hunter_aspect_of_the_hawk",
@@ -439,7 +440,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "hunter_tame_beast",
@@ -610,7 +612,8 @@
         }
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "hunter_disengage",
@@ -633,7 +636,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "hunter_freezing_trap",
@@ -654,7 +658,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "hunter_feign_death",
@@ -677,7 +682,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "hunter_scare_beast",
@@ -698,7 +704,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "hunter_aspect_of_the_wild",

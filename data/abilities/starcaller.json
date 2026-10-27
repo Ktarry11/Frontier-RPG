@@ -251,7 +251,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_eclipse_of_fury",
@@ -310,7 +311,8 @@
           "effect_value": 219
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_lunar_authority",
@@ -391,7 +393,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "starcaller_aegis"
+      "exclusive_group": "starcaller_aegis",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_celestial_mind",
@@ -452,7 +455,9 @@
       "cooldown": 8,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 80
+      },
       "description": "Activate this to cause your next Lunar Phase spell to trigger its Lunar effect. Usable while casting or channeling.",
       "_source": "Confirmed screenshot: Lvl 8, real Balance-Druid-style Eclipse toggle - empowers the next 'Lunar Eclipse:' tagged effect on spells like Moonwell Splash, Silverstream, Starfire Shot, and Moonflow.",
       "target_type": "self",
@@ -461,11 +466,12 @@
           "rank": 1,
           "level_req": 8,
           "cost": 18,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "_implementation_note": "The real mechanic empowers the NEXT 'Lunar Phase' spell cast, not a flat self-buff - this engine doesn't have a 'next-cast-consumes-this' primitive shared cleanly across many different spells yet, modeled as a short self-buff window instead."
+      "_implementation_note": "The real mechanic empowers the NEXT 'Lunar Phase' spell cast, not a flat self-buff - this engine doesn't have a 'next-cast-consumes-this' primitive shared cleanly across many different spells yet, modeled as a short self-buff window instead.",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_huntress_shot",
@@ -1135,7 +1141,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_moonlit_bulwark",
@@ -1156,7 +1163,8 @@
           "effect_value": 400
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_vengeance_of_elune",
@@ -1208,7 +1216,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_shrouded_stars",
@@ -1359,7 +1368,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_flow_of_waters",
@@ -1463,7 +1473,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_cosmic_shift",
@@ -1492,7 +1503,8 @@
           "effect_value": 121
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_celestial_form",
@@ -1515,7 +1527,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_celestial_awakening",
@@ -1733,7 +1746,8 @@
           "effect_value": 80
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_halt",
@@ -1757,7 +1771,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_shooting_star",
@@ -1781,7 +1796,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_vigil_of_the_moon",
@@ -1790,7 +1806,9 @@
       "cooldown": 6,
       "effect_type": "debuff",
       "duration": 3,
-      "stat_mods": {},
+      "stat_mods": {
+        "armor": -80
+      },
       "description": "Reveal stealthed and invisible enemies in an area.",
       "_source": "CoA handoff doc: 'Reveals stealthed/invisible enemies in an area.'",
       "target_type": "enemy_aoe",
@@ -1799,10 +1817,11 @@
           "rank": 1,
           "level_req": 42,
           "cost": 18,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_avatar_of_vengeance",
@@ -1825,7 +1844,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     }
   ]
 }

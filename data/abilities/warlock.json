@@ -329,7 +329,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warlock_drain_life",
@@ -408,7 +409,8 @@
         }
       ],
       "target_type": "self",
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warlock_unstable_affliction",
@@ -518,7 +520,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warlock_conflagrate",
@@ -596,7 +599,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warlock_fear",
@@ -617,7 +621,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warlock_life_tap",
@@ -865,7 +870,8 @@
         }
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warlock_banish",
@@ -886,7 +892,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     }
   ]
 }

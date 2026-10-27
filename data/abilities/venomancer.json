@@ -238,7 +238,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "venomancer_barbed_stinger",
@@ -263,7 +264,8 @@
       ],
       "icon_id": null,
       "requires_talent": true,
-      "force_proc_group": "venomancer_venom_slot_a"
+      "force_proc_group": "venomancer_venom_slot_a",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "venomancer_spider_pheromones",
@@ -536,7 +538,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "venomancer_chitin_rush",
@@ -1234,7 +1237,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "venomancer_locust_swarm",
@@ -1258,7 +1262,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "venomancer_nerubian_sting",
@@ -1599,7 +1604,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "venomancer_decay",

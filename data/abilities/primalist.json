@@ -437,7 +437,8 @@
         "resource": "rage",
         "amount": 20
       },
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "primalist_heart_of_the_mountain",
@@ -460,7 +461,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "primalist_natures_call",
@@ -483,7 +485,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "primalist_boon_of_the_wolf",
@@ -549,7 +552,8 @@
           "effect_value": 184
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "primalist_soothing_touch",
@@ -783,7 +787,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "primalist_quake",
@@ -1394,10 +1399,26 @@
           "rank": 1,
           "level_req": 57,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "three_hammers",
+          "name": "Three Hammers",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 60,
+          "damage_school": "holy",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "primalist_golem_form",

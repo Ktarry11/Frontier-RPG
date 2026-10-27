@@ -354,7 +354,8 @@
         }
       ],
       "target_type": "party",
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_frost_nova",
@@ -390,7 +391,8 @@
       ],
       "icon_id": null,
       "target_type": "enemy_aoe",
-      "damage_school": "frost"
+      "damage_school": "frost",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_pyroblast",
@@ -500,7 +502,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_combustion",
@@ -524,7 +527,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_cold_snap",
@@ -678,7 +682,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_mana_shield",
@@ -701,7 +706,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_counterspell",
@@ -724,7 +730,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_polymorph",
@@ -745,7 +752,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "mage_ice_lance",

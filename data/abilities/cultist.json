@@ -510,7 +510,8 @@
           "effect_value": 213
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_horrifying_presence",
@@ -534,7 +535,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_netherstrike",
@@ -714,7 +716,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_twilight_shieldtoss",
@@ -944,7 +947,8 @@
         "resource": "insanity",
         "amount": 5
       },
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_whispers_of_yoggsaron",
@@ -1043,7 +1047,8 @@
         }
       ],
       "icon_id": null,
-      "_implementation_note": "Modeled as a direct heal for now rather than a real pre-heal-on-next-damage trigger, since this engine doesn't have a 'heal on next damage taken' status effect primitive yet."
+      "_implementation_note": "Modeled as a direct heal for now rather than a real pre-heal-on-next-damage trigger, since this engine doesn't have a 'heal on next damage taken' status effect primitive yet.",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_voidforged_edge",
@@ -1120,7 +1125,9 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "damage_dealt_pct": 25
+      },
       "description": "Buff your next Hammer of Twilight's damage and create a rift absorbing the next healing an enemy near you would receive.",
       "_source": "CoA handoff doc: 'Buffs next Hammer of Twilight's damage; creates a rift absorbing next enemy healing near you.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
@@ -1129,10 +1136,11 @@
           "rank": 1,
           "level_req": 26,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_empires_grasp",
@@ -1154,7 +1162,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_voidborne",
@@ -1183,7 +1192,8 @@
         "resource": "insanity",
         "amount": 1
       },
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_dreadfall",
@@ -1544,7 +1554,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_dreadfall_tank",
@@ -1627,7 +1638,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_void_strikes",
@@ -1700,7 +1712,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_eldritch_bastion",
@@ -1721,7 +1734,8 @@
           "effect_value": 400
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_armageddon",
@@ -1988,7 +2002,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_void_embrace",
@@ -2098,7 +2113,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_test_of_pride",
@@ -2120,7 +2136,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_summon_faceless_destroyer",
@@ -2165,7 +2182,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_summon_faceless_servant",
@@ -2240,7 +2258,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_eldritch_force",
@@ -2267,7 +2286,8 @@
         "resource": "insanity",
         "amount": 30
       },
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "cultist_ritual_of_awakening",

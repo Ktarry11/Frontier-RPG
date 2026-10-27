@@ -194,7 +194,8 @@
         }
       ],
       "target_type": "party",
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_overpower",
@@ -264,7 +265,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_mortal_strike",
@@ -572,7 +574,8 @@
         "defensive"
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_retaliation",
@@ -595,7 +598,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_intimidating_shout",
@@ -636,7 +640,8 @@
       ],
       "target_type": "enemy_aoe",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_shield_wall",
@@ -662,7 +667,8 @@
         "defensive"
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_charge",
@@ -850,7 +856,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_recklessness",
@@ -874,7 +881,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "warrior_sunder_armor",
@@ -938,7 +946,8 @@
         }
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     }
   ]
 }

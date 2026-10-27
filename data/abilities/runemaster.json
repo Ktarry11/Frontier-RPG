@@ -488,7 +488,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil"
+      "exclusive_group": "runemaster_palm_sigil",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_inscription_leyline",
@@ -534,7 +535,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil"
+      "exclusive_group": "runemaster_palm_sigil",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_etching_of_the_dextrous",
@@ -611,7 +613,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_ice_rune",
@@ -634,7 +637,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_palm_sigil_arcane",
@@ -656,7 +660,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil"
+      "exclusive_group": "runemaster_palm_sigil",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_leyfeed",
@@ -745,7 +750,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil"
+      "exclusive_group": "runemaster_palm_sigil",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_palm_sigil_frost",
@@ -767,7 +773,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil"
+      "exclusive_group": "runemaster_palm_sigil",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_leyline_adjustment",
@@ -776,7 +783,9 @@
       "cooldown": 0,
       "effect_type": "buff",
       "duration": 3,
-      "stat_mods": {},
+      "stat_mods": {
+        "threat_generation_pct": -50
+      },
       "description": "Adjust the leylines beneath you, redirecting the threat you generate to a targeted party member.",
       "_source": "Confirmed screenshot: Lvl 60, 'redirecting the threat you generate for 30 sec to the targeted party member.' Real tank-support redirect tool, capstone-tier class-wide utility.",
       "target_type": "ally",
@@ -785,10 +794,11 @@
           "rank": 1,
           "level_req": 60,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_frigid_blast",
@@ -944,7 +954,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_manuscription",
@@ -981,7 +992,9 @@
       "cooldown": 8,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 60
+      },
       "description": "Instantly grants all 3 Glyphs and empowers their next unleash effect. Usable while stealthed.",
       "_source": "CoA handoff doc confirmed as the Glyphic capstone. Real numbers not confirmed via a dedicated screenshot; grants 3 Runes stacks as an approximation of 'instantly grants all 3 Glyphs.'",
       "target_type": "self",
@@ -990,14 +1003,15 @@
           "rank": 1,
           "level_req": 30,
           "cost": 40,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "generates": {
         "resource": "runes",
         "amount": 3
       },
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_devour_mana",
@@ -1154,7 +1168,9 @@
       "cooldown": 8,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "haste": 30.0
+      },
       "description": "Reset the cooldown of Fist of the Ancients.",
       "_source": "CoA handoff doc: 'Resets Fist of the Ancients cooldown; enables Runeshroud-required abilities + castable while moving.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
@@ -1163,10 +1179,11 @@
           "rank": 1,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_leyline_disturbance",
@@ -1213,7 +1230,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_zenith",
@@ -1234,7 +1252,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_augurs_shield",
@@ -1257,7 +1276,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_frost_blade",
@@ -1633,7 +1653,9 @@
       "cooldown": 10,
       "effect_type": "buff",
       "duration": 2,
-      "stat_mods": {},
+      "stat_mods": {
+        "damage_dealt_pct": 20
+      },
       "description": "Flare your Runic Tattoo to cleave extra enemies and empower Runeblade.",
       "_source": "CoA handoff doc confirmed as Riftblade's burst capstone. Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
@@ -1642,10 +1664,17 @@
           "rank": 1,
           "level_req": 50,
           "cost": 45,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 50,
+        "icd": 1,
+        "extra_attack": 1
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_runic_obliteration",
@@ -1712,7 +1741,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_rune_master",
@@ -1736,7 +1766,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_runes_of_quickness",
@@ -1830,7 +1861,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_ley_power",

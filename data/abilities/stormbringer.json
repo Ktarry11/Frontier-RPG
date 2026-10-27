@@ -433,7 +433,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "stormbringer_pressure"
+      "exclusive_group": "stormbringer_pressure",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_call_of_the_wind",
@@ -487,7 +488,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_storm_alert",
@@ -522,7 +524,8 @@
         }
       ],
       "icon_id": "stormbringer_storm_alert",
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_crushing_pressure",
@@ -545,7 +548,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "stormbringer_pressure"
+      "exclusive_group": "stormbringer_pressure",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_static_lock",
@@ -573,7 +577,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": "stormbringer_static_lock"
+      "icon_id": "stormbringer_static_lock",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_stormbreaker",
@@ -643,7 +648,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "stormbringer_pressure"
+      "exclusive_group": "stormbringer_pressure",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_stabilizing_pressure",
@@ -779,7 +785,8 @@
         "resource": "static",
         "amount": 40
       },
-      "icon_id": "stormbringer_charge"
+      "icon_id": "stormbringer_charge",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_arm_of_thorim",
@@ -1080,7 +1087,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "stormbringer_torrential_wrath",
@@ -1182,7 +1190,9 @@
       "cooldown": 0,
       "effect_type": "buff",
       "duration": 2,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 40
+      },
       "description": "For a short time, your spell critical strikes have a chance to reset Electrocute's cooldown and grant Static.",
       "_source": "Lightning capstone passive - the talent node ITSELF carries the mechanic text ('25% chance to reset Electrocute and grant 20 Static'), this ability entry exists mainly so unlock_ability has something real to point to. Since it's a passive proc rather than a cast player chooses to use, is_instant should probably be true and it may not need its own hotbar slot at all - flag for review once the proc-trigger pattern (like Rot Lich, Acidfang) gets a real shared implementation.",
       "target_type": "self",
@@ -1191,10 +1201,20 @@
           "rank": 1,
           "level_req": 60,
           "cost": 0,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "static",
+          "amount": 15
+        }
+      },
+      "buff_scope": "combat"
     }
   ]
 }

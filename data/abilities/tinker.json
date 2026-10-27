@@ -311,7 +311,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "tinker_piercing_augmentation",
@@ -555,7 +556,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "tinker_beacon"
+      "exclusive_group": "tinker_beacon",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "tinker_mana_module",
@@ -717,7 +719,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "tinker_beacon"
+      "exclusive_group": "tinker_beacon",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "tinker_med_pack",
@@ -1210,7 +1213,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "tinker_strength_bionics",
