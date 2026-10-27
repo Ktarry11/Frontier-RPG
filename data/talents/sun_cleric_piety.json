@@ -89,21 +89,34 @@
     {
       "talent_id": "sun_cleric_piety_burning_light",
       "name": "Burning Light",
-      "description": "Damaging critical strikes set a periodic Fire DoT on the target, which can itself critically strike.",
+      "description": "Your critical strikes set the target alight, dealing Fire damage over 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "burning_light_dot"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_piety_dawnsear",
         "sun_cleric_piety_rapture"
       ],
-      "_source": "CoA handoff doc: 'Damaging crits set a periodic Fire DoT (can crit).'"
+      "_source": "CoA handoff doc: 'Damaging crits set a periodic Fire DoT (can crit).'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "burning_light",
+          "name": "Burning Light",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 55,
+          "damage_school": "fire",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_sunburn",
@@ -199,40 +212,80 @@
     {
       "talent_id": "sun_cleric_piety_sunrise_and_sunset",
       "name": "Sunrise and Sunset",
-      "description": "After Dawn, Holy casts grant Sunrise and Fire casts grant Sunset. Entering one locks out the other until your next Dawn cycle.",
+      "description": "Your Holy spells grant Sunrise, increasing spell power by 50 for 4 turns. Entering Sunrise removes Sunset.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
-      "effects": {
-        "unlock_mechanic": "sunrise_sunset_lockin"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_piety_struck_by_the_sun",
         "sun_cleric_piety_dawnsear",
         "sun_cleric_piety_grace_r"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 10 Passive. After Dawn, Holy casts grant Sunrise, Fire casts grant Sunset; entering one locks out the other until the next cycle.' Piety's real Eclipse-lock identity mechanic, sitting at the center of the tree since both branches key off it."
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. After Dawn, Holy casts grant Sunrise, Fire casts grant Sunset; entering one locks out the other until the next cycle.' Piety's real Eclipse-lock identity mechanic, sitting at the center of the tree since both branches key off it.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_sunflare",
+          "sun_cleric_dawnsear",
+          "sun_cleric_justicars_wrath"
+        ],
+        "apply_effect": {
+          "effect_id": "sunrise",
+          "name": "Sunrise",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "spell_power": 50
+          },
+          "exclusive_group": "sun_phase",
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_duality_of_light",
       "name": "Duality of Light",
-      "description": "Sunset Holy damage grants Sun Power; Sunrise Fire damage grants Twin Flame. Only one active at a time.",
+      "description": "Your Fire spells grant Sunset, increasing damage dealt by 10% for 4 turns. Entering Sunset removes Sunrise.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "duality_of_light"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_piety_sunrise_and_sunset"
       ],
-      "_source": "CoA handoff doc confirmed: 'Sunset Holy damage grants Twin Flame; Sunrise Fire damage grants Sun Power. Only one active.' Rewards staying committed to whichever school Sunrise/Sunset locked you into."
+      "_source": "CoA handoff doc confirmed: 'Sunset Holy damage grants Twin Flame; Sunrise Fire damage grants Sun Power. Only one active.' Rewards staying committed to whichever school Sunrise/Sunset locked you into.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_rapture",
+          "sun_cleric_radiant_flame",
+          "sun_cleric_sunslam"
+        ],
+        "apply_effect": {
+          "effect_id": "sunset",
+          "name": "Sunset",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "damage_dealt_pct": 10
+          },
+          "exclusive_group": "sun_phase",
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_learning_light",
@@ -268,20 +321,26 @@
     {
       "talent_id": "sun_cleric_piety_solar_concord",
       "name": "Solar Concord",
-      "description": "Resets Horusath Blast (while in Sunrise) or Rapture (while in Sunset) cooldown; their damage launches a Solar Flare.",
+      "description": "Your critical strikes have a 25% chance to reset the cooldown of Rapture.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "solar_concord_reset"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_piety_learning_light"
       ],
-      "_source": "CoA handoff doc confirmed: 'Resets Horusath Blast (Sunrise) or Rapture (Sunset) cooldown; their damage launches a Solar Flare.'"
+      "_source": "CoA handoff doc confirmed: 'Resets Horusath Blast (Sunrise) or Rapture (Sunset) cooldown; their damage launches a Solar Flare.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "reset_cooldown": {
+          "ability": "sun_cleric_rapture"
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_photosynthetic",
@@ -422,20 +481,38 @@
     {
       "talent_id": "sun_cleric_piety_horusath_blast",
       "name": "Ancient Etchings",
-      "description": "Holy damage dealt reduces Horusath Blast's remaining cast time, stacking.",
+      "description": "Your Sunflare casts grant Ancient Etchings, increasing spell power by 20 for 4 turns and stacking up to 5 times.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "ancient_etchings_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_piety_radiant_fury"
       ],
-      "_source": "CoA handoff doc confirmed: 'Holy damage reduces Horusath Blast cast time (stacking).' Class-wide Horusath Blast is Piety's real single-target burst button once these stacks are up."
+      "_source": "CoA handoff doc confirmed: 'Holy damage reduces Horusath Blast cast time (stacking).' Class-wide Horusath Blast is Piety's real single-target burst button once these stacks are up.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_sunflare"
+        ],
+        "apply_effect": {
+          "effect_id": "ancient_etchings",
+          "name": "Ancient Etchings",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "spell_power": 20
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_sun_gate",

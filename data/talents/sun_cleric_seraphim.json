@@ -201,77 +201,131 @@
     {
       "talent_id": "sun_cleric_seraphim_adjudicator",
       "name": "Adjudicator",
-      "description": "Justicar's Wrath deals bonus damage to the target and nearby enemies, and heals you for a percentage of damage dealt.",
+      "description": "Your Justicar's Wrath drains 25% of the damage it deals back to you as healing.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
-      "effects": {
-        "unlock_mechanic": "adjudicator_self_heal"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_seraphim_justicars_wrath",
         "sun_cleric_seraphim_angelic_presence"
       ],
-      "_source": "CoA handoff doc confirmed: 'Justicar's Wrath deals bonus damage to target+nearby, heals you (10% of damage dealt).' Seraphim's real self-sustain engine."
+      "_source": "CoA handoff doc confirmed: 'Justicar's Wrath deals bonus damage to target+nearby, heals you (10% of damage dealt).' Seraphim's real self-sustain engine.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_justicars_wrath"
+        ],
+        "leech_pct": {
+          "pct": 0.25
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_seraphim_angelic_presence",
       "name": "Angelic Presence",
-      "description": "Avoiding an attack has a chance to grant a defensive buff.",
+      "description": "Being struck has a 25% chance to grant Angelic Presence, increasing Armor by 200 and Block by 8% for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "angelic_presence_proc"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_seraphim_adjudicator",
         "sun_cleric_seraphim_the_chosen"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Avoiding an attack chance to grant a buff.'"
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Avoiding an attack chance to grant a buff.'",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "angelic_presence",
+          "name": "Angelic Presence",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": 200,
+            "block": 8.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_seraphim_the_chosen",
       "name": "The Chosen",
-      "description": "Illumination shields you for a percentage of the amount healed.",
+      "description": "Your Illumination shields you for 30% of the amount it heals.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
-      "effects": {
-        "unlock_mechanic": "the_chosen_shield"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_seraphim_angelic_presence",
         "sun_cleric_seraphim_bastion_of_hope"
       ],
-      "_source": "CoA handoff doc confirmed: 'Illumination shields you (% of amount healed).' Real Discipline-Atonement-flavored self-shield off self-healing."
+      "_source": "CoA handoff doc confirmed: 'Illumination shields you (% of amount healed).' Real Discipline-Atonement-flavored self-shield off self-healing.",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_illumination"
+        ],
+        "shield_pct": {
+          "pct": 0.3,
+          "name": "The Chosen",
+          "effect_id": "the_chosen",
+          "duration": 3
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_seraphim_bastion_of_hope",
       "name": "Bastion of Hope",
-      "description": "Critical strikes regenerate mana and increase all primary stats for a duration.",
+      "description": "Your critical strikes restore 150 Mana and increase all your primary stats by 5% for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "bastion_of_hope_proc"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_seraphim_the_chosen"
       ],
-      "_source": "CoA handoff doc confirmed: 'Crits regen mana + boost all primary stats.'"
+      "_source": "CoA handoff doc confirmed: 'Crits regen mana + boost all primary stats.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 2,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 150
+        },
+        "apply_effect": {
+          "effect_id": "bastion_of_hope",
+          "name": "Bastion of Hope",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "all_stats_pct": 5
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_seraphim_hammer_of_kings",
@@ -333,7 +387,7 @@
     {
       "talent_id": "sun_cleric_seraphim_sol_invictus",
       "name": "Sol Invictus",
-      "description": "Increases threat generated, with additional threat from Holy and Fire spells and abilities.",
+      "description": "Increases the threat you generate by 20%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -341,7 +395,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "unlock_mechanic": "sol_invictus_threat"
+        "threat_generation_pct": 0.2
       },
       "connected_to": [
         "sun_cleric_seraphim_dawnbreak",
@@ -378,20 +432,36 @@
     {
       "talent_id": "sun_cleric_seraphim_solar_eclipse",
       "name": "Solar Eclipse",
-      "description": "Dawnbreak unleashes a delayed Holy burst on all struck enemies.",
+      "description": "Your Dawnbreak leaves a delayed Holy burst on the target, dealing damage over 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "solar_eclipse_delayed_burst"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_seraphim_devoted"
       ],
-      "_source": "CoA handoff doc confirmed: 'Dawnbreak unleashes a delayed Holy burst.'"
+      "_source": "CoA handoff doc confirmed: 'Dawnbreak unleashes a delayed Holy burst.'",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_dawnbreak_talent"
+        ],
+        "apply_effect": {
+          "effect_id": "solar_eclipse",
+          "name": "Solar Eclipse",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 120,
+          "damage_school": "holy",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_seraphim_solar_nova",

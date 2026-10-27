@@ -1496,6 +1496,37 @@
       ],
       "icon_id": null,
       "buff_scope": "combat"
+    },
+    {
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "strength": 18,
+        "attack_power": 50,
+        "crit_chance_physical": 3.0
+      },
+      "description": "The greater vow: grants Strength, Attack Power and Solar Power generation beyond Vow of Radiance.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 9,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "exclusive_group": "sun_cleric_vow",
+      "generates": {
+        "resource": "solar_power",
+        "amount": 2
+      },
+      "ability_id": "sun_cleric_vow_of_the_valkyr",
+      "name": "Vow of the Valkyr",
+      "_source": "The Valkyrie talent was authored as unlock_mechanic: 'vow_of_the_valkyr_transform', which nothing read. The greater vow has to exist for the talent to transform into it.",
+      "requires_talent": true
     }
   ]
 }

@@ -82,7 +82,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_valkyrs_grip",
       "name": "Valkyr's Grip",
-      "description": "Enables dual-wielding two-handed maces, swords, or polearms, and increases hit chance while dual-wielding.",
+      "description": "Increases your hit chance by 3% and your Attack Power by 3%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -90,7 +90,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "unlock_mechanic": "two_hand_dual_wield"
+        "hit_rating": 3.0,
+        "attack_power_pct": 3.0
       },
       "connected_to": [
         "sun_cleric_valkyrie_angelic",
@@ -101,7 +102,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_valkyrie_15",
       "name": "Valkyrie",
-      "description": "Transforms Vow of Radiance into Vow of the Valkyr.",
+      "description": "Transforms your Vow of Radiance into the greater Vow of the Valkyr.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -109,7 +110,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "unlock_mechanic": "vow_of_the_valkyr_transform"
+        "unlock_ability": "sun_cleric_vow_of_the_valkyr"
       },
       "connected_to": [
         "sun_cleric_valkyrie_valorous_champion",
@@ -185,7 +186,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_sun_gift",
       "name": "Sun's Gift",
-      "description": "Horusath Blast deals bonus Attack-Power-scaling damage and grants allies Replenishment.",
+      "description": "Increases the damage of Valkyr's Calling by 25%, and its casts restore 100 Mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -193,30 +194,55 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "unlock_mechanic": "sun_gift_horusath"
+        "ability_sun_cleric_valkyrs_calling_damage": 0.25
       },
       "connected_to": [
         "sun_cleric_valkyrie_sunsworn"
       ],
-      "_source": "CoA handoff doc confirmed: 'Level 30 Passive. Horusath Blast deals bonus AP-scaling damage + grants allies Replenishment.'"
+      "_source": "CoA handoff doc confirmed: 'Level 30 Passive. Horusath Blast deals bonus AP-scaling damage + grants allies Replenishment.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "sun_cleric_valkyrs_calling"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 100
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_valkyrie_divine_retribution",
       "name": "Divine Retribution",
-      "description": "Banks a percentage of damage dealt to a target, unleashing it as AoE Holy damage after a delay.",
+      "description": "Your damaging spells have a 25% chance to bank Holy power in the target, unleashing it over 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "divine_retribution_bank"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_valkyrie_sun_gift"
       ],
-      "_source": "CoA handoff doc confirmed: 'Banks 25% of damage dealt to a target, unleashing it as AoE Holy damage after a delay.' Valkyrie's real stored-damage burst payoff."
+      "_source": "CoA handoff doc confirmed: 'Banks 25% of damage dealt to a target, unleashing it as AoE Holy damage after a delay.' Valkyrie's real stored-damage burst payoff.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "divine_retribution",
+          "name": "Divine Retribution",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 70,
+          "damage_school": "holy",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_valkyrie_valkyrs_calling",
@@ -239,7 +265,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_judgement_day",
       "name": "Judgement Day",
-      "description": "Learn Judgement Day, an AoE disorient. Damage dealt ends the effect but increases their damage taken from your next hit.",
+      "description": "Teaches you Judgement Day.",
       "node_type": "active",
       "tier": 2,
       "max_points": 1,
@@ -247,7 +273,7 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "unlock_mechanic": "judgement_day_talent"
+        "unlock_ability": "sun_cleric_judgement_day"
       },
       "connected_to": [
         "sun_cleric_valkyrie_sunsworn"
@@ -276,38 +302,56 @@
     {
       "talent_id": "sun_cleric_valkyrie_pendant_of_the_sun",
       "name": "Pendant of the Sun",
-      "description": "Refreshes Dawn's duration and charges.",
+      "description": "Your critical strikes have a 20% chance to reset the cooldown of Dawn.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "unlock_mechanic": "pendant_of_the_sun_refresh"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_valkyrie_march_of_the_valkyr"
       ],
-      "_source": "CoA handoff doc: 'Refreshes Dawn's duration + charges.' Keeps the Dawn empowered window rolling."
+      "_source": "CoA handoff doc: 'Refreshes Dawn's duration + charges.' Keeps the Dawn empowered window rolling.",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 2,
+        "reset_cooldown": {
+          "ability": "sun_cleric_dawn"
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_valkyrie_its_always_sunny",
       "name": "It's Always Sunny",
-      "description": "Dawn activation reduces the cooldowns of Radiance, Valkyr's Calling, and Sunslam.",
+      "description": "Casting Dawn resets the cooldowns of Valkyr's Calling and Solar Nova.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "dawn_cooldown_reduction"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_valkyrie_pendant_of_the_sun"
       ],
-      "_source": "CoA handoff doc confirmed: 'Dawn activation reduces Radiance/Valkyr's Calling/Sunslam cooldowns.'"
+      "_source": "CoA handoff doc confirmed: 'Dawn activation reduces Radiance/Valkyr's Calling/Sunslam cooldowns.'",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_dawn"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "sun_cleric_valkyrs_calling",
+            "sun_cleric_solar_nova"
+          ]
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_valkyrie_holy_giant",
@@ -458,7 +502,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_vindicator",
       "name": "Vindicator",
-      "description": "Glorious Execution ignores the target's Armor while Vow of the Valkyr is active.",
+      "description": "Increases the damage of Glorious Execution by 25%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -466,7 +510,7 @@
       "hex_x": -1,
       "hex_y": 6,
       "effects": {
-        "unlock_mechanic": "vindicator_armor_ignore"
+        "ability_sun_cleric_glorious_execution_damage": 0.25
       },
       "connected_to": [
         "sun_cleric_valkyrie_holy_giant"

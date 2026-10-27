@@ -89,21 +89,39 @@
     {
       "talent_id": "sun_cleric_blessings_sunwalker",
       "name": "Sunwalker",
-      "description": "Reduces Shine's cast time and mana cost, stacking.",
+      "description": "Each Shine grants Sunwalker, increasing your healing done by 3% for 5 turns and stacking up to 5 times.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "sunwalker_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_daybreak",
         "sun_cleric_blessings_radiant_cascade"
       ],
-      "_source": "CoA handoff doc: 'Reduces next Shine's cast time + mana cost, stacking.'"
+      "_source": "CoA handoff doc: 'Reduces next Shine's cast time + mana cost, stacking.'",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_shine"
+        ],
+        "apply_effect": {
+          "effect_id": "sunwalker",
+          "name": "Sunwalker",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 5,
+          "stat_mods": {
+            "healing_done_pct": 3
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_luminary_mendicant",
@@ -125,20 +143,31 @@
     {
       "talent_id": "sun_cleric_blessings_heat_wave",
       "name": "Heat Wave",
-      "description": "Illumination and Shine healing splashes to the target's nearby allies.",
+      "description": "Your Illumination and Shine splash 30% of their healing to up to 3 nearby allies.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "heat_wave_splash"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_luminary_mendicant"
       ],
-      "_source": "CoA handoff doc confirmed: 'Illumination/Shine healing splashes to target's nearby allies.'"
+      "_source": "CoA handoff doc confirmed: 'Illumination/Shine healing splashes to target's nearby allies.'",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_illumination",
+          "sun_cleric_shine"
+        ],
+        "splash_heal": {
+          "pct": 0.3,
+          "max_targets": 3
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_sunshine",
@@ -274,20 +303,27 @@
     {
       "talent_id": "sun_cleric_blessings_sunlight",
       "name": "Sunlight",
-      "description": "Fulfilling a Vow unleashes healing to the lowest-health nearby allies.",
+      "description": "Your Dawn also heals your most wounded ally for 220.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
-      "effects": {
-        "unlock_mechanic": "sunlight_fulfillment"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_radiant_cascade"
       ],
-      "_source": "CoA handoff doc confirmed: 'Level 10 Passive. Fulfilling Vow unleashes healing to lowest-health nearby allies.'"
+      "_source": "CoA handoff doc confirmed: 'Level 10 Passive. Fulfilling Vow unleashes healing to lowest-health nearby allies.'",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "sun_cleric_dawn"
+        ],
+        "smart_heal": 220
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_radiant_cascade",
@@ -345,38 +381,57 @@
     {
       "talent_id": "sun_cleric_blessings_hope",
       "name": "Hope",
-      "description": "Critical heals have a chance to reduce your Solar Invocation cooldown.",
+      "description": "Your healing spells have a 15% chance to reduce the cooldown of Daybreak by 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "hope_invocation_cdr"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_cultivate_divinity"
       ],
-      "_source": "CoA handoff doc confirmed: 'Crit heals reduce Solar Invocation cooldown (limited frequency).'"
+      "_source": "CoA handoff doc confirmed: 'Crit heals reduce Solar Invocation cooldown (limited frequency).'",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 15,
+        "icd": 1,
+        "reset_cooldown": {
+          "ability": "sun_cleric_daybreak",
+          "turns": 2
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_the_redeemer",
       "name": "The Redeemer",
-      "description": "A critical heal grants the target a delayed heal that triggers on their next damage taken.",
+      "description": "Your healing spells have a 25% chance to wrap you in a ward absorbing damage equal to 8% of your maximum Health.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 6,
-      "effects": {
-        "unlock_mechanic": "redeemer_delayed_heal"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_hope"
       ],
-      "_source": "CoA handoff doc confirmed: 'Level 50 Passive. Crit heal grants target a delayed heal-on-next-damage (30% of original).' Real Atonement-adjacent capstone."
+      "_source": "CoA handoff doc confirmed: 'Level 50 Passive. Crit heal grants target a delayed heal-on-next-damage (30% of original).' Real Atonement-adjacent capstone.",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 25,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "redeemers_ward",
+          "name": "Redeemer's Ward",
+          "effect_type": "buff",
+          "duration": 4,
+          "absorb_pct_max_health": 0.08,
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_angelic_touch",
@@ -470,20 +525,34 @@
     {
       "talent_id": "sun_cleric_blessings_stalwart",
       "name": "Stalwart",
-      "description": "A melee critical strike against you briefly prevents you from being critically struck again.",
+      "description": "Being struck makes you immune to critical strikes for 2 turns. Cannot occur more than once every 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "stalwart_crit_immunity"
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_vitality"
       ],
-      "_source": "CoA handoff doc: 'Melee crits against you prevent being crit again (briefly).'"
+      "_source": "CoA handoff doc: 'Melee crits against you prevent being crit again (briefly).'",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "stalwart",
+          "name": "Stalwart",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "crit_taken_reduction": 100.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_revivify",
