@@ -32,7 +32,7 @@
     {
       "talent_id": "paladin_protection_improved_devotion_aura",
       "name": "Improved Devotion Aura",
-      "description": "Increases Armor by 14 per rank.",
+      "description": "Increases your total Armor by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,7 +40,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "armor": 14
+        "armor_pct": 0.02
       },
       "connected_to": [
         "paladin_protection_improved_righteous_fury"
@@ -49,7 +49,7 @@
     {
       "talent_id": "paladin_protection_guardians_favor",
       "name": "Guardian's Favor",
-      "description": "Increases Stamina by 3 per rank.",
+      "description": "Reduces the cooldown of Divine Shield by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -57,7 +57,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "stamina": 3
+        "ability_paladin_divine_shield_cooldown": 1
       },
       "connected_to": [
         "paladin_protection_toughness"
@@ -83,7 +83,7 @@
     {
       "talent_id": "paladin_protection_stoicism",
       "name": "Stoicism",
-      "description": "Reduces Magic damage taken by 2% per rank.",
+      "description": "Reduces Magic damage taken by 2% per rank and the duration of stuns against you by 10% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -91,7 +91,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "magic_damage_taken_pct": -0.02
+        "magic_damage_taken_pct": -0.02,
+        "stun_duration_reduction_pct": 0.1
       },
       "connected_to": [
         "paladin_protection_divinity",
@@ -101,7 +102,7 @@
     {
       "talent_id": "paladin_protection_improved_righteous_fury",
       "name": "Improved Righteous Fury",
-      "description": "Increases Armor by 16 per rank.",
+      "description": "Reduces all damage taken by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -109,7 +110,7 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "armor": 16
+        "damage_taken_pct": -0.02
       },
       "connected_to": [
         "paladin_protection_improved_devotion_aura",
@@ -119,7 +120,7 @@
     {
       "talent_id": "paladin_protection_toughness",
       "name": "Toughness",
-      "description": "Increases Armor by 12 per rank.",
+      "description": "Increases your total Armor by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -127,7 +128,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "armor": 12
+        "armor_pct": 0.02
       },
       "connected_to": [
         "paladin_protection_guardians_favor",
@@ -137,7 +138,7 @@
     {
       "talent_id": "paladin_protection_blessing_of_sanctuary",
       "name": "Blessing of Sanctuary",
-      "description": "Grants 8 Stamina and 5 Block value.",
+      "description": "Increases Stamina by 8 and Block value by 5. When you are struck, you have a 20% chance to restore 40 Mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -151,30 +152,43 @@
       "connected_to": [
         "paladin_protection_anticipation",
         "paladin_protection_improved_holy_shield"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 40
+        }
+      }
     },
     {
       "talent_id": "paladin_protection_reckoning",
       "name": "Reckoning",
-      "description": "Increases physical damage dealt by 2% per rank.",
+      "description": "Being struck has a 4% chance per rank to grant you an extra attack on your next swing.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
-      "effects": {
-        "physical_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "paladin_protection_stoicism",
         "paladin_protection_combat_expertise"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 4,
+        "icd": 1,
+        "extra_attack": 1
+      }
     },
     {
       "talent_id": "paladin_protection_sacred_duty",
       "name": "Sacred Duty",
-      "description": "Increases Stamina by 5 per rank.",
+      "description": "Increases Stamina by 3% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -182,7 +196,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "stamina": 5
+        "stamina_pct": 0.03
       },
       "connected_to": [
         "paladin_protection_improved_righteous_fury",
@@ -210,7 +224,7 @@
     {
       "talent_id": "paladin_protection_improved_holy_shield",
       "name": "Improved Holy Shield",
-      "description": "Increases Block value by 4 per rank.",
+      "description": "Increases Block value by 4 per rank. Attacks against you have a 15% chance per rank to burn the attacker for Holy damage.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -223,12 +237,26 @@
       "connected_to": [
         "paladin_protection_blessing_of_sanctuary",
         "paladin_protection_redoubt"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "holy_shield_retaliation",
+          "name": "Holy Shield",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 18,
+          "damage_school": "holy",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "paladin_protection_holy_shield",
       "name": "Holy Shield",
-      "description": "Grants 10 Block value and 30 Armor.",
+      "description": "Increases Block value by 10 and Armor by 30. Blocking an attack has a 30% chance to heal you for 60.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -242,12 +270,18 @@
       "connected_to": [
         "paladin_protection_sacred_duty",
         "paladin_protection_avengers_shield"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 30,
+        "icd": 1,
+        "heal_flat": 60
+      }
     },
     {
       "talent_id": "paladin_protection_ardent_defender",
       "name": "Ardent Defender",
-      "description": "Increases maximum Health by 3% and Armor by 15 per rank.",
+      "description": "While below 35% health, reduces all damage taken by 10% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -255,8 +289,8 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "max_health_pct": 0.03,
-        "armor": 15
+        "low_health_damage_reduction_pct": 0.1,
+        "low_health_threshold_pct": 0.35
       },
       "connected_to": [
         "paladin_protection_one_handed_specialization",
@@ -266,20 +300,34 @@
     {
       "talent_id": "paladin_protection_redoubt",
       "name": "Redoubt",
-      "description": "Increases Block value by 5 per rank.",
+      "description": "Being struck has a 20% chance per rank to increase your Block value by 10 for 10 turns, stacking up to 3 times.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {
-        "block": 5.0
-      },
+      "effects": {},
       "connected_to": [
         "paladin_protection_improved_holy_shield",
         "paladin_protection_shield_of_the_templar"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "redoubt_stack",
+          "name": "Redoubt",
+          "effect_type": "buff",
+          "duration": 10,
+          "max_stacks": 3,
+          "stat_mods": {
+            "block": 10.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "paladin_protection_combat_expertise",
@@ -320,7 +368,7 @@
     {
       "talent_id": "paladin_protection_guarded_by_the_light",
       "name": "Guarded by the Light",
-      "description": "Reduces Magic damage taken by 2% per rank.",
+      "description": "Reduces Magic damage taken by 2% per rank and restores 15 Mana per rank whenever you cast a healing spell.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -333,12 +381,21 @@
       "connected_to": [
         "paladin_protection_ardent_defender",
         "paladin_protection_touched_by_the_light"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 15
+        }
+      }
     },
     {
       "talent_id": "paladin_protection_shield_of_the_templar",
       "name": "Shield of the Templar",
-      "description": "Increases Armor by 25 per rank.",
+      "description": "Increases Avenger's Shield damage by 15% per rank and Block value by 4 per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -346,7 +403,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "armor": 25
+        "ability_paladin_avengers_shield_damage": 0.15,
+        "block": 4.0
       },
       "connected_to": [
         "paladin_protection_redoubt"
@@ -373,7 +431,7 @@
     {
       "talent_id": "paladin_protection_touched_by_the_light",
       "name": "Touched by the Light",
-      "description": "Increases Stamina by 4 and Spell Power by 6 per rank.",
+      "description": "Increases Stamina by 2% per rank and the healing of your Holy Light by 8% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -381,8 +439,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "stamina": 4,
-        "spell_power": 6
+        "stamina_pct": 0.02,
+        "ability_paladin_holy_light_healing": 0.08
       },
       "connected_to": [
         "paladin_protection_guarded_by_the_light",
@@ -392,7 +450,7 @@
     {
       "talent_id": "paladin_protection_divine_guardian",
       "name": "Divine Guardian",
-      "description": "Grants 10% maximum Health and 50 Armor.",
+      "description": "Increases maximum Health by 10%. While below the health threshold set by Ardent Defender, you take 15% less damage and generate 50% more threat.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -401,7 +459,8 @@
       "hex_y": 6,
       "effects": {
         "max_health_pct": 0.1,
-        "armor": 50
+        "low_health_damage_reduction_pct": 0.15,
+        "low_health_threat_pct": 0.5
       },
       "connected_to": [
         "paladin_protection_hammer_of_the_righteous"
@@ -410,7 +469,7 @@
     {
       "talent_id": "paladin_protection_protection_capstone",
       "name": "Divine Plea",
-      "description": "Increases your maximum Health by 8% and Armor by 50.",
+      "description": "Restores 8 Mana every 5 seconds. Each attack you block has a 35% chance to restore 80 Mana and heal you for 100.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -418,12 +477,21 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "max_health_pct": 0.08,
-        "armor": 50
+        "mp5": 8
       },
       "connected_to": [
         "paladin_protection_touched_by_the_light"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 35,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 80
+        },
+        "heal_flat": 100
+      }
     }
   ]
 }
