@@ -4033,6 +4033,176 @@
         }
       ],
       "gear_reward_gear_level": 19
+    },
+    {
+      "quest_id": "sps_road_south",
+      "title": "The Road South",
+      "giver_npc_id": "sp_pyre_hearthwarden",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "Godfrey's remnant is dealt with and the Hearthwarden has run out of reasons to keep anyone in Silverpine. South of the pyre the pines thin out, the blight stops at a line you can stand on, and the road goes down into a valley that still grows things.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_hillsbrad",
+          "target_x": 48,
+          "target_y": 24,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "Go south. Down the pass, past the last of the pines, and keep going until the ground changes colour.\n\nThere is a tower called Southpoint at the bottom of it with our banner on it, and a commander in it who is short of everything including people. You have done what there is to do here. Hillsbrad has not run out of work in living memory.",
+      "turn_in_text": "You saw it, then. The green.\n\nEveryone comes back up this road eventually and nobody ever describes it the same way twice. Go on - she needs you more than I do.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Picket's Chausses",
+          "slot": "legs",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Issued at the tower and never handed back.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 59,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Picket's Helm",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Worn by someone who slept in shifts.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 66,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Tower-Watch Ring",
+          "slot": "ring",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Worn by someone who slept in shifts.",
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.9
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "requires_quests": [
+        "sps_godfrey"
+      ]
+    },
+    {
+      "quest_id": "sps_ashes_south",
+      "title": "Ashes to the Apothecary",
+      "giver_npc_id": "sp_pyre_hearthwarden",
+      "zone": "silverpine_south",
+      "level_min": 19,
+      "level_max": 20,
+      "description": "The Ashen Cult burned something in that hall that did not burn like wood, and the Hearthwarden has a phial of what was left. There is nobody in Silverpine qualified to tell her what it is. There is an apothecary at Southpoint Tower who has spent four years with nothing to work on but blight and would very likely open the phial in the road.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pyre_ash_phial",
+          "count": 1,
+          "label": "Carry the phial to Apothecary Jessel Vane at Southpoint Tower"
+        }
+      ],
+      "reward_exp": 1320,
+      "reward_gold": 5700,
+      "accept_text": "Sealed, and it stays sealed. South to Southpoint Tower in Hillsbrad - ask for Vane.\n\nI will be plain: I do not know what is in it, which is precisely why it is going to someone who does. Do not open it to satisfy yourself on the road. People have.",
+      "turn_in_text": "Silverpine pyre ash. In a sealed phial. For ME.\n\nYou have no idea how long it has been since anyone sent me a question instead of an order. Tell her it will take a week and that it will be worth the week.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Hillsbrad Hood",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Soil in the seams that will not wash out.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Helm (Int/Sta/MP5)"
+        },
+        {
+          "name": "Furrow-Worn Breastplate",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Good barley country, and everyone in it is armed.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 88,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Hillsbrad Pendant",
+          "slot": "neck",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "required_level": 19,
+          "flavor_text": "Soil in the seams that will not wash out.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.3
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pyre_ash_phial",
+            "name": "Sealed Phial of Pyre Ash",
+            "description": "Grey ash from the Ashen Cult's hall, sealed under wax. It is faintly warm, which ash a month old should not be.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "hbw_southpoint_apothecary",
+      "requires_quests": [
+        "sps_pyre_hall"
+      ]
     }
   ]
 }

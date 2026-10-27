@@ -1,0 +1,1545 @@
+{
+  "quests": [
+    {
+      "quest_id": "az_kobolds",
+      "title": "The Lower Works",
+      "giver_npc_id": "hbw_mine_overseer",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "Azurelode was the richest silver seam in the valley until the pumps stopped and the lower galleries went under in a night. The kobolds were in it inside the week. Grint Halloway has never been able to explain how a creature that cannot read a pump roster knew the pumps had failed.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Azurelode Kobold",
+          "count": 10,
+          "zone": "azurelode_mine"
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "In through the adit in the western rock, and mind the standing water - it's deeper than the light makes it look and it does not drain anywhere.\n\nTen should clear the upper galleries. They'll be back. They're always back. I'd settle for walking my own mine without a torch in one hand and an axe in the other.",
+      "turn_in_text": "Ten, and I got as far as the second landing without stopping. That's further than I've managed since midsummer.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Silver-Seam Armguards",
+          "slot": "wrist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "The lower works are flooded. This was not.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Pump-House Veil",
+          "slot": "head",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.2,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Helm (Int/SP/Crit)"
+        },
+        {
+          "name": "Lamp-Lit Band",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Silver dust worked into the grain, blue in lamplight.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.6
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "az_survey",
+      "title": "What the Water Took",
+      "giver_npc_id": "hbw_mine_surveyor",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Pell Iversen surveyed Azurelode the year before it flooded. His chart is now the only record of what lies under the sump, which makes it worth rather more than the mine and a good deal more than Pell.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "azurelode_mine",
+          "target_x": 56,
+          "target_y": 24,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "The Silver Face, at the top of the workings - you'll know it, the rock goes blue-violet the moment a lamp touches it.\n\nWhat I need is whether the causeway still stands. My chart says there's a spine of dry rock running to the Face. If the chart's right, the seam is reachable and this is a mine again. If it's wrong, it's a lake with a door.",
+      "turn_in_text": "Still standing. Then the chart holds and the Face can be worked.\n\nDon't tell the Overseer yet. He'll put men down there tomorrow and I'd like to know what else is down there first.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sump-Drowned Helm",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.0
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Azurelode Mantle",
+          "slot": "back",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Cloak (Int/Spi/HP)"
+        },
+        {
+          "name": "Silver-Seam Ring",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "az_prospectors",
+      "title": "Measuring a Drowned Mine",
+      "giver_npc_id": "hbw_mine_surveyor",
+      "zone": "western_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "There are Syndicate men in the flooded galleries and they are not digging. They are measuring - sounding the depth, chalking the walls, running chain along the sump. There is exactly one reason to measure a drowned mine that carefully, and it is to work out what draining it would cost.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Syndicate Prospector",
+          "count": 8,
+          "zone": "azurelode_mine"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Eight, below the causeway. You'll hear the chain before you see the lamps - they sound the depth every ten paces and log it.\n\nAlterac sold the pass to the Horde in the Second War and the Alliance dissolved the kingdom for it. The lords scattered into these hills with nothing. This is what nothing looks like when it finds a silver seam it used to own.",
+      "turn_in_text": "They were chalking depths on the wall in a hand I recognise from estate maps. That's not a bandit camp's work. Somebody up there still thinks of this valley as property.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Lamp-Lit Treads",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Silver dust worked into the grain, blue in lamplight.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 56,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Lamp-Lit Boots",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 37,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Sump-Drowned Flail",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "az_silver",
+      "title": "Smelt It Yourself",
+      "giver_npc_id": "hbw_mine_overseer",
+      "zone": "western_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "There is no sense hauling ore to Tarren Mill when the mine's own furnace sits a full six feet above the waterline and has done all along. Halloway wants bars, not baskets, and he would like to know the person bringing them can tell silver from tin.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bar_silver",
+          "count": 5,
+          "label": "Smelt silver bars"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Cut it off the Face and smelt it - my furnace, or any forge in the valley, I don't care whose.\n\nFive bars. Silver, mind. I've had three men bring me tin this season with a straight face, and tin out of a mine called Azurelode is a special sort of insult.",
+      "turn_in_text": "Five, and all five silver.\n\nYou'd be amazed how rarely that sentence gets said down here.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Pump-House Armguards",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Silver dust worked into the grain, blue in lamplight.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 56,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Silver-Seam Shoes",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Pulled out of water that should not be there.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Boots (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Azurelode Charm",
+          "slot": "neck",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Pulled out of water that should not be there.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.6
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "requires_quests": [
+        "az_survey"
+      ]
+    },
+    {
+      "quest_id": "az_grimewick",
+      "title": "Grimewick the Drowned",
+      "giver_npc_id": "hbw_mine_overseer",
+      "zone": "western_hillsbrad",
+      "level_min": 25,
+      "level_max": 26,
+      "description": "The pump house has a kobold foreman in it. He had a hammer he used to beat the pumps back into working whenever they seized, and he was still beating them when the water came over the sill. He has not stopped since, and the pumps have not started.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Grimewick the Drowned",
+          "count": 1,
+          "zone": "azurelode_mine"
+        }
+      ],
+      "reward_exp": 2340,
+      "reward_gold": 9750,
+      "accept_text": "Pump house, west of the sump.\n\nHe took a candle down into a gallery full of pump gas, which is how the whole thing started, and the gas is what killed the shift. Thirty years I've blamed the engineers. Turns out it was one kobold and a candle, and he's still holding the candle.",
+      "turn_in_text": "He was still hammering. I could hear it from the second landing and I'd convinced myself it was the water in the pipes.\n\nIt was never the water.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Silver-Seam Pauldrons",
+          "slot": "shoulder",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "The lower works are flooded. This was not.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.9
+          },
+          "armor_type": "mail",
+          "armor_value": 79,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Lamp-Lit Bracers",
+          "slot": "wrist",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Silver dust worked into the grain, blue in lamplight.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Pump-House Glaive",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 21
+          },
+          "secondary_stats": {
+            "armor": 53.7,
+            "parry_rating": 1.1
+          },
+          "weapon_damage_min": 68,
+          "weapon_damage_max": 92,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Sump-Drowned Tunic",
+          "slot": "chest",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "The lower works are flooded. This was not.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.4,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 33,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "az_ashlan",
+      "title": "Overseer Ashlan Silvervein",
+      "giver_npc_id": "hbw_mine_overseer",
+      "zone": "western_hillsbrad",
+      "level_min": 25,
+      "level_max": 26,
+      "description": "Halloway has a predecessor. Ashlan Silvervein ran Azurelode the night the pumps failed, ordered the lower galleries worked through it, and went down with the shift he refused to call back. He is at the Silver Face. He is still overseeing. Even the kobolds will not go near him.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Overseer Ashlan Silvervein",
+          "count": 1,
+          "zone": "azurelode_mine"
+        }
+      ],
+      "reward_exp": 2340,
+      "reward_gold": 9750,
+      "accept_text": "The Face itself. He carries a mattock with silver worked into the head - a waste of good silver, and he knew it, and he had it made anyway.\n\nI've had his job two years. I'd rather not have it this literally, and I'd rather the men stopped asking me whether he'd have called them back.",
+      "turn_in_text": "Would he have called them back? I've been asked that question in every tavern between here and the pass.\n\nHe was still standing at the Face with the water up to his chest. I think that's the answer.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sump-Drowned Armguards",
+          "slot": "wrist",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Pulled out of water that should not be there.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.9
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Pump-House Vestments",
+          "slot": "chest",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.4,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 33,
+          "label": "Cloth Chest (Int/SP/Hit)"
+        },
+        {
+          "name": "Silver-Seam Walking Stick",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Pulled out of water that should not be there.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 17.2,
+            "crit_chance_spell": 0.9
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        },
+        {
+          "name": "Pump-House Pants",
+          "slot": "legs",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Kobold-chewed at one corner.",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 9.5
+          },
+          "armor_type": "leather",
+          "armor_value": 66,
+          "label": "Leather Legs (Agi/Int/AP)"
+        }
+      ],
+      "requires_quests": [
+        "az_silver"
+      ]
+    },
+    {
+      "quest_id": "dg_mountaineers",
+      "title": "Cut Square",
+      "giver_npc_id": "hbe_garok_sapper",
+      "zone": "eastern_hillsbrad",
+      "level_min": 26,
+      "level_max": 27,
+      "description": "Niall Crag has his measuring chain on the road and has finally got close enough to look at the fort itself. His professional opinion, delivered with some bitterness, is that there is no weak point - the dwarves cut every room in that hold square and put a gate at every narrowing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dun Garok Mountaineer",
+          "count": 8,
+          "zone": "dun_garok"
+        }
+      ],
+      "reward_exp": 1880,
+      "reward_gold": 7800,
+      "accept_text": "Eight of their mountaineers, inside the outer gate. I need the muster yard quiet long enough to measure it.\n\nAnd look at the walls while you're in there. No chamfer anywhere, no rubble fill, every corner a true corner. That's not a cave they tidied up. They cut a hold out of a mountain, square, on purpose, and I'd admire it more if I weren't trying to get into it.",
+      "turn_in_text": "Measured. Twenty-two paces by sixty, and the gates line up to the inch.\n\nI've surveyed six keeps. This is the only one where I could find no mistake to work with.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Mountaineer's Girdle",
+          "slot": "waist",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Heavier than it has any right to be.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 60,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Stormpike Sandals",
+          "slot": "feet",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Boots (Int/Sta/MP5)"
+        },
+        {
+          "name": "Hold-Cut Scepter",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.1
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "dg_brannic",
+      "title": "Gatewarden Brannic",
+      "giver_npc_id": "hbe_garok_sapper",
+      "zone": "eastern_hillsbrad",
+      "level_min": 26,
+      "level_max": 27,
+      "description": "The outer gate has a warden and the warden is the reason the outer gate is a gate rather than a doorway. Brannic has held the threshold long enough that the Stormpike stopped posting a second man on it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gatewarden Brannic",
+          "count": 1,
+          "zone": "dun_garok"
+        }
+      ],
+      "reward_exp": 2440,
+      "reward_gold": 10140,
+      "accept_text": "The outer gate. Bearded axe, a shield scarred in a band at exactly shoulder height, and in fifteen years that axe has only ever swung in one doorway.\n\nHe will not come out to you. He has never once come out. You'll have to go to him, in the one place he's had fifteen years to practise standing.",
+      "turn_in_text": "He held the threshold until he didn't.\n\nThere's a measurement in that too, if you want it: a hold is only as deep as the man at its door is stubborn.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Hold-Cut Pauldrons",
+          "slot": "shoulder",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 51,
+          "label": "Leather Shoulders (Dodge/Parry)"
+        },
+        {
+          "name": "Gate-Warden's Leggings",
+          "slot": "legs",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 110,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Gate-Warden's Spear",
+          "slot": "main_hand",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "Heavier than it has any right to be.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 16,
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "defense_rating": 1.2
+          },
+          "weapon_damage_min": 70,
+          "weapon_damage_max": 95,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        },
+        {
+          "name": "Stormpike Bindings",
+          "slot": "wrist",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "Heavier than it has any right to be.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.3,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "dg_dunmar",
+      "title": "Rifle-Sergeant Dunmar",
+      "giver_npc_id": "hbe_mill_magistrate",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "The riflemen on the south road are trained, and the training has a name. Dunmar runs the barracks off the muster yard, and Magistrate Pell has worked out that killing riflemen on a road is a tax while killing the man who makes them is a solution.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Rifle-Sergeant Dunmar",
+          "count": 1,
+          "zone": "dun_garok"
+        }
+      ],
+      "reward_exp": 2550,
+      "reward_gold": 10530,
+      "accept_text": "The barracks, east off the muster yard - there's a sally port up the east wall that reaches it without going through the inner gate.\n\nHe sights for the length of that yard and no further, same as his men, because he taught them. Inside that distance he's a man with an empty rifle and a sergeant's temper.",
+      "turn_in_text": "Then the road patrol is a dozen frightened dwarves with guns and nobody to tell them when to fire.\n\nI'll take frightened. Frightened goes home eventually.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Hold-Cut Cowl",
+          "slot": "head",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 26,
+          "label": "Cloth Helm (Int/Spi/HP)"
+        },
+        {
+          "name": "Hold-Cut Epaulets",
+          "slot": "shoulder",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Stormpike grey, with the fort's mark at the collar.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 53,
+          "label": "Leather Shoulders (Str/Agi/Sta)"
+        },
+        {
+          "name": "Gate-Warden's Cleaver",
+          "slot": "main_hand",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.9,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        },
+        {
+          "name": "Dun Garok Vambraces",
+          "slot": "wrist",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 85,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "dg_morgrin",
+      "title": "The Vault Door",
+      "giver_npc_id": "hbe_mill_magistrate",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "There is a door at the back of the Great Hall that the Stormpike keep shut, and a shrine-keeper standing in front of it who has made it his life's work. Nobody in the garrison will say what is behind it. Pell has decided that is itself the answer.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Shrine-Keeper Morgrin",
+          "count": 1,
+          "zone": "dun_garok"
+        }
+      ],
+      "reward_exp": 2550,
+      "reward_gold": 10530,
+      "accept_text": "Past the Great Hall, at the vault door.\n\nA smith's hammer, blessed until it stopped being one, and a man who has stood in a doorway so long the dwarves have stopped mentioning him in dispatches. When a garrison stops writing a man down, it's because writing him down means explaining him.",
+      "turn_in_text": "Open, then.\n\nAnd now we have to decide whether we want to know, which is a different question from whether we wanted it open.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Dun Garok Boots",
+          "slot": "feet",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Heavier than it has any right to be.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 57,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Mountaineer's Cuffs",
+          "slot": "wrist",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.4,
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Bracers (Int/SP/MP5)"
+        },
+        {
+          "name": "Stormpike Dagger",
+          "slot": "main_hand",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Stormpike grey, with the fort's mark at the collar.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.6
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        },
+        {
+          "name": "Gate-Warden's Sabatons",
+          "slot": "feet",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Heavier than it has any right to be.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 85,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "requires_quests": [
+        "dg_brannic"
+      ]
+    },
+    {
+      "quest_id": "dg_korrin",
+      "title": "Thane Korrin Stonewatch",
+      "giver_npc_id": "hbe_mill_magistrate",
+      "zone": "eastern_hillsbrad",
+      "level_min": 28,
+      "level_max": 29,
+      "description": "Behind the vault door is a crypt, and in the crypt is a thane. He was buried in Dun Garok in an iron circlet by dwarves who swore to hold the ridge, and he did not stay buried, and the garrison above has spent a great many years not discussing the noise.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Thane Korrin Stonewatch",
+          "count": 1,
+          "zone": "dun_garok"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10920,
+      "accept_text": "The Crypt of Dun Garok, past the vault.\n\nStonewatch Greataxe, and a circlet of iron he was buried in. The oath was to hold the ridge - he is technically still holding it, and that is the single most dwarven sentence I have ever had cause to write in a dispatch.",
+      "turn_in_text": "The Stormpike will not thank us and will not admit it happened.\n\nThey'll bury him again, deeper, and the next garrison will be told the noise is the wind. That's how a hold keeps a secret: badly, and for centuries.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Stormpike Chainmail",
+          "slot": "chest",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Stormpike grey, with the fort's mark at the collar.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 6.4
+          },
+          "armor_type": "mail",
+          "armor_value": 118,
+          "label": "Mail Chest (Int/Hit/SP)"
+        },
+        {
+          "name": "Gate-Warden's Bindings",
+          "slot": "wrist",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Bracers (Int/Spi/HP)"
+        },
+        {
+          "name": "Stormpike Necklace",
+          "slot": "neck",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        },
+        {
+          "name": "Mountaineer's Bracers",
+          "slot": "wrist",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Heavier than it has any right to be.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Bracers (Dodge/Parry)"
+        }
+      ],
+      "requires_quests": [
+        "dg_morgrin"
+      ]
+    },
+    {
+      "quest_id": "dh_revenants",
+      "title": "The Undercroft Is Not Empty",
+      "giver_npc_id": "hbe_durnholde_scholar",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "The Syndicate hold Durnholde's walls and courtyard. They do not go into the undercroft, and Emeline Vask finds that more interesting than anything else about the keep: a garrison with a cellar it will not use has a reason, and reasons are what she is for.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Keep Revenant",
+          "count": 8,
+          "zone": "durnholde_keep"
+        }
+      ],
+      "reward_exp": 1960,
+      "reward_gold": 8100,
+      "accept_text": "Eight of whatever is down there. The stair is behind the Lord's Hall.\n\nThese were the keep's own garrison - Lordaeron's men, the ones who were here when it fell. They didn't leave. The Syndicate have simply built their camp on top of them and agreed not to go downstairs, which is the most honest thing I know about the Syndicate.",
+      "turn_in_text": "Lordaeron livery under the rot on all eight. I thought so.\n\nThey held this keep, they lost it, and they have been underneath everyone who's held it since.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Alterac Robe",
+          "slot": "chest",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Damp from the undercroft, and always will be.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 26,
+          "label": "Cloth Chest (Int/Spi/HP)"
+        },
+        {
+          "name": "Alterac Legguards",
+          "slot": "legs",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.5
+          },
+          "armor_type": "mail",
+          "armor_value": 84,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Undercroft Signet",
+          "slot": "ring",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Damp from the undercroft, and always will be.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "dh_varth",
+      "title": "Sergeant-at-Arms Varth",
+      "giver_npc_id": "hbe_durnholde_watcher",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "The gatehouse has a sergeant-at-arms with a gate-warden's halberd and an alarm bell, and the bell is the problem. Odrin Falk has lost two scouting parties to the keep and both of them to the same bell.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Sergeant-at-Arms Varth",
+          "count": 1,
+          "zone": "durnholde_keep"
+        }
+      ],
+      "reward_exp": 2550,
+      "reward_gold": 10530,
+      "accept_text": "The gatehouse, first thing through the archway.\n\nHe'll sound the alarm before he fights - that's his whole function and he's good at it. If you want to get further into that keep than the bailey, the bell has to stop before the shouting starts.",
+      "turn_in_text": "Quiet, then. For the first time in two years, quiet at the gate.\n\nGo further in while it lasts.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Keep-Warden's Sabatons",
+          "slot": "feet",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.1
+          },
+          "armor_type": "mail",
+          "armor_value": 57,
+          "label": "Mail Boots (Int/Hit/SP)"
+        },
+        {
+          "name": "Undercroft Chestguard",
+          "slot": "chest",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 171,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Keep-Warden's Saber",
+          "slot": "main_hand",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "The keep held a Warchief once. It holds less now.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        },
+        {
+          "name": "Alterac Sandals",
+          "slot": "feet",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.4,
+            "hit_rating": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Boots (Int/SP/Hit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "dh_sable",
+      "title": "Houndmaster Sable",
+      "giver_npc_id": "hbe_durnholde_watcher",
+      "zone": "eastern_hillsbrad",
+      "level_min": 28,
+      "level_max": 29,
+      "description": "The kennels on the keep's east side are the reason nobody has ever got across the bailey unseen. Sable's hounds learned the work faster than her recruits did, which she says to recruits, in front of the hounds.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Houndmaster Sable",
+          "count": 1,
+          "zone": "durnholde_keep"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10920,
+      "accept_text": "The kennels, east bailey, through the breach.\n\nShe sets the pack on first and fights second. Kill the handler and the pack is a dozen dogs with nobody shouting at them - they'll scatter inside a minute. Try it the other way round and you'll be fighting dogs until there are no more dogs.",
+      "turn_in_text": "The pack went over the wall and didn't come back. Dogs are sensible.\n\nThat's the bailey crossable now, which is two years of my reports made obsolete in an afternoon. I'm delighted.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Durnholde Tunic",
+          "slot": "chest",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 7.1,
+            "mp5": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 36,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        },
+        {
+          "name": "Undercroft Chainmail",
+          "slot": "chest",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 118,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Syndicate Sword",
+          "slot": "main_hand",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 74,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        },
+        {
+          "name": "Undercroft Chaps",
+          "slot": "legs",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 73,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "dh_yvaine",
+      "title": "Magister Yvaine",
+      "giver_npc_id": "tarren_mill_commander",
+      "zone": "tarren_mill",
+      "level_min": 28,
+      "level_max": 29,
+      "description": "The Syndicate's binders are trained, and training needs a trainer. Yvaine holds the west tower with a staff of Alterac work that somebody re-cut with less patience than the original maker had, and she is the reason a scrap camp in the hills can field wizards at all.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Magister Yvaine",
+          "count": 1,
+          "zone": "durnholde_keep"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10920,
+      "accept_text": "West tower, off the ring. One door, no other way out, which cuts both ways.\n\nShe's Alterac court - properly trained, properly taught, and reduced to teaching hedge-binders in a ruin. There'll be a ledger of names on her. Bring it. I want to know who she's been training and where they went.",
+      "turn_in_text": "Names and postings, in a court hand.\n\nShe was training them and sending them out, and about half these postings aren't in Hillsbrad at all. This goes north tonight.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Alterac Pauldrons",
+          "slot": "shoulder",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 133,
+          "label": "Plate Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Keep-Warden's Shoes",
+          "slot": "feet",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "The keep held a Warchief once. It holds less now.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Durnholde Dirk",
+          "slot": "main_hand",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Damp from the undercroft, and always will be.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 74,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        },
+        {
+          "name": "Undercroft Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "The keep held a Warchief once. It holds less now.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 88,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "dh_turnkey",
+      "title": "The Turnkey",
+      "giver_npc_id": "hbe_durnholde_scholar",
+      "zone": "eastern_hillsbrad",
+      "level_min": 29,
+      "level_max": 30,
+      "description": "There was a gaoler in Durnholde, and a gaoler in Durnholde in those years means one thing. Emeline Vask would like him dealt with, and she has not entirely separated the scholarship from the rest of it, and she knows that about herself.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Turnkey",
+          "count": 1,
+          "zone": "durnholde_keep"
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11310,
+      "accept_text": "The undercroft, past the revenants. Thirty keys on a chain and he swings the lot as one.\n\nHe kept the cells. In this keep, in those years, there was one prisoner worth keeping and a boy doesn't hold his own keys. I'm aware that's not a military reason. I'm asking anyway.",
+      "turn_in_text": "Thirty keys, and not one lock left in that cellar worth turning.\n\nIt isn't scholarship and I'll not pretend it was. Thank you for not making me explain it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Undercroft Wraps",
+          "slot": "shoulder",
+          "item_level": 30,
+          "rarity": "rare",
+          "required_level": 29,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 7.7,
+            "mp5": 1.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 28,
+          "label": "Cloth Shoulders (HP/MP5)"
+        },
+        {
+          "name": "Alterac Greaves",
+          "slot": "legs",
+          "item_level": 30,
+          "rarity": "rare",
+          "required_level": 29,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 183,
+          "label": "Plate Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Alterac Cudgel",
+          "slot": "main_hand",
+          "item_level": 30,
+          "rarity": "rare",
+          "required_level": 29,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "armor": 17.2,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 77,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Alterac Leggings",
+          "slot": "legs",
+          "item_level": 30,
+          "rarity": "rare",
+          "required_level": 29,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "stamina": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.4
+          },
+          "armor_type": "mail",
+          "armor_value": 122,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        }
+      ],
+      "requires_quests": [
+        "dh_revenants"
+      ]
+    },
+    {
+      "quest_id": "dh_perenolde",
+      "title": "Baron Aliden Perenolde",
+      "giver_npc_id": "tarren_mill_commander",
+      "zone": "tarren_mill",
+      "level_min": 30,
+      "level_max": 31,
+      "description": "Gavin's ledger named who paid. Yvaine's postings named who was sent. Godfrey's remnant, two zones back in Silverpine, named what a dispossessed noble will do to get a country back. All three threads run to one man sitting in the Lord's Hall of a keep his family never owned, holding a court for a kingdom that was dissolved fifteen years ago.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Baron Aliden Perenolde",
+          "count": 1,
+          "zone": "durnholde_keep"
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "The Lord's Hall, at the heart of the ring. You've done the work that makes this possible and I'd rather you knew it: without the fence's ledger and the magister's postings I'd have sent you in to kill a squatter.\n\nAlterac sold the Alliance to the Horde and his father signed it. The Alliance dissolved the kingdom and left the family their titles, because titles cost nothing. This is what fifteen years of carrying a title and no country does to a man.",
+      "turn_in_text": "It's finished.\n\nThe Syndicate won't end - there's always another cousin with a sash. But the man who could pay wizards and buy a valley's thieves is on the floor of a hall his family had no claim to, and the ledger, the postings and the name all go north together.\n\nYou walked three roads for this. I'll see every one of them is in the dispatch.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Keep-Warden's Gauntlets",
+          "slot": "hands",
+          "item_level": 31,
+          "rarity": "rare",
+          "required_level": 30,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.7
+          },
+          "armor_type": "leather",
+          "armor_value": 39,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Keep-Warden's Veil",
+          "slot": "head",
+          "item_level": 31,
+          "rarity": "rare",
+          "required_level": 30,
+          "flavor_text": "Damp from the undercroft, and always will be.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 8.0,
+            "mp5": 1.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 29,
+          "label": "Cloth Helm (HP/MP5)"
+        },
+        {
+          "name": "Alterac Crook",
+          "slot": "main_hand",
+          "item_level": 31,
+          "rarity": "rare",
+          "required_level": 30,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 28.7,
+            "mp5": 6.1
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 43,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        },
+        {
+          "name": "Alterac Gloves",
+          "slot": "hands",
+          "item_level": 31,
+          "rarity": "rare",
+          "required_level": 30,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.3
+          },
+          "armor_type": "mail",
+          "armor_value": 63,
+          "label": "Mail Gloves (Sta/Spi/HP)"
+        }
+      ],
+      "requires_quests": [
+        "hbe_gavin",
+        "dh_yvaine",
+        "sps_godfrey"
+      ]
+    }
+  ]
+}

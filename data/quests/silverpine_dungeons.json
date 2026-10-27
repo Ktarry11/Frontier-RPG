@@ -2655,6 +2655,83 @@
       ],
       "gear_reward_gear_level": 25,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "sfk_annotated_page",
+      "title": "A Page Out of Shadowfang",
+      "giver_npc_id": "item:annotated_keep_page",
+      "zone": "silverpine_south",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "The page came off a Moonwalker and it is not Arugal's work. It is a survey - a keep, drawn in a neat court hand, with the inner ward measured and the garrison strength noted in the margin. The keep is not Shadowfang. Somebody in Alterac is paying for surveys of somebody else's walls, and somebody in Shadowfang was carrying one.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "annotated_keep_page",
+          "count": 1,
+          "label": "Bring the page to Scholar Emeline Vask near Durnholde Keep"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "The hand is a court hand and the subject is a keep in Hillsbrad. There is a Forsaken scholar watching that keep from the bluff above it who will know exactly what she is looking at.",
+      "turn_in_text": "Where did you - Shadowfang? A worgen was carrying THIS?\n\nThis is Durnholde. Measured, inner ward and all, in an Alterac hand. They have been surveying their own keep for someone else, or someone else has been surveying it for them, and I do not know which answer I like less.\n\nStay in this valley. There is work here now, and you have just made some of it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Undercroft Hood",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "stamina": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Helm (Sta/Int/HP)"
+        },
+        {
+          "name": "Undercroft Sabatons",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "The keep held a Warchief once. It holds less now.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 37,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Durnholde Band",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "turn_in_npc_id": "hbe_durnholde_scholar"
     }
   ]
 }

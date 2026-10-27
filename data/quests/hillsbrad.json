@@ -1,0 +1,4400 @@
+{
+  "quests": [
+    {
+      "quest_id": "hbw_green_country",
+      "title": "Green Country",
+      "giver_npc_id": "hbw_pass_scout",
+      "zone": "western_hillsbrad",
+      "level_min": 20,
+      "level_max": 21,
+      "description": "Silverpine ends at a line you can see from the saddle: pine and blight on one side, barley on the other. Lordaeron fell and took its farmland with it, all but this valley. Aelin Frost has held the pass for two years and watched every courier stop dead at the top of the road to look at the colour of it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_hillsbrad",
+          "target_x": 48,
+          "target_y": 24,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 1400,
+      "reward_gold": 6000,
+      "accept_text": "Everyone stops. I did. Two years dead and the first green I'd seen since, and I stood there like a fool.\n\nGo down and get it over with. The square tower with our banner is Southpoint - Commander Rethven holds it, and she'll want to know what the pass road looks like behind you.",
+      "turn_in_text": "You stopped. Don't apologise for it. The day I meet someone who walks past that view without pausing is the day I stop trusting my own eyes.",
+      "next_quest_id": "hbw_worgs",
+      "rewards": [
+        {
+          "name": "Signal-Fire Veil",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Issued at the tower and never handed back.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.8,
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Helm (Int/SP/MP5)"
+        },
+        {
+          "name": "Signal-Fire Vambraces",
+          "slot": "wrist",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Worn by someone who slept in shifts.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 46,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Picket's Saber",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Worn by someone who slept in shifts.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 31,
+          "weapon_damage_max": 42,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_worgs",
+      "title": "What Walks the Milestones",
+      "giver_npc_id": "hbw_southpoint_deathguard",
+      "zone": "western_hillsbrad",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "Worgs on the pass road are ordinary. Worgs that work the same stretch at the same hour are not. Orlin has lost two couriers in a month, both on the run between the pass and the tower, both within an hour of dusk, and he has stopped calling it bad luck.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Worg Prowler",
+          "count": 8,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "They hunt the verges, so take the crown of the road and make them come out to you. Eight should do it - I'm not standing here counting for you.\n\nAnd mark where they've been bedding. A worg that beds within sight of a road has stopped being a wolf. It's become a picket, and pickets get posted by something.",
+      "turn_in_text": "Bedded in sight of the milestones, all of them. So somebody's feeding them, or somebody's training them. Neither answer lets me sleep, and I don't sleep anyway.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Tower-Watch Cuirass",
+          "slot": "chest",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Worn by someone who slept in shifts.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 98,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Signal-Fire Cuffs",
+          "slot": "wrist",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Smells of woodsmoke and wet stone.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.9
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Bracers (Agi/Int/AP)"
+        },
+        {
+          "name": "Garrison-Grey Charm",
+          "slot": "neck",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Smells of woodsmoke and wet stone.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_ram_horns",
+      "title": "Horn and Hoof",
+      "giver_npc_id": "hbw_southpoint_quartermaster",
+      "zone": "western_hillsbrad",
+      "level_min": 20,
+      "level_max": 22,
+      "description": "Southpoint's glue, lamp-oil, buttons and bowstring nocks come off the same animal. Dreng could requisition them through the Undercity, and the requisition would come back in the spring, correctly stamped, for half what he asked.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "highland_ram_horn",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "Eight horns off the foothill rams and I'll have oil in the lamps by Thursday.\n\nUnderstand what you're doing for me: I can write to Lordaeron and be answered in April, or I can send you up a hill. The Dark Lady gave us our freedom. Nobody thought to give us a supply line.",
+      "turn_in_text": "Eight, and two matched. Signed for and counted twice, which means you're in my ledger now. That's a better place to be than most places in this valley.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Snowline Cuffs",
+          "slot": "wrist",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Carried up past the snowline and back down again.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 32,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Yeti-Torn Pauldrons",
+          "slot": "shoulder",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Ram's wool, greased against the rain.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 30,
+          "label": "Leather Shoulders (Dodge/Parry)"
+        },
+        {
+          "name": "Ram-Horn Pike",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 20,
+          "flavor_text": "Ram's wool, greased against the rain.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "armor": 33.2,
+            "parry_rating": 0.7
+          },
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 59,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_living_soil",
+      "title": "Something Living",
+      "giver_npc_id": "hbw_southpoint_apothecary",
+      "zone": "western_hillsbrad",
+      "level_min": 21,
+      "level_max": 22,
+      "description": "Four years Jessel Vane has worked blighted earth, because blighted earth is what Tirisfal has. Then he crossed a ridge and found soil with roots in it. He has not said so to the Commander, but he has begun taking samples before anyone upriver decides green farmland is a problem that needs solving.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "hillsbrad_loam",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "Six jars, six different fields, kept apart - the difference between them is the entire point, so don't fill all six from the nearest ditch. I'll know.\n\nAnd since you're not from here: what does soil smell like where you're from? Not a joke. I've been trying to remember what it's supposed to smell like and I find I can't, and I'd rather ask someone who hasn't had the chance to forget.",
+      "turn_in_text": "Living. All six. Roots, mites, the lot.\n\nYou said yours smelled like rain on stone. I'm going to think about that for a while.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sheaf-and-Sickle Gloves",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Honest cloth, badly used.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 2.0,
+            "crit_chance_spell": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 10,
+          "label": "Cloth Gloves (Int/SP/Crit)"
+        },
+        {
+          "name": "Hillsbrad Bracers",
+          "slot": "wrist",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Good barley country, and everyone in it is armed.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.9
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Bracers (Agi/Int/AP)"
+        },
+        {
+          "name": "Sheaf-and-Sickle Crook",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A farmhand's, until the farmhand picked up a billhook.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 8.5
+          },
+          "weapon_damage_min": 17,
+          "weapon_damage_max": 24,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_militia",
+      "title": "The Militia Question",
+      "giver_npc_id": "hbw_southpoint_commander",
+      "zone": "western_hillsbrad",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "Twice a week Hillsbrad's militia walk up the tower road, stand at a respectful distance, look at Southpoint, and walk away. Rethven's orders say hold the tower. They say nothing about men who come to count her walls and never once draw.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hillsbrad Militiaman",
+          "count": 10,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "Ten of them, in the fields, and I want you to understand I've thought about this longer than it sounds.\n\nThey're farmers with billhooks and a grievance, and the grievance is fair - we are standing in their valley. But they've been measuring my gate for a month, and men who measure a gate are deciding something. I'd rather they decided it with ten fewer.",
+      "turn_in_text": "They'll send twenty next time. I know that. I'd rather have this conversation twice than have it once, at night, with the gate open.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Hillsbrad Veil",
+          "slot": "head",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A farmhand's, until the farmhand picked up a billhook.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.1,
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Helm (Int/SP/MP5)"
+        },
+        {
+          "name": "Hillsbrad Girdle",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A farmhand's, until the farmhand picked up a billhook.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "block_rating": 0.3,
+            "block_value": 2.6
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Furrow-Worn Crook",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A farmhand's, until the farmhand picked up a billhook.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 15.6,
+            "mp5": 3.3
+          },
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 25,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_farmhands",
+      "title": "Billhook and Halberd",
+      "giver_npc_id": "hbw_fields_agent",
+      "zone": "western_hillsbrad",
+      "level_min": 21,
+      "level_max": 22,
+      "description": "Sarra Dunwick's whole trade is knowing what a valley is doing before the valley announces it. What this one is doing is arming the people who bring in the barley, and calling it a harvest watch.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hillsbrad Farmhand",
+          "count": 10,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 1480,
+      "reward_gold": 6300,
+      "accept_text": "Ten, out in the rows. But I don't want the count - I want what's in their hands when they go down.\n\nA billhook is a tool a frightened man picks up. A halberd is a thing somebody made, carried to a field, and put into his hands on purpose. If you find halberds out there, this stopped being a harvest watch before either of us arrived.",
+      "turn_in_text": "Halberds. Six of ten.\n\nSomeone is arming this valley and it isn't Southshore's garrison - they'd keep the good steel for marines. That leaves a quartermaster with a grudge, or Alterac money. I'll find out.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sheaf-and-Sickle Cape",
+          "slot": "back",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Good barley country, and everyone in it is armed.",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 2.4
+          },
+          "armor_type": "leather",
+          "armor_value": 16,
+          "label": "Leather Cloak (Agi/Int/AP)"
+        },
+        {
+          "name": "Hillsbrad Visor",
+          "slot": "head",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Soil in the seams that will not wash out.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 73,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Harvest Longsword",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "A farmhand's, until the farmhand picked up a billhook.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_arrows",
+      "title": "Fletch Your Own",
+      "giver_npc_id": "hbw_fields_poacher",
+      "zone": "western_hillsbrad",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "Tam Hollis takes a ram off the high pasture now and again, which the Marshal calls theft and Tam calls older than the Marshal. What he cannot do is make arrows fast enough to stay ahead of the wasps, the worgs and the patrols at once.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "ww_rough_arrows",
+          "count": 5,
+          "label": "Fletch rough arrows"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "You've got hands and you've got a bench. Five batches of rough shafts and we'll call the ram I owe you square.\n\nI'll tell you what I tell the Marshal: my grandfather took rams off that hill when Alterac still had a king, and nobody's shown me the paper that changed it. They dissolved a whole kingdom up there and never once came down here to say who owns the sheep.",
+      "turn_in_text": "That's my month. And you're a better fletcher than you are a liar - I watched you count the feathers.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Harvest Treads",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Good barley country, and everyone in it is armed.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Hillsbrad Gauntlets",
+          "slot": "hands",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Soil in the seams that will not wash out.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.9
+          },
+          "armor_type": "mail",
+          "armor_value": 34,
+          "label": "Mail Gloves (Int/Hit/SP)"
+        },
+        {
+          "name": "Militia Rod",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Honest cloth, badly used.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "spell_power": 0.9
+          },
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_yeti",
+      "title": "Off the Snowline",
+      "giver_npc_id": "hbw_pasture_herder",
+      "zone": "western_hillsbrad",
+      "level_min": 21,
+      "level_max": 23,
+      "description": "Maud Kellen has read weather off her animals for thirty years. Her rams have been bunching at the low fence for a week and refusing the top pasture, which means the yetis have come down early, which means the snowline has moved and the winter is going to be a bad one.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mountain Yeti",
+          "count": 6,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "Six, up where the grass goes thin, and go in daylight.\n\nI'll say this plain, because I've been told what you are: they tell me you get back up. If that's true then you can walk a gully I'd not send my own son up, and I'd be a liar if I said that didn't sit strange with me. Take the work anyway. I need the pasture more than I need to be comfortable about it.",
+      "turn_in_text": "Rams spread back out by evening. That's how I know you did it, not because you said so.\n\nAnd you came back down the gully on your own feet. I notice that too.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Shepherd's Byrnie",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "The high pasture wind gets into everything.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.7
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Chest (Int/Hit/SP)"
+        },
+        {
+          "name": "Ram-Horn Treads",
+          "slot": "feet",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Ram's wool, greased against the rain.",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 51,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Yeti-Torn Talisman",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 21,
+          "flavor_text": "Something with very long arms has been at it.",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_icehide",
+      "title": "Old Icehide",
+      "giver_npc_id": "hbw_pasture_herder",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "One yeti has used the same gully for eleven years. It has cost Maud lambs, two dogs, a fence and most of her patience, and it is old enough now to be white around the muzzle. She has driven it off four times. She would like this to be the last conversation about it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Icehide",
+          "count": 1,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "Top gully, where the stream comes out of the rock. He won't run - he has never once run, and that's the thing I've never been able to explain to anyone. Eleven years and he has never run.\n\nTake the cloak off the peg by the door before you go. It was my husband's and it's seen that gully before.",
+      "turn_in_text": "Eleven years.\n\nI thought I'd feel lighter. Keep the cloak - it's been up that hill twice now and come back down once with the business finished. It's earned a better owner than a peg.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Highland Pants",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Ram's wool, greased against the rain.",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 61,
+          "label": "Leather Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Shepherd's Wraps",
+          "slot": "hands",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Carried up past the snowline and back down again.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.9,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Gloves (Int/SP/Hit)"
+        },
+        {
+          "name": "Highland Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Ram's wool, greased against the rain.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.3
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        },
+        {
+          "name": "Highland Legguards",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Something with very long arms has been at it.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "mail",
+          "armor_value": 97,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_calder",
+      "title": "Field Marshal Calder",
+      "giver_npc_id": "hbw_southpoint_commander",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "A farming valley with a Field Marshal is either a joke or a warning. Calder drills the militia in the barley with a real officer's sabre and a real officer's manner, and somewhere in the last month the farmhands stopped standing in a crowd and started standing in ranks.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Field Marshal Calder",
+          "count": 1,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "He drills them in open ground where anyone can see, which is arrogance. He won't break and run, which isn't.\n\nI'd rather fight one officer than the hundred farmers he's six months from making. That's the whole of my reasoning and I'd say it to his face.",
+      "turn_in_text": "He swore on the soil, they tell me. That's the oath the militia take here - not to a king, there isn't one left, but to the ground.\n\nThe ground kept its half. It usually does.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Furrow-Worn Bindings",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Good barley country, and everyone in it is armed.",
+          "primary_stats": {
+            "stamina": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Bracers (Sta/Int/HP)"
+        },
+        {
+          "name": "Sheaf-and-Sickle Hauberk",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Honest cloth, badly used.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 97,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sheaf-and-Sickle Spear",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Honest cloth, badly used.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 18
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.8
+          },
+          "weapon_damage_min": 63,
+          "weapon_damage_max": 86,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Harvest Visor",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Soil in the seams that will not wash out.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 110,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_murlocs",
+      "title": "The Count Keeps Rising",
+      "giver_npc_id": "hbw_strand_tidewatcher",
+      "zone": "western_hillsbrad",
+      "level_min": 22,
+      "level_max": 23,
+      "description": "Nols has counted the Daggerspine on the western strand for three weeks. The count goes up every week. Murlocs do not breed that fast, which means they are not breeding - they are arriving, and he would like to know what from.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Daggerspine Murloc",
+          "count": 10,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 1560,
+      "reward_gold": 6600,
+      "accept_text": "Ten off the shingle, and while you're down there keep half an eye on the water behind them.\n\nThey come up the beach facing inland. Every one of them. Whatever they're running from is seaward, and I've been watching that water for three weeks and it has never once looked back at me.",
+      "turn_in_text": "Ten down, and the count's still rising.\n\nThat's the answer, and it's the one I didn't want. They aren't taking the strand. They're being pushed onto it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Brine-Bitten Shawl",
+          "slot": "shoulder",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Dragged out of the shallows with the owner still in it.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Shoulders (Int/Spi/HP)"
+        },
+        {
+          "name": "Undertow Belt",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Scaled, and the scales are not fish.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.2
+          },
+          "armor_type": "mail",
+          "armor_value": 34,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Tidewrack Charm",
+          "slot": "neck",
+          "item_level": 22,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Still damp. It is always still damp.",
+          "primary_stats": {
+            "strength": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_harpooner",
+      "title": "Barbed Line",
+      "giver_npc_id": "hbw_strand_tidewatcher",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "The Daggerspine work the shallows with a barbed harpoon on a line, and the barb is the whole problem - it does not come back out. Three of Nols's watch have gone off the shingle in a month and the line went with them each time.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Bloodtide Harpooner",
+          "count": 1,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "North end of the strand, in the shallows where the shelf drops.\n\nDon't let it land. That's the only advice worth giving - a barbed head cannot be drawn back out, so whoever takes the first throw is fighting the rest of it anchored. Close the distance or stay well off it.",
+      "turn_in_text": "You cut the line rather than pull it. Good. Three men's worth of sense, that, and it only cost us the three men to learn it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Undertow Shawl",
+          "slot": "shoulder",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Still damp. It is always still damp.",
+          "primary_stats": {
+            "stamina": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Shoulders (Sta/Int/HP)"
+        },
+        {
+          "name": "Tidewrack Vambraces",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Salt has eaten half the fittings.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 3.7
+          },
+          "armor_type": "plate",
+          "armor_value": 73,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Brine-Bitten Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Dragged out of the shallows with the owner still in it.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        },
+        {
+          "name": "Tidewrack Girdle",
+          "slot": "waist",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 23,
+          "flavor_text": "Salt has eaten half the fittings.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 30,
+          "label": "Leather Belt (Str/Agi/Sta)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_signet",
+      "title": "The Swollen Signet",
+      "giver_npc_id": "item:swollen_signet_ring",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "You turn the ring over in your palm. A good signet, silver, and it has been in salt water long enough that the finger it came off swelled around it before anything let go. The crest is a ship under three stars - a merchantman's mark, not a navy's. Someone on this coast will know it, and will wish they did not.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "swollen_signet_ring",
+          "count": 1,
+          "label": "Bring the signet to Castaway Ilsa Roane on Purgation Shore"
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "There is a woman camped above the tideline on Purgation Shore who came ashore off a wreck and never went inland. Start with her.",
+      "turn_in_text": "A ship under three stars.\n\nThat's the Maiden's Grace. That's my ship, and that's Harl's hand it came off, because he was the only one of us with fingers fat enough to need it cut.\n\nKeep it. I've looked at that water for a month. I don't need something to hold while I do it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Castaway's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Cold in a way the sun does not fix.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.9
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Deep-Mourning Helm",
+          "slot": "head",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "It belonged to a ship. The ship is on the bottom.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 80,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Purgation Necklace",
+          "slot": "neck",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "It belonged to a ship. The ship is on the bottom.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "turn_in_npc_id": "hbw_purgation_castaway"
+    },
+    {
+      "quest_id": "hbw_drowned",
+      "title": "They Came Up Wrong",
+      "giver_npc_id": "hbw_purgation_castaway",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Ilsa Roane swam ashore from the Maiden's Grace and sat on the shingle all night waiting for the rest of the crew. They did come up. Over the following week, one at a time, with the tide - and not one of them came up as themselves.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drowned Castaway",
+          "count": 10,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Ten of them, along the tideline.\n\nSome will have faces I know. Do it anyway. And when you come back, don't tell me which ones - I've spent a month deciding not to find out and I'd like to keep the decision.",
+      "turn_in_text": "You didn't tell me.\n\nI'll be honest, I half wanted you to. Thank you for being better at this than I was going to be.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Saltrot Treads",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Weed still knotted in the buckles.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.4
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Boots (Agi/Int/AP)"
+        },
+        {
+          "name": "Castaway's Armguards",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Weed still knotted in the buckles.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.3
+          },
+          "armor_type": "mail",
+          "armor_value": 37,
+          "label": "Mail Bracers (Sta/Spi/HP)"
+        },
+        {
+          "name": "Castaway's Halberd",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Weed still knotted in the buckles.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 0.8
+          },
+          "weapon_damage_min": 48,
+          "weapon_damage_max": 66,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        }
+      ],
+      "requires_quests": [
+        "hbw_signet"
+      ]
+    },
+    {
+      "quest_id": "hbw_tidewrack",
+      "title": "The Tidewrack",
+      "giver_npc_id": "hbw_purgation_castaway",
+      "zone": "western_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Something is holding the Maiden's Grace on the bottom. Ilsa has seen it twice from the shingle: a mass of anchor chain, spar and hull moving under its own weight, dragging what is left of her ship further out with every tide.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Tidewrack",
+          "count": 1,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 2300,
+      "reward_gold": 9400,
+      "accept_text": "High water, south end. You'll hear the chain before you see it.\n\nIt isn't a ghost and it isn't a beast. It's wreckage that got given a purpose by something, and it has been collecting my ship a piece at a time for a month. Take the purpose out of it.",
+      "turn_in_text": "She can go down properly now. So can they.\n\nI'm walking inland in the morning. Thirty-one years at sea and I'm going to go and look at a field. Don't follow me and don't wave.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Drowned Cord",
+          "slot": "waist",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "It belonged to a ship. The ship is on the bottom.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Belt (Int/Spi/HP)"
+        },
+        {
+          "name": "Saltrot Wristguards",
+          "slot": "wrist",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Cold in a way the sun does not fix.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.6
+          },
+          "armor_type": "leather",
+          "armor_value": 31,
+          "label": "Leather Bracers (Agi/Int/AP)"
+        },
+        {
+          "name": "Deep-Mourning Scepter",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Weed still knotted in the buckles.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 56,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        },
+        {
+          "name": "Castaway's Chausses",
+          "slot": "legs",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "It belonged to a ship. The ship is on the bottom.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 102,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        }
+      ],
+      "requires_quests": [
+        "hbw_drowned"
+      ]
+    },
+    {
+      "quest_id": "hbw_wasps",
+      "title": "Windfall",
+      "giver_npc_id": "hbw_orchard_forager",
+      "zone": "western_hillsbrad",
+      "level_min": 22,
+      "level_max": 24,
+      "description": "The Hillsbrad orchard still fruits, which after the last five years is very close to a miracle, and the wasps that have taken it are the size of a man's hand. Ned Quill would like the apples. Ned Quill would also like to keep his face.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Orchard Wasp",
+          "count": 10,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "Ten in among the rows, and keep your chin tucked - they go for the eyes and they're clever about it.\n\nEvery orchard between here and Lordaeron is ash or worse. This one came through. I'm not losing it to insects after it survived the end of a kingdom.",
+      "turn_in_text": "Ten. I can get a ladder into the north rows for the first time since spring, which is the best news this orchard has had in a year.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Wasp-Stung Boots",
+          "slot": "feet",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Sticky with something that is not sap.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "defense_rating": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 53,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Cider-Press Coif",
+          "slot": "head",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Sticky with something that is not sap.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.9
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        },
+        {
+          "name": "Orchard Flail",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 22,
+          "flavor_text": "Sticky with something that is not sap.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_thistlewing",
+      "title": "Queen Thistlewing",
+      "giver_npc_id": "hbw_orchard_forager",
+      "zone": "western_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "A hive this size has a queen, and she is why the orchard has wasps the size of a hand instead of wasps the size of wasps. She has taken the old cider press at the orchard's heart and built into it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Queen Thistlewing",
+          "count": 1,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 2300,
+      "reward_gold": 9400,
+      "accept_text": "Press house, dead centre of the rows. Her sting puts a grown man down for a slow count of ten, so be sure you're not standing anywhere stupid when it lands.\n\nMy father pressed in that building. I'd rather have it back than be sensible about this.",
+      "turn_in_text": "Hive'll scatter inside the week. There'll be cider by autumn - first barrel's yours, and I'll not hear otherwise.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Wasp-Stung Sabatons",
+          "slot": "feet",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Smells of bruised apples and wet grass.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 76,
+          "label": "Plate Boots (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Thistlewing Cap",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Lacquer-hard and apple-dark.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "armor_type": "mail",
+          "armor_value": 76,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        },
+        {
+          "name": "Orchard Loop",
+          "slot": "ring",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Sticky with something that is not sap.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        },
+        {
+          "name": "Windfall Cloak",
+          "slot": "back",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Lacquer-hard and apple-dark.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.4,
+            "crit_chance_spell": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Cloak (Int/SP/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_southshore_watch",
+      "title": "Count the Hulls",
+      "giver_npc_id": "hbw_southshore_spy",
+      "zone": "western_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "Lia Marrow has watched Southshore from the treeline for a year and never once walked into it. It is one of the last living human towns left standing in the north, it knows it, and it has three hundred marines who know it too.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_hillsbrad",
+          "target_x": 96,
+          "target_y": 128,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "Round the east side through the apple rows and get eyes on the dock itself. Not the wall - I can see the wall from here. The dock.\n\nGo unarmed and look poor. And be clear with yourself before you set off: if they take you, nobody is coming. I'll write it up as a loss and move my camp.",
+      "turn_in_text": "How many hulls? ... That many.\n\nThen we aren't taking Southshore this year, nor next. I'll send that north and someone in the Undercity will be disappointed in a way that doesn't reach us. Good.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Southshore Chainmail",
+          "slot": "chest",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Powder-burned at one shoulder.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 71,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Marine's Vest",
+          "slot": "chest",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Harbour issue, and used well outside the harbour.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 44,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Blunderbuss Hammer",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Three sets of initials scratched inside.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 10.1,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_harlow",
+      "title": "Bosun Harlow",
+      "giver_npc_id": "hbw_southshore_saboteur",
+      "zone": "western_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Henk has burned the Southshore dock twice. Both times it was standing again inside a month, and both times the man who filled the work gangs that rebuilt it was a bosun called Harlow, who does not ask who wants the job.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Bosun Harlow",
+          "count": 1,
+          "zone": "western_hillsbrad"
+        }
+      ],
+      "reward_exp": 2300,
+      "reward_gold": 9400,
+      "accept_text": "Harbour end, by da sheds. Cutlass and a blunderbuss, and he uses da blunderbuss first - so you close fast or you don't close at all.\n\nI burn da dock, dey build it. I burn it again, dey build it again. Dis time I take away da man who finds da hands.",
+      "turn_in_text": "Hah! Now dey rebuild it a third time. Slower. Much slower, and dey pay more for it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Blunderbuss Cuffs",
+          "slot": "wrist",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Powder-burned at one shoulder.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 31,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Press-Gang Spaulders",
+          "slot": "shoulder",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Taken off a marine who will not need it.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 76,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Southshore Talisman",
+          "slot": "neck",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Harbour issue, and used well outside the harbour.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.2
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        },
+        {
+          "name": "Press-Gang Sash",
+          "slot": "waist",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Taken off a marine who will not need it.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.1,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Belt (Int/SP/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbw_east_road",
+      "title": "The Road East",
+      "giver_npc_id": "hbw_road_outrider",
+      "zone": "western_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Kess has ridden the east road since Southpoint was taken and has reached the point of describing Tarren Mill from memory. Memory is not a report, and the stretch past the Foothills is long enough that a lone rider stops being a courier and starts being an opportunity.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_hillsbrad",
+          "target_x": 62,
+          "target_y": 32,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "East, the whole length of it. You'll know Tarren Mill when you see the wheel - there's a mill on a diverted race and the race cuts the town clean in two. Report to Magistrate Pell at the gate.\n\nSixty years that wheel's turned. Lordaeron fell, the Scourge came through, the valley changed hands twice, and nobody on either side ever thought to stop the wheel.",
+      "turn_in_text": "You saw it turning. Then you've been further east than most of this garrison, and you can stop taking my word for what's out there.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Tower-Watch Hauberk",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Worn by someone who slept in shifts.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "armor_type": "mail",
+          "armor_value": 74,
+          "label": "Mail Chest (Sta/Spi/HP)"
+        },
+        {
+          "name": "Southpoint Cloak",
+          "slot": "back",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Smells of woodsmoke and wet stone.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Cloak (Int/Spi/HP)"
+        },
+        {
+          "name": "Signal-Fire Charm",
+          "slot": "neck",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Issued at the tower and never handed back.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.1
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_the_gate",
+      "title": "The Gate at Tarren Mill",
+      "giver_npc_id": "hbe_west_gate_scout",
+      "zone": "eastern_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "Pria Halm holds the west end of the trunk road. Everything that reaches the east half of Hillsbrad passes her first, and she has got it down to about four seconds - a look at the boots, a look at the eyes - whether a traveller is going to make the gate or be found on the verge.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_hillsbrad",
+          "target_x": 62,
+          "target_y": 30,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "East along the trunk road to the mill square. Magistrate Pell holds the gate; through it is the town itself.\n\nWhen you get there, mind the race. It's a cut channel, it's deep the whole way, and there are three bridges and no fourth. People try the water about twice a year and the wheel gives them back about a week later.",
+      "turn_in_text": "You made it. I had you as a maker - boots were right and you looked at the treeline instead of the road.\n\nFour seconds. I'm rarely wrong and I'd rather not start now.",
+      "next_quest_id": "hbe_bandits",
+      "rewards": [
+        {
+          "name": "Tarren Vambraces",
+          "slot": "wrist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.2,
+            "block_rating": 0.4,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 53,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Sluice-Gate Sash",
+          "slot": "waist",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Flour-dust in every seam, and it never comes out.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.2,
+            "crit_chance_spell": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Belt (Int/SP/Crit)"
+        },
+        {
+          "name": "Sluice-Gate Longsword",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_bandits",
+      "title": "A Toll, Not a Robbery",
+      "giver_npc_id": "hbe_mill_deathguard",
+      "zone": "eastern_hillsbrad",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "The Syndicate have stopped robbing the eastern roads and started owning them. Kolt does not much mind robbery - robbery is weather. What he minds is that the same three bends have been manned at the same hours for a fortnight, because that is not banditry. That is a toll, and a toll means administration.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Syndicate Bandit",
+          "count": 10,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "Ten, off the eastern roads. Violet sashes, and nothing they carry has a maker's mark on it - they file them off, every piece.\n\nTake the sashes if you want my thanks in writing. The colour's Alterac's. They've no kingdom to wear it for and they've kept wearing it anyway, which tells you what we're dealing with better than I can.",
+      "turn_in_text": "Ten, and the bends are clear.\n\nThey'll be manned again by the new moon. Somebody is paying wages, and men who draw wages come back.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Stolen Leggings",
+          "slot": "legs",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Someone filed the old owner's crest off.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "mp5": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Fence's Cloak",
+          "slot": "back",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "No maker's mark, which is the selling point.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.6
+          },
+          "armor_type": "leather",
+          "armor_value": 17,
+          "label": "Leather Cloak (Agi/Int/AP)"
+        },
+        {
+          "name": "Cutpurse Mace",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "It passed through three hands this month.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_consignment",
+      "title": "The Flour Consignment",
+      "giver_npc_id": "hbe_mill_caravan_master",
+      "zone": "eastern_hillsbrad",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Ovid Thane runs the carts - flour west out of Tarren Mill, reagents back east - twice a month without fail for six years. The last two runs west did not arrive. He has worked out that the Syndicate have learned what a cart looks like, and he would like to try something that does not look like one.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mill_flour_consignment",
+          "count": 1,
+          "label": "Carry the consignment to Quartermaster Ivek in the Hillsbrad Fields"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Four sacks, sealed with my mark, and they go on your back rather than on an axle. West road all the way to the forward post in the fields - ask for Ivek, he's expecting a cart and he'll be delighted.\n\nDon't set it down. Not to rest, not to fight, not for anything. A sealed consignment that touches the ground is a consignment somebody can swear was opened.",
+      "turn_in_text": "My mark, unbroken, and Ivek's countersign. First flour to reach the fields in two months.\n\nI'm going to send the next one the same way and let the carts go out empty as bait.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Tarren Legplates",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 112,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Flour-Pale Slippers",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.2,
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Boots (Int/SP/MP5)"
+        },
+        {
+          "name": "Tarren Signet",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mill_flour_consignment",
+            "name": "Sealed Flour Consignment",
+            "description": "Four sacks of Tarren Mill flour under Ovid Thane's seal. Heavier than it looks, and the seal is the point.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "hbw_fields_quartermaster"
+    },
+    {
+      "quest_id": "hbe_worgs",
+      "title": "Hedgerow Work",
+      "giver_npc_id": "hbe_mill_hunter",
+      "zone": "eastern_hillsbrad",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Dell Varrow was gamekeeper on this land when it had a lord worth keeping game for. He knows every hedgerow between the mill and the hollow, which is how he knows that every one of them currently has something living in it that did not use to.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Worg Prowler",
+          "count": 8,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Eight, in the hedges between the road and the hollow.\n\nThey run in threes. That's not a rule of thumb, it's how they're built - one shows itself, one circles, one waits. If you've found one you've found three, and the third is behind you. Count to three before you swing and you'll be fine.",
+      "turn_in_text": "Eight. And you counted before you swung - I could tell from how few of them got round you.\n\nMost people don't. Most people learn on the second worg, if they get one.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Hollow-Run Cloak",
+          "slot": "back",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Dog-teeth marks along one edge.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.5,
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Cloak (HP/MP5)"
+        },
+        {
+          "name": "Snare-Cut Belt",
+          "slot": "waist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Belt (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Gnoll-Chewed Targe",
+          "slot": "off_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Patched with somebody else's leather.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "armor_value": 37,
+          "block_value": 46,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_ditch_samples",
+      "title": "Uphill of the Vats",
+      "giver_npc_id": "hbe_mill_apothecary",
+      "zone": "eastern_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Field Apothecary Wren samples the ditches east of the mill so the apothecaries inside the walls do not have to. For a month the ditches have been running with something that is not runoff, and the stretch it is worst in lies uphill of the vats - which rules out the one explanation everybody had ready.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "east_ditch_sample",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Six samples - and not jars of ditchwater, I can fill those myself. Take them off the worgs that drink there. Whatever is in that water is in their coats and their gut, and a creature that has been drinking it for a month is a better record of it than anything I could dip.\n\nAnd before you ask: yes, I know what we do here. That's exactly why I want to be certain it isn't us. If it is, I'd rather find it than have a farmer find it.",
+      "turn_in_text": "Uphill. All six, and the worst of them a half mile above the vats.\n\nSo it isn't us. Which means I have to go and tell the Society that something else is in this water, and they are going to be very disappointed in me for being right.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sluice-Gate Helm",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Flour-Pale Coif",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Flour-Pale Hatchet",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "armor": 10.5,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_gnolls",
+      "title": "They Left Me the Stakes",
+      "giver_npc_id": "hbe_hollow_trapper",
+      "zone": "eastern_hillsbrad",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Gus Mirren has run a trapline in Mudsnout Hollow for eleven years. Last month the gnolls took the whole of it - snares, wire, bait, the lot - and left the stakes standing in the ground in a neat row, which he has chosen to take personally and is entirely right to.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mudsnout Gnoll",
+          "count": 10,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Ten, in the hollow proper. They den in the low wet ground, so go in from the high side and let them come up to you.\n\nThey left the STAKES. Do you understand what that means? They didn't miss them. They pulled the line, coiled the wire, and left me the bits I'd have to dig out. That's not scavenging.",
+      "turn_in_text": "Ten. Good.\n\nI've been doing this eleven years and I've never once been mocked by the wildlife. I'd like it on record that I'm handling it well.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Gnoll-Chewed Girdle",
+          "slot": "waist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Belt (Dodge/Parry)"
+        },
+        {
+          "name": "Trapper's Sandals",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Dog-teeth marks along one edge.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Boots (Sta/Int/HP)"
+        },
+        {
+          "name": "Gnoll-Chewed Dagger",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Dog-teeth marks along one edge.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.3
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_snares",
+      "title": "Eleven Years of Wire",
+      "giver_npc_id": "hbe_hollow_trapper",
+      "zone": "eastern_hillsbrad",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "The snares the gnolls took were made by hand, one at a time, over eleven winters. Gus is realistic about how many will have survived a month in a gnoll den, and would like whatever is left.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "stolen_snare",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Eight would do me. They hang them up in the dens, which is insulting but at least it's tidy - you'll find them in bunches rather than scattered.\n\nThe wire's the thing. I can cut new stakes in an afternoon. Good wire comes up from Southshore twice a year if the road's open, and the road has not been open.",
+      "turn_in_text": "Eight, and six still true. Better than I'd let myself hope for.\n\nThe wire alone is a season's work. I'll have a line in the ground by the week's end.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Mudsnout Helm",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "It stinks of wet gnoll. It also works.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Mudsnout Chausses",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 74,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Gnoll-Chewed Loop",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_shamans",
+      "title": "Rattle and Rain",
+      "giver_npc_id": "hbe_hollow_trapper",
+      "zone": "eastern_hillsbrad",
+      "level_min": 24,
+      "level_max": 26,
+      "description": "The Mudsnout have shamans now, which they did not have a year ago. Gus has watched them work from cover and is clear it is not posturing - the weather follows them down the hollow, and the worgs follow the weather.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mudsnout Shaman",
+          "count": 6,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 7500,
+      "accept_text": "Six. You'll hear the rattles long before you see them - and so will everything else in the hollow, so once you start, don't stop to think about it.\n\nA year ago they were dogs with knives. Something has taught them, and taught them quickly, and I would dearly like to know what a gnoll pack had to trade for lessons.",
+      "turn_in_text": "Six, and the hollow's drier today than it was yesterday.\n\nI'm not saying that proves anything. I'm saying I've lived here eleven years and I noticed.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Mudsnout Epaulets",
+          "slot": "shoulder",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "It stinks of wet gnoll. It also works.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.3
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Trapper's Byrnie",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "It stinks of wet gnoll. It also works.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 78,
+          "label": "Mail Chest (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Mudsnout Rod",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "It stinks of wet gnoll. It also works.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 12.6,
+            "mp5": 2.5
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_grik",
+      "title": "Chief Grik",
+      "giver_npc_id": "hbe_mill_magistrate",
+      "zone": "eastern_hillsbrad",
+      "level_min": 25,
+      "level_max": 26,
+      "description": "A gnoll pack is weather. A gnoll pack with a chief is politics, and politics is the Magistrate's department. Grik has taken the Mudsnout from a nuisance that raids barns to a force that picks which barns, and in which order.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Chief Grik",
+          "count": 1,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 2340,
+      "reward_gold": 9750,
+      "accept_text": "Deep in the hollow, at the den mouth.\n\nHe carries a cleaver with a notch filed in it for every farmstead between the hollow and the road. I'm told he adds them himself, afterwards, in front of the pack. Count them when he's down - I need the number for the ledger and I don't want it secondhand.",
+      "turn_in_text": "How many? ... Say it once more and then we'll neither of us repeat it.\n\nI'll enter it in the ledger and I'll make sure the ledger is somewhere the farm families never find it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Hollow-Run Gloves",
+          "slot": "hands",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 53,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Gnoll-Chewed Belt",
+          "slot": "waist",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Stolen from a trapline, badly worn since.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.5,
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Belt (HP/MP5)"
+        },
+        {
+          "name": "Mudsnout Loop",
+          "slot": "ring",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Stolen from a trapline, badly worn since.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        },
+        {
+          "name": "Hollow-Run Wristguards",
+          "slot": "wrist",
+          "item_level": 26,
+          "rarity": "rare",
+          "required_level": 25,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 33,
+          "label": "Leather Bracers (Agi/Hit/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_spellbinders",
+      "title": "Wizards for a Scrap Camp",
+      "giver_npc_id": "hbe_naze_infiltrator",
+      "zone": "eastern_hillsbrad",
+      "level_min": 25,
+      "level_max": 26,
+      "description": "Gavin's Naze is a fence's camp with delusions of being a guild. Vess has been inside it twice. The bandits do not trouble her - what troubles her is that the camp keeps spellbinders, and no fence anywhere needs a spellbinder unless somebody else is paying to put one there.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Syndicate Spellbinder",
+          "count": 8,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 7500,
+      "accept_text": "Eight. They hold the inner ring and they bind you in place before they do anything else, so go in fast and go in with someone.\n\nThink about the cost of this. A trained binder could sell his talent in any city still standing. Instead he is stood in a scrap camp in the Hillsbrad hills. Somebody is paying him enough to make that the better offer.",
+      "turn_in_text": "Eight down, and that's the report: somebody in Alterac is funding wizards for a camp that fences stolen cutlery.\n\nThat's not a gang any more. That's a government with no country.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Cutpurse Vest",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "No maker's mark, which is the selling point.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 48,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Naze Helm",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "No maker's mark, which is the selling point.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.6,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 87,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Fence's Loop",
+          "slot": "ring",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Someone filed the old owner's crest off.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.7
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_gavin",
+      "title": "Gavin the Fence",
+      "giver_npc_id": "hbe_naze_infiltrator",
+      "zone": "eastern_hillsbrad",
+      "level_min": 26,
+      "level_max": 27,
+      "description": "Everything stolen in this valley passes through Gavin's hands, and Gavin keeps a ledger - names, dates, and what was paid. Vess does not particularly want Gavin dead. Vess wants the ledger, and Gavin has made it clear those are the same errand.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gavin the Fence",
+          "count": 1,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 2440,
+      "reward_gold": 10140,
+      "accept_text": "Centre of the camp. He's quick, he's quiet, and everything he owns opens without a sound - including the ground under his tent, so don't assume he's run if he vanishes.\n\nThe ledger will be on him. He doesn't let it out of reach and he never has, which is the single most useful thing about him.",
+      "turn_in_text": "Names, dates, and what the Syndicate paid for each.\n\nThis is worth more than the camp, more than Gavin, and more than the last year of my work. Half these entries are paid out of an Alterac treasury that officially stopped existing fifteen years ago.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Dalaran-Marked Sabatons",
+          "slot": "feet",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "Someone filed the old owner's crest off.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 55,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Fence's Tunic",
+          "slot": "chest",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "No maker's mark, which is the selling point.",
+          "primary_stats": {
+            "intellect": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "spell_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Chest (Int/Sta/SP)"
+        },
+        {
+          "name": "Naze Saber",
+          "slot": "main_hand",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "Worth more than it looks. That is deliberate.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 70,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        },
+        {
+          "name": "Fence's Cord",
+          "slot": "waist",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "Worth more than it looks. That is deliberate.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 34,
+          "label": "Leather Belt (Dodge/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_ogres",
+      "title": "The Nethander Stead",
+      "giver_npc_id": "hbe_stead_outrider",
+      "zone": "eastern_hillsbrad",
+      "level_min": 26,
+      "level_max": 27,
+      "description": "Four generations of Nethanders worked that stead, and they raised the barn in a single season with their own hands. The ogres took the whole holding in an afternoon and are now living in the barn, which Brann Odgar finds considerably more offensive than the taking.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Nethander Ogre",
+          "count": 8,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1880,
+      "reward_gold": 7800,
+      "accept_text": "Eight, round da stead. Dey are slow and dey hit like a wall coming down, so keep moving and never let dem put you against da fences.\n\nI have no love for human farms. But dey built dat barn in a season and da ogres are using it as a privy, and dere is a difference between taking a ting and ruining it.",
+      "turn_in_text": "Eight down, and dey are still in da barn.\n\nBut dere is more room in it now, and dey have started arguing about who sleeps where. Dat is how dis ends - not wit us.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Nethander Coif",
+          "slot": "head",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Cut down from something made for much longer arms.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.5
+          },
+          "armor_type": "leather",
+          "armor_value": 38,
+          "label": "Leather Helm (Agi/Sta/AP)"
+        },
+        {
+          "name": "Nethander Mitts",
+          "slot": "hands",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "The stead built it. The ogres kept it.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Ogre-Hide Crook",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "The stead built it. The ogres kept it.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 13.1,
+            "mp5": 2.6
+          },
+          "weapon_damage_min": 21,
+          "weapon_damage_max": 28,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_gorbash",
+      "title": "Gorbash the Thick",
+      "giver_npc_id": "hbe_stead_outrider",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "The ogres have a leader, and at some point he took the stead's own millstone off its spindle to use as a thrown weapon. Brann has watched him do it. Brann would like it clearly understood that he has watched him do it, with his own eyes, more than once.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gorbash the Thick",
+          "count": 1,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 2550,
+      "reward_gold": 10530,
+      "accept_text": "In da barn. He throws da millstone.\n\nI know how dat sounds. I have said it four times now and every time da face is da same. Watch his shoulders - dey drop before he lifts, and dat is all da warning anyone gets.",
+      "turn_in_text": "Da millstone is back on its spindle. Took four of us to lift what he was throwing wit one hand.\n\nNobody is going to believe dis report. I have stopped caring.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Thick-Skull Spaulders",
+          "slot": "shoulder",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dented outward, which takes some doing.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.8,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 128,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Thick-Skull Vest",
+          "slot": "chest",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Cut down from something made for much longer arms.",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 71,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Ogre-Hide Targe",
+          "slot": "off_hand",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "A human could make a cloak from the offcut.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "armor_value": 57,
+          "block_value": 71,
+          "label": "Shield (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Nethander Gloves",
+          "slot": "hands",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Cut down from something made for much longer arms.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.8,
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Gloves (HP/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_riflemen",
+      "title": "The Road Below the Fort",
+      "giver_npc_id": "hbe_garok_sapper",
+      "zone": "eastern_hillsbrad",
+      "level_min": 26,
+      "level_max": 27,
+      "description": "The Stormpike cut a fort square into the southern ridge and put riflemen on the road beneath it. Niall Crag's orders are to find a way into that fort that is not the front door, and he has found it difficult to survey a road he keeps being shot on.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dun Garok Rifleman",
+          "count": 10,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1880,
+      "reward_gold": 7800,
+      "accept_text": "Ten, along the south road.\n\nHere's the trick, and it cost me a hat to learn it: they sight for the length of the road and not one pace further. Get inside that and a rifle is an expensive club. The danger is the hundred yards before you're inside it.",
+      "turn_in_text": "Ten, and I got a measuring chain out on that road this morning for the first time since I was posted here.\n\nThat's the whole of what I wanted. The fort can wait; the chain couldn't.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Hold-Cut Visor",
+          "slot": "head",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Stormpike grey, with the fort's mark at the collar.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.6,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 91,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Dun Garok Bracers",
+          "slot": "wrist",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Heavier than it has any right to be.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 25,
+          "label": "Leather Bracers (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Stormpike Rod",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.1
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_ironbeard",
+      "title": "Sergeant Ironbeard",
+      "giver_npc_id": "hbe_garok_sapper",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "The road patrol has a sergeant, and the sergeant is the reason ten riflemen volley instead of firing. Dwarven discipline is the only thing turning a picket into a problem, and discipline has a name and stands at the end of the line.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Sergeant Ironbeard",
+          "count": 1,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 2550,
+      "reward_gold": 10530,
+      "accept_text": "He calls the volley - you'll hear him before the first shot.\n\nBreak him and the rest shoot like men who are frightened, which they are. They're a garrison a very long way from Dun Morogh holding a ridge nobody in Ironforge has thought about in a decade.",
+      "turn_in_text": "Dwarven make, that hammer, and it shows in the balance - you can feel where they put the weight.\n\nKeep it. I measure things. I've never once had cause to swing one.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Dun Garok Girdle",
+          "slot": "waist",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 85,
+          "label": "Plate Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Gate-Warden's Hood",
+          "slot": "head",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.7
+          },
+          "armor_type": "leather",
+          "armor_value": 53,
+          "label": "Leather Helm (Agi/Sta/AP)"
+        },
+        {
+          "name": "Mountaineer's Ring",
+          "slot": "ring",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Ring (Int/Spi/HP)"
+        },
+        {
+          "name": "Dun Garok Mantle",
+          "slot": "shoulder",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 7.2,
+            "mp5": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 26,
+          "label": "Cloth Shoulders (HP/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_wall_watch",
+      "title": "Thoradin's Wall",
+      "giver_npc_id": "hbe_wall_sentry",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "Thoradin's Wall was raised by Arathor - the first human empire, the one every kingdom since was carved out of - and it still closes the road into Arathi. Ada Rook watches the near face. She has never seen the far side and has never met anyone who has.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_hillsbrad",
+          "target_x": 138,
+          "target_y": 144,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 1960,
+      "reward_gold": 8100,
+      "accept_text": "South-east, and walk the near face end to end. Don't try the gap - there are ogres in it and they've been in it longer than I've been posted here.\n\nYou'll have seen a lot of new things since you came to this world. That wall was old when Lordaeron was founded. It was old when Alterac was founded. Everything you've watched fall this year was built in its shadow.",
+      "turn_in_text": "Still shut.\n\nAn empire falls, then the kingdoms it made fall, and the wall outlives all of them without a garrison. There's a lesson in that and I have never once enjoyed it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Stormpike Breeches",
+          "slot": "legs",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 7.1,
+            "mp5": 1.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 26,
+          "label": "Cloth Legs (HP/MP5)"
+        },
+        {
+          "name": "Hold-Cut Treads",
+          "slot": "feet",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 63,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Stormpike Band",
+          "slot": "ring",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_teague",
+      "title": "Wall-Watcher Teague",
+      "giver_npc_id": "hbe_wall_sentry",
+      "zone": "eastern_hillsbrad",
+      "level_min": 28,
+      "level_max": 29,
+      "description": "Somebody else watches the wall. Thirty years by the state of his gear, on a stretch of stone no army has come near in living memory, and he will not let anyone approach the gap - including, Ada has noticed, anyone who might be going there to open it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Wall-Watcher Teague",
+          "count": 1,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10920,
+      "accept_text": "At the gap. A border pike, long enough to keep Arathi on the far side of the stone, and he will not step back from it.\n\nThirty years is a long time to practise not stepping back. I've four years on this wall and I already understand him, which is the part that worries me.",
+      "turn_in_text": "Thirty years on a wall nobody attacks, for a kingdom that doesn't exist, at a gap nobody wanted.\n\nI want it written down that I understood him. I don't want anyone writing down that I agreed.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Stormpike Boots",
+          "slot": "feet",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 59,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Stormpike Pauldrons",
+          "slot": "shoulder",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Stormpike grey, with the fort's mark at the collar.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 8.0
+          },
+          "armor_type": "leather",
+          "armor_value": 55,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Mountaineer's Band",
+          "slot": "ring",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Cut square, like everything in that hold.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        },
+        {
+          "name": "Gate-Warden's Wraps",
+          "slot": "shoulder",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 28,
+          "flavor_text": "Dwarven make, and it shows in the balance.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "spell_power": 3.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 27,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_durnholde_watch",
+      "title": "Grey Beneath the Violet",
+      "giver_npc_id": "hbe_durnholde_watcher",
+      "zone": "eastern_hillsbrad",
+      "level_min": 26,
+      "level_max": 27,
+      "description": "Durnholde Keep has now been held by the Syndicate for longer than it was ever held by Lordaeron, and Odrin Falk would like that said out loud more often than it is. Its watchmen patrol the bluff in Durnholde grey plate with Syndicate violet painted over the top of it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Durnholde Watchman",
+          "count": 10,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1880,
+      "reward_gold": 7800,
+      "accept_text": "Ten, on the bluff outside the walls. And scratch the paint on one before you come back.\n\nGrey underneath. Every single one. They haven't forged a breastplate in fifteen years - they're wearing a dead kingdom's kit with a dead kingdom's colours brushed over it, and they've been doing it so long the paint has worn through at the shoulders.",
+      "turn_in_text": "Grey underneath. I know. I've known for two years.\n\nI keep sending people up there half hoping somebody will come back and tell me I'm wrong about it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Alterac Breastplate",
+          "slot": "chest",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 6.1
+          },
+          "armor_type": "plate",
+          "armor_value": 121,
+          "label": "Plate Chest (Sta/Block/BV)"
+        },
+        {
+          "name": "Durnholde Mantle",
+          "slot": "back",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 20,
+          "label": "Leather Cloak (Str/Agi/Sta)"
+        },
+        {
+          "name": "Keep-Warden's Pendant",
+          "slot": "neck",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_thrall_cell",
+      "title": "Where the Warchief Was Kept",
+      "giver_npc_id": "hbe_durnholde_scholar",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "Emeline Vask is a scholar in a garrison with no use for one. Her interest in Durnholde is not military. Thrall was held in that keep as a boy by the man who raised him to fight in a pit, and a fair share of everything the Horde has since become started inside those walls.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "durnholde_keep",
+          "target_x": 70,
+          "target_y": 72,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 1960,
+      "reward_gold": 8100,
+      "accept_text": "Through the fallen archway into the courtyard, and stand in the middle of it. That's the whole task.\n\nI'm aware how it sounds. You weren't here for any of it - you've no reason to care whose childhood happened in a ruin. But you can walk in there and come back out, and I can't, and I would like someone to tell me what the ground feels like.",
+      "turn_in_text": "Smaller than you expected. Everyone says that, and everyone is surprised to be saying it.\n\nA war that crossed a world started in a yard you can cross in twenty paces. I'll be thinking about that tonight instead of sleeping, which is a shorter walk than it used to be.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Alterac Mantle",
+          "slot": "back",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Damp from the undercroft, and always will be.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 21,
+          "label": "Leather Cloak (Str/Agi/Sta)"
+        },
+        {
+          "name": "Syndicate Handguards",
+          "slot": "hands",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Gloves (Sta/Spi/HP)"
+        },
+        {
+          "name": "Syndicate Rod",
+          "slot": "main_hand",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 13.6,
+            "mp5": 2.7
+          },
+          "weapon_damage_min": 21,
+          "weapon_damage_max": 29,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_stillwater",
+      "title": "Warden Stillwater",
+      "giver_npc_id": "hbe_durnholde_watcher",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "The Syndicate keep a warden on Durnholde's outer ground who wears a keep-guard's greatsword and a keep-guard's rank, both taken off the men who held the place before him, and uses the title as though it had been given rather than collected.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Warden Stillwater",
+          "count": 1,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 2550,
+      "reward_gold": 10530,
+      "accept_text": "Outer bailey, and he'll meet you in the open - he thinks of it as his ground and he's not entirely wrong.\n\nThe blade is a Durnholde greatsword, kept long after Durnholde fell. Bring it back when you're done. I'd like it to stop being his, and there's no one left alive it can be returned to.",
+      "turn_in_text": "Grey beneath the violet, same as all of them.\n\nI'll hang it in the watch post. Not as a trophy - as a reminder that this keep had a garrison once, and they lost it, and nobody came.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Alterac Spaulders",
+          "slot": "shoulder",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "The keep held a Warchief once. It holds less now.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.7
+          },
+          "armor_type": "leather",
+          "armor_value": 53,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Keep-Warden's Cuffs",
+          "slot": "wrist",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Damp from the undercroft, and always will be.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Bracers (Int/Sta/MP5)"
+        },
+        {
+          "name": "Undercroft Talisman",
+          "slot": "neck",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.5
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        },
+        {
+          "name": "Keep-Warden's Chain Belt",
+          "slot": "waist",
+          "item_level": 28,
+          "rarity": "rare",
+          "required_level": 27,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 57,
+          "label": "Mail Belt (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_two_banks",
+      "title": "Three Bridges and No Fourth",
+      "giver_npc_id": "tarren_mill_gate_guard",
+      "zone": "tarren_mill",
+      "level_min": 23,
+      "level_max": 24,
+      "description": "Hollis has the south gate, which means he gives the same speech eight or nine times a day and has pared it down to its working parts. The town is cut in half by a millrace. The west bank is the village. The east bank is the Royal Apothecary Society. People manage this badly.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "tarren_mill",
+          "target_x": 35,
+          "target_y": 50,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 1640,
+      "reward_gold": 6900,
+      "accept_text": "Walk up to the market bridge and look at both banks before you do anything else. That's the whole errand and it saves me a conversation later.\n\nWest side is the old village - inn, forge, chapel, the mill. East side is the Society and their vats. Three bridges join them. There is no fourth, the water is deep the whole way, and the wheel does not care who you were.",
+      "turn_in_text": "Now you've seen it you'll not need telling twice.\n\nThe ones who drown are never the ones who can't swim. They're the ones in a hurry who thought it looked narrow.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Mill-Race Shawl",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.2,
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Shoulders (Int/SP/MP5)"
+        },
+        {
+          "name": "Sluice-Gate Sabatons",
+          "slot": "feet",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 35,
+          "label": "Mail Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sluice-Gate Band",
+          "slot": "ring",
+          "item_level": 23,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_sluice",
+      "title": "What Fouled the Race",
+      "giver_npc_id": "tarren_mill_sluice_keeper",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Pate's crank raises the sluice. Drop the gate and the wheel stops, the mill stops, the Society's vats go cold and every person on both banks remembers his name within the hour. For a week the race has been running slow and he has not dropped the gate, because he would like to know why first.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "race_fouling",
+          "count": 5
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Something's choking the intake above the weir and it isn't weed. Bring me five of whatever you pull out of the grating.\n\nI've been doing this twenty-two years. I know what weed feels like on the rake and this isn't it, and I'd rather be the man who asked than the man who dropped the gate on a guess.",
+      "turn_in_text": "That's not weed. That's not anything that grew in this valley.\n\nI'm keeping these. And I'm keeping my hand off that crank until somebody with more letters after their name tells me what they are.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Two-Bank Skirt",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Legs (Int/Sta/SP)"
+        },
+        {
+          "name": "Two-Bank Pauldrons",
+          "slot": "shoulder",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Two-Bank Loop",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Flour-dust in every seam, and it never comes out.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_miller_bands",
+      "title": "Iron for the Spindle",
+      "giver_npc_id": "tarren_mill_miller",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Aldous Reed's family has milled here sixty years. In that time Lordaeron fell, the valley changed hands twice, and the dead took the east bank - and the wheel has not stopped for any of it. The spindle bands have, however, started to go, and a spindle band is not something you improvise.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bar_iron",
+          "count": 4,
+          "label": "Smelt iron bars for the spindle bands"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Four bars of iron, smelted proper. Not bronze - I know what bronze does in a wet bearing and so will you after one winter.\n\nSixty years that wheel's turned. My grandfather kept it going through the Second War by swapping the bands out himself. I'd not like to be the Reed who let it stop over four bars of iron.",
+      "turn_in_text": "Four, and good ones.\n\nShe'll turn another sixty on these. I'll not be here for it, but she will, and that's the arrangement we've always had.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Mill-Race Belt",
+          "slot": "waist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 56,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Sluice-Gate Pants",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Flour-dust in every seam, and it never comes out.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Flour-Pale Roundshield",
+          "slot": "off_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "armor_value": 37,
+          "block_value": 46,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_innkeeper_pot",
+      "title": "Something for the Pot",
+      "giver_npc_id": "tarren_mill_innkeeper",
+      "zone": "tarren_mill",
+      "level_min": 23,
+      "level_max": 25,
+      "description": "Mallory Dunn feeds both banks, which is a diplomatic position she never asked for and handles by not asking anybody which side they came off. The problem with feeding both banks is that one half of her custom eats and the other half watches, and the half that eats has opinions about mutton.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "highland_ram_haunch",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Six good haunches off the foothill rams, west past the Foothills. Ram, mind, not sheep - there's a difference and this room will tell me about it for a week.\n\nAnd take the west road, not the hollow. I've lost two suppliers to that hollow and I'd rather keep the one who can carry six.",
+      "turn_in_text": "Six, and hung properly. You've done this before.\n\nRoom's yours tonight and I'll not ask which bank you'd rather drink on. Nobody asks that in my house.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Snowline Cloak",
+          "slot": "back",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "The high pasture wind gets into everything.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 2.7
+          },
+          "armor_type": "leather",
+          "armor_value": 18,
+          "label": "Leather Cloak (Agi/Int/AP)"
+        },
+        {
+          "name": "Highland Mantle",
+          "slot": "back",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "The high pasture wind gets into everything.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 2.5,
+            "mp5": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Cloak (HP/MP5)"
+        },
+        {
+          "name": "Highland Pendant",
+          "slot": "neck",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 23,
+          "flavor_text": "Carried up past the snowline and back down again.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.1
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_smith_charcoal",
+      "title": "Charcoal, Not Coal",
+      "giver_npc_id": "tarren_mill_smith",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Odrin Vance shoes the Society's horses and mends their cart axles and takes their money, and has stopped apologising for it to anyone who asks. A trade is a trade. What he will not do is burn the coal they keep offering him, because coal is wrong for fine work and always has been.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "plank_oakheart",
+          "count": 6,
+          "label": "Cut and season oakheart planks"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Six oakheart planks, cut and seasoned at a sawmill. I'll burn my own charcoal from them - it's the only way I'll know what went into it.\n\nThey keep sending me coal from Dun Garok's old workings. Cheaper, hotter, and it ruins a weld - you get a seam that looks perfect and opens in a year. I'll not put my mark on that for anybody's convenience.",
+      "turn_in_text": "Oakheart, properly seasoned. I can tell by the weight before I've even split one.\n\nThat's a season of good work in the stack. And when the next cart of coal turns up, I'll have somewhere to point.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Two-Bank Treads",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Boots (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Tarren Greaves",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.2,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 37,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Two-Bank Longbow",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 41,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_bowyer_yew",
+      "title": "Yew from the River Stand",
+      "giver_npc_id": "tarren_mill_bowyer",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 26,
+      "description": "Tess Aldren strings bows the way her father strung them, which means yew off the river stand and nothing else. The river stand is three miles out past the hedgerows and the hedgerows currently have worgs in them, which has made a familiar errand into an annual one.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "river_yew_stave",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 7500,
+      "accept_text": "The gnolls have been felling the river stand for den stakes. Six staves back off them - and look at the cut before you pick one up. Heartwood and sapwood both, or it's firewood and I'll say so.\n\nMy father cut there, and his father. There's a mark on one of those trunks that's four generations of us deep. They're burning it to hold up a roof made of my snare wire.",
+      "turn_in_text": "All six true, and every one of them off the right side of the trunk.\n\nFour generations of doing it one way, and a gnoll nearly ended it for kindling. I'll string the first tonight.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Trapper's Hauberk",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Dog-teeth marks along one edge.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 78,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Trapper's Greaves",
+          "slot": "legs",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 117,
+          "label": "Plate Legs (Str/Sta/Def)"
+        },
+        {
+          "name": "Snare-Cut Walking Stick",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Patched with somebody else's leather.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 17.7,
+            "mp5": 3.8
+          },
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_apprentice_jars",
+      "title": "Label Everything",
+      "giver_npc_id": "tarren_mill_apprentice",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Nilla Stitch labels every jar in the apothecarium, which is not the junior work it sounds like. A consignment came in from Gavin's Naze last month with half the labels soaked off in transit, and nobody in the building is willing to open an unmarked jar to find out what is in it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "unmarked_society_jar",
+          "count": 7
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Seven unmarked jars went out with the Naze consignment before anyone noticed. I need them back, and I need them back closed.\n\nI'm aware how this sounds. But the whole discipline is that you know what you're holding. An unlabelled jar in a Syndicate camp is somebody's accident waiting to be somebody else's epidemic.",
+      "turn_in_text": "Seven, all closed, none of them opened.\n\nYou've no idea what a good day this is. I'll have them catalogued by morning and nobody will ever know they left.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Two-Bank Robe",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "mp5": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Chest (Int/Sta/MP5)"
+        },
+        {
+          "name": "Two-Bank Byrnie",
+          "slot": "chest",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "armor_type": "mail",
+          "armor_value": 74,
+          "label": "Mail Chest (Sta/Spi/HP)"
+        },
+        {
+          "name": "Flour-Pale Shortbow",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 41,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_chaplain",
+      "title": "The Chapel on the West Bank",
+      "giver_npc_id": "tarren_mill_chaplain",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 26,
+      "description": "There is a chapel on the west bank and a living chaplain in it, in a town held by the Forsaken. Ewen Blackwood has never been told to stop and has never asked why. He buries the village's dead in ground the Society could want, and so far nobody has wanted it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "chapel_grave_marker",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 7500,
+      "accept_text": "Six markers went missing out of the yard - stone ones, with names cut in them. Syndicate, most likely; cut stone sells.\n\nI'll say the thing nobody here says to you. You die and you get up again, and the people in my yard do not. I've no quarrel with you for it. But you'll understand why a man in my trade thinks about it when you walk past.",
+      "turn_in_text": "Six names back in the ground where they were put.\n\nThat's all a marker is - a promise that somebody stays where they were laid. It's the only promise I've got left to keep and I'd rather keep it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Mill-Race Cuirass",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 117,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Mill-Race Girdle",
+          "slot": "waist",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 39,
+          "label": "Mail Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Tarren Axe",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_apothecary_reagents",
+      "title": "Reagents from the Hollow",
+      "giver_npc_id": "tarren_mill_apothecary",
+      "zone": "tarren_mill",
+      "level_min": 25,
+      "level_max": 26,
+      "description": "Lysbet Crane's vats run on things that have to be gathered rather than bought, and the Mudsnout gnolls have taken the hollow where most of them grow. She would rather send someone than explain to the Society why a quarter's work stalled over fungus.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "hollow_bloodcap",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 7500,
+      "accept_text": "Eight bloodcaps, out of the wet ground in Mudsnout Hollow. They grow where the water sits.\n\nCut them, don't pull them - the whole value is in the stem and you'll crush it if you're rough. And don't eat one on a dare. I've had that conversation twice and one of those people is still here, after a fashion.",
+      "turn_in_text": "Eight, cut clean. That's a quarter's work secured and one fewer letter I have to write.\n\nMind the vats on your way out. What's in them isn't finished and it doesn't like being looked at.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Gnoll-Chewed Sandals",
+          "slot": "feet",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Boots (Sta/Int/HP)"
+        },
+        {
+          "name": "Mudsnout Spaulders",
+          "slot": "shoulder",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Stolen from a trapline, badly worn since.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 58,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Gnoll-Chewed Charm",
+          "slot": "neck",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Dog-teeth marks along one edge.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_vat_tender",
+      "title": "Stir It, Skim It, Log It",
+      "giver_npc_id": "tarren_mill_vat_tender",
+      "zone": "tarren_mill",
+      "level_min": 25,
+      "level_max": 26,
+      "description": "Grusk tends the vats on the east bank and considers it the best thing to have happened to him since dying. The work needs a reagent the Society sources from Durnholde's undercroft, which has become difficult since the Syndicate started keeping the keep properly.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Syndicate Spellbinder",
+          "count": 8,
+          "zone": "durnholde_keep"
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 7500,
+      "accept_text": "Eight of their binders, inside the keep.\n\nThe Society used to send a cart to the undercroft twice a year and nobody minded. Now there are wizards on the gate. Twelve years dead and I've got a trade again - stir it, skim it, log it - and I'm not losing it because Alterac's leftovers found religion.",
+      "turn_in_text": "Eight. The cart can go out again.\n\nYou'll not understand what that's worth. I was a cooper before. I'm a vat-tender now. It's near enough the same job and it's the only thing that is.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Syndicate Spaulders",
+          "slot": "shoulder",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 58,
+          "label": "Mail Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Syndicate Shroud",
+          "slot": "back",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Grey beneath the violet paint, if you scratch it.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 9,
+          "label": "Cloth Cloak (Int/Sta/MP5)"
+        },
+        {
+          "name": "Alterac Axe",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_stable_worgs",
+      "title": "Horses Won't Cross at Night",
+      "giver_npc_id": "tarren_mill_stablemaster",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Brann Teague's horses will not cross the bridges after dark. He has tried leading them, blindfolding them and bribing them. They cross all day without complaint and refuse from dusk, and the only thing that has changed is the number of worgs working the hedgerows on the far side.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Worg Prowler",
+          "count": 8,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Eight out of the hedges east of the race. Then I'll try the bridge at dusk again and we'll see.\n\nHorses are clever animals and they're not clever in the way people think. They don't reason it out. They just know, and they're right more often than the men leading them.",
+      "turn_in_text": "Led a pair across at last light with no trouble at all.\n\nSo it was the worgs. I'd rather it was the worgs than the other thing I'd started wondering about.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Trapper's Breeches",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "It stinks of wet gnoll. It also works.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "mp5": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Mudsnout Chaps",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Dog-teeth marks along one edge.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.7
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        },
+        {
+          "name": "Hollow-Run Necklace",
+          "slot": "neck",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Patched with somebody else's leather.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.6
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_farrier",
+      "title": "Shoes for the Carts",
+      "giver_npc_id": "tarren_mill_farrier",
+      "zone": "tarren_mill",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "Nell Marsh keeps half the town moving - hooves and hinges, as she puts it. The caravan runs west twice a month and the last two came back with the draught team lame, which she traced to shoes cut from the cheap bronze stock the Society bought in bulk.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bs_bronze_plate_boots",
+          "count": 2,
+          "label": "Forge a set of heavy bronze plate"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Two sets of heavy bronze at the forge, and I'll cut the shoe stock off them myself - the plate's the right thickness and the Society's bar stock isn't.\n\nI know it's a strange way round. I'd rather ruin good plate than put another cart team lame on the west road.",
+      "turn_in_text": "Right thickness, right temper. I'll have the team shod by the week's end.\n\nAnd next time somebody buys bar stock by weight instead of by trade, I'll be shown the invoice first.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Mill-Race Legplates",
+          "slot": "legs",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 5.6
+          },
+          "armor_type": "plate",
+          "armor_value": 112,
+          "label": "Plate Legs (Sta/Block/BV)"
+        },
+        {
+          "name": "Mill-Race Shoes",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.4
+          },
+          "armor_type": "leather",
+          "armor_value": 23,
+          "label": "Leather Boots (Agi/Sta/AP)"
+        },
+        {
+          "name": "Tarren Ring",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Damp from the race, dried by the wheel.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "spell_power": 1.6
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_commander_syndicate",
+      "title": "A Government With No Country",
+      "giver_npc_id": "tarren_mill_commander",
+      "zone": "tarren_mill",
+      "level_min": 26,
+      "level_max": 27,
+      "description": "Vellis Thorne holds the middle of a valley with Alterac at her back and Southshore at her front, and of the two she loses more sleep over Alterac. Southshore is a garrison and behaves like one. The Syndicate is a dissolved kingdom's nobility with money, grudges and fifteen years of practice.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Syndicate Spellbinder",
+          "count": 10,
+          "zone": "eastern_hillsbrad"
+        }
+      ],
+      "reward_exp": 2440,
+      "reward_gold": 10140,
+      "accept_text": "Ten of their binders, wherever you find them east of the mill.\n\nUnderstand what they are. Alterac let the Horde through the pass in the Second War and the Alliance dissolved the kingdom for it. The lords went into these hills with their titles and no land. They are not bandits. They're a court in exile, and courts in exile want their country back.",
+      "turn_in_text": "Ten.\n\nThey'll replace them. That's the thing about a court - there's always another son. But it buys me a season, and a season in this valley is a long time.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Dalaran-Marked Wraps",
+          "slot": "shoulder",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Worth more than it looks. That is deliberate.",
+          "primary_stats": {
+            "stamina": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 19,
+          "label": "Cloth Shoulders (Sta/Int/HP)"
+        },
+        {
+          "name": "Naze Legguards",
+          "slot": "legs",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Worth more than it looks. That is deliberate.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.4
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Naze Ring",
+          "slot": "ring",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 26,
+          "flavor_text": "Worth more than it looks. That is deliberate.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "tm_scout_keep",
+      "title": "Eyes on Durnholde",
+      "giver_npc_id": "tarren_mill_scout",
+      "zone": "tarren_mill",
+      "level_min": 27,
+      "level_max": 28,
+      "description": "Mirren Vask walks the roads so the garrison does not have to guess. Durnholde is the one place he has never been able to report on properly, because the Syndicate hold the walls and he has only ever seen the keep from the bluff.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "durnholde_keep",
+          "target_x": 70,
+          "target_y": 100,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 1960,
+      "reward_gold": 8100,
+      "accept_text": "Through the fallen archway and into the gatehouse ground. Far enough to count what's standing. Not far enough to be counted yourself.\n\nThe keep is a ring - outer wall, inner keep, and a courtyard between them. If the inner keep is still sealed, they're holding it properly and we need a plan. If it's open, they're squatting and we need a day.",
+      "turn_in_text": "Sealed. Of course it's sealed.\n\nThey've been in there fifteen years and they've kept the inner keep shut the whole time. That's not squatting. That's a garrison, and I'll report it as one.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Alterac Sabatons",
+          "slot": "feet",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Alterac work, re-cut by someone with less patience.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 42,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Durnholde Leggings",
+          "slot": "legs",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "The keep held a Warchief once. It holds less now.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.6
+          },
+          "armor_type": "leather",
+          "armor_value": 52,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Durnholde Pendant",
+          "slot": "neck",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "The keep held a Warchief once. It holds less now.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ]
+    }
+  ]
+}

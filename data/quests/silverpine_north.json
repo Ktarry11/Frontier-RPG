@@ -2590,6 +2590,92 @@
         }
       ],
       "gear_reward_gear_level": 16
+    },
+    {
+      "quest_id": "spn_orchard_graft",
+      "title": "Grafts for a Living Orchard",
+      "giver_npc_id": "sp_orchard_warden",
+      "zone": "silverpine_north",
+      "level_min": 17,
+      "level_max": 18,
+      "description": "Every tree in the Silverpine orchard is rotted through at the root and the Warden has spent two seasons proving it cannot be reversed. What can be done is to take cuttings from the last clean wood and put them into stock that is still alive - and the nearest living orchard is a valley and a mountain range away, in Hillsbrad.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "orchard_graft_cuttings",
+          "count": 1,
+          "label": "Carry the cuttings to Forager Ned Quill in the Hillsbrad Orchard"
+        }
+      ],
+      "reward_exp": 1160,
+      "reward_gold": 5100,
+      "accept_text": "Wrapped in damp sacking, and keep them damp. South, past the Sepulcher road, down into Hillsbrad and east to the orchard there. A man called Quill works it.\n\nThey will not take in this soil. They might take in his. That is the entire plan and I am aware of how thin it is.",
+      "turn_in_text": "Cuttings? From Silverpine?\n\nI'll be honest with you, half of these are dead already. But half of them aren't, and I've got rootstock that came through the end of a kingdom. We'll see what takes.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Cider-Press Mitts",
+          "slot": "hands",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Lacquer-hard and apple-dark.",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "spell_power": 1.6,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 8,
+          "label": "Cloth Gloves (Int/SP/Hit)"
+        },
+        {
+          "name": "Wasp-Stung Chestguard",
+          "slot": "chest",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Lacquer-hard and apple-dark.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Chest (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Windfall Ring",
+          "slot": "ring",
+          "item_level": 17,
+          "rarity": "uncommon",
+          "required_level": 17,
+          "flavor_text": "Sticky with something that is not sap.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.0
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "orchard_graft_cuttings",
+            "name": "Bundle of Orchard Cuttings",
+            "description": "Green wood from the last clean trees in Silverpine, wrapped in damp sacking. They must not be allowed to dry.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "hbw_orchard_forager"
     }
   ]
 }

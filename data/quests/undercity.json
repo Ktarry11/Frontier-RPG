@@ -2580,6 +2580,95 @@
         }
       ],
       "gear_reward_gear_level": 33
+    },
+    {
+      "quest_id": "ucq_hillsbrad_writ",
+      "title": "A Writ for the Frontier",
+      "giver_npc_id": "uc_executor",
+      "zone": "undercity",
+      "level_min": 24,
+      "level_max": 25,
+      "description": "The Undercity signs writs and the frontier receives them, usually late and usually about something the frontier has already dealt with. This one is different: it is a standing authority for the commander at Tarren Mill to act in the valley without referring north, and the Executor has had it sitting on his desk for a month because signing it means admitting he cannot run Hillsbrad from here.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "royal_writ_hillsbrad",
+          "count": 1,
+          "label": "Deliver the writ to Commander Vellis Thorne in Tarren Mill"
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "South. Through Silverpine, down into Hillsbrad, east to a mill town cut in half by a water channel. Thorne holds it.\n\nThe writ gives her authority I would rather keep. I am sending it anyway, because the alternative is losing the valley by post.",
+      "turn_in_text": "He signed it.\n\nI have been asking for this for two years and I had stopped expecting it. Do you know what this is? It is permission to stop waiting.\n\nThere is Alterac money in these hills, there are wizards in a scrap camp, and there is a man in Durnholde keeping a court. I can go after all three now without writing north first.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Two-Bank Belt",
+          "slot": "waist",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Flour-dust in every seam, and it never comes out.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 11,
+          "label": "Cloth Belt (Int/Sta/SP)"
+        },
+        {
+          "name": "Mill-Race Gauntlets",
+          "slot": "hands",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "Made on one bank and worn on the other.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 56,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Two-Bank Cleaver",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "required_level": 24,
+          "flavor_text": "The wheel has turned past this for sixty years.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        }
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "royal_writ_hillsbrad",
+            "name": "Royal Writ of the Frontier",
+            "description": "A standing authority for the Tarren Mill garrison to act in Hillsbrad without referring to the Undercity. Sealed, and heavier than paper should be.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "tarren_mill_commander"
     }
   ]
 }
