@@ -15,7 +15,7 @@
     {
       "talent_id": "shaman_restoration_improved_healing_wave",
       "name": "Improved Healing Wave",
-      "description": "Increases healing done by 2% per rank.",
+      "description": "Increases the healing of your Healing Wave by 4% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -23,7 +23,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "healing_done": 0.02
+        "ability_shaman_healing_wave_healing": 0.04
       },
       "connected_to": [
         "shaman_restoration_totemic_focus"
@@ -32,7 +32,7 @@
     {
       "talent_id": "shaman_restoration_tidal_focus",
       "name": "Tidal Focus",
-      "description": "Increases maximum Mana by 2% per rank.",
+      "description": "Increases your maximum Mana by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -49,7 +49,7 @@
     {
       "talent_id": "shaman_restoration_improved_reincarnation",
       "name": "Improved Reincarnation",
-      "description": "Increases maximum Health by 3% per rank.",
+      "description": "Reduces the cooldown of Reincarnation by 2 turns per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -57,7 +57,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "max_health_pct": 0.03
+        "ability_shaman_reincarnation_cooldown": 2
       },
       "connected_to": [
         "shaman_restoration_healing_focus"
@@ -66,24 +66,37 @@
     {
       "talent_id": "shaman_restoration_ancestral_healing",
       "name": "Ancestral Healing",
-      "description": "Increases Healing Power by 6 per rank.",
+      "description": "Your healing spells have a 15% chance per rank to grant the target 150 Armor for 3 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {
-        "healing_power": 6
-      },
+      "effects": {},
       "connected_to": [
         "shaman_restoration_totemic_mastery"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 15,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "ancestral_healing",
+          "name": "Ancestral Healing",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": 150
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "shaman_restoration_totemic_focus",
       "name": "Totemic Focus",
-      "description": "Increases Spirit by 3 per rank.",
+      "description": "Increases the duration of your Mana Spring and Mana Tide Totems by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -91,7 +104,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "spirit": 3
+        "ability_shaman_mana_spring_totem_duration": 1,
+        "ability_shaman_mana_tide_totem_duration": 1
       },
       "connected_to": [
         "shaman_restoration_improved_healing_wave",
@@ -101,7 +115,7 @@
     {
       "talent_id": "shaman_restoration_natures_guidance",
       "name": "Nature's Guidance",
-      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "description": "Increases your spell hit chance by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -119,20 +133,27 @@
     {
       "talent_id": "shaman_restoration_healing_focus",
       "name": "Healing Focus",
-      "description": "Increases Healing Power by 5 per rank.",
+      "description": "Your healing spells have a 16% chance per rank to restore 45 Mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {
-        "healing_power": 5
-      },
+      "effects": {},
       "connected_to": [
         "shaman_restoration_improved_reincarnation",
         "shaman_restoration_tidal_mastery"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 16,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 45
+        }
+      }
     },
     {
       "talent_id": "shaman_restoration_totemic_mastery",
@@ -155,7 +176,7 @@
     {
       "talent_id": "shaman_restoration_healing_grace",
       "name": "Healing Grace",
-      "description": "Increases Spirit by 4 per rank.",
+      "description": "Reduces the threat caused by your healing spells by 10% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -163,7 +184,7 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "spirit": 4
+        "threat_generation_pct": -0.1
       },
       "connected_to": [
         "shaman_restoration_totemic_focus",
@@ -173,7 +194,7 @@
     {
       "talent_id": "shaman_restoration_restorative_totems",
       "name": "Restorative Totems",
-      "description": "Increases Healing Power by 6 per rank.",
+      "description": "Increases the potency of your Mana Spring Totem by 8% per rank and restores 4 Mana every 5 seconds per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -181,7 +202,8 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "healing_power": 6
+        "ability_shaman_mana_spring_totem_potency": 0.08,
+        "mp5": 4
       },
       "connected_to": [
         "shaman_restoration_natures_guidance",
@@ -191,7 +213,7 @@
     {
       "talent_id": "shaman_restoration_tidal_mastery",
       "name": "Tidal Mastery",
-      "description": "Increases spell critical strike chance by 1% per rank.",
+      "description": "Increases your spell critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -209,7 +231,7 @@
     {
       "talent_id": "shaman_restoration_healing_way",
       "name": "Healing Way",
-      "description": "Increases healing done by 3% per rank.",
+      "description": "Increases the healing of your Healing Wave by 5% per rank and reduces its Mana cost by 8 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -217,7 +239,8 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "healing_done": 0.03
+        "ability_shaman_healing_wave_healing": 0.05,
+        "ability_shaman_healing_wave_cost": 8
       },
       "connected_to": [
         "shaman_restoration_totemic_mastery",
@@ -263,7 +286,7 @@
     {
       "talent_id": "shaman_restoration_purification",
       "name": "Purification",
-      "description": "Increases healing done by 2% per rank.",
+      "description": "Increases all healing you do by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -281,7 +304,7 @@
     {
       "talent_id": "shaman_restoration_focused_mind",
       "name": "Focused Mind",
-      "description": "Increases Intellect by 4 per rank.",
+      "description": "Reduces the Mana cost of Riptide and Earth Shield by 10 per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -289,7 +312,8 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "intellect": 4
+        "ability_shaman_riptide_cost": 10,
+        "ability_shaman_earth_shield_cost": 10
       },
       "connected_to": [
         "shaman_restoration_healing_grace"
@@ -316,7 +340,7 @@
     {
       "talent_id": "shaman_restoration_improved_chain_heal",
       "name": "Improved Chain Heal",
-      "description": "Increases Healing Power by 9 per rank.",
+      "description": "Increases the potency of your Riptide by 10% per rank and its duration by 1 turn per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -324,7 +348,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "healing_power": 9
+        "ability_shaman_riptide_potency": 0.1,
+        "ability_shaman_riptide_duration": 1
       },
       "connected_to": [
         "shaman_restoration_nature_swiftness",
@@ -334,7 +359,7 @@
     {
       "talent_id": "shaman_restoration_blessing_of_the_eternals",
       "name": "Blessing of the Eternals",
-      "description": "Increases spell critical strike chance by 2% per rank.",
+      "description": "Increases the critical strike chance of your Healing Wave and Riptide by 3% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -342,7 +367,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "crit_chance_spell": 2.0
+        "ability_shaman_healing_wave_crit": 3,
+        "ability_shaman_riptide_crit": 3
       },
       "connected_to": [
         "shaman_restoration_purification"
@@ -351,39 +377,58 @@
     {
       "talent_id": "shaman_restoration_tidal_waves",
       "name": "Tidal Waves",
-      "description": "Increases Haste by 2 and Healing Power by 4 per rank.",
+      "description": "Your Riptide casts have a 20% chance per rank to grant Tidal Waves, increasing your haste by 15% for 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "haste": 2.0,
-        "healing_power": 4
-      },
+      "effects": {},
       "connected_to": [
         "shaman_restoration_earth_shield",
         "shaman_restoration_riptide"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "shaman_riptide"
+        ],
+        "apply_effect": {
+          "effect_id": "tidal_waves",
+          "name": "Tidal Waves",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 15.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "shaman_restoration_ancestral_awakening",
       "name": "Ancestral Awakening",
-      "description": "Increases healing done by 3% per rank.",
+      "description": "Your critical heals have a 33% chance per rank to awaken an ancestor, healing the target for an additional 110.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "healing_done": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "shaman_restoration_improved_chain_heal",
         "shaman_restoration_restoration_capstone"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "heal_flat": 110
+      }
     },
     {
       "talent_id": "shaman_restoration_riptide",

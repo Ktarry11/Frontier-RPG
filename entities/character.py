@@ -559,19 +559,36 @@ class Character(StatusEffectMixin):
             # directly off the node's own points_spent here instead, gated
             # by the guardian_stance_active check this whole block is
             # already inside.
+            # The magnitudes used to be hardcoded literals here (-0.02,
+            # -0.03, 19.33) while the node's own `effects` carried three
+            # invented keys - physical_damage_taken_pct_while_guardian and
+            # friends - that NOTHING read. So the data was pure decoration,
+            # the tooltip could drift from the real numbers with no way to
+            # notice, and the dead-key audit flagged keys that were load
+            #-bearing-looking but inert.
+            #
+            # The node now authors the real values under conditional_guardian_*
+            # and this reads them off the node, so the data is authoritative
+            # and the tooltip is checkable. get_effective_effects() is used
+            # rather than node.effects because it already scales per-rank
+            # values by points_spent - the rank curve comes free and cannot
+            # drift from how every other talent scales.
             shaman_enhancement = self.talent_trees.get("shaman_enhancement") if hasattr(self, "talent_trees") else None
             if shaman_enhancement:
                 node = shaman_enhancement.get_node("shaman_tank_earthen_attunement")
                 if node and node.points_spent > 0:
-                    totals["physical_damage_taken_pct"] = (
-                        totals.get("physical_damage_taken_pct", 0)
-                        - 0.02 * node.points_spent
-                    )
-                    totals["magic_damage_taken_pct"] = (
-                        totals.get("magic_damage_taken_pct", 0)
-                        - 0.03 * node.points_spent
-                    )
-                    totals["earthen_attunement_ap_shred"] = 19.33 * node.points_spent
+                    scaled = node.get_effective_effects()
+                    for src, dst in (
+                        ("conditional_guardian_physical_damage_taken_pct",
+                         "physical_damage_taken_pct"),
+                        ("conditional_guardian_magic_damage_taken_pct",
+                         "magic_damage_taken_pct"),
+                    ):
+                        if src in scaled:
+                            totals[dst] = totals.get(dst, 0) + scaled[src]
+                    if "conditional_guardian_ap_shred" in scaled:
+                        totals["earthen_attunement_ap_shred"] = scaled[
+                            "conditional_guardian_ap_shred"]
 
         # self.talent_trees doesn't exist yet during the early part of
         # __init__ (_refresh_ability_ranks() runs before the talent_trees

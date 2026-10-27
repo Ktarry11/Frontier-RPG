@@ -15,7 +15,7 @@
     {
       "talent_id": "shaman_elemental_convection",
       "name": "Convection",
-      "description": "Reduces the Mana cost of Lightning Bolt by 3 per rank.",
+      "description": "Reduces the Mana cost of your Shock spells by 6 per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -23,7 +23,9 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_shaman_lightning_bolt_cost": 3
+        "ability_shaman_earth_shock_cost": 6,
+        "ability_shaman_flame_shock_cost": 6,
+        "ability_shaman_frost_shock_cost": 6
       },
       "connected_to": [
         "shaman_elemental_call_of_flame"
@@ -32,7 +34,7 @@
     {
       "talent_id": "shaman_elemental_concussion",
       "name": "Concussion",
-      "description": "Increases Lightning Bolt damage by 5% per rank.",
+      "description": "Increases the damage of Lightning Bolt and Chain Lightning by 4% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,7 +42,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_shaman_lightning_bolt_damage": 0.05
+        "ability_shaman_lightning_bolt_damage": 0.04,
+        "ability_shaman_chain_lightning_damage": 0.04
       },
       "connected_to": [
         "shaman_elemental_elemental_focus"
@@ -49,7 +52,7 @@
     {
       "talent_id": "shaman_elemental_earths_grasp",
       "name": "Earth's Grasp",
-      "description": "Increases Armor by 15 per rank.",
+      "description": "Increases the duration of your Earthbind and Stoneclaw Totems by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -57,7 +60,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "armor": 15
+        "ability_shaman_earthbind_totem_duration": 1,
+        "ability_shaman_stoneclaw_totem_duration": 1
       },
       "connected_to": [
         "shaman_elemental_reverberation"
@@ -83,7 +87,7 @@
     {
       "talent_id": "shaman_elemental_call_of_flame",
       "name": "Call of Flame",
-      "description": "Increases Lava Burst damage by 8% per rank.",
+      "description": "Increases the damage of Lava Burst by 8% per rank and the potency of Flame Shock by 8% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -91,7 +95,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_shaman_lava_burst_damage": 0.08
+        "ability_shaman_lava_burst_damage": 0.08,
+        "ability_shaman_flame_shock_potency": 0.08
       },
       "connected_to": [
         "shaman_elemental_convection",
@@ -101,25 +106,38 @@
     {
       "talent_id": "shaman_elemental_elemental_focus",
       "name": "Elemental Focus",
-      "description": "Increases maximum Mana by 5%.",
+      "description": "After landing a spell critical strike, your next spell costs 40 less Mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "max_mana_pct": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "shaman_elemental_concussion",
         "shaman_elemental_improved_fire_nova"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "elemental_focus",
+          "name": "Clearcasting",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "mp5": 40
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "shaman_elemental_reverberation",
       "name": "Reverberation",
-      "description": "Reduces the cooldown of Earth Shock by 1 turn per rank.",
+      "description": "Increases the damage of your Shock spells by 4% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -127,7 +145,9 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_shaman_earth_shock_cooldown": 1
+        "ability_shaman_earth_shock_damage": 0.04,
+        "ability_shaman_flame_shock_damage": 0.04,
+        "ability_shaman_frost_shock_damage": 0.04
       },
       "connected_to": [
         "shaman_elemental_earths_grasp",
@@ -137,25 +157,38 @@
     {
       "talent_id": "shaman_elemental_elemental_devastation",
       "name": "Elemental Devastation",
-      "description": "Increases spell critical strike chance by 2% per rank.",
+      "description": "Your spell critical strikes have a 33% chance per rank to grant 60 Attack Power for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "crit_chance_spell": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "shaman_elemental_elemental_warding",
         "shaman_elemental_call_of_thunder"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "elemental_devastation",
+          "name": "Elemental Devastation",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": 60
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "shaman_elemental_elemental_fury",
       "name": "Elemental Fury",
-      "description": "Increases spell damage by 2% per rank.",
+      "description": "Increases your spell damage by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -173,7 +206,7 @@
     {
       "talent_id": "shaman_elemental_improved_fire_nova",
       "name": "Improved Fire Nova",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Increases the potency of your Searing and Magma Totems by 10% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -181,7 +214,8 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "spell_power": 8
+        "ability_shaman_searing_totem_potency": 0.1,
+        "ability_shaman_magma_totem_potency": 0.1
       },
       "connected_to": [
         "shaman_elemental_elemental_focus",
@@ -191,25 +225,32 @@
     {
       "talent_id": "shaman_elemental_eye_of_the_storm",
       "name": "Eye of the Storm",
-      "description": "Increases Stamina by 3 per rank.",
+      "description": "Being struck while casting has a 20% chance per rank to restore 70 Mana.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "stamina": 3
-      },
+      "effects": {},
       "connected_to": [
         "shaman_elemental_reverberation",
         "shaman_elemental_unrelenting_storm"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 70
+        }
+      }
     },
     {
       "talent_id": "shaman_elemental_call_of_thunder",
       "name": "Call of Thunder",
-      "description": "Increases spell critical strike chance by 1% per rank.",
+      "description": "Increases the critical strike chance of Lightning Bolt by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -217,7 +258,7 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "crit_chance_spell": 1.0
+        "ability_shaman_lightning_bolt_crit": 2
       },
       "connected_to": [
         "shaman_elemental_elemental_devastation",
@@ -245,26 +286,35 @@
     {
       "talent_id": "shaman_elemental_unrelenting_storm",
       "name": "Unrelenting Storm",
-      "description": "Increases Intellect by 3 and Spell Power by 4 per rank.",
+      "description": "Your Lightning Bolt casts have a 16% chance per rank to restore 50 Mana.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "intellect": 3,
-        "spell_power": 4
-      },
+      "effects": {},
       "connected_to": [
         "shaman_elemental_eye_of_the_storm",
         "shaman_elemental_elemental_oath"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 16,
+        "icd": 0,
+        "ability_filter": [
+          "shaman_lightning_bolt"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 50
+        }
+      }
     },
     {
       "talent_id": "shaman_elemental_elemental_precision",
       "name": "Elemental Precision",
-      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "description": "Increases your spell hit chance by 1% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -282,7 +332,7 @@
     {
       "talent_id": "shaman_elemental_storm_reach",
       "name": "Storm Reach",
-      "description": "Increases Spell Power by 9 per rank.",
+      "description": "Reduces the cooldown of Chain Lightning by 1 turn per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
@@ -290,7 +340,7 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "spell_power": 9
+        "ability_shaman_chain_lightning_cooldown": 1
       },
       "connected_to": [
         "shaman_elemental_elemental_fury"
@@ -299,7 +349,7 @@
     {
       "talent_id": "shaman_elemental_lightning_mastery",
       "name": "Lightning Mastery",
-      "description": "Increases Lightning Bolt damage by 4% per rank.",
+      "description": "Reduces the Mana cost of Lightning Bolt and Chain Lightning by 7 per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -307,7 +357,8 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "ability_shaman_lightning_bolt_damage": 0.04
+        "ability_shaman_lightning_bolt_cost": 7,
+        "ability_shaman_chain_lightning_cost": 7
       },
       "connected_to": [
         "shaman_elemental_elemental_mastery",
@@ -317,25 +368,41 @@
     {
       "talent_id": "shaman_elemental_elemental_oath",
       "name": "Elemental Oath",
-      "description": "Increases spell damage by 3% per rank.",
+      "description": "Your Lava Burst casts leave the target taking 4% more Magic damage for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "spell_damage": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "shaman_elemental_unrelenting_storm",
         "shaman_elemental_lightning_overload"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "shaman_lava_burst"
+        ],
+        "apply_effect": {
+          "effect_id": "elemental_oath",
+          "name": "Elemental Oath",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "magic_damage_taken_pct": 4
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "shaman_elemental_lava_flows",
       "name": "Lava Flows",
-      "description": "Increases Lava Burst damage by 10% per rank.",
+      "description": "Increases the damage of Lava Burst by 10% per rank and its critical strike chance by 3% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -343,7 +410,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_shaman_lava_burst_damage": 0.1
+        "ability_shaman_lava_burst_damage": 0.1,
+        "ability_shaman_lava_burst_crit": 3
       },
       "connected_to": [
         "shaman_elemental_elemental_precision"
@@ -352,7 +420,7 @@
     {
       "talent_id": "shaman_elemental_shamanism",
       "name": "Shamanism",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Increases your spell power by 8 per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -370,21 +438,35 @@
     {
       "talent_id": "shaman_elemental_lightning_overload",
       "name": "Lightning Overload",
-      "description": "Increases spell crit chance by 2% and spell damage by 2% per rank.",
+      "description": "Your Lightning Bolt has a 11% chance per rank to overload, striking again for 60 Nature damage.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "crit_chance_spell": 2.0,
-        "spell_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "shaman_elemental_elemental_oath",
         "shaman_elemental_elemental_capstone"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 11,
+        "icd": 0,
+        "ability_filter": [
+          "shaman_lightning_bolt"
+        ],
+        "apply_effect": {
+          "effect_id": "lightning_overload",
+          "name": "Lightning Overload",
+          "effect_type": "dot",
+          "duration": 1,
+          "potency": 60,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "shaman_elemental_thunderstorm",
@@ -406,19 +488,32 @@
     {
       "talent_id": "shaman_elemental_elemental_capstone",
       "name": "Astral Shift",
-      "description": "Increases your Armor by 60.",
+      "description": "Astral Shift - being struck has a 30% chance to shift you partly out of phase, reducing damage taken by 20% for 2 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 6,
-      "effects": {
-        "armor": 60
-      },
+      "effects": {},
       "connected_to": [
         "shaman_elemental_lightning_overload"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 30,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "astral_shift",
+          "name": "Astral Shift",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_taken_pct": -20
+          },
+          "on_target": false
+        }
+      }
     }
   ]
 }
