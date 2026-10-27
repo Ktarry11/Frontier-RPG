@@ -262,35 +262,29 @@ class CharacterSheetScreen(BaseScreen):
         mid_y += 22
         self.renderer.draw_text(screen, f"Parry: {derived['parry']}", (mid_x, mid_y))
 
-        # ===== RIGHT COLUMN: portrait area (WIP) =====
-        # Portrait placeholder. No animated character yet - a labeled empty
-        # frame reads as intentional, not broken, until that art exists.
-        portrait_rect = pygame.Rect(right_x, 36, 220, 260)
-        self.renderer.draw_rect(screen, portrait_rect, (25, 25, 30))
-        self.renderer.draw_rect(screen, portrait_rect, (80, 80, 80), fill=False)
-        wip_text = "Portrait WIP"
-        wip_w = self.renderer.font_normal.size(wip_text)[0]
+        # ===== RIGHT COLUMN: identity =====
+        # There was an empty 220x260 frame here labelled "Portrait WIP"
+        # (Kyle: "remove WIP thing"). No portrait art exists, so the frame
+        # was a box reserving space for nothing while announcing to the
+        # player that the game was unfinished. Gone - the name and level now
+        # start at the top of the column where the frame used to begin.
         self.renderer.draw_text(
-            screen, wip_text,
-            (portrait_rect.centerx - wip_w // 2, portrait_rect.centery - 8),
-            color=(120, 120, 120))
-        self.renderer.draw_text(
-            screen, f"{stats['name']}", (portrait_rect.x, portrait_rect.bottom + 8), color=COLOR_GOLD)
+            screen, f"{stats['name']}", (right_x, 40), size="large", color=COLOR_GOLD)
         self.renderer.draw_text(
             screen, f"Level {stats['level']} {stats['class']}",
-            (portrait_rect.x, portrait_rect.bottom + 32), color=COLOR_LIGHT_GRAY)
+            (right_x, 76), color=COLOR_LIGHT_GRAY)
 
         # Quick equipped-item count + a nudge toward the Gear screen, so the
         # sheet still shows *something* about gear without re-embedding the
         # whole equipment grid InventoryScreen already owns.
         equipped = sum(1 for slot in player.equipment.to_dict().values() if slot)
-        gear_y = portrait_rect.bottom + 64
+        gear_y = 112
         self.renderer.draw_text(
-            screen, f"Equipped items: {equipped}/17", (portrait_rect.x, gear_y),
+            screen, f"Equipped items: {equipped}/17", (right_x, gear_y),
             color=COLOR_LIGHT_GRAY)
         self.renderer.draw_text(
             screen, "See Gear for equipment & backpack",
-            (portrait_rect.x, gear_y + 24), font_size=16, color=(140, 140, 160))
+            (right_x, gear_y + 24), font_size=16, color=(140, 140, 160))
 
         # Prestige button - shown ONLY once eligible. The old "available at
         # Level 100" line was both wrong (the cap is PRESTIGE_LEVEL, 60) and

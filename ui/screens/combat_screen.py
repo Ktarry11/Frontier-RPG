@@ -1335,14 +1335,22 @@ class CombatScreen(BaseScreen):
         # get their own boxed callout side by side, matching the mockup
         # instead of stacking bare text down the middle of the screen.
         if not self.combat_engine.is_active:
+            # Dim the whole screen first. This overlay used to draw straight
+            # on top of the live combat UI, so the party unit frames, their
+            # health/mana/rage bars and the enemy art all showed THROUGH the
+            # result text - "Vendor trash: 1" and "Click to return to
+            # overworld" landed on top of a unit frame and both became hard
+            # to read (Kyle: "victory screen overlaps weirdly"). Nothing
+            # behind this is interactive once combat is over, so dimming it
+            # costs nothing and makes the result unambiguous.
+            scrim = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+            scrim.fill((8, 8, 12, 205))
+            screen.blit(scrim, (0, 0))
+
             result = "Victory!" if player.is_alive() else "Defeat!"
             color = COLOR_GREEN if player.is_alive() else COLOR_RED
             result_width = self.renderer.font_large.size(result)[0]
             result_center_y = SCREEN_HEIGHT // 2 - 100
-            self.renderer.draw_text(
-                screen, result,
-                (SCREEN_WIDTH // 2 - result_width // 2, result_center_y),
-                size="large", color=color)
 
             box_y = result_center_y + 50
             box_w, box_h = 260, 70
@@ -1353,9 +1361,34 @@ class CombatScreen(BaseScreen):
             loots = list(getattr(self.combat_engine, "loot_gained", None) or ([loot] if loot else []))
             loot_h = box_h if len(loots) <= 1 else 38 + 20 * min(5, len(loots)) + (20 if len(loots) > 5 else 0)
 
+            # Solid panel behind the whole result block. The scrim alone was
+            # not enough: a dimmed unit frame still sits directly behind the
+            # coin/trash and "click to return" lines, and dim-grey bars under
+            # grey text is exactly the tangle this is meant to stop. Sized
+            # from the same numbers the content below uses, so it cannot
+            # drift out of step with a longer loot list.
+            # How many callout boxes will actually be drawn - a defeat rolls
+            # no EXP and usually no loot, so reserving a box's worth of
+            # height there left a visible hole between "Defeat!" and the
+            # prompt.
+            boxes_shown = int(bool(player.is_alive())) + int(bool(loots))
+            content_h = max(box_h, loot_h) if boxes_shown else 0
+
+            panel_w = max(680, (box_w * 2 + gap) + 120)
+            panel_top = result_center_y - 30
+            panel_bottom = box_y + content_h + 92
+            panel = pygame.Rect(SCREEN_WIDTH // 2 - panel_w // 2, panel_top,
+                                panel_w, panel_bottom - panel_top)
+            self.renderer.draw_rect(screen, panel, (18, 18, 24))
+            self.renderer.draw_rect(screen, panel, color, fill=False)
+
+            self.renderer.draw_text(
+                screen, result,
+                (SCREEN_WIDTH // 2 - result_width // 2, result_center_y),
+                size="large", color=color)
+
             # Two side-by-side boxes when both exist; a single centered box
             # when only one applies (e.g. a defeat with no loot roll).
-            boxes_shown = int(bool(player.is_alive())) + int(bool(loots))
             if boxes_shown == 2:
                 exp_box = pygame.Rect(SCREEN_WIDTH // 2 - box_w - gap // 2, box_y, box_w, box_h)
                 loot_box = pygame.Rect(SCREEN_WIDTH // 2 + gap // 2, box_y, box_w, box_h)
@@ -1401,14 +1434,14 @@ class CombatScreen(BaseScreen):
                 if bits:
                     line = "    ".join(bits)
                     lw = self.renderer.font_normal.size(line)[0]
-                    self.renderer.draw_text(screen, line, (SCREEN_WIDTH // 2 - lw // 2, box_y + max(box_h, loot_h) + 2),
+                    self.renderer.draw_text(screen, line, (SCREEN_WIDTH // 2 - lw // 2, box_y + content_h + 18),
                                             color=(190, 190, 150))
 
             prompt = "Click to return to overworld"
             prompt_width = self.renderer.font_normal.size(prompt)[0]
             self.renderer.draw_text(
                 screen, prompt,
-                (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + max(box_h, loot_h) + 32))
+                (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + content_h + 56))
 
     def _draw_buff_icons_mini(self, screen, combatant, pos):
         """

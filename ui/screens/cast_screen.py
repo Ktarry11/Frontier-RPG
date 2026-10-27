@@ -28,22 +28,37 @@ from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD, COLOR_G
 class CastScreen(BaseScreen):
     """Full-screen caster -> ability -> target picker for out-of-combat casts."""
 
+    # Column headers sit ABOVE the panels. HEADER_Y is the top of the
+    # header text and PANEL_Y the top of the box; the gap between them has
+    # to clear the large font's full line height, or the header's descenders
+    # are sliced off by the panel border - which is exactly what "Party" and
+    # "Hero's Spells" were doing at the old 25px separation.
+    HEADER_Y = 68
+    PANEL_Y = 112
+    PANEL_BOTTOM_MARGIN = 40
+
     # Left column: party roster.
     ROSTER_X = 40
-    ROSTER_Y = 100
+    ROSTER_Y = PANEL_Y
     ROSTER_WIDTH = 320
-    ROSTER_HEIGHT = 540
-    ROSTER_ROW_HEIGHT = 92
+    ROSTER_HEIGHT = SCREEN_HEIGHT - PANEL_Y - PANEL_BOTTOM_MARGIN
+    ROSTER_ROW_HEIGHT = 100
 
-    # Right column: selected member's ability list - same real proportions
-    # as SkillsScreen's ABILITY_LIST/HOTBAR_PANEL split, so this reads as
-    # the same family of screen rather than a one-off layout.
+    # Right column: selected member's ability list. Runs to the same 40px
+    # right margin the roster uses on the left, rather than stopping at a
+    # fixed 480 and leaving a third of the screen empty - this screen exists
+    # because the old sidebar was too cramped to show a real spell list, so
+    # it should use the room it took.
     ABILITY_X = 400
-    ABILITY_Y = 100
-    ABILITY_WIDTH = 480
-    ABILITY_HEIGHT = 540
+    ABILITY_Y = PANEL_Y
+    ABILITY_WIDTH = SCREEN_WIDTH - ABILITY_X - 40
+    ABILITY_HEIGHT = SCREEN_HEIGHT - PANEL_Y - PANEL_BOTTOM_MARGIN
     ABILITY_ROW_HEIGHT = 56
-    VISIBLE_ROWS = ABILITY_HEIGHT // ABILITY_ROW_HEIGHT  # real division, not guessed - 540/56 = 9
+    VISIBLE_ROWS = ABILITY_HEIGHT // ABILITY_ROW_HEIGHT
+
+    #: Rows are inset inside their panel so a row's border never sits on top
+    #: of the panel's own border.
+    ROW_INSET = 8
 
     ICON_SIZE = 40
 
@@ -360,14 +375,15 @@ class CastScreen(BaseScreen):
         self._roster_rects = []
         pygame.draw.rect(screen, (50, 50, 60),
                          (self.ROSTER_X, self.ROSTER_Y, self.ROSTER_WIDTH, self.ROSTER_HEIGHT), 2)
-        self.renderer.draw_text(screen, "Party", (self.ROSTER_X + 10, self.ROSTER_Y - 25),
+        self.renderer.draw_text(screen, "Party", (self.ROSTER_X + 10, self.HEADER_Y),
                                 color=(200, 200, 100), size="large")
 
         party = self.state_manager.get_party()
         from combat.abilities import get_class_resource, ResourceType
         for i, member in enumerate(party.living_members()):
-            row_y = self.ROSTER_Y + i * self.ROSTER_ROW_HEIGHT
-            rect = pygame.Rect(self.ROSTER_X, row_y, self.ROSTER_WIDTH, self.ROSTER_ROW_HEIGHT - 6)
+            row_y = self.ROSTER_Y + self.ROW_INSET + i * self.ROSTER_ROW_HEIGHT
+            rect = pygame.Rect(self.ROSTER_X + self.ROW_INSET, row_y,
+                               self.ROSTER_WIDTH - self.ROW_INSET * 2, self.ROSTER_ROW_HEIGHT - 6)
 
             is_selected = member is self.selected_caster
             pygame.draw.rect(screen, (40, 60, 90) if is_selected else (32, 32, 40), rect)
@@ -380,18 +396,18 @@ class CastScreen(BaseScreen):
                     screen.blit(class_icon, (rect.x + 6, rect.y + 6))
                     text_x = rect.x + self.ICON_SIZE + 16
 
-            self.renderer.draw_text(screen, member.name, (text_x, rect.y + 4),
+            self.renderer.draw_text(screen, member.name, (text_x, rect.y + 8),
                                     font_size=18, color=COLOR_WHITE)
             castable_count = len(self._castable_abilities(member))
-            self.renderer.draw_text(screen, f"{castable_count} spells", (rect.right - 90, rect.y + 6),
+            self.renderer.draw_text(screen, f"{castable_count} spells", (rect.right - 90, rect.y + 10),
                                     font_size=14, color=COLOR_GOLD)
 
             # Real HP bar - per Kyle's "see party members' HP" ask. Same
             # green/yellow/red thresholds as the combat screen's own
             # health bars, not a new invented color scheme, so this reads
             # consistently whether you're looking at it here or mid-fight.
-            bar_x, bar_y = text_x, rect.y + 24
-            bar_w, bar_h = rect.right - bar_x - 10, 10
+            bar_x, bar_y = text_x, rect.y + 36
+            bar_w, bar_h = rect.right - bar_x - 10, 12
             hp_pct = (member.current_health / member.health) if member.health else 0
             hp_pct = max(0.0, min(1.0, hp_pct))
             if hp_pct > 0.5:
@@ -403,9 +419,15 @@ class CastScreen(BaseScreen):
             pygame.draw.rect(screen, (20, 20, 24), (bar_x, bar_y, bar_w, bar_h))
             pygame.draw.rect(screen, hp_color, (bar_x, bar_y, int(bar_w * hp_pct), bar_h))
             pygame.draw.rect(screen, (80, 80, 90), (bar_x, bar_y, bar_w, bar_h), 1)
+            # Inside the bar, not after it. This used to draw at
+            # bar_x + bar_w + 6, and bar_w is itself (rect.right - bar_x - 10),
+            # so the text started 4px PAST the panel's right edge and hung in
+            # the gap between the two columns.
             hp_text = f"{member.display_health}/{round(member.health)}"
-            self.renderer.draw_text(screen, hp_text, (bar_x + bar_w + 6, bar_y - 2),
-                                    font_size=13, color=(200, 200, 205))
+            hp_w = self.renderer._get_font(font_size=12).size(hp_text)[0]
+            self.renderer.draw_text(screen, hp_text,
+                                    (bar_x + bar_w - hp_w - 4, bar_y - 1),
+                                    font_size=12, color=(235, 235, 240))
 
             # Resource bar (Mana/Rage/Energy) - same "see the mana of the
             # character using it" ask this screen already honored in the
@@ -418,7 +440,7 @@ class CastScreen(BaseScreen):
                 ResourceType.ENERGY: (member.current_energy, 100, (210, 200, 60)),
             }
             pool = pools.get(resource)
-            res_y = bar_y + 14
+            res_y = bar_y + 18
             if pool is not None and pool[1]:
                 cur, mx, res_color = pool
                 res_pct = max(0.0, min(1.0, cur / mx)) if mx else 0
@@ -426,7 +448,6 @@ class CastScreen(BaseScreen):
                 pygame.draw.rect(screen, res_color, (bar_x, res_y, int(bar_w * res_pct), 6))
                 pygame.draw.rect(screen, (80, 80, 90), (bar_x, res_y, bar_w, 6), 1)
 
-            # Active buffs/debuffs - per Kyle's ask. Filtered to BUFF/
             # Active buffs/debuffs - per Kyle's ask. Filtered to BUFF/
             # DEBUFF only (StatusEffectMixin also tracks DOT/HOT ticks,
             # which aren't "buffs" a player is choosing to track here -
@@ -442,7 +463,7 @@ class CastScreen(BaseScreen):
             from combat.status_effects import EffectType
             buffs = [e for e in member._effects()
                     if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF)]
-            buff_y = res_y + 12
+            buff_y = res_y + 14
             BUFF_ICON_SIZE = 20
             if buffs and self.icon_ui_helper:
                 icon_x = text_x
@@ -489,7 +510,7 @@ class CastScreen(BaseScreen):
             lo = self.ability_scroll_offset + 1
             hi = min(self.ability_scroll_offset + self.VISIBLE_ROWS, len(castable))
             header += f"  [{lo}-{hi}]"
-        self.renderer.draw_text(screen, header, (self.ABILITY_X + 10, self.ABILITY_Y - 25),
+        self.renderer.draw_text(screen, header, (self.ABILITY_X + 10, self.HEADER_Y),
                                 color=(200, 200, 100), size="large")
 
         resource_label = self._resource_abbrev(actor)
@@ -502,16 +523,33 @@ class CastScreen(BaseScreen):
         }
         current_resource = pools.get(resource)
         if current_resource is not None and resource_label:
+            # Sits on the header's baseline, right-aligned to the panel.
+            # Drawn with the font it is actually measured with - it used to
+            # be measured with font_normal and drawn at font_size 16, so the
+            # right-alignment was computed against the wrong width and the
+            # text drifted over the panel's top border.
             pool_text = f"{round(current_resource)} {resource_label}"
+            pool_w = self.renderer._get_font(font_size=18).size(pool_text)[0]
             self.renderer.draw_text(
                 screen, pool_text,
-                (self.ABILITY_X + self.ABILITY_WIDTH - 10 - self.renderer.font_normal.size(pool_text)[0], self.ABILITY_Y - 25),
-                font_size=16, color=(150, 190, 255))
+                (self.ABILITY_X + self.ABILITY_WIDTH - 10 - pool_w, self.HEADER_Y + 12),
+                font_size=18, color=(150, 190, 255))
 
         if not castable:
-            self.renderer.draw_text(screen, "Nothing castable.",
-                                    (self.ABILITY_X + 10, self.ABILITY_Y + 10),
-                                    font_size=16, color=COLOR_DARK_GRAY)
+            # An empty list here is usually correct rather than broken: this
+            # screen casts OUT of combat, so a class with no buffs or heals
+            # yet (a level 1 Primalist has only attacks) genuinely has
+            # nothing to show. Saying only "Nothing castable." reads like a
+            # bug, so say why.
+            self.renderer.draw_text(
+                screen, f"{actor.name} has no out-of-combat spells yet.",
+                (self.ABILITY_X + 16, self.ABILITY_Y + 20), font_size=18,
+                color=(170, 170, 180))
+            self.renderer.draw_text(
+                screen, "Buffs, heals and summons appear here as they are learned."
+                        " Attacks are used in combat.",
+                (self.ABILITY_X + 16, self.ABILITY_Y + 48), font_size=15,
+                color=COLOR_DARK_GRAY)
             return
 
         max_offset = max(0, len(castable) - self.VISIBLE_ROWS)
@@ -519,8 +557,10 @@ class CastScreen(BaseScreen):
         visible = castable[self.ability_scroll_offset:self.ability_scroll_offset + self.VISIBLE_ROWS]
 
         for i, ability in enumerate(visible):
-            row_y = self.ABILITY_Y + i * self.ABILITY_ROW_HEIGHT
-            rect = pygame.Rect(self.ABILITY_X, row_y, self.ABILITY_WIDTH, self.ABILITY_ROW_HEIGHT - 4)
+            row_y = self.ABILITY_Y + self.ROW_INSET + i * self.ABILITY_ROW_HEIGHT
+            rect = pygame.Rect(self.ABILITY_X + self.ROW_INSET, row_y,
+                               self.ABILITY_WIDTH - self.ROW_INSET * 2,
+                               self.ABILITY_ROW_HEIGHT - 4)
 
             affordable = self._can_afford(actor, ability)
             color = COLOR_WHITE if affordable else COLOR_DARK_GRAY

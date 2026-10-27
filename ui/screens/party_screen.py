@@ -428,6 +428,80 @@ class PartyScreen(BaseScreen):
             return parts[1] if len(parts) > 1 else tree.spec_name
         return tree_id.replace("_", " ").title()
 
+    #: Colors for the two effect kinds, matching how buffs/debuffs already
+    #: read elsewhere in the UI (green = good for you, red = not).
+    _BUFF_COLOR = (150, 205, 150)
+    _DEBUFF_COLOR = (215, 120, 120)
+
+    def _render_active_effects(self, screen, member, x, y, panel):
+        """Current buffs and debuffs on this member, with time remaining.
+
+        Kyle: "the party screen here would be a good place to have current
+        buffs!" - and it is the natural home for them, because this is the
+        screen you open to check on somebody between fights, which is exactly
+        when you want to know whether their Fortitude is still up.
+
+        Filtered to BUFF/DEBUFF the same way the Cast screen's roster already
+        filters, so the two screens agree on what counts as a "buff". DOT and
+        HOT effects are deliberately excluded: they are combat bookkeeping
+        rather than a status you track out here.
+
+        Durations come in two flavours and both have to read correctly. A
+        turn-based effect stores whole turns in `duration`; a "raid" scope
+        buff (Fortitude, Mark of the Wild) stores wall-clock seconds in
+        `real_time_seconds` and ignores `duration` entirely - showing its raw
+        `duration` would print a meaningless number, which is the trap
+        get_effects_summary falls into by flattening both into one field.
+        """
+        from combat.status_effects import EffectType
+
+        effects = [e for e in member._effects()
+                   if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF)]
+
+        self.renderer.draw_text(screen, "ACTIVE EFFECTS", (x, y),
+                                font_size=14, color=COLOR_GOLD)
+        y += 24
+
+        if not effects:
+            self.renderer.draw_text(screen, "None", (x, y),
+                                    font_size=14, color=COLOR_MUTED)
+            return y + 26
+
+        # Cap the list so a heavily-buffed character cannot push the action
+        # buttons off the bottom of the panel - the same reason the backstory
+        # below is truncated rather than wrapped forever.
+        MAX_ROWS = 5
+        for effect in effects[:MAX_ROWS]:
+            is_buff = effect.effect_type == EffectType.BUFF
+            color = self._BUFF_COLOR if is_buff else self._DEBUFF_COLOR
+
+            label = effect.name
+            stacks = getattr(effect, "stacks", 1)
+            if stacks > 1:
+                label += f" x{stacks}"
+
+            secs = getattr(effect, "real_time_seconds", None)
+            if secs is not None:
+                remaining = (f"{int(secs // 60)}m" if secs >= 60
+                             else f"{max(0, int(secs))}s")
+            else:
+                turns = max(0, int(getattr(effect, "duration", 0)))
+                remaining = f"{turns}t"
+
+            self.renderer.draw_text(screen, label, (x, y), font_size=14, color=color)
+            rem_w = self.renderer._get_font(font_size=13).size(remaining)[0]
+            self.renderer.draw_text(screen, remaining,
+                                    (x + panel.width - 32 - rem_w, y + 1),
+                                    font_size=13, color=COLOR_MUTED)
+            y += 22
+
+        if len(effects) > MAX_ROWS:
+            self.renderer.draw_text(screen, f"+{len(effects) - MAX_ROWS} more",
+                                    (x, y), font_size=13, color=COLOR_MUTED)
+            y += 22
+
+        return y + 8
+
     def _render_detail(self, screen, party):
         self.action_rects = []
         member = self.selected
@@ -500,6 +574,8 @@ class PartyScreen(BaseScreen):
         self.renderer.draw_text(screen, f"Equipped items: {equipped}",
                                 (x, y), font_size=14, color=COLOR_MUTED)
         y += 30
+
+        y = self._render_active_effects(screen, member, x, y, panel)
 
         backstory = getattr(member, "backstory", "")
         if backstory:
