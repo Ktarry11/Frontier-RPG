@@ -2735,7 +2735,7 @@
           "source": "trainer"
         },
         "tail_wool_cotton_vestments": {
-          "name": "Reinforced Cotton Vestments",
+          "name": "Spiritweave Cotton Vestments",
           "inputs": {
             "bolt_wool": 2,
             "bolt_cotton": 2
@@ -4108,6 +4108,82 @@
             "material_tier": "linen"
           },
           "vendor_location": "Razor Hill"
+        },
+        "tail_bolt_mageweave": {
+          "name": "Bolt of Mageweave",
+          "skill_required": 180,
+          "skill_range": [
+            185,
+            195,
+            205,
+            215
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "cloth_mageweave": 4
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_mageweave"
+          }
+        },
+        "tail_bolt_runecloth": {
+          "name": "Bolt of Runecloth",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "cloth_runecloth": 4
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_runecloth"
+          }
+        },
+        "tail_kit_mageweave": {
+          "name": "Mageweave Upgrade Kit",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "bolt_mageweave": 5
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "upgrade_kit_mageweave"
+          }
+        },
+        "tail_kit_runecloth": {
+          "name": "Runecloth Upgrade Kit",
+          "skill_required": 240,
+          "skill_range": [
+            245,
+            255,
+            265,
+            275
+          ],
+          "count": 1,
+          "source": "trainer",
+          "inputs": {
+            "bolt_runecloth": 5
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "upgrade_kit_runecloth"
+          }
         }
       }
     },
