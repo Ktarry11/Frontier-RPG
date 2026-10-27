@@ -156,6 +156,10 @@ PROC_PAYLOADS = frozenset({
     "cast_ability", "heal_flat", "smart_heal",
     # Added for the unlock_mechanic pass - see combat/status_effects.py.
     "reset_cooldown", "leech_pct", "shield_pct", "splash_heal",
+    # splash_damage: the mirror of splash_heal, spreading a fraction of the
+    # triggering hit to the other living enemies (Runemaster's Earth
+    # Engraving). Added 2026-10-27.
+    "splash_damage",
 })
 
 #: Effect-key prefixes/suffixes the engine resolves dynamically, so a grep
@@ -356,7 +360,17 @@ def main():
             if proc.get("chance", 1) == 0:
                 findings["proc-no-payload"].append(
                     f"{tid} ({n.get('name')!r}): proc chance is 0")
-            mods = ((proc.get("apply_effect") or {}).get("stat_mods") or {})
+            # apply_effect is one spec dict OR a list of them (a proc that
+            # lands something on the target and something on the caster off
+            # the same roll). Flatten before reading stat_mods - a bare
+            # .get() on the list form raises, and an audit that crashes is
+            # worse than no audit.
+            _ae = proc.get("apply_effect") or []
+            _specs = _ae if isinstance(_ae, list) else [_ae]
+            mods = {}
+            for _s in _specs:
+                if isinstance(_s, dict):
+                    mods.update(_s.get("stat_mods") or {})
             for key, val in mods.items():
                 if key not in LIVE:
                     findings["dead-effect-key"].append(

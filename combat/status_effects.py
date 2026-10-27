@@ -342,6 +342,28 @@ class StatusEffect:
             return self.real_time_seconds <= 0
         return self.duration <= 0
 
+    def tick_potency(self):
+        """Damage (DOT) or healing (HOT) for ONE tick, scaled by stacks.
+
+        `potency` is stored PER STACK, exactly like `stat_mods` - see the
+        constructor docstring, which has always said stacking effects
+        contribute their mods multiplied by `stacks`. The DoT/HoT tick path
+        never learned that: it ticked for a bare `self.potency`, so a
+        stacking DoT was purely cosmetic. Eight stacks of a 100-damage
+        Firebrand ticked for 100, same as one, and the only thing that
+        changed was the stack number in the UI - which is the same class of
+        bug as stacking buffs delivering a single stack through the derived
+        stat pool (fixed 2026-10-27), from the same root cause: stacking was
+        implemented for stat_mods and nothing else was told about it.
+
+        max_stacks=1 is the overwhelming majority of effects in this game and
+        is bit-for-bit unaffected: `stacks` is 1 for its entire life, so this
+        multiplies by one. Verified both ways - a non-stacking DoT ticks for
+        the identical value it did before, and re-applying it three times
+        still ticks once for that value rather than stacking silently.
+        """
+        return int(self.potency * max(1, self.stacks))
+
     def to_dict(self):
         return {
             "effect_id": self.effect_id,
@@ -804,15 +826,16 @@ class StatusEffectMixin:
             if effect.proc_icd_remaining > 0:
                 effect.proc_icd_remaining -= 1
             if effect.effect_type == EffectType.DOT:
-                dealt = self.take_damage(effect.potency, effect.damage_school)
+                dealt = self.take_damage(effect.tick_potency(), effect.damage_school)
                 messages.append(f"{self.name} suffers {dealt} damage from {effect.name}.")
                 effect.duration -= 1
                 if effect.is_expired():
                     self._effects().remove(effect)
                     messages.append(f"{effect.name} fades from {self.name}.")
             elif effect.effect_type == EffectType.HOT:
-                self.heal(effect.potency)
-                messages.append(f"{self.name} is healed {effect.potency} by {effect.name}.")
+                healed = effect.tick_potency()
+                self.heal(healed)
+                messages.append(f"{self.name} is healed {healed} by {effect.name}.")
                 effect.duration -= 1
                 if effect.is_expired():
                     self._effects().remove(effect)
@@ -1085,6 +1108,41 @@ class StatusEffectMixin:
                         f"{', '.join(a.name for a in pool)}!")
                     fired_something = True
 
+            # splash_damage: the mirror of splash_heal - spread a fraction of
+            # the triggering hit to the OTHER living enemies. Runemaster's
+            # Weapon Engraving: Earth ("your direct damage has a chance to
+            # deal Nature damage to enemies within 8 yds of your target") and
+            # any other "damage splashes to nearby enemies" design.
+            #
+            # This engine has no AoE radius (see the palette doc), so "within
+            # 8 yds" becomes "the other enemies in the fight", capped by
+            # max_targets - the same translation splash_heal already makes for
+            # allies. Excludes `target`, the enemy that took the original hit,
+            # so the primary is never double-dipped.
+            #
+            # `school` defaults to the carrying effect's own damage_school
+            # rather than physical, so an Engraving's splash lands as the
+            # element it is named after and is reduced by the right
+            # resistance - a Nature splash off a Nature rune.
+            splash_dmg = proc.get("splash_damage")
+            if splash_dmg and amount and engine is not None:
+                spec = (splash_dmg if isinstance(splash_dmg, dict)
+                        else {"pct": splash_dmg})
+                share = max(1, int(amount * spec.get("pct", 0)))
+                school = spec.get("school", effect.damage_school)
+                pool = [e for e in (getattr(engine, "enemies", None) or [])
+                        if e is not None and e is not target
+                        and getattr(e, "is_alive", lambda: True)()]
+                pool = pool[:spec.get("max_targets", 3)]
+                for foe in pool:
+                    if hasattr(foe, "take_damage"):
+                        foe.take_damage(share, school)
+                if pool:
+                    messages.append(
+                        f"{effect.name} splashes {share} {school} damage to "
+                        f"{', '.join(f.name for f in pool)}!")
+                    fired_something = True
+
             # grant_resource: e.g. Vow of Radiance's "+2 Solar Power".
             # Uses the same gain_resource() every builder/spender ability
             # already goes through, so caps (see Character.
@@ -1175,8 +1233,16 @@ class StatusEffectMixin:
             # relevant (e.g. a self-buff proc). Lets a proc chain into a
             # real DoT/debuff/extra buff rather than only ever touching
             # resources/damage.
+            # apply_effect accepts either one spec dict or a LIST of them.
+            # A single proc often has to land something on the target AND
+            # something on the caster off the same roll - Runemaster's Ice
+            # Engraving slows the enemy and stacks Icebound Momentum on
+            # itself from one 40% chance - and `on_target` is per-spec, so a
+            # list is all that was missing. One dict stays exactly as it was.
             apply_spec = proc.get("apply_effect")
-            if apply_spec:
+            for apply_spec in ([] if not apply_spec else
+                               (apply_spec if isinstance(apply_spec, list)
+                                else [apply_spec])):
                 recipient = target if (apply_spec.get("on_target", True) and target is not None) else self
                 if hasattr(recipient, "apply_status_effect"):
                     spec_kwargs = {k: v for k, v in apply_spec.items()

@@ -167,18 +167,19 @@
       ],
       "icon_id": null,
       "exclusive_group": "runemaster_weapon_engraving",
-      "_implementation_note": "The stacking-Firebrand-detonate mechanic isn't modeled yet (engine has no per-stack DoT-on-expiry primitive) - implemented as a flat self-buff placeholder. All 5 Weapon Engravings share this gap; revisit as a group once a stacking-proc mechanism exists.",
+      "_implementation_note": "Firebrand is now a real stacking DoT - potency 17 matches the screenshot's '17 Fire damage per stack' exactly, and StatusEffect.tick_potency() multiplies a DoT tick by its stacks (added 2026-10-27; before that a stacking DoT ticked for a bare potency and stacking was purely cosmetic, which is why this shipped as a flat placeholder). The screenshot's 'stacking up to 100 times, explodes on expiry' becomes a 5-stack burn that ticks harder as it builds: 100 stacks assumes a long fight with fast auto-attacks, and this engine is turn-based, so 100 is unreachable and the detonation would never land. Ramps 17 -> 85 per tick instead of a single flat 45.",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 30,
         "icd": 0,
         "apply_effect": {
           "effect_id": "fire_engraving",
-          "name": "Fire Engraving",
+          "name": "Firebrand",
           "effect_type": "dot",
-          "duration": 2,
-          "potency": 45,
+          "duration": 4,
+          "potency": 17,
           "damage_school": "fire",
+          "max_stacks": 5,
           "on_target": true,
           "real_time_seconds": null
         }
@@ -193,7 +194,7 @@
       "duration": 30,
       "stat_mods": {},
       "description": "Engrave an ice rune onto your weapon, granting Ice Engraving: your direct damage has a chance to deal Frost damage and slow the target, stacking Icebound Momentum for bonus damage. Only one Engraving active.",
-      "_source": "Confirmed screenshot: Lvl 6, 2 Mana, 'Your direct damage has a 40% chance to deal 14 Frost damage and reduce the target's movement speed by 50% for 8 sec... The Runemaster deals 1% additional damage per stack as Frost damage. Stacks up to 8 times and lasts 12 sec.'",
+      "_source": "Confirmed screenshot: Lvl 6, 2 Mana, 'Your direct damage has a 40% chance to deal 14 Frost damage and reduce the target's movement speed by 50% for 8 sec... The Runemaster deals 1% additional damage per stack as Frost damage. Stacks up to 8 times and lasts 12 sec.' Both halves now fire off the one 40% roll via apply_effect's list form (added 2026-10-27 - before that a proc could apply exactly one effect, so this shipped with only the slow and the class's signature ramp was missing). There is no movement speed in a turn-based game, so the 50% slow becomes -15 Haste, which is one of the few stat_mods a Monster actually reads. Icebound Momentum is the 1%-per-stack damage ramp, 8 stacks as per the screenshot.",
       "target_type": "self",
       "ranks": [
         {
@@ -207,19 +208,33 @@
       "exclusive_group": "runemaster_weapon_engraving",
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 30,
+        "chance": 40,
         "icd": 0,
-        "apply_effect": {
-          "effect_id": "ice_engraving",
-          "name": "Ice Engraving",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "haste": -15.0
+        "apply_effect": [
+          {
+            "effect_id": "ice_engraving",
+            "name": "Ice Engraving",
+            "effect_type": "debuff",
+            "duration": 3,
+            "stat_mods": {
+              "haste": -15.0
+            },
+            "on_target": true,
+            "real_time_seconds": null
           },
-          "on_target": true,
-          "real_time_seconds": null
-        }
+          {
+            "effect_id": "runemaster_icebound_momentum",
+            "name": "Icebound Momentum",
+            "effect_type": "buff",
+            "duration": 3,
+            "max_stacks": 8,
+            "stat_mods": {
+              "damage_dealt_pct": 1
+            },
+            "on_target": false,
+            "real_time_seconds": null
+          }
+        ]
       }
     },
     {
@@ -394,7 +409,7 @@
       "duration": 30,
       "stat_mods": {},
       "description": "Engrave an earth rune onto your weapon, granting Earth Engraving: your direct damage has a chance to deal Nature damage to nearby enemies. Only one Engraving active.",
-      "_source": "Confirmed screenshot: Lvl 14, 2 Mana, 'Your direct damage has a 15% chance to deal 1 Nature damage to enemies within 8 yds of your target.'",
+      "_source": "Confirmed screenshot: Lvl 14, 2 Mana, 'Your direct damage has a 15% chance to deal 1 Nature damage to enemies within 8 yds of your target.' The actual splash is now real, via the splash_damage proc payload (added 2026-10-27 as the mirror of splash_heal). This engine has no AoE radius, so 'within 8 yds of your target' becomes 'the other enemies in this fight', capped at 3 and excluding the enemy that took the original hit. 25% of the triggering damage rather than the screenshot's flat 1, which is a level-1-scaled number that would be invisible at 60. The armour shred is kept as a rider: it was all this ability had before, and it is one of the few debuffs a Monster reads.",
       "target_type": "self",
       "ranks": [
         {
@@ -408,12 +423,17 @@
       "exclusive_group": "runemaster_weapon_engraving",
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 30,
+        "chance": 15,
         "icd": 0,
+        "splash_damage": {
+          "pct": 0.25,
+          "school": "nature",
+          "max_targets": 3
+        },
         "apply_effect": {
           "effect_id": "earth_engraving",
           "name": "Earth Engraving",
-          "effect_type": "buff",
+          "effect_type": "debuff",
           "duration": 4,
           "stat_mods": {
             "armor": -100
@@ -750,7 +770,7 @@
         "haste": 10
       },
       "description": "Engrave an air rune onto your weapon, granting Air Engraving: increases attack/cast speed, and your direct damage has a chance to replicate a % of the damage, ignoring Armor. Only one Engraving active.",
-      "_source": "Confirmed screenshot: Lvl 24, 2 Mana, '+10% melee, ranged, and spell casting speed. Your direct damage has a 15% chance to replicate 30% of the damage dealt. Replicated damage ignores armor.'",
+      "_source": "Confirmed screenshot: Lvl 24, 2 Mana, '+10% melee, ranged, and spell casting speed. Your direct damage has a 15% chance to replicate 30% of the damage dealt. Replicated damage ignores armor.' The haste half always worked - this was the only Engraving with real stat_mods - but the replicate half was simply absent, so the second sentence of its own tooltip did nothing. bonus_pct is the exact mechanic: it adds a fraction of the triggering hit to that same hit rather than rolling a phantom follow-up attack, and because it is added after the original hit has already been through armour it inherently ignores armour, matching 'replicated damage ignores armor' without needing a separate penetration path.",
       "target_type": "self",
       "ranks": [
         {
@@ -761,7 +781,13 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_weapon_engraving"
+      "exclusive_group": "runemaster_weapon_engraving",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 0,
+        "bonus_pct": 0.3
+      }
     },
     {
       "ability_id": "runemaster_weapon_engraving_water",
@@ -772,7 +798,7 @@
       "duration": 30,
       "stat_mods": {},
       "description": "Engrave a water rune onto your weapon, granting Water Engraving: your direct damage has a chance to drain mana and deal Frost damage, also granting nearby allies Replenishment. Only one Engraving active.",
-      "_source": "Confirmed screenshot: Lvl 26, 2 Mana, 'Your direct damage has a 30% chance to drain up to 2% of your maximum mana from the target, restoring the amount drained and dealing Frost damage based on how much mana was drained. Also grants nearby allies Replenishment: Replenishes 5% of maximum mana per 5 sec for 15 sec.'",
+      "_source": "Confirmed screenshot: Lvl 26, 2 Mana, 'Your direct damage has a 30% chance to drain up to 2% of your maximum mana from the target, restoring the amount drained and dealing Frost damage based on how much mana was drained. Also grants nearby allies Replenishment: Replenishes 5% of maximum mana per 5 sec for 15 sec.' The mana return is grant_resource; the 'Frost damage based on how much mana was drained' is bonus_pct 0.15 on the same hit, since a drain of a fixed 2% always converts to the same damage anyway and most monsters here have no mana pool to drain from. The ally Replenishment is NOT modelled: there is no party-wide resource payload (splash_heal spreads healing, not mana) and on_target false reaches only the caster. That is the one part of this tooltip still unbuilt - it needs a splash_resource payload.",
       "target_type": "self",
       "ranks": [
         {
@@ -788,6 +814,7 @@
         "trigger": "on_damage_cast",
         "chance": 30,
         "icd": 0,
+        "bonus_pct": 0.15,
         "grant_resource": {
           "resource": "mana",
           "amount": 60

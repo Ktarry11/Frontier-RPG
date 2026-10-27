@@ -1819,7 +1819,12 @@ class Ability:
                 return (f"{self.name} requires an active Rejuvenation or "
                         f"Regrowth on {target.name} - nothing to consume!")
 
-            remaining_total = max(1, consumable.potency * max(0, consumable.duration))
+            # tick_potency(), not bare potency: "the rest of what it would
+            # have healed" has to agree with what the HoT actually heals per
+            # tick, and potency is stored per-stack. Consuming a 3-stack HoT
+            # off a bare potency would pay out a third of what the player
+            # watched it ticking for.
+            remaining_total = max(1, consumable.tick_potency() * max(0, consumable.duration))
             heal_amt = int(remaining_total * self._damage_multiplier(caster, "healing", recipient=target))
             target.heal(heal_amt)
             self._last_threat_events.append((None, heal_amt, False))
