@@ -211,7 +211,7 @@ NPC_POSITIONS = {
     "hbe_mill_apothecary": (66, 29),
     "hbe_mill_quartermaster": (63, 34),      # vendor
     "hbe_mill_deathguard": (56, 31),
-    "hbe_mill_innkeeper": (68, 34),
+    "hbe_mill_caravan_master": (68, 34),
     "hbe_mill_hunter": (58, 38),
     # the road in from Silverpine
     "hbe_west_gate_scout": (12, 88),

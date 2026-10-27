@@ -1595,6 +1595,80 @@
       "gender": "male",
       "appearance_variant": 18,
       "greeting": "Stir it, skim it, log it. Twelve years dead and I have a trade again."
+    },
+    {
+      "vendor_id": "hbw_southpoint_quartermaster",
+      "name": "Quartermaster Dreng",
+      "zone": "western_hillsbrad",
+      "x": 48,
+      "y": 26,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "bread_and_cheese",
+        "roasted_meat",
+        "guardian_elixir_standard",
+        "whetstone",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 14,
+      "sells_gear": true,
+      "race": "forsaken",
+      "gender": "male",
+      "appearance_variant": 3,
+      "greeting": "Tower stores. Signed for, counted twice, and I will know if it is not."
+    },
+    {
+      "vendor_id": "hbw_fields_quartermaster",
+      "name": "Quartermaster Ivek",
+      "zone": "western_hillsbrad",
+      "x": 101,
+      "y": 82,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "mana_potion_minor",
+        "bread_and_cheese",
+        "thread_coarse",
+        "flux_weak",
+        "parchment"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 14,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "male",
+      "appearance_variant": 12,
+      "greeting": "A forward post gets forward-post stock. Do not ask for anything polished."
+    },
+    {
+      "vendor_id": "hbe_mill_quartermaster",
+      "name": "Quartermaster Sule",
+      "zone": "eastern_hillsbrad",
+      "x": 63,
+      "y": 34,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "roasted_meat",
+        "spiced_stew",
+        "battle_elixir_standard",
+        "whetstone",
+        "flux_medium"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 16,
+      "sells_gear": true,
+      "race": "forsaken",
+      "gender": "female",
+      "appearance_variant": 10,
+      "greeting": "Gate stores. The town has its own shops across the bridges; this is for people who are leaving."
     }
   ]
 }
