@@ -1753,11 +1753,28 @@ class Character(StatusEffectMixin):
         return self.secondary_resources.get(key, 0)
 
     def get_resource_max(self, resource_type):
-        """Maximum for any resource."""
+        """Maximum for any resource, including talent bonuses.
+
+        `<resource>_max` lets a talent raise a secondary resource pool -
+        static_max for Stormbringer, energy_max for Venomancer. Five talents
+        were authored on these and none were read, so "Increases maximum
+        Static by 10 per rank" did nothing. Handled generically off the
+        resource key rather than per-resource, so any future pool gets it
+        for free.
+
+        Only applied to SECONDARY resources. The primary pools (health, mana,
+        rage, energy as a class resource) have their own derived-stat paths
+        with max_health_pct / max_mana_pct, and adding a second source here
+        would double-count them.
+        """
         key = self._resource_key(resource_type)
         if key in self._RESOURCE_ATTRS:
             return getattr(self, self._RESOURCE_ATTRS[key][1], 0)
-        return self.SECONDARY_RESOURCE_MAX_OVERRIDE.get(key, self.SECONDARY_RESOURCE_MAX)
+        base = self.SECONDARY_RESOURCE_MAX_OVERRIDE.get(key, self.SECONDARY_RESOURCE_MAX)
+        bonus = 0
+        if hasattr(self, "get_talent_effect"):
+            bonus = self.get_talent_effect(f"{key}_max", 0) or 0
+        return max(1, int(base + bonus))
 
     def set_resource(self, resource_type, amount):
         """Set a resource, clamped to [0, max]."""

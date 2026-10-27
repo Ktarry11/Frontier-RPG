@@ -33,19 +33,26 @@
     {
       "talent_id": "stormbringer_maelstrom_amped_flow",
       "name": "Amped Flow",
-      "description": "Increases Static generated from all sources by 5% per rank.",
+      "description": "Your damaging spells have a 20% chance per rank to generate 5 Static.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
-      "effects": {
-        "static_generation_pct": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_maelstrom_conductive"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "static",
+          "amount": 5
+        }
+      }
     },
     {
       "talent_id": "stormbringer_maelstrom_bursting",
@@ -84,7 +91,7 @@
     {
       "talent_id": "stormbringer_maelstrom_conduit",
       "name": "Conduit",
-      "description": "Increases maximum Static by 10 per rank.",
+      "description": "Increases your maximum Static by 10 per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -224,20 +231,36 @@
     {
       "talent_id": "stormbringer_maelstrom_stormcloud",
       "name": "Stormcloud",
-      "description": "Marks your Torrential Wrath target, increasing damage they take from your next Shock by 20%.",
+      "description": "Your Torrential Wrath marks the target, increasing the Magic damage it takes by 20% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
-      "effects": {
-        "post_finisher_debuff_pct": 0.2
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_maelstrom_lethal_current",
         "stormbringer_maelstrom_deluge"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "stormbringer_torrential_wrath"
+        ],
+        "apply_effect": {
+          "effect_id": "stormcloud",
+          "name": "Stormcloud",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "magic_damage_taken_pct": 20
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "stormbringer_maelstrom_prodigy_of_lei_shen",
@@ -294,7 +317,7 @@
     {
       "talent_id": "stormbringer_maelstrom_whirling_maelstrom",
       "name": "Whirling Maelstrom",
-      "description": "Torrential Wrath now hits up to 2 additional nearby enemies for 50% damage.",
+      "description": "Increases the damage of Torrential Wrath by 25%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -302,7 +325,7 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_stormbringer_torrential_wrath_cleave_pct": 0.5
+        "ability_stormbringer_torrential_wrath_damage": 0.25
       },
       "connected_to": [
         "stormbringer_maelstrom_deluge"
@@ -329,7 +352,7 @@
     {
       "talent_id": "stormbringer_maelstrom_maelstrom_flow",
       "name": "Maelstrom Flow",
-      "description": "Increases maximum Static by 8 per rank.",
+      "description": "Increases your maximum Static by 8 per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 4,

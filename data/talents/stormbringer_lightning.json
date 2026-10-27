@@ -102,19 +102,29 @@
     {
       "talent_id": "stormbringer_lightning_electrocutioner",
       "name": "Electrocutioner",
-      "description": "Grants Electrocute a 5% chance per rank to reset its cooldown when it deals damage.",
+      "description": "Your Electrocute casts have a 50% chance per rank to generate 10 Static.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "ability_stormbringer_electrocute_reset_chance": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_lightning_flux_arc"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_electrocute"
+        ],
+        "grant_resource": {
+          "resource": "static",
+          "amount": 10
+        }
+      }
     },
     {
       "talent_id": "stormbringer_lightning_thunder_wave",
@@ -136,7 +146,7 @@
     {
       "talent_id": "stormbringer_lightning_superconductor",
       "name": "Superconductor",
-      "description": "Increases maximum Static by 10 per rank.",
+      "description": "Increases your maximum Static by 10 per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -206,7 +216,7 @@
     {
       "talent_id": "stormbringer_lightning_thunderbolt_focus",
       "name": "Thunderbolt Focus",
-      "description": "Reduces the cast time of your spells by 3% per rank.",
+      "description": "Reduces the Mana cost of Volt and Forked Lightning by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -214,7 +224,8 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "cast_time_reduction_pct": 0.03
+        "ability_stormbringer_volt_cost_pct": 0.05,
+        "ability_stormbringer_forked_lightning_cost_pct": 0.05
       },
       "connected_to": [
         "stormbringer_lightning_electrical_charge"
@@ -294,7 +305,7 @@
     {
       "talent_id": "stormbringer_lightning_lightning_cage",
       "name": "Lightning Cage",
-      "description": "Increases your chance to resist enemy stun and root effects by 5% per rank.",
+      "description": "Reduces the duration of stuns against you by 8% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -302,7 +313,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "cc_resist": 5.0
+        "stun_duration_reduction_pct": 0.08
       },
       "connected_to": [
         "stormbringer_lightning_crackling_devastation"

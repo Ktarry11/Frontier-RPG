@@ -198,6 +198,9 @@ _NAMED_LIVE = frozenset({
     "low_mana_healing_pct", "high_mana_healing_pct", "spell_damage_taken_pct",
     "block_value_pct", "aoe_damage", "dot_damage", "bleed_dot_damage",
     "poison_dot_damage", "low_health_healing_pct",
+    "pet_damage", "pet_health", "pet_armor",
+    "static_max", "energy_max", "insanity_max", "runes_max",
+    "solar_power_max",
 })
 
 

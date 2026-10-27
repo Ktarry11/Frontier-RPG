@@ -103,20 +103,30 @@
     {
       "talent_id": "stormbringer_wind_clear_skies",
       "name": "Clear Skies",
-      "description": "Increases Discharge's mana restored by 3% per rank.",
+      "description": "Your Discharge casts have a 25% chance per rank to restore 80 Mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {
-        "ability_stormbringer_discharge_mana_restore_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_wind_comforting_winds",
         "stormbringer_wind_gift_of_air"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_discharge"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 80
+        }
+      }
     },
     {
       "talent_id": "stormbringer_wind_nimbus",
@@ -210,20 +220,27 @@
     {
       "talent_id": "stormbringer_wind_storm_clouds",
       "name": "Storm Clouds",
-      "description": "Your spell criticals have a 3% chance per rank to grant 15 Static.",
+      "description": "Your spell critical strikes have a 15% chance per rank to generate 15 Static.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 0,
-      "effects": {
-        "crit_static_proc_chance": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_wind_clearsky_pendant",
         "stormbringer_wind_tempests_call"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 15,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "static",
+          "amount": 15
+        }
+      }
     },
     {
       "talent_id": "stormbringer_wind_unrelenting_winds",
@@ -299,19 +316,26 @@
     {
       "talent_id": "stormbringer_wind_wind_gate",
       "name": "Wind Gate",
-      "description": "Once per encounter, instantly restore 15% of your maximum Mana when you fall below 20% Mana.",
+      "description": "Being struck has a 15% chance to restore 200 Mana.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "emergency_mana_restore_pct": 0.15
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_wind_lexicon_of_servitude"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 3,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 200
+        }
+      }
     },
     {
       "talent_id": "stormbringer_wind_gale_force",
@@ -453,7 +477,7 @@
     {
       "talent_id": "stormbringer_wind_skybound",
       "name": "Skybound",
-      "description": "Increases Air Elemental's damage by 6% per rank.",
+      "description": "Increases your Air Elemental's health by 6% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -461,7 +485,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "pet_damage": 0.06
+        "pet_health": 0.06
       },
       "connected_to": [
         "stormbringer_wind_tempests_call"

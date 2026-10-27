@@ -116,6 +116,36 @@ class Pet(StatusEffectMixin):
         self.magic_resistance = int(t.get("base_magic_resist", 0) * level_mult)
         self.attack_power = int(t.get("base_attack", 0) * level_mult)
         self.spell_power = int(t.get("base_spell_power", 0) * level_mult)
+
+        # Owner talents that scale the pet. pet_damage, pet_health and
+        # pet_armor were authored by five talents across Hunter Beast Mastery
+        # and Stormbringer's Air Elemental nodes ("increases your pet's damage
+        # by 6% per rank") and read by nothing at all, so the entire pet-
+        # scaling fantasy of those specs did nothing.
+        #
+        # This is the one place a Pet deliberately DOES reach into its owner's
+        # talents. The docstring above says a pet "does not reach into the
+        # owner's talents/gear", which was true and was exactly the gap: a
+        # pet class with no way to be talented into is not a pet class. Kept
+        # narrow - three explicit keys read here, nothing else - rather than
+        # inheriting the owner's whole bonus pool, which would hand the pet
+        # the owner's gear stats too.
+        #
+        # Fractions (0.06 = +6%), matching how the data authors them. Applied
+        # to the level-scaled base so the bonus grows with the pet rather than
+        # being a flat number that matters at level 10 and not at 60.
+        owner = getattr(self, "owner", None)
+        if owner is not None and hasattr(owner, "get_talent_effect"):
+            dmg = owner.get_talent_effect("pet_damage", 0.0) or 0.0
+            if dmg:
+                self.attack_power = int(self.attack_power * (1.0 + dmg))
+                self.spell_power = int(self.spell_power * (1.0 + dmg))
+            hp = owner.get_talent_effect("pet_health", 0.0) or 0.0
+            if hp:
+                self.max_health = int(self.max_health * (1.0 + hp))
+            arm = owner.get_talent_effect("pet_armor", 0.0) or 0.0
+            if arm:
+                self.base_armor = int(self.base_armor * (1.0 + arm))
         self.healing_power = 0  # no pet heals itself/others in the starting template set
 
         self.resource_type = t.get("resource_type", "mana")
