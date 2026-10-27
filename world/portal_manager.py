@@ -313,6 +313,7 @@ class PortalManager:
                 (62, 28): ("Tarren Mill", 34, 82),                 # the town gate off the mill square: arrive (34,80)
                 (109, 74): ("Durnholde Keep", 70, 112),            # the keep's fallen archway
                 (95, 138): ("Dun Garok", 55, 96),                  # the fort door cut into the southern ridge
+                (116, 7): ("The Frostward Descent", 60, 134),       # arrive (60,132), inside the entry hall
             },
             "Dun Garok": {
                 # The fort door faces NORTH - the ridge rock it is cut into starts at y=139 - so the usual
@@ -321,6 +322,13 @@ class PortalManager:
             },
             "Durnholde Keep": {
                 (70, 112): ("Eastern Hillsbrad", 109, 77),         # dungeon exit: +3 -> arrive (109,75)
+            },
+            "The Frostward Descent": {
+                # Out, back up to Hillsbrad: +3 so the player lands one tile south of the fissure.
+                (60, 134): ("Eastern Hillsbrad", 116, 10),          # arrive (116,11), clear below the mouth
+                # (58, 8) is the way DOWN into the Crystalline Underdark. The tile is carved and marked in
+                # tools/handbuilt_frostward_descent.py, but the link is deliberately not registered until that
+                # zone exists - zone_manager.try_use_portal fails safe on an unregistered portal tile.
             },
             "Tarren Mill": {
                 # The town's south gate sits on the WEST bank - the race runs x=43..49 at that latitude, so a

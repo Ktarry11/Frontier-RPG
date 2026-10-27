@@ -61,8 +61,9 @@ SEED = 112
 PORTALS = {(5, 86): "Western Hillsbrad",
            (62, 28): "Tarren Mill",                    # the town gate off the mill square
            (109, 74): "Durnholde Keep",                # the keep's fallen archway
-           (95, 138): "Dun Garok"}                     # the fort door in the southern ridge
-ARRIVALS = [(8, 86), (62, 30), (108, 77), (94, 138)]
+           (95, 138): "Dun Garok",                    # the fort door in the southern ridge
+           (116, 7): "The Frostward Descent"}         # the fissure north of the Naze, under Alterac
+ARRIVALS = [(8, 86), (62, 30), (108, 77), (94, 138), (116, 8)]
 START = (14, 86)
 
 ROADS = {

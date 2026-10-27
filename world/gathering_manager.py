@@ -451,6 +451,10 @@ CAVE_TO_PARENT_ZONE = {
     # harpy roost, and the synthesized cave pool is ore-only by design ("caves are mining spots, not
     # foraging spots"), so giving them an inherited ore table would be worse than leaving them bare.
     "Boulder Lode Mine": "Northern Barrens",
+    # The ice chambers were meant to carry Frostpine, but a synthesized cave pool is ore-only by design
+    # ("caves are mining spots, not foraging spots"), so the Descent gets Eastern Hillsbrad's iron and
+    # silver and the wood idea moves to the Underdark proper, which is a zone rather than a cave.
+    "The Frostward Descent": "Eastern Hillsbrad",
 }
 
 #: How much more ore-dense a cave's inherited pool is versus its parent
