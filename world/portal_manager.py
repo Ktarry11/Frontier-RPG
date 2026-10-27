@@ -302,6 +302,10 @@ class PortalManager:
                 # down the road as the player's hub, and the east road on to Tarren Mill.
                 (40, 5): ("Silverpine South", 138, 153),           # arrive (138,151), clear of the pass portal
                 (155, 86): ("Eastern Hillsbrad", 8, 88),           # arrive (8,86), clear of the west gate
+                (33, 60): ("Azurelode Mine", 55, 86),              # the mine mouth in the western rock
+            },
+            "Azurelode Mine": {
+                (55, 86): ("Western Hillsbrad", 33, 63),           # cave exit: +3 -> arrive (33,61), south of the adit
             },
             "Eastern Hillsbrad": {
                 # Hand-built (tools/handbuilt_hillsbrad_east.py): Tarren Mill, Durnholde, and the shut Arathi wall.

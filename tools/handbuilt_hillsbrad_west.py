@@ -298,7 +298,9 @@ def dress(L):
     T.grove(L, 110, 30, 7, 5, 7, OAKS, seed=4)
 
     # ---- Azurelode Mine: the silver mine in the western rock
-    p(ENT + "ent_collapsed_mine.png", 33, 60, 7, solid=True, nudge=0)
+    # The adit is the PORTAL tile (33,60) -> Azurelode Mine, so the mouth is drawn but not solid:
+    # a solid prop here would wall off the entrance it is advertising.
+    p(ENT + "ent_collapsed_mine.png", 33, 60, 7, solid=False, nudge=0)
     p("ek_farm_cart", 42, 64, 4)
     p("ek_ruin_wall", 34, 68, 4)
     p("ek_signpost", 48, 60, 4)

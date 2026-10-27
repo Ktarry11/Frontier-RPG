@@ -5620,6 +5620,7 @@ def create_all_zones():
     from tools import handbuilt_fenris_isle as dfen
     from tools import handbuilt_hillsbrad_east as dhbe
     from tools import handbuilt_hillsbrad_west as dhbw
+    from tools import handbuilt_azurelode as dazl
     from tools import handbuilt_shadowpine_altar as dsa
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
@@ -5694,6 +5695,7 @@ def create_all_zones():
         # ===== HILLSBRAD SPLIT (2 zones) - the first GREEN country after the blight =====
         "Eastern Hillsbrad": dhbe.generate_hillsbrad_east(),  # hand-built (tools/handbuilt_hillsbrad_east.py)
         "Western Hillsbrad": dhbw.generate_hillsbrad_west(),  # hand-built (tools/handbuilt_hillsbrad_west.py)
+        "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         
         # ===== EXPANSION DUNGEONS =====
         "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)
