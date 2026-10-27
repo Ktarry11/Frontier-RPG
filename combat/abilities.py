@@ -946,9 +946,26 @@ class Ability:
         return max(1, int(round(self.duration + bonus)))
 
     def talented_cooldown(self, caster):
-        """Cooldown in turns after talent reductions (never below 0)."""
+        """Cooldown in turns after talent reductions.
+
+        An ability that HAS a cooldown keeps at least 1 turn of it. The old
+        floor was 0, which let stacked talents delete a cooldown outright and
+        turn the ability into a spammable one - tools/check_talent_balance.py
+        found eight abilities doing exactly that at max talents (Warrior's
+        Rend via Intensify Rage, Paladin's Judgement, Hunter's Arcane Shot and
+        Multi-Shot, Rogue's Backstab and Eviscerate, Priest's Heal, Shaman's
+        Earth Shock). Several were -1/rank over 3 ranks against a 2-turn base,
+        so they went negative before the clamp.
+
+        Flooring here rather than in each talent's data keeps the guarantee
+        global: no future talent can reduce a cooldown past this, and the
+        reduction stays worth taking (2 -> 1 is still a doubled cast rate).
+        Abilities with no cooldown to begin with stay at 0.
+        """
+        if not self.cooldown:
+            return 0
         reduction = self._talent(caster, f"ability_{self.ability_id}_cooldown")
-        return max(0, int(round(self.cooldown - reduction)))
+        return max(1, int(round(self.cooldown - reduction)))
 
     #: Real WoW-classic-style: a critical strike deals double damage.
     CRIT_DAMAGE_MULTIPLIER = 2.0
