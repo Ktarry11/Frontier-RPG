@@ -44,7 +44,12 @@ from tools import tirisfal_kit as T
 from tools.tirisfal_kit import wob, lobe, water_body, rock_spurs
 
 KEY = "eastern_hillsbrad"
-NAME = "Eastern Hillsbrad Foothills"
+NAME = "Eastern Hillsbrad"
+#: The Tilemap NAME is the key world/portal_manager.py looks portals up under (it keys on zone.name), and it has
+#: to match the name this zone is registered as in create_all_zones. It did not: the map was called
+#: "... Foothills" while the registry said "... Hillsbrad", so get_destination never matched and EVERY portal in
+#: both Hillsbrad zones was dead - you could walk into Hillsbrad and never walk out. The flavour name lives in
+#: DESC and the subzones instead; this one is an identifier.
 DESC = "Green hill country under Alterac: Tarren Mill, the Syndicate's camps, and Durnholde's ruin."
 REGION = "Eastern Kingdoms - Lordaeron"
 W, H = 160, 160
@@ -53,8 +58,11 @@ IS_TOWN = False
 BASE_TILE = "grass"
 SEED = 112
 
-PORTALS = {(5, 86): "Western Hillsbrad"}
-ARRIVALS = [(8, 86)]
+PORTALS = {(5, 86): "Western Hillsbrad",
+           (62, 28): "Tarren Mill",                    # the town gate off the mill square
+           (109, 74): "Durnholde Keep",                # the keep's fallen archway
+           (95, 138): "Dun Garok"}                     # the fort door in the southern ridge
+ARRIVALS = [(8, 86), (62, 30), (108, 77), (94, 138)]
 START = (14, 86)
 
 ROADS = {

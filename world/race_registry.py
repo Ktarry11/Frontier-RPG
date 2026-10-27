@@ -331,6 +331,9 @@ ZONE_POPULATION_MIX = {
     # east, but the farms and Southshore are still very much alive and human.
     "eastern_hillsbrad": [("forsaken", 70), ("human", 22), ("orc", 8)],
     "western_hillsbrad": [("human", 60), ("forsaken", 32), ("orc", 8)],
+    # The town itself: the Society holds it, but the millers, smith and innkeeper who were here before the
+    # Forsaken arrived are still working the west bank.
+    "tarren_mill": [("forsaken", 70), ("human", 24), ("orc", 6)],
 }
 
 

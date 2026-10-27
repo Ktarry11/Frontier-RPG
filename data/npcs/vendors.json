@@ -168,7 +168,7 @@
       "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 9,
-      "greeting": "Vials, reagents, and the potions you can't brew yet \u2014 that's my trade."
+      "greeting": "Vials, reagents, and the potions you can't brew yet — that's my trade."
     },
     {
       "vendor_id": "southern_durotar_trader",
@@ -449,7 +449,7 @@
       "race": "goblin",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "String, feathers, resin \u2014 everything that turns a plank into a bow."
+      "greeting": "String, feathers, resin — everything that turns a plank into a bow."
     },
     {
       "vendor_id": "taurajo_hide_trader",
@@ -792,7 +792,7 @@
       "race": "goblin",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Explosives, elixirs \u2014 close enough business."
+      "greeting": "Explosives, elixirs — close enough business."
     },
     {
       "vendor_id": "ratchet_black_market_fence",
@@ -943,7 +943,7 @@
       "race": "blood_elf",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "The Burning Blade has its needs. I supply them \u2014 no questions."
+      "greeting": "The Burning Blade has its needs. I supply them — no questions."
     },
     {
       "vendor_id": "org_engineer",
@@ -1094,7 +1094,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Northern Barrens basecamp. Moving fast \u2014 grab what you need.",
+      "greeting": "Northern Barrens basecamp. Moving fast — grab what you need.",
       "x": 150,
       "y": 66
     },
@@ -1427,6 +1427,174 @@
       "appearance_variant": 11,
       "gender": "male",
       "greeting": "Fenris Isle doesn't get many supply ships. Make it count."
+    },
+    {
+      "vendor_id": "tarren_mill_innkeeper",
+      "name": "Innkeeper Mallory Dunn",
+      "zone": "tarren_mill",
+      "x": 26,
+      "y": 68,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "bread_and_cheese",
+        "roasted_meat",
+        "spiced_stew",
+        "spiced_wine",
+        "guardian_elixir_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 16,
+      "sells_gear": false,
+      "race": "human",
+      "gender": "female",
+      "appearance_variant": 4,
+      "greeting": "Room's yours if you want it. I'll not ask which bank you came off."
+    },
+    {
+      "vendor_id": "tarren_mill_trader",
+      "name": "Goodwife Serrin Holt",
+      "zone": "tarren_mill",
+      "x": 30,
+      "y": 47,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "mana_potion_minor",
+        "bread_and_cheese",
+        "parchment",
+        "glue",
+        "salt",
+        "thread_coarse",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 16,
+      "sells_gear": false,
+      "race": "human",
+      "gender": "female",
+      "appearance_variant": 11,
+      "greeting": "Flour, thread, lamp oil. Whatever the mill does not eat, I sell."
+    },
+    {
+      "vendor_id": "tarren_mill_smith",
+      "name": "Smith Odrin Vance",
+      "zone": "tarren_mill",
+      "x": 24,
+      "y": 52,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_medium",
+        "flux_strong",
+        "coal",
+        "resin"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 16,
+      "sells_gear": true,
+      "race": "human",
+      "gender": "male",
+      "appearance_variant": 7,
+      "greeting": "I shoe their horses and mend their cart axles. A trade is a trade."
+    },
+    {
+      "vendor_id": "tarren_mill_bowyer",
+      "name": "Bowyer Tess Aldren",
+      "zone": "tarren_mill",
+      "x": 28,
+      "y": 41,
+      "tile_sprite": "npc",
+      "sells": [
+        "fletching",
+        "sinew",
+        "component_string",
+        "resin",
+        "glue"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 16,
+      "sells_gear": true,
+      "race": "human",
+      "gender": "female",
+      "appearance_variant": 16,
+      "greeting": "Yew from the river stand, strung the way my father strung them."
+    },
+    {
+      "vendor_id": "tarren_mill_reagent_seller",
+      "name": "Factor Vell",
+      "zone": "tarren_mill",
+      "x": 37,
+      "y": 45,
+      "tile_sprite": "npc",
+      "sells": [
+        "vial_empty",
+        "vial_leaded",
+        "vial_crystal",
+        "dye_mild",
+        "bleach",
+        "parchment"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 16,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "male",
+      "appearance_variant": 9,
+      "greeting": "The Society requisitions. I merely keep the ledger, and the ledger keeps everyone honest."
+    },
+    {
+      "vendor_id": "tarren_mill_apothecary",
+      "name": "Apothecary Lysbet Crane",
+      "zone": "tarren_mill",
+      "x": 64,
+      "y": 55,
+      "tile_sprite": "npc",
+      "sells": [
+        "elixir_of_toughness",
+        "elixir_of_warding",
+        "elixir_of_agility",
+        "arcane_elixir",
+        "healing_potion_standard",
+        "mana_potion_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 16,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "female",
+      "appearance_variant": 14,
+      "greeting": "Mind the vats. What is in them is not finished, and it does not like being looked at."
+    },
+    {
+      "vendor_id": "tarren_mill_vat_tender",
+      "name": "Vat-Tender Grusk",
+      "zone": "tarren_mill",
+      "x": 72,
+      "y": 46,
+      "tile_sprite": "npc",
+      "sells": [
+        "battle_elixir_standard",
+        "guardian_elixir_standard",
+        "elixir_of_firepower",
+        "mushroom_broth",
+        "tanning_reagent"
+      ],
+      "buys_from_player": true,
+      "faction": "forsaken",
+      "gear_level": 16,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "male",
+      "appearance_variant": 18,
+      "greeting": "Stir it, skim it, log it. Twelve years dead and I have a trade again."
     }
   ]
 }

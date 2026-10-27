@@ -35,7 +35,11 @@ from tools.terrain_painter import Painter, smoothstep, TILE_PX         # noqa: E
 
 TEX_DIR = ROOT / "assets/tiles/hillsbrad/materials"
 ZONES = {"hillsbrad_east": "tools.handbuilt_hillsbrad_east",
-         "hillsbrad_west": "tools.handbuilt_hillsbrad_west"}
+         "hillsbrad_west": "tools.handbuilt_hillsbrad_west",
+         # The town baker is the same baker: Tarren Mill is Hillsbrad country, so it paints from the same green
+         # material set rather than getting a palette of its own that would drift out of step with the zone
+         # the player walks in from.
+         "tarren_mill": "tools.handbuilt_tarren_mill"}
 
 MATERIALS = {
     "grass":   ("hb_grass", "hb_grass2", 1.0),

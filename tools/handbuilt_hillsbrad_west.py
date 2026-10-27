@@ -46,7 +46,12 @@ from tools import tirisfal_kit as T
 from tools.tirisfal_kit import wob, lobe, water_body, rock_spurs
 
 KEY = "western_hillsbrad"
-NAME = "Western Hillsbrad Foothills"
+NAME = "Western Hillsbrad"
+#: The Tilemap NAME is the key world/portal_manager.py looks portals up under (it keys on zone.name), and it has
+#: to match the name this zone is registered as in create_all_zones. It did not: the map was called
+#: "... Foothills" while the registry said "... Hillsbrad", so get_destination never matched and EVERY portal in
+#: both Hillsbrad zones was dead - you could walk into Hillsbrad and never walk out. The flavour name lives in
+#: DESC and the subzones instead; this one is an identifier.
 DESC = "Hillsbrad's farm country: worked fields, murloc strands, and Southshore's hostile port."
 REGION = "Eastern Kingdoms - Lordaeron"
 W, H = 160, 160
@@ -55,8 +60,9 @@ IS_TOWN = False
 BASE_TILE = "grass"
 SEED = 118
 
-PORTALS = {(40, 5): "Silverpine South", (155, 86): "Eastern Hillsbrad"}
-ARRIVALS = [(40, 9), (152, 86)]
+PORTALS = {(40, 5): "Silverpine South", (155, 86): "Eastern Hillsbrad",
+           (33, 60): "Azurelode Mine"}                 # the flooded adit in the western rock
+ARRIVALS = [(40, 9), (152, 86), (33, 63)]
 START = (44, 20)
 
 ROADS = {

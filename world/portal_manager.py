@@ -310,6 +310,7 @@ class PortalManager:
             "Eastern Hillsbrad": {
                 # Hand-built (tools/handbuilt_hillsbrad_east.py): Tarren Mill, Durnholde, and the shut Arathi wall.
                 (5, 86): ("Western Hillsbrad", 152, 88),           # arrive (152,86), clear of the east gate
+                (62, 28): ("Tarren Mill", 34, 82),                 # the town gate off the mill square: arrive (34,80)
                 (109, 74): ("Durnholde Keep", 70, 112),            # the keep's fallen archway
                 (95, 138): ("Dun Garok", 55, 96),                  # the fort door cut into the southern ridge
             },
@@ -320,6 +321,11 @@ class PortalManager:
             },
             "Durnholde Keep": {
                 (70, 112): ("Eastern Hillsbrad", 109, 77),         # dungeon exit: +3 -> arrive (109,75)
+            },
+            "Tarren Mill": {
+                # The town's south gate sits on the WEST bank - the race runs x=43..49 at that latitude, so a
+                # gate on the map's centre line would have been underwater.
+                (34, 84): ("Eastern Hillsbrad", 62, 32),           # arrive (62,30), on the square's flagstones
             },
             "The Sepulcher": {
                 (44, 67): ("Silverpine North", 32, 102),           # arrive (32,100), south of the gate
