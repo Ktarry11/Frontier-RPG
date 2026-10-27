@@ -172,20 +172,36 @@
     {
       "talent_id": "primalist_wildwalker_savage_frenzy",
       "name": "Savage Frenzy",
-      "description": "Increases Haste by 1% per rank for 6 seconds after using Wildclaw.",
+      "description": "Your Wildclaw casts have a 25% chance per rank to grant 15% haste for 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {
-        "wildclaw_haste_proc": 1.0
-      },
+      "effects": {},
       "connected_to": [
         "primalist_wildwalker_torn_to_shreds",
         "primalist_wildwalker_son_of_ursoc"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 25,
+        "icd": 1,
+        "ability_filter": [
+          "primalist_wildclaw"
+        ],
+        "apply_effect": {
+          "effect_id": "savage_frenzy",
+          "name": "Savage Frenzy",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 15.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "primalist_wildwalker_son_of_ursoc",
@@ -362,7 +378,7 @@
     {
       "talent_id": "primalist_wildwalker_bloodscent",
       "name": "Bloodscent",
-      "description": "Increases damage against targets below 30% health by 3% per rank.",
+      "description": "Increases the damage of Primal Shred and Rylak's Bite by 6% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -370,7 +386,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "low_health_target_damage_pct": 0.03
+        "ability_primalist_primal_shred_damage": 0.06,
+        "ability_primalist_rylaks_bite_damage": 0.06
       },
       "connected_to": [
         "primalist_wildwalker_spinebreaker"

@@ -242,7 +242,7 @@
     {
       "talent_id": "primalist_geomancy_seismic_focus",
       "name": "Seismic Focus",
-      "description": "Reduces the cast time of Geode Barrage by 3% per rank.",
+      "description": "Reduces the Mana cost of Geode Barrage by 4% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -250,7 +250,7 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_geode_barrage_cast_time_pct": -0.03
+        "ability_primalist_geode_barrage_cost_pct": 0.04
       },
       "connected_to": [
         "primalist_geomancy_heavy_earth"
@@ -276,7 +276,7 @@
     {
       "talent_id": "primalist_geomancy_tectonic_shift",
       "name": "Tectonic Shift",
-      "description": "Increases Quake radius by 8% per rank.",
+      "description": "Increases the damage of Quake by 8% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -284,7 +284,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_quake_radius_pct": 0.08
+        "ability_primalist_quake_damage": 0.08
       },
       "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_primalist_earthquake_radius_pct - the real ability is primalist_quake ('Quake'). Retargeted the ability_id, but left as a genuinely inert key like this: _radius_pct is not one of the engine's real per-ability talent suffixes (only _cost/_cooldown/_damage/_potency are read anywhere in Ability, see combat/abilities.py) and this engine has no positional/range system at all (same documented gap as ranged_ability_range in claude/balance_pass_buffs_cc_stats.md) - Quake already hits every present enemy via target_type=enemy_aoe regardless of a 'radius', so a radius increase has no real mechanic to attach to. Harmless, does nothing, same 'left inert, not silently broken' category as that doc's other one-off gaps.",
       "connected_to": [
@@ -362,7 +362,7 @@
     {
       "talent_id": "primalist_geomancy_cave_dwellers_focus",
       "name": "Cave Dweller's Focus",
-      "description": "Increases Golem Form's Armor bonus by 8% per rank.",
+      "description": "Increases the Armor granted by Golem Form by 8%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -370,7 +370,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_golem_form_armor_pct": 0.08
+        "ability_primalist_golem_form_potency": 0.08
       },
       "connected_to": [
         "primalist_geomancy_eruption"

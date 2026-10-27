@@ -120,19 +120,32 @@
     {
       "talent_id": "tinker_invention_combat_symbiosis",
       "name": "Combat Symbiosis",
-      "description": "Increases your armor by 3% per rank while a party member is below 50% health.",
+      "description": "Being struck has a 25% chance per rank to engage your plating, granting 150 Armor for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": -4,
-      "effects": {
-        "conditional_armor_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "tinker_invention_self_sustaining_tech"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "combat_symbiosis",
+          "name": "Combat Symbiosis",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": 150
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "tinker_invention_nanobot_swarm",
@@ -262,7 +275,7 @@
     {
       "talent_id": "tinker_invention_build_restorative_field",
       "name": "Build: Restorative Field",
-      "description": "Increases Repair Shot's healing by 10% while Battery Reclaimer is active.",
+      "description": "Increases the healing of Repair Shot by 10% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -270,7 +283,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "conditional_repair_shot_healing_pct": 0.1
+        "ability_tinker_repair_shot_healing": 0.1
       },
       "connected_to": [
         "tinker_invention_build_battery_reclaimer",
@@ -384,7 +397,7 @@
     {
       "talent_id": "tinker_invention_field_repair",
       "name": "Field Repair",
-      "description": "Increases Armor of the target of your heals by 2% per rank for 10 seconds.",
+      "description": "Reduces the Mana cost of Repair Shot and Med Pack by 8 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -392,7 +405,8 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "heal_target_armor_pct": 0.02
+        "ability_tinker_repair_shot_cost": 8,
+        "ability_tinker_med_pack_cost": 8
       },
       "connected_to": [
         "tinker_invention_healing_radiator"
@@ -427,7 +441,14 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "build_cooldown_pct": 0.05
+        "ability_tinker_build_sentry_turret_cooldown_pct": 0.05,
+        "ability_tinker_build_shield_beacon_cooldown_pct": 0.05,
+        "ability_tinker_build_replenishment_beacon_cooldown_pct": 0.05,
+        "ability_tinker_build_clockwork_assistant_cooldown_pct": 0.05,
+        "ability_tinker_build_mechano_bear_cooldown_pct": 0.05,
+        "ability_tinker_build_rusthound_cooldown_pct": 0.05,
+        "ability_tinker_build_battle_turret_x13_cooldown_pct": 0.05,
+        "ability_tinker_build_ziggi_6k_cooldown_pct": 0.05
       },
       "connected_to": [
         "tinker_invention_antitoxin_coating"
@@ -436,7 +457,7 @@
     {
       "talent_id": "tinker_invention_antitoxin_coating",
       "name": "Antitoxin Coating",
-      "description": "Increases resistance to Poison and Disease by 5% per rank.",
+      "description": "Increases your resistance to Nature damage by 5% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
@@ -444,7 +465,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "poison_disease_resist_pct": 0.05
+        "nature_resist_pct": 0.05
       },
       "connected_to": [
         "tinker_invention_nanobot_cleanser"
@@ -453,7 +474,7 @@
     {
       "talent_id": "tinker_invention_battery_efficiency",
       "name": "Battery Efficiency",
-      "description": "Increases mana regeneration by 3% per rank.",
+      "description": "Restores 5 Mana every 5 seconds per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 2,
@@ -461,7 +482,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "mana_regen_pct": 0.03
+        "mp5": 5
       },
       "connected_to": [
         "tinker_invention_build_restorative_field"

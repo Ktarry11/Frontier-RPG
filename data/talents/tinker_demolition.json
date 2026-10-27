@@ -261,7 +261,7 @@
     {
       "talent_id": "tinker_demolition_volatile_chemistry",
       "name": "Volatile Chemistry",
-      "description": "Reduces cooldowns of Demolition abilities by 3% per rank.",
+      "description": "Reduces the cooldown of Rocket Launcher, Bomb Toss and Sticky Bomb by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -269,7 +269,9 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "demolition_cooldown_pct": 0.03
+        "ability_tinker_rocket_launcher_cooldown_pct": 0.05,
+        "ability_tinker_bomb_toss_cooldown_pct": 0.05,
+        "ability_tinker_sticky_bomb_cooldown_pct": 0.05
       },
       "connected_to": [
         "tinker_demolition_hyperblast_barrage"
@@ -330,7 +332,7 @@
     {
       "talent_id": "tinker_demolition_scrap_recycling",
       "name": "Scrap Recycling",
-      "description": "Reduces Mana cost of all Demolition abilities by 2% per rank.",
+      "description": "Reduces the Mana cost of all your abilities by 2% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 2,
@@ -338,7 +340,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "demolition_cost_pct": 0.02
+        "all_ability_cost_pct": 0.02
       },
       "connected_to": [
         "tinker_demolition_scrapyard_reserves"
@@ -347,7 +349,7 @@
     {
       "talent_id": "tinker_demolition_blast_furnace",
       "name": "Blast Furnace",
-      "description": "Increases Napalm stack duration by 1 second per rank.",
+      "description": "Increases the duration of your Napalm by 1 turn.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -355,7 +357,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "napalm_duration": 1
+        "ability_tinker_napalm_proc_duration": 1
       },
       "connected_to": [
         "tinker_demolition_scrapyard_reserves"
@@ -364,7 +366,7 @@
     {
       "talent_id": "tinker_demolition_chain_reaction",
       "name": "Chain Reaction",
-      "description": "Increases the radius of your AoE abilities by 10% per rank.",
+      "description": "Increases the damage of your area-of-effect abilities by 8% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -372,7 +374,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "aoe_radius_pct": 0.1
+        "aoe_damage": 0.08
       },
       "connected_to": [
         "tinker_demolition_rockadier"

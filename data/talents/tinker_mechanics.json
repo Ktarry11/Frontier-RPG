@@ -244,19 +244,18 @@
     {
       "talent_id": "tinker_mechanics_build_scrapmaw",
       "name": "Build: Scrapmaw",
-      "description": "While your Mechsuit is active, your basic attacks have a 10% chance to fire an additional Scrap Shot at no Mana cost.",
+      "description": "While your Mechsuit is active, your weapon swings have a 10% chance to fire an additional Scrap Shot.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "mechsuit_proc_chance": 0.1
-      },
+      "effects": {},
       "proc": {
         "trigger": "on_weapon_swing",
         "chance": 10,
+        "icd": 1,
         "require_mechsuit": true,
         "cast_ability": "tinker_scrap_shot"
       },
@@ -405,7 +404,7 @@
     {
       "talent_id": "tinker_mechanics_welded_armor",
       "name": "Welded Armor",
-      "description": "Increases Armor granted by Build: Mechsuit by 8% per rank.",
+      "description": "Increases the Armor granted by Build: Mechsuit by 8%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -413,7 +412,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_tinker_mechsuit_form_armor_pct": 0.08
+        "ability_tinker_mechsuit_form_potency": 0.08
       },
       "connected_to": [
         "tinker_mechanics_upgrade_mechsuit"
