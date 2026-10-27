@@ -15,7 +15,7 @@
     {
       "talent_id": "rogue_subtlety_master_of_deception",
       "name": "Master of Deception",
-      "description": "Increases Agility by 2 per rank.",
+      "description": "Increases the damage of Ambush and Garrote by 5% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -23,7 +23,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "agility": 2
+        "ability_rogue_ambush_damage": 0.05,
+        "ability_rogue_garrote_damage": 0.05
       },
       "connected_to": [
         "rogue_subtlety_initiative"
@@ -32,7 +33,7 @@
     {
       "talent_id": "rogue_subtlety_opportunity",
       "name": "Opportunity",
-      "description": "Increases Backstab damage by 8% per rank.",
+      "description": "Increases the damage of Backstab by 8% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -49,7 +50,7 @@
     {
       "talent_id": "rogue_subtlety_sleight_of_hand",
       "name": "Sleight of Hand",
-      "description": "Increases Dodge chance by 2% per rank.",
+      "description": "Increases Dodge by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -66,7 +67,7 @@
     {
       "talent_id": "rogue_subtlety_camouflage",
       "name": "Camouflage",
-      "description": "Increases Stamina by 2 per rank.",
+      "description": "Reduces the cooldown of Vanish by 2 turns per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -74,7 +75,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "stamina": 2
+        "ability_rogue_vanish_cooldown": 2
       },
       "connected_to": [
         "rogue_subtlety_setup"
@@ -101,7 +102,7 @@
     {
       "talent_id": "rogue_subtlety_elusiveness",
       "name": "Elusiveness",
-      "description": "Increases Dodge by 2% and Parry by 1% per rank.",
+      "description": "Reduces the cooldown of Feint and Blind by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -109,8 +110,8 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "dodge": 2.0,
-        "parry": 1.0
+        "ability_rogue_feint_cooldown": 1,
+        "ability_rogue_blind_cooldown": 1
       },
       "connected_to": [
         "rogue_subtlety_opportunity",
@@ -120,7 +121,7 @@
     {
       "talent_id": "rogue_subtlety_serrated_blades",
       "name": "Serrated Blades",
-      "description": "Increases physical damage dealt by 3% per rank.",
+      "description": "Increases the potency of your Rupture by 10% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -128,7 +129,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "physical_damage": 0.03
+        "ability_rogue_rupture_potency": 0.1
       },
       "connected_to": [
         "rogue_subtlety_sleight_of_hand",
@@ -138,20 +139,33 @@
     {
       "talent_id": "rogue_subtlety_setup",
       "name": "Setup",
-      "description": "Increases critical strike chance by 1.5% per rank.",
+      "description": "Being struck has a 15% chance per rank to let you set up, granting 10% Dodge for 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "crit_chance_physical": 1.5
-      },
+      "effects": {},
       "connected_to": [
         "rogue_subtlety_camouflage",
         "rogue_subtlety_premeditation"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "setup",
+          "name": "Setup",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "dodge": 10.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "rogue_subtlety_hemorrhage",
@@ -174,7 +188,7 @@
     {
       "talent_id": "rogue_subtlety_dirty_deeds",
       "name": "Dirty Deeds",
-      "description": "Increases Eviscerate damage by 10% per rank.",
+      "description": "Increases the damage of Cheap Shot and Kidney Shot by 15% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -182,7 +196,8 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_rogue_eviscerate_damage": 0.1
+        "ability_rogue_cheap_shot_damage": 0.15,
+        "ability_rogue_kidney_shot_damage": 0.15
       },
       "connected_to": [
         "rogue_subtlety_elusiveness",
@@ -192,7 +207,7 @@
     {
       "talent_id": "rogue_subtlety_deadliness",
       "name": "Deadliness",
-      "description": "Grants 7 Attack Power per rank.",
+      "description": "Increases your Attack Power by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -200,7 +215,7 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "attack_power": 7
+        "attack_power_pct": 2.0
       },
       "connected_to": [
         "rogue_subtlety_serrated_blades",
@@ -210,25 +225,35 @@
     {
       "talent_id": "rogue_subtlety_premeditation",
       "name": "Premeditation",
-      "description": "Reduces the cooldown of Backstab by 1 turn.",
+      "description": "Your Ambush restores 30 Energy.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {
-        "ability_rogue_backstab_cooldown": 1
-      },
+      "effects": {},
       "connected_to": [
         "rogue_subtlety_setup",
         "rogue_subtlety_heightened_senses"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "rogue_ambush"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 30
+        }
+      }
     },
     {
       "talent_id": "rogue_subtlety_preparation",
       "name": "Preparation",
-      "description": "Reduces the cooldown of Eviscerate and Backstab by 1 turn.",
+      "description": "Teaches you Preparation.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -236,8 +261,7 @@
       "hex_x": -1,
       "hex_y": 0,
       "effects": {
-        "ability_rogue_eviscerate_cooldown": 1,
-        "ability_rogue_backstab_cooldown": 1
+        "unlock_ability": "rogue_preparation"
       },
       "connected_to": [
         "rogue_subtlety_dirty_deeds",
@@ -247,7 +271,7 @@
     {
       "talent_id": "rogue_subtlety_sinister_calling",
       "name": "Sinister Calling",
-      "description": "Increases Agility by 3 per rank.",
+      "description": "Increases the damage of Hemorrhage and Backstab by 4% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -255,7 +279,8 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "agility": 3
+        "ability_rogue_hemorrhage_damage": 0.04,
+        "ability_rogue_backstab_damage": 0.04
       },
       "connected_to": [
         "rogue_subtlety_deadliness",
@@ -265,7 +290,7 @@
     {
       "talent_id": "rogue_subtlety_heightened_senses",
       "name": "Heightened Senses",
-      "description": "Reduces your chance to miss by 1.5% per rank.",
+      "description": "Increases your hit chance by 1.5% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
@@ -283,7 +308,7 @@
     {
       "talent_id": "rogue_subtlety_filthy_tricks",
       "name": "Filthy Tricks",
-      "description": "Reduces the Energy cost of Sinister Strike by 3 per rank.",
+      "description": "Reduces the cooldown of Kick and Sap by 1 turn per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
@@ -291,7 +316,8 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_rogue_sinister_strike_cost": 3
+        "ability_rogue_kick_cooldown": 1,
+        "ability_rogue_sap_cooldown": 1
       },
       "connected_to": [
         "rogue_subtlety_hemorrhage"
@@ -300,7 +326,7 @@
     {
       "talent_id": "rogue_subtlety_shadowstep",
       "name": "Shadowstep",
-      "description": "Grants 5% physical damage and 3 Haste.",
+      "description": "Increases the damage of Ambush by 25% and reduces its Energy cost by 20.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -308,8 +334,8 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "physical_damage": 0.05,
-        "haste": 3.0
+        "ability_rogue_ambush_damage": 0.25,
+        "ability_rogue_ambush_cost": 20
       },
       "connected_to": [
         "rogue_subtlety_preparation",
@@ -319,25 +345,32 @@
     {
       "talent_id": "rogue_subtlety_honor_among_thieves",
       "name": "Honor Among Thieves",
-      "description": "Increases critical strike chance by 2% per rank.",
+      "description": "Your critical strikes have a 25% chance per rank to restore 20 Energy.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "crit_chance_physical": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "rogue_subtlety_sinister_calling",
         "rogue_subtlety_cheat_death"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 20
+        }
+      }
     },
     {
       "talent_id": "rogue_subtlety_waylay",
       "name": "Waylay",
-      "description": "Increases Backstab damage by 12% per rank.",
+      "description": "Increases the damage of Backstab by 12% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 2,
@@ -354,7 +387,7 @@
     {
       "talent_id": "rogue_subtlety_slaughter_from_the_shadows",
       "name": "Slaughter from the Shadows",
-      "description": "Reduces Backstab Energy cost by 3 and increases physical damage by 2% per rank.",
+      "description": "Reduces the Energy cost of Backstab by 3 and Ambush by 5 per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -363,7 +396,7 @@
       "hex_y": 4,
       "effects": {
         "ability_rogue_backstab_cost": 3,
-        "physical_damage": 0.02
+        "ability_rogue_ambush_cost": 5
       },
       "connected_to": [
         "rogue_subtlety_shadowstep",
@@ -373,7 +406,7 @@
     {
       "talent_id": "rogue_subtlety_cheat_death",
       "name": "Cheat Death",
-      "description": "Increases maximum Health by 3% and Dodge by 1% per rank.",
+      "description": "While below 35% health, you take 10% less damage per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -381,8 +414,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "max_health_pct": 0.03,
-        "dodge": 1.0
+        "low_health_damage_reduction_pct": 0.1,
+        "low_health_threshold_pct": 0.35
       },
       "connected_to": [
         "rogue_subtlety_honor_among_thieves",
@@ -409,7 +442,7 @@
     {
       "talent_id": "rogue_subtlety_subtlety_mastery",
       "name": "Sanguinary Vein",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Sanguinary Vein - increases the damage of your Rupture and Garrote by 25%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -417,7 +450,8 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "all_damage": 0.1
+        "ability_rogue_rupture_damage": 0.25,
+        "ability_rogue_garrote_damage": 0.25
       },
       "connected_to": [
         "rogue_subtlety_cheat_death"

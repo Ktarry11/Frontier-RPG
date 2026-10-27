@@ -175,6 +175,43 @@ def main():
                             f"{cls}: {node.name} proc filters on '{aid}', which this "
                             f"class has no ability for - the proc can never fire")
 
+        # 7. unlock_ability talents and the requires_talent flag must agree.
+        #
+        # The gate itself works: an ability carrying requires_talent=True is
+        # not learned until some talent unlocks it (verified at runtime - a
+        # pristine level-60 Rogue cannot cast Mutilate, Shadow Dance or
+        # Preparation). What can go wrong is the two sides disagreeing, in
+        # either direction, and both are silent.
+        #
+        # NOTE for anyone extending this: ability_book.get_all_abilities()
+        # returns every ability INCLUDING unlearned ones, so it cannot be
+        # used to ask "does this character know X". An earlier version of
+        # this check did exactly that and reported all 74 unlock talents in
+        # the game as no-ops. They are fine. Compare against requires_talent.
+        by_id = {a.ability_id: a for a in c.ability_book.get_all_abilities()}
+        unlocked_by_talent = set()
+        for tname, tree in c.talent_trees.items():
+            for node in tree.nodes.values():
+                unlock = (node.effects or {}).get("unlock_ability")
+                for aid in ([unlock] if isinstance(unlock, str) else (unlock or [])):
+                    unlocked_by_talent.add(aid)
+                    ab = by_id.get(aid)
+                    if ab is None:
+                        failures.append(
+                            f"{cls}: {node.name} unlocks '{aid}', which is not an "
+                            f"ability this class has at all")
+                    elif not getattr(ab, "requires_talent", False):
+                        failures.append(
+                            f"{cls}: {node.name} unlocks '{ab.name}', but that ability "
+                            f"is not flagged requires_talent - the class gets it for "
+                            f"free and the talent point buys nothing")
+        # the other direction: flagged as talent-gated, but nothing grants it
+        for ab in by_id.values():
+            if getattr(ab, "requires_talent", False) and ab.ability_id not in unlocked_by_talent:
+                failures.append(
+                    f"{cls}: {ab.name} is flagged requires_talent but no talent "
+                    f"unlocks it - it is permanently unreachable")
+
         # 5. an ability modifier naming an ability this class cannot cast
         for key in totals:
             if not isinstance(key, str) or not key.startswith("ability_"):

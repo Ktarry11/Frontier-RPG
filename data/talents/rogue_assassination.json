@@ -15,7 +15,7 @@
     {
       "talent_id": "rogue_assassination_improved_eviscerate",
       "name": "Improved Eviscerate",
-      "description": "Increases Eviscerate damage by 10% per rank.",
+      "description": "Increases the damage of Eviscerate by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -32,24 +32,37 @@
     {
       "talent_id": "rogue_assassination_remorseless_attacks",
       "name": "Remorseless Attacks",
-      "description": "Increases critical strike chance by 1% per rank.",
+      "description": "Killing a target has a 20% chance per rank to grant Remorseless, increasing your critical strike chance by 20% for 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_puncturing_wounds"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 20,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "remorseless",
+          "name": "Remorseless",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "crit_chance_physical": 20.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "rogue_assassination_malice",
       "name": "Malice",
-      "description": "Increases Agility by 2 per rank.",
+      "description": "Increases the critical strike chance of Mutilate and Eviscerate by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -57,7 +70,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "agility": 2
+        "ability_rogue_mutilate_crit": 2,
+        "ability_rogue_eviscerate_crit": 2
       },
       "connected_to": [
         "rogue_assassination_relentless_strikes"
@@ -83,7 +97,7 @@
     {
       "talent_id": "rogue_assassination_murder",
       "name": "Murder",
-      "description": "Increases all damage dealt by 2% per rank.",
+      "description": "Increases the damage of Garrote and Rupture by 8% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -91,7 +105,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "all_damage": 0.02
+        "ability_rogue_garrote_damage": 0.08,
+        "ability_rogue_rupture_damage": 0.08
       },
       "connected_to": [
         "rogue_assassination_improved_eviscerate",
@@ -101,7 +116,7 @@
     {
       "talent_id": "rogue_assassination_puncturing_wounds",
       "name": "Puncturing Wounds",
-      "description": "Increases Backstab damage by 15% per rank.",
+      "description": "Increases the damage of Backstab by 15% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -119,25 +134,37 @@
     {
       "talent_id": "rogue_assassination_relentless_strikes",
       "name": "Relentless Strikes",
-      "description": "Reduces the Energy cost of Sinister Strike by 5.",
+      "description": "Your finishing moves have a 30% chance to restore 25 Energy.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {
-        "ability_rogue_sinister_strike_cost": 5
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_malice",
         "rogue_assassination_fleet_footed"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 30,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_eviscerate",
+          "rogue_envenom",
+          "rogue_rupture"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 25
+        }
+      }
     },
     {
       "talent_id": "rogue_assassination_lethality",
       "name": "Lethality",
-      "description": "Increases physical damage dealt by 2% per rank.",
+      "description": "Increases the damage of your finishing moves - Eviscerate, Envenom and Rupture - by 3% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -145,7 +172,9 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "physical_damage": 0.02
+        "ability_rogue_eviscerate_damage": 0.03,
+        "ability_rogue_envenom_damage": 0.03,
+        "ability_rogue_rupture_damage": 0.03
       },
       "connected_to": [
         "rogue_assassination_ruthlessness",
@@ -155,25 +184,37 @@
     {
       "talent_id": "rogue_assassination_vile_poisons",
       "name": "Vile Poisons",
-      "description": "Your poisons increase all damage dealt by 2% per rank.",
+      "description": "Your weapon swings have a 10% chance per rank to apply a vile venom, dealing Nature damage over 3 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
-      "effects": {
-        "all_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_murder",
         "rogue_assassination_deadened_nerves"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "vile_venom",
+          "name": "Vile Venom",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 25,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "rogue_assassination_improved_poisons",
       "name": "Improved Poisons",
-      "description": "Grants 6 Attack Power per rank.",
+      "description": "Increases the potency of Deadly Poison by 10% per rank and the damage of Envenom by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -181,7 +222,8 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "attack_power": 6
+        "ability_rogue_deadly_poison_potency": 0.1,
+        "ability_rogue_envenom_damage": 0.05
       },
       "connected_to": [
         "rogue_assassination_puncturing_wounds",
@@ -191,7 +233,7 @@
     {
       "talent_id": "rogue_assassination_fleet_footed",
       "name": "Fleet Footed",
-      "description": "Increases Dodge chance by 2% per rank.",
+      "description": "Increases Dodge by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -245,44 +287,54 @@
     {
       "talent_id": "rogue_assassination_seal_fate",
       "name": "Seal Fate",
-      "description": "Grants 1% crit chance and 4 Attack Power per rank.",
+      "description": "Your critical strikes have a 20% chance per rank to restore 15 Energy.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "crit_chance_physical": 1.0,
-        "attack_power": 4
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_fleet_footed",
         "rogue_assassination_find_weakness"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 15
+        }
+      }
     },
     {
       "talent_id": "rogue_assassination_quick_recovery",
       "name": "Quick Recovery",
-      "description": "Increases maximum Health by 3% per rank.",
+      "description": "Your critical strikes have a 50% chance per rank to heal you for 50.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {
-        "max_health_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_cold_blood",
         "rogue_assassination_blood_spatter"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 1,
+        "heal_flat": 50
+      }
     },
     {
       "talent_id": "rogue_assassination_deadened_nerves",
       "name": "Deadened Nerves",
-      "description": "Increases Armor by 12 per rank.",
+      "description": "Reduces all damage taken by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -290,7 +342,7 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "armor": 12
+        "damage_taken_pct": -0.02
       },
       "connected_to": [
         "rogue_assassination_vile_poisons"
@@ -299,44 +351,72 @@
     {
       "talent_id": "rogue_assassination_hunger_for_blood",
       "name": "Hunger for Blood",
-      "description": "Increases all damage dealt by 5%.",
+      "description": "After landing a critical strike, you deal 10% more damage for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "all_damage": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_mutilate",
         "rogue_assassination_cut_to_the_chase"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "hunger_for_blood",
+          "name": "Hunger for Blood",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 10
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "rogue_assassination_find_weakness",
       "name": "Find Weakness",
-      "description": "Reduces miss chance by 1% and increases physical damage by 2% per rank.",
+      "description": "Your Backstab has a 34% chance per rank to find a weakness, leaving the target taking 8% more physical damage for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "hit_rating": 1.0,
-        "physical_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_seal_fate",
         "rogue_assassination_turn_the_tables"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 34,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_backstab"
+        ],
+        "apply_effect": {
+          "effect_id": "find_weakness",
+          "name": "Find Weakness",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "physical_damage_taken_pct": 8
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "rogue_assassination_blood_spatter",
       "name": "Blood Spatter",
-      "description": "Increases Eviscerate damage by 10% per rank.",
+      "description": "Increases the damage of Rupture by 12% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 2,
@@ -344,7 +424,7 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_rogue_eviscerate_damage": 0.1
+        "ability_rogue_rupture_damage": 0.12
       },
       "connected_to": [
         "rogue_assassination_quick_recovery"
@@ -353,7 +433,7 @@
     {
       "talent_id": "rogue_assassination_cut_to_the_chase",
       "name": "Cut to the Chase",
-      "description": "Reduces the cooldown of Eviscerate by 1 turn per rank.",
+      "description": "Increases the damage of Eviscerate by 8% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -361,7 +441,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_rogue_eviscerate_cooldown": 1
+        "ability_rogue_eviscerate_damage": 0.08
       },
       "connected_to": [
         "rogue_assassination_hunger_for_blood",
@@ -371,25 +451,38 @@
     {
       "talent_id": "rogue_assassination_turn_the_tables",
       "name": "Turn the Tables",
-      "description": "Increases critical strike chance by 2% per rank.",
+      "description": "Being struck has a 20% chance per rank to turn the tables, granting 15% critical strike chance for 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "crit_chance_physical": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_find_weakness",
         "rogue_assassination_assassination_mastery"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "turn_the_tables",
+          "name": "Turn the Tables",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "crit_chance_physical": 15.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "rogue_assassination_assassins_resolve",
       "name": "Assassin's Resolve",
-      "description": "Grants 35 Attack Power and 5% physical damage.",
+      "description": "While at low health, you take 15% less damage and deal 10% more.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -397,8 +490,7 @@
       "hex_x": -1,
       "hex_y": 6,
       "effects": {
-        "attack_power": 35,
-        "physical_damage": 0.05
+        "low_health_damage_reduction_pct": 0.15
       },
       "connected_to": [
         "rogue_assassination_cut_to_the_chase"
@@ -407,19 +499,31 @@
     {
       "talent_id": "rogue_assassination_assassination_mastery",
       "name": "Envenom",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Your poisons have a 30% chance to erupt when you land a critical strike, dealing 120 Nature damage.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 6,
-      "effects": {
-        "all_damage": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "rogue_assassination_turn_the_tables"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 30,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "envenom_eruption",
+          "name": "Envenom",
+          "effect_type": "dot",
+          "duration": 1,
+          "potency": 120,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      }
     }
   ]
 }
