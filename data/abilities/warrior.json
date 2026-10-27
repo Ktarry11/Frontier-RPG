@@ -462,7 +462,7 @@
       "name": "Bloodrage",
       "resource_type": "rage",
       "cooldown": 4,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Instantly generates Rage, then a bit more each turn briefly.",
@@ -471,7 +471,8 @@
           "rank": 1,
           "level_req": 10,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 100,
+          "mana_restore_pct": 25
         }
       ],
       "target_type": "self",
@@ -480,7 +481,8 @@
         "amount": 20
       },
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "restore_resource_type": "rage"
     },
     {
       "ability_id": "warrior_cleave",
@@ -785,7 +787,7 @@
       "name": "Berserker Rage",
       "resource_type": "rage",
       "cooldown": 6,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Generates Rage and grants immunity to Fear for a short time.",
@@ -794,7 +796,8 @@
           "rank": 1,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 100,
+          "mana_restore_pct": 20
         }
       ],
       "target_type": "self",
@@ -803,7 +806,8 @@
         "amount": 15
       },
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "restore_resource_type": "rage"
     },
     {
       "ability_id": "warrior_whirlwind",

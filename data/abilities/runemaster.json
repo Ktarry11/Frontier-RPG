@@ -162,12 +162,27 @@
           "rank": 1,
           "level_req": 1,
           "cost": 2,
-          "effect_value": 30
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "exclusive_group": "runemaster_weapon_engraving",
-      "_implementation_note": "The stacking-Firebrand-detonate mechanic isn't modeled yet (engine has no per-stack DoT-on-expiry primitive) - implemented as a flat self-buff placeholder. All 5 Weapon Engravings share this gap; revisit as a group once a stacking-proc mechanism exists."
+      "_implementation_note": "The stacking-Firebrand-detonate mechanic isn't modeled yet (engine has no per-stack DoT-on-expiry primitive) - implemented as a flat self-buff placeholder. All 5 Weapon Engravings share this gap; revisit as a group once a stacking-proc mechanism exists.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 30,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "fire_engraving",
+          "name": "Fire Engraving",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 45,
+          "damage_school": "fire",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "runemaster_weapon_engraving_ice",
@@ -185,11 +200,27 @@
           "rank": 1,
           "level_req": 6,
           "cost": 2,
-          "effect_value": 40
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_weapon_engraving"
+      "exclusive_group": "runemaster_weapon_engraving",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 30,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "ice_engraving",
+          "name": "Ice Engraving",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": -15.0
+          },
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "runemaster_runic_tattoos_earth",
@@ -370,11 +401,27 @@
           "rank": 1,
           "level_req": 14,
           "cost": 2,
-          "effect_value": 15
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_weapon_engraving"
+      "exclusive_group": "runemaster_weapon_engraving",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 30,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "earth_engraving",
+          "name": "Earth Engraving",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": -100
+          },
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "runemaster_etching_of_the_leylines",
@@ -475,7 +522,9 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 70
+      },
       "description": "Engrave a fire rune into your palm: your next direct damaging spell deals bonus damage as Fire. Usable while moving.",
       "_source": "Confirmed screenshot: Lvl 4, 'your next direct damaging spell deals 70% bonus damage as Fire. Lasts 6 sec.' Part of the mutually-exclusive Palm Sigil family (Fire/Earth/Arcane/Water/Frost).",
       "target_type": "self",
@@ -484,7 +533,7 @@
           "rank": 1,
           "level_req": 4,
           "cost": 15,
-          "effect_value": 70
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -522,7 +571,10 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 40,
+        "armor": 150
+      },
       "description": "Engrave an earth rune into your palm: your next Magic damage stuns the target. Usable while moving.",
       "_source": "Confirmed screenshot: Lvl 8, 'your next instance of direct Magic damage within 6 sec stuns a target enemy for 4 sec.' Part of the Palm Sigil family.",
       "target_type": "self",
@@ -647,7 +699,10 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 55,
+        "crit_chance_spell": 5.0
+      },
       "description": "Engrave an arcane rune into your palm: your next Magic damage also deals Arcane damage over time and silences. Usable while moving.",
       "_source": "Confirmed screenshot: Lvl 20, 'an additional 5% of the damage dealt as Arcane damage every 3 sec for 12 sec and silences the target for 3 sec.' Part of the Palm Sigil family.",
       "target_type": "self",
@@ -656,7 +711,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 15,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -724,11 +779,20 @@
           "rank": 1,
           "level_req": 26,
           "cost": 2,
-          "effect_value": 2
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_weapon_engraving"
+      "exclusive_group": "runemaster_weapon_engraving",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 30,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        }
+      }
     },
     {
       "ability_id": "runemaster_palm_sigil_water",
@@ -737,7 +801,10 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 40,
+        "mp5": 20
+      },
       "description": "Engrave a water rune into your palm: your next Magic damage drains the target's mana. Usable while moving.",
       "_source": "Confirmed screenshot: Lvl 32, 'drains the target's mana equal to 50% of the damage dealt.' Part of the Palm Sigil family.",
       "target_type": "self",
@@ -746,7 +813,7 @@
           "rank": 1,
           "level_req": 32,
           "cost": 15,
-          "effect_value": 50
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -760,7 +827,10 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 50,
+        "haste": 10.0
+      },
       "description": "Engrave a frost rune into your palm: your next Magic damage deals extra Frost damage and slows the target. Usable while moving.",
       "_source": "Confirmed screenshot: Lvl 34, '30% of the damage dealt as Frost damage and slow the enemy's movement speed by 70% for 8 sec.' Part of the Palm Sigil family.",
       "target_type": "self",
@@ -769,7 +839,7 @@
           "rank": 1,
           "level_req": 34,
           "cost": 15,
-          "effect_value": 30
+          "effect_value": 100
         }
       ],
       "icon_id": null,

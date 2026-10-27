@@ -629,7 +629,7 @@
       "name": "Life Tap",
       "resource_type": "health",
       "cooldown": 3,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Converts Health into Mana.",
@@ -638,7 +638,8 @@
           "rank": 1,
           "level_req": 6,
           "cost": 80,
-          "effect_value": 100
+          "effect_value": 100,
+          "mana_restore_pct": 20
         }
       ],
       "target_type": "self",

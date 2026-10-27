@@ -433,7 +433,10 @@
       "cooldown": 0,
       "effect_type": "buff",
       "duration": 30,
-      "stat_mods": {},
+      "stat_mods": {
+        "healing_power_pct": 12.0,
+        "mp5": 18
+      },
       "description": "While active, doubles the damage dealt and mana gained from consuming Scattered Stars. Only 1 Aspect can be active at a time.",
       "_source": "Confirmed screenshot: Lvl 6, 4 Mana, instant, 10 sec cooldown, 'Doubles the damage dealt and mana gained from consuming Scattered Stars.' Part of the mutually-exclusive Aspect family (Moonwell/Huntress/Stars/Warden/Cosmos), shares its own cooldown separate from Aegis.",
       "target_type": "self",
@@ -919,11 +922,26 @@
           "rank": 1,
           "level_req": 4,
           "cost": 20,
-          "effect_value": 25
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "starcaller_aspect"
+      "exclusive_group": "starcaller_aspect",
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 35,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "scattered_stars",
+          "name": "Scattered Stars",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 45,
+          "damage_school": "arcane",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "starcaller_aspect_of_the_warden",
@@ -941,11 +959,17 @@
           "rank": 1,
           "level_req": 20,
           "cost": 20,
-          "effect_value": 10
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "starcaller_aspect"
+      "exclusive_group": "starcaller_aspect",
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 25,
+        "icd": 1,
+        "extra_attack": 1
+      }
     },
     {
       "ability_id": "starcaller_fan_of_knives",
@@ -1259,11 +1283,28 @@
           "rank": 1,
           "level_req": 10,
           "cost": 20,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "starcaller_aspect"
+      "exclusive_group": "starcaller_aspect",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 35,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "cosmic_slow",
+          "name": "Cosmic Drag",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "haste": -8.0
+          },
+          "on_target": true,
+          "real_time_seconds": null,
+          "max_stacks": 3
+        }
+      }
     },
     {
       "ability_id": "starcaller_huntress_saber",

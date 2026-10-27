@@ -260,6 +260,7 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
+                 restore_resource_type=None,
                  max_targets=None, force_proc_group=None, summon_pet_template=None):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
@@ -450,6 +451,9 @@ class Ability:
         # "dot"/"spell_dot" branch of _apply_effect, which reads the
         # caster's current stack count before building the DoT's duration.
         self.consumes_stacks_of = consumes_stacks_of
+        #: Pool named by a restore_resource ability, overriding the
+        #: caster's primary one. See the restore_resource branch.
+        self.restore_resource_type = restore_resource_type
         self.duration_per_stack = duration_per_stack
 
         # True marks this ability's DEBUFF as a real stun/incapacitate -
@@ -2746,7 +2750,14 @@ class Ability:
             # the churn for one ability.
             if not hasattr(caster, "gain_resource") or not hasattr(caster, "get_resource_max"):
                 return f"{caster.name} has no resource pool to restore."
-            resource_type = getattr(caster, "resource_type", "mana")
+            # restore_resource_type lets an ability name the pool explicitly
+            # instead of always using the caster's PRIMARY one. Needed for
+            # secondary pools: Cultist's Sanity Tap restores Insanity, not
+            # Mana, and reading caster.resource_type would have silently
+            # refilled the wrong bar. Absent (the default, and every use
+            # before this) keeps the primary-pool behaviour exactly.
+            resource_type = (self.restore_resource_type
+                             or getattr(caster, "resource_type", "mana"))
             max_resource = caster.get_resource_max(resource_type)
             restore_amt = int(max_resource * (self.mana_restore_pct / 100.0))
             restored = caster.gain_resource(resource_type, restore_amt)
@@ -2922,6 +2933,7 @@ def _ability_from_data(entry):
         target_type=entry.get("target_type"),
         buff_scope=entry.get("buff_scope"),
         requires_talent=entry.get("requires_talent"),
+        restore_resource_type=entry.get("restore_resource_type"),
         is_instant=entry.get("is_instant", False),
         consumes_hot=entry.get("consumes_hot", False),
         consumable_hot_ids=entry.get("consumable_hot_ids"),

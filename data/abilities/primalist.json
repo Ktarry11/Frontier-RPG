@@ -419,7 +419,7 @@
       "name": "Therazane's Rage",
       "resource_type": "mana",
       "cooldown": 6,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 2,
       "stat_mods": {},
       "description": "Generate a burst of Mana and Rage, then continue generating both for a short time.",
@@ -430,7 +430,8 @@
           "rank": 1,
           "level_req": 10,
           "cost": 0,
-          "effect_value": 20
+          "effect_value": 20,
+          "mana_restore_pct": 25
         }
       ],
       "generates": {
@@ -438,7 +439,8 @@
         "amount": 20
       },
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "restore_resource_type": "rage"
     },
     {
       "ability_id": "primalist_heart_of_the_mountain",

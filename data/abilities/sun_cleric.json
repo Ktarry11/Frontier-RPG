@@ -196,6 +196,16 @@
       "generates": {
         "resource": "solar_power",
         "amount": 1
+      },
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "solar_power",
+          "amount": 2
+        },
+        "smart_heal": 90
       }
     },
     {
@@ -205,7 +215,9 @@
       "cooldown": 0,
       "effect_type": "buff",
       "duration": 30,
-      "stat_mods": {},
+      "stat_mods": {
+        "mp5": 15
+      },
       "description": "Generate Solar Power periodically, and direct ability damage or healing regenerates missing mana. Fulfillment halves the mana cost of all spells and abilities. Only 1 Vow active at a time.",
       "_source": "Confirmed screenshot: 9 Mana, instant, 'generate 2 Solar Power every 2 sec and direct ability damage or healing now regenerates 5% of your missing mana plus 10. Fulfillment: Halves the mana cost of all spells and abilities.' Part of the Vow family.",
       "target_type": "self",
@@ -222,6 +234,15 @@
       "generates": {
         "resource": "solar_power",
         "amount": 2
+      },
+      "proc": {
+        "trigger": "on_damage_or_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "solar_power",
+          "amount": 1
+        }
       }
     },
     {
@@ -325,7 +346,7 @@
           "rank": 1,
           "level_req": 2,
           "cost": 9,
-          "effect_value": 25
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -333,6 +354,16 @@
       "generates": {
         "resource": "solar_power",
         "amount": 2
+      },
+      "proc": {
+        "trigger": "on_damage_or_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "solar_power",
+          "amount": 2
+        },
+        "bonus_pct": 0.12
       }
     },
     {
@@ -547,6 +578,19 @@
       "generates": {
         "resource": "solar_power",
         "amount": 1
+      },
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "solar_power",
+          "amount": 2
+        },
+        "splash_heal": {
+          "pct": 0.2,
+          "max_targets": 2
+        }
       }
     },
     {
@@ -644,6 +688,25 @@
       "generates": {
         "resource": "solar_power",
         "amount": 1
+      },
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "solar_power",
+          "amount": 2
+        },
+        "apply_effect": {
+          "effect_id": "eclipse_burn",
+          "name": "Eclipse Burn",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 40,
+          "damage_school": "holy",
+          "on_target": true,
+          "real_time_seconds": null
+        }
       }
     },
     {

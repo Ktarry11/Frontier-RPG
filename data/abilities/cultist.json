@@ -204,7 +204,7 @@
       "name": "Sanity Tap",
       "resource_type": "insanity",
       "cooldown": 0,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Regain your sanity, reducing Insanity and restoring a portion of missing mana. Usable while casting or channeling.",
@@ -215,10 +215,12 @@
           "rank": 1,
           "level_req": 14,
           "cost": 20,
-          "effect_value": 20
+          "effect_value": 20,
+          "mana_restore_pct": 25
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "restore_resource_type": "mana"
     },
     {
       "ability_id": "cultist_gaze_of_cthun",
@@ -280,11 +282,27 @@
           "rank": 1,
           "level_req": 4,
           "cost": 20,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "cultist_presence"
+      "exclusive_group": "cultist_presence",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "cthun_haste",
+          "name": "Presence of C'Thun",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": 15.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "cultist_hammer_of_twilight",
@@ -689,11 +707,26 @@
           "rank": 1,
           "level_req": 30,
           "cost": 26,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "cultist_presence"
+      "exclusive_group": "cultist_presence",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "yshaarj_curse",
+          "name": "Cursed Ground",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 55,
+          "damage_school": "shadow",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "cultist_dreadnought_shield",
@@ -787,12 +820,18 @@
           "rank": 1,
           "level_req": 20,
           "cost": 26,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "exclusive_group": "cultist_presence",
-      "_implementation_note": "Real pet-summon proc - no pet entity system exists yet, same gap as every other class's tentacle/beast/elemental summons this session."
+      "_implementation_note": "Real pet-summon proc - no pet entity system exists yet, same gap as every other class's tentacle/beast/elemental summons this session.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "extra_attack": 1
+      }
     },
     {
       "ability_id": "cultist_whispers_of_nzoth",
@@ -1021,11 +1060,26 @@
           "rank": 1,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 30
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "cultist_presence"
+      "exclusive_group": "cultist_presence",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 30,
+        "icd": 0,
+        "bonus_pct": 0.2,
+        "apply_effect": {
+          "effect_id": "yogg_shred",
+          "name": "Crazed",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": "{'armor': -120}",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "cultist_dark_infusion",

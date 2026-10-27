@@ -1057,7 +1057,7 @@
       "name": "Enrage",
       "resource_type": "rage",
       "cooldown": 6,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Requires Bear or Dire Bear Form. Instantly generates Rage.",
@@ -1066,7 +1066,8 @@
           "rank": 1,
           "level_req": 16,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 100,
+          "mana_restore_pct": 25
         }
       ],
       "target_type": "self",
@@ -1079,14 +1080,15 @@
         "amount": 20
       },
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "restore_resource_type": "rage"
     },
     {
       "ability_id": "druid_innervate",
       "name": "Innervate",
       "resource_type": "mana",
       "cooldown": 8,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Grants the target a large burst of Mana.",
@@ -1095,7 +1097,8 @@
           "rank": 1,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 100,
+          "mana_restore_pct": 30
         }
       ],
       "target_type": "ally",

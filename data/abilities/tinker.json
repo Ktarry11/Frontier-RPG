@@ -1340,7 +1340,7 @@
       "name": "Build: Battery Reclaimer",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Instantly restores mana to your entire party.",
@@ -1353,7 +1353,8 @@
           "rank": 1,
           "level_req": 28,
           "cost": 0,
-          "effect_value": 120
+          "effect_value": 120,
+          "mana_restore_pct": 25
         }
       ],
       "icon_id": null
