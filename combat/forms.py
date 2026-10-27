@@ -78,6 +78,28 @@ FORMS = {
         "description": "Increases Spell Power against Shadow damage.",
         "stat_mods": {"spell_power": 30},
     },
+    # Cultist's Dreadnought capstone, Strength of the Black Empire: "Shed
+    # your mortal form into a void monstrosity, reducing damage taken." It
+    # was authored as unlock_mechanic: "void_monstrosity_form", a key no
+    # engine code read, so the class's only transform did nothing - and
+    # Cultist was the one form-flavoured class with no entry here at all,
+    # which is why require_form was dead for it.
+    #
+    # A tank transform, so it keeps Mana (Insanity remains the secondary
+    # resource) and trades damage for durability. damage_taken_pct is a
+    # FRACTION in a stat_mods dict read through the status path, matching
+    # every other ability that uses it.
+    "void_monstrosity": {
+        "name": "Void Monstrosity",
+        "class": "Cultist",
+        "level_req": 40,  # talent-gated capstone
+        "resource_type": ResourceType.MANA,
+        "description": (
+            "Sheds your mortal shape for something from the deep. Greatly "
+            "increases Armor and Stamina and reduces damage taken."
+        ),
+        "stat_mods": {"armor": 160, "stamina": 35, "damage_taken_pct": -0.10},
+    },
     # Venomancer - Druid-equivalent form system per Kyle ("basically a
     # Druid... Spider is energy, beetle is rage, Rot and Vizier are caster
     # dps and healer... think of it like Cat / Bear / Moonkin / Tree of

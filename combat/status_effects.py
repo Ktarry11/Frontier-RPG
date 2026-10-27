@@ -987,6 +987,104 @@ class StatusEffectMixin:
                 messages.append(f"{effect.name} heals {self.name} for {heal_flat}!")
                 fired_something = True
 
+            # ── payloads added for the unlock_mechanic pass ───────────────
+            #
+            # 38 talents across six classes were authored as
+            # `unlock_mechanic: "<some_name>"`, a key no engine code ever
+            # read, so all 38 did nothing. Read together they are not 38
+            # bespoke systems - they are a handful of mechanics wearing
+            # different names, and these four payloads cover most of them.
+            # Kyle: "I'd rather build the unique things that make these
+            # classes different."
+
+            # reset_cooldown: knock turns off a named ability, or reset it
+            # outright. The single most-requested mechanic in that set -
+            # Cultist's Dark Revelation, Primalist's Aftershock and Mountain
+            # Giant, Sun Cleric's Solar Concord, Pendant of the Sun and It's
+            # Always Sunny all describe exactly this. `turns` omitted means a
+            # full reset; a list of ability ids is accepted so one proc can
+            # refresh a whole kit.
+            reset = proc.get("reset_cooldown")
+            if reset and hasattr(self, "ability_book"):
+                spec = reset if isinstance(reset, dict) else {"ability": reset}
+                ids = spec.get("ability") or spec.get("abilities") or []
+                if isinstance(ids, str):
+                    ids = [ids]
+                turns = spec.get("turns")
+                hit = []
+                for _ab in self.ability_book.get_all_abilities():
+                    if _ab.ability_id not in ids:
+                        continue
+                    if not getattr(_ab, "turns_remaining", 0):
+                        continue
+                    _ab.turns_remaining = (0 if turns is None
+                                           else max(0, _ab.turns_remaining - turns))
+                    hit.append(_ab.name)
+                if hit:
+                    messages.append(
+                        f"{effect.name} refreshes {', '.join(hit)} for {self.name}!")
+                    fired_something = True
+
+            # leech_pct: heal for a fraction of the triggering amount, which
+            # is what every "damage done also heals you" mechanic in that set
+            # wants (Cultist's Blade of Yogg-Saron, Sun Cleric's Adjudicator).
+            # With "smart": true it heals the worst-off ally instead of the
+            # carrier, which is how Blade of Yogg-Saron is actually worded.
+            leech = proc.get("leech_pct")
+            if leech and amount:
+                spec = leech if isinstance(leech, dict) else {"pct": leech}
+                healed = max(1, int(amount * spec.get("pct", 0)))
+                recipient = self
+                if spec.get("smart"):
+                    allies = getattr(engine, "allies", None) if engine is not None else None
+                    pool = [a for a in (allies or [self])
+                            if a is not None and getattr(a, "is_alive", lambda: True)()] or [self]
+                    recipient = min(pool, key=lambda a: getattr(a, "current_health", 0)
+                                    / max(1, getattr(a, "health", 1)))
+                if hasattr(recipient, "heal"):
+                    recipient.heal(healed)
+                    messages.append(
+                        f"{effect.name} drains {healed} health to {recipient.name}!")
+                    fired_something = True
+
+            # shield_pct: an absorb shield sized from the triggering amount,
+            # rather than from max health as absorb_pct_max_health does. Sun
+            # Cleric's The Chosen ("Illumination shields you for a percentage
+            # of the amount healed") is the shape this exists for.
+            shield = proc.get("shield_pct")
+            if shield and amount and hasattr(self, "apply_status_effect"):
+                spec = shield if isinstance(shield, dict) else {"pct": shield}
+                size = max(1, int(amount * spec.get("pct", 0)))
+                self.apply_status_effect(StatusEffect(
+                    effect_id=spec.get("effect_id", f"{effect.effect_id}_shield"),
+                    name=spec.get("name", effect.name),
+                    effect_type=EffectType.BUFF,
+                    duration=spec.get("duration", 3),
+                    absorb=size, real_time_seconds=None,
+                ))
+                messages.append(f"{effect.name} shields {self.name} for {size}!")
+                fired_something = True
+
+            # splash_heal: spread a fraction of the triggering heal to the
+            # OTHER living allies - Sun Cleric's Heat Wave and Sunlight, which
+            # smart_heal cannot express because it only ever picks one target.
+            splash = proc.get("splash_heal")
+            if splash and amount and engine is not None:
+                spec = splash if isinstance(splash, dict) else {"pct": splash}
+                share = max(1, int(amount * spec.get("pct", 0)))
+                pool = [a for a in (getattr(engine, "allies", None) or [])
+                        if a is not None and a is not self
+                        and getattr(a, "is_alive", lambda: True)()]
+                pool = pool[:spec.get("max_targets", 3)]
+                for ally in pool:
+                    if hasattr(ally, "heal"):
+                        ally.heal(share)
+                if pool:
+                    messages.append(
+                        f"{effect.name} splashes {share} healing to "
+                        f"{', '.join(a.name for a in pool)}!")
+                    fired_something = True
+
             # grant_resource: e.g. Vow of Radiance's "+2 Solar Power".
             # Uses the same gain_resource() every builder/spender ability
             # already goes through, so caps (see Character.
