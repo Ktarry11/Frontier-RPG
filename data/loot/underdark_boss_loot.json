@@ -1,0 +1,1140 @@
+{
+  "_notes": "Crystalline Underdark boss / named-rare loot (2026-10-27). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make). All 18 weapon types appear exactly once across this file; armour is ten pieces apiece across cloth/leather/mail/plate. Checked by tools/qa_underdark_content.py.",
+  "Hoarfang": [
+    {
+      "name": "Glacier-Jaw Pike",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Ice in the sockets, and the sockets are not his.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 20,
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 89,
+      "weapon_damage_max": 121,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Hoarfang's Matted Pelt",
+      "slot": "chest",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Four inches thick, and frozen through all four.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 91
+    },
+    {
+      "name": "Upper Dark Stalker's Treads",
+      "slot": "feet",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "He came down here because something colder came down first.",
+      "primary_stats": {
+        "agility": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 73
+    },
+    {
+      "name": "Fang-Chipped Torc",
+      "slot": "neck",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Bone, with one tooth missing and nothing to show where it went.",
+      "primary_stats": {
+        "stamina": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Frozen Cartographer": [
+    {
+      "name": "Surveyor's Scribing Knife",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "For ruling lines, which is all it has ever been used for.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4,
+        "spell_power": 5.1
+      },
+      "weapon_damage_min": 66,
+      "weapon_damage_max": 89,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Expedition Cartographer's Coat",
+      "slot": "chest",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Pockets still full of chalk. The chalk is still dry.",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 45
+    },
+    {
+      "name": "Frostbitten Dividers",
+      "slot": "off_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Set to a width nobody down here can account for.",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 6.6,
+        "mp5": 1.3
+      }
+    },
+    {
+      "name": "Unfinished Survey Bracers",
+      "slot": "wrist",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The last entry reads: the readings are wrong and I am going on.",
+      "primary_stats": {
+        "intellect": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 22
+    }
+  ],
+  "Latticeborn": [
+    {
+      "name": "Repeating Lattice Maul",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Swung once. The second swing arrives on its own.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "intellect": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {
+        "spell_power": 14.7
+      },
+      "weapon_damage_min": 91,
+      "weapon_damage_max": 124,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Latticeborn Carapace",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Grown in exact rows, which nothing alive bothers to do.",
+      "primary_stats": {
+        "strength": 8,
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 150
+    },
+    {
+      "name": "Pattern-Cut Greaves",
+      "slot": "legs",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The facets repeat every eleven inches, without exception.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 226
+    },
+    {
+      "name": "First Iteration Band",
+      "slot": "ring",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "One of a great many, and all of them identical.",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Capgorger": [
+    {
+      "name": "Gorger's Rending Claw",
+      "slot": "main_hand",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "It eats the groves it lives in, which is a poor long-term plan.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "agility": 15
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 69,
+      "weapon_damage_max": 94,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Cap-Gorged Hide Vest",
+      "slot": "chest",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "Distended, and still faintly warm in the middle.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 96
+    },
+    {
+      "name": "Sporefall Canopy Hood",
+      "slot": "head",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "Cut from a cap big enough to shelter under.",
+      "primary_stats": {
+        "agility": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 72
+    },
+    {
+      "name": "Spore-Light Pendant",
+      "slot": "neck",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "Glows a little in the dark, which down here is no distinction.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.0
+      }
+    }
+  ],
+  "The Thousandth Shard": [
+    {
+      "name": "Wand of the Counted Facet",
+      "slot": "main_hand",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "The Codex counted to nine hundred and ninety-nine and stopped.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.6,
+        "crit_chance_spell": 0.2
+      },
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Thousandfold Shardmail",
+      "slot": "chest",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Every scale the same size. Every single one.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 159
+    },
+    {
+      "name": "Enumerator's Gauntlets",
+      "slot": "hands",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "For handling things that object to being handled.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2
+      },
+      "armor_type": "plate",
+      "armor_value": 119
+    },
+    {
+      "name": "Shard-Count Signet",
+      "slot": "ring",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Engraved with a number that is one short.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.8,
+        "mp5": 0.8
+      }
+    }
+  ],
+  "Marsh-Mother Ysmil": [
+    {
+      "name": "Marsh-Mother's Lumen Stave",
+      "slot": "main_hand",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Lit from the inside, the way everything in her water is.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 19,
+        "spirit": 19
+      },
+      "secondary_stats": {
+        "healing_power": 20.6
+      },
+      "weapon_damage_min": 39,
+      "weapon_damage_max": 53,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Brood-Tender's Scale Kilt",
+      "slot": "legs",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "She mothered something. It was not her own.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 13.4,
+        "mp5": 2.9
+      },
+      "armor_type": "mail",
+      "armor_value": 159
+    },
+    {
+      "name": "Drowned-Light Slippers",
+      "slot": "feet",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Never dry, and never quite wet.",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 24
+    },
+    {
+      "name": "Ysmil's Clutch-Brooch",
+      "slot": "trinket",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Warm. Pulses, on a cycle, roughly with the Lumen.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "mp5": 0.8
+      }
+    }
+  ],
+  "Archivist Thelun, Unlisted": [
+    {
+      "name": "Thelun's Unlisted Tome",
+      "slot": "off_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The Codex burned their copy. He was not using their copy.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 5.5,
+        "mp5": 1.1
+      },
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 0.0
+    },
+    {
+      "name": "Robes of the Struck Entry",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The Codex sigil unpicked from the breast, badly, in a hurry.",
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 5.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 51
+    },
+    {
+      "name": "Marginalia Shoulderpads",
+      "slot": "shoulder",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Covered edge to edge in a hand getting smaller and faster.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "mp5": 1.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 38
+    },
+    {
+      "name": "Expunged Archivist's Band",
+      "slot": "ring",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "His name was filed off it. The groove is still legible.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2
+      }
+    }
+  ],
+  "What Walks in the Dim": [
+    {
+      "name": "Unlit Cleaver",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Nobody has described this. Several people have tried.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 26
+      },
+      "secondary_stats": {
+        "hit_rating": 2.0,
+        "crit_chance_physical": 2.0
+      },
+      "weapon_damage_min": 98,
+      "weapon_damage_max": 133,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Dim-Walker's Lightless Mantle",
+      "slot": "shoulder",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The Lumen does not land on it. It simply does not.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "defense_rating": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 183
+    },
+    {
+      "name": "Hide of the Unseen Thing",
+      "slot": "legs",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Taken off something that was never properly looked at.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 14.7
+      },
+      "armor_type": "leather",
+      "armor_value": 102
+    },
+    {
+      "name": "Charm Against the Dark",
+      "slot": "trinket",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Codex issue. Not Codex-approved. Everyone in the Dim carries one.",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Half-Written": [
+    {
+      "name": "Draft Blade",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The edge is specified. The rest is not.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "spell_power": 7.3,
+        "hit_rating": 0.4
+      },
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Vestments of the Unspecified",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Cut for a body of no stated dimensions.",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "hit_rating": 0.6,
+        "spell_power": 8.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 51
+    },
+    {
+      "name": "Half-Written Girdle",
+      "slot": "waist",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The buckle is described in detail. Nothing else is.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 7.3,
+        "spell_penetration": 3.1
+      },
+      "armor_type": "leather",
+      "armor_value": 51
+    },
+    {
+      "name": "Revision Loop",
+      "slot": "ring",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Worn smooth in a way that suggests it has been made more than once.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.9,
+        "crit_chance_spell": 0.2
+      }
+    }
+  ],
+  "Shardmaw": [
+    {
+      "name": "Shardmaw's Facet-Axe",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Grown, not forged, and better than forged.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.4
+      },
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Druse-Plated Bulwark",
+      "slot": "off_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "A sheet of the shell, still pointing inward.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 11
+      },
+      "armor_value": 81,
+      "block_value": 102
+    },
+    {
+      "name": "Maw-Scarred Pauldrons",
+      "slot": "shoulder",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Chewed at, and the chew marks have themselves crystallised.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 183
+    },
+    {
+      "name": "Light-Swallower's Collar",
+      "slot": "neck",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Holds no reflection at all, at any angle.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.5
+      }
+    }
+  ],
+  "The Prism Warden": [
+    {
+      "name": "Warden's Refracting Crossbow",
+      "slot": "ranged",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Fires one bolt. Three arrive, and two of them are not there.",
+      "weapon_type": "crossbow",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 5.5,
+        "spell_penetration": 2.3
+      },
+      "weapon_damage_min": 61,
+      "weapon_damage_max": 83,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Prismbound Hauberk",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Shows a different colour to every person looking at it.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 14.7
+      },
+      "armor_type": "mail",
+      "armor_value": 163
+    },
+    {
+      "name": "Total Reflection Bracers",
+      "slot": "wrist",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Nothing gets out, which is a strange property for a bracer.",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 4.9,
+        "mp5": 1.0
+      },
+      "armor_type": "leather",
+      "armor_value": 51
+    },
+    {
+      "name": "Warden's Splitting Lens",
+      "slot": "trinket",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "One lens. More than one image, and they disagree.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.9,
+        "crit_chance_spell": 0.2
+      }
+    }
+  ],
+  "Heartgrown": [
+    {
+      "name": "Heartgrown Crushing Hammer",
+      "slot": "main_hand",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "The core of the geode grew a fist. This is the fist.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 10.5,
+        "mp5": 2.3
+      },
+      "weapon_damage_min": 74,
+      "weapon_damage_max": 100,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Core-Grown Breastplate",
+      "slot": "chest",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Still faintly growing, which the Codex say is fine.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 0.7
+      },
+      "armor_type": "plate",
+      "armor_value": 250
+    },
+    {
+      "name": "Cavity-Walker's Sabatons",
+      "slot": "feet",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "For standing in the only part of the Geode with any room left.",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 125
+    },
+    {
+      "name": "The Last Open Space",
+      "slot": "trinket",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "A hollow bead. It is the only hollow thing left in there.",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Index": [
+    {
+      "name": "Catalogue-Totem of the Stacks",
+      "slot": "main_hand",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "A fruiting body grown in the shape of a thing it saw held.",
+      "weapon_type": "totem",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "mp5": 0.6
+      },
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 0.0
+    },
+    {
+      "name": "Index-Grown Vestment",
+      "slot": "chest",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Ranked and ordered, like everything it makes.",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 10.0,
+        "mp5": 2.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 52
+    },
+    {
+      "name": "Cross-Reference Bindings",
+      "slot": "wrist",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Two straps, each referring to the other.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 7.0,
+        "mp5": 1.5
+      },
+      "armor_type": "leather",
+      "armor_value": 52
+    },
+    {
+      "name": "Entry Under Your Name",
+      "slot": "neck",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "It has one. You have not told it anything.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 4.0,
+        "hit_rating": 0.2
+      }
+    }
+  ],
+  "The Second Copy": [
+    {
+      "name": "Duplicate Longbow",
+      "slot": "ranged",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "An exact copy of a bow. Exact, except for the parts it guessed.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2
+      },
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Twice-Grown Scale Vest",
+      "slot": "chest",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Every scale has a twin, and the twins are drifting apart.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 15.1
+      },
+      "armor_type": "leather",
+      "armor_value": 104
+    },
+    {
+      "name": "Copyist's Mail Coif",
+      "slot": "head",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Rings in ranks of forty. Then thirty-nine. Then forty.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4
+      },
+      "armor_type": "mail",
+      "armor_value": 125
+    },
+    {
+      "name": "Repeated Error Band",
+      "slot": "ring",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "The flaw in it is reproduced perfectly.",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Scriptor": [
+    {
+      "name": "Scriptor's Nib-Gun",
+      "slot": "ranged",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Writes at range, in a hand nobody down here can read.",
+      "weapon_type": "gun",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 5.4,
+        "mp5": 1.2
+      },
+      "weapon_damage_min": 64,
+      "weapon_damage_max": 87,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Scrivener's Pressed Robes",
+      "slot": "chest",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Flattened, smoothed, and ruled into columns.",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 8.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 53
+    },
+    {
+      "name": "Fair Copy Handguards",
+      "slot": "hands",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "For work that must not be smudged.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 7.2,
+        "mp5": 1.5
+      },
+      "armor_type": "leather",
+      "armor_value": 53
+    },
+    {
+      "name": "Struck-Through Girdle",
+      "slot": "waist",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "A single line drawn through it, end to end.",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3
+      },
+      "armor_type": "mail",
+      "armor_value": 85
+    }
+  ],
+  "Errata": [
+    {
+      "name": "Thrown Correction",
+      "slot": "ranged",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "A wedge of hardened pulp. It is not the right shape for anything.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3,
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 64,
+      "weapon_damage_max": 87,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Mantle of Compounding Error",
+      "slot": "shoulder",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Grown from everything the Bloom got wrong and kept.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "attack_power": 11.6
+      },
+      "armor_type": "mail",
+      "armor_value": 128
+    },
+    {
+      "name": "Uncorrected Legguards",
+      "slot": "legs",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "One leg is longer. Nothing has been done about it.",
+      "primary_stats": {
+        "strength": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 0.8,
+        "crit_chance_physical": 0.8
+      },
+      "armor_type": "plate",
+      "armor_value": 257
+    },
+    {
+      "name": "Erratum Seal",
+      "slot": "ring",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Marks a mistake. Does not say which one.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "spell_power": 6.2,
+        "spell_penetration": 2.6
+      }
+    }
+  ],
+  "The Deep Bloom": [
+    {
+      "name": "Greatblade of What It Learned",
+      "slot": "main_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "It has never seen a sword. It has read about several.",
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 25,
+        "stamina": 32
+      },
+      "secondary_stats": {
+        "defense_rating": 1.9
+      },
+      "weapon_damage_min": 104,
+      "weapon_damage_max": 141,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Heart-of-the-Network Harness",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Threads run out of it in every direction and do not end.",
+      "primary_stats": {
+        "strength": 9,
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 263
+    },
+    {
+      "name": "Shroud of the Reading Thing",
+      "slot": "back",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Thin as paper, and it has your shape already.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "mp5": 0.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 21
+    },
+    {
+      "name": "The Whole Network Answers",
+      "slot": "trinket",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Hold it and something very large pays attention.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.4
+      }
+    }
+  ]
+}

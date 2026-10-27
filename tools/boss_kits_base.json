@@ -8540,5 +8540,746 @@
    },
    "self_only": true
   }
+ ],
+ "hoarfang": [
+  {
+   "name": "Jaws of the Upper Dark",
+   "kind": "damage",
+   "amount": 78,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Avalanche Lunge",
+   "kind": "damage",
+   "amount": 94,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Thickening Pelt",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 68,
+    "attack_power": 26
+   },
+   "self_only": true
+  },
+  {
+   "name": "Breath of the Glacier",
+   "kind": "dot",
+   "amount": 24,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 5,
+   "is_aoe": true
+  }
+ ],
+ "the_frozen_cartographer": [
+  {
+   "name": "Surveyor's Rod",
+   "kind": "damage",
+   "amount": 76,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Fix Your Position",
+   "kind": "debuff",
+   "amount": 28,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 4,
+   "stat_mods": {
+    "agility": -32,
+    "dodge_rating": -14
+   }
+  },
+  {
+   "name": "Annotate the Living",
+   "kind": "dot",
+   "amount": 26,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 5
+  },
+  {
+   "name": "The Map Is Not Finished",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 4,
+   "stat_mods": {
+    "spell_power": 44
+   },
+   "self_only": true
+  }
+ ],
+ "latticeborn": [
+  {
+   "name": "Lattice Fist",
+   "kind": "damage",
+   "amount": 86,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Lattice Fist",
+   "kind": "damage",
+   "amount": 86,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Repeating Growth",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 80,
+    "spell_power": 34
+   },
+   "self_only": true
+  },
+  {
+   "name": "Shatter the Pattern",
+   "kind": "damage",
+   "amount": 108,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "arcane",
+   "is_aoe": true,
+   "hp_below": 0.4
+  }
+ ],
+ "capgorger": [
+  {
+   "name": "Gorging Bite",
+   "kind": "damage",
+   "amount": 86,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Swallow the Grove",
+   "kind": "damage",
+   "amount": 100,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "nature",
+   "is_aoe": true
+  },
+  {
+   "name": "Bloated on Spore-Light",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 5,
+   "stat_mods": {
+    "stamina": 54,
+    "armor": 50
+   },
+   "self_only": true
+  },
+  {
+   "name": "Regurgitate",
+   "kind": "dot",
+   "amount": 28,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 5,
+   "is_aoe": true
+  }
+ ],
+ "the_thousandth_shard": [
+  {
+   "name": "Thousandth Facet",
+   "kind": "damage",
+   "amount": 90,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Thousandth Facet",
+   "kind": "damage",
+   "amount": 90,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Count Again",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 76,
+    "spell_power": 40
+   },
+   "self_only": true
+  },
+  {
+   "name": "Nine Hundred and Ninety-Nine",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 8,
+   "mana_cost": 0,
+   "school": "arcane",
+   "is_aoe": true,
+   "hp_below": 0.35
+  }
+ ],
+ "marsh_mother_ysmil": [
+  {
+   "name": "Mother's Grasp",
+   "kind": "damage",
+   "amount": 88,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Drowning Light",
+   "kind": "dot",
+   "amount": 30,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 5,
+   "is_aoe": true
+  },
+  {
+   "name": "Call the Brood",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 5,
+   "stat_mods": {
+    "attack_power": 34,
+    "armor": 44
+   }
+  },
+  {
+   "name": "Pull Beneath",
+   "kind": "damage",
+   "amount": 106,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "archivist_thelun": [
+  {
+   "name": "Pen of the Unlisted",
+   "kind": "damage",
+   "amount": 84,
+   "cooldown": 0,
+   "mana_cost": 14,
+   "school": "arcane"
+  },
+  {
+   "name": "Expunge the Entry",
+   "kind": "debuff",
+   "amount": 32,
+   "cooldown": 4,
+   "mana_cost": 18,
+   "school": "arcane",
+   "duration": 4,
+   "stat_mods": {
+    "spell_power": -40,
+    "armor": -34
+   }
+  },
+  {
+   "name": "Marginalia",
+   "kind": "dot",
+   "amount": 30,
+   "cooldown": 5,
+   "mana_cost": 16,
+   "school": "shadow",
+   "duration": 5
+  },
+  {
+   "name": "I Was Right",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 20,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "spell_power": 56,
+    "crit_chance_spell": 8
+   },
+   "self_only": true
+  }
+ ],
+ "what_walks_in_the_dim": [
+  {
+   "name": "Something Taller Than You",
+   "kind": "damage",
+   "amount": 94,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "shadow"
+  },
+  {
+   "name": "Unlit Mauling",
+   "kind": "damage",
+   "amount": 108,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "The Lumen Cannot See Here",
+   "kind": "debuff",
+   "amount": 30,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 4,
+   "stat_mods": {
+    "hit_rating": -26,
+    "crit_chance_physical": -8
+   }
+  },
+  {
+   "name": "Closer Than It Was",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 5,
+   "stat_mods": {
+    "attack_power": 46,
+    "dodge_rating": 16
+   },
+   "self_only": true
+  }
+ ],
+ "the_half_written": [
+  {
+   "name": "Unfinished Sentence",
+   "kind": "damage",
+   "amount": 82,
+   "cooldown": 0,
+   "mana_cost": 14,
+   "school": "arcane"
+  },
+  {
+   "name": "Revision",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 5,
+   "mana_cost": 22,
+   "school": "shadow"
+  },
+  {
+   "name": "Rewrite in Place",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 18,
+   "school": "arcane",
+   "duration": 4,
+   "stat_mods": {
+    "spell_power": 52,
+    "stamina": 40
+   },
+   "self_only": true
+  },
+  {
+   "name": "It Was Never Specified",
+   "kind": "dot",
+   "amount": 32,
+   "cooldown": 6,
+   "mana_cost": 20,
+   "school": "shadow",
+   "duration": 5,
+   "is_aoe": true
+  }
+ ],
+ "shardmaw": [
+  {
+   "name": "Maw of Facets",
+   "kind": "damage",
+   "amount": 96,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Swallow Light",
+   "kind": "debuff",
+   "amount": 32,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 4,
+   "stat_mods": {
+    "spell_power": -42,
+    "mp5": -12
+   }
+  },
+  {
+   "name": "Grind the Druse",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Lined With Teeth",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 78,
+    "attack_power": 40
+   },
+   "self_only": true
+  }
+ ],
+ "the_prism_warden": [
+  {
+   "name": "Prismatic Lance",
+   "kind": "damage",
+   "amount": 88,
+   "cooldown": 0,
+   "mana_cost": 16,
+   "school": "arcane"
+  },
+  {
+   "name": "Prismatic Lance",
+   "kind": "damage",
+   "amount": 88,
+   "cooldown": 3,
+   "mana_cost": 16,
+   "school": "arcane"
+  },
+  {
+   "name": "Split the Beam",
+   "kind": "damage",
+   "amount": 96,
+   "cooldown": 6,
+   "mana_cost": 24,
+   "school": "arcane",
+   "is_aoe": true
+  },
+  {
+   "name": "Total Internal Reflection",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 22,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 86,
+    "spell_power": 50
+   },
+   "self_only": true
+  }
+ ],
+ "heartgrown": [
+  {
+   "name": "Heartwood Crush",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "The Cavity Closes",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "arcane",
+   "is_aoe": true
+  },
+  {
+   "name": "Still Growing",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "stamina": 62,
+    "armor": 84
+   },
+   "self_only": true
+  },
+  {
+   "name": "Nowhere Left to Stand",
+   "kind": "dot",
+   "amount": 34,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 5,
+   "is_aoe": true,
+   "hp_below": 0.4
+  }
+ ],
+ "the_index": [
+  {
+   "name": "Catalogue Strike",
+   "kind": "damage",
+   "amount": 98,
+   "cooldown": 0,
+   "mana_cost": 16,
+   "school": "arcane"
+  },
+  {
+   "name": "Cross-Reference",
+   "kind": "debuff",
+   "amount": 34,
+   "cooldown": 4,
+   "mana_cost": 20,
+   "school": "arcane",
+   "duration": 4,
+   "stat_mods": {
+    "armor": -44,
+    "dodge_rating": -16
+   }
+  },
+  {
+   "name": "See Also: Pain",
+   "kind": "dot",
+   "amount": 32,
+   "cooldown": 5,
+   "mana_cost": 18,
+   "school": "nature",
+   "duration": 5,
+   "is_aoe": true
+  },
+  {
+   "name": "Entry Expanded",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 24,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "spell_power": 58,
+    "armor": 60
+   },
+   "self_only": true
+  }
+ ],
+ "the_second_copy": [
+  {
+   "name": "First Pass",
+   "kind": "damage",
+   "amount": 100,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Second Pass",
+   "kind": "damage",
+   "amount": 116,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "nature"
+  },
+  {
+   "name": "Duplicate the Error",
+   "kind": "dot",
+   "amount": 34,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 5,
+   "is_aoe": true
+  },
+  {
+   "name": "And Again",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 5,
+   "stat_mods": {
+    "attack_power": 52,
+    "armor": 56
+   },
+   "self_only": true
+  }
+ ],
+ "the_scriptor": [
+  {
+   "name": "Scrivening Blow",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Transcribe the Wound",
+   "kind": "dot",
+   "amount": 36,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 5
+  },
+  {
+   "name": "Strike It Through",
+   "kind": "debuff",
+   "amount": 36,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 4,
+   "stat_mods": {
+    "spell_power": -46,
+    "attack_power": -40
+   }
+  },
+  {
+   "name": "Fair Copy",
+   "kind": "heal",
+   "amount": 110,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "nature",
+   "hp_below": 0.5
+  }
+ ],
+ "errata": [
+  {
+   "name": "Mistaken Limb",
+   "kind": "damage",
+   "amount": 102,
+   "cooldown": 0,
+   "mana_cost": 18,
+   "school": "shadow"
+  },
+  {
+   "name": "Compounding Error",
+   "kind": "damage",
+   "amount": 124,
+   "cooldown": 5,
+   "mana_cost": 26,
+   "school": "arcane",
+   "is_aoe": true
+  },
+  {
+   "name": "Uncorrected",
+   "kind": "dot",
+   "amount": 38,
+   "cooldown": 5,
+   "mana_cost": 22,
+   "school": "shadow",
+   "duration": 5,
+   "is_aoe": true
+  },
+  {
+   "name": "Printed As Written",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 24,
+   "school": "arcane",
+   "duration": 5,
+   "stat_mods": {
+    "spell_power": 62,
+    "stamina": 54
+   },
+   "self_only": true
+  }
+ ],
+ "the_deep_bloom": [
+  {
+   "name": "Reaching Through",
+   "kind": "damage",
+   "amount": 124,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "nature"
+  },
+  {
+   "name": "What It Has Learned",
+   "kind": "damage",
+   "amount": 142,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "arcane",
+   "is_aoe": true
+  },
+  {
+   "name": "Read You Entirely",
+   "kind": "debuff",
+   "amount": 44,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 5,
+   "stat_mods": {
+    "armor": -56,
+    "spell_power": -50,
+    "attack_power": -46
+   }
+  },
+  {
+   "name": "The Whole Network Answers",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 6,
+   "stat_mods": {
+    "attack_power": 70,
+    "armor": 90,
+    "spell_power": 64
+   },
+   "self_only": true
+  }
  ]
 }

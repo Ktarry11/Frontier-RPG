@@ -4302,6 +4302,368 @@ HILLSBRAD_KITS = {
 }
 
 
+# ======================================================================================================================
+# THE CRYSTALLINE UNDERDARK CLUSTER (2026-10-27). Levels 31-40.
+#
+# FIVE POPULATIONS, AND THEY FIGHT DIFFERENTLY ON PURPOSE - the same discipline the Hillsbrad pass used, applied to a
+# zone whose whole premise is that it is half-coded:
+#
+#   FROST (the Descent's ice end)   Alterac cold. Slows, armour, blunt weight. School `frost`, which the game has
+#                                   barely used (21 abilities in the whole project before this).
+#   THE EXPEDITION (the seam)       Men who froze mid-survey and did not stop surveying. Their debuffs MEASURE you -
+#                                   they are taking readings, and the readings hurt.
+#   THE LATTICE (crystal, arcane)   The half-coded tell, expressed in combat: THEY REPEAT. Crystalline things cast the
+#                                   same thing twice because the pattern is the point, and they burn mana rather than
+#                                   out-damage you. School `arcane`, the other school nobody had used.
+#   THE BLOOM (fungal, nature)      A NETWORK. These are the only mobs in the zone whose buffs are not self_only -
+#                                   they strengthen each other and heal each other, so a fungal pack left alone gets
+#                                   harder, and the Deep Bloom's packs are built to punish ignoring the casters.
+#   THE UNFINISHED (Dim/Riftward)   Things the Integration did not get round to. Shadow and arcane together, and their
+#                                   damage is ugly and inconsistent because they are not finished being written.
+#
+# Kit budget follows the project rule: trash gets 3 abilities, every boss at level 20+ gets 4.
+UNDERDARK_KITS = {
+    # ================================================================ THE FROSTWARD DESCENT - the ice end
+    "frostward_prowler": [
+        ("Rimeclaw", "damage", 52, 0, 0, "physical", {}),
+        ("Pounce from the White", "damage", 64, 4, 0, "physical", {}),
+        ("Frost-Quick", "buff", 0, 5, 0, "frost",
+         {"duration": 3, "stat_mods": {"agility": 26}, "self_only": True}),
+    ],
+    "hoarfrost_yeti": [
+        ("Frozen Maul", "damage", 58, 0, 0, "physical", {}),
+        ("Hoarfrost Breath", "damage", 50, 3, 0, "frost", {"is_aoe": True}),
+        ("Pelt of Old Ice", "buff", 0, 5, 0, "frost",
+         {"duration": 4, "stat_mods": {"armor": 44}, "self_only": True}),
+    ],
+    "rime_shelled_crawler": [
+        ("Icebite", "damage", 46, 0, 0, "physical", {}),
+        ("Shell Over", "buff", 0, 4, 0, "frost",
+         {"duration": 3, "stat_mods": {"armor": 52}, "self_only": True}),
+        ("Numbing Fluid", "debuff", 20, 4, 0, "frost",
+         {"duration": 3, "stat_mods": {"agility": -24}}),
+    ],
+    # ---- the seam: the expedition that froze mid-survey and carried on surveying
+    "alterac_expeditionary": [
+        ("Frozen Ice-Axe", "damage", 54, 0, 0, "physical", {}),
+        ("Take a Reading", "debuff", 22, 4, 0, "shadow",
+         {"duration": 4, "stat_mods": {"armor": -34}}),
+        ("Forty Years Cold", "dot", 16, 5, 0, "frost", {"duration": 4}),
+    ],
+    "syndicate_deepscout": [
+        ("Gutting Knife", "damage", 56, 0, 0, "physical", {}),
+        ("Scout's Garrote", "dot", 20, 4, 0, "physical", {"duration": 4}),
+        ("Into the Dark", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 30, "crit_chance_physical": 6}, "self_only": True}),
+    ],
+    # ---- the crystal end: the first things down here that are not from Azeroth
+    "lattice_crawler": [
+        ("Facet Strike", "damage", 60, 0, 0, "arcane", {}),
+        ("Facet Strike", "damage", 60, 3, 0, "arcane", {}),      # the same thing, again. That IS the mechanic.
+        ("Grow Along the Pattern", "buff", 0, 5, 0, "arcane",
+         {"duration": 4, "stat_mods": {"armor": 50}, "self_only": True}),
+    ],
+    "shardling": [
+        ("Shard Bolt", "damage", 48, 0, 8, "arcane", {}),
+        ("Refract", "buff", 0, 5, 14, "arcane",
+         {"duration": 3, "stat_mods": {"spell_power": 30}, "self_only": True}),
+        ("Mana Fracture", "debuff", 18, 4, 12, "arcane",
+         {"duration": 4, "stat_mods": {"intellect": -26, "mp5": -8}}),
+    ],
+    # ---- Descent bosses
+    "hoarfang": [
+        ("Jaws of the Upper Dark", "damage", 78, 0, 0, "physical", {}),
+        ("Avalanche Lunge", "damage", 94, 4, 0, "physical", {"is_aoe": True}),
+        ("Thickening Pelt", "buff", 0, 5, 0, "frost",
+         {"duration": 4, "stat_mods": {"armor": 68, "attack_power": 26}, "self_only": True}),
+        ("Breath of the Glacier", "dot", 24, 6, 0, "frost", {"duration": 5, "is_aoe": True}),
+    ],
+    "the_frozen_cartographer": [
+        ("Surveyor's Rod", "damage", 76, 0, 0, "physical", {}),
+        # He is not fighting. He is finishing the map, and you are in the margin.
+        ("Fix Your Position", "debuff", 28, 4, 0, "shadow",
+         {"duration": 4, "stat_mods": {"agility": -32, "dodge_rating": -14}}),
+        ("Annotate the Living", "dot", 26, 5, 0, "shadow", {"duration": 5}),
+        ("The Map Is Not Finished", "buff", 0, 7, 0, "arcane",
+         {"duration": 4, "stat_mods": {"spell_power": 44}, "self_only": True}),
+    ],
+    "latticeborn": [
+        ("Lattice Fist", "damage", 86, 0, 0, "arcane", {}),
+        ("Lattice Fist", "damage", 86, 3, 0, "arcane", {}),      # twice. Always twice.
+        ("Repeating Growth", "buff", 0, 6, 0, "arcane",
+         {"duration": 5, "stat_mods": {"armor": 80, "spell_power": 34}, "self_only": True}),
+        ("Shatter the Pattern", "damage", 108, 7, 0, "arcane", {"is_aoe": True, "hp_below": 0.4}),
+    ],
+
+    # ================================================================ THE CRYSTALLINE UNDERDARK - the fungal country
+    "sporeback_grazer": [
+        ("Cap-Butt", "damage", 56, 0, 0, "physical", {}),
+        ("Shed Spores", "dot", 18, 4, 0, "nature", {"duration": 4, "is_aoe": True}),
+        ("Thickened Cap", "buff", 0, 5, 0, "nature",
+         {"duration": 4, "stat_mods": {"armor": 46}, "self_only": True}),
+    ],
+    "spore_drifter": [
+        ("Drifting Sting", "damage", 44, 0, 0, "nature", {}),
+        ("Choking Bloom", "dot", 20, 3, 0, "nature", {"duration": 4, "is_aoe": True}),
+        # NOT self_only: the network strengthens itself.
+        ("Spread the Signal", "buff", 0, 6, 0, "nature",
+         {"duration": 4, "stat_mods": {"attack_power": 24}}),
+    ],
+    "myconid_tender": [
+        ("Tending Lash", "damage", 50, 0, 10, "nature", {}),
+        ("Knit the Mycelium", "heal", 72, 5, 20, "nature", {}),
+        ("Feed the Colony", "buff", 0, 6, 16, "nature",
+         {"duration": 5, "stat_mods": {"armor": 40, "attack_power": 22}}),
+    ],
+    "mycelial_husk": [
+        ("Hollow Swing", "damage", 58, 0, 0, "physical", {}),
+        ("Burst Fruiting Body", "damage", 62, 4, 0, "nature", {"is_aoe": True}),
+        ("Rooted Through", "debuff", 22, 5, 0, "nature",
+         {"duration": 4, "stat_mods": {"agility": -28}}),
+    ],
+    # ---- the crystal country
+    "crystalback_skitterer": [
+        ("Shard Nip", "damage", 50, 0, 0, "physical", {}),
+        ("Scuttle Behind", "damage", 66, 4, 0, "physical", {}),
+        ("Glass Carapace", "buff", 0, 5, 0, "arcane",
+         {"duration": 3, "stat_mods": {"armor": 48, "dodge_rating": 12}, "self_only": True}),
+    ],
+    "lattice_sentry": [
+        ("Sentry Strike", "damage", 64, 0, 0, "arcane", {}),
+        ("Sentry Strike", "damage", 64, 3, 0, "arcane", {}),
+        ("Close the Figure", "buff", 0, 6, 0, "arcane",
+         {"duration": 5, "stat_mods": {"armor": 62}, "self_only": True}),
+    ],
+    "shard_diviner": [
+        ("Diviner's Bolt", "damage", 54, 0, 10, "arcane", {}),
+        ("Drink the Charge", "debuff", 22, 4, 14, "arcane",
+         {"duration": 4, "stat_mods": {"intellect": -30, "mp5": -10}}),
+        ("Prismatic Ward", "buff", 0, 6, 18, "arcane",
+         {"duration": 4, "stat_mods": {"spell_power": 36, "armor": 30}, "self_only": True}),
+    ],
+    # ---- the Lumen Marsh
+    "lumen_leech": [
+        ("Latch", "damage", 48, 0, 0, "physical", {}),
+        ("Siphon Light", "dot", 22, 4, 0, "arcane", {"duration": 4}),
+        ("Swell", "buff", 0, 5, 0, "nature",
+         {"duration": 4, "stat_mods": {"stamina": 34}, "self_only": True}),
+    ],
+    "glimmerjaw": [
+        ("Glimmering Bite", "damage", 66, 0, 0, "physical", {}),
+        ("Drag Under", "damage", 80, 5, 0, "physical", {}),
+        ("Lure-Light", "debuff", 20, 4, 0, "arcane",
+         {"duration": 3, "stat_mods": {"hit_rating": -18}}),
+    ],
+    # ---- the Colonnade and the Archive: Dalaran's leavings, and the people arguing over them
+    "archive_revenant": [
+        ("Shelving Blow", "damage", 68, 0, 0, "physical", {}),
+        ("Silence in the Stacks", "debuff", 24, 5, 0, "shadow",
+         {"duration": 4, "stat_mods": {"spell_power": -34, "mp5": -10}}),
+        ("Dust of Dalaran", "dot", 22, 4, 0, "shadow", {"duration": 4, "is_aoe": True}),
+    ],
+    "codex_dissident": [
+        # Codex who stopped filing reports and started agreeing with the cavern.
+        ("Unbound Bolt", "damage", 58, 0, 10, "arcane", {}),
+        ("Strike the Entry", "debuff", 26, 4, 14, "arcane",
+         {"duration": 4, "stat_mods": {"armor": -38}}),
+        ("Read It Aloud", "dot", 24, 5, 16, "arcane", {"duration": 4}),
+    ],
+    "syndicate_interloper": [
+        ("Interloper's Shiv", "damage", 60, 0, 0, "physical", {}),
+        ("Prise It Loose", "debuff", 22, 4, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": -36}}),
+        ("Nobody Followed Me", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 32, "crit_chance_physical": 7}, "self_only": True}),
+    ],
+    # ---- the Dim Reaches and the Riftward: the parts that were not finished
+    "dim_walker": [
+        ("Out of the Unlit", "damage", 70, 0, 0, "shadow", {}),
+        ("Where the Lumen Does Not Reach", "dot", 26, 4, 0, "shadow", {"duration": 5}),
+        ("Lightless Hide", "buff", 0, 5, 0, "shadow",
+         {"duration": 4, "stat_mods": {"armor": 54, "dodge_rating": 14}, "self_only": True}),
+    ],
+    "the_unfinished": [
+        ("Incomplete Bolt", "damage", 56, 0, 12, "arcane", {}),
+        ("Draft and Redraft", "damage", 84, 5, 20, "shadow", {}),
+        ("Half-Written Ward", "buff", 0, 6, 16, "arcane",
+         {"duration": 3, "stat_mods": {"spell_power": 40, "armor": -20}, "self_only": True}),
+    ],
+    "riftward_aberration": [
+        ("Malformed Limb", "damage", 74, 0, 0, "shadow", {}),
+        ("Geometry That Does Not Close", "damage", 68, 4, 0, "arcane", {"is_aoe": True}),
+        ("Still Forming", "buff", 0, 6, 0, "arcane",
+         {"duration": 5, "stat_mods": {"stamina": 46, "armor": 40}, "self_only": True}),
+    ],
+    # ---- the Underdark's named rares (weight 0, ~6% in their subzone)
+    "capgorger": [
+        ("Gorging Bite", "damage", 86, 0, 0, "physical", {}),
+        ("Swallow the Grove", "damage", 100, 5, 0, "nature", {"is_aoe": True}),
+        ("Bloated on Spore-Light", "buff", 0, 6, 0, "nature",
+         {"duration": 5, "stat_mods": {"stamina": 54, "armor": 50}, "self_only": True}),
+        ("Regurgitate", "dot", 28, 6, 0, "nature", {"duration": 5, "is_aoe": True}),
+    ],
+    "the_thousandth_shard": [
+        ("Thousandth Facet", "damage", 90, 0, 0, "arcane", {}),
+        ("Thousandth Facet", "damage", 90, 3, 0, "arcane", {}),
+        ("Count Again", "buff", 0, 6, 0, "arcane",
+         {"duration": 5, "stat_mods": {"armor": 76, "spell_power": 40}, "self_only": True}),
+        ("Nine Hundred and Ninety-Nine", "damage", 112, 8, 0, "arcane", {"is_aoe": True, "hp_below": 0.35}),
+    ],
+    "marsh_mother_ysmil": [
+        ("Mother's Grasp", "damage", 88, 0, 0, "physical", {}),
+        ("Drowning Light", "dot", 30, 4, 0, "arcane", {"duration": 5, "is_aoe": True}),
+        ("Call the Brood", "buff", 0, 6, 0, "nature",
+         {"duration": 5, "stat_mods": {"attack_power": 34, "armor": 44}}),
+        ("Pull Beneath", "damage", 106, 7, 0, "physical", {}),
+    ],
+    "archivist_thelun": [
+        # Struck from the Codex's record for writing down what the cavern told him. He kept writing.
+        ("Pen of the Unlisted", "damage", 84, 0, 14, "arcane", {}),
+        ("Expunge the Entry", "debuff", 32, 4, 18, "arcane",
+         {"duration": 4, "stat_mods": {"spell_power": -40, "armor": -34}}),
+        ("Marginalia", "dot", 30, 5, 16, "shadow", {"duration": 5}),
+        ("I Was Right", "buff", 0, 7, 20, "arcane",
+         {"duration": 5, "stat_mods": {"spell_power": 56, "crit_chance_spell": 8}, "self_only": True}),
+    ],
+    "what_walks_in_the_dim": [
+        ("Something Taller Than You", "damage", 94, 0, 0, "shadow", {}),
+        ("Unlit Mauling", "damage", 108, 5, 0, "physical", {}),
+        ("The Lumen Cannot See Here", "debuff", 30, 4, 0, "shadow",
+         {"duration": 4, "stat_mods": {"hit_rating": -26, "crit_chance_physical": -8}}),
+        ("Closer Than It Was", "buff", 0, 6, 0, "shadow",
+         {"duration": 5, "stat_mods": {"attack_power": 46, "dodge_rating": 16}, "self_only": True}),
+    ],
+    "the_half_written": [
+        ("Unfinished Sentence", "damage", 82, 0, 14, "arcane", {}),
+        ("Revision", "damage", 104, 5, 22, "shadow", {}),
+        ("Rewrite in Place", "buff", 0, 6, 18, "arcane",
+         {"duration": 4, "stat_mods": {"spell_power": 52, "stamina": 40}, "self_only": True}),
+        ("It Was Never Specified", "dot", 32, 6, 20, "shadow", {"duration": 5, "is_aoe": True}),
+    ],
+
+    # ================================================================ THE HOLLOW GEODE
+    "druse_crawler": [
+        ("Druse Rake", "damage", 60, 0, 0, "physical", {}),
+        ("Wedge Into the Gap", "damage", 76, 4, 0, "physical", {}),
+        ("Inward-Pointing Shell", "buff", 0, 5, 0, "arcane",
+         {"duration": 4, "stat_mods": {"armor": 58}, "self_only": True}),
+    ],
+    "geode_tender": [
+        ("Tending Bolt", "damage", 56, 0, 10, "arcane", {}),
+        ("Tending Bolt", "damage", 56, 3, 10, "arcane", {}),
+        ("Fill the Cavity", "heal", 80, 6, 22, "arcane", {}),
+    ],
+    "crystalbound_husk": [
+        ("Crystalbound Fist", "damage", 68, 0, 0, "physical", {}),
+        ("Grown Through the Ribs", "dot", 24, 4, 0, "arcane", {"duration": 4}),
+        ("Harden", "buff", 0, 5, 0, "arcane",
+         {"duration": 4, "stat_mods": {"armor": 64}, "self_only": True}),
+    ],
+    "shell_grown_lurker": [
+        ("Shell-Grown Claw", "damage", 72, 0, 0, "physical", {}),
+        ("Pin to the Druse", "debuff", 26, 4, 0, "physical",
+         {"duration": 4, "stat_mods": {"agility": -32, "dodge_rating": -14}}),
+        ("Wedge and Wait", "buff", 0, 6, 0, "arcane",
+         {"duration": 4, "stat_mods": {"armor": 54, "attack_power": 28}, "self_only": True}),
+    ],
+    "shardmaw": [
+        ("Maw of Facets", "damage", 96, 0, 0, "physical", {}),
+        ("Swallow Light", "debuff", 32, 4, 0, "arcane",
+         {"duration": 4, "stat_mods": {"spell_power": -42, "mp5": -12}}),
+        ("Grind the Druse", "damage", 112, 6, 0, "physical", {"is_aoe": True}),
+        ("Lined With Teeth", "buff", 0, 6, 0, "arcane",
+         {"duration": 5, "stat_mods": {"armor": 78, "attack_power": 40}, "self_only": True}),
+    ],
+    "the_prism_warden": [
+        ("Prismatic Lance", "damage", 88, 0, 16, "arcane", {}),
+        ("Prismatic Lance", "damage", 88, 3, 16, "arcane", {}),
+        ("Split the Beam", "damage", 96, 6, 24, "arcane", {"is_aoe": True}),
+        ("Total Internal Reflection", "buff", 0, 7, 22, "arcane",
+         {"duration": 5, "stat_mods": {"armor": 86, "spell_power": 50}, "self_only": True}),
+    ],
+    "heartgrown": [
+        ("Heartwood Crush", "damage", 104, 0, 0, "physical", {}),
+        ("The Cavity Closes", "damage", 118, 6, 0, "arcane", {"is_aoe": True}),
+        ("Still Growing", "buff", 0, 6, 0, "arcane",
+         {"duration": 5, "stat_mods": {"stamina": 62, "armor": 84}, "self_only": True}),
+        ("Nowhere Left to Stand", "dot", 34, 7, 0, "arcane", {"duration": 5, "is_aoe": True, "hp_below": 0.4}),
+    ],
+
+    # ================================================================ THE DEEP BLOOM - the network fights as a network
+    "bloom_thrall": [
+        ("Thrall's Swing", "damage", 70, 0, 0, "physical", {}),
+        ("Grown Through", "dot", 24, 4, 0, "nature", {"duration": 4}),
+        ("Stand Where It Puts You", "buff", 0, 5, 0, "nature",
+         {"duration": 4, "stat_mods": {"armor": 52}, "self_only": True}),
+    ],
+    "shelf_grown": [
+        ("Flung Fruiting Body", "damage", 66, 0, 0, "nature", {}),
+        ("Shelf Volley", "damage", 78, 4, 0, "nature", {"is_aoe": True}),
+        ("Rank and File", "buff", 0, 6, 0, "nature",            # buffs the rank, not itself
+         {"duration": 5, "stat_mods": {"attack_power": 30}}),
+    ],
+    "spore_scribe": [
+        ("Spore Script", "damage", 62, 0, 12, "nature", {}),
+        ("Copy It Down", "dot", 26, 4, 16, "nature", {"duration": 5}),
+        ("Read to the Colony", "heal", 86, 5, 22, "nature", {}),
+    ],
+    "mycelial_binder": [
+        ("Binding Thread", "damage", 64, 0, 12, "nature", {}),
+        ("Bind to the Shelf", "debuff", 28, 4, 18, "nature",
+         {"duration": 4, "stat_mods": {"agility": -34, "dodge_rating": -16}}),
+        ("Thicken the Weave", "buff", 0, 6, 20, "nature",       # the whole pack, again
+         {"duration": 5, "stat_mods": {"armor": 56}}),
+    ],
+    "pulpwright": [
+        ("Pulping Blow", "damage", 84, 0, 0, "physical", {}),
+        ("Press Flat", "damage", 96, 5, 0, "physical", {}),
+        ("Swell With Mass", "buff", 0, 6, 0, "nature",
+         {"duration": 5, "stat_mods": {"stamina": 50, "attack_power": 34}, "self_only": True}),
+    ],
+    # ---- the five bosses, down the collapse
+    "the_index": [
+        # It catalogues you. Everything it does is a lookup.
+        ("Catalogue Strike", "damage", 98, 0, 16, "arcane", {}),
+        ("Cross-Reference", "debuff", 34, 4, 20, "arcane",
+         {"duration": 4, "stat_mods": {"armor": -44, "dodge_rating": -16}}),
+        ("See Also: Pain", "dot", 32, 5, 18, "nature", {"duration": 5, "is_aoe": True}),
+        ("Entry Expanded", "buff", 0, 7, 24, "arcane",
+         {"duration": 5, "stat_mods": {"spell_power": 58, "armor": 60}, "self_only": True}),
+    ],
+    "the_second_copy": [
+        # Everything it does, it does twice - and the second one is worse, because a copy of a copy drifts.
+        ("First Pass", "damage", 100, 0, 0, "physical", {}),
+        ("Second Pass", "damage", 116, 4, 0, "nature", {}),
+        ("Duplicate the Error", "dot", 34, 5, 0, "nature", {"duration": 5, "is_aoe": True}),
+        ("And Again", "buff", 0, 6, 0, "nature",
+         {"duration": 5, "stat_mods": {"attack_power": 52, "armor": 56}, "self_only": True}),
+    ],
+    "the_scriptor": [
+        ("Scrivening Blow", "damage", 104, 0, 0, "physical", {}),
+        ("Transcribe the Wound", "dot", 36, 4, 0, "shadow", {"duration": 5}),
+        ("Strike It Through", "debuff", 36, 5, 0, "shadow",
+         {"duration": 4, "stat_mods": {"spell_power": -46, "attack_power": -40}}),
+        ("Fair Copy", "heal", 110, 7, 0, "nature", {"hp_below": 0.5}),
+    ],
+    "errata": [
+        # A thing made of everything the Bloom got wrong and kept anyway.
+        ("Mistaken Limb", "damage", 102, 0, 18, "shadow", {}),
+        ("Compounding Error", "damage", 124, 5, 26, "arcane", {"is_aoe": True}),
+        ("Uncorrected", "dot", 38, 5, 22, "shadow", {"duration": 5, "is_aoe": True}),
+        ("Printed As Written", "buff", 0, 7, 24, "arcane",
+         {"duration": 5, "stat_mods": {"spell_power": 62, "stamina": 54}, "self_only": True}),
+    ],
+    "the_deep_bloom": [
+        ("Reaching Through", "damage", 124, 0, 0, "nature", {}),
+        ("What It Has Learned", "damage", 142, 5, 0, "arcane", {"is_aoe": True}),
+        ("Read You Entirely", "debuff", 44, 5, 0, "shadow",
+         {"duration": 5, "stat_mods": {"armor": -56, "spell_power": -50, "attack_power": -46}}),
+        ("The Whole Network Answers", "buff", 0, 7, 0, "nature",
+         {"duration": 6, "stat_mods": {"attack_power": 70, "armor": 90, "spell_power": 64}, "self_only": True}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -4311,7 +4673,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")
