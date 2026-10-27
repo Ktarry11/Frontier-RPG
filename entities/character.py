@@ -1646,6 +1646,68 @@ class Character(StatusEffectMixin):
                 newly = True
         if newly:
             self._autofill_hotbar()
+        else:
+            # Refunding a talent point revokes its ability, and the bar has
+            # to follow - otherwise the slot sits there failing to fire.
+            # _autofill_hotbar() prunes too, but it only runs here when
+            # something was newly LEARNED, so a pure revoke (or the
+            # creation-time window described in _prune_unlearned_hotbar)
+            # would otherwise leave the stale slot until the next level-up.
+            self._prune_unlearned_hotbar()
+
+    def _prune_unlearned_hotbar(self):
+        """Clear any hotbar/extra slot holding an ability this character has
+        not actually learned.
+
+        THE BUG THIS FIXES (Kyle: "i played venomancer and started with
+        abilities i shouldnt have? like wilt"): a talent-granted ability
+        could end up permanently stuck on the action bar from character
+        creation onward.
+
+        `requires_talent` is derived from the talent trees at runtime, not
+        read from the ability rows - 193 of the 279 granted abilities never
+        carried the flag in their data, so the tree is the only source of
+        truth (see _sync_talent_unlocked_abilities). But __init__ calls
+        _refresh_ability_ranks() BEFORE it assigns self.talent_trees, so
+        during that window every one of those 193 looked untalented:
+        requires_talent stayed False, is_learned came out as plain
+        level_met, and the _autofill_hotbar() at the end of that same
+        refresh slotted them and recorded them in hotbar_autofilled_ids -
+        which is deliberately permanent, so that a deliberate removal
+        sticks. Once the trees loaded, requires_talent flipped to True and
+        is_learned to False, but the bar entry and the memo both survived.
+        A fresh level 1 Venomancer therefore started with Blight Antidote
+        and Decay on the bar, and a level 20 one with six abilities it had
+        spent no points on.
+
+        Pruning is safe rather than destructive: nothing can legitimately
+        put an unlearned ability on the bar, because the Skills screen
+        lists only get_learned_abilities(). So an unlearned id in a slot is
+        always this artifact. It is also self-healing for saves already
+        carrying the ghosts, which is the only way to fix Kyle's existing
+        character short of a migration.
+
+        Only ids the ability book actually knows are touched - anything
+        else in a slot belongs to a system this method should not be
+        second-guessing.
+
+        Dropping the id from hotbar_autofilled_ids too is the point: the
+        memo exists to record "the player has had their say about this
+        ability," and a slot the player never chose is not that. Clearing
+        it means the ability gets autofilled properly on the day it is
+        really learned - take the Wilt talent and Wilt appears then, which
+        is what the memo should have been recording all along.
+        """
+        if not hasattr(self, "hotbar"):
+            return
+        known = {a.ability_id for a in self.ability_book.get_all_abilities()}
+        learned = {a.ability_id for a in self.get_learned_abilities()}
+        for slots in (self.hotbar, getattr(self, "extra_slots", None) or []):
+            for i, aid in enumerate(slots):
+                if aid and aid in known and aid not in learned:
+                    slots[i] = None
+                    if hasattr(self, "hotbar_autofilled_ids"):
+                        self.hotbar_autofilled_ids.discard(aid)
 
     def get_learned_abilities(self):
         """Every ability this character has actually reached the level
@@ -1680,14 +1742,26 @@ class Character(StatusEffectMixin):
             # it from whatever's currently slotted so existing bars don't
             # get instantly re-flooded with everything already learned.
             self.hotbar_autofilled_ids = {a for a in self.hotbar if a}
+        self._prune_unlearned_hotbar()
         for ability in self.get_learned_abilities():
             if ability.ability_id in self.hotbar_autofilled_ids:
                 continue
             for i in range(len(self.hotbar)):
                 if self.hotbar[i] is None:
                     self.hotbar[i] = ability.ability_id
+                    # Memo only what actually got PLACED. This add used to
+                    # sit outside this loop, so an ability that found no
+                    # free slot was still recorded as "the player has had
+                    # their say about this one" - and never auto-slotted
+                    # again even once space opened up. Harmless while the
+                    # bar had room; not harmless alongside the
+                    # creation-window bug in _prune_unlearned_hotbar, which
+                    # filled all 20 slots with abilities the character had
+                    # not learned and so memoed the genuinely learned ones
+                    # out of ever appearing. Taking the Wilt talent now
+                    # puts Wilt on the bar.
+                    self.hotbar_autofilled_ids.add(ability.ability_id)
                     break
-            self.hotbar_autofilled_ids.add(ability.ability_id)
     
     def prestige(self):
         """Prestige: reset level, gain prestige level."""
