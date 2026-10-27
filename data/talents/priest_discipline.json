@@ -170,7 +170,7 @@
     {
       "talent_id": "priest_discipline_absolution",
       "name": "Absolution",
-      "description": "Dispel Magic and Abolish Disease cost 6 less Mana per rank, and have a 20% chance per rank to refund 60 Mana when cast.",
+      "description": "Reduces the Mana cost of Abolish Disease by 6 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -178,7 +178,6 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_priest_dispel_magic_cost": 6,
         "ability_priest_abolish_disease_cost": 6
       },
       "connected_to": [

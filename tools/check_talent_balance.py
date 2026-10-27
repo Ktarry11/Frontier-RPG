@@ -135,6 +135,25 @@ def main():
                     f"{round(total, 2)} - ranks past {base - 1} are wasted ("
                     + ", ".join(f"{n}" for _, n, _ in src) + ")")
 
+        # 3b. resource-cost reductions must not overshoot the base either.
+        #
+        # Costs floor at 0, so a reduction larger than the cost both wastes
+        # ranks and makes the ability free, removing the resource tension it
+        # was designed around. Caught Tactical Mastery taking Overpower (5
+        # Rage) and Execute (15) to zero with -10.
+        for ab in c.ability_book.get_all_abilities():
+            base = int(getattr(ab, "cost", 0) or 0)
+            if base <= 0:
+                continue
+            key = f"ability_{ab.ability_id}_cost"
+            total = totals.get(key, 0)
+            if total >= base:
+                src = contributors.get(key, [])
+                failures.append(
+                    f"{cls}: {ab.name} costs {base} but talents reduce it by "
+                    f"{round(total, 2)} - it becomes free and the excess is wasted ("
+                    + ", ".join(f"{n}" for _, n, _ in src) + ")")
+
         # 4. a proc's chance must be a real chance at one rank.
         #
         # The engine clamps rank-scaled chance with min(100, ...) in

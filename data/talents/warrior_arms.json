@@ -15,7 +15,7 @@
     {
       "talent_id": "warrior_arms_improved_heroic_strike",
       "name": "Improved Heroic Strike",
-      "description": "Reduces the Rage cost of Heroic Strike by 1 per rank.",
+      "description": "Reduces the Rage cost of Heroic Strike by 2 per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -23,7 +23,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_warrior_heroic_strike_cost": 1
+        "ability_warrior_heroic_strike_cost": 2
       },
       "connected_to": [
         "warrior_arms_tactical_mastery"
@@ -32,7 +32,7 @@
     {
       "talent_id": "warrior_arms_deflection",
       "name": "Deflection",
-      "description": "Increases your Parry chance by 1% per rank.",
+      "description": "Increases Parry by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -66,7 +66,7 @@
     {
       "talent_id": "warrior_arms_iron_will",
       "name": "Iron Will",
-      "description": "Hardened resolve grants 2 Stamina per rank.",
+      "description": "Reduces the duration of stuns against you by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -74,7 +74,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "stamina": 2
+        "stun_duration_reduction_pct": 0.1
       },
       "connected_to": [
         "warrior_arms_cruelty"
@@ -83,7 +83,7 @@
     {
       "talent_id": "warrior_arms_tactical_mastery",
       "name": "Tactical Mastery",
-      "description": "Increases Heroic Strike damage by 4% per rank.",
+      "description": "Reduces the Rage cost of Mortal Strike and Whirlwind by 2 per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -91,7 +91,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_warrior_heroic_strike_damage": 0.04
+        "ability_warrior_mortal_strike_cost": 2,
+        "ability_warrior_whirlwind_cost": 2
       },
       "connected_to": [
         "warrior_arms_improved_heroic_strike",
@@ -101,44 +102,62 @@
     {
       "talent_id": "warrior_arms_anger_management",
       "name": "Anger Management",
-      "description": "Controlled fury grants 3% Health and 10 Attack Power.",
+      "description": "Your weapon swings generate 2 additional Rage.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "max_health_pct": 0.03,
-        "attack_power": 10
-      },
+      "effects": {},
       "connected_to": [
         "warrior_arms_deflection",
         "warrior_arms_blood_frenzy"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 2
+        }
+      }
     },
     {
       "talent_id": "warrior_arms_deep_wounds",
       "name": "Deep Wounds",
-      "description": "Your bleeds cut deeper, increasing Rend damage by 15% per rank.",
+      "description": "Your critical strikes have a 33% chance per rank to open a deep wound, dealing physical damage over 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {
-        "ability_warrior_rend_damage": 0.15
-      },
+      "effects": {},
       "connected_to": [
         "warrior_arms_improved_rend",
         "warrior_arms_impale"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "deep_wounds",
+          "name": "Deep Wounds",
+          "effect_type": "dot",
+          "duration": 4,
+          "potency": 35,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "warrior_arms_cruelty",
       "name": "Cruelty",
-      "description": "Increases your melee critical strike chance by 1% per rank.",
+      "description": "Increases your physical critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -174,7 +193,7 @@
     {
       "talent_id": "warrior_arms_blood_frenzy",
       "name": "Blood Frenzy",
-      "description": "Increases all physical damage you deal by 2% per rank.",
+      "description": "Increases the damage of Rend by 10% per rank and its duration by 1 turn per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -182,7 +201,8 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "physical_damage": 0.02
+        "ability_warrior_rend_damage": 0.1,
+        "ability_warrior_rend_duration": 1
       },
       "connected_to": [
         "warrior_arms_anger_management",
@@ -192,7 +212,7 @@
     {
       "talent_id": "warrior_arms_impale",
       "name": "Impale",
-      "description": "Increases the critical strike chance of your attacks by 2% per rank.",
+      "description": "Increases the critical strike chance of Mortal Strike and Overpower by 4% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -200,7 +220,8 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "crit_chance_physical": 2.0
+        "ability_warrior_mortal_strike_crit": 4,
+        "ability_warrior_overpower_crit": 4
       },
       "connected_to": [
         "warrior_arms_deep_wounds",
@@ -210,7 +231,7 @@
     {
       "talent_id": "warrior_arms_poleaxe_specialization",
       "name": "Poleaxe Specialization",
-      "description": "Weapon mastery grants 6 Attack Power per rank.",
+      "description": "Increases your Attack Power by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -218,7 +239,7 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "attack_power": 6
+        "attack_power_pct": 2.0
       },
       "connected_to": [
         "warrior_arms_cruelty",
@@ -246,7 +267,7 @@
     {
       "talent_id": "warrior_arms_improved_overpower",
       "name": "Improved Overpower",
-      "description": "Reduces the cooldown of Heroic Strike by 1 turn per rank.",
+      "description": "Reduces the cooldown of Overpower by 1 turn per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
@@ -254,7 +275,7 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_warrior_heroic_strike_cooldown": 1
+        "ability_warrior_overpower_cooldown": 1
       },
       "connected_to": [
         "warrior_arms_impale",
@@ -264,25 +285,29 @@
     {
       "talent_id": "warrior_arms_second_wind",
       "name": "Second Wind",
-      "description": "Increases maximum Health by 3% per rank.",
+      "description": "Being struck has a 25% chance per rank to heal you for 90.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {
-        "max_health_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "warrior_arms_poleaxe_specialization",
         "warrior_arms_last_stand"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 1,
+        "heal_flat": 90
+      }
     },
     {
       "talent_id": "warrior_arms_weapon_mastery",
       "name": "Weapon Mastery",
-      "description": "Reduces your chance to miss by 1% per rank.",
+      "description": "Increases your hit chance by 1% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
@@ -299,7 +324,7 @@
     {
       "talent_id": "warrior_arms_sweeping_strikes",
       "name": "Sweeping Strikes",
-      "description": "Your swings carry through, increasing physical damage by 5%.",
+      "description": "Increases the damage of Whirlwind and Cleave by 20%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -307,7 +332,8 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "physical_damage": 0.05
+        "ability_warrior_whirlwind_damage": 0.2,
+        "ability_warrior_cleave_damage": 0.2
       },
       "connected_to": [
         "warrior_arms_mortal_strike",
@@ -317,7 +343,7 @@
     {
       "talent_id": "warrior_arms_trauma",
       "name": "Trauma",
-      "description": "Increases Rend damage by an additional 20% per rank.",
+      "description": "Increases the damage of Rend by 20% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 2,
@@ -335,7 +361,7 @@
     {
       "talent_id": "warrior_arms_last_stand",
       "name": "Last Stand",
-      "description": "Grants 10% maximum Health and 40 Armor.",
+      "description": "Increases maximum Health by 10% and reduces the cooldown of Retaliation by 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -344,7 +370,7 @@
       "hex_y": 2,
       "effects": {
         "max_health_pct": 0.1,
-        "armor": 40
+        "ability_warrior_retaliation_cooldown": 2
       },
       "connected_to": [
         "warrior_arms_second_wind"
@@ -353,26 +379,32 @@
     {
       "talent_id": "warrior_arms_endless_rage",
       "name": "Endless Rage",
-      "description": "Reduces the Rage cost of Heroic Strike by 2 and Rend by 1 per rank.",
+      "description": "Your critical strikes have a 50% chance per rank to generate 8 Rage.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "ability_warrior_heroic_strike_cost": 2,
-        "ability_warrior_rend_cost": 1
-      },
+      "effects": {},
       "connected_to": [
         "warrior_arms_sweeping_strikes",
         "warrior_arms_bladestorm"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 8
+        }
+      }
     },
     {
       "talent_id": "warrior_arms_executioner",
       "name": "Executioner",
-      "description": "Increases physical damage by 3% and crit chance by 1% per rank.",
+      "description": "Increases the damage of Execute by 10% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -380,8 +412,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "physical_damage": 0.03,
-        "crit_chance_physical": 1.0
+        "ability_warrior_execute_damage": 0.1
       },
       "connected_to": [
         "warrior_arms_trauma",
