@@ -11,7 +11,7 @@ Inside, the Lord's Hall sits over a collapsed UNDERCROFT reached by the stair be
 
     Gatehouse (70,112)  ->  BAILEY WALK (the ring)  ->  corner towers: Kennel (SE), Magister's (SW),
                                                         Armoury (NW), Watch (NE)
-                        ->  east or west BREACH  ->  THE INNER KEEP courtyard
+                        ->  east or west BREACH, each knocked through a southern tower  ->  the courtyard
                         ->  THE LORD'S HALL (Perenolde)  ->  stair  ->  THE UNDERCROFT (the Keepkeeper)
 
 A real Dungeon, not a mining cave: registered in world/zone_classification.DUNGEONS, which is what keeps
@@ -33,31 +33,63 @@ PORTAL = (70, 112)
 
 #: The curtain wall's inside face - the bailey walk runs just inside this.
 OUTER = (16, 14, 124, 102)          # x0, y0, x1, y1
-RING_W = 5                          # how wide the bailey walk is (a corridor, not a parade ground:
-                                    # at 9 the ring and the corner towers merged into one open band)
-#: Rooms: (x0, y0, x1, y1, display name). The keep's three chambers sit WELL clear of the bailey walk -
-#: the first version let the Lord's Hall overlap the north walk, which quietly connected the "sealed" keep
-#: straight to the ring and made both breaches decorative. Sealing them and re-running the flood fill is
-#: what caught it; the gaps below (y22-25 above the undercroft, 28 tiles either side of the chambers) are
-#: the seal, and the breach corridors are the only thing that crosses them.
+RING_W = 6                          # the bailey walk is a wall-walk, not a parade ground
+
+#: EVERY shape in this file is an exact axis-aligned rect - no chamfer, no carved paths.
+#:
+#: Kyle, on Dun Garok: "it's a dwarf stronghold not a cave... I'm talking design." The same applies here and
+#: harder, because Durnholde is a CASTLE. The first version used chamfered rooms and Builder.corridor(), and
+#: corridor() runs ZoneGenerator._carve_path, which smears a soft diagonal line - so the keep baked with
+#: rounded corners and feathered walls and read as caverns with a tidy floor. Masons do not round a corner
+#: they did not mean to round. Rooms are rects, halls are rects, and rooms are joined by narrow punched
+#: DOORWAYS, which is also what makes the breaches load-bearing instead of decorative.
+#:
+#: The keep's chambers sit WELL clear of the bailey walk, with three tiles of wall between each. An earlier
+#: version let the Lord's Hall touch the north walk, which quietly connected the "sealed" keep straight to
+#: the ring and made both breaches ornamental; sealing them and re-running the flood fill is what caught it.
 ROOMS = {
-    "gatehouse":  (60, 96, 80, 112, "The Gatehouse"),
-    "kennel":     (98, 74, 122, 98, "The Kennels"),
-    "magister":   (18, 74, 42, 98, "The Magister's Tower"),
-    "armoury":    (18, 18, 42, 42, "The Armoury"),
-    "watch":      (98, 18, 122, 42, "The Watch Tower"),
-    "keep":       (48, 60, 92, 88, "The Inner Keep"),
-    "hall":       (52, 36, 88, 56, "The Lord's Hall"),
-    "undercroft": (58, 22, 82, 34, "The Undercroft"),
+    "gatehouse":  (60, 103, 80, 114, "The Gatehouse"),
+    "armoury":    (26, 26, 46, 46, "The Armoury"),
+    "watch":      (94, 26, 114, 46, "The Watch Tower"),
+    "magister":   (26, 70, 46, 90, "The Magister's Tower"),
+    "kennel":     (94, 70, 114, 90, "The Kennels"),
+    "undercroft": (58, 24, 82, 36, "The Undercroft"),
+    "hall":       (52, 40, 88, 58, "The Lord's Hall"),
+    "keep":       (48, 62, 92, 88, "The Inner Keep"),
 }
-#: The two ways through the curtain into the keep courtyard: (points, width)
-#: width=N in Builder.corridor carves roughly 2N+1 tiles (see ZoneGenerator._carve_path - it clears a
-#: perpendicular line of the stated width either side of travel). A width of 7 made these 15 tiles tall,
-#: which swallowed the kennel and stopped reading as "a hole knocked in a wall" entirely. 3 is a breach.
-BREACHES = [
-    ([(120, 73), (88, 73)], 3),      # east breach
-    ([(20, 73), (52, 73)], 3),       # west breach
+
+#: The bailey walk: four rects forming a closed ring just inside the curtain wall.
+OUTER = (16, 14, 124, 102)
+RING = [
+    (16, 14, 124, 20),        # north walk
+    (16, 96, 124, 102),       # south walk
+    (16, 14, 22, 102),        # west walk
+    (118, 14, 124, 102),      # east walk
 ]
+
+#: Doorways and the two breaches - all rects. Each tower gets exactly ONE door, so it is a chamber you
+#: clear rather than a stretch of corridor you pass through.
+DOORS = {
+    "gate_in":    (68, 102, 72, 103),    # gatehouse -> south walk
+    "armoury_d":  (34, 20, 38, 26),      # armoury -> north walk
+    "watch_d":    (102, 20, 106, 26),    # watch tower -> north walk
+    "magister_d": (22, 78, 26, 82),      # magister's tower -> west walk
+    "kennel_d":   (114, 78, 118, 82),    # kennels -> east walk
+    "hall_down":  (68, 36, 72, 40),      # Lord's Hall -> the Undercroft stair
+    "court_up":   (66, 58, 74, 62),      # courtyard -> the Lord's Hall
+}
+#: The only two ways through the curtain into the keep courtyard - and both of them run THROUGH a southern
+#: tower (the breach bands overlap the Magister's Tower and the Kennels). That was not the original plan, but
+#: it is a better castle: it makes those two bosses gates rather than optional side rooms, so getting into the
+#: keep costs you a fight either way round the ring. Verified: seal one breach and the keep is still reachable
+#: the other way; seal both and the courtyard, Perenolde and the Keepkeeper are all cut off.
+BREACHES = {
+    # Narrow. At 7 tiles tall these were bands, not holes: the courtyard, both southern towers and the
+    # breaches merged into one open lower half, so the "sealed keep" had no visible edge at all even though
+    # the flood fill still said it was sealed. A breach is a hole you squeeze through.
+    "breach_e": (92, 72, 94, 74),
+    "breach_w": (46, 72, 48, 74),
+}
 
 BOSSES = {}
 CHESTS = []
@@ -84,38 +116,16 @@ def build_durnholde():
     L = CaveLayout(zone, (PORTAL[0], PORTAL[1] - 2))
     b = L.b
 
-    x0, y0, x1, y1 = OUTER
-    # The bailey walk: four corridors forming a closed ring just inside the curtain wall.
-    b.rect(x0, y0, x1, y0 + RING_W)                      # north walk
-    b.rect(x0, y1 - RING_W, x1, y1)                      # south walk
-    b.rect(x0, y0, x0 + RING_W, y1)                      # west walk
-    b.rect(x1 - RING_W, y0, x1, y1)                      # east walk
-
-    # Corner towers and the gatehouse hang off the ring.
-    for key in ("gatehouse", "kennel", "magister", "armoury", "watch"):
-        rx0, ry0, rx1, ry1, _ = ROOMS[key]
-        b.rect(rx0, ry0, rx1, ry1, chamfer=3)
-
-    # The keep's three chambers, carved individually - NOT one big block, and nothing touching the ring.
-    for key in ("keep", "hall", "undercroft"):
-        rx0, ry0, rx1, ry1, _ = ROOMS[key]
-        b.rect(rx0, ry0, rx1, ry1, chamfer=3)
-    b.corridor([(70, 61), (70, 55)], width=3)            # courtyard -> the Lord's Hall
-    b.corridor([(70, 37), (70, 33)], width=2)            # hall -> the stair down to the undercroft
-
-    # The two breaches - the only ways through the inner wall.
-    for pts, wdt in BREACHES:
-        b.corridor(pts, width=wdt)
-
-    # Short stubs joining the towers to the ring, so nothing relies on a room merely touching it.
-    b.corridor([(70, 104), (70, 98)], width=3)           # gatehouse -> south walk
-    b.corridor([(110, 74), (110, 68)], width=3)          # kennel -> east walk
-    b.corridor([(30, 74), (30, 68)], width=3)            # magister -> west walk
-    b.corridor([(30, 42), (30, 48)], width=3)            # armoury -> west walk
-    b.corridor([(110, 42), (110, 48)], width=3)          # watch -> east walk
+    # The bailey walk, then every room, then the doorways and breaches. All rects, no chamfer.
+    for (x0, y0, x1, y1) in RING:
+        b.rect(x0, y0, x1, y1)
+    for key, (x0, y0, x1, y1, _n) in ROOMS.items():
+        b.rect(x0, y0, x1, y1)
+    for key, (x0, y0, x1, y1) in list(DOORS.items()) + list(BREACHES.items()):
+        b.rect(x0, y0, x1, y1)
 
     # Pillars down the Lord's Hall - it should read as a hall, not a box.
-    b.pillars([58, 82], [42, 50], size=2)
+    b.pillars([58, 82], [44, 52], size=2)
 
     px, py = PORTAL
     zone.collision_layer[py][px] = None
@@ -123,11 +133,11 @@ def build_durnholde():
     zone.collision_layer[py - 1][px] = None
     L.mark("portal", px, py)
 
-    bosses = [(70, 104, "Sergeant-at-Arms Varth"),
-              (110, 86, "Houndmaster Sable"),
-              (30, 86, "Magister Yvaine"),
-              (70, 28, "The Keepkeeper"),
-              (70, 46, "Baron Aliden Perenolde")]
+    bosses = [(70, 108, "Sergeant-at-Arms Varth"),
+              (104, 80, "Houndmaster Sable"),
+              (36, 80, "Magister Yvaine"),
+              (70, 30, "The Keepkeeper"),
+              (70, 49, "Baron Aliden Perenolde")]
     fixed = []
     for (x, y, n) in bosses:
         p = _near_walkable(zone, x, y)
@@ -140,7 +150,7 @@ def build_durnholde():
     zone.boss_positions = list(fixed)
 
     chests = []
-    for (x, y) in ((30, 30), (110, 30), (70, 76), (70, 28), (110, 86)):
+    for (x, y) in ((36, 36), (104, 36), (70, 80), (64, 30), (104, 86)):
         p = _near_walkable(zone, x, y)
         assert p, (x, y)
         chests.append(p)
