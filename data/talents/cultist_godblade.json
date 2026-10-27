@@ -252,21 +252,37 @@
     {
       "talent_id": "cultist_godblade_shadow_of_the_void",
       "name": "Shadow of the Void",
-      "description": "While above 40 Insanity, your melee attacks and abilities trigger Shadow of the Void, a stacking Shadow damage and critical strike buff.",
+      "description": "Your weapon swings grant Shadow of the Void, increasing damage dealt by 4% and critical strike chance by 2%, stacking up to 5 times.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "shadow_of_the_void_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "cultist_godblade_netherstrike",
         "cultist_godblade_touch_of_the_void"
       ],
-      "_source": "CoA handoff doc confirmed as Godblade's core identity mechanic: 'Level 20 Passive. Above 40 Insanity, melee attacks/abilities trigger Shadow of the Void.' Once in the pocket, damage snowballs - the whole spec is built around holding this threshold."
+      "_source": "CoA handoff doc confirmed as Godblade's core identity mechanic: 'Level 20 Passive. Above 40 Insanity, melee attacks/abilities trigger Shadow of the Void.' Once in the pocket, damage snowballs - the whole spec is built around holding this threshold.",
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "shadow_of_the_void",
+          "name": "Shadow of the Void",
+          "effect_type": "buff",
+          "duration": 6,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 4,
+            "crit_chance_physical": 2.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_touch_of_the_void",

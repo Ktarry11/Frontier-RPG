@@ -175,20 +175,29 @@
     {
       "talent_id": "primalist_mountain_king_mountain_giant",
       "name": "Mountain Giant",
-      "description": "Auto attacks now have a 20% chance to grant Aftershock: your next Geode Barrage or Earthquake within 15 seconds is instant cast and costs 75% less.",
+      "description": "Your weapon swings have a 20% chance to trigger Aftershock, resetting the cooldown of Geode Barrage and Quake.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
-      "effects": {
-        "unlock_mechanic": "aftershock_proc_melee"
-      },
+      "effects": {},
       "connected_to": [
         "primalist_mountain_king_earth_destroyer",
         "primalist_mountain_king_mountain_avatar"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 20,
+        "icd": 2,
+        "reset_cooldown": {
+          "abilities": [
+            "primalist_geode_barrage",
+            "primalist_quake"
+          ]
+        }
+      }
     },
     {
       "talent_id": "primalist_mountain_king_mountain_avatar",
@@ -200,9 +209,7 @@
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "unlock_mechanic": "mountain_avatar_proc"
-      },
+      "effects": {},
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 5,

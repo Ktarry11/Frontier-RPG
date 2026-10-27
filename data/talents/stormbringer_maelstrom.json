@@ -108,21 +108,39 @@
     {
       "talent_id": "stormbringer_maelstrom_conductive",
       "name": "Conductive",
-      "description": "Shock now also grants Conductive, a stacking buff (up to 6 stacks) that empowers your next Torrential Wrath.",
+      "description": "Your Shock casts grant Conductive, increasing damage dealt by 3% for 5 turns and stacking up to 6 times.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {
-        "unlock_mechanic": "conductive_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_maelstrom_amped_flow",
         "stormbringer_maelstrom_torrential_wrath"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Shock now grants Conductive for 1 minute, stacking 6 times. Torrential Wrath consumes all stacks of Conductive to trigger Conduction.' This is the spec's defining proc-and-consume loop."
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Shock now grants Conductive for 1 minute, stacking 6 times. Torrential Wrath consumes all stacks of Conductive to trigger Conduction.' This is the spec's defining proc-and-consume loop.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_shock"
+        ],
+        "apply_effect": {
+          "effect_id": "conductive",
+          "name": "Conductive",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 6,
+          "stat_mods": {
+            "damage_dealt_pct": 3
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "stormbringer_maelstrom_flow_of_wrath",

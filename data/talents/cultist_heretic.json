@@ -236,21 +236,31 @@
     {
       "talent_id": "cultist_heretic_blade_of_yoggsaron",
       "name": "Blade of Yogg-Saron",
-      "description": "Blade of the Empire's damage now heals the lowest-health ally, scaling with the damage dealt.",
+      "description": "Your Blade of the Empire drains 20% of the damage it deals as healing to your most wounded ally.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "blade_of_yoggsaron_heal"
-      },
+      "effects": {},
       "connected_to": [
         "cultist_heretic_malevolence",
         "cultist_heretic_forbidden_ritual"
       ],
-      "_source": "CoA handoff doc confirmed as a core Strength: 'Blade of the Empire damage heals lowest-health ally (% of damage + flat bonus).' Turns the class-wide melee generator into a real heal for this spec."
+      "_source": "CoA handoff doc confirmed as a core Strength: 'Blade of the Empire damage heals lowest-health ally (% of damage + flat bonus).' Turns the class-wide melee generator into a real heal for this spec.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_blade_of_the_empire"
+        ],
+        "leech_pct": {
+          "pct": 0.2,
+          "smart": true
+        }
+      }
     },
     {
       "talent_id": "cultist_heretic_forbidden_ritual",

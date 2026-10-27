@@ -208,21 +208,31 @@
     {
       "talent_id": "cultist_corruption_dark_revelation",
       "name": "Dark Revelation",
-      "description": "Periodic and direct damage has a chance to reset Gaze of C'Thun's cooldown and generate Insanity.",
+      "description": "Your damaging spells have a 15% chance to reset Gaze of C'Thun's cooldown and grant 10 Insanity.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "dark_revelation_proc"
-      },
+      "effects": {},
       "connected_to": [
         "cultist_corruption_darkwither",
         "cultist_corruption_glimpse_of_madness"
       ],
-      "_source": "CoA handoff doc confirmed: 'Level 40 Passive. Periodic/direct damage chance to reset Gaze of C'Thun + generate 5 Insanity.' Keeps Gaze available as a free-cast filler alongside Horrorbolt."
+      "_source": "CoA handoff doc confirmed: 'Level 40 Passive. Periodic/direct damage chance to reset Gaze of C'Thun + generate 5 Insanity.' Keeps Gaze available as a free-cast filler alongside Horrorbolt.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "reset_cooldown": {
+          "ability": "cultist_gaze_of_cthun"
+        },
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 10
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_glimpse_of_madness",

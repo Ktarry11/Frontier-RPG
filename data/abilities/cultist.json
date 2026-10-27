@@ -2390,6 +2390,29 @@
       ],
       "icon_id": null,
       "_implementation_note": "Real pet summon, stubbed pending a real pet entity system."
+    },
+    {
+      "ability_id": "cultist_void_monstrosity_form",
+      "name": "Void Monstrosity",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shed your mortal shape for something from the deep, greatly increasing Armor and Stamina and reducing damage taken.",
+      "_source": "Strength of the Black Empire (Dreadnought capstone) was authored as unlock_mechanic: 'void_monstrosity_form', which nothing read. Forms are real castable shapeshifts in this engine, so the capstone now unlocks one; the form itself is 'void_monstrosity' in combat/forms.py.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "shapeshift_form": "void_monstrosity",
+      "requires_talent": true
     }
   ]
 }

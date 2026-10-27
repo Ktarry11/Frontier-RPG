@@ -190,20 +190,39 @@
     {
       "talent_id": "primalist_geomancy_earthshaping",
       "name": "Earthshaping",
-      "description": "Casting Geode Barrage or Earthquake now generates Earthshaping, increasing spell haste by 1% for 20 seconds, stacking 15 times.",
+      "description": "Your Geode Barrage and Quake casts grant Earthshaping, increasing haste by 3% for 4 turns, stacking up to 5 times.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "unlock_mechanic": "earthshaping_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "primalist_geomancy_golem_might"
       ],
-      "_source": "CoA tooltip confirmed verbatim, kept as the Geomancy capstone."
+      "_source": "CoA tooltip confirmed verbatim, kept as the Geomancy capstone.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_geode_barrage",
+          "primalist_quake"
+        ],
+        "apply_effect": {
+          "effect_id": "earthshaping",
+          "name": "Earthshaping",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "haste": 3.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "primalist_geomancy_molten_core",

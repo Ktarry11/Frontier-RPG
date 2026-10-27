@@ -207,20 +207,29 @@
     {
       "talent_id": "primalist_grovekeeper_grove_training_capstone",
       "name": "Aftershock",
-      "description": "All melee damage or healing done now has a 10% chance to grant Aftershock: your next Geode Barrage or Earthquake within 15 seconds is instant cast and costs 75% less.",
+      "description": "Damage or healing you do has a 10% chance to trigger Aftershock, resetting the cooldown of Geode Barrage and Quake.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "unlock_mechanic": "aftershock_proc"
-      },
+      "effects": {},
       "connected_to": [
         "primalist_grovekeeper_ancient_of_lore"
       ],
-      "_source": "CoA tooltip confirmed verbatim as 'Grove Training' - renamed to 'Aftershock' here since that's the actual proc effect's name and 'Grove Training' was already used for the earlier Grove Tender unlock node, avoiding a duplicate node name."
+      "_source": "CoA tooltip confirmed verbatim as 'Grove Training' - renamed to 'Aftershock' here since that's the actual proc effect's name and 'Grove Training' was already used for the earlier Grove Tender unlock node, avoiding a duplicate node name.",
+      "proc": {
+        "trigger": "on_damage_or_heal_cast",
+        "chance": 10,
+        "icd": 2,
+        "reset_cooldown": {
+          "abilities": [
+            "primalist_geode_barrage",
+            "primalist_quake"
+          ]
+        }
+      }
     },
     {
       "talent_id": "primalist_grovekeeper_verdant_touch",

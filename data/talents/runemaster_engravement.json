@@ -217,21 +217,32 @@
     {
       "talent_id": "runemaster_engravement_elemental_carvings",
       "name": "Elemental Carvings",
-      "description": "Fist of the Ancients unleashes a random Elemental Carving: Fire grants Armor Penetration, Water restores mana, Earth heals you.",
+      "description": "Your Fist of the Ancients unleashes every Elemental Carving at once: restoring 120 Mana and healing you for 150.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "elemental_carving_procs"
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_fist_of_the_ancients",
         "runemaster_engravement_runic_brand"
       ],
-      "_source": "CoA handoff doc confirmed: 'Elemental Carvings (Level 30 Passive) - Fist of the Ancients unleashes a random Elemental Carving (Fire: armor pen. Water: mana regen. Earth: % missing health restore).' This spec's core proc-reward loop."
+      "_source": "CoA handoff doc confirmed: 'Elemental Carvings (Level 30 Passive) - Fist of the Ancients unleashes a random Elemental Carving (Fire: armor pen. Water: mana regen. Earth: % missing health restore).' This spec's core proc-reward loop.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_fist_of_the_ancients"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 120
+        },
+        "heal_flat": 150
+      }
     },
     {
       "talent_id": "runemaster_engravement_power_overwhelming",

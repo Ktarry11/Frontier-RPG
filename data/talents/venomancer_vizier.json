@@ -177,20 +177,37 @@
     {
       "talent_id": "venomancer_vizier_shadras_vigil",
       "name": "Shadra's Vigil",
-      "description": "Healing done by Serpent's Fang now applies Shadra's Vigil to the target: the next 5 instances of periodic healing on them heal for an additional 10%.",
+      "description": "Healing with Serpent's Fang grants Shadra's Vigil, increasing your healing done by 10% for 4 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "unlock_mechanic": "shadras_vigil_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "venomancer_vizier_alkahest"
       ],
-      "_source": "CoA tooltip confirmed verbatim, kept as the Vizier capstone."
+      "_source": "CoA tooltip confirmed verbatim, kept as the Vizier capstone.",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "venomancer_serpents_fang"
+        ],
+        "apply_effect": {
+          "effect_id": "shadras_vigil",
+          "name": "Shadra's Vigil",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "healing_done_pct": 10
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "venomancer_vizier_green_salve_mastery",

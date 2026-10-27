@@ -486,7 +486,7 @@
     {
       "talent_id": "cultist_dreadnought_strength_of_the_black_empire",
       "name": "Strength of the Black Empire",
-      "description": "Shed your mortal form into a void monstrosity, reducing damage taken.",
+      "description": "Teaches you to shed your mortal form into a Void Monstrosity.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -494,7 +494,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "unlock_mechanic": "void_monstrosity_form"
+        "unlock_ability": "cultist_void_monstrosity_form"
       },
       "connected_to": [
         "cultist_dreadnought_void_enhanced_shield"

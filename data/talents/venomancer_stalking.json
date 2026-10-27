@@ -153,21 +153,39 @@
     {
       "talent_id": "venomancer_stalking_brood_marks",
       "name": "Brood Marks",
-      "description": "Your Venom Fang now applies a Brood Mark, stacking up to 5 times. Widowmaker consumes all stacks for bonus damage.",
+      "description": "Your Venom Fang applies a Brood Mark, reducing the target's Armor by 25 and stacking up to 5 times. Widowmaker consumes them.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "unlock_mechanic": "brood_mark_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "venomancer_stalking_bugging",
         "venomancer_stalking_cunning_predator"
       ],
-      "_source": "CoA tooltip confirmed verbatim - this spec's defining proc-and-consume loop, same design role as Stormbringer Maelstrom's Conductive."
+      "_source": "CoA tooltip confirmed verbatim - this spec's defining proc-and-consume loop, same design role as Stormbringer Maelstrom's Conductive.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_venom_fang"
+        ],
+        "apply_effect": {
+          "effect_id": "brood_mark",
+          "name": "Brood Mark",
+          "effect_type": "debuff",
+          "duration": 8,
+          "max_stacks": 5,
+          "stat_mods": {
+            "armor": -25
+          },
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "venomancer_stalking_cunning_predator",
@@ -208,20 +226,35 @@
     {
       "talent_id": "venomancer_stalking_acidfang",
       "name": "Acidfang",
-      "description": "Periodic damage has a 40% chance, and critical strikes a 100% chance, to grant a stack of Acidfang. Your next Nerubian Sting or Widowmaker within 15 seconds ticks and casts faster, stacking 10 times.",
+      "description": "Your critical strikes grant a stack of Acidfang, increasing damage dealt by 3% for 5 turns, stacking up to 5 times.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 6,
-      "effects": {
-        "unlock_mechanic": "acidfang_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "venomancer_stalking_black_widow"
       ],
-      "_source": "CoA tooltip confirmed, referenced Rotfang/Withering Venom/Facemelter which don't have a confirmed source in this trimmed kit - retargeted to this tree's actual abilities (Nerubian Sting, Widowmaker) rather than inventing 3 more spells to match the original names, per Kyle's bloat-trim direction."
+      "_source": "CoA tooltip confirmed, referenced Rotfang/Withering Venom/Facemelter which don't have a confirmed source in this trimmed kit - retargeted to this tree's actual abilities (Nerubian Sting, Widowmaker) rather than inventing 3 more spells to match the original names, per Kyle's bloat-trim direction.",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "acidfang",
+          "name": "Acidfang",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 3
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "talent_id": "venomancer_stalking_keen_fangs",

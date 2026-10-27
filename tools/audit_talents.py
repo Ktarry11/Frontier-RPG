@@ -154,6 +154,8 @@ PROC_TRIGGERS = frozenset({
 PROC_PAYLOADS = frozenset({
     "grant_resource", "apply_effect", "bonus_pct", "extra_attack",
     "cast_ability", "heal_flat", "smart_heal",
+    # Added for the unlock_mechanic pass - see combat/status_effects.py.
+    "reset_cooldown", "leech_pct", "shield_pct", "splash_heal",
 })
 
 #: Effect-key prefixes/suffixes the engine resolves dynamically, so a grep
