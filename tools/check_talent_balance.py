@@ -36,15 +36,28 @@ THRESHOLD_KEYS = {
 #: Percentage-style keys that should never reach these magnitudes from
 #: talents alone. Generous on purpose - this is for catching a tree that
 #: accidentally grants 100% dodge, not for tuning.
+#: Caps are expressed in each key's OWN unit, which is not the same for all
+#: of them. The ten keys the engine divides by 100 (armor_pct, stamina_pct,
+#: healing_power_pct, ...) take percentage POINTS, so their caps are points;
+#: every other _pct key is a fraction, so its cap is a fraction. Treating
+#: armor_pct as a fraction here reported a perfectly reasonable +6% Armor as
+#: a tenfold cap breach - the checker has to know the convention split just
+#: as the audit does.
 SANITY_CAPS = {
-    "dodge": 40.0, "parry": 40.0, "block": 80.0,
-    "crit_chance_physical": 60.0, "crit_chance_spell": 60.0,
+    # fraction-unit keys
     "damage_taken_pct": 0.50, "magic_damage_taken_pct": 0.50,
     "physical_damage_taken_pct": 0.50,
     "max_health_pct": 0.60, "max_mana_pct": 0.60,
-    "armor_pct": 0.60, "stamina_pct": 0.40,
     "low_health_damage_reduction_pct": 0.60,
     "stun_duration_reduction_pct": 1.0,
+    "threat_generation_pct": 3.0,
+    # points-unit keys (value 20 == +20%)
+    "armor_pct": 60.0, "stamina_pct": 40.0, "healing_power_pct": 50.0,
+    "attack_power_pct": 50.0, "agility_pct": 40.0, "intellect_pct": 40.0,
+    "spirit_pct": 40.0, "strength_pct": 40.0, "all_stats_pct": 30.0,
+    # plain stats
+    "dodge": 40.0, "parry": 40.0, "block": 80.0,
+    "crit_chance_physical": 60.0, "crit_chance_spell": 60.0,
 }
 
 CLASSES = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest",

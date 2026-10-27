@@ -939,8 +939,14 @@ class StatusEffectMixin:
             # combat/forms.py) - None/absent on an effect means
             # unrestricted, same backward-compatible default as
             # ability_filter above.
-            require_form = proc.get("require_form")
-            if require_form and getattr(self, "current_form", None) != require_form:
+            # form_matches also accepts a LIST of form ids, so a proc can be
+            # gated on Bear OR Dire Bear - see entities/talent_node.py for
+            # why a single-string gate is a trap for those two. Imported
+            # locally, like the ResourceType import below, to keep this
+            # module free of module-level engine imports.
+            from entities.talent_node import form_matches
+            if not form_matches(proc.get("require_form"),
+                                getattr(self, "current_form", None)):
                 continue
 
             # require_mechsuit: like require_form above, but gated on the

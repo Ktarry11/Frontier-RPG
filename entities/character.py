@@ -1995,9 +1995,19 @@ class Character(StatusEffectMixin):
             # complete no-op cooldown, the exact "correctly authored,
             # silently inert" failure mode found elsewhere this session.
             # get_status_stat_mod returns a plain percentage number (e.g.
-            # -20 for -20%), same convention get_talent_effect's own
-            # physical_damage_taken_pct/magic_damage_taken_pct values use, so
-            # it divides by 100 here to match taken_mult's 0.0-1.0 scale.
+            # -20 for -20%), so it divides by 100 here to match taken_mult's
+            # 0.0-1.0 scale.
+            #
+            # NOTE, and this is a trap: this is the OPPOSITE convention to the
+            # talent-sourced line above, which is NOT divided. A TALENT writes
+            # these keys as a fraction (-0.02 for -2%, as the Shaman Tank
+            # Earthen Attunement block in _recalculate_derived_stats does
+            # literally) while a BUFF OR DEBUFF writes them as points (-20).
+            # An earlier version of this comment claimed both used the same
+            # convention; they never have. Authoring a proc's apply_effect
+            # stat_mods with the talent convention makes it 100x too weak -
+            # the same class of bug that left fifteen talents at 1/100th
+            # strength (see tools/audit_talents.py, pct-unit-mixup).
             taken_mult += self.get_status_stat_mod("physical_damage_taken_pct") / 100.0
         elif damage_type == "magic" or damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             # Broadened (Kyle's talent-overpass session, 2026-09-06):

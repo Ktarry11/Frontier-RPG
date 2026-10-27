@@ -16,6 +16,30 @@ Talents are hex nodes that can be connected, ranked, and have costs.
 UNSCALED_EFFECT_KEYS = frozenset({"low_health_threshold_pct"})
 
 
+def form_matches(required, active_form):
+    """True if `required` (a form gate) is satisfied by `active_form`.
+
+    `required` may be None (no gate - always satisfied, which is every
+    talent authored before form gating existed), a single form id, or a
+    LIST of form ids satisfied by any one of them.
+
+    The list case is why this exists. Bear and Dire Bear are separate form
+    ids, and Dire Bear Form is itself unlocked by a Feral talent - so a
+    Bear-gated talent written as the single string "bear" would silently
+    switch OFF the moment the player took their own tree's upgrade. A tree
+    that punishes you for completing it is worse than no gating at all.
+    Bear talents are therefore gated on ["bear", "dire_bear"].
+
+    Shared with the proc path in combat/status_effects.py so a node's
+    `effects` and its `proc` are gated by identical rules.
+    """
+    if not required:
+        return True
+    if isinstance(required, (list, tuple, set)):
+        return active_form in required
+    return required == active_form
+
+
 class TalentNode:
     """A single talent node in a talent tree."""
     

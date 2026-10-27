@@ -2,7 +2,7 @@
 TalentTree - represents one specialization's talent tree (hex grid with tier gating).
 E.g., Warrior Arms, Shaman Elemental, etc.
 """
-from entities.talent_node import TalentNode
+from entities.talent_node import TalentNode, form_matches
 
 
 class TalentTree:
@@ -89,8 +89,7 @@ class TalentTree:
         """
         total_effects = {}
         for node in self.nodes.values():
-            required = getattr(node, "require_form", None)
-            if required and required != active_form:
+            if not form_matches(getattr(node, "require_form", None), active_form):
                 continue
             effects = node.get_effective_effects()
             for key, value in effects.items():

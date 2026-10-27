@@ -934,14 +934,22 @@ class Ability:
         return max(0, int(round(self.cost - reduction)))
 
     def talented_duration(self, caster):
-        """Effect duration in turns after talent extensions (never below 1).
+        """Effect duration in turns after talent extensions.
 
         Completes the talented_cost/talented_cooldown pair. Authored as
         ability_<id>_duration and never read until now, so a talent extending
         a buff - Tinker's Fuel Injection on Mechsuit Form - did nothing.
         Positive values EXTEND, matching how those talents are worded
         ("increases the duration of X by N").
+
+        An ability with NO duration stays at 0. The floor used to be an
+        unconditional max(1, ...), which handed a phantom 1-turn duration to
+        every instant ability in the game - Wrath, Shred and Swiftmend all
+        reported "1 turn" where they have no duration at all. Only an
+        ability that genuinely has a duration keeps a minimum of 1.
         """
+        if not self.duration:
+            return 0
         bonus = self._talent(caster, f"ability_{self.ability_id}_duration")
         return max(1, int(round(self.duration + bonus)))
 
