@@ -933,6 +933,18 @@ class Ability:
         reduction = self._talent(caster, f"ability_{self.ability_id}_cost")
         return max(0, int(round(self.cost - reduction)))
 
+    def talented_duration(self, caster):
+        """Effect duration in turns after talent extensions (never below 1).
+
+        Completes the talented_cost/talented_cooldown pair. Authored as
+        ability_<id>_duration and never read until now, so a talent extending
+        a buff - Tinker's Fuel Injection on Mechsuit Form - did nothing.
+        Positive values EXTEND, matching how those talents are worded
+        ("increases the duration of X by N").
+        """
+        bonus = self._talent(caster, f"ability_{self.ability_id}_duration")
+        return max(1, int(round(self.duration + bonus)))
+
     def talented_cooldown(self, caster):
         """Cooldown in turns after talent reductions (never below 0)."""
         reduction = self._talent(caster, f"ability_{self.ability_id}_cooldown")
@@ -988,6 +1000,12 @@ class Ability:
         key = "crit_chance_physical" if school == "physical" else "crit_chance_spell"
         crit_chance = getattr(caster, key, 0.0) or 0.0
 
+        # Per-ability crit bonus from talents ("Increases the critical strike
+        # chance of X by N%"). Authored as ability_<id>_crit but never read,
+        # so any talent using it did nothing. Stored as percentage points, the
+        # same unit as crit_chance_physical/_spell above.
+        crit_chance += self._talent(caster, f"ability_{self.ability_id}_crit")
+
         crit_taken_reduction = 0.0
         if hasattr(target, "get_talent_effect"):
             crit_taken_reduction = target.get_talent_effect("crit_taken_reduction", 0.0) or 0.0
@@ -1024,6 +1042,14 @@ class Ability:
         """
         per_ability = self._talent(caster, f"ability_{self.ability_id}_damage")
         if school == "healing":
+            # A heal's per-ability talent key reads more naturally as
+            # ability_<id>_healing, and 18 talents across Cultist,
+            # Venomancer, Starcaller and Stormbringer were authored that way
+            # - but only _damage was ever looked up, so every one of them
+            # silently did nothing. Both are accepted now: _healing is the
+            # name that belongs on a heal, _damage keeps working for anything
+            # already using it.
+            per_ability += self._talent(caster, f"ability_{self.ability_id}_healing")
             global_key = self._talent(caster, "healing_done")
         elif school == "spell":
             global_key = (self._talent(caster, "spell_damage")
@@ -2095,7 +2121,7 @@ class Ability:
             # caster - that bug made every HoT in the game a self-heal.
             total = (self.effect_value + caster.healing_power * 0.8) * \
                 self._damage_multiplier(caster, "healing")
-            duration = max(1, self.duration)
+            duration = self.talented_duration(caster)
             per_turn = max(1, int(total / duration))
 
             recipients = self._recipients(caster, target)
@@ -2161,7 +2187,7 @@ class Ability:
             for recipient in recipients:
                 effect = StatusEffect(
                     effect_id=self.ability_id, name=self.name,
-                    effect_type=EffectType.BUFF, duration=max(1, self.duration),
+                    effect_type=EffectType.BUFF, duration=self.talented_duration(caster),
                     stat_mods=mods, source_name=caster.name,
                     real_time_seconds=real_time,
                     exclusive_group=self.exclusive_group,
@@ -2203,7 +2229,7 @@ class Ability:
                     effect = StatusEffect(
                         effect_id=self.ability_id, name=self.name,
                         effect_type=EffectType.DEBUFF,
-                        duration=max(1, self.duration),
+                        duration=self.talented_duration(caster),
                         stat_mods=mods, source_name=caster.name,
                         real_time_seconds=real_time,
                         dispel_type=self.dispel_type,
