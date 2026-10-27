@@ -113,10 +113,80 @@ def effect_magnitudes(eff):
     return vals
 
 
+#: The only effect keys the engine divides by 100, so the only ones that take
+#: percentage POINTS rather than a fraction. Kept in sync with the
+#: `bonuses.get(... ) / 100.0` sites in Character._recalculate_derived_stats.
+POINTS_PCT_KEYS = frozenset({
+    "all_stats_pct", "strength_pct", "stamina_pct", "intellect_pct",
+    "spirit_pct", "agility_pct", "attack_power_pct", "healing_power_pct",
+    "armor_pct", "armor_penetration_pct",
+})
+
+#: Effect-key prefixes/suffixes the engine resolves dynamically, so a grep
+#: for the literal key name will never find them.
+_DYNAMIC_KEY = re.compile(
+    r"^(ability_.+_(damage|healing|cost|cooldown|duration|crit|potency)"
+    r"|unlock_ability|unlock_mechanic"
+    r"|(arcane|fire|frost|nature|shadow|holy)_(resistance|spell_power))$")
+
+
+def live_effect_keys():
+    """Every effect key the engine actually reads, found in the engine itself.
+
+    Flat talent effects are pooled and read generically in
+    Character._recalculate_derived_stats, so a key is live if and only if some
+    Python file mentions it as a string literal. A key nothing mentions is
+    silently dropped at runtime, which is why a dead talent is
+    indistinguishable from a working one by inspection.
+
+    This is the check that was missing when 22 talents across six classes sat
+    dead for months (the _healing, _duration and _crit suffixes), and when
+    Druid Feral's tier-6 capstone Predatory Instincts turned out to grant
+    crit_damage_pct and aoe_damage_taken_pct - two keys with zero engine
+    references anywhere. Those were found by hand. This finds the next one.
+    """
+    lits = set()
+    for py in ROOT.rglob("*.py"):
+        if "tools/" in str(py.relative_to(ROOT)):
+            continue  # the tools name keys in their own doc/comments
+        try:
+            src = py.read_text(errors="ignore")
+        except OSError:
+            continue
+        lits.update(re.findall(r"""['"]([a-z][a-z0-9_]{2,})['"]""", src))
+    return lits
+
+
 def main():
     verbose = "--verbose" in sys.argv
     T = load()
     findings = defaultdict(list)
+    LIVE = live_effect_keys()
+
+    for tid, n in T.items():
+        for key, val in (n.get("effects") or {}).items():
+            if not (_DYNAMIC_KEY.match(key) or key in LIVE):
+                findings["dead-effect-key"].append(
+                    f"{tid} ({n.get('name')!r}): {key!r} is read by no engine code")
+            # Unit convention. These ten keys are the only ones the engine
+            # divides by 100 (Character._recalculate_derived_stats), so they
+            # take percentage POINTS - all eight ability buffs using them do
+            # (all_stats_pct: 10, armor_pct: 20). Every OTHER _pct key in the
+            # game is a plain fraction. Fifteen talents were authored the
+            # wrong way round and were silently 100x too weak: ten healer
+            # talents granting "healing_power_pct": 0.02 were giving 0.02%,
+            # not 2%, and nothing distinguished them from working ones.
+            if not isinstance(val, (int, float)) or val == 0:
+                continue
+            if key in POINTS_PCT_KEYS:
+                if abs(val) < 1.0:
+                    findings["pct-unit-mixup"].append(
+                        f"{tid} ({n.get('name')!r}): {key}={val} - this key takes "
+                        f"percentage POINTS, so that is {abs(val)}%, not {abs(val) * 100}%")
+            elif key.endswith("_pct") and abs(val) > 1.0:
+                findings["pct-unit-mixup"].append(
+                    f"{tid} ({n.get('name')!r}): {key}={val} - this key is a "
+                    f"FRACTION, so that is {abs(val) * 100}%")
 
     by_file_name = defaultdict(list)
     for tid, n in T.items():
