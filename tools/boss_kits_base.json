@@ -8098,5 +8098,230 @@
    },
    "self_only": true
   }
+ ],
+ "sergeant_varth": [
+  {
+   "name": "Gate-Warden's Halberd",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Bar the Gate",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 50
+   },
+   "self_only": true
+  },
+  {
+   "name": "Pike Sweep",
+   "kind": "damage",
+   "amount": 66,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Sound the Alarm",
+   "kind": "debuff",
+   "amount": 22,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -28
+   }
+  }
+ ],
+ "houndmaster_sable": [
+  {
+   "name": "Houndmaster's Lash",
+   "kind": "damage",
+   "amount": 64,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Set the Pack On",
+   "kind": "debuff",
+   "amount": 26,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -36,
+    "agility": -22
+   }
+  },
+  {
+   "name": "Kennel Discipline",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 36
+   },
+   "self_only": true
+  },
+  {
+   "name": "Throat-Tearer",
+   "kind": "dot",
+   "amount": 22,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
+ ],
+ "magister_yvaine": [
+  {
+   "name": "Violet Bolt",
+   "kind": "damage",
+   "amount": 54,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "Syndicate Binding",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 3,
+   "mana_cost": 20,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "intellect": -30,
+    "magic_resistance": -28
+   }
+  },
+  {
+   "name": "Leech Arcana",
+   "kind": "dot",
+   "amount": 24,
+   "cooldown": 4,
+   "mana_cost": 24,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Mantle of Alterac",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 26,
+   "school": "magic",
+   "duration": 4,
+   "stat_mods": {
+    "magic_resistance": 46,
+    "intellect": 26
+   },
+   "self_only": true
+  }
+ ],
+ "the_keepkeeper": [
+  {
+   "name": "Keyring Flail",
+   "kind": "damage",
+   "amount": 68,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "You Will Not Leave Either",
+   "kind": "debuff",
+   "amount": 28,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -34,
+    "attack_power": -24
+   }
+  },
+  {
+   "name": "Undercroft Damp",
+   "kind": "dot",
+   "amount": 25,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Still Keeping",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 60
+   },
+   "self_only": true
+  }
+ ],
+ "baron_perenolde": [
+  {
+   "name": "Perenolde's Blade",
+   "kind": "damage",
+   "amount": 74,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Alterac Treachery",
+   "kind": "debuff",
+   "amount": 30,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -44,
+    "attack_power": -26
+   }
+  },
+  {
+   "name": "Call the Syndicate",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 42,
+    "armor": 34
+   },
+   "self_only": true
+  },
+  {
+   "name": "Bleed the Lowlands",
+   "kind": "dot",
+   "amount": 27,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
  ]
 }

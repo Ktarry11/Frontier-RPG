@@ -439,6 +439,9 @@ CAVE_TO_PARENT_ZONE = {
     "Night Web's Hollow": "Deathknell",
     "Scarlet Crypt": "Deathknell",
     "Scourge Cave": "Eastern Tirisfal",
+    # A silver mine that flooded. It inherits Western Hillsbrad's ore table, which carries ore_silver at
+    # weight 2 precisely because this mine is the reason that silver is in the zone at all.
+    "Azurelode Mine": "Western Hillsbrad",
 }
 
 #: How much more ore-dense a cave's inherited pool is versus its parent

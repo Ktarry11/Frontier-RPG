@@ -24080,6 +24080,417 @@
         }
       }
     ],
+    "durnholde_hound": [
+      {
+        "name": "Savaging Bite",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -26
+        }
+      }
+    ],
+    "keep_revenant": [
+      {
+        "name": "Grave-Cold Blow",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chill of the Undercroft",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Unliving Resolve",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 44
+        },
+        "self_only": true
+      }
+    ],
+    "sergeant_varth": [
+      {
+        "name": "Gate-Warden's Halberd",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Bar the Gate",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 50
+          }
+        }
+      },
+      {
+        "name": "Pike Sweep",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sound the Alarm",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": -28
+          }
+        }
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 37
+        }
+      }
+    ],
+    "houndmaster_sable": [
+      {
+        "name": "Houndmaster's Lash",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Set the Pack On",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -36,
+            "agility": -22
+          }
+        }
+      },
+      {
+        "name": "Kennel Discipline",
+        "kind": "damage",
+        "amount": 51,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": 36
+          }
+        }
+      },
+      {
+        "name": "Throat-Tearer",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 83,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 38
+        }
+      }
+    ],
+    "magister_yvaine": [
+      {
+        "name": "Violet Bolt",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic",
+        "boss_rework": 1
+      },
+      {
+        "name": "Syndicate Binding",
+        "kind": "damage",
+        "amount": 35,
+        "cooldown": 3,
+        "mana_cost": 20,
+        "school": "magic",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "intellect": -30,
+            "magic_resistance": -28
+          }
+        }
+      },
+      {
+        "name": "Leech Arcana",
+        "kind": "dot",
+        "amount": 24,
+        "cooldown": 4,
+        "mana_cost": 24,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Mantle of Alterac",
+        "kind": "damage",
+        "amount": 43,
+        "cooldown": 4,
+        "mana_cost": 26,
+        "school": "magic",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "magic_resistance": 46,
+            "intellect": 26
+          }
+        }
+      },
+      {
+        "name": "Arcane Burst",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Overload",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 32
+        }
+      }
+    ],
+    "the_keepkeeper": [
+      {
+        "name": "Keyring Flail",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "You Will Not Leave Either",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "agility": -34,
+            "attack_power": -24
+          }
+        }
+      },
+      {
+        "name": "Undercroft Damp",
+        "kind": "dot",
+        "amount": 25,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Still Keeping",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 60
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 41
+        }
+      }
+    ],
+    "baron_perenolde": [
+      {
+        "name": "Perenolde's Blade",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Alterac Treachery",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -44,
+            "attack_power": -26
+          }
+        }
+      },
+      {
+        "name": "Call the Syndicate",
+        "kind": "damage",
+        "amount": 59,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": 42,
+            "armor": 34
+          }
+        }
+      },
+      {
+        "name": "Bleed the Lowlands",
+        "kind": "dot",
+        "amount": 27,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 44
+        }
+      }
+    ],
     "wall_watcher_teague": [
       {
         "name": "Border Pike",

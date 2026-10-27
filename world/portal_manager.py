@@ -310,6 +310,10 @@ class PortalManager:
             "Eastern Hillsbrad": {
                 # Hand-built (tools/handbuilt_hillsbrad_east.py): Tarren Mill, Durnholde, and the shut Arathi wall.
                 (5, 86): ("Western Hillsbrad", 152, 88),           # arrive (152,86), clear of the east gate
+                (109, 74): ("Durnholde Keep", 70, 112),            # the keep's fallen archway
+            },
+            "Durnholde Keep": {
+                (70, 112): ("Eastern Hillsbrad", 109, 77),         # dungeon exit: +3 -> arrive (109,75)
             },
             "The Sepulcher": {
                 (44, 67): ("Silverpine North", 32, 102),           # arrive (32,100), south of the gate

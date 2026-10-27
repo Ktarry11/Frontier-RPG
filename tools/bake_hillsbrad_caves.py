@@ -1,8 +1,8 @@
 """
-Bake the Hillsbrad caves. Azurelode Mine first: quarried rock, a blue-violet silver vein at the face, and a
+Bake the Hillsbrad interiors. Azurelode Mine: quarried rock, a blue-violet silver vein at the face, and a
 standing sump of water filling the middle of the map.
 
-    PYTHONPATH=. python3 tools/bake_hillsbrad_caves.py [azurelode_mine ...] [--preview DIR]
+    PYTHONPATH=. python3 tools/bake_hillsbrad_caves.py [azurelode_mine|durnholde_keep ...] [--preview DIR]
 
 No new art. The mine reuses Boulder Lode's quarried floor/wall and - the happy accident that named the place -
 its blue-violet CRYSTAL floor/wall for the Silver Face, which is exactly what an "Azure-lode" should look like.
@@ -17,6 +17,7 @@ import sys
 from tools import bake_durotar_caves as BD
 from tools import bake_nb_caves as NB
 from tools import handbuilt_azurelode as AZ
+from tools import handbuilt_durnholde as DK
 from tools.bake_durotar_caves import M, VC
 
 
@@ -46,8 +47,31 @@ def spec_azurelode():
     )
 
 
-MODULES = {"azurelode_mine": AZ}
-SPECS = {"azurelode_mine": spec_azurelode}
+def spec_durnholde():
+    """Durnholde is built, not dug: flagstone and keep wall, with the undercroft going dark."""
+    CS = "caves/seamless/"
+    ux, uy = 70, 28                       # the undercroft
+    hx, hy = 70, 46                       # the Lord's Hall
+    return dict(
+        build="build_durnholde_baked", seed=523, slug="durnholde_keep",
+        materials={
+            "floor": M(CS + "keep_floor_a"), "hall_f": M(CS + "castle_floor_b_a"),
+            "wall": M(CS + "keep_wall_a"), "dark_w": M(CS + "castle_wall_dark_a"),
+        },
+        floor_keys=["floor", "hall_f"],
+        wall_keys=["wall", "dark_w"],
+        # The hall keeps its better flagstone; the undercroft's walls go black, which is the whole
+        # reason the Syndicate stopped going down there.
+        floors={"hall_f": [(hx, hy, 22, 13)]},
+        walls={"dark_w": [(ux, uy, 30, 16)]},
+        pools=[],
+        cfg=dict(ao=0.52, depth=0.88, lip=22, lip_col=(0.70, 0.68, 0.64), deep_dark=0.5,
+                 foam_col=(200, 200, 205), glows=[]),
+    )
+
+
+MODULES = {"azurelode_mine": AZ, "durnholde_keep": DK}
+SPECS = {"azurelode_mine": spec_azurelode, "durnholde_keep": spec_durnholde}
 
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None

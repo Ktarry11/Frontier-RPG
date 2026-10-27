@@ -87,6 +87,14 @@ EAST_CREATURES = {
     "Sergeant Ironbeard": C("humanoid_warrior", 27, 27, "sergeant_ironbeard", True, 1.8),
     # Thoradin's Wall
     "Wall-Watcher Teague": C("humanoid_warrior", 27, 27, "wall_watcher_teague", True, 1.8),
+    # Durnholde Keep (dungeon)
+    "Durnholde Hound": C("beast_fast", 26, 28, "durnholde_hound"),
+    "Keep Revenant": C("undead_basic", 27, 29, "keep_revenant"),
+    "Sergeant-at-Arms Varth": C("humanoid_warrior", 27, 27, "sergeant_varth", True, 1.8),
+    "Houndmaster Sable": C("humanoid_warrior", 28, 28, "houndmaster_sable", True, 1.8),
+    "Magister Yvaine": C("humanoid_caster", 28, 28, "magister_yvaine", True, 1.8),
+    "The Keepkeeper": C("undead_basic", 29, 29, "the_keepkeeper", True, 1.9),
+    "Baron Aliden Perenolde": C("humanoid_warrior", 30, 30, "baron_perenolde", True, 2.0),
 }
 
 # Creatures borrowed from neighbouring zones, re-levelled for Hillsbrad's bands.
@@ -168,6 +176,17 @@ EAST_ZONE = {
         "Thoradin's Wall": {"name": "Thoradin's Wall",
                             "creatures": {"Dun Garok Rifleman": 3, "Syndicate Bandit": 3,
                                           "Nethander Ogre": 2, "Wall-Watcher Teague": 0}},
+    },
+    "caves": {
+        # A real Dungeon (world/zone_classification.DUNGEONS), listed here because that is where the
+        # encounter loader looks for a sub-map's table - the classification is what keeps ore out of it.
+        "Durnholde Keep": {
+            "name": "Durnholde Keep",
+            "creatures": {"Durnholde Watchman": 5, "Syndicate Bandit": 4, "Syndicate Spellbinder": 4,
+                          "Durnholde Hound": 4, "Keep Revenant": 3,
+                          "Sergeant-at-Arms Varth": 0, "Houndmaster Sable": 0, "Magister Yvaine": 0,
+                          "The Keepkeeper": 0, "Baron Aliden Perenolde": 0},
+        },
     },
 }
 
@@ -321,6 +340,56 @@ def east_pools():
                "Still dry inside, which in this country is an achievement."),
             mk("Mountaineer's Studded Boots", "feet", "of Strength", 30,
                "Nailed for scree. Loud on flagstone.", armor_type="mail"),
+        ],
+        "Sergeant-at-Arms Varth": [
+            mk("Gate-Warden's Halberd", "main_hand", "of the Soldier", 30,
+               "Issued to hold a gate. It held, for a while.", weapon_type="polearm"),
+            mk("Durnholde Gate-Guard Plate", "chest", "of the Bear", 30,
+               "Grey beneath the violet paint, if you scratch it.", armor_type="plate"),
+            mk("Sergeant's Whistle", "trinket", "of the Soldier", 30,
+               "One short blast for the watch. Nobody is left to answer it."),
+            mk("Portcullis Keyband", "ring", "of Strength", 30,
+               "The key is long gone. The habit of wearing it was not."),
+        ],
+        "Houndmaster Sable": [
+            mk("Houndmaster's Barbed Lash", "main_hand", "of the Monkey", 31,
+               "The hounds learned it faster than the recruits did.", weapon_type="fist_weapon"),
+            mk("Kennelmaster's Studded Hide", "chest", "of Agility", 31,
+               "Bite marks, inside and out.", armor_type="leather"),
+            mk("Sable's Houndhorn", "trinket", "of the Monkey", 31,
+               "Blow it and something in the kennels still answers."),
+            mk("Pack-Leader's Collar", "neck", "of Strength", 31,
+               "Too large for a hound. She wore it anyway."),
+        ],
+        "Magister Yvaine": [
+            mk("Violet Focus Staff", "main_hand", "of the Owl", 31,
+               "Alterac work, re-cut by someone with less patience.", weapon_type="staff"),
+            mk("Syndicate Magister's Robes", "chest", "of the Owl", 31,
+               "Violet, silver-trimmed, and burned through at one cuff.", armor_type="cloth"),
+            mk("Binding Sigil Ring", "ring", "of the Sorcerer", 31,
+               "Still warm. It has been still warm for some years."),
+            mk("Yvaine's Ledger Clasp", "trinket", "of the Owl", 31,
+               "Held shut a book of names. The book is not here."),
+        ],
+        "The Keepkeeper": [
+            mk("Keepkeeper's Keyring Flail", "main_hand", "of Strength", 32,
+               "Thirty keys on a chain, swung as one.", weapon_type="mace_1h"),
+            mk("Undercroft Warden's Mail", "chest", "of the Bear", 32,
+               "Rusted into one piece. It still fits something.", armor_type="mail"),
+            mk("Lamp of the Lower Door", "off_hand", "of the Owl", 32,
+               "Burns without oil, which nobody wants to think about."),
+            mk("Gaoler's Iron Band", "ring", "of the Bear", 32,
+               "Worn on the outside of a gauntlet, by the look of it."),
+        ],
+        "Baron Aliden Perenolde": [
+            mk("Perenolde Ancestral Blade", "main_hand", "of the Soldier", 33,
+               "Alterac's royal house kept better smiths than it kept promises.", weapon_type="sword_2h"),
+            mk("Baron's Treacherous Mantle", "shoulder", "of the Bear", 33,
+               "The sigil of a kingdom that sold itself, worn without embarrassment.", armor_type="plate"),
+            mk("Crown-Sold Signet", "ring", "of the Soldier", 33,
+               "The seal of Alterac, on the hand that traded it away."),
+            mk("Lordaeron Betrayer's Gorget", "neck", "of Strength", 33,
+               "Taken from a better man at Durnholde's fall."),
         ],
         "Wall-Watcher Teague": [
             mk("Thoradin Border Pike", "main_hand", "of the Soldier", 30,

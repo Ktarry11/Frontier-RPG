@@ -275,7 +275,9 @@ def dress(L):
     p("ek_gibbet", 130, 38, 6)
 
     # ---- Durnholde Keep: the ruined keep on its bluff, the zone's set-piece
-    p(RU + "ruin_archway.png", 109, 72, 9, solid=True, nudge=0, road_ok=True, allow_overlap=True)
+    # The archway stands over the PORTAL tile (109,74) -> Durnholde Keep, so it is drawn but passable:
+    # solid here would wall off the dungeon door it advertises (same mistake as Azurelode's adit).
+    p(RU + "ruin_archway.png", 109, 72, 9, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     for (x, y) in [(102, 70), (116, 70), (102, 82), (116, 82)]:
         p(RU + "ruin_wall_arch.png", x, y, 6)
     p(RU + "ruin_tower_skulls.png", 113, 80, 8)

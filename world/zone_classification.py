@@ -43,6 +43,9 @@ DUNGEONS = [
     "Shadowfang Keep",
     "Ambermill Tower",
     "Shadowpine Altar",
+    # Added 2026-10-27 with the Hillsbrad cluster. A lore-built, boss-populated keep, so no ore in it -
+    # Azurelode Mine next door is deliberately NOT on this list, because a mine should have ore.
+    "Durnholde Keep",
     "Wailing Caverns",
     "Razorfen Kraul",
     "The Broodspiral",
