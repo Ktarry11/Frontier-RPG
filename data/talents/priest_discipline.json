@@ -15,7 +15,7 @@
     {
       "talent_id": "priest_discipline_unbreakable_will",
       "name": "Unbreakable Will",
-      "description": "Reduces Magic damage taken by 2% per rank.",
+      "description": "You take 1% less magic damage per rank, and stuns last 4% less time per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -23,7 +23,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "magic_damage_taken_pct": -0.02
+        "magic_damage_taken_pct": -0.01,
+        "stun_duration_reduction_pct": 0.04
       },
       "connected_to": [
         "priest_discipline_meditation"
@@ -32,7 +33,7 @@
     {
       "talent_id": "priest_discipline_twin_disciplines",
       "name": "Twin Disciplines",
-      "description": "Increases healing done by 2% per rank.",
+      "description": "Reduces the Mana cost of Renew, Power Word: Shield and Shadow Word: Pain by 2 each per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,7 +41,9 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "healing_done": 0.02
+        "ability_priest_renew_cost": 2,
+        "ability_priest_power_word_shield_cost": 2,
+        "ability_priest_shadow_word_pain_cost": 2
       },
       "connected_to": [
         "priest_discipline_inner_focus"
@@ -49,7 +52,7 @@
     {
       "talent_id": "priest_discipline_silent_resolve",
       "name": "Silent Resolve",
-      "description": "Increases Spirit by 3 per rank.",
+      "description": "Stuns last 8% less time per rank, and Dispel Magic costs 4 less Mana per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -57,7 +60,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "spirit": 3
+        "stun_duration_reduction_pct": 0.08,
+        "ability_priest_dispel_magic_cost": 4
       },
       "connected_to": [
         "priest_discipline_improved_inner_fire"
@@ -66,7 +70,7 @@
     {
       "talent_id": "priest_discipline_improved_power_word_shield",
       "name": "Improved Power Word: Shield",
-      "description": "Increases Armor by 15 per rank.",
+      "description": "Increases the Armor and Magic Resistance granted by Power Word: Shield by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -74,7 +78,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "armor": 15
+        "ability_priest_power_word_shield_potency": 0.1
       },
       "connected_to": [
         "priest_discipline_mental_agility"
@@ -83,7 +87,7 @@
     {
       "talent_id": "priest_discipline_meditation",
       "name": "Meditation",
-      "description": "Increases Spirit by 4 per rank.",
+      "description": "Grants 8 Mana every 5 seconds and 3 Spirit per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -91,7 +95,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "spirit": 4
+        "mp5": 8,
+        "spirit": 3
       },
       "connected_to": [
         "priest_discipline_unbreakable_will",
@@ -101,25 +106,32 @@
     {
       "talent_id": "priest_discipline_inner_focus",
       "name": "Inner Focus",
-      "description": "Reduces the Mana cost of Heal by 10.",
+      "description": "Each spell you cast has a 12% chance to clear your mind, restoring 150 Mana. Cannot happen more than once every 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "ability_priest_heal_cost": 10
-      },
+      "effects": {},
       "connected_to": [
         "priest_discipline_twin_disciplines",
         "priest_discipline_divine_spirit"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 12,
+        "icd": 3,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 150
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_improved_inner_fire",
       "name": "Improved Inner Fire",
-      "description": "Increases Armor by 18 per rank.",
+      "description": "Increases the Armor and Spell Power granted by Inner Fire by 15% per rank, and extends its duration by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -127,7 +139,8 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "armor": 18
+        "ability_priest_inner_fire_potency": 0.15,
+        "ability_priest_inner_fire_duration": 1
       },
       "connected_to": [
         "priest_discipline_silent_resolve",
@@ -137,7 +150,7 @@
     {
       "talent_id": "priest_discipline_mental_agility",
       "name": "Mental Agility",
-      "description": "Reduces the Mana cost of Smite by 3 per rank.",
+      "description": "Reduces the Mana cost of Smite, Holy Fire and Mind Blast by 3 each per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -145,7 +158,9 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_priest_smite_cost": 3
+        "ability_priest_smite_cost": 3,
+        "ability_priest_holy_fire_cost": 3,
+        "ability_priest_mind_blast_cost": 3
       },
       "connected_to": [
         "priest_discipline_improved_power_word_shield",
@@ -155,7 +170,7 @@
     {
       "talent_id": "priest_discipline_absolution",
       "name": "Absolution",
-      "description": "Increases maximum Mana by 3% per rank.",
+      "description": "Dispel Magic and Abolish Disease cost 6 less Mana per rank, and have a 20% chance per rank to refund 60 Mana when cast.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -163,17 +178,31 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "max_mana_pct": 0.03
+        "ability_priest_dispel_magic_cost": 6,
+        "ability_priest_abolish_disease_cost": 6
       },
       "connected_to": [
         "priest_discipline_meditation",
         "priest_discipline_improved_flash_heal"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "priest_dispel_magic",
+          "priest_abolish_disease"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_divine_spirit",
       "name": "Divine Spirit",
-      "description": "Grants 8 Spirit and 10 Healing Power.",
+      "description": "Power Word: Fortitude grants 50% more Stamina and lasts 3 turns longer.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
@@ -181,8 +210,8 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "spirit": 8,
-        "healing_power": 10
+        "ability_priest_power_word_fortitude_potency": 0.5,
+        "ability_priest_power_word_fortitude_duration": 3
       },
       "connected_to": [
         "priest_discipline_inner_focus",
@@ -192,25 +221,32 @@
     {
       "talent_id": "priest_discipline_improved_mana_burn",
       "name": "Improved Mana Burn",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Your damaging spells have a 15% chance per rank to siphon magic from the target, restoring 45 Mana. Cannot happen more than once every turn.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "spell_power": 8
-      },
+      "effects": {},
       "connected_to": [
         "priest_discipline_improved_inner_fire",
         "priest_discipline_focused_power"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 45
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_reflective_shield",
       "name": "Reflective Shield",
-      "description": "Reduces Magic damage taken by 2% per rank.",
+      "description": "You take 2% less magic damage per rank, and attacks against you have a 15% chance per rank to knit the wound shut for 45 health. Cannot happen more than once every turn.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -223,31 +259,52 @@
       "connected_to": [
         "priest_discipline_mental_agility",
         "priest_discipline_enlightenment"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 1,
+        "heal_flat": 45
+      }
     },
     {
       "talent_id": "priest_discipline_power_infusion",
       "name": "Power Infusion",
-      "description": "Increases healing and spell damage by 5%.",
+      "description": "Each spell you cast has an 8% chance to infuse you for 3 turns, granting 25 Haste and 15% more damage and healing. Cannot happen more than once every 6 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
-      "effects": {
-        "healing_done": 0.05,
-        "spell_damage": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "priest_discipline_divine_spirit",
         "priest_discipline_pain_suppression"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 8,
+        "icd": 6,
+        "apply_effect": {
+          "effect_id": "priest_power_infusion",
+          "name": "Power Infusion",
+          "effect_type": "buff",
+          "duration": 3,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "haste": 25.0,
+            "healing_done_pct": 15,
+            "damage_dealt_pct": 15
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_focused_power",
       "name": "Focused Power",
-      "description": "Increases Healing Power by 8 per rank.",
+      "description": "Penance heals for 8% more and costs 5 less Mana per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -255,7 +312,8 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "healing_power": 8
+        "ability_priest_penance_healing": 0.08,
+        "ability_priest_penance_cost": 5
       },
       "connected_to": [
         "priest_discipline_improved_mana_burn",
@@ -265,7 +323,7 @@
     {
       "talent_id": "priest_discipline_enlightenment",
       "name": "Enlightenment",
-      "description": "Increases Intellect by 4 and Spirit by 3 per rank.",
+      "description": "Grants 5 Intellect and 4 Spirit per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -273,8 +331,8 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "intellect": 4,
-        "spirit": 3
+        "intellect": 5,
+        "spirit": 4
       },
       "connected_to": [
         "priest_discipline_reflective_shield",
@@ -284,7 +342,7 @@
     {
       "talent_id": "priest_discipline_improved_flash_heal",
       "name": "Improved Flash Heal",
-      "description": "Reduces the cooldown of Heal by 1 turn per rank.",
+      "description": "Heal costs 8 less Mana per rank, and has a 12% chance per rank to leave you casting at 20 extra Haste for 2 turns. Cannot happen more than once every turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -292,16 +350,35 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_priest_heal_cooldown": 1
+        "ability_priest_heal_cost": 8
       },
       "connected_to": [
         "priest_discipline_absolution"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 12,
+        "icd": 1,
+        "ability_filter": [
+          "priest_heal"
+        ],
+        "apply_effect": {
+          "effect_id": "priest_flash_heal_surge",
+          "name": "Flash Heal",
+          "effect_type": "buff",
+          "duration": 2,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "haste": 20.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_pain_suppression",
       "name": "Pain Suppression",
-      "description": "Grants 6% maximum Health and 30 Armor.",
+      "description": "While you are below 35% health, you take 25% less damage from every source.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -309,8 +386,8 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "max_health_pct": 0.06,
-        "armor": 30
+        "low_health_damage_reduction_pct": 0.25,
+        "low_health_threshold_pct": 0.35
       },
       "connected_to": [
         "priest_discipline_power_infusion",
@@ -320,43 +397,76 @@
     {
       "talent_id": "priest_discipline_grace",
       "name": "Grace",
-      "description": "Increases healing done by 3% per rank.",
+      "description": "Your heals have a 34% chance per rank to settle Grace on you, reducing damage you take by 3% for 4 turns. Stacks up to 3 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "healing_done": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "priest_discipline_focused_power",
         "priest_discipline_divine_aegis"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 34,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "priest_grace",
+          "name": "Grace",
+          "effect_type": "buff",
+          "duration": 4,
+          "real_time_seconds": null,
+          "max_stacks": 3,
+          "stat_mods": {
+            "physical_damage_taken_pct": -3,
+            "magic_damage_taken_pct": -3
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_borrowed_time",
       "name": "Borrowed Time",
-      "description": "Increases Haste by 2 and Healing Power by 4 per rank.",
+      "description": "Casting Power Word: Shield has a 20% chance per rank to grant you Borrowed Time: 60 Healing Power and 10 Haste for 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
-      "effects": {
-        "haste": 2.0,
-        "healing_power": 4
-      },
+      "effects": {},
       "connected_to": [
         "priest_discipline_enlightenment"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "priest_power_word_shield"
+        ],
+        "apply_effect": {
+          "effect_id": "priest_borrowed_time",
+          "name": "Borrowed Time",
+          "effect_type": "buff",
+          "duration": 2,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "healing_power": 60,
+            "haste": 10.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_rapture",
       "name": "Rapture",
-      "description": "Increases maximum Mana by 4% per rank.",
+      "description": "Increases your maximum Mana by 3% per rank, and attacks against you have a 20% chance per rank to return 80 Mana. Cannot happen more than once every 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -364,36 +474,57 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "max_mana_pct": 0.04
+        "max_mana_pct": 0.03
       },
       "connected_to": [
         "priest_discipline_pain_suppression",
         "priest_discipline_penance"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 2,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 80
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_divine_aegis",
       "name": "Divine Aegis",
-      "description": "Increases Healing Power by 10 and spell crit chance by 1% per rank.",
+      "description": "Your heals have a 25% chance per rank to wrap you in Divine Aegis, absorbing damage equal to 6% of your maximum health for 3 turns. Cannot happen more than once every turn.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "healing_power": 10,
-        "crit_chance_spell": 1.0
-      },
+      "effects": {},
       "connected_to": [
         "priest_discipline_grace",
         "priest_discipline_discipline_mastery"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "priest_divine_aegis",
+          "name": "Divine Aegis",
+          "effect_type": "buff",
+          "duration": 3,
+          "real_time_seconds": null,
+          "stat_mods": {},
+          "absorb_pct_max_health": 0.06,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_discipline_penance",
       "name": "Penance",
-      "description": "Grants Penance, healing an ally over a short channel.",
+      "description": "Teaches Penance, a strong instant heal on a short cooldown.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
@@ -410,7 +541,7 @@
     {
       "talent_id": "priest_discipline_discipline_mastery",
       "name": "Aspiration",
-      "description": "Increases all healing and damage you deal.",
+      "description": "Reduces the cooldown of Power Word: Shield by 2 turns and Penance by 1 turn, and increases all your healing by 8%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -418,8 +549,9 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "healing_done": 0.1,
-        "all_damage": 0.05
+        "ability_priest_power_word_shield_cooldown": 2,
+        "ability_priest_penance_cooldown": 1,
+        "healing_done": 0.08
       },
       "connected_to": [
         "priest_discipline_divine_aegis"

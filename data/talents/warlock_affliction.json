@@ -15,7 +15,7 @@
     {
       "talent_id": "warlock_affliction_improved_corruption",
       "name": "Improved Corruption",
-      "description": "Increases Corruption damage by 5% per rank.",
+      "description": "Increases the damage of Corruption by 6% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -23,7 +23,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_warlock_corruption_damage": 0.05
+        "ability_warlock_corruption_damage": 0.06
       },
       "connected_to": [
         "warlock_affliction_improved_drain_soul"
@@ -32,7 +32,7 @@
     {
       "talent_id": "warlock_affliction_suppression",
       "name": "Suppression",
-      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "description": "Increases your chance to hit with spells by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -49,7 +49,7 @@
     {
       "talent_id": "warlock_affliction_improved_life_tap",
       "name": "Improved Life Tap",
-      "description": "Increases maximum Mana by 4% per rank.",
+      "description": "Reduces the cooldown of Life Tap by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -57,7 +57,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "max_mana_pct": 0.04
+        "ability_warlock_life_tap_cooldown": 1
       },
       "connected_to": [
         "warlock_affliction_nightfall"
@@ -66,42 +66,57 @@
     {
       "talent_id": "warlock_affliction_soul_siphon",
       "name": "Soul Siphon",
-      "description": "Increases Spell Power by 6 per rank.",
+      "description": "Your Shadow Bolt and Drain Life hits heal you for 60. 50% chance per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {
-        "spell_power": 6
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_empowered_corruption"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "warlock_shadow_bolt",
+          "warlock_drain_life"
+        ],
+        "heal_flat": 60
+      }
     },
     {
       "talent_id": "warlock_affliction_improved_drain_soul",
       "name": "Improved Drain Soul",
-      "description": "Increases maximum Mana by 3% per rank.",
+      "description": "Killing an enemy restores 250 Mana. 40% chance per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
-      "effects": {
-        "max_mana_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_improved_corruption",
         "warlock_affliction_shadow_embrace"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 40,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 250
+        }
+      }
     },
     {
       "talent_id": "warlock_affliction_amplify_curse",
       "name": "Amplify Curse",
-      "description": "Increases spell damage by 4%.",
+      "description": "Increases the damage of Curse of Agony by 20% and extends Curse of Weakness by 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -109,7 +124,8 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "spell_damage": 0.04
+        "ability_warlock_curse_of_agony_damage": 0.2,
+        "ability_warlock_curse_of_weakness_duration": 2
       },
       "connected_to": [
         "warlock_affliction_suppression",
@@ -119,25 +135,39 @@
     {
       "talent_id": "warlock_affliction_nightfall",
       "name": "Nightfall",
-      "description": "Increases spell critical strike chance by 2% per rank.",
+      "description": "Your spellcasts have a 15% chance per rank to send you into a Shadow Trance, granting 120 Spell Power for 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {
-        "crit_chance_spell": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_improved_life_tap",
         "warlock_affliction_shadow_mastery"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 15,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "warlock_shadow_trance",
+          "name": "Shadow Trance",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "spell_power": 120
+          },
+          "real_time_seconds": null,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "warlock_affliction_empowered_corruption",
       "name": "Empowered Corruption",
-      "description": "Increases Corruption damage by 6% per rank.",
+      "description": "Increases the damage of Corruption by 7% per rank and reduces its Mana cost by 6 per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -145,7 +175,8 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_warlock_corruption_damage": 0.06
+        "ability_warlock_corruption_damage": 0.07,
+        "ability_warlock_corruption_cost": 6
       },
       "connected_to": [
         "warlock_affliction_soul_siphon",
@@ -155,43 +186,64 @@
     {
       "talent_id": "warlock_affliction_shadow_embrace",
       "name": "Shadow Embrace",
-      "description": "Increases spell damage by 2% per rank.",
+      "description": "Your Shadow Bolt, Shadowburn and Drain Life hits have an 8% chance per rank to wrap the target in Shadow Embrace, dealing 90 Shadow damage per turn for 3 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
-      "effects": {
-        "spell_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_improved_drain_soul",
         "warlock_affliction_fel_concentration"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 0,
+        "ability_filter": [
+          "warlock_shadow_bolt",
+          "warlock_shadowburn",
+          "warlock_drain_life"
+        ],
+        "apply_effect": {
+          "effect_id": "warlock_shadow_embrace",
+          "name": "Shadow Embrace",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 90,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "warlock_affliction_siphon_life",
       "name": "Siphon Life",
-      "description": "Increases maximum Health by 5%.",
+      "description": "Whenever you deal damage you siphon 40 health from the target. This can occur once every turn.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -2,
-      "effects": {
-        "max_health_pct": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_amplify_curse",
         "warlock_affliction_unstable_affliction"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 1,
+        "heal_flat": 40
+      }
     },
     {
       "talent_id": "warlock_affliction_shadow_mastery",
       "name": "Shadow Mastery",
-      "description": "Increases Spell Power by 7 per rank.",
+      "description": "Increases your Shadow spell power by 12 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -199,7 +251,7 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "spell_power": 7
+        "shadow_spell_power": 12
       },
       "connected_to": [
         "warlock_affliction_nightfall",
@@ -209,7 +261,7 @@
     {
       "talent_id": "warlock_affliction_curse_of_exhaustion",
       "name": "Curse of Exhaustion",
-      "description": "Increases Shadow Resistance by 10 per rank.",
+      "description": "Increases the duration of Curse of Recklessness by 1 turn per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -217,7 +269,7 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "shadow_resistance": 10
+        "ability_warlock_curse_of_recklessness_duration": 1
       },
       "connected_to": [
         "warlock_affliction_empowered_corruption",
@@ -227,7 +279,7 @@
     {
       "talent_id": "warlock_affliction_unstable_affliction",
       "name": "Unstable Affliction",
-      "description": "Grants Unstable Affliction, a Shadow damage-over-time spell.",
+      "description": "Teaches Unstable Affliction, a shadow affliction that festers on the target.",
       "node_type": "active",
       "tier": 3,
       "max_points": 1,
@@ -245,25 +297,37 @@
     {
       "talent_id": "warlock_affliction_pandemic",
       "name": "Pandemic",
-      "description": "Increases spell damage by 3% per rank.",
+      "description": "Your critical strikes have a 33% chance per rank to spread Pandemic, dealing 140 Shadow damage per turn for 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "spell_damage": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_shadow_mastery",
         "warlock_affliction_everlasting_affliction"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "warlock_pandemic",
+          "name": "Pandemic",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 140,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "warlock_affliction_malediction",
       "name": "Malediction",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Increases the damage of Curse of Agony by 8% per rank and of Unstable Affliction by 6% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -271,7 +335,8 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "spell_power": 8
+        "ability_warlock_curse_of_agony_damage": 0.08,
+        "ability_warlock_unstable_affliction_damage": 0.06
       },
       "connected_to": [
         "warlock_affliction_curse_of_exhaustion",
@@ -281,7 +346,7 @@
     {
       "talent_id": "warlock_affliction_fel_concentration",
       "name": "Fel Concentration",
-      "description": "Reduces the Mana cost of Corruption by 5 per rank.",
+      "description": "Reduces the Mana cost of Corruption and Curse of Agony by 7 per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -289,7 +354,8 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_warlock_corruption_cost": 5
+        "ability_warlock_corruption_cost": 7,
+        "ability_warlock_curse_of_agony_cost": 7
       },
       "connected_to": [
         "warlock_affliction_shadow_embrace"
@@ -298,25 +364,33 @@
     {
       "talent_id": "warlock_affliction_haunt",
       "name": "Haunt",
-      "description": "Increases spell damage by 6%.",
+      "description": "Your Shadow Bolt strikes for 40% additional Shadow damage and returns 150 health to you. This can occur once every 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "spell_damage": 0.06
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_unstable_affliction",
         "warlock_affliction_eradication"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "warlock_shadow_bolt"
+        ],
+        "bonus_pct": 0.4,
+        "heal_flat": 150
+      }
     },
     {
       "talent_id": "warlock_affliction_everlasting_affliction",
       "name": "Everlasting Affliction",
-      "description": "Increases Shadow Bolt damage by 4% per rank.",
+      "description": "Increases the damage of Shadow Bolt and Unstable Affliction by 5% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -324,7 +398,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_warlock_shadow_bolt_damage": 0.04
+        "ability_warlock_shadow_bolt_damage": 0.05,
+        "ability_warlock_unstable_affliction_damage": 0.05
       },
       "connected_to": [
         "warlock_affliction_pandemic",
@@ -334,7 +409,7 @@
     {
       "talent_id": "warlock_affliction_death_embrace",
       "name": "Death's Embrace",
-      "description": "Increases Spell Power by 9 per rank.",
+      "description": "While you are below 35% health, you take 6% less damage per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -342,7 +417,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "spell_power": 9
+        "low_health_threshold_pct": 0.35,
+        "low_health_damage_reduction_pct": 0.06
       },
       "connected_to": [
         "warlock_affliction_malediction"
@@ -351,26 +427,39 @@
     {
       "talent_id": "warlock_affliction_eradication",
       "name": "Eradication",
-      "description": "Increases Haste by 3 and spell damage by 2% per rank.",
+      "description": "Your spellcasts have a 20% chance per rank to grant Eradication, granting 40 Haste for 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "haste": 3.0,
-        "spell_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "warlock_affliction_haunt",
         "warlock_affliction_dark_pact"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "warlock_eradication",
+          "name": "Eradication",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 40
+          },
+          "real_time_seconds": null,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "warlock_affliction_contagion",
       "name": "Contagion",
-      "description": "Increases Intellect by 4 and Spell Power by 5 per rank.",
+      "description": "Increases the damage of Corruption, Curse of Agony and Unstable Affliction by 5% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -378,8 +467,9 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "intellect": 4,
-        "spell_power": 5
+        "ability_warlock_corruption_damage": 0.05,
+        "ability_warlock_curse_of_agony_damage": 0.05,
+        "ability_warlock_unstable_affliction_damage": 0.05
       },
       "connected_to": [
         "warlock_affliction_everlasting_affliction",
@@ -389,7 +479,7 @@
     {
       "talent_id": "warlock_affliction_dark_pact",
       "name": "Dark Pact",
-      "description": "Grants Dark Pact, instantly restoring a portion of your Mana.",
+      "description": "Teaches Dark Pact, drawing Mana from your demon's reserves.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
@@ -406,7 +496,7 @@
     {
       "talent_id": "warlock_affliction_affliction_mastery",
       "name": "Seed of Corruption",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Increases all your damage by 6%, and your damaging hits seed a free Corruption on the target once every 3 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -414,11 +504,17 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "all_damage": 0.1
+        "all_damage": 0.06
       },
       "connected_to": [
         "warlock_affliction_contagion"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 3,
+        "cast_ability": "warlock_corruption"
+      }
     }
   ]
 }

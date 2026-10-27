@@ -122,6 +122,13 @@ POINTS_PCT_KEYS = frozenset({
     "armor_pct", "armor_penetration_pct",
 })
 
+#: Status-effect stat_mod keys the engine reads RAW (as a fraction) rather
+#: than dividing by 100. Everything else ending in _pct inside a status
+#: effect's stat_mods is in percentage POINTS. This single-key exception is
+#: real: character.py's taken_mult adds get_status_stat_mod("damage_taken_pct")
+#: undivided, while the physical_/magic_ variants beside it are divided.
+STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct"})
+
 #: Triggers combat/status_effects.py actually dispatches on. A proc with any
 #: other trigger never fires.
 PROC_TRIGGERS = frozenset({
@@ -227,13 +234,28 @@ def main():
                     findings["dead-effect-key"].append(
                         f"{tid} ({n.get('name')!r}): proc stat_mod {key!r} is read "
                         f"by no engine code")
-                elif (isinstance(val, (int, float)) and key.endswith("_pct")
-                        and 0 < abs(val) < 1.0):
-                    # Inside a status effect these are POINTS, not fractions -
-                    # the opposite of the talent-effects convention.
-                    findings["pct-unit-mixup"].append(
-                        f"{tid} ({n.get('name')!r}): proc stat_mod {key}={val} - "
-                        f"status stat_mods take POINTS, so that is {abs(val)}%")
+                elif isinstance(val, (int, float)) and key.endswith("_pct"):
+                    # Inside a status effect most of these are POINTS, the
+                    # opposite of the talent-effects convention - but NOT all
+                    # of them, and an earlier version of this check assumed
+                    # otherwise and flagged correct authoring. The engine
+                    # divides get_status_stat_mod by 100 for the
+                    # school-specific damage-taken keys, damage_dealt_pct and
+                    # healing_done_pct, but reads plain damage_taken_pct RAW
+                    # (character.py's taken_mult), so that one key alone is a
+                    # fraction. Acting on the wrong assumption here turned
+                    # Primalist's Mountain Avatar from a correct -0.15 into
+                    # -15, i.e. -1500%.
+                    if key in STATUS_FRACTION_PCT_KEYS:
+                        if abs(val) > 1.0:
+                            findings["pct-unit-mixup"].append(
+                                f"{tid} ({n.get('name')!r}): proc stat_mod {key}={val} - "
+                                f"this status key is read RAW, so that is "
+                                f"{abs(val) * 100}%")
+                    elif 0 < abs(val) < 1.0:
+                        findings["pct-unit-mixup"].append(
+                            f"{tid} ({n.get('name')!r}): proc stat_mod {key}={val} - "
+                            f"status stat_mods take POINTS, so that is {abs(val)}%")
 
     by_file_name = defaultdict(list)
     for tid, n in T.items():

@@ -15,24 +15,36 @@
     {
       "talent_id": "mage_frost_frostbite",
       "name": "Frostbite",
-      "description": "Increases spell critical strike chance by 1.5% per rank.",
+      "description": "Your damaging spells have a 10% chance per rank to freeze the target solid for 1 turn.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
-      "effects": {
-        "crit_chance_spell": 1.5
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_frost_warding"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "frostbite_freeze",
+          "name": "Frostbite",
+          "effect_type": "debuff",
+          "duration": 1,
+          "stat_mods": {},
+          "is_stun": true,
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "mage_frost_improved_frostbolt",
       "name": "Improved Frostbolt",
-      "description": "Increases Frostbolt damage by 5% per rank.",
+      "description": "Increases the damage of Frostbolt by 5% and its critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,7 +52,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_mage_frostbolt_damage": 0.05
+        "ability_mage_frostbolt_damage": 0.05,
+        "ability_mage_frostbolt_crit": 1.0
       },
       "connected_to": [
         "mage_frost_permafrost"
@@ -49,7 +62,7 @@
     {
       "talent_id": "mage_frost_elemental_precision",
       "name": "Elemental Precision",
-      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "description": "Increases your Hit Rating by 1 per rank, reducing the chance your spells miss.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -66,24 +79,28 @@
     {
       "talent_id": "mage_frost_ice_shards",
       "name": "Ice Shards",
-      "description": "Increases spell damage by 2% per rank.",
+      "description": "Your critical strikes have a 20% chance per rank to shatter into shards, adding 15% of the hit again as frost damage.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {
-        "spell_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_icy_veins"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 0,
+        "bonus_pct": 0.15
+      }
     },
     {
       "talent_id": "mage_frost_frost_warding",
       "name": "Frost Warding",
-      "description": "Increases Frost Resistance by 10 per rank.",
+      "description": "Increases the Armor and Magic Resistance granted by Ice Barrier by 10% per rank. When you take damage, 12% chance per rank to form a ward absorbing 5% of your maximum Health for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -91,17 +108,31 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "frost_resistance": 10
+        "ability_mage_ice_barrier_potency": 0.1
       },
       "connected_to": [
         "mage_frost_frostbite",
         "mage_frost_blizzard"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 12,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "frost_warding_shield",
+          "name": "Frost Warding",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "absorb_pct_max_health": 0.05,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "mage_frost_permafrost",
       "name": "Permafrost",
-      "description": "Increases Spell Power by 6 per rank.",
+      "description": "Increases the duration of Blizzard and Frost Nova by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -109,7 +140,8 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "spell_power": 6
+        "ability_mage_blizzard_duration": 1,
+        "ability_mage_frost_nova_duration": 1
       },
       "connected_to": [
         "mage_frost_improved_frostbolt",
@@ -119,7 +151,7 @@
     {
       "talent_id": "mage_frost_piercing_ice",
       "name": "Piercing Ice",
-      "description": "Increases spell damage by 3% per rank.",
+      "description": "Increases your spell damage by 3% per rank. Your damaging spells also have a 10% chance per rank to slow the target for 3 turns, reducing its Haste by 15.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -132,12 +164,27 @@
       "connected_to": [
         "mage_frost_elemental_precision",
         "mage_frost_frost_channeling"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "piercing_ice_slow",
+          "name": "Piercing Ice",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": -15
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "mage_frost_icy_veins",
       "name": "Icy Veins",
-      "description": "Grants Icy Veins, temporarily increasing your casting speed.",
+      "description": "Teaches Icy Veins, increasing your casting speed for a few turns.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
@@ -155,7 +202,7 @@
     {
       "talent_id": "mage_frost_blizzard",
       "name": "Blizzard",
-      "description": "Learn Blizzard, calling down ice shards that deal Frost damage over time to all enemies in the target area.",
+      "description": "Teaches Blizzard, pelting an area with ice over several turns.",
       "node_type": "active",
       "tier": 2,
       "max_points": 1,
@@ -174,7 +221,7 @@
     {
       "talent_id": "mage_frost_arctic_reach",
       "name": "Arctic Reach",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Increases your Frost Spell Power by 10 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -182,7 +229,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "spell_power": 8
+        "frost_spell_power": 10
       },
       "connected_to": [
         "mage_frost_permafrost",
@@ -192,7 +239,7 @@
     {
       "talent_id": "mage_frost_frost_channeling",
       "name": "Frost Channeling",
-      "description": "Reduces the Mana cost of Frostbolt by 4 per rank.",
+      "description": "Reduces the Mana cost of Frostbolt and Blizzard by 4 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -200,7 +247,8 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "ability_mage_frostbolt_cost": 4
+        "ability_mage_frostbolt_cost": 4,
+        "ability_mage_blizzard_cost": 4
       },
       "connected_to": [
         "mage_frost_piercing_ice",
@@ -210,25 +258,42 @@
     {
       "talent_id": "mage_frost_shatter",
       "name": "Shatter",
-      "description": "Increases spell critical strike chance by 2% per rank.",
+      "description": "Casting Frost Nova or Cone of Cold has a 20% chance per rank to open a Shatter window for 3 turns, increasing your spell critical strike chance by 20.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {
-        "crit_chance_spell": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_icy_veins",
         "mage_frost_empowered_frostbolt"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "mage_frost_nova",
+          "mage_cone_of_cold"
+        ],
+        "apply_effect": {
+          "effect_id": "shatter_window",
+          "name": "Shatter",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "crit_chance_spell": 20
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "mage_frost_ice_barrier",
       "name": "Ice Barrier",
-      "description": "Grants Ice Barrier, a shield that absorbs damage.",
+      "description": "Teaches Ice Barrier, sheathing you in ice that adds Armor and Magic Resistance.",
       "node_type": "active",
       "tier": 3,
       "max_points": 1,
@@ -246,25 +311,32 @@
     {
       "talent_id": "mage_frost_arctic_winds",
       "name": "Arctic Winds",
-      "description": "Increases spell damage by 2% per rank.",
+      "description": "Your Frostbolt has a 10% chance per rank to catch the wind, adding 12% of the hit again as frost damage.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "spell_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_frost_channeling",
         "mage_frost_brain_freeze"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "ability_filter": [
+          "mage_frostbolt"
+        ],
+        "bonus_pct": 0.12
+      }
     },
     {
       "talent_id": "mage_frost_empowered_frostbolt",
       "name": "Empowered Frostbolt",
-      "description": "Increases Frostbolt damage by 4% per rank.",
+      "description": "Increases the damage of Frostbolt by 4% per rank. Your Frostbolt also has an 8% chance per rank to grant 40 Frost Spell Power for 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -277,12 +349,30 @@
       "connected_to": [
         "mage_frost_shatter",
         "mage_frost_winters_chill"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 1,
+        "ability_filter": [
+          "mage_frostbolt"
+        ],
+        "apply_effect": {
+          "effect_id": "empowered_frostbolt_buff",
+          "name": "Empowered Frostbolt",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "frost_spell_power": 40
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "mage_frost_frozen_core",
       "name": "Frozen Core",
-      "description": "Increases Frost Resistance by 12 per rank.",
+      "description": "While below 35% Health, reduces all damage you take by 4% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -290,7 +380,8 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "frost_resistance": 12
+        "low_health_damage_reduction_pct": 0.04,
+        "low_health_threshold_pct": 0.35
       },
       "connected_to": [
         "mage_frost_blizzard"
@@ -299,7 +390,7 @@
     {
       "talent_id": "mage_frost_cold_snap",
       "name": "Cold Snap",
-      "description": "Grants Cold Snap, instantly resetting the cooldowns of all your abilities.",
+      "description": "Teaches Cold Snap, resetting the cooldowns of your Frost spells.",
       "node_type": "active",
       "tier": 4,
       "max_points": 1,
@@ -317,43 +408,60 @@
     {
       "talent_id": "mage_frost_brain_freeze",
       "name": "Brain Freeze",
-      "description": "Increases spell damage by 3% per rank.",
+      "description": "Your critical strikes have a 15% chance per rank to free up an instant Ice Lance at no Mana cost.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "spell_damage": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_arctic_winds",
         "mage_frost_deep_freeze"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 15,
+        "icd": 1,
+        "cast_ability": "mage_ice_lance"
+      }
     },
     {
       "talent_id": "mage_frost_winters_chill",
       "name": "Winter's Chill",
-      "description": "Increases spell crit chance by 1% and Spell Power by 4 per rank.",
+      "description": "Your damaging spells have a 20% chance per rank to apply Winter's Chill for 3 turns, increasing magic damage the target takes by 2%. Stacks up to 5 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
-      "effects": {
-        "crit_chance_spell": 1.0,
-        "spell_power": 4
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_empowered_frostbolt"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "winters_chill_stack",
+          "name": "Winter's Chill",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "magic_damage_taken_pct": 2
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "mage_frost_chilled_to_the_bone",
       "name": "Chilled to the Bone",
-      "description": "Increases spell damage by 2% and Intellect by 2 per rank.",
+      "description": "Increases your spell damage by 2% per rank. Your damaging spells also have a 10% chance per rank to chill the target to the bone for 3 turns, stripping 40 Armor.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -361,54 +469,86 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "spell_damage": 0.02,
-        "intellect": 2
+        "spell_damage": 0.02
       },
       "connected_to": [
         "mage_frost_cold_snap",
         "mage_frost_water_elemental"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "chilled_to_the_bone_debuff",
+          "name": "Chilled to the Bone",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -40
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "mage_frost_deep_freeze",
       "name": "Deep Freeze",
-      "description": "Increases Spell Power by 10 per rank.",
+      "description": "Your Frost Nova has a 33% chance per rank to lock the target in a Deep Freeze, stunning it for 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "spell_power": 10
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_brain_freeze",
         "mage_frost_frost_mastery"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "mage_frost_nova"
+        ],
+        "apply_effect": {
+          "effect_id": "deep_freeze_stun",
+          "name": "Deep Freeze",
+          "effect_type": "debuff",
+          "duration": 2,
+          "stat_mods": {},
+          "is_stun": true,
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "mage_frost_water_elemental",
       "name": "Summon Water Elemental",
-      "description": "Grants 35 Spell Power and 5% maximum Mana.",
+      "description": "Your Water Elemental fights beside you: your damaging spells have a 25% chance to loose a free Frostbolt at no Mana cost.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 6,
-      "effects": {
-        "spell_power": 35,
-        "max_mana_pct": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "mage_frost_chilled_to_the_bone"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 1,
+        "cast_ability": "mage_frostbolt"
+      }
     },
     {
       "talent_id": "mage_frost_frost_mastery",
       "name": "Fingers of Frost",
-      "description": "Your Frost damage has a chance to grant your next spell a guaranteed critical strike.",
+      "description": "Your damaging spells have a 25% chance to grant Fingers of Frost, making your next spell a guaranteed critical strike.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -421,7 +561,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 15,
+        "chance": 25,
         "icd": 0,
         "apply_effect": {
           "effect_id": "fingers_of_frost_buff",
@@ -439,7 +579,7 @@
     {
       "talent_id": "mage_cryotherapist_cryobolt",
       "name": "Cryobolt",
-      "description": "Your Frostbolt now also smart-heals your lowest-health ally for a portion of its damage dealt.",
+      "description": "Your Frostbolt also heals your neediest ally for part of the damage it deals.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -457,7 +597,7 @@
     {
       "talent_id": "mage_cryotherapist_cryolance",
       "name": "Cryolance",
-      "description": "Your Ice Lance now also smart-heals your lowest-health ally for a portion of its damage dealt.",
+      "description": "Your Ice Lance also heals your neediest ally for part of the damage it deals.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -475,25 +615,32 @@
     {
       "talent_id": "mage_cryotherapist_spirit_frost",
       "name": "Spirit Frost",
-      "description": "Every other Frostbolt, Frostfire Bolt, or Ice Lance grants a charge of Spirit Frost (up to 5, lasting 20 sec) which reduces the cast time of your healing spells.",
+      "description": "Every heal you cast returns 40 Mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 6,
       "hex_y": -4,
-      "effects": {
-        "spirit_frost_charges": 5
-      },
+      "effects": {},
       "connected_to": [
         "mage_cryotherapist_cryotherapy"
       ],
-      "icon_id": "mage_cryotherapist_spirit_frost"
+      "icon_id": "mage_cryotherapist_spirit_frost",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 40
+        }
+      }
     },
     {
       "talent_id": "mage_cryotherapist_cryotherapy",
       "name": "Cryotherapy",
-      "description": "Your Cryotherapist heals also apply Cryotherapy, restoring 15% additional health over time.",
+      "description": "Increases your healing by 5% per rank. Your heals also have a 33% chance per rank to spill over, healing your neediest ally for a further 60.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -501,17 +648,23 @@
       "hex_x": 6,
       "hex_y": -2,
       "effects": {
-        "cryotherapy_hot_potency": 0.15
+        "healing_done": 0.05
       },
       "connected_to": [
         "mage_cryotherapist_keystone"
       ],
-      "icon_id": "mage_cryotherapist_cryotherapy"
+      "icon_id": "mage_cryotherapist_cryotherapy",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "smart_heal": 60
+      }
     },
     {
       "talent_id": "mage_cryotherapist_keystone",
       "name": "Cryotherapist",
-      "description": "Dealing damage with Frostbolt, Frostfire Bolt, or Ice Lance triggers a heal on a nearby ally. Ranks 1-3 of Frostbolt trigger a lesser version of the heal.",
+      "description": "Increases your healing by 10%. Your damaging spells now mend as they wound, healing your neediest ally for 50.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -519,54 +672,86 @@
       "hex_x": 6,
       "hex_y": 0,
       "effects": {
-        "cryotherapist_active": 1
+        "healing_done": 0.1
       },
       "connected_to": [
         "mage_cryotherapist_frozen_light",
         "mage_cryotherapist_lesser_frozen_light"
       ],
-      "icon_id": "mage_cryotherapist_keystone"
+      "icon_id": "mage_cryotherapist_keystone",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "smart_heal": 50
+      }
     },
     {
       "talent_id": "mage_cryotherapist_frozen_light",
       "name": "Frozen Light",
-      "description": "Infuses a single ally with frozen light, increasing healing received from your Cryotherapy by 30%. Lasts 30 min.",
+      "description": "Casting a heal wreathes you in Frozen Light for 3 turns, increasing your healing done by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 5,
       "hex_y": 2,
-      "effects": {
-        "frozen_light_healing_received": 0.3
-      },
+      "effects": {},
       "connected_to": [
         "mage_cryotherapist_icy_penance"
       ],
-      "icon_id": "mage_cryotherapist_frozen_light"
+      "icon_id": "mage_cryotherapist_frozen_light",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "frozen_light_buff",
+          "name": "Frozen Light",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_done_pct": 30
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "mage_cryotherapist_lesser_frozen_light",
       "name": "Lesser Frozen Light",
-      "description": "Your direct heals also apply Lesser Frozen Light, increasing healing received from your spells by 3.3%.",
+      "description": "Your heals have a 33% chance per rank to grant Lesser Frozen Light for 2 turns, increasing your healing done by 10%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 7,
       "hex_y": 2,
-      "effects": {
-        "lesser_frozen_light_healing_received": 0.033
-      },
+      "effects": {},
       "connected_to": [
         "mage_cryotherapist_icy_penance"
       ],
-      "icon_id": "mage_cryotherapist_lesser_frozen_light"
+      "icon_id": "mage_cryotherapist_lesser_frozen_light",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "lesser_frozen_light_buff",
+          "name": "Lesser Frozen Light",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "healing_done_pct": 10
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "mage_cryotherapist_icy_penance",
       "name": "Icy Penance",
-      "description": "Grants Icy Penance, a burst of frozen light that damages an enemy and smart-heals your 3 neediest allies.",
+      "description": "Teaches Icy Penance, striking an enemy with frozen light while smart-healing your neediest allies.",
       "node_type": "active",
       "tier": 5,
       "max_points": 1,
@@ -584,7 +769,7 @@
     {
       "talent_id": "mage_cryotherapist_frostfall",
       "name": "Frostfall",
-      "description": "Grants Frostfall: unleash a flurry of icy stars from the sky, damaging all enemies and healing your entire party. The final star grants Fingers of Frost.",
+      "description": "Teaches Frostfall, calling icy stars that damage every enemy and heal your whole party.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,

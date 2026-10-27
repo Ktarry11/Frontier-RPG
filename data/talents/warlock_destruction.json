@@ -15,7 +15,7 @@
     {
       "talent_id": "warlock_destruction_improved_shadow_bolt",
       "name": "Improved Shadow Bolt",
-      "description": "Increases Shadow Bolt damage by 5% per rank.",
+      "description": "Increases the critical strike chance of Shadow Bolt by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -23,7 +23,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_warlock_shadow_bolt_damage": 0.05
+        "ability_warlock_shadow_bolt_crit": 2.0
       },
       "connected_to": [
         "warlock_destruction_improved_immolate"
@@ -32,7 +32,7 @@
     {
       "talent_id": "warlock_destruction_cataclysm",
       "name": "Cataclysm",
-      "description": "Reduces the Mana cost of Shadow Bolt by 3 per rank.",
+      "description": "Reduces the Mana cost of Shadow Bolt and Chaos Bolt by 8 per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,7 +40,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_warlock_shadow_bolt_cost": 3
+        "ability_warlock_shadow_bolt_cost": 8,
+        "ability_warlock_chaos_bolt_cost": 8
       },
       "connected_to": [
         "warlock_destruction_devastation"
@@ -49,7 +50,7 @@
     {
       "talent_id": "warlock_destruction_bane",
       "name": "Bane",
-      "description": "Increases spell damage by 2% per rank.",
+      "description": "Increases the damage of Shadow Bolt and Immolate by 4% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -57,7 +58,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "spell_damage": 0.02
+        "ability_warlock_shadow_bolt_damage": 0.04,
+        "ability_warlock_immolate_damage": 0.04
       },
       "connected_to": [
         "warlock_destruction_shadowburn"
@@ -66,24 +68,40 @@
     {
       "talent_id": "warlock_destruction_aftermath",
       "name": "Aftermath",
-      "description": "Increases Immolate damage by 8% per rank.",
+      "description": "Your Conflagrate and Searing Pain hits have a 40% chance per rank to leave the target burning for 110 Fire damage per turn for 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {
-        "ability_warlock_immolate_damage": 0.08
-      },
+      "effects": {},
       "connected_to": [
         "warlock_destruction_intensity"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 40,
+        "icd": 0,
+        "ability_filter": [
+          "warlock_conflagrate",
+          "warlock_searing_pain"
+        ],
+        "apply_effect": {
+          "effect_id": "warlock_aftermath",
+          "name": "Aftermath",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 110,
+          "damage_school": "fire",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "warlock_destruction_improved_immolate",
       "name": "Improved Immolate",
-      "description": "Increases Immolate damage by 5% per rank.",
+      "description": "Increases the damage of Immolate by 6% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -91,7 +109,7 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_warlock_immolate_damage": 0.05
+        "ability_warlock_immolate_damage": 0.06
       },
       "connected_to": [
         "warlock_destruction_improved_shadow_bolt",
@@ -101,7 +119,7 @@
     {
       "talent_id": "warlock_destruction_devastation",
       "name": "Devastation",
-      "description": "Increases spell critical strike chance by 1% per rank.",
+      "description": "Increases the critical strike chance of your Shadow spells by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -119,7 +137,7 @@
     {
       "talent_id": "warlock_destruction_shadowburn",
       "name": "Shadowburn",
-      "description": "Grants Shadowburn, dealing extra damage to low-health targets.",
+      "description": "Teaches Shadowburn, a burst of shadow flame that finishes a wounded target.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
@@ -137,25 +155,32 @@
     {
       "talent_id": "warlock_destruction_intensity",
       "name": "Intensity",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Taking damage restores 40 Mana, once every turn. 40% chance per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "spell_power": 8
-      },
+      "effects": {},
       "connected_to": [
         "warlock_destruction_aftermath",
         "warlock_destruction_ruin"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 40,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 40
+        }
+      }
     },
     {
       "talent_id": "warlock_destruction_destructive_reach",
       "name": "Destructive Reach",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Increases the damage of Conflagrate and Searing Pain by 12% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -163,7 +188,8 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "spell_power": 8
+        "ability_warlock_conflagrate_damage": 0.12,
+        "ability_warlock_searing_pain_damage": 0.12
       },
       "connected_to": [
         "warlock_destruction_improved_immolate",
@@ -173,7 +199,7 @@
     {
       "talent_id": "warlock_destruction_improved_searing_pain",
       "name": "Improved Searing Pain",
-      "description": "Increases spell critical strike chance by 2% per rank.",
+      "description": "Increases the critical strike chance of Searing Pain by 4% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -181,7 +207,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "crit_chance_spell": 2.0
+        "ability_warlock_searing_pain_crit": 4.0
       },
       "connected_to": [
         "warlock_destruction_devastation",
@@ -191,43 +217,61 @@
     {
       "talent_id": "warlock_destruction_pyroclasm",
       "name": "Pyroclasm",
-      "description": "Increases spell damage by 3% per rank.",
+      "description": "Your critical strikes have a 20% chance per rank to grant Pyroclasm, granting 150 Spell Power for 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "spell_damage": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "warlock_destruction_shadowburn",
         "warlock_destruction_soul_leech"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "warlock_pyroclasm",
+          "name": "Pyroclasm",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "spell_power": 150
+          },
+          "real_time_seconds": null,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "warlock_destruction_ruin",
       "name": "Ruin",
-      "description": "Increases Spell Power by 6 per rank.",
+      "description": "Your critical strikes tear deeper, dealing 25% additional damage. 18% chance per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {
-        "spell_power": 6
-      },
+      "effects": {},
       "connected_to": [
         "warlock_destruction_intensity",
         "warlock_destruction_shadow_and_flame"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 18,
+        "icd": 0,
+        "bonus_pct": 0.25
+      }
     },
     {
       "talent_id": "warlock_destruction_conflagrate",
       "name": "Conflagrate",
-      "description": "Grants Conflagrate, a burst Fire damage attack.",
+      "description": "Teaches Conflagrate, igniting the target in a burst of fel flame.",
       "node_type": "active",
       "tier": 3,
       "max_points": 1,
@@ -245,25 +289,29 @@
     {
       "talent_id": "warlock_destruction_soul_leech",
       "name": "Soul Leech",
-      "description": "Increases maximum Health by 3% per rank.",
+      "description": "Your damaging hits have a 33% chance per rank to leech 70 health back to you, once every turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "max_health_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "warlock_destruction_pyroclasm",
         "warlock_destruction_backlash"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "heal_flat": 70
+      }
     },
     {
       "talent_id": "warlock_destruction_shadow_and_flame",
       "name": "Shadow and Flame",
-      "description": "Increases spell damage by 2% per rank.",
+      "description": "Increases your Shadow and Fire spell power by 8 per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -271,7 +319,8 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "spell_damage": 0.02
+        "shadow_spell_power": 8,
+        "fire_spell_power": 8
       },
       "connected_to": [
         "warlock_destruction_ruin",
@@ -281,7 +330,7 @@
     {
       "talent_id": "warlock_destruction_emberstorm",
       "name": "Emberstorm",
-      "description": "Increases Immolate damage by 4% per rank.",
+      "description": "Increases the damage of Immolate and Conflagrate by 5% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -289,7 +338,8 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_warlock_immolate_damage": 0.04
+        "ability_warlock_immolate_damage": 0.05,
+        "ability_warlock_conflagrate_damage": 0.05
       },
       "connected_to": [
         "warlock_destruction_destructive_reach"
@@ -298,7 +348,7 @@
     {
       "talent_id": "warlock_destruction_chaos_bolt",
       "name": "Chaos Bolt",
-      "description": "Grants Chaos Bolt, dealing massive unresistable damage.",
+      "description": "Teaches Chaos Bolt, a bolt of raw chaos that cannot be resisted.",
       "node_type": "active",
       "tier": 4,
       "max_points": 1,
@@ -316,25 +366,39 @@
     {
       "talent_id": "warlock_destruction_backlash",
       "name": "Backlash",
-      "description": "Increases spell critical strike chance by 2% per rank.",
+      "description": "Taking damage has a 25% chance per rank to trigger Backlash, granting 15% spell critical strike chance for 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "crit_chance_spell": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "warlock_destruction_soul_leech",
         "warlock_destruction_nether_protection"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "warlock_backlash",
+          "name": "Backlash",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "crit_chance_spell": 15.0
+          },
+          "real_time_seconds": null,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "warlock_destruction_fire_and_brimstone",
       "name": "Fire and Brimstone",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Increases the damage of Chaos Bolt by 6% per rank and its critical strike chance by 2% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -342,7 +406,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "spell_power": 8
+        "ability_warlock_chaos_bolt_damage": 0.06,
+        "ability_warlock_chaos_bolt_crit": 2.0
       },
       "connected_to": [
         "warlock_destruction_shadow_and_flame"
@@ -351,26 +416,40 @@
     {
       "talent_id": "warlock_destruction_empowered_imp",
       "name": "Empowered Imp",
-      "description": "Increases spell damage by 3% and Spell Power by 5 per rank.",
+      "description": "Killing an enemy has a 33% chance per rank to empower your imp, granting 60 Fire and Shadow spell power for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "spell_damage": 0.03,
-        "spell_power": 5
-      },
+      "effects": {},
       "connected_to": [
         "warlock_destruction_chaos_bolt",
         "warlock_destruction_shadowfury"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "warlock_empowered_imp",
+          "name": "Empowered Imp",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "fire_spell_power": 60,
+            "shadow_spell_power": 60
+          },
+          "real_time_seconds": null,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "warlock_destruction_nether_protection",
       "name": "Nether Protection",
-      "description": "Increases Fire Resistance by 15 per rank and Health by 2%.",
+      "description": "Reduces magic damage you take by 4% per rank and increases your Fire resistance by 12 per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -378,8 +457,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "max_health_pct": 0.02,
-        "fire_resistance": 15
+        "magic_damage_taken_pct": -0.04,
+        "fire_resistance": 12
       },
       "connected_to": [
         "warlock_destruction_backlash",
@@ -389,7 +468,7 @@
     {
       "talent_id": "warlock_destruction_shadowfury",
       "name": "Shadowfury",
-      "description": "Grants Shadowfury, heavily reducing all enemies' Haste for 1 turn.",
+      "description": "Teaches Shadowfury, slamming the ground to stun everything nearby.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
@@ -406,7 +485,7 @@
     {
       "talent_id": "warlock_destruction_destruction_mastery",
       "name": "Backdraft",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Increases all your damage by 6%, and your critical strikes unleash a free Conflagrate once every 2 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -414,11 +493,17 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "all_damage": 0.1
+        "all_damage": 0.06
       },
       "connected_to": [
         "warlock_destruction_nether_protection"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 2,
+        "cast_ability": "warlock_conflagrate"
+      }
     }
   ]
 }

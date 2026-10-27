@@ -1083,6 +1083,20 @@ class StatusEffectMixin:
                 if hasattr(recipient, "apply_status_effect"):
                     spec_kwargs = {k: v for k, v in apply_spec.items()
                                    if k not in ("on_target", "absorb_pct_max_health")}
+                    # A proc's apply_effect states its duration in TURNS
+                    # ("increasing your haste by 15% for 2 turns"), so it is
+                    # turn-based unless the author deliberately says
+                    # otherwise. Without this, real_time_seconds stayed
+                    # _UNSET and StatusEffect.__init__ fell back to
+                    # BUFF_DURATION_SECONDS - every proc-applied buff and
+                    # debuff in the game silently lasted 30 REAL MINUTES
+                    # instead of the handful of turns its tooltip promised,
+                    # which made reactive talents permanent once they first
+                    # fired. Pre-existing casualties included Nature's Grace,
+                    # Redoubt and Blade Twisting. An author who genuinely
+                    # wants a wall-clock buff can still pass
+                    # real_time_seconds explicitly and it is respected.
+                    spec_kwargs.setdefault("real_time_seconds", None)
                     # absorb_pct_max_health: convenience field for a shield
                     # sized relative to the RECIPIENT's own max HP rather
                     # than a flat number baked into the talent's JSON

@@ -15,7 +15,7 @@
     {
       "talent_id": "priest_holy_healing_focus",
       "name": "Healing Focus",
-      "description": "Reduces your chance to miss with spells by 1% per rank.",
+      "description": "Prayer of Healing and Circle of Healing cost 8 less Mana each per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -23,7 +23,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.0
+        "ability_priest_prayer_of_healing_cost": 8,
+        "ability_priest_circle_of_healing_cost": 8
       },
       "connected_to": [
         "priest_holy_desperate_prayer"
@@ -32,7 +33,7 @@
     {
       "talent_id": "priest_holy_improved_renew",
       "name": "Improved Renew",
-      "description": "Increases healing done by 2% per rank.",
+      "description": "Renew heals for 5% more and costs 3 less Mana per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,7 +41,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "healing_done": 0.02
+        "ability_priest_renew_healing": 0.05,
+        "ability_priest_renew_cost": 3
       },
       "connected_to": [
         "priest_holy_blessed_recovery"
@@ -49,7 +51,7 @@
     {
       "talent_id": "priest_holy_holy_specialization",
       "name": "Holy Specialization",
-      "description": "Increases spell critical strike chance by 1% per rank.",
+      "description": "Grants 1% spell critical strike chance per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -66,7 +68,7 @@
     {
       "talent_id": "priest_holy_divine_fury",
       "name": "Divine Fury",
-      "description": "Increases Smite damage by 4% per rank.",
+      "description": "Smite and Holy Fire deal 4% more damage each per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -74,7 +76,8 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_priest_smite_damage": 0.04
+        "ability_priest_smite_damage": 0.04,
+        "ability_priest_holy_fire_damage": 0.04
       },
       "connected_to": [
         "priest_holy_inspiration"
@@ -83,7 +86,7 @@
     {
       "talent_id": "priest_holy_desperate_prayer",
       "name": "Desperate Prayer",
-      "description": "Increases maximum Health by 5%.",
+      "description": "Increases your maximum health by 5%, and attacks against you have a 10% chance to answer with an instant 180-point heal. Cannot happen more than once every 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -96,30 +99,47 @@
       "connected_to": [
         "priest_holy_healing_focus",
         "priest_holy_holy_reach"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 4,
+        "heal_flat": 180
+      }
     },
     {
       "talent_id": "priest_holy_blessed_recovery",
       "name": "Blessed Recovery",
-      "description": "Increases Healing Power by 6 per rank.",
+      "description": "After you take damage you have a 15% chance per rank to begin recovering, healing 30 per turn for 3 turns. Cannot happen more than once every 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "healing_power": 6
-      },
+      "effects": {},
       "connected_to": [
         "priest_holy_improved_renew",
         "priest_holy_improved_healing"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "priest_blessed_recovery",
+          "name": "Blessed Recovery",
+          "effect_type": "hot",
+          "duration": 3,
+          "potency": 30,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_holy_spiritual_guidance",
       "name": "Spiritual Guidance",
-      "description": "Increases Spirit by 3 and Healing Power by 4 per rank.",
+      "description": "Grants 4 Spirit and 5 Healing Power per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -127,8 +147,8 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "spirit": 3,
-        "healing_power": 4
+        "spirit": 4,
+        "healing_power": 5
       },
       "connected_to": [
         "priest_holy_holy_specialization",
@@ -138,25 +158,40 @@
     {
       "talent_id": "priest_holy_inspiration",
       "name": "Inspiration",
-      "description": "Increases Armor by 15 per rank.",
+      "description": "Your heals have a 30% chance per rank to inspire you, granting 200 Armor and reducing physical damage you take by 5% for 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "armor": 15
-      },
+      "effects": {},
       "connected_to": [
         "priest_holy_divine_fury",
         "priest_holy_healing_prayers"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 30,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "priest_inspiration",
+          "name": "Inspiration",
+          "effect_type": "buff",
+          "duration": 4,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "armor": 200,
+            "physical_damage_taken_pct": -5
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_holy_holy_reach",
       "name": "Holy Reach",
-      "description": "Increases Spell Power by 8 per rank.",
+      "description": "Circle of Healing heals for 8% more per rank, and its cooldown is 1 turn shorter per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -164,7 +199,8 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "spell_power": 8
+        "ability_priest_circle_of_healing_healing": 0.08,
+        "ability_priest_circle_of_healing_cooldown": 1
       },
       "connected_to": [
         "priest_holy_desperate_prayer",
@@ -174,7 +210,7 @@
     {
       "talent_id": "priest_holy_improved_healing",
       "name": "Improved Healing",
-      "description": "Reduces the Mana cost of Heal by 5 per rank.",
+      "description": "Heal costs 8 less Mana per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -182,7 +218,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_priest_heal_cost": 5
+        "ability_priest_heal_cost": 8
       },
       "connected_to": [
         "priest_holy_blessed_recovery",
@@ -192,7 +228,7 @@
     {
       "talent_id": "priest_holy_searing_light",
       "name": "Searing Light",
-      "description": "Increases spell damage by 3% per rank.",
+      "description": "Holy Fire deals 6% more damage per rank and is 2% more likely to critically strike per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -200,7 +236,8 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "spell_damage": 0.03
+        "ability_priest_holy_fire_damage": 0.06,
+        "ability_priest_holy_fire_crit": 2.0
       },
       "connected_to": [
         "priest_holy_spiritual_guidance",
@@ -210,7 +247,7 @@
     {
       "talent_id": "priest_holy_healing_prayers",
       "name": "Healing Prayers",
-      "description": "Increases Healing Power by 8 per rank.",
+      "description": "Prayer of Healing heals for 8% more per rank, and its cooldown is 1 turn shorter per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -218,7 +255,8 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "healing_power": 8
+        "ability_priest_prayer_of_healing_healing": 0.08,
+        "ability_priest_prayer_of_healing_cooldown": 1
       },
       "connected_to": [
         "priest_holy_inspiration",
@@ -228,7 +266,7 @@
     {
       "talent_id": "priest_holy_circle_of_healing",
       "name": "Circle of Healing",
-      "description": "Grants Circle of Healing, instantly healing your entire party.",
+      "description": "Teaches Circle of Healing, an instant heal on your whole party.",
       "node_type": "active",
       "tier": 3,
       "max_points": 1,
@@ -246,7 +284,7 @@
     {
       "talent_id": "priest_holy_blessed_resilience",
       "name": "Blessed Resilience",
-      "description": "Increases maximum Health by 3% per rank.",
+      "description": "Attacks against you are 2% less likely to critically strike per rank, and have a 25% chance per rank to steel you for 3 turns, reducing damage you take by 8%. Cannot happen more than once every 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -254,17 +292,34 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "max_health_pct": 0.03
+        "crit_taken_reduction": 2.0
       },
       "connected_to": [
         "priest_holy_searing_light",
         "priest_holy_body_and_soul"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "priest_blessed_resilience",
+          "name": "Blessed Resilience",
+          "effect_type": "buff",
+          "duration": 3,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "physical_damage_taken_pct": -8,
+            "magic_damage_taken_pct": -8
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_holy_spirit_of_redemption",
       "name": "Spirit of Redemption",
-      "description": "Grants 10 Spirit.",
+      "description": "Grants 10 Spirit. When you take damage there is a 10% chance the Light steadies you for 3 turns, granting 150 Healing Power and 20% more healing. Cannot happen more than once every 8 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -277,12 +332,29 @@
       "connected_to": [
         "priest_holy_healing_prayers",
         "priest_holy_empowered_renew"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 8,
+        "apply_effect": {
+          "effect_id": "priest_spirit_of_redemption",
+          "name": "Spirit of Redemption",
+          "effect_type": "buff",
+          "duration": 3,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "healing_power": 150,
+            "healing_done_pct": 20
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_holy_empowered_healing",
       "name": "Empowered Healing",
-      "description": "Increases the effect of Heal by 5% per rank.",
+      "description": "Heal restores 5% more health per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -290,7 +362,7 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_priest_heal_damage": 0.05
+        "ability_priest_heal_healing": 0.05
       },
       "connected_to": [
         "priest_holy_holy_reach"
@@ -299,25 +371,39 @@
     {
       "talent_id": "priest_holy_serendipity",
       "name": "Serendipity",
-      "description": "Increases Haste by 3 per rank.",
+      "description": "Your heals have a 34% chance per rank to grant Serendipity, adding 12 Haste for 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "haste": 3.0
-      },
+      "effects": {},
       "connected_to": [
         "priest_holy_circle_of_healing",
         "priest_holy_test_of_faith"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 34,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "priest_serendipity",
+          "name": "Serendipity",
+          "effect_type": "buff",
+          "duration": 2,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "haste": 12.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_holy_body_and_soul",
       "name": "Body and Soul",
-      "description": "Increases Stamina by 4 per rank.",
+      "description": "Power Word: Shield lasts 1 turn longer per rank, and stuns on you last 10% less time per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -325,7 +411,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "stamina": 4
+        "ability_priest_power_word_shield_duration": 1,
+        "stun_duration_reduction_pct": 0.1
       },
       "connected_to": [
         "priest_holy_blessed_resilience",
@@ -335,7 +422,7 @@
     {
       "talent_id": "priest_holy_empowered_renew",
       "name": "Empowered Renew",
-      "description": "Increases Healing Power by 6 per rank.",
+      "description": "Renew heals for 4% more and costs 4 less Mana per rank, and casting it has a 20% chance per rank to heal the target for 40 at once. Cannot happen more than once every turn.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -343,34 +430,48 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "healing_power": 6
+        "ability_priest_renew_healing": 0.04,
+        "ability_priest_renew_cost": 4
       },
       "connected_to": [
         "priest_holy_spirit_of_redemption"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "priest_renew"
+        ],
+        "heal_flat": 40
+      }
     },
     {
       "talent_id": "priest_holy_test_of_faith",
       "name": "Test of Faith",
-      "description": "Increases healing done by 4% per rank.",
+      "description": "Your heals have a 25% chance per rank to spill over onto whichever ally is worst off, healing them for 60. Cannot happen more than once every turn.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "healing_done": 0.04
-      },
+      "effects": {},
       "connected_to": [
         "priest_holy_serendipity",
         "priest_holy_guardian_spirit"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 25,
+        "icd": 1,
+        "smart_heal": 60
+      }
     },
     {
       "talent_id": "priest_holy_divine_providence",
       "name": "Divine Providence",
-      "description": "Increases Healing Power by 7 and maximum Mana by 2% per rank.",
+      "description": "Circle of Healing and Prayer of Healing each heal for 5% more per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -378,8 +479,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "healing_power": 7,
-        "max_mana_pct": 0.02
+        "ability_priest_circle_of_healing_healing": 0.05,
+        "ability_priest_prayer_of_healing_healing": 0.05
       },
       "connected_to": [
         "priest_holy_body_and_soul",
@@ -389,24 +490,40 @@
     {
       "talent_id": "priest_holy_guardian_spirit",
       "name": "Guardian Spirit",
-      "description": "Grants 40 Healing Power.",
+      "description": "Attacks against you have a 15% chance to call a guardian spirit for 3 turns, reducing damage you take by 40% and absorbing damage equal to 12% of your maximum health. Cannot happen more than once every 5 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 6,
-      "effects": {
-        "healing_power": 40
-      },
+      "effects": {},
       "connected_to": [
         "priest_holy_test_of_faith"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "priest_guardian_spirit",
+          "name": "Guardian Spirit",
+          "effect_type": "buff",
+          "duration": 3,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "physical_damage_taken_pct": -40,
+            "magic_damage_taken_pct": -40
+          },
+          "absorb_pct_max_health": 0.12,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "priest_holy_holy_mastery",
       "name": "Renewed Hope",
-      "description": "Increases all healing you do by 12%.",
+      "description": "Increases all your healing by 10%, and Renew lasts 2 turns longer.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -414,7 +531,8 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "healing_done": 0.12
+        "healing_done": 0.1,
+        "ability_priest_renew_duration": 2
       },
       "connected_to": [
         "priest_holy_divine_providence"

@@ -1255,7 +1255,17 @@ class Ability:
         # full trigger contract.
         if hasattr(caster, "fire_proc_trigger"):
             from combat.status_effects import ProcTrigger
-            proc_msgs = caster.fire_proc_trigger(ProcTrigger.ON_CAST, {"amount": 0})
+            # Every trigger fired from this cast carries ability_id, not just
+            # ON_DAMAGE_CAST/ON_HEAL_CAST. A proc's ability_filter is matched
+            # against it (see fire_proc_trigger), and because only those two
+            # triggers used to supply it, a filter on ON_CAST, ON_CRIT,
+            # ON_WEAPON_SWING or ON_KILL silently never matched - the proc
+            # could never fire at all. The ability is right here in scope, so
+            # there was never a reason for it to be missing; four Druid
+            # talents (Mangle, Infected Wounds, King of the Jungle, Eclipse)
+            # were dead on exactly this.
+            proc_msgs = caster.fire_proc_trigger(
+                ProcTrigger.ON_CAST, {"amount": 0, "ability_id": self.ability_id})
 
             events = getattr(self, "_last_threat_events", None) or []
             for recipient, evt_amount, is_damage in events:
@@ -1281,11 +1291,15 @@ class Ability:
                 # procs can listen for exactly this and nothing broader.
                 if is_damage and self.ability_id == f"{_class_file_prefix(caster.char_class)}_attack":
                     proc_msgs += caster.fire_proc_trigger(
-                        ProcTrigger.ON_WEAPON_SWING, {"amount": evt_amount, "target": evt_target})
+                        ProcTrigger.ON_WEAPON_SWING,
+                        {"amount": evt_amount, "target": evt_target,
+                         "ability_id": self.ability_id})
 
                 if self._last_crit:
                     proc_msgs += caster.fire_proc_trigger(
-                        ProcTrigger.ON_CRIT, {"amount": evt_amount, "target": evt_target, "is_crit": True})
+                        ProcTrigger.ON_CRIT,
+                        {"amount": evt_amount, "target": evt_target,
+                         "is_crit": True, "ability_id": self.ability_id})
 
                 # ON_KILL: this specific damage event's recipient is a real
                 # enemy (not None - heals route evt_target=caster above,
@@ -1297,7 +1311,9 @@ class Ability:
                 # ANY target in the group died.
                 if is_damage and recipient is not None and hasattr(recipient, "is_alive") and not recipient.is_alive():
                     proc_msgs += caster.fire_proc_trigger(
-                        ProcTrigger.ON_KILL, {"amount": evt_amount, "target": recipient})
+                        ProcTrigger.ON_KILL,
+                        {"amount": evt_amount, "target": recipient,
+                         "ability_id": self.ability_id})
 
             # Drain any ON_DAMAGE_TAKEN proc messages the recipient(s)
             # queued during take_damage() above (Character has no direct
@@ -2107,7 +2123,15 @@ class Ability:
                         caster._effects().remove(consumed_effect)
                         caster._on_status_effects_changed()
 
-                duration = max(1, self.duration + int(consumed_stacks * self.duration_per_stack))
+                # talented_duration, not self.duration: the HoT branch below
+                # already honoured talents here and this one did not, so
+                # ability_<id>_duration was silently dead on every DoT in the
+                # game while working fine on HoTs, buffs and debuffs. A
+                # talent extending Rend, Corruption, Serpent Sting or Moonfire
+                # did nothing at all, and nothing distinguished it from one
+                # that worked.
+                duration = max(1, self.talented_duration(caster)
+                               + int(consumed_stacks * self.duration_per_stack))
                 per_turn = max(1, int(total / duration))
 
                 hit_names = []

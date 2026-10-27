@@ -15,7 +15,7 @@
     {
       "talent_id": "hunter_marksmanship_improved_concussive_shot",
       "name": "Improved Concussive Shot",
-      "description": "Increases Steady Shot damage by 6% per rank.",
+      "description": "Increases the duration of Concussive Shot by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -23,7 +23,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_hunter_steady_shot_damage": 0.06
+        "ability_hunter_concussive_shot_duration": 1
       },
       "connected_to": [
         "hunter_marksmanship_mortal_shots"
@@ -32,7 +32,7 @@
     {
       "talent_id": "hunter_marksmanship_lethal_shots",
       "name": "Lethal Shots",
-      "description": "Increases critical strike chance by 1% per rank.",
+      "description": "Increases the critical strike chance of Aimed Shot and Steady Shot by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,7 +40,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.0
+        "ability_hunter_aimed_shot_crit": 2.0,
+        "ability_hunter_steady_shot_crit": 2.0
       },
       "connected_to": [
         "hunter_marksmanship_go_for_the_throat"
@@ -49,7 +50,7 @@
     {
       "talent_id": "hunter_marksmanship_improved_hunters_mark",
       "name": "Improved Hunter's Mark",
-      "description": "Grants 5 Attack Power per rank.",
+      "description": "Increases the duration of Hunter's Mark by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -57,7 +58,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "attack_power": 5
+        "ability_hunter_hunters_mark_duration": 1
       },
       "connected_to": [
         "hunter_marksmanship_improved_arcane_shot"
@@ -66,7 +67,7 @@
     {
       "talent_id": "hunter_marksmanship_focused_aim",
       "name": "Focused Aim",
-      "description": "Reduces your chance to miss by 1% per rank.",
+      "description": "Increases your chance to hit by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -83,7 +84,7 @@
     {
       "talent_id": "hunter_marksmanship_mortal_shots",
       "name": "Mortal Shots",
-      "description": "Increases physical damage dealt by 2% per rank.",
+      "description": "Increases the damage of Aimed Shot by 5% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -91,7 +92,7 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "physical_damage": 0.02
+        "ability_hunter_aimed_shot_damage": 0.05
       },
       "connected_to": [
         "hunter_marksmanship_improved_concussive_shot",
@@ -101,25 +102,32 @@
     {
       "talent_id": "hunter_marksmanship_go_for_the_throat",
       "name": "Go for the Throat",
-      "description": "Increases critical strike chance by 2% per rank.",
+      "description": "Your critical strikes have a 50% chance per rank to restore 60 Mana. This cannot happen more than once per turn.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "crit_chance_physical": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_lethal_shots",
         "hunter_marksmanship_improved_stings"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        }
+      }
     },
     {
       "talent_id": "hunter_marksmanship_improved_arcane_shot",
       "name": "Improved Arcane Shot",
-      "description": "Reduces the cooldown of Arcane Shot by 1 turn per rank.",
+      "description": "Increases the damage of Arcane Shot by 7% and its critical strike chance by 3% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -127,7 +135,8 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_hunter_arcane_shot_cooldown": 1
+        "ability_hunter_arcane_shot_damage": 0.07,
+        "ability_hunter_arcane_shot_crit": 3.0
       },
       "_source": "Fixed during DPS niche audit (Oct 2026): this talent was named 'Improved Arcane Shot' but reduced Multi-Shot's cooldown instead - no Arcane Shot ability existed anywhere in data/abilities/hunter.json for it to improve. No _source citation on the original, same templated-filler pattern as Mage's Blast Wave/Improved Blizzard. Arcane Shot added as a real baseline ability; this talent now correctly targets it.",
       "connected_to": [
@@ -138,43 +147,64 @@
     {
       "talent_id": "hunter_marksmanship_aimed_shot_mastery",
       "name": "Aimed Shot Mastery",
-      "description": "Increases Aimed Shot damage by 10% per rank.",
+      "description": "Your Aimed Shot has a 33% chance per rank to bite deeper, dealing an additional 25% damage.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "ability_hunter_aimed_shot_damage": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_focused_aim",
         "hunter_marksmanship_concussive_barrage"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "hunter_aimed_shot"
+        ],
+        "bonus_pct": 0.25
+      }
     },
     {
       "talent_id": "hunter_marksmanship_rapid_killing",
       "name": "Rapid Killing",
-      "description": "Increases Haste by 3 per rank.",
+      "description": "Killing an enemy has a 50% chance per rank to grant Rapid Killing, adding 25 Haste for 3 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
-      "effects": {
-        "haste": 3.0
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_mortal_shots",
         "hunter_marksmanship_combat_experience"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 50,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "hunter_rapid_killing",
+          "name": "Rapid Killing",
+          "effect_type": "buff",
+          "duration": 3,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "haste": 25.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "hunter_marksmanship_improved_stings",
       "name": "Improved Stings",
-      "description": "Increases all damage dealt by 2% per rank.",
+      "description": "Increases the damage of Serpent Sting by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -182,7 +212,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "all_damage": 0.02
+        "ability_hunter_serpent_sting_damage": 0.05
       },
       "connected_to": [
         "hunter_marksmanship_go_for_the_throat",
@@ -192,7 +222,7 @@
     {
       "talent_id": "hunter_marksmanship_efficiency",
       "name": "Efficiency",
-      "description": "Reduces the Mana cost of Steady Shot and Multi-Shot by 2 per rank.",
+      "description": "Reduces the Mana cost of Steady Shot, Multi-Shot and Aimed Shot by 2 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -201,7 +231,8 @@
       "hex_y": -2,
       "effects": {
         "ability_hunter_steady_shot_cost": 2,
-        "ability_hunter_multi_shot_cost": 2
+        "ability_hunter_multi_shot_cost": 2,
+        "ability_hunter_aimed_shot_cost": 2
       },
       "connected_to": [
         "hunter_marksmanship_improved_arcane_shot",
@@ -211,25 +242,42 @@
     {
       "talent_id": "hunter_marksmanship_concussive_barrage",
       "name": "Concussive Barrage",
-      "description": "Increases Multi-Shot damage by 10% per rank.",
+      "description": "Your Multi-Shot has a 50% chance per rank to daze its target, slowing it by 20 Haste for 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {
-        "ability_hunter_multi_shot_damage": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_aimed_shot_mastery",
         "hunter_marksmanship_barrage"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "hunter_multi_shot"
+        ],
+        "apply_effect": {
+          "effect_id": "hunter_concussive_barrage",
+          "name": "Concussive Barrage",
+          "effect_type": "debuff",
+          "duration": 2,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "haste": -20.0
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "hunter_marksmanship_trueshot_aura",
       "name": "Trueshot Aura",
-      "description": "Grants 25 Attack Power.",
+      "description": "Increases your Attack Power by 25.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -247,26 +295,43 @@
     {
       "talent_id": "hunter_marksmanship_careful_aim",
       "name": "Careful Aim",
-      "description": "Increases Intellect by 3 and grants 5 Attack Power per rank.",
+      "description": "Your Steady Shot has a 20% chance per rank to grant Careful Aim, making your next attack a guaranteed critical strike. This cannot happen more than once per turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "intellect": 3,
-        "attack_power": 5
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_efficiency",
         "hunter_marksmanship_piercing_shots"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "hunter_steady_shot"
+        ],
+        "apply_effect": {
+          "effect_id": "hunter_careful_aim",
+          "name": "Careful Aim",
+          "effect_type": "buff",
+          "duration": 10,
+          "real_time_seconds": null,
+          "stat_mods": {},
+          "on_target": false,
+          "proc": {
+            "guarantee_next_crit": true
+          }
+        }
+      }
     },
     {
       "talent_id": "hunter_marksmanship_barrage",
       "name": "Barrage",
-      "description": "Increases Multi-Shot damage by an additional 10% per rank.",
+      "description": "Increases the damage of Multi-Shot by 8% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -274,7 +339,7 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "ability_hunter_multi_shot_damage": 0.1
+        "ability_hunter_multi_shot_damage": 0.08
       },
       "connected_to": [
         "hunter_marksmanship_concussive_barrage",
@@ -284,7 +349,7 @@
     {
       "talent_id": "hunter_marksmanship_combat_experience",
       "name": "Combat Experience",
-      "description": "Increases Agility by 3 and Intellect by 2 per rank.",
+      "description": "Increases your Agility by 3 and your Intellect by 2 per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
@@ -302,7 +367,7 @@
     {
       "talent_id": "hunter_marksmanship_ranged_weapon_specialization",
       "name": "Ranged Weapon Specialization",
-      "description": "Increases physical damage dealt by 2% per rank.",
+      "description": "Increases the damage of your ranged attacks by 4% and of Steady Shot by 3% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -310,7 +375,8 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "physical_damage": 0.02
+        "ability_hunter_attack_damage": 0.04,
+        "ability_hunter_steady_shot_damage": 0.03
       },
       "connected_to": [
         "hunter_marksmanship_trueshot_aura",
@@ -320,25 +386,37 @@
     {
       "talent_id": "hunter_marksmanship_piercing_shots",
       "name": "Piercing Shots",
-      "description": "Increases Aimed Shot damage by 8% per rank.",
+      "description": "Your critical strikes have a 33% chance per rank to open a wound, dealing 30 damage a turn for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "ability_hunter_aimed_shot_damage": 0.08
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_careful_aim",
         "hunter_marksmanship_wild_quiver"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "hunter_piercing_shots",
+          "name": "Piercing Shots",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 30,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "hunter_marksmanship_readiness",
       "name": "Readiness",
-      "description": "Reduces the cooldown of Aimed Shot by 1 turn.",
+      "description": "Reduces the cooldown of Aimed Shot and Chimera Shot by 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -346,7 +424,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_hunter_aimed_shot_cooldown": 1
+        "ability_hunter_aimed_shot_cooldown": 2,
+        "ability_hunter_chimera_shot_cooldown": 2
       },
       "connected_to": [
         "hunter_marksmanship_barrage"
@@ -355,7 +434,7 @@
     {
       "talent_id": "hunter_marksmanship_master_marksman",
       "name": "Master Marksman",
-      "description": "Grants 8 Attack Power and 1% crit chance per rank.",
+      "description": "Increases the damage of Aimed Shot and Chimera Shot by 4% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -363,8 +442,8 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "attack_power": 8,
-        "crit_chance_physical": 1.0
+        "ability_hunter_aimed_shot_damage": 0.04,
+        "ability_hunter_chimera_shot_damage": 0.04
       },
       "connected_to": [
         "hunter_marksmanship_ranged_weapon_specialization",
@@ -374,26 +453,29 @@
     {
       "talent_id": "hunter_marksmanship_wild_quiver",
       "name": "Wild Quiver",
-      "description": "Increases Haste by 2 and physical damage by 2% per rank.",
+      "description": "Your ranged attacks have a 10% chance per rank to loose a free Steady Shot at your target.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "haste": 2.0,
-        "physical_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_piercing_shots",
         "hunter_marksmanship_mm_mastery"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "cast_ability": "hunter_steady_shot"
+      }
     },
     {
       "talent_id": "hunter_marksmanship_chimera_shot",
       "name": "Chimera Shot",
-      "description": "Grants Chimera Shot, an instant shot dealing heavy damage.",
+      "description": "Teaches you Chimera Shot, a heavy single-target shot.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
@@ -410,19 +492,37 @@
     {
       "talent_id": "hunter_marksmanship_mm_mastery",
       "name": "Silencing Shot",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Your Arcane Shot silences its target, stunning it for 1 turn and slowing it by 25 Haste. This cannot happen more than once every 3 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 6,
-      "effects": {
-        "all_damage": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "hunter_marksmanship_wild_quiver"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 3,
+        "ability_filter": [
+          "hunter_arcane_shot"
+        ],
+        "apply_effect": {
+          "effect_id": "hunter_silencing_shot",
+          "name": "Silencing Shot",
+          "effect_type": "debuff",
+          "duration": 1,
+          "real_time_seconds": null,
+          "stat_mods": {
+            "haste": -25.0
+          },
+          "on_target": true,
+          "is_stun": true
+        }
+      }
     }
   ]
 }
