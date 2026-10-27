@@ -19,6 +19,7 @@ import sys
 
 from tools import bake_durotar_caves as BD
 from tools import handbuilt_frostward_descent as FD
+from tools import handbuilt_hollow_geode as HG
 from tools.bake_durotar_caves import M
 
 UD = "underdark/materials/"
@@ -68,8 +69,38 @@ def spec_frostward_descent():
     )
 
 
-MODULES = {"frostward_descent": FD}
-SPECS = {"frostward_descent": spec_frostward_descent}
+def spec_hollow_geode():
+    """All crystal, and the walls are the point. A geode's shell is lined with inward-pointing druse, so the
+    WALL materials carry more of this map's identity than the floor does - which is the opposite of every
+    other interior, where the floor is what the player reads and the wall is background."""
+    return dict(
+        build="build_hollow_geode_baked", seed=1187, slug="hollow_geode",
+        materials={
+            "floor":    M(UD + "ud_geode_floor", UD + "ud_geode_rubble"),
+            "core":     M(UD + "ud_geode_core"),
+            "crystal":  M(UD + "ud_crystal_floor_v", UD + "ud_crystal_floor_c"),
+            "lattice":  M(UD + "ud_lattice_floor"),
+            "wall":     M(UD + "ud_geode_wall"),
+            "crys_w":   M(UD + "ud_crystal_wall_v", UD + "ud_crystal_wall_c"),
+        },
+        floor_keys=["floor", "core", "crystal", "lattice"],
+        wall_keys=["wall", "crys_w"],
+        floors={
+            "core":    [(55, 54, 14, 12)],
+            "crystal": [(55, 30, 15, 9), (80, 54, 9, 13), (55, 76, 15, 9), (30, 54, 9, 13)],
+            "lattice": [(55, 54, 7, 6)],
+        },
+        walls={"crys_w": [(55, 54, 46, 46)]},
+        pools=[],
+        # Brighter even than the Descent's lower chambers: a geode is lined with the stuff, and the light
+        # here has nowhere to go but back at you.
+        cfg=dict(ao=0.30, depth=0.62, lip=14, lip_col=(0.80, 0.82, 1.0), deep_dark=0.35,
+                 foam_col=(200, 220, 240), glows=[]),
+    )
+
+
+MODULES = {"frostward_descent": FD, "hollow_geode": HG}
+SPECS = {"frostward_descent": spec_frostward_descent, "hollow_geode": spec_hollow_geode}
 
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None

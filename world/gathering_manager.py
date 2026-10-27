@@ -455,6 +455,7 @@ CAVE_TO_PARENT_ZONE = {
     # ("caves are mining spots, not foraging spots"), so the Descent gets Eastern Hillsbrad's iron and
     # silver and the wood idea moves to the Underdark proper, which is a zone rather than a cave.
     "The Frostward Descent": "Eastern Hillsbrad",
+    "The Hollow Geode": "The Crystalline Underdark",
 }
 
 #: How much more ore-dense a cave's inherited pool is versus its parent

@@ -329,10 +329,14 @@ class PortalManager:
                 (58, 8): ("The Crystalline Underdark", 85, 12),     # out onto the shelf above the cavern floor
             },
             "The Crystalline Underdark": {
-                # The Hollow Geode (150,62) and the Deep Bloom (34,142) are carved and marked in the layout
-                # but stay unregistered until those maps exist, and fail safe in the meantime.
+                # The Deep Bloom (34,142) is carved and marked in the layout but stays unregistered until
+                # that map exists, and fails safe in the meantime.
+                (150, 62): ("The Hollow Geode", 55, 102),          # arrive (55,100), inside the crack
                 (85, 12): ("The Frostward Descent", 58, 11),        # arrive just inside the threshold
                 (72, 80): ("Kael's Bastion", 48, 84),               # arrive (48,82), inside the gate
+            },
+            "The Hollow Geode": {
+                (55, 104): ("The Crystalline Underdark", 150, 65),  # cave exit: arrive (150,63), below the crack
             },
             "Kael's Bastion": {
                 (48, 86): ("The Crystalline Underdark", 72, 84),    # arrive (72,82), on the forecourt

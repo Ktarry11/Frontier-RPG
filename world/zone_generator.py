@@ -5624,6 +5624,7 @@ def create_all_zones():
     from tools import handbuilt_frostward_descent as dfwd
     from tools import handbuilt_underdark as dud
     from tools import handbuilt_kaels_bastion as dkb
+    from tools import handbuilt_hollow_geode as dhg
     from tools import handbuilt_azurelode as dazl
     from tools import handbuilt_durnholde as ddur
     from tools import handbuilt_dun_garok as dgar
@@ -5707,6 +5708,7 @@ def create_all_zones():
         "The Frostward Descent": dfwd.generate_frostward_descent(),  # (tools/handbuilt_frostward_descent.py)
         "The Crystalline Underdark": dud.generate_underdark(),  # (tools/handbuilt_underdark.py)
         "Kael's Bastion": dkb.generate_kaels_bastion(),  # (tools/handbuilt_kaels_bastion.py)
+        "The Hollow Geode": dhg.generate_hollow_geode(),  # (tools/handbuilt_hollow_geode.py)
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         "Durnholde Keep": ddur.generate_durnholde_keep(),  # broken-ring keep (tools/handbuilt_durnholde.py)
         "Dun Garok": dgar.generate_dun_garok(),  # gauntlet-of-gates dwarf hold (tools/handbuilt_dun_garok.py)

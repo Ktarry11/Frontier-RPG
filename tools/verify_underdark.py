@@ -119,6 +119,35 @@ def main():
         print(f"\n  -> {here_w:.0f}% walkable against the warren's {cave_w:.0f}%, and sightlines at or above "
               f"both open zones. It reads as a roofed country.")
 
+    # ---- THE HOLLOW GEODE: Kyle's note on the first draft was "no massive open trash - a true geode isn't
+    #      just open space", so that is tested rather than trusted. Two claims: the map is DENSE (near the
+    #      warren, nowhere near open country), and the core is the ONLY generous chamber, because it is the
+    #      one part the crystal has not finished filling.
+    import tools.handbuilt_hollow_geode as HG
+    gz, GL = HG.build_hollow_geode()
+    HG.dress(gz, GL)
+    HG.finish(gz, GL)
+    gwalk = np.zeros((gz.height, gz.width), bool)
+    for y in range(gz.height):
+        for x in range(gz.width):
+            gwalk[y, x] = gz.is_walkable(x, y)
+    gd = ndi.distance_transform_edt(gwalk)
+    gpc = 100.0 * gwalk.mean()
+    ghand = [s for s in GL.skipped]
+    print(f"\nThe Hollow Geode: {GL.placed} props, {len(ghand)} skips, {gpc:.1f}% walkable")
+    for s in ghand:
+        fails.append(f"Geode prop skipped: {s}")
+    if gpc > 50:
+        fails.append(f"the Geode is {gpc:.0f}% walkable - that is open space, not a filled cavity")
+    cy, cx = np.unravel_index(gd.argmax(), gd.shape)
+    core_cx, core_cy = HG.CX, HG.CY
+    dist_to_core = max(abs(int(cx) - core_cx), abs(int(cy) - core_cy))
+    print(f"  widest point at ({int(cx)},{int(cy)}), {gd.max():.1f} tiles from any wall; "
+          f"the core is at ({core_cx},{core_cy})")
+    if dist_to_core > 16:
+        fails.append(f"the widest chamber is at ({int(cx)},{int(cy)}), not the core - "
+                     f"something other than the core is the open space")
+
     # ---- KAEL'S BASTION rides along: it is the same cluster and the same baker, and its reachability is
     #      exactly the kind of thing that breaks quietly when a building moves.
     import tools.handbuilt_kaels_bastion as KB
