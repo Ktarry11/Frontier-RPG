@@ -5622,6 +5622,7 @@ def create_all_zones():
     from tools import handbuilt_hillsbrad_west as dhbw
     from tools import handbuilt_tarren_mill as dtm
     from tools import handbuilt_frostward_descent as dfwd
+    from tools import handbuilt_underdark as dud
     from tools import handbuilt_azurelode as dazl
     from tools import handbuilt_durnholde as ddur
     from tools import handbuilt_dun_garok as dgar
@@ -5703,6 +5704,7 @@ def create_all_zones():
 
         # ===== THE CRYSTALLINE UNDERDARK CLUSTER - the first home-brew zone =====
         "The Frostward Descent": dfwd.generate_frostward_descent(),  # (tools/handbuilt_frostward_descent.py)
+        "The Crystalline Underdark": dud.generate_underdark(),  # (tools/handbuilt_underdark.py)
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         "Durnholde Keep": ddur.generate_durnholde_keep(),  # broken-ring keep (tools/handbuilt_durnholde.py)
         "Dun Garok": dgar.generate_dun_garok(),  # gauntlet-of-gates dwarf hold (tools/handbuilt_dun_garok.py)

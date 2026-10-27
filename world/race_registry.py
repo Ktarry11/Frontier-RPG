@@ -334,6 +334,9 @@ ZONE_POPULATION_MIX = {
     # The town itself: the Society holds it, but the millers, smith and innkeeper who were here before the
     # Forsaken arrived are still working the west bank.
     "tarren_mill": [("forsaken", 70), ("human", 24), ("orc", 6)],
+    # The only people down here are the Crimson Codex and the handful of Horde the Codex have hired or
+    # tolerated. Nobody is native to a place that is four years old.
+    "the_crystalline_underdark": [("blood_elf", 82), ("forsaken", 10), ("orc", 8)],
 }
 
 

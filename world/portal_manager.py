@@ -326,9 +326,13 @@ class PortalManager:
             "The Frostward Descent": {
                 # Out, back up to Hillsbrad: +3 so the player lands one tile south of the fissure.
                 (60, 134): ("Eastern Hillsbrad", 116, 10),          # arrive (116,11), clear below the mouth
-                # (58, 8) is the way DOWN into the Crystalline Underdark. The tile is carved and marked in
-                # tools/handbuilt_frostward_descent.py, but the link is deliberately not registered until that
-                # zone exists - zone_manager.try_use_portal fails safe on an unregistered portal tile.
+                (58, 8): ("The Crystalline Underdark", 85, 12),     # out onto the shelf above the cavern floor
+            },
+            "The Crystalline Underdark": {
+                # Back up the Descent. The other three tiles - Kael's Bastion (72,80), the Hollow Geode
+                # (150,62) and the Deep Bloom (34,142) - are carved and marked in the layout but stay
+                # unregistered until those maps exist, and fail safe in the meantime.
+                (85, 12): ("The Frostward Descent", 58, 11),        # arrive just inside the threshold
             },
             "Tarren Mill": {
                 # The town's south gate sits on the WEST bank - the race runs x=43..49 at that latitude, so a
