@@ -337,6 +337,9 @@ ZONE_POPULATION_MIX = {
     # The only people down here are the Crimson Codex and the handful of Horde the Codex have hired or
     # tolerated. Nobody is native to a place that is four years old.
     "the_crystalline_underdark": [("blood_elf", 82), ("forsaken", 10), ("orc", 8)],
+    # The holdfast itself is the Codex almost to a person; the handful of others are hired hands who
+    # came down the Descent with a contract.
+    "kaels_bastion": [("blood_elf", 88), ("forsaken", 7), ("orc", 5)],
 }
 
 

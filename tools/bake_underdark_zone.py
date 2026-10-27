@@ -33,7 +33,10 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 from tools.terrain_painter import Painter, smoothstep, TILE_PX         # noqa: E402
 
 TEX_DIR = ROOT / "assets/tiles/underdark/materials"
-ZONES = {"underdark": "tools.handbuilt_underdark"}
+ZONES = {"underdark": "tools.handbuilt_underdark",
+         # The Bastion paints from the same material set: it is a town inside the same cavern, and giving
+         # it a palette of its own would make the walk through its gate a change of world.
+         "kaels_bastion": "tools.handbuilt_kaels_bastion"}
 
 MATERIALS = {
     "cavern":  ("ud_cavern_dark", "ud_cavern_floor", 1.0),

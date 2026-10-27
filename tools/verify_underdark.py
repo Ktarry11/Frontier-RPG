@@ -119,6 +119,27 @@ def main():
         print(f"\n  -> {here_w:.0f}% walkable against the warren's {cave_w:.0f}%, and sightlines at or above "
               f"both open zones. It reads as a roofed country.")
 
+    # ---- KAEL'S BASTION rides along: it is the same cluster and the same baker, and its reachability is
+    #      exactly the kind of thing that breaks quietly when a building moves.
+    import tools.handbuilt_kaels_bastion as KB
+    KL = KB.build_layout()
+    kz = KL.zone
+    khand = [s for s in KL.skipped if "shroom" not in s[0]]
+    kreach = flood(kz, KB.START)
+    print(f"\nKael's Bastion: {KL.placed} props, {len(khand)} hand-placed skips, "
+          f"{len(kreach)} tiles reachable from the gate")
+    for s in khand:
+        fails.append(f"Bastion hand-placed prop skipped: {s}")
+    for n, p in KB.NPC_POSITIONS.items():
+        if tuple(p) not in kreach:
+            fails.append(f"Bastion NPC spot {n} at {p} unreachable")
+    for c in KL.chests:
+        if tuple(c) not in kreach:
+            fails.append(f"Bastion chest {c} unreachable")
+    kp = list(KB.PORTALS)[0]
+    if kp not in kreach:
+        fails.append(f"Bastion portal {kp} unreachable from the gate")
+
     print()
     if fails:
         print(f"FAILED ({len(fails)}):")

@@ -329,10 +329,13 @@ class PortalManager:
                 (58, 8): ("The Crystalline Underdark", 85, 12),     # out onto the shelf above the cavern floor
             },
             "The Crystalline Underdark": {
-                # Back up the Descent. The other three tiles - Kael's Bastion (72,80), the Hollow Geode
-                # (150,62) and the Deep Bloom (34,142) - are carved and marked in the layout but stay
-                # unregistered until those maps exist, and fail safe in the meantime.
+                # The Hollow Geode (150,62) and the Deep Bloom (34,142) are carved and marked in the layout
+                # but stay unregistered until those maps exist, and fail safe in the meantime.
                 (85, 12): ("The Frostward Descent", 58, 11),        # arrive just inside the threshold
+                (72, 80): ("Kael's Bastion", 48, 84),               # arrive (48,82), inside the gate
+            },
+            "Kael's Bastion": {
+                (48, 86): ("The Crystalline Underdark", 72, 84),    # arrive (72,82), on the forecourt
             },
             "Tarren Mill": {
                 # The town's south gate sits on the WEST bank - the race runs x=43..49 at that latitude, so a
