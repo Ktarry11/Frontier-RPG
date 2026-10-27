@@ -294,7 +294,7 @@
     {
       "talent_id": "primalist_geomancy_magma_flow",
       "name": "Magma Flow",
-      "description": "Increases Magma Fissure's DoT damage by 6% per rank.",
+      "description": "Increases the damage of Magma Fissure by 6% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -302,7 +302,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_magma_fissure_dot_damage": 0.06
+        "ability_primalist_magma_fissure_damage": 0.06
       },
       "connected_to": [
         "primalist_geomancy_eruption"

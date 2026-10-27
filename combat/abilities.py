@@ -2295,6 +2295,14 @@ class Ability:
                 # that worked.
                 duration = max(1, self.talented_duration(caster)
                                + int(consumed_stacks * self.duration_per_stack))
+                # dot_duration_pct lengthens every DoT this caster applies,
+                # the global companion to the per-ability _duration key.
+                # Authored by Venomancer's Patient Rot and read by nothing.
+                # A fraction (0.20 = +20% duration). Applied after the flat
+                # extensions so it scales the real final length.
+                dot_pct = self._talent(caster, "dot_duration_pct")
+                if dot_pct:
+                    duration = max(1, int(round(duration * (1.0 + dot_pct))))
                 per_turn = max(1, int(total / duration))
 
                 hit_names = []

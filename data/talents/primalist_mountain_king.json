@@ -50,7 +50,7 @@
     {
       "talent_id": "primalist_mountain_king_unyielding_form",
       "name": "Unyielding Form",
-      "description": "Increases Parry and Dodge chance by 3% per rank, and Armor contribution from Mail and Plate by 12.5% per rank.",
+      "description": "Increases your total Armor by 6% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -58,9 +58,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "parry": 3.0,
-        "dodge": 3.0,
-        "armor_pct": 12.5
+        "armor_pct": 6.0
       },
       "connected_to": [
         "primalist_mountain_king_mountain_hammer_mastery"
@@ -302,7 +300,7 @@
     {
       "talent_id": "primalist_mountain_king_boulder_toss",
       "name": "Boulder Toss",
-      "description": "Increases Mountain Hammer's stun duration by 0.5 seconds per rank.",
+      "description": "Increases the duration of Mountain Hammer's stun by 1 turn per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -310,7 +308,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_mountain_hammer_stun_duration": 0.5
+        "ability_primalist_mountain_hammer_duration": 1
       },
       "connected_to": [
         "primalist_mountain_king_mountain_mover"

@@ -190,7 +190,7 @@
     {
       "talent_id": "venomancer_stalking_black_widow",
       "name": "Black Widow",
-      "description": "Your Venom Fang now costs 20% less Energy while Widow's Kiss is active.",
+      "description": "Reduces the Energy cost of Venom Fang by 20%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -198,7 +198,7 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "conditional_venom_fang_cost_pct": -0.2
+        "ability_venomancer_venom_fang_cost_pct": 0.2
       },
       "connected_to": [
         "venomancer_stalking_cunning_predator",
@@ -277,19 +277,32 @@
     {
       "talent_id": "venomancer_stalking_silken_step",
       "name": "Silken Step",
-      "description": "Increases maximum Energy by 5 per rank.",
+      "description": "While in Spider Form, your weapon swings have a 20% chance per rank to restore 10 Energy.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
-      "effects": {
-        "energy_max": 5
-      },
+      "effects": {},
       "connected_to": [
         "venomancer_stalking_virulent_resonance"
-      ]
+      ],
+      "require_form": [
+        "spider"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 20,
+        "icd": 0,
+        "require_form": [
+          "spider"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 10
+        }
+      }
     },
     {
       "talent_id": "venomancer_stalking_web_snare",
@@ -328,7 +341,7 @@
     {
       "talent_id": "venomancer_stalking_predators_instinct",
       "name": "Predator's Instinct",
-      "description": "Increases critical strike chance while stealthed by 2% per rank.",
+      "description": "While in Spider Form, increases your critical strike chance by 2% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -336,10 +349,13 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "stealth_crit_chance": 2.0
+        "crit_chance_physical": 2.0
       },
       "connected_to": [
         "venomancer_stalking_black_widow"
+      ],
+      "require_form": [
+        "spider"
       ]
     },
     {
@@ -379,7 +395,7 @@
     {
       "talent_id": "venomancer_stalking_brood_efficiency",
       "name": "Brood Efficiency",
-      "description": "Widowmaker consumes 1 fewer Brood Mark stack per rank for its full effect.",
+      "description": "Increases the damage of Widowmaker by 20%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -387,7 +403,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "brood_mark_consume_reduction": 1
+        "ability_venomancer_widowmaker_damage": 0.2
       },
       "connected_to": [
         "venomancer_stalking_cunning_predator"

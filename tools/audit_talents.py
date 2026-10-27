@@ -189,8 +189,11 @@ def _is_live_school_key(key):
     return False
 
 
-#: Keys implemented as single named mechanics in this round, which a grep
-#: would find anyway - listed for documentation, not for the check.
+#: Keys the engine builds dynamically from a non-school component, so neither
+#: a grep for the literal name nor _is_live_school_key finds them.
+#: bleed_dot_damage and poison_dot_damage are assembled as
+#: f"{flavour}_dot_damage" in Ability._damage_multiplier, and low_health_
+#: healing_pct is read through the heal path's recipient branch.
 _NAMED_LIVE = frozenset({
     "low_mana_healing_pct", "high_mana_healing_pct", "spell_damage_taken_pct",
     "block_value_pct", "aoe_damage", "dot_damage", "bleed_dot_damage",
@@ -259,6 +262,7 @@ def main():
     for tid, n in T.items():
         for key, val in (n.get("effects") or {}).items():
             if not (_DYNAMIC_KEY.match(key) or key in LIVE
+                    or key in _NAMED_LIVE
                     or _is_live_stat_conversion(key)
                     or _is_live_school_key(key)):
                 findings["dead-effect-key"].append(

@@ -60,8 +60,15 @@ SANITY_CAPS = {
     "crit_chance_physical": 60.0, "crit_chance_spell": 60.0,
 }
 
+#: Every playable class, classic AND Frontier homebrew. The homebrew ones
+#: were missing for a long time, which meant none of these checks ever ran
+#: against roughly half the talents in the game - and that is where the data
+#: is weakest. It immediately found a Venomancer talent modifying
+#: 'venomancer_lifeblood', an ability that does not exist.
 CLASSES = ["Warrior", "Paladin", "Hunter", "Rogue", "Priest",
-           "Shaman", "Mage", "Warlock", "Druid"]
+           "Shaman", "Mage", "Warlock", "Druid",
+           "Cultist", "Runemaster", "Starcaller", "Sun Cleric",
+           "Tinker", "Venomancer", "Stormbringer", "Primalist"]
 
 
 def main():
@@ -235,8 +242,14 @@ def main():
         for key in totals:
             if not isinstance(key, str) or not key.startswith("ability_"):
                 continue
-            for suffix in ("_damage", "_healing", "_cost", "_cooldown", "_duration",
-                           "_crit", "_potency"):
+            # Longest suffix first. "_crit_damage", "_cost_pct" and
+            # "_cooldown_pct" all END with a shorter valid suffix, so a
+            # shortest-first scan strips the wrong amount and invents an
+            # ability id: ability_x_crit_damage was reported as targeting
+            # "x_crit" rather than "x", a false positive on correct data.
+            for suffix in ("_crit_damage", "_cooldown_pct", "_cost_pct",
+                           "_healing", "_cooldown", "_duration", "_potency",
+                           "_damage", "_crit", "_cost"):
                 if key.endswith(suffix):
                     aid = key[len("ability_"):-len(suffix)]
                     if aid not in known:
