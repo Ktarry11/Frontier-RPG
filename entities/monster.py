@@ -492,20 +492,35 @@ class Monster(StatusEffectMixin):
         attacker (optional): accepted for call-signature parity with
         Character.take_damage (combat/abilities.py calls take_damage
         uniformly across target types - Character, Monster, Pet - and
-        passes attacker= for Character's absorb-shield bookkeeping).
-        Monster has no use for it, just needs to accept it without
-        crashing.
+        passes attacker= for Character's absorb-shield bookkeeping). Also
+        read here for attacker-side armor/spell penetration - see below.
         """
         from combat.status_effects import DamageSchool
 
+        # Attacker penetration, matching Character.take_damage. The docstring
+        # above used to say Monster "has no use for" the attacker and only
+        # accepted it for call-signature parity - but armor penetration is
+        # attacker-side, and a monster is what the player actually attacks, so
+        # ignoring it here is precisely where the stat mattered most. Tinker's
+        # Piercing Augmentation and Round Armor Pen, and every gear roll of
+        # the stat, did nothing against any enemy in the game.
+        def _pen_flat(name):
+            return (getattr(attacker, name, 0) or 0) if attacker is not None else 0
+        def _pen_pct(name):
+            return (getattr(attacker, name, 0.0) or 0.0) if attacker is not None else 0.0
+
         if damage_type == "physical":
-            armor = self.armor
+            # Percentage first, then flat, floored at 0 so penetration can
+            # strip armour but never grant bonus damage on its own.
+            armor = max(0, int(self.armor * (1.0 - min(1.0, _pen_pct("armor_penetration_pct")))
+                               - _pen_flat("armor_penetration")))
             reduction = armor / (armor + 100) if armor > 0 else 0
         elif damage_type == "magic":
-            mr = self.magic_resistance
+            mr = max(0, int(self.magic_resistance - _pen_flat("spell_penetration")))
             reduction = mr / (mr + 100) if mr > 0 else 0
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
-            resist = self.get_resistance(damage_type)
+            resist = max(0, int(self.get_resistance(damage_type)
+                                - _pen_flat("spell_penetration")))
             reduction = resist / (resist + 100) if resist > 0 else 0
         else:
             reduction = 0

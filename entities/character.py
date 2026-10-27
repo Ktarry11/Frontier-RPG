@@ -1225,16 +1225,13 @@ class Character(StatusEffectMixin):
                           + int(bonuses.get("armor", 0)) + shield_bonus)
                           * (1.0 + bonuses.get("armor_pct", 0) / 100.0 + avatar_armor_bonus))
         # armor_penetration / armor_penetration_pct (Tinker's Round Armor
-        # Pen, Piercing Augmentation) - computed here as real derived stats
-        # so they exist on the Character the moment something needs them,
-        # but NOT YET CONSUMED anywhere: take_damage()/mitigation_from()
-        # only take attacker_level today, not the full attacker object, so
-        # actually ignoring a slice of the DEFENDER's armor on a hit would
-        # mean threading an attacker-stats parameter through take_damage's
-        # signature and every call site (Character/Monster/Pet, combat_engine,
-        # abilities.py) - too invasive to do safely as a drive-by here.
-        # Tracked as a real gap (see learnings/gaps doc) rather than silently
-        # left dead like the stat_mods bugs this whole pass fixed.
+        # Pen, Piercing Augmentation) - real derived stats, and now actually
+        # CONSUMED: take_damage's physical branch subtracts them from the
+        # defender's Armor before mitigation. For a long time they were
+        # computed and read by nothing, on the grounds that threading the
+        # attacker through take_damage would be too invasive - by the time
+        # that was revisited, `attacker` was already a parameter and every
+        # call site already passed it, so the blocker had quietly gone away.
         self.armor_penetration = int(bonuses.get("armor_penetration", 0))
         self.armor_penetration_pct = bonuses.get("armor_penetration_pct", 0) / 100.0
         # Magic Resistance is talent/gear/buff-granted ONLY, same pattern
@@ -2071,9 +2068,36 @@ class Character(StatusEffectMixin):
             blocked = False
 
         if damage_type == "physical":
-            reduction = self.mitigation_from(self.armor)
+            # Armor penetration, finally consumed. The attacker's
+            # armor_penetration (flat) and armor_penetration_pct (fraction)
+            # ignore part of this defender's Armor before mitigation is
+            # computed, which is what both stats have always claimed to do.
+            #
+            # They were computed as real derived stats and read by NOTHING,
+            # so Tinker's Piercing Augmentation and Round Armor Pen - the
+            # spec's whole premise - did nothing, and so did every gear roll
+            # of the stat. The old comment here said threading the attacker
+            # through take_damage and every call site was too invasive to do
+            # safely; that is no longer true, because `attacker` is already a
+            # parameter and every damage call site in abilities.py already
+            # passes attacker=caster.
+            effective_armor = self.armor
+            if attacker is not None:
+                flat = getattr(attacker, "armor_penetration", 0) or 0
+                pct = getattr(attacker, "armor_penetration_pct", 0.0) or 0.0
+                # Percentage first, then flat, and never below zero: a
+                # defender cannot be pushed into negative Armor and start
+                # taking bonus damage from penetration alone.
+                effective_armor = max(0, int(effective_armor * (1.0 - min(1.0, pct)) - flat))
+            reduction = self.mitigation_from(effective_armor)
         elif damage_type == "magic":
-            reduction = self.mitigation_from(self.magic_resistance)
+            # spell_penetration is the magic-side counterpart, and was equally
+            # inert. Same ordering and same floor.
+            effective_resist = self.magic_resistance
+            if attacker is not None:
+                effective_resist = max(0, int(effective_resist
+                                              - (getattr(attacker, "spell_penetration", 0) or 0)))
+            reduction = self.mitigation_from(effective_resist)
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             # Real per-school resistance path (Fire/Frost/Nature/Shadow/
             # Arcane/Holy, or a combined-school tuple - see get_resistance's
@@ -2083,7 +2107,10 @@ class Character(StatusEffectMixin):
             # and keep using the old flat magic_resistance stat untouched;
             # only abilities deliberately authored with a real
             # DamageSchool value reach this branch.
-            reduction = self.mitigation_from(self.get_resistance(damage_type))
+            eff_res = self.get_resistance(damage_type)
+            if attacker is not None:
+                eff_res = max(0, int(eff_res - (getattr(attacker, "spell_penetration", 0) or 0)))
+            reduction = self.mitigation_from(eff_res)
         else:
             reduction = 0
         
