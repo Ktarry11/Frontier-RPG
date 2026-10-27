@@ -824,7 +824,7 @@ class CombatScreen(BaseScreen):
         _render_tooltip, so the two read identically wherever a player
         sees them. Positioned near the cursor, clamped to stay on-screen.
         """
-        lines = ability.get_tooltip_lines()
+        lines = ability.get_tooltip_lines(getattr(self.state_manager, "player", None))
         if not lines:
             return
 
@@ -1255,7 +1255,11 @@ class CombatScreen(BaseScreen):
                             getattr(effective_rt, "value", effective_rt),
                             str(getattr(effective_rt, "value", effective_rt)).replace("_", " ").title()
                         )
-                        cost_text = f"Cost: {ability.cost} {resource_label}"
+                        # Talented cost, not base - a cost-reduction talent must be
+                        # visible here or it looks like it does nothing.
+                        _caster = getattr(self.state_manager, "player", None)
+                        _cost = ability.talented_cost(_caster) if _caster is not None else ability.cost
+                        cost_text = f"Cost: {_cost} {resource_label}"
                         self.renderer.draw_text(screen, cost_text, (rect.x + 8, rect.y + 35), color=COLOR_GOLD, size="normal")
                     
                     # Hotkey label (large in corner) - shows the actual keybind:

@@ -99,7 +99,10 @@ class CombatUIPanel:
                 screen.blit(text, text_rect)
                 
                 # Cost
-                cost_text = f"{ability.cost}"
+                # Talented cost - see combat_screen; the action bar must
+                # agree with what the cast will actually charge.
+                _caster = getattr(self, "character", None) or getattr(self, "player", None)
+                cost_text = f"{ability.talented_cost(_caster) if _caster is not None else ability.cost}"
                 cost_surface = self.renderer.font_normal.render(cost_text, True, COLOR_WHITE)
                 cost_rect = cost_surface.get_rect(center=(slot_x + button_width // 2, slot_y + 45))
                 screen.blit(cost_surface, cost_rect)

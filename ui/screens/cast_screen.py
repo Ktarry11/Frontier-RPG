@@ -303,7 +303,7 @@ class CastScreen(BaseScreen):
         computed damage). Positioned near the cursor, clamped so it can
         never draw off the right/bottom edge of the screen.
         """
-        lines = ability.get_tooltip_lines()
+        lines = ability.get_tooltip_lines(getattr(self.state_manager, "player", None))
         if not lines:
             return
 

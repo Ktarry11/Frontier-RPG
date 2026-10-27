@@ -805,16 +805,27 @@ class Ability:
             return self.ranks[self.current_rank_index + 1]["level_req"]
         return None
 
-    def get_tooltip_lines(self):
-        """Real hover-tooltip content for this ability, at its CURRENT
-        rank, showing the RAW pre-modifier numbers (effect_value/cost/
-        cooldown straight off current_rank) - matching Kyle's real WoW
-        reference screenshots: Lightning Bolt's tooltip shows "429 to 478
-        Nature damage" as a flat rank-defined number, not the caster's
-        actual computed damage after Spell Power/talents/crit. This is
-        deliberately NOT a live-combat-accurate preview (no caster
-        context is used at all) - it's the same "base tooltip value" WoW
-        itself always showed, which is what was actually asked for.
+    def get_tooltip_lines(self, caster=None):
+        """Real hover-tooltip content for this ability, at its CURRENT rank.
+
+        EFFECT VALUES stay RAW - straight off current_rank, before Spell
+        Power/talents/crit - matching Kyle's real WoW reference screenshots:
+        Lightning Bolt's tooltip shows "429 to 478 Nature damage" as a flat
+        rank-defined number, not the caster's computed damage.
+
+        COST AND COOLDOWN are different, and used to be wrong. WoW shows the
+        TALENTED cost: a Paladin with Benediction sees Crusader Strike's
+        reduced mana cost in the tooltip, not the base. Showing the base here
+        made every cost-reduction talent in the game look broken - Kyle,
+        2026-10-26: "crusader strike mana reduction with ret paladin doesnt
+        reduce mana cost". The reduction was real and the spend path was
+        already correct (use() passes talented_cost to both _has_resource and
+        _consume_resource); only the number on screen lied about it.
+
+        caster is optional. Without one this behaves exactly as before, so
+        any caller that has no character in hand still works - it just shows
+        the untalented cost, which is the best that can be said without
+        knowing whose tooltip it is.
 
         Returns a list of plain strings, one per line, in a fixed real
         order: name+rank, cost+cast time, base value line(s) by
@@ -844,11 +855,14 @@ class Ability:
             # claimed - "Cost: 40 Static" reads the same whether or not
             # the player has 40 Static banked right now.
             resource_label = self.resource_type.value.replace("_", " ").title()
-            cost_bits.append(f"Cost: {int(self.cost)} {resource_label}")
+            shown_cost = self.talented_cost(caster) if caster is not None else int(self.cost)
+            cost_bits.append(f"Cost: {shown_cost} {resource_label}")
         if self.is_instant:
             cost_bits.append("Instant")
         if self.cooldown:
-            cost_bits.append(f"{self.cooldown} turn cooldown")
+            shown_cd = self.talented_cooldown(caster) if caster is not None else self.cooldown
+            if shown_cd:
+                cost_bits.append(f"{shown_cd} turn cooldown")
         if cost_bits:
             lines.append("  |  ".join(cost_bits))
 

@@ -708,7 +708,7 @@ class SkillsScreen(BaseScreen):
         """Real hover tooltip - same content source and layout logic as
         cast_screen.py's _render_tooltip / combat_screen.py's
         _render_ability_tooltip, so all three read identically."""
-        lines = ability.get_tooltip_lines()
+        lines = ability.get_tooltip_lines(getattr(self.state_manager, "player", None))
         if not lines:
             return
 
