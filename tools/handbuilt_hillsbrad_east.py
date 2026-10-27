@@ -43,7 +43,7 @@ from tools import town_kit as K
 from tools import tirisfal_kit as T
 from tools.tirisfal_kit import wob, lobe, water_body, rock_spurs
 
-KEY = "hillsbrad_east"
+KEY = "eastern_hillsbrad"
 NAME = "Eastern Hillsbrad Foothills"
 DESC = "Green hill country under Alterac: Tarren Mill, the Syndicate's camps, and Durnholde's ruin."
 REGION = "Eastern Kingdoms - Lordaeron"

@@ -329,8 +329,8 @@ ZONE_POPULATION_MIX = {
     "silverpine_south": [("forsaken", 85), ("human", 10), ("orc", 5)],
     # Hillsbrad is contested ground, not Forsaken heartland: Tarren Mill holds the
     # east, but the farms and Southshore are still very much alive and human.
-    "hillsbrad_east": [("forsaken", 70), ("human", 22), ("orc", 8)],
-    "hillsbrad_west": [("human", 60), ("forsaken", 32), ("orc", 8)],
+    "eastern_hillsbrad": [("forsaken", 70), ("human", 22), ("orc", 8)],
+    "western_hillsbrad": [("human", 60), ("forsaken", 32), ("orc", 8)],
 }
 
 

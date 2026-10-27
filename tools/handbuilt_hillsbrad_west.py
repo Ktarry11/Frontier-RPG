@@ -45,7 +45,7 @@ from tools import town_kit as K
 from tools import tirisfal_kit as T
 from tools.tirisfal_kit import wob, lobe, water_body, rock_spurs
 
-KEY = "hillsbrad_west"
+KEY = "western_hillsbrad"
 NAME = "Western Hillsbrad Foothills"
 DESC = "Hillsbrad's farm country: worked fields, murloc strands, and Southshore's hostile port."
 REGION = "Eastern Kingdoms - Lordaeron"

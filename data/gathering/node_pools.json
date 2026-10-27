@@ -1,5 +1,5 @@
 {
-  "_comment": "Per-zone gathering node pools for OVERWORLD zones. 'slots' = candidate spawn points rolled per zone entry. 'active_percent' = fraction that actually spawn each visit. 'table' = weighted material pool. PROGRESSION DESIGN (audited 2026-10-26): Early zones (1-15) use Copper/Weakstone ore only; Tin creeps in at Northern Barrens (10-20); Iron first appears Southern Barrens (18-25) at weight 1; Iron becomes mid-weight in Ashenvale (20-32). NO Copper in Ashenvale - player is 20+ and has long graduated past it. NO Silver/Coal until Ashenvale. Mid herbs (Bruiseweed) first appear Central Barrens; Briarthorn/Liferoot appear Southern Barrens/Silverpine; Kingsblood/Goldthorn are Silverpine South / Ashenvale. Tirisfal (4-14) is early-only - no mid herbs or Ironbark. Fenris Isle (16-22) is newly added: herb/coastal-wood-rich wolf island. Wood: Ashwood/Oakheart early, Softpine/Ironbark mid (Silverpine+), Frostpine/Bramblewood late (Ashenvale). Bramblewood is Ashenvale-only (densest forest). Cave ore pools are derived from parent zone table by gathering_manager.py - not authored here. Town zones (Brill, Sepulcher, Astranaar, etc.) have no pool - same convention everywhere.",
+  "_comment": "Per-zone gathering node pools for OVERWORLD zones. 'slots' = candidate spawn points rolled per zone entry. 'active_percent' = fraction that actually spawn each visit. 'table' = weighted material pool. PROGRESSION DESIGN (audited 2026-10-26): Early zones (1-15) use Copper/Weakstone ore only; Tin creeps in at Northern Barrens (10-20); Iron first appears Southern Barrens (18-25) at weight 1; Iron becomes mid-weight in Ashenvale (20-32). NO Copper in Ashenvale - player is 20+ and has long graduated past it. NO Silver/Coal until Ashenvale. Mid herbs (Bruiseweed) first appear Central Barrens; Briarthorn/Liferoot appear Southern Barrens/Silverpine; Kingsblood/Goldthorn are Silverpine South / Ashenvale. Tirisfal (4-14) is early-only - no mid herbs or Ironbark. Fenris Isle (16-22) is newly added: herb/coastal-wood-rich wolf island. Wood: Ashwood/Oakheart early, Softpine/Ironbark mid (Silverpine+), Frostpine/Bramblewood late (Ashenvale). Bramblewood is Ashenvale-only (densest forest). Cave ore pools are derived from parent zone table by gathering_manager.py - not authored here. Town zones (Brill, Sepulcher, Astranaar, etc.) have no pool - same convention everywhere. HILLSBRAD (added 2026-10-27): Western Hillsbrad (20-24) and Eastern Hillsbrad (23-27) sit between Silverpine South and Ashenvale, so no Copper/Weakstone anywhere - the player is 20+. Iron is the staple in both and outweighs Tin. SILVER is deliberately broken out of the 'Ashenvale only' rule for Western Hillsbrad: Azurelode Mine is a silver mine in Classic and it is that zone's signature landmark, so silver at weight 2 there is the lore, not a power creep. Eastern Hillsbrad gets silver at 1 and the first Coal outside Ashenvale, befitting 23-27. Frostpine appears only in the east, under Alterac's peaks. Coastal materials (stranglekelp, driftwood, tideglass) are weighted to the WEST, which owns both the sea coasts; the east has only the short southern strand.",
   "zones": {
     "valley_of_trials": {
       "slots": 10,
@@ -285,6 +285,60 @@
         "crystal_emberglass": 2,
         "crystal_tideglass": 1,
         "crystal_voidglass": 1
+      }
+    },
+    "western_hillsbrad": {
+      "slots": 22,
+      "active_percent": 0.4,
+      "table": {
+        "herb_earthroot": 2,
+        "herb_fadeleaf": 3,
+        "herb_dewgrass": 3,
+        "herb_mageroyal": 2,
+        "herb_bruiseweed": 3,
+        "herb_liferoot": 2,
+        "herb_briarthorn": 2,
+        "herb_kingsblood": 2,
+        "herb_goldthorn": 1,
+        "herb_stranglekelp": 2,
+        "ore_tin": 2,
+        "ore_rough_iron": 3,
+        "ore_iron": 2,
+        "ore_silver": 2,
+        "wood_ashwood": 2,
+        "wood_oakheart_stump": 3,
+        "wood_softpine": 2,
+        "wood_driftwood_stump": 2,
+        "wood_ironbark_stump": 2,
+        "crystal_azure": 1,
+        "crystal_tideglass": 2
+      }
+    },
+    "eastern_hillsbrad": {
+      "slots": 22,
+      "active_percent": 0.4,
+      "table": {
+        "herb_fadeleaf": 2,
+        "herb_mageroyal": 2,
+        "herb_briarthorn": 3,
+        "herb_bruiseweed": 2,
+        "herb_liferoot": 2,
+        "herb_kingsblood": 2,
+        "herb_goldthorn": 2,
+        "herb_khadgar": 1,
+        "ore_tin": 1,
+        "ore_rough_iron": 2,
+        "ore_iron": 3,
+        "ore_silver": 1,
+        "ore_coal": 1,
+        "wood_ashwood": 2,
+        "wood_oakheart_stump": 2,
+        "wood_softpine": 2,
+        "wood_ironbark_stump": 3,
+        "wood_frostpine": 1,
+        "wood_driftwood_stump": 1,
+        "crystal_azure": 1,
+        "crystal_emberglass": 1
       }
     }
   }
