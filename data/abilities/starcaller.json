@@ -1184,11 +1184,12 @@
           "rank": 1,
           "level_req": 30,
           "cost": 40,
-          "effect_value": 400
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "absorb_pct_max_health": 0.3
     },
     {
       "ability_id": "starcaller_vengeance_of_elune",
@@ -1652,7 +1653,9 @@
       "cooldown": 15,
       "effect_type": "buff",
       "duration": 30,
-      "stat_mods": {},
+      "stat_mods": {
+        "healing_taken_pct": 15
+      },
       "description": "Apply Eclipsing Arrows to the party and raid, letting a Sentinel's Huntress Shot heal them.",
       "_source": "CoA handoff doc: 'Applies Eclipsing Arrows to party/raid.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
@@ -1661,7 +1664,7 @@
           "rank": 1,
           "level_req": 46,
           "cost": 40,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1776,7 +1779,9 @@
       "cooldown": 10,
       "effect_type": "debuff",
       "duration": 3,
-      "stat_mods": {},
+      "stat_mods": {
+        "haste": -20.0
+      },
       "description": "Tether an enemy. When the tether breaks, they are gripped back to you with Arcane damage.",
       "_source": "CoA handoff doc confirmed: 'Tethers an enemy; break (expiry or 10+ yds distance) grips them back with Arcane damage.' Real numbers not confirmed via a dedicated screenshot.",
       "ranks": [
@@ -1784,11 +1789,26 @@
           "rank": 1,
           "level_req": 32,
           "cost": 30,
-          "effect_value": 80
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "bonds_snap",
+          "name": "Bonds of Justice",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 80,
+          "damage_school": "arcane",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "starcaller_halt",

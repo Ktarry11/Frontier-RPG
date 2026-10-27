@@ -390,12 +390,27 @@
           "rank": 1,
           "level_req": 22,
           "cost": 22,
-          "effect_value": 1
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "exclusive_group": "tinker_round"
+      "exclusive_group": "tinker_round",
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "explosive_round",
+          "name": "Explosive Round",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 30,
+          "damage_school": "fire",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "tinker_rocket_launcher",
@@ -706,7 +721,9 @@
       "cooldown": 15,
       "effect_type": "buff",
       "duration": 3,
-      "stat_mods": {},
+      "stat_mods": {
+        "mp5": 30
+      },
       "description": "Throw down a replenishment beacon for 15 sec which projects a force field restoring 5 Rage, Energy, Focus, Runic Power and 5% base mana every 2.50 sec to allies. 3 Charges, 15 sec recharge.",
       "_source": "Real screenshot: Requires Level 24. Invention leveling sequence.",
       "target_type": "party",
@@ -715,7 +732,7 @@
           "rank": 1,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -840,7 +857,19 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "exclusive_group": "tinker_round"
+      "exclusive_group": "tinker_round",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_repair_shot"
+        ],
+        "splash_heal": {
+          "pct": 0.3,
+          "max_targets": 2
+        }
+      }
     },
     {
       "ability_id": "tinker_nanobot_swarm",

@@ -849,7 +849,10 @@
       "cooldown": 10,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "dodge": 25.0,
+        "damage_taken_pct": -0.15
+      },
       "description": "A forward blink that removes root effects and leaves a gate allies can use once.",
       "_source": "CoA handoff doc: 'Forward blink, removes root; leaves a gate allies can use once.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
@@ -858,7 +861,7 @@
           "rank": 1,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1272,7 +1275,10 @@
       "cooldown": 20,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "hit_rating": 8.0,
+        "crit_chance_spell": 10.0
+      },
       "description": "Summon a controllable scrying orb for reconnaissance.",
       "_source": "CoA handoff doc: 'Summons a controllable scrying orb.' Utility, not combat-relevant.",
       "target_type": "self",
@@ -1281,7 +1287,7 @@
           "rank": 1,
           "level_req": 22,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1470,7 +1476,9 @@
       "cooldown": 15,
       "effect_type": "buff",
       "duration": 15,
-      "stat_mods": {},
+      "stat_mods": {
+        "healing_done_pct": 15
+      },
       "description": "Bring down the light of An'she at the target location for a duration. Allies inside receive increased healing, enemies inside take increased damage and periodic Solar Flare.",
       "_source": "Confirmed screenshot: 15 Mana, 30yd, 2 min cooldown, 'While inside, allies receive 15% increased healing from all sources and enemies take 15% increased damage from you and are struck by a Solar Flare every 1 sec.' Note: this class-wide entry is identical to Piety's shared Dawnfall - separate ability_id since Seraphim's own tree unlocks a talent-tier version.",
       "target_type": "self",
@@ -1479,10 +1487,19 @@
           "rank": 1,
           "level_req": 40,
           "cost": 15,
-          "effect_value": 51
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "splash_heal": {
+          "pct": 0.15,
+          "max_targets": 3
+        }
+      }
     },
     {
       "ability_id": "sun_cleric_hammer_of_kings",

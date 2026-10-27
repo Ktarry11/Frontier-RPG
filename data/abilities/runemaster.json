@@ -1310,7 +1310,11 @@
       "cooldown": 10,
       "effect_type": "buff",
       "duration": 2,
-      "stat_mods": {},
+      "stat_mods": {
+        "spell_power": 90,
+        "haste": 15.0,
+        "crit_chance_spell": 8.0
+      },
       "description": "Greatly increases Weapon Engraving trigger chance for a duration.",
       "_source": "CoA handoff doc confirmed as Engravement's burst capstone: 'Boosts Weapon Engraving trigger chance, for a duration.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
@@ -2063,7 +2067,7 @@
       "name": "Runecarve",
       "resource_type": "mana",
       "cooldown": 4,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Clear your active Sigils. Does not break Runeshroud.",
@@ -2074,10 +2078,12 @@
           "rank": 1,
           "level_req": 2,
           "cost": 5,
-          "effect_value": 0
+          "effect_value": 0,
+          "mana_restore_pct": 50
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "restore_resource_type": "runes"
     },
     {
       "ability_id": "runemaster_runic_power",

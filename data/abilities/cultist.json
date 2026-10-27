@@ -970,7 +970,10 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 1,
-      "stat_mods": {},
+      "stat_mods": {
+        "mp5": 45,
+        "damage_taken_pct": 0.15
+      },
       "description": "Channel to generate Insanity and regenerate mana, but increase damage taken.",
       "_source": "Confirmed screenshot: Lvl 32, 'Channel for 6 sec, generating 5 Insanity and regenerating 5% of your maximum mana every 0.50 sec, but increase damage taken by 20%.' Real risk/reward dual-resource channel.",
       "target_type": "self",
@@ -979,7 +982,7 @@
           "rank": 1,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 5
+          "effect_value": 100
         }
       ],
       "generates": {
@@ -987,7 +990,16 @@
         "amount": 5
       },
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 3
+        }
+      }
     },
     {
       "ability_id": "cultist_whispers_of_yoggsaron",
@@ -1097,12 +1109,18 @@
           "rank": 1,
           "level_req": 44,
           "cost": 18,
-          "effect_value": 143
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_implementation_note": "Modeled as a direct heal for now rather than a real pre-heal-on-next-damage trigger, since this engine doesn't have a 'heal on next damage taken' status effect primitive yet.",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 1,
+        "heal_flat": 160
+      }
     },
     {
       "ability_id": "cultist_voidforged_edge",
@@ -1120,14 +1138,33 @@
           "rank": 1,
           "level_req": 10,
           "cost": 20,
-          "effect_value": 15
+          "effect_value": 100
         }
       ],
       "generates": {
         "resource": "insanity",
         "amount": 5
       },
-      "icon_id": null
+      "icon_id": null,
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 4
+        },
+        "apply_effect": {
+          "effect_id": "voidforged_edge",
+          "name": "Voidforged Edge",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 35,
+          "damage_school": "shadow",
+          "on_target": true,
+          "real_time_seconds": null
+        }
+      }
     },
     {
       "ability_id": "cultist_netherstrike_talent",
@@ -1785,11 +1822,12 @@
           "rank": 1,
           "level_req": 50,
           "cost": 45,
-          "effect_value": 400
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "absorb_pct_max_health": 0.35
     },
     {
       "ability_id": "cultist_armageddon",
@@ -1987,10 +2025,11 @@
           "rank": 1,
           "level_req": 20,
           "cost": 28,
-          "effect_value": 241
+          "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "absorb_pct_max_health": 0.18
     },
     {
       "ability_id": "cultist_forbidden_ritual",
@@ -2008,11 +2047,12 @@
           "rank": 1,
           "level_req": 24,
           "cost": 40,
-          "effect_value": 308
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "absorb_pct_max_health": 0.12
     },
     {
       "ability_id": "cultist_abyssal_covenant",
@@ -2021,7 +2061,9 @@
       "cooldown": 0,
       "effect_type": "buff",
       "duration": 30,
-      "stat_mods": {},
+      "stat_mods": {
+        "damage_taken_pct": -0.12
+      },
       "description": "Link to an ally, transferring a percentage of their damage taken to you and converting a percentage of your damage into healing for them. Only one ally at a time.",
       "_source": "CoA handoff doc confirmed as Heretic's signature link mechanic. Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "ally",
@@ -2030,7 +2072,7 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 20
+          "effect_value": 100
         }
       ],
       "icon_id": null
@@ -2198,7 +2240,7 @@
       "name": "Summon: Faceless Destroyer",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "buff",
+      "effect_type": "summon_pet",
       "duration": 30,
       "stat_mods": {},
       "description": "Summon an ally-fighting Faceless Destroyer for a duration.",
@@ -2213,7 +2255,8 @@
         }
       ],
       "icon_id": null,
-      "_implementation_note": "Real pet summon, stubbed pending a real pet entity system - same gap as every other class's summon abilities this session."
+      "_implementation_note": "Real pet summon, stubbed pending a real pet entity system - same gap as every other class's summon abilities this session.",
+      "summon_pet_template": "faceless_destroyer"
     },
     {
       "ability_id": "cultist_enslave",
@@ -2428,7 +2471,7 @@
       "name": "Summon: Mindbender",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "buff",
+      "effect_type": "summon_pet",
       "duration": 30,
       "stat_mods": {},
       "description": "Summon a minion that periodically heals nearby allies.",
@@ -2443,7 +2486,8 @@
         }
       ],
       "icon_id": null,
-      "_implementation_note": "Real pet summon, stubbed pending a real pet entity system."
+      "_implementation_note": "Real pet summon, stubbed pending a real pet entity system.",
+      "summon_pet_template": "mindbender"
     },
     {
       "ability_id": "cultist_void_monstrosity_form",

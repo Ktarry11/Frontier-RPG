@@ -260,7 +260,7 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
-                 restore_resource_type=None,
+                 restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
                  max_targets=None, force_proc_group=None, summon_pet_template=None):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
@@ -454,6 +454,11 @@ class Ability:
         #: Pool named by a restore_resource ability, overriding the
         #: caster's primary one. See the restore_resource branch.
         self.restore_resource_type = restore_resource_type
+        #: Shield payloads for a buff ability - a flat absorb, or one
+        #: sized as a fraction of the RECIPIENT's max health so a
+        #: party shield scales per ally. See the buff branch.
+        self.absorb = absorb
+        self.absorb_pct_max_health = absorb_pct_max_health
         self.duration_per_stack = duration_per_stack
 
         # True marks this ability's DEBUFF as a real stun/incapacitate -
@@ -2447,8 +2452,23 @@ class Ability:
             # buffs (Icy Veins-style cooldowns) are turn-based via `duration`
             # and expire within the same fight. See buff_scope in __init__.
             real_time = None if self.buff_scope == "combat" else _UNSET
+            # absorb_pct_max_health / absorb: a buff ability can raise a real
+            # damage-absorbing shield. The proc path has had this for a while
+            # via apply_effect, but a cast buff had NO way to express a shield
+            # at all, which is why half a dozen abilities whose entire purpose
+            # is shielding - Cultist's Void Shield, Eldritch Bastion and
+            # Forbidden Ritual, Starcaller's Moonlit Bulwark - were buffs with
+            # empty stat_mods that did nothing when cast.
+            #
+            # Sized per RECIPIENT inside the loop below, so a party-wide shield
+            # scales to each ally's own health rather than the caster's.
             for recipient in recipients:
+                shield_amt = int(self.absorb or 0)
+                if self.absorb_pct_max_health:
+                    shield_amt = max(1, int(getattr(recipient, "health", 0)
+                                            * self.absorb_pct_max_health))
                 effect = StatusEffect(
+                    absorb=shield_amt,
                     effect_id=self.ability_id, name=self.name,
                     effect_type=EffectType.BUFF, duration=self.talented_duration(caster),
                     stat_mods=mods, source_name=caster.name,
@@ -2934,6 +2954,8 @@ def _ability_from_data(entry):
         buff_scope=entry.get("buff_scope"),
         requires_talent=entry.get("requires_talent"),
         restore_resource_type=entry.get("restore_resource_type"),
+        absorb=entry.get("absorb", 0),
+        absorb_pct_max_health=entry.get("absorb_pct_max_health", 0.0),
         is_instant=entry.get("is_instant", False),
         consumes_hot=entry.get("consumes_hot", False),
         consumable_hot_ids=entry.get("consumable_hot_ids"),

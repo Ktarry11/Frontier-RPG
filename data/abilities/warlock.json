@@ -476,7 +476,7 @@
       "name": "Dark Pact",
       "resource_type": "mana",
       "cooldown": 3,
-      "effect_type": "buff",
+      "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
       "description": "Not learned from level alone - granted by the Dark Pact talent in the Affliction tree. PLACEHOLDER (no pet/mana-drain-from-pet mechanic exists): real WOTLK Dark Pact drains your demon's Mana and returns it to you - here it instantly restores a flat amount of Mana instead.",
@@ -485,7 +485,8 @@
           "rank": 1,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 0
+          "effect_value": 0,
+          "mana_restore_pct": 20
         }
       ],
       "target_type": "self",
