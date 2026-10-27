@@ -8,6 +8,32 @@ from entities.equipment import Equipment, BASE_INVENTORY_CAPACITY
 from combat.status_effects import StatusEffectMixin, DamageSchool
 
 
+#: Target names accepted by the <target>_from_<source>_pct stat-conversion
+#: keys, mapped to the Character attribute each one adds to. Read by
+#: _recalculate_derived_stats, and imported by tools/audit_talents.py so the
+#: dead-key check knows which of these dynamically-named keys are real.
+#: Module-level, and shared, specifically so the audit cannot drift from the
+#: engine - a second hand-maintained copy of this list is how a key ends up
+#: "live" in the audit and dead at runtime.
+STAT_CONVERSION_TARGETS = {
+    "attack_power": "attack_power", "ap": "attack_power",
+    "ranged_ap": "ranged_attack_power",
+    "spell_power": "spell_power", "spell_damage": "spell_power",
+    "healing_power": "healing_power",
+    "armor": "armor", "block_value": "block", "block": "block",
+    "parry": "parry", "dodge": "dodge", "haste": "haste",
+    "crit_chance": "crit_chance_physical", "crit": "crit_chance_physical",
+    "crit_chance_spell": "crit_chance_spell",
+}
+
+#: Source names accepted by those same keys. Values are computed per
+#: character in _recalculate_derived_stats; only the NAMES matter here.
+STAT_CONVERSION_SOURCES = frozenset({
+    "strength", "agility", "intellect", "spirit", "stamina",
+    "ap", "attack_power", "spell_power", "weapon", "str_int",
+})
+
+
 class Character(StatusEffectMixin):
     """Complete character with stats, abilities, and resources."""
     
@@ -1190,6 +1216,54 @@ class Character(StatusEffectMixin):
         # sheet show a nonzero value that didn't come from anything the
         # player actually did.
         self.magic_resistance = int(bonuses.get("magic_resistance", 0))
+
+        # ── stat conversion: <target>_from_<source>_pct ────────────────────
+        #
+        # "Increases your Healing Power by 20% of your Intellect" is a real
+        # and very common WoW talent shape, and twenty-four talents across
+        # every homebrew class were authored for it - healing_power_from_
+        # intellect_pct, spell_damage_from_strength_pct, ap_from_agility_pct,
+        # parry_from_intellect_pct and so on. Not one of those keys was read
+        # by anything, so all twenty-four did nothing.
+        #
+        # Handled generically rather than key by key: the key names its own
+        # target and source, so one loop covers every combination the data
+        # already uses and any future one, instead of twenty-four bespoke
+        # branches that the next author would have to extend. Values are
+        # FRACTIONS of the source stat (0.20 = +20% of Intellect), matching
+        # how the data authors them.
+        #
+        # Deliberately runs AFTER every base derived stat above, so the
+        # source values are the final post-gear, post-buff ones, and the
+        # conversion cannot feed back into itself.
+        _conv_sources = {
+            "strength": eff_strength, "agility": eff_agility,
+            "intellect": eff_intellect, "spirit": eff_spirit,
+            "stamina": eff_stamina,
+            "ap": self.attack_power, "attack_power": self.attack_power,
+            "spell_power": self.spell_power,
+            "weapon": self.equipment.get_weapon_damage() if hasattr(
+                self.equipment, "get_weapon_damage") else 0,
+            # str_int: the sum, for Cultist's "Strength and Intellect" nodes
+            "str_int": eff_strength + eff_intellect,
+        }
+        _conv_targets = STAT_CONVERSION_TARGETS
+        for key, pct in bonuses.items():
+            if not isinstance(pct, (int, float)) or not pct:
+                continue
+            if not key.endswith("_pct") or "_from_" not in key:
+                continue
+            tgt_name, src_name = key[:-4].split("_from_", 1)
+            attr = _conv_targets.get(tgt_name)
+            src = _conv_sources.get(src_name)
+            if attr is None or src is None:
+                continue  # unknown pairing - left to the dead-key audit
+            current = getattr(self, attr, 0) or 0
+            gained = src * pct
+            # Integer stats stay integers; the percentage ones (crit, haste,
+            # parry, dodge) are floats and keep their precision.
+            setattr(self, attr, int(current + gained)
+                    if isinstance(current, int) else current + gained)
 
         # Per-school resistances: purely bonus-pool driven (talents, gear,
         # buffs via the same `bonuses` dict every other derived stat reads

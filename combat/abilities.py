@@ -929,9 +929,33 @@ class Ability:
             return default
 
     def talented_cost(self, caster):
-        """Resource cost after talent reductions (never below 0)."""
+        """Resource cost after talent reductions (never below 0).
+
+        Two kinds stack, flat first then percentage:
+          ability_<id>_cost      flat reduction, e.g. 8 -> 8 less Mana
+          ability_<id>_cost_pct  fractional reduction, e.g. 0.05 -> 5% cheaper
+          all_ability_cost_pct   the same, applied to everything
+          heal_cost_pct          the same, healing abilities only
+          healing_spell_cost_pct alias of heal_cost_pct
+
+        Only the flat form was ever read. Twenty-nine talents across every
+        homebrew class were authored as a percentage ("Reduces the Mana cost
+        of your Shock spells by 3%") and did nothing at all, because a
+        percentage cost reduction is the natural way to word this and nothing
+        implemented it.
+        """
         reduction = self._talent(caster, f"ability_{self.ability_id}_cost")
-        return max(0, int(round(self.cost - reduction)))
+        cost = max(0, int(round(self.cost - reduction)))
+        if cost <= 0:
+            return 0
+        pct = self._talent(caster, f"ability_{self.ability_id}_cost_pct")
+        pct += self._talent(caster, "all_ability_cost_pct")
+        if self.effect_type in ("heal", "hot"):
+            pct += self._talent(caster, "heal_cost_pct")
+            pct += self._talent(caster, "healing_spell_cost_pct")
+        # Clamped so a stack of reductions discounts rather than inverts.
+        pct = min(0.90, max(-0.90, pct))
+        return max(0, int(round(cost * (1.0 - pct))))
 
     def talented_duration(self, caster):
         """Effect duration in turns after talent extensions.
@@ -973,7 +997,14 @@ class Ability:
         if not self.cooldown:
             return 0
         reduction = self._talent(caster, f"ability_{self.ability_id}_cooldown")
-        return max(1, int(round(self.cooldown - reduction)))
+        cd = self.cooldown - reduction
+        # ability_<id>_cooldown_pct is the percentage companion to the flat
+        # key, and was authored by seven talents without ever being read.
+        # Applied after the flat reduction, same order as talented_cost.
+        pct = min(0.90, max(-0.90, self._talent(
+            caster, f"ability_{self.ability_id}_cooldown_pct")))
+        cd *= (1.0 - pct)
+        return max(1, int(round(cd)))
 
     #: Real WoW-classic-style: a critical strike deals double damage.
     CRIT_DAMAGE_MULTIPLIER = 2.0
@@ -1037,7 +1068,35 @@ class Ability:
         crit_chance = max(0.0, crit_chance - crit_taken_reduction)
 
         is_crit = random.uniform(0, 100) < crit_chance
-        return is_crit, (self.CRIT_DAMAGE_MULTIPLIER if is_crit else 1.0)
+        if not is_crit:
+            return False, 1.0
+        return True, self.CRIT_DAMAGE_MULTIPLIER + self._crit_damage_bonus(caster, school)
+
+    def _crit_damage_bonus(self, caster, school):
+        """Extra crit multiplier from talents, added to CRIT_DAMAGE_MULTIPLIER.
+
+        "Increases the critical strike DAMAGE of your spells by 30%" is a
+        different mechanic from increasing crit chance, and eleven talents
+        across Cultist, Runemaster, Starcaller and Mage were authored for it
+        under crit_damage_spell, crit_damage_physical, crit_damage_pct,
+        <school>_crit_damage_pct and ability_<id>_crit_damage. None of those
+        keys were read by anything, so every one of those talents did nothing.
+
+        All are FRACTIONS of the base hit (0.30 = crits hit for 2.3x instead
+        of 2.0x), which is how the data already authors them, and they stack
+        additively with each other the same way every other talent bonus in
+        this engine does.
+        """
+        bonus = self._talent(caster, "crit_damage_pct")
+        bonus += self._talent(
+            caster, "crit_damage_physical" if school == "physical" else "crit_damage_spell")
+        bonus += self._talent(caster, f"ability_{self.ability_id}_crit_damage")
+        # Per-school flavour (fire_crit_damage_pct and friends), resolved
+        # against the school this ability actually deals this cast.
+        real_school = self._resolve_damage_school(caster)
+        if isinstance(real_school, str):
+            bonus += self._talent(caster, f"{real_school}_crit_damage_pct")
+        return bonus
 
     def _resolve_damage_school(self, caster):
         """Real school this ability deals THIS cast, resolving

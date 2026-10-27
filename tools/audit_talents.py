@@ -53,6 +53,11 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# Needed so _is_live_stat_conversion can import the engine's own conversion
+# maps. Run as a script, sys.path[0] is tools/, not the repo root, so the
+# import failed silently and reported all 24 stat-conversion talents as dead
+# even though the engine handles them.
+sys.path.insert(0, str(ROOT))
 TALENTS = ROOT / "data" / "talents"
 
 #: Words that belong in a design document and never in a tooltip.
@@ -146,10 +151,40 @@ PROC_PAYLOADS = frozenset({
 
 #: Effect-key prefixes/suffixes the engine resolves dynamically, so a grep
 #: for the literal key name will never find them.
+_SCHOOLS = "arcane|fire|frost|nature|shadow|holy"
 _DYNAMIC_KEY = re.compile(
     r"^(ability_.+_(damage|healing|cost|cooldown|duration|crit|potency)"
+    r"|ability_.+_(cost_pct|cooldown_pct|crit_damage)"
     r"|unlock_ability|unlock_mechanic"
-    r"|(arcane|fire|frost|nature|shadow|holy)_(resistance|spell_power))$")
+    r"|all_ability_cost_pct|heal_cost_pct|healing_spell_cost_pct"
+    r"|crit_damage_pct|crit_damage_spell|crit_damage_physical"
+    rf"|({_SCHOOLS})_crit_damage_pct"
+    rf"|({_SCHOOLS})_(resistance|spell_power))$")
+
+
+def _is_live_stat_conversion(key):
+    """True for a <target>_from_<source>_pct key the engine really handles.
+
+    These names are built at runtime from the key itself (see
+    Character._recalculate_derived_stats), so grepping the engine for the
+    literal key name never finds them and the dead-key check would report
+    all twenty-four of them as dead. The target and source maps are imported
+    from the engine rather than copied, so this cannot claim a pairing the
+    engine does not actually implement - which matters, because several
+    authored keys name targets it does NOT handle
+    (holy_fire_spell_damage_from_intellect_pct), and those must stay flagged.
+    """
+    if not key.endswith("_pct") or "_from_" not in key:
+        return False
+    # Deliberately NOT wrapped in a bare except. An earlier version swallowed
+    # the ImportError and returned False, which looks like "this key is dead"
+    # - the exact failure this whole check exists to catch, produced by the
+    # checker itself. If the engine cannot be imported, that is a real
+    # problem and should be loud.
+    from entities.character import (STAT_CONVERSION_TARGETS,
+                                    STAT_CONVERSION_SOURCES)
+    target, source = key[:-4].split("_from_", 1)
+    return target in STAT_CONVERSION_TARGETS and source in STAT_CONVERSION_SOURCES
 
 
 def live_effect_keys():
@@ -187,7 +222,8 @@ def main():
 
     for tid, n in T.items():
         for key, val in (n.get("effects") or {}).items():
-            if not (_DYNAMIC_KEY.match(key) or key in LIVE):
+            if not (_DYNAMIC_KEY.match(key) or key in LIVE
+                    or _is_live_stat_conversion(key)):
                 findings["dead-effect-key"].append(
                     f"{tid} ({n.get('name')!r}): {key!r} is read by no engine code")
             # Unit convention. These ten keys are the only ones the engine
