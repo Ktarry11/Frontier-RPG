@@ -85,20 +85,41 @@
     {
       "talent_id": "starcaller_warden_celestial_glaives",
       "name": "Celestial Glaives",
-      "description": "Allows Scattered Stars to stack additional times.",
+      "description": "Sentinel Glaive, Astral Blade, Umbral Blade and Fan of Knives scatter stars across the target, reducing its Armor by 12 per stack. Stacks up to 5 times and lasts 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -4,
-      "effects": {
-        "scattered_star_extra_stacks": 2
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_warden_maievs_discipline"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 30 Passive. Allows extra Scattered Star stacking.'"
+      "_source": "CoA tooltip confirmed: 'Level 30 Passive. Allows extra Scattered Star stacking.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_sentinel_glaive",
+          "starcaller_astral_blade",
+          "starcaller_umbral_blade",
+          "starcaller_fan_of_knives"
+        ],
+        "apply_effect": {
+          "effect_id": "starcaller_scattered_stars",
+          "name": "Scattered Stars",
+          "effect_type": "debuff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "armor": -12
+          },
+          "source_name": "Scattered Stars",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "starcaller_warden_vigil_of_the_watchers",
@@ -121,38 +142,72 @@
     {
       "talent_id": "starcaller_warden_warden_training",
       "name": "Warden Training",
-      "description": "Starsunder critical strikes apply an extra Scattered Star stack.",
+      "description": "Starsunder critical strikes scatter another star, adding a stack of Scattered Stars to the target for 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -4,
-      "effects": {
-        "starsunder_crit_extra_star": 1
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_warden_swift_glaives"
       ],
-      "_source": "CoA handoff doc: 'Starsunder crits apply an extra Scattered Star stack.'"
+      "_source": "CoA handoff doc: 'Starsunder crits apply an extra Scattered Star stack.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_starsunder"
+        ],
+        "apply_effect": {
+          "effect_id": "starcaller_scattered_stars",
+          "name": "Scattered Stars",
+          "effect_type": "debuff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "armor": -12
+          },
+          "source_name": "Scattered Stars",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "starcaller_warden_magic_mark",
       "name": "Magic Mark",
-      "description": "Each Scattered Star stack increases the target's Arcane damage taken.",
+      "description": "Astral Blade brands the target with a Magic Mark, searing it for 45 Arcane damage each turn for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": -4,
-      "effects": {
-        "scattered_star_target_damage_taken_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_warden_arcane_focus"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 40 Passive. Scattered Stars boost target's Arcane damage taken per stack.'"
+      "_source": "CoA tooltip confirmed: 'Level 40 Passive. Scattered Stars boost target's Arcane damage taken per stack.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_astral_blade"
+        ],
+        "apply_effect": {
+          "effect_id": "starcaller_magic_mark",
+          "name": "Magic Mark",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 45,
+          "damage_school": "arcane",
+          "source_name": "Magic Mark",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "starcaller_warden_sentinel_glaive",
@@ -194,40 +249,54 @@
     {
       "talent_id": "starcaller_warden_shadowsongs_mandate",
       "name": "Shadowsong's Mandate",
-      "description": "Increases critical strike chance and movement speed. Damaging critical strikes have a chance to trigger a free Warden's Blade.",
+      "description": "Your critical strikes have a 25% chance to swing a free Warden's Blade at the target, no more than once per turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "wardens_blade_crit_proc"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_warden_sentinel_glaive",
         "starcaller_warden_rally_the_sentinels"
       ],
-      "_source": "CoA handoff doc confirmed as this spec's real burst-window mechanic: 'Boosts crit chance + movement speed; damaging crits chance to trigger Warden's Blade.'"
+      "_source": "CoA handoff doc confirmed as this spec's real burst-window mechanic: 'Boosts crit chance + movement speed; damaging crits chance to trigger Warden's Blade.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "cast_ability": "starcaller_wardens_blade"
+      }
     },
     {
       "talent_id": "starcaller_warden_rally_the_sentinels",
       "name": "Rally The Sentinels",
-      "description": "Sentinel Glaive now restores mana and applies a Scattered Star.",
+      "description": "Sentinel Glaive has a 20% chance per rank to rally the Watchers, restoring 60 Mana.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {
-        "ability_starcaller_sentinel_glaive_mana_return_pct": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_warden_shadowsongs_mandate",
         "starcaller_warden_astral_blade"
       ],
-      "_source": "CoA handoff doc: 'Sentinel Glaive restores mana + applies a Scattered Star.' A key mana-sustain lever for this spec's heavy Astral Blade/Starsunder drains."
+      "_source": "CoA handoff doc: 'Sentinel Glaive restores mana + applies a Scattered Star.' A key mana-sustain lever for this spec's heavy Astral Blade/Starsunder drains.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_sentinel_glaive"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        }
+      }
     },
     {
       "talent_id": "starcaller_warden_bonds_of_justice",
@@ -304,40 +373,65 @@
     {
       "talent_id": "starcaller_warden_infused_blades",
       "name": "Infused Blades",
-      "description": "Astral Blade has a chance to reset its cooldown or fully refund its mana cost.",
+      "description": "Astral Blade has a 10% chance per rank to refund its full Mana cost.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
-      "effects": {
-        "ability_starcaller_astral_blade_reset_chance": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_warden_shadowsongs_mandate",
         "starcaller_warden_rally_the_sentinels"
       ],
-      "_source": "CoA handoff doc confirmed: 'Astral Blade on cooldown (Infused Blades can reset/refund it).' Real burst-sustain lever mentioned throughout the rotation writeup."
+      "_source": "CoA handoff doc confirmed: 'Astral Blade on cooldown (Infused Blades can reset/refund it).' Real burst-sustain lever mentioned throughout the rotation writeup.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_astral_blade"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 185
+        }
+      }
     },
     {
       "talent_id": "starcaller_warden_stellar_amplification",
       "name": "Stellar Amplification",
-      "description": "Scattered Star damage has a chance to make your next Astral Blade free.",
+      "description": "Your critical strikes have an 8% chance per rank to gather the stars around you, increasing damage dealt by 4% for 2 turns. Stacks up to 3 times.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "scattered_star_free_astral_blade_chance": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_warden_sentinel_glaive",
         "starcaller_warden_astral_blade"
       ],
-      "_source": "CoA handoff doc: 'Scattered Star damage chance to free the next Astral Blade.'"
+      "_source": "CoA handoff doc: 'Scattered Star damage chance to free the next Astral Blade.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 8,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "starcaller_stellar_amplification",
+          "name": "Stellar Amplification",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 4
+          },
+          "source_name": "Stellar Amplification",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_warden_vigil_of_the_moon",
@@ -405,7 +499,8 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_starcaller_astral_blade_cost_pct": -0.02
+        "ability_starcaller_astral_blade_cost_pct": 0.02,
+        "ability_starcaller_starsunder_cost_pct": 0.02
       },
       "connected_to": [
         "starcaller_warden_shadowsongs_mandate",

@@ -105,20 +105,35 @@
     {
       "talent_id": "starcaller_moon_priest_moon_gazing",
       "name": "Moon Gazing",
-      "description": "Critical strikes generate a Lunar Phase stack.",
+      "description": "Your critical strikes draw down a Lunar Phase, increasing your healing done by 3% for 4 turns. Stacks up to 5 times.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "unlock_mechanic": "lunar_phase_on_crit"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_priest_flow_of_waters"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 40 Passive. Crits generate a Lunar Phase stack (limited frequency).' Feeds Rapid Cycle's ranged haste-per-stack mechanic."
+      "_source": "CoA tooltip confirmed: 'Level 40 Passive. Crits generate a Lunar Phase stack (limited frequency).' Feeds Rapid Cycle's ranged haste-per-stack mechanic.",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "starcaller_lunar_phase",
+          "name": "Lunar Phase",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "healing_done_pct": 3
+          },
+          "source_name": "Lunar Phase",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_priest_prayer_of_elune",
@@ -159,26 +174,41 @@
     {
       "talent_id": "starcaller_moon_priest_rippling_moonwater",
       "name": "Rippling Moonwater",
-      "description": "Healing applies a stacking Moonwater effect to the target.",
+      "description": "Each heal you cast pools Moonwater around you, increasing your healing done by 2% for 4 turns. Stacks up to 5 times.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
-      "effects": {
-        "unlock_mechanic": "moonwater_stacks"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_priest_prayer_of_elune",
         "starcaller_moon_priest_rapid_cycle"
       ],
-      "_source": "CoA handoff doc: 'Healing applies stacking Moonwater to target.' Part of the interlocking stack system alongside Lunar Phase and Scattered Star."
+      "_source": "CoA handoff doc: 'Healing applies stacking Moonwater to target.' Part of the interlocking stack system alongside Lunar Phase and Scattered Star.",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "starcaller_moonwater",
+          "name": "Moonwater",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "healing_done_pct": 2
+          },
+          "source_name": "Moonwater",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_priest_rapid_cycle",
       "name": "Rapid Cycle",
-      "description": "Each Lunar Phase stack increases your ranged haste.",
+      "description": "Increases Haste by 1% per rank. Your critical strikes speed the lunar cycle, restoring 70 Mana no more than once per turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -186,48 +216,82 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "lunar_phase_haste_per_stack": 0.01
+        "haste": 1.0
       },
       "connected_to": [
         "starcaller_moon_priest_aspect_of_the_goddess",
         "starcaller_moon_priest_rippling_moonwater"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 70
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_priest_moon_priest_10",
       "name": "Moon Priest",
-      "description": "Huntress Shot's Lunar Eclipse effect now applies 2 additional Scattered Stars.",
+      "description": "Huntress Shot scatters stars that mend your allies, healing the most wounded party member for 120.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 2,
-      "effects": {
-        "huntress_shot_eclipse_extra_stars": 2
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_priest_rippling_moonwater"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Huntress Shot's Lunar Eclipse applies 2 additional Scattered Stars.'"
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. Huntress Shot's Lunar Eclipse applies 2 additional Scattered Stars.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_huntress_shot"
+        ],
+        "smart_heal": 120
+      }
     },
     {
       "talent_id": "starcaller_moon_priest_cycle_of_the_moon",
       "name": "Cycle of the Moon",
-      "description": "Cycles between Full Moon and New Moon periodically, altering Hand of Elune's behavior.",
+      "description": "Hand of Elune has a 50% chance to turn the moon full, granting 30 Spell Power and 30 Healing Power for 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
-      "effects": {
-        "unlock_mechanic": "full_new_moon_cycle"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_priest_rapid_cycle"
       ],
-      "_source": "CoA handoff doc: 'Cycles between Full Moon and New Moon periodically.' Full Cycle talent (Full Moon boosts healing, New Moon reduces cost) layers on top of this base cycle."
+      "_source": "CoA handoff doc: 'Cycles between Full Moon and New Moon periodically.' Full Cycle talent (Full Moon boosts healing, New Moon reduces cost) layers on top of this base cycle.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_hand_of_elune"
+        ],
+        "apply_effect": {
+          "effect_id": "starcaller_full_moon",
+          "name": "Full Moon",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "spell_power": 30,
+            "healing_power": 30
+          },
+          "source_name": "Full Moon",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_priest_moonlit_slumber",
@@ -388,7 +452,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "healing_spell_cost_pct": -0.02
+        "healing_spell_cost_pct": 0.02
       },
       "connected_to": [
         "starcaller_moon_priest_prayer_of_elune",
@@ -398,7 +462,7 @@
     {
       "talent_id": "starcaller_moon_priest_flowing_grace",
       "name": "Flowing Grace",
-      "description": "Increases Prayer of Elune and Silverstream critical heal chance by 2% per rank.",
+      "description": "Increases Prayer of Elune and Tidal Rebirth healing by 4% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -406,7 +470,8 @@
       "hex_x": -1,
       "hex_y": 0,
       "effects": {
-        "crit_chance_heal_pct": 0.02
+        "ability_starcaller_prayer_of_elune_healing": 0.04,
+        "ability_starcaller_tidal_rebirth_healing": 0.04
       },
       "connected_to": [
         "starcaller_moon_priest_rippling_moonwater",

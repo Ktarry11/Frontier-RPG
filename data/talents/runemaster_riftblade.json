@@ -85,7 +85,7 @@
     {
       "talent_id": "runemaster_riftblade_frost_spectre",
       "name": "Frost Spectre",
-      "description": "Increases Smolder and Primordial Blast critical strike chance and damage against Frozen targets by 4% per rank.",
+      "description": "Increases the critical strike chance of Smolder and Primordial Blast by 3% per rank, and your Frost damage by 3% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -93,7 +93,9 @@
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "frozen_target_damage_pct": 0.04
+        "ability_runemaster_smolder_crit": 3.0,
+        "ability_runemaster_primordial_blast_crit": 3.0,
+        "frost_damage_pct": 0.03
       },
       "connected_to": [
         "runemaster_riftblade_elemental_assassin"
@@ -299,95 +301,168 @@
     {
       "talent_id": "runemaster_riftblade_magebreaker",
       "name": "Magebreaker",
-      "description": "Hurricane strikes have a chance to shed a harmful magic effect from you.",
+      "description": "Hurricane has a 10% chance per rank to break the magic coiled around you, reducing Magic damage taken by 15% for 3 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
-      "effects": {
-        "hurricane_self_dispel_chance": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_riftblade_smolder",
         "runemaster_riftblade_fracture"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_hurricane"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_magebreaker",
+          "name": "Magebreaker",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "magic_damage_taken_pct": -15
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_riftblade_runic_omen",
       "name": "Runic Omen",
-      "description": "Every third Runeblade cast returns resources and deals bonus damage.",
+      "description": "Runeblade has a 20% chance per rank to call a runic omen, dealing 25% extra damage and granting 1 Rune.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
-      "effects": {
-        "ability_runemaster_runeblade_third_cast_bonus": 0.06
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_riftblade_hoarfrost",
         "runemaster_riftblade_hurricane"
       ],
-      "_source": "CoA handoff doc: 'every third Runeblade restores resources + hits harder via Runic Omen/Surging Slash.' This spec's core resource-return identity."
+      "_source": "CoA handoff doc: 'every third Runeblade restores resources + hits harder via Runic Omen/Surging Slash.' This spec's core resource-return identity.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_runeblade"
+        ],
+        "bonus_pct": 0.25,
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 1
+        }
+      }
     },
     {
       "talent_id": "runemaster_riftblade_windsage",
       "name": "Windsage",
-      "description": "Smolder wraps you in wind: your next 3 Runeblades strike an extra time for Nature damage.",
+      "description": "Smolder wraps you in wind for 3 turns. While Windsage holds, every Runeblade strikes an extra time.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "ability_runemaster_smolder_windsage_proc": 1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_riftblade_echo_rune",
         "runemaster_riftblade_genesis"
       ],
-      "_source": "CoA handoff doc: 'Smolder wraps you in wind: next 3 Runeblades strike an extra time (Nature damage, % of damage dealt).'"
+      "_source": "CoA handoff doc: 'Smolder wraps you in wind: next 3 Runeblades strike an extra time (Nature damage, % of damage dealt).'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "runemaster_smolder"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_windsage",
+          "name": "Windsage",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "on_target": false,
+          "proc": {
+            "trigger": "on_damage_cast",
+            "chance": 100,
+            "icd": 0,
+            "ability_filter": [
+              "runemaster_runeblade"
+            ],
+            "extra_attack": true
+          }
+        }
+      }
     },
     {
       "talent_id": "runemaster_riftblade_spellfire_runes",
       "name": "Spellfire Runes",
-      "description": "Runeblade and Warpdagger have a chance to reset Smolder's cooldown and boost its next hit.",
+      "description": "Runeblade has a 12% chance per rank to ignite your blade, striking with a free Smolder. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
-      "effects": {
-        "smolder_reset_chance": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_riftblade_hoarfrost",
         "runemaster_riftblade_runic_omen"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_runeblade"
+        ],
+        "cast_ability": "runemaster_smolder"
+      }
     },
     {
       "talent_id": "runemaster_riftblade_surging_slash",
       "name": "Surging Slash",
-      "description": "Every third Runeblade cast transforms your next Runeblade into a stronger Surging Slash.",
+      "description": "Runeblade surges with stored rune power, increasing your damage done by 20% for 2 turns. Cannot occur more than once every 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
-      "effects": {
-        "ability_runemaster_runeblade_surging_slash": 1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_riftblade_runic_omen",
         "runemaster_riftblade_turbulence"
       ],
-      "_source": "CoA handoff doc confirmed: 'Every 3rd Runeblade transforms next Runeblade into Surging Slash.'"
+      "_source": "CoA handoff doc confirmed: 'Every 3rd Runeblade transforms next Runeblade into Surging Slash.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 3,
+        "ability_filter": [
+          "runemaster_runeblade"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_surging_slash",
+          "name": "Surging Slash",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_dealt_pct": 20
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_riftblade_aspect_of_the_rune_knight",
@@ -428,7 +503,7 @@
     {
       "talent_id": "runemaster_riftblade_pierce_resistances",
       "name": "Pierce Resistances",
-      "description": "Your Fragmentation effects reduce enemy magic resistance.",
+      "description": "Your runes bite past elemental wards, increasing your Arcane, Fire, Frost and Nature damage by 3% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -436,7 +511,7 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "magic_resist_shred_pct": 0.03
+        "arcane_fire_frost_nature_damage_pct": 0.03
       },
       "connected_to": [
         "runemaster_riftblade_fracture"
@@ -481,7 +556,7 @@
     {
       "talent_id": "runemaster_riftblade_frost_spectre_bonus",
       "name": "Melting Runes",
-      "description": "Weapon Engraving: Fire deals bonus damage against Frozen enemies.",
+      "description": "Increases your Fire and Frost damage by 5% per rank. Hoarfrost melts what it touches, reducing the Armor of enemies it strikes by 40 for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -489,11 +564,29 @@
       "hex_x": 5,
       "hex_y": -4,
       "effects": {
-        "fire_engraving_frozen_bonus_pct": 0.05
+        "fire_frost_damage_pct": 0.05
       },
       "connected_to": [
         "runemaster_riftblade_fire_blade"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "runemaster_hoarfrost"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_melting_runes",
+          "name": "Melting Runes",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -40
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "runemaster_riftblade_ice_rune_talent",

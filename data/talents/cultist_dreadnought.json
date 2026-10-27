@@ -52,7 +52,7 @@
     {
       "talent_id": "cultist_dreadnought_dreadnought_passive",
       "name": "Dreadnought",
-      "description": "Reaching 100 Insanity no longer causes Total Madness.",
+      "description": "Your mind endures what it holds. Dreadnought lasts 1 turn longer, and stuns used against you are 20% shorter.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -60,7 +60,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "remove_total_madness": 1
+        "ability_cultist_dreadnought_shield_duration": 1,
+        "stun_duration_reduction_pct": 0.2
       },
       "connected_to": [
         "cultist_dreadnought_test_of_pride"
@@ -70,72 +71,117 @@
     {
       "talent_id": "cultist_dreadnought_voidwarding",
       "name": "Voidwarding",
-      "description": "Increases party and raid damage reduction, and increases your resistances. Does not stack with similar effects.",
+      "description": "Taking damage has a 10% chance per rank to wrap you in Voidwarding, absorbing damage equal to 4% of your maximum health for 3 turns. Cannot occur more than once every 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {
-        "party_damage_reduction_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "cultist_dreadnought_void_resilience"
       ],
-      "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar); boosts your resistances (scales with level).'"
+      "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar); boosts your resistances (scales with level).'",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "cultist_voidwarding",
+          "name": "Voidwarding",
+          "effect_type": "buff",
+          "duration": 3,
+          "absorb_pct_max_health": 0.04,
+          "stat_mods": {},
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_void_reaver",
       "name": "Void Reaver",
-      "description": "Avoiding or absorbing an attack has a chance to boost your next Blade of the Empire's damage and hit an extra enemy.",
+      "description": "Being struck has an 8% chance per rank to let the Void answer for you, granting 50 attack power for 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -4,
-      "effects": {
-        "avoid_boosts_next_blade_chance": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "cultist_dreadnought_strength_of_the_sha"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 8,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "cultist_void_reaver",
+          "name": "Void Reaver",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "attack_power": 50
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_inner_darkness",
       "name": "Inner Darkness",
-      "description": "Blocking generates Insanity.",
+      "description": "Every blow you absorb feeds the dark inside you, granting 8 Insanity.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "block_generates_insanity": 8
-      },
+      "effects": {},
       "connected_to": [
         "cultist_dreadnought_thick_skin"
       ],
-      "_source": "CoA handoff doc confirmed as this spec's primary Insanity generator: 'Blocking generates Insanity.' The shield is the whole engine here."
+      "_source": "CoA handoff doc confirmed as this spec's primary Insanity generator: 'Blocking generates Insanity.' The shield is the whole engine here.",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 8
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_entropic_retaliation",
       "name": "Entropic Retaliation",
-      "description": "Blocking increases your critical strike chance for a duration, stacking.",
+      "description": "Being struck has a 10% chance per rank to grant Entropic Retaliation, increasing your physical critical strike chance by 5% for 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "block_crit_stack": 0.01
-      },
+      "effects": {},
       "connected_to": [
         "cultist_dreadnought_void_resilience"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "cultist_entropic_retaliation",
+          "name": "Entropic Retaliation",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "crit_chance_physical": 5
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_void_resilience",
@@ -176,7 +222,7 @@
     {
       "talent_id": "cultist_dreadnought_shadowy_symbiosis",
       "name": "Shadowy Symbiosis",
-      "description": "Critical blocks reduce the cooldown of Void Strikes.",
+      "description": "Reduces Void Strikes' cooldown by 6% per rank, and your critical strikes feed you 5 Insanity, no more than once per turn.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -184,11 +230,20 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "crit_block_void_strikes_cdr": 1.0
+        "ability_cultist_void_strikes_cooldown_pct": 0.06
       },
       "connected_to": [
         "cultist_dreadnought_entropic_retaliation"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 5
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_void_strikes",
@@ -212,26 +267,41 @@
     {
       "talent_id": "cultist_dreadnought_deep_secrets",
       "name": "Deep Secrets",
-      "description": "Each point of Insanity you hold reduces the Mana cost of your instant spells and abilities.",
+      "description": "The secrets you hold pay for themselves: spending Insanity on Wrath of the Black Empire, Hammer of Twilight, Entropic Slam, Eldritch Shock, Void Strikes or Dreadnought restores 60 Mana.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 0,
-      "effects": {
-        "insanity_reduces_instant_cost": 1
-      },
+      "effects": {},
       "connected_to": [
         "cultist_dreadnought_void_strikes",
         "cultist_dreadnought_void_enhanced_shield"
       ],
-      "_source": "CoA handoff doc confirmed: 'Level 30 Passive. Each Insanity point reduces instant spell/ability mana cost.' This spec's mana-sustain solution."
+      "_source": "CoA handoff doc confirmed: 'Level 30 Passive. Each Insanity point reduces instant spell/ability mana cost.' This spec's mana-sustain solution.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_wrath_of_the_black_empire",
+          "cultist_hammer_of_twilight",
+          "cultist_entropic_slam",
+          "cultist_eldritch_shock",
+          "cultist_void_strikes",
+          "cultist_dreadnought_shield"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_void_enhanced_shield",
       "name": "Void-Enhanced Shield",
-      "description": "Above 60 Insanity, your block value and absorb effects are increased by 5%.",
+      "description": "Increases your block value by 3% per rank. Spending Insanity has a 20% chance per rank to harden your guard, granting 5% block chance and 200 armor for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -239,13 +309,37 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "conditional_high_insanity_block_pct": 0.05
+        "block_value_pct": 0.03
       },
       "connected_to": [
         "cultist_dreadnought_deep_secrets",
         "cultist_dreadnought_bulwark_of_shadow"
       ],
-      "_source": "CoA handoff doc confirmed as Dreadnought's core defensive scaling: 'above 60-80 Insanity, Void-Enhanced Shield's absorb+block value scale up.'"
+      "_source": "CoA handoff doc confirmed as Dreadnought's core defensive scaling: 'above 60-80 Insanity, Void-Enhanced Shield's absorb+block value scale up.'",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_wrath_of_the_black_empire",
+          "cultist_hammer_of_twilight",
+          "cultist_entropic_slam",
+          "cultist_eldritch_shock",
+          "cultist_void_strikes",
+          "cultist_dreadnought_shield"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_void_enhanced_shield",
+          "name": "Void-Enhanced Shield",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "block": 5.0,
+            "armor": 200
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_bulwark_of_shadow",
@@ -360,7 +454,7 @@
     {
       "talent_id": "cultist_dreadnought_embodiment_of_yshaarj",
       "name": "Embodiment of Y'Shaarj",
-      "description": "Increases Void Shield's absorb amount. Absorbing damage grants spell power based on the value absorbed.",
+      "description": "Bulwark of Shadow absorbs 6% more damage per rank. When you take damage, Y'Shaarj stirs and grants you 40 spell power for 3 turns, no more than once every 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -368,11 +462,26 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "void_shield_absorb_pct": 0.05
+        "ability_cultist_bulwark_of_shadow_potency": 0.06
       },
       "connected_to": [
         "cultist_dreadnought_void_strikes"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "cultist_embodiment_yshaarj",
+          "name": "Embodiment of Y'Shaarj",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "spell_power": 40
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_strength_of_the_black_empire",
@@ -395,7 +504,7 @@
     {
       "talent_id": "cultist_dreadnought_blessing_of_yshaarj",
       "name": "Blessing of Y'Shaarj",
-      "description": "While transformed into the void monstrosity, increases damage dealt by a further 5%.",
+      "description": "Increases the damage of Armageddon and Entropic Slam by 6% per rank. Each enemy you slay leaves Y'Shaarj's blessing on you, increasing all damage you deal by 5% for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -403,12 +512,28 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "conditional_transformed_damage_pct": 0.05
+        "ability_cultist_armageddon_damage": 0.06,
+        "ability_cultist_entropic_slam_damage": 0.06
       },
       "connected_to": [
         "cultist_dreadnought_strength_of_the_black_empire"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 50 Passive. While transformed into void monstrosity, boosts damage dealt further.'"
+      "_source": "CoA tooltip confirmed: 'Level 50 Passive. While transformed into void monstrosity, boosts damage dealt further.'",
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "cultist_blessing_yshaarj",
+          "name": "Blessing of Y'Shaarj",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 5
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_dreadnought_eldritch_force",

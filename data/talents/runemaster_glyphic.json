@@ -85,7 +85,7 @@
     {
       "talent_id": "runemaster_glyphic_expert_elementalist",
       "name": "Expert Elementalist",
-      "description": "Reduces the cast time of Elemental Burst and Glyphic Ruin by 3% per rank.",
+      "description": "Reduces the cooldown of Elemental Burst and Glyphic Ruin by 6% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -93,7 +93,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_runemaster_elemental_burst_cast_time_pct": -0.03
+        "ability_runemaster_elemental_burst_cooldown_pct": 0.06,
+        "ability_runemaster_glyphic_ruin_cooldown_pct": 0.06
       },
       "connected_to": [
         "runemaster_glyphic_wizardry"
@@ -226,7 +227,7 @@
     {
       "talent_id": "runemaster_glyphic_unleashed_power",
       "name": "Unleashed Power",
-      "description": "Increases spell power scaling on Glyph unleash effects by 3% per rank.",
+      "description": "Increases the damage of Glyphic Ruin and Thaumaturgy by 3% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -234,7 +235,8 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "glyph_unleash_spell_power_pct": 0.03
+        "ability_runemaster_glyphic_ruin_damage": 0.03,
+        "ability_runemaster_thaumaturgy_damage": 0.03
       },
       "connected_to": [
         "runemaster_glyphic_glyphic_ruin",
@@ -390,60 +392,106 @@
     {
       "talent_id": "runemaster_glyphic_scroll_of_magic",
       "name": "Scroll of Magic",
-      "description": "Unleashing a Glyph increases your next Unleashed Glyph's damage, stacking.",
+      "description": "Unleashing Glyphic Ruin or Thaumaturgy has a 25% chance per rank to inscribe a Scroll of Magic, increasing your damage done by 4% for 4 turns. Stacks up to 3 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": 2,
-      "effects": {
-        "glyph_unleash_stack_damage_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_glyphic_unleashed_power"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "ability_filter": [
+          "runemaster_glyphic_ruin",
+          "runemaster_thaumaturgy"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_scroll_of_magic",
+          "name": "Scroll of Magic",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 4
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_glyphic_primordial_salvos",
       "name": "Primordial Salvos",
-      "description": "Unleashing a Glyph now deals extra same-school damage to nearby enemies.",
+      "description": "Unleashing Glyphic Ruin or Thaumaturgy calls down a free Primordial Pulse on nearby enemies. Cannot occur more than once every 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": 2,
-      "effects": {
-        "glyph_unleash_splash": 1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_glyphic_eye_of_the_beholder"
       ],
-      "_source": "CoA handoff doc: 'Unleashing a Glyph deals extra same-school damage to nearby enemies.' Confirmed as the mechanism behind Arcane Unleash's AoE splash in the playstyle writeup."
+      "_source": "CoA handoff doc: 'Unleashing a Glyph deals extra same-school damage to nearby enemies.' Confirmed as the mechanism behind Arcane Unleash's AoE splash in the playstyle writeup.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "runemaster_glyphic_ruin",
+          "runemaster_thaumaturgy"
+        ],
+        "cast_ability": "runemaster_primordial_pulse"
+      }
     },
     {
       "talent_id": "runemaster_glyphic_kirin_tor_agent",
       "name": "Kirin Tor Agent",
-      "description": "While Eye of the Beholder is active, your Rune spell and Phase Out cooldowns are rapidly reduced.",
+      "description": "Casting Eye of the Beholder floods your runes with ley energy, increasing Haste by 25% for 2 turns and granting 2 Runes.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "conditional_rune_cooldown_pct": 0.15
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_glyphic_rune_master",
         "runemaster_glyphic_unmaker"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_eye_of_the_beholder"
+        ],
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 2
+        },
+        "apply_effect": {
+          "effect_id": "runemaster_kirin_tor_agent",
+          "name": "Kirin Tor Agent",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 25
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_glyphic_unmaker",
       "name": "Unmaker",
-      "description": "Increases Glyphic Ruin's critical strike damage and grants Cosmic Impact.",
+      "description": "Increases the critical strike damage of Glyphic Ruin by 30%, and its critical strikes grant 2 Runes.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -451,18 +499,30 @@
       "hex_x": 2,
       "hex_y": 6,
       "effects": {
-        "ability_runemaster_glyphic_ruin_crit_damage_pct": 0.3
+        "ability_runemaster_glyphic_ruin_crit_damage": 0.3
       },
       "connected_to": [
         "runemaster_glyphic_kirin_tor_agent",
         "runemaster_glyphic_glyphic_overload"
       ],
-      "_source": "CoA handoff doc: 'Boosts Glyphic Ruin crit damage; grants Cosmic Impact.'"
+      "_source": "CoA handoff doc: 'Boosts Glyphic Ruin crit damage; grants Cosmic Impact.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_glyphic_ruin"
+        ],
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 2
+        }
+      }
     },
     {
       "talent_id": "runemaster_glyphic_mind_wrath",
       "name": "Mind Wrath",
-      "description": "Ley Lock now interrupts an additional nearby enemy.",
+      "description": "Ley Lock's silence lasts 2 turns longer, its cooldown is reduced by 1 turn, and casting it grants 2 Runes.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
@@ -470,34 +530,54 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_runemaster_ley_lock_extra_target": 1
+        "ability_runemaster_ley_lock_duration": 2,
+        "ability_runemaster_ley_lock_cooldown": 1
       },
       "connected_to": [
         "runemaster_glyphic_devour_mana"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_ley_lock"
+        ],
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 2
+        }
+      }
     },
     {
       "talent_id": "runemaster_glyphic_glyphs_of_power",
       "name": "Glyphs of Power",
-      "description": "Direct damage has a chance to restore mana.",
+      "description": "Your damaging casts have a 5% chance per rank to restore 200 Mana. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
-      "effects": {
-        "direct_damage_mana_return_chance": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_glyphic_glyphic_ruin",
         "runemaster_glyphic_thaumaturgy"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 5,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 200
+        }
+      }
     },
     {
       "talent_id": "runemaster_glyphic_ley_walker",
       "name": "Ley Walker",
-      "description": "Warpdagger's cast and reactivation remove root and snare effects from you.",
+      "description": "Reduces the duration of stuns on you by 30%. Taking damage has a 20% chance to phase you into the leylines, making you immune to crowd control for 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -505,34 +585,65 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "warpdagger_cc_cleanse": 1
+        "stun_duration_reduction_pct": 0.3
       },
       "connected_to": [
         "runemaster_glyphic_unleashed_power",
         "runemaster_glyphic_scroll_of_magic"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "runemaster_ley_walker",
+          "name": "Ley Phase",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "cc_immune": 1
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_glyphic_phase_rush",
       "name": "Phase Rush",
-      "description": "Casting Thaumaturgy grants a burst of movement speed.",
+      "description": "Casting Thaumaturgy throws you into a Phase Rush, increasing Haste by 20% for 2 turns. Cannot occur more than once every 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
-      "effects": {
-        "ability_runemaster_thaumaturgy_speed_proc": 1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_glyphic_glyphs_of_power"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "runemaster_thaumaturgy"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_phase_rush",
+          "name": "Phase Rush",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 20
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_glyphic_arcane_student",
       "name": "Arcane Student",
-      "description": "Guarantees Glyphic Ruin critically strikes while Eye of the Beholder is active.",
+      "description": "Increases the critical strike chance of Glyphic Ruin by 50%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -540,7 +651,7 @@
       "hex_x": -2,
       "hex_y": 6,
       "effects": {
-        "conditional_glyphic_ruin_guaranteed_crit": 1
+        "ability_runemaster_glyphic_ruin_crit": 50.0
       },
       "connected_to": [
         "runemaster_glyphic_unmaker"
@@ -550,20 +661,28 @@
     {
       "talent_id": "runemaster_glyphic_cold_elements",
       "name": "Cold Elements",
-      "description": "Elemental Burst and Primordial Blast have a chance to reset and instant-cast your next Frigid Blast.",
+      "description": "Elemental Burst and Primordial Blast have a 10% chance per rank to hurl a free Frigid Blast at your target. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {
-        "frigid_blast_reset_chance": 0.08
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_glyphic_runic_obliteration"
       ],
-      "_source": "CoA handoff doc, Glyphic's Strengths/Weaknesses writeup: 'Cold Elements resets/instant-casts Frigid Blast' - keeps a hard Frost nuke available alongside the glyph chain."
+      "_source": "CoA handoff doc, Glyphic's Strengths/Weaknesses writeup: 'Cold Elements resets/instant-casts Frigid Blast' - keeps a hard Frost nuke available alongside the glyph chain.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_elemental_burst",
+          "runemaster_primordial_blast"
+        ],
+        "cast_ability": "runemaster_frigid_blast"
+      }
     }
   ]
 }

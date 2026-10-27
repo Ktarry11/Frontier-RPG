@@ -51,20 +51,27 @@
     {
       "talent_id": "cultist_godblade_nzoths_rage",
       "name": "N'Zoth's Rage",
-      "description": "Passively generates Insanity every second while in combat.",
+      "description": "N'Zoth rides every action you take: each ability you use grants 3 Insanity.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
-      "effects": {
-        "passive_insanity_per_sec": 2
-      },
+      "effects": {},
       "connected_to": [
         "cultist_godblade_voidforged_edge_2"
       ],
-      "_source": "CoA handoff doc: 'Passively generates 10 Insanity/sec in combat.' Reduced here to 2/sec to avoid trivializing the class-wide Blade of the Empire generator's role."
+      "_source": "CoA handoff doc: 'Passively generates 10 Insanity/sec in combat.' Reduced here to 2/sec to avoid trivializing the class-wide Blade of the Empire generator's role.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 3
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_maker_of_miseries",
@@ -104,7 +111,7 @@
     {
       "talent_id": "cultist_godblade_adaptive_combatant",
       "name": "Adaptive Combatant",
-      "description": "Increases Parry chance and Dodge chance by 1% per rank.",
+      "description": "Increases your parry and dodge chance by 1% per rank. Being struck has a 10% chance per rank to let you adapt, granting 4% additional dodge and parry for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -117,12 +124,28 @@
       },
       "connected_to": [
         "cultist_godblade_voidguard"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "cultist_adaptive_combatant",
+          "name": "Adaptive Combatant",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "dodge": 4.0,
+            "parry": 4.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_voidforged_edge_2",
       "name": "Bulwark of Horror",
-      "description": "Avoiding an attack has a chance to refresh a Blade of the Empire charge.",
+      "description": "Reduces Blade of the Empire's cooldown by 12% per rank. Being struck has a 15% chance per rank to raise a bulwark absorbing 3% of your maximum health for 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -130,28 +153,64 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "avoid_refreshes_blade_charge_chance": 0.1
+        "ability_cultist_blade_of_the_empire_cooldown_pct": 0.12
       },
       "connected_to": [
         "cultist_godblade_nzoths_rage"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "cultist_bulwark_of_horror",
+          "name": "Bulwark of Horror",
+          "effect_type": "buff",
+          "duration": 2,
+          "absorb_pct_max_health": 0.03,
+          "stat_mods": {},
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_hysterical_momentum",
       "name": "Hysterical Momentum",
-      "description": "Spending Insanity increases attack and movement speed for a duration, stacking.",
+      "description": "Spending Insanity has a 20% chance per rank to grant Hysterical Momentum, increasing your Haste by 5% for 3 turns and stacking up to 3 times.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 5,
       "hex_y": -4,
-      "effects": {
-        "insanity_spend_haste_stack": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "cultist_godblade_maker_of_miseries"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_wrath_of_the_black_empire",
+          "cultist_hammer_of_twilight",
+          "cultist_entropic_slam",
+          "cultist_eldritch_shock",
+          "cultist_void_strikes",
+          "cultist_rift"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_hysterical_momentum",
+          "name": "Hysterical Momentum",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 3,
+          "stat_mods": {
+            "haste": 5
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_netherstrike",
@@ -212,7 +271,7 @@
     {
       "talent_id": "cultist_godblade_touch_of_the_void",
       "name": "Touch of the Void",
-      "description": "Increases Magic damage dealt. Hammer of Twilight increases the target's spell damage taken.",
+      "description": "Increases the damage of Hammer of Twilight and Wrath of the Black Empire by 4% per rank. Hammer of Twilight shatters the target's guard, reducing armor by 120 for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -220,11 +279,30 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "magic_damage_pct": 0.03
+        "ability_cultist_hammer_of_twilight_damage": 0.04,
+        "ability_cultist_wrath_of_the_black_empire_damage": 0.04
       },
       "connected_to": [
         "cultist_godblade_shadow_of_the_void"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_hammer_of_twilight"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_touch_of_the_void",
+          "name": "Touch of the Void",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -120
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_empires_grasp",
@@ -267,7 +345,7 @@
     {
       "talent_id": "cultist_godblade_shadow_of_the_void_capstone",
       "name": "Deepening Shadow",
-      "description": "Shadow of the Void also increases your critical strike damage dealt.",
+      "description": "Your critical strikes deal 15% more damage and feed you 5 Insanity.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -275,12 +353,21 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "shadow_of_the_void_crit_damage": 0.15
+        "crit_damage_pct": 0.15
       },
       "connected_to": [
         "cultist_godblade_voidborne"
       ],
-      "_source": "CoA handoff doc confirmed as the capstone extension of the spec's core identity mechanic: 'Shadow of the Void also boosts crit damage dealt.'"
+      "_source": "CoA handoff doc confirmed as the capstone extension of the spec's core identity mechanic: 'Shadow of the Void also boosts crit damage dealt.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 5
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_dreadfall",
@@ -322,7 +409,7 @@
     {
       "talent_id": "cultist_godblade_seething_void",
       "name": "Seething Void",
-      "description": "Entropic Strike's curse now deals repeating Eldritch damage. Melee crits refresh it and spread it to a nearby enemy.",
+      "description": "Increases Entropic Strike's damage by 6% per rank. Your critical strikes have a 20% chance per rank to seed Seething Void, dealing 45 Shadow damage each turn for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -330,51 +417,93 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "seething_void_damage": 0.06
+        "ability_cultist_entropic_strike_damage": 0.06
       },
       "connected_to": [
         "cultist_godblade_entropic_strike"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "cultist_seething_void",
+          "name": "Seething Void",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 45,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_twilights_call",
       "name": "Twilight's Call",
-      "description": "Critical strikes with Obliteration refund Insanity.",
+      "description": "A critical Obliteration Beam answers the call, returning 20 Insanity.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "obliteration_crit_insanity_refund": 20
-      },
+      "effects": {},
       "connected_to": [
         "cultist_godblade_touch_of_the_void"
       ],
-      "_source": "CoA handoff doc confirmed as a core rotation piece: 'Crits refund 20 via Twilight's Call.'"
+      "_source": "CoA handoff doc confirmed as a core rotation piece: 'Crits refund 20 via Twilight's Call.'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_obliteration_beam"
+        ],
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 20
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_who_needs_sanity",
       "name": "Who Needs Sanity?",
-      "description": "Netherstrike critical strikes stack a bonus to your critical strike damage.",
+      "description": "A critical Netherstrike has a 20% chance per rank to leave you unhinged, increasing all damage you deal by 3% for 4 turns and stacking up to 3 times.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {
-        "netherstrike_crit_stack": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "cultist_godblade_rift"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_netherstrike",
+          "cultist_netherstrike_talent"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_who_needs_sanity",
+          "name": "Who Needs Sanity?",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 3
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_voidseeker",
       "name": "Voidseeker",
-      "description": "Netherstrike resets, becoming usable regardless of the target's health.",
+      "description": "Reduces Netherstrike's cooldown by 40%, and each enemy you slay floods you with 25 Insanity.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -382,12 +511,22 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "netherstrike_execute_reset": 1
+        "ability_cultist_netherstrike_cooldown_pct": 0.4,
+        "ability_cultist_netherstrike_talent_cooldown_pct": 0.4
       },
       "connected_to": [
         "cultist_godblade_empires_grasp"
       ],
-      "_source": "CoA handoff doc: 'Netherstrike also purges a magic buff and, via Voidseeker, resets to become an any-health execute.'"
+      "_source": "CoA handoff doc: 'Netherstrike also purges a magic buff and, via Voidseeker, resets to become an any-health execute.'",
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 25
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_tentacle_of_nzoth",
@@ -428,7 +567,7 @@
     {
       "talent_id": "cultist_godblade_broken_mind",
       "name": "Broken Mind",
-      "description": "Reduces the duration of fear and charm effects used against you by 5% per rank.",
+      "description": "A mind already broken is hard to seize: stuns used against you are 5% shorter per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 4,
@@ -436,7 +575,7 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "fear_charm_duration_reduction_pct": 0.05
+        "stun_duration_reduction_pct": 0.05
       },
       "connected_to": [
         "cultist_godblade_dreadfall"
@@ -463,7 +602,7 @@
     {
       "talent_id": "cultist_godblade_cosmic_horror",
       "name": "Cosmic Horror",
-      "description": "Umbral Voyage horrifies enemies at its landing spot, and increases your damage to them for the duration.",
+      "description": "Empire's Grasp holds its victims 1 turn longer per rank. Casting it has a 34% chance per rank to fill you with Cosmic Horror, increasing all damage you deal by 6% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -471,16 +610,34 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "umbral_voyage_damage_pct": 0.06
+        "ability_cultist_empires_grasp_duration": 1
       },
       "connected_to": [
         "cultist_godblade_empires_grasp"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 34,
+        "icd": 1,
+        "ability_filter": [
+          "cultist_empires_grasp"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_cosmic_horror",
+          "name": "Cosmic Horror",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 6
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_encroaching_presence",
       "name": "Encroaching Presence",
-      "description": "Melee critical strikes reduce the cooldown of Rift and Gaze of C'Thun.",
+      "description": "Reduces the cooldown of Rift and Gaze of C'Thun by 10% per rank. Your critical strikes have a 34% chance per rank to draw the Void closer, granting 6% Haste for 2 turns. Cannot occur more than once every 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -488,16 +645,32 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "melee_crit_reduces_rift_gaze_cd": 1.0
+        "ability_cultist_rift_cooldown_pct": 0.1,
+        "ability_cultist_gaze_of_cthun_cooldown_pct": 0.1
       },
       "connected_to": [
         "cultist_godblade_tentacle_of_nzoth"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 34,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "cultist_encroaching_presence",
+          "name": "Encroaching Presence",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 6
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_godblade_abyssal_command",
       "name": "Abyssal Command",
-      "description": "Nearby Crusher Tentacles deal AoE Shadow damage, scaling with Intellect, and knock enemies airborne.",
+      "description": "Your area attacks deal 20% more damage, and every damaging cast has a 25% chance to call a Crusher Tentacle down on your target for 30% additional damage.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -505,12 +678,18 @@
       "hex_x": -1,
       "hex_y": 6,
       "effects": {
-        "crusher_tentacle_aoe": 1
+        "aoe_damage": 0.2
       },
       "connected_to": [
         "cultist_godblade_shadow_of_the_void_capstone"
       ],
-      "_source": "CoA handoff doc: 'AoE Shadow damage from nearby Crusher Tentacles (scales with Intellect); knocks enemies airborne.'"
+      "_source": "CoA handoff doc: 'AoE Shadow damage from nearby Crusher Tentacles (scales with Intellect); knocks enemies airborne.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "bonus_pct": 0.3
+      }
     }
   ]
 }

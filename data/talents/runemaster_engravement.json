@@ -33,19 +33,26 @@
     {
       "talent_id": "runemaster_engravement_engraved_and_ready",
       "name": "Engraved and Ready",
-      "description": "Increases Weapon Engraving trigger chance by 1% per rank.",
+      "description": "Your weapon swings have a 5% chance per rank to etch a fresh rune into your weapon, granting 1 Rune. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
-      "effects": {
-        "weapon_engraving_proc_chance": 1.0
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_fists_of_power"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 5,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 1
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_ley_focus",
@@ -68,7 +75,7 @@
     {
       "talent_id": "runemaster_engravement_engravement_15",
       "name": "Attuned Efficiency",
-      "description": "Reduces the Mana cost of Runic Tattoos by 3% per rank and increases Runic Tattoos: Water's mana restore.",
+      "description": "Reduces the Mana cost of your Runic Tattoos by 3% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -76,7 +83,10 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "runic_tattoo_cost_pct": 0.03
+        "ability_runemaster_runic_tattoos_earth_cost_pct": 0.03,
+        "ability_runemaster_runic_tattoos_frost_cost_pct": 0.03,
+        "ability_runemaster_runic_tattoos_water_cost_pct": 0.03,
+        "ability_runemaster_runic_tattoos_air_cost_pct": 0.03
       },
       "connected_to": [
         "runemaster_engravement_leystone_springs"
@@ -86,7 +96,7 @@
     {
       "talent_id": "runemaster_engravement_elementalist",
       "name": "Elementalist",
-      "description": "Increases Weapon Engraving proc damage by 4% per rank.",
+      "description": "Increases the damage of Fist of the Ancients and Runic Brand by 4% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -94,7 +104,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "weapon_engraving_damage": 0.04
+        "ability_runemaster_fist_of_the_ancients_damage": 0.04,
+        "ability_runemaster_runic_brand_damage": 0.04
       },
       "connected_to": [
         "runemaster_engravement_primordial_strength"
@@ -103,25 +114,32 @@
     {
       "talent_id": "runemaster_engravement_fists_of_power",
       "name": "Fists of Power",
-      "description": "Runeblade strikes an extra time with your off-hand weapon.",
+      "description": "Runeblade strikes an extra time with a free weapon swing.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "ability_runemaster_runeblade_extra_strike": 1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_engraved_and_ready"
       ],
-      "_source": "CoA handoff doc: 'Fists of Power (Level 10 Passive) - Runeblade strikes an extra time (off-hand %).'"
+      "_source": "CoA handoff doc: 'Fists of Power (Level 10 Passive) - Runeblade strikes an extra time (off-hand %).'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "runemaster_runeblade"
+        ],
+        "extra_attack": true
+      }
     },
     {
       "talent_id": "runemaster_engravement_focusing_crystals",
       "name": "Focusing Crystals",
-      "description": "Increases Magic damage by 2% per rank and grants partial in-combat mana regen.",
+      "description": "Increases the damage of your attuned school - Frost, Fire or Arcane - by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -129,7 +147,7 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "magic_damage_pct": 0.02
+        "frost_fire_arcane_damage_pct": 0.02
       },
       "connected_to": [
         "runemaster_engravement_ley_focus"
@@ -138,19 +156,26 @@
     {
       "talent_id": "runemaster_engravement_leystone_springs",
       "name": "Leystone Springs",
-      "description": "Auto attacks have a chance to restore mana.",
+      "description": "Your weapon swings have a 5% chance per rank to tap a leystone spring, restoring 150 Mana. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 5,
       "hex_y": -4,
-      "effects": {
-        "autoattack_mana_return_chance": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_engravement_15"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 5,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 150
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_fist_of_the_ancients",
@@ -211,20 +236,28 @@
     {
       "talent_id": "runemaster_engravement_power_overwhelming",
       "name": "Power Overwhelming",
-      "description": "Runeblade and Primordial Blast have a chance to reset Runic Brand's cooldown.",
+      "description": "Runeblade and Primordial Blast have a 10% chance per rank to brand your target with a free Runic Brand. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
-      "effects": {
-        "runic_brand_reset_chance": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_elemental_carvings",
         "runemaster_engravement_leyline_disturbance"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_runeblade",
+          "runemaster_primordial_blast"
+        ],
+        "cast_ability": "runemaster_runic_brand"
+      }
     },
     {
       "talent_id": "runemaster_engravement_leyline_disturbance",
@@ -301,20 +334,37 @@
     {
       "talent_id": "runemaster_engravement_magic_etchings",
       "name": "Magic Etchings",
-      "description": "Primordial Blast damage reduces the target's Armor by 3% per rank, stacking.",
+      "description": "Primordial Blast has a 20% chance per rank to etch the target, reducing its Armor by 25 for 4 turns. Stacks up to 3 times.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "ability_runemaster_primordial_blast_armor_shred_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_fist_of_the_ancients",
         "runemaster_engravement_runic_brand"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "runemaster_primordial_blast"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_magic_etchings",
+          "name": "Magic Etchings",
+          "effect_type": "debuff",
+          "duration": 4,
+          "max_stacks": 3,
+          "stat_mods": {
+            "armor": -25
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_leyline_disturbance_boost",
@@ -337,7 +387,7 @@
     {
       "talent_id": "runemaster_engravement_leyborn",
       "name": "Leyborn",
-      "description": "Runic Brand's mark now stacks up to 3 times.",
+      "description": "Runic Brand burns 50% harder, and branding an enemy grants you 1 Rune.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -345,47 +395,88 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "runic_brand_max_stacks": 3
+        "ability_runemaster_runic_brand_damage": 0.5
       },
       "connected_to": [
         "runemaster_engravement_magic_etchings"
       ],
-      "_source": "CoA handoff doc: 'Marked: Runic Brand stacks 3 times.'"
+      "_source": "CoA handoff doc: 'Marked: Runic Brand stacks 3 times.'",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_runic_brand"
+        ],
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 1
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_swift_etching",
       "name": "Swift Etching",
-      "description": "After Hurricane ends, increases your melee attack speed and critical strike chance.",
+      "description": "Hurricane has a 34% chance per rank to leave your runes wind-sharpened, increasing Haste by 15% and physical critical strike chance by 5% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "post_hurricane_haste_crit": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_leyline_disturbance"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_hurricane"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_swift_etching",
+          "name": "Wind-Sharpened Runes",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": 15,
+            "crit_chance_physical": 5
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_steam_conjurer",
       "name": "Steam Conjurer",
-      "description": "Weapon Engraving: Earth damage has a chance to cast Wild Steam.",
+      "description": "Your weapon swings have a 10% chance per rank to boil the earth-rune on your weapon into Wild Steam, dealing 40 Nature damage per turn for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
-      "effects": {
-        "earth_engraving_wild_steam_chance": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_leyborn",
         "runemaster_engravement_leyline_disturbance_boost"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "runemaster_wild_steam",
+          "name": "Wild Steam",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 40,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_resonance_rune",
@@ -443,7 +534,7 @@
     {
       "talent_id": "runemaster_engravement_rune_of_the_kirin_tor",
       "name": "Rune of the Kirin Tor",
-      "description": "Power Engraving also periodically restores mana to affected allies.",
+      "description": "Power Engraving lasts 5 turns longer, and casting it grants you 2 Runes.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -451,29 +542,53 @@
       "hex_x": 2,
       "hex_y": 6,
       "effects": {
-        "ability_runemaster_power_engraving_mana_return": 1
+        "ability_runemaster_power_engraving_duration": 5
       },
       "connected_to": [
         "runemaster_engravement_power_engraving"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_power_engraving"
+        ],
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 2
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_protective_warding",
       "name": "Protective Warding",
-      "description": "Taking a critical hit reduces the cooldown of Guarding Rune.",
+      "description": "Taking damage has a 10% chance per rank to raise a Protective Ward, absorbing damage equal to 8% of your maximum health for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
-      "effects": {
-        "crit_taken_guarding_rune_cdr": 1.0
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_resonance_rune",
         "runemaster_engravement_power_engraving"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "runemaster_protective_ward",
+          "name": "Protective Ward",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "absorb_pct_max_health": 0.08,
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_engravement_granite_resolve",
@@ -515,19 +630,27 @@
     {
       "talent_id": "runemaster_engravement_decoder",
       "name": "Decoder",
-      "description": "Elemental Burst and Runeblade have a chance to instantly trigger a Weapon Engraving.",
+      "description": "Elemental Burst and Runeblade have a 12% chance per rank to instantly etch Weapon Engraving: Air onto your weapon at no cost. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -4,
-      "effects": {
-        "instant_weapon_engraving_chance": 0.08
-      },
+      "effects": {},
       "connected_to": [
         "runemaster_engravement_elementalist"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_elemental_burst",
+          "runemaster_runeblade"
+        ],
+        "cast_ability": "runemaster_weapon_engraving_air"
+      }
     }
   ]
 }

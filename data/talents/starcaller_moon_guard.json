@@ -16,7 +16,7 @@
     {
       "talent_id": "starcaller_moon_guard_moon_guard_passive",
       "name": "Moon Guard",
-      "description": "Grants Intellect equal to your Strength.",
+      "description": "Grants Spell Power equal to 50% of your Strength.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -24,7 +24,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "intellect_from_strength": 1
+        "spell_power_from_strength_pct": 0.5
       },
       "connected_to": [
         "starcaller_moon_guard_crystal_shield"
@@ -52,19 +52,29 @@
     {
       "talent_id": "starcaller_moon_guard_starburst_invigoration",
       "name": "Starburst Invigoration",
-      "description": "Increases Energy regeneration by 2% per rank.",
+      "description": "Starburst has a 20% chance per rank to invigorate you, restoring 10 Energy.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
-      "effects": {
-        "energy_regen_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_starlord_mandate"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_starburst"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 10
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_endless_sky",
@@ -87,7 +97,7 @@
     {
       "talent_id": "starcaller_moon_guard_crystal_shield",
       "name": "Crystal Shield",
-      "description": "Increases Stamina and spell damage scaling from Attack Power by 2% per rank.",
+      "description": "Increases Stamina by 2% and grants Spell Power equal to 2% of your Attack Power, per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -95,7 +105,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "stamina_pct": 2.0
+        "stamina_pct": 2.0,
+        "spell_power_from_ap_pct": 0.02
       },
       "connected_to": [
         "starcaller_moon_guard_moon_guard_passive"
@@ -114,7 +125,7 @@
       "hex_y": -4,
       "effects": {
         "ability_starcaller_celestial_strike_damage": 0.02,
-        "ability_starcaller_celestial_strike_cost_pct": -0.02
+        "ability_starcaller_celestial_strike_cost_pct": 0.02
       },
       "connected_to": [
         "starcaller_moon_guard_starburst_invigoration"
@@ -141,20 +152,35 @@
     {
       "talent_id": "starcaller_moon_guard_nebula",
       "name": "Nebula",
-      "description": "Blocking applies Scattered Stars to the attacker.",
+      "description": "Taking damage has a 20% chance per rank to wrap you in a nebula, granting 60 Armor and 4% Block for 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {
-        "block_applies_scattered_stars": 1
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_endless_sky"
       ],
-      "_source": "CoA handoff doc confirmed as this spec's real Scattered-Star-off-tanking mechanic: 'Blocking applies Scattered Stars to the attacker.'"
+      "_source": "CoA handoff doc confirmed as this spec's real Scattered-Star-off-tanking mechanic: 'Blocking applies Scattered Stars to the attacker.'",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "starcaller_nebula",
+          "name": "Nebula",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "armor": 60,
+            "block": 4
+          },
+          "source_name": "Nebula",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_chosen_of_the_moon",
@@ -178,7 +204,7 @@
     {
       "talent_id": "starcaller_moon_guard_blanket_of_stars",
       "name": "Blanket of Stars",
-      "description": "Increases block chance and block value.",
+      "description": "Increases Block chance by 1% and Block value by 3% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -186,7 +212,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "block_chance": 1.0,
+        "block": 1.0,
         "block_value_pct": 0.03
       },
       "connected_to": [
@@ -216,39 +242,64 @@
     {
       "talent_id": "starcaller_moon_guard_astral_reconstitution",
       "name": "Astral Reconstitution",
-      "description": "Converts a percentage of damage taken into mana.",
+      "description": "Taking damage has a 25% chance per rank to reconstitute 40 Mana.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "damage_taken_to_mana_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_moonlit_bulwark",
         "starcaller_moon_guard_guarded_by_the_moon"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 40
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_guarded_by_the_moon",
       "name": "Guarded by the Moon",
-      "description": "Consuming a Scattered Star increases your block chance for a duration, stacking.",
+      "description": "Starburst and Starsweep guard you with moonlight, increasing Block chance by 6% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "unlock_mechanic": "star_consume_block_stack"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_astral_reconstitution",
         "starcaller_moon_guard_vengeance_of_elune"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Consuming a Scattered Star boosts block chance (stacking).'"
+      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Consuming a Scattered Star boosts block chance (stacking).'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "starcaller_starburst",
+          "starcaller_starsweep"
+        ],
+        "apply_effect": {
+          "effect_id": "starcaller_guarded_by_the_moon",
+          "name": "Guarded by the Moon",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "block": 6
+          },
+          "source_name": "Guarded by the Moon",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_vengeance_of_elune",
@@ -271,20 +322,35 @@
     {
       "talent_id": "starcaller_moon_guard_asteroid_belt",
       "name": "Asteroid Belt",
-      "description": "Periodically grants the Asteroid Belt buff, increasing hit rating and expertise.",
+      "description": "Your casts have a 15% chance to ring you with an Asteroid Belt, granting 25 Hit rating and 40 Armor Penetration for 3 turns. No more than once every 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
-      "effects": {
-        "unlock_mechanic": "asteroid_belt_buff"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_vengeance_of_elune"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Periodically grants Asteroid Belt buff; boosts hit rating (from Int) + expertise.' Handoff doc calls this a built-in duty cycle rather than a flat stance."
+      "_source": "CoA tooltip confirmed: 'Level 20 Passive. Periodically grants Asteroid Belt buff; boosts hit rating (from Int) + expertise.' Handoff doc calls this a built-in duty cycle rather than a flat stance.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 15,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "starcaller_asteroid_belt",
+          "name": "Asteroid Belt",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "hit_rating": 25,
+            "armor_penetration": 40
+          },
+          "source_name": "Asteroid Belt",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_celestial_impact",
@@ -307,20 +373,34 @@
     {
       "talent_id": "starcaller_moon_guard_starlight_duelist",
       "name": "Starlight Duelist",
-      "description": "Blocking or parrying increases your damage dealt for a duration.",
+      "description": "Taking a hit has a 25% chance per rank to leave you duelling in starlight, increasing damage dealt by 8% for 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
-      "effects": {
-        "block_parry_damage_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_chosen_of_the_moon",
         "starcaller_moon_guard_blanket_of_stars"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "starcaller_starlight_duelist",
+          "name": "Starlight Duelist",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_dealt_pct": 8
+          },
+          "source_name": "Starlight Duelist",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_shrouded_stars",
@@ -344,61 +424,87 @@
     {
       "talent_id": "starcaller_moon_guard_dancing_in_the_moonlight",
       "name": "Dancing in the Moonlight",
-      "description": "Parrying refunds Energy and strikes back at the attacker.",
+      "description": "Taking a hit has a 30% chance to let you dance aside, refunding 15 Energy. No more than once per turn.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
-      "effects": {
-        "unlock_mechanic": "parry_refund_and_retaliate"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_guarded_by_the_moon",
         "starcaller_moon_guard_vengeance_of_elune"
       ],
-      "_source": "CoA handoff doc confirmed: 'parrying refunds Energy + hits back (Dancing in the Moonlight).'"
+      "_source": "CoA handoff doc confirmed: 'parrying refunds Energy + hits back (Dancing in the Moonlight).'",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 30,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 15
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_star_pupil",
       "name": "Star Pupil",
-      "description": "Damaging critical strikes grant a stack of Star Pupil, increasing your critical strike chance.",
+      "description": "Damaging critical strikes have a 25% chance per rank to make you Elune's pupil, increasing critical strike chance by 4% for 3 turns. No more than once per turn.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "star_pupil_crit_stack": 0.01
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_asteroid_belt"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "starcaller_star_pupil",
+          "name": "Star Pupil",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "crit_chance_physical": 4,
+            "crit_chance_spell": 4
+          },
+          "source_name": "Star Pupil",
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_second_moon",
       "name": "Second Moon",
-      "description": "Every 10th Scattered Star consumed launches a comet, dealing Arcane damage.",
+      "description": "Your damage has a 20% chance to call a second moon, launching a free Lunar Lance at the target. No more than once every 2 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 6,
-      "effects": {
-        "unlock_mechanic": "second_moon_comet"
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_celestial_impact"
       ],
-      "_source": "CoA handoff doc confirmed as a real burst payoff: 'Every 10th Scattered Star consumed launches a comet.' Called out in the rotation writeup: 'the spender IS your burst too.'"
+      "_source": "CoA handoff doc confirmed as a real burst payoff: 'Every 10th Scattered Star consumed launches a comet.' Called out in the rotation writeup: 'the spender IS your burst too.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 2,
+        "cast_ability": "starcaller_lunar_lance"
+      }
     },
     {
       "talent_id": "starcaller_moon_guard_starbound",
       "name": "Starbound",
-      "description": "Increases healing done and received by 3%, doubled while below 20% health.",
+      "description": "Increases your healing done by 3% per rank. Your heals have a 15% chance per rank to bind a star to you, healing you for 50.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -406,12 +512,18 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "healing_done_received_pct": 0.03
+        "healing_done": 0.03
       },
       "connected_to": [
         "starcaller_moon_guard_star_pupil"
       ],
-      "_source": "CoA handoff doc: 'Boosts healing done + received, doubled below 20% health.' Called out as one of Moon Guard's only real heal-facing tools alongside Touch of Moonlight."
+      "_source": "CoA handoff doc: 'Boosts healing done + received, doubled below 20% health.' Called out as one of Moon Guard's only real heal-facing tools alongside Touch of Moonlight.",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 15,
+        "icd": 1,
+        "heal_flat": 50
+      }
     }
   ]
 }

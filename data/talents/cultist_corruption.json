@@ -85,7 +85,7 @@
     {
       "talent_id": "cultist_corruption_feeding_darkness",
       "name": "Feeding Darkness",
-      "description": "Increases Corruption spell range and critical strike chance.",
+      "description": "Increases your spell critical strike chance by 1% per rank. Each critical strike you land feeds you 4 Insanity.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -97,25 +97,41 @@
       },
       "connected_to": [
         "cultist_corruption_corruption_15"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 4
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_horrorbolt_volley",
       "name": "Horrorbolt Volley",
-      "description": "After 3 Horrorbolt casts, your next Horrorbolt transforms into Horrorbolt Volley, hitting nearby enemies too.",
+      "description": "Your Horrorbolt has a 35% chance to erupt into a volley, dealing 50% additional Shadow damage to its target.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -4,
-      "effects": {
-        "ability_cultist_horrorbolt_volley_proc": 1
-      },
+      "effects": {},
       "connected_to": [
         "cultist_corruption_terror"
       ],
-      "_source": "CoA handoff doc confirmed: 'After 3 Horrorbolts, transforms into Horrorbolt Volley.'"
+      "_source": "CoA handoff doc confirmed: 'After 3 Horrorbolts, transforms into Horrorbolt Volley.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 35,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_horrorbolt"
+        ],
+        "bonus_pct": 0.5
+      }
     },
     {
       "talent_id": "cultist_corruption_occultism",
@@ -137,7 +153,7 @@
     {
       "talent_id": "cultist_corruption_voidborn_affliction",
       "name": "Voidborn Affliction",
-      "description": "Your periodic damage effects benefit from Haste.",
+      "description": "Your periodic damage effects deal 15% more damage, and your Haste is increased by 3%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -145,7 +161,8 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "periodic_damage_from_haste": 1
+        "dot_damage": 0.15,
+        "haste": 3.0
       },
       "connected_to": [
         "cultist_corruption_writhing_mass"
@@ -210,7 +227,7 @@
     {
       "talent_id": "cultist_corruption_glimpse_of_madness",
       "name": "Glimpse of Madness",
-      "description": "Reduces Obliteration Beam's cooldown and applies Madness (a group damage-taken debuff) to all enemies struck.",
+      "description": "Reduces Obliteration Beam's cooldown by 6% per rank. Obliteration Beam sears Madness into everything it strikes, reducing armor by 200 for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -218,13 +235,30 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "ability_cultist_obliteration_beam_cooldown_pct": -0.1,
-        "obliteration_applies_madness": 1
+        "ability_cultist_obliteration_beam_cooldown_pct": 0.06
       },
       "connected_to": [
         "cultist_corruption_obliteration_beam",
         "cultist_corruption_dark_revelation"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_obliteration_beam"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_madness",
+          "name": "Madness",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -200
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_eldritch_devastation",
@@ -248,20 +282,34 @@
     {
       "talent_id": "cultist_corruption_corrupting_whispers",
       "name": "Corrupting Whispers",
-      "description": "Dealing damage has a chance to grant Corrupting Whispers, a stacking Magic-damage proc.",
+      "description": "Dealing damage has a 5% chance per rank to grant Corrupting Whispers, increasing all damage you deal by 3% for 4 turns and stacking up to 5 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "corrupting_whispers_proc_chance": 0.05
-      },
+      "effects": {},
       "connected_to": [
         "cultist_corruption_eldritch_devastation"
       ],
-      "_source": "CoA handoff doc confirmed as Corruption's core Insanity-height reward: 'Damage dealt chance to grant Corrupting Whispers.' Nearly every spell feeds Insanity, and staying high keeps this proccing."
+      "_source": "CoA handoff doc confirmed as Corruption's core Insanity-height reward: 'Damage dealt chance to grant Corrupting Whispers.' Nearly every spell feeds Insanity, and staying high keeps this proccing.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 5,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "cultist_corrupting_whispers",
+          "name": "Corrupting Whispers",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 3
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_ancient_curse",
@@ -284,20 +332,39 @@
     {
       "talent_id": "cultist_corruption_embrace_the_void",
       "name": "Embrace the Void",
-      "description": "Reaching 60 Insanity increases Magic damage dealt by 10%.",
+      "description": "Spending Insanity draws the Void into you: casting Wrath of the Black Empire, Hammer of Twilight, Entropic Slam or Eldritch Shock increases all damage you deal by 10% for 3 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "conditional_high_insanity_magic_damage_pct": 0.1
-      },
+      "effects": {},
       "connected_to": [
         "cultist_corruption_ancient_curse"
       ],
-      "_source": "CoA handoff doc: 'Above 60 Insanity, the Corruption tree's Embrace the Void adds a flat damage buff.' NOTE per the handoff doc, this is deliberately NOT a cheat-death - Corruption's own Embrace the Void is a damage buff; the defensive cheat-death version of the same name lives in the shared class kit as a separate talent."
+      "_source": "CoA handoff doc: 'Above 60 Insanity, the Corruption tree's Embrace the Void adds a flat damage buff.' NOTE per the handoff doc, this is deliberately NOT a cheat-death - Corruption's own Embrace the Void is a damage buff; the defensive cheat-death version of the same name lives in the shared class kit as a separate talent.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "cultist_wrath_of_the_black_empire",
+          "cultist_hammer_of_twilight",
+          "cultist_entropic_slam",
+          "cultist_eldritch_shock"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_embrace_the_void",
+          "name": "Embrace the Void",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 10
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_visions",
@@ -321,36 +388,67 @@
     {
       "talent_id": "cultist_corruption_unrelenting_void",
       "name": "Unrelenting Void",
-      "description": "Periodic and channeled damage increases the target's damage taken from you, stacking.",
+      "description": "Your damaging casts have a 25% chance per rank to erode the target's armor by 60 for 4 turns, stacking up to 5 times.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
-      "effects": {
-        "unrelenting_void_stack_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "cultist_corruption_ancient_curse"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "cultist_unrelenting_void",
+          "name": "Unrelenting Void",
+          "effect_type": "debuff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "armor": -60
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_terror_of_the_old_gods",
       "name": "Terror of the Old Gods",
-      "description": "Your next Horrorbolt becomes instant and hits additional enemies for a duration.",
+      "description": "A critical Horrorbolt tears the veil open: you gain 60 spell power and 10% Haste for 2 turns. Cannot occur more than once every 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "horrorbolt_instant_aoe_window": 1
-      },
+      "effects": {},
       "connected_to": [
         "cultist_corruption_glimpse_of_madness"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "cultist_horrorbolt"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_terror_old_gods",
+          "name": "Terror of the Old Gods",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "spell_power": 60,
+            "haste": 10
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_psychic_suppression",
@@ -373,7 +471,7 @@
     {
       "talent_id": "cultist_corruption_swift_blasts",
       "name": "Swift Blasts",
-      "description": "Reduces the cast time of your Shadow bolt spells by 3% per rank.",
+      "description": "Reduces the Mana cost of Horrorbolt and Twilight Shieldtoss by 4% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 4,
@@ -381,7 +479,8 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "shadow_bolt_cast_time_pct": -0.03
+        "ability_cultist_horrorbolt_cost_pct": 0.04,
+        "ability_cultist_twilight_shieldtoss_cost_pct": 0.04
       },
       "connected_to": [
         "cultist_corruption_terror"
@@ -408,19 +507,32 @@
     {
       "talent_id": "cultist_corruption_mind_rot",
       "name": "Mind Rot",
-      "description": "Periodic and channeled damage has a chance to curse the target with Mind Rot.",
+      "description": "Your damaging casts have a 6% chance per rank to curse the target with Mind Rot, dealing 40 Shadow damage each turn for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 4,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
-      "effects": {
-        "mind_rot_proc_chance": 0.06
-      },
+      "effects": {},
       "connected_to": [
         "cultist_corruption_glimpse_of_madness"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 6,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "cultist_mind_rot",
+          "name": "Mind Rot",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 40,
+          "damage_school": "shadow",
+          "dispel_type": "curse",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "cultist_corruption_summon_faceless_servant",

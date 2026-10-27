@@ -4,214 +4,455 @@
   "description": "Balance-Druid-style ranged caster - Dawnsear/Sunflare lock you into Sunrise (Holy) or Sunset (Fire) via Dawn, then Radiant Flame/Horusath Blast/Rapture pay off staying committed to one school.",
   "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers where available. Real mechanic per handoff: after Dawn, Holy casts grant Sunrise, Fire casts grant Sunset - entering one locks out the other until the next Dawn cycle (real Solar/Lunar Eclipse analog). Laid out as 3 parallel vertical branches (left=Sunset/Fire, center=shared Eclipse mechanic, right=Sunrise/Holy) rather than one long horizontal sprawl - every node capped at 5 ranks max per Kyle's direction.",
   "tier_requirements": {
-    "0": 0, "1": 5, "2": 10, "3": 15, "4": 20, "5": 25, "6": 30
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
   },
   "nodes": [
     {
       "talent_id": "sun_cleric_piety_piety_15",
       "name": "Piety",
       "description": "Increases critical strike chance and hit chance from Intellect by 2% per rank.",
-      "node_type": "passive", "tier": 0, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 0, "hex_y": -6,
-      "effects": {"crit_chance_from_intellect_pct": 0.02},
-      "connected_to": ["sun_cleric_piety_struck_by_the_sun"],
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "sun_cleric_piety_struck_by_the_sun"
+      ],
       "_source": "CoA tooltip confirmed: 'Piety - Level 15 Passive. Crit chance from Intellect; boosts hit chance.'"
     },
     {
       "talent_id": "sun_cleric_piety_grace_l",
       "name": "Cleanser of Sins",
       "description": "Increases Fire spell critical strike damage by 4% per rank.",
-      "node_type": "passive", "tier": 0, "max_points": 5, "cost_per_point": 1,
-      "hex_x": -2, "hex_y": -6,
-      "effects": {"fire_crit_damage_pct": 0.04},
-      "connected_to": ["sun_cleric_piety_dawnsear"],
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "fire_crit_damage_pct": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_piety_dawnsear"
+      ],
       "_source": "CoA handoff doc: 'Boosts Fire spell crit damage.'"
     },
     {
       "talent_id": "sun_cleric_piety_scalding_light",
       "name": "Scalding Light",
       "description": "Increases Fire spell critical strike damage by 4% per rank.",
-      "node_type": "passive", "tier": 1, "max_points": 5, "cost_per_point": 1,
-      "hex_x": -2, "hex_y": -4,
-      "effects": {"fire_crit_damage_pct": 0.04},
-      "connected_to": ["sun_cleric_piety_grace_l", "sun_cleric_piety_dawnsear"]
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "fire_crit_damage_pct": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_piety_grace_l",
+        "sun_cleric_piety_dawnsear"
+      ]
     },
     {
       "talent_id": "sun_cleric_piety_dawnsear",
       "name": "Dawnsear",
       "description": "Learn Dawnsear, a Fire damage nuke.",
-      "node_type": "active", "tier": 2, "max_points": 1, "cost_per_point": 1,
-      "hex_x": -2, "hex_y": -2,
-      "effects": {"unlock_ability": "sun_cleric_dawnsear"},
-      "connected_to": ["sun_cleric_piety_scalding_light", "sun_cleric_piety_sunrise_and_sunset"],
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "sun_cleric_dawnsear"
+      },
+      "connected_to": [
+        "sun_cleric_piety_scalding_light",
+        "sun_cleric_piety_sunrise_and_sunset"
+      ],
       "_source": "CoA handoff doc confirmed: 'Fire damage nuke.' Piety's Sunset-side primary nuke, paired with Sunflare's Sunrise-side Holy version."
     },
     {
       "talent_id": "sun_cleric_piety_burning_light",
       "name": "Burning Light",
       "description": "Damaging critical strikes set a periodic Fire DoT on the target, which can itself critically strike.",
-      "node_type": "passive", "tier": 3, "max_points": 1, "cost_per_point": 1,
-      "hex_x": -2, "hex_y": 0,
-      "effects": {"unlock_mechanic": "burning_light_dot"},
-      "connected_to": ["sun_cleric_piety_dawnsear", "sun_cleric_piety_rapture"],
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "burning_light_dot"
+      },
+      "connected_to": [
+        "sun_cleric_piety_dawnsear",
+        "sun_cleric_piety_rapture"
+      ],
       "_source": "CoA handoff doc: 'Damaging crits set a periodic Fire DoT (can crit).'"
     },
     {
       "talent_id": "sun_cleric_piety_sunburn",
       "name": "Sunburn",
-      "description": "Reduces the cast time of Rapture by 4% per rank.",
-      "node_type": "passive", "tier": 4, "max_points": 5, "cost_per_point": 1,
-      "hex_x": -2, "hex_y": 2,
-      "effects": {"ability_sun_cleric_rapture_cast_time_pct": -0.04},
-      "connected_to": ["sun_cleric_piety_burning_light", "sun_cleric_piety_rapture"]
+      "description": "Reduces the cooldown of Rapture by 4% per rank. Rapture leaves a burn dealing 25 Fire damage per turn for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "ability_sun_cleric_rapture_cooldown_pct": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_piety_burning_light",
+        "sun_cleric_piety_rapture"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "sun_cleric_rapture"
+        ],
+        "apply_effect": {
+          "effect_id": "sun_cleric_sunburn",
+          "name": "Sunburn",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 25,
+          "damage_school": "fire",
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_rapture",
       "name": "Rapture",
       "description": "Learn Rapture, a Fire damage burst that pierces all immunities, hitting the target and nearby enemies for reduced damage per enemy struck.",
-      "node_type": "active", "tier": 5, "max_points": 1, "cost_per_point": 1,
-      "hex_x": -2, "hex_y": 4,
-      "effects": {"unlock_ability": "sun_cleric_rapture"},
-      "connected_to": ["sun_cleric_piety_sunburn"],
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "sun_cleric_rapture"
+      },
+      "connected_to": [
+        "sun_cleric_piety_sunburn"
+      ],
       "_source": "Confirmed screenshot: 'Call down a streak of sun light to smite your target, dealing 144 Fire damage to them and nearby enemies, piercing all immunities, but dealing less damage with each enemy struck.'"
     },
     {
       "talent_id": "sun_cleric_piety_wrathful_sun",
       "name": "Wrathful Sun",
       "description": "Increases Rapture damage by 5% per rank.",
-      "node_type": "passive", "tier": 6, "max_points": 5, "cost_per_point": 1,
-      "hex_x": -2, "hex_y": 6,
-      "effects": {"ability_sun_cleric_rapture_damage": 0.05},
-      "connected_to": ["sun_cleric_piety_rapture"],
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 6,
+      "effects": {
+        "ability_sun_cleric_rapture_damage": 0.05
+      },
+      "connected_to": [
+        "sun_cleric_piety_rapture"
+      ],
       "_source": "CoA handoff doc: 'Boosts Rapture damage.' Piety's capstone-tier Fire finisher payoff."
     },
     {
       "talent_id": "sun_cleric_piety_struck_by_the_sun",
       "name": "Struck by the Sun",
-      "description": "Increases Holy and Fire spell damage and spell hit from Intellect by 2% per rank.",
-      "node_type": "passive", "tier": 1, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 0, "hex_y": -4,
-      "effects": {"holy_fire_spell_damage_from_intellect_pct": 0.02},
-      "connected_to": ["sun_cleric_piety_piety_15", "sun_cleric_piety_sunrise_and_sunset"],
+      "description": "Increases your spell power by 2% of your Intellect per rank, and your Holy and Fire spell damage by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "spell_power_from_intellect_pct": 0.02,
+        "holy_fire_spell_damage": 0.01
+      },
+      "connected_to": [
+        "sun_cleric_piety_piety_15",
+        "sun_cleric_piety_sunrise_and_sunset"
+      ],
       "_source": "CoA handoff doc: 'Boosts Holy+Fire spell damage + spell hit from Intellect.'"
     },
     {
       "talent_id": "sun_cleric_piety_sunrise_and_sunset",
       "name": "Sunrise and Sunset",
       "description": "After Dawn, Holy casts grant Sunrise and Fire casts grant Sunset. Entering one locks out the other until your next Dawn cycle.",
-      "node_type": "passive", "tier": 2, "max_points": 1, "cost_per_point": 1,
-      "hex_x": 0, "hex_y": -2,
-      "effects": {"unlock_mechanic": "sunrise_sunset_lockin"},
-      "connected_to": ["sun_cleric_piety_struck_by_the_sun", "sun_cleric_piety_dawnsear", "sun_cleric_piety_grace_r"],
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_mechanic": "sunrise_sunset_lockin"
+      },
+      "connected_to": [
+        "sun_cleric_piety_struck_by_the_sun",
+        "sun_cleric_piety_dawnsear",
+        "sun_cleric_piety_grace_r"
+      ],
       "_source": "CoA tooltip confirmed: 'Level 10 Passive. After Dawn, Holy casts grant Sunrise, Fire casts grant Sunset; entering one locks out the other until the next cycle.' Piety's real Eclipse-lock identity mechanic, sitting at the center of the tree since both branches key off it."
     },
     {
       "talent_id": "sun_cleric_piety_duality_of_light",
       "name": "Duality of Light",
       "description": "Sunset Holy damage grants Sun Power; Sunrise Fire damage grants Twin Flame. Only one active at a time.",
-      "node_type": "passive", "tier": 3, "max_points": 1, "cost_per_point": 1,
-      "hex_x": 0, "hex_y": 0,
-      "effects": {"unlock_mechanic": "duality_of_light"},
-      "connected_to": ["sun_cleric_piety_sunrise_and_sunset"],
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_mechanic": "duality_of_light"
+      },
+      "connected_to": [
+        "sun_cleric_piety_sunrise_and_sunset"
+      ],
       "_source": "CoA handoff doc confirmed: 'Sunset Holy damage grants Twin Flame; Sunrise Fire damage grants Sun Power. Only one active.' Rewards staying committed to whichever school Sunrise/Sunset locked you into."
     },
     {
       "talent_id": "sun_cleric_piety_learning_light",
       "name": "Learning Light",
-      "description": "Entering Sunrise or Sunset increases spell haste for a limited number of casts.",
-      "node_type": "passive", "tier": 4, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 0, "hex_y": 2,
-      "effects": {"sunrise_sunset_haste_window": 0.02},
-      "connected_to": ["sun_cleric_piety_duality_of_light"],
-      "_source": "CoA handoff doc: 'Entering Sunrise/Sunset boosts spell haste (limited duration/casts).'"
+      "description": "Your critical strikes have a 20% chance per rank to increase your spell haste by 15% for 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "sun_cleric_piety_duality_of_light"
+      ],
+      "_source": "CoA handoff doc: 'Entering Sunrise/Sunset boosts spell haste (limited duration/casts).'",
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "sun_cleric_learning_light",
+          "name": "Learning Light",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 15
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_solar_concord",
       "name": "Solar Concord",
       "description": "Resets Horusath Blast (while in Sunrise) or Rapture (while in Sunset) cooldown; their damage launches a Solar Flare.",
-      "node_type": "passive", "tier": 5, "max_points": 1, "cost_per_point": 1,
-      "hex_x": 0, "hex_y": 4,
-      "effects": {"unlock_mechanic": "solar_concord_reset"},
-      "connected_to": ["sun_cleric_piety_learning_light"],
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "solar_concord_reset"
+      },
+      "connected_to": [
+        "sun_cleric_piety_learning_light"
+      ],
       "_source": "CoA handoff doc confirmed: 'Resets Horusath Blast (Sunrise) or Rapture (Sunset) cooldown; their damage launches a Solar Flare.'"
     },
     {
       "talent_id": "sun_cleric_piety_photosynthetic",
       "name": "Photosynthetic",
-      "description": "Increases spell haste by 3% per rank, further increased during daytime.",
-      "node_type": "passive", "tier": 6, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 0, "hex_y": 6,
-      "effects": {"haste": 0.03},
-      "connected_to": ["sun_cleric_piety_solar_concord"],
+      "description": "Increases your spell haste by 3% per rank.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "haste": 3.0
+      },
+      "connected_to": [
+        "sun_cleric_piety_solar_concord"
+      ],
       "_source": "CoA handoff doc: 'Boosts spell haste, more at daytime.'"
     },
     {
       "talent_id": "sun_cleric_piety_grace_r",
       "name": "Grace",
       "description": "Increases Sunflare spell damage by 4% per rank.",
-      "node_type": "passive", "tier": 0, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 2, "hex_y": -6,
-      "effects": {"ability_sun_cleric_sunflare_damage": 0.04},
-      "connected_to": ["sun_cleric_piety_hidden2"],
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "ability_sun_cleric_sunflare_damage": 0.04
+      },
+      "connected_to": [
+        "sun_cleric_piety_hidden2"
+      ],
       "_source": "CoA handoff doc: 'Boosts Dawnsear/Sunflare spell damage bonus.'"
     },
     {
       "talent_id": "sun_cleric_piety_hidden2",
       "name": "Solar Conduit",
-      "description": "Radiant Flame damage generates additional Solar Power.",
-      "node_type": "passive", "tier": 1, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 2, "hex_y": -4,
-      "effects": {"radiant_flame_bonus_solar_power": 1},
-      "connected_to": ["sun_cleric_piety_grace_r", "sun_cleric_piety_radiant_flame"],
-      "_source": "CoA handoff doc: 'Piety Sun Cleric Passive Hidden2 - Radiant Flame/Solar Wrath generate 1 Solar Power.'"
+      "description": "Radiant Flame has a 20% chance per rank to generate 1 Solar Power.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "sun_cleric_piety_grace_r",
+        "sun_cleric_piety_radiant_flame"
+      ],
+      "_source": "CoA handoff doc: 'Piety Sun Cleric Passive Hidden2 - Radiant Flame/Solar Wrath generate 1 Solar Power.'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "sun_cleric_radiant_flame"
+        ],
+        "grant_resource": {
+          "resource": "solar_power",
+          "amount": 1
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_radiant_flame",
       "name": "Radiant Flame",
       "description": "Learn Radiant Flame, a channeled repeating Holyflame damage spell.",
-      "node_type": "active", "tier": 2, "max_points": 1, "cost_per_point": 1,
-      "hex_x": 2, "hex_y": -2,
-      "effects": {"unlock_ability": "sun_cleric_radiant_flame"},
-      "connected_to": ["sun_cleric_piety_hidden2", "sun_cleric_piety_sunrise_and_sunset"],
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "sun_cleric_radiant_flame"
+      },
+      "connected_to": [
+        "sun_cleric_piety_hidden2",
+        "sun_cleric_piety_sunrise_and_sunset"
+      ],
       "_source": "CoA handoff doc confirmed: 'Repeating Holyflame damage.' Piety's sustained-damage channel."
     },
     {
       "talent_id": "sun_cleric_piety_purgation",
       "name": "Purgation",
-      "description": "Radiant Flame damage increases the target's Holy and Fire damage taken, stacking.",
-      "node_type": "passive", "tier": 3, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 2, "hex_y": 0,
-      "effects": {"radiant_flame_target_vulnerability_pct": 0.02},
-      "connected_to": ["sun_cleric_piety_radiant_flame"]
+      "description": "Radiant Flame has a 20% chance per rank to sear away 60 of the target's Armor for 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "sun_cleric_piety_radiant_flame"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "sun_cleric_radiant_flame"
+        ],
+        "apply_effect": {
+          "effect_id": "sun_cleric_purgation",
+          "name": "Purgation",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -60
+          },
+          "on_target": true
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_piety_radiant_fury",
       "name": "Radiant Fury",
-      "description": "Increases Radiant Flame damage against enemies below 35% health by 5% per rank.",
-      "node_type": "passive", "tier": 4, "max_points": 5, "cost_per_point": 1,
-      "hex_x": 2, "hex_y": 2,
-      "effects": {"ability_sun_cleric_radiant_flame_execute_damage": 0.05},
-      "connected_to": ["sun_cleric_piety_purgation"],
+      "description": "Increases Radiant Flame damage by 5% per rank, and all of your damage over time by 1% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_sun_cleric_radiant_flame_damage": 0.05,
+        "dot_damage": 0.01
+      },
+      "connected_to": [
+        "sun_cleric_piety_purgation"
+      ],
       "_source": "CoA handoff doc: 'Radiant Flame damage boosted vs. <35%-health enemies.'"
     },
     {
       "talent_id": "sun_cleric_piety_horusath_blast",
       "name": "Ancient Etchings",
       "description": "Holy damage dealt reduces Horusath Blast's remaining cast time, stacking.",
-      "node_type": "passive", "tier": 5, "max_points": 1, "cost_per_point": 1,
-      "hex_x": 2, "hex_y": 4,
-      "effects": {"unlock_mechanic": "ancient_etchings_stacks"},
-      "connected_to": ["sun_cleric_piety_radiant_fury"],
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_mechanic": "ancient_etchings_stacks"
+      },
+      "connected_to": [
+        "sun_cleric_piety_radiant_fury"
+      ],
       "_source": "CoA handoff doc confirmed: 'Holy damage reduces Horusath Blast cast time (stacking).' Class-wide Horusath Blast is Piety's real single-target burst button once these stacks are up."
     },
     {
       "talent_id": "sun_cleric_piety_sun_gate",
       "name": "Sun Gate",
       "description": "Learn Sun Gate, a forward blink that removes root effects and leaves a gate allies can use once.",
-      "node_type": "active", "tier": 6, "max_points": 1, "cost_per_point": 1,
-      "hex_x": 2, "hex_y": 6,
-      "effects": {"unlock_ability": "sun_cleric_sun_gate"},
-      "connected_to": ["sun_cleric_piety_horusath_blast"],
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "sun_cleric_sun_gate"
+      },
+      "connected_to": [
+        "sun_cleric_piety_horusath_blast"
+      ],
       "_source": "CoA handoff doc confirmed as Piety's real mobility/escape tool: 'Forward blink, removes root; leaves a gate allies can use once.'"
     }
   ]

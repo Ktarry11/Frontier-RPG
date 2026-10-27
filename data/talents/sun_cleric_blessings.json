@@ -116,7 +116,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_sun_cleric_illumination_cost_pct": -0.03
+        "ability_sun_cleric_illumination_cost_pct": 0.03
       },
       "connected_to": [
         "sun_cleric_blessings_sunwalker"
@@ -311,19 +311,36 @@
     {
       "talent_id": "sun_cleric_blessings_cultivate_divinity",
       "name": "Cultivate Divinity",
-      "description": "An effective Radiant Cascade heal has a chance to boost your next Illumination, and vice versa.",
+      "description": "Illumination and Radiant Cascade have a 6% chance per rank to increase your healing done by 15% for 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
-      "effects": {
-        "cultivate_divinity_proc_chance": 0.06
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_radiant_cascade"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 6,
+        "icd": 1,
+        "ability_filter": [
+          "sun_cleric_illumination",
+          "sun_cleric_radiant_cascade"
+        ],
+        "apply_effect": {
+          "effect_id": "sun_cleric_cultivated_divinity",
+          "name": "Cultivated Divinity",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "healing_done_pct": 15
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_hope",
@@ -418,7 +435,7 @@
     {
       "talent_id": "sun_cleric_blessings_vitality",
       "name": "Vitality",
-      "description": "Effective healing done increases your Stamina and Spirit for a duration, stacking.",
+      "description": "Increases Stamina and Spirit by 1% per rank. Your heals grant a further 5% Stamina and Spirit for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -426,12 +443,29 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "effective_heal_stat_stack": 0.01
+        "stamina_pct": 1.0,
+        "spirit_pct": 1.0
       },
       "connected_to": [
         "sun_cleric_blessings_blessing_of_retribution"
       ],
-      "_source": "CoA handoff doc: 'Effective healing boosts your Stamina + Spirit, stacking.'"
+      "_source": "CoA handoff doc: 'Effective healing boosts your Stamina + Spirit, stacking.'",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "sun_cleric_vitality",
+          "name": "Vitality",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "stamina_pct": 5,
+            "spirit_pct": 5
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_stalwart",
@@ -472,7 +506,7 @@
     {
       "talent_id": "sun_cleric_blessings_solar_priest",
       "name": "Solar Priest",
-      "description": "Reduces the cooldown of Solar Invigoration by 4% per rank.",
+      "description": "Reduces the Mana cost of your healing spells by 2% per rank. Your heals generate 1 Solar Power, no more than once every 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -480,29 +514,45 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "solar_invigoration_cooldown_pct": -0.04
+        "heal_cost_pct": 0.02
       },
       "connected_to": [
         "sun_cleric_blessings_sun_worship"
       ],
-      "_source": "CoA handoff doc: 'Reduces Solar Invigoration cooldown; Shine effective-heal casts Illumination (limited frequency).'"
+      "_source": "CoA handoff doc: 'Reduces Solar Invigoration cooldown; Shine effective-heal casts Illumination (limited frequency).'",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 2,
+        "grant_resource": {
+          "resource": "solar_power",
+          "amount": 1
+        }
+      }
     },
     {
       "talent_id": "sun_cleric_blessings_harmonious_bells",
       "name": "Harmonious Bells",
-      "description": "Sanctify affects additional allies near the primary target.",
+      "description": "Sanctify has a 33% chance per rank to also heal your most wounded ally for 60.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "ability_sun_cleric_sanctify_extra_targets": 1
-      },
+      "effects": {},
       "connected_to": [
         "sun_cleric_blessings_solar_priest"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "sun_cleric_sanctify"
+        ],
+        "smart_heal": 60
+      }
     }
   ]
 }

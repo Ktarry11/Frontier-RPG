@@ -69,25 +69,32 @@
     {
       "talent_id": "cultist_heretic_sanity",
       "name": "Sanity",
-      "description": "Passively drains a small amount of Insanity periodically.",
+      "description": "Every heal you land steadies your mind, restoring 45 Mana.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {
-        "passive_insanity_drain": 1
-      },
+      "effects": {},
       "connected_to": [
         "cultist_heretic_herald_of_the_depths"
       ],
-      "_source": "CoA handoff doc: 'Passively drains Insanity periodically.' Helps prevent Total Madness for a spec that generates Insanity as a side effect of healing."
+      "_source": "CoA handoff doc: 'Passively drains Insanity periodically.' Helps prevent Total Madness for a spec that generates Insanity as a side effect of healing.",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 45
+        }
+      }
     },
     {
       "talent_id": "cultist_heretic_abyssal_guard",
       "name": "Abyssal Guard",
-      "description": "Increases Eldritch Mending critical heal chance and critical healing.",
+      "description": "Eldritch Mending costs 5% less Mana per rank, and each heal you cast has a 20% chance per rank to raise an Abyssal Guard around you, absorbing damage equal to 3% of your maximum health for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -95,11 +102,25 @@
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "ability_cultist_eldritch_mending_crit_chance": 1.0
+        "ability_cultist_eldritch_mending_cost_pct": 0.05
       },
       "connected_to": [
         "cultist_heretic_shadow_training"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "cultist_abyssal_guard",
+          "name": "Abyssal Guard",
+          "effect_type": "buff",
+          "duration": 3,
+          "absorb_pct_max_health": 0.03,
+          "stat_mods": {},
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_heretic_devour_curse",
@@ -140,20 +161,40 @@
     {
       "talent_id": "cultist_heretic_herald_of_the_depths",
       "name": "Herald of the Depths",
-      "description": "Reaching 100 Insanity no longer causes Total Madness. Instead, grants a temporary self-buff.",
+      "description": "Spending Insanity on Eldritch Shock, Wrath of the Black Empire, Void Embrace or Sanity Tap marks you as a Herald, granting 50 healing power and 30 spell power for 3 turns. Cannot occur more than once every 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 5,
       "hex_y": -4,
-      "effects": {
-        "remove_total_madness_free_buff": 1
-      },
+      "effects": {},
       "connected_to": [
         "cultist_heretic_sanity"
       ],
-      "_source": "CoA handoff doc confirmed: 'Level 10 Passive. Reaching 100 Insanity no longer causes Total Madness. Teaches Herald of the Depths.' Also unlocks the active window that amplifies output and stretches HoTs/shields."
+      "_source": "CoA handoff doc confirmed: 'Level 10 Passive. Reaching 100 Insanity no longer causes Total Madness. Teaches Herald of the Depths.' Also unlocks the active window that amplifies output and stretches HoTs/shields.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "cultist_eldritch_shock",
+          "cultist_wrath_of_the_black_empire",
+          "cultist_void_embrace",
+          "cultist_sanity_tap"
+        ],
+        "apply_effect": {
+          "effect_id": "cultist_herald_of_the_depths",
+          "name": "Herald of the Depths",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_power": 50,
+            "spell_power": 30
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "cultist_heretic_malevolence",
@@ -323,7 +364,7 @@
     {
       "talent_id": "cultist_heretic_dark_matter",
       "name": "Dark Matter",
-      "description": "Your Satiate channel now also heals nearby allies periodically.",
+      "description": "Reduces Satiate's cooldown by 5% per rank and gives it a 20% chance per rank to also mend your most wounded ally for 120.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -331,13 +372,22 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_cultist_satiate_heal_pct": 0.04
+        "ability_cultist_satiate_cooldown_pct": 0.05
       },
       "connected_to": [
         "cultist_heretic_malevolence",
         "cultist_heretic_void_shield"
       ],
-      "_source": "CoA handoff doc: 'Satiate channel heals nearby allies periodically.'"
+      "_source": "CoA handoff doc: 'Satiate channel heals nearby allies periodically.'",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "cultist_satiate"
+        ],
+        "smart_heal": 120
+      }
     },
     {
       "talent_id": "cultist_heretic_isolate",
@@ -397,7 +447,7 @@
     {
       "talent_id": "cultist_heretic_saronite_mind",
       "name": "Saronite Mind",
-      "description": "Adds a charge to Eldritch Eye.",
+      "description": "Eldritch Shock's cooldown is reduced by 33%, and each Eldritch Shock that lands returns 10 Insanity.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -405,16 +455,28 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "eldritch_eye_extra_charge": 1
+        "ability_cultist_eldritch_shock_cooldown_pct": 0.33
       },
       "connected_to": [
         "cultist_heretic_blade_of_yoggsaron"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "cultist_eldritch_shock"
+        ],
+        "grant_resource": {
+          "resource": "insanity",
+          "amount": 10
+        }
+      }
     },
     {
       "talent_id": "cultist_heretic_instill_despair",
       "name": "Instill Despair",
-      "description": "Defile an ally's weapon: increases their Haste and grants a chance to steal health on damage dealt, healing them for half the amount stolen.",
+      "description": "Increases your Haste by 1% per rank. Your damaging casts have a 10% chance per rank to steal life, healing you for 60.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -422,12 +484,18 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "instill_despair_leech_pct": 0.05
+        "haste": 1.0
       },
       "connected_to": [
         "cultist_heretic_abyssal_covenant"
       ],
-      "_source": "CoA handoff doc: 'Ally weapon defiled: boosts haste + steal-health-on-damage chance (heals for half stolen).'"
+      "_source": "CoA handoff doc: 'Ally weapon defiled: boosts haste + steal-health-on-damage chance (heals for half stolen).'",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "heal_flat": 60
+      }
     },
     {
       "talent_id": "cultist_heretic_summon_mindbender",

@@ -204,6 +204,33 @@ _NAMED_LIVE = frozenset({
 })
 
 
+def scale_talent_keys():
+    """Keys read LIVE through a proc's grant_resource.scale_talent_key.
+
+    These are looked up by name at proc time (see combat/status_effects.py),
+    so the key never appears as a literal in the engine and the dead-key
+    check calls it dead. It is not: Venomancer's Adrenal Carapace fed
+    exposed_flesh_rage_pct into Exposed Flesh's own Rage grant and worked
+    fine, and acting on the checker's false verdict destroyed a working
+    talent before this existed.
+
+    Collected from the talent data rather than a hardcoded list, so adding a
+    new scale_talent_key anywhere automatically marks its key live.
+    """
+    keys = set()
+    for path in (ROOT / "data/talents").glob("*.json"):
+        try:
+            doc = json.loads(path.read_text())
+        except (OSError, ValueError):
+            continue
+        for node in doc.get("nodes", []):
+            grant = ((node.get("proc") or {}).get("grant_resource") or {})
+            key = grant.get("scale_talent_key")
+            if key:
+                keys.add(key)
+    return keys
+
+
 def _is_live_stat_conversion(key):
     """True for a <target>_from_<source>_pct key the engine really handles.
 
@@ -260,7 +287,7 @@ def main():
     verbose = "--verbose" in sys.argv
     T = load()
     findings = defaultdict(list)
-    LIVE = live_effect_keys()
+    LIVE = live_effect_keys() | scale_talent_keys()
 
     for tid, n in T.items():
         for key, val in (n.get("effects") or {}).items():
