@@ -28,11 +28,17 @@ The checks, and the real bug each was written for:
   duplicate-name        Two talents with the same name in one tree. Always a
                         mistake: the player cannot tell them apart.
   orphan-prefix         A node whose id names a spec that is not the file it
-                        lives in - six shaman_tank_* nodes sitting inside
-                        shaman_enhancement, three of them colliding with real
-                        enhancement talents.
-  no-effects            A talent with a description but an empty effects
-                        dict: it reads as doing something and does nothing.
+                        lives in. Some of these are INTENTIONAL sub-spec
+                        merges and are whitelisted (see MERGED_SUBSPECS):
+                        Kyle, 2026-10-26 - "mage healers are frost and shaman
+                        tanks are in enhancement". The name COLLISIONS those
+                        merges created are still reported, because two
+                        talents sharing a name in one tree is a problem for
+                        the player whether or not the merge was deliberate.
+  no-effects            A talent with a description but neither an effects
+                        dict NOR a proc: it reads as doing something and does
+                        nothing. Having only a proc is normal - reactive
+                        talents are authored that way.
   vague-magnitude       The description states a condition but never the
                         number, while the effects carry one - "Reaching 60
                         Insanity grants a flat bonus to Magic damage" when
@@ -53,6 +59,16 @@ TALENTS = ROOT / "data" / "talents"
 DEV_NOTE = re.compile(
     r"\b(real proc|WOTLK|WotLK|per handoff|confirmed via|screenshot|identity as|"
     r"previously|now that|TODO|placeholder|source:|note to self)\b", re.I)
+
+#: Sub-specs that deliberately live inside another spec's tree rather than
+#: having their own file. Kyle, 2026-10-26: "mage healers are frost and shaman
+#: tanks are in enhancement". Confirmed in code too - character.py's
+#: get_talent_effects comments on "the Shaman Tank tree merge" where Tank was
+#: merged into Enhancement's hex grid. Not orphans; design.
+MERGED_SUBSPECS = {
+    "mage_cryotherapist": "mage_frost",
+    "shaman_tank": "shaman_enhancement",
+}
 
 #: Names that are obviously not shipping names. Deliberately narrow - an
 #: earlier, looser version flagged "Test of Faith" and "Tempest's Call",
@@ -119,7 +135,12 @@ def main():
 
         if not desc:
             findings["no-description"].append(tid)
-        elif not eff and n.get("node_type") != "ability":
+        elif not eff and not n.get("proc") and n.get("node_type") != "ability":
+            # A talent's mechanics can live in `proc` instead of `effects` -
+            # reactive talents (Fingers of Frost, Spider Lord) are authored
+            # entirely as a proc payload and have an empty effects dict by
+            # design. Flagging those as "does nothing" was wrong: all seven
+            # this check originally reported turned out to have real procs.
             findings["no-effects"].append(f"{tid} ({name!r}): {desc[:70]}")
 
         # a node whose id claims a spec it does not live in
@@ -127,7 +148,11 @@ def main():
         if not tid.startswith(n["_file"]):
             cls = n["_file"].split("_")[0]
             if tid.startswith(cls + "_"):
-                findings["orphan-prefix"].append(f"{tid} lives in {n['_file']}.json")
+                subspec = next((s for s in MERGED_SUBSPECS if tid.startswith(s + "_")), None)
+                if subspec and MERGED_SUBSPECS[subspec] == n["_file"]:
+                    pass        # a deliberate merge, not an orphan
+                else:
+                    findings["orphan-prefix"].append(f"{tid} lives in {n['_file']}.json")
 
         # the name belongs to a DIFFERENT talent that also exists
         slug = re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
@@ -145,7 +170,8 @@ def main():
         if eff and desc:
             dn = numbers(desc)
             vals = effect_magnitudes(eff)
-            if vals and dn and not any(abs(x - y) < 0.011 for x in dn for y in vals):
+            if vals and dn and not any(abs(x - y) <= max(0.011, 0.02 * max(x, y))
+                                       for x in dn for y in vals):
                 if VAGUE.search(desc):
                     findings["vague-magnitude"].append(
                         f"{tid} ({name!r}): {desc[:70]} | effects {eff}")

@@ -581,8 +581,12 @@ class Character(StatusEffectMixin):
         # "not set up yet" as "no talents spent yet" is correct either
         # way: a character with zero talent trees loaded has zero talent
         # effects, same as one whose trees are loaded but empty.
+        # Pass the current form down so form-gated talents (TalentNode.
+        # require_form) only contribute while that form is active - a Cat Form
+        # mastery must do nothing in Bear Form.
+        active_form = getattr(self, "current_form", None)
         for tree in getattr(self, "talent_trees", {}).values():
-            for key, value in tree.get_total_effects().items():
+            for key, value in tree.get_total_effects(active_form).items():
                 if isinstance(value, (int, float)):
                     totals[key] = totals.get(key, 0) + value
                 else:

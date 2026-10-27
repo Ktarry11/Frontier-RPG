@@ -65,6 +65,7 @@ class TalentManager:
                     node_data.get("effects", {}),
                     node_data.get("connected_to", []),
                     node_data.get("proc"),
+                    node_data.get("require_form"),
                 )
                 tree.add_node(node)
             

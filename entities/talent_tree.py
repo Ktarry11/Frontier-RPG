@@ -69,10 +69,16 @@ class TalentTree:
         """Count total talent points spent in this tree."""
         return sum(node.points_spent for node in self.nodes.values())
     
-    def get_total_effects(self):
+    def get_total_effects(self, active_form=None):
         """
         Return the combined effects of all talents at their current ranks.
         Returns dict like {'strength': 15, 'attack_power': 50, ...}
+
+        active_form: the character's current shapeshift form id, or None.
+        A node carrying require_form only contributes while that form is
+        active - Druid's Cat Form mastery should do nothing in Bear Form.
+        Nodes without require_form (all of them, before this existed) are
+        unaffected, so passing nothing keeps the old behaviour exactly.
 
         Non-numeric values (currently just "unlock_ability": "<ability_id>",
         see TalentNode.get_effective_effects) collect into a list per key
@@ -83,6 +89,9 @@ class TalentTree:
         """
         total_effects = {}
         for node in self.nodes.values():
+            required = getattr(node, "require_form", None)
+            if required and required != active_form:
+                continue
             effects = node.get_effective_effects()
             for key, value in effects.items():
                 if isinstance(value, (int, float)):

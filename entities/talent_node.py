@@ -21,7 +21,7 @@ class TalentNode:
     
     def __init__(self, talent_id, name, description, node_type, tier, 
                  max_points, cost_per_point, hex_x, hex_y, 
-                 effects=None, connected_to=None, proc=None, **kwargs):
+                 effects=None, connected_to=None, proc=None, require_form=None, **kwargs):
         """
         Args:
             talent_id: unique identifier (e.g., "warrior_arms_1")
@@ -59,7 +59,21 @@ class TalentNode:
         self.effects = effects or {}
         self.connected_to = connected_to or []
         self.proc = proc or None
-        
+
+        #: Shapeshift form id this talent's `effects` only apply in (see
+        #: combat/forms.py - "cat", "bear", "beetle", "vizier_form", ...).
+        #: None means always-on, which is every talent authored before this
+        #: existed, so nothing changes for them.
+        #:
+        #: This mirrors the proc system's own require_form (see
+        #: combat/status_effects.py), which already gated REACTIVE talents on
+        #: the carrier's current form - Venomancer's Spider Lord is cited in
+        #: its comments. PASSIVE talent effects had no equivalent, which is
+        #: why Character.get_talent_effects had to hardcode a bespoke branch
+        #: for Shaman Tank's Earthen Attunement, noting that "that path has no
+        #: concept of 'conditional on X'". It does now.
+        self.require_form = require_form
+
         # Runtime state
         self.points_spent = 0  # How many ranks the player has in this talent
     
@@ -144,6 +158,7 @@ class TalentNode:
             "effects": self.effects,
             "connected_to": self.connected_to,
             "proc": self.proc,
+            "require_form": self.require_form,
             "points_spent": self.points_spent,
         }
     
@@ -163,6 +178,7 @@ class TalentNode:
             data.get("effects", {}),
             data.get("connected_to", []),
             data.get("proc"),
+            data.get("require_form"),
         )
         node.points_spent = data.get("points_spent", 0)
         return node

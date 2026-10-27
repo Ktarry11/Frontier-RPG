@@ -410,7 +410,7 @@
     {
       "talent_id": "druid_feral_feral_mastery",
       "name": "Predatory Instincts",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "While in Cat Form, increases damage dealt from your melee critical strikes by 10% and reduces AoE damage taken by 30%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -418,12 +418,13 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "all_damage": 0.1
+        "crit_damage_pct": 0.1,
+        "aoe_damage_taken_pct": -0.3
       },
       "connected_to": [
         "druid_feral_improved_bear_form"
       ],
-      "_note": "Intended once a forms system exists: while in Cat Form, +10% damage from melee critical strikes and -30% AoE damage taken. Until then this applies a flat unconditional +10% all-damage bonus, which is what the effects dict below actually does."
+      "require_form": "cat"
     },
     {
       "talent_id": "druid_feral_dire_bear_form",
