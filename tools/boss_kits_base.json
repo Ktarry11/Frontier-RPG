@@ -8323,5 +8323,177 @@
    "school": "physical",
    "duration": 4
   }
+ ],
+ "gatewarden_brannic": [
+  {
+   "name": "Gatewarden's Axe",
+   "kind": "damage",
+   "amount": 60,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "None Shall Pass",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 52
+   },
+   "self_only": true
+  },
+  {
+   "name": "Shield Slam",
+   "kind": "debuff",
+   "amount": 24,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -28
+   }
+  },
+  {
+   "name": "Hold the Threshold",
+   "kind": "damage",
+   "amount": 64,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "rifle_sergeant_dunmar": [
+  {
+   "name": "Rifle Butt",
+   "kind": "damage",
+   "amount": 58,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Sergeant's Aimed Shot",
+   "kind": "damage",
+   "amount": 78,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Steady the Line",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 38
+   },
+   "self_only": true
+  },
+  {
+   "name": "Kneecapping Round",
+   "kind": "debuff",
+   "amount": 26,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -32
+   }
+  }
+ ],
+ "shrine_keeper_morgrin": [
+  {
+   "name": "Keeper's Maul",
+   "kind": "damage",
+   "amount": 58,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Light of the Vault",
+   "kind": "heal",
+   "amount": 68,
+   "cooldown": 4,
+   "mana_cost": 26,
+   "school": "magic"
+  },
+  {
+   "name": "Sanctified Stone",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 24,
+   "school": "magic",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 52,
+    "magic_resistance": 38
+   },
+   "self_only": true
+  },
+  {
+   "name": "Judgement of the Hold",
+   "kind": "dot",
+   "amount": 23,
+   "cooldown": 4,
+   "mana_cost": 20,
+   "school": "magic",
+   "duration": 4
+  }
+ ],
+ "thane_korrin_stonewatch": [
+  {
+   "name": "Stonewatch Greataxe",
+   "kind": "damage",
+   "amount": 72,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Thane's Bulwark",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 62,
+    "attack_power": 34
+   },
+   "self_only": true
+  },
+  {
+   "name": "Sunder the Shield",
+   "kind": "debuff",
+   "amount": 30,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -46
+   }
+  },
+  {
+   "name": "Avalanche of Dun Garok",
+   "kind": "dot",
+   "amount": 26,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
  ]
 }

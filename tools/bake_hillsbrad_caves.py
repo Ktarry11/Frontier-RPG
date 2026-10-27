@@ -2,7 +2,7 @@
 Bake the Hillsbrad interiors. Azurelode Mine: quarried rock, a blue-violet silver vein at the face, and a
 standing sump of water filling the middle of the map.
 
-    PYTHONPATH=. python3 tools/bake_hillsbrad_caves.py [azurelode_mine|durnholde_keep ...] [--preview DIR]
+    PYTHONPATH=. python3 tools/bake_hillsbrad_caves.py [azurelode_mine|durnholde_keep|dun_garok ...] [--preview DIR]
 
 No new art. The mine reuses Boulder Lode's quarried floor/wall and - the happy accident that named the place -
 its blue-violet CRYSTAL floor/wall for the Silver Face, which is exactly what an "Azure-lode" should look like.
@@ -18,6 +18,7 @@ from tools import bake_durotar_caves as BD
 from tools import bake_nb_caves as NB
 from tools import handbuilt_azurelode as AZ
 from tools import handbuilt_durnholde as DK
+from tools import handbuilt_dun_garok as DG
 from tools.bake_durotar_caves import M, VC
 
 
@@ -70,8 +71,38 @@ def spec_durnholde():
     )
 
 
-MODULES = {"azurelode_mine": AZ, "durnholde_keep": DK}
-SPECS = {"azurelode_mine": spec_azurelode, "durnholde_keep": spec_durnholde}
+def spec_dun_garok():
+    """Warm dwarf-cut stone, deliberately the opposite temperature to Durnholde's cold blue-grey keep.
+
+    dg_stone_a was the obvious pick by NAME and was wrong - it is bright orange riveted plating (mean colour
+    140,65,39) and the hold came out looking like a copper boiler. Chosen by looking at the textures instead.
+    """
+    CS = "caves/seamless/"
+    cx, cy = 47, 11                       # the crypt
+    hx, hy = 45, 36                       # the Great Hall
+    return dict(
+        build="build_dun_garok_baked", seed=617, slug="dun_garok",
+        materials={
+            # keep_floor_a is the only floor in the set with a real flagstone GRID; the castle floors are
+            # mottled rubble, which reads as a cave no matter how square the room is. Durnholde also uses
+            # it, so Dun Garok stays distinct on the WALLS (warm brown vs blue-grey) and the grade.
+            "floor": M(CS + "keep_floor_a"), "hall_f": M(CS + "castle_floor_b_a"),
+            "wall": M(CS + "castle_wall_a"), "dark_w": M(CS + "castle_wall_dark_a"),
+        },
+        floor_keys=["floor", "hall_f"],
+        wall_keys=["wall", "dark_w"],
+        floors={"hall_f": [(hx, hy, 22, 12)]},
+        walls={"dark_w": [(cx, cy, 28, 12)]},
+        pools=[],
+        # Lower ao and lip than the cave specs: ambient occlusion and a fat wall lip are what make a dug
+        # space read as dug. A built hold wants its corners to stay corners.
+        cfg=dict(ao=0.34, depth=0.80, lip=12, lip_col=(0.80, 0.74, 0.62), deep_dark=0.42,
+                 foam_col=(205, 200, 190), glows=[]),
+    )
+
+
+MODULES = {"azurelode_mine": AZ, "durnholde_keep": DK, "dun_garok": DG}
+SPECS = {"azurelode_mine": spec_azurelode, "durnholde_keep": spec_durnholde, "dun_garok": spec_dun_garok}
 
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None

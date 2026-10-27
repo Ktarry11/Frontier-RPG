@@ -5622,6 +5622,7 @@ def create_all_zones():
     from tools import handbuilt_hillsbrad_west as dhbw
     from tools import handbuilt_azurelode as dazl
     from tools import handbuilt_durnholde as ddur
+    from tools import handbuilt_dun_garok as dgar
     from tools import handbuilt_shadowpine_altar as dsa
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
@@ -5698,6 +5699,7 @@ def create_all_zones():
         "Western Hillsbrad": dhbw.generate_hillsbrad_west(),  # hand-built (tools/handbuilt_hillsbrad_west.py)
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         "Durnholde Keep": ddur.generate_durnholde_keep(),  # broken-ring keep (tools/handbuilt_durnholde.py)
+        "Dun Garok": dgar.generate_dun_garok(),  # gauntlet-of-gates dwarf hold (tools/handbuilt_dun_garok.py)
         
         # ===== EXPANSION DUNGEONS =====
         "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)

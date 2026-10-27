@@ -24080,6 +24080,360 @@
         }
       }
     ],
+    "dun_garok_mountaineer": [
+      {
+        "name": "Mountaineer's Axe",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Wall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 44
+        },
+        "self_only": true
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "dun_garok_priest": [
+      {
+        "name": "Hammer of the Light",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Mend the Line",
+        "kind": "heal",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 22,
+        "school": "magic"
+      },
+      {
+        "name": "Shroud of Stone",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 24,
+        "school": "magic",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 40,
+          "magic_resistance": 30
+        },
+        "self_only": true
+      }
+    ],
+    "stormpike_sapper": [
+      {
+        "name": "Spanner Swing",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Powder Charge",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Blasting Smoke",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -28,
+          "attack_power": -18
+        }
+      }
+    ],
+    "gatewarden_brannic": [
+      {
+        "name": "Gatewarden's Axe",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "None Shall Pass",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 52
+          }
+        }
+      },
+      {
+        "name": "Shield Slam",
+        "kind": "damage",
+        "amount": 39,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": -28
+          }
+        }
+      },
+      {
+        "name": "Hold the Threshold",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 36
+        }
+      }
+    ],
+    "rifle_sergeant_dunmar": [
+      {
+        "name": "Rifle Butt",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Sergeant's Aimed Shot",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Steady the Line",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": 38
+          }
+        }
+      },
+      {
+        "name": "Kneecapping Round",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "agility": -32
+          }
+        }
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 35
+        }
+      }
+    ],
+    "shrine_keeper_morgrin": [
+      {
+        "name": "Keeper's Maul",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Light of the Vault",
+        "kind": "heal",
+        "amount": 68,
+        "cooldown": 4,
+        "mana_cost": 26,
+        "school": "magic"
+      },
+      {
+        "name": "Sanctified Stone",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 24,
+        "school": "magic",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 52,
+            "magic_resistance": 38
+          }
+        }
+      },
+      {
+        "name": "Judgement of the Hold",
+        "kind": "dot",
+        "amount": 23,
+        "cooldown": 4,
+        "mana_cost": 20,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 75,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Cleave",
+        "kind": "damage",
+        "amount": 41,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "thane_korrin_stonewatch": [
+      {
+        "name": "Stonewatch Greataxe",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Thane's Bulwark",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 62,
+            "attack_power": 34
+          }
+        }
+      },
+      {
+        "name": "Sunder the Shield",
+        "kind": "damage",
+        "amount": 47,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -46
+          }
+        }
+      },
+      {
+        "name": "Avalanche of Dun Garok",
+        "kind": "dot",
+        "amount": 26,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 43
+        }
+      }
+    ],
     "durnholde_hound": [
       {
         "name": "Savaging Bite",

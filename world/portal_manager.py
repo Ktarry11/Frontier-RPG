@@ -311,6 +311,12 @@ class PortalManager:
                 # Hand-built (tools/handbuilt_hillsbrad_east.py): Tarren Mill, Durnholde, and the shut Arathi wall.
                 (5, 86): ("Western Hillsbrad", 152, 88),           # arrive (152,86), clear of the east gate
                 (109, 74): ("Durnholde Keep", 70, 112),            # the keep's fallen archway
+                (95, 138): ("Dun Garok", 55, 96),                  # the fort door cut into the southern ridge
+            },
+            "Dun Garok": {
+                # The fort door faces NORTH - the ridge rock it is cut into starts at y=139 - so the usual
+                # "+3, arrive just south of the door" does not work here; south of this door is solid rock.
+                (55, 96): ("Eastern Hillsbrad", 95, 138),           # arrive (95,136), on the road side
             },
             "Durnholde Keep": {
                 (70, 112): ("Eastern Hillsbrad", 109, 77),         # dungeon exit: +3 -> arrive (109,75)

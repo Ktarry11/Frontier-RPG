@@ -4186,6 +4186,60 @@ HILLSBRAD_KITS = {
         ("Concussive Round", "debuff", 26, 4, 0, "physical",
          {"duration": 3, "stat_mods": {"agility": -32}}),
     ],
+    # ---- Dun Garok (dwarf hold, 25-28) ---------------------------------
+    # Stormpike dwarves: disciplined, heavily armoured, and they shoot. Where the Syndicate strip your
+    # armour and the Daggerspine drown you, the dwarves out-last you - buffs on themselves, debuffs on your
+    # ability to hit back, and one very hard aimed shot.
+    "dun_garok_mountaineer": [
+        ("Mountaineer's Axe", "damage", 50, 0, 0, "physical", {}),
+        ("Shield Wall", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 44}, "self_only": True}),
+        ("Crushing Blow", "damage", 58, 3, 0, "physical", {}),
+    ],
+    "dun_garok_priest": [
+        ("Hammer of the Light", "damage", 44, 0, 0, "magic", {}),
+        ("Mend the Line", "heal", 56, 3, 22, "magic", {}),
+        ("Shroud of Stone", "buff", 0, 5, 24, "magic",
+         {"duration": 4, "stat_mods": {"armor": 40, "magic_resistance": 30}, "self_only": True}),
+    ],
+    "stormpike_sapper": [
+        ("Spanner Swing", "damage", 46, 0, 0, "physical", {}),
+        ("Powder Charge", "damage", 64, 4, 0, "physical", {}),
+        ("Blasting Smoke", "debuff", 0, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -28, "attack_power": -18}}),
+    ],
+    "gatewarden_brannic": [
+        ("Gatewarden's Axe", "damage", 60, 0, 0, "physical", {}),
+        ("None Shall Pass", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 52}, "self_only": True}),
+        ("Shield Slam", "debuff", 24, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -28}}),
+        ("Hold the Threshold", "damage", 64, 4, 0, "physical", {}),
+    ],
+    "rifle_sergeant_dunmar": [
+        ("Rifle Butt", "damage", 58, 0, 0, "physical", {}),
+        ("Sergeant's Aimed Shot", "damage", 78, 4, 0, "physical", {}),
+        ("Steady the Line", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 38}, "self_only": True}),
+        ("Kneecapping Round", "debuff", 26, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -32}}),
+    ],
+    "shrine_keeper_morgrin": [
+        ("Keeper's Maul", "damage", 58, 0, 0, "physical", {}),
+        ("Light of the Vault", "heal", 68, 4, 26, "magic", {}),
+        ("Sanctified Stone", "buff", 0, 5, 24, "magic",
+         {"duration": 4, "stat_mods": {"armor": 52, "magic_resistance": 38}, "self_only": True}),
+        ("Judgement of the Hold", "dot", 23, 4, 20, "magic", {"duration": 4}),
+    ],
+    "thane_korrin_stonewatch": [
+        ("Stonewatch Greataxe", "damage", 72, 0, 0, "physical", {}),
+        ("Thane's Bulwark", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 62, "attack_power": 34}, "self_only": True}),
+        ("Sunder the Shield", "debuff", 30, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -46}}),
+        ("Avalanche of Dun Garok", "dot", 26, 4, 0, "physical", {"duration": 4}),
+    ],
+
     # ---- Durnholde Keep (dungeon, 26-30) -------------------------------
     "durnholde_hound": [
         ("Savaging Bite", "damage", 52, 0, 0, "physical", {}),

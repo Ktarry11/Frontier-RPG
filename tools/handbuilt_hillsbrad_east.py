@@ -299,6 +299,11 @@ def dress(L):
     p("ek_signpost", 108, 114, 4)
 
     # ---- Dun Garok Road: the dwarven fort's approach under the southern ridge
+    # The fort door is the PORTAL tile (95,138), cut into the ridge rock that starts at y=139. Drawn but
+    # passable - a solid prop here would wall off the door it advertises (the mistake Azurelode's adit and
+    # Durnholde's archway both had).
+    p(ENT + "ent_cliff_road_tunnel.png", 95, 138, 8, solid=False, nudge=0, allow_overlap=True)
+    p("ek_forsaken_banner", 90, 136, 5)
     p("ek_signpost", 84, 130, 4)
     p(RU + "ruin_wall_arch.png", 96, 140, 6)
     p(RU + "ruin_wall_arch.png", 104, 142, 6)

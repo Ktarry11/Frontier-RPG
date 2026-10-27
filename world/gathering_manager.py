@@ -442,6 +442,9 @@ CAVE_TO_PARENT_ZONE = {
     # A silver mine that flooded. It inherits Western Hillsbrad's ore table, which carries ore_silver at
     # weight 2 precisely because this mine is the reason that silver is in the zone at all.
     "Azurelode Mine": "Western Hillsbrad",
+    # A dwarf hold cut into the ridge - not a Dungeon, so it keeps ore, which is the whole reason dwarves
+    # dug there. Inherits Eastern Hillsbrad's table (iron-heavy, with coal and a little silver).
+    "Dun Garok": "Eastern Hillsbrad",
 }
 
 #: How much more ore-dense a cave's inherited pool is versus its parent

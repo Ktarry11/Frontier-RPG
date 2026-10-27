@@ -9,6 +9,7 @@ LEVEL LADDER
                                      Azurelode Mine (outside) 21-24 | Western Strand 22-25 | Orchard 22-25
                                      Southshore 23-26 | Purgation Shore 24-26
   Azurelode Mine (cave)   23-26:     trash 23-25, Grimewick 25, Deepmuck 25, Ashlan Silvervein 26
+  Dun Garok (hold)        25-28:     trash 25-27, Brannic 26, Dunmar 27, Morgrin 27, Stonewatch 28
   Eastern Hillsbrad 23-27:           Tarren Mill 23-24 | Mudsnout Hollow 23-25 | Gavin's Naze 24-26
                                      Eastern Strand 23-25 | Dun Garok Road 25-27 | Nethander Stead 25-27
                                      Durnholde Keep 25-27 | Thoradin's Wall 26-27
@@ -87,6 +88,14 @@ EAST_CREATURES = {
     "Sergeant Ironbeard": C("humanoid_warrior", 27, 27, "sergeant_ironbeard", True, 1.8),
     # Thoradin's Wall
     "Wall-Watcher Teague": C("humanoid_warrior", 27, 27, "wall_watcher_teague", True, 1.8),
+    # Dun Garok (dwarf hold)
+    "Dun Garok Mountaineer": C("humanoid_warrior", 25, 27, "dun_garok_mountaineer"),
+    "Dun Garok Priest": C("humanoid_caster", 25, 27, "dun_garok_priest"),
+    "Stormpike Sapper": C("humanoid_rogue", 25, 27, "stormpike_sapper"),
+    "Gatewarden Brannic": C("humanoid_warrior", 26, 26, "gatewarden_brannic", True, 1.7),
+    "Rifle-Sergeant Dunmar": C("humanoid_warrior", 27, 27, "rifle_sergeant_dunmar", True, 1.8),
+    "Shrine-Keeper Morgrin": C("humanoid_caster", 27, 27, "shrine_keeper_morgrin", True, 1.8),
+    "Thane Korrin Stonewatch": C("humanoid_warrior", 28, 28, "thane_korrin_stonewatch", True, 1.9),
     # Durnholde Keep (dungeon)
     "Durnholde Hound": C("beast_fast", 26, 28, "durnholde_hound"),
     "Keep Revenant": C("undead_basic", 27, 29, "keep_revenant"),
@@ -178,6 +187,15 @@ EAST_ZONE = {
                                           "Nethander Ogre": 2, "Wall-Watcher Teague": 0}},
     },
     "caves": {
+        # A dwarf HOLD, deliberately not on the DUNGEONS list, so it inherits Eastern Hillsbrad's ore the
+        # way a mountain fort should.
+        "Dun Garok": {
+            "name": "Dun Garok",
+            "creatures": {"Dun Garok Rifleman": 5, "Dun Garok Mountaineer": 5, "Dun Garok Priest": 3,
+                          "Stormpike Sapper": 3,
+                          "Gatewarden Brannic": 0, "Rifle-Sergeant Dunmar": 0,
+                          "Shrine-Keeper Morgrin": 0, "Thane Korrin Stonewatch": 0},
+        },
         # A real Dungeon (world/zone_classification.DUNGEONS), listed here because that is where the
         # encounter loader looks for a sub-map's table - the classification is what keeps ore out of it.
         "Durnholde Keep": {
@@ -340,6 +358,46 @@ def east_pools():
                "Still dry inside, which in this country is an achievement."),
             mk("Mountaineer's Studded Boots", "feet", "of Strength", 30,
                "Nailed for scree. Loud on flagstone.", armor_type="mail"),
+        ],
+        "Gatewarden Brannic": [
+            mk("Gatewarden's Bearded Axe", "main_hand", "of Strength", 29,
+               "Dwarf-made, and it has only ever swung in one doorway.", weapon_type="axe_1h"),
+            mk("Dun Garok Gate-Shield", "off_hand", "of the Bear", 29,
+               "Scarred in a band at exactly shoulder height.", weapon_type="shield"),
+            mk("Threshold-Warden's Greaves", "legs", "of Strength", 29,
+               "Braced for standing still, for years.", armor_type="plate"),
+            mk("Stormpike Watch-Ring", "ring", "of the Bear", 29,
+               "Issued at the gate. Never handed back."),
+        ],
+        "Rifle-Sergeant Dunmar": [
+            mk("Dunmar's Long Rifle", "ranged", "of the Monkey", 30,
+               "Sighted for the length of the muster yard, and no further.", weapon_type="gun"),
+            mk("Rifle-Sergeant's Brigandine", "chest", "of Agility", 30,
+               "Powder-burned at the right shoulder.", armor_type="mail"),
+            mk("Marksman's Eye Glass", "trinket", "of the Monkey", 30,
+               "Cracked across one lens. He shot fine anyway."),
+            mk("Barracks Drill Belt", "waist", "of the Soldier", 30,
+               "Notched for cartridges, every notch worn smooth.", armor_type="mail"),
+        ],
+        "Shrine-Keeper Morgrin": [
+            mk("Keeper's Vault Maul", "main_hand", "of the Owl", 30,
+               "A smith's hammer, blessed until it stopped being one.", weapon_type="mace_1h"),
+            mk("Shrine-Keeper's Vestments", "chest", "of the Owl", 30,
+               "Stone-grey wool, stiff with age and incense.", armor_type="cloth"),
+            mk("Vault-Light Lantern", "off_hand", "of the Whale", 30,
+               "Lit at the door of a vault nobody opens."),
+            mk("Morgrin's Prayer-Beads", "neck", "of the Owl", 30,
+               "Granite, worn to ovals by one thumb."),
+        ],
+        "Thane Korrin Stonewatch": [
+            mk("Stonewatch Greataxe", "main_hand", "of Strength", 31,
+               "The thane's own, and heavier than it has any right to be.", weapon_type="axe_2h"),
+            mk("Thane's Hold-Plate", "chest", "of the Bear", 31,
+               "Dun Garok's mark hammered into the breast, not painted on.", armor_type="plate"),
+            mk("Crypt-Warden's Crown", "head", "of Strength", 31,
+               "A circlet of iron. He was buried in it, and did not stay.", armor_type="plate"),
+            mk("Stonewatch Oathband", "ring", "of the Bear", 31,
+               "Sworn to hold the ridge. He is still technically holding it."),
         ],
         "Sergeant-at-Arms Varth": [
             mk("Gate-Warden's Halberd", "main_hand", "of the Soldier", 30,
