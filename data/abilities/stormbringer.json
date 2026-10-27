@@ -736,7 +736,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A line of wind and lightning tears through all enemies. Assigned Nature school matching the Lightning tree's confirmed pattern (Forked Lightning, Aeroblast, Arm of Thorim all confirmed Nature per screenshot) - this ability's own school wasn't re-confirmed in the most recent screenshot batch, so this is the best-match assignment, not a directly confirmed one like its Lightning-tree siblings.",
+      "description": "A line of wind and lightning tears through all enemies.",
       "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch).",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -758,7 +758,8 @@
         "amount": 15
       },
       "icon_id": "stormbringer_freewind",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_design_note": "A line of wind and lightning tears through all enemies. Assigned Nature school matching the Lightning tree's confirmed pattern (Forked Lightning, Aeroblast, Arm of Thorim all confirmed Nature per screenshot) - this ability's own school wasn't re-confirmed in the most recent screenshot batch, so this is the best-match assignment, not a directly confirmed one like its Lightning-tree siblings."
     },
     {
       "ability_id": "stormbringer_charge",

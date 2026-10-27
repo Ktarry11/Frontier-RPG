@@ -276,7 +276,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Mortal Strike talent in the Arms tree, matching real WOTLK where this is talent-exclusive to Arms, not a baseline ability. A vicious strike that deals heavy weapon damage and wounds the target.",
+      "description": "A vicious strike that deals heavy weapon damage and wounds the target.",
       "ranks": [
         {
           "rank": 1,
@@ -298,7 +298,8 @@
         }
       ],
       "icon_id": null,
-      "requires_talent": true
+      "requires_talent": true,
+      "_design_note": "Not learned from level alone - granted by the Mortal Strike talent in the Arms tree, matching real WOTLK where this is talent-exclusive to Arms, not a baseline ability. A vicious strike that deals heavy weapon damage and wounds the target."
     },
     {
       "ability_id": "warrior_execute",
@@ -334,7 +335,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Bladestorm talent in the Arms tree. A whirling storm of steel, striking all nearby enemies.",
+      "description": "A whirling storm of steel, striking all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -346,7 +347,8 @@
       "target_type": "enemy_aoe",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Bladestorm talent in the Arms tree. A whirling storm of steel, striking all nearby enemies."
     },
     {
       "ability_id": "warrior_devastate",
@@ -356,7 +358,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Devastate talent in the Protection tree. Deals damage to the target. Real WOTLK Devastate also applies a stacking Armor-reduction debuff (Sunder Armor) - not modeled here since combining a damage hit with a persistent debuff in one ability isn't supported yet, so this is damage-only.",
+      "description": "A punishing blow that deals heavy weapon damage.",
       "ranks": [
         {
           "rank": 1,
@@ -379,7 +381,8 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Devastate talent in the Protection tree. Deals damage to the target. Real WOTLK Devastate also applies a stacking Armor-reduction debuff (Sunder Armor) - not modeled here since combining a damage hit with a persistent debuff in one ability isn't supported yet, so this is damage-only."
     },
     {
       "ability_id": "warrior_concussion_blow",
@@ -389,7 +392,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Concussion Blow talent in the Protection tree. Deals damage to the target. Real WOTLK Concussion Blow also stuns for 5 sec - no stun mechanic exists yet, so this is damage-only.",
+      "description": "A stunning blow to the head that deals heavy damage.",
       "ranks": [
         {
           "rank": 1,
@@ -406,7 +409,8 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Concussion Blow talent in the Protection tree. Deals damage to the target. Real WOTLK Concussion Blow also stuns for 5 sec - no stun mechanic exists yet, so this is damage-only."
     },
     {
       "ability_id": "warrior_shockwave",
@@ -416,7 +420,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Shockwave talent in the Protection tree. Deals damage to all enemies in front of you. Real WOTLK Shockwave also stuns for 4 sec - no stun mechanic exists yet, so this is damage-only.",
+      "description": "A wave of force deals damage to all enemies in front of you.",
       "ranks": [
         {
           "rank": 1,
@@ -428,7 +432,8 @@
       "target_type": "enemy_aoe",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Shockwave talent in the Protection tree. Deals damage to all enemies in front of you. Real WOTLK Shockwave also stuns for 4 sec - no stun mechanic exists yet, so this is damage-only."
     },
     {
       "ability_id": "warrior_bloodthirst",
@@ -438,7 +443,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Bloodthirst talent in the Fury tree. Instantly attacks the target based on your Attack Power.",
+      "description": "Instantly attacks the target based on your Attack Power.",
       "ranks": [
         {
           "rank": 1,
@@ -455,7 +460,8 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Bloodthirst talent in the Fury tree. Instantly attacks the target based on your Attack Power."
     },
     {
       "ability_id": "warrior_bloodrage",
@@ -849,7 +855,7 @@
       "stat_mods": {
         "hit_chance_spell": -70
       },
-      "description": "PLACEHOLDER (no cast-interrupt mechanic exists): real WOTLK Pummel silences spellcasting for 4 sec - here it heavily reduces the target's spell hit chance for 1 turn instead.",
+      "description": "A brutal pummel that disrupts the target, heavily reducing their spell hit chance for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -861,7 +867,8 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "PLACEHOLDER (no cast-interrupt mechanic exists): real WOTLK Pummel silences spellcasting for 4 sec - here it heavily reduces the target's spell hit chance for 1 turn instead."
     },
     {
       "ability_id": "warrior_recklessness",

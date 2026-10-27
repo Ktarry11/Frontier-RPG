@@ -486,10 +486,30 @@ class VendorScreen(BaseScreen):
                 lines.append(item.description)
             lines.append("Quest Item — cannot be sold")
 
+        elif getattr(item, "category", None) == "trash":
+            # Vendor trash is a LootItem, not a Consumable. This branch used
+            # to be the bare `else` below, which reads consumable_type and
+            # required_level - neither of which a LootItem has - so hovering
+            # a piece of trash in the sell list crashed the render loop
+            # outright (Kyle: "crashed when going to sell shit").
+            lines.append("Junk")
+            if getattr(item, "description", ""):
+                lines.append(item.description)
+
         else:
-            lines.append(f"Type: {item.consumable_type}")
-            lines.append(f"Requires level {item.required_level}")
-            lines.append(item.description)
+            # Defensive: this is the consumable branch, but it is also the
+            # catch-all for any item class that is not gear/material/quest/
+            # trash. A missing attribute here takes the whole game down with
+            # it, since tooltips render inside the main loop, so every field
+            # is optional rather than assumed.
+            ctype = getattr(item, "consumable_type", None)
+            if ctype:
+                lines.append(f"Type: {str(ctype).replace('_', ' ').title()}")
+            req = getattr(item, "required_level", 0)
+            if req:
+                lines.append(f"Requires level {req}")
+            if getattr(item, "description", ""):
+                lines.append(item.description)
 
         if mode == "buy":
             price = getattr(item, "vendor_price", None)

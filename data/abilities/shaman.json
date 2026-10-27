@@ -377,7 +377,7 @@
       "stat_mods": {
         "nature_resistance": -20
       },
-      "description": "Not learned from level alone - granted by the Stormstrike talent in the Enhancement tree. Instantly attacks with both weapons, weakening the target's real Nature resistance (previously wired to the generic magic_resistance stat, which didn't match the ability's own description) so your next Nature-school hits deal more damage.",
+      "description": "Instantly attacks with both weapons, weakening the target's Nature resistance so your next Nature hits land harder.",
       "ranks": [
         {
           "rank": 1,
@@ -401,7 +401,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Stormstrike talent in the Enhancement tree. Instantly attacks with both weapons, weakening the target's real Nature resistance (previously wired to the generic magic_resistance stat, which didn't match the ability's own description) so your next Nature-school hits deal more damage."
     },
     {
       "ability_id": "shaman_elemental_mastery_cast",
@@ -411,7 +412,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Elemental Mastery talent in the Elemental tree. Your next Lightning Bolt, Chain Lightning, or Lava Burst becomes instant, costing no turn to cast.",
+      "description": "Your next Lightning Bolt, Chain Lightning or Lava Burst becomes instant and costs no turn to cast.",
       "ranks": [
         {
           "rank": 1,
@@ -423,7 +424,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Elemental Mastery talent in the Elemental tree. Your next Lightning Bolt, Chain Lightning, or Lava Burst becomes instant, costing no turn to cast."
     },
     {
       "ability_id": "shaman_thunderstorm",
@@ -433,7 +435,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Thunderstorm talent in the Elemental tree. Calls down lightning, damaging all nearby enemies and restoring some of your Mana.",
+      "description": "Calls down lightning, damaging all nearby enemies and restoring some of your Mana.",
       "ranks": [
         {
           "rank": 1,
@@ -445,7 +447,8 @@
       "target_type": "enemy_aoe",
       "requires_talent": true,
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_design_note": "Not learned from level alone - granted by the Thunderstorm talent in the Elemental tree. Calls down lightning, damaging all nearby enemies and restoring some of your Mana."
     },
     {
       "ability_id": "shaman_feral_spirit",
@@ -457,7 +460,7 @@
       "stat_mods": {
         "attack_power": 50
       },
-      "description": "Not learned from level alone - granted by the Feral Spirit talent in the Enhancement tree. PLACEHOLDER: real WOTLK Feral Spirit summons two wolves that fight alongside you and heal you - this engine has no pet/summon system yet, so this is a temporary Attack Power buff instead until that exists.",
+      "description": "Calls on the spirit wolves, sharply increasing your Attack Power for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -470,7 +473,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Feral Spirit talent in the Enhancement tree. PLACEHOLDER: real WOTLK Feral Spirit summons two wolves that fight alongside you and heal you - this engine has no pet/summon system yet, so this is a temporary Attack Power buff instead until that exists."
     },
     {
       "ability_id": "shaman_natures_swiftness",
@@ -480,7 +484,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Nature's Swiftness talent in the Restoration tree. Your next healing spell becomes instant, costing no turn to cast.",
+      "description": "Your next healing spell becomes instant and costs no turn to cast.",
       "ranks": [
         {
           "rank": 1,
@@ -492,7 +496,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Nature's Swiftness talent in the Restoration tree. Your next healing spell becomes instant, costing no turn to cast."
     },
     {
       "ability_id": "shaman_riptide",
@@ -502,7 +507,7 @@
       "effect_type": "hot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Riptide talent in the Restoration tree. Heals the target immediately and again over time.",
+      "description": "Heals the target immediately and again over time.",
       "ranks": [
         {
           "rank": 1,
@@ -519,7 +524,8 @@
       ],
       "target_type": "ally",
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Riptide talent in the Restoration tree. Heals the target immediately and again over time."
     },
     {
       "ability_id": "shaman_mana_tide_totem",
@@ -531,7 +537,7 @@
       "stat_mods": {
         "spirit": 4
       },
-      "description": "Not learned from level alone - granted by the Mana Tide Totem talent in the Restoration tree. PLACEHOLDER: real WOTLK Mana Tide Totem is a party-wide mana-regeneration totem - this engine has no totem-placement system yet, so this is a temporary self-only Spirit buff instead until that exists.",
+      "description": "Calls the tides to restore your focus, increasing your Spirit for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -550,7 +556,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Mana Tide Totem talent in the Restoration tree. PLACEHOLDER: real WOTLK Mana Tide Totem is a party-wide mana-regeneration totem - this engine has no totem-placement system yet, so this is a temporary self-only Spirit buff instead until that exists."
     },
     {
       "ability_id": "shaman_earth_shield",
@@ -560,7 +567,7 @@
       "effect_type": "buff",
       "duration": 999999,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Earth Shield talent in the Restoration tree. Real proc: heals the target for a flat amount whenever they take damage. Simplification note: real WOTLK Earth Shield has 6 CHARGES (consumed one per heal, expires when depleted) rather than a duration or ICD - this engine's proc schema doesn't have a charge-count concept yet, so this is approximated as an ICD-gated proc with an effectively permanent duration instead. A real charge system would be a genuinely separate feature.",
+      "description": "Shields the target with earth, healing them whenever they take damage.",
       "ranks": [
         {
           "rank": 1,
@@ -595,7 +602,8 @@
         "chance": 100,
         "icd": 2,
         "heal_flat": 300
-      }
+      },
+      "_design_note": "Not learned from level alone - granted by the Earth Shield talent in the Restoration tree. Real proc: heals the target for a flat amount whenever they take damage. Simplification note: real WOTLK Earth Shield has 6 CHARGES (consumed one per heal, expires when depleted) rather than a duration or ICD - this engine's proc schema doesn't have a charge-count concept yet, so this is approximated as an ICD-gated proc with an effectively permanent duration instead. A real charge system would be a genuinely separate feature."
     },
     {
       "ability_id": "shaman_cleanse_spirit",
@@ -605,7 +613,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Cleanse Spirit talent in the Restoration tree. Removes one Curse effect from the target.",
+      "description": "Removes one Curse effect from the target.",
       "ranks": [
         {
           "rank": 1,
@@ -617,7 +625,8 @@
       "target_type": "ally",
       "requires_talent": true,
       "dispel_type": "curse",
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Cleanse Spirit talent in the Restoration tree. Removes one Curse effect from the target."
     },
     {
       "ability_id": "shaman_strength_of_earth_totem",
@@ -630,7 +639,7 @@
         "strength": 3,
         "agility": 3
       },
-      "description": "Earth totem. Increases Strength and Agility for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead.",
+      "description": "Earth totem. Increases Strength and Agility for your party.",
       "ranks": [
         {
           "rank": 1,
@@ -690,7 +699,8 @@
       "target_type": "party",
       "buff_scope": "combat",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Earth totem. Increases Strength and Agility for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead."
     },
     {
       "ability_id": "shaman_searing_totem",
@@ -700,7 +710,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Fire totem. PLACEHOLDER: real WOTLK Searing Totem repeatedly attacks the nearest enemy on its own for as long as it stands - no persistent-independent-actor totem system exists here, so this applies a direct Fire damage-over-time effect to the target instead.",
+      "description": "Fire totem. Sears the target, dealing Fire damage over time.",
       "ranks": [
         {
           "rank": 1,
@@ -752,7 +762,8 @@
         }
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Fire totem. PLACEHOLDER: real WOTLK Searing Totem repeatedly attacks the nearest enemy on its own for as long as it stands - no persistent-independent-actor totem system exists here, so this applies a direct Fire damage-over-time effect to the target instead."
     },
     {
       "ability_id": "shaman_mana_spring_totem",
@@ -764,7 +775,7 @@
       "stat_mods": {
         "max_mana_pct": 0.06
       },
-      "description": "Water totem. Increases max Mana for your party over time. PLACEHOLDER: real WOTLK Mana Spring Totem is a persistent placed object that regenerates party Mana every few seconds - approximated here as a flat max-Mana buff since no persistent mana-regen-over-time-from-an-object mechanic exists.",
+      "description": "Water totem. Increases maximum Mana for your party.",
       "ranks": [
         {
           "rank": 1,
@@ -776,7 +787,8 @@
       "target_type": "party",
       "buff_scope": "combat",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Water totem. Increases max Mana for your party over time. PLACEHOLDER: real WOTLK Mana Spring Totem is a persistent placed object that regenerates party Mana every few seconds - approximated here as a flat max-Mana buff since no persistent mana-regen-over-time-from-an-object mechanic exists."
     },
     {
       "ability_id": "shaman_windfury_totem",
@@ -835,7 +847,7 @@
       "effect_type": "totem_loadout",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Call of the Ancestors talent in the Restoration tree. Casts your entire saved totem loadout (up to one totem per element) in a single action, matching real WOTLK's totem preset system.",
+      "description": "Casts your entire saved totem loadout - up to one totem per element - in a single action.",
       "ranks": [
         {
           "rank": 1,
@@ -847,7 +859,8 @@
       "target_type": "party",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Call of the Ancestors talent in the Restoration tree. Casts your entire saved totem loadout (up to one totem per element) in a single action, matching real WOTLK's totem preset system."
     },
     {
       "ability_id": "shaman_purge",
@@ -880,7 +893,7 @@
       "stat_mods": {
         "max_mana_pct": 0.04
       },
-      "description": "Real WOTLK Water Shield restores Mana each time you're hit - no on-hit-proc-resource mechanic exists here, so this is approximated as a flat max-Mana buff instead.",
+      "description": "Surrounds you with water, increasing your maximum Mana.",
       "ranks": [
         {
           "rank": 1,
@@ -892,7 +905,8 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Real WOTLK Water Shield restores Mana each time you're hit - no on-hit-proc-resource mechanic exists here, so this is approximated as a flat max-Mana buff instead."
     },
     {
       "ability_id": "shaman_rockbiter_weapon",
@@ -1254,7 +1268,7 @@
       "stat_mods": {
         "haste": -50
       },
-      "description": "Earth totem. PLACEHOLDER: real WOTLK Earthbind Totem is a placed object that roots/slows all nearby enemies - no persistent-independent-actor totem or root mechanic exists here, so this directly reduces the target's Haste instead.",
+      "description": "Earth totem. Binds the target to the earth, reducing their Haste.",
       "ranks": [
         {
           "rank": 1,
@@ -1265,7 +1279,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Earth totem. PLACEHOLDER: real WOTLK Earthbind Totem is a placed object that roots/slows all nearby enemies - no persistent-independent-actor totem or root mechanic exists here, so this directly reduces the target's Haste instead."
     },
     {
       "ability_id": "shaman_reincarnation",
@@ -1275,7 +1290,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "PLACEHOLDER (no on-death-trigger/revive mechanic exists): real WOTLK Reincarnation lets you self-resurrect after dying, on a 30-min cooldown - here it's a strong emergency self-heal instead, usable while still alive.",
+      "description": "Calls on the ancestors for one more breath, restoring a great deal of health.",
       "ranks": [
         {
           "rank": 1,
@@ -1304,7 +1319,8 @@
       ],
       "target_type": "self",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "PLACEHOLDER (no on-death-trigger/revive mechanic exists): real WOTLK Reincarnation lets you self-resurrect after dying, on a 30-min cooldown - here it's a strong emergency self-heal instead, usable while still alive."
     },
     {
       "ability_id": "shaman_stoneclaw_totem",
@@ -1316,7 +1332,7 @@
       "stat_mods": {
         "armor": 200
       },
-      "description": "Earth totem. Shields the caster, absorbing a burst of damage. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "description": "Earth totem. Shields the caster, absorbing a burst of damage.",
       "ranks": [
         {
           "rank": 1,
@@ -1370,7 +1386,8 @@
       "target_type": "self",
       "buff_scope": "combat",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Earth totem. Shields the caster, absorbing a burst of damage. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
     },
     {
       "ability_id": "shaman_magma_totem",
@@ -1380,7 +1397,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Fire totem. Deals Fire damage to all nearby enemies. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "description": "Fire totem. Deals Fire damage to all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -1409,7 +1426,8 @@
       ],
       "target_type": "enemy_aoe",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Fire totem. Deals Fire damage to all nearby enemies. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
     },
     {
       "ability_id": "shaman_grounding_totem",
@@ -1421,7 +1439,7 @@
       "stat_mods": {
         "magic_resistance": 500
       },
-      "description": "Air totem. Redirects the next harmful spell cast at the caster onto the totem instead, approximated as a brief massive Magic Resistance spike. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "description": "Air totem. Grounds incoming magic, sharply increasing your Magic Resistance for a moment.",
       "ranks": [
         {
           "rank": 1,
@@ -1445,7 +1463,8 @@
       "target_type": "self",
       "buff_scope": "combat",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Air totem. Redirects the next harmful spell cast at the caster onto the totem instead, approximated as a brief massive Magic Resistance spike. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
     },
     {
       "ability_id": "shaman_stoneskin_totem",
@@ -1457,7 +1476,7 @@
       "stat_mods": {
         "armor": 120
       },
-      "description": "Earth totem. Increases Armor for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "description": "Earth totem. Increases Armor for your party.",
       "ranks": [
         {
           "rank": 1,
@@ -1511,7 +1530,8 @@
       "target_type": "party",
       "buff_scope": "combat",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Earth totem. Increases Armor for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
     },
     {
       "ability_id": "shaman_shamanistic_rage",
@@ -1523,7 +1543,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "Not learned from level alone - granted by the Shamanistic Rage talent in the Enhancement tree. Reduces all damage taken by 30% and gives melee attacks a chance to restore mana, for a short time. Real stat reduction (uses the same damage_taken_pct key Earthen Guardian already uses) plus a real on-hit proc, matching Shamanistic Rage's actual WOTLK identity.",
+      "description": "Reduces all damage taken by 30% and gives your melee attacks a chance to restore Mana, for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -1557,7 +1577,8 @@
           "amount": 45
         }
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Shamanistic Rage talent in the Enhancement tree. Reduces all damage taken by 30% and gives melee attacks a chance to restore mana, for a short time. Real stat reduction (uses the same damage_taken_pct key Earthen Guardian already uses) plus a real on-hit proc, matching Shamanistic Rage's actual WOTLK identity."
     },
     {
       "resource_type": "mana",
@@ -1599,7 +1620,8 @@
       "stat_mods": {
         "fire_resistance": 90
       },
-      "description": "Fire totem. Grants your party a large Fire resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
+      "description": "Fire totem. Grants your party a large Fire resistance bonus.",
+      "_design_note": "Fire totem. Grants your party a large Fire resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
     },
     {
       "resource_type": "mana",
@@ -1641,7 +1663,8 @@
       "stat_mods": {
         "frost_resistance": 90
       },
-      "description": "Frost totem. Grants your party a large Frost resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
+      "description": "Frost totem. Grants your party a large Frost resistance bonus.",
+      "_design_note": "Frost totem. Grants your party a large Frost resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
     },
     {
       "resource_type": "mana",
@@ -1683,7 +1706,8 @@
       "stat_mods": {
         "nature_resistance": 90
       },
-      "description": "Earth totem. Grants your party a large Nature resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
+      "description": "Earth totem. Grants your party a large Nature resistance bonus.",
+      "_design_note": "Earth totem. Grants your party a large Nature resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
     }
   ]
 }

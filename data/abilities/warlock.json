@@ -420,7 +420,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Unstable Affliction talent in the Affliction tree, matching real WOTLK where this is talent-exclusive, not baseline. Afflicts the target with an unstable curse dealing Shadow damage over time.",
+      "description": "Afflicts the target with an unstable curse dealing Shadow damage over time.",
       "ranks": [
         {
           "rank": 1,
@@ -442,7 +442,8 @@
         }
       ],
       "icon_id": null,
-      "requires_talent": true
+      "requires_talent": true,
+      "_design_note": "Not learned from level alone - granted by the Unstable Affliction talent in the Affliction tree, matching real WOTLK where this is talent-exclusive, not baseline. Afflicts the target with an unstable curse dealing Shadow damage over time."
     },
     {
       "ability_id": "warlock_shadowburn",
@@ -452,7 +453,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Shadowburn talent in the Destruction tree, matching real WOTLK where this is talent-exclusive, not baseline. Deals Shadow damage, dealing extra damage to targets below 20% health.",
+      "description": "Deals Shadow damage, striking far harder against targets below 20% health.",
       "ranks": [
         {
           "rank": 1,
@@ -469,7 +470,8 @@
       ],
       "icon_id": null,
       "requires_talent": true,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_design_note": "Not learned from level alone - granted by the Shadowburn talent in the Destruction tree, matching real WOTLK where this is talent-exclusive, not baseline. Deals Shadow damage, dealing extra damage to targets below 20% health."
     },
     {
       "ability_id": "warlock_dark_pact",
@@ -479,7 +481,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Dark Pact talent in the Affliction tree. PLACEHOLDER (no pet/mana-drain-from-pet mechanic exists): real WOTLK Dark Pact drains your demon's Mana and returns it to you - here it instantly restores a flat amount of Mana instead.",
+      "description": "Draws on dark power to instantly restore a portion of your Mana.",
       "ranks": [
         {
           "rank": 1,
@@ -496,7 +498,8 @@
       "generates": {
         "resource": "mana",
         "amount": 220
-      }
+      },
+      "_design_note": "Not learned from level alone - granted by the Dark Pact talent in the Affliction tree. PLACEHOLDER (no pet/mana-drain-from-pet mechanic exists): real WOTLK Dark Pact drains your demon's Mana and returns it to you - here it instantly restores a flat amount of Mana instead."
     },
     {
       "ability_id": "warlock_metamorphosis",
@@ -509,7 +512,7 @@
         "attack_power": 60,
         "armor": 50
       },
-      "description": "Not learned from level alone - granted by the Metamorphosis talent in the Demonology tree. REQUIRES_FORM (not yet enforced - no forms system): real WOTLK Metamorphosis transforms you into a demon with a new ability set - placeholder grants a temporary Attack Power + Armor buff instead until forms exist.",
+      "description": "Take on a demonic shape, increasing your Attack Power and Armor for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -522,7 +525,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Metamorphosis talent in the Demonology tree. REQUIRES_FORM (not yet enforced - no forms system): real WOTLK Metamorphosis transforms you into a demon with a new ability set - placeholder grants a temporary Attack Power + Armor buff instead until forms exist."
     },
     {
       "ability_id": "warlock_conflagrate",
@@ -532,7 +536,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet.",
+      "description": "Sets the target ablaze for a burst of Fire damage.",
       "ranks": [
         {
           "rank": 1,
@@ -556,7 +560,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_design_note": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet."
     },
     {
       "ability_id": "warlock_chaos_bolt",
@@ -566,7 +571,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Chaos Bolt talent in the Destruction tree. Deals massive Chaos damage that cannot be resisted.",
+      "description": "Deals massive Chaos damage that cannot be resisted.",
       "ranks": [
         {
           "rank": 1,
@@ -577,7 +582,8 @@
       ],
       "requires_talent": true,
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_design_note": "Not learned from level alone - granted by the Chaos Bolt talent in the Destruction tree. Deals massive Chaos damage that cannot be resisted."
     },
     {
       "ability_id": "warlock_shadowfury",

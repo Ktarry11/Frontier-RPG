@@ -29,7 +29,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Fling stones at an enemy, dealing Physical damage and generating Rage. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "description": "Fling stones at an enemy, dealing Physical damage and generating Rage. Shares a cooldown with other Seismic spells.",
       "_source": "Confirmed screenshot: 10 Mana, 30yd, 1.8s cast, '16 Physical Damage and generating Rage' at Rank 1. Core level-1 Rage generator, extended to 8 ranks per Kyle's rank-up direction.",
       "ranks": [
         {
@@ -85,7 +85,8 @@
         "resource": "rage",
         "amount": 20
       },
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Fling stones at an enemy, dealing Physical damage and generating Rage. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
     },
     {
       "ability_id": "primalist_wildclaw",
@@ -157,7 +158,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Create stalactites that strike your enemy 3 times, generating Rage. Real physical damage (was previously miscategorized as spell_damage, which incorrectly scaled it off Spell Power - fixed to match its own confirmed screenshot data: '90 Physical damage', and Primalist's real Strength/melee-hybrid identity per the class resource reference). Shares a cooldown with other Seismic spells.",
+      "description": "Create stalactites that strike your enemy 3 times, generating Rage. Shares a cooldown with other Seismic spells.",
       "_source": "Confirmed screenshot: Lvl 2, '90 Physical damage over 1 sec. Generates 20 Rage.' Second Rage generator alongside Geode Barrage, part of the Seismic family.",
       "ranks": [
         {
@@ -195,7 +196,8 @@
         "resource": "rage",
         "amount": 20
       },
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Create stalactites that strike your enemy 3 times, generating Rage. Real physical damage (was previously miscategorized as spell_damage, which incorrectly scaled it off Spell Power - fixed to match its own confirmed screenshot data: '90 Physical damage', and Primalist's real Strength/melee-hybrid identity per the class resource reference). Shares a cooldown with other Seismic spells."
     },
     {
       "ability_id": "primalist_stoneshard",
@@ -205,7 +207,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Launch a sharpened stone at an enemy. Deals additional damage per Earthshaping stack. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "description": "Launch a sharpened stone at an enemy. Deals additional damage per Earthshaping stack.",
       "_source": "Confirmed screenshot: Lvl 4, '60 Physical damage. Deals 5% additional damage for each Earthshaping stack.' Earthshaping stack-scaling not yet modeled dynamically.",
       "ranks": [
         {
@@ -233,7 +235,8 @@
           "effect_value": 204
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Launch a sharpened stone at an enemy. Deals additional damage per Earthshaping stack. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
     },
     {
       "ability_id": "primalist_hand_of_the_earthmother",
@@ -830,7 +833,7 @@
       "effect_type": "dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Send an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "description": "Send an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells.",
       "_source": "Confirmed screenshot: Geomancy-locked, Lvl 26, '157 Physical damage, plus an additional 1080 over 24 sec, dealt slowly at first and building over time. Damage dealt generates 1 Rage.'",
       "ranks": [
         {
@@ -856,7 +859,8 @@
         "resource": "rage",
         "amount": 1
       },
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Send an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
     },
     {
       "ability_id": "primalist_seismic_wave",
@@ -912,7 +916,7 @@
       "stat_mods": {
         "armor_pct": -50
       },
-      "description": "Unleash a globe of earth at an enemy, piercing defensive effects and reducing their Armor. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "description": "Unleash a globe of earth at an enemy, piercing defensive effects and reducing their Armor.",
       "_source": "Confirmed screenshot: Mountain King-locked, 45 Rage, 30yd, 2.5s cast, 20 sec cooldown, '271 Physical damage and reducing their Armor by 50% for 10 sec. Pierces through absorption, deflection, and reflection effects.'",
       "ranks": [
         {
@@ -940,7 +944,8 @@
           "effect_value": 488
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Unleash a globe of earth at an enemy, piercing defensive effects and reducing their Armor. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
     },
     {
       "ability_id": "primalist_primal_rush",
@@ -1083,7 +1088,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Command your pet to shred nearby enemies, causing them to bleed. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "description": "Command your pet to shred nearby enemies, causing them to bleed.",
       "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 20, 'command your pet to shred up to 5 enemies within 8 yds, causing them to bleed, dealing 82 Physical damage over 21 sec.' Real pet-command ability.",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1112,7 +1117,8 @@
           "effect_value": 50
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": "ability_melee",
+      "_design_note": "Command your pet to shred nearby enemies, causing them to bleed. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
     },
     {
       "ability_id": "primalist_raptor_talons",
@@ -1203,7 +1209,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A devastating execute against a heavily wounded enemy. Real physical damage - was previously miscategorized as spell_damage despite being Rage-costing (its own resource_type) with a real execute_threshold_pct field, both strong signals this is a physical execute like Warrior's Execute, not a spell.",
+      "description": "A devastating execute against a heavily wounded enemy.",
       "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
       "execute_threshold_pct": 25,
       "ranks": [
@@ -1220,7 +1226,8 @@
           "effect_value": 262
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "A devastating execute against a heavily wounded enemy. Real physical damage - was previously miscategorized as spell_damage despite being Rage-costing (its own resource_type) with a real execute_threshold_pct field, both strong signals this is a physical execute like Warrior's Execute, not a spell."
     },
     {
       "ability_id": "primalist_magma_fissure",

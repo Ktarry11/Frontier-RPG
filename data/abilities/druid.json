@@ -218,7 +218,7 @@
         "shadow_resistance": 10,
         "arcane_resistance": 10
       },
-      "description": "Blesses you with the wild's favor, increasing all attributes and granting resistance to Fire, Frost, Nature, Shadow, and Arcane damage - matches Mark of the Wild's real WOTLK identity as a core party utility buff, not just a stat buff (previously had no resistance component at all since the engine had no school-resistance stats to grant).",
+      "description": "Blesses the party with the wild's favor, increasing all attributes and granting resistance to Fire, Frost, Nature, Shadow and Arcane damage.",
       "ranks": [
         {
           "rank": 1,
@@ -247,7 +247,8 @@
       ],
       "target_type": "party",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Blesses you with the wild's favor, increasing all attributes and granting resistance to Fire, Frost, Nature, Shadow, and Arcane damage - matches Mark of the Wild's real WOTLK identity as a core party utility buff, not just a stat buff (previously had no resistance component at all since the engine had no school-resistance stats to grant)."
     },
     {
       "ability_id": "druid_mangle",
@@ -257,7 +258,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Mangles the target with savage claws. Requires Bear or Dire Bear Form - matches real WOTLK where Mangle literally cannot be cast without being shapeshifted.",
+      "description": "Mangles the target with savage claws. Requires Bear or Dire Bear Form.",
       "ranks": [
         {
           "rank": 1,
@@ -288,7 +289,8 @@
       "requires_form": [
         "bear",
         "dire_bear"
-      ]
+      ],
+      "_design_note": "Mangles the target with savage claws. Requires Bear or Dire Bear Form - matches real WOTLK where Mangle literally cannot be cast without being shapeshifted."
     },
     {
       "ability_id": "druid_entangling_roots",
@@ -397,7 +399,7 @@
       "effect_type": "hot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Wild Growth talent in the Restoration tree. Blankets the party with rapid, powerful healing that fades as it winds down. Heals up to 5 allies over 3 turns.",
+      "description": "Blankets the party in rapid healing that fades as it winds down. Heals up to 5 allies over 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -414,7 +416,8 @@
       ],
       "target_type": "party",
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Wild Growth talent in the Restoration tree. Blankets the party with rapid, powerful healing that fades as it winds down. Heals up to 5 allies over 3 turns."
     },
     {
       "ability_id": "druid_swiftmend",
@@ -424,7 +427,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Swiftmend talent in the Restoration tree. Consumes an active Rejuvenation on the target, instantly healing them for the remainder of that effect. Requires Rejuvenation to already be active on the target.",
+      "description": "Consumes an active Rejuvenation on the target, instantly healing them for the remainder of that effect.",
       "ranks": [
         {
           "rank": 1,
@@ -440,7 +443,8 @@
       "consumable_hot_ids": [
         "druid_rejuvenation"
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Swiftmend talent in the Restoration tree. Consumes an active Rejuvenation on the target, instantly healing them for the remainder of that effect. Requires Rejuvenation to already be active on the target."
     },
     {
       "ability_id": "druid_natures_swiftness",
@@ -450,7 +454,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Nature's Swiftness talent in the Restoration tree. Your next Nature spell becomes instant. Does not consume a turn to cast.",
+      "description": "Your next Nature spell becomes instant and costs no turn to cast.",
       "ranks": [
         {
           "rank": 1,
@@ -462,7 +466,8 @@
       "target_type": "self",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Nature's Swiftness talent in the Restoration tree. Your next Nature spell becomes instant. Does not consume a turn to cast."
     },
     {
       "ability_id": "druid_insect_swarm",
@@ -472,7 +477,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Insect Swarm talent in the Balance tree. Swarms the target with insects, dealing Nature damage over time.",
+      "description": "Swarms the target with insects, dealing Nature damage over time.",
       "ranks": [
         {
           "rank": 1,
@@ -500,7 +505,8 @@
         }
       ],
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Insect Swarm talent in the Balance tree. Swarms the target with insects, dealing Nature damage over time."
     },
     {
       "ability_id": "druid_starfall",
@@ -510,7 +516,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Starfall talent in the Balance tree. Calls down a rain of stars, dealing Arcane damage to all enemies over time.",
+      "description": "Calls down a rain of stars, dealing Arcane damage to all enemies over time.",
       "ranks": [
         {
           "rank": 1,
@@ -527,7 +533,8 @@
       ],
       "target_type": "enemy_aoe",
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Starfall talent in the Balance tree. Calls down a rain of stars, dealing Arcane damage to all enemies over time."
     },
     {
       "ability_id": "druid_typhoon",
@@ -537,7 +544,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Typhoon talent in the Balance tree. A violent gust of wind blasts all enemies for Nature damage.",
+      "description": "A violent gust of wind blasts all enemies for Nature damage.",
       "ranks": [
         {
           "rank": 1,
@@ -549,7 +556,8 @@
       "target_type": "enemy_aoe",
       "requires_talent": true,
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_design_note": "Not learned from level alone - granted by the Typhoon talent in the Balance tree. A violent gust of wind blasts all enemies for Nature damage."
     },
     {
       "ability_id": "druid_berserk",
@@ -561,7 +569,7 @@
       "stat_mods": {
         "attack_power": 40
       },
-      "description": "Not learned from level alone - granted by the Berserk talent in the Feral tree. PLACEHOLDER: real WOTLK Berserk makes Mangle hit 3 targets with no cooldown and halves Cat Form Energy costs for 15 sec - this engine has no forms/bleed-amplification system yet, so this is a temporary Attack Power buff instead until that exists.",
+      "description": "Give in to feral rage, sharply increasing your Attack Power for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -580,7 +588,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Berserk talent in the Feral tree. PLACEHOLDER: real WOTLK Berserk makes Mangle hit 3 targets with no cooldown and halves Cat Form Energy costs for 15 sec - this engine has no forms/bleed-amplification system yet, so this is a temporary Attack Power buff instead until that exists."
     },
     {
       "ability_id": "druid_claw",
@@ -743,7 +752,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Requires Cat Form. PLACEHOLDER (no stealth system exists): real WOTLK Ravage requires stealth and deals massive bonus damage from behind - here it's simply a strong Cat Form attack on its own cooldown.",
+      "description": "A savage pounce that deals heavy damage. Requires Cat Form.",
       "ranks": [
         {
           "rank": 1,
@@ -774,7 +783,8 @@
         "cat"
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Requires Cat Form. PLACEHOLDER (no stealth system exists): real WOTLK Ravage requires stealth and deals massive bonus damage from behind - here it's simply a strong Cat Form attack on its own cooldown."
     },
     {
       "ability_id": "druid_swipe_cat",
@@ -972,7 +982,7 @@
       "stat_mods": {
         "physical_damage": 0.03
       },
-      "description": "Real WOTLK Thorns causes enemies who melee the target to take Nature damage - no reflect-damage-on-being-hit mechanic exists, so this is approximated as a flat physical-damage buff on the target instead.",
+      "description": "Sheathes the target in thorns, increasing the damage they deal.",
       "ranks": [
         {
           "rank": 1,
@@ -1026,7 +1036,8 @@
       "target_type": "ally",
       "buff_scope": "raid",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Real WOTLK Thorns causes enemies who melee the target to take Nature damage - no reflect-damage-on-being-hit mechanic exists, so this is approximated as a flat physical-damage buff on the target instead."
     },
     {
       "ability_id": "druid_barkskin",

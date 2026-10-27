@@ -359,7 +359,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Chimera Shot talent in the Marksmanship tree. A powerful instant shot. Real WOTLK's effect changes based on which Sting is active on the target and refreshes it - simplified here to a strong flat-damage shot since sting-conditional branching isn't modeled.",
+      "description": "A powerful instant shot that strikes for heavy damage.",
       "ranks": [
         {
           "rank": 1,
@@ -370,7 +370,8 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Chimera Shot talent in the Marksmanship tree. A powerful instant shot. Real WOTLK's effect changes based on which Sting is active on the target and refreshes it - simplified here to a strong flat-damage shot since sting-conditional branching isn't modeled."
     },
     {
       "ability_id": "hunter_explosive_shot",
@@ -380,7 +381,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Explosive Shot talent in the Survival tree. Lodges an explosive charge in the target, dealing Fire damage over time.",
+      "description": "Lodges an explosive charge in the target, dealing Fire damage over time.",
       "ranks": [
         {
           "rank": 1,
@@ -391,7 +392,8 @@
       ],
       "requires_talent": true,
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_design_note": "Not learned from level alone - granted by the Explosive Shot talent in the Survival tree. Lodges an explosive charge in the target, dealing Fire damage over time."
     },
     {
       "ability_id": "hunter_black_arrow",
@@ -401,7 +403,7 @@
       "effect_type": "spell_dot",
       "duration": 5,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Black Arrow talent in the Survival tree. Fires a black arrow that deals Shadow damage over time.",
+      "description": "Fires a black arrow that deals Shadow damage over time.",
       "ranks": [
         {
           "rank": 1,
@@ -418,7 +420,8 @@
       ],
       "requires_talent": true,
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_design_note": "Not learned from level alone - granted by the Black Arrow talent in the Survival tree. Fires a black arrow that deals Shadow damage over time."
     },
     {
       "ability_id": "hunter_wyvern_sting",
@@ -625,7 +628,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "PLACEHOLDER (no positioning/repositioning mechanic exists): real WOTLK Disengage leaps you backward out of melee range - here it's a temporary reduced-damage-taken buff instead.",
+      "description": "Break away from the fight, sharply reducing the damage you take for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -637,7 +640,8 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "PLACEHOLDER (no positioning/repositioning mechanic exists): real WOTLK Disengage leaps you backward out of melee range - here it's a temporary reduced-damage-taken buff instead."
     },
     {
       "ability_id": "hunter_freezing_trap",
@@ -671,7 +675,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.5
       },
-      "description": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Feign Death drops all threat by playing dead - here it's a temporary heavy damage-reduction buff instead.",
+      "description": "Play dead, heavily reducing the damage you take for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -683,7 +687,8 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Feign Death drops all threat by playing dead - here it's a temporary heavy damage-reduction buff instead."
     },
     {
       "ability_id": "hunter_scare_beast",
@@ -718,7 +723,7 @@
         "nature_resistance": 60,
         "crit_chance_physical": 5
       },
-      "description": "Assumes the Wild's aspect, granting Nature resistance and increased critical strike chance - matches Aspect of the Wild's real WOTLK identity, previously missing entirely since the engine had no Nature resistance stat to grant.",
+      "description": "Assume the Wild's aspect, granting Nature resistance and increased critical strike chance.",
       "ranks": [
         {
           "rank": 1,
@@ -730,7 +735,8 @@
       "target_type": "self",
       "icon_id": null,
       "buff_scope": "combat",
-      "exclusive_group": "hunter_aspect"
+      "exclusive_group": "hunter_aspect",
+      "_design_note": "Assumes the Wild's aspect, granting Nature resistance and increased critical strike chance - matches Aspect of the Wild's real WOTLK identity, previously missing entirely since the engine had no Nature resistance stat to grant."
     }
   ]
 }

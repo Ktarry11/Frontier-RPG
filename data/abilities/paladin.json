@@ -361,7 +361,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Holy Shock talent in the Holy tree. Blasts an ally with Holy energy, healing them instantly.",
+      "description": "Blasts an ally with Holy energy, healing them instantly.",
       "ranks": [
         {
           "rank": 1,
@@ -385,7 +385,8 @@
       "target_type": "ally",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Holy Shock talent in the Holy tree. Blasts an ally with Holy energy, healing them instantly."
     },
     {
       "ability_id": "paladin_avengers_shield",
@@ -395,7 +396,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Avenger's Shield talent in the Protection tree. Hurls a holy shield at the target, dealing damage. Real WOTLK also jumps to nearby enemies - simplified to single-target since no chaining-attack mechanic exists.",
+      "description": "Hurls a holy shield at the target, dealing Holy damage.",
       "ranks": [
         {
           "rank": 1,
@@ -412,7 +413,8 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Avenger's Shield talent in the Protection tree. Hurls a holy shield at the target, dealing damage. Real WOTLK also jumps to nearby enemies - simplified to single-target since no chaining-attack mechanic exists."
     },
     {
       "ability_id": "paladin_divine_storm",
@@ -422,7 +424,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Divine Storm talent in the Retribution tree. An instant weapon attack against all nearby enemies. Real WOTLK also heals your party for a share of the damage dealt - not modeled here since damage+party-heal combos aren't supported yet.",
+      "description": "An instant weapon attack against all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -434,7 +436,8 @@
       "target_type": "enemy_aoe",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Divine Storm talent in the Retribution tree. An instant weapon attack against all nearby enemies. Real WOTLK also heals your party for a share of the damage dealt - not modeled here since damage+party-heal combos aren't supported yet."
     },
     {
       "ability_id": "paladin_repentance",
@@ -791,7 +794,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "PLACEHOLDER (no revive-a-fallen-ally mechanic exists): real WOTLK Redemption resurrects a dead party member outside combat - here it's a very strong emergency heal on a living ally instead.",
+      "description": "Calls on the Light to pull an ally back from the brink, restoring a great deal of health.",
       "ranks": [
         {
           "rank": 1,
@@ -838,7 +841,8 @@
       ],
       "target_type": "ally",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "PLACEHOLDER (no revive-a-fallen-ally mechanic exists): real WOTLK Redemption resurrects a dead party member outside combat - here it's a very strong emergency heal on a living ally instead."
     },
     {
       "ability_id": "paladin_lay_on_hands",
@@ -881,7 +885,7 @@
       "effect_type": "buff",
       "duration": 5,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Seal of Command talent in the Retribution tree. Real proc: your melee attacks have a chance to deal a burst of Holy damage on the same hit. Judgement consumes this Seal for a bigger detonation than Seal of Righteousness, matching Seal of Command's real WOTLK identity as the harder-hitting, lower-uptime Retribution Seal.",
+      "description": "Your melee attacks have a chance to deal a burst of Holy damage. Judgement consumes this Seal for a heavy detonation.",
       "ranks": [
         {
           "rank": 1,
@@ -1000,7 +1004,8 @@
         }
       },
       "exclusive_group": "paladin_seal",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Seal of Command talent in the Retribution tree. Real proc: your melee attacks have a chance to deal a burst of Holy damage on the same hit. Judgement consumes this Seal for a bigger detonation than Seal of Righteousness, matching Seal of Command's real WOTLK identity as the harder-hitting, lower-uptime Retribution Seal."
     }
   ]
 }

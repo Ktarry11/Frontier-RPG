@@ -405,7 +405,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Penance talent in the Discipline tree. Real WOTLK Penance channels 3 bolts over 2 sec, healing an ally or damaging an enemy - this engine has no channel mechanic, so it resolves as a single strong heal instead.",
+      "description": "A focused beam of Holy light that heals an ally for a large amount.",
       "ranks": [
         {
           "rank": 1,
@@ -422,7 +422,8 @@
       ],
       "target_type": "ally",
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Penance talent in the Discipline tree. Real WOTLK Penance channels 3 bolts over 2 sec, healing an ally or damaging an enemy - this engine has no channel mechanic, so it resolves as a single strong heal instead."
     },
     {
       "ability_id": "priest_circle_of_healing",
@@ -432,7 +433,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Circle of Healing talent in the Holy tree. Instantly heals your entire party.",
+      "description": "Instantly heals your entire party.",
       "ranks": [
         {
           "rank": 1,
@@ -450,7 +451,8 @@
       "target_type": "party",
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Circle of Healing talent in the Holy tree. Instantly heals your entire party."
     },
     {
       "ability_id": "priest_shadowform",
@@ -460,7 +462,7 @@
       "effect_type": "shapeshift",
       "duration": 0,
       "stat_mods": {},
-      "description": "Shapeshift into Shadowform, increasing Spell Power against Shadow damage. Not learned from level alone - granted by the Shadowform talent in the Shadow tree.",
+      "description": "Shapeshift into Shadowform, increasing your Spell Power against Shadow damage.",
       "ranks": [
         {
           "rank": 1,
@@ -473,7 +475,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "shapeshift_form": "shadowform"
+      "shapeshift_form": "shadowform",
+      "_design_note": "Shapeshift into Shadowform, increasing Spell Power against Shadow damage. Not learned from level alone - granted by the Shadowform talent in the Shadow tree."
     },
     {
       "ability_id": "priest_silence",
@@ -485,7 +488,7 @@
       "stat_mods": {
         "hit_chance_spell": -60
       },
-      "description": "Not learned from level alone - granted by the Silence talent in the Shadow tree. PLACEHOLDER: real WOTLK Silence prevents spellcasting entirely for 3 sec - this engine has no cast-interrupt mechanic, so this instead heavily reduces the target's spell hit chance for 1 turn.",
+      "description": "Silences the target's mind, heavily reducing their spell hit chance for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -498,7 +501,8 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Silence talent in the Shadow tree. PLACEHOLDER: real WOTLK Silence prevents spellcasting entirely for 3 sec - this engine has no cast-interrupt mechanic, so this instead heavily reduces the target's spell hit chance for 1 turn."
     },
     {
       "ability_id": "priest_mind_flay",
@@ -508,7 +512,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Mind Flay talent in the Shadow tree. Assaults the target's mind, dealing Shadow damage over time. Real WOTLK channels this over 3 sec instead of applying a DoT - simplified since this engine has no channel mechanic.",
+      "description": "Assaults the target's mind, dealing Shadow damage over time.",
       "ranks": [
         {
           "rank": 1,
@@ -530,7 +534,8 @@
         }
       ],
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Mind Flay talent in the Shadow tree. Assaults the target's mind, dealing Shadow damage over time. Real WOTLK channels this over 3 sec instead of applying a DoT - simplified since this engine has no channel mechanic."
     },
     {
       "ability_id": "priest_vampiric_touch",
@@ -540,7 +545,7 @@
       "effect_type": "spell_dot",
       "duration": 5,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Vampiric Touch talent in the Shadow tree. Afflicts the target with a Shadow damage-over-time effect.",
+      "description": "Afflicts the target with a Shadow damage-over-time effect.",
       "ranks": [
         {
           "rank": 1,
@@ -550,7 +555,8 @@
         }
       ],
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Vampiric Touch talent in the Shadow tree. Afflicts the target with a Shadow damage-over-time effect."
     },
     {
       "ability_id": "priest_mind_sear",
@@ -560,7 +566,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Mind Sear talent in the Shadow tree. A wave of shadow energy damages all enemies over time. Real WOTLK channels this over 5 sec instead of applying a DoT - simplified since this engine has no channel mechanic.",
+      "description": "A wave of shadow energy damages all enemies over time.",
       "ranks": [
         {
           "rank": 1,
@@ -571,7 +577,8 @@
       ],
       "target_type": "enemy_aoe",
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Mind Sear talent in the Shadow tree. A wave of shadow energy damages all enemies over time. Real WOTLK channels this over 5 sec instead of applying a DoT - simplified since this engine has no channel mechanic."
     },
     {
       "ability_id": "priest_fade",
@@ -583,7 +590,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.4
       },
-      "description": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Fade drops your threat significantly - here it's a temporary damage-reduction buff instead.",
+      "description": "Fade from notice, reducing the damage you take for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -595,7 +602,8 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Fade drops your threat significantly - here it's a temporary damage-reduction buff instead."
     },
     {
       "ability_id": "priest_psychic_scream",

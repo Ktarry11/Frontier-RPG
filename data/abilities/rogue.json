@@ -222,7 +222,7 @@
         "dodge": 25,
         "parry": 10
       },
-      "description": "Not learned from level alone - granted by the Evasion talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. The rogue's dodge chance will increase for a short time.",
+      "description": "Your dodge chance increases sharply for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -246,7 +246,8 @@
       "target_type": "self",
       "icon_id": null,
       "buff_scope": "combat",
-      "requires_talent": true
+      "requires_talent": true,
+      "_design_note": "Not learned from level alone - granted by the Evasion talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. The rogue's dodge chance will increase for a short time."
     },
     {
       "ability_id": "rogue_expose_armor",
@@ -293,7 +294,7 @@
         "attack_power": 45,
         "haste": 15
       },
-      "description": "Not learned from level alone - granted by the Adrenaline Rush talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. Doubles your Energy regeneration for a short time.",
+      "description": "Doubles your Energy regeneration for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -311,7 +312,8 @@
       "target_type": "self",
       "icon_id": null,
       "buff_scope": "combat",
-      "requires_talent": true
+      "requires_talent": true,
+      "_design_note": "Not learned from level alone - granted by the Adrenaline Rush talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. Doubles your Energy regeneration for a short time."
     },
     {
       "ability_id": "rogue_mutilate",
@@ -321,7 +323,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Mutilate talent in the Assassination tree. A vicious double-dagger strike, requiring daggers in both hands.",
+      "description": "A vicious double-dagger strike. Requires daggers in both hands.",
       "ranks": [
         {
           "rank": 1,
@@ -344,7 +346,8 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_design_note": "Not learned from level alone - granted by the Mutilate talent in the Assassination tree. A vicious double-dagger strike, requiring daggers in both hands."
     },
     {
       "ability_id": "rogue_cold_blood",
@@ -356,7 +359,7 @@
       "stat_mods": {
         "crit_chance_physical": 100
       },
-      "description": "Not learned from level alone - granted by the Cold Blood talent in the Assassination tree. Your next attack is guaranteed to critically strike.",
+      "description": "Your next attack is guaranteed to critically strike.",
       "ranks": [
         {
           "rank": 1,
@@ -369,7 +372,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Cold Blood talent in the Assassination tree. Your next attack is guaranteed to critically strike."
     },
     {
       "ability_id": "rogue_hemorrhage",
@@ -379,7 +383,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Not learned from level alone - granted by the Hemorrhage talent in the Subtlety tree. A vicious strike that deals damage and causes the target to bleed.",
+      "description": "A vicious strike that deals damage and causes the target to bleed.",
       "ranks": [
         {
           "rank": 1,
@@ -409,7 +413,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "_design_note": "Not learned from level alone - granted by the Hemorrhage talent in the Subtlety tree. A vicious strike that deals damage and causes the target to bleed."
     },
     {
       "ability_id": "rogue_shadow_dance",
@@ -421,7 +426,7 @@
       "stat_mods": {
         "crit_chance_physical": 15
       },
-      "description": "Not learned from level alone - granted by the Shadow Dance talent in the Subtlety tree. PLACEHOLDER (no stealth-window mechanic exists): real WOTLK Shadow Dance lets you use stealth-only abilities without being stealthed for 6 sec - here it grants a temporary Physical Crit buff instead.",
+      "description": "Step into the shadows, sharply increasing your Physical Critical Strike chance for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -434,7 +439,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "Not learned from level alone - granted by the Shadow Dance talent in the Subtlety tree. PLACEHOLDER (no stealth-window mechanic exists): real WOTLK Shadow Dance lets you use stealth-only abilities without being stealthed for 6 sec - here it grants a temporary Physical Crit buff instead."
     },
     {
       "ability_id": "rogue_slice_and_dice",
@@ -516,7 +522,7 @@
       "stat_mods": {
         "hit_chance_spell": -70
       },
-      "description": "PLACEHOLDER (no cast-interrupt mechanic exists): real WOTLK Kick interrupts spellcasting and locks out the school for 5 sec - here it heavily reduces the target's spell hit chance for 1 turn instead.",
+      "description": "A sharp kick that disrupts the target, heavily reducing their spell hit chance for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -528,7 +534,8 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "PLACEHOLDER (no cast-interrupt mechanic exists): real WOTLK Kick interrupts spellcasting and locks out the school for 5 sec - here it heavily reduces the target's spell hit chance for 1 turn instead."
     },
     {
       "ability_id": "rogue_gouge",
@@ -562,7 +569,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Feint drops threat and reduces AoE damage taken - here it's a temporary damage-reduction buff instead.",
+      "description": "A feinting strike that draws attention away, reducing the damage you take for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -574,7 +581,8 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "PLACEHOLDER (no threat/aggro system exists): real WOTLK Feint drops threat and reduces AoE damage taken - here it's a temporary damage-reduction buff instead."
     },
     {
       "ability_id": "rogue_vanish",
@@ -586,7 +594,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.6
       },
-      "description": "PLACEHOLDER (no stealth system exists): real WOTLK Vanish drops you into stealth, removing all threat and most negative effects - here it's a very strong temporary damage-reduction buff instead.",
+      "description": "Vanish from sight, drastically reducing the damage you take for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -598,7 +606,8 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_design_note": "PLACEHOLDER (no stealth system exists): real WOTLK Vanish drops you into stealth, removing all threat and most negative effects - here it's a very strong temporary damage-reduction buff instead."
     },
     {
       "ability_id": "rogue_garrote",

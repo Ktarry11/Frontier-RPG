@@ -1351,7 +1351,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A weapon strike that applies Seething Void and generates Void Runes. Simplification note: real CoA Entropic Strike has a weapon-damage component alongside its Shadow-tagged Seething Void effect - this engine models it as pure Shadow school for now (matching the named Void effect, since there's no mechanism yet for a single ability to deal a physical hit AND apply a separately-schooled debuff in one action). Matches Cultist's real Strength/Intellect hybrid identity as a case where a future split-damage-source mechanic would be more accurate.",
+      "description": "A weapon strike wreathed in void energy, applying Seething Void and generating Void Runes.",
       "_source": "CoA handoff doc: 'Weapon damage + applies Seething Void + generates 2 Void Runes.' Real numbers not confirmed via a dedicated screenshot.",
       "ranks": [
         {
@@ -1380,7 +1380,8 @@
         }
       ],
       "icon_id": "ability_melee",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_design_note": "A weapon strike that applies Seething Void and generates Void Runes. Simplification note: real CoA Entropic Strike has a weapon-damage component alongside its Shadow-tagged Seething Void effect - this engine models it as pure Shadow school for now (matching the named Void effect, since there's no mechanism yet for a single ability to deal a physical hit AND apply a separately-schooled debuff in one action). Matches Cultist's real Strength/Intellect hybrid identity as a case where a future split-damage-source mechanic would be more accurate."
     },
     {
       "ability_id": "cultist_tentacle_of_nzoth",
