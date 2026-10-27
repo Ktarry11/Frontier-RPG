@@ -408,7 +408,7 @@
     {
       "talent_id": "warrior_arms_arms_mastery",
       "name": "Sudden Death",
-      "description": "Real proc: melee hits have a chance to make your next Execute usable regardless of the target's health - matches Sudden Death's actual WOTLK identity as a genuine HP-gate bypass, now that Execute has a real 20% health requirement to bypass (previously Execute had no HP gate at all).",
+      "description": "Your melee hits have a chance to make your next Execute usable regardless of the target's remaining health.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -434,7 +434,8 @@
             "bypass_execute_threshold": true
           }
         }
-      }
+      },
+      "_note": "Design intent: a genuine HP-gate bypass, matching Sudden Death in WotLK, now that Execute has a real 20% health requirement. NOT YET IMPLEMENTED - effects is empty and tools/audit_talents.py reports it under no-effects."
     }
   ]
 }
