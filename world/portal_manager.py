@@ -291,6 +291,21 @@ class PortalManager:
                 (138, 90): ("Ambermill Tower", 75, 128),
                 (48, 144): ("Shadowfang Keep", 100, 172),
                 (151, 44): ("Fenris Isle", 80, 129),               # the ferry: arrive (80,127) on the pier
+                # The south-east pass out of Lordaeron into Hillsbrad. Silverpine borders Hillsbrad's north-WEST, so
+                # this lands in the WESTERN half (Kyle: "Players enter from the west bro").
+                (138, 155): ("Western Hillsbrad", 40, 11),         # arrive (40,9), clear of the pass portal
+            },
+
+            # ===== HILLSBRAD (2 zones) - the first green country after the blight =====
+            "Western Hillsbrad": {
+                # Hand-built (tools/handbuilt_hillsbrad_west.py): the Silverpine pass at the top, Southpoint Tower just
+                # down the road as the player's hub, and the east road on to Tarren Mill.
+                (40, 5): ("Silverpine South", 138, 153),           # arrive (138,151), clear of the pass portal
+                (155, 86): ("Eastern Hillsbrad", 8, 88),           # arrive (8,86), clear of the west gate
+            },
+            "Eastern Hillsbrad": {
+                # Hand-built (tools/handbuilt_hillsbrad_east.py): Tarren Mill, Durnholde, and the shut Arathi wall.
+                (5, 86): ("Western Hillsbrad", 152, 88),           # arrive (152,86), clear of the east gate
             },
             "The Sepulcher": {
                 (44, 67): ("Silverpine North", 32, 102),           # arrive (32,100), south of the gate

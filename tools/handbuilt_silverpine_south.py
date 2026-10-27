@@ -17,6 +17,7 @@ long ruined wall.  The trunk road branches seven ways; pine groves separate the 
 
 HARD CONTRACTS (world/portal_manager.py)
   portals  Silverpine North <- (80,5)   Shadowfang Keep (48,144)   Ambermill Tower (138,90)   Fenris Isle ferry (151,44)
+           Western Hillsbrad (138,155) - the south-east pass out of Lordaeron, added with the Hillsbrad cluster
 """
 import sys
 
@@ -36,8 +37,9 @@ IS_TOWN = False
 BASE_TILE = "grass"
 SEED = 83
 
-PORTALS = {(80, 5): "Silverpine North", (48, 144): "Shadowfang Keep", (138, 90): "Ambermill Tower", (151, 44): "Fenris Isle"}
-ARRIVALS = [(80, 9), (48, 145), (138, 91), (149, 44)]
+PORTALS = {(80, 5): "Silverpine North", (48, 144): "Shadowfang Keep", (138, 90): "Ambermill Tower", (151, 44): "Fenris Isle",
+           (138, 155): "Western Hillsbrad"}
+ARRIVALS = [(80, 9), (48, 145), (138, 91), (149, 44), (138, 151)]
 START = (80, 22)
 
 ROADS = {
@@ -50,6 +52,8 @@ ROADS = {
     "shadowfang": ([(86, 102), (72, 114), (62, 126), (54, 138), (48, 145)], 2.8),
     "peril":      ([(90, 104), (98, 118), (106, 130), (116, 144)], 2.4),
     "wall":       ([(116, 144), (130, 148)], 2.4),
+    # on into Hillsbrad: the pass out of Lordaeron's south-east corner
+    "hillsbrad":  ([(130, 148), (136, 152), (138, 156)], 2.6),
 }
 _RS = K.RoadSet(ROADS)
 road_dist = _RS.dist

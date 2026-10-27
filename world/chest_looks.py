@@ -19,6 +19,7 @@ REGIONAL = {
     "deathknell": "undead_rusted", "western_tirisfal": "undead_rusted", "eastern_tirisfal": "undead_rusted",
     "brill": "undead_rusted", "undercity": "undead_rusted", "the_sepulcher": "undead_rusted", "sepulcher": "undead_rusted",
     "silverpine_north": "undead_rusted", "silverpine_south": "undead_rusted",
+    "hillsbrad_east": "undead_rusted", "hillsbrad_west": "undead_rusted",
 }
 
 # dungeon key -> (side-room looks, boss-reward look)

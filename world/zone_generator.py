@@ -5618,6 +5618,8 @@ def create_all_zones():
     from tools import handbuilt_ambermill_tower as dat
     from tools import handbuilt_shadowfang_keep as dsfk
     from tools import handbuilt_fenris_isle as dfen
+    from tools import handbuilt_hillsbrad_east as dhbe
+    from tools import handbuilt_hillsbrad_west as dhbw
     from tools import handbuilt_shadowpine_altar as dsa
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
@@ -5688,6 +5690,10 @@ def create_all_zones():
         
         # ===== FENRIS ISLE (new zone) =====
         "Fenris Isle": dfen.generate_fenris_isle(),  # hand-built island (tools/handbuilt_fenris_isle.py)
+
+        # ===== HILLSBRAD SPLIT (2 zones) - the first GREEN country after the blight =====
+        "Eastern Hillsbrad": dhbe.generate_hillsbrad_east(),  # hand-built (tools/handbuilt_hillsbrad_east.py)
+        "Western Hillsbrad": dhbw.generate_hillsbrad_west(),  # hand-built (tools/handbuilt_hillsbrad_west.py)
         
         # ===== EXPANSION DUNGEONS =====
         "Ragefire Chasm": generate_ragefire_chasm(),  # hand-built (tools/handbuilt_dungeons.py)
