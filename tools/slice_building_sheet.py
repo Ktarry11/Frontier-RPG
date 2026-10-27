@@ -30,27 +30,42 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from slice_icon_sheet import key_magenta  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-COLS, ROWS = 6, 5
 
-#: Cell order, left to right then top to bottom - the same order as the numbered list in the prompt doc.
-NAMES = [
-    # row 1 - the mill cluster
-    "ek_watermill", "ek_mill_sluice", "ek_granary",
-    "ek_millstone_shelter", "ek_apothecarium", "ek_plague_vat_platform",
-    # row 2 - occupation and village
-    "ek_forsaken_field_tent", "ek_forsaken_watchtower", "ek_cottage_small",
-    "ek_cottage_medium", "ek_townhouse", "ek_village_inn",
-    # row 3 - village services
-    "ek_village_chapel", "ek_smithy_forge", "ek_stable_block",
-    "ek_barn", "ek_trading_post", "ek_fishery_shed",
-    # row 4 - working buildings
-    "ek_boathouse", "ek_sawmill_shed", "ek_tannery",
-    "ek_apiary_shelter", "ek_border_watchtower", "ek_gatehouse",
-    # row 5 - military and ruin
-    "ek_barracks_hall", "ek_command_tent", "ek_ruined_gatehouse",
-    "ek_burnt_cottage", "ek_syndicate_house", "ek_wayshrine",
-]
-assert len(NAMES) == COLS * ROWS, len(NAMES)
+#: set name -> (cols, rows, output dir, names in grid order left-to-right then top-to-bottom)
+SETS = {}
+
+
+def _set(key, cols, rows, out, names):
+    names = names.split()
+    assert len(names) == cols * rows, (key, len(names), cols * rows)
+    SETS[key] = (cols, rows, out, names)
+
+
+_set("ek_buildings", 6, 5, "assets/buildings", """
+    ek_watermill ek_mill_sluice ek_granary ek_millstone_shelter ek_apothecarium ek_plague_vat_platform
+    ek_forsaken_field_tent ek_forsaken_watchtower ek_cottage_small ek_cottage_medium ek_townhouse ek_village_inn
+    ek_village_chapel ek_smithy_forge ek_stable_block ek_barn ek_trading_post ek_fishery_shed
+    ek_boathouse ek_sawmill_shed ek_tannery ek_apiary_shelter ek_border_watchtower ek_gatehouse
+    ek_barracks_hall ek_command_tent ek_ruined_gatehouse ek_burnt_cottage ek_syndicate_house ek_wayshrine""")
+
+#: Generic high-elven architecture in the classic crimson and gold. Deliberately NOT Underdark-specific:
+#: Kael's Bastion gets its look by hue-shifting these, and Silvermoon/Ghostlands/Eversong reuse the originals.
+_set("blood_elf", 6, 5, "assets/buildings", """
+    be_house_small be_house_medium be_manor be_townhouse be_inn be_shop
+    be_market_stall be_smithy be_alchemist be_sanctum be_spire be_grand_spire
+    be_great_hall be_library be_temple be_barracks be_guard_post be_gatehouse
+    be_wall_arch be_arcane_well be_portal_frame be_stable be_storehouse be_treasury
+    be_observatory be_pavilion be_command_tent be_ruined_house be_ruined_tower be_obelisk""")
+
+#: The giant mushrooms are the Underdark's TREES - cells 1-4 are scattered by the forest pass, so their
+#: relative scale against the camp gear and rubble is load-bearing, not cosmetic.
+_set("underdark_props", 6, 6, "assets/tiles/underdark/props", """
+    ud_shroom_tall_violet ud_shroom_squat_ochre ud_shroom_cluster_blue ud_shroom_canopy ud_shroom_small ud_shelf_fungus
+    ud_crystal_violet ud_crystal_cyan ud_lattice_growth ud_crystal_spire ud_geode_open ud_crystal_float
+    ud_glow_pool ud_lichen_boulder ud_moss_curtain ud_spore_vent ud_ice_stalagmites ud_frozen_crate
+    ud_survey_tripod ud_arcane_brazier ud_field_desk ud_codex_crates ud_specimen_rack ud_codex_banner
+    ud_dig_scaffold ud_codex_tent ud_broken_column ud_fallen_arch ud_statue_armless ud_masonry_rubble
+    ud_floating_stone ud_rune_stone ud_fungal_shelf ud_fungal_node ud_cocooned_shape ud_stalagmites""")
 
 #: A blob this big ANCHORS a cell - it is the building body. Buildings are far larger than icons, so the icon
 #: slicer's 60px floor would let keying dirt anchor a cell on its own.
@@ -62,9 +77,10 @@ MIN_BLOB = 1500
 MIN_PART = 60
 
 
-def slice_sheet(sheet_path, out_dir=None, preview=None):
+def slice_sheet(which, sheet_path, out_dir=None, preview=None):
+    COLS, ROWS, default_out, NAMES = SETS[which]
     from scipy import ndimage
-    out_dir = Path(out_dir) if out_dir else ROOT / "assets" / "buildings"
+    out_dir = Path(out_dir) if out_dir else ROOT / default_out
     out_dir.mkdir(parents=True, exist_ok=True)
 
     im = Image.open(sheet_path).convert("RGB")
@@ -75,7 +91,12 @@ def slice_sheet(sheet_path, out_dir=None, preview=None):
     solid = rgba[..., 3] > 24
     solid[:4, :] = solid[-4:, :] = False          # a sheet edge that is not quite magenta is not a building
     solid[:, :4] = solid[:, -4:] = False
-    labels, n = ndimage.label(ndimage.binary_dilation(solid, iterations=4))
+    # Dilation bridges a detached chimney or banner back onto its building. Too much of it welds NEIGHBOURING
+    # buildings together instead: a tall sprite overflows its cell, touches the one in the next row, the merged
+    # blob's centre lands in one cell and the other comes up empty. Found with the blood elf sheet, where the
+    # grand spire (449px in a 250px row) swallowed the shop above it. Two is enough to catch a loose chimney
+    # and not enough to cross the gap between two drawn buildings.
+    labels, n = ndimage.label(ndimage.binary_dilation(solid, iterations=2))
 
     cells, parts = {}, {}
     for lab in range(1, n + 1):
@@ -140,7 +161,7 @@ def _preview(written, out_dir, path):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    if not args:
-        raise SystemExit(__doc__)
+    if len(args) < 2 or args[0] not in SETS:
+        raise SystemExit(f"usage: slice_building_sheet.py <{'|'.join(SETS)}> <sheet.png> [--preview OUT]")
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
-    slice_sheet(args[0], preview=pv)
+    slice_sheet(args[0], args[1], preview=pv)
