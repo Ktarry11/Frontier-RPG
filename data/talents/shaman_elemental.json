@@ -368,7 +368,7 @@
     {
       "talent_id": "shaman_elemental_elemental_oath",
       "name": "Elemental Oath",
-      "description": "Your Lava Burst casts leave the target taking 4% more Magic damage for 3 turns.",
+      "description": "Your Lava Burst casts have a 34% chance per rank to leave the target taking 4% more Magic damage for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -382,7 +382,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 34,
         "icd": 0,
         "ability_filter": [
           "shaman_lava_burst"

@@ -122,6 +122,21 @@ POINTS_PCT_KEYS = frozenset({
     "armor_pct", "armor_penetration_pct",
 })
 
+#: Triggers combat/status_effects.py actually dispatches on. A proc with any
+#: other trigger never fires.
+PROC_TRIGGERS = frozenset({
+    "on_cast", "on_crit", "on_kill", "on_target", "on_weapon_swing",
+    "on_damage_cast", "on_damage_taken", "on_heal_cast",
+    "on_cast_damage_or_heal", "on_damage_or_heal_cast",
+})
+
+#: The payload keys that make a proc do something. A proc carrying none of
+#: these fires and has no effect.
+PROC_PAYLOADS = frozenset({
+    "grant_resource", "apply_effect", "bonus_pct", "extra_attack",
+    "cast_ability", "heal_flat", "smart_heal",
+})
+
 #: Effect-key prefixes/suffixes the engine resolves dynamically, so a grep
 #: for the literal key name will never find them.
 _DYNAMIC_KEY = re.compile(
@@ -187,6 +202,38 @@ def main():
                 findings["pct-unit-mixup"].append(
                     f"{tid} ({n.get('name')!r}): {key}={val} - this key is a "
                     f"FRACTION, so that is {abs(val) * 100}%")
+
+        # Proc payloads get the same scrutiny as `effects`. A proc's
+        # apply_effect stat_mods are read through the same generic pool, so a
+        # key nothing reads makes the proc fire and do nothing - and the
+        # dead-effect-key check above only ever looked at `effects`, so this
+        # whole surface was unchecked.
+        proc = n.get("proc")
+        if proc:
+            if proc.get("trigger") not in PROC_TRIGGERS:
+                findings["proc-bad-trigger"].append(
+                    f"{tid} ({n.get('name')!r}): trigger {proc.get('trigger')!r} "
+                    f"is not one the engine dispatches")
+            if not any(k in proc for k in PROC_PAYLOADS):
+                findings["proc-no-payload"].append(
+                    f"{tid} ({n.get('name')!r}): proc has a trigger but no payload, "
+                    f"so it fires and does nothing")
+            if proc.get("chance", 1) == 0:
+                findings["proc-no-payload"].append(
+                    f"{tid} ({n.get('name')!r}): proc chance is 0")
+            mods = ((proc.get("apply_effect") or {}).get("stat_mods") or {})
+            for key, val in mods.items():
+                if key not in LIVE:
+                    findings["dead-effect-key"].append(
+                        f"{tid} ({n.get('name')!r}): proc stat_mod {key!r} is read "
+                        f"by no engine code")
+                elif (isinstance(val, (int, float)) and key.endswith("_pct")
+                        and 0 < abs(val) < 1.0):
+                    # Inside a status effect these are POINTS, not fractions -
+                    # the opposite of the talent-effects convention.
+                    findings["pct-unit-mixup"].append(
+                        f"{tid} ({n.get('name')!r}): proc stat_mod {key}={val} - "
+                        f"status stat_mods take POINTS, so that is {abs(val)}%")
 
     by_file_name = defaultdict(list)
     for tid, n in T.items():

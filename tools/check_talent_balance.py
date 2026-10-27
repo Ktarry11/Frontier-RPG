@@ -111,6 +111,10 @@ def main():
                     f"{cls}: {key} reaches {round(val, 3)} (cap {cap}) from "
                     + ", ".join(f"{n}" for _, n, _ in src))
 
+        # Every ability_id this class can actually cast. Checks 5 and 6 both
+        # compare authored ids against it.
+        known = {a.ability_id for a in c.ability_book.get_all_abilities()}
+
         # 3. cooldown reductions must not overshoot the base.
         #
         # Ability.talented_cooldown floors at 1 turn for anything that has a
@@ -146,9 +150,32 @@ def main():
                 if proc["chance"] > 100:
                     failures.append(
                         f"{cls}: {node.name} proc chance is {proc['chance']}% at one rank")
+                # A multi-rank node whose proc is already at 100% gets nothing
+                # from its extra ranks unless its `effects` scale too - the
+                # player pays for ranks that cannot do anything.
+                if (proc["chance"] >= 100 and node.max_points > 1
+                        and not node.effects):
+                    failures.append(
+                        f"{cls}: {node.name} is {node.max_points} ranks but its proc is "
+                        f"already 100% at rank 1 and it has no scaling effects - "
+                        f"ranks 2+ buy nothing")
+
+        # 6. a proc's ability_filter must name abilities the class can cast.
+        #    A typo here does not error: the filter simply never matches and
+        #    the proc silently never fires.
+        for tname, tree in c.talent_trees.items():
+            for node in tree.nodes.values():
+                proc = getattr(node, "proc", None) or {}
+                filt = proc.get("ability_filter") or []
+                if isinstance(filt, str):
+                    filt = [filt]
+                for aid in filt:
+                    if aid not in known:
+                        failures.append(
+                            f"{cls}: {node.name} proc filters on '{aid}', which this "
+                            f"class has no ability for - the proc can never fire")
 
         # 5. an ability modifier naming an ability this class cannot cast
-        known = {a.ability_id for a in c.ability_book.get_all_abilities()}
         for key in totals:
             if not isinstance(key, str) or not key.startswith("ability_"):
                 continue

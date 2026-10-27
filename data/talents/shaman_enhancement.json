@@ -324,7 +324,7 @@
     {
       "talent_id": "shaman_enhancement_mental_dexterity",
       "name": "Mental Dexterity",
-      "description": "Your Stormstrike casts grant 50 Attack Power for 3 turns.",
+      "description": "Your Stormstrike casts have a 34% chance per rank to grant 50 Attack Power for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -337,7 +337,7 @@
       ],
       "proc": {
         "trigger": "on_cast",
-        "chance": 100,
+        "chance": 34,
         "icd": 1,
         "ability_filter": [
           "shaman_stormstrike"
