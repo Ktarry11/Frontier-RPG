@@ -596,7 +596,7 @@
       "name": "Exorcism",
       "resource_type": "mana",
       "cooldown": 1,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "Deals Holy damage to the target.",
@@ -627,7 +627,8 @@
         }
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "damage_school": "holy"
     },
     {
       "ability_id": "paladin_seal_of_righteousness",

@@ -532,7 +532,7 @@
       "name": "Typhoon",
       "resource_type": "mana",
       "cooldown": 4,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "Not learned from level alone - granted by the Typhoon talent in the Balance tree. A violent gust of wind blasts all enemies for Nature damage.",
@@ -546,7 +546,8 @@
       ],
       "target_type": "enemy_aoe",
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "damage_school": "nature"
     },
     {
       "ability_id": "druid_berserk",

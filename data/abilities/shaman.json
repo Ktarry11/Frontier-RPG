@@ -428,7 +428,7 @@
       "name": "Thunderstorm",
       "resource_type": "mana",
       "cooldown": 5,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "Not learned from level alone - granted by the Thunderstorm talent in the Elemental tree. Calls down lightning, damaging all nearby enemies and restoring some of your Mana.",
@@ -442,7 +442,8 @@
       ],
       "target_type": "enemy_aoe",
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "damage_school": "nature"
     },
     {
       "ability_id": "shaman_feral_spirit",

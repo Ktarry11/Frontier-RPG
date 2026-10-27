@@ -196,7 +196,8 @@
           "effect_value": 182
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "damage_school": "fire"
     },
     {
       "ability_id": "warlock_summon_imp",
@@ -524,7 +525,7 @@
       "name": "Conflagrate",
       "resource_type": "mana",
       "cooldown": 2,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet.",
@@ -550,14 +551,15 @@
       ],
       "requires_talent": true,
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "damage_school": "fire"
     },
     {
       "ability_id": "warlock_chaos_bolt",
       "name": "Chaos Bolt",
       "resource_type": "mana",
       "cooldown": 3,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "Not learned from level alone - granted by the Chaos Bolt talent in the Destruction tree. Deals massive Chaos damage that cannot be resisted.",
@@ -570,7 +572,8 @@
         }
       ],
       "requires_talent": true,
-      "icon_id": null
+      "icon_id": null,
+      "damage_school": "fire"
     },
     {
       "ability_id": "warlock_shadowfury",
@@ -703,7 +706,7 @@
       "name": "Searing Pain",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "A quick-casting bolt of Fire damage.",
@@ -752,7 +755,8 @@
         }
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "damage_school": "fire"
     },
     {
       "ability_id": "warlock_curse_of_agony",
