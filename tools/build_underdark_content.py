@@ -162,7 +162,7 @@ UNDERDARK_ZONE = {
                                                 "Syndicate Interloper": 3, "Lattice Sentry": 2}},
         "The Sunken Archive": {"name": "The Sunken Archive",
                                "creatures": {"Archive Revenant": 5, "Codex Dissident": 4,
-                                             "Syndicate Interloper": 2,
+                                             "Syndicate Interloper": 3,
                                              "Archivist Thelun, Unlisted": 0}},
         "The Dim Reaches": {"name": "The Dim Reaches",
                             "creatures": {"Dim-Walker": 5, "Riftward Aberration": 3, "Archive Revenant": 2,

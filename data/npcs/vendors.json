@@ -1669,6 +1669,167 @@
       "gender": "female",
       "appearance_variant": 10,
       "greeting": "Gate stores. The town has its own shops across the bridges; this is for people who are leaving."
+    },
+    {
+      "vendor_id": "kb_quartermaster",
+      "name": "Quartermaster Sylvaine",
+      "zone": "kaels_bastion",
+      "x": 30,
+      "y": 72,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_greater",
+        "mana_potion_greater",
+        "bread_and_cheese",
+        "roasted_meat",
+        "guardian_elixir_standard",
+        "whetstone",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "blood_elf",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "blood_elf",
+      "gender": "female",
+      "appearance_variant": 4,
+      "greeting": "Everything here was carried down a fissure on somebody's back. Price it accordingly."
+    },
+    {
+      "vendor_id": "kb_trader",
+      "name": "Factor Anselm Dawnmere",
+      "zone": "kaels_bastion",
+      "x": 60,
+      "y": 58,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "parchment",
+        "thread_fine",
+        "flux_standard",
+        "lamp_oil"
+      ],
+      "buys_from_player": true,
+      "faction": "blood_elf",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "blood_elf",
+      "gender": "male",
+      "appearance_variant": 9,
+      "greeting": "I trade in two directions and only one of them goes up the fissure. Guess which has the margin."
+    },
+    {
+      "vendor_id": "kb_smith",
+      "name": "Smith Harvald Emberlock",
+      "zone": "kaels_bastion",
+      "x": 24,
+      "y": 58,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_standard",
+        "thread_coarse",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "blood_elf",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "blood_elf",
+      "gender": "male",
+      "appearance_variant": 17,
+      "greeting": "No coal down here worth the name. I burn what the Codex rules is expendable, and they rule often."
+    },
+    {
+      "vendor_id": "kb_reagent_seller",
+      "name": "Reagent-Keeper Ilthea",
+      "zone": "kaels_bastion",
+      "x": 70,
+      "y": 58,
+      "tile_sprite": "npc",
+      "sells": [
+        "mana_potion_greater",
+        "vial_empty",
+        "parchment",
+        "thread_fine"
+      ],
+      "buys_from_player": true,
+      "faction": "blood_elf",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "blood_elf",
+      "gender": "female",
+      "appearance_variant": 6,
+      "greeting": "Catalogued, labelled, shelved. If you want it unlabelled, go and pull it out of the ground yourself."
+    },
+    {
+      "vendor_id": "kb_innkeeper",
+      "name": "Innkeeper Maeven Sorrowglass",
+      "zone": "kaels_bastion",
+      "x": 34,
+      "y": 58,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "healing_potion_standard",
+        "mana_potion_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "blood_elf",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "blood_elf",
+      "gender": "female",
+      "appearance_variant": 12,
+      "greeting": "There is no night here. We decided there was one anyway, and I keep the hours. Somebody has to."
+    },
+    {
+      "vendor_id": "kb_alchemist",
+      "name": "Alchemist Terrowen",
+      "zone": "kaels_bastion",
+      "x": 30,
+      "y": 44,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_greater",
+        "mana_potion_greater",
+        "guardian_elixir_standard",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "blood_elf",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "blood_elf",
+      "gender": "male",
+      "appearance_variant": 20,
+      "greeting": "Four years of samples and the reagents keep testing BETTER than their surface equivalents. I have stopped putting that in reports."
+    },
+    {
+      "vendor_id": "ud_geode_campkeeper",
+      "name": "Campkeeper Threnn",
+      "zone": "the_crystalline_underdark",
+      "x": 146,
+      "y": 58,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "bread_and_cheese",
+        "lamp_oil",
+        "whetstone",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "blood_elf",
+      "gear_level": 20,
+      "sells_gear": false,
+      "race": "blood_elf",
+      "gender": "female",
+      "appearance_variant": 13,
+      "greeting": "Last supplies before the Geode. I am required to tell you that and required not to tell you why."
     }
   ]
 }

@@ -1721,6 +1721,21 @@
         "category": "quest",
         "description": "Cut stone with a name on it, taken out of the west bank chapel yard. Cut stone sells; names do not.",
         "chance": 0.4
+      },
+      {
+        "item_id": "deepscout_route",
+        "name": "Oiled Route Card",
+        "category": "quest",
+        "description": "Sewn inside a cuff: the fissure marked, and four months of arrivals kept nightly.",
+        "chance": 0.11,
+        "starts_quest": "hbe_route_card"
+      },
+      {
+        "item_id": "syndicate_tally",
+        "name": "Syndicate Tally",
+        "category": "quest",
+        "description": "A night's count of who went into the hole and who came back out.",
+        "chance": 0.32
       }
     ],
     "Drowned Castaway": [
@@ -1741,6 +1756,163 @@
         "description": "A survey of a keep in a neat court hand, with the inner ward measured and the garrison strength noted in the margin. The keep is not this one.",
         "chance": 0.12,
         "starts_quest": "sfk_annotated_page"
+      }
+    ],
+    "Hoarfrost Yeti": [
+      {
+        "item_id": "rimed_marrow",
+        "name": "Rimed Marrow",
+        "category": "quest",
+        "description": "Still warm, which after forty years in that ice it has no business being.",
+        "chance": 0.34
+      }
+    ],
+    "Alterac Expeditionary": [
+      {
+        "item_id": "frozen_survey_page",
+        "name": "Frozen Survey Page",
+        "category": "quest",
+        "description": "An Alteraci hand, forty-one years old: THE READINGS ARE WRONG AND I AM GOING ON.",
+        "chance": 0.12,
+        "starts_quest": "fd_frozen_page"
+      },
+      {
+        "item_id": "expedition_fitting",
+        "name": "Expedition Fitting",
+        "category": "quest",
+        "description": "A buckle, a strap-end, a lamp-bracket. Alterac make, and still done up.",
+        "chance": 0.36
+      }
+    ],
+    "Sporeback Grazer": [
+      {
+        "item_id": "sporeback_cap",
+        "name": "Sporeback Cap",
+        "category": "quest",
+        "description": "Broad, pale and faintly lit. The ones that look like faces are fine.",
+        "chance": 0.38
+      }
+    ],
+    "Lattice Sentry": [
+      {
+        "item_id": "shard_core",
+        "name": "Lattice Core",
+        "category": "quest",
+        "description": "The figure closes perfectly. It closes in the same place on every one of them.",
+        "chance": 0.34
+      }
+    ],
+    "Shard Diviner": [
+      {
+        "item_id": "shard_core",
+        "name": "Lattice Core",
+        "category": "quest",
+        "description": "The figure closes perfectly. It closes in the same place on every one of them.",
+        "chance": 0.34
+      }
+    ],
+    "Lumen Leech": [
+      {
+        "item_id": "lumen_sac",
+        "name": "Lumen Sac",
+        "category": "quest",
+        "description": "It holds the light at the phase you cut it, and the phase is never its own.",
+        "chance": 0.36
+      }
+    ],
+    "Archive Revenant": [
+      {
+        "item_id": "dalaran_fragment",
+        "name": "Worked Dalaran Fragment",
+        "category": "quest",
+        "description": "Kirin Tor jointing. Cut, not broken, and never once weathered.",
+        "chance": 0.34
+      },
+      {
+        "item_id": "unissued_slip",
+        "name": "Unissued Catalogue Slip",
+        "category": "quest",
+        "description": "Codex paper, Codex ink, and a number four hundred ahead of anything they have issued.",
+        "chance": 0.1,
+        "starts_quest": "ud_archive_unissued"
+      },
+      {
+        "item_id": "catalogue_slip",
+        "name": "Catalogue Slip",
+        "category": "quest",
+        "description": "Filed in the Codex's own sequence, for an object the Codex has not found.",
+        "chance": 0.33
+      }
+    ],
+    "Mycelial Husk": [
+      {
+        "item_id": "bloom_thread",
+        "name": "Live Bloom Thread",
+        "category": "quest",
+        "description": "Cut it and bag it before it dries. It does not like being cut.",
+        "chance": 0.36
+      }
+    ],
+    "Codex Dissident": [
+      {
+        "item_id": "bloom_thread",
+        "name": "Live Bloom Thread",
+        "category": "quest",
+        "description": "Cut it and bag it before it dries. It does not like being cut.",
+        "chance": 0.3
+      }
+    ],
+    "Dim-Walker": [
+      {
+        "item_id": "dim_residue",
+        "name": "Dim Residue",
+        "category": "quest",
+        "description": "Cold in a jar, in a warm room, three days later.",
+        "chance": 0.35
+      }
+    ],
+    "The Unfinished": [
+      {
+        "item_id": "rift_residue",
+        "name": "Riftward Residue",
+        "category": "quest",
+        "description": "Specified in one direction and simply not there in the other.",
+        "chance": 0.36
+      }
+    ],
+    "Riftward Aberration": [
+      {
+        "item_id": "rift_residue",
+        "name": "Riftward Residue",
+        "category": "quest",
+        "description": "Specified in one direction and simply not there in the other.",
+        "chance": 0.33
+      }
+    ],
+    "Druse Crawler": [
+      {
+        "item_id": "geode_druse",
+        "name": "Druse With an Inclusion",
+        "category": "quest",
+        "description": "The crystal grew around something that was made. It is still in there.",
+        "chance": 0.35
+      }
+    ],
+    "Shelf-Grown": [
+      {
+        "item_id": "grown_page",
+        "name": "A Page, Grown",
+        "category": "quest",
+        "description": "The fibres run through the letters. The marks are part of the sheet. It is warm.",
+        "chance": 0.14,
+        "starts_quest": "db_grown_page"
+      },
+      {
+        "item_id": "grown_leaf",
+        "name": "Grown Leaf",
+        "category": "quest",
+        "description": "Ranked lines, close-written, in a hand that was never held.",
+        "chance": 0.34
       }
     ]
   }

@@ -4395,6 +4395,173 @@
           "label": "Necklace (Int/Sta/MP5)"
         }
       ]
+    },
+    {
+      "quest_id": "hbe_fissure_north",
+      "title": "The Fissure Above the Naze",
+      "giver_npc_id": "hbe_naze_infiltrator",
+      "zone": "eastern_hillsbrad",
+      "level_min": 30,
+      "level_max": 31,
+      "description": "Gavin's Naze is the Alterac road and the Syndicate's front door, and the Roadwarden knows every track off it. Three years ago a fissure opened in the foothills north of the Naze, in ground that three kingdoms had surveyed and none of them had found anything in. Blood elves have been using it as a supply road for most of that time.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Syndicate Bandit",
+          "count": 8,
+          "zone": "eastern_hillsbrad"
+        },
+        {
+          "type": "explore",
+          "target": "eastern_hillsbrad",
+          "target_x": 118,
+          "target_y": 14,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "Eight of the Syndicate off the north track first - they have been sitting on that road watching the elves come and go and taking a tithe, and I would like the road clear before I send anybody up it.\n\nThen go up to the mouth itself and look down it. Do not go in. I have had two men offer and I have told both of them no, and I will tell you the same until somebody can tell me what is at the bottom.",
+      "turn_in_text": "Cold air coming up out of it in the middle of summer, and a road worn into the lip.\n\nWorn, you said. That takes years of boots. They have been going up and down that hole since it opened and nobody on this side has asked them what for.",
+      "next_quest_id": "fd_long_way_down",
+      "rewards": [
+        {
+          "name": "Upper Dark Girdle",
+          "slot": "waist",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "The ice gave it up. It did not want to.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Rime-Shelled Bracers",
+          "slot": "wrist",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "The ice gave it up. It did not want to.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 70,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Glacier-Cut Longbow",
+          "slot": "main_hand",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "The ice gave it up. It did not want to.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hbe_route_card",
+      "title": "A Route Card Off a Dead Man",
+      "giver_npc_id": "item:deepscout_route",
+      "zone": "eastern_hillsbrad",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "The card is oiled linen, folded small, and the Syndicate bandit you took it from had it sewn inside a cuff. One side is a sketch of the Alterac foothills with the fissure marked. The other is a list of times - arrivals and departures at the mouth, kept nightly, in a careful hand, for four months.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "syndicate_tally",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2290,
+      "reward_gold": 9300,
+      "accept_text": "Somebody paid the Syndicate to count blood elves going into a hole in the ground, and the Syndicate did it properly for four months.\n\nSix more tallies off their couriers on the Naze road. Whoever commissioned this was not after the elves - you do not need four months of arrivals to rob a column. You need four months of arrivals to work out what is down there and how much of it there is.",
+      "turn_in_text": "Six tallies, six hands, one ledger - and not one of those hands is Syndicate.\n\nThey were counting for somebody else. I do this work for a living and I did not know anyone else was doing it on my road.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Forty-Year Slippers",
+          "slot": "feet",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Somebody packed this to come back.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.9,
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Boots (Int/SP/MP5)"
+        },
+        {
+          "name": "Forty-Year Hauberk",
+          "slot": "chest",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Alterac make, and forty years behind the fashion.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 96,
+          "label": "Mail Chest (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Expedition Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Still buckled the way he buckled it.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.3
+          },
+          "weapon_damage_min": 38,
+          "weapon_damage_max": 51,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "turn_in_npc_id": "hbe_naze_infiltrator"
     }
   ]
 }

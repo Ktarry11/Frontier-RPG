@@ -1,0 +1,1656 @@
+{
+  "quests": [
+    {
+      "quest_id": "fd_long_way_down",
+      "title": "The Long Way Down",
+      "giver_npc_id": "hbe_naze_infiltrator",
+      "zone": "the_frostward_descent",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "The fissure above Gavin's Naze was not in any survey of the Alterac foothills, and the Alterac foothills have been surveyed by three kingdoms. It opened three years ago, when a great many things opened. Blood elves have been using it as a road ever since, and nobody on the Hillsbrad side has gone down far enough to find out where it goes.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_frostward_descent",
+          "target_x": 60,
+          "target_y": 110,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 2290,
+      "reward_gold": 9300,
+      "accept_text": "Down, and keep going down. The ice holds for the first stretch - old ice, Alterac ice, nothing stranger than cold.\n\nAfter that it stops being ice and I cannot tell you what it becomes, because the two men I sent came back without agreeing. Get past the frozen watercourse and see the seam for yourself. That is all I am asking for, and it is more than I have.",
+      "turn_in_text": "Wet black rock and light in the walls. Both of them said that. Neither of them said it was a road.\n\nIt is a road. Somebody walks it, often, and they are not walking up.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Frostward Treads",
+          "slot": "feet",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Frost in the seams that never leaves.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 30,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Hoarfrost Wraps",
+          "slot": "hands",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Cold the way old ice is cold, which is patient.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Frostward Crook",
+          "slot": "main_hand",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Cold the way old ice is cold, which is patient.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 12,
+            "spirit": 12
+          },
+          "secondary_stats": {
+            "healing_power": 12.5
+          },
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 33,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "fd_yeti_marrow",
+      "title": "Something That Does Not Freeze",
+      "giver_npc_id": "ud_dawn_cartographer",
+      "zone": "the_frostward_descent",
+      "level_min": 31,
+      "level_max": 33,
+      "description": "Surveyor Aelwyn maps the Underdark's far wall from the only place there is to stand, and she is not a physician. She still noticed that the yeti in the upper chambers do not go stiff. Forty years of Alterac winter in those galleries and the things living in them stay warm, and the Codex's position is that this is uninteresting.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rimed_marrow",
+          "count": 7
+        }
+      ],
+      "reward_exp": 2380,
+      "reward_gold": 9600,
+      "accept_text": "Seven draws of marrow from the hoarfrost yeti in the upper galleries. They are easier to find than to leave.\n\nI want them cold. Pack them in ice from the chamber you take them in - if they are warm when they reach me I learn nothing, and I will have sent you up there for a story.",
+      "turn_in_text": "Still warm. All seven, and the ice around them had started to go.\n\nSomething in those galleries is feeding heat to the things that live there, and it is not the sun, because there has not been one over that rock in three years.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Upper Dark Wraps",
+          "slot": "hands",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "The ice gave it up. It did not want to.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 15,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Frostward Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Carried down past the last daylight.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "armor_type": "mail",
+          "armor_value": 74,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Rime-Shelled Wand",
+          "slot": "main_hand",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "The ice gave it up. It did not want to.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.4
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 52,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "fd_frozen_page",
+      "title": "A Page From the Last Camp",
+      "giver_npc_id": "item:frozen_survey_page",
+      "zone": "the_frostward_descent",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "You pull a page out of the ice, and the ice gives it up cleanly, the way ice does when a thing has been in it a long time without ever settling. The hand is Alteraci and the date is forty-one years old. It reads: THE READINGS ARE WRONG AND I AM GOING ON. Below that, in the same hand but smaller: there is no bottom to this and I have stopped telling the others.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "expedition_fitting",
+          "count": 8
+        }
+      ],
+      "reward_exp": 2380,
+      "reward_gold": 9600,
+      "accept_text": "There was a camp down here before the Codex, before the fissure was supposed to exist at all, and it did not come back up.\n\nWork the seam and pull their fittings out of the walkers - buckles, straps, lamp-brackets, eight pieces, enough that nobody can call it one man's bad luck. Somebody at the Bastion will want to know their own road was walked forty years before they found it.",
+      "turn_in_text": "Alterac, all eight, and every one still done up. Nobody undid a buckle.\n\nForty-one years and they were still surveying when the cold caught them. I have been mapping this cavern for three and I would like it on the record that I find that less comforting than I did this morning.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Expedition Pants",
+          "slot": "legs",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Somebody packed this to come back.",
+          "primary_stats": {
+            "agility": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 9.0
+          },
+          "armor_type": "leather",
+          "armor_value": 62,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Last Camp Waistguard",
+          "slot": "waist",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Somebody packed this to come back.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "plate",
+          "armor_value": 74,
+          "label": "Plate Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Unfinished Ring",
+          "slot": "ring",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Somebody packed this to come back.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "turn_in_npc_id": "ud_dawn_cartographer"
+    },
+    {
+      "quest_id": "fd_hoarfang",
+      "title": "Hoarfang",
+      "giver_npc_id": "ud_dawn_watch",
+      "zone": "the_frostward_descent",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "Kaelen Mornstride has watched the passage mouth for three years and knows exactly how long the walk from the Hillsbrad side takes. For two months it has taken longer, and the people who make it arrive short of someone. The upper galleries have acquired a resident.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Hoarfang",
+          "count": 1,
+          "zone": "the_frostward_descent"
+        }
+      ],
+      "reward_exp": 3094,
+      "reward_gold": 12480,
+      "accept_text": "Something is holding the ice chambers against us, and it is doing it well enough that I have started sending people up in threes.\n\nThe porters call it Hoarfang. It takes the back of a column, in the narrow stretch above the frozen watercourse, and it does not stay to fight. Go up and make it stay.",
+      "turn_in_text": "Three years I have stood at this mouth and counted people in. I would like to go back to counting the same number out.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Frostward Mantle",
+          "slot": "back",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "The ice gave it up. It did not want to.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.2,
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Cloak (Int/SP/MP5)"
+        },
+        {
+          "name": "Upper Dark Bracers",
+          "slot": "wrist",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Frost in the seams that never leaves.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Bracers (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Frostward Necklace",
+          "slot": "neck",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Carried down past the last daylight.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        },
+        {
+          "name": "Upper Dark Boots",
+          "slot": "feet",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Cold the way old ice is cold, which is patient.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.7,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 100,
+          "label": "Plate Boots (Parry/Block/Dodge)"
+        }
+      ]
+    },
+    {
+      "quest_id": "fd_cartographer",
+      "title": "He Is Still Surveying",
+      "giver_npc_id": "ud_dawn_cartographer",
+      "zone": "the_frostward_descent",
+      "level_min": 33,
+      "level_max": 33,
+      "description": "The fittings came back Alterac. Aelwyn has been mapping this cavern for three years with instruments the Codex carried down on their backs, and the thought that someone was doing the same work here forty-one years ago, and is in some sense still doing it, has stopped her sleeping.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Frozen Cartographer",
+          "count": 1,
+          "zone": "the_frostward_descent"
+        }
+      ],
+      "reward_exp": 3094,
+      "reward_gold": 12480,
+      "accept_text": "He is at the seam, where the ice stops. He has a rod and a board and he takes a reading off everything that comes near him, including people.\n\nI am not sending you to put a man out of his misery - I have no evidence he is in any. I want his board. Whatever he has been drawing for forty-one years, the Codex does not have a copy and I would like to be the one who does.",
+      "turn_in_text": "It is a map. It is a map of a cavern that did not exist when he started drawing it.\n\nI am going to sit with this for a while, and then I am going to decide whether to file it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Surveyor's Cuffs",
+          "slot": "wrist",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "Alterac make, and forty years behind the fashion.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 67,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Unfinished Gauntlets",
+          "slot": "hands",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "Somebody packed this to come back.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Gloves (Dodge/Parry)"
+        },
+        {
+          "name": "Expedition Ring",
+          "slot": "ring",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "Somebody packed this to come back.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.9
+          },
+          "label": "Ring (Int/Hit/SP)"
+        },
+        {
+          "name": "Surveyor's Spaulders",
+          "slot": "shoulder",
+          "item_level": 33,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "Still buckled the way he buckled it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.5,
+            "block_rating": 1.0,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 151,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        }
+      ]
+    },
+    {
+      "quest_id": "fd_latticeborn",
+      "title": "The First Exact Thing",
+      "giver_npc_id": "ud_dawn_watch",
+      "zone": "the_frostward_descent",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Past the seam the rock starts growing in figures - precise repeating lattices, the same shape at every scale, with a tolerance no mineral has any business holding. The Codex's standing instruction is to record it as unusual mineralisation. Everybody who has actually stood in front of it records it as something else in private.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Latticeborn",
+          "count": 1,
+          "zone": "the_frostward_descent"
+        }
+      ],
+      "reward_exp": 3211,
+      "reward_gold": 12870,
+      "accept_text": "The lower chambers have grown a warden. It does not patrol, it does not hunt, it simply stands in the passage and will not be gone around.\n\nWatch what it does before you close - it strikes twice, identically, every time, and the second one is not a second attempt. It is the same event happening again. If you understand why that frightens me you will do better in there than most.",
+      "turn_in_text": "Twice, exactly. You saw it too.\n\nThree years I have told new arrivals that the crystal is just crystal. I am going to keep telling them. It gets them down the passage.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Figure-Cut Cord",
+          "slot": "waist",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "There are others. They are identical.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.2
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Belt (Agi/Sta/AP)"
+        },
+        {
+          "name": "Figure-Cut Veil",
+          "slot": "head",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "Cut to a figure that closes perfectly.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "spell_power": 3.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Helm (Int/Sta/SP)"
+        },
+        {
+          "name": "Repeating Necklace",
+          "slot": "neck",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "Grown in rows. Nothing alive bothers to do that.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        },
+        {
+          "name": "Figure-Cut Visor",
+          "slot": "head",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "There are others. They are identical.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 156,
+          "label": "Plate Helm (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hg_crack",
+      "title": "The Only Gap Left",
+      "giver_npc_id": "ud_geode_campkeeper",
+      "zone": "the_hollow_geode",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "Campkeeper Threnn runs the last supply post before the Geode and is required to say so and required not to say why. The why is that the Geode is a crystal cavity that has been filling for longer than anybody can estimate, and the walkable ground inside it is the part the crystal has not reached yet.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_hollow_geode",
+          "target_x": 56,
+          "target_y": 92,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2560,
+      "reward_gold": 10200,
+      "accept_text": "In through the crack in the shell and as far as the first gallery, then turn round and come out.\n\nUnderstand the shape of the place before you commit to it. It is not a cave with rooms. It is a space that is being closed, in layers, from the outside in, and every way further inward is a pinch where the growth has nearly met. If you are in a hurry you will walk into one of those sideways and the crystal will decide the matter.",
+      "turn_in_text": "Then you have seen it and you know what I mean about the pinches.\n\nThree years ago the Codex measured one of those gaps at four feet. It is under three now. They have not published that.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Shell-Grown Cloak",
+          "slot": "back",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Grown inward, the way the whole place grows.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 26,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Cavity Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Grown inward, the way the whole place grows.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.8,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 119,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Shell-Grown Ring",
+          "slot": "ring",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Prised out of the only gap that was left.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hg_druse",
+      "title": "Inward-Pointing",
+      "giver_npc_id": "ud_geode_campkeeper",
+      "zone": "the_hollow_geode",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "The druse gallery runs just inside the Geode's shell, broken into bays by crystal masses that have grown inward from the wall. Things live in the gaps. They are shaped for the gaps, which is to say they are shaped like the gaps, and they have been getting narrower along with everything else.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Druse Crawler",
+          "count": 12,
+          "zone": "the_hollow_geode"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Twelve out of the gallery bays. Work them bay by bay rather than trying to run the ring - the ring winds, and a thing that lives in a pinch will let you pass it and take the second person.\n\nThere is no second person. That is the part people forget about coming down here alone.",
+      "turn_in_text": "Twelve. Which bays were tightest?\n\nThe south and the west. Same two as last quarter. It is closing faster on that side and I would dearly like to know what the crystal is responding to.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Geode Boots",
+          "slot": "feet",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Inward-Pointing Boots",
+          "slot": "feet",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.9
+          },
+          "armor_type": "leather",
+          "armor_value": 34,
+          "label": "Leather Boots (Agi/Int/AP)"
+        },
+        {
+          "name": "Geode Band",
+          "slot": "ring",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Prised out of the only gap that was left.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hg_cavity",
+      "title": "What the Crystal Has Eaten",
+      "giver_npc_id": "ud_geode_campkeeper",
+      "zone": "the_hollow_geode",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The Geode has been filling for an age, and it has filled around things. Tools, fittings, the occasional strap-end, all of it held in the druse at the depth it was caught. The Codex consider the Geode a mineral site. Threnn has started considering it a record.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "geode_druse",
+          "count": 10
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Ten pieces of druse with something IN them - and I mean something that was made. You will find them; the crawlers break the shell down and what comes loose is full of it.\n\nI am not a cataloguer and I do not want to be one. But a thing that grows in layers around whatever is near it is keeping a list whether anyone asks it to or not, and this cavern is three years old and there are things in the deep druse.",
+      "turn_in_text": "Ten, and four of them worked metal. In the deep druse.\n\nThe Codex will tell you the Geode is older than the cavern and got here some other way. Ask them to say that sentence slowly.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Shell-Grown Boots",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Prised out of the only gap that was left.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Inward-Pointing Visor",
+          "slot": "head",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 126,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Druse Flail",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Still faintly growing, which is fine.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hg_shardmaw",
+      "title": "It Swallows Light",
+      "giver_npc_id": "ud_geode_campkeeper",
+      "zone": "the_hollow_geode",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Something in the east bay has been taking the camp's lamps. Not the oil, not the brass - the light. Lamps come back from that side of the gallery lit and reading dim, and the Codex's instruments say there is nothing wrong with them.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Shardmaw",
+          "count": 1,
+          "zone": "the_hollow_geode"
+        }
+      ],
+      "reward_exp": 3562,
+      "reward_gold": 14040,
+      "accept_text": "East bay, where the gallery is widest and the crystal is thinnest. It is lined with teeth and it is not a mouth, and I have given up trying to describe it better than that.\n\nIt takes the light off you while you are fighting it. Everything you can see gets further away. Go in with that expected, because the first ten seconds of discovering it are what killed Veshan.",
+      "turn_in_text": "Did the dark come in?\n\nIt does that. Everyone says the same thing and nobody says it the same way, and that is the only part of this cavern I have stopped wanting explained.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Shell-Grown Gauntlets",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 36,
+          "flavor_text": "Still faintly growing, which is fine.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.8
+          },
+          "armor_type": "leather",
+          "armor_value": 47,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Shell-Grown Handguards",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 36,
+          "flavor_text": "Grown inward, the way the whole place grows.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 113,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Shell-Grown Roundshield",
+          "slot": "off_hand",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 36,
+          "flavor_text": "Grown inward, the way the whole place grows.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "armor_value": 75,
+          "block_value": 94,
+          "label": "Shield (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Inward-Pointing Gloves",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 36,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 3.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Gloves (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hg_prism",
+      "title": "The Warden of the Inner Cavity",
+      "giver_npc_id": "kb_magister",
+      "zone": "the_hollow_geode",
+      "level_min": 37,
+      "level_max": 37,
+      "description": "Magister Saeltheris holds that the Codex are cataloguers and not colonists, and he holds it sincerely, and it has become harder to hold since the inner cavity produced something that stands in a throat and refuses passage. A thing that guards is a thing that was posted.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Prism Warden",
+          "count": 1,
+          "zone": "the_hollow_geode"
+        }
+      ],
+      "reward_exp": 3562,
+      "reward_gold": 14040,
+      "accept_text": "Through the north throat and into the inner cavity. It will be standing in the way, because that is the only thing it does.\n\nIt splits what it casts. One lance leaves it and three arrive, and two of the three are not there in any sense you can test - except that standing in them hurts. Do not try to work out which is real while it is happening. People have, and they were right, and they were still on the floor.",
+      "turn_in_text": "Posted. You use the word too.\n\nI have spent three years explaining to this expedition that we are cataloguers and that catalogues do not provoke. Something put a warden on the inner cavity and it did not do it for the crystal's benefit.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Inward-Pointing Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Grown inward, the way the whole place grows.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 169,
+          "label": "Plate Shoulders (Str/Sta/Def)"
+        },
+        {
+          "name": "Druse Boots",
+          "slot": "feet",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "armor_type": "mail",
+          "armor_value": 75,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        },
+        {
+          "name": "Shell-Grown Crook",
+          "slot": "main_hand",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Grown inward, the way the whole place grows.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 18
+          },
+          "secondary_stats": {
+            "spell_power": 24.5,
+            "crit_chance_spell": 1.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        },
+        {
+          "name": "Shell-Grown Mantle",
+          "slot": "shoulder",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "stamina": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Shoulders (Sta/Int/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "hg_heartgrown",
+      "title": "The Last Open Space",
+      "giver_npc_id": "kb_magister",
+      "zone": "the_hollow_geode",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "The core of the Geode is the only generous room in it, and it is generous because it is the part the crystal has not finished eating. There is something growing in the middle of it that the Codex's own measurements put at a different size every quarter, always larger, and the quarter before last it grew a fist.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Heartgrown",
+          "count": 1,
+          "zone": "the_hollow_geode"
+        }
+      ],
+      "reward_exp": 3679,
+      "reward_gold": 14430,
+      "accept_text": "The core, through the last throat, which is the tightest thing on the map and which you will have to come back out through.\n\nIt will try to close the room while you are in it. That is not a figure of speech either - the walls of the core are growth, the growth is what you are fighting, and the space you are standing in is a quantity that goes down. Finish it quickly or do not start.",
+      "turn_in_text": "The core is still open. For now, and for the first time in three years I can put a date on how long that will remain true.\n\nWe are cataloguers. I have one entry in eleven thousand that I would describe as urgent and it is this one.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Druse Cape",
+          "slot": "back",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Still faintly growing, which is fine.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 38,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Inward-Pointing Sabatons",
+          "slot": "feet",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 77,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Shell-Grown Dagger",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Still faintly growing, which is fine.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.0,
+            "parry_rating": 0.7
+          },
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 94,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        },
+        {
+          "name": "Inward-Pointing Mantle",
+          "slot": "shoulder",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "The crystal has very nearly finished with this.",
+          "primary_stats": {
+            "intellect": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "spell_power": 4.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 36,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "db_portico",
+      "title": "It Built a Portico",
+      "giver_npc_id": "ud_bloom_warden",
+      "zone": "the_deep_bloom",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The mycelium under the Sporefall has spent three years in a mana-saturated cavern underneath a library, and it has started building. Not nesting, not spreading - building, in courses, with columns, in a plan that anyone who has stood in a reading room will recognise within about four paces.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_deep_bloom",
+          "target_x": 65,
+          "target_y": 134,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Down the throat and into the first hall. You will not need telling when you are in it.\n\nWalk to the far end and then turn round and look at what you came through. The proportions are right. The columns are spaced right. It has never seen a building, it has never seen a column, and the only stone it has to go on is what is in the Colonnade - and it has got it ALMOST right, and almost is worse than wrong. I want you to feel that before you go any deeper.",
+      "turn_in_text": "Four paces. That is what everyone says. Four paces and you stop walking.\n\nThe Codex-Master calls it an achievement. I have been in there eleven times and I have never once got further than that hall without wanting to be outside.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Misremembered Bracers",
+          "slot": "wrist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Warm, and it should not be.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Shelf-Grown Mitts",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "stamina": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Gloves (Sta/Int/HP)"
+        },
+        {
+          "name": "Misremembered Dagger",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Warm, and it should not be.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "db_thralls",
+      "title": "What It Grew Through",
+      "giver_npc_id": "ud_bloom_warden",
+      "zone": "the_deep_bloom",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "The Bloom does not kill for food. It grows through, keeps the shape, and puts itself inside it. What is standing in the stacks was walking three years ago, and some of it was Codex.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloom Thrall",
+          "count": 12,
+          "zone": "the_deep_bloom"
+        }
+      ],
+      "reward_exp": 2830,
+      "reward_gold": 11100,
+      "accept_text": "Twelve, and work the galleries rather than the central hall - they are ranked along the shelving the way books are, and that is not an accident of where they fell.\n\nI am going to ask you to do something and I am not going to explain it. If any of them is wearing crimson, bring the clasp. Just the clasp. I will handle it from there and I would rather the Hall did not.",
+      "turn_in_text": "Three clasps.\n\nI will enter them as recovered equipment, because the alternative is entering three people as found, and the Codex-Master would want to know where, and then she would want to go and look.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Shelf-Grown Bracers",
+          "slot": "wrist",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.8,
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Bracers (HP/MP5)"
+        },
+        {
+          "name": "Shelf-Grown Boots",
+          "slot": "feet",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Warm, and it should not be.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Shelf-Grown Axe",
+          "slot": "main_hand",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Warm, and it should not be.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 70,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "db_index",
+      "title": "The Index",
+      "giver_npc_id": "kb_archivist",
+      "zone": "the_deep_bloom",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "At the head of the stacks is something the Codex have named for what it does. It catalogues. It assigns, it cross-references, and when a party comes into the hall it looks at each of them in turn, in order, the way a clerk works down a list.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Index",
+          "count": 1,
+          "zone": "the_deep_bloom"
+        }
+      ],
+      "reward_exp": 3679,
+      "reward_gold": 14430,
+      "accept_text": "Up the central hall, past the shelf-ranks, to where the galleries meet.\n\nI want to be honest with you about why I am sending you and not the Warden. Ysolde would burn it. I want it stopped and I want it intact enough to read afterwards, and those are different instructions, and you are the one who will be standing there deciding which you were given.",
+      "turn_in_text": "It had an entry for you.\n\nThat is not a figure of speech and I am not going to soften it. It had an entry, it was recent, and the hand it was written in is a hand I have been filing for three years.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Misremembered Chestguard",
+          "slot": "chest",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 232,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Fruiting Leggings",
+          "slot": "legs",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "spell_power": 5.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 48,
+          "label": "Cloth Legs (Int/Sta/SP)"
+        },
+        {
+          "name": "Bloom Crook",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 19
+          },
+          "secondary_stats": {
+            "spell_power": 25.1,
+            "crit_chance_spell": 1.3
+          },
+          "weapon_damage_min": 38,
+          "weapon_damage_max": 51,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        },
+        {
+          "name": "Shelf-Grown Legguards",
+          "slot": "legs",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "Warm, and it should not be.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 8.4
+          },
+          "armor_type": "mail",
+          "armor_value": 155,
+          "label": "Mail Legs (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "db_grown_page",
+      "title": "Grown, Not Written",
+      "giver_npc_id": "item:grown_page",
+      "zone": "the_deep_bloom",
+      "level_min": 38,
+      "level_max": 38,
+      "description": "It is a page. It has the weight of a page and the give of a page and a margin, and down the recto there is writing in close ranked lines. It was not written. The fibres run through the letters - the marks are part of the sheet, grown in place, the way a leaf grows its veins. It is warm, and it should not be.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "grown_leaf",
+          "count": 8
+        }
+      ],
+      "reward_exp": 2830,
+      "reward_gold": 11100,
+      "accept_text": "Eight more, off the shelf-grown in the ranks. They fling them; that is how this one reached you.\n\nThe Codex will want the whole set, and the Codex will get it, but somebody is going to have to lay eight of these side by side and establish whether it is writing the same thing eight times or writing eight different things. The second answer is the one that keeps the Warden awake.",
+      "turn_in_text": "Eight pages. Eight DIFFERENT pages.\n\nIt is not repeating. It is composing - and composing is what you do when you have run out of things to copy.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Shelf-Grown Mantle",
+          "slot": "shoulder",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "spell_power": 3.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 27,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        },
+        {
+          "name": "Bloom Bracers",
+          "slot": "wrist",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Warm, and it should not be.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 86,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Copied Talisman",
+          "slot": "neck",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "turn_in_npc_id": "kb_archivist"
+    },
+    {
+      "quest_id": "db_second_copy",
+      "title": "The Second Copy",
+      "giver_npc_id": "kb_archivist",
+      "zone": "the_deep_bloom",
+      "level_min": 38,
+      "level_max": 38,
+      "description": "Past the stacks the Bloom built a gallery it liked, and then it built the gallery again, eighteen paces further on, identically, without noticing it already had one. Where the two copies meet there is a seam, and in the seam there is something that is also doubled.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Second Copy",
+          "count": 1,
+          "zone": "the_deep_bloom"
+        }
+      ],
+      "reward_exp": 3679,
+      "reward_gold": 14430,
+      "accept_text": "You will know the seam when you reach it, because you will be certain you have already walked this hall and you will be right.\n\nWhatever is in the join does everything twice. The second time is worse, because a copy of a copy drifts, and whatever is wrong with it compounds instead of correcting. Do not wait to see the pattern. The pattern is the weapon.",
+      "turn_in_text": "It duplicated the error.\n\nThat is what a bad copyist does and it is the first thing in that place I have been able to name from my own training. I find I take no comfort from it at all.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Fruiting Handguards",
+          "slot": "hands",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 38,
+          "flavor_text": "It has your shape already.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 116,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Copied Pauldrons",
+          "slot": "shoulder",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 38,
+          "flavor_text": "Grown in the shape of a thing it had never seen.",
+          "primary_stats": {
+            "strength": 6,
+            "agility": 6,
+            "stamina": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 72,
+          "label": "Leather Shoulders (Str/Agi/Sta)"
+        },
+        {
+          "name": "Bloom Band",
+          "slot": "ring",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 38,
+          "flavor_text": "Grown in the shape of a thing it had never seen.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        },
+        {
+          "name": "Fruiting Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 38,
+          "flavor_text": "It has your shape already.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 116,
+          "label": "Mail Shoulders (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "db_errata",
+      "title": "Everything It Got Wrong and Kept",
+      "giver_npc_id": "ud_bloom_warden",
+      "zone": "the_deep_bloom",
+      "level_min": 39,
+      "level_max": 39,
+      "description": "Below the scriptorium the architecture gives out. The rooms remember being rooms and fail at it, and what is standing in them is assembled out of the parts the Bloom got wrong somewhere above and did not discard - because it does not discard. It files.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Scriptor",
+          "count": 1,
+          "zone": "the_deep_bloom"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Errata",
+          "count": 1,
+          "zone": "the_deep_bloom"
+        }
+      ],
+      "reward_exp": 3796,
+      "reward_gold": 14820,
+      "accept_text": "Two. The Scriptor first - it is in the scriptorium, it is still working, and it will transcribe the fight while it is having it.\n\nThen go down. What is below is made of mistakes and it is larger than any one of them, and I want you to look at it and then come back and tell the Codex-Master to her face that this is a thing worth reading.",
+      "turn_in_text": "You told her.\n\nShe said that a record of every error ever made would be the most valuable document in the Codex's possession. She is not wrong. That is what has made the last eleven months so difficult.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Shelf-Grown Jerkin",
+          "slot": "chest",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "strength": 8,
+            "agility": 8,
+            "stamina": 8
+          },
+          "armor_type": "leather",
+          "armor_value": 99,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Bloom Gloves",
+          "slot": "hands",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "It has your shape already.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 4.8,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Gloves (Int/SP/Crit)"
+        },
+        {
+          "name": "Misremembered Flail",
+          "slot": "main_hand",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Grown in the shape of a thing it had never seen.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        },
+        {
+          "name": "Bloom Waistguard",
+          "slot": "waist",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Warm, and it should not be.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 119,
+          "label": "Plate Belt (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "db_what_it_learned",
+      "title": "What It Has Learned",
+      "giver_npc_id": "kb_codex_master",
+      "zone": "the_deep_bloom",
+      "level_min": 39,
+      "level_max": 40,
+      "description": "At the heart there is no architecture left. The Bloom stops imitating a library somewhere below the lower stacks and becomes the thing that was doing the imitating, and that thing has spent three years reading the Crimson Codex through its own contamination of their camp. It knows what they know. The open question, which Ilarien Duskwaking has refused to answer in eleven months of briefings, is what it has done with it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Deep Bloom",
+          "count": 1,
+          "zone": "the_deep_bloom"
+        }
+      ],
+      "reward_exp": 3913,
+      "reward_gold": 15210,
+      "accept_text": "The Warden wants it burned. I have said no eleven times and I will say no a twelfth, and then I am sending you to end it, and I am aware of how that looks.\n\nBurning destroys the record. Killing it does not - the stacks remain, the pages remain, and what it has written stays written. I want it stopped and I want it legible. If you think that is a distinction I have invented to let myself sleep, go down there and read one page, and then come back and tell me.",
+      "turn_in_text": "It is done, and the stacks are standing.\n\nI read a page on the way back up. It is our work. Not copied - continued. Three years of Codex survey, carried on past where we stopped, in a hand that is not any of ours, and the entries are better than ours.\n\nI am going to open a column for it. I do not have a word yet.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Fruiting Bracers",
+          "slot": "wrist",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Copied Gloves",
+          "slot": "hands",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Grown in the shape of a thing it had never seen.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.3
+          },
+          "armor_type": "leather",
+          "armor_value": 51,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Bloom Ring",
+          "slot": "ring",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Almost right, in a way that is worse.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.4
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        },
+        {
+          "name": "Bloom Mantle",
+          "slot": "back",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Warm, and it should not be.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 20,
+          "label": "Cloth Cloak (Int/Sta/MP5)"
+        }
+      ],
+      "requires_quests": [
+        "ud_colonnade_dalaran",
+        "hg_prism",
+        "hbe_fissure_north"
+      ]
+    }
+  ]
+}

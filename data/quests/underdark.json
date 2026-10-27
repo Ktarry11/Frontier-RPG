@@ -1,0 +1,2292 @@
+{
+  "quests": [
+    {
+      "quest_id": "ud_first_sight",
+      "title": "No Ceiling Worth the Name",
+      "giver_npc_id": "ud_dawn_watch",
+      "zone": "the_crystalline_underdark",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "The passage lets out on a shelf, and from the shelf you can see a cavern with weather in it. There is a light hanging over the middle of it that nobody has reached, mushrooms standing like trees, and a far wall at a distance that the eye reports as a horizon. Three years of Codex surveying has not produced an agreed figure for how big it is.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_crystalline_underdark",
+          "target_x": 86,
+          "target_y": 26,
+          "radius": 9
+        }
+      ],
+      "reward_exp": 2470,
+      "reward_gold": 9900,
+      "accept_text": "Walk out to the edge of the shelf and look at it properly. That is the whole task and I will not pretend otherwise.\n\nEveryone who comes down that passage expects a cave. What they get is a country with a lid on it, and the adjustment takes a few minutes. Have yours here, where the ground is flat, rather than halfway down the slope with something chewing on you.",
+      "turn_in_text": "There it is.\n\nThe Codex has eleven thousand entries and not one of them is any use to a person standing where you just stood. Go down. Kaelen's advice: pick the light and walk at it, and you will not get lost in here.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Bastion-Cut Coat",
+          "slot": "chest",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 9.3
+          },
+          "armor_type": "leather",
+          "armor_value": 64,
+          "label": "Leather Chest (Agi/Sta/AP)"
+        },
+        {
+          "name": "Codex Chausses",
+          "slot": "legs",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.6
+          },
+          "armor_type": "mail",
+          "armor_value": 102,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Indexed Staff",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Blood elf work, under a ceiling instead of a sky.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 16.7,
+            "crit_chance_spell": 0.8
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 35,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_dawn_skitterers",
+      "title": "Underfoot",
+      "giver_npc_id": "ud_dawn_cartographer",
+      "zone": "the_crystalline_underdark",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Aelwyn's instruments are brass, glass and patience, and they are two hundred spans from the nearest replacement. The crystalbacks on the Dawn shelf have worked out that a surveyor's tripod is a good place to shelter and a better place to chew.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Crystalback Skitterer",
+          "count": 10,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2470,
+      "reward_gold": 9900,
+      "accept_text": "Ten of them off the shelf. I have lost two sighting glasses this month and the Codex's position is that I should be more careful with Codex property.\n\nThey are not aggressive so much as curious, which makes no difference to the glass. Work the scree at the shelf edge - that is where they nest, and they do not go far from it.",
+      "turn_in_text": "Quieter. I can hear my own chronometer again, which matters more than it sounds: I am timing the Lumen, and I have been doing it for three years, and it has not drifted by a minute.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Lattice Chausses",
+          "slot": "legs",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "The pattern repeats every eleven inches, without exception.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 102,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Iterated Leggings",
+          "slot": "legs",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "The pattern repeats every eleven inches, without exception.",
+          "primary_stats": {
+            "stamina": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Legs (Sta/Int/HP)"
+        },
+        {
+          "name": "Figure-Cut Mace",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "There are others. They are identical.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_sporefall_caps",
+      "title": "The Safe Ones Look Worse",
+      "giver_npc_id": "ud_sporefall_forager",
+      "zone": "the_crystalline_underdark",
+      "level_min": 33,
+      "level_max": 35,
+      "description": "Forager Mikael is Forsaken, which in the Sporefall is a qualification: he has eaten his way through the mushroom forest in the only order that made sense, worst-looking first, and taken notes. The Codex pay him for the notes and pretend not to know the methodology.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sporeback_cap",
+          "count": 10
+        }
+      ],
+      "reward_exp": 2560,
+      "reward_gold": 10200,
+      "accept_text": "Ten caps off the grazers out in the forest proper, not the little ones at the rim. The rim stock is stunted and the Codex's cooks can taste the difference, which I resent.\n\nThe ones that look like faces are fine, incidentally. Everybody asks. The stalks will put you on the floor for a day, so leave the stalks.",
+      "turn_in_text": "Ten, and two of them good enough to argue about.\n\nYou are not from here either, are you. Nor am I, in the sense that matters. Everyone in this cavern walked in, which is the only thing I like about it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Drifting Tunic",
+          "slot": "chest",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Light, and stronger than it looks.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.4,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 33,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "Spore-Lit Chestguard",
+          "slot": "chest",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Glows faintly, which down here is no distinction.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 159,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sporefall Dagger",
+          "slot": "main_hand",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Light, and stronger than it looks.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 48,
+          "weapon_damage_max": 65,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_sporefall_drifters",
+      "title": "The Forest Objects",
+      "giver_npc_id": "ud_sporefall_forager",
+      "zone": "the_crystalline_underdark",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "Spore-drifters move in loose clouds between the great caps and are mostly a nuisance. For six weeks they have been moving in the same directions at the same hours, and the hours line up with the Lumen's cycle. Mikael has mentioned this to the Codex twice.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Spore-Drifter",
+          "count": 12,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2560,
+      "reward_gold": 10200,
+      "accept_text": "Twelve, and thin them out along the paths between the big caps - that is where they drift and that is where the foragers walk.\n\nMind the ones that are already clustered. They share something between them, and the second you start on one the rest of the cloud is stronger for it. Break them up before they can close ranks, or you will fight the whole grove at once.",
+      "turn_in_text": "You noticed the clustering, then. Everybody notices once something has used it on them.\n\nThat is not swarm behaviour. Swarms do not get STRONGER when you thin them. Something is feeding them instructions and I have stopped saying so out loud.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sporefall Pauldrons",
+          "slot": "shoulder",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Smells of warm earth two hundred spans from any.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.2
+          },
+          "armor_type": "leather",
+          "armor_value": 49,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Drifting Helm",
+          "slot": "head",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Cut from a cap you could shelter under.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 6.0
+          },
+          "armor_type": "plate",
+          "armor_value": 119,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Spore-Lit Blade",
+          "slot": "main_hand",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Light, and stronger than it looks.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "armor": 14.9,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 48,
+          "weapon_damage_max": 65,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_shard_crates",
+      "title": "Counted Twice",
+      "giver_npc_id": "ud_shard_harvester",
+      "zone": "the_crystalline_underdark",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "The Shardfields are a broken crystal plain and the Codex's only reliable export. Delvin Brightsunder has worked them for three years, and every crate is weighed at the field and weighed again at the Bastion, because the two figures stopped matching about a year ago and nobody can find the gap.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "shard_core",
+          "count": 12
+        }
+      ],
+      "reward_exp": 2560,
+      "reward_gold": 10200,
+      "accept_text": "Twelve cores, and take them out of the lattice sentries rather than off the ground. Ground stock is half shell and the Reagent-Keeper sends it back with a note.\n\nThe sentries will let you walk out there. They object when you start cutting. There is no way to do this politely and I have stopped looking for one.",
+      "turn_in_text": "Twelve, weighed, and I will weigh them again at the gate.\n\nIf they come out lighter up there, it is not you. It has been happening for a year and the Codex's explanation is the scales.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Repeating Helm",
+          "slot": "head",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Grown in rows. Nothing alive bothers to do that.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 119,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Figure-Cut Slippers",
+          "slot": "feet",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Cut to a figure that closes perfectly.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 4.5,
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Boots (HP/MP5)"
+        },
+        {
+          "name": "Iterated Loop",
+          "slot": "ring",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Grown in rows. Nothing alive bothers to do that.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.3
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_silver_bars",
+      "title": "What the Field Owes the Forge",
+      "giver_npc_id": "ud_shard_harvester",
+      "zone": "the_crystalline_underdark",
+      "level_min": 34,
+      "level_max": 36,
+      "description": "Harvald Emberlock has no coal worth the name and burns what the Codex rules expendable, which the Codex rules often and reluctantly. The Shardfields sit on silver, the Bastion needs bar stock, and the only thing standing between the two is somebody willing to do both halves of the job.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bar_silver",
+          "count": 6,
+          "label": "Smelt silver bars"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Six bars. Dig it out of the fields yourself and smelt it yourself - I am not sending ore up to the Bastion so that a factor can take a cut of my own rock.\n\nThere is silver all through this plain. There is also iron, and coal in thin seams, so you will not be short of a fire. Bring me bars and I will put your name in the ledger as a field hand, which is worth more down here than it sounds.",
+      "turn_in_text": "Six, and clean. You will find most people down here can do one half of a trade. The Codex trains specialists and then puts them two hundred spans from anybody else's specialty.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Crimson Cuisses",
+          "slot": "legs",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Carried down a fissure on somebody's back.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 163,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Bastion-Cut Gauntlets",
+          "slot": "hands",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Carried down a fissure on somebody's back.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.9
+          },
+          "armor_type": "leather",
+          "armor_value": 34,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Crimson Band",
+          "slot": "ring",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Carried down a fissure on somebody's back.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_lattice_repeats",
+      "title": "Unusual Mineralisation",
+      "giver_npc_id": "ud_lattice_surveyor",
+      "zone": "the_crystalline_underdark",
+      "level_min": 34,
+      "level_max": 36,
+      "description": "Surveyor Pelorien has been instructed, in writing, to record the Lattice as unusual mineralisation. He has complied, in writing, eleven times. The crystal out there grows in exact repeating figures at every scale he can measure, which is not what minerals do, and the sentries that walk it strike twice and identically, which is not what anything does.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lattice Sentry",
+          "count": 10,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Ten sentries, and I want them taken apart rather than simply dropped. Cut them where the figure closes - you will see it, there is a seam in the pattern and it is always in the same place relative to the body.\n\nIf it is always in the same place on all ten, that is not mineralisation. That is a design, and designs have designers, and I will put THAT in a report whatever the Codex rules.",
+      "turn_in_text": "All ten. Same seam, same offset, to within a finger's width.\n\nI am going to write the word 'manufactured' and I am going to sign it, and then I expect I will be having a conversation with the Codex-Master.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Iterated Chaps",
+          "slot": "legs",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "There are others. They are identical.",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 9.8
+          },
+          "armor_type": "leather",
+          "armor_value": 68,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        },
+        {
+          "name": "Repeating Vestments",
+          "slot": "chest",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "There are others. They are identical.",
+          "primary_stats": {
+            "stamina": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 3.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Chest (Sta/Int/HP)"
+        },
+        {
+          "name": "Exact Spear",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "There are others. They are identical.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2.9,
+            "parry_rating": 2.2
+          },
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_lattice_measure",
+      "title": "The Tolerance",
+      "giver_npc_id": "ud_lattice_surveyor",
+      "zone": "the_crystalline_underdark",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "If the Lattice were grown it would vary. Stone varies, ice varies, bone varies. Pelorien has measured eleven sites across the field and the figure repeats to a tolerance he cannot distinguish from exact, and he needs a twelfth from the deepest part of the field, where nobody goes because the sentries are thickest.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_crystalline_underdark",
+          "target_x": 142,
+          "target_y": 36,
+          "radius": 7
+        },
+        {
+          "type": "fetch",
+          "target": "shard_core",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "The far side of the field, past the standing figures, where the growth is oldest. Four cores from there, and the position - I need to know where you stood, not just what you brought back.\n\nTake the long way round the central mass. Going through it is quicker and the sentries in there are thicker than anywhere else in the cavern, and I would rather have the reading late than not at all.",
+      "turn_in_text": "Twelfth site. Same figure. Same tolerance.\n\nEleven thousand entries in the Codex and not one column for 'this was made'. I have started keeping my own book.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Iterated Coif",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "There are others. They are identical.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Figure-Cut Armguards",
+          "slot": "wrist",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Grown in rows. Nothing alive bothers to do that.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.1
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Lattice Rod",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "The pattern repeats every eleven inches, without exception.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_reach_husks",
+      "title": "Grown Through",
+      "giver_npc_id": "ud_marsh_naturalist",
+      "zone": "the_crystalline_underdark",
+      "level_min": 34,
+      "level_max": 36,
+      "description": "Past the Sporefall the fungus stops being scenery. The Mycelial Reach has no Codex presence, no survey markers and no foragers, and the things that walk in it are shaped like people who stopped walking some time ago and were grown through rather than eaten.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mycelial Husk",
+          "count": 10,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Ten of them, out in the Reach where the threads run thickest. I will tell you plainly what I think you are doing, because you will work it out yourself and I would rather you heard it here: those were people, or they were something that walked.\n\nThe growth did not kill them for food. It kept the shape. It kept the shape and put itself inside it, and I do not have a word for what that is called when a plant does it.",
+      "turn_in_text": "Ten. Did any of them still have belongings?\n\nI asked that of the last four people I sent and I have four different answers, which means I am going to have to go and look myself.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Cap-Cut Circlet",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Light, and stronger than it looks.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 25,
+          "label": "Cloth Helm (Int/Sta/MP5)"
+        },
+        {
+          "name": "Cap-Cut Spaulders",
+          "slot": "shoulder",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Light, and stronger than it looks.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 122,
+          "label": "Plate Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Mycelial Glaive",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Glows faintly, which down here is no distinction.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 15,
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "defense_rating": 1.2
+          },
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_marsh_timekeeping",
+      "title": "It Keeps Time",
+      "giver_npc_id": "ud_marsh_naturalist",
+      "zone": "the_crystalline_underdark",
+      "level_min": 34,
+      "level_max": 36,
+      "description": "The Lumen Marsh glows from underneath, and the glow brightens and fades on a cycle that matches the great light overhead to within a few minutes. Naturalist Imrelle has timed it for two years. A cave has no reason to have an opinion about time, and this one keeps better time than the Codex's chronometers.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "lumen_sac",
+          "count": 9
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Nine sacs off the leeches in the shallows. Take them at low lumen, when the water is dim - they hold the light at the point you cut them and I want them caught at the bottom of the cycle.\n\nIf nine sacs cut an hour apart all show the same phase, then the cycle is not in the water. It is in whatever the water is reading, and so are we.",
+      "turn_in_text": "Same phase. All nine.\n\nThere is a clock in this cavern and none of us built it. Three years we have set our watches by the Lumen and called it convenient.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Drowned-Light Vambraces",
+          "slot": "wrist",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Cold light, and no heat in it at all.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Lumen Cap",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Cold light, and no heat in it at all.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Drowned-Light Band",
+          "slot": "ring",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Cold light, and no heat in it at all.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_marsh_glimmerjaw",
+      "title": "The Lure",
+      "giver_npc_id": "ud_marsh_naturalist",
+      "zone": "the_crystalline_underdark",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Glimmerjaws hunt the marsh shallows by light - a hanging lure, a strike, and whatever bit is left goes under. Three of the Codex's marsh markers have gone missing in a month, which would be unremarkable, except that the markers are lit.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Glimmerjaw",
+          "count": 8,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Eight, and work the deep channels rather than the banks. The bank fish are young and they are not what is taking my markers.\n\nDo not follow the light. That is not a figure of speech - the lure sits well forward of the animal, and people who swim toward it meet the rest of it on the way.",
+      "turn_in_text": "Eight. And my markers?\n\nThen they are not taking the markers for the light. Something out there is taking them because they are MARKERS, and I would very much like to be wrong about that.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Tide-of-Glass Helm",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "It brightens and dims. On a cycle. With the Lumen.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.9
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        },
+        {
+          "name": "Drowned-Light Sabatons",
+          "slot": "feet",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "It brightens and dims. On a cycle. With the Lumen.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Drowned-Light Charm",
+          "slot": "neck",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Cold light, and no heat in it at all.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_colonnade_dalaran",
+      "title": "Nobody Carried It Down",
+      "giver_npc_id": "ud_colonnade_scholar",
+      "zone": "the_crystalline_underdark",
+      "level_min": 35,
+      "level_max": 37,
+      "description": "There is Dalaran masonry in the Weeping Colonnade. Worked violet stone, Kirin Tor jointing, columns standing in courses, two hundred spans below the Ruins of Dalaran in a cavern three years old. The Codex found it in their first month and have been very careful ever since to describe it as a find rather than a problem.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_crystalline_underdark",
+          "target_x": 72,
+          "target_y": 120,
+          "radius": 8
+        },
+        {
+          "type": "fetch",
+          "target": "dalaran_fragment",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Walk the colonnade from the south end to where it stops, and bring me six worked fragments off the revenants in it. Off them, specifically - what is on the floor is rubble and what they carry was chosen.\n\nI want you to look at the jointing while you are down there. It is Kirin Tor work. It is Kirin Tor work that was never on the surface, because the surface version of these columns is still standing up there with weather on it, and this one has none.",
+      "turn_in_text": "Six, and every one of them cut rather than broken.\n\nThe Codex's official position is that the masonry fell. Stone that falls two hundred spans does not land in courses. I have said this at three briefings and I will say it at a fourth.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Weeping Leggings",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Dalaran work, two hundred spans below Dalaran.",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 10.1
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        },
+        {
+          "name": "Colonnade Breeches",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "The violet is in the stone, not on it.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.7,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Legs (Int/SP/Crit)"
+        },
+        {
+          "name": "Violet-Stone Band",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "It was made somewhere with a sky.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.4
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_colonnade_dissidents",
+      "title": "The Ones Who Stopped Filing",
+      "giver_npc_id": "ud_colonnade_scholar",
+      "zone": "the_crystalline_underdark",
+      "level_min": 35,
+      "level_max": 37,
+      "description": "Eleven Codex members have stopped submitting reports in three years. Four went home. Two died, properly and with paperwork. The other five are in the Colonnade, and the Codex have stopped using their names.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Codex Dissident",
+          "count": 9,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Nine. I am not going to dress this up for you.\n\nThey were colleagues. They went out to the colonnade to settle an argument about the masonry and they settled it in a direction the rest of us did not follow, and what came back was not interested in discussing it. They still wear the crimson. Some of them still carry their field books. I have read two and I wish I had not.",
+      "turn_in_text": "Thank you for not asking me which of them I knew.\n\nThe field books you brought back are in the same hand they always were. That is the part the Codex will not look at: they are not mad. They are writing clearly, and what they are writing is wrong.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Crimson Jerkin",
+          "slot": "chest",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Codex Helm",
+          "slot": "head",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Blood elf work, under a ceiling instead of a sky.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 84,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Kael's Signet",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_archive_interlopers",
+      "title": "They Followed Us Down",
+      "giver_npc_id": "ud_archive_overseer",
+      "zone": "the_crystalline_underdark",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "The Syndicate are Alterac's nobility with the titles filed off, and they have been working the Hillsbrad road for a generation. When blood elves started using a fissure on that road as a supply route, it took the Syndicate about four months to work out that the far end was worth seeing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Syndicate Interloper",
+          "count": 8,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Eight of them, out of the Archive precinct. They are not explorers and they are not looking for anything in particular - they are looking for whatever we have already dug up, which saves them the digging.\n\nThey came down a hole in the Alterac foothills for the same reason we did, and I am aware of how that sounds. The difference is that we catalogue what we take. I will not pretend that is a large difference. It is the one I have.",
+      "turn_in_text": "Eight. Good.\n\nWe arrived three years ago with no more claim than they have and everybody here knows it. We write things down. It is a thin moral position and I would thank you not to test it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Unlisted Armguards",
+          "slot": "wrist",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Dug out of the Archive and signed for twice.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Catalogued Shroud",
+          "slot": "back",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Somebody wanted this forgotten.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 3.7,
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 13,
+          "label": "Cloth Cloak (HP/MP5)"
+        },
+        {
+          "name": "Catalogued Band",
+          "slot": "ring",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Filed, numbered, and then filed again.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_archive_unissued",
+      "title": "A Number We Have Not Issued",
+      "giver_npc_id": "item:unissued_slip",
+      "zone": "the_crystalline_underdark",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The slip is Codex stock - their paper, their ink, their hand. It carries a catalogue number in the Codex's own sequence and a one-line description of an object you are fairly sure does not exist. The number is four hundred ahead of anything the Codex has issued. The paper is new.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "catalogue_slip",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Whoever wrote this had access to the Codex's forms and the Codex's numbering and used them to file something that has not been found yet.\n\nSix more. The revenants in the Archive carry them - not all of them, and not where you would expect. Get six and somebody at the Bastion is going to have to explain how their own catalogue is running ahead of their own dig.",
+      "turn_in_text": "Six slips. Six numbers, all ahead of my sequence, and before you ask me whose hand it is - yes. I recognise it.\n\nI am not going to say. Not until I have been down to the Bloom myself, and I have been putting that off for eleven months.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sunken Sandals",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Filed, numbered, and then filed again.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.4,
+            "hit_rating": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Boots (Int/SP/Hit)"
+        },
+        {
+          "name": "Archive Belt",
+          "slot": "waist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Dug out of the Archive and signed for twice.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Greyquill Hammer",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Somebody wanted this forgotten.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "turn_in_npc_id": "kb_archivist"
+    },
+    {
+      "quest_id": "ud_archive_dig",
+      "title": "Signed For Twice",
+      "giver_npc_id": "ud_archive_digger",
+      "zone": "the_crystalline_underdark",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Digger Sarenne shifts rock and the Codex files what comes out of it. What came out last week has been crated, sealed, and entered in the register, and the register entry has a note on it in the Codex-Master's own hand instructing that it travel by hand and not by porter.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "archive_sealed_find",
+          "count": 1,
+          "label": "Deliver the sealed find to Codex-Master Ilarien"
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Straight up the spine to the Codex Hall and into the Codex-Master's hands. Not the Adjutant's. Hers.\n\nI am not going to tell you what is in it because I was not told. What I will tell you is that I dug it out, and it was already catalogued, and the catalogue tag on it was tied by somebody with fingers.",
+      "turn_in_text": "You got it there. Good.\n\nShe signed for it without opening it, which means she already knew what it was, which means somebody told her before I did.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Greyquill Bracers",
+          "slot": "wrist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Somebody wanted this forgotten.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.1
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Bracers (Agi/Sta/AP)"
+        },
+        {
+          "name": "Sunken Vambraces",
+          "slot": "wrist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "The catalogue number is not one the Codex issues.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Unlisted Flail",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "The catalogue number is not one the Codex issues.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "turn_in_npc_id": "kb_codex_master",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "archive_sealed_find",
+            "name": "Sealed Archive Find",
+            "description": "A crate from the Sunken Archive, sealed and already catalogued.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "ud_dim_edge",
+      "title": "Where the Light Stops",
+      "giver_npc_id": "ud_dim_scout",
+      "zone": "the_crystalline_underdark",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The Lumen lights the whole cavern except for one wedge in the west, where it does not reach and never has. The Codex have mapped the edge of it precisely, because the edge is stable, and have mapped almost nothing past it, because the people who go past it come back at a run or not at all.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_crystalline_underdark",
+          "target_x": 28,
+          "target_y": 144,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "To the boundary and a little over it. Not far over. I want somebody else's description of the first two hundred paces, because I have given mine four times and I no longer trust it.\n\nThe light does not fade going in. It stops. You will be able to put a hand across the line and have one of them lit. Everything I have learned about what lives past it, I learned going the other way.",
+      "turn_in_text": "You came back walking. That puts you ahead of me.\n\nAnd you saw the line. Everyone describes the same line. Light does not do that - it falls off, it does not hold an edge - so something is holding it, and it is holding it from the dark side.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Lightless Belt",
+          "slot": "waist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "The Lumen does not land on it. It simply does not.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.4,
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Belt (Int/SP/MP5)"
+        },
+        {
+          "name": "Unlit Leggings",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Out past where anyone maps.",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 10.1
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Unlit Scepter",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Out past where anyone maps.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.5,
+            "crit_chance_spell": 0.1
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_dim_walkers",
+      "title": "Thinning the Edge",
+      "giver_npc_id": "ud_dim_scout",
+      "zone": "the_crystalline_underdark",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Whatever hunts the Dim Reaches has started coming to the boundary. Not across it. To it - standing at the line where the Lumen stops, in the dark, on the dark side, facing the camp.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dim-Walker",
+          "count": 10,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Ten, and take them at the boundary rather than hunting them inward. Inward is how I lost a partner.\n\nThey will not cross into the light while you are watching. I have sat out there for whole shifts and they do not cross. Turn your back for the length of a slow count and they are thirty paces nearer, still in the dark, and the dark is in a different place than it was.",
+      "turn_in_text": "Ten off the line.\n\nIt will be quiet for about a week. It always is. Then there will be one standing out there again at the start of a shift, and I will not have seen it arrive.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Lightless Wraps",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Cold, and it does not warm in the hand.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Gloves (Int/Sta/SP)"
+        },
+        {
+          "name": "Lumen-Forsaken Gauntlets",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Cold, and it does not warm in the hand.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Unlit Charm",
+          "slot": "neck",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Taken off something nobody has described.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.4
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_riftward_unfinished",
+      "title": "Not Finished Being Written",
+      "giver_npc_id": "ud_lattice_surveyor",
+      "zone": "the_crystalline_underdark",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The Riftward is the newest part of a three-year-old cavern. Geometry that does not close, edges that are specified in one direction and not the other, and things walking in it that are built the same way - precise in places, and in other places simply not there.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Unfinished",
+          "count": 9,
+          "zone": "the_crystalline_underdark"
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Nine, and I want you to watch what they do rather than simply end them. They cast the same spell twice and get two different results, which is not a mistake on their part. The spell is the same. The world it lands in has not settled.\n\nIf you can tell me which half is inconsistent - the caster or the ground - you will have told me more than three years of Codex surveying has.",
+      "turn_in_text": "The ground. You are certain.\n\nThat is the worst of the two answers and I thought it would be. A caster that misfires is a bad caster. Ground that gives different answers to the same question is not ground.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Riftward Gloves",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "The edge is specified. The rest is not.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.1
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Unspecified Cloak",
+          "slot": "back",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "It has been made more than once.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 3.8,
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Cloak (HP/MP5)"
+        },
+        {
+          "name": "Still-Forming Necklace",
+          "slot": "neck",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Not finished, and not waiting to be.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_riftward_geometry",
+      "title": "Geometry That Does Not Close",
+      "giver_npc_id": "ud_lattice_surveyor",
+      "zone": "the_crystalline_underdark",
+      "level_min": 37,
+      "level_max": 37,
+      "description": "There is a formation at the far edge of the Riftward that Pelorien has drawn four times from four positions. The four drawings cannot be reconciled. He is now reasonably sure this is not a failure of draughtsmanship, and he would like a second pair of eyes before he writes that down and signs it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_crystalline_underdark",
+          "target_x": 158,
+          "target_y": 10,
+          "radius": 7
+        },
+        {
+          "type": "fetch",
+          "target": "rift_residue",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Out to the far edge, and five samples of the residue off whatever is standing there. Then come back and tell me how many sides it had.\n\nI am not going to tell you my own figure. If I tell you my figure you will see my figure, and that is precisely the error I am trying to rule out.",
+      "turn_in_text": "That is not the number I got. That is not the number ANY of the four surveys got.\n\nGood. That is - I want to be clear - a very bad result, and it is the first honest one I have had out there.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Draft Cuisses",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "The edge is specified. The rest is not.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "block_rating": 0.8,
+            "block_value": 8.4
+          },
+          "armor_type": "plate",
+          "armor_value": 168,
+          "label": "Plate Legs (Sta/Block/BV)"
+        },
+        {
+          "name": "Half-Written Treads",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Not finished, and not waiting to be.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Half-Written Ring",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Geometry that does not close.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "ud_bloom_argument",
+      "title": "Eleven Months of Argument",
+      "giver_npc_id": "ud_bloom_warden",
+      "zone": "the_crystalline_underdark",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "There is something growing under the Sporefall in the shape of a building. Bloom-Warden Ysolde Emberquill has wanted it burned since the month she found it. The Codex want it read. Neither side has moved and the thing itself has not stopped growing for any part of the eleven months.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mycelial Husk",
+          "count": 8,
+          "zone": "the_crystalline_underdark"
+        },
+        {
+          "type": "fetch",
+          "target": "bloom_thread",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "Eight husks from the Reach and six lengths of the thread they are strung on, and I want the thread live - cut it and bag it before it dries.\n\nI am going to tell you what I am going to do with it, because the Codex-Master will not. I am going to show it to the Hall and I am going to point out that it runs from the Reach to the Bastion's own cellars, and then I am going to ask her again about the burning, and she is going to say no again.",
+      "turn_in_text": "She said no. Of course she said no. She said - and I want you to hear this exactly as she said it - that a thing which has learned something is worth more than a thing which has not.\n\nIt is in our cellars, and she wants to know what it has read.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Bloom Girdle",
+          "slot": "waist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Warm, and it should not be.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Copied Coif",
+          "slot": "head",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "It has your shape already.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.6
+          },
+          "armor_type": "leather",
+          "armor_value": 52,
+          "label": "Leather Helm (Agi/Sta/AP)"
+        },
+        {
+          "name": "Misremembered Longbow",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Grown in the shape of a thing it had never seen.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_arrival",
+      "title": "Name, Business, and the Third Question",
+      "giver_npc_id": "kb_gate_warden",
+      "zone": "kaels_bastion",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Kael's Bastion has one gate and Gate-Warden Vessaria has stood at it for three years. She asks every arrival three questions and only cares about the last one, which is what they intend to take out. The Codex did not come down here to settle. They came to index, and an index does not share well.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "kaels_bastion",
+          "target_x": 48,
+          "target_y": 58,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 2470,
+      "reward_gold": 9900,
+      "accept_text": "Name and business I will take on trust. The third question I will ask again when you leave.\n\nGo up the spine and present yourself at the Long Shelf - that is the second gallery, the wide one, you cannot miss it because it is the only open ground in the town. People will want to look at you. We have had four hundred and nine arrivals in three years and I can tell you the number because I wrote all of them down.",
+      "turn_in_text": "Four hundred and ten.\n\nYou will find the Codex polite. Do not mistake it for welcome - we arrived the same year you did and nobody here has worked out what that makes us to each other.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Bastion-Cut Cuffs",
+          "slot": "wrist",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 32,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Crimson Cuirass",
+          "slot": "chest",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Stamped, entered, and never once used.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "block_rating": 0.8,
+            "block_value": 7.7
+          },
+          "armor_type": "plate",
+          "armor_value": 154,
+          "label": "Plate Chest (Sta/Block/BV)"
+        },
+        {
+          "name": "Crimson Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.5
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_index_failing",
+      "title": "Columns We Do Not Have",
+      "giver_npc_id": "kb_archivist",
+      "zone": "kaels_bastion",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "Eleven thousand entries in three years, and the Codex's index is a good one: every object down here has a number, a provenance and a column. Archivist Nessaly's problem is the forty-one entries that have a number and a provenance and no column that fits, and the fact that the number of them is going up.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dalaran_fragment",
+          "count": 5
+        },
+        {
+          "type": "fetch",
+          "target": "shard_core",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2560,
+      "reward_gold": 10200,
+      "accept_text": "Five worked fragments off the Colonnade's revenants and five cores out of the Lattice. I want them side by side on the same bench.\n\nThe fragments are Dalaran work that nobody carried down. The cores are crystal that grows to a tolerance. I have filed the first as masonry and the second as mineralisation and I no longer believe either, and if they turn out to be the same KIND of thing then this index has been wrong since its first page.",
+      "turn_in_text": "Same kind of thing. Look at the edges - both cut, neither weathered, and both cut by something that did not need to take a second pass.\n\nI am going to have to open a column. The Codex-Master will ask me what to call it and I do not have a word.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Archive Armguards",
+          "slot": "wrist",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "The catalogue number is not one the Codex issues.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Catalogued Helm",
+          "slot": "head",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Somebody wanted this forgotten.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 79,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Unlisted Cleaver",
+          "slot": "main_hand",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Dug out of the Archive and signed for twice.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 48,
+          "weapon_damage_max": 65,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_pages",
+      "title": "Out of Paper",
+      "giver_npc_id": "kb_archivist",
+      "zone": "kaels_bastion",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "The Crimson Codex is a cataloguing expedition two hundred spans underground, and it is running out of the one thing a cataloguing expedition cannot do without. Everything they write on came down a fissure on somebody's back. The only wood in the entire cluster is the frostpine standing in the Descent's ice chambers.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "ww_pages_frostpine",
+          "count": 8,
+          "label": "Press frostpine pages"
+        }
+      ],
+      "reward_exp": 2470,
+      "reward_gold": 9900,
+      "accept_text": "Eight sets of pages, and you will have to go back up into the ice for the timber, because there is no wood in this cavern. Fungus is not wood. I have had that argument with the Naturalist and I won it on the grounds that I am the one who has to write on it.\n\nFrostpine presses pale and takes ink badly in the cold, so press it down here where it is warm. The Codex has lost four months of field notes to pages that cracked.",
+      "turn_in_text": "Eight sets. That is three weeks of the Archive's work, which tells you how thin we are running.\n\nWe came down here to write this place down and we are rationing the paper to do it. Nobody in the Hall finds that as funny as I do.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Unfinished Bracers",
+          "slot": "wrist",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "The last entry in the log is mid-sentence.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Bracers (Int/Sta/MP5)"
+        },
+        {
+          "name": "Expedition Coat",
+          "slot": "chest",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Somebody packed this to come back.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.0,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 64,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Last Camp Wand",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Somebody packed this to come back.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.4
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_reagents",
+      "title": "Better Than They Should Be",
+      "giver_npc_id": "kb_alchemist",
+      "zone": "kaels_bastion",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Four years of Terrowen's samples say the same thing: reagents gathered in the Underdark test better than their surface equivalents. Not slightly. Consistently, measurably, and in a direction no soil chemistry he knows will produce. He has stopped putting it in reports and started putting it in a drawer.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "alch_elixir_of_arcane_fury",
+          "count": 4,
+          "label": "Brew Elixir of Arcane Fury"
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Four flasks, brewed from stock you pull out of this cavern yourself. Not from my shelves - my shelves are already four years of this and I need a clean comparison.\n\nArcane fury is the right test because it is a fussy brew with a narrow window. If it comes out of Underdark reagents at full strength, then it is not my technique and it is not the stock. It is the ground.",
+      "turn_in_text": "Full strength. All four, and one of them over.\n\nThere is an argument in the Hall that this cavern is simply rich. Rich ground does not make a fussy elixir MORE forgiving. Something down here is doing half my work and I have never once been asked for anything in return.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Bastion-Cut Leggings",
+          "slot": "legs",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Stamped, entered, and never once used.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 68,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Kael's Waistguard",
+          "slot": "waist",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Carried down a fissure on somebody's back.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Bastion-Cut Pendant",
+          "slot": "neck",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Stamped, entered, and never once used.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_naturalist_funding",
+      "title": "The Largest Living Thing Any of Us Has Stood On",
+      "giver_npc_id": "kb_naturalist",
+      "zone": "kaels_bastion",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "Naturalist Orienne has applied for a survey of the mycelial network four times in three years. The Codex have refused four times, on the grounds that the fungus is scenery. Her position is that the scenery is a single organism running under every subzone they have mapped, including the one the Bastion is built in.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "bloom_thread",
+          "count": 8
+        }
+      ],
+      "reward_exp": 2560,
+      "reward_gold": 10200,
+      "accept_text": "Eight lengths of thread, and take them from eight DIFFERENT places - the Reach, the Sporefall, the marsh edge, wherever you walk. Keep them separate and label them. I will do the rest.\n\nIf eight samples from eight subzones are eight organisms, the Codex are right and I will say so at the next briefing. If they are one organism, then this town is standing on something's back and we have been calling it the floor for three years.",
+      "turn_in_text": "One organism.\n\nI am not going to be thanked for this. I am going to be asked to write it up carefully, and then it is going to be filed, and the filing is how the Codex says no.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Spore-Lit Handguards",
+          "slot": "hands",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Glows faintly, which down here is no distinction.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Gloves (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Mycelial Bracers",
+          "slot": "wrist",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Cut from a cap you could shelter under.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Bracers (Int/Spi/HP)"
+        },
+        {
+          "name": "Cap-Cut Ring",
+          "slot": "ring",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Light, and stronger than it looks.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_enchanter_debt",
+      "title": "It Does Half My Work",
+      "giver_npc_id": "kb_enchanter",
+      "zone": "kaels_bastion",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Enchanter Vaelios works in ambient arcane so thick he has not had to draw on his own reserves in two years. Every enchanter he trained with would call that a gift. He has started calling it a loan, because he did not arrange it, cannot find the source, and has never been asked for anything.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shard Diviner",
+          "count": 10,
+          "zone": "the_crystalline_underdark"
+        },
+        {
+          "type": "fetch",
+          "target": "shard_core",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Ten diviners off the Lattice and four cores, and the cores need to come out of the diviners specifically - the sentries carry the same stone but they do not carry it the same way.\n\nA diviner draws from the field the way I do. If I can put four of their cores on a bench and watch what the ambient does to them while I am not working, I will know whether this cavern gives or whether it lends.",
+      "turn_in_text": "They kept drawing. On the bench, overnight, with nobody working them.\n\nIt gives. It gives constantly, to anything shaped to take it, and it has been giving to me for two years. I would be happier about that if anything in my training covered what happens when it stops.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Iterated Gauntlets",
+          "slot": "hands",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Grown in rows. Nothing alive bothers to do that.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Exact Cloak",
+          "slot": "back",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "There are others. They are identical.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Cloak (Dodge/Parry)"
+        },
+        {
+          "name": "Lattice Targe",
+          "slot": "off_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Cut to a figure that closes perfectly.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "armor_value": 54,
+          "block_value": 68,
+          "label": "Shield (Parry/Block/Dodge)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_sentinel_wager",
+      "title": "He Does Not Care What the Crystal Says",
+      "giver_npc_id": "kb_hall_sentinel",
+      "zone": "kaels_bastion",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "Hall-Sentinel Durannis is an orc in a blood elf holdfast, hired for the specific quality of not being impressed. Three years of magisters telling him the cavern is extraordinary has not moved him. He has, however, noticed that the Hall's own stone has started doing something.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dim_residue",
+          "count": 7
+        }
+      ],
+      "reward_exp": 2560,
+      "reward_gold": 10200,
+      "accept_text": "Seven scrapings off whatever walks out past the light. Not from the edge - from past it, far enough that you are the only lit thing out there.\n\nI will tell you why, and then you can decide whether I am wasting your time. The Codex Hall's floor is cut from stone we quarried out of the Dim side. For a month it has been cold in exactly the pattern of the courses. Not the room. The STONE. I would like to know if it is still connected to where it came from.",
+      "turn_in_text": "Cold. Same as the floor, same pattern, in a jar, in a warm room, three days later.\n\nI do not care what the crystal says. I care that a piece of rock in my hand is keeping company with a quarry a mile off, and nobody in that Hall will take the jar off me.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Lumen-Forsaken Leggings",
+          "slot": "legs",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "The Lumen does not land on it. It simply does not.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 66,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Lumen-Forsaken Byrnie",
+          "slot": "chest",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Out past where anyone maps.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 106,
+          "label": "Mail Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Unseen Staff",
+          "slot": "main_hand",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "The Lumen does not land on it. It simply does not.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 13,
+            "spirit": 13
+          },
+          "secondary_stats": {
+            "healing_power": 13.7
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_the_question",
+      "title": "Three Years and Eleven Thousand Entries",
+      "giver_npc_id": "kb_codex_master",
+      "zone": "kaels_bastion",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Codex-Master Ilarien Duskwaking receives every arrival personally and has done for three years, which the Bastion reads as courtesy and the Adjutant's filing suggests is something closer to intake. She has one question for people who come down the fissure, and she asks it last.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_crystalline_underdark",
+          "target_x": 76,
+          "target_y": 118,
+          "radius": 8
+        },
+        {
+          "type": "fetch",
+          "target": "dalaran_fragment",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2650,
+      "reward_gold": 10500,
+      "accept_text": "Four fragments from the Weeping Colonnade, and your own account of standing in it. Scholar Veridan has given me his and it is excellent and it is the fourth time I have read the same paragraph.\n\nNow the question, and you may decline it. You arrived on this world three years ago. So did we. When you stand in a colonnade that nobody carried down, in a cavern that did not exist, does it feel like a discovery to you - or does it feel like something that was put here for whoever arrived first?",
+      "turn_in_text": "You said: both.\n\nThat is the answer Veridan gave, and the answer I give, and the answer I have not been able to file for three years. Thank you for not improving on it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Crimson Spaulders",
+          "slot": "shoulder",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Stamped, entered, and never once used.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Kael's Coif",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Carried down a fissure on somebody's back.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 51,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Crimson Rod",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ]
+    }
+  ]
+}

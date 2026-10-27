@@ -6590,6 +6590,87 @@
         }
       ],
       "gear_reward_gear_level": 12
+    },
+    {
+      "quest_id": "uc_dalaran_question",
+      "title": "Under Dalaran",
+      "giver_npc_id": "uc_scholar",
+      "zone": "undercity",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "The Ruins of Dalaran sit in Silverpine under a shield the Kirin Tor have not dropped in years, and the Forsaken have been politely curious about them for as long as there have been Forsaken. Word has reached the Apothecarium that a party of blood elves found something beneath the ruins three years ago and have been quietly living in it since.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_hillsbrad",
+          "target_x": 118,
+          "target_y": 14,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2380,
+      "reward_gold": 9600,
+      "accept_text": "South and east, to the Alterac foothills above Gavin's Naze. There is a fissure there and the elves have made a road of it.\n\nI am not asking you to go down. I am asking you to confirm that there is a down to go to, because the Dark Lady's intelligence on this consists of one sentence from a courier and the Apothecarium would like a second.\n\nAnd if you do go down - and you will, I have met your sort - look at the stone. Dalaran stone under Dalaran is interesting. Dalaran stone anywhere else is a question.",
+      "turn_in_text": "Confirmed, then. A hole in the foothills with a road worn into it.\n\nThe blood elves got there three years ago. So did you, in a manner of speaking, and so did half of what is walking around up here. I have stopped treating three years ago as a coincidence.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Violet-Stone Bracers",
+          "slot": "wrist",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "It was made somewhere with a sky.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 3.7
+          },
+          "armor_type": "plate",
+          "armor_value": 74,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Violet-Stone Cuffs",
+          "slot": "wrist",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "It was made somewhere with a sky.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 49,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Colonnade Shortbow",
+          "slot": "main_hand",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "It was made somewhere with a sky.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.4
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 52,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ]
     }
   ]
 }
