@@ -352,7 +352,7 @@
     {
       "talent_id": "sun_cleric_seraphim_devoted",
       "name": "Devoted",
-      "description": "Gavel of Light has a 35% chance to unleash a free Justicar's Wrath, no more than once per turn.",
+      "description": "Gavel of Light has a 20% chance to unleash a free Justicar's Wrath, no more than once every 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -367,8 +367,8 @@
       "_source": "CoA handoff doc confirmed: 'Level 50 Passive. Dawnbreak/Gavel of Light strike 2 extra nearby enemies.'",
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 35,
-        "icd": 1,
+        "chance": 20,
+        "icd": 2,
         "ability_filter": [
           "sun_cleric_gavel_of_light"
         ],

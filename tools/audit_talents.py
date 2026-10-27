@@ -136,10 +136,17 @@ STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct"})
 
 #: Triggers combat/status_effects.py actually dispatches on. A proc with any
 #: other trigger never fires.
+#: Exactly the triggers combat/abilities.py actually calls
+#: fire_proc_trigger with. Narrowed 2026-10-27: this set also listed
+#: "on_target" and "on_cast_damage_or_heal", neither of which the engine
+#: dispatches anywhere - "on_target" is only a FIELD inside apply_effect, and
+#: the real combined trigger is spelled "on_damage_or_heal_cast". A proc
+#: authored with either would have passed this audit and never fired. No
+#: talent currently uses them; this stops the next one.
 PROC_TRIGGERS = frozenset({
-    "on_cast", "on_crit", "on_kill", "on_target", "on_weapon_swing",
+    "on_cast", "on_crit", "on_kill", "on_weapon_swing",
     "on_damage_cast", "on_damage_taken", "on_heal_cast",
-    "on_cast_damage_or_heal", "on_damage_or_heal_cast",
+    "on_damage_or_heal_cast",
 })
 
 #: The payload keys that make a proc do something. A proc carrying none of
@@ -155,7 +162,7 @@ _SCHOOLS = "arcane|fire|frost|nature|shadow|holy"
 _DYNAMIC_KEY = re.compile(
     r"^(ability_.+_(damage|healing|cost|cooldown|duration|crit|potency)"
     r"|ability_.+_(cost_pct|cooldown_pct|crit_damage)"
-    r"|unlock_ability|unlock_mechanic"
+    r"|unlock_ability"
     r"|all_ability_cost_pct|heal_cost_pct|healing_spell_cost_pct"
     r"|crit_damage_pct|crit_damage_spell|crit_damage_physical"
     rf"|({_SCHOOLS})_crit_damage_pct"
@@ -316,6 +323,18 @@ def main():
                 findings["pct-unit-mixup"].append(
                     f"{tid} ({n.get('name')!r}): {key}={val} - this key is a "
                     f"FRACTION, so that is {abs(val) * 100}%")
+
+            # Sign check. talented_cost does cost * (1 - pct) and
+            # talented_cooldown does cd * (1 - pct), so POSITIVE means a
+            # reduction - the same direction as the flat _cost/_cooldown keys.
+            # Eight talents across four classes authored these negative,
+            # intending a discount and delivering a surcharge: one made every
+            # heal in its spec 10% MORE expensive while its tooltip promised
+            # cheaper. Nothing caught it, because the value is perfectly valid.
+            if (key.endswith("_cost_pct") or key.endswith("_cooldown_pct")) and val < 0:
+                findings["pct-sign-inverted"].append(
+                    f"{tid} ({n.get('name')!r}): {key}={val} - positive means a "
+                    f"REDUCTION here, so this makes it {abs(val) * 100}% MORE expensive")
 
         # Proc payloads get the same scrutiny as `effects`. A proc's
         # apply_effect stat_mods are read through the same generic pool, so a

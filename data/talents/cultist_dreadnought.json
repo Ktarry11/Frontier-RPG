@@ -301,7 +301,7 @@
     {
       "talent_id": "cultist_dreadnought_void_enhanced_shield",
       "name": "Void-Enhanced Shield",
-      "description": "Increases your block value by 3% per rank. Spending Insanity has a 20% chance per rank to harden your guard, granting 5% block chance and 200 armor for 3 turns.",
+      "description": "Increases your block value by 3% per rank. Spending Insanity has a 20% chance per rank to harden your guard, granting 5% block chance and 60 armor for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -335,7 +335,7 @@
           "duration": 3,
           "stat_mods": {
             "block": 5.0,
-            "armor": 200
+            "armor": 60
           },
           "on_target": false
         }

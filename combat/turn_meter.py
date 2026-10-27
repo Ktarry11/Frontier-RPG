@@ -55,7 +55,16 @@ class TurnMeter:
         # session's Concussion Blow/Shockwave placeholders) stack on top
         # of the character's own computed Haste stat, same as any other
         # stat_mod.
-        if hasattr(char, "get_status_stat_mod"):
+        # Only for entities that do NOT already fold status stat_mods into
+        # their own `haste`. A Character does: every effect's stat_mods go
+        # through the bonus pool in _recalculate_derived_stats, which sets
+        # self.haste - so adding them again here counted every haste buff
+        # TWICE, making a `haste: 20` proc worth about 40% turn speed. Data in
+        # this game uses values up to 40, so the error was large and
+        # game-wide. A Monster has no derived-stat pass and no self.haste at
+        # all, so for monsters this IS the only source and must stay.
+        if (hasattr(char, "get_status_stat_mod")
+                and not hasattr(char, "_recalculate_derived_stats")):
             haste_pct += char.get_status_stat_mod("haste")
 
         char.turn_speed = base_speed * (1.0 + haste_pct / 100.0)

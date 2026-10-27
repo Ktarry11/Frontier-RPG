@@ -1002,8 +1002,20 @@ class Character(StatusEffectMixin):
         # able to every downstream formula. Recalc is re-triggered whenever an
         # effect is applied or expires (see _on_status_effects_changed).
         for _eff in self._effects():
+            # Scaled by stacks, matching get_status_stat_mod, which has always
+            # multiplied by them. This path did not, so the two readers of the
+            # same stat_mods disagreed: a 5-stack buff granting spell_power or
+            # armor delivered ONE stack's worth through the derived-stat pool
+            # while a damage_taken_pct buff delivered all five. Every stacking
+            # buff whose payload is a plain stat was therefore silently capped
+            # at rank one, which is why authors kept reaching for the handful
+            # of keys that happened to route through get_status_stat_mod.
+            _stacks = max(1, getattr(_eff, "stacks", 1) or 1)
             for _key, _value in _eff.stat_mods.items():
-                bonuses[_key] = bonuses.get(_key, 0) + _value
+                if isinstance(_value, (int, float)):
+                    bonuses[_key] = bonuses.get(_key, 0) + _value * _stacks
+                else:
+                    bonuses[_key] = _value
 
         # Elixir/food consumable buffs (guardian/battle/food slots) - same
         # bonus pool as gear/talents/status effects, so "+8 Intellect, +4

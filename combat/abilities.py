@@ -1083,11 +1083,21 @@ class Ability:
         Resolved against the school the ability actually deals this cast, so
         Runemaster's live attunement cycle is respected.
         """
+        # An ability's damage_school may be a LIST of schools - Sun Cleric's
+        # Radiant Flame and Hammer of Kings are ["holy", "fire"]. Bailing out
+        # on those meant a combined-school ability could never receive ANY
+        # school damage bonus, not even a combined key naming both of its own
+        # schools. Each component is considered instead, which is the same
+        # any-component rule the combined KEYS already use below.
         real = self._resolve_damage_school(caster)
-        if not isinstance(real, str):
+        schools = ([real] if isinstance(real, str)
+                   else [s for s in (real or []) if isinstance(s, str)])
+        if not schools:
             return 0.0
-        bonus = (self._talent(caster, f"{real}_spell_damage")
-                 + self._talent(caster, f"{real}_damage_pct"))
+        bonus = 0.0
+        for real in schools:
+            bonus += (self._talent(caster, f"{real}_spell_damage")
+                      + self._talent(caster, f"{real}_damage_pct"))
         effects = (caster.get_talent_effects()
                    if hasattr(caster, "get_talent_effects") else {}) or {}
         for key, val in effects.items():
@@ -1098,7 +1108,9 @@ class Ability:
                     parts = key[:-len(suffix)].split("_")
                     # Only COMBINED keys here; the single-school case is
                     # already counted above and must not be double-added.
-                    if len(parts) > 1 and real in parts:
+                    # Matched against any of the ability's own schools, so a
+                    # combined-school ability is covered too.
+                    if len(parts) > 1 and any(s in parts for s in schools):
                         bonus += val
                     break
         return bonus
@@ -1424,8 +1436,21 @@ class Ability:
             # there was never a reason for it to be missing; four Druid
             # talents (Mangle, Infected Wounds, King of the Jungle, Eclipse)
             # were dead on exactly this.
+            # ON_CAST also carries the TARGET of the cast. Without it, a proc
+            # whose apply_effect sets on_target: true fell back to the carrier,
+            # so an enemy debuff authored on ON_CAST silently landed on the
+            # PLAYER - and when that debuff is a damage-taken increase, the
+            # talent actively hurt its owner. Druid's Mangle demonstrated it
+            # exactly: "Mangle triggers Mangle on D", giving the Druid +10%
+            # physical damage taken. Ten talents were authored this way.
+            #
+            # Fired before damage resolves, so this is the intended target of
+            # the cast rather than a confirmed hit; for a self-buff or a heal
+            # it is the caster or the ally, which is the correct recipient
+            # there too.
             proc_msgs = caster.fire_proc_trigger(
-                ProcTrigger.ON_CAST, {"amount": 0, "ability_id": self.ability_id})
+                ProcTrigger.ON_CAST,
+                {"amount": 0, "target": target, "ability_id": self.ability_id})
 
             events = getattr(self, "_last_threat_events", None) or []
             for recipient, evt_amount, is_damage in events:
@@ -2303,7 +2328,21 @@ class Ability:
                 dot_pct = self._talent(caster, "dot_duration_pct")
                 if dot_pct:
                     duration = max(1, int(round(duration * (1.0 + dot_pct))))
-                per_turn = max(1, int(total / duration))
+
+                # per_turn is derived from the ability's OWN base duration, not
+                # the talented one, so extending a DoT adds TICKS rather than
+                # thinning the same total across more turns.
+                #
+                # This was the bug that made duration talents pointless the
+                # moment the dot branch started honouring them: total damage
+                # was fixed, so `total / duration` meant a +2-turn talent
+                # simply reduced each tick. The player paid points to make
+                # their DoT slower. Now a 3-turn DoT extended to 5 deals its
+                # normal per-turn damage for 5 turns, which is what every one
+                # of those tooltips promises.
+                base_duration = max(1, (self.duration or 1)
+                                    + int(consumed_stacks * self.duration_per_stack))
+                per_turn = max(1, int(total / base_duration))
 
                 hit_names = []
                 miss_names = []

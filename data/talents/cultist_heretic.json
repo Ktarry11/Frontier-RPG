@@ -94,7 +94,7 @@
     {
       "talent_id": "cultist_heretic_abyssal_guard",
       "name": "Abyssal Guard",
-      "description": "Eldritch Mending costs 5% less Mana per rank, and each heal you cast has a 20% chance per rank to raise an Abyssal Guard around you, absorbing damage equal to 3% of your maximum health for 3 turns.",
+      "description": "Eldritch Mending costs 5% less Mana per rank, and each heal you cast has a 20% chance per rank to raise an Abyssal Guard around you, absorbing damage equal to 4% of your maximum health for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -116,7 +116,7 @@
           "name": "Abyssal Guard",
           "effect_type": "buff",
           "duration": 3,
-          "absorb_pct_max_health": 0.03,
+          "absorb_pct_max_health": 0.04,
           "stat_mods": {},
           "on_target": false
         }
@@ -544,7 +544,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "healing_spell_cost_pct": -0.02
+        "healing_spell_cost_pct": 0.02
       },
       "connected_to": [
         "cultist_heretic_greater_void_blessing",

@@ -227,7 +227,7 @@
     {
       "talent_id": "cultist_corruption_glimpse_of_madness",
       "name": "Glimpse of Madness",
-      "description": "Reduces Obliteration Beam's cooldown by 6% per rank. Obliteration Beam sears Madness into everything it strikes, reducing armor by 200 for 3 turns.",
+      "description": "Reduces Obliteration Beam's cooldown by 6% per rank. Obliteration Beam sears Madness into everything it strikes, reducing armor by 45 for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -254,7 +254,7 @@
           "effect_type": "debuff",
           "duration": 3,
           "stat_mods": {
-            "armor": -200
+            "armor": -45
           },
           "on_target": true
         }
@@ -388,7 +388,7 @@
     {
       "talent_id": "cultist_corruption_unrelenting_void",
       "name": "Unrelenting Void",
-      "description": "Your damaging casts have a 25% chance per rank to erode the target's armor by 60 for 4 turns, stacking up to 5 times.",
+      "description": "Your damaging casts have a 25% chance per rank to erode the target's armor by 12 for 4 turns, stacking up to 5 times.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 4,
@@ -410,7 +410,7 @@
           "duration": 4,
           "max_stacks": 5,
           "stat_mods": {
-            "armor": -60
+            "armor": -12
           },
           "on_target": true
         }
