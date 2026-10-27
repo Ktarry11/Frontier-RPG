@@ -162,6 +162,42 @@ _DYNAMIC_KEY = re.compile(
     rf"|({_SCHOOLS})_(resistance|spell_power))$")
 
 
+#: The six real damage schools. A key naming one of these as a component is
+#: resolved at runtime against the school an ability actually deals.
+_SCHOOL_SET = frozenset({"arcane", "fire", "frost", "nature", "shadow", "holy"})
+
+
+def _is_live_school_key(key):
+    """True for the school-resolved key families the engine builds at runtime.
+
+    These are constructed from the ability's real school rather than written
+    out literally (`f"{real}_spell_damage"`), so a grep for the key name finds
+    nothing. Combined keys are supported - fire_nature_resist_pct applies to
+    Fire and to Nature - so membership is tested per underscore component.
+
+    Deliberately strict about what counts as live:
+      poison_disease_resist_pct names no real school, so it stays flagged.
+      low_health_healing_pct keys off the RECIPIENT's health, which the
+        damage-multiplier path has no access to, so it stays flagged too.
+    Both are genuinely still dead and should keep showing up.
+    """
+    for suffix in ("_spell_damage", "_damage_pct", "_resist_pct", "_dot_damage",
+                   "_crit_damage_pct"):
+        if key.endswith(suffix):
+            parts = key[:-len(suffix)].split("_")
+            return any(p in _SCHOOL_SET for p in parts)
+    return False
+
+
+#: Keys implemented as single named mechanics in this round, which a grep
+#: would find anyway - listed for documentation, not for the check.
+_NAMED_LIVE = frozenset({
+    "low_mana_healing_pct", "high_mana_healing_pct", "spell_damage_taken_pct",
+    "block_value_pct", "aoe_damage", "dot_damage", "bleed_dot_damage",
+    "poison_dot_damage", "low_health_healing_pct",
+})
+
+
 def _is_live_stat_conversion(key):
     """True for a <target>_from_<source>_pct key the engine really handles.
 
@@ -223,7 +259,8 @@ def main():
     for tid, n in T.items():
         for key, val in (n.get("effects") or {}).items():
             if not (_DYNAMIC_KEY.match(key) or key in LIVE
-                    or _is_live_stat_conversion(key)):
+                    or _is_live_stat_conversion(key)
+                    or _is_live_school_key(key)):
                 findings["dead-effect-key"].append(
                     f"{tid} ({n.get('name')!r}): {key!r} is read by no engine code")
             # Unit convention. These ten keys are the only ones the engine

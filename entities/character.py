@@ -686,6 +686,19 @@ class Character(StatusEffectMixin):
         """Look up a single summed talent effect value by key."""
         return self.get_talent_effects().get(key, default)
 
+    def _resist_pct_keys(self):
+        """Yield (key, fraction) for every *_resist_pct talent effect held.
+
+        Separated out so take_damage's school branch stays readable, and so
+        the combined-school keys (fire_nature_resist_pct,
+        poison_disease_resist_pct) need no hardcoded list - the key names its
+        own schools and is split on underscores at the call site.
+        """
+        effects = self.get_talent_effects() if hasattr(self, "get_talent_effects") else {}
+        for key, val in effects.items():
+            if isinstance(key, str) and key.endswith("_resist_pct") and isinstance(val, (int, float)):
+                yield key[:-len("_resist_pct")], val
+
     def get_talent_unlocked_abilities(self):
         """Return the list of ability_ids unlocked by spent talent points."""
         unlocked = self.get_talent_effects().get("unlock_ability", [])
@@ -1110,6 +1123,11 @@ class Character(StatusEffectMixin):
         agility_block_bonus = eff_agility * bonuses.get("spirit_guard_block_from_agility", 0.0)
         self.block = (eff_strength * 0.3 + self.equipment.get_total_block_value()
                       + bonuses.get("block", 0) + bonuses.get("block_rating", 0) + agility_block_bonus)
+        # block_value_pct scales the whole block value, the percentage
+        # companion to the flat `block` key. Two talents used it and it was
+        # read by nothing. A fraction, like every other _pct key outside the
+        # ten points-convention stat keys.
+        self.block *= (1.0 + bonuses.get("block_value_pct", 0))
         avg_stat = (eff_agility + eff_strength) / 2
         # Parry previously ignored the bonus pool entirely, so gear and
         # talents rolling Parry did nothing. Now additive like Dodge.
@@ -2112,6 +2130,11 @@ class Character(StatusEffectMixin):
             # regardless of which real school the incoming hit uses, not
             # just the old catch-all "magic" damage_type.
             taken_mult += self.get_talent_effect("magic_damage_taken_pct", 0.0)
+            # spell_damage_taken_pct is how two talents name the identical
+            # idea. Accepted as an alias rather than left dead, since there is
+            # no distinction in this engine between "magic" and "spell" damage
+            # taken - every school above routes through this same branch.
+            taken_mult += self.get_talent_effect("spell_damage_taken_pct", 0.0)
             # Same buff/debuff-sourced companion as the physical branch
             # above (Cultist's Doomcloak, Sun Cleric's Scroll of Hope,
             # Tinker's Aether/Arcane Bionics self- or party-buffs; Cultist's
@@ -2143,6 +2166,23 @@ class Character(StatusEffectMixin):
             if school_key:
                 taken_mult += self.get_talent_effect(school_key, 0.0)
                 taken_mult += self.get_status_stat_mod(school_key) / 100.0
+
+            # <school>_resist_pct is how seven homebrew talents word the same
+            # idea ("increases your Fire resistance by 3%"), and the key was
+            # read by nothing. Treated as a reduction in that school's damage
+            # taken, which is what resistance means mechanically here, so it
+            # folds into the same taken_mult as the keys above rather than
+            # needing a parallel system.
+            #
+            # Several are COMBINED - fire_nature_resist_pct covers Fire and
+            # Nature, poison_disease_resist_pct covers both of those - so the
+            # key is split on underscores and matched if the real school is
+            # any of its named components. A combined-school hit still gets
+            # nothing, same rule as the per-school block above.
+            if isinstance(damage_type, str):
+                for key, val in self._resist_pct_keys():
+                    if damage_type in key.split("_"):
+                        taken_mult -= val
 
         # low_health_damage_reduction_pct (Venomancer's Unbreakable: "-2%/
         # rank all damage taken while below 35% health"; Tinker's

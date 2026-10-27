@@ -1072,6 +1072,70 @@ class Ability:
             return False, 1.0
         return True, self.CRIT_DAMAGE_MULTIPLIER + self._crit_damage_bonus(caster, school)
 
+    def _school_damage_bonus(self, caster):
+        """School-specific spell damage, e.g. nature_spell_damage.
+
+        Seven talents word their bonus by school rather than globally
+        ("increases your Nature spell damage by 4%") and the keys were read by
+        nothing. Both <school>_spell_damage and <school>_damage_pct are
+        accepted, and so are COMBINED keys like nature_fire_spell_damage,
+        which match if the ability's real school is any named component.
+        Resolved against the school the ability actually deals this cast, so
+        Runemaster's live attunement cycle is respected.
+        """
+        real = self._resolve_damage_school(caster)
+        if not isinstance(real, str):
+            return 0.0
+        bonus = (self._talent(caster, f"{real}_spell_damage")
+                 + self._talent(caster, f"{real}_damage_pct"))
+        effects = (caster.get_talent_effects()
+                   if hasattr(caster, "get_talent_effects") else {}) or {}
+        for key, val in effects.items():
+            if not isinstance(key, str) or not isinstance(val, (int, float)):
+                continue
+            for suffix in ("_spell_damage", "_damage_pct"):
+                if key.endswith(suffix):
+                    parts = key[:-len(suffix)].split("_")
+                    # Only COMBINED keys here; the single-school case is
+                    # already counted above and must not be double-added.
+                    if len(parts) > 1 and real in parts:
+                        bonus += val
+                    break
+        return bonus
+
+    def _conditional_healing_bonus(self, caster):
+        """Healing bonuses conditional on the caster's own mana.
+
+        low_mana_healing_pct and high_mana_healing_pct are the "desperate" and
+        "well-supplied" halves of a real healer mechanic, authored by eight
+        homebrew talents and read by nothing. The threshold reuses
+        low_health_threshold_pct's default of 35% so it matches every other
+        conditional in this engine rather than inventing a second number.
+
+        low_health_healing_pct is deliberately NOT handled here: it keys off
+        the RECIPIENT's health, and _damage_multiplier has no recipient. It
+        stays dead until the heal path threads a target through, and the audit
+        keeps flagging it rather than it being quietly dropped.
+        """
+        # NOTE the naming trap: on Character, `mana` is the MAXIMUM and
+        # `current_mana` is the live pool - exactly like `health` vs
+        # `current_health`. Reading "max_mana" (which does not exist) or
+        # treating `mana` as current both silently yield a wrong fraction;
+        # the first attempt at this used getattr(caster, "max_mana", 0) and
+        # the whole feature was dead because that default is 0.
+        max_mana = getattr(caster, "mana", 0) or 0
+        if not max_mana:
+            return 0.0
+        frac = (getattr(caster, "current_mana", 0) or 0) / max_mana
+        threshold = 0.35
+        if hasattr(caster, "get_talent_effect"):
+            threshold = caster.get_talent_effect("low_health_threshold_pct", 0.35) or 0.35
+        if frac <= threshold:
+            return self._talent(caster, "low_mana_healing_pct")
+        if frac >= 1.0 - threshold:
+            return self._talent(caster, "high_mana_healing_pct")
+        return 0.0
+
     def _crit_damage_bonus(self, caster, school):
         """Extra crit multiplier from talents, added to CRIT_DAMAGE_MULTIPLIER.
 
@@ -1118,7 +1182,7 @@ class Ability:
             return self.damage_school
         return getattr(caster, "current_attunement", None) or DamageSchool.ARCANE
 
-    def _damage_multiplier(self, caster, school):
+    def _damage_multiplier(self, caster, school, recipient=None):
         """Combined talent multiplier for this ability in a given school.
 
         school is "physical", "spell" or "healing" - selects which global
@@ -1135,12 +1199,49 @@ class Ability:
             # already using it.
             per_ability += self._talent(caster, f"ability_{self.ability_id}_healing")
             global_key = self._talent(caster, "healing_done")
+            global_key += self._conditional_healing_bonus(caster)
+            # low_health_healing_pct: "your heals are N% stronger on targets
+            # below X% health" - four homebrew talents, previously dead
+            # because this method had no idea who was being healed. The heal
+            # call sites now pass the recipient. Falls back to no bonus when
+            # the recipient is unknown (a smart heal has not picked one yet).
+            if recipient is not None:
+                bonus = self._talent(caster, "low_health_healing_pct")
+                if bonus:
+                    max_hp = getattr(recipient, "health", 0) or 0
+                    cur_hp = getattr(recipient, "current_health", None)
+                    if max_hp and cur_hp is not None:
+                        threshold = 0.35
+                        if hasattr(caster, "get_talent_effect"):
+                            threshold = caster.get_talent_effect(
+                                "low_health_threshold_pct", 0.35) or 0.35
+                        if cur_hp / max_hp <= threshold:
+                            global_key += bonus
         elif school == "spell":
             global_key = (self._talent(caster, "spell_damage")
-                          + self._talent(caster, "all_damage"))
+                          + self._talent(caster, "all_damage")
+                          + self._school_damage_bonus(caster))
         else:
             global_key = (self._talent(caster, "physical_damage")
                           + self._talent(caster, "all_damage"))
+
+        # Damage-type multipliers, independent of school: an AoE bonus and the
+        # per-type DoT bonuses (bleed_dot_damage, poison_dot_damage,
+        # nature_dot_damage, aoe_damage). Five talents were authored on these
+        # and none were read.
+        if school != "healing":
+            if self.target_type == "enemy_aoe":
+                global_key += self._talent(caster, "aoe_damage")
+            if self.effect_type in ("dot", "spell_dot"):
+                global_key += self._talent(caster, "dot_damage")
+                real = self._resolve_damage_school(caster)
+                if isinstance(real, str):
+                    global_key += self._talent(caster, f"{real}_dot_damage")
+                # bleed_dot_damage / poison_dot_damage name a flavour rather
+                # than a school, so they key off the ability id instead.
+                for flavour in ("bleed", "poison"):
+                    if flavour in self.ability_id:
+                        global_key += self._talent(caster, f"{flavour}_dot_damage")
 
         # Temporary BUFF-granted damage/healing-done cooldowns (CoA's
         # damage_dealt_pct / healing_done_pct - Voidborne, Blessing of
@@ -1595,6 +1696,9 @@ class Ability:
         power scaling identically instead of copies drifting apart.
         """
         heal_amt = int(heal_value + caster.healing_power * 1.2)
+        # recipient stays None here: _apply_smart_heal has not chosen its
+        # target yet (it picks the most wounded ally below), so a
+        # recipient-conditional healing talent cannot apply to a smart heal.
         heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing"))
 
         if self.heal_scope == "party":
@@ -1682,7 +1786,7 @@ class Ability:
                         f"Regrowth on {target.name} - nothing to consume!")
 
             remaining_total = max(1, consumable.potency * max(0, consumable.duration))
-            heal_amt = int(remaining_total * self._damage_multiplier(caster, "healing"))
+            heal_amt = int(remaining_total * self._damage_multiplier(caster, "healing", recipient=target))
             target.heal(heal_amt)
             self._last_threat_events.append((None, heal_amt, False))
             target._effects().remove(consumable)
@@ -1693,7 +1797,7 @@ class Ability:
         # of raw Spirit directly - same principle as spell_damage
         # above. Healing Power = Spirit*2 + INT*0.2 (base) + gear rolls.
         heal_amt = int(self.effect_value + caster.healing_power * 1.2)
-        heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing"))
+        heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing", recipient=target))
 
         # target_type="party" (Circle of Healing, etc) passes a LIST of
         # combatants rather than one - the single-target path below
@@ -2228,7 +2332,7 @@ class Ability:
             # Lands on the chosen friendly target, NOT unconditionally on the
             # caster - that bug made every HoT in the game a self-heal.
             total = (self.effect_value + caster.healing_power * 0.8) * \
-                self._damage_multiplier(caster, "healing")
+                self._damage_multiplier(caster, "healing", recipient=target)
             duration = self.talented_duration(caster)
             per_turn = max(1, int(total / duration))
 
