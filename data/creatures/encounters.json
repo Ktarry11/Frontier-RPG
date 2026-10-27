@@ -2064,6 +2064,205 @@
       },
       "subzones": {},
       "caves": {}
+    },
+    "Western Hillsbrad": {
+      "open_zone": {
+        "name": "The Hillsbrad Road",
+        "creatures": {
+          "Hillsbrad Farmhand": 4,
+          "Highland Ram": 3,
+          "Worg Prowler": 2,
+          "Orchard Wasp": 2
+        }
+      },
+      "subzones": {
+        "Southpoint Tower": {
+          "name": "Southpoint Tower",
+          "creatures": {
+            "Hillsbrad Farmhand": 3,
+            "Worg Prowler": 3,
+            "Highland Ram": 2
+          }
+        },
+        "Hillsbrad Fields": {
+          "name": "Hillsbrad Fields",
+          "creatures": {
+            "Hillsbrad Farmhand": 4,
+            "Hillsbrad Militiaman": 4,
+            "Orchard Wasp": 2,
+            "Field Marshal Calder": 0
+          }
+        },
+        "The Foothill Pastures": {
+          "name": "The Foothill Pastures",
+          "creatures": {
+            "Highland Ram": 4,
+            "Mountain Yeti": 3,
+            "Worg Prowler": 2,
+            "Old Icehide": 0
+          }
+        },
+        "Azurelode Mine": {
+          "name": "Azurelode Mine",
+          "creatures": {
+            "Azurelode Kobold": 4,
+            "Kobold Tunneler": 3,
+            "Syndicate Prospector": 2,
+            "Giant Spider": 2
+          }
+        },
+        "The Western Strand": {
+          "name": "The Western Strand",
+          "creatures": {
+            "Daggerspine Murloc": 4,
+            "Daggerspine Siren": 3,
+            "Drowned Castaway": 2,
+            "Bloodtide Harpooner": 0
+          }
+        },
+        "Hillsbrad Orchard": {
+          "name": "Hillsbrad Orchard",
+          "creatures": {
+            "Orchard Wasp": 4,
+            "Worg Prowler": 2,
+            "Giant Spider": 3,
+            "Queen Thistlewing": 0
+          }
+        },
+        "Southshore": {
+          "name": "Southshore",
+          "creatures": {
+            "Southshore Marine": 5,
+            "Hillsbrad Militiaman": 3,
+            "Bosun Harlow": 0
+          }
+        },
+        "Purgation Shore": {
+          "name": "Purgation Shore",
+          "creatures": {
+            "Drowned Castaway": 4,
+            "Daggerspine Murloc": 2,
+            "Sump Lurker": 2,
+            "The Tidewrack": 0
+          }
+        }
+      },
+      "caves": {
+        "Azurelode Mine": {
+          "name": "Azurelode Mine",
+          "creatures": {
+            "Azurelode Kobold": 4,
+            "Kobold Tunneler": 3,
+            "Syndicate Prospector": 3,
+            "Sump Lurker": 3,
+            "Drowned Miner": 3,
+            "Overseer Ashlan Silvervein": 0,
+            "Grimewick the Drowned": 0,
+            "Deepmuck": 0
+          }
+        }
+      },
+      "level_overrides": {
+        "Worg Prowler": [
+          20,
+          22
+        ],
+        "Giant Spider": [
+          21,
+          23
+        ]
+      }
+    },
+    "Eastern Hillsbrad": {
+      "open_zone": {
+        "name": "The Tarren Mill Road",
+        "creatures": {
+          "Syndicate Bandit": 3,
+          "Worg Prowler": 3,
+          "Mudsnout Gnoll": 2,
+          "Giant Spider": 2
+        }
+      },
+      "subzones": {
+        "Tarren Mill": {
+          "name": "Tarren Mill",
+          "creatures": {
+            "Worg Prowler": 3,
+            "Mudsnout Gnoll": 2,
+            "Syndicate Bandit": 2
+          }
+        },
+        "Mudsnout Hollow": {
+          "name": "Mudsnout Hollow",
+          "creatures": {
+            "Mudsnout Gnoll": 5,
+            "Mudsnout Shaman": 3,
+            "Worg Prowler": 2,
+            "Chief Grik": 0
+          }
+        },
+        "Gavin's Naze": {
+          "name": "Gavin's Naze",
+          "creatures": {
+            "Syndicate Bandit": 4,
+            "Syndicate Spellbinder": 3,
+            "Gavin the Fence": 0
+          }
+        },
+        "Durnholde Keep": {
+          "name": "Durnholde Keep",
+          "creatures": {
+            "Durnholde Watchman": 4,
+            "Syndicate Bandit": 3,
+            "Syndicate Spellbinder": 3,
+            "Warden Stillwater": 0
+          }
+        },
+        "Nethander Stead": {
+          "name": "Nethander Stead",
+          "creatures": {
+            "Nethander Ogre": 4,
+            "Ogre Maul-Hand": 3,
+            "Worg Prowler": 2,
+            "Gorbash the Thick": 0
+          }
+        },
+        "The Eastern Strand": {
+          "name": "The Eastern Strand",
+          "creatures": {
+            "Daggerspine Murloc": 4,
+            "Daggerspine Siren": 2,
+            "Drowned Castaway": 2
+          }
+        },
+        "Dun Garok Road": {
+          "name": "Dun Garok Road",
+          "creatures": {
+            "Dun Garok Rifleman": 4,
+            "Syndicate Bandit": 2,
+            "Sergeant Ironbeard": 0
+          }
+        },
+        "Thoradin's Wall": {
+          "name": "Thoradin's Wall",
+          "creatures": {
+            "Dun Garok Rifleman": 3,
+            "Syndicate Bandit": 3,
+            "Nethander Ogre": 2,
+            "Wall-Watcher Teague": 0
+          }
+        }
+      },
+      "level_overrides": {
+        "Worg Prowler": [
+          23,
+          25
+        ],
+        "Giant Spider": [
+          24,
+          26
+        ]
+      }
     }
   },
   "Ashenvale West": {

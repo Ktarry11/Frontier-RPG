@@ -1,0 +1,921 @@
+{
+  "_notes": "Hillsbrad boss / named-rare loot (2026-10-27). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make).",
+  "Field Marshal Calder": [
+    {
+      "name": "Hillsbrad Field Blade",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Kept sharp for a war that never came this far south.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Marshal's Muster Tabard",
+      "slot": "chest",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Stitched with the sheaf-and-sickle of the Hillsbrad fields.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 110
+    },
+    {
+      "name": "Furrowed Oath-Ring",
+      "slot": "ring",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "He swore on the soil. The soil kept its half.",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Militia Drill Gauntlets",
+      "slot": "hands",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Worn smooth where a hundred recruits were corrected.",
+      "primary_stats": {
+        "strength": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 34
+    }
+  ],
+  "Old Icehide": [
+    {
+      "name": "Icehide Pelt Cloak",
+      "slot": "back",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Still cold to the touch, a long way below the snowline.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 27
+    },
+    {
+      "name": "Yeti-Tooth Gouger",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "A tooth the size of a forearm, lashed to a haft.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Pasture-Walker's Boots",
+      "slot": "feet",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "The ram tracks stop here. So did the shepherd.",
+      "primary_stats": {
+        "agility": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 34
+    },
+    {
+      "name": "Hoarfrost Charm",
+      "slot": "neck",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "flavor_text": "Frost beads on it even in the sun.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Bloodtide Harpooner": [
+    {
+      "name": "Daggerspine Harpoon",
+      "slot": "main_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Barbed so it cannot be drawn back out.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "agility": 23,
+        "stamina": 23
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Bloodtide Scale Vest",
+      "slot": "chest",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Scales overlapping the wrong way, like a fish turned inside out.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 71
+    },
+    {
+      "name": "Harpooner's Coil Belt",
+      "slot": "waist",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Rope burn worn into the leather in a spiral.",
+      "primary_stats": {
+        "agility": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 35
+    },
+    {
+      "name": "Strand-Drowned Pearl",
+      "slot": "neck",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Grey, and warm, which a pearl should not be.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Bosun Harlow": [
+    {
+      "name": "Southshore Cutlass",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Harbour-issue, and used far outside the harbour.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.3
+      },
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Bosun's Storm Coat",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Salt has gone through it so often the cloth has given up.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 118
+    },
+    {
+      "name": "Press-Gang Shackles",
+      "slot": "wrist",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Three sets of initials filed into the inside.",
+      "primary_stats": {
+        "strength": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 59
+    },
+    {
+      "name": "Harbourmaster's Signet",
+      "slot": "ring",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Opens a strongbox nobody has found yet.",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.1
+      }
+    }
+  ],
+  "The Tidewrack": [
+    {
+      "name": "Tidewrack Anchor-Maul",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "The chain is still attached. So is some of the ship.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 48
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 74,
+      "weapon_damage_max": 101,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Barnacled Plate Guard",
+      "slot": "shoulder",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "The barnacles are load-bearing now.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 133
+    },
+    {
+      "name": "Drowned Purgation Censer",
+      "slot": "off_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Whatever it burned, the sea put out.",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Castaway's Last Ring",
+      "slot": "ring",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Worn thin on the inside, turned and turned for years.",
+      "primary_stats": {
+        "stamina": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Queen Thistlewing": [
+    {
+      "name": "Thistlewing Stinger",
+      "slot": "main_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Still twitches if you hold it wrong.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Orchard Queen's Carapace",
+      "slot": "chest",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Lacquer-hard, and the colour of windfall apples.",
+      "primary_stats": {
+        "agility": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 71
+    },
+    {
+      "name": "Hive-Warden's Veil",
+      "slot": "head",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Gauze and wire. It did not save the orchardist.",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 26
+    },
+    {
+      "name": "Royal Jelly Phial",
+      "slot": "trinket",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Sealed with wax. Faintly, it hums.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Overseer Ashlan Silvervein": [
+    {
+      "name": "Silvervein Overseer's Mattock",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Silver in the head, which is a waste, and he knew it.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 48
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 74,
+      "weapon_damage_max": 101,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Azurelode Mail Hauberk",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Rings cut from the seam itself, blue in the lamplight.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 118
+    },
+    {
+      "name": "Sumpwater Signet",
+      "slot": "ring",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Tarnished black, except where a thumb rubbed it.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Vein-Chaser's Lamp",
+      "slot": "off_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Burned until the water reached it, and a while after.",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Grimewick the Drowned": [
+    {
+      "name": "Pump-House Hammer",
+      "slot": "main_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Used to beat the pumps into working. It did not work.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 13
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Boiler-Scalded Grips",
+      "slot": "hands",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "The leather took the heat so the hands did not. Mostly.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 35
+    },
+    {
+      "name": "Kobold Foreman's Candle",
+      "slot": "trinket",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "He did take the candle. That was the whole problem.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Drowned Works Pendant",
+      "slot": "neck",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Brass, green with it, strung on boot-lace.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Deepmuck": [
+    {
+      "name": "Silt-Caked Carapace Shield",
+      "slot": "off_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Something grew this, and something else wore it.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "armor_value": 57,
+      "block_value": 71
+    },
+    {
+      "name": "Deepmuck Hide Leggings",
+      "slot": "legs",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Weeps brown water for a week after skinning.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 71
+    },
+    {
+      "name": "Sump-Dweller's Fang",
+      "slot": "main_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Serrated, and set the wrong way round.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 11
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Stillwater Charm",
+      "slot": "trinket",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Holds a bead of water that will not evaporate.",
+      "primary_stats": {
+        "stamina": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Chief Grik": [
+    {
+      "name": "Mudsnout Chieftain's Cleaver",
+      "slot": "main_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Notched once for every farm between here and the hollow.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 13
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Hollow-Chief's Hide Mantle",
+      "slot": "shoulder",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Gnoll work: three hides, badly cured, worn proudly.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 53
+    },
+    {
+      "name": "Bone-Fetish Totem",
+      "slot": "trinket",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Rattles on its own in the dark. Gnolls find this funny.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Pack-Runner's Treads",
+      "slot": "feet",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Built for the long loping run, not for standing still.",
+      "primary_stats": {
+        "agility": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 35
+    }
+  ],
+  "Gavin the Fence": [
+    {
+      "name": "Fence's Quiet Dirk",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "No maker's mark. That is the selling point.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Naze Smuggler's Jerkin",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "More pockets than panels.",
+      "primary_stats": {
+        "agility": 18
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 73
+    },
+    {
+      "name": "Stolen Dalaran Seal",
+      "slot": "ring",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Worth more than everything else he had, and he knew it.",
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Cutpurse's Clasp",
+      "slot": "waist",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Opens silently. Everything of his does.",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 36
+    }
+  ],
+  "Warden Stillwater": [
+    {
+      "name": "Durnholde Warden's Greatsword",
+      "slot": "main_hand",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "A keep-guard's blade, kept long after the keep fell.",
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 22
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 1.0
+      },
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 103,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Stillwater's Breastplate",
+      "slot": "chest",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "The Syndicate's violet painted over Durnholde's grey.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 183
+    },
+    {
+      "name": "Keep-Warden's Gorget",
+      "slot": "neck",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Issued to men who were told to hold a ruin.",
+      "primary_stats": {
+        "strength": 7
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Broken Garrison Band",
+      "slot": "ring",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Snapped and re-soldered, badly, more than once.",
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.1
+      }
+    }
+  ],
+  "Gorbash the Thick": [
+    {
+      "name": "Stead-Breaker Maul",
+      "slot": "main_hand",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "The Nethanders built that barn in a season. This took an hour.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 50
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 103,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Ogre-Hide Girdle",
+      "slot": "waist",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "A human could make a cloak from the offcut.",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 38
+    },
+    {
+      "name": "Thick-Skull Helm",
+      "slot": "head",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Dented outward, which takes some doing.",
+      "primary_stats": {
+        "strength": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 91
+    },
+    {
+      "name": "Millstone Shard Charm",
+      "slot": "trinket",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "A chip off the stead's own millstone, worn as a trophy.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Sergeant Ironbeard": [
+    {
+      "name": "Dun Garok Mountaineer's Hammer",
+      "slot": "main_hand",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Dwarven make, and it shows in the balance.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 56,
+      "weapon_damage_max": 77,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Ironbeard's Garrison Plate",
+      "slot": "chest",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Stormpike grey, with the fort's mark at the collar.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 183
+    },
+    {
+      "name": "Rifleman's Powder Horn",
+      "slot": "trinket",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Still dry inside, which in this country is an achievement.",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Mountaineer's Studded Boots",
+      "slot": "feet",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Nailed for scree. Loud on flagstone.",
+      "primary_stats": {
+        "strength": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 61
+    }
+  ],
+  "Wall-Watcher Teague": [
+    {
+      "name": "Thoradin Border Pike",
+      "slot": "main_hand",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Long enough to keep Arathi on the other side of the stone.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 22
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 1.0
+      },
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 103,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Wall-Watcher's Hauberk",
+      "slot": "chest",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Thirty years on a wall nobody attacks.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.4
+      },
+      "armor_type": "mail",
+      "armor_value": 122
+    },
+    {
+      "name": "Old Empire Signet",
+      "slot": "ring",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Thoradin's mark, worn to a suggestion.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Border Vigil Cloak",
+      "slot": "back",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Faded on one shoulder only - the side the wind comes from.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 15
+    }
+  ]
+}

@@ -3941,6 +3941,261 @@ SILVERPINE_FENRIS_KITS = {
     ],
 }
 
+# ======================================================================
+# HILLSBRAD FOOTHILLS (2026-10-27) - the first GREEN country after the
+# blight, levels 20-27. Three populations that want different things from
+# the player and fight differently because of it:
+#   ALLIANCE (farmers, militia, marines) - organised, they buff each other
+#       and wear armour down; the farmers are the weakest thing here and
+#       fight like people defending a field rather than soldiers.
+#   DAGGERSPINE / drowned - water magic, brine damage over time, slows.
+#   SYNDICATE / kobolds / ogres / gnolls - bandit tricks, mining accidents
+#       and blunt force, scaling up toward Durnholde.
+# ======================================================================
+HILLSBRAD_KITS = {
+    # ---- Hillsbrad Fields: people defending their own land -------------
+    "hillsbrad_farmhand": [
+        ("Pitchfork Jab", "damage", 30, 0, 0, "physical", {}),
+        ("Hurl Stone", "damage", 24, 2, 0, "physical", {}),
+        ("Stand Your Ground", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 18}, "self_only": True}),
+    ],
+    "hillsbrad_militia": [
+        ("Militia Sword", "damage", 38, 0, 0, "physical", {}),
+        ("Shield Bash", "debuff", 14, 3, 0, "physical",
+         {"duration": 2, "stat_mods": {"attack_power": -16}}),
+        ("Call the Muster", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 20}, "self_only": True}),
+    ],
+    "field_marshal_calder": [
+        ("Officer's Blade", "damage", 48, 0, 0, "physical", {}),
+        ("Break Their Line", "debuff", 22, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -30}}),
+        ("Hold the Fields", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 34, "attack_power": 18}, "self_only": True}),
+        ("Rallying Cry", "heal", 40, 6, 0, "physical", {}),
+    ],
+    # ---- The Foothill Pastures: the mountain comes down to graze -------
+    "highland_ram": [
+        ("Butt", "damage", 32, 0, 0, "physical", {}),
+        ("Ram Charge", "damage", 46, 3, 0, "physical", {}),
+        ("Hardened Skull", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 24}, "self_only": True}),
+    ],
+    "mountain_yeti": [
+        ("Maul", "damage", 44, 0, 0, "physical", {}),
+        ("Frost Breath", "damage", 36, 3, 0, "magic", {}),
+        ("Thunderous Roar", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -22}}),
+    ],
+    "old_icehide": [
+        ("Avalanche Swipe", "damage", 52, 0, 0, "physical", {}),
+        ("Hoarfrost Breath", "dot", 16, 3, 0, "magic", {"duration": 4}),
+        ("Shake the Snow Loose", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -20}}),
+        ("Thicken Hide", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 44}, "self_only": True}),
+    ],
+    # ---- Daggerspine coast: brine and song ------------------------------
+    "daggerspine_murloc": [
+        ("Tidal Jab", "damage", 34, 0, 0, "physical", {}),
+        ("Spit Brine", "dot", 11, 3, 0, "magic", {"duration": 3}),
+    ],
+    "daggerspine_siren": [
+        ("Water Bolt", "damage", 30, 0, 0, "magic", {}),      # free: the AI's fallback must never be mana-gated
+        ("Siren Song", "debuff", 0, 3, 15, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -18, "attack_power": -14}}),
+        ("Tidewash", "heal", 46, 4, 20, "magic", {}),
+    ],
+    "bloodtide_harpooner": [
+        ("Harpoon Thrust", "damage", 50, 0, 0, "physical", {}),
+        ("Drag Under", "dot", 15, 3, 0, "magic", {"duration": 4}),
+        ("Bloodscent Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 32}, "self_only": True}),
+        ("Barbed Line", "debuff", 20, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -24}}),
+    ],
+    # ---- Southshore and the wreck coast --------------------------------
+    "southshore_marine": [
+        ("Boarding Axe", "damage", 42, 0, 0, "physical", {}),
+        ("Pistol Shot", "damage", 38, 3, 0, "physical", {}),
+        ("Brace", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 30}, "self_only": True}),
+    ],
+    "bosun_harlow": [
+        ("Cutlass", "damage", 54, 0, 0, "physical", {}),
+        ("Blunderbuss", "damage", 58, 4, 0, "physical", {}),
+        ("Press-Gang", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -26}}),
+        ("Grog Ration", "heal", 52, 6, 0, "physical", {}),
+    ],
+    "drowned_castaway": [
+        ("Bloated Grasp", "damage", 40, 0, 0, "physical", {}),
+        ("Lungful of Seawater", "dot", 14, 3, 0, "magic", {"duration": 4}),
+    ],
+    "the_tidewrack": [
+        ("Anchor Sweep", "damage", 56, 0, 0, "physical", {}),
+        ("Undertow", "debuff", 24, 3, 0, "magic",
+         {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("Salt in the Wounds", "dot", 19, 4, 0, "magic", {"duration": 4}),
+        ("Barnacle Plating", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 48}, "self_only": True}),
+    ],
+    # ---- the orchard gone feral ----------------------------------------
+    "orchard_wasp": [
+        ("Sting", "damage", 28, 0, 0, "physical", {}),
+        ("Venom Sac", "dot", 13, 2, 0, "magic", {"duration": 3}),
+    ],
+    "queen_thistlewing": [
+        ("Royal Sting", "damage", 48, 0, 0, "physical", {}),
+        ("Paralytic Venom", "debuff", 18, 3, 0, "magic",
+         {"duration": 3, "stat_mods": {"agility": -26, "attack_power": -18}}),
+        ("Brood Frenzy", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 30}, "self_only": True}),
+        ("Swarm Tide", "dot", 17, 4, 0, "magic", {"duration": 4}),
+    ],
+    # ---- Azurelode: kobolds, Syndicate, and what the water left ---------
+    "azurelode_kobold": [
+        ("Rusty Pick", "damage", 33, 0, 0, "physical", {}),
+        ("You No Take Candle", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 22}, "self_only": True}),
+    ],
+    "kobold_tunneler": [
+        ("Pick Swing", "damage", 36, 0, 0, "physical", {}),
+        ("Bring Down the Timber", "dot", 14, 3, 0, "physical", {"duration": 3}),
+        ("Scurry", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 24}, "self_only": True}),
+    ],
+    "syndicate_prospector": [
+        ("Shiv", "damage", 40, 0, 0, "physical", {}),
+        ("Flash Powder", "debuff", 0, 3, 0, "magic",
+         {"duration": 3, "stat_mods": {"agility": -22, "intellect": -16}}),
+        ("Claim Jumper's Cut", "damage", 46, 4, 0, "physical", {}),
+    ],
+    "sump_lurker": [
+        ("Drowning Coil", "damage", 42, 0, 0, "physical", {}),
+        ("Sump Water", "dot", 15, 3, 0, "magic", {"duration": 4}),
+    ],
+    "drowned_miner": [
+        ("Waterlogged Swing", "damage", 38, 0, 0, "physical", {}),
+        ("Still Clutching the Lamp", "debuff", 0, 4, 0, "magic",
+         {"duration": 3, "stat_mods": {"magic_resistance": -24}}),
+    ],
+    "ashlan_silvervein": [
+        ("Overseer's Mattock", "damage", 58, 0, 0, "physical", {}),
+        ("Silver-Shot Veins", "dot", 20, 3, 0, "magic", {"duration": 4}),
+        ("Flood the Lower Works", "debuff", 26, 4, 0, "magic",
+         {"duration": 3, "stat_mods": {"agility": -30, "armor": -24}}),
+        ("Seam of Silver", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 50, "attack_power": 26}, "self_only": True}),
+    ],
+    "grimewick_the_drowned": [
+        ("Pump-Hammer", "damage", 52, 0, 0, "physical", {}),
+        ("Boiler Scald", "dot", 18, 3, 0, "magic", {"duration": 4}),
+        ("Grease the Deck", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -26}}),
+    ],
+    "deepmuck": [
+        ("Silt Slam", "damage", 54, 0, 0, "physical", {}),
+        ("Choking Silt", "dot", 19, 3, 0, "magic", {"duration": 4}),
+        ("Settle", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 46}, "self_only": True}),
+    ],
+    # ---- Eastern Hillsbrad: gnolls, Syndicate, ogres, dwarves -----------
+    "mudsnout_gnoll": [
+        ("Gnaw", "damage", 40, 0, 0, "physical", {}),
+        ("Mudsnout Lunge", "damage", 48, 3, 0, "physical", {}),
+    ],
+    "mudsnout_shaman": [
+        ("Bog Bolt", "damage", 34, 0, 0, "magic", {}),        # free: ditto
+        ("Mire Curse", "debuff", 0, 3, 16, "magic",
+         {"duration": 3, "stat_mods": {"armor": -28}}),
+        ("Pack Mending", "heal", 48, 4, 20, "magic", {}),
+    ],
+    "chief_grik": [
+        ("Chieftain's Cleaver", "damage", 56, 0, 0, "physical", {}),
+        ("Howl of the Hollow", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 34}, "self_only": True}),
+        ("Hamstring Bite", "debuff", 24, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("Blood Scent", "dot", 18, 4, 0, "physical", {"duration": 4}),
+    ],
+    "syndicate_bandit": [
+        ("Backhand Blade", "damage", 44, 0, 0, "physical", {}),
+        ("Cutpurse Slash", "damage", 50, 3, 0, "physical", {}),
+        ("Vanish Into the Hedgerow", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 30}, "self_only": True}),
+    ],
+    "syndicate_spellbinder": [
+        ("Shadow Lash", "damage", 38, 0, 0, "magic", {}),     # free: ditto
+        ("Binding Sigil", "debuff", 0, 3, 18, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -24, "magic_resistance": -20}}),
+        ("Siphon Vitality", "dot", 17, 4, 20, "magic", {"duration": 4}),
+    ],
+    "gavin_the_fence": [
+        ("Fence's Dirk", "damage", 54, 0, 0, "physical", {}),
+        ("Cut the Purse Strings", "debuff", 22, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -28}}),
+        ("Hired Muscle", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 32, "armor": 24}, "self_only": True}),
+    ],
+    "durnholde_watchman": [
+        ("Watchman's Halberd", "damage", 50, 0, 0, "physical", {}),
+        ("Pike Thrust", "damage", 56, 3, 0, "physical", {}),
+        ("Close the Gate", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 38}, "self_only": True}),
+    ],
+    "warden_stillwater": [
+        ("Warden's Greatsword", "damage", 64, 0, 0, "physical", {}),
+        ("Durnholde Discipline", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 54, "attack_power": 30}, "self_only": True}),
+        ("Shatter Guard", "debuff", 28, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -40}}),
+        ("Bleed Them Out", "dot", 22, 4, 0, "physical", {"duration": 4}),
+    ],
+    "nethander_ogre": [
+        ("Club", "damage", 54, 0, 0, "physical", {}),
+        ("Ground Pound", "damage", 60, 4, 0, "physical", {}),
+    ],
+    "ogre_maul_hand": [
+        ("Two-Handed Maul", "damage", 58, 0, 0, "physical", {}),
+        ("Stunning Swing", "debuff", 26, 3, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -30}}),
+        ("Thick Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 42}, "self_only": True}),
+    ],
+    "gorbash_the_thick": [
+        ("Stead-Breaker", "damage", 66, 0, 0, "physical", {}),
+        ("Hurl Millstone", "damage", 62, 4, 0, "physical", {}),
+        ("Bellow", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -30}}),
+        ("Ogre Constitution", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 56}, "self_only": True}),
+    ],
+    "dun_garok_rifleman": [
+        ("Rifle Butt", "damage", 46, 0, 0, "physical", {}),
+        ("Aimed Shot", "damage", 62, 4, 0, "physical", {}),
+        ("Steady the Barrel", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 28}, "self_only": True}),
+    ],
+    "sergeant_ironbeard": [
+        ("Mountaineer's Hammer", "damage", 62, 0, 0, "physical", {}),
+        ("Volley Order", "damage", 58, 3, 0, "physical", {}),
+        ("Dwarven Resolve", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 52}, "self_only": True}),
+        ("Concussive Round", "debuff", 26, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -32}}),
+    ],
+    "wall_watcher_teague": [
+        ("Border Pike", "damage", 60, 0, 0, "physical", {}),
+        ("Nothing Passes", "debuff", 24, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -26, "agility": -20}}),
+        ("Thoradin's Shadow", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 50}, "self_only": True}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -3950,7 +4205,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

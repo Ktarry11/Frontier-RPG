@@ -7483,5 +7483,620 @@
    "school": "physical",
    "is_aoe": true
   }
+ ],
+ "field_marshal_calder": [
+  {
+   "name": "Officer's Blade",
+   "kind": "damage",
+   "amount": 48,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Break Their Line",
+   "kind": "debuff",
+   "amount": 22,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -30
+   }
+  },
+  {
+   "name": "Hold the Fields",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 34,
+    "attack_power": 18
+   },
+   "self_only": true
+  },
+  {
+   "name": "Rallying Cry",
+   "kind": "heal",
+   "amount": 40,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "old_icehide": [
+  {
+   "name": "Avalanche Swipe",
+   "kind": "damage",
+   "amount": 52,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Hoarfrost Breath",
+   "kind": "dot",
+   "amount": 16,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Shake the Snow Loose",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -20
+   }
+  },
+  {
+   "name": "Thicken Hide",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 44
+   },
+   "self_only": true
+  }
+ ],
+ "ashlan_silvervein": [
+  {
+   "name": "Overseer's Mattock",
+   "kind": "damage",
+   "amount": 58,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Silver-Shot Veins",
+   "kind": "dot",
+   "amount": 20,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Flood the Lower Works",
+   "kind": "debuff",
+   "amount": 26,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -30,
+    "armor": -24
+   }
+  },
+  {
+   "name": "Seam of Silver",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 50,
+    "attack_power": 26
+   },
+   "self_only": true
+  }
+ ],
+ "grimewick_the_drowned": [
+  {
+   "name": "Pump-Hammer",
+   "kind": "damage",
+   "amount": 52,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Boiler Scald",
+   "kind": "dot",
+   "amount": 18,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Grease the Deck",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -26
+   }
+  }
+ ],
+ "deepmuck": [
+  {
+   "name": "Silt Slam",
+   "kind": "damage",
+   "amount": 54,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Choking Silt",
+   "kind": "dot",
+   "amount": 19,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Settle",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 46
+   },
+   "self_only": true
+  }
+ ],
+ "bloodtide_harpooner": [
+  {
+   "name": "Harpoon Thrust",
+   "kind": "damage",
+   "amount": 50,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Drag Under",
+   "kind": "dot",
+   "amount": 15,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Bloodscent Frenzy",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 32
+   },
+   "self_only": true
+  },
+  {
+   "name": "Barbed Line",
+   "kind": "debuff",
+   "amount": 20,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -24
+   }
+  }
+ ],
+ "bosun_harlow": [
+  {
+   "name": "Cutlass",
+   "kind": "damage",
+   "amount": 54,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Blunderbuss",
+   "kind": "damage",
+   "amount": 58,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Press-Gang",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -26
+   }
+  },
+  {
+   "name": "Grog Ration",
+   "kind": "heal",
+   "amount": 52,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "the_tidewrack": [
+  {
+   "name": "Anchor Sweep",
+   "kind": "damage",
+   "amount": 56,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Undertow",
+   "kind": "debuff",
+   "amount": 24,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -28
+   }
+  },
+  {
+   "name": "Salt in the Wounds",
+   "kind": "dot",
+   "amount": 19,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Barnacle Plating",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 48
+   },
+   "self_only": true
+  }
+ ],
+ "queen_thistlewing": [
+  {
+   "name": "Royal Sting",
+   "kind": "damage",
+   "amount": 48,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Paralytic Venom",
+   "kind": "debuff",
+   "amount": 18,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -26,
+    "attack_power": -18
+   }
+  },
+  {
+   "name": "Brood Frenzy",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 30
+   },
+   "self_only": true
+  },
+  {
+   "name": "Swarm Tide",
+   "kind": "dot",
+   "amount": 17,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  }
+ ],
+ "chief_grik": [
+  {
+   "name": "Chieftain's Cleaver",
+   "kind": "damage",
+   "amount": 56,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Howl of the Hollow",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 34
+   },
+   "self_only": true
+  },
+  {
+   "name": "Hamstring Bite",
+   "kind": "debuff",
+   "amount": 24,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -28
+   }
+  },
+  {
+   "name": "Blood Scent",
+   "kind": "dot",
+   "amount": 18,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
+ ],
+ "gavin_the_fence": [
+  {
+   "name": "Fence's Dirk",
+   "kind": "damage",
+   "amount": 54,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Cut the Purse Strings",
+   "kind": "debuff",
+   "amount": 22,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -28
+   }
+  },
+  {
+   "name": "Hired Muscle",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 32,
+    "armor": 24
+   },
+   "self_only": true
+  }
+ ],
+ "warden_stillwater": [
+  {
+   "name": "Warden's Greatsword",
+   "kind": "damage",
+   "amount": 64,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Durnholde Discipline",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 54,
+    "attack_power": 30
+   },
+   "self_only": true
+  },
+  {
+   "name": "Shatter Guard",
+   "kind": "debuff",
+   "amount": 28,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -40
+   }
+  },
+  {
+   "name": "Bleed Them Out",
+   "kind": "dot",
+   "amount": 22,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
+ ],
+ "gorbash_the_thick": [
+  {
+   "name": "Stead-Breaker",
+   "kind": "damage",
+   "amount": 66,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Hurl Millstone",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Bellow",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -30
+   }
+  },
+  {
+   "name": "Ogre Constitution",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 56
+   },
+   "self_only": true
+  }
+ ],
+ "sergeant_ironbeard": [
+  {
+   "name": "Mountaineer's Hammer",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Volley Order",
+   "kind": "damage",
+   "amount": 58,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Dwarven Resolve",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 52
+   },
+   "self_only": true
+  },
+  {
+   "name": "Concussive Round",
+   "kind": "debuff",
+   "amount": 26,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -32
+   }
+  }
+ ],
+ "wall_watcher_teague": [
+  {
+   "name": "Border Pike",
+   "kind": "damage",
+   "amount": 60,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Nothing Passes",
+   "kind": "debuff",
+   "amount": 24,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -26,
+    "agility": -20
+   }
+  },
+  {
+   "name": "Thoradin's Shadow",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 50
+   },
+   "self_only": true
+  }
  ]
 }
