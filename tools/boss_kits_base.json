@@ -7486,7 +7486,7 @@
  ],
  "field_marshal_calder": [
   {
-   "name": "Officer's Blade",
+   "name": "Marshal's Sabre",
    "kind": "damage",
    "amount": 48,
    "cooldown": 0,
@@ -7659,7 +7659,7 @@
    "school": "physical"
   },
   {
-   "name": "Choking Silt",
+   "name": "Sumpchoke",
    "kind": "dot",
    "amount": 19,
    "cooldown": 3,
@@ -7713,7 +7713,7 @@
    "self_only": true
   },
   {
-   "name": "Barbed Line",
+   "name": "Tideline Snare",
    "kind": "debuff",
    "amount": 20,
    "cooldown": 4,
@@ -7735,7 +7735,7 @@
    "school": "physical"
   },
   {
-   "name": "Blunderbuss",
+   "name": "Bosun's Blunderbuss",
    "kind": "damage",
    "amount": 58,
    "cooldown": 4,
@@ -7817,7 +7817,7 @@
    "school": "physical"
   },
   {
-   "name": "Paralytic Venom",
+   "name": "Thistle Paralytic",
    "kind": "debuff",
    "amount": 18,
    "cooldown": 3,
@@ -7830,7 +7830,7 @@
    }
   },
   {
-   "name": "Brood Frenzy",
+   "name": "Thistlewing Fury",
    "kind": "buff",
    "amount": 0,
    "cooldown": 5,
@@ -7956,7 +7956,7 @@
    "self_only": true
   },
   {
-   "name": "Shatter Guard",
+   "name": "Stillwater's Sundering",
    "kind": "debuff",
    "amount": 28,
    "cooldown": 3,
@@ -8038,7 +8038,7 @@
    "school": "physical"
   },
   {
-   "name": "Dwarven Resolve",
+   "name": "Ironbeard's Resolve",
    "kind": "buff",
    "amount": 0,
    "cooldown": 5,
@@ -8347,7 +8347,7 @@
    "self_only": true
   },
   {
-   "name": "Shield Slam",
+   "name": "Gate-Shield Slam",
    "kind": "debuff",
    "amount": 24,
    "cooldown": 3,
@@ -8369,7 +8369,7 @@
  ],
  "rifle_sergeant_dunmar": [
   {
-   "name": "Rifle Butt",
+   "name": "Sergeant's Rifle Butt",
    "kind": "damage",
    "amount": 58,
    "cooldown": 0,
@@ -8494,6 +8494,51 @@
    "mana_cost": 0,
    "school": "physical",
    "duration": 4
+  }
+ ],
+ "the_turnkey": [
+  {
+   "name": "Thirty Keys",
+   "kind": "damage",
+   "amount": 68,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Nor Will You Leave",
+   "kind": "debuff",
+   "amount": 28,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -34,
+    "attack_power": -24
+   }
+  },
+  {
+   "name": "Undercroft Damp",
+   "kind": "dot",
+   "amount": 25,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Still Turning the Lock",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 60
+   },
+   "self_only": true
   }
  ]
 }

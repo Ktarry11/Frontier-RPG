@@ -12,14 +12,14 @@ Inside, the Lord's Hall sits over a collapsed UNDERCROFT reached by the stair be
     Gatehouse (70,112)  ->  BAILEY WALK (the ring)  ->  corner towers: Kennel (SE), Magister's (SW),
                                                         Armoury (NW), Watch (NE)
                         ->  east or west BREACH, each knocked through a southern tower  ->  the courtyard
-                        ->  THE LORD'S HALL (Perenolde)  ->  stair  ->  THE UNDERCROFT (the Keepkeeper)
+                        ->  THE LORD'S HALL (Perenolde)  ->  stair  ->  THE UNDERCROFT (the Turnkey)
 
 A real Dungeon, not a mining cave: registered in world/zone_classification.DUNGEONS, which is what keeps
 gathering nodes out of it (Kyle: "caves (and keeps) are fine, just not dungeons").
 
-Five bosses, pinned; trash is random from the table (zone.fixed_spawns = False).
+Five bosses, pinned; trash is FIXED, in packs of 3-4, about three pulls before each boss.
   Sergeant-at-Arms Varth 27 (gatehouse) | Houndmaster Sable 28 (kennel) | Magister Yvaine 28 (magister's)
-  The Keepkeeper 29 (undercroft)        | Baron Aliden Perenolde 30 (lord's hall)
+  The Turnkey 29 (undercroft)        | Baron Aliden Perenolde 30 (lord's hall)
 
 HARD CONTRACTS (world/portal_manager.py): portal (70,112) <-> Eastern Hillsbrad (109,74); arrival = 2 north.
 Prop rule (Kyle): less is more; logical for the room; a few centrepieces.
@@ -82,7 +82,7 @@ DOORS = {
 #: tower (the breach bands overlap the Magister's Tower and the Kennels). That was not the original plan, but
 #: it is a better castle: it makes those two bosses gates rather than optional side rooms, so getting into the
 #: keep costs you a fight either way round the ring. Verified: seal one breach and the keep is still reachable
-#: the other way; seal both and the courtyard, Perenolde and the Keepkeeper are all cut off.
+#: the other way; seal both and the courtyard, Perenolde and the Turnkey are all cut off.
 BREACHES = {
     # Narrow. At 7 tiles tall these were bands, not holes: the courtyard, both southern towers and the
     # breaches merged into one open lower half, so the "sealed keep" had no visible edge at all even though
@@ -93,6 +93,44 @@ BREACHES = {
 
 BOSSES = {}
 CHESTS = []
+TRASH = []
+
+#: Hand-authored trash, like Shadowfang Keep's. The generic router in tools/build_dungeon_pulls.py gave
+#: Magister Yvaine and the Turnkey ZERO pulls when it rolled a pool itself - it assigns mobs to "the boss
+#: they lead to" by path distance, and a RING with dead-end towers has no single route, so two bosses ended up
+#: on nobody's path. Kyle wants 3-4 groups between each boss, so the groups are placed by hand and the tool
+#: regroups from this list instead of inventing one.
+#:
+#: (cx, cy, [(creature, level), ...]) - members are rung around the centre, and stepping next to any of them
+#: pulls the whole group.
+WATCHMAN, BANDIT = "Durnholde Watchman", "Syndicate Bandit"
+BINDER, HOUND, REVENANT = "Syndicate Spellbinder", "Durnholde Hound", "Keep Revenant"
+PACKS = [
+    # --- the gatehouse, before Varth (2 pulls: it is the front door, not a gauntlet)
+    (70, 110, [(WATCHMAN, 26), (BANDIT, 26), (HOUND, 26)]),
+    (70, 100, [(WATCHMAN, 26), (BANDIT, 26), (BINDER, 26)]),
+    # --- east along the bailey toward the Kennels and Houndmaster Sable (3)
+    (104, 99, [(HOUND, 26), (HOUND, 26), (WATCHMAN, 27)]),
+    (121, 88, [(WATCHMAN, 27), (BANDIT, 27), (HOUND, 27)]),
+    (104, 80, [(HOUND, 27), (HOUND, 27), (BANDIT, 27), (WATCHMAN, 27)]),
+    # --- west along the bailey toward the Magister's Tower and Yvaine (3)
+    (36, 99, [(BANDIT, 26), (WATCHMAN, 27), (BINDER, 26)]),
+    (19, 88, [(BANDIT, 27), (BINDER, 27), (WATCHMAN, 27)]),
+    (36, 84, [(BINDER, 27), (BINDER, 27), (BANDIT, 27), (WATCHMAN, 27)]),
+    # --- the north bailey and its two towers (the Armoury and the Watch Tower have no boss: 1 pull each)
+    (36, 36, [(WATCHMAN, 27), (BANDIT, 27), (BINDER, 27)]),
+    (104, 36, [(WATCHMAN, 27), (WATCHMAN, 27), (BANDIT, 27)]),
+    # --- through a breach into the courtyard, toward Perenolde (3)
+    (60, 80, [(WATCHMAN, 28), (BANDIT, 28), (HOUND, 28)]),
+    (80, 80, [(WATCHMAN, 28), (BINDER, 28), (BANDIT, 28)]),
+    (70, 66, [(WATCHMAN, 28), (WATCHMAN, 28), (BINDER, 28), (HOUND, 28)]),
+    # --- the Lord's Hall itself, guarding the baron (2)
+    (60, 50, [(WATCHMAN, 29), (BINDER, 28), (BANDIT, 29)]),
+    (80, 50, [(WATCHMAN, 29), (BANDIT, 29), (BINDER, 29)]),
+    # --- down the stair into the Undercroft, toward the Turnkey (2: the dead, not the Syndicate)
+    (64, 32, [(REVENANT, 29), (REVENANT, 29)]),
+    (78, 30, [(REVENANT, 29), (REVENANT, 29), (REVENANT, 29)]),
+]
 
 
 def _near_walkable(zone, x, y, rad=6):
@@ -111,8 +149,15 @@ def build_durnholde():
                    "A curtain wall around a dead keep. The Syndicate hold the walls; something else holds "
                    "the undercroft.")
     zone.is_cave = True                 # interior zone - same renderer path as the keeps in Silverpine
-    zone.region = "Hillsbrad Foothills"
-    zone.fixed_spawns = False
+    # .region is how a cave declares its PARENT ZONE (world/zone_manager.py:55), which is what the
+    # encounter lookup and the pull builder key off - not a flavour label. "Hillsbrad Foothills" is
+    # not a zone, so this read back empty everywhere it mattered.
+    zone.region = "Eastern Hillsbrad"
+    # A DUNGEON, so trash is FIXED and comes in packs (Kyle: "3-4 groups of enemies between each boss,
+    # sometimes less") - not the random per-tile roll the caves use. The packs themselves are built by
+    # tools/build_dungeon_pulls.py into data/dungeons/trash_packs.json and attached by
+    # world/dungeon_packs.apply_packs during create_all_zones.
+    zone.fixed_spawns = True
     L = CaveLayout(zone, (PORTAL[0], PORTAL[1] - 2))
     b = L.b
 
@@ -136,7 +181,7 @@ def build_durnholde():
     bosses = [(70, 108, "Sergeant-at-Arms Varth"),
               (104, 80, "Houndmaster Sable"),
               (36, 80, "Magister Yvaine"),
-              (70, 30, "The Keepkeeper"),
+              (70, 30, "The Turnkey"),
               (70, 49, "Baron Aliden Perenolde")]
     fixed = []
     for (x, y, n) in bosses:
@@ -157,6 +202,26 @@ def build_durnholde():
     CHESTS[:] = chests
     for c in chests:
         L.mark("chest", *c)
+
+    # ---- hand-placed trash packs
+    import math
+    TRASH.clear()
+    occupied = [(x, y) for (x, y) in BOSSES.values()] + [tuple(c) for c in CHESTS] + [PORTAL]
+    for (cx, cy, members) in PACKS:
+        k = len(members)
+        for i, (nm, lvl) in enumerate(members):
+            ang = 0.4 + 2 * math.pi * i / k
+            want = (cx + 2.6 * math.cos(ang), cy + 2.1 * math.sin(ang))
+            spot = _near_walkable(zone, want[0], want[1], rad=5)
+            assert spot, (nm, cx, cy)
+            # never stack two mobs, and never crowd a boss or a chest
+            if any(max(abs(spot[0] - o[0]), abs(spot[1] - o[1])) < 2 for o in occupied):
+                alt = _near_walkable(zone, want[0] + 2, want[1] + 2, rad=5)
+                if alt and all(max(abs(alt[0] - o[0]), abs(alt[1] - o[1])) >= 2 for o in occupied):
+                    spot = alt
+            occupied.append(spot)
+            TRASH.append((spot[0], spot[1], nm, lvl))
+    zone.trash_spawns = list(TRASH)
 
     zone.add_subzone("Durnholde Keep", 0, 0, W, H)       # the encounter-table key covers the whole map
     for key, (rx0, ry0, rx1, ry1, name) in ROOMS.items():
@@ -186,35 +251,35 @@ def dress(zone, L):
     P("broken_column", 22, 46, 5)
     P("broken_column", 118, 70, 5)
     # ---- the kennels
-    P("bbc_cage", 106, 84, 5)
+    P("bbc_cage", 107, 83, 5)
     P("bbc_cage", 118, 84, 5)
-    P("den_campfire_ashes", 112, 92, 2)
-    P("bbc_skull_pile", 106, 94, 3)
+    P("den_campfire_ashes", 111, 90, 2)
+    P("bbc_skull_pile", 106, 96, 3)
     P("rf_supply_crates", 119, 94, 3)
     # ---- the magister's tower
     P("bbc_bookshelf", 20, 82, 6)
-    P("bbc_bookshelf", 36, 82, 6)
-    P("bbc_warlock_desk", 28, 94, 4)
+    P("bbc_bookshelf", 36, 83, 6)
+    P("bbc_warlock_desk", 28, 96, 4)
     P("bbc_candelabra", 22, 92, 4)
-    P("bbc_candelabra", 34, 92, 4)
+    P("bbc_candelabra", 34, 90, 4)
     P("bbc_rune_pillar", 28, 80, 6, solid="core")
     # ---- the armoury
     P("bbc_weapon_rack", 20, 22, 3)
     P("bbc_weapon_rack", 36, 22, 3)
     P("rf_supply_crates", 22, 36, 3)
-    P("vot_crate_stack", 34, 36, 3)
+    P("vot_crate_stack", 33, 36, 3)
     P("rf_brazier", 28, 30, 3)
     # ---- the watch tower
     P("den_torch", 104, 22, 4)
     P("den_torch", 120, 22, 4)
     P("bbc_banner", 112, 20, 5)
-    P("rf_supply_crates", 106, 36, 3)
+    P("rf_supply_crates", 107, 36, 3)
     # ---- the inner keep: a courtyard open to the sky, long abandoned
     P("broken_column", 58, 68, 5)
     P("broken_column", 82, 68, 5)
     P("broken_column", 58, 80, 5)
     P("broken_column", 82, 80, 5)
-    P("bbc_rubble", 70, 78, 3, solid="core")
+    P("bbc_rubble", 70, 77, 3, solid="core")
     P("den_rock_rubble", 62, 70, 2)
     # ---- the Lord's Hall: the baron still holds court in a roofless room
     P("bbc_throne", 70, 46, 6)
@@ -224,11 +289,11 @@ def dress(zone, L):
     P("rf_brazier", 82, 56, 3)
     P("banquet_table", 70, 55, 4)
     # ---- the undercroft: what the Syndicate stopped going down to find
-    P("bbc_skull_pile", 62, 30, 3)
+    P("bbc_skull_pile", 61, 30, 3)
     P("bbc_skull_pile", 78, 30, 3)
     P("bbc_chains", 60, 29, 5)
     P("bbc_chains", 80, 29, 5)
-    P("den_torch", 70, 28, 4)
+    P("den_torch", 70, 27, 4)
     P("cocoon_victim", 66, 36, 4)
     return zone, L
 

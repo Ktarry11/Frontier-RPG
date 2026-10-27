@@ -28,12 +28,12 @@
       "required_level": 24,
       "flavor_text": "Stitched with the sheaf-and-sickle of the Hillsbrad fields.",
       "primary_stats": {
-        "strength": 8,
+        "intellect": 8,
         "stamina": 8
       },
       "secondary_stats": {},
-      "armor_type": "mail",
-      "armor_value": 110
+      "armor_type": "cloth",
+      "armor_value": 34
     },
     {
       "name": "Furrowed Oath-Ring",
@@ -56,7 +56,8 @@
       "required_level": 24,
       "flavor_text": "Worn smooth where a hundred recruits were corrected.",
       "primary_stats": {
-        "strength": 8
+        "agility": 4,
+        "stamina": 4
       },
       "secondary_stats": {},
       "armor_type": "leather",
@@ -65,19 +66,21 @@
   ],
   "Old Icehide": [
     {
-      "name": "Icehide Pelt Cloak",
-      "slot": "back",
+      "name": "Shepherd's Yew Longbow",
+      "slot": "ranged",
       "item_level": 27,
       "rarity": "rare",
       "required_level": 24,
-      "flavor_text": "Still cold to the touch, a long way below the snowline.",
+      "flavor_text": "The shepherd got one shot away. The tracks say it was not enough.",
+      "weapon_type": "bow",
       "primary_stats": {
-        "strength": 3,
+        "agility": 3,
         "stamina": 3
       },
       "secondary_stats": {},
-      "armor_type": "leather",
-      "armor_value": 27
+      "weapon_damage_min": 44,
+      "weapon_damage_max": 59,
+      "attack_speed": 2.8
     },
     {
       "name": "Yeti-Tooth Gouger",
@@ -158,18 +161,19 @@
       "armor_value": 71
     },
     {
-      "name": "Harpooner's Coil Belt",
+      "name": "Daggerspine Siren's Sash",
       "slot": "waist",
       "item_level": 28,
       "rarity": "rare",
       "required_level": 25,
-      "flavor_text": "Rope burn worn into the leather in a spiral.",
+      "flavor_text": "Kelp-fibre, woven wet and never once dried.",
       "primary_stats": {
-        "agility": 9
+        "intellect": 4,
+        "spirit": 4
       },
       "secondary_stats": {},
-      "armor_type": "leather",
-      "armor_value": 35
+      "armor_type": "cloth",
+      "armor_value": 17
     },
     {
       "name": "Strand-Drowned Pearl",
@@ -213,12 +217,11 @@
       "required_level": 26,
       "flavor_text": "Salt has gone through it so often the cloth has given up.",
       "primary_stats": {
-        "strength": 9,
-        "stamina": 9
+        "spirit": 18
       },
       "secondary_stats": {},
-      "armor_type": "mail",
-      "armor_value": 118
+      "armor_type": "cloth",
+      "armor_value": 36
     },
     {
       "name": "Press-Gang Shackles",
@@ -475,17 +478,21 @@
       "secondary_stats": {}
     },
     {
-      "name": "Drowned Works Pendant",
-      "slot": "neck",
+      "name": "Pump-House Sparkrod",
+      "slot": "main_hand",
       "item_level": 28,
       "rarity": "rare",
       "required_level": 25,
-      "flavor_text": "Brass, green with it, strung on boot-lace.",
+      "flavor_text": "Kobolds used it to light the gas. Down there, it still sparks.",
+      "weapon_type": "wand",
       "primary_stats": {
-        "stamina": 3,
+        "intellect": 3,
         "spirit": 3
       },
-      "secondary_stats": {}
+      "secondary_stats": {},
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 1.9
     }
   ],
   "Deepmuck": [
@@ -535,17 +542,21 @@
       "attack_speed": 1.7
     },
     {
-      "name": "Stillwater Charm",
-      "slot": "trinket",
+      "name": "Silt-Bound Stave",
+      "slot": "main_hand",
       "item_level": 28,
       "rarity": "rare",
       "required_level": 25,
-      "flavor_text": "Holds a bead of water that will not evaporate.",
+      "flavor_text": "Sunk upright in the sump long enough to grow a skin of silt.",
+      "weapon_type": "staff",
       "primary_stats": {
-        "stamina": 3,
-        "spirit": 3
+        "intellect": 23,
+        "spirit": 23
       },
-      "secondary_stats": {}
+      "secondary_stats": {},
+      "weapon_damage_min": 29,
+      "weapon_damage_max": 39,
+      "attack_speed": 3.2
     }
   ],
   "Chief Grik": [
@@ -582,16 +593,20 @@
     },
     {
       "name": "Bone-Fetish Totem",
-      "slot": "trinket",
+      "slot": "ranged",
       "item_level": 28,
       "rarity": "rare",
       "required_level": 25,
       "flavor_text": "Rattles on its own in the dark. Gnolls find this funny.",
+      "weapon_type": "totem",
       "primary_stats": {
         "intellect": 3,
         "spirit": 3
       },
-      "secondary_stats": {}
+      "secondary_stats": {},
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 0.0
     },
     {
       "name": "Pack-Runner's Treads",
@@ -654,19 +669,21 @@
       "secondary_stats": {}
     },
     {
-      "name": "Cutpurse's Clasp",
+      "name": "Fenced Dalaran Sash",
       "slot": "waist",
       "item_level": 29,
       "rarity": "rare",
       "required_level": 26,
-      "flavor_text": "Opens silently. Everything of his does.",
+      "flavor_text": "A Kirin Tor inventory tag is still sewn into the lining.",
       "primary_stats": {
-        "agility": 4,
-        "stamina": 4
+        "intellect": 3,
+        "stamina": 3
       },
-      "secondary_stats": {},
-      "armor_type": "leather",
-      "armor_value": 36
+      "secondary_stats": {
+        "spell_power": 2.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 18
     }
   ],
   "Warden Stillwater": [
@@ -712,7 +729,8 @@
       "required_level": 27,
       "flavor_text": "Issued to men who were told to hold a ruin.",
       "primary_stats": {
-        "strength": 7
+        "intellect": 4,
+        "stamina": 4
       },
       "secondary_stats": {}
     },
@@ -786,8 +804,8 @@
       "required_level": 27,
       "flavor_text": "A chip off the stead's own millstone, worn as a trophy.",
       "primary_stats": {
-        "strength": 4,
-        "stamina": 4
+        "stamina": 4,
+        "spirit": 4
       },
       "secondary_stats": {}
     }
@@ -845,7 +863,8 @@
       "required_level": 27,
       "flavor_text": "Nailed for scree. Loud on flagstone.",
       "primary_stats": {
-        "strength": 9
+        "agility": 5,
+        "stamina": 5
       },
       "secondary_stats": {},
       "armor_type": "mail",
@@ -905,7 +924,7 @@
       "required_level": 26,
       "flavor_text": "Issued at the gate. Never handed back.",
       "primary_stats": {
-        "strength": 4,
+        "intellect": 4,
         "stamina": 4
       },
       "secondary_stats": {}
@@ -1088,10 +1107,12 @@
       "required_level": 28,
       "flavor_text": "Sworn to hold the ridge. He is still technically holding it.",
       "primary_stats": {
-        "strength": 4,
-        "stamina": 4
+        "intellect": 3,
+        "stamina": 3
       },
-      "secondary_stats": {}
+      "secondary_stats": {
+        "spell_power": 1.8
+      }
     }
   ],
   "Sergeant-at-Arms Varth": [
@@ -1152,7 +1173,8 @@
       "required_level": 27,
       "flavor_text": "The key is long gone. The habit of wearing it was not.",
       "primary_stats": {
-        "strength": 7
+        "intellect": 4,
+        "spirit": 4
       },
       "secondary_stats": {}
     }
@@ -1210,7 +1232,8 @@
       "required_level": 28,
       "flavor_text": "Too large for a hound. She wore it anyway.",
       "primary_stats": {
-        "strength": 8
+        "agility": 4,
+        "stamina": 4
       },
       "secondary_stats": {}
     }
@@ -1277,9 +1300,9 @@
       "secondary_stats": {}
     }
   ],
-  "The Keepkeeper": [
+  "The Turnkey": [
     {
-      "name": "Keepkeeper's Keyring Flail",
+      "name": "Turnkey's Keyring Flail",
       "slot": "main_hand",
       "item_level": 32,
       "rarity": "rare",
@@ -1295,19 +1318,18 @@
       "attack_speed": 2.6
     },
     {
-      "name": "Undercroft Warden's Mail",
+      "name": "Undercroft Warden's Shroud",
       "slot": "chest",
       "item_level": 32,
       "rarity": "rare",
       "required_level": 29,
-      "flavor_text": "Rusted into one piece. It still fits something.",
+      "flavor_text": "Rotted into one piece. It still fits something.",
       "primary_stats": {
-        "strength": 10,
-        "stamina": 10
+        "spirit": 20
       },
       "secondary_stats": {},
-      "armor_type": "mail",
-      "armor_value": 130
+      "armor_type": "cloth",
+      "armor_value": 40
     },
     {
       "name": "Lamp of the Lower Door",
@@ -1379,11 +1401,11 @@
       "required_level": 30,
       "flavor_text": "The seal of Alterac, on the hand that traded it away.",
       "primary_stats": {
-        "strength": 3,
-        "stamina": 4
+        "intellect": 3,
+        "stamina": 3
       },
       "secondary_stats": {
-        "crit_chance_physical": 0.2
+        "spell_power": 1.9
       }
     },
     {
@@ -1437,17 +1459,21 @@
       "armor_value": 122
     },
     {
-      "name": "Old Empire Signet",
-      "slot": "ring",
+      "name": "Thoradin Wall-Crossbow",
+      "slot": "ranged",
       "item_level": 30,
       "rarity": "rare",
       "required_level": 27,
-      "flavor_text": "Thoradin's mark, worn to a suggestion.",
+      "flavor_text": "Thirty years sighted on the same stretch of stone.",
+      "weapon_type": "crossbow",
       "primary_stats": {
-        "intellect": 4,
-        "stamina": 4
+        "agility": 3,
+        "stamina": 3
       },
-      "secondary_stats": {}
+      "secondary_stats": {},
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 65,
+      "attack_speed": 2.4
     },
     {
       "name": "Border Vigil Cloak",
@@ -1457,8 +1483,8 @@
       "required_level": 27,
       "flavor_text": "Faded on one shoulder only - the side the wind comes from.",
       "primary_stats": {
-        "strength": 4,
-        "stamina": 4
+        "intellect": 4,
+        "spirit": 4
       },
       "secondary_stats": {},
       "armor_type": "cloth",

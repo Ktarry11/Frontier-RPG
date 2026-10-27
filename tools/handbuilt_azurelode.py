@@ -219,7 +219,10 @@ def build_azurelode():
                    "A silver mine that cut too deep and struck water: the lower workings are islands of spoil "
                    "in a standing sump, worked now by kobolds.")
     zone.is_cave = True
-    zone.region = "Hillsbrad Foothills"
+    # .region is how a cave declares its PARENT ZONE (world/zone_manager.py:55), which is what the
+    # encounter lookup and the pull builder key off - not a flavour label. "Hillsbrad Foothills" is
+    # not a zone, so this read back empty everywhere it mattered.
+    zone.region = "Western Hillsbrad"
     zone.fixed_spawns = False
     L = CaveLayout(zone, (PORTAL[0], PORTAL[1] - 2))
     b = L.b
@@ -294,8 +297,8 @@ def dress(zone, L):
     P("gob_mine_frame", 55, 83, 8, where=GP, solid=False)
     P("rf_brazier", 49, 83, 3)
     P("rf_brazier", 61, 83, 3)
-    P("gob_ore_cart", 46, 81, 4, where=GP)
-    P("vot_crate_stack", 63, 81, 3)
+    P("gob_ore_cart", 47, 82, 4, where=GP)
+    P("vot_crate_stack", 63, 82, 3)
     # ---- the haulage drift down to the water
     P("den_torch", 48, 70, 4)
     P("den_torch", 59, 70, 4)
@@ -309,26 +312,26 @@ def dress(zone, L):
     # ---- Spoil Island: the kobolds' camp on the heap
     P("gob_ore_pile", 50, 47, 3, where=GP)
     P("gob_ore_pile", 60, 48, 3, where=GP)
-    P("den_campfire_ashes", 55, 46, 2)
+    P("den_campfire_ashes", 55, 44, 2)
     P("rf_supply_crates", 58, 44, 3)
     P("den_backpack", 52, 44, 2)
     # ---- The Pump House: the machinery that lost the fight
-    P("gob_boiler_tank", 33, 38, 6, where=GP)
+    P("gob_boiler_tank", 33, 37, 6, where=GP)
     P("gob_pipe_tangle", 28, 41, 4, where=GP, solid=False)
     P("gob_oil_drums", 37, 42, 3, where=GP)
     P("den_torch", 30, 36, 4)
     P("grotto_barrel_stack", 36, 36, 3)
     # ---- The Silver Face: the vein they were chasing, and the overseer standing on it
-    P("rf_void_crystals", 48, 21, 5, solid="core")
-    P("rf_void_crystals", 64, 20, 5, solid="core")
-    P("rf_void_crystals", 56, 17, 6, solid="core", avoid=1)
+    P("rf_void_crystals", 48, 23, 5, solid="core")
+    P("rf_void_crystals", 65, 21, 5, solid="core")
+    P("rf_void_crystals", 59, 21, 6, solid="core", avoid=1)
     P("rf_brazier", 50, 26, 3)
     P("rf_brazier", 62, 26, 3)
-    P("gob_ore_cart", 45, 25, 4, where=GP)
+    P("gob_ore_cart", 46, 24, 4, where=GP)
     P("rf_tool_rack", 66, 25, 3)
     # ---- The Kobold Warren: the dry side gallery they actually live in
     P("den_glow_mushrooms", 92, 34, 2, solid=False)
-    P("den_campfire_ashes", 97, 36, 2)
+    P("den_campfire_ashes", 96, 33, 2)
     P("gob_ore_pile", 101, 34, 3, where=GP)
     P("den_backpack", 94, 39, 2)
     P("den_stalagmites", 103, 40, 4, solid="core")

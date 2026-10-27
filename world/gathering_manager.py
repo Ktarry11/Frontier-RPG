@@ -445,6 +445,12 @@ CAVE_TO_PARENT_ZONE = {
     # A dwarf hold cut into the ridge - not a Dungeon, so it keeps ore, which is the whole reason dwarves
     # dug there. Inherits Eastern Hillsbrad's table (iron-heavy, with coal and a little silver).
     "Dun Garok": "Eastern Hillsbrad",
+    # A Venture Co. MINING CLAIM that shipped with no ore in it - found while auditing every cave for
+    # gathering after Hillsbrad went in. The other caves missing from this map are correctly missing:
+    # Moonwell Hollow, Howling Barrows and Serena's Hollow are a flooded moonwell, a long barrow and a
+    # harpy roost, and the synthesized cave pool is ore-only by design ("caves are mining spots, not
+    # foraging spots"), so giving them an inherited ore table would be worse than leaving them bare.
+    "Boulder Lode Mine": "Northern Barrens",
 }
 
 #: How much more ore-dense a cave's inherited pool is versus its parent

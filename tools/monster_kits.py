@@ -3968,7 +3968,7 @@ HILLSBRAD_KITS = {
          {"duration": 4, "stat_mods": {"attack_power": 20}, "self_only": True}),
     ],
     "field_marshal_calder": [
-        ("Officer's Blade", "damage", 48, 0, 0, "physical", {}),
+        ("Marshal's Sabre", "damage", 48, 0, 0, "physical", {}),
         ("Break Their Line", "debuff", 22, 3, 0, "physical",
          {"duration": 3, "stat_mods": {"armor": -30}}),
         ("Hold the Fields", "buff", 0, 5, 0, "physical",
@@ -4012,7 +4012,7 @@ HILLSBRAD_KITS = {
         ("Drag Under", "dot", 15, 3, 0, "magic", {"duration": 4}),
         ("Bloodscent Frenzy", "buff", 0, 5, 0, "physical",
          {"duration": 4, "stat_mods": {"attack_power": 32}, "self_only": True}),
-        ("Barbed Line", "debuff", 20, 4, 0, "physical",
+        ("Tideline Snare", "debuff", 20, 4, 0, "physical",
          {"duration": 3, "stat_mods": {"agility": -24}}),
     ],
     # ---- Southshore and the wreck coast --------------------------------
@@ -4024,7 +4024,7 @@ HILLSBRAD_KITS = {
     ],
     "bosun_harlow": [
         ("Cutlass", "damage", 54, 0, 0, "physical", {}),
-        ("Blunderbuss", "damage", 58, 4, 0, "physical", {}),
+        ("Bosun's Blunderbuss", "damage", 58, 4, 0, "physical", {}),
         ("Press-Gang", "debuff", 0, 4, 0, "physical",
          {"duration": 3, "stat_mods": {"attack_power": -26}}),
         ("Grog Ration", "heal", 52, 6, 0, "physical", {}),
@@ -4048,9 +4048,9 @@ HILLSBRAD_KITS = {
     ],
     "queen_thistlewing": [
         ("Royal Sting", "damage", 48, 0, 0, "physical", {}),
-        ("Paralytic Venom", "debuff", 18, 3, 0, "magic",
+        ("Thistle Paralytic", "debuff", 18, 3, 0, "magic",
          {"duration": 3, "stat_mods": {"agility": -26, "attack_power": -18}}),
-        ("Brood Frenzy", "buff", 0, 5, 0, "physical",
+        ("Thistlewing Fury", "buff", 0, 5, 0, "physical",
          {"duration": 4, "stat_mods": {"attack_power": 30}, "self_only": True}),
         ("Swarm Tide", "dot", 17, 4, 0, "magic", {"duration": 4}),
     ],
@@ -4097,7 +4097,7 @@ HILLSBRAD_KITS = {
     ],
     "deepmuck": [
         ("Silt Slam", "damage", 54, 0, 0, "physical", {}),
-        ("Choking Silt", "dot", 19, 3, 0, "magic", {"duration": 4}),
+        ("Sumpchoke", "dot", 19, 3, 0, "magic", {"duration": 4}),
         ("Settle", "buff", 0, 5, 0, "physical",
          {"duration": 4, "stat_mods": {"armor": 46}, "self_only": True}),
     ],
@@ -4149,7 +4149,7 @@ HILLSBRAD_KITS = {
         ("Warden's Greatsword", "damage", 64, 0, 0, "physical", {}),
         ("Durnholde Discipline", "buff", 0, 5, 0, "physical",
          {"duration": 4, "stat_mods": {"armor": 54, "attack_power": 30}, "self_only": True}),
-        ("Shatter Guard", "debuff", 28, 3, 0, "physical",
+        ("Stillwater's Sundering", "debuff", 28, 3, 0, "physical",
          {"duration": 3, "stat_mods": {"armor": -40}}),
         ("Bleed Them Out", "dot", 22, 4, 0, "physical", {"duration": 4}),
     ],
@@ -4181,7 +4181,7 @@ HILLSBRAD_KITS = {
     "sergeant_ironbeard": [
         ("Mountaineer's Hammer", "damage", 62, 0, 0, "physical", {}),
         ("Volley Order", "damage", 58, 3, 0, "physical", {}),
-        ("Dwarven Resolve", "buff", 0, 5, 0, "physical",
+        ("Ironbeard's Resolve", "buff", 0, 5, 0, "physical",
          {"duration": 4, "stat_mods": {"armor": 52}, "self_only": True}),
         ("Concussive Round", "debuff", 26, 4, 0, "physical",
          {"duration": 3, "stat_mods": {"agility": -32}}),
@@ -4212,12 +4212,12 @@ HILLSBRAD_KITS = {
         ("Gatewarden's Axe", "damage", 60, 0, 0, "physical", {}),
         ("None Shall Pass", "buff", 0, 5, 0, "physical",
          {"duration": 4, "stat_mods": {"armor": 52}, "self_only": True}),
-        ("Shield Slam", "debuff", 24, 3, 0, "physical",
+        ("Gate-Shield Slam", "debuff", 24, 3, 0, "physical",
          {"duration": 3, "stat_mods": {"attack_power": -28}}),
         ("Hold the Threshold", "damage", 64, 4, 0, "physical", {}),
     ],
     "rifle_sergeant_dunmar": [
-        ("Rifle Butt", "damage", 58, 0, 0, "physical", {}),
+        ("Sergeant's Rifle Butt", "damage", 58, 0, 0, "physical", {}),
         ("Sergeant's Aimed Shot", "damage", 78, 4, 0, "physical", {}),
         ("Steady the Line", "buff", 0, 5, 0, "physical",
          {"duration": 4, "stat_mods": {"attack_power": 38}, "self_only": True}),
@@ -4276,12 +4276,12 @@ HILLSBRAD_KITS = {
         ("Mantle of Alterac", "buff", 0, 6, 26, "magic",
          {"duration": 4, "stat_mods": {"magic_resistance": 46, "intellect": 26}, "self_only": True}),
     ],
-    "the_keepkeeper": [
-        ("Keyring Flail", "damage", 68, 0, 0, "physical", {}),
-        ("You Will Not Leave Either", "debuff", 28, 3, 0, "magic",
+    "the_turnkey": [
+        ("Thirty Keys", "damage", 68, 0, 0, "physical", {}),
+        ("Nor Will You Leave", "debuff", 28, 3, 0, "magic",
          {"duration": 3, "stat_mods": {"agility": -34, "attack_power": -24}}),
         ("Undercroft Damp", "dot", 25, 4, 0, "magic", {"duration": 4}),
-        ("Still Keeping", "buff", 0, 6, 0, "physical",
+        ("Still Turning the Lock", "buff", 0, 6, 0, "physical",
          {"duration": 4, "stat_mods": {"armor": 60}, "self_only": True}),
     ],
     "baron_perenolde": [

@@ -86,7 +86,10 @@ def build_dun_garok():
                    "A dwarven hold cut square into the ridge: three gates, a muster yard, and a crypt the "
                    "Stormpike do not talk about.")
     zone.is_cave = True
-    zone.region = "Hillsbrad Foothills"
+    # .region is how a cave declares its PARENT ZONE (world/zone_manager.py:55), which is what the
+    # encounter lookup and the pull builder key off - not a flavour label. "Hillsbrad Foothills" is
+    # not a zone, so this read back empty everywhere it mattered.
+    zone.region = "Eastern Hillsbrad"
     zone.fixed_spawns = False
     L = CaveLayout(zone, (PORTAL[0], PORTAL[1] - 2))
     b = L.b
@@ -152,13 +155,13 @@ def dress(zone, L):
     P("den_torch", 55, 90, 4)
     P("bbc_rubble", 48, 87, 3, solid="core")
     # ---- the Muster Yard: where the garrison formed up
-    P("rf_supply_crates", 30, 60, 3)
+    P("rf_supply_crates", 30, 57, 3)
     P("rf_supply_crates", 78, 60, 3)
     P("bbc_weapon_rack", 44, 59, 3)
     P("bbc_weapon_rack", 62, 59, 3)
     P("den_campfire_ashes", 55, 66, 2)
     P("vot_crate_stack", 32, 72, 3)
-    P("den_torch", 28, 58, 4)
+    P("den_torch", 27, 57, 4)
     P("den_torch", 82, 58, 4)
     P("bbc_banner", 48, 57, 5)
     P("bbc_banner", 62, 57, 5)
@@ -167,12 +170,12 @@ def dress(zone, L):
     P("rf_brazier", 60, 54, 3)
     P("bbc_chains", 52, 48, 5)
     # ---- the sally port: cramped, and nobody has swept it in years
-    P("den_rock_rubble", 92, 56, 2)
-    P("den_torch", 92, 50, 4)
-    P("den_backpack", 92, 60, 2)
+    P("den_rock_rubble", 91, 56, 2)
+    P("den_torch", 91, 50, 4)
+    P("den_backpack", 91, 60, 2)
     # ---- the Barracks: bunks, a rifle rack, cold stove
     P("bbc_weapon_rack", 72, 32, 3)
-    P("bbc_weapon_rack", 92, 32, 3)
+    P("bbc_weapon_rack", 93, 32, 3)
     P("rf_supply_crates", 74, 44, 3)
     P("den_campfire_ashes", 82, 40, 2)
     P("banquet_table", 82, 34, 4)
@@ -189,13 +192,13 @@ def dress(zone, L):
     # ---- the Vault Door: the shrine-keeper's post
     P("bbc_candelabra", 44, 22, 4)
     P("bbc_candelabra", 52, 22, 4)
-    P("bbc_rune_pillar", 48, 18, 6, solid="core")
+    P("bbc_rune_pillar", 48, 17, 6, solid="core")
     P("bbc_idol", 48, 25, 5)
     # ---- the Crypt: the thing the Stormpike do not talk about
     P("bbc_skull_pile", 32, 10, 3)
-    P("bbc_skull_pile", 62, 10, 3)
+    P("bbc_skull_pile", 61, 10, 3)
     P("bbc_chains", 28, 7, 5)
-    P("bbc_chains", 66, 7, 5)
+    P("bbc_chains", 67, 7, 5)
     P("den_torch", 47, 6, 4)
     P("cocoon_victim", 38, 14, 4)
     P("bbc_rubble", 56, 14, 3, solid="core")

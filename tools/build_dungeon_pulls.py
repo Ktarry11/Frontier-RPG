@@ -38,6 +38,9 @@ CONFIG = {
     "Plague Depths": dict(p_main=4, p_rare=1, rares=()),
     "Ragefire Chasm": dict(p_main=3, p_rare=1, rares=()),
     "Blackfathom Deeps": dict(p_main=4, p_rare=1, rares=()),
+    # Durnholde has five bosses and a ring you can walk either way, so three pulls each keeps the total
+    # sane rather than four (Kyle: "about 3-4 groups between each boss. Sometimes less").
+    "Durnholde Keep": dict(p_main=3, p_rare=1, rares=()),
 }
 
 ROLE = {"humanoid_warrior": "melee", "beast_large": "melee", "elemental_bruiser": "melee", "undead_basic": "melee",
