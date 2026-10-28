@@ -556,8 +556,10 @@ class CombatEngine:
             quest_mgr.record_kill(e.name, self.zone, is_boss=getattr(e, "is_boss", False))
             # Only enemies a faction has a stake in pay anything - see faction_manager's docstring for why
             # this is not a flat "dungeon mobs give rep" rule. Almost every call here is a dict miss.
-            fid, gained, tier_up = faction_mgr.award_for_kill(e.name)
-            if fid:
+            # Returns a LIST - shared ground pays everyone with a stake in it, so one boss in the
+            # Barrens can move both Orgrimmar and Thunder Bluff.
+            for fid, gained, tier_up in faction_mgr.award_for_kill(
+                    e.name, zone=self.zone, is_boss=getattr(e, "is_boss", False)):
                 self.faction_gains[fid] = self.faction_gains.get(fid, 0) + gained
                 if tier_up:
                     self.combat_log.append(

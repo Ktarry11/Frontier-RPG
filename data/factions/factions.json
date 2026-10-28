@@ -82,16 +82,16 @@
       ],
       "quest_rep": {
         "_comment": "Per quest, by shape. kill_boss objectives pay the boss rate; the named capstones pay more.",
-        "default": 350,
-        "boss": 700,
+        "default": 225,
+        "boss": 250,
         "capstones": {
-          "db_what_it_learned": 2500,
-          "kb_sealed_entry": 2500,
-          "hg_heartgrown": 1200,
-          "ud_archive_deeper": 1000,
-          "fd_latticeborn": 700,
-          "kb_the_question": 700,
-          "ud_bloom_argument": 700
+          "db_what_it_learned": 500,
+          "kb_sealed_entry": 500,
+          "hg_heartgrown": 500,
+          "ud_archive_deeper": 500,
+          "fd_latticeborn": 500,
+          "kb_the_question": 500,
+          "ud_bloom_argument": 500
         },
         "zones": [
           "the_crystalline_underdark",
@@ -162,6 +162,13 @@
           "recruit_id": "kesten_the_catalogued",
           "standing": "revered"
         }
+      },
+      "dungeon_rep": {
+        "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
+        "per_boss": 75,
+        "dungeons": [
+          "The Deep Bloom"
+        ]
       }
     },
     "orgrimmar": {
@@ -183,8 +190,8 @@
         "When the world changed, Orgrimmar opened its gates to the people it threw up, faster than anywhere else on the continent and with less argument. Thrall has never explained that in public. Those who were in the camps with him do not need him to."
       ],
       "quest_rep": {
-        "default": 85,
-        "boss": 170,
+        "default": 165,
+        "boss": 240,
         "capstones": {},
         "zones": [
           "valley_of_trials",
@@ -214,6 +221,17 @@
       },
       "rewards": {
         "_comment": "No gates authored yet. The system supports them; the content is not written."
+      },
+      "dungeon_rep": {
+        "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
+        "per_boss": 75,
+        "dungeons": [
+          "Blackfathom Deeps",
+          "Grom's Rest",
+          "Ragefire Chasm",
+          "Razorfen Kraul",
+          "Wailing Caverns"
+        ]
       }
     },
     "darkspear_tribe": {
@@ -235,8 +253,8 @@
         "The tribe keeps its own spiritwalkers, its own trainers, its own account of who stood with them when it was bad. That account is older than the Horde's and it is not the same list."
       ],
       "quest_rep": {
-        "default": 350,
-        "boss": 700,
+        "default": 250,
+        "boss": 250,
         "capstones": {},
         "zones": [
           "echo_isles"
@@ -255,6 +273,13 @@
       },
       "rewards": {
         "_comment": "No gates authored yet. The system supports them; the content is not written."
+      },
+      "dungeon_rep": {
+        "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
+        "per_boss": 75,
+        "dungeons": [
+          "Sunken Grotto of the Deep"
+        ]
       }
     },
     "the_forsaken": {
@@ -277,8 +302,8 @@
         "They are tired, blackly funny, and very hard to impress. They have been dead a while. Little is new."
       ],
       "quest_rep": {
-        "default": 50,
-        "boss": 100,
+        "default": 150,
+        "boss": 225,
         "capstones": {},
         "zones": [
           "deathknell",
@@ -312,6 +337,18 @@
       },
       "rewards": {
         "_comment": "No gates authored yet. The system supports them; the content is not written."
+      },
+      "dungeon_rep": {
+        "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
+        "per_boss": 75,
+        "dungeons": [
+          "Plague Depths",
+          "Widow's Lair",
+          "Shadowfang Keep",
+          "Ambermill Tower",
+          "Shadowpine Altar",
+          "Durnholde Keep"
+        ]
       }
     },
     "steamwheedle_cartel": {
@@ -333,8 +370,8 @@
         "Their regard is bought rather than earned and they are honest about it. Pirates on the water and bandits on the Barrens road cost the Cartel money. Anyone who brings that number down is good for business, and good for business is as near to friendship as Ratchet deals in."
       ],
       "quest_rep": {
-        "default": 350,
-        "boss": 700,
+        "default": 250,
+        "boss": 250,
         "capstones": {},
         "zones": [
           "ratchet"
@@ -354,6 +391,13 @@
       },
       "rewards": {
         "_comment": "No gates authored yet. The system supports them; the content is not written."
+      },
+      "dungeon_rep": {
+        "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
+        "per_boss": 75,
+        "dungeons": [
+          "Sunken Grotto of the Deep"
+        ]
       }
     },
     "thunder_bluff": {
@@ -382,12 +426,17 @@
         "And they are still called Thunder Bluff. There is no Thunder Bluff. They have had this pointed out, agree politely, and go on using the name."
       ],
       "quest_rep": {
-        "default": 350,
-        "boss": 700,
+        "default": 225,
+        "boss": 250,
         "capstones": {},
         "zones": [
           "camp_taurajo",
-          "southern_barrens"
+          "southern_barrens",
+          "the_aspen_wilderness",
+          "the_weeping_ice",
+          "southern_thousand_needles",
+          "freewind_post",
+          "the_drowning_floor"
         ],
         "also": []
       },
@@ -406,6 +455,15 @@
       },
       "rewards": {
         "_comment": "No gates authored yet. When Mulgore is built as the level 60 zone, this is where its access and its rewards belong."
+      },
+      "dungeon_rep": {
+        "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
+        "per_boss": 75,
+        "dungeons": [
+          "Razorfen Kraul",
+          "The Broodspiral",
+          "Wailing Caverns"
+        ]
       }
     }
   }

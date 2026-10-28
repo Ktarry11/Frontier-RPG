@@ -42,6 +42,18 @@ WOW = [("hated", -42000), ("hostile", -6000), ("unfriendly", -3000), ("neutral",
        ("friendly", 3000), ("honored", 9000), ("revered", 21000), ("exalted", 42000)]
 
 
+def _exalted_at(fm, rows):
+    """Which quest number, playing level order, crosses Exalted. Level order rather than file order is
+    the point: it is the order a player actually turns them in."""
+    need = next(t["at"] for t in fm.tiers if t["name"] == "Exalted")
+    run = 0
+    for i, (_lvl, amt) in enumerate(sorted(rows), 1):
+        run += amt
+        if run >= need:
+            return i
+    return len(rows)
+
+
 def main():
     fails = []
     fm = FactionManager()
@@ -78,6 +90,7 @@ def main():
 
     totals = {fid: 0 for fid in fm.factions}
     counts = {fid: 0 for fid in fm.factions}
+    quests_by_faction = {fid: [] for fid in fm.factions}
     all_zones = set()
     for fn in sorted(Path("data/quests").glob("*.json")):
         qd = json.loads(fn.read_text())
@@ -87,6 +100,7 @@ def main():
             if fid:
                 totals[fid] += amt
                 counts[fid] += 1
+                quests_by_faction[fid].append((q.get("level_min", 0), amt))
     for fid, fac in fm.factions.items():
         fac.standing = totals[fid]
         # The real invariant is not "everyone reaches Revered" - factions own wildly different amounts of
@@ -96,8 +110,21 @@ def main():
         print(f"  {fac.name:26s} {counts[fid]:4d} quests {totals[fid]:7d} rep -> {tier}")
         if counts[fid] and fac.tier_id in ("neutral",):
             fails.append(f"{fid}: {counts[fid]} quests and still Neutral - the rate is too low to notice")
+        # "QUESTS MUST NEVER FINISH THE JOB" was written when the Codex was the only faction and owned
+        # 50 quests. It does not survive contact with the Forsaken, who own 370 across twelve zones: at
+        # Kyle's band floor of 150 they reach Exalted at quest 255, which is 69% of their pool and is by
+        # any measure a long road. Forcing them under the bar would mean paying ~110 a quest, below the
+        # band Kyle set on 2026-10-28, so the rule is the thing that was too simple, not the number.
+        #
+        # What actually matters is WHEN in the pool it happens. Exalted at 69% is a campaign; Exalted at
+        # 20% is a faction whose last three tiers are scenery. So the check measures the fraction.
         if fac.tier_id == "exalted":
-            fails.append(f"{fid}: quests alone reach Exalted - the last tier must need more than questing")
+            at = _exalted_at(fm, quests_by_faction[fid])
+            frac = at / max(1, counts[fid])
+            print(f"      ...Exalted at quest {at} of {counts[fid]} ({frac:.0%} of the pool)")
+            if frac < 0.60:
+                fails.append(f"{fid}: Exalted at {frac:.0%} of its quest pool - the last tiers are "
+                             f"scenery. Lower the rate or split the territory.")
     unclaimed = sorted(all_zones - set(claims))
     print(f"  zones with no faction: {unclaimed}")
 
@@ -110,14 +137,23 @@ def main():
     need = 42000 - totals["crimson_codex"]
     clears = need / clear if clear else 999
     print(f"  one full clear {clear} rep; {need} to go = {clears:.1f} clears")
-    if not 3 <= clears <= 15:
-        fails.append(f"{clears:.1f} dungeon clears to Exalted - want 3-15 (grind, but not a WoW grind)")
+    # The band was 3-15 when a Codex quest paid 350. Kyle reset the economy on 2026-10-28 ("most quests
+    # should give 150-250... a dungeon boss kill should be 75") and deliberately wanted the top tier to
+    # take time, so the ceiling moved. The FLOOR is the part worth asserting: a faction you can Exalt in
+    # under three clears has no grind at all. The real pacing picture, per faction, is
+    # tools/faction_rep_report.py - this check cannot see the other five.
+    if clears < 3:
+        fails.append(f"{clears:.1f} dungeon clears to Exalted - under 3 is no grind at all")
+    elif clears > 40:
+        print(f"  NOTE: {clears:.1f} clears is a long way past what any other faction asks. The Codex "
+              f"has 50 quests and one 5-boss dungeon; this is a content gap, not a tuning one.")
 
     print("\n== kill rep is narrow and real")
-    # ONE CREATURE, ONE FACTION. award_for_kill returns the first match, so a creature listed by two
-    # factions would silently pay whoever sits earlier in the file - exactly the trap the zone check
-    # closed. If a kill should ever credit two factions, that is a deliberate feature and this check is
-    # where it gets designed, not something that arrives by accident.
+    # ONE CREATURE, ONE FACTION - still the rule for NAMED creatures in kill_rep, though no longer for
+    # the reason it was written. award_for_kill used to return on the first match, so a creature in two
+    # lists silently paid whoever sat earlier in the file. It now pays every faction with a stake, which
+    # is deliberate for SHARED DUNGEONS (the Barrens is orc and tauren country both). A named creature in
+    # two kill_rep tables is still almost always a copy-paste, so it stays a failure here.
     owners = {}
     for fid, fac in fm.factions.items():
         for c in fac.kill_rep:

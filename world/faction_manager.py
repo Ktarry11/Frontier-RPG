@@ -19,13 +19,20 @@ tells the story.
 
 Kills are deliberately NARROWER than "anything in a dungeon". A flat dungeon rule makes the optimal play
 farming the easiest trash in the easiest room, which is the WoW rep grind and is mindless; it also pays you
-Codex standing for killing a mushroom. So kill rep comes only from enemies the Codex has an actual stake
-in - their own dissidents, the Syndicate digging the same site, the revenants sitting on the Archive, and
-everything in the Deep Bloom. The wildlife pays nothing however deep the cave it lives in.
+Codex standing for killing a mushroom. So kill rep comes only from enemies the faction has an actual stake
+in. The wildlife pays nothing however deep the cave it lives in.
 
-The thresholds are then set so the two sources do different jobs: quests get you to Revered, and Exalted is
-finished by running the dungeon, because by then there are no quests left. Optional, completionist, and it
-rewards repeat runs with a party, which is what dungeons are for in this game.
+DUNGEON BOSSES ARE THE THIRD SOURCE, AND THE ONLY ONE THAT REPEATS (Kyle, 2026-10-28: "A dungeon boss kill
+should be 75 each in the Dungeons linked to that faction"). A faction lists the dungeons it cares about in
+`dungeon_rep.dungeons`, and every BOSS killed in one of them pays `dungeon_rep.per_boss`. Trash in the same
+room pays nothing, which is the point - the unit of progress is a boss, so the optimal play is to run the
+dungeon rather than to farm a corridor.
+
+THE THREE SOURCES DO DIFFERENT JOBS, and the quest band is what sets the pace. Kyle, 2026-10-28: "reaching
+max rep should take time too. Most quests should give 150-250 rep. Even with the codex." So every quest in
+the game now pays inside that band - boss quests at the top of it, ordinary ones below - and no faction
+reaches Exalted on quests alone unless it genuinely owns hundreds of them. Everything else finishes in the
+dungeons, repeatedly, with a party, which is what dungeons are for in this game.
 
 NEGATIVE STANDING IS DEFINED BUT UNUSED. Unfriendly, Hostile and Hated exist on the ladder because the
 first faction that can be angered should not have to rewrite the scale. Nothing currently drives standing
@@ -39,6 +46,13 @@ import json
 from pathlib import Path
 
 DATA = Path(__file__).parent.parent / "data" / "factions" / "factions.json"
+
+
+def _zkey(zone):
+    """The normalization every zone-keyed lookup in this codebase uses - lowercase, spaces to
+    underscores, apostrophes dropped. Used here so "The Deep Bloom", "the_deep_bloom" and
+    "Grom's Rest" / "groms_rest" all resolve to the same dungeon."""
+    return str(zone).lower().replace(" ", "_").replace("'", "")
 
 
 class Faction:
@@ -59,6 +73,12 @@ class Faction:
         self.leader = d.get("leader", {})
         self.quest_rep = d.get("quest_rep", {})
         self.kill_rep = d.get("kill_rep", {}).get("creatures", {})
+        #: {"per_boss": int, "dungeons": [...]}. Dungeon names are stored BOTH as authored and normalized,
+        #: because combat passes whatever zone key it was constructed with and the data file is written in
+        #: display names ("The Deep Bloom"). Matching only one spelling is a silent no-pay.
+        dr = d.get("dungeon_rep", {})
+        self.dungeon_per_boss = int(dr.get("per_boss", 0))
+        self.dungeons = {_zkey(z) for z in dr.get("dungeons", [])}
         self.rewards = d.get("rewards", {})
         self.standing = 0
 
@@ -229,15 +249,33 @@ class FactionManager:
         gained, tier_up = self.award(fid, amt, reason="quest")
         return fid, gained, tier_up
 
-    def award_for_kill(self, creature_name):
+    def award_for_kill(self, creature_name, zone=None, is_boss=False):
         """Called once per defeated enemy. Most calls are a dict miss and return immediately - this runs
-        inside the combat victory loop, so it stays cheap on the overwhelmingly common no-match path."""
+        inside the combat victory loop, so it stays cheap on the overwhelmingly common no-match path.
+
+        Two sources, and a creature can qualify under both: its own entry in a faction's kill_rep, and
+        the flat per-boss rate for a BOSS in a dungeon that faction is linked to. When both apply the
+        LARGER wins and is paid once - a boss that a faction already named individually should not pay
+        twice for being in the room it was always in.
+
+        EVERY MATCHING FACTION IS PAID, not just the first. This used to return on the first hit, which
+        quietly made a dungeon the property of whichever faction happened to be earlier in the dict - and
+        that is wrong on the ground the game actually has. The Barrens is orc AND tauren country; the
+        quilboar in Razorfen raid both. Wailing Caverns paying Orgrimmar and nothing to Thunder Bluff was
+        an artefact of iteration order, not a design decision anybody made.
+
+        Returns a list of (faction_id, gained, tier_up).
+        """
+        zk = _zkey(zone) if zone else None
+        out = []
         for fid, f in self.factions.items():
-            amt = f.kill_rep.get(creature_name)
+            amt = f.kill_rep.get(creature_name, 0)
+            if is_boss and zk and zk in f.dungeons:
+                amt = max(amt, f.dungeon_per_boss)
             if amt:
                 gained, tier_up = self.award(fid, amt, reason="kill")
-                return fid, gained, tier_up
-        return None, 0, None
+                out.append((fid, gained, tier_up))
+        return out
 
     # ---------------------------------------------------------------- gates
     def vendor_unlocks(self, vendor_id):
