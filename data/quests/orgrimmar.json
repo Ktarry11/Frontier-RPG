@@ -915,6 +915,85 @@
           "label": "Axe (Sta/Armor/Parry)"
         }
       ]
+    },
+    {
+      "quest_id": "org_who_holds_the_floor",
+      "title": "Who Holds the Floor",
+      "giver_npc_id": "org_elder_2",
+      "zone": "orgrimmar",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "Elder Torgun's report on the southern border now has a second page, and the second page is worse than the first. There is country beyond the range after all, there are tauren living on top of it, and between the Horde and the salt flats there is a people holding the only ground that connects anything to anything.\n\nThe Warchief does not need their history. He needs their name and their number.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Galak Outrider",
+          "count": 10,
+          "zone": "southern_thousand_needles"
+        },
+        {
+          "type": "kill",
+          "target": "Galak Windcatcher",
+          "count": 6,
+          "zone": "southern_thousand_needles"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "Galak. Centaur, and not the Kolkar - different stock, different manners, and by every account better organised than anything we have fought on this continent.\n\nGo down onto that floor and find out what they are made of. I want the outriders counted and I want their wind-readers counted separately, because a people who post weather-watchers are a people with a plan.",
+      "turn_in_text": "Drilled, then. Paced. They do not break and they do not chase.\n\nI will write that down and I will be unpopular for it. Everyone upstairs wants to hear savages.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Toll-Taker's Helm",
+          "slot": "head",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "The stitching is better than the city's and nobody there will say so.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 108,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Outrider Chaps",
+          "slot": "legs",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Taken off somebody who was taking something off somebody else.",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 60,
+          "label": "Leather Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Toll-Taker's Buckler",
+          "slot": "off_hand",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Made to be worn at a canter for a whole day.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "armor_value": 48,
+          "block_value": 60,
+          "label": "Shield (Parry/Block/Dodge)"
+        }
+      ]
     }
   ]
 }

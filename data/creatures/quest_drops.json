@@ -1914,135 +1914,284 @@
         "description": "Ranked lines, close-written, in a hand that was never held.",
         "chance": 0.34
       }
+    ],
+    "Redscrub Scavenger": [
+      {
+        "item_id": "seam_red_earth",
+        "name": "Seam Red Earth",
+        "category": "quest",
+        "description": "Barrens dust off the dry side of the line. It does not mix with what is beside it.",
+        "chance": 0.45
+      },
+      {
+        "item_id": "lift_ledger",
+        "name": "Lift Ledger",
+        "category": "quest",
+        "description": "Damp, swollen, and still legible where it matters.",
+        "chance": 0.22
+      }
+    ],
+    "Seam-Struck Kodo": [
+      {
+        "item_id": "undelivered_mail",
+        "name": "Undelivered Mail",
+        "category": "quest",
+        "description": "A season of letters that were waiting to go down.",
+        "chance": 0.4
+      }
+    ],
+    "Rimcliff Harpy": [
+      {
+        "item_id": "severed_cable_end",
+        "name": "Severed Cable End",
+        "category": "quest",
+        "description": "Lift wire, cut short for a nest.",
+        "chance": 0.42
+      },
+      {
+        "item_id": "harpy_sinew_coil",
+        "name": "Harpy Sinew Coil",
+        "category": "quest",
+        "description": "Stronger than rope and considerably less pleasant.",
+        "chance": 0.38
+      },
+      {
+        "item_id": "wound_cable_end",
+        "name": "Wound Cable End",
+        "category": "quest",
+        "description": "Lift cable, wound into a nest base. The end is stretched, not cut.",
+        "chance": 0.14,
+        "starts_quest": "asp_the_load"
+      }
+    ],
+    "Rimcliff Windcaller": [
+      {
+        "item_id": "harpy_sinew_coil",
+        "name": "Harpy Sinew Coil",
+        "category": "quest",
+        "description": "Stronger than rope and considerably less pleasant.",
+        "chance": 0.5
+      }
+    ],
+    "Goldwood Lynx": [
+      {
+        "item_id": "sound_aspen_bolt",
+        "name": "Sound Aspen Bolt",
+        "category": "quest",
+        "description": "Standing dead, cut to length, dry all the way through.",
+        "chance": 0.46
+      }
+    ],
+    "Aspen Elk": [
+      {
+        "item_id": "thick_elk_haunch",
+        "name": "Thick Elk Haunch",
+        "category": "quest",
+        "description": "Heavier than anything that came off the plain.",
+        "chance": 0.44
+      }
+    ],
+    "Quilboar Dencarver": [
+      {
+        "item_id": "stolen_dam_timber",
+        "name": "Stolen Dam Timber",
+        "category": "quest",
+        "description": "Chewed at one end, cut square at the other.",
+        "chance": 0.48
+      },
+      {
+        "item_id": "brass_survey_pin",
+        "name": "Brass Survey Pin",
+        "category": "quest",
+        "description": "Numbered, stamped with a mark you do not recognise, and kept wrapped in hide by something that could not read it.",
+        "chance": 0.16,
+        "starts_quest": "asp_surveyors_pin"
+      }
+    ],
+    "Winterhide Bear": [
+      {
+        "item_id": "thaw_meltwater_find",
+        "name": "Meltwater Find",
+        "category": "quest",
+        "description": "Something the ice picked up a long time ago and has just put down.",
+        "chance": 0.42
+      }
+    ],
+    "Glacier Bear": [
+      {
+        "item_id": "thaw_meltwater_find",
+        "name": "Meltwater Find",
+        "category": "quest",
+        "description": "Something the ice picked up a long time ago and has just put down.",
+        "chance": 0.42
+      }
+    ],
+    "Rimehowl": [
+      {
+        "item_id": "glacier_proof_bundle",
+        "name": "Glacier Hide and Hair",
+        "category": "quest",
+        "description": "Proof, for somebody across an ocean who asked a careful question.",
+        "chance": 1.0
+      }
+    ],
+    "Rimcliff Harpy Windcaller": [
+      {
+        "item_id": "harpy_sinew_coil",
+        "name": "Harpy Sinew Coil",
+        "category": "quest",
+        "description": "Stronger than rope and considerably less pleasant.",
+        "chance": 0.5
+      }
+    ],
+    "Galak Outrider": [
+      {
+        "item_id": "galak_toll_tally",
+        "name": "Galak Toll Tally",
+        "category": "quest",
+        "description": "A slip of hide, itemised, dated and carried forward. That is the part nobody in Freewind can get past.",
+        "chance": 0.46
+      }
+    ],
+    "Galak Wrangler": [
+      {
+        "item_id": "galak_toll_tally",
+        "name": "Galak Toll Tally",
+        "category": "quest",
+        "description": "A slip of hide, itemised, dated and carried forward.",
+        "chance": 0.4
+      }
+    ],
+    "Galak Khan's Chosen": [
+      {
+        "item_id": "galak_toll_ledger_leaf",
+        "name": "Toll Ledger Leaf",
+        "category": "quest",
+        "description": "A page out of the book the slips are torn from. Four columns, and the fourth one is not a charge.",
+        "chance": 0.44
+      }
+    ],
+    "Sheerwing Harpy": [
+      {
+        "item_id": "sheerwing_course_weave",
+        "name": "Sheerwing Course-Weave",
+        "category": "quest",
+        "description": "Laid in courses like thatch, with a turn at the end of each one.",
+        "chance": 0.44
+      }
+    ],
+    "Sheerwing Rooktender": [
+      {
+        "item_id": "sheerwing_course_weave",
+        "name": "Sheerwing Course-Weave",
+        "category": "quest",
+        "description": "Nest-work, and better nest-work than the city will admit.",
+        "chance": 0.5
+      }
+    ],
+    "Sunstruck Elk": [
+      {
+        "item_id": "sunstruck_marrow",
+        "name": "Sunstruck Marrow",
+        "category": "quest",
+        "description": "An animal that starves and an animal that cooks do not leave the same marrow.",
+        "chance": 0.48
+      },
+      {
+        "item_id": "washbed_fodder",
+        "name": "Wash-Bed Fodder",
+        "category": "quest",
+        "description": "The only green on the whole floor, and it is green because that is where the year's water went.",
+        "chance": 0.3
+      }
+    ],
+    "Rimstalker Scorpid": [
+      {
+        "item_id": "washbed_fodder",
+        "name": "Wash-Bed Fodder",
+        "category": "quest",
+        "description": "Cut from the shade of a cut bank, where it is cool and things do not move for you.",
+        "chance": 0.46
+      },
+      {
+        "item_id": "seam_ground_sample",
+        "name": "Seam Ground Sample",
+        "category": "quest",
+        "description": "Red hardpan off the line where the timber quits.",
+        "chance": 0.38
+      }
+    ],
+    "Downslope Lynx": [
+      {
+        "item_id": "seam_ground_sample",
+        "name": "Seam Ground Sample",
+        "category": "quest",
+        "description": "Scraped off the ground they are dying on.",
+        "chance": 0.42
+      }
+    ],
+    "Saltspite Elemental": [
+      {
+        "item_id": "saltwatch_pan_clay",
+        "name": "Saltwatch Pan Clay",
+        "category": "quest",
+        "description": "Grey, from under the crust. Everyone said it would not fire.",
+        "chance": 0.48
+      },
+      {
+        "item_id": "fused_pan_shard",
+        "name": "Fused Pan Shard",
+        "category": "quest",
+        "description": "Off the rim of a sheet you can see the sky in.",
+        "chance": 0.26
+      }
+    ],
+    "Dryhollow Basilisk": [
+      {
+        "item_id": "fused_pan_shard",
+        "name": "Fused Pan Shard",
+        "category": "quest",
+        "description": "Fused all the way through, not glazed.",
+        "chance": 0.4
+      }
+    ],
+    "Saltbound Shambler": [
+      {
+        "item_id": "saltset_tally_stick",
+        "name": "Salt-Set Tally Stick",
+        "category": "quest",
+        "description": "Notched, and the notches are a salt crew's count. Somebody kept this.",
+        "chance": 0.46
+      }
+    ],
+    "Sightless Kodo": [
+      {
+        "item_id": "sound_aspen_bolt",
+        "name": "Sound Aspen Bolt",
+        "category": "quest",
+        "description": "Standing dead, cut to length, dry all the way through. The flood brought it down and the cave kept it.",
+        "chance": 0.42
+      }
+    ],
+    "Galak Windcatcher": [
+      {
+        "item_id": "galak_road_tally",
+        "name": "Galak Road-Tally",
+        "category": "quest",
+        "description": "A running balance, kept against something, in a hand better than the city clerk's. The fourth column is not a charge and you cannot read what it is.",
+        "chance": 0.15,
+        "starts_quest": "fw_toll_ledger"
+      }
+    ],
+    "Washline Scuttler": [
+      {
+        "item_id": "drowned_crew_token",
+        "name": "Drowned Crew Token",
+        "category": "quest",
+        "description": "Bone, drilled once, worn smooth on one face by a thumb. It was carried by somebody for a long time before the water got it.",
+        "chance": 0.16,
+        "starts_quest": "fw_the_drowned"
+      }
     ]
-  },
-  "Redscrub Scavenger": [
-    {
-      "item_id": "seam_red_earth",
-      "name": "Seam Red Earth",
-      "category": "quest",
-      "description": "Barrens dust off the dry side of the line. It does not mix with what is beside it.",
-      "chance": 0.45
-    },
-    {
-      "item_id": "lift_ledger",
-      "name": "Lift Ledger",
-      "category": "quest",
-      "description": "Damp, swollen, and still legible where it matters.",
-      "chance": 0.22
-    }
-  ],
-  "Seam-Struck Kodo": [
-    {
-      "item_id": "undelivered_mail",
-      "name": "Undelivered Mail",
-      "category": "quest",
-      "description": "A season of letters that were waiting to go down.",
-      "chance": 0.4
-    }
-  ],
-  "Rimcliff Harpy": [
-    {
-      "item_id": "severed_cable_end",
-      "name": "Severed Cable End",
-      "category": "quest",
-      "description": "Lift wire, cut short for a nest.",
-      "chance": 0.42
-    },
-    {
-      "item_id": "harpy_sinew_coil",
-      "name": "Harpy Sinew Coil",
-      "category": "quest",
-      "description": "Stronger than rope and considerably less pleasant.",
-      "chance": 0.38
-    },
-    {
-      "item_id": "wound_cable_end",
-      "name": "Wound Cable End",
-      "category": "quest",
-      "description": "Lift cable, wound into a nest base. The end is stretched, not cut.",
-      "chance": 0.14,
-      "starts_quest": "asp_the_load"
-    }
-  ],
-  "Rimcliff Windcaller": [
-    {
-      "item_id": "harpy_sinew_coil",
-      "name": "Harpy Sinew Coil",
-      "category": "quest",
-      "description": "Stronger than rope and considerably less pleasant.",
-      "chance": 0.5
-    }
-  ],
-  "Goldwood Lynx": [
-    {
-      "item_id": "sound_aspen_bolt",
-      "name": "Sound Aspen Bolt",
-      "category": "quest",
-      "description": "Standing dead, cut to length, dry all the way through.",
-      "chance": 0.46
-    }
-  ],
-  "Aspen Elk": [
-    {
-      "item_id": "thick_elk_haunch",
-      "name": "Thick Elk Haunch",
-      "category": "quest",
-      "description": "Heavier than anything that came off the plain.",
-      "chance": 0.44
-    }
-  ],
-  "Quilboar Dencarver": [
-    {
-      "item_id": "stolen_dam_timber",
-      "name": "Stolen Dam Timber",
-      "category": "quest",
-      "description": "Chewed at one end, cut square at the other.",
-      "chance": 0.48
-    },
-    {
-      "item_id": "brass_survey_pin",
-      "name": "Brass Survey Pin",
-      "category": "quest",
-      "description": "Numbered, stamped with a mark you do not recognise, and kept wrapped in hide by something that could not read it.",
-      "chance": 0.16,
-      "starts_quest": "asp_surveyors_pin"
-    }
-  ],
-  "Winterhide Bear": [
-    {
-      "item_id": "thaw_meltwater_find",
-      "name": "Meltwater Find",
-      "category": "quest",
-      "description": "Something the ice picked up a long time ago and has just put down.",
-      "chance": 0.42
-    }
-  ],
-  "Glacier Bear": [
-    {
-      "item_id": "thaw_meltwater_find",
-      "name": "Meltwater Find",
-      "category": "quest",
-      "description": "Something the ice picked up a long time ago and has just put down.",
-      "chance": 0.42
-    }
-  ],
-  "Rimehowl": [
-    {
-      "item_id": "glacier_proof_bundle",
-      "name": "Glacier Hide and Hair",
-      "category": "quest",
-      "description": "Proof, for somebody across an ocean who asked a careful question.",
-      "chance": 1.0
-    }
-  ],
-  "Rimcliff Harpy Windcaller": [
-    {
-      "item_id": "harpy_sinew_coil",
-      "name": "Harpy Sinew Coil",
-      "category": "quest",
-      "description": "Stronger than rope and considerably less pleasant.",
-      "chance": 0.5
-    }
-  ]
+  }
 }

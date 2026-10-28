@@ -1677,6 +1677,97 @@
           }
         ]
       }
+    },
+    {
+      "quest_id": "asp_is_freewind_real",
+      "title": "Word From Below",
+      "giver_npc_id": "asp_camp_elder",
+      "zone": "the_aspen_wilderness",
+      "level_min": 29,
+      "level_max": 30,
+      "description": "Elder Mura Longstand has been told, by three separate caravan drivers who did not know each other, that there is a tauren city south of the pass built on top of three mesas.\n\nShe has been a long time without good news and has learned not to spend any of it in advance. But the drivers all described the same ramp, and people inventing a city do not agree about the ramp.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "longstand_query",
+          "count": 1,
+          "label": "Carry Longstand's question to High Elder Namka Windhollow"
+        }
+      ],
+      "reward_exp": 2040,
+      "reward_gold": 8400,
+      "accept_text": "Take this down the pass and put it in the hand of whoever speaks for that place.\n\nIt is one question and it is not a polite one. I want to know if they are holding, or if they are three rocks with people standing on them waiting for somebody to notice.",
+      "turn_in_text": "She asks the question I would have been too careful to ask. Tell her we are holding.\n\nTell her we are holding and that the ramp is the problem and always has been.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Sun-Scoured Helm",
+          "slot": "head",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "Carried up a ramp, like everything else in this city.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 101,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Needle-Cut Cord",
+          "slot": "waist",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "Sandstone grit has taken the shine off it and left something better.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 28,
+          "label": "Leather Belt (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Sun-Scoured Shortbow",
+          "slot": "main_hand",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "Hot to the touch until about two in the morning.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.1
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 48,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "turn_in_npc_id": "fw_high_elder",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "longstand_query",
+            "name": "Longstand's Question",
+            "description": "One sheet, folded twice, and the fold is sharp enough to say it was folded by somebody who did not want to reread it.",
+            "count": 1
+          }
+        ]
+      }
     }
   ]
 }

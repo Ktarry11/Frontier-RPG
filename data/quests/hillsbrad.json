@@ -4397,97 +4397,6 @@
       ]
     },
     {
-      "quest_id": "hbe_impossible_yetis",
-      "title": "A Matter of Impossibility",
-      "giver_npc_id": "hbe_mill_apothecary",
-      "zone": "eastern_hillsbrad",
-      "level_min": 27,
-      "level_max": 29,
-      "description": "Apothecary Lydon has spent eleven years on Alterac yeti and considers himself the authority, which he is, because nobody else wanted it.\n\nA caravan master came through Tarren Mill with a story about yeti on the other side of the world, in a desert province of Kalimdor, and Lydon has been unable to put it down. Yeti do not cross oceans. The caravan master was very sure.",
-      "objectives": [
-        {
-          "type": "deliver",
-          "target": "sealed_yeti_query",
-          "count": 1,
-          "label": "Deliver the sealed query to Elder Mura Longstand"
-        }
-      ],
-      "reward_exp": 1960,
-      "reward_gold": 8100,
-      "accept_text": "I am not asking you to believe it. I am asking you to carry this across an ocean and put it in the hand of whoever is senior at that camp, and let them tell me I am wasting my time.\n\nIt is sealed. Do not open it. The questions in it are embarrassing and I would like them answered before they are laughed at.",
-      "turn_in_text": "He writes a very careful letter for a man who has already decided.\n\nTell him yes. Tell him there are yeti in this mountain and we would all be happier if there were not.",
-      "next_quest_id": null,
-      "rewards": [
-        {
-          "name": "Old-Cold Cuisses",
-          "slot": "legs",
-          "item_level": 28,
-          "rarity": "uncommon",
-          "required_level": 27,
-          "flavor_text": "Wet when you pick it up and wet an hour later.",
-          "primary_stats": {
-            "strength": 5,
-            "stamina": 6
-          },
-          "secondary_stats": {
-            "crit_chance_physical": 0.3
-          },
-          "armor_type": "plate",
-          "armor_value": 131,
-          "label": "Plate Legs (Str/Sta/Crit)"
-        },
-        {
-          "name": "Meltwater Chainmail",
-          "slot": "chest",
-          "item_level": 28,
-          "rarity": "uncommon",
-          "required_level": 27,
-          "flavor_text": "It came out of the ice this spring. It had been in there a while.",
-          "primary_stats": {
-            "stamina": 6
-          },
-          "secondary_stats": {
-            "dodge_rating": 0.5,
-            "parry_rating": 0.4
-          },
-          "armor_type": "mail",
-          "armor_value": 87,
-          "label": "Mail Chest (Sta/Dodge/Parry)"
-        },
-        {
-          "name": "Weeping-Ice Rod",
-          "slot": "main_hand",
-          "item_level": 28,
-          "rarity": "uncommon",
-          "required_level": 27,
-          "flavor_text": "It came out of the ice this spring. It had been in there a while.",
-          "weapon_type": "staff",
-          "primary_stats": {
-            "intellect": 11
-          },
-          "secondary_stats": {
-            "spell_power": 14.2,
-            "crit_chance_spell": 0.7
-          },
-          "weapon_damage_min": 22,
-          "weapon_damage_max": 30,
-          "attack_speed": 3.2,
-          "label": "Staff (Int/SP/Crit)"
-        }
-      ],
-      "turn_in_npc_id": "asp_camp_elder",
-      "grant_items": {
-        "on_accept": [
-          {
-            "item_id": "sealed_yeti_query",
-            "name": "Sealed Query",
-            "description": "Apothecary Lydon's questions, sealed with wax and a thumbprint. It is heavier than a letter has any business being.",
-            "count": 1
-          }
-        ]
-      }
-    },
-    {
       "quest_id": "hbe_fissure_north",
       "title": "The Fissure Above the Naze",
       "giver_npc_id": "hbe_naze_infiltrator",
@@ -4653,6 +4562,97 @@
         }
       ],
       "turn_in_npc_id": "hbe_naze_infiltrator"
+    },
+    {
+      "quest_id": "hbe_impossible_yetis",
+      "title": "A Matter of Impossibility",
+      "giver_npc_id": "hbe_mill_apothecary",
+      "zone": "eastern_hillsbrad",
+      "level_min": 27,
+      "level_max": 29,
+      "description": "Apothecary Lydon has spent eleven years on Alterac yeti and considers himself the authority, which he is, because nobody else wanted it.\n\nA caravan master came through Tarren Mill with a story about yeti on the other side of the world, in a desert province of Kalimdor, and Lydon has been unable to put it down. Yeti do not cross oceans. The caravan master was very sure.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sealed_yeti_query",
+          "count": 1,
+          "label": "Deliver the sealed query to Elder Mura Longstand"
+        }
+      ],
+      "reward_exp": 1960,
+      "reward_gold": 8100,
+      "accept_text": "I am not asking you to believe it. I am asking you to carry this across an ocean and put it in the hand of whoever is senior at that camp, and let them tell me I am wasting my time.\n\nIt is sealed. Do not open it. The questions in it are embarrassing and I would like them answered before they are laughed at.",
+      "turn_in_text": "He writes a very careful letter for a man who has already decided.\n\nTell him yes. Tell him there are yeti in this mountain and we would all be happier if there were not.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Old-Cold Cuisses",
+          "slot": "legs",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "Wet when you pick it up and wet an hour later.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 131,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Meltwater Chainmail",
+          "slot": "chest",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "It came out of the ice this spring. It had been in there a while.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 87,
+          "label": "Mail Chest (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Weeping-Ice Rod",
+          "slot": "main_hand",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 27,
+          "flavor_text": "It came out of the ice this spring. It had been in there a while.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 14.2,
+            "crit_chance_spell": 0.7
+          },
+          "weapon_damage_min": 22,
+          "weapon_damage_max": 30,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ],
+      "turn_in_npc_id": "asp_camp_elder",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sealed_yeti_query",
+            "name": "Sealed Query",
+            "description": "Apothecary Lydon's questions, sealed with wax and a thumbprint. It is heavier than a letter has any business being.",
+            "count": 1
+          }
+        ]
+      }
     }
   ]
 }

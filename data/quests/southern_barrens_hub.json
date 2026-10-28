@@ -3332,6 +3332,92 @@
           "label": "Necklace (Int/Spi/HP)"
         }
       ]
+    },
+    {
+      "quest_id": "tau_can_kodo_go_down",
+      "title": "Whether Kodo Can Go Down",
+      "giver_npc_id": "taurajo_kodo_wrangler",
+      "zone": "camp_taurajo",
+      "level_min": 30,
+      "level_max": 31,
+      "description": "Wrangler Tull sent somebody up to the Lift once already and got back the word that there were trees on it. He has had three years to make peace with that and about four days to make peace with the rest.\n\nThere is a way down now. What he needs to know is whether it is a way down a kodo can take, because a road a kodo cannot walk is not a road, it is a footpath with ambitions.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_thousand_needles",
+          "target_x": 110,
+          "target_y": 30,
+          "radius": 9
+        },
+        {
+          "type": "explore",
+          "target": "southern_thousand_needles",
+          "target_x": 128,
+          "target_y": 92,
+          "radius": 9
+        }
+      ],
+      "reward_exp": 2120,
+      "reward_gold": 8700,
+      "accept_text": "Walk the whole thing. Not the look-over-the-edge version - the whole thing, from where the timber quits down to where the road forks on the floor.\n\nI am not asking about the view. I am asking about grade, footing and whether there is water in the first two days, and you will only know that by putting your own feet on it.",
+      "turn_in_text": "Passable. You said passable, not good.\n\nThat is the first honest answer anyone has brought me about that country, and I have been asking for three years.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Redhoof Grips",
+          "slot": "hands",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Carried up a ramp, like everything else in this city.",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.2
+          },
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Needle-Cut Bracers",
+          "slot": "wrist",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Hot to the touch until about two in the morning.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "armor_type": "mail",
+          "armor_value": 46,
+          "label": "Mail Bracers (Sta/Spi/HP)"
+        },
+        {
+          "name": "Sun-Scoured Hatchet",
+          "slot": "main_hand",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Carried up a ramp, like everything else in this city.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        }
+      ]
     }
   ]
 }

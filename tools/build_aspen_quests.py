@@ -567,18 +567,24 @@ def main():
     # drops
     dp = ROOT / "data/creatures/quest_drops.json"
     drops = json.loads(dp.read_text())
+    # THE LOADERS READ data["drops"], NOT THE TOP LEVEL. Both combat_engine._get_loot_item_drops and
+    # quest_locator.item_sources do json.load(f).get("drops", {}) - so a creature key written beside
+    # "drops" instead of inside it is read by nothing and the item never drops. This file shipped that
+    # way for the whole Aspen pass: 23 quest items were un-droppable, including both of Aspen's
+    # quest-STARTER items, which meant two quests could never be started at all. Write inside "drops".
+    table = drops.setdefault("drops", drops)
     for cre, rows in FETCH_DROPS.items():
-        cur = [d for d in drops.get(cre, []) if d["item_id"] not in {r[0] for r in rows}]
+        cur = [d for d in table.get(cre, []) if d["item_id"] not in {r[0] for r in rows}]
         for (iid, nm, desc, ch) in rows:
             cur.append({"item_id": iid, "name": nm, "category": "quest", "description": desc,
                         "chance": ch})
-        drops[cre] = cur
+        table[cre] = cur
     for cre, rows in STARTER_DROPS.items():
-        cur = [d for d in drops.get(cre, []) if d["item_id"] not in {r[0] for r in rows}]
+        cur = [d for d in table.get(cre, []) if d["item_id"] not in {r[0] for r in rows}]
         for (iid, nm, desc, ch, qid) in rows:
             cur.append({"item_id": iid, "name": nm, "category": "quest", "description": desc,
                         "chance": ch, "starts_quest": qid})
-        drops[cre] = cur
+        table[cre] = cur
     dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n")
 
     n_in = len(inbound())
