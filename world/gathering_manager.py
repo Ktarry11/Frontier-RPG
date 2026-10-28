@@ -385,7 +385,12 @@ MATERIAL_TYPE_FOLDERS = {
     "pages": "pages",
     "cloth": "cloth",
     "leather": "leather",  # 40-tier ladder art staged (Skinning not built yet)
-    "bolt": "bolts",
+    # BOLTS LIVE IN THE CLOTH FOLDER. All 40 bolt icons were drawn and staged alongside the cloth
+    # they come from - assets/gathering_nodes/cloth holds 80 files, cloth_* and bolt_* - but this
+    # pointed at a "bolts" directory that has never existed, so every bolt in the game rendered as
+    # a text box while its art sat on disk. Found 2026-10-28 by diffing every material's icon path
+    # against the files actually present.
+    "bolt": "cloth",
     # Essence Harvesting (Oct 2026) - the Frontier-original gathering
     # profession feeding Engineering. "essence" drops off slain elementals
     # (entities/essence_drops.py); "crystal" comes out of world nodes and so
