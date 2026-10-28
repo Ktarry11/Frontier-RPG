@@ -849,11 +849,24 @@ class TilemapRenderer:
                 screen_x += viewport_rect.x
                 screen_y += viewport_rect.y
 
-                base_path = sprite_base_path(
-                    getattr(npc, "race", "human"), getattr(npc, "gender", "male"),
-                    getattr(npc, "appearance_variant", 0))
-                sprite = get_npc_sprite(base_path, getattr(npc, "facing", "down"), tile_height=int(self.tile_size * self.npc_sprite_scale)) \
-                    if base_path else None
+                # NAMED FIGURES GET THEIR OWN ART. Faction leaders and MerchantTusk live at
+                # assets/npcs/leaders/<npc_id>/, checked before the generic race pool, exactly the
+                # way recruits override at assets/npcs/recruits/<recruit_id>/. Everyone in that
+                # folder was a generic race variant until this art landed - Thrall was orc variant
+                # 0 - so the fallback below is the path they all used and still use if a file is
+                # missing, which is what lets these land one at a time.
+                tile_h = int(self.tile_size * self.npc_sprite_scale)
+                sprite = None
+                leader_path = f"assets/npcs/leaders/{getattr(npc, 'npc_id', '')}"
+                if os.path.exists(f"{leader_path}/down.png"):
+                    sprite = get_npc_sprite(leader_path, getattr(npc, "facing", "down"),
+                                            tile_height=tile_h)
+                if sprite is None:
+                    base_path = sprite_base_path(
+                        getattr(npc, "race", "human"), getattr(npc, "gender", "male"),
+                        getattr(npc, "appearance_variant", 0))
+                    sprite = get_npc_sprite(base_path, getattr(npc, "facing", "down"),
+                                            tile_height=tile_h) if base_path else None
                 if sprite is not None:
                     sx = screen_x + (self.tile_size - sprite.get_width()) // 2
                     sy = screen_y + self.tile_size - sprite.get_height()
