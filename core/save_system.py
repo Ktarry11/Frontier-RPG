@@ -10,7 +10,8 @@ A save is a single JSON document:
       "recruits":  {...},          # which recruit NPCs have been taken
       "world":     {...},          # zone name + tile the player is standing on
       "quests":    {...},          # quest progress
-      "travel":    {...}           # hearth bind/cooldown, flight nodes, riding + mounts (v7)
+      "travel":    {...},          # hearth bind/cooldown, flight nodes, riding + mounts (v7)
+      "factions":  {...}           # reputation standing per faction (v9)
     }
 
 Every block except "character" is optional, so a v4/v5 save still loads; the
@@ -35,7 +36,7 @@ class SaveSystem:
 
     def save_character(self, character, filename="character.json",
                        party=None, recruit_manager=None, zone_manager=None,
-                       quest_manager=None, travel_manager=None):
+                       quest_manager=None, travel_manager=None, faction_manager=None):
         """
         Write a full save.
 
@@ -61,6 +62,8 @@ class SaveSystem:
             save_data["quests"] = quest_manager.to_dict()
         if travel_manager is not None:
             save_data["travel"] = travel_manager.to_dict()
+        if faction_manager is not None:
+            save_data["factions"] = faction_manager.to_dict()
 
         save_path = self.save_dir / filename
         with open(save_path, "w") as f:

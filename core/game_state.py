@@ -159,6 +159,7 @@ class GameStateManager:
         from world.recruit_manager import get_recruit_manager
         from world.quest_manager import get_quest_manager
         from world.travel_manager import get_travel_manager
+        from world.faction_manager import get_faction_manager
         try:
             self._save_system().save_character(
                 self.player,
@@ -168,6 +169,7 @@ class GameStateManager:
                 zone_manager=self._live_zone_manager(),
                 quest_manager=get_quest_manager(),
                 travel_manager=get_travel_manager(),
+                faction_manager=get_faction_manager(),
             )
         except Exception as exc:
             print(f"Save failed: {exc}")
@@ -240,6 +242,14 @@ class GameStateManager:
         # quests; a pre-v7 save has no "travel" block and simply loads with the defaults.
         from world.travel_manager import reset_travel_manager
         reset_travel_manager().load_from_dict(data.get("travel"))
+
+        # Faction standing - same fresh-singleton-then-apply pattern as quests and travel, and for the same
+        # reason: FactionManager is a process-lifetime singleton, so loading a second save in one session
+        # would otherwise inherit the first one's reputation. A pre-v9 save has no "factions" block and
+        # loads with everybody Unlisted, which is the correct starting state, so there is no migration.
+        import world.faction_manager as _fm_module
+        _fm_module._faction_manager = _fm_module.FactionManager()
+        _fm_module.get_faction_manager().load_from_dict(data.get("factions"))
 
         world = data.get("world")
         zone_manager = self._live_zone_manager()

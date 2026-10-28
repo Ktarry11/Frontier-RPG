@@ -29,21 +29,21 @@ years into a project that has stopped obeying its own index and not one of them 
 BASTION_VENDORS = {
     "kb_quartermaster": (
         "Quartermaster Sylvaine", "blood_elf", "female", 4,
-        ["healing_potion_greater", "mana_potion_greater", "bread_and_cheese", "roasted_meat",
+        ["healing_potion_superior", "mana_potion_superior", "bread_and_cheese", "roasted_meat",
          "guardian_elixir_standard", "whetstone", "vial_empty"], True,
         "Everything here was carried down a fissure on somebody's back. Price it accordingly."),
     "kb_trader": (
         "Factor Anselm Dawnmere", "blood_elf", "male", 9,
         ["healing_potion_standard", "mana_potion_standard", "parchment", "thread_fine",
-         "flux_standard", "lamp_oil"], False,
+         "flux_medium", "whetstone"], False,
         "I trade in two directions and only one of them goes up the fissure. Guess which has the margin."),
     "kb_smith": (
         "Smith Harvald Emberlock", "blood_elf", "male", 17,
-        ["whetstone", "flux_standard", "thread_coarse", "vial_empty"], True,
+        ["whetstone", "flux_medium", "thread_coarse", "vial_empty"], True,
         "No coal down here worth the name. I burn what the Codex rules is expendable, and they rule often."),
     "kb_reagent_seller": (
         "Reagent-Keeper Ilthea", "blood_elf", "female", 6,
-        ["mana_potion_greater", "vial_empty", "parchment", "thread_fine"], False,
+        ["mana_potion_superior", "vial_empty", "parchment", "thread_fine"], False,
         "Catalogued, labelled, shelved. If you want it unlabelled, go and pull it out of the ground yourself."),
     "kb_innkeeper": (
         "Innkeeper Maeven Sorrowglass", "blood_elf", "female", 12,
@@ -51,7 +51,7 @@ BASTION_VENDORS = {
         "There is no night here. We decided there was one anyway, and I keep the hours. Somebody has to."),
     "kb_alchemist": (
         "Alchemist Terrowen", "blood_elf", "male", 20,
-        ["healing_potion_greater", "mana_potion_greater", "guardian_elixir_standard", "vial_empty"], False,
+        ["healing_potion_superior", "mana_potion_superior", "guardian_elixir_standard", "vial_empty"], False,
         "Four years of samples and the reagents keep testing BETTER than their surface equivalents. I have "
         "stopped putting that in reports."),
 }
@@ -106,7 +106,7 @@ BASTION_AMBIENT = {
 UNDERDARK_VENDORS = {
     "ud_geode_campkeeper": (
         "Campkeeper Threnn", "blood_elf", "female", 13,
-        ["healing_potion_standard", "mana_potion_standard", "bread_and_cheese", "lamp_oil",
+        ["healing_potion_standard", "mana_potion_standard", "bread_and_cheese", "whetstone",
          "whetstone", "vial_empty"], False,
         "Last supplies before the Geode. I am required to tell you that and required not to tell you why."),
 }

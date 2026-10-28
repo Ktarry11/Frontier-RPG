@@ -433,6 +433,18 @@ def underdark():
         "recognise it.\n\nI am not going to say. Not until I have been down to the Bloom myself, and I "
         "have been putting that off for eleven months.",
         turn_in_npc_id=NESS))
+    A.append(Q("ud_archive_deeper", "The Part We Do Not Show People", THAL, UD, 36, 37, "archive",
+        "There is a second dig under the Sunken Archive and the Codex do not mention it to arrivals. "
+        "Overseer Thaleon Greyquill has had the authority to open it to outsiders for a year and has used "
+        "that authority once, and the person he used it on is no longer submitting reports.",
+        [fetch("catalogue_slip", 8), explore(UD, 130, 140, 7)],
+        "You are in the record now, which is the only reason we are having this conversation.\n\nThe lower "
+        "cut, past the shoring, where the Archive stops being masonry and starts being whatever the masonry "
+        "was built into. Eight more slips off the revenants down there and your own eyes on the face.\n\n"
+        "I will tell you what I told the last one: do not read them in there. Bring them up first.",
+        "You read one in there. Everybody does and nobody admits it.\n\nThey are all addressed to a reader. "
+        "Not a filer, not an archivist - a READER, singular, who has not arrived yet. We have been assuming "
+        "for three years that we are the audience."))
     A.append(Q("ud_archive_dig", "Signed For Twice", SARE, UD, 36, 37, "archive",
         "Digger Sarenne shifts rock and the Codex files what comes out of it. What came out last week has "
         "been crated, sealed, and entered in the register, and the register entry has a note on it in the "
@@ -626,6 +638,24 @@ def bastion():
         "arrived first?",
         "You said: both.\n\nThat is the answer Veridan gave, and the answer I give, and the answer I have "
         "not been able to file for three years. Thank you for not improving on it."))
+    A.append(Q("kb_sealed_entry", "Your Entry, Finished", ILAR, KB, 40, 40, "codex",
+        "A codex is a book of names. Every person in the Bastion has an entry in it and every entry is "
+        "provisional, amended as they do things, because the Codex-Master has never closed one. Closing an "
+        "entry means the Codex considers a thing fully known, and in three years Ilarien Duskwaking has "
+        "found nothing down here she would say that about. She is prepared to say it about a person.",
+        [fetch("dalaran_fragment", 3), fetch("geode_druse", 3), fetch("grown_leaf", 3),
+         craft("ww_pages_frostpine", "Press the pages for your own entry", 2)],
+        "I am going to write you into the Codex and then I am going to seal it, and you are going to supply "
+        "the materials, because I am not spending the Archive's paper on a formality.\n\nThree worked "
+        "fragments from the Colonnade, three pieces of druse out of the Geode, three leaves off the thing in "
+        "the Bloom - one from each of the places that made you worth the entry. And press the pages "
+        "yourself. Frostpine, from the ice, the long way up.\n\nIt is ceremony. I am aware. Ceremony is "
+        "what a cataloguing expedition has instead of a flag.",
+        "It is done, and it does not come open again.\n\nI should tell you what that costs me. A sealed "
+        "entry cannot be amended, so whatever you do after today, the Codex's position on you is fixed as of "
+        "this morning. I have never been willing to say that about a crystal, a column or a cavern.\n\n"
+        "Nobody in this expedition has a prior claim on anything here. We arrived the same year you did. "
+        "You are the first thing in eleven thousand entries I am certain of."))
     return A
 
 

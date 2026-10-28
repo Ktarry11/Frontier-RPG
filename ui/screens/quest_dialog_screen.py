@@ -198,6 +198,19 @@ class QuestDialogScreen(BaseScreen):
                 self.active_quest = quest
                 return
             self.result_message = "Quest complete!" if ok else "Something went wrong."
+            # Faction standing, set by QuestManager.turn_in_quest. Appended rather than replacing, so the
+            # player still sees the completion line - and a tier change gets its own sentence, because
+            # crossing into Honored is the kind of thing that should not scroll past as a number.
+            if ok:
+                fid, gained, tier_up = getattr(self.quest_mgr, "faction_gain", (None, 0, None))
+                if fid and gained:
+                    from world.faction_manager import get_faction_manager
+                    fm = get_faction_manager()
+                    name = fm.get(fid).name
+                    self.result_message += f"\n+{gained} reputation with {name}."
+                    if tier_up:
+                        self.result_message += f"\nYou are now {tier_up['name']} with {name}."
+                self.quest_mgr.faction_gain = (None, 0, None)
             # Asher's scripted departure (see QuestManager.turn_in_quest)
             # overrides the generic "Quest complete!" line with his actual
             # farewell, when this was the quest that triggers it.

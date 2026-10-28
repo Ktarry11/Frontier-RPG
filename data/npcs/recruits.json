@@ -476,6 +476,25 @@
       "gear_theme": "healer",
       "gender": "female",
       "appearance_variant": 1
+    },
+    {
+      "recruit_id": "kesten_the_catalogued",
+      "name": "Kesten Ambrose",
+      "char_class": "Runemaster",
+      "spec": "runemaster_glyphic",
+      "level": 36,
+      "zone": "kaels_bastion",
+      "x": 35,
+      "y": 44,
+      "placed": true,
+      "suggested_zone": "Kael's Bastion (Gallery Three)",
+      "row": "back",
+      "npc_color": "#9B6FD6",
+      "backstory": "A monumental mason from Aberdeen, twenty-two years cutting letters into granite for people who had died. He came through the Integration with his hands and nothing else and walked down the Alterac fissure in the first year, before there was a road worn into the lip, because the Codex were the only people he met who were also writing things down. They did not turn him away and they did not quite take him in: they gave him a catalogue number. He is the only entry in eleven thousand that is a person. He has never objected to this and the Codex have never worked out whether that is loyalty or the closest thing to a headstone anybody has offered him.",
+      "greeting": "Entry four hundred and six. That is me, not a thing I found. You get used to it.",
+      "gear_theme": "ranged_dps",
+      "gender": "male",
+      "appearance_variant": 4
     }
   ],
   "notes": "Recruitable companions - diverse classes, specs (FIXED), locations, and backgrounds. Each has distinctive NPC color for visibility. Backgrounds shortened to fit screen. Spec-locked recruitment identity. Recruits with \"placed\": false are fully authored (class, spec, background, art slot) but not yet standing anywhere in the world; \"suggested_zone\" is only a hint for when they are placed (several will go to the Eastern Kingdoms). A recruit's level matches the zone they are found in (Kyle, 2026-10-22), so nobody is a level 2 in a level 14 town."

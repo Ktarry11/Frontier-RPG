@@ -197,6 +197,12 @@ class QuestManager:
                 other = self.quests.get(req)
                 if other is None or other.status != QuestStatus.COMPLETED:
                     return False
+        # Faction standing gates. Authored in data/factions/factions.json under rewards.quests rather than
+        # on the quest, so a faction owns its own unlock list in one place instead of scattering a
+        # requires_standing field across other people's zone files.
+        from world.faction_manager import get_faction_manager
+        if not get_faction_manager().quest_requirement_met(quest_id):
+            return False
         predecessor = self._find_predecessor(quest_id)
         if predecessor is None:
             return True
@@ -298,6 +304,13 @@ class QuestManager:
             # Quest.get_scaled_exp_reward's docstring for the full
             # reasoning and the formula it mirrors from combat).
             party.add_currency(quest.reward_gold)
+
+        # Faction standing. The amount comes from the quest's ZONE rather than a per-quest field, so the
+        # 48 quests already written needed no edit and a new quest in a faction's territory earns standing
+        # by existing (world/faction_manager.quest_reward). Stashed on self the same way result_message and
+        # departure_message are, for the dialog UI to render after this returns.
+        from world.faction_manager import get_faction_manager
+        self.faction_gain = get_faction_manager().award_for_quest(quest)
 
         quest.status = QuestStatus.COMPLETED
 

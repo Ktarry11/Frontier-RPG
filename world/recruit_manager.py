@@ -103,6 +103,15 @@ class RecruitNPC:
         """(zone, x, y) where this companion waits after being dismissed."""
         return (self.home_town, self.home_x, self.home_y)
 
+    def _faction_gate_met(self):
+        """False when a faction has reserved this companion for a given standing.
+
+        The Codex will not release one of their own surveyors to somebody who is not in their record -
+        see data/factions/factions.json, rewards.recruit.
+        """
+        from world.faction_manager import get_faction_manager
+        return get_faction_manager().recruit_requirement_met(self.recruit_id)
+
     def is_available(self):
         """True if this recruit should currently appear/be interactable at
         all. Every recruit except Asher is always available (returns True
@@ -128,6 +137,8 @@ class RecruitNPC:
         Kyle's "leaves the party to explore the world."
         """
         if not self.placed or self.zone is None:
+            return False
+        if not self._faction_gate_met():
             return False
         if self.recruit_id != "asher_coleman":
             return True

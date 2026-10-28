@@ -6,6 +6,14 @@ completed quests, grouped separately. Read-only: accepting/turning in
 quests only happens through QuestDialogScreen when talking to the actual
 giver NPC (see that module's docstring) - this screen is for reviewing
 what you're already carrying, not a menu for quest actions.
+
+It also carries the REPUTATION tab (Kyle, 2026-10-27: "one UI and one tab
+that contains all the factions. There will be a lot"). One tab, every
+faction, all on the same WoW-standard ladder - see
+world/faction_manager.py. It lives here rather than in its own screen
+because this screen already owns the tab bar, the scroll viewport and
+the scrollbar, and a reputation list that will grow to dozens of rows
+needs all three. Read-only, like the rest of the journal.
 """
 import pygame
 
@@ -28,9 +36,10 @@ class QuestJournalScreen(BaseScreen):
         self.close_button = pygame.Rect(SCREEN_WIDTH - 140, 20, 110, 40)
         self.back_button = pygame.Rect(20, 20, 110, 40)
 
-        self.active_tab = "active"  # "active" | "completed"
+        self.active_tab = "active"  # "active" | "completed" | "reputation"
         self.active_tab_button = pygame.Rect(20, 70, 160, 36)
         self.completed_tab_button = pygame.Rect(190, 70, 160, 36)
+        self.reputation_tab_button = pygame.Rect(360, 70, 160, 36)
 
         self.quest_row_rects = []  # rebuilt each render, index-aligned to the currently listed quests
 
@@ -189,6 +198,11 @@ class QuestJournalScreen(BaseScreen):
                 self.active_tab = "completed"
                 self.scroll_offset = 0
             return
+        if self.reputation_tab_button.collidepoint(mouse_pos):
+            if self.active_tab != "reputation":
+                self.active_tab = "reputation"
+                self.scroll_offset = 0
+            return
 
         for i, rect in enumerate(self.quest_row_rects):
             # Intersect against the viewport, not just the row's own
@@ -225,11 +239,14 @@ class QuestJournalScreen(BaseScreen):
         self._refresh_progress()
         screen.fill((10, 10, 15))
 
-        self.renderer.draw_text(screen, "QUEST JOURNAL", (SCREEN_WIDTH // 2 - 110, 24),
+        title = "REPUTATION" if self.active_tab == "reputation" else "QUEST JOURNAL"
+        self.renderer.draw_text(screen, title, (SCREEN_WIDTH // 2 - 110, 24),
                                 size="large", color=COLOR_GOLD)
         self.renderer.draw_button(screen, self.close_button, "Close")
 
-        if self.selected_quest_id is not None:
+        if self.active_tab == "reputation":
+            self._render_reputation(screen)
+        elif self.selected_quest_id is not None:
             self._render_detail(screen)
         else:
             self._render_list(screen)
@@ -247,10 +264,7 @@ class QuestJournalScreen(BaseScreen):
                                         font_size=16, color=(240, 200, 140))
 
     def _render_list(self, screen):
-        active_color = (60, 55, 30) if self.active_tab == "active" else (30, 30, 35)
-        completed_color = (60, 55, 30) if self.active_tab == "completed" else (30, 30, 35)
-        self.renderer.draw_button(screen, self.active_tab_button, "Active", color=active_color)
-        self.renderer.draw_button(screen, self.completed_tab_button, "Completed", color=completed_color)
+        self._render_tabs(screen)
 
         quests = self._current_list()
         self.quest_row_rects = []
@@ -330,6 +344,91 @@ class QuestJournalScreen(BaseScreen):
 
         screen.set_clip(None)
 
+        self._render_scrollbar(screen, viewport, content_height)
+
+    def _render_tabs(self, screen):
+        for rect, key, label in ((self.active_tab_button, "active", "Active"),
+                                 (self.completed_tab_button, "completed", "Completed"),
+                                 (self.reputation_tab_button, "reputation", "Reputation")):
+            colour = (60, 55, 30) if self.active_tab == key else (30, 30, 35)
+            self.renderer.draw_button(screen, rect, label, color=colour)
+
+    #: Standing colours, Hostile red through Exalted gold. Keyed by tier id so a faction that is only ever
+    #: Neutral still reads as deliberately neutral rather than as an unstyled default.
+    TIER_COLOURS = {
+        "hated": (180, 60, 60), "hostile": (190, 90, 70), "unfriendly": (190, 140, 80),
+        "neutral": (190, 190, 190), "friendly": (120, 200, 120), "honored": (110, 200, 170),
+        "revered": (120, 180, 240), "exalted": (235, 200, 110),
+    }
+
+    @staticmethod
+    def _ellipsise(text, limit):
+        """Cut on a word boundary with an ellipsis. A hard slice ends descriptions mid-word, which reads
+        as a rendering bug rather than as a summary."""
+        if len(text) <= limit:
+            return text
+        cut = text[:limit].rsplit(" ", 1)[0].rstrip(" ,.;:")
+        return (cut or text[:limit]) + "..."
+
+    def _render_reputation(self, screen):
+        """One tab, every faction, one shared ladder.
+
+        Deliberately a flat list rather than a list/detail split: a reputation entry is a name, a standing
+        and a bar, and there is no second screen's worth of anything to show. Reuses the quest list's
+        viewport, clipping and scrollbar unchanged, because this list is going to get long.
+        """
+        from world.faction_manager import get_faction_manager
+        self._render_tabs(screen)
+        self.quest_row_rects = []          # nothing here is clickable; stop stale quest rows hit-testing
+
+        factions = get_faction_manager().all_factions()
+        if not factions:
+            self.renderer.draw_text(screen, "You have not met anyone who keeps a record of you.",
+                                    (20, 140), color=(150, 150, 150))
+            self._list_viewport = pygame.Rect(0, 0, 0, 0)
+            self._list_content_height = 0
+            self._scroll_track = pygame.Rect(0, 0, 0, 0)
+            return
+
+        row_h = 76
+        list_top, list_bottom = 130, SCREEN_HEIGHT - 50
+        viewport = pygame.Rect(20, list_top, SCREEN_WIDTH - 40, list_bottom - list_top)
+        self._list_viewport = viewport
+        content_height = len(factions) * row_h
+        self._list_content_height = content_height
+        self.scroll_offset = max(0, min(self.scroll_offset, max(0, content_height - viewport.height)))
+
+        screen.set_clip(viewport)
+        y = list_top - self.scroll_offset
+        for f in factions:
+            row = pygame.Rect(20, y, SCREEN_WIDTH - 40, row_h - 8)
+            if row.bottom >= viewport.top and row.top <= viewport.bottom:
+                pygame.draw.rect(screen, (24, 24, 30), row)
+                pygame.draw.rect(screen, (70, 70, 80), row, 1)
+                tier = f.tier
+                colour = self.TIER_COLOURS.get(tier["id"], COLOR_WHITE)
+                self.renderer.draw_text(screen, f.name, (row.x + 12, row.y + 8), color=COLOR_WHITE)
+                self.renderer.draw_text(screen, tier["name"], (row.x + 12, row.y + 36),
+                                        color=colour, font_size=16)
+
+                into, span = f.progress()
+                bar = pygame.Rect(row.x + 230, row.y + 36, SCREEN_WIDTH - 40 - 230 - 150, 16)
+                pygame.draw.rect(screen, (18, 18, 22), bar)
+                fill = int(bar.width * max(0.0, min(1.0, into / span)))
+                if fill:
+                    pygame.draw.rect(screen, colour, pygame.Rect(bar.x, bar.y, fill, bar.height))
+                pygame.draw.rect(screen, (90, 90, 100), bar, 1)
+
+                # At Exalted there is no next threshold, so show the standing itself rather than "x/y"
+                # against a span the player can no longer move through.
+                label = f"{f.standing}" if f.next_tier is None else f"{into} / {span}"
+                self.renderer.draw_text(screen, label, (bar.right + 14, row.y + 34),
+                                        color=(170, 170, 180), font_size=16)
+                if f.description:
+                    self.renderer.draw_text(screen, self._ellipsise(f.description, 96),
+                                            (row.x + 230, row.y + 10), color=(140, 140, 150), font_size=14)
+            y += row_h
+        screen.set_clip(None)
         self._render_scrollbar(screen, viewport, content_height)
 
     def _render_scrollbar(self, screen, viewport, content_height):

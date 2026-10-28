@@ -1175,6 +1175,88 @@
       "turn_in_npc_id": "kb_archivist"
     },
     {
+      "quest_id": "ud_archive_deeper",
+      "title": "The Part We Do Not Show People",
+      "giver_npc_id": "ud_archive_overseer",
+      "zone": "the_crystalline_underdark",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "There is a second dig under the Sunken Archive and the Codex do not mention it to arrivals. Overseer Thaleon Greyquill has had the authority to open it to outsiders for a year and has used that authority once, and the person he used it on is no longer submitting reports.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "catalogue_slip",
+          "count": 8
+        },
+        {
+          "type": "explore",
+          "target": "the_crystalline_underdark",
+          "target_x": 130,
+          "target_y": 140,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2740,
+      "reward_gold": 10800,
+      "accept_text": "You are in the record now, which is the only reason we are having this conversation.\n\nThe lower cut, past the shoring, where the Archive stops being masonry and starts being whatever the masonry was built into. Eight more slips off the revenants down there and your own eyes on the face.\n\nI will tell you what I told the last one: do not read them in there. Bring them up first.",
+      "turn_in_text": "You read one in there. Everybody does and nobody admits it.\n\nThey are all addressed to a reader. Not a filer, not an archivist - a READER, singular, who has not arrived yet. We have been assuming for three years that we are the audience.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Catalogued Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Filed, numbered, and then filed again.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "mail",
+          "armor_value": 84,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Catalogued Armguards",
+          "slot": "wrist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Somebody wanted this forgotten.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Unlisted Band",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Somebody wanted this forgotten.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.4
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ]
+    },
+    {
       "quest_id": "ud_archive_dig",
       "title": "Signed For Twice",
       "giver_npc_id": "ud_archive_digger",
@@ -2285,6 +2367,99 @@
           "weapon_damage_max": 57,
           "attack_speed": 1.9,
           "label": "Wand (Int/Sta/MP5)"
+        }
+      ]
+    },
+    {
+      "quest_id": "kb_sealed_entry",
+      "title": "Your Entry, Finished",
+      "giver_npc_id": "kb_codex_master",
+      "zone": "kaels_bastion",
+      "level_min": 40,
+      "level_max": 40,
+      "description": "A codex is a book of names. Every person in the Bastion has an entry in it and every entry is provisional, amended as they do things, because the Codex-Master has never closed one. Closing an entry means the Codex considers a thing fully known, and in three years Ilarien Duskwaking has found nothing down here she would say that about. She is prepared to say it about a person.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dalaran_fragment",
+          "count": 3
+        },
+        {
+          "type": "fetch",
+          "target": "geode_druse",
+          "count": 3
+        },
+        {
+          "type": "fetch",
+          "target": "grown_leaf",
+          "count": 3
+        },
+        {
+          "type": "craft",
+          "target": "ww_pages_frostpine",
+          "count": 2,
+          "label": "Press the pages for your own entry"
+        }
+      ],
+      "reward_exp": 3010,
+      "reward_gold": 11700,
+      "accept_text": "I am going to write you into the Codex and then I am going to seal it, and you are going to supply the materials, because I am not spending the Archive's paper on a formality.\n\nThree worked fragments from the Colonnade, three pieces of druse out of the Geode, three leaves off the thing in the Bloom - one from each of the places that made you worth the entry. And press the pages yourself. Frostpine, from the ice, the long way up.\n\nIt is ceremony. I am aware. Ceremony is what a cataloguing expedition has instead of a flag.",
+      "turn_in_text": "It is done, and it does not come open again.\n\nI should tell you what that costs me. A sealed entry cannot be amended, so whatever you do after today, the Codex's position on you is fixed as of this morning. I have never been willing to say that about a crystal, a column or a cavern.\n\nNobody in this expedition has a prior claim on anything here. We arrived the same year you did. You are the first thing in eleven thousand entries I am certain of.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Kael's Leggings",
+          "slot": "legs",
+          "item_level": 39,
+          "rarity": "uncommon",
+          "required_level": 40,
+          "flavor_text": "Carried down a fissure on somebody's back.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "mail",
+          "armor_value": 121,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Codex Sash",
+          "slot": "waist",
+          "item_level": 39,
+          "rarity": "uncommon",
+          "required_level": 40,
+          "flavor_text": "Carried down a fissure on somebody's back.",
+          "primary_stats": {
+            "stamina": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 19,
+          "label": "Cloth Belt (Sta/Int/HP)"
+        },
+        {
+          "name": "Crimson Hammer",
+          "slot": "main_hand",
+          "item_level": 39,
+          "rarity": "uncommon",
+          "required_level": 40,
+          "flavor_text": "Crimson Codex issue, and they count every piece.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.9,
+            "parry_rating": 0.7
+          },
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 73,
+          "attack_speed": 2.6,
+          "label": "Mace (Dodge/Parry)"
         }
       ]
     }

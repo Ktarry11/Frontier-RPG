@@ -1,0 +1,102 @@
+{
+  "_notes": [
+    "Faction reputation. Loaded by world/faction_manager.py.",
+    "",
+    "ONE LADDER FOR EVERY FACTION (Kyle, 2026-10-27: 'keep the wow tiers of rep... there will be a lot').",
+    "The tiers below are the WoW-standard eight and they are defined ONCE, here, shared by every faction.",
+    "A faction block carries only who it is, where its reputation comes from, and what standing buys - never",
+    "its own ladder. That is what lets one UI tab list fifty factions without fifty different scales, and it",
+    "means adding a faction is a block of data and nothing else.",
+    "",
+    "Thresholds are cumulative from Neutral, exactly as WoW: Friendly 3000, Honored 9000, Revered 21000,",
+    "Exalted 42000. Negative standing is defined too - nothing in the game drives rep down yet, but the",
+    "ladder has to support it before something does, or the first hostile faction rewrites this file.",
+    "",
+    "THE NUMBERS DO TWO DIFFERENT JOBS. A zone's quests are worth enough together to carry a player into",
+    "Revered - that is the real path and the one that tells the story. Exalted is finished on kills, and",
+    "only kills from enemies the faction has an actual stake in. There is deliberately no flat 'dungeon",
+    "mobs give rep' rule: it would make the optimal play farming the easiest trash in the easiest room,",
+    "and killing a mushroom should not earn standing with a library."
+  ],
+  "tiers": [
+    {"id": "hated",      "name": "Hated",      "at": -42000},
+    {"id": "hostile",    "name": "Hostile",    "at": -6000},
+    {"id": "unfriendly", "name": "Unfriendly", "at": -3000},
+    {"id": "neutral",    "name": "Neutral",    "at": 0},
+    {"id": "friendly",   "name": "Friendly",   "at": 3000},
+    {"id": "honored",    "name": "Honored",    "at": 9000},
+    {"id": "revered",    "name": "Revered",    "at": 21000},
+    {"id": "exalted",    "name": "Exalted",    "at": 42000}
+  ],
+  "factions": {
+    "crimson_codex": {
+      "name": "The Crimson Codex",
+      "description": "Blood elf arcanists who came down a fissure three years ago to index a cavern that did not exist, and have not finished.",
+      "home_zone": "kaels_bastion",
+      "quest_rep": {
+        "_comment": "Per quest, by shape. kill_boss objectives pay the boss rate; the named capstones pay more.",
+        "default": 350,
+        "boss": 700,
+        "capstones": {
+          "db_what_it_learned": 2500,
+          "kb_sealed_entry": 2500,
+          "hg_heartgrown": 1200,
+          "ud_archive_deeper": 1000,
+          "fd_latticeborn": 700,
+          "kb_the_question": 700,
+          "ud_bloom_argument": 700
+        },
+        "zones": ["the_crystalline_underdark", "kaels_bastion", "the_frostward_descent",
+                  "the_hollow_geode", "the_deep_bloom"],
+        "also": ["hbe_fissure_north", "hbe_route_card", "uc_dalaran_question"]
+      },
+      "kill_rep": {
+        "_comment": [
+          "Only enemies the Codex has a stake in. Dissidents are ex-colleagues, Interlopers are rivals for",
+          "the same dig, Revenants sit on the prize, and the Deep Bloom is the thing reading them back.",
+          "The wildlife pays nothing, however deep the cave it lives in."
+        ],
+        "creatures": {
+          "Codex Dissident": 15,
+          "Syndicate Interloper": 12,
+          "Archive Revenant": 10,
+          "Bloom Thrall": 20,
+          "Shelf-Grown": 20,
+          "Spore Scribe": 20,
+          "Mycelial Binder": 20,
+          "Pulpwright": 20,
+          "The Index": 200,
+          "The Second Copy": 200,
+          "The Scriptor": 200,
+          "Errata": 200,
+          "The Deep Bloom": 400,
+          "Shardmaw": 140,
+          "The Prism Warden": 140,
+          "Heartgrown": 140
+        }
+      },
+      "rewards": {
+        "_comment": [
+          "What standing actually buys. Deliberately modest - this pass wants a working system, not a grind.",
+          "vendor_stock gates Quartermaster Sylvaine's shelves; quests gates the deeper Archive line and the",
+          "Exalted capstone; recruit is the one companion the Codex will release to somebody in their record."
+        ],
+        "vendor_stock": {
+          "kb_quartermaster": {
+            "friendly": ["healing_potion_superior", "mana_potion_superior"],
+            "honored": ["guardian_elixir_standard"],
+            "revered": ["guardian_elixir_superior"]
+          }
+        },
+        "quests": {
+          "ud_archive_deeper": "honored",
+          "kb_sealed_entry": "exalted"
+        },
+        "recruit": {
+          "recruit_id": "kesten_the_catalogued",
+          "standing": "revered"
+        }
+      }
+    }
+  }
+}

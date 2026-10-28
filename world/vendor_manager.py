@@ -99,6 +99,22 @@ class VendorNPC:
         self.sells_gear = sells_gear
         self._gear_stock = None
 
+    def available_consumables(self):
+        """This vendor's `sells` list plus anything the player's faction standing has unlocked.
+
+        Kept as a method rather than mutating `sells` at load time, because standing changes mid-session
+        and a shelf that only updates on restart is a shelf the player does not believe in.
+        """
+        from world.faction_manager import get_faction_manager
+        extra = get_faction_manager().vendor_unlocks(self.vendor_id)
+        if not extra:
+            return list(self.sells)
+        seen = list(self.sells)
+        for item in extra:
+            if item not in seen:
+                seen.append(item)
+        return seen
+
     def get_gear_stock(self, loot_generator):
         """
         This vendor's current gear items, generating them on first access.

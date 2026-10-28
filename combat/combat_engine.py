@@ -549,8 +549,21 @@ class CombatEngine:
         # enemy in a mixed pull, e.g. a boss with trash adds).
         from world.quest_manager import get_quest_manager
         quest_mgr = get_quest_manager()
+        from world.faction_manager import get_faction_manager
+        faction_mgr = get_faction_manager()
+        self.faction_gains = {}
         for e in self.enemies:
             quest_mgr.record_kill(e.name, self.zone, is_boss=getattr(e, "is_boss", False))
+            # Only enemies a faction has a stake in pay anything - see faction_manager's docstring for why
+            # this is not a flat "dungeon mobs give rep" rule. Almost every call here is a dict miss.
+            fid, gained, tier_up = faction_mgr.award_for_kill(e.name)
+            if fid:
+                self.faction_gains[fid] = self.faction_gains.get(fid, 0) + gained
+                if tier_up:
+                    self.combat_log.append(
+                        f"You are now {tier_up['name']} with {faction_mgr.get(fid).name}.")
+        for fid, amt in self.faction_gains.items():
+            self.combat_log.append(f"+{amt} reputation with {faction_mgr.get(fid).name}.")
 
         # XP is summed across every enemy, then awarded to the whole roster.
         # Active members get full value, benched get a reduced share.
