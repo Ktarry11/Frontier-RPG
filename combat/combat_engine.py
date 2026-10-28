@@ -658,6 +658,21 @@ class CombatEngine:
                     self.combat_log.append(
                         f"{enemy.name} dropped {loot.name}, but your bags are full!")
 
+            # NAMED EPICS. Kyle, 2026-10-28: "occasional drops as epic after lvl 30 in Dungeons
+            # and also for world drop after lvl 30." Rolled separately from the gear roll above
+            # because that roll is bypassed on every level 30+ boss - get_fixed_boss_loot hands
+            # back a fixed rare before rarity is ever considered, which is why there was not one
+            # epic in the game. See entities/epic_drops.py for the rates and the reasoning.
+            from entities.epic_drops import roll_epic
+            epic = roll_epic(enemy, self.player.level)
+            if epic is not None:
+                if self.player.add_to_inventory(epic):
+                    self.loot_gained.append(epic)
+                    self.combat_log.append(f"{enemy.name} dropped: {epic.name}!")
+                else:
+                    self.combat_log.append(
+                        f"{enemy.name} dropped {epic.name}, but your bags are full!")
+
             # RECIPE SCROLLS. entities/recipe_drops.py decides; world/recipe_manager builds the
             # item; the inventory screen already knows how to learn from one on click. This call
             # site is the thing that was missing - 135 recipes carried source "drop" and nothing in

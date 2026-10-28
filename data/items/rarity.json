@@ -61,9 +61,10 @@
       ],
       "stat_budget_multiplier": 2.2,
       "bonus_stat_rolls": 3,
-      "drop_weight": 3,
+      "drop_weight": 1,
       "min_level": 30,
-      "enabled": true
+      "enabled": true,
+      "_note": "drop_weight came down from 3 to 1 on 2026-10-28. At 3 the procedural roller produced an epic in about 1 of every 100 kills past level 30, which would have made random purples far more common than the 22 named epics in data/loot/epic_drops.json and left naming them pointless."
     },
     "legendary": {
       "display_name": "Legendary",
