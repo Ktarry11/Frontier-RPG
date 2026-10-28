@@ -15,10 +15,19 @@ from pathlib import Path
 #: mostly Common, a couple of Uncommon rolls, and only a small chance of
 #: anything Rare, capped at one per restock.
 VENDOR_GEAR_COUNT = 6
+#: Kyle, 2026-10-28, playing the Underdark: the shops "are falling back into generic trash". This was
+#: 70/25/5, and at that mix a six-slot shelf is four white items - "Plain Wand", "Simple Cloak" - which
+#: are strictly worse than any quest green the player already has. The item level was a separate bug;
+#: this is the one that made the shelf not worth opening.
+#:
+#: It is safe to raise globally because EVERY gear vendor is already a specialist: only 19 of 86 vendors
+#: set sells_gear, and they are all quartermasters, smiths, weaponsmiths, bowyers and engineers. There is
+#: no general store to protect. A shelf of six now averages ~2.7 white, ~2.7 green and a 10% blue, which
+#: is a shop worth walking into and still well short of what a dungeon drops.
 VENDOR_GEAR_RARITY_WEIGHTS = {
-    "common": 70,
-    "uncommon": 25,
-    "rare": 5,
+    "common": 45,
+    "uncommon": 45,
+    "rare": 10,
 }
 #: Gear item_level is derived from the vendor's zone tier via this vendor
 #: field (see vendors.json "gear_level"); falls back to this if absent.
@@ -138,9 +147,16 @@ class VendorNPC:
         # VENDOR_STOCK_CLASSES for why (that's the bug this replaces).
         for _ in range(VENDOR_GEAR_COUNT):
             if random.random() < VENDOR_BAG_CHANCE:
-                # Bag roll, level-gated to this vendor's tier so a
-                # low-level town doesn't sell a level-30-required bag.
-                item = loot_generator.generate_bag(player_level=self.gear_level)
+                # Bag roll, gated at BOTH ends to this vendor's tier: the ceiling so a low-level town
+                # does not sell a level-30 bag, and the floor so a tier-38 quartermaster stops offering
+                # starter satchels. The floor is deliberately generous - ten under tier - because the
+                # bag catalog is sparse and an exact match would often leave nothing to sell.
+                # Floor is PROPORTIONAL, not a flat offset: the catalog is sparse and thins out at
+                # the top, so a fixed "tier - 10" collapsed high-tier vendors onto a single bag. Half
+                # the tier keeps two or three candidates in play at every level.
+                item = loot_generator.generate_bag(player_level=self.gear_level,
+                                                   min_level=max(1, self.gear_level // 2),
+                                                   max_rarity="rare")
                 if item is not None:
                     items.append(item)
                     continue

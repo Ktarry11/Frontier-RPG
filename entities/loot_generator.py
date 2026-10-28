@@ -171,7 +171,7 @@ class LootGenerator:
         weights = [eligible[n]["drop_weight"] for n in names]
         return random.choices(names, weights=weights, k=1)[0]
 
-    def generate_bag(self, bag_id=None, player_level=None):
+    def generate_bag(self, bag_id=None, player_level=None, min_level=None, max_rarity=None):
         """
         Generate a bag Item from the hand-authored catalog (data/items/
         bags.json) - see that file's _notes for why bags are the one
@@ -182,6 +182,9 @@ class LootGenerator:
         same way roll_rarity gates armor/weapon rarity - a level 3
         character shouldn't be handed a required_level 30 bag by a random
         vendor roll.
+
+        min_level narrows from the BOTTOM as well, for callers that are a
+        shop rather than a drop - see the floor note below.
         """
         catalog = self.bags_catalog
         if bag_id is not None:
@@ -190,6 +193,28 @@ class LootGenerator:
                 return None
         elif player_level is not None:
             entries = [b for b in catalog if b["required_level"] <= player_level]
+            # A FLOOR AS WELL AS A CEILING. The ceiling alone is what a DROP wants - a level 3 character
+            # should not be handed a required_level 30 bag. A VENDOR is the other problem: filtering only
+            # upward left a tier-38 Underdark quartermaster offering a required_level 1 Worn Leather
+            # Satchel, which is exactly the "generic trash" Kyle reported. Narrow from below too, and
+            # fall back rather than return nothing if the floor empties the catalog.
+            if min_level is not None:
+                floored = [b for b in entries if b["required_level"] >= min_level]
+                if floored:
+                    entries = floored
+            # A RARITY CEILING, because the floor alone is not enough. The catalog tops out at a
+            # required_level 30 EPIC, so a tier-38 vendor with a floor of 28 filtered down to exactly
+            # that one bag and sold a guaranteed epic on every single shelf - a worse bug than the
+            # starter satchel it replaced, and one that cuts straight across epics being the max-rep
+            # reward. Shops stop at rare; epics are earned.
+            if max_rarity is not None:
+                order = ["poor", "common", "uncommon", "rare", "epic", "legendary"]
+                cap = order.index(max_rarity) if max_rarity in order else len(order)
+                capped = [b for b in entries
+                          if order.index(b.get("rarity", "common")) <= cap
+                          if b.get("rarity", "common") in order]
+                if capped:
+                    entries = capped
             if not entries:
                 # Nobody below the lowest bag's level requirement should
                 # ever hit this in practice (burlap_sack is required_level
