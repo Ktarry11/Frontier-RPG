@@ -4664,6 +4664,190 @@ UNDERDARK_KITS = {
 }
 
 
+# ======================================================================================================
+# THE ASPEN WILDERNESS + THE WEEPING ICE (levels 25-31)
+#
+# Five populations and they fight like five different problems, which is the point - a zone where every
+# mob is "melee beast with a bleed" is a zone the player stops reading after ten minutes.
+#
+#   THE STRANDED    slow, tough, and they do not pursue well. A Barrens animal in snow is not hunting
+#                   anybody; it is enduring. Their damage is in retaliation, not initiation.
+#   THE DISPLACED   harpies fight from range and reposition; quilboar fight HARD AND BRIEFLY - they open
+#                   with everything, because a desert people wintering badly cannot afford a long fight.
+#   THE NATIVE      the only things here that are comfortable. Clean, fast, confident kits with no
+#                   gimmicks, because they do not need one.
+#   THE SCAVENGERS  attrition. Nothing in the burn hits hard; everything in the burn hits repeatedly and
+#                   makes you worse at being hit.
+#   THE YETIS       frost, and the heavier end of it the deeper you go. The cave's whole gradient again.
+# ======================================================================================================
+ASPEN_KITS = {
+    # ---- THE STRANDED --------------------------------------------------------------------------------
+    "seam_struck_kodo": [
+        ("Blundering Gore", "damage", 48, 0, 0, "physical", {}),
+        ("Stamp", "damage", 40, 4, 0, "physical", {"is_aoe": True}),
+        ("Last of the Herd", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 30}, "self_only": True}),
+    ],
+    "redscrub_scavenger": [
+        ("Scrabbling Bite", "damage", 36, 0, 0, "physical", {}),
+        ("Drag Off", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -16}}),
+    ],
+
+    # ---- THE DISPLACED -------------------------------------------------------------------------------
+    "rimcliff_harpy": [
+        ("Raking Dive", "damage", 44, 0, 0, "physical", {}),
+        ("Updraft", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 20}, "self_only": True}),
+        ("Scree Kick", "damage", 34, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    # `harpy_windcaller` is already taken (the Barrens harpies). This one is the Rim's, and
+    # it fights the altitude rather than the Barrens heat.
+    "rimcliff_windcaller": [
+        ("Thin Air", "damage", 42, 0, 0, "magic", {}),
+        ("Downdraft", "damage", 38, 4, 30, "magic", {"is_aoe": True}),
+        ("Carrion Wind", "debuff", 0, 5, 25, "magic", {"duration": 4, "stat_mods": {"stamina": -18}}),
+    ],
+    "quilboar_highrunner": [
+        # Opens with everything. A desert people wintering badly cannot afford a long fight, and the kit
+        # says so: the buff is up front with a short duration, not held in reserve.
+        ("Frostbitten Spear", "damage", 50, 0, 0, "physical", {}),
+        ("Cold Fury", "buff", 0, 7, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 34}, "self_only": True}),
+        ("Shivering Thrust", "damage", 44, 3, 0, "physical", {}),
+    ],
+    "quilboar_frostspeaker": [
+        ("Borrowed Frost", "damage", 46, 0, 0, "frost", {}),
+        ("Rime Snare", "debuff", 0, 4, 30, "frost", {"duration": 3, "stat_mods": {"agility": -24}}),
+        ("Warmth of the Thorn", "heal", 46, 6, 40, "nature", {}),
+    ],
+    "quilboar_dencarver": [
+        ("Carving Axe", "damage", 56, 0, 0, "physical", {}),
+        ("Den-Breaker", "damage", 48, 4, 0, "physical", {"is_aoe": True}),
+        ("Thornhide", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 46}, "self_only": True}),
+    ],
+
+    # ---- THE NATIVE: no gimmicks. They are the only things in the zone that belong here. ---------------
+    "aspen_elk": [
+        ("Antler Toss", "damage", 44, 0, 0, "physical", {}),
+        ("Trample", "damage", 38, 4, 0, "physical", {}),
+    ],
+    "goldwood_lynx": [
+        ("Pounce", "damage", 46, 0, 0, "physical", {}),
+        ("Hamstring Bite", "debuff", 0, 4, 0, "physical", {"duration": 3, "stat_mods": {"agility": -20}}),
+    ],
+    "blackneedle_wolf": [
+        ("Snapping Jaws", "damage", 48, 0, 0, "physical", {}),
+        ("Hunt the Weak", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 26}, "self_only": True}),
+    ],
+    "timber_bear": [
+        ("Raking Paw", "damage", 54, 0, 0, "physical", {}),
+        ("Bellow", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -24}}),
+        ("Thick Winter Coat", "buff", 0, 7, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 40}, "self_only": True}),
+    ],
+    "elkhorn_stag": [
+        ("Crown Charge", "damage", 56, 0, 0, "physical", {}),
+        ("Rut", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 30}, "self_only": True}),
+    ],
+    "benchwater_dambuilder": [
+        ("Chisel Teeth", "damage", 42, 0, 0, "physical", {}),
+        ("Tail Slap", "damage", 36, 4, 0, "physical", {}),
+    ],
+    "pondside_bear": [
+        ("Water-Swipe", "damage", 58, 0, 0, "physical", {}),
+        ("Maul", "damage", 50, 3, 0, "physical", {}),
+        ("Guard the Shallows", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 44}, "self_only": True}),
+    ],
+
+    # ---- THE SCAVENGERS: attrition, not burst --------------------------------------------------------
+    "ashcrown_raven": [
+        ("Beak and Claw", "damage", 40, 0, 0, "physical", {}),
+        ("Eye-Taking", "debuff", 0, 4, 0, "physical", {"duration": 4, "stat_mods": {"agility": -18}}),
+    ],
+    "charwood_prowler": [
+        ("Ash-Choked Bite", "damage", 44, 0, 0, "physical", {}),
+        ("Cinder Scatter", "damage", 34, 4, 0, "fire", {"is_aoe": True}),
+        ("Carrion Reek", "debuff", 0, 5, 0, "nature", {"duration": 4, "stat_mods": {"stamina": -20}}),
+    ],
+
+    # ---- OPEN-ZONE NAMED RARES (3 abilities each, per the boss kit rule - rares are exempt from 4) -----
+    "the_last_kodo": [
+        ("Grief-Mad Gore", "damage", 62, 0, 0, "physical", {}),
+        ("Bellow for the Herd", "debuff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": -28}}),
+        ("Will Not Lie Down", "buff", 0, 8, 0, "physical",
+         {"duration": 5, "stat_mods": {"armor": 56}, "self_only": True}),
+    ],
+    "goldcrown": [
+        ("Gilded Antler", "damage", 66, 0, 0, "physical", {}),
+        ("Scatter the Stand", "damage", 52, 4, 0, "physical", {"is_aoe": True}),
+        ("Light Through the Leaves", "buff", 0, 7, 0, "nature",
+         {"duration": 4, "stat_mods": {"agility": 34}, "self_only": True}),
+    ],
+    "bristlehide_the_wintered": [
+        ("Wintered Cleaver", "damage", 72, 0, 0, "physical", {}),
+        ("Break the Dam", "damage", 58, 4, 0, "physical", {"is_aoe": True}),
+        ("Thorns Against the Cold", "buff", 0, 7, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 60}, "self_only": True}),
+    ],
+
+    # ---- THE WEEPING ICE: bears near the door, yetis cornered at the frozen end -----------------------
+    "winterhide_bear": [
+        ("Denning Swipe", "damage", 58, 0, 0, "physical", {}),
+        ("Cornered Roar", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -26}}),
+        ("Winter Hide", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 46}, "self_only": True}),
+    ],
+    "thawbone_crawler": [
+        ("Meltwater Nip", "damage", 46, 0, 0, "physical", {}),
+        ("Cling to the Cold", "debuff", 0, 4, 0, "frost", {"duration": 3, "stat_mods": {"agility": -22}}),
+    ],
+    "meltwater_yeti": [
+        ("Soaking Maul", "damage", 60, 0, 0, "physical", {}),
+        ("Shake Off the Thaw", "buff", 0, 6, 0, "frost",
+         {"duration": 3, "stat_mods": {"armor": 40}, "self_only": True}),
+        ("Cold Spray", "damage", 46, 4, 0, "frost", {"is_aoe": True}),
+    ],
+    "rimefist_yeti": [
+        ("Rimed Fist", "damage", 66, 0, 0, "physical", {}),
+        ("Breath of Old Ice", "damage", 54, 3, 0, "frost", {"is_aoe": True}),
+        ("Hoarfrost Grip", "debuff", 0, 5, 0, "frost", {"duration": 4, "stat_mods": {"agility": -28}}),
+    ],
+    "glacier_bear": [
+        ("Glacier Paw", "damage", 64, 0, 0, "physical", {}),
+        ("Crush", "damage", 54, 3, 0, "physical", {}),
+        ("Blue Ice Coat", "buff", 0, 6, 0, "frost",
+         {"duration": 4, "stat_mods": {"armor": 54}, "self_only": True}),
+    ],
+
+    # ---- THE CAVE'S NAMED. Rimehowl is a BOSS at L31, so he carries FOUR (boss kit rule, 20+ = 4).
+    #      Snowmaw and the Last Drift are named rares and carry three.
+    "rimehowl": [
+        ("Frozen Maul", "damage", 78, 0, 0, "physical", {}),
+        ("Howl of the Last Cold", "damage", 62, 4, 0, "frost", {"is_aoe": True}),
+        ("Drive Them Back", "debuff", 0, 5, 0, "frost", {"duration": 4, "stat_mods": {"attack_power": -32}}),
+        ("Pelt of the Last Winter", "buff", 0, 7, 0, "frost",
+         {"duration": 5, "stat_mods": {"armor": 68}, "self_only": True}),
+    ],
+    "snowmaw": [
+        ("Denmother's Claw", "damage", 70, 0, 0, "physical", {}),
+        ("Stand Over the Den", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 58}, "self_only": True}),
+        ("Warning Bellow", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -30}}),
+    ],
+    "the_last_drift": [
+        ("Shard of Old Ice", "damage", 68, 0, 0, "frost", {}),
+        ("Remembers the Glacier", "buff", 0, 7, 0, "frost",
+         {"duration": 4, "stat_mods": {"armor": 52}, "self_only": True}),
+        ("Killing Cold", "damage", 56, 4, 0, "frost", {"is_aoe": True}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -4673,7 +4857,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

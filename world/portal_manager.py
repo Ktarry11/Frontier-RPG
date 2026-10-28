@@ -240,6 +240,10 @@ class PortalManager:
             # Bloom used while the Underdark cluster was half-built.
             "The Aspen Wilderness": {
                 (105, 5): ("Southern Barrens", 140, 233),
+                (145, 48): ("The Weeping Ice", 48, 124),
+            },
+            "The Weeping Ice": {
+                (48, 126): ("The Aspen Wilderness", 145, 51),
             },
             "The Broodspiral": {
                 (152, 220): ("Southern Barrens", 225, 220),

@@ -5631,6 +5631,7 @@ def create_all_zones():
     from tools import handbuilt_dun_garok as dgar
     from tools import handbuilt_shadowpine_altar as dsa
     from tools import handbuilt_aspen_wilderness as dasp
+    from tools import handbuilt_weeping_ice as dwi
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5717,6 +5718,8 @@ def create_all_zones():
         # Terrain is DERIVED from an elevation model, not hand-placed; see claude/aspen_wilderness_design.md
         # before editing. Key must stay exactly this string - portal_manager keys on zone.name.
         "The Aspen Wilderness": dasp.generate_aspen_wilderness(),  # (tools/handbuilt_aspen_wilderness.py)
+        # The zone's one cave: a glacier remnant, melting out. Bears and yetis.
+        "The Weeping Ice": dwi.generate_weeping_ice(),  # (tools/handbuilt_weeping_ice.py)
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         "Durnholde Keep": ddur.generate_durnholde_keep(),  # broken-ring keep (tools/handbuilt_durnholde.py)
         "Dun Garok": dgar.generate_dun_garok(),  # gauntlet-of-gates dwarf hold (tools/handbuilt_dun_garok.py)

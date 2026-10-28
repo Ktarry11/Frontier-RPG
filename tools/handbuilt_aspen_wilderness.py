@@ -75,8 +75,11 @@ SEED = 541
 ASP = "assets/tiles/aspen/props/"
 TAU = 2.0 * np.pi
 
-PORTALS = {(105, 5): "Southern Barrens"}
-ARRIVALS = [(105, 11)]
+PORTALS = {(105, 5): "Southern Barrens",
+           #: The cave mouth, high on the Rim's east side and well off the main trail - a glacier
+           #: remnant belongs up near the ice, and this one should be found rather than tripped over.
+           (145, 48): "The Weeping Ice"}
+ARRIVALS = [(105, 11), (145, 51)]
 START = (105, 12)
 
 #: Where the forest stops. In elevation units, not tiles - see elevation().

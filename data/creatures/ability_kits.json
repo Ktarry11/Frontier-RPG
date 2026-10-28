@@ -27041,6 +27041,800 @@
         }
       }
     ],
+    "seam_struck_kodo": [
+      {
+        "name": "Blundering Gore",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stamp",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Last of the Herd",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 30
+        },
+        "self_only": true
+      }
+    ],
+    "redscrub_scavenger": [
+      {
+        "name": "Scrabbling Bite",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drag Off",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "rimcliff_harpy": [
+      {
+        "name": "Raking Dive",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Updraft",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": 20
+        },
+        "self_only": true
+      },
+      {
+        "name": "Scree Kick",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "rimcliff_windcaller": [
+      {
+        "name": "Thin Air",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Downdraft",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "magic",
+        "is_aoe": true
+      },
+      {
+        "name": "Carrion Wind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 25,
+        "school": "magic",
+        "duration": 4,
+        "stat_mods": {
+          "stamina": -18
+        }
+      }
+    ],
+    "quilboar_highrunner": [
+      {
+        "name": "Frostbitten Spear",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cold Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 34
+        },
+        "self_only": true
+      },
+      {
+        "name": "Shivering Thrust",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "quilboar_frostspeaker": [
+      {
+        "name": "Borrowed Frost",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Rime Snare",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24
+        }
+      },
+      {
+        "name": "Warmth of the Thorn",
+        "kind": "heal",
+        "amount": 46,
+        "cooldown": 6,
+        "mana_cost": 40,
+        "school": "nature"
+      }
+    ],
+    "quilboar_dencarver": [
+      {
+        "name": "Carving Axe",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Den-Breaker",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Thornhide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 46
+        },
+        "self_only": true
+      }
+    ],
+    "aspen_elk": [
+      {
+        "name": "Antler Toss",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Trample",
+        "kind": "damage",
+        "amount": 38,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "goldwood_lynx": [
+      {
+        "name": "Pounce",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring Bite",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
+    "blackneedle_wolf": [
+      {
+        "name": "Snapping Jaws",
+        "kind": "damage",
+        "amount": 48,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hunt the Weak",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 26
+        },
+        "self_only": true
+      }
+    ],
+    "timber_bear": [
+      {
+        "name": "Raking Paw",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bellow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -24
+        }
+      },
+      {
+        "name": "Thick Winter Coat",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 40
+        },
+        "self_only": true
+      }
+    ],
+    "elkhorn_stag": [
+      {
+        "name": "Crown Charge",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rut",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 30
+        },
+        "self_only": true
+      }
+    ],
+    "benchwater_dambuilder": [
+      {
+        "name": "Chisel Teeth",
+        "kind": "damage",
+        "amount": 42,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Tail Slap",
+        "kind": "damage",
+        "amount": 36,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "pondside_bear": [
+      {
+        "name": "Water-Swipe",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Guard the Shallows",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 44
+        },
+        "self_only": true
+      }
+    ],
+    "ashcrown_raven": [
+      {
+        "name": "Beak and Claw",
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Eye-Taking",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "charwood_prowler": [
+      {
+        "name": "Ash-Choked Bite",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cinder Scatter",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Carrion Reek",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "stamina": -20
+        }
+      }
+    ],
+    "the_last_kodo": [
+      {
+        "name": "Grief-Mad Gore",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bellow for the Herd",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": -28
+        }
+      },
+      {
+        "name": "Will Not Lie Down",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 8,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "stat_mods": {
+          "armor": 56
+        },
+        "self_only": true
+      }
+    ],
+    "goldcrown": [
+      {
+        "name": "Gilded Antler",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Scatter the Stand",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Light Through the Leaves",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "agility": 34
+        },
+        "self_only": true
+      }
+    ],
+    "bristlehide_the_wintered": [
+      {
+        "name": "Wintered Cleaver",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Break the Dam",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Thorns Against the Cold",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 60
+        },
+        "self_only": true
+      }
+    ],
+    "winterhide_bear": [
+      {
+        "name": "Denning Swipe",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cornered Roar",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -26
+        }
+      },
+      {
+        "name": "Winter Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 46
+        },
+        "self_only": true
+      }
+    ],
+    "thawbone_crawler": [
+      {
+        "name": "Meltwater Nip",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cling to the Cold",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -22
+        }
+      }
+    ],
+    "meltwater_yeti": [
+      {
+        "name": "Soaking Maul",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shake Off the Thaw",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 40
+        },
+        "self_only": true
+      },
+      {
+        "name": "Cold Spray",
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      }
+    ],
+    "rimefist_yeti": [
+      {
+        "name": "Rimed Fist",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Breath of Old Ice",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Hoarfrost Grip",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -28
+        }
+      }
+    ],
+    "glacier_bear": [
+      {
+        "name": "Glacier Paw",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crush",
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Blue Ice Coat",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 54
+        },
+        "self_only": true
+      }
+    ],
+    "rimehowl": [
+      {
+        "name": "Frozen Maul",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Howl of the Last Cold",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Drive Them Back",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": -32
+        }
+      },
+      {
+        "name": "Pelt of the Last Winter",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 5,
+        "stat_mods": {
+          "armor": 68
+        },
+        "self_only": true
+      }
+    ],
+    "snowmaw": [
+      {
+        "name": "Denmother's Claw",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stand Over the Den",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 58
+        },
+        "self_only": true
+      },
+      {
+        "name": "Warning Bellow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -30
+        }
+      }
+    ],
+    "the_last_drift": [
+      {
+        "name": "Shard of Old Ice",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Remembers the Glacier",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 52
+        },
+        "self_only": true
+      },
+      {
+        "name": "Killing Cold",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",

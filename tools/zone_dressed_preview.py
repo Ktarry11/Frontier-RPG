@@ -31,13 +31,24 @@ TILE_PX = 32
 
 ZONES = {
     "aspen": "tools.handbuilt_aspen_wilderness",
+    "weeping_ice": "tools.handbuilt_weeping_ice",
+}
+
+#: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns
+#: (zone, layout) instead of a layout object. Both shapes are handled in build().
+BUILDERS = {
+    "weeping_ice": "build_weeping_ice_baked",
 }
 
 
 def build(key):
     M = importlib.import_module(ZONES[key])
-    L = M.build_layout()
-    return M, L
+    fn = BUILDERS.get(key)
+    if fn:
+        zone, L = getattr(M, fn)()
+        L.z = zone
+        return M, L
+    return M, M.build_layout()
 
 
 def compose(key, out, scale=4, props=True):
@@ -45,7 +56,8 @@ def compose(key, out, scale=4, props=True):
     W, H = M.W, M.H
     canvas = Image.new("RGBA", (W * TILE_PX, H * TILE_PX), (18, 18, 20, 255))
 
-    baked = ROOT / M.BAKED_DIR
+    # open zones call it BAKED_DIR, cave modules call it BAKED
+    baked = ROOT / getattr(M, "BAKED_DIR", None or getattr(M, "BAKED", ""))
     n = 0
     # Bakers write JPEG chunks (ground_<cx>_<cy>.jpg); accept PNG too in case a baker changes.
     files = sorted(list(baked.glob("*.jpg")) + list(baked.glob("*.png")))

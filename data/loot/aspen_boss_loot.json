@@ -1,0 +1,391 @@
+{
+  "_notes": "Aspen Wilderness / Weeping Ice boss and named-rare loot (2026-10-27). ONE item drops per kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make). Checked by tools/qa_aspen_content.py.",
+  "The Last Kodo": [
+    {
+      "name": "Hide of the Last Herd",
+      "slot": "chest",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Still smells of red dust, four winters on.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 76
+    },
+    {
+      "name": "Seam-Walker's Girdle",
+      "slot": "waist",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "He crossed the line going the wrong way and never worked out how to cross back.",
+      "primary_stats": {
+        "agility": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 61
+    },
+    {
+      "name": "Dust-Caked Hoofguards",
+      "slot": "feet",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Barrens clay in the seams. Nothing up here makes clay like that.",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 91
+    },
+    {
+      "name": "Stranded Totem",
+      "slot": "neck",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "flavor_text": "Carved for a herd that is three hundred miles away and might as well be on the moon.",
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Goldcrown": [
+    {
+      "name": "Goldcrown's Antler",
+      "slot": "main_hand",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "Shed, found, and worth more than the stag ever was.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 58,
+      "weapon_damage_max": 79,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Pale Bark Leggings",
+      "slot": "legs",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "Aspen bark takes a scar and keeps it. So do these.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 79
+    },
+    {
+      "name": "Stand-Watcher's Longbow",
+      "slot": "ranged",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "Drawn in a stand where you can see forty yards and hear four hundred.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 49,
+      "weapon_damage_max": 67,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Gilded Canopy Mantle",
+      "slot": "shoulder",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "The light comes through these trees sideways, and gold, and only in the afternoon.",
+      "primary_stats": {
+        "stamina": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "healing_power": 3.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 29
+    }
+  ],
+  "Bristlehide the Wintered": [
+    {
+      "name": "Bristlehide's Cleaver",
+      "slot": "main_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "Quilboar iron, re-ground for wood instead of flesh. It does both.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 27,
+        "stamina": 27
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 112,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Wintered Tusk Pauldrons",
+      "slot": "shoulder",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "He grew the tusks in a desert and broke them on a mountain.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 151
+    },
+    {
+      "name": "Dencarver's Hand-Axe",
+      "slot": "off_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "They dig in now. Nobody taught them to; the cold did.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 8,
+        "agility": 8
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 61,
+      "weapon_damage_max": 83,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Frost-Bitten Bracers",
+      "slot": "wrist",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "The hide under them never did grow back right.",
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 67
+    }
+  ],
+  "Rimehowl": [
+    {
+      "name": "Rimehowl's Frozen Maul",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "He did not make it and he did not need to. Something else brought it across.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 28,
+        "stamina": 28
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 85,
+      "weapon_damage_max": 115,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Pelt of the Last Winter",
+      "slot": "chest",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Grown for a cold that does not exist on this continent.",
+      "primary_stats": {
+        "strength": 10,
+        "agility": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 86
+    },
+    {
+      "name": "Glacier-Born Helm",
+      "slot": "head",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Ice this old is blue, and blue all the way through.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 156
+    },
+    {
+      "name": "Icemelt Focus",
+      "slot": "off_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "It weeps steadily and has not got any smaller. Nobody can say why.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 1.9
+    }
+  ],
+  "Snowmaw": [
+    {
+      "name": "Snowmaw's Claw",
+      "slot": "main_hand",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "She denned here when it was only a cave, and she was here first.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 6,
+        "agility": 6
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Denmother's Hide Vest",
+      "slot": "chest",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "Warm enough for a mountain she was not born on.",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 81
+    },
+    {
+      "name": "Meltwater Waders",
+      "slot": "feet",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "The cistern is ankle-deep and it is never going to drain.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 65
+    },
+    {
+      "name": "Bear-Tooth Pendant",
+      "slot": "neck",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "One tooth, drilled through, on a cord somebody else tied.",
+      "primary_stats": {
+        "stamina": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "healing_power": 1.9
+      }
+    }
+  ],
+  "The Last Drift": [
+    {
+      "name": "The Last Drift's Shard",
+      "slot": "main_hand",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "He is the oldest of them and the only one who remembers the ice before it started going.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Drift-Watcher's Cowl",
+      "slot": "head",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "He sits where the melt has not reached and watches it come.",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 30
+    },
+    {
+      "name": "Old Ice Vambraces",
+      "slot": "wrist",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "Rime that has set hard enough to take a blow.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 97
+    },
+    {
+      "name": "Yeti-Hair Cloak",
+      "slot": "back",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "Shed in handfuls now. It did not used to come out at all.",
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 32
+    }
+  ]
+}
