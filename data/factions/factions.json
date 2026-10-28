@@ -19,14 +19,46 @@
     "and killing a mushroom should not earn standing with a library."
   ],
   "tiers": [
-    {"id": "hated",      "name": "Hated",      "at": -42000},
-    {"id": "hostile",    "name": "Hostile",    "at": -6000},
-    {"id": "unfriendly", "name": "Unfriendly", "at": -3000},
-    {"id": "neutral",    "name": "Neutral",    "at": 0},
-    {"id": "friendly",   "name": "Friendly",   "at": 3000},
-    {"id": "honored",    "name": "Honored",    "at": 9000},
-    {"id": "revered",    "name": "Revered",    "at": 21000},
-    {"id": "exalted",    "name": "Exalted",    "at": 42000}
+    {
+      "id": "hated",
+      "name": "Hated",
+      "at": -42000
+    },
+    {
+      "id": "hostile",
+      "name": "Hostile",
+      "at": -6000
+    },
+    {
+      "id": "unfriendly",
+      "name": "Unfriendly",
+      "at": -3000
+    },
+    {
+      "id": "neutral",
+      "name": "Neutral",
+      "at": 0
+    },
+    {
+      "id": "friendly",
+      "name": "Friendly",
+      "at": 3000
+    },
+    {
+      "id": "honored",
+      "name": "Honored",
+      "at": 9000
+    },
+    {
+      "id": "revered",
+      "name": "Revered",
+      "at": 21000
+    },
+    {
+      "id": "exalted",
+      "name": "Exalted",
+      "at": 42000
+    }
   ],
   "factions": {
     "crimson_codex": {
@@ -62,9 +94,18 @@
           "kb_the_question": 700,
           "ud_bloom_argument": 700
         },
-        "zones": ["the_crystalline_underdark", "kaels_bastion", "the_frostward_descent",
-                  "the_hollow_geode", "the_deep_bloom"],
-        "also": ["hbe_fissure_north", "hbe_route_card", "uc_dalaran_question"]
+        "zones": [
+          "the_crystalline_underdark",
+          "kaels_bastion",
+          "the_frostward_descent",
+          "the_hollow_geode",
+          "the_deep_bloom"
+        ],
+        "also": [
+          "hbe_fissure_north",
+          "hbe_route_card",
+          "uc_dalaran_question"
+        ]
       },
       "kill_rep": {
         "_comment": [
@@ -94,17 +135,24 @@
       "rewards": {
         "_comment": [
           "What standing actually buys. These are the GATES - they work, and they are not displayed on the",
-        "faction panel (Kyle, 2026-10-27: the panel is information only). Rewards will eventually span gear,",
-        "crafting recipes, recruits, quests and whole zones unlocked, so a reward ladder is not worth drawing",
-        "until it can show all of that honestly.",
+          "faction panel (Kyle, 2026-10-27: the panel is information only). Rewards will eventually span gear,",
+          "crafting recipes, recruits, quests and whole zones unlocked, so a reward ladder is not worth drawing",
+          "until it can show all of that honestly.",
           "vendor_stock gates Quartermaster Sylvaine's shelves; quests gates the deeper Archive line and the",
           "Exalted capstone; recruit is the one companion the Codex will release to somebody in their record."
         ],
         "vendor_stock": {
           "kb_quartermaster": {
-            "friendly": ["healing_potion_superior", "mana_potion_superior"],
-            "honored": ["guardian_elixir_standard"],
-            "revered": ["guardian_elixir_superior"]
+            "friendly": [
+              "healing_potion_superior",
+              "mana_potion_superior"
+            ],
+            "honored": [
+              "guardian_elixir_standard"
+            ],
+            "revered": [
+              "guardian_elixir_superior"
+            ]
           }
         },
         "quests": {
@@ -115,6 +163,200 @@
           "recruit_id": "kesten_the_catalogued",
           "standing": "revered"
         }
+      }
+    },
+    "orgrimmar": {
+      "name": "Orgrimmar",
+      "description": "The orc capital and the Horde's spine: the city Thrall built out of a landing site, and everything it has had to hold since.",
+      "home_zone": "orgrimmar",
+      "home_name": "Orgrimmar, Durotar",
+      "leader": {
+        "title": "Warchief",
+        "name": "Thrall",
+        "npc_id": "org_thrall",
+        "location": "Grommash Hold, Orgrimmar",
+        "line": "We were given nothing. We took a desert and called it home, and we will not apologise for the taking."
+      },
+      "lore": [
+        "The Horde came ashore in Durotar with nothing but what they carried and built a capital out of red stone and salvage. Orgrimmar is not a beautiful city and nobody in it pretends otherwise. It is a city that exists because the alternative was not existing.",
+        "Thrall runs it, and runs it carefully. He was raised in a human internment camp and freed his people out of one, and the experience left him with an instinct that sits oddly on a Warchief: he would rather hold what the Horde has than take more. Not everyone under him agrees, and the ones who do not are loud.",
+        "The city's standing with you is not sentiment. Orgrimmar keeps a count of who held the Barrens road, who cleared the Kolkar off the water, and who was there when the Burning Blade came up out of the Chasm under the city's own floor. The count is kept by quartermasters, not by poets.",
+        "Three years ago the world was rewritten and a great many people arrived who had never been born here. Orgrimmar took them in faster than anywhere else on the continent, and the Warchief has never explained why in public. Those close to him suspect it is because he knows exactly what it is to be somewhere you did not choose to be."
+      ],
+      "quest_rep": {
+        "default": 70,
+        "boss": 140,
+        "capstones": {},
+        "zones": [
+          "valley_of_trials",
+          "durotar",
+          "razor_hill",
+          "orgrimmar",
+          "northern_barrens",
+          "central_barrens",
+          "southern_barrens",
+          "camp_taurajo",
+          "splintertree_post",
+          "ashenvale_east",
+          "ashenvale_west",
+          "zoram_strand"
+        ],
+        "also": []
+      },
+      "kill_rep": {
+        "_comment": "The Horde's standing enemies in its own territory - the cult under the city, the centaur on the Barrens road, the quilboar in the fields, the harpies on the ridge.",
+        "creatures": {
+          "Burning Blade Torchbearer": 10,
+          "Kolkar Raider": 8,
+          "Kolkar Dervish": 8,
+          "Kolkar Warbrand": 10,
+          "Bristleback Raider": 8,
+          "Bristleback Battleboar": 8,
+          "Dustwind Savage": 8
+        }
+      },
+      "rewards": {
+        "_comment": "No gates authored yet. The system supports them; the content is not written."
+      }
+    },
+    "darkspear_tribe": {
+      "name": "The Darkspear Tribe",
+      "description": "Jungle trolls who lost their islands twice and took them back once, and have been Horde ever since on terms they negotiated themselves.",
+      "home_zone": "echo_isles",
+      "home_name": "The Echo Isles, off Durotar",
+      "leader": {
+        "title": "Elder",
+        "name": "Kang'ari",
+        "npc_id": "echo_isles_troll_elder",
+        "location": "The Echo Isles",
+        "line": "We been driven off dis water before. We came back. Dat is da whole of what you need to know about us."
+      },
+      "lore": [
+        "The Darkspear were a dying tribe on a sinking island when the Horde found them, and they have never once let anyone describe that as a rescue. It was a bargain. They have kept their end of it with a thoroughness that embarrasses larger peoples.",
+        "Then Zalazane took the isles with hexes and turned their own people into something that walks at them out of the surf, and the tribe moved to the mainland and started again. The ones who stayed are still out there on the water, and the tribe does not call them lost. They call them not back yet.",
+        "The trolls run their own trainers, their own spiritwalkers and their own count of favours owed, separate from Orgrimmar's and older. Standing with the Darkspear is not standing with the Horde. It is standing with people who remember who came out on the water with them and who did not.",
+        "They are warm, funny and entirely unsentimental about death, which outsiders consistently misread as either of the first two things."
+      ],
+      "quest_rep": {
+        "default": 350,
+        "boss": 700,
+        "capstones": {},
+        "zones": [
+          "echo_isles"
+        ],
+        "also": []
+      },
+      "kill_rep": {
+        "_comment": "Zalazane's hexed and the naga on the reefs - the two things keeping the tribe off its own islands.",
+        "creatures": {
+          "Hex Troll": 15,
+          "Drowned Troll": 15,
+          "Isle Headhunter": 12,
+          "Naga Coastguard": 12,
+          "Naga Tidecaller": 12
+        }
+      },
+      "rewards": {
+        "_comment": "No gates authored yet. The system supports them; the content is not written."
+      }
+    },
+    "the_forsaken": {
+      "name": "The Forsaken",
+      "description": "The dead who woke up with their minds intact, took Lordaeron's capital back from the Scourge, and have been explaining themselves to nobody since.",
+      "home_zone": "undercity",
+      "home_name": "The Undercity, beneath Lordaeron",
+      "leader": {
+        "title": "Banshee Queen",
+        "name": "Lady Sylvanas Windrunner",
+        "npc_id": "uc_sylvanas",
+        "location": "The Royal Quarter, Undercity",
+        "line": "We were not given our freedom. I took it, and I will not be asked to be grateful for a thing I had to tear loose."
+      },
+      "lore": [
+        "The Scourge raised Lordaeron's dead and bound them, and then the binding slipped. What stood up afterwards remembered everything: their names, their houses, their families, and exactly what had been done to them and by whom. The Forsaken are what that leaves behind.",
+        "They took the capital's undercroft, walled it, and made a nation out of a sewer under a throne room that still has their old king's bloodstain on the floor. They do not describe this as tragic. They describe it as theirs.",
+        "The Apothecarium is the heart of it and the part that worries everyone, allies included. The Forsaken are the only people on the continent researching the plague that made them, and their stated reason - a cure - is not one that survives much scrutiny from the people who have read the ledgers.",
+        "What they will not forgive is the Scarlet Crusade, who kill the Forsaken on sight for being what the Scourge made them, and the cults still working for the thing that made them in the first place. Standing with the Forsaken is largely a tally of which of those two you have reduced.",
+        "They are dry, tired, blackly funny, and extremely difficult to impress. They have been dead for years. Very little is new."
+      ],
+      "quest_rep": {
+        "default": 50,
+        "boss": 100,
+        "capstones": {},
+        "zones": [
+          "deathknell",
+          "brill",
+          "eastern_tirisfal",
+          "western_tirisfal",
+          "undercity",
+          "sepulcher",
+          "silverpine_north",
+          "silverpine_south",
+          "fenris_isle",
+          "tarren_mill",
+          "eastern_hillsbrad",
+          "western_hillsbrad"
+        ],
+        "also": []
+      },
+      "kill_rep": {
+        "_comment": "The Scarlet Crusade, who kill them on sight, and the cults still serving the thing that made them.",
+        "creatures": {
+          "Scarlet Bowman": 10,
+          "Scarlet Convert": 10,
+          "Scarlet Initiate": 10,
+          "Scarlet Marksman": 10,
+          "Scarlet Chaplain": 12,
+          "Scarlet Inquisitor": 12,
+          "Cult Acolyte": 10,
+          "Cult Fanatic": 10,
+          "Interrogator Vishas": 150
+        }
+      },
+      "rewards": {
+        "_comment": "No gates authored yet. The system supports them; the content is not written."
+      }
+    },
+    "steamwheedle_cartel": {
+      "name": "The Steamwheedle Cartel",
+      "description": "Goblin traders who will sell to anyone, protect no one, and keep a port open through wars that close everything else.",
+      "home_zone": "ratchet",
+      "home_name": "Ratchet, the Barrens coast",
+      "leader": {
+        "title": "Boss",
+        "name": "Gazlowe",
+        "npc_id": "ratchet_gazlowe",
+        "location": "The docks, Ratchet",
+        "line": "Neutral ain't a principle, friend. It's a business model, and it's the only one that keeps a port open when everyone on both sides wants it."
+      },
+      "lore": [
+        "The Cartel is not a nation, an army or a cause. It is a company with harbours, and the harbours are the only places on this coast where a Horde ship and an Alliance ship tie up on the same pier and nobody draws anything.",
+        "That neutrality is enforced, and the enforcement is the actual product. Bring a war into Ratchet and the Cartel will not take a side; it will remove you, bill your faction for the inconvenience, and reopen by the evening tide.",
+        "Gazlowe runs the port, and runs it better than the margins justify. He has turned down three offers to move the operation somewhere richer, which no goblin will explain and several have tried to buy him out over.",
+        "Standing with the Cartel is simple and entirely transactional: they like people who are good for trade and hard on the things that interrupt it. Pirates off the coast and bandits on the Barrens road cost them money, and they pay well to have that stopped. Nobody at Ratchet will pretend this is friendship, and that honesty is most of why people deal with them."
+      ],
+      "quest_rep": {
+        "default": 350,
+        "boss": 700,
+        "capstones": {},
+        "zones": [
+          "ratchet"
+        ],
+        "also": []
+      },
+      "kill_rep": {
+        "_comment": "Whatever interrupts trade: pirates on the water, bandits on the Barrens road. The Cartel pays per head and does not care about your politics.",
+        "creatures": {
+          "Southsea Brigand": 15,
+          "Southsea Cannoneer": 15,
+          "Drowned Buccaneer": 12,
+          "Undead Pirate Captain": 100,
+          "Bandit Cutthroat": 10,
+          "Bandit Outrider": 10
+        }
+      },
+      "rewards": {
+        "_comment": "No gates authored yet. The system supports them; the content is not written."
       }
     }
   }

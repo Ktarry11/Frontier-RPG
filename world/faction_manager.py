@@ -181,23 +181,46 @@ class FactionManager:
         """
         qid = getattr(quest, "quest_id", None) or (quest.get("quest_id") if isinstance(quest, dict) else None)
         zone = getattr(quest, "zone", None) or (quest.get("zone") if isinstance(quest, dict) else None)
+
+        # PRECEDENCE MATTERS AND USED TO BE ACCIDENTAL. A quest named explicitly - in `capstones` or in
+        # `also` - beats a faction that merely owns the zone, and that has to be resolved across ALL
+        # factions before any zone match is considered. Otherwise the answer depends on dict insertion
+        # order: the two Hillsbrad quests that send a player down the fissure are listed by name under
+        # the Crimson Codex, while the Hillsbrad ZONES belong to the Forsaken, and whichever faction
+        # happened to be earlier in the file would have won.
+        for fid, f in self.factions.items():
+            if qid in f.quest_rep.get("capstones", {}):
+                return fid, f.quest_rep["capstones"][qid]
+        for fid, f in self.factions.items():
+            if qid in f.quest_rep.get("also", []):
+                return fid, self._shape_rate(f, quest)
+
         for fid, f in self.factions.items():
             qr = f.quest_rep
             if not qr:
                 continue
-            if qid in qr.get("capstones", {}):
-                return fid, qr["capstones"][qid]
-            if zone in qr.get("zones", []) or qid in qr.get("also", []):
-                objs = getattr(quest, "objectives", None)
-                if objs is None and isinstance(quest, dict):
-                    objs = quest.get("objectives", [])
-                is_boss = any(
-                    (getattr(o, "objective_type", None) and
-                     str(getattr(o, "objective_type")).lower().endswith("kill_boss"))
-                    or (isinstance(o, dict) and o.get("type") == "kill_boss")
-                    for o in (objs or []))
-                return fid, qr.get("boss" if is_boss else "default", 0)
+            if zone in qr.get("zones", []):
+                return fid, self._shape_rate(f, quest)
         return None, 0
+
+    @staticmethod
+    def _shape_rate(f, quest):
+        """A quest's base rate: the boss rate if it kills a boss, otherwise the default.
+
+        The rates are PER FACTION and they have to be, because factions own wildly different amounts of
+        content. The Crimson Codex owns 53 quests; Orgrimmar owns the whole orc heartland and the Barrens,
+        which is five times that. Paying the same per quest would take a player to Exalted with their own
+        capital before leaving the starting zones.
+        """
+        objs = getattr(quest, "objectives", None)
+        if objs is None and isinstance(quest, dict):
+            objs = quest.get("objectives", [])
+        is_boss = any(
+            (getattr(o, "objective_type", None)
+             and str(getattr(o, "objective_type")).lower().endswith("kill_boss"))
+            or (isinstance(o, dict) and o.get("type") == "kill_boss")
+            for o in (objs or []))
+        return f.quest_rep.get("boss" if is_boss else "default", 0)
 
     def award_for_quest(self, quest):
         fid, amt = self.quest_reward(quest)

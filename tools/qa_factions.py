@@ -63,44 +63,69 @@ def main():
             fails.append(f"span at {st} is {f.progress()[1]}, want {want}")
     print(f"  spans {spans}  {'ok' if not fails else 'FAIL'}")
 
-    print("\n== where quests land")
-    total, n = 0, 0
-    for fn in ("underdark", "underdark_dungeons", "hillsbrad", "tirisfal"):
-        for q in json.loads(Path(f"data/quests/{fn}.json").read_text())["quests"]:
+    print("\n== where quests land, per faction")
+    # NO TWO FACTIONS MAY CLAIM THE SAME ZONE. With one faction this could not happen; with five it is the
+    # first thing that goes wrong, and it goes wrong SILENTLY - quest_reward returns the first match, so a
+    # contested zone would pay whichever faction happened to sit earlier in the file.
+    claims = {}
+    for fid, fac in fm.factions.items():
+        for z in fac.quest_rep.get("zones", []):
+            claims.setdefault(z, []).append(fid)
+    contested = {z: who for z, who in claims.items() if len(who) > 1}
+    print(f"  {len(claims)} zones claimed, {len(contested)} contested")
+    for z, who in contested.items():
+        fails.append(f"zone '{z}' is claimed by {who} - a quest there would pay whoever is listed first")
+
+    totals = {fid: 0 for fid in fm.factions}
+    counts = {fid: 0 for fid in fm.factions}
+    all_zones = set()
+    for fn in sorted(Path("data/quests").glob("*.json")):
+        qd = json.loads(fn.read_text())
+        for q in (qd["quests"] if "quests" in qd else qd):
+            all_zones.add(q["zone"])
             fid, amt = fm.quest_reward(q)
             if fid:
-                total += amt
-                n += 1
-    f.standing = total
-    print(f"  {n} quests -> {total} rep -> {f.tier['name']}")
-    if f.tier_id != "revered":
-        fails.append(f"quests land at {f.tier['name']}, design says Revered")
-    if total >= 42000:
-        fails.append("quests alone reach Exalted - the last tier is meant to need the dungeon")
+                totals[fid] += amt
+                counts[fid] += 1
+    for fid, fac in fm.factions.items():
+        fac.standing = totals[fid]
+        # The real invariant is not "everyone reaches Revered" - factions own wildly different amounts of
+        # content and a starting-zone tribe should not max out from its own beach. It is that questing
+        # meaningfully advances you and NEVER finishes the job.
+        tier = fac.tier["name"]
+        print(f"  {fac.name:26s} {counts[fid]:4d} quests {totals[fid]:7d} rep -> {tier}")
+        if counts[fid] and fac.tier_id in ("neutral",):
+            fails.append(f"{fid}: {counts[fid]} quests and still Neutral - the rate is too low to notice")
+        if fac.tier_id == "exalted":
+            fails.append(f"{fid}: quests alone reach Exalted - the last tier must need more than questing")
+    unclaimed = sorted(all_zones - set(claims))
+    print(f"  zones with no faction: {unclaimed}")
 
-    print("\n== Exalted on kills")
+    print("\n== Exalted on kills (the Codex, whose dungeon is authored)")
     from tools import handbuilt_deep_bloom as DB
     DB.build_deep_bloom()
+    f.standing = totals["crimson_codex"]
     clear = sum(f.kill_rep.get(c, 0) for (_x, _y, c, _l) in DB.TRASH) \
         + sum(f.kill_rep.get(b, 0) for b in DB.BOSSES)
-    need = 42000 - total
+    need = 42000 - totals["crimson_codex"]
     clears = need / clear if clear else 999
     print(f"  one full clear {clear} rep; {need} to go = {clears:.1f} clears")
     if not 3 <= clears <= 15:
         fails.append(f"{clears:.1f} dungeon clears to Exalted - want 3-15 (grind, but not a WoW grind)")
 
-    print("\n== kill rep is narrow")
+    print("\n== kill rep is narrow and real")
     cre = json.loads(Path("data/creatures/creatures.json").read_text())["creatures"]
-    wildlife = ["Sporeback Grazer", "Hoarfrost Yeti", "Glimmerjaw", "Lumen Leech",
-                "Crystalback Skitterer", "Frostward Prowler"]
-    paid = [c for c in wildlife if f.kill_rep.get(c)]
-    print(f"  wildlife that pays Codex standing: {paid or 'none'}")
-    if paid:
-        fails.append(f"wildlife pays reputation: {paid}")
-    unknown = [c for c in f.kill_rep if c not in cre]
-    print(f"  kill-rep creatures that do not exist: {unknown or 'none'}")
-    if unknown:
-        fails.append(f"kill_rep names unknown creatures: {unknown}")
+    wildlife = ["Sporeback Grazer", "Hoarfrost Yeti", "Glimmerjaw", "Lumen Leech", "Barrens Giraffe",
+                "Crystalback Skitterer", "Frostward Prowler", "Elder Mottled Boar", "Barrens Hyena"]
+    for fid, fac in fm.factions.items():
+        paid = [c for c in wildlife if fac.kill_rep.get(c)]
+        unknown = [c for c in fac.kill_rep if c not in cre]
+        print(f"  {fac.name:26s} {len(fac.kill_rep):2d} enemies, "
+              f"{len(unknown)} unknown, {len(paid)} wildlife")
+        if paid:
+            fails.append(f"{fid}: pays reputation for wildlife: {paid}")
+        if unknown:
+            fails.append(f"{fid}: kill_rep names creatures that do not exist: {unknown}")
 
     print("\n== every promised reward exists")
     all_q = set()
