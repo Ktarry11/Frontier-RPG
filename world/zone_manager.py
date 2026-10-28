@@ -77,10 +77,15 @@ class ZoneManager:
         # before this pattern existed for them.
         self._place_ambient_npc_tiles()
 
-        # Start player in Valley of Trials
-        self.current_zone = self.zones["Valley of Trials"]["tilemap"]
-        self.player_x = 60
-        self.player_y = 40  # Near starting NPC
+        # Start player in the default start zone (world/start_zones.py). ZoneManager is built once per
+        # process, before any character exists, so there is nothing to ask here - the real choice is
+        # applied by reset_to_start() when a character is created.
+        from world.start_zones import get_start, DEFAULT_START_ID
+        _start = get_start(DEFAULT_START_ID)
+        self.start_id = _start.start_id
+        self.current_zone = self.zones[_start.zone_name]["tilemap"]
+        self.player_x = _start.x
+        self.player_y = _start.y  # Near the zone's level-1 quest giver
         # Pre-scale every chunk sprite for the starting zone up front -
         # see prewarm_chunk_sprites' docstring for why (fixes "I step
         # once and a chunk just pops into existence", a cold
@@ -95,7 +100,7 @@ class ZoneManager:
         # and came back once.
         self.gathering_manager.populate(self.current_zone, self.current_zone.name)
     
-    def reset_to_start(self):
+    def reset_to_start(self, start_id=None):
         """Snap back to the real starting position - Valley of Trials,
         the same spot __init__ sets up. Real bug this fixes: OverworldScreen
         (and this ZoneManager) is constructed ONCE at GameStateManager
@@ -110,12 +115,22 @@ class ZoneManager:
         CharacterCreationScreen._create_character right before saving, so
         a genuinely new character always saves with a genuinely fresh
         starting position, regardless of where the previous character
-        left the world."""
-        self.current_zone = self.zones["Valley of Trials"]["tilemap"]
-        self.player_x = 60
-        self.player_y = 40
+        left the world.
+
+        start_id picks WHICH start (world/start_zones.py). Omitted, it keeps the default, so every
+        existing caller behaves exactly as it did before start zones existed."""
+        from world.start_zones import get_start
+        start = get_start(start_id or getattr(self, "start_id", None))
+        self.start_id = start.start_id
+        self.current_zone = self.zones[start.zone_name]["tilemap"]
+        self.player_x = start.x
+        self.player_y = start.y
         self.player_facing = "down"
         prewarm_chunk_sprites(self.current_zone, TILE_SIZE)
+        # The new zone needs its own node roll for the same reason __init__ does: this is a direct
+        # assignment, not a transition, so nothing else will populate it. Without this a character
+        # starting in Deathknell saw zero gathering nodes until they left the zone and came back.
+        self.gathering_manager.populate(self.current_zone, self.current_zone.name)
 
     def _place_recruit_tiles(self):
         """

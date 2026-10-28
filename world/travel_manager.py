@@ -29,14 +29,22 @@ def travel_data():
 
 
 class TravelManager:
-    def __init__(self):
+    def __init__(self, start_id=None):
         data = travel_data()
         hearth = data["hearth"]
         self.cooldown_steps = int(hearth["cooldown_steps"])
         db = hearth["default_bind"]
-        # Default bind: the Valley of Trials start tile (set properly by ZoneManager.reset_to_start's coordinates).
-        self.bind = {"zone": db["zone"], "x": db["x"] if db["x"] is not None else 60,
-                     "y": db["y"] if db["y"] is not None else 40, "name": db["name"]}
+        # DEFAULT BIND FOLLOWS THE START ZONE. It used to be the Valley's tile from the data file, full
+        # stop, which was correct while the Valley was the only start - and became a bug the moment
+        # Deathknell became one, because a Forsaken character's first hearth would have thrown them
+        # across the world to a zone they had never seen. start_id comes from character creation.
+        from world.start_zones import get_start
+        sz = get_start(start_id) if start_id else None
+        if sz:
+            self.bind = {"zone": sz.zone_name, "x": sz.x, "y": sz.y, "name": sz.label}
+        else:
+            self.bind = {"zone": db["zone"], "x": db["x"] if db["x"] is not None else 60,
+                         "y": db["y"] if db["y"] is not None else 40, "name": db["name"]}
         self.hearth_steps_left = 0          # overworld steps until the hearth is ready again
         self.known_nodes = set()            # flight node ids discovered
         self.riding_rank = 0                # 0 none, 1 apprentice, 2 journeyman
@@ -271,8 +279,12 @@ def get_travel_manager():
     return _travel_manager
 
 
-def reset_travel_manager():
-    """Fresh state for a new character / before applying a loaded save."""
+def reset_travel_manager(start_id=None):
+    """Fresh state for a new character / before applying a loaded save.
+
+    start_id binds the hearth to that start zone. Omitted - which is every pre-existing caller and
+    every save load - it falls back to the data file's default bind exactly as before.
+    """
     global _travel_manager
-    _travel_manager = TravelManager()
+    _travel_manager = TravelManager(start_id)
     return _travel_manager

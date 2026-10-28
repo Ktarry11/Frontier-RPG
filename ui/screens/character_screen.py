@@ -10,6 +10,7 @@ from entities.character import Character
 from ui.screens.base_screen import BaseScreen
 from ui.sprite_loader import get_npc_sprite
 from world.race_registry import get_available_races, get_gender, sprite_base_path
+from world.start_zones import get_available_starts, suggested_start_for_race
 
 
 class CharacterCreationScreen(BaseScreen):
@@ -38,6 +39,11 @@ class CharacterCreationScreen(BaseScreen):
         # three fields, resolved to a real sprite via race_registry.
         self.available_races = get_available_races()
         self.selected_race_index = 0  # index into self.available_races
+        # Where the character wakes up (world/start_zones.py). Race SUGGESTS this and never locks it -
+        # see that module's docstring for why, given there is no true Horde/Alliance here.
+        self.available_starts = get_available_starts()
+        self.selected_start_index = 0
+        self._start_touched = False   # once the player picks one, changing race stops overriding it
         self.selected_gender_index = 0  # index into the current race's .genders list
         self.selected_variant = 0  # index into the current gender's .variants list
 
@@ -99,6 +105,25 @@ class CharacterCreationScreen(BaseScreen):
         self.variant_prev_button = pygame.Rect(self.preview_rect.right + 8, appearance_y + 20, 30, 30)
         self.variant_next_button = pygame.Rect(self.variant_prev_button.right + 8, appearance_y + 20, 30, 30)
 
+        # START ZONE sits in the free span to the RIGHT of the appearance row rather than under it.
+        # The vertical budget here is genuinely spent - the preview box runs to y=550, this row starts
+        # at 560, and the Create button is at SCREEN_HEIGHT-70 - so another row would collide. The
+        # appearance controls end at variant_next_button.right (902 with five races), which leaves
+        # ~358px, and two 120px buttons fit it with room for the label.
+        start_x = self.variant_next_button.right + 28
+        start_btn_w, start_btn_h = 120, 36
+        self.start_x = start_x
+        self.start_buttons = [
+            pygame.Rect(start_x + i * (start_btn_w + 8), appearance_y, start_btn_w, start_btn_h)
+            for i, _ in enumerate(self.available_starts)
+        ]
+        if self.start_buttons and self.start_buttons[-1].right > SCREEN_WIDTH - 12:
+            # Loud rather than clipped. A third start, or a sixth race, pushes this off-screen and the
+            # row needs rethinking - silently drawing a button nobody can reach is the worse outcome.
+            raise ValueError(
+                f"start-zone buttons overflow SCREEN_WIDTH ({self.start_buttons[-1].right} > "
+                f"{SCREEN_WIDTH - 12}) - the appearance row is full; wrap it before adding more")
+
         self.create_button = pygame.Rect(
             SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,
             SCREEN_HEIGHT - 70,
@@ -108,6 +133,23 @@ class CharacterCreationScreen(BaseScreen):
         
         # Back button
         self.back_button = pygame.Rect(20, 20, 100, 50)
+
+    def _suggest_start(self):
+        """Move the start to the one this race suggests - unless the player has already chosen one.
+
+        A player who deliberately picked Deathknell and then cycled races to look at the sprites should
+        not silently end up back in the Valley.
+        """
+        if self._start_touched:
+            return
+        want = suggested_start_for_race(self._current_race().race_id)
+        for i, s in enumerate(self.available_starts):
+            if s.start_id == want:
+                self.selected_start_index = i
+                return
+
+    def _current_start(self):
+        return self.available_starts[self.selected_start_index]
 
     def _current_race(self):
         return self.available_races[self.selected_race_index]
@@ -159,6 +201,14 @@ class CharacterCreationScreen(BaseScreen):
                 if btn.collidepoint(mouse_pos):
                     self.selected_race_index = i
                     self._sync_gender_buttons()
+                    self._suggest_start()
+                    return
+
+            # Start zone
+            for i, btn in enumerate(self.start_buttons):
+                if btn.collidepoint(mouse_pos):
+                    self.selected_start_index = i
+                    self._start_touched = True   # race changes stop moving it from here on
                     return
 
             # Gender buttons
@@ -219,12 +269,13 @@ class CharacterCreationScreen(BaseScreen):
         # where I left off".
         zone_manager = self.state_manager._live_zone_manager()
         if zone_manager:
-            zone_manager.reset_to_start()
+            zone_manager.reset_to_start(self._current_start().start_id)
         from world.quest_manager import get_quest_manager, QuestManager
         import world.quest_manager as _qm_module
         _qm_module._quest_manager = QuestManager()  # fresh quest state for the new character
         from world.travel_manager import reset_travel_manager
-        reset_travel_manager()  # fresh hearth bind / flight nodes / mounts for the new character
+        # Bind the hearth to the start they picked, not to the Valley - see TravelManager.__init__.
+        reset_travel_manager(self._current_start().start_id)
         
         # Set the player FIRST, then save through the state manager so the
         # (empty) party, recruit state and starting position are all written
@@ -263,6 +314,17 @@ class CharacterCreationScreen(BaseScreen):
         for i, gender in enumerate(self._current_race().genders):
             color = (150, 200, 150) if i == self.selected_gender_index else COLOR_DARK_GRAY
             self.renderer.draw_button(screen, self.gender_buttons[i], gender.label, color=color)
+
+        # Start zone
+        self.renderer.draw_text(screen, "Start:", (self.start_x, self.appearance_y - 24),
+                                color=COLOR_GOLD)
+        for i, sz in enumerate(self.available_starts):
+            color = (150, 200, 150) if i == self.selected_start_index else COLOR_DARK_GRAY
+            self.renderer.draw_button(screen, self.start_buttons[i], sz.label, color=color)
+        # One line of what the place actually is, so the choice means something before you take it.
+        self.renderer.draw_text(screen, self._current_start().blurb,
+                                (self.start_x, self.appearance_y + 42), color=(150, 150, 160),
+                                size="small")
 
         # Variant cycle + live preview
         gender_option = self._current_gender_option()

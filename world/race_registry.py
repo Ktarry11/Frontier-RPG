@@ -13,6 +13,15 @@ creation screen's rendering loop, or the sprite loader.
 Kyle's ask: "Human, Orc, plus placeholder slots for more races later" and
 "race + gender + [variant] options which we can expand later" - so this
 is built as a real registry from the start, not two hardcoded strings.
+
+PLAYABLE AS OF 2026-10-28: human, orc, forsaken, blood_elf, tauren. The
+rest carry real art and stay available=False because nothing in the world
+is theirs yet - race here is purely cosmetic (Character stores three
+strings and nothing reads them in combat), so the gate is a CONTENT
+judgement, not a balance one. Turning one on is a one-line change plus a
+look at CharacterCreationScreen's race row, which is a SINGLE ROW of
+90px buttons: five fit inside SCREEN_WIDTH alongside the gender block and
+the preview, and eight would not. Count before you flip.
 """
 from dataclasses import dataclass, field
 
@@ -146,10 +155,12 @@ RACE_OPTIONS = [
             GenderOption("male", "Male", "", _BLOOD_ELF_VARIANTS),
             GenderOption("female", "Female", "", _BLOOD_ELF_VARIANTS),
         ],
-        # Horde-aligned, fits current zone roster - NPC-only for now
-        # (no Blood Elf zones/quest content authored yet), flip
-        # available=True whenever player-facing use makes sense.
-        available=False,
+        # PLAYABLE, 2026-10-28 (Kyle: "Make new playable races, we have the sprites... Just add Tauren
+        # and blood elf"). The content caught up with the art: the Crystalline Underdark cluster is a
+        # blood elf expedition, Kael's Bastion is their camp, and the Crimson Codex - the game's first
+        # faction, with the only authored reward gates in it - is a blood elf order. A player who picks
+        # this race has somewhere to be from.
+        available=True,
     ),
     RaceOption(
         race_id="night_elf",
@@ -206,9 +217,11 @@ RACE_OPTIONS = [
             GenderOption("male", "Male", "", _TAUREN_VARIANTS),
             GenderOption("female", "Female", "", _TAUREN_VARIANTS),
         ],
-        # New race, no prior art (see _TAUREN_VARIANTS docstring).
-        # NPC-only for now per Kyle's call - flip available=True later.
-        available=False,
+        # PLAYABLE, 2026-10-28 (Kyle, as above). The best-supported race in the game to pick up now:
+        # Camp Taurajo, Longstand Camp, and Freewind Post - which is THE tauren city, 99 quests of
+        # Thunder Bluff territory, and a people in exile with a seat nobody will take. There is more
+        # authored tauren context than there is human.
+        available=True,
     ),
     RaceOption(
         race_id="dwarf",
