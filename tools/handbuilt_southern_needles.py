@@ -74,8 +74,11 @@ PORTALS = {(110, 4): "The Aspen Wilderness",
            #: ON TOP of Freewind North, at the head of its ramp. The settlement is up there, so the climb
            #: has to be the way in - a portal at the mesa's foot would make the only ground route into
            #: Freewind a thing you walk past.
-           (168, 88): "Freewind Post"}
-ARRIVALS = [(110, 10), (164, 90)]
+           (168, 88): "Freewind Post",
+           #: THE SOAK. A hole at the foot of Broadback where a wash runs in and stops. See
+           #: tools/handbuilt_drowning_floor.py - the cave is what the flood built under the mesa.
+           (104, 112): "The Drowning Floor"}
+ARRIVALS = [(110, 10), (164, 90), (104, 115)]
 START = (110, 11)
 
 

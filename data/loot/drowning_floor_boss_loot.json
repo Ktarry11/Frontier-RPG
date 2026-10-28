@@ -1,0 +1,197 @@
+{
+  "_notes": "The Drowning Floor boss and named-rare loot (2026-10-28). ONE item drops per kill from the pool. item_level = creature level + 3. Budget checked by audit() in tools/build_drowning_floor_content.py.",
+  "Yearmaw": [
+    {
+      "name": "Yearmaw's Drowned Fang",
+      "slot": "main_hand",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "It feeds once, on the day the cave fills, and then it waits out the year.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 7,
+        "agility": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 69,
+      "weapon_damage_max": 94,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Sumpblind Hauberk",
+      "slot": "chest",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "Nothing that lives in that water has needed eyes in a very long time.",
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 155
+    },
+    {
+      "name": "High-Water Greaves",
+      "slot": "legs",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "The mark is above your head on every pillar down here. Look up once and then do not.",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 232
+    },
+    {
+      "name": "Yearmaw's Salt-Cured Hide",
+      "slot": "chest",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "A year in standing brine does to a skin what no tanner can.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 96
+    }
+  ],
+  "The Leavings": [
+    {
+      "name": "Wrackline Shiv",
+      "slot": "off_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Cut from something the flood brought in. It is not bone and it is not wood.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Driftwood Bracers",
+      "slot": "wrist",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Three years in the pile and the grain has gone hard as fired clay.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 47
+    },
+    {
+      "name": "Pillar-Shadow Cowl",
+      "slot": "head",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "It denned where the roof came down, and the roof came down a long time ago.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 4.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 35
+    },
+    {
+      "name": "Floodmark Pendant",
+      "slot": "trinket",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Somebody wore this and did not get out. The cord outlasted them.",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Old Saltbed": [
+    {
+      "name": "Saltbed's Evaporite Staff",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "White all the way through, and it rings when you set it down.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 31,
+        "spirit": 31
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 50,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Crusted Kodo Pauldrons",
+      "slot": "shoulder",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "He came down out of the heat one dry season and the salt closed over him in that one.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 169
+    },
+    {
+      "name": "Dry-Season Wraps",
+      "slot": "hands",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The Galak keep a calendar for this cave. It is the best thing about them.",
+      "primary_stats": {
+        "stamina": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 2.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 23
+    },
+    {
+      "name": "Bedding-Plane Spaulders",
+      "slot": "shoulder",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "One soft layer between two hard ones. The whole cave is that, and nothing else.",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 113
+    }
+  ]
+}

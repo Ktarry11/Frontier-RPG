@@ -252,12 +252,21 @@ class PortalManager:
             "Southern Thousand Needles": {
                 (110, 4): ("The Aspen Wilderness", 104, 172),
                 (168, 88): ("Freewind Post", 96, 26),
+                # A hole at the foot of Broadback that swallows a wash and gives nothing back. The zone's
+                # WASHES are the channels the annual flood cuts on the surface; this is where it goes.
+                (104, 112): ("The Drowning Floor", 66, 102),
             },
             "Freewind Post": {
                 (96, 20): ("Southern Thousand Needles", 168, 92),
             },
             "The Weeping Ice": {
                 (48, 126): ("The Aspen Wilderness", 145, 51),
+            },
+            "The Drowning Floor": {
+                # Declared y 110: _offset_spawn takes 2 off and transition_to_zone adds 3 back for
+                # leaving_cave, so the player lands on (104, 111) - one tile NORTH of the soak at
+                # (104, 112), clear of Broadback's rim at y 116-118 and not standing on the portal.
+                (66, 104): ("Southern Thousand Needles", 104, 110),
             },
             "The Broodspiral": {
                 (152, 220): ("Southern Barrens", 225, 220),

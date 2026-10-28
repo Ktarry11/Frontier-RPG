@@ -34,6 +34,7 @@ ZONES = {
     "weeping_ice": "tools.handbuilt_weeping_ice",
     "southern_needles": "tools.handbuilt_southern_needles",
     "freewind": "tools.handbuilt_freewind_post",
+    "drowning_floor": "tools.handbuilt_drowning_floor",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns
@@ -41,6 +42,7 @@ ZONES = {
 BUILDERS = {
     "weeping_ice": "build_weeping_ice_baked",
     "freewind": "build_freewind_baked",
+    "drowning_floor": "build_drowning_floor_baked",
 }
 
 

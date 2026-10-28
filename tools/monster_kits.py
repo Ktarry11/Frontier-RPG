@@ -4848,6 +4848,77 @@ ASPEN_KITS = {
 }
 
 
+# =========================================================================================================
+# THE DROWNING FLOOR (levels 33-35) - the cave under the mesas of Southern Thousand Needles.
+#
+# EVERY KIT HERE IS ABOUT WATER THAT IS NOT HERE YET. The cave is dry eleven months a year and the things
+# living in it fight like things that know what month it is: the Galak are quick and leave, the drowned
+# are slow and do not, and the Sump's two tenants are blind and have never needed to be anything else.
+# Damage runs 62-76 for trash against the Ice's 46-66, which is the four-level step.
+# =========================================================================================================
+DROWNING_FLOOR_KITS = {
+    # ---- THE DRY-SEASON TENANTS -----------------------------------------------------------------------
+    "sightless_kodo": [
+        ("Blind Charge", "damage", 68, 0, 0, "physical", {}),
+        ("Sounding Bellow", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -26}}),
+        ("Standing Ground", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 52}, "self_only": True}),
+    ],
+    "galak_dryseason_raider": [
+        ("Dryseason Lance", "damage", 70, 0, 0, "physical", {}),
+        ("Trample the Crust", "damage", 58, 3, 0, "physical", {"is_aoe": True}),
+        ("Break Before the Rains", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 30}, "self_only": True}),
+    ],
+    "galak_stormcaller": [
+        ("Call the Year's Rain", "damage", 64, 0, 0, "nature", {}),
+        ("Downpour", "damage", 56, 4, 0, "nature", {"is_aoe": True}),
+        ("Read the Water", "debuff", 0, 5, 0, "nature", {"duration": 4, "stat_mods": {"intellect": -26}}),
+    ],
+    # ---- THE DROWNED. Slow, heavy, and full of salt. They do not buff; they do not need to.
+    "saltbound_shambler": [
+        ("Brine-Heavy Arm", "damage", 66, 0, 0, "physical", {}),
+        ("Salt in the Wound", "debuff", 0, 4, 0, "nature", {"duration": 4, "stat_mods": {"stamina": -24}}),
+        ("Still Walking", "buff", 0, 7, 0, "shadow",
+         {"duration": 4, "stat_mods": {"armor": 58}, "self_only": True}),
+    ],
+    # ---- THE YEAR-ROUND ------------------------------------------------------------------------------
+    "washline_scuttler": [
+        ("Wrackline Pincer", "damage", 62, 0, 0, "physical", {}),
+        ("Scatter Into the Pile", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 28}, "self_only": True}),
+    ],
+    "sumpblind_thresher": [
+        ("Sightless Lunge", "damage", 74, 0, 0, "physical", {}),
+        ("Churn the Sump", "damage", 60, 3, 0, "frost", {"is_aoe": True}),
+        ("Felt You Move", "debuff", 0, 5, 0, "frost", {"duration": 3, "stat_mods": {"agility": -30}}),
+    ],
+
+    # ---- THE NAMED. Yearmaw is a BOSS at L35, so FOUR abilities (boss kit rule, 20+ = 4). The two rares
+    #      carry three. First ability on every kit is 0-cooldown damage.
+    "yearmaw": [
+        ("Drowned Fang", "damage", 86, 0, 0, "physical", {}),
+        ("The Year's One Meal", "damage", 70, 4, 0, "frost", {"is_aoe": True}),
+        ("Hold Them Under", "debuff", 0, 5, 0, "frost", {"duration": 4, "stat_mods": {"strength": -34}}),
+        ("Patience of the Sump", "buff", 0, 7, 0, "frost",
+         {"duration": 5, "stat_mods": {"armor": 72}, "self_only": True}),
+    ],
+    "the_leavings": [
+        ("Shiv From the Pile", "damage", 76, 0, 0, "physical", {}),
+        ("Bury and Wait", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 62}, "self_only": True}),
+        ("Drag Under the Wrack", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -32}}),
+    ],
+    "old_saltbed": [
+        ("Crusted Horn", "damage", 78, 0, 0, "physical", {}),
+        ("Shed the Salt", "damage", 62, 4, 0, "nature", {"is_aoe": True}),
+        ("Weight of Three Dry Years", "buff", 0, 7, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 66}, "self_only": True}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -4857,7 +4928,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

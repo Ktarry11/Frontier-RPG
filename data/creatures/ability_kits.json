@@ -27481,32 +27481,60 @@
         "amount": 62,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Bellow for the Herd",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 40,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 4,
-        "stat_mods": {
-          "attack_power": -28
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": -28
+          }
         }
       },
       {
         "name": "Will Not Lie Down",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 8,
+        "kind": "damage",
+        "amount": 50,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 5,
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "armor": 56
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 81,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "armor": 56
-        },
-        "self_only": true
+          "attack_power": 37
+        }
       }
     ],
     "goldcrown": [
@@ -27516,7 +27544,8 @@
         "amount": 66,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Scatter the Stand",
@@ -27529,16 +27558,40 @@
       },
       {
         "name": "Light Through the Leaves",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
+        "kind": "damage",
+        "amount": 53,
+        "cooldown": 5,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "agility": 34
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "agility": 34
-        },
-        "self_only": true
+          "attack_power": 40
+        }
       }
     ],
     "bristlehide_the_wintered": [
@@ -27548,7 +27601,8 @@
         "amount": 72,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Break the Dam",
@@ -27561,16 +27615,40 @@
       },
       {
         "name": "Thorns Against the Cold",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 5,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 4,
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 60
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "armor": 60
-        },
-        "self_only": true
+          "attack_power": 43
+        }
       }
     ],
     "winterhide_bear": [
@@ -27731,7 +27809,8 @@
         "amount": 78,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Howl of the Last Cold",
@@ -27744,28 +27823,47 @@
       },
       {
         "name": "Drive Them Back",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 51,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 4,
-        "stat_mods": {
-          "attack_power": -32
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": -32
+          }
         }
       },
       {
         "name": "Pelt of the Last Winter",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 5,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 5,
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "armor": 68
+          }
+        }
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "armor": 68
-        },
-        "self_only": true
+          "attack_power": 47
+        }
       }
     ],
     "snowmaw": [
@@ -27775,31 +27873,59 @@
         "amount": 70,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Stand Over the Den",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 6,
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 4,
-        "stat_mods": {
-          "armor": 58
-        },
-        "self_only": true
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 58
+          }
+        }
       },
       {
         "name": "Warning Bellow",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 46,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": -30
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 91,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "attack_power": -30
+          "attack_power": 42
         }
       }
     ],
@@ -27810,20 +27936,23 @@
         "amount": 68,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "frost"
+        "school": "frost",
+        "boss_rework": 1
       },
       {
         "name": "Remembers the Glacier",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
+        "kind": "damage",
+        "amount": 54,
+        "cooldown": 5,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 4,
-        "stat_mods": {
-          "armor": 52
-        },
-        "self_only": true
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 52
+          }
+        }
       },
       {
         "name": "Killing Cold",
@@ -27833,6 +27962,399 @@
         "mana_cost": 0,
         "school": "frost",
         "is_aoe": true
+      },
+      {
+        "name": "Frost Lance",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 41
+        }
+      }
+    ],
+    "sightless_kodo": [
+      {
+        "name": "Blind Charge",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sounding Bellow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -26
+        }
+      },
+      {
+        "name": "Standing Ground",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 52
+        },
+        "self_only": true
+      }
+    ],
+    "galak_dryseason_raider": [
+      {
+        "name": "Dryseason Lance",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Trample the Crust",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Break Before the Rains",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 30
+        },
+        "self_only": true
+      }
+    ],
+    "galak_stormcaller": [
+      {
+        "name": "Call the Year's Rain",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Downpour",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Read the Water",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "intellect": -26
+        }
+      }
+    ],
+    "saltbound_shambler": [
+      {
+        "name": "Brine-Heavy Arm",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Salt in the Wound",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "stamina": -24
+        }
+      },
+      {
+        "name": "Still Walking",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 58
+        },
+        "self_only": true
+      }
+    ],
+    "washline_scuttler": [
+      {
+        "name": "Wrackline Pincer",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Scatter Into the Pile",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": 28
+        },
+        "self_only": true
+      }
+    ],
+    "sumpblind_thresher": [
+      {
+        "name": "Sightless Lunge",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Churn the Sump",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Felt You Move",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -30
+        }
+      }
+    ],
+    "yearmaw": [
+      {
+        "name": "Drowned Fang",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "The Year's One Meal",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Hold Them Under",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "strength": -34
+          }
+        }
+      },
+      {
+        "name": "Patience of the Sump",
+        "kind": "damage",
+        "amount": 69,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "armor": 72
+          }
+        }
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 52
+        }
+      }
+    ],
+    "the_leavings": [
+      {
+        "name": "Shiv From the Pile",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Bury and Wait",
+        "kind": "damage",
+        "amount": 61,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 62
+          }
+        }
+      },
+      {
+        "name": "Drag Under the Wrack",
+        "kind": "damage",
+        "amount": 49,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "agility": -32
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 99,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 46
+        }
+      }
+    ],
+    "old_saltbed": [
+      {
+        "name": "Crusted Horn",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Shed the Salt",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Weight of Three Dry Years",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 66
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 101,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 47
+        }
       }
     ],
     "ancient_treant": [

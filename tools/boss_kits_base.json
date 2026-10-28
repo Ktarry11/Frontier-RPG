@@ -9281,5 +9281,326 @@
    },
    "self_only": true
   }
+ ],
+ "the_last_kodo": [
+  {
+   "name": "Grief-Mad Gore",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Bellow for the Herd",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": -28
+   }
+  },
+  {
+   "name": "Will Not Lie Down",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 8,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 56
+   },
+   "self_only": true
+  }
+ ],
+ "goldcrown": [
+  {
+   "name": "Gilded Antler",
+   "kind": "damage",
+   "amount": 66,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Scatter the Stand",
+   "kind": "damage",
+   "amount": 52,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Light Through the Leaves",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 4,
+   "stat_mods": {
+    "agility": 34
+   },
+   "self_only": true
+  }
+ ],
+ "bristlehide_the_wintered": [
+  {
+   "name": "Wintered Cleaver",
+   "kind": "damage",
+   "amount": 72,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Break the Dam",
+   "kind": "damage",
+   "amount": 58,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Thorns Against the Cold",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 60
+   },
+   "self_only": true
+  }
+ ],
+ "rimehowl": [
+  {
+   "name": "Frozen Maul",
+   "kind": "damage",
+   "amount": 78,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Howl of the Last Cold",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Drive Them Back",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": -32
+   }
+  },
+  {
+   "name": "Pelt of the Last Winter",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 68
+   },
+   "self_only": true
+  }
+ ],
+ "snowmaw": [
+  {
+   "name": "Denmother's Claw",
+   "kind": "damage",
+   "amount": 70,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Stand Over the Den",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 58
+   },
+   "self_only": true
+  },
+  {
+   "name": "Warning Bellow",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -30
+   }
+  }
+ ],
+ "the_last_drift": [
+  {
+   "name": "Shard of Old Ice",
+   "kind": "damage",
+   "amount": 68,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "frost"
+  },
+  {
+   "name": "Remembers the Glacier",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 52
+   },
+   "self_only": true
+  },
+  {
+   "name": "Killing Cold",
+   "kind": "damage",
+   "amount": 56,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  }
+ ],
+ "yearmaw": [
+  {
+   "name": "Drowned Fang",
+   "kind": "damage",
+   "amount": 86,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "The Year's One Meal",
+   "kind": "damage",
+   "amount": 70,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Hold Them Under",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 4,
+   "stat_mods": {
+    "strength": -34
+   }
+  },
+  {
+   "name": "Patience of the Sump",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 72
+   },
+   "self_only": true
+  }
+ ],
+ "old_saltbed": [
+  {
+   "name": "Crusted Horn",
+   "kind": "damage",
+   "amount": 78,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Shed the Salt",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "nature",
+   "is_aoe": true
+  },
+  {
+   "name": "Weight of Three Dry Years",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 66
+   },
+   "self_only": true
+  }
+ ],
+ "the_leavings": [
+  {
+   "name": "Shiv From the Pile",
+   "kind": "damage",
+   "amount": 76,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Bury and Wait",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 62
+   },
+   "self_only": true
+  },
+  {
+   "name": "Drag Under the Wrack",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -32
+   }
+  }
  ]
 }
