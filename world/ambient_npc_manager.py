@@ -44,6 +44,9 @@ class AmbientNPC:
         # shared tile, but only the one for the player's own class is shown - see AmbientNPCManager.set_viewer_class.
         self.trains_class = data.get("trains_class")
         self.trains_profession = data.get("trains_profession")
+        #: MerchantTusk. A flag rather than an npc_id check, so the bank is a ROLE a record can carry
+        #: and not a hardcoded list of three names in the UI layer.
+        self.is_banker = bool(data.get("is_banker", False))
 
 
 class AmbientNPCManager:

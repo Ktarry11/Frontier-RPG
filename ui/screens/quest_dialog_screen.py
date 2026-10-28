@@ -40,6 +40,7 @@ class QuestDialogScreen(BaseScreen):
         # from world/vendor_manager.py the same way it already is from
         # AmbientNPC/RecruitNPC).
         self.is_vendor = hasattr(npc, "vendor_id")
+        self.is_banker = bool(getattr(npc, "is_banker", False))
         # Travel services this NPC offers (innkeeper bind, flight master, riding trainer, mount vendor) -
         # see world/travel_manager.py. Shown as extra buttons in greeting mode.
         self.services = services_for_npc(npc)
@@ -277,13 +278,15 @@ class QuestDialogScreen(BaseScreen):
 
     def _has_action_row(self):
         """Vendors (Shop/Leave) and travel-service NPCs get a row of action buttons instead of a lone Close."""
-        return self.is_vendor or bool(self.services)
+        return self.is_vendor or self.is_banker or bool(self.services)
 
     def _greeting_buttons(self):
         """[(label, action, rect)] - service buttons, then Shop for vendors, then Leave; centred in one row."""
         entries = [(self.SERVICE_LABELS[s], s) for s in self.services if s in self.SERVICE_LABELS]
         if self.is_vendor:
             entries.append(("Shop", "shop"))
+        if self.is_banker:
+            entries.append(("Bank", "bank"))
         entries.append(("Leave", "leave"))
         w, h, gap = 200, 50, 16
         total = len(entries) * w + (len(entries) - 1) * gap
@@ -300,6 +303,8 @@ class QuestDialogScreen(BaseScreen):
         sm = self.state_manager
         if action == "leave":
             sm.transition_to(GameState.OVERWORLD)
+        elif action == "bank":
+            sm.transition_to(GameState.BANK, current_banker=self.npc)
         elif action == "shop":
             # Vendor with nothing quest-related right now: talk, then choose to shop or walk away.
             sm.transition_to(GameState.VENDOR, current_vendor=self.npc)

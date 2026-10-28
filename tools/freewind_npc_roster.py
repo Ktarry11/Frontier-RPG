@@ -72,9 +72,11 @@ FREEWIND_AMBIENT = {
         "Wind-Rider Kalo", "tauren", "male", 6,
         "Only road in is the ramp, and the ramp is slow. Everything in a hurry comes to me."),
     "fw_banker": (
-        "Keeper of Coin Shaza", "tauren", "female", 20,
-        "A vault on a mesa with one road up it. I did not design the city and I could not have designed "
-        "it better."),
+        # MerchantTusk - the same troll who runs the vault in Orgrimmar and the Undercity. Nobody in
+        # Freewind can explain it and he has never offered. Replaces Keeper of Coin Shaza.
+        "MerchantTusk", "troll", "male", 3,
+        "Dere is only one bank, mon, and dere is only one me. Do not ask how dat works. Hand me ya "
+        "things and go be a hero."),
     "fw_auctioneer": (
         "Auctioneer Mott", "tauren", "male", 21,
         "Everything sold here was carried up a ramp, so everything here is priced like it was carried up "

@@ -44,6 +44,7 @@ class GameStateManager:
         self.current_vendor = None  # Phase 6: current vendor NPC for vendor screen
         self.current_quest_npc = None  # vendor/AmbientNPC object for QuestDialogScreen
         self.current_recruit_npc = None  # RecruitNPC object for RecruitDialogScreen
+        self.current_banker = None  # AmbientNPC the bank screen is titled with
         self.party = None           # entities.Party - built lazily via get_party()
         self.icon_ui_helper = None  # Will be set by main.py after initialization
         
@@ -276,6 +277,21 @@ class GameStateManager:
             screen.on_open()
         self._entered_state_fresh = False
 
+    def _ensure_bank_screen(self):
+        """Build the bank screen on demand, same lazy pattern as the vendor screen.
+
+        Rebuilt when the banker changes so the panel is titled with whoever you are standing in front
+        of - which matters less than usual here, since it is the same troll in all three cities.
+        """
+        if self.current_state != GameState.BANK:
+            return
+        screen = self.states.get(GameState.BANK)
+        if screen is None or screen.banker is not self.current_banker:
+            from ui.screens.bank_screen import BankScreen
+            self.states[GameState.BANK] = BankScreen(self, self.current_banker,
+                                                     icon_ui_helper=self.icon_ui_helper)
+        self._entered_state_fresh = False
+
     def _ensure_quest_dialog_screen(self):
         """
         Build the quest dialog screen on demand, same lazy pattern as
@@ -352,6 +368,7 @@ class GameStateManager:
         self._ensure_vendor_screen()
         self._ensure_quest_dialog_screen()
         self._ensure_recruit_dialog_screen()
+        self._ensure_bank_screen()
         
         if self.current_state in self.states:
             self.states[self.current_state].handle_event(event)
@@ -361,6 +378,7 @@ class GameStateManager:
         self._ensure_vendor_screen()
         self._ensure_quest_dialog_screen()
         self._ensure_recruit_dialog_screen()
+        self._ensure_bank_screen()
         
         if self.current_state in self.states:
             self.states[self.current_state].update(dt)
@@ -370,6 +388,7 @@ class GameStateManager:
         self._ensure_vendor_screen()
         self._ensure_quest_dialog_screen()
         self._ensure_recruit_dialog_screen()
+        self._ensure_bank_screen()
         
         if self.current_state in self.states:
             self.states[self.current_state].render(screen)

@@ -13,6 +13,7 @@ class GameState(Enum):
     MAP = "map"
     INVENTORY = "inventory"
     VENDOR = "vendor"
+    BANK = "bank"
     TALENTS = "talents"
     OVERWORLD = "overworld"
     PARTY = "party"

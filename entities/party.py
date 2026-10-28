@@ -131,6 +131,9 @@ class Party:
         # remove_currency/get_currency_string below - these replace the
         # identically-named Character methods, which are now removed.
         self.copper = 0
+        # Shared overflow storage, for the same reason the purse is shared - see entities/bank.py.
+        from entities.bank import Bank
+        self.bank = Bank()
 
     # ------------------------------------------------------------------
     # Roster management
@@ -289,6 +292,7 @@ class Party:
             "rows": {m.name: getattr(m, "row", FRONT_ROW)
                      for m in [self.player] + self.all_recruits()},
             "copper": self.copper,
+            "bank": self.bank.to_dict(),
         }
 
     @classmethod
@@ -300,6 +304,12 @@ class Party:
             party.members.append(Character.from_dict(entry))
         for entry in data.get("bench", []):
             party.bench.append(Character.from_dict(entry))
+
+        # A save written before the bank existed simply has no "bank" key and gets a fresh empty one
+        # with its single free tab - there is no migration to write.
+        if "bank" in data:
+            from entities.bank import Bank
+            party.bank = Bank.from_dict(data["bank"])
 
         if "copper" in data:
             party.copper = data["copper"]

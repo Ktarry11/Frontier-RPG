@@ -28,8 +28,10 @@ AMBIENT = {
     "uc_guard_2": ("Deathguard Halloran", "forsaken", M, 9, "left",
                    "Keep to the avenue. The canal is not for swimming, and I'm tired of fishing out tourists."),
     # ---- the Trade Quarter
-    "uc_banker": ("Banker Moravin", "forsaken", M, 4, "down",
-                  "Your gold is quite safe with us. We have, after all, all the time in the world to guard it."),
+    "uc_banker": ("MerchantTusk", "troll", M, 3, "down",
+                  # The same troll who runs the vault in Orgrimmar and Freewind Post. Replaces
+                  # Banker Moravin, who was ambient flavour with no quest or service ties.
+                  "Dere is only one bank, mon, and dere is only one me. Do not ask how dat works. Hand me ya things and go be a hero."),
     "uc_auctioneer": ("Auctioneer Dross", "forsaken", M, 12, "down",
                       "Going once, going twice... going to the lady with the suspiciously large coin purse!"),
     "uc_undertaker": ("Mortician Gravelle", "forsaken", F, 7, "right",

@@ -2977,15 +2977,16 @@
     },
     {
       "npc_id": "uc_banker",
-      "name": "Banker Moravin",
+      "name": "MerchantTusk",
       "zone": "Undercity",
       "x": 75,
       "y": 75,
-      "greeting": "Your gold is quite safe with us. We have, after all, all the time in the world to guard it.",
+      "greeting": "Dere is only one bank, mon, and dere is only one me. Do not ask how dat works. Hand me ya things and go be a hero.",
+      "facing": "down",
+      "race": "troll",
       "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 4,
-      "facing": "down"
+      "appearance_variant": 3,
+      "is_banker": true
     },
     {
       "npc_id": "uc_auctioneer",
@@ -4861,15 +4862,16 @@
     },
     {
       "npc_id": "fw_banker",
-      "name": "Keeper of Coin Shaza",
+      "name": "MerchantTusk",
       "zone": "freewind_post",
       "x": 52,
       "y": 106,
-      "greeting": "A vault on a mesa with one road up it. I did not design the city and I could not have designed it better.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 20,
-      "facing": "down"
+      "greeting": "Dere is only one bank, mon, and dere is only one me. Do not ask how dat works. Hand me ya things and go be a hero.",
+      "facing": "down",
+      "race": "troll",
+      "gender": "male",
+      "appearance_variant": 3,
+      "is_banker": true
     },
     {
       "npc_id": "fw_auctioneer",
@@ -6504,6 +6506,19 @@
         "essence_harvesting",
         "engineering"
       ]
+    },
+    {
+      "npc_id": "org_banker",
+      "name": "MerchantTusk",
+      "zone": "orgrimmar",
+      "x": 92,
+      "y": 90,
+      "greeting": "Dere is only one bank, mon, and dere is only one me. Do not ask how dat works. Hand me ya things and go be a hero.",
+      "facing": "down",
+      "race": "troll",
+      "gender": "male",
+      "appearance_variant": 3,
+      "is_banker": true
     }
   ]
 }
