@@ -68,6 +68,36 @@ def main():
     for rid, t in shared:
         fails.append(f"{rid} implies a shared history: {t[:70]!r}")
 
+    print("\n== it reads as speech, not prose")
+    # THE TELL THAT GOT PAST THE FIRST DRAFT. All 80 lines shipped without a single contraction,
+    # because they were written in the register of the third-person backgrounds - where a dry
+    # uncontracted narrator is a deliberate voice - rather than as dialogue, where it is a robot.
+    # Kyle: "banter should not be weird AI. I assume he doesnt say 'thats the whole scorecard'".
+    # A handful of characters not contracting is CHARACTER (Ivan's English is minimal, Pasang speaks
+    # deliberately, Kesten is an old-fashioned Aberdonian). Nobody contracting is a system failure.
+    contraction = re.compile(r"\b[\w]+'(s|t|re|ll|ve|d|m)\b")
+    with_c = [ln for ln in lines if contraction.search(ln.text)]
+    per = {}
+    for ln in lines:
+        n, c = per.get(ln.recruit_id, (0, 0))
+        per[ln.recruit_id] = (n + 1, c + bool(contraction.search(ln.text)))
+    never = sorted(r for r, (n, c) in per.items() if c == 0)
+    share = len(with_c) / max(1, len(lines))
+    print(f"  {len(with_c)} of {len(lines)} lines use a contraction ({share:.0%})")
+    print(f"  {len(never)} characters never contract: {never}")
+    if share < 0.40:
+        fails.append(f"only {share:.0%} of lines use a contraction - these are written, not spoken")
+    if len(never) > 6:
+        fails.append(f"{len(never)} characters never contract; a few is accent, this many is register")
+
+    print("\n== nothing reads as written prose")
+    WRITERLY = re.compile(r"the whole (scorecard|of it)|\bone does not\b|\bI should like\b|"
+                          r"\bit never helps anybody\b|\bwhich is to say\b", re.I)
+    prose = [(ln.recruit_id, ln.text) for ln in lines if WRITERLY.search(ln.text)]
+    print(f"  {len(prose)} offending lines")
+    for rid, t in prose:
+        fails.append(f"{rid} reads as prose, not speech: {t[:70]!r}")
+
     print("\n== coverage")
     cov = bm.coverage()
     for trig in TRIGGERS:
@@ -105,10 +135,14 @@ def main():
             party.members.append(recs[rid].build_character())
     fired = 0
     for trig in TRIGGERS:
-        beat = bm.fire(trig, party, force=True)
-        if beat:
+        # Clear the speaker queue between triggers. This asks "can this trigger EVER fire", not "can
+        # it fire immediately after the last one" - the manager deliberately drops a beat rather than
+        # let the same companion open twice running, so firing all five back to back legitimately
+        # loses one and the check was failing a working rule.
+        bm.current = None
+        bm.recent_speakers = []
+        if bm.fire(trig, party, force=True):
             fired += 1
-            bm.current = None
     print(f"  {fired} of {len(TRIGGERS)} triggers produced a beat with a 4-companion party")
     if fired < len(TRIGGERS):
         fails.append(f"only {fired}/{len(TRIGGERS)} triggers fired for a normal party")
