@@ -241,6 +241,16 @@ class PortalManager:
             "The Aspen Wilderness": {
                 (105, 5): ("Southern Barrens", 140, 233),
                 (145, 48): ("The Weeping Ice", 48, 124),
+                # The pass over the divide. Carved with the zone and left unregistered until there was
+                # something on the far side; Southern Thousand Needles now exists.
+                (104, 176): ("Southern Thousand Needles", 110, 12),
+            },
+
+            # ===== SOUTHERN THOUSAND NEEDLES =====
+            # (168, 88) on top of Freewind North is carved but NOT registered until Freewind Post is
+            # built - same fail-safe pattern the pass itself used.
+            "Southern Thousand Needles": {
+                (110, 4): ("The Aspen Wilderness", 104, 172),
             },
             "The Weeping Ice": {
                 (48, 126): ("The Aspen Wilderness", 145, 51),

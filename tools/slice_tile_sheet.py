@@ -72,6 +72,34 @@ _set("aspen", 8, 6, "tools/tile_sheets/aspen_tiles.png", "assets/tiles/aspen/mat
 #: the module docstring warns about and is invisible until a texture tiles.
 
 
+# ---------------------------------------------------------------------------------------------------------
+# SOUTHERN THOUSAND NEEDLES. 8x6 = 48 cells, one dropped.
+#
+# Mesa country, plus the tail of the aspen overlay along its northern edge (row 5) and Freewind's own
+# settlement ground (row 6). Row 5 is the REVERSE of the Aspen Wilderness's seam: up there Barrens dust
+# meets leaf mould, down here leaf mould meets red stone.
+#
+# DROPPED: row 6 column 7 came back as a hide-drying rack seen from above - a prop, not a ground texture.
+# It would tile as a repeating rack. The drying rack already exists as a real prop on the prop sheet
+# (sn_drying_rack), so nothing is lost and a dead asset is not left in the repo.
+#
+# KEPT WITH A WARNING: sn_undercut (row 2, column 4) is a shadowed overhang and reads as a scene. It is
+# fine as a sparse accent under a rim and wrong as a field material - the baker must not score it broadly.
+# ---------------------------------------------------------------------------------------------------------
+_set("southern_needles", 8, 6, "tools/tile_sheets/southern_needles_tiles.png",
+     "assets/tiles/southern_needles/materials", """
+    sn_hardpan sn_dust_pebbles sn_cracked_clay sn_dry_grass sn_sandstone_pale sn_lichen_orange sn_gravel_scatter sn_packed_path
+    sn_layered_stone sn_iron_banded sn_crumbling_rim sn_undercut sn_scree sn_rubble_base sn_stone_cracks sn_polished_shelf
+    sn_red_sand sn_rippled_sand sn_wash_gravel sn_salt_crust sn_dry_mud sn_dust_drift sn_hoof_churned sn_desert_scrub
+    sn_pool_shallow sn_pool_deep sn_wet_sand sn_reed_bed sn_damp_soil sn_spring_grass sn_mossy_stone sn_salt_rime
+    sn_duff_on_red sn_seam_line sn_needle_sand sn_grass_dirt_mix sn_pine_duff sn_root_cracked sn_shaded_red sn_leaves_sandstone
+    sn_camp_dirt sn_straw sn_plank_deck sn_boardwalk sn_rope_matting sn_firepit_ash _drop_drying_stakes sn_stone_terrace
+""", rows_y=[0, 182, 351, 511, 680, 846, 1024], drop=("_drop_drying_stakes",))
+#: Measured off the sheet, not divided. Rows come out 182/169/160/169/166/178 where an even split would be
+#: a flat 171 - the first row is 22px taller than the third. Columns ARE even to within a pixel, so only
+#: the rows need declaring. Same drift the aspen sheet had; see the module docstring.
+
+
 def make_seamless(im, blend=BLEND):
     """Cross-fade opposite edges so the texture repeats without a seam.
 

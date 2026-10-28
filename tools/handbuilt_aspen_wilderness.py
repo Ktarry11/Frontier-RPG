@@ -78,8 +78,11 @@ TAU = 2.0 * np.pi
 PORTALS = {(105, 5): "Southern Barrens",
            #: The cave mouth, high on the Rim's east side and well off the main trail - a glacier
            #: remnant belongs up near the ice, and this one should be found rather than tripped over.
-           (145, 48): "The Weeping Ice"}
-ARRIVALS = [(105, 11), (145, 51)]
+           (145, 48): "The Weeping Ice",
+           #: THE PASS. Carved from the start and deliberately unregistered until there was something on
+           #: the far side of it; Southern Thousand Needles now exists, so it opens.
+           (104, 176): "Southern Thousand Needles"}
+ARRIVALS = [(105, 11), (145, 51), (104, 172)]
 START = (105, 12)
 
 #: Where the forest stops. In elevation units, not tiles - see elevation().

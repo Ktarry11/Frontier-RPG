@@ -71,6 +71,17 @@ _set("underdark_props", 6, 6, "assets/tiles/underdark/props", """
 #: Underdark's giant mushrooms they get scattered by the forest pass and their relative scale against the
 #: brush and camp gear is load-bearing. Nothing from Earth is on this sheet (Kyle, 2026-10-27: "we dont
 #: want anything from our world yet"); the burn and the seam row is the range's own violence instead.
+#: SOUTHERN THOUSAND NEEDLES props. Row 4 is the whole Freewind idea in six objects - rope, aspen timber
+#: and the gear to span a gap between mesas. Nothing on this sheet is Earth-made; the aspen is the only
+#: imported thing on it and it arrived as trees.
+_set("southern_needles_props", 6, 6, "assets/tiles/southern_needles/props", """
+    sn_rock_spire sn_boulder_red sn_layered_stack sn_split_stone sn_rock_arch sn_toppled_column
+    sn_barrel_cactus sn_saguaro sn_thornbush sn_desert_sage sn_dead_shrub sn_grass_tuft
+    sn_kodo_skull sn_rib_bones sn_hide_frame sn_driftwood_salt sn_clay_vessel sn_stone_pile
+    sn_rope_coil sn_anchor_post sn_plank_stack sn_scaffold sn_pulley_hoist sn_bridge_upright
+    sn_hide_tent sn_totem_aspen sn_cook_fire sn_drying_rack sn_water_trough sn_hide_banner
+    sn_windsock sn_streamers sn_lookout_platform sn_cairn sn_rope_railing sn_spear_bundle""")
+
 _set("aspen_props", 6, 6, "assets/tiles/aspen/props", """
     asp_aspen_tall asp_aspen_bare asp_aspen_young asp_aspen_clump asp_aspen_fallen asp_aspen_stump
     asp_pine_tall asp_pine_bent asp_pine_krummholz asp_pine_young asp_snag_standing asp_deadfall_pile
