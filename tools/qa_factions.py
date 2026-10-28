@@ -152,6 +152,36 @@ def main():
         print(f"    {it} -> {who}")
         fails.append(f"vendors sell '{it}', which does not exist: {who}")
 
+    print("\n== detail panel content")
+    tier_ids = [t["id"] for t in fm.tiers]
+    for fid, fac in fm.factions.items():
+        if not fac.lore:
+            fails.append(f"{fid}: no lore - the detail panel would open on an empty page")
+        if not fac.perks:
+            fails.append(f"{fid}: no perks - nothing tells the player what reputation is FOR")
+        seen = []
+        for perk in fac.perks:
+            t = perk.get("tier")
+            if t not in tier_ids:
+                fails.append(f"{fid}: perk at unknown tier '{t}'")
+                continue
+            seen.append(tier_ids.index(t))
+            if not perk.get("text"):
+                fails.append(f"{fid}: perk at '{t}' has no text")
+        if seen != sorted(seen):
+            fails.append(f"{fid}: perks are not in ascending tier order - the ladder would read backwards")
+        # Every mechanical reward should have a rung the player can read, or it is a surprise rather
+        # than a goal. Warned, not failed: a faction may deliberately keep something back.
+        promised = set(fac.rewards.get("quests", {}).values()) \
+            | {t for tbl in fac.rewards.get("vendor_stock", {}).values() for t in tbl} \
+            | ({fac.rewards["recruit"]["standing"]} if fac.rewards.get("recruit") else set())
+        described = {p.get("tier") for p in fac.perks}
+        undescribed = promised - described
+        print(f"  {fac.name}: {len(fac.lore)} lore paragraphs, {len(fac.perks)} rungs, "
+              f"{len(undescribed)} rewards with no rung")
+        if undescribed:
+            fails.append(f"{fid}: rewards at {sorted(undescribed)} are not described on the panel")
+
     print("\n== gates open at the threshold and not before")
     rows = []
     for st in (0, 3000, 9000, 21000, 42000):

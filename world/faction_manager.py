@@ -52,6 +52,12 @@ class Faction:
         #: THE SHARED LADDER, ascending. Every faction gets the same list object - a faction does not own
         #: a scale, which is the whole point of the restructure.
         self.tiers = tiers
+        self.home_name = d.get("home_name", "")
+        #: Shown on the detail panel. Paragraphs, authored, never generated from the mechanical data.
+        self.lore = d.get("lore", [])
+        #: [(tier_id, text)] - what each threshold actually buys, in words. Authored rather than derived
+        #: from `rewards`, because deriving it would show the player item ids and quest slugs.
+        self.perks = d.get("perks", [])
         self.quest_rep = d.get("quest_rep", {})
         self.kill_rep = d.get("kill_rep", {}).get("creatures", {})
         self.rewards = d.get("rewards", {})

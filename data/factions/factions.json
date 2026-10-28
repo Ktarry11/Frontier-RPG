@@ -33,6 +33,21 @@
       "name": "The Crimson Codex",
       "description": "Blood elf arcanists who came down a fissure three years ago to index a cavern that did not exist, and have not finished.",
       "home_zone": "kaels_bastion",
+      "home_name": "Kael's Bastion, the Crystalline Underdark",
+      "_lore_note": "Shown on the faction's detail panel. Written as the Codex would have it written - they are the ones keeping the record, and they are not neutral about themselves.",
+      "lore": [
+        "A party of blood elves surveying the Ruins of Dalaran found a fissure in ground they had already mapped. It had not been there the month before. It went down further than their lamps, and kept going, and opened into a cavern the size of a county with a light hanging in the middle of it that nobody has reached since.",
+        "That was three years ago, in the same year the Integration rewrote the world and a great many things opened at once. The Codex do not describe the cavern as a discovery. They describe it as a find, which is a word for something that was already there, and they have been very careful to keep using it.",
+        "They came to catalogue, not to settle, and they will correct you on the distinction. Eleven thousand entries in three years: every crystal, every column, every fungal stand, each with a number and a provenance and a column it belongs in. Their stated purpose is to have the place properly written down before anyone else can claim it. Their actual conviction, which none of them will put in a report, is that a thing properly written down is a thing owned.",
+        "The index has begun to fail. Forty-one entries now have a number, a provenance, and no column that fits, and the count is rising. There is Dalaran masonry two hundred spans below Dalaran that nobody carried down. There is crystal growing to a tolerance no mineral holds. And under the Sporefall something has spent three years reading the Codex's own work through its contamination of their camp, and has started writing entries better than theirs.",
+        "They are precise, dry, faintly superior, and far more rattled than any of them will admit. They are also, and they know it, newcomers: they arrived the same year you did, in a place that is the same age as both of you, and not one person in Kael's Bastion has a prior claim on anything in it."
+      ],
+      "perks": [
+        {"tier": "friendly", "text": "Quartermaster Sylvaine will sell you the superior potions she keeps behind the counter."},
+        {"tier": "honored",  "text": "Her guardian elixirs, and Overseer Greyquill opens the lower Archive cut - the dig the Codex do not mention to arrivals."},
+        {"tier": "revered",  "text": "The best of the Quartermaster's stock, and the Codex will release Kesten Ambrose - entry four hundred and six, the only person in their record - to travel with you."},
+        {"tier": "exalted",  "text": "Codex-Master Duskwaking writes your entry and seals it. A sealed entry cannot be amended. She has never done this for a crystal, a column or a cavern."}
+      ],
       "quest_rep": {
         "_comment": "Per quest, by shape. kill_boss objectives pay the boss rate; the named capstones pay more.",
         "default": 350,

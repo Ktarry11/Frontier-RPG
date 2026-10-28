@@ -40,6 +40,9 @@ class QuestJournalScreen(BaseScreen):
         self.active_tab_button = pygame.Rect(20, 70, 160, 36)
         self.completed_tab_button = pygame.Rect(190, 70, 160, 36)
         self.reputation_tab_button = pygame.Rect(360, 70, 160, 36)
+        #: Set when a faction row is clicked; mirrors selected_quest_id's list/detail split.
+        self.selected_faction_id = None
+        self.faction_row_rects = []     # rebuilt each render, index-aligned to the listed factions
 
         self.quest_row_rects = []  # rebuilt each render, index-aligned to the currently listed quests
 
@@ -112,11 +115,14 @@ class QuestJournalScreen(BaseScreen):
                 self.abandon_confirm_pending = False
             elif self.selected_quest_id is not None:
                 self.selected_quest_id = None
+            elif self.selected_faction_id is not None:
+                self.selected_faction_id = None
             else:
                 self.state_manager.transition_to(GameState.OVERWORLD)
             return
 
-        if event.type == pygame.KEYDOWN and self.selected_quest_id is None:
+        if event.type == pygame.KEYDOWN and self.selected_quest_id is None \
+                and self.selected_faction_id is None:
             # Keyboard scrolling: always works, even when a mouse wheel / trackpad
             # does not deliver usable wheel events.
             key_steps = {pygame.K_UP: -self.SCROLL_STEP_PX, pygame.K_DOWN: self.SCROLL_STEP_PX,
@@ -161,6 +167,22 @@ class QuestJournalScreen(BaseScreen):
             self.state_manager.transition_to(GameState.OVERWORLD)
             return
 
+        if self.selected_faction_id is not None:
+            if self.back_button.collidepoint(mouse_pos):
+                self.selected_faction_id = None
+            return
+
+        # Guarded on the tab, not just on the rects: _render_list does not own faction_row_rects, so
+        # without this a stale rect left over from the Reputation tab would swallow a click on a quest
+        # row at the same coordinates after switching back.
+        for i, rect in enumerate(self.faction_row_rects if self.active_tab == "reputation" else ()):
+            if rect.collidepoint(mouse_pos) and self._list_viewport.collidepoint(mouse_pos):
+                from world.faction_manager import get_faction_manager
+                listed = get_faction_manager().all_factions()
+                if i < len(listed):
+                    self.selected_faction_id = listed[i].faction_id
+                return
+
         if self.selected_quest_id is not None:
             if self.back_button.collidepoint(mouse_pos):
                 self.selected_quest_id = None
@@ -191,17 +213,20 @@ class QuestJournalScreen(BaseScreen):
         if self.active_tab_button.collidepoint(mouse_pos):
             if self.active_tab != "active":
                 self.active_tab = "active"
-                self.scroll_offset = 0  # switching tabs starts scrolled to top, not carrying over a stale offset from the other tab's list length
+                self.scroll_offset = 0
+                self.selected_faction_id = None  # switching tabs starts scrolled to top, not carrying over a stale offset from the other tab's list length
             return
         if self.completed_tab_button.collidepoint(mouse_pos):
             if self.active_tab != "completed":
                 self.active_tab = "completed"
                 self.scroll_offset = 0
+                self.selected_faction_id = None
             return
         if self.reputation_tab_button.collidepoint(mouse_pos):
             if self.active_tab != "reputation":
                 self.active_tab = "reputation"
                 self.scroll_offset = 0
+                self.selected_faction_id = None
             return
 
         for i, rect in enumerate(self.quest_row_rects):
@@ -240,12 +265,17 @@ class QuestJournalScreen(BaseScreen):
         screen.fill((10, 10, 15))
 
         title = "REPUTATION" if self.active_tab == "reputation" else "QUEST JOURNAL"
+        if self.selected_faction_id is not None and self.active_tab == "reputation":
+            title = "FACTION"
         self.renderer.draw_text(screen, title, (SCREEN_WIDTH // 2 - 110, 24),
                                 size="large", color=COLOR_GOLD)
         self.renderer.draw_button(screen, self.close_button, "Close")
 
         if self.active_tab == "reputation":
-            self._render_reputation(screen)
+            if self.selected_faction_id is not None:
+                self._render_faction_detail(screen)
+            else:
+                self._render_reputation(screen)
         elif self.selected_quest_id is not None:
             self._render_detail(screen)
         else:
@@ -268,6 +298,7 @@ class QuestJournalScreen(BaseScreen):
 
         quests = self._current_list()
         self.quest_row_rects = []
+        self.faction_row_rects = []
 
         if not quests:
             msg = "No active quests." if self.active_tab == "active" else "No completed quests yet."
@@ -379,7 +410,8 @@ class QuestJournalScreen(BaseScreen):
         """
         from world.faction_manager import get_faction_manager
         self._render_tabs(screen)
-        self.quest_row_rects = []          # nothing here is clickable; stop stale quest rows hit-testing
+        self.quest_row_rects = []          # stop stale quest rows hit-testing on this tab
+        self.faction_row_rects = []
 
         factions = get_faction_manager().all_factions()
         if not factions:
@@ -402,6 +434,9 @@ class QuestJournalScreen(BaseScreen):
         y = list_top - self.scroll_offset
         for f in factions:
             row = pygame.Rect(20, y, SCREEN_WIDTH - 40, row_h - 8)
+            # Recorded at its real position whether or not it is on screen, so the index stays aligned
+            # with all_factions() regardless of scroll - same contract as quest_row_rects.
+            self.faction_row_rects.append(row)
             if row.bottom >= viewport.top and row.top <= viewport.bottom:
                 pygame.draw.rect(screen, (24, 24, 30), row)
                 pygame.draw.rect(screen, (70, 70, 80), row, 1)
@@ -430,6 +465,90 @@ class QuestJournalScreen(BaseScreen):
             y += row_h
         screen.set_clip(None)
         self._render_scrollbar(screen, viewport, content_height)
+
+    def _render_faction_detail(self, screen):
+        """One faction, in full: who they are, where they stand with you, and what that standing buys.
+
+        I originally built the reputation tab as a flat list and wrote in this file that a faction had
+        "no second screen's worth of anything to show". That was wrong twice over. A faction in this game
+        has real history, and - more practically - nothing anywhere else tells the player what reputation
+        is FOR. The perk ladder below is the only place the rewards are discoverable.
+
+        The body scrolls, because five paragraphs of lore plus a four-rung ladder overflows 720px. The
+        height is MEASURED first, by laying the same text out on a scratch surface, rather than drawn and
+        clamped a frame later - a scrollbar that is wrong on the first frame of every open is worse than
+        no scrollbar.
+        """
+        from world.faction_manager import get_faction_manager
+        self.renderer.draw_button(screen, self.back_button, "Back")
+        f = get_faction_manager().get(self.selected_faction_id)
+        if f is None:
+            self.selected_faction_id = None
+            return
+
+        tier = f.tier
+        colour = self.TIER_COLOURS.get(tier["id"], COLOR_WHITE)
+        self.renderer.draw_text(screen, f.name, (20, 76), color=COLOR_WHITE, size="large")
+        if f.home_name:
+            self.renderer.draw_text(screen, f.home_name, (20, 112), color=(140, 140, 150), font_size=16)
+
+        into, span = f.progress()
+        self.renderer.draw_text(screen, tier["name"], (SCREEN_WIDTH - 420, 80), color=colour)
+        bar = pygame.Rect(SCREEN_WIDTH - 420, 108, 300, 16)
+        pygame.draw.rect(screen, (18, 18, 22), bar)
+        fill = int(bar.width * max(0.0, min(1.0, into / span)))
+        if fill:
+            pygame.draw.rect(screen, colour, pygame.Rect(bar.x, bar.y, fill, bar.height))
+        pygame.draw.rect(screen, (90, 90, 100), bar, 1)
+        label = f"{f.standing}" if f.next_tier is None else f"{into} / {span}"
+        self.renderer.draw_text(screen, label, (bar.right + 12, 106), color=(170, 170, 180), font_size=16)
+
+        top, bottom = 140, SCREEN_HEIGHT - 50
+        viewport = pygame.Rect(20, top, SCREEN_WIDTH - 40, bottom - top)
+        self._list_viewport = viewport
+        width = SCREEN_WIDTH - 90
+
+        scratch = pygame.Surface((1, 1))
+        content_height = self._draw_faction_body(scratch, f, 0, width) + 20
+        self._list_content_height = content_height
+        self.scroll_offset = max(0, min(self.scroll_offset, max(0, content_height - viewport.height)))
+
+        screen.set_clip(viewport)
+        self._draw_faction_body(screen, f, top - self.scroll_offset, width)
+        screen.set_clip(None)
+        self._render_scrollbar(screen, viewport, content_height)
+
+    def _draw_faction_body(self, screen, f, y, width):
+        """Lay out the lore and the perk ladder. Called twice per frame - once on a scratch surface to
+        measure, once on the real one to draw - so it must be free of side effects."""
+        if f.lore:
+            self.renderer.draw_text(screen, "Background", (20, y), color=COLOR_GOLD)
+            y += 30
+            for para in f.lore:
+                y = self._draw_wrapped_text(screen, para, (20, y), max_width=width,
+                                            color=(185, 185, 190), line_height=22)
+                y += 12
+            y += 10
+
+        if f.perks:
+            self.renderer.draw_text(screen, "What standing earns you", (20, y), color=COLOR_GOLD)
+            y += 30
+            by_id = {t["id"]: t for t in f.tiers}
+            for perk in f.perks:
+                t = by_id.get(perk.get("tier"))
+                if t is None:
+                    continue
+                earned = f.at_least(t["id"])
+                # Earned rungs take the tier's own colour; the rest are dimmed but still READABLE - a
+                # reward you cannot read yet is not a goal, it is a locked door with no sign on it.
+                name_col = self.TIER_COLOURS.get(t["id"], COLOR_WHITE) if earned else (110, 110, 120)
+                text_col = (185, 185, 190) if earned else (130, 130, 138)
+                mark = "+" if earned else "-"
+                self.renderer.draw_text(screen, f"{mark} {t['name']}", (20, y), color=name_col, font_size=18)
+                y = self._draw_wrapped_text(screen, perk.get("text", ""), (150, y), max_width=width - 130,
+                                            color=text_col, line_height=22)
+                y += 14
+        return y
 
     def _render_scrollbar(self, screen, viewport, content_height):
         """Thin vertical track + thumb along the list's right edge - the
