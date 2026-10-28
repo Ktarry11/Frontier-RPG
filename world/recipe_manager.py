@@ -136,8 +136,18 @@ def make_recipe_scroll(recipe_id: str) -> "Item | None":
         f"Requires {profession.title()} ({skill_req})."
     )
 
+    # ONE ICON PER PROFESSION, REUSED. Kyle, 2026-10-28: "we can do wow style and reuse heavily."
+    # assets/icons/recipes holds a scroll for each profession plus a default; 192 scrolls, 8 files.
+    # Without this every recipe scroll rendered as a rarity-coloured box, because slot "recipe" is
+    # not in gear_icons' prefix table and should not be - a scroll is not a piece of gear.
+    icon_id = f"recipe_{profession}"
+    if not (Path(__file__).parent.parent / "assets" / "icons" / "recipes" /
+            f"{icon_id}.png").exists():
+        icon_id = "recipe_default"
+
     return Item(
         item_id=f"recipe_scroll_{recipe_id}",
+        icon_id=icon_id,
         name=display_name,
         slot="recipe",          # special non-equip slot; inventory screen renders these as usables
         item_level=item_level,

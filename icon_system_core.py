@@ -534,6 +534,11 @@ class IconRenderer:
     #: entities/consumable_icons.py, which maps all 68 potions/elixirs onto
     #: the 48 files (each elixir family shares a lesser and a greater bottle).
     CONSUMABLE_ICON_DIR = Path("assets/icons/consumables")
+    #: Recipe scrolls. One icon per profession, reused across all 192 learnable recipes, which is
+    #: how WoW does it. Before this directory existed every scroll fell through to the rarity-box
+    #: fallback, because slot "recipe" has no entry in gear_icons' prefix table and never will -
+    #: a scroll is not a piece of gear.
+    RECIPE_ICON_DIR = Path("assets/icons/recipes")
 
     def __init__(self, icon_registry: IconRegistry, cache_dir: Path = Path("assets/icons")):
         self.registry = icon_registry
@@ -567,7 +572,8 @@ class IconRenderer:
         # explicitly). Check both directories - ability_id and talent_id
         # never collide, so trying abilities first then talents is safe.
         for icon_dir in (self.ABILITY_ICON_DIR, self.TALENT_ICON_DIR, self.BAG_ICON_DIR, self.GEAR_ICON_DIR,
-                         self.VENDOR_TRASH_ICON_DIR, self.QUEST_ITEM_ICON_DIR, self.CONSUMABLE_ICON_DIR):
+                         self.VENDOR_TRASH_ICON_DIR, self.QUEST_ITEM_ICON_DIR, self.CONSUMABLE_ICON_DIR,
+                         self.RECIPE_ICON_DIR):
             real_path = icon_dir / f"{icon_id}.png"
             if real_path.exists():
                 try:

@@ -404,6 +404,13 @@ MATERIAL_TYPE_FOLDERS = {
     # vials, flux, ...). They never appear as a world node, but they do show
     # in the bag and on vendor rows, both of which route through here.
     "reagent": "reagents",
+    # These three had no entry at all, so the .get() fallback used the bare material_type as the
+    # folder name - "part", "meat", "kit" - which does not match the plural convention every other
+    # entry here follows. Named explicitly now, with art installed from Kyle's icon pack
+    # (tools/install_icon_pack.py).
+    "part": "parts",
+    "meat": "meat",
+    "kit": "kits",
 }
 
 #: Skill cap per profession TIER, not an absolute profession cap - "early"
