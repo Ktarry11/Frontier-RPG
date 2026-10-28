@@ -361,6 +361,33 @@ class CombatEngine:
             buff_pct = actor.get_status_stat_mod("threat_generation_pct") or 0.0
             threat_mult *= (1.0 + buff_pct / 100.0)
 
+        # TALENT-sourced threat, same key but a DIFFERENT NUMERIC CONVENTION,
+        # which is why it needs its own branch rather than folding into the
+        # buff lookup above:
+        #
+        #   ability buff stat_mods  percent POINTS   (Twilight Domain: 180)
+        #   talent node effects     FRACTIONS        (Defiance: 0.08/rank)
+        #
+        # Every threat talent in the game was authored on this key as a
+        # fraction - 15 nodes across 11 specs, including Warrior
+        # Protection's Defiance, the canonical tank threat talent, and the
+        # threat-REDUCTION talents that are supposed to keep healers and
+        # hybrid DPS off the top of the table (Subtlety, Healing Grace,
+        # Spirit Weapons). None of them reached this method, because the
+        # only talent key read here was threat_multiplier and NOT ONE node
+        # uses it: threat_multiplier is reserved for Earthen Guardian, which
+        # sets it as a true multiplier (3x) in get_talent_effects rather
+        # than summing like every other key. So tanks held threat purely on
+        # raw damage and healers generated full threat.
+        #
+        # Reading it here, additively, is what the 15 authored nodes already
+        # mean, and it leaves threat_multiplier's multiplicative contract
+        # untouched. Floored so a stack of reduction talents can only take
+        # threat to zero, never invert it into healing the enemy's table.
+        if hasattr(actor, "get_talent_effect"):
+            talent_pct = actor.get_talent_effect("threat_generation_pct", 0.0) or 0.0
+            threat_mult *= max(0.0, 1.0 + talent_pct)
+
         # low_health_threat_pct (Tinker's Battle Engineer: "+10%/rank
         # threat generated while below 50% health" - same "while below X%
         # health" shape as low_health_damage_reduction_pct in
