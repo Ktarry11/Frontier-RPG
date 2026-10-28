@@ -1,5 +1,5 @@
 """
-Hand-built Freewind Post (112x104): the tauren capital-in-exile, spread across THREE MESA TOPS joined by
+Hand-built Freewind Post (150x140): the tauren capital-in-exile, spread across THREE MESA TOPS joined by
 rope bridges, seen from above as three decks floating over a canyon floor a very long way down.
 
 ARCHETYPE: THE THREE DECKS.
@@ -39,7 +39,7 @@ import numpy as np
 from world.tilemap import Tilemap
 
 BAKED_DIR = "assets/tiles/freewind_post/baked"
-W, H = 112, 104
+W, H = 150, 140
 
 SNP = "assets/tiles/southern_needles/props/"
 ASP = "assets/tiles/aspen/props/"
@@ -48,39 +48,39 @@ TAU = "assets/buildings/"
 #: (name, cx, cy, rx, ry). The three tops, deliberately unequal - one to arrive on, one to live on, one to
 #: look out from.
 DECKS = {
-    "landing":  (56, 26, 19, 14),
-    "long":     (38, 68, 27, 20),
-    "windward": (88, 66, 15, 12),
+    "landing":  (76, 34, 25, 19),
+    "long":     (52, 92, 37, 27),
+    "windward": (118, 89, 21, 17),
 }
 
 #: (from, to, half-width). The main span is wide enough for a kodo; the others are not, and the long
 #: north-east one is a single rope with planks on it.
 BRIDGES = [
-    ("landing", "long", 2.6),
-    ("long", "windward", 2.0),
-    ("landing", "windward", 1.3),
+    ("landing", "long", 3.0),
+    ("long", "windward", 2.4),
+    ("landing", "windward", 1.5),
 ]
 
-PORTAL = (56, 14)          # on the Landing, at the head of the ramp down to the canyon floor
-ARRIVAL = (56, 18)
-START = (56, 19)
+PORTAL = (76, 18)          # on the Landing, at the head of the ramp down to the canyon floor
+ARRIVAL = (76, 24)
+START = (76, 25)
 
 #: Where the people stand. Everything is on a deck; sync_freewind_npcs asserts it.
 NPC_POSITIONS = {
     # --- the Landing: the gate
-    "fw_gate_warden": (50, 20),
-    "fw_bridge_keeper": (62, 30),
+    "fw_gate_warden": (66, 30),
+    "fw_bridge_keeper": (88, 42),
     # --- the Long Mesa: the town proper
-    "fw_elder": (38, 62),
-    "fw_quartermaster": (28, 66),
-    "fw_cook": (46, 74),
-    "fw_tanner": (24, 76),
-    "fw_timberwright": (34, 80),
-    "fw_innkeeper": (44, 64),
-    "fw_flight_master": (20, 62),
+    "fw_elder": (48, 84),
+    "fw_quartermaster": (32, 90),
+    "fw_cook": (62, 100),
+    "fw_tanner": (26, 102),
+    "fw_timberwright": (46, 110),
+    "fw_innkeeper": (62, 86),
+    "fw_flight_master": (22, 84),
     # --- Windward: the high place
-    "fw_skywatcher": (88, 60),
-    "fw_totem_keeper": (92, 70),
+    "fw_skywatcher": (116, 78),
+    "fw_totem_keeper": (126, 96),
 }
 
 
@@ -220,48 +220,61 @@ def _terrain(L):
 def _dress(L):
     """Less is more (Kyle's standing rule), and logical for the spot.
 
-    The buildings are the real tauren set, because this is the tauren capital now and a capital built out
-    of tents would say the wrong thing about where they are in their exile. What it does NOT get is a
-    palisade or a gate across anything: there is nothing to wall out up here. The drop does that.
+    Bigger now, and the extra room goes into the LONG MESA - that is the town, and a capital needs a
+    smith, a bowyer, a carver and somewhere to put the food, not just lodges. The Landing gains the kodo
+    pen and the stable, because the ramp is the only way anything four-legged gets up here and it would
+    be penned at the top of it. Windward gains almost nothing on purpose: it is the high place, and an
+    empty top is what makes it read as the top.
+
+    No palisade and no gate across anything. There is nothing to wall out up here. The drop does that.
     """
     p = L.prop
     A = lambda d, s: d + s + ".png"        # noqa: E731
 
-    # ---- THE LANDING. A gate, not a home. Everything that reaches this town comes up the ramp and over
-    # this top, so it is hoists, rope and a watchtower, and nowhere to sleep.
-    p(A(TAU, "tau_watchtower"), 48, 22, 11)
-    # Clear of the Landing->Windward span, which passes right under (62, 32).
-    p(A(TAU, "tau_gate_arch"), 67, 27, 8)
-    p(A(SNP, "sn_pulley_hoist"), 52, 26, 6)
-    p(A(SNP, "sn_plank_stack"), 44, 28, 3)
-    p(A(SNP, "sn_rope_coil"), 44, 24, 2, solid=False)
-    p(A(SNP, "sn_windsock"), 58, 18, 7)
+    # ---- THE LANDING. Everything that reaches this town comes up the ramp and across this top, so it is
+    # hoists, rope, pens and a watchtower, and nowhere to sleep.
+    p(A(TAU, "tau_watchtower"), 64, 28, 11)
+    p(A(TAU, "tau_gate_arch"), 90, 40, 8)
+    p(A(TAU, "tau_kodo_pen"), 60, 44, 9)
+    p(A(TAU, "tau_stable"), 88, 28, 8)
+    p(A(TAU, "tau_storehouse"), 74, 46, 8)
+    p(A(SNP, "sn_pulley_hoist"), 70, 34, 6)
+    p(A(SNP, "sn_plank_stack"), 56, 34, 3)
+    p(A(SNP, "sn_rope_coil"), 58, 24, 2, solid=False)
+    p(A(SNP, "sn_windsock"), 82, 26, 7)
+    p(A(SNP, "sn_hide_banner"), 68, 22, 6)
 
-    # ---- THE LONG MESA. The town. The great lodge faces the bridge you arrive by, which is deliberate -
-    # the first thing anybody coming up here sees is that these people built something permanent.
-    p(A(TAU, "tau_great_lodge"), 34, 64, 13)
-    p(A(TAU, "tau_elder_lodge"), 22, 66, 10)
-    p(A(TAU, "tau_longhouse"), 48, 68, 10)
-    p(A(TAU, "tau_hearth_lodge"), 28, 80, 9)
-    p(A(TAU, "tau_trading_post"), 44, 80, 9)
-    p(A(TAU, "tau_storehouse"), 18, 76, 8)
-    p(A(TAU, "tau_tannery"), 56, 76, 8)
-    p(A(TAU, "tau_bonfire_pavilion"), 36, 72, 7)
-    p(A(TAU, "tau_tent_medium"), 52, 62, 6)
-    p(A(SNP, "sn_drying_rack"), 24, 82, 5)
-    p(A(SNP, "sn_water_trough"), 14, 70, 3)
-    p(A(SNP, "sn_streamers"), 32, 64, 5, solid=False)
-    p(A(SNP, "sn_anchor_post"), 58, 70, 5)
-    p(A(SNP, "sn_anchor_post"), 48, 56, 5)
+    # ---- THE LONG MESA. The town. The great lodge faces the bridge you arrive by, so the first thing
+    # anybody coming up here sees is that these people built something permanent.
+    p(A(TAU, "tau_great_lodge"), 50, 80, 13)
+    p(A(TAU, "tau_elder_lodge"), 32, 86, 10)
+    p(A(TAU, "tau_longhouse"), 66, 90, 10)
+    p(A(TAU, "tau_hearth_lodge"), 36, 102, 9)
+    p(A(TAU, "tau_trading_post"), 58, 108, 9)
+    p(A(TAU, "tau_smithy"), 74, 100, 8)
+    p(A(TAU, "tau_tannery"), 24, 96, 8)
+    p(A(TAU, "tau_carver_shop"), 20, 108, 8)
+    p(A(TAU, "tau_bowyer"), 46, 114, 8)
+    p(A(TAU, "tau_herb_hut"), 70, 80, 7)
+    p(A(TAU, "tau_food_cache"), 30, 76, 6)
+    p(A(TAU, "tau_bonfire_pavilion"), 50, 96, 7)
+    p(A(TAU, "tau_meeting_shelter"), 62, 76, 7)
+    p(A(TAU, "tau_yurt"), 78, 90, 7)
+    p(A(TAU, "tau_tent_medium"), 40, 110, 6)
+    p(A(TAU, "tau_water_trough"), 18, 88, 4)
+    p(A(SNP, "sn_drying_rack"), 26, 110, 5)
+    p(A(SNP, "sn_streamers"), 42, 90, 5, solid=False)
+    p(A(SNP, "sn_anchor_post"), 76, 108, 5)
+    p(A(SNP, "sn_anchor_post"), 58, 72, 5)
 
-    # ---- WINDWARD. The high place. A spirit lodge, the great totem and the lookout, and NOTHING ELSE -
-    # an empty top is what makes it read as the top, and this is the highest standing ground in Thousand
-    # Needles.
-    p(A(TAU, "tau_spirit_lodge"), 92, 67, 10)
-    p(A(TAU, "tau_totem_pole"), 86, 70, 11)
-    p(A(SNP, "sn_lookout_platform"), 96, 70, 11)
-    p(A(SNP, "sn_cairn"), 82, 74, 4)
-    p(A(SNP, "sn_anchor_post"), 80, 60, 5)
+    # ---- WINDWARD. The high place: a spirit lodge, the great totem and the lookout, and very little
+    # else. The emptiness is the point.
+    p(A(TAU, "tau_spirit_lodge"), 122, 86, 10)
+    p(A(TAU, "tau_totem_pole"), 112, 94, 11)
+    p(A(SNP, "sn_lookout_platform"), 126, 84, 11)
+    p(A(SNP, "sn_cairn"), 106, 98, 4)
+    p(A(SNP, "sn_streamers"), 114, 80, 5, solid=False)
+    p(A(SNP, "sn_anchor_post"), 102, 92, 5)
 
 
 def build_layout():
@@ -270,9 +283,9 @@ def build_layout():
     _dress(L)
     # subzones: one per top, so a quest or an encounter table can name a mesa
     L.z.add_subzone("Freewind Post", 0, 0, W, H)
-    L.z.add_subzone("The Landing", 36, 11, 40, 30)
-    L.z.add_subzone("The Long Mesa", 10, 47, 56, 42)
-    L.z.add_subzone("Windward", 72, 53, 32, 26)
+    L.z.add_subzone("The Landing", 50, 14, 52, 40)
+    L.z.add_subzone("The Long Mesa", 14, 64, 76, 56)
+    L.z.add_subzone("Windward", 96, 71, 44, 36)
     return L
 
 

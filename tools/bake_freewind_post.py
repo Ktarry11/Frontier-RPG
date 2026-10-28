@@ -83,7 +83,7 @@ def build_scores(P, M):
     S["pale"] = 0.10 + 1.25 * top * smoothstep(0.46, 0.74, n_mid)
     S["lichen"] = 0.05 + 1.10 * top * smoothstep(0.62, 0.86, n_fine)
     # where people actually live - the Long Mesa's middle gets trodden down to camp dirt
-    camp = smoothstep(18.0, 7.0, np.hypot((gx - 38) / 1.3, gy - 70))
+    camp = smoothstep(25.0, 9.0, np.hypot((gx - 52) / 1.35, gy - 94))
     S["camp"] = 0.05 + 1.60 * top * camp * (0.6 + 0.4 * n_mid)
     S["terrace"] = 0.02 + 1.30 * top * camp * smoothstep(0.70, 0.92, n_fine)
 
@@ -139,7 +139,7 @@ def post(rgb, X, Y, P):
     Z = importlib.import_module("tools.handbuilt_freewind_post")
     gx = X.astype(np.float32) / TILE_PX
     gy = Y.astype(np.float32) / TILE_PX
-    sh = Z.deck_field(gx - 6.5, gy - 9.0)
+    sh = Z.deck_field(gx - 8.0, gy - 11.0)
     shadow = smoothstep(-2.0, 2.0, sh)
     far = far * (1 - 0.42 * shadow[..., None])
 
