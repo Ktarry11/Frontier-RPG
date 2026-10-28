@@ -4919,6 +4919,131 @@ DROWNING_FLOOR_KITS = {
 }
 
 
+# =========================================================================================================
+# SOUTHERN THOUSAND NEEDLES (levels 29-34) - mesa country, the Galak floor, and the pans in the east.
+#
+# THE SPILL'S KITS ARE BUILT AROUND FAILING, which is the one thing that makes this zone's north read.
+# An elk and a lynx are ordinary animals with ordinary kits everywhere else in the game; here they get a
+# self-debuff and a short fuse, because a mountain animal in a desert fights hard for ten seconds and then
+# has nothing. Nobody will read a tooltip and work that out. They will notice the fight shape.
+#
+# The Galak are the opposite: paced, drilled, and they buff each other. They are not savages and their
+# kits should not play like it.
+# =========================================================================================================
+SOUTHERN_NEEDLES_KITS = {
+    # ---- THE SPILL ------------------------------------------------------------------------------------
+    "sunstruck_elk": [
+        ("Panicked Antler", "damage", 58, 0, 0, "physical", {}),
+        ("Overheated", "debuff", 0, 6, 0, "fire",
+         {"duration": 4, "stat_mods": {"attack_power": -24}, "self_only": True}),
+        ("Last Good Charge", "damage", 66, 5, 0, "physical", {}),
+    ],
+    "downslope_lynx": [
+        ("Open-Ground Swipe", "damage", 56, 0, 0, "physical", {}),
+        ("No Cover Here", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -22}}),
+    ],
+    # ---- THE GALAK: drilled, paced, and they buff each other ------------------------------------------
+    "galak_outrider": [
+        ("Outrider's Lance", "damage", 62, 0, 0, "physical", {}),
+        ("Run Them Down", "damage", 52, 4, 0, "physical", {}),
+        ("Close the Line", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 44}, "self_only": True}),
+    ],
+    "galak_wrangler": [
+        ("Driving Crook", "damage", 64, 0, 0, "physical", {}),
+        ("Turn the Herd", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -26}}),
+        ("Hold Them Together", "buff", 0, 7, 0, "physical",
+         {"duration": 4, "stat_mods": {"stamina": 26}, "self_only": True}),
+    ],
+    "galak_windcatcher": [
+        ("Read the Thermal", "damage", 60, 0, 0, "nature", {}),
+        ("Dust Devil", "damage", 50, 4, 0, "nature", {"is_aoe": True}),
+        ("Knows Which Way It Blows", "buff", 0, 6, 0, "nature",
+         {"duration": 4, "stat_mods": {"intellect": 26}, "self_only": True}),
+    ],
+    "galak_khans_chosen": [
+        ("Chosen's Halberd", "damage", 72, 0, 0, "physical", {}),
+        ("Break the Toll-Dodger", "damage", 60, 4, 0, "physical", {}),
+        ("Standard of the Khan", "buff", 0, 7, 0, "physical",
+         {"duration": 5, "stat_mods": {"attack_power": 32}, "self_only": True}),
+    ],
+    # ---- THE SHEERWING: they fight from above, so everything is a dive or a scream --------------------
+    "sheerwing_harpy": [
+        ("Stooping Talon", "damage", 64, 0, 0, "physical", {}),
+        ("Off the Rim", "damage", 54, 4, 0, "physical", {}),
+        ("Screaming Pitch", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"spirit": -24}}),
+    ],
+    "sheerwing_rooktender": [
+        ("Updraft Lash", "damage", 62, 0, 0, "nature", {}),
+        ("Mind the Nest", "buff", 0, 6, 0, "nature",
+         {"duration": 4, "stat_mods": {"armor": 48}, "self_only": True}),
+        ("Shriek of the Unclimbed", "damage", 52, 4, 0, "nature", {"is_aoe": True}),
+    ],
+    # ---- THE NATIVES: the only things here that are where they belong ---------------------------------
+    "dustmane_hyena": [
+        ("Worrying Bite", "damage", 56, 0, 0, "physical", {}),
+        ("Laughing Pack", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 26}, "self_only": True}),
+    ],
+    "thermal_vulture": [
+        ("Stoop", "damage", 58, 0, 0, "physical", {}),
+        ("Circle and Wait", "debuff", 0, 5, 0, "physical", {"duration": 4, "stat_mods": {"stamina": -22}}),
+    ],
+    "rimstalker_scorpid": [
+        ("Rim Pincer", "damage", 58, 0, 0, "physical", {}),
+        ("Sting", "dot", 18, 4, 0, "nature", {"duration": 4}),
+        ("Under the Ledge", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 42}, "self_only": True}),
+    ],
+    "saltpan_kodo": [
+        ("Flatfoot Stomp", "damage", 68, 0, 0, "physical", {}),
+        ("Dust Wall", "damage", 54, 4, 0, "physical", {"is_aoe": True}),
+        ("Takes Its Time", "buff", 0, 7, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 54}, "self_only": True}),
+    ],
+    # ---- THE DRY: the step toward Shimmering Flats ----------------------------------------------------
+    "saltspite_elemental": [
+        ("Crystal Lash", "damage", 70, 0, 0, "nature", {}),
+        ("Scour", "damage", 58, 4, 0, "nature", {"is_aoe": True}),
+        ("Rime Over", "buff", 0, 6, 0, "frost",
+         {"duration": 4, "stat_mods": {"armor": 60}, "self_only": True}),
+    ],
+    "dryhollow_basilisk": [
+        ("Stone Bite", "damage", 72, 0, 0, "physical", {}),
+        ("Slowing Gaze", "debuff", 0, 5, 0, "nature", {"duration": 4, "stat_mods": {"agility": -32}}),
+        ("Hide Like the Ground", "buff", 0, 7, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 62}, "self_only": True}),
+    ],
+
+    # ---- THE NAMED. All four are open-zone RARES, so three abilities each (the four-ability rule is
+    #      for 20+ bosses). First ability is 0-cooldown damage on every one.
+    "the_thermal": [
+        ("Never Lands", "damage", 76, 0, 0, "physical", {}),
+        ("Out of the Sun", "damage", 62, 4, 0, "physical", {}),
+        ("Only Waiting", "debuff", 0, 6, 0, "physical", {"duration": 4, "stat_mods": {"stamina": -30}}),
+    ],
+    "oldcrest": [
+        ("Matriarch's Talon", "damage", 76, 0, 0, "physical", {}),
+        ("Hers Since Before the Lift", "buff", 0, 6, 0, "nature",
+         {"duration": 4, "stat_mods": {"armor": 58}, "self_only": True}),
+        ("Call Down the Anvil", "damage", 62, 4, 0, "nature", {"is_aoe": True}),
+    ],
+    "khan_saltmane": [
+        ("Toll-Taker", "damage", 80, 0, 0, "physical", {}),
+        ("Decides What It Costs", "debuff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": -34}}),
+        ("Barded and Good", "buff", 0, 7, 0, "physical",
+         {"duration": 5, "stat_mods": {"armor": 68}, "self_only": True}),
+    ],
+    "panglass": [
+        ("Fusing Gaze", "damage", 84, 0, 0, "nature", {}),
+        ("The Pan Behind It", "damage", 68, 4, 0, "nature", {"is_aoe": True}),
+        ("Sheet of Your Own Face", "debuff", 0, 6, 0, "nature",
+         {"duration": 4, "stat_mods": {"agility": -36}}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -4928,7 +5053,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

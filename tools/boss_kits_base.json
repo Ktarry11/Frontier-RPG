@@ -9602,5 +9602,133 @@
     "agility": -32
    }
   }
+ ],
+ "the_thermal": [
+  {
+   "name": "Never Lands",
+   "kind": "damage",
+   "amount": 76,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Out of the Sun",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Only Waiting",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "stamina": -30
+   }
+  }
+ ],
+ "oldcrest": [
+  {
+   "name": "Matriarch's Talon",
+   "kind": "damage",
+   "amount": 76,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Hers Since Before the Lift",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 58
+   },
+   "self_only": true
+  },
+  {
+   "name": "Call Down the Anvil",
+   "kind": "damage",
+   "amount": 62,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "nature",
+   "is_aoe": true
+  }
+ ],
+ "khan_saltmane": [
+  {
+   "name": "Toll-Taker",
+   "kind": "damage",
+   "amount": 80,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Decides What It Costs",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": -34
+   }
+  },
+  {
+   "name": "Barded and Good",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 68
+   },
+   "self_only": true
+  }
+ ],
+ "panglass": [
+  {
+   "name": "Fusing Gaze",
+   "kind": "damage",
+   "amount": 84,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "nature"
+  },
+  {
+   "name": "The Pan Behind It",
+   "kind": "damage",
+   "amount": 68,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "nature",
+   "is_aoe": true
+  },
+  {
+   "name": "Sheet of Your Own Face",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 4,
+   "stat_mods": {
+    "agility": -36
+   }
+  }
  ]
 }

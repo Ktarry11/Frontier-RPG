@@ -1,0 +1,260 @@
+{
+  "_notes": "Southern Thousand Needles named-rare loot (2026-10-28). ONE item drops per kill from the pool. item_level = creature level + 3. Budget checked by audit() in tools/build_southern_needles_content.py. Rares are never quested.",
+  "The Thermal": [
+    {
+      "name": "Thermal-Rider's Longbow",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "It has not landed in anyone's memory. People have started checking.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Updraft Mantle",
+      "slot": "shoulder",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "The heat comes off a mesa top all day and something has learned to live on it.",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 66
+    },
+    {
+      "name": "Carrion-Watcher's Coif",
+      "slot": "head",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "It is not waiting for you specifically. It is only waiting.",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 33
+    },
+    {
+      "name": "Sun-Scoured Greaves",
+      "slot": "legs",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Red stone holds the day's heat until about two in the morning.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 214
+    }
+  ],
+  "Oldcrest": [
+    {
+      "name": "Oldcrest's Talonward",
+      "slot": "off_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "She has held the Anvil since before the Lift fell and does not know it fell.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 9
+      },
+      "armor_value": 71,
+      "block_value": 89
+    },
+    {
+      "name": "Sheerwing Featherweave",
+      "slot": "chest",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Harpies weave. Nobody who calls them animals has looked at the work.",
+      "primary_stats": {
+        "stamina": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 5.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 44
+    },
+    {
+      "name": "Unclimbable Spaulders",
+      "slot": "shoulder",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Four mesas in this zone have no way up. Three of them are hers.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 107
+    },
+    {
+      "name": "Rooktender's Grips",
+      "slot": "hands",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "She feeds the ones that cannot fly yet, and there are always some.",
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 44
+    }
+  ],
+  "Khan Saltmane": [
+    {
+      "name": "Saltmane's Toll-Taker",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The Sisters have a gap between them and he decided what it costs.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 30,
+        "stamina": 30
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 89,
+      "weapon_damage_max": 121,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Khan's Barded Breastplate",
+      "slot": "chest",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Galak work, and good. They were never the savages Freewind needs them to be.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 220
+    },
+    {
+      "name": "Hoofguard Sabatons",
+      "slot": "feet",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Centaur do not shoe. These go over, and they are somebody's idea.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 73
+    },
+    {
+      "name": "Windcatcher's Cord",
+      "slot": "waist",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "They read the thermals off the mesas the way a sailor reads water.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.6
+      },
+      "armor_type": "cloth",
+      "armor_value": 22
+    }
+  ],
+  "Panglass": [
+    {
+      "name": "Panglass Focus",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The pan behind it is fused to a sheet you can see your own face in.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 78,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Fused Salt Pauldrons",
+      "slot": "shoulder",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Whatever it does, it does to the ground first and to you second.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 169
+    },
+    {
+      "name": "Basilisk-Hide Jerkin",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Thick, cold, and it does not take dye.",
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 94
+    },
+    {
+      "name": "Dryhollow Wristguards",
+      "slot": "wrist",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The oldest, driest ground in the zone, and the furthest from anyone.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 75
+    }
+  ]
+}
