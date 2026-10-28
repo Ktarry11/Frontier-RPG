@@ -32,12 +32,15 @@ TILE_PX = 32
 ZONES = {
     "aspen": "tools.handbuilt_aspen_wilderness",
     "weeping_ice": "tools.handbuilt_weeping_ice",
+    "southern_needles": "tools.handbuilt_southern_needles",
+    "freewind": "tools.handbuilt_freewind_post",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns
 #: (zone, layout) instead of a layout object. Both shapes are handled in build().
 BUILDERS = {
     "weeping_ice": "build_weeping_ice_baked",
+    "freewind": "build_freewind_baked",
 }
 
 

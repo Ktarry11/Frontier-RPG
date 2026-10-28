@@ -5633,6 +5633,7 @@ def create_all_zones():
     from tools import handbuilt_aspen_wilderness as dasp
     from tools import handbuilt_weeping_ice as dwi
     from tools import handbuilt_southern_needles as dsn
+    from tools import handbuilt_freewind_post as dfw
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5724,6 +5725,8 @@ def create_all_zones():
         # Mesa country. Terrain is hand-placed plateaux, NOT derived - see the module docstring
         # for why slope-derived rock is wrong for a range and exactly right for a mesa.
         "Southern Thousand Needles": dsn.generate_southern_needles(),  # (tools/handbuilt_southern_needles.py)
+        # Three mesa tops over a long drop. The tauren capital-in-exile.
+        "Freewind Post": dfw.generate_freewind_post(),  # (tools/handbuilt_freewind_post.py)
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         "Durnholde Keep": ddur.generate_durnholde_keep(),  # broken-ring keep (tools/handbuilt_durnholde.py)
         "Dun Garok": dgar.generate_dun_garok(),  # gauntlet-of-gates dwarf hold (tools/handbuilt_dun_garok.py)

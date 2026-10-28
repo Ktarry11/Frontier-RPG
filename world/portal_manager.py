@@ -247,10 +247,14 @@ class PortalManager:
             },
 
             # ===== SOUTHERN THOUSAND NEEDLES =====
-            # (168, 88) on top of Freewind North is carved but NOT registered until Freewind Post is
-            # built - same fail-safe pattern the pass itself used.
+            # (168, 88) sits on TOP of Freewind North, at the head of its ramp - the settlement is up
+            # there, so the climb is the way in.
             "Southern Thousand Needles": {
                 (110, 4): ("The Aspen Wilderness", 104, 172),
+                (168, 88): ("Freewind Post", 56, 18),
+            },
+            "Freewind Post": {
+                (56, 14): ("Southern Thousand Needles", 168, 92),
             },
             "The Weeping Ice": {
                 (48, 126): ("The Aspen Wilderness", 145, 51),

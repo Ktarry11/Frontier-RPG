@@ -1871,6 +1871,94 @@
       "gender": "female",
       "appearance_variant": 13,
       "greeting": "No ore in this mountain worth the walk. I mend what comes up the trail and I charge for the mending, not the metal."
+    },
+    {
+      "vendor_id": "fw_quartermaster",
+      "name": "Quartermaster Bren Hollowhorn",
+      "zone": "freewind_post",
+      "x": 28,
+      "y": 66,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "bread_and_cheese",
+        "roasted_meat",
+        "whetstone",
+        "flux_medium"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": true,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 4,
+      "greeting": "Everything on these shelves came up a ramp on somebody's back. The price reflects the back."
+    },
+    {
+      "vendor_id": "fw_cook",
+      "name": "Cook Dorn Steadyhand",
+      "zone": "freewind_post",
+      "x": 46,
+      "y": 74,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "healing_potion_standard"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "male",
+      "appearance_variant": 12,
+      "greeting": "Up here the fire wants watching. Wind takes the heat sideways and your supper with it."
+    },
+    {
+      "vendor_id": "fw_tanner",
+      "name": "Tanner Yula",
+      "zone": "freewind_post",
+      "x": 24,
+      "y": 76,
+      "tile_sprite": "npc",
+      "sells": [
+        "thread_coarse",
+        "thread_fine",
+        "whetstone",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": true,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 8,
+      "greeting": "Hide, leather and cloth, same bench. Bring me something that was recently an animal and we will get along."
+    },
+    {
+      "vendor_id": "fw_timberwright",
+      "name": "Timberwright Gohn",
+      "zone": "freewind_post",
+      "x": 34,
+      "y": 80,
+      "tile_sprite": "npc",
+      "sells": [
+        "flux_medium",
+        "whetstone",
+        "thread_coarse"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": true,
+      "race": "tauren",
+      "gender": "male",
+      "appearance_variant": 10,
+      "greeting": "Every plank in this town came off a mountain that was not here three years ago. I have stopped finding that strange, which I am told is the strange part."
     }
   ]
 }
