@@ -63,7 +63,7 @@
   "factions": {
     "crimson_codex": {
       "name": "The Crimson Codex",
-      "description": "Blood elf arcanists who came down a fissure three years ago to index a cavern that did not exist, and have not finished.",
+      "description": "Blood elf arcanists who went down a hole beneath the Ruins of Dalaran and never came back up.",
       "home_zone": "kaels_bastion",
       "home_name": "Kael's Bastion, the Crystalline Underdark",
       "leader": {
@@ -71,15 +71,14 @@
         "name": "Ilarien Duskwaking",
         "npc_id": "kb_codex_master",
         "location": "The Codex Hall, Kael's Bastion",
-        "line": "Three years, eleven thousand entries, and one cavern that keeps producing things I have no column for."
+        "line": "Eleven thousand entries and the cavern keeps handing me things I have no column for. Do not take that as an invitation."
       },
       "_lore_note": "Shown on the faction's detail panel. Written as the Codex would have it written - they are the ones keeping the record, and they are not neutral about themselves.",
       "lore": [
-        "A party of blood elves surveying the Ruins of Dalaran found a fissure in ground they had already mapped. It had not been there the month before. It went down further than their lamps, and kept going, and opened into a cavern the size of a county with a light hanging in the middle of it that nobody has reached since.",
-        "That was three years ago, in the same year the Integration rewrote the world and a great many things opened at once. The Codex do not describe the cavern as a discovery. They describe it as a find, which is a word for something that was already there, and they have been very careful to keep using it.",
-        "They came to catalogue, not to settle, and they will correct you on the distinction. Eleven thousand entries in three years: every crystal, every column, every fungal stand, each with a number and a provenance and a column it belongs in. Their stated purpose is to have the place properly written down before anyone else can claim it. Their actual conviction, which none of them will put in a report, is that a thing properly written down is a thing owned.",
-        "The index has begun to fail. Forty-one entries now have a number, a provenance, and no column that fits, and the count is rising. There is Dalaran masonry two hundred spans below Dalaran that nobody carried down. There is crystal growing to a tolerance no mineral holds. And under the Sporefall something has spent three years reading the Codex's own work through its contamination of their camp, and has started writing entries better than theirs.",
-        "They are precise, dry, faintly superior, and far more rattled than any of them will admit. They are also, and they know it, newcomers: they arrived the same year you did, in a place that is the same age as both of you, and not one person in Kael's Bastion has a prior claim on anything in it."
+        "The fissure opened in ground the blood elves had already surveyed. One of them put a boot through what should have been solid rock above the Ruins of Dalaran, and the hole went down past the reach of every lamp they were carrying.",
+        "Below it they found a cavern wide enough to hold weather, lit by something hanging at the centre of it that none of them has reached. They have been down there ever since. They call it a find rather than a discovery, because a find is something that was already there, waiting.",
+        "Their work is the index. Every crystal, every column, every stand of fungus gets a number and a place in the ledger. Lately the ledger has begun to fail them. There is Dalaran stone far beneath Dalaran that no cart ever carried down. There is crystal growing in figures too exact for honest stone. And under the Sporefall something has been reading their notes through the mould in their own camp, and writing back.",
+        "They are precise, dry, and a good deal more frightened than they let on. They also came through the same change you did. Nobody in Kael's Bastion has an older claim on any of it, and every one of them knows it."
       ],
       "quest_rep": {
         "_comment": "Per quest, by shape. kill_boss objectives pay the boss rate; the named capstones pay more.",
@@ -167,7 +166,7 @@
     },
     "orgrimmar": {
       "name": "Orgrimmar",
-      "description": "The orc capital and the Horde's spine: the city Thrall built out of a landing site, and everything it has had to hold since.",
+      "description": "The orc capital: raised fast out of red stone and ship timber by people who could not afford to be particular.",
       "home_zone": "orgrimmar",
       "home_name": "Orgrimmar, Durotar",
       "leader": {
@@ -175,13 +174,13 @@
         "name": "Thrall",
         "npc_id": "org_thrall",
         "location": "Grommash Hold, Orgrimmar",
-        "line": "We were given nothing. We took a desert and called it home, and we will not apologise for the taking."
+        "line": "We were given nothing. We took a desert and made a home of it. I will not stand here and apologise for the taking."
       },
       "lore": [
-        "The Horde came ashore in Durotar with nothing but what they carried and built a capital out of red stone and salvage. Orgrimmar is not a beautiful city and nobody in it pretends otherwise. It is a city that exists because the alternative was not existing.",
-        "Thrall runs it, and runs it carefully. He was raised in a human internment camp and freed his people out of one, and the experience left him with an instinct that sits oddly on a Warchief: he would rather hold what the Horde has than take more. Not everyone under him agrees, and the ones who do not are loud.",
-        "The city's standing with you is not sentiment. Orgrimmar keeps a count of who held the Barrens road, who cleared the Kolkar off the water, and who was there when the Burning Blade came up out of the Chasm under the city's own floor. The count is kept by quartermasters, not by poets.",
-        "Three years ago the world was rewritten and a great many people arrived who had never been born here. Orgrimmar took them in faster than anywhere else on the continent, and the Warchief has never explained why in public. Those close to him suspect it is because he knows exactly what it is to be somewhere you did not choose to be."
+        "The Horde came ashore in Durotar with what it could carry. Orgrimmar went up out of red stone and the bones of the ships, and the city still looks like what it is.",
+        "Thrall holds it. He was born in chains and got his people out of them, and it left him careful in a way that sits oddly on a warchief - he would sooner keep what the Horde has than reach for more. There are voices in the city that disagree, and they are not quiet.",
+        "The city's regard is a ledger kept by quartermasters, not by singers. Who held the Barrens road. Who went down into the Chasm when the Burning Blade came up out of it. Who was on the wall when it mattered.",
+        "When the world changed, Orgrimmar opened its gates to the people it threw up, faster than anywhere else on the continent and with less argument. Thrall has never explained that in public. Those who were in the camps with him do not need him to."
       ],
       "quest_rep": {
         "default": 85,
@@ -219,7 +218,7 @@
     },
     "darkspear_tribe": {
       "name": "The Darkspear Tribe",
-      "description": "Jungle trolls who lost their islands twice and took them back once, and have been Horde ever since on terms they negotiated themselves.",
+      "description": "Jungle trolls who were down to their last island, and have never once let anyone call what happened next a rescue.",
       "home_zone": "echo_isles",
       "home_name": "The Echo Isles, off Durotar",
       "leader": {
@@ -227,13 +226,13 @@
         "name": "Kang'ari",
         "npc_id": "echo_isles_troll_elder",
         "location": "The Echo Isles",
-        "line": "We been driven off dis water before. We came back. Dat is da whole of what you need to know about us."
+        "line": "We been run off dis water before, mon. We came back. Dat is most of what you need to know about us."
       },
       "lore": [
-        "The Darkspear were a dying tribe on a sinking island when the Horde found them, and they have never once let anyone describe that as a rescue. It was a bargain. They have kept their end of it with a thoroughness that embarrasses larger peoples.",
-        "Then Zalazane took the isles with hexes and turned their own people into something that walks at them out of the surf, and the tribe moved to the mainland and started again. The ones who stayed are still out there on the water, and the tribe does not call them lost. They call them not back yet.",
-        "The trolls run their own trainers, their own spiritwalkers and their own count of favours owed, separate from Orgrimmar's and older. Standing with the Darkspear is not standing with the Horde. It is standing with people who remember who came out on the water with them and who did not.",
-        "They are warm, funny and entirely unsentimental about death, which outsiders consistently misread as either of the first two things."
+        "The Darkspear were down to their last island when the Horde found them. It was a bargain, struck between two peoples who had nothing, and the trolls have kept their half of it with a thoroughness that embarrasses larger nations.",
+        "Then Zalazane took the isles. He went through the tribe with hex and voodoo until their own kin came out of the surf at them, and the Darkspear pulled back to the mainland and began again.",
+        "They do not say the isles are lost. They say the ones still out on the water are not back yet. That is a different thing, and they will correct you on it.",
+        "The tribe keeps its own spiritwalkers, its own trainers, its own account of who stood with them when it was bad. That account is older than the Horde's and it is not the same list."
       ],
       "quest_rep": {
         "default": 350,
@@ -260,7 +259,7 @@
     },
     "the_forsaken": {
       "name": "The Forsaken",
-      "description": "The dead who woke up with their minds intact, took Lordaeron's capital back from the Scourge, and have been explaining themselves to nobody since.",
+      "description": "The dead of Lordaeron, who woke with their minds intact and took the ruin of their capital back.",
       "home_zone": "undercity",
       "home_name": "The Undercity, beneath Lordaeron",
       "leader": {
@@ -271,11 +270,11 @@
         "line": "We were not given our freedom. I took it, and I will not be asked to be grateful for a thing I had to tear loose."
       },
       "lore": [
-        "The Scourge raised Lordaeron's dead and bound them, and then the binding slipped. What stood up afterwards remembered everything: their names, their houses, their families, and exactly what had been done to them and by whom. The Forsaken are what that leaves behind.",
-        "They took the capital's undercroft, walled it, and made a nation out of a sewer under a throne room that still has their old king's bloodstain on the floor. They do not describe this as tragic. They describe it as theirs.",
-        "The Apothecarium is the heart of it and the part that worries everyone, allies included. The Forsaken are the only people on the continent researching the plague that made them, and their stated reason - a cure - is not one that survives much scrutiny from the people who have read the ledgers.",
-        "What they will not forgive is the Scarlet Crusade, who kill the Forsaken on sight for being what the Scourge made them, and the cults still working for the thing that made them in the first place. Standing with the Forsaken is largely a tally of which of those two you have reduced.",
-        "They are dry, tired, blackly funny, and extremely difficult to impress. They have been dead for years. Very little is new."
+        "The Scourge raised Lordaeron's dead and set them walking. Then the hold on them slipped, and what straightened up in the ruins remembered everything - names, houses, the faces of their families, and exactly what had been done to them.",
+        "They took the undercroft beneath the palace and made a country of it. The throne room overhead still has the old king's blood dried into the floor. Nobody down there calls that tragic. They call it theirs.",
+        "The Apothecarium sits at the heart of the city and worries everyone, allies included. They are the only people on the continent studying the plague that made them. Ask them why and you will be told: a cure. Read the ledgers and you may arrive somewhere else.",
+        "What they will not forgive is the Scarlet Crusade, who kill them on sight for the crime of having been murdered, and the cults still working for the thing that did it. Standing with the Forsaken is mostly a tally of how many of those two you have put back in the ground.",
+        "They are tired, blackly funny, and very hard to impress. They have been dead a while. Little is new."
       ],
       "quest_rep": {
         "default": 50,
@@ -317,7 +316,7 @@
     },
     "steamwheedle_cartel": {
       "name": "The Steamwheedle Cartel",
-      "description": "Goblin traders who will sell to anyone, protect no one, and keep a port open through wars that close everything else.",
+      "description": "Goblin traders who will sell to anyone, protect no one, and keep a port open through wars that shut everything else.",
       "home_zone": "ratchet",
       "home_name": "Ratchet, the Barrens coast",
       "leader": {
@@ -328,10 +327,10 @@
         "line": "Neutral ain't a principle, friend. It's a business model, and it's the only one that keeps a port open when everyone on both sides wants it."
       },
       "lore": [
-        "The Cartel is not a nation, an army or a cause. It is a company with harbours, and the harbours are the only places on this coast where a Horde ship and an Alliance ship tie up on the same pier and nobody draws anything.",
-        "That neutrality is enforced, and the enforcement is the actual product. Bring a war into Ratchet and the Cartel will not take a side; it will remove you, bill your faction for the inconvenience, and reopen by the evening tide.",
-        "Gazlowe runs the port, and runs it better than the margins justify. He has turned down three offers to move the operation somewhere richer, which no goblin will explain and several have tried to buy him out over.",
-        "Standing with the Cartel is simple and entirely transactional: they like people who are good for trade and hard on the things that interrupt it. Pirates off the coast and bandits on the Barrens road cost them money, and they pay well to have that stopped. Nobody at Ratchet will pretend this is friendship, and that honesty is most of why people deal with them."
+        "The Cartel is not a nation and has never pretended to be. It is a company with harbours, and those harbours are the only stretches of coast where a Horde ship and an Alliance ship tie up at the same pier and nothing happens.",
+        "The neutrality is the product. Bring a war into Ratchet and the goblins will not take a side. They will put you on a boat, bill your faction for the disruption, and have the dock working again by the evening tide.",
+        "Gazlowe runs the port, and runs it better than the margins deserve. He has turned down three offers to move the whole operation somewhere richer. No goblin will explain that, and more than a few have tried to buy the explanation out of him.",
+        "Their regard is bought rather than earned and they are honest about it. Pirates on the water and bandits on the Barrens road cost the Cartel money. Anyone who brings that number down is good for business, and good for business is as near to friendship as Ratchet deals in."
       ],
       "quest_rep": {
         "default": 350,
@@ -359,7 +358,7 @@
     },
     "thunder_bluff": {
       "name": "Thunder Bluff",
-      "description": "A nation that still answers to the name of a city that is no longer standing. The tauren lost Mulgore in the Integration and have been guests in other people's towns since.",
+      "description": "A people still answering to the name of a city that is no longer standing.",
       "home_zone": "camp_taurajo",
       "home_name": "Camp Taurajo, the Southern Barrens - in exile",
       "leader": {
@@ -370,17 +369,17 @@
         "acting_for": {
           "title": "High Chieftain",
           "name": "Cairne Bloodhoof",
-          "status": "Missing since the Integration"
+          "status": "Lost when Thunder Bluff fell"
         },
-        "line": "I am not the High Chieftain. I am the one standing where he would be standing, and I will go on doing it until somebody tells me to stop or he comes back and tells me himself."
+        "line": "The seat is his. I stand near it. I will go on standing near it until somebody puts a reason in my hand."
       },
-      "_leader_note": "Longtread speaks for the tauren but holds no title, because Cairne Bloodhoof is MISSING rather than confirmed dead. Nobody has taken the office. Taking it would be a ruling on where he is.",
+      "_leader_note": "Longtread speaks for the tauren and holds no title. Cairne was LOST when the city fell - never found, never buried - so the office is not vacant so much as unresolved, and taking it would be a ruling nobody is willing to make.",
       "lore": [
-        "Thunder Bluff stood on four rock spires above Mulgore and had never been taken. When the Integration rewrote the world three years ago it did not take the city either. It took the ground the city was standing on.",
-        "What is left of Mulgore is not a ruin, which the tauren could have worked with. It is a nightmare land - the plain went wrong in a way nobody has a vocabulary for, and the things walking it now kill experienced war parties without slowing down. The tauren have mounted four attempts to reach the spires. They do not discuss the fourth.",
-        "So they are guests. Forty at Camp Taurajo, a warband through the southern Barrens, and the rest scattered into other people's capitals - a leatherworker in Orgrimmar, a quartermaster at Splintertree, shamans on the Barrens oases, and more turning up in places nobody expected as word spreads that there is somewhere to turn up to. Every nation that took them in did so immediately and without conditions, and the tauren have been scrupulously, exhaustingly grateful ever since, which costs them more than anyone watching understands.",
-        "They have not renamed themselves and they have not filled the chieftain's office. Cairne Bloodhoof walked out of a council three years ago and did not come back, and nothing since has established whether he died on the plain or is still somewhere on it. Elder Longtread speaks for the tauren, carefully, in the first person plural, and has refused every suggestion that he take the title. Taking it would be a ruling on where Cairne is, and the tauren are not prepared to make one.",
-        "Standing with them is not earned by sympathy, which they have had enough of. It is earned by helping them hold the ground they still have - and by being the sort of person who might, eventually, be worth taking back onto the plain."
+        "Thunder Bluff stood on four rock spires above Mulgore and had never been taken by anyone. When the world changed, nothing climbed those spires. The ground beneath them went, and the city went with it.",
+        "What Mulgore is now has no good name. The grass still grows. The sky is still up there. Everything else about that plain is wrong, and the things walking it kill war parties without breaking stride. Four times the tauren have gone back for the spires. They will talk about three of those.",
+        "Cairne Bloodhoof was in the city when it fell. Nobody saw him after. Nothing has been found since - no body, no sign, nothing to bury - so the chieftain's seat stands empty. Elder Longtread speaks for the tauren and has turned down the title every time it has been put to him, because taking it would settle a question that is not settled.",
+        "They are guests now. Camp Taurajo, the warbands in the southern Barrens, and more of them in other people's towns every season. Every nation that took them in did it without conditions and without being asked twice, and the tauren have been thanking them for it ever since, which carries its own weight.",
+        "And they are still called Thunder Bluff. There is no Thunder Bluff. They have had this pointed out, agree politely, and go on using the name."
       ],
       "quest_rep": {
         "default": 350,
