@@ -2021,5 +2021,102 @@
       "sell_price": 105,
       "buff_category": null
     }
+  ],
+  "cooked_meals": [
+    {
+      "consumable_id": "meal_cooked_campfire_strips",
+      "name": "Campfire Strips",
+      "consumable_type": "meal",
+      "description": "Cut thin, hung over the fire, eaten before it cools. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+3 Stamina) for 30 minutes.",
+      "effect_value": 250,
+      "effect_duration": 20,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 6,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 3
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_seared_cut",
+      "name": "Seared Cut",
+      "consumable_type": "meal",
+      "description": "Hard sear, pink middle. A cook's first real trick. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+5 Stamina, +3 Strength) for 30 minutes.",
+      "effect_value": 380,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 13,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 5,
+        "strength": 3
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_herb_roast",
+      "name": "Herb-Crusted Roast",
+      "consumable_type": "meal",
+      "description": "Rolled in whatever grows nearby. It is never the same twice. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+7 Stamina, +5 Strength) for 30 minutes.",
+      "effect_value": 520,
+      "effect_duration": 24,
+      "level_multiplier": 0.0,
+      "required_level": 16,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 21,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 7,
+        "strength": 5
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_slow_stew",
+      "name": "Slow Stew",
+      "consumable_type": "meal",
+      "description": "On the fire all day. The sort of thing a camp gathers around. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+9 Stamina, +5 Spirit) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 29,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 9,
+        "spirit": 5
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_feast_roast",
+      "name": "Feast Roast",
+      "consumable_type": "meal",
+      "description": "Enough for a table. Cooked by somebody showing off. Restores 900 health over 30 seconds while you rest, and leaves you well fed (+12 Stamina, +7 Strength, +5 Spirit) for 30 minutes.",
+      "effect_value": 900,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 37,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 12,
+        "strength": 7,
+        "spirit": 5
+      }
+    }
   ]
 }

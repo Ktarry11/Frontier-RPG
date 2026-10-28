@@ -75,7 +75,10 @@ class Consumable:
             return False  # Can't stack two guardian elixirs
         if self.buff_category == "battle" and character.battle_buff is not None:
             return False  # Can't stack two battle elixirs
-        if self.buff_category == "food" and character.food_buff is not None:
+        # A cooked meal is a "meal" first: you can always start eating, even with a Well Fed buff
+        # already up. The slot check only blocks a second STAT-ONLY food, which is what it was for.
+        if (self.buff_category == "food" and character.food_buff is not None
+                and self.consumable_type != "meal"):
             return False  # Can't stack two food buffs
         if self.buff_category == "ammo" and character.ammo_buff is not None:
             return False  # One quiver at a time
@@ -125,6 +128,13 @@ class Consumable:
             bar = "health" if kind == "meal" else "mana"
             log_msg = (f"{verb} {self.name}: {self.effect_value} {bar} over "
                        f"{int(self.effect_duration)}s. Stops if you take a hit.")
+            # A COOKED meal carries the Well Fed buff on top of the regen, which is the entire reason
+            # to cook rather than buy. Vendor meals have no stat_bonuses and skip this.
+            if self.stat_bonuses and self.buff_category == "food":
+                character.apply_consumable_buff("food", self)
+                bonus = ", ".join(f"+{v} {k.replace('_', ' ').title()}"
+                                  for k, v in self.stat_bonuses.items())
+                log_msg += f" Well fed: {bonus}."
 
         elif self.consumable_type == "ammo":
             # Crafted arrows / bolts (Woodworking): a timed ranged-attack buff in its own slot, since the game has

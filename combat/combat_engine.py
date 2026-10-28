@@ -736,6 +736,26 @@ class CombatEngine:
                     self.combat_log.append(f"{enemy.name} dropped: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
         except Exception as exc:  # cloth is a bonus; never let it break victory
             print(f"WARNING: cloth drop failed: {exc}")
+        # Meat for Cooking (entities/meat_drops.py): beasts only, and deliberately NOT gated on a
+        # profession - anyone can take the meat off a boar, and you need Cooking to do something with
+        # it. A profession you cannot start because you were never allowed to pick up its inputs is a
+        # profession nobody takes.
+        try:
+            from entities.meat_drops import roll_meat
+            from world.gathering_manager import get_gathering_node_manager
+            gm_meat = get_gathering_node_manager()
+            for enemy in self.enemies:
+                for material_id, qty in roll_meat(enemy):
+                    mat = gm_meat.make_material_instance(material_id)
+                    if mat is None:
+                        continue
+                    mat.quantity = qty
+                    self.player.add_material(mat)
+                    self.combat_log.append(
+                        f"You butchered {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+        except Exception as exc:
+            print(f"WARNING: meat drop failed: {exc}")
+
         # Leather for Leatherworking (entities/skinning_drops.py): beasts only, Skinning gated.
         try:
             from entities.skinning_drops import roll_leather

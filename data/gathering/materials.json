@@ -3799,6 +3799,102 @@
       "sell_price": 35,
       "icon_id": "limbs_heartwood",
       "skill_range": null
+    },
+    "meat_stringy": {
+      "name": "Stringy Meat",
+      "material_type": "meat",
+      "tier": "starter",
+      "skill_range": [
+        0,
+        25,
+        50,
+        75
+      ],
+      "sell_price": 3,
+      "stack_limit": 20,
+      "profession": "cooking",
+      "icon_id": "meat_stringy",
+      "description": "Tough, lean and not much of it. Boil it long enough and it gives in."
+    },
+    "meat_lean": {
+      "name": "Lean Cut",
+      "material_type": "meat",
+      "tier": "early",
+      "skill_range": [
+        35,
+        60,
+        85,
+        110
+      ],
+      "sell_price": 10,
+      "stack_limit": 20,
+      "profession": "cooking",
+      "icon_id": "meat_lean",
+      "description": "Honest meat off an honest animal."
+    },
+    "meat_thick": {
+      "name": "Thick Cut",
+      "material_type": "meat",
+      "tier": "early",
+      "skill_range": [
+        75,
+        100,
+        125,
+        150
+      ],
+      "sell_price": 18,
+      "stack_limit": 20,
+      "profession": "cooking",
+      "icon_id": "meat_thick",
+      "description": "A proper joint. Heavy enough to notice in a pack."
+    },
+    "meat_rich": {
+      "name": "Rich Cut",
+      "material_type": "meat",
+      "tier": "mid",
+      "skill_range": [
+        115,
+        140,
+        165,
+        190
+      ],
+      "sell_price": 26,
+      "stack_limit": 20,
+      "profession": "cooking",
+      "icon_id": "meat_rich",
+      "description": "Marbled and dark. Worth the weight."
+    },
+    "meat_prime": {
+      "name": "Prime Cut",
+      "material_type": "meat",
+      "tier": "mid",
+      "skill_range": [
+        155,
+        180,
+        205,
+        230
+      ],
+      "sell_price": 34,
+      "stack_limit": 20,
+      "profession": "cooking",
+      "icon_id": "meat_prime",
+      "description": "The piece a cook puts aside before anybody else sees the carcass."
+    },
+    "part_tide_seal": {
+      "name": "Tideglass Seal",
+      "material_type": "part",
+      "tier": "early",
+      "skill_range": [
+        60,
+        85,
+        110,
+        135
+      ],
+      "sell_price": 14,
+      "stack_limit": 20,
+      "profession": "engineering",
+      "icon_id": "part_tide_seal",
+      "description": "Ground tideglass set in a bronze ring. Keeps water out of things that mind."
     }
   }
 }

@@ -4184,6 +4184,54 @@
             "kind": "material",
             "material_id": "upgrade_kit_runecloth"
           }
+        },
+        "tail_bolt_spidersilk": {
+          "name": "Bolt of Spidersilk",
+          "inputs": {
+            "cloth_spidersilk": 3
+          },
+          "skill_required": 130,
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_spidersilk",
+            "count": 1
+          }
+        },
+        "tail_bolt_dusk_velvet": {
+          "name": "Bolt of Dusk Velvet",
+          "inputs": {
+            "cloth_dusk_velvet": 4
+          },
+          "skill_required": 165,
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_dusk_velvet",
+            "count": 1
+          }
+        },
+        "tail_bolt_gossamer": {
+          "name": "Bolt of Gossamer",
+          "inputs": {
+            "cloth_gossamer": 4
+          },
+          "skill_required": 195,
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_gossamer",
+            "count": 1
+          }
+        },
+        "tail_bolt_thistledown": {
+          "name": "Bolt of Thistledown",
+          "inputs": {
+            "cloth_thistledown": 5
+          },
+          "skill_required": 225,
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_thistledown",
+            "count": 1
+          }
         }
       }
     },
@@ -8463,6 +8511,83 @@
           "output": {
             "kind": "material",
             "material_id": "upgrade_kit_resonant"
+          }
+        },
+        "eng_part_tide_seal": {
+          "name": "Tideglass Seal",
+          "inputs": {
+            "crystal_tideglass": 2,
+            "bar_bronze": 1
+          },
+          "skill_required": 72,
+          "output": {
+            "kind": "material",
+            "material_id": "part_tide_seal",
+            "count": 1
+          }
+        }
+      }
+    },
+    "cooking": {
+      "recipes": {
+        "cook_campfire_strips": {
+          "name": "Campfire Strips",
+          "inputs": {
+            "meat_stringy": 2
+          },
+          "skill_required": 0,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_campfire_strips",
+            "count": 1
+          }
+        },
+        "cook_seared_cut": {
+          "name": "Seared Cut",
+          "inputs": {
+            "meat_lean": 2
+          },
+          "skill_required": 50,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_seared_cut",
+            "count": 1
+          }
+        },
+        "cook_herb_roast": {
+          "name": "Herb-Crusted Roast",
+          "inputs": {
+            "meat_thick": 2
+          },
+          "skill_required": 100,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_herb_roast",
+            "count": 1
+          }
+        },
+        "cook_slow_stew": {
+          "name": "Slow Stew",
+          "inputs": {
+            "meat_rich": 3
+          },
+          "skill_required": 150,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_slow_stew",
+            "count": 1
+          }
+        },
+        "cook_feast_roast": {
+          "name": "Feast Roast",
+          "inputs": {
+            "meat_prime": 3
+          },
+          "skill_required": 200,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_feast_roast",
+            "count": 1
           }
         }
       }
