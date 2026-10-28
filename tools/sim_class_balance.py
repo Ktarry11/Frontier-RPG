@@ -126,6 +126,13 @@ def fight(char, enemy_template, level, gen, rng):
 
     heals, attacks = plan(char)
     turns = 0
+    #: HEALING HAS TO BE RATIONED OR HEALERS HEAL-LOCK. With a bare "heal below 35%" rule, a class
+    #: whose heal does not outpace incoming damage never climbs back over the threshold and so
+    #: heals every remaining turn: the Shaman spent 17 of 28 turns casting Healing Wave and its
+    #: win rate read 40%, which measured this loop rather than the class. A real player heals, gets
+    #: back to work, and heals again when it is worth a turn. One heal every third turn at most.
+    HEAL_EVERY = 3
+    last_heal = -HEAL_EVERY
     for _ in range(MAX_TICKS):
         engine.update(TICK)
         if not engine.is_active:
@@ -140,7 +147,8 @@ def fight(char, enemy_template, level, gen, rng):
         turns += 1
         acted = False
         hurt = char.health and char.current_health / char.health < 0.35
-        order = (heals + attacks) if (hurt and heals) else attacks
+        may_heal = hurt and heals and (turns - last_heal) >= HEAL_EVERY
+        order = (heals + attacks) if may_heal else attacks
         # DON'T REAPPLY A DOT THAT IS STILL TICKING. Sorting by total effect value puts damage-over-
         # time first, since its total is the sum of its ticks, so a naive loop re-casts Rend or
         # Shadow Word: Pain every single turn and overwrites it. Some carry a cooldown and the engine
@@ -153,6 +161,8 @@ def fight(char, enemy_template, level, gen, rng):
             ok, _why = engine.execute_ability(char, ability.ability_id, enemy)
             if ok:
                 acted = True
+                if ability in heals:
+                    last_heal = turns
                 break
         if not acted:
             engine.execute_defend(char)

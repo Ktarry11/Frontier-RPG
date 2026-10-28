@@ -1945,28 +1945,56 @@ class Character(StatusEffectMixin):
             ]
         return []
 
-    #: Armor/resistance constant for the diminishing-returns curve. Higher
-    #: values mean armor is worth less. Kept as a named constant so the UI
-    #: and the damage maths can never disagree about the curve.
+    #: Armor/resistance curve: reduction = rating / (rating + BASE + PER_LEVEL * attacker_level).
+    #:
+    #: THE DENOMINATOR HAS TO SCALE WITH THE ATTACKER OR ARMOUR RUNS AWAY. This was a flat 100,
+    #: which meant reduction only ever climbed as gear improved: a plate wearer reached 88% by
+    #: level 20, 94% by 40 and 96% by 60, so physical damage stopped existing. Measured against a
+    #: geared level-40 character, every melee creature in the game did 3 to 10 damage a turn - 83
+    #: to 265 turns to kill somebody - while caster creatures, whose damage armour does not touch,
+    #: did 116 to 195. That is the whole reason caster mobs were unbeatable and melee mobs were
+    #: harmless, and no amount of class tuning could have fixed it.
+    #:
+    #: THESE TWO NUMBERS ARE FITTED TO FRONTIER'S OWN ARMOUR VALUES, not copied from WoW. WoW uses
+    #: 400 + 85 per level, but its plate wearers carry four to six thousand armour at 60 where
+    #: Frontier's carry about 2300, so WoW's constants would leave Frontier plate at 29%. Fitted
+    #: instead so the curve lands where it should at every level:
+    #:
+    #:     level 20   plate ~46%   cloth ~17%
+    #:     level 40   plate ~49%   cloth ~18%
+    #:     level 60   plate ~50%   cloth ~20%
+    #:
+    #: Flat across levels is the point. Armour class stays a real difference - a plate wearer takes
+    #: a bit over half what a cloth wearer takes from a sword - without either becoming immune.
+    MITIGATION_BASE = 200
+    MITIGATION_PER_LEVEL = 35
+
+    #: Kept because saves, tooltips and tests referenced it. Not used by the curve any more.
     MITIGATION_CONSTANT = 100
 
     @classmethod
-    def mitigation_from(cls, rating):
+    def mitigation_from(cls, rating, attacker_level=None):
         """Fraction of damage (0.0-1.0) mitigated by an armor/resistance rating.
 
-        Asymptotic: never reaches 100%, always diminishing returns. Single
-        source of truth - take_damage() and the tooltips both call this.
+        Asymptotic: never reaches 100%, always diminishing returns. Single source of truth -
+        take_damage(), Monster.take_damage(), Pet.take_damage() and the tooltips all call this.
+
+        attacker_level scales the curve. A caller that genuinely does not know it (an item tooltip
+        comparing two pieces of armour) may leave it out and gets the level-1 curve, which is the
+        most generous reading - fine for "this piece is better than that piece", wrong for damage.
+        Every damage path passes it.
         """
         rating = max(0, rating)
-        return rating / (rating + cls.MITIGATION_CONSTANT)
+        denom = cls.MITIGATION_BASE + cls.MITIGATION_PER_LEVEL * max(1, int(attacker_level or 1))
+        return rating / (rating + denom)
 
     def get_physical_reduction_percent(self):
         """Current physical damage reduction from Armor, as a percentage."""
-        return self.mitigation_from(self.armor) * 100.0
+        return self.mitigation_from(self.armor, self.level) * 100.0
 
     def get_magic_reduction_percent(self):
         """Current magic damage reduction from Magic Resistance, as a percentage."""
-        return self.mitigation_from(self.magic_resistance) * 100.0
+        return self.mitigation_from(self.magic_resistance, self.level) * 100.0
 
     def get_resistance(self, school):
         """Real per-school resistance rating lookup - the single place
@@ -2060,7 +2088,7 @@ class Character(StatusEffectMixin):
         (0-100) through the same asymptotic curve as
         get_physical_reduction_percent/get_magic_reduction_percent -
         for tooltips/character-sheet display."""
-        return self.mitigation_from(self.get_resistance(school)) * 100.0
+        return self.mitigation_from(self.get_resistance(school), self.level) * 100.0
 
     def take_damage(self, amount, damage_type="physical", attacker_level=None, attacker=None):
         """Take damage with resistance.
@@ -2163,7 +2191,7 @@ class Character(StatusEffectMixin):
                 # defender cannot be pushed into negative Armor and start
                 # taking bonus damage from penetration alone.
                 effective_armor = max(0, int(effective_armor * (1.0 - min(1.0, pct)) - flat))
-            reduction = self.mitigation_from(effective_armor)
+            reduction = self.mitigation_from(effective_armor, attacker_level)
         elif damage_type == "magic":
             # spell_penetration is the magic-side counterpart, and was equally
             # inert. Same ordering and same floor.
@@ -2171,7 +2199,7 @@ class Character(StatusEffectMixin):
             if attacker is not None:
                 effective_resist = max(0, int(effective_resist
                                               - (getattr(attacker, "spell_penetration", 0) or 0)))
-            reduction = self.mitigation_from(effective_resist)
+            reduction = self.mitigation_from(effective_resist, attacker_level)
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             # Real per-school resistance path (Fire/Frost/Nature/Shadow/
             # Arcane/Holy, or a combined-school tuple - see get_resistance's
@@ -2184,7 +2212,7 @@ class Character(StatusEffectMixin):
             eff_res = self.get_resistance(damage_type)
             if attacker is not None:
                 eff_res = max(0, int(eff_res - (getattr(attacker, "spell_penetration", 0) or 0)))
-            reduction = self.mitigation_from(eff_res)
+            reduction = self.mitigation_from(eff_res, attacker_level)
         else:
             reduction = 0
         

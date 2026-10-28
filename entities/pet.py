@@ -251,9 +251,9 @@ class Pet(StatusEffectMixin):
         # types). Pet doesn't use it either.
         from entities.character import Character
         if damage_type == "physical":
-            reduction = Character.mitigation_from(self.armor)
+            reduction = Character.mitigation_from(self.armor, attacker_level)
         elif damage_type == "magic":
-            reduction = Character.mitigation_from(self.magic_resistance)
+            reduction = Character.mitigation_from(self.magic_resistance, attacker_level)
         else:
             reduction = 0
 

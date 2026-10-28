@@ -509,19 +509,25 @@ class Monster(StatusEffectMixin):
         def _pen_pct(name):
             return (getattr(attacker, name, 0.0) or 0.0) if attacker is not None else 0.0
 
+        # ONE CURVE FOR EVERYONE. This used to be its own inline `rating / (rating + 100)`, a
+        # second copy of a formula Character already owned, and when that formula changed to scale
+        # with attacker level the two would silently have disagreed - players mitigating one way
+        # and the creatures they fight mitigating another. It calls the shared classmethod now.
+        from entities.character import Character
+
         if damage_type == "physical":
             # Percentage first, then flat, floored at 0 so penetration can
             # strip armour but never grant bonus damage on its own.
             armor = max(0, int(self.armor * (1.0 - min(1.0, _pen_pct("armor_penetration_pct")))
                                - _pen_flat("armor_penetration")))
-            reduction = armor / (armor + 100) if armor > 0 else 0
+            reduction = Character.mitigation_from(armor, attacker_level)
         elif damage_type == "magic":
             mr = max(0, int(self.magic_resistance - _pen_flat("spell_penetration")))
-            reduction = mr / (mr + 100) if mr > 0 else 0
+            reduction = Character.mitigation_from(mr, attacker_level)
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             resist = max(0, int(self.get_resistance(damage_type)
                                 - _pen_flat("spell_penetration")))
-            reduction = resist / (resist + 100) if resist > 0 else 0
+            reduction = Character.mitigation_from(resist, attacker_level)
         else:
             reduction = 0
 
