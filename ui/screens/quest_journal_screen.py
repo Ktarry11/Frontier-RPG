@@ -469,13 +469,14 @@ class QuestJournalScreen(BaseScreen):
     def _render_faction_detail(self, screen):
         """One faction, in full: who they are, where they stand with you, and what that standing buys.
 
-        I originally built the reputation tab as a flat list and wrote in this file that a faction had
-        "no second screen's worth of anything to show". That was wrong twice over. A faction in this game
-        has real history, and - more practically - nothing anywhere else tells the player what reputation
-        is FOR. The perk ladder below is the only place the rewards are discoverable.
+        INFORMATION ONLY (Kyle, 2026-10-27). An earlier version listed what each tier unlocked. That is
+        gone on purpose: reputation rewards will eventually span gear, crafting recipes, recruits, quests
+        and whole zones unlocked, and a ladder that could only honestly show two potions and a companion
+        would teach the player the wrong shape for the system. The gates still exist and still work - see
+        data/factions/factions.json, rewards - they are simply not advertised here until there is a full
+        picture to advertise.
 
-        The body scrolls, because five paragraphs of lore plus a four-rung ladder overflows 720px. The
-        height is MEASURED first, by laying the same text out on a scratch surface, rather than drawn and
+        The body scrolls, because the lore runs past 720px on its own. The height is MEASURED first, by laying the same text out on a scratch surface, rather than drawn and
         clamped a frame later - a scrollbar that is wrong on the first frame of every open is worse than
         no scrollbar.
         """
@@ -491,6 +492,13 @@ class QuestJournalScreen(BaseScreen):
         self.renderer.draw_text(screen, f.name, (20, 76), color=COLOR_WHITE, size="large")
         if f.home_name:
             self.renderer.draw_text(screen, f.home_name, (20, 112), color=(140, 140, 150), font_size=16)
+        led = f.leader or {}
+        if led.get("name"):
+            who = " ".join(x for x in (led.get("title"), led.get("name")) if x)
+            where = led.get("location")
+            self.renderer.draw_text(screen, who, (20, 136), color=(205, 180, 130), font_size=18)
+            if where:
+                self.renderer.draw_text(screen, where, (20, 158), color=(130, 130, 140), font_size=15)
 
         into, span = f.progress()
         self.renderer.draw_text(screen, tier["name"], (SCREEN_WIDTH - 420, 80), color=colour)
@@ -503,7 +511,7 @@ class QuestJournalScreen(BaseScreen):
         label = f"{f.standing}" if f.next_tier is None else f"{into} / {span}"
         self.renderer.draw_text(screen, label, (bar.right + 12, 106), color=(170, 170, 180), font_size=16)
 
-        top, bottom = 140, SCREEN_HEIGHT - 50
+        top, bottom = 186, SCREEN_HEIGHT - 50
         viewport = pygame.Rect(20, top, SCREEN_WIDTH - 40, bottom - top)
         self._list_viewport = viewport
         width = SCREEN_WIDTH - 90
@@ -519,8 +527,13 @@ class QuestJournalScreen(BaseScreen):
         self._render_scrollbar(screen, viewport, content_height)
 
     def _draw_faction_body(self, screen, f, y, width):
-        """Lay out the lore and the perk ladder. Called twice per frame - once on a scratch surface to
+        """Lay out the faction's background. Called twice per frame - once on a scratch surface to
         measure, once on the real one to draw - so it must be free of side effects."""
+        line = (f.leader or {}).get("line")
+        if line:
+            y = self._draw_wrapped_text(screen, f'"{line}"', (20, y), max_width=width,
+                                        color=(190, 175, 140), line_height=24)
+            y += 18
         if f.lore:
             self.renderer.draw_text(screen, "Background", (20, y), color=COLOR_GOLD)
             y += 30
@@ -530,24 +543,6 @@ class QuestJournalScreen(BaseScreen):
                 y += 12
             y += 10
 
-        if f.perks:
-            self.renderer.draw_text(screen, "What standing earns you", (20, y), color=COLOR_GOLD)
-            y += 30
-            by_id = {t["id"]: t for t in f.tiers}
-            for perk in f.perks:
-                t = by_id.get(perk.get("tier"))
-                if t is None:
-                    continue
-                earned = f.at_least(t["id"])
-                # Earned rungs take the tier's own colour; the rest are dimmed but still READABLE - a
-                # reward you cannot read yet is not a goal, it is a locked door with no sign on it.
-                name_col = self.TIER_COLOURS.get(t["id"], COLOR_WHITE) if earned else (110, 110, 120)
-                text_col = (185, 185, 190) if earned else (130, 130, 138)
-                mark = "+" if earned else "-"
-                self.renderer.draw_text(screen, f"{mark} {t['name']}", (20, y), color=name_col, font_size=18)
-                y = self._draw_wrapped_text(screen, perk.get("text", ""), (150, y), max_width=width - 130,
-                                            color=text_col, line_height=22)
-                y += 14
         return y
 
     def _render_scrollbar(self, screen, viewport, content_height):

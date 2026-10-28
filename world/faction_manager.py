@@ -55,9 +55,8 @@ class Faction:
         self.home_name = d.get("home_name", "")
         #: Shown on the detail panel. Paragraphs, authored, never generated from the mechanical data.
         self.lore = d.get("lore", [])
-        #: [(tier_id, text)] - what each threshold actually buys, in words. Authored rather than derived
-        #: from `rewards`, because deriving it would show the player item ids and quest slugs.
-        self.perks = d.get("perks", [])
+        #: {title, name, npc_id, location, line} - who runs this faction. Shown on the detail panel.
+        self.leader = d.get("leader", {})
         self.quest_rep = d.get("quest_rep", {})
         self.kill_rep = d.get("kill_rep", {}).get("creatures", {})
         self.rewards = d.get("rewards", {})

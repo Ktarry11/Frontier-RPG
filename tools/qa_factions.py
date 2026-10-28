@@ -153,34 +153,27 @@ def main():
         fails.append(f"vendors sell '{it}', which does not exist: {who}")
 
     print("\n== detail panel content")
-    tier_ids = [t["id"] for t in fm.tiers]
+    npcs = {r["npc_id"] for r in json.loads(Path("data/npcs/ambient_npcs.json").read_text())["npcs"]}
+    npcs |= {r["vendor_id"] for r in json.loads(Path("data/npcs/vendors.json").read_text())["vendors"]}
     for fid, fac in fm.factions.items():
         if not fac.lore:
             fails.append(f"{fid}: no lore - the detail panel would open on an empty page")
-        if not fac.perks:
-            fails.append(f"{fid}: no perks - nothing tells the player what reputation is FOR")
-        seen = []
-        for perk in fac.perks:
-            t = perk.get("tier")
-            if t not in tier_ids:
-                fails.append(f"{fid}: perk at unknown tier '{t}'")
-                continue
-            seen.append(tier_ids.index(t))
-            if not perk.get("text"):
-                fails.append(f"{fid}: perk at '{t}' has no text")
-        if seen != sorted(seen):
-            fails.append(f"{fid}: perks are not in ascending tier order - the ladder would read backwards")
-        # Every mechanical reward should have a rung the player can read, or it is a surprise rather
-        # than a goal. Warned, not failed: a faction may deliberately keep something back.
-        promised = set(fac.rewards.get("quests", {}).values()) \
-            | {t for tbl in fac.rewards.get("vendor_stock", {}).values() for t in tbl} \
-            | ({fac.rewards["recruit"]["standing"]} if fac.rewards.get("recruit") else set())
-        described = {p.get("tier") for p in fac.perks}
-        undescribed = promised - described
-        print(f"  {fac.name}: {len(fac.lore)} lore paragraphs, {len(fac.perks)} rungs, "
-              f"{len(undescribed)} rewards with no rung")
-        if undescribed:
-            fails.append(f"{fid}: rewards at {sorted(undescribed)} are not described on the panel")
+        led = fac.leader or {}
+        if not led.get("name"):
+            fails.append(f"{fid}: no leader named")
+        nid = led.get("npc_id")
+        # A leader the player can actually go and find. A name with no NPC behind it is a dead end the
+        # panel advertises.
+        if nid and nid not in npcs:
+            fails.append(f"{fid}: leader npc_id '{nid}' is not an NPC in the world")
+        print(f"  {fac.name}: {len(fac.lore)} lore paragraphs, "
+              f"leader {led.get('title','')} {led.get('name','-')}".rstrip()
+              + f", npc {'ok' if nid in npcs else 'MISSING' if nid else 'not linked'}")
+        # The reward ladder is deliberately NOT shown (Kyle, 2026-10-27) - rewards will span gear,
+        # recipes, recruits, quests and zones, and half a ladder teaches the wrong shape. The gates are
+        # still checked above; they just are not advertised.
+        if getattr(fac, "perks", None):
+            fails.append(f"{fid}: still carries a perk ladder - the panel is information only")
 
     print("\n== gates open at the threshold and not before")
     rows = []
