@@ -44,6 +44,19 @@ habits:
     as a joke about retirement. It is not clear he is joking."). Good once. A formula at five. Three
     rewritten; the two that are earned by their section stayed.
 
+THEY DO NOT KNOW EACH OTHER. Kyle, following up: "These people are all independent and don't know each
+other." That is a harder constraint than it sounds and the first draft broke it in four more places
+after the ranking was gone - not by naming anybody, but by implying an audience. "The people who were
+there do not bring it up." "Somebody eventually told her to stop." "Somebody has started keeping a
+count." Every one of those needs a witness, and the only witnesses available in a draft written all at
+once are the other twenty-four.
+
+So: any witness in these sections is a LOCAL and gets identified as one - an orc woman in Razor Hill
+whose son she kept alive, the fishing families at Southpoint, the Crossroads. Where there was nobody,
+the text says so, and that absence is usually the better line anyway: Mateo got his reply from the sky
+with nobody within a day's walk to find it alarming, and Liam came apart in a quiet season with no crew
+to notice, which was most of the problem.
+
 The fix for all three was the same: write what the person did, not what it signifies. A concrete
 closing detail - a standing argument with three quartermasters about rope, the water level in three
 wells - never reads as generated. A neat reversal always might.
@@ -90,12 +103,12 @@ B["ama_priest"] = dict(
            "She was very good and it cost her. She learned to keep her voice level while her hands did "
            "something frightening, which is a skill that looks like calm from the outside and is not. "
            "She rolled a healer in every game she ever played. Nobody in her life read that as a tell.",
-    adjustment="She does not talk about the first two years and the people who were there do not "
-               "either. On Earth there was always a form, a referral, a reason you could not. Here "
-               "there is "
-               "light in her hands and no limit at all, and for the first year she worked until she "
-               "fell over because nothing was telling her to stop.\n\n"
-               "Somebody eventually did. She has a rule now about hours, and she mostly keeps it.",
+    adjustment="She does not talk about the first two years and nobody in Razor Hill asks. On "
+               "Earth there was always a form, a referral, a reason you could not. Here there is light "
+               "in her hands and no limit at all, and for the first year she worked until she fell over, "
+               "because nothing in this world was telling her to stop.\n\n"
+               "An orc woman whose son she had kept alive eventually told her to stop. She has a rule "
+               "now about hours and she mostly keeps it.",
     now="Razor Hill, where the road brings in whatever the Barrens did to people that week. She has "
         "made herself the thing that town did not have: somebody who is reliably in one place.\n\n"
         "The orc children have stopped being frightened of her, which took far longer than "
@@ -305,9 +318,9 @@ B["asher_coleman"] = dict(
         "He never asks why you are doing something. He asks if you could use the help, like it is the "
         "easiest question in the world, and it is very difficult to say no to.",
     forward="He has never stated a want. Not once, to anyone, in three years.\n\n"
-            "Asked, he turns it around and asks about yours, and he is so interested that "
-            "it works every time. Somebody has started keeping a count of how often it works. The "
-            "count is now quite long.")
+            "Asked, he turns it around and asks about yours, and he is so interested that it works "
+            "every time. You will not notice he has done it until later, and then you will notice "
+            "he has done it before.")
 
 B["owen_cultist"] = dict(
     before="Twenty-two years of mine rescue in the South Wales valleys. He went down when everyone "
@@ -339,10 +352,10 @@ B["mateo_starcaller"] = dict(
            "depending on how tired he was. He slept through the days. He has still never properly "
            "adjusted to daylight and sees no reason to start.",
     adjustment="The sky answered, in moonlight, and it knew his name.\n\n"
-               "He did not have a crisis. He had the opposite, and the people around him in that first "
-               "year found it more alarming than a breakdown: a man who has waited "
-               "fourteen years for a reply, getting one, and calmly reaching for a notebook. He is not "
-               "adapting. He is in correspondence.",
+               "He did not have a crisis. He had the opposite, and there was nobody within a day's "
+               "walk to find that alarming: a man who had waited fourteen years for a reply, getting "
+               "one, alone on a ridge, calmly reaching for a notebook. He is not adapting. He is in "
+               "correspondence.",
     now="The Windward Road under Freewind Post, where the mesas run out and the sky gets very large. "
         "He has found the only other people in this world who watch it professionally.\n\n"
         "Freewind's skywatchers were polite about him for about a month and are now arguing with him "
@@ -402,9 +415,9 @@ B["liam_suncleric"] = dict(
     adjustment="Easiest first year, hardest second. For twelve months he simply did the job, because "
                "the job was everywhere and nobody had to ask.\n\n"
                "Then it got quiet for a season and he discovered he had no idea what he was for "
-               "without an emergency. That was a bad few months and the people who were there do not "
-               "bring it up. The sun answers him the way a good crew does - when called, and all at "
-               "once - and he has stopped pretending that is not most of what holds him together.",
+               "without an emergency. There was no crew to notice, which was most of the problem. The "
+               "sun answers him the way a good crew does, when called and all at once, and he has "
+               "stopped pretending that is not most of what holds him together.",
     now="Ashenvale East, working the ground around Grom's Rest where the corruption burns out of "
         "people slowly and nobody has a protocol for it.\n\n"
         "He has written one. It is four lines long, it is wrong in at least one place, and it is the "
