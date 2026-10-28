@@ -48,10 +48,15 @@ _SENTIENT = re.compile(
     r"murloc|satyr|drowned (buccaneer|crewman|deckhand|ferryman|fisherman|pilgrim|sailor|troll)|waterlogged gunner|"
     r"forsaken|footman|officer|guardsman|captain|baron|noble|farmhand|stableboy|servant|servitor|deserter|watchman|"
     r"pirate|gaffer|goodman|thurman|thrall|drudger|worgen|bonewarden|berard|ashbury|reaper-lord|ghoulmaster|hexed|"
-    r"\b(gnoll|quilboar|centaur|ogre|kobold|troll|orc|goblin|razormane|bristleback|kolkar|harpy handler)s?\b", re.I)
+    r"\b(gnoll|quilboar|centaur|ogre|kobold|troll|orc|goblin|razormane|bristleback|kolkar|harpy)s?\b", re.I)
+#: HARPIES ARE PEOPLE. They used to sit in _NOT_SENTIENT, which skipped the humanoid path entirely and
+#: dropped every harpy in the game into `beast` - so they yielded LEATHER and no coin. Kyle, 2026-10-27:
+#: "harpies should drop cloth bro." They speak, they use tools, they take prisoners, and in Warcraft they
+#: have always been Humanoid. Moving them here makes them a cloth and coin source like every other
+#: speaking enemy, across all nine of them, not just the ones added with this zone.
 # Not sentient even if the template is humanoid_* (rare); keeps beasts/constructs out of the purse.
 _NOT_SENTIENT = re.compile(r"golem|elemental|wisp|spirit|skeleton|ghoul(?!master)|zombie|corpse|construct|\bimps?\b|\bghost\b|"
-                           r"wraith|hydra|faerie dragon|harpy|battleboar|abomination|amber sentinel|brood tender|chitterlord|"
+                           r"wraith|hydra|faerie dragon|battleboar|abomination|amber sentinel|brood tender|chitterlord|"
                            r"resin spitter|shadow corruption|flame guardian|dryad", re.I)
 
 _FAMILY_RULES = [
