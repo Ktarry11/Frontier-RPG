@@ -6,7 +6,7 @@ the zone module's NPC_POSITIONS, so the layout stays the only place a position i
 
 NOBODY HERE IS FROM HERE, AND THAT IS THE ROSTER'S JOB.
 
-The mountain arrived four years ago. The tauren in it arrived after Thunder Bluff went down, walked south
+The mountain arrived three years ago. The tauren in it arrived after Thunder Bluff went down, walked south
 past Taurajo because Taurajo was already full, and stopped at the first country that had timber in it.
 They are a people who lived on open plain and now live under trees, and the roster should sound like that:
 they are good at this already and they hate how good they are getting, because competence here is proof

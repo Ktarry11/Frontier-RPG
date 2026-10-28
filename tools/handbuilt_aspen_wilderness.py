@@ -63,7 +63,7 @@ from tools.tirisfal_kit import wob, water_body
 KEY = "aspen_wilderness"
 #: Must match the name this zone is registered as in create_all_zones - portal_manager keys on zone.name.
 NAME = "The Aspen Wilderness"
-DESC = ("The north face of a mountain range that was not here four years ago. Aspen and lodgepole, avalanche "
+DESC = ("The north face of a mountain range that was not here three years ago. Aspen and lodgepole, avalanche "
         "paths, and one pass over the top.")
 REGION = "Kalimdor - Thousand Needles"
 W, H = 210, 180

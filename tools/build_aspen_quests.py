@@ -61,7 +61,7 @@ GOLD = {25: 6900, 26: 7200, 27: 7500, 28: 7800, 29: 8100, 30: 8400, 31: 8700, 32
 # the cave. Nothing here is Earth-made; the mountain is the only thing that came across.
 tirisfal_gear.THEMES.update({
     "aspen": (["Aspen", "Goldwood", "Pale-Bark", "Quaking", "Stand-Cut"],
-              ["Cut from wood that was not on this continent four years ago.",
+              ["Cut from wood that was not on this continent three years ago.",
                "White bark takes a mark and keeps it forever.",
                "Light in the hand, the way seasoned aspen goes.",
                "The whole stand is one tree. Nobody here knew that."]),
@@ -145,7 +145,7 @@ def inbound():
     A = []
     A.append(Q("tau_road_south", "The Road South", T_WRANGLER, TAU, 25, 26, "seam",
         "Wrangler Tull drove kodo down the Great Lift twice a year for most of his life. The Lift is gone "
-        "and so is the cliff it hung on, and in their place is a mountain that has been there four years "
+        "and so is the cliff it hung on, and in their place is a mountain that has been there three years "
         "and will not be explained.\n\nTaurajo has had no word from anything south of it since. Not from "
         "Freewind, not from the flats, not from the salt crews. Somebody has to walk up and look.",
         [explore(ASP, 105, 14, 8)],
@@ -157,7 +157,7 @@ def inbound():
         "nothing up there but sky and a very long drop, and now you are telling me there are trees on it."))
 
     A.append(Q("org_new_border", "What We Border Now", O_ELDER, ORG, 25, 27, "rim",
-        "Elder Torgun's job is knowing where the Horde's edges are. For four years the southern edge of "
+        "Elder Torgun's job is knowing where the Horde's edges are. For three years the southern edge of "
         "the Barrens has been a mountain range, and the best report Orgrimmar has on it was written by a "
         "scout who went up to the treeline and came back down the same afternoon.\n\nThe Warchief does "
         "not need poetry about it. He needs to know whether anything is coming through.",
@@ -215,11 +215,11 @@ def basin():
         "the pieces back. Four would tell me what I want to know. Mind the rim while you are at it; there "
         "is a long way down and only a few places to do it on purpose.",
         "Clean cut on two of these and sheared on the others. So it was still under load when the ground "
-        "came.\n\nSomething was on the cable. I have been avoiding that thought for four years."))
+        "came.\n\nSomething was on the cable. I have been avoiding that thought for three years."))
 
     A.append(Q("asp_wrong_side", "The Wrong Side of the Line", SEAM, ASP, 25, 26, "seam",
         "Watcher Tomak keeps the Seam, which mostly means watching things die slowly on the wrong side "
-        "of it.\n\nThe kodo are the worst of it. Barrens animals, standing in snow, four years into a "
+        "of it.\n\nThe kodo are the worst of it. Barrens animals, standing in snow, three years into a "
         "winter their kind has no word for. They do not graze. They do not go back. They stand at the "
         "line and they are not going to stop standing there on their own.",
         [k("Seam-Struck Kodo", 10)],
@@ -230,7 +230,7 @@ def basin():
         "properly. Most people do not."))
 
     A.append(Q("asp_red_ground", "A Handful of Home", SEAM, ASP, 26, 26, "seam",
-        "The camp downslope has been under trees for four years and has not once stood on its own "
+        "The camp downslope has been under trees for three years and has not once stood on its own "
         "ground. Tomak has been quietly collecting Barrens soil off the Seam and sending it down.\n\nIt "
         "is not for growing anything. It is for the floor of the elder's lodge, so there is red dirt "
         "under somebody's feet when it matters.",
@@ -372,7 +372,7 @@ def downslope():
         [k("Quilboar Highrunner", 12), k("Quilboar Frostspeaker", 6)],
         "The highrunners work the meadow edges at first light. They are fast and they are desperate and "
         "those are different problems arriving together.\n\nThe frostspeakers are the ones to drop first. "
-        "They have been trying to pray the cold down for four years and whatever they are actually doing "
+        "They have been trying to pray the cold down for three years and whatever they are actually doing "
         "is keeping the rest of them upright.",
         "That will hold them off the meadow until the thaw.\n\nAnd then they will come back, because they still have nowhere else, and we will do this again. I would like somebody cleverer than me to think about that part."))
 
@@ -386,7 +386,7 @@ def downslope():
         "mind.\n\nBring the timber back up. The beavers will rebuild - they always do - but they will "
         "rebuild faster with their own sticks than with new ones, and I am past caring whether that is "
         "sentimental.",
-        "They were back on it before you were out of the water. Did you see?\n\nFour years I have watched them put this valley together again every spring. There is a lesson in it and I am too tired to say what it is."))
+        "They were back on it before you were out of the water. Did you see?\n\nThree years I have watched them put this valley together again every spring. There is a lesson in it and I am too tired to say what it is."))
 
     # ---- STARTER DROP 2: the surveyor's pin
     A.append(Q("asp_surveyors_pin", "Somebody Measured This", "item:brass_survey_pin", ASP, 29, 30, "seam",
@@ -419,7 +419,7 @@ def ice():
         "it - the air coming out is wrong for this mountain.\n\nGo in as far as the shaft where the light "
         "comes down and no further on this trip. I want to know what the floor is. If it is wet rock then "
         "I am right about where the water is going.",
-        "Wet rock. Four years ago that was ice, and in four more years it will be a room.\n\nThe mountain "
+        "Wet rock. Three years ago that was ice, and in three more years it will be a room.\n\nThe mountain "
         "brought a glacier with it and the glacier is dying. That is what is in my creek.", nxt="asp_the_thaw"))
 
     A.append(Q("asp_the_thaw", "What the Thaw Lets Go", CAVE, ASP, 29, 30, "glacier",
@@ -474,7 +474,7 @@ def ice():
         [fetch("glacier_proof_bundle", 1), deliver("glacier_proof_bundle",
                                                              "Carry the bundle to Wrangler Tull at Camp Taurajo")],
         "I have put the hide, the hair and the apothecary's own letter in one bundle, with my mark on "
-        "it.\n\nTake it down to Tull. He asked four years ago whether there was a road south; the honest "
+        "it.\n\nTake it down to Tull. He asked three years ago whether there was a road south; the honest "
         "answer is that there is no road, there is a mountain, and the mountain has things living in it "
         "that came from somewhere else. He will want to sit down for the second part.",
         "Tull reads it twice and then puts his hand flat on the table.\n\n'So it is not a wall,' he says. "

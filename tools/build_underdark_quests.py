@@ -573,13 +573,13 @@ def bastion():
         "We came down here to write this place down and we are rationing the paper to do it. Nobody in the "
         "Hall finds that as funny as I do."))
     A.append(Q("kb_reagents", "Better Than They Should Be", ALCH, KB, 35, 36, "codex",
-        "Four years of Terrowen's samples say the same thing: reagents gathered in the Underdark test better "
+        "Three years of Terrowen's samples say the same thing: reagents gathered in the Underdark test better "
         "than their surface equivalents. Not slightly. Consistently, measurably, and in a direction no "
         "soil chemistry he knows will produce. He has stopped putting it in reports and started putting it "
         "in a drawer.",
         [craft("alch_elixir_of_arcane_fury", "Brew Elixir of Arcane Fury", 4)],
         "Four flasks, brewed from stock you pull out of this cavern yourself. Not from my shelves - my "
-        "shelves are already four years of this and I need a clean comparison.\n\nArcane fury is the right "
+        "shelves are already three years of this and I need a clean comparison.\n\nArcane fury is the right "
         "test because it is a fussy brew with a narrow window. If it comes out of Underdark reagents at "
         "full strength, then it is not my technique and it is not the stock. It is the ground.",
         "Full strength. All four, and one of them over.\n\nThere is an argument in the Hall that this cavern "

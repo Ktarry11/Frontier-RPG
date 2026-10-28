@@ -3,7 +3,7 @@ Hand-built The Deep Bloom (130x150): the Underdark's dungeon. Levels 36-39, five
 
 ARCHETYPE: THE MISREMEMBERED LIBRARY.
 
-The mycelium under the Sporefall is a network, and a network that has spent four years in a mana-saturated
+The mycelium under the Sporefall is a network, and a network that has spent three years in a mana-saturated
 cavern beneath a library has started to do something with that. The Deep Bloom is where it has grown into the
 shape of what it absorbed - and the horror is not that it built a library. It is that it built one WRONG, from
 the inside, having never seen a building.

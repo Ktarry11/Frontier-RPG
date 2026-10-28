@@ -182,7 +182,7 @@ def aspen_pools():
                "Hafted by somebody who did not know what it was and could tell it mattered.",
                weapon_type="polearm"),
             mk("Hide of the Last Herd", "chest", "of the Bear", 30,
-               "Still smells of red dust, four winters on.", armor_type="leather"),
+               "Still smells of red dust, three winters on.", armor_type="leather"),
             mk("Seam-Walker's Girdle", "waist", "of the Wolf", 30,
                "He crossed the line going the wrong way and never worked out how to cross back.",
                armor_type="mail"),
