@@ -19,6 +19,15 @@ class CombatAction(Enum):
 class CombatEngine:
     """Combat system with abilities and resources."""
     
+    #: Eating and drinking stop the moment a fight starts - see
+    #: StatusEffectMixin.break_consumable_regen for why that rule is what keeps food from replacing
+    #: potions outright.
+    def _break_resting(self):
+        for member in ([self.player] + list(getattr(self.party, "members", []))
+                       if self.party else [self.player]):
+            if hasattr(member, "break_consumable_regen"):
+                member.break_consumable_regen()
+
     def __init__(self, player, enemy, party=None, enemies=None, zone=None):
         """
         Multi-combatant turn-based encounter.
@@ -45,6 +54,7 @@ class CombatEngine:
         self.player = player
         self.party = party if party is not None else Party(player)
         self.zone = zone
+        self._break_resting()
 
         # Keep .enemy pointing at a live enemy for any legacy caller, but the
         # real list is self.enemies.

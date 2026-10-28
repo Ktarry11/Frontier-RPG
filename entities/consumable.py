@@ -65,7 +65,11 @@ class Consumable:
         """Check if character can use this consumable."""
         if character.level < self.required_level:
             return False
-        if character.consumable_cooldown > 0:
+        # FOOD AND DRINK ARE NOT ON THE POTION COOLDOWN, and they do not set it. They fill different
+        # bars and you are meant to be able to do both at once - the first build shared the cooldown,
+        # so drinking while eating silently did nothing: no log line, no mana, no error. Their cost is
+        # the twenty seconds of standing still, not a cooldown.
+        if character.consumable_cooldown > 0 and self.consumable_type not in ("meal", "drink"):
             return False
         if self.buff_category == "guardian" and character.guardian_buff is not None:
             return False  # Can't stack two guardian elixirs
@@ -111,6 +115,17 @@ class Consumable:
             bonus_str = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in self.stat_bonuses.items())
             log_msg = f"Ate {self.name}: {bonus_str} for {self.effect_duration}s"
         
+        elif self.consumable_type in ("meal", "drink"):
+            # Sit down and get the bar back. effect_value is the TOTAL restored and effect_duration
+            # is how long it takes - the slowness is the cost, and it is why this is cheap and a
+            # potion is not.
+            kind = "meal" if self.consumable_type == "meal" else "drink"
+            character.start_consumable_regen(kind, self.effect_value, self.effect_duration, self.name)
+            verb = "Eating" if kind == "meal" else "Drinking"
+            bar = "health" if kind == "meal" else "mana"
+            log_msg = (f"{verb} {self.name}: {self.effect_value} {bar} over "
+                       f"{int(self.effect_duration)}s. Stops if you take a hit.")
+
         elif self.consumable_type == "ammo":
             # Crafted arrows / bolts (Woodworking): a timed ranged-attack buff in its own slot, since the game has
             # no ammunition mechanic.  Same flat-value treatment as elixirs and food.
@@ -123,7 +138,8 @@ class Consumable:
         
         # Consume the item
         self.quantity -= 1
-        character.consumable_cooldown = self.cooldown_seconds
+        if self.consumable_type not in ("meal", "drink"):
+            character.consumable_cooldown = self.cooldown_seconds
         
         if combat_log is not None:
             combat_log.append(log_msg)

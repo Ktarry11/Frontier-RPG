@@ -606,6 +606,12 @@ class OverworldScreen(BaseScreen):
         """Update state."""
         # Banter ticks out here because it is ambience that lives in the overworld - it has no input,
         # pauses nothing, and fades on its own.
+        # Eating and drinking tick out here, where resting happens.
+        party = self.state_manager.get_party()
+        for member in ([self.state_manager.player] + list(getattr(party, "members", []))):
+            if member is not None and hasattr(member, "tick_consumable_regen"):
+                member.tick_consumable_regen(dt)
+
         from world.banter_manager import get_banter_manager
         get_banter_manager().update(dt)
         # ZoneManager does not own the party, so hand it the live one - arrivals fire from inside the

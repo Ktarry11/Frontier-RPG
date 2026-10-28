@@ -1398,6 +1398,67 @@ class StatusEffectMixin:
     #: second threshold, not an instant one.
     STANDING_STILL_THRESHOLD = 3.0
 
+    #: EATING AND DRINKING (Kyle, 2026-10-28: "food recovers hp over time and drink recovers mana").
+    #: Held as {"left": seconds, "per_second": amount, "name": str} or None. Food and drink run at the
+    #: same time, as they do in the game this borrows from - they fill different bars.
+    #:
+    #: WHY THIS IS NOT THE EXISTING "food" CONSUMABLE TYPE. That one is a STAT buff in a stat-buff slot
+    #: - +6 Strength for half an hour, the Well Fed effect - and it is correct as it stands. This is the
+    #: other thing food does: sit down, get the bar back, stand up. Two mechanics that share a word, so
+    #: they get two consumable types ("meal" and "drink") and the UI calls them Food and Drink.
+    def start_consumable_regen(self, kind, total, seconds, name=""):
+        """Begin eating or drinking. kind is 'meal' or 'drink'."""
+        slot = "_meal_regen" if kind == "meal" else "_drink_regen"
+        setattr(self, slot, {"left": float(seconds),
+                             "per_second": float(total) / max(0.1, float(seconds)),
+                             "name": name})
+
+    def consumable_regen_active(self):
+        """[(kind, name, seconds_left)] for whatever is currently ticking - for the UI."""
+        out = []
+        for kind, slot in (("meal", "_meal_regen"), ("drink", "_drink_regen")):
+            state = getattr(self, slot, None)
+            if state and state["left"] > 0:
+                out.append((kind, state["name"], state["left"]))
+        return out
+
+    def break_consumable_regen(self, reason="combat"):
+        """Stop eating and drinking. Called when a fight starts or damage lands.
+
+        This is the rule that makes food a RESTING item rather than a second potion: you cannot eat
+        your way through a fight. Without it there is no reason to ever carry a healing potion.
+        """
+        self._meal_regen = None
+        self._drink_regen = None
+
+    def tick_consumable_regen(self, dt):
+        """Advance eating/drinking. Returns (hp_gained, mana_gained).
+
+        Deliberately separate from tick_out_of_combat_regen rather than folded into it: that method
+        is Spirit-driven and scales with gear, and food must not. A level 1 character with no Spirit
+        still gets the full value of their bread, which is the entire point of selling it to them.
+        """
+        hp = mana = 0.0
+        meal = getattr(self, "_meal_regen", None)
+        if meal and meal["left"] > 0:
+            step = min(dt, meal["left"])
+            meal["left"] -= step
+            if self.current_health < self.health:
+                hp = min(meal["per_second"] * step, self.health - self.current_health)
+                self.current_health += hp
+            if meal["left"] <= 0:
+                self._meal_regen = None
+        drink = getattr(self, "_drink_regen", None)
+        if drink and drink["left"] > 0:
+            step = min(dt, drink["left"])
+            drink["left"] -= step
+            if hasattr(self, "current_mana") and self.current_mana < getattr(self, "mana", 0):
+                mana = min(drink["per_second"] * step, self.mana - self.current_mana)
+                self.current_mana += mana
+            if drink["left"] <= 0:
+                self._drink_regen = None
+        return hp, mana
+
     def tick_out_of_combat_regen(self, dt, is_moving):
         """Real time-based HP/Mana regen while out of combat, replacing
         the old per-tile-stepped system (see OUT_OF_COMBAT_MANA_REGEN_
