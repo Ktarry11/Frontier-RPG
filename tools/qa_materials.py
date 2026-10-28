@@ -107,6 +107,70 @@ def obtainable():
     return first
 
 
+ITEM_KINDS = {"armor", "weapon", "consumable", "bag"}
+TERMINAL_TYPES = {"upgrade_kit", "kit"}
+
+
+def _recipe_index():
+    """{material: [recipe, ...]} for everything that consumes it, plus each recipe's output."""
+    consumers = defaultdict(list)
+
+    def scan(recipes, origin):
+        if not isinstance(recipes, dict):
+            return
+        for rid, r in recipes.items():
+            if not isinstance(r, dict):
+                continue
+            for m in (r.get("inputs") or {}):
+                consumers[m].append((rid, r))
+
+    for f in sorted(ROOT.glob("data/*/recipes.json")):
+        d = json.loads(f.read_text())
+        if "professions" in d:
+            for _p, b in d["professions"].items():
+                if isinstance(b, dict):
+                    scan(b.get("recipes", {}), f)
+        else:
+            scan(d.get("recipes", d), f)
+    sm = json.loads((ROOT / "data/gathering/smelting_recipes.json").read_text())
+    scan(sm.get("recipes", sm), "smelting")
+    return consumers
+
+
+_CONSUMERS = None
+
+
+def _output_of(r):
+    """(kind, material_id) for a recipe, coping with smelting's bare-string output."""
+    o = r.get("output")
+    if isinstance(o, str):
+        return "material", o
+    o = o or {}
+    return o.get("kind"), o.get("material_id")
+
+
+def _reaches_item(mat, seen=None):
+    global _CONSUMERS
+    if _CONSUMERS is None:
+        _CONSUMERS = _recipe_index()
+    mats = json.loads((ROOT / "data/gathering/materials.json").read_text())
+    mats = mats.get("materials", mats)
+    seen = seen if seen is not None else set()
+    for rid, r in _CONSUMERS.get(mat, []):
+        if rid in seen:
+            continue
+        seen.add(rid)
+        kind, nxt = _output_of(r)
+        if kind in ITEM_KINDS:
+            return True
+        if nxt:
+            if mats.get(nxt, {}).get("material_type") in TERMINAL_TYPES:
+                return True
+            if _reaches_item(nxt, seen):
+                return True
+    return False
+
+
 def main():
     mats = json.loads((ROOT / "data/gathering/materials.json").read_text())
     mats = mats.get("materials", mats)
@@ -116,6 +180,14 @@ def main():
 
     inband = {m: lv for m, lv in first.items() if lv <= LEVEL_CAP}
     dead = sorted((lv, m) for m, lv in inband.items() if m not in used and m not in produced)
+
+    # CONSUMED SOMEWHERE IS NOT THE SAME AS LEADING ANYWHERE. The check above only asks whether some
+    # recipe takes the material. Four cloths passed it while the chain they fed - cloth to BOLT to
+    # nothing - never reached a wearable item, because the bolt-to-armour ladder stopped at Silk.
+    # So this walks the chain instead and asks whether it ends at something a player can equip, use
+    # or carry. An upgrade kit counts as an ending: a kit is applied to gear, it was never meant to
+    # be an input, and treating it as a dead end flags the whole kit ladder as broken.
+    stranded = sorted((lv, m) for m, lv in inband.items() if not _reaches_item(m))
     forward = sorted((lv, m) for m, lv in first.items()
                      if lv > LEVEL_CAP and m not in used and m not in produced)
 
@@ -146,7 +218,17 @@ def main():
         n, u = by_prof[p]
         print(f"  {p:<18}{u:>3}/{n:<4} of its materials are consumed somewhere")
 
+    print(f"\n== of the {len(inband)} in reach, {len(stranded)} never reach an item a player can use")
+    for lv, m in stranded:
+        print(f"     from level {lv:>2}   {m}")
+
     print()
+    if stranded:
+        print(f"FAIL ({len(stranded)})")
+        for lv, m in stranded:
+            print(f"  - {m} is obtainable from level {lv} and no chain of recipes turns it into "
+                  f"anything a player can equip, use or carry")
+        return 1
     if dead:
         print(f"FAIL ({len(dead)})")
         for lv, m in dead:

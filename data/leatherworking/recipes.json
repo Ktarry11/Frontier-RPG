@@ -1,5 +1,5 @@
 {
-  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) \u2014 it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
+  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) — it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
   "recipes": {
     "lw_light_armor_kit": {
       "name": "Light Armor Kit",
@@ -1865,7 +1865,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 6
+        "leather_heavy": 6
       },
       "output": {
         "kind": "armor",
@@ -1874,7 +1874,7 @@
         "stat_template": "str_physical",
         "item_level": 19,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       }
     },
     "lw_medium_str_vest": {
@@ -1888,7 +1888,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 9
+        "leather_cragscale": 9
       },
       "output": {
         "kind": "armor",
@@ -1897,7 +1897,7 @@
         "stat_template": "str_physical",
         "item_level": 22,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_medium_str_leggings": {
@@ -1911,7 +1911,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 8
+        "leather_cragscale": 8
       },
       "output": {
         "kind": "armor",
@@ -1920,7 +1920,7 @@
         "stat_template": "str_physical",
         "item_level": 23,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_medium_int_bracers": {
@@ -2049,7 +2049,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 6
+        "leather_heavy": 6
       },
       "output": {
         "kind": "armor",
@@ -2058,7 +2058,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 18,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       }
     },
     "lw_medium_agint_vest": {
@@ -2072,7 +2072,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 9
+        "leather_heavy": 9
       },
       "output": {
         "kind": "armor",
@@ -2081,7 +2081,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 21,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       }
     },
     "lw_medium_agint_helm": {
@@ -2095,7 +2095,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 7
+        "leather_cragscale": 7
       },
       "output": {
         "kind": "armor",
@@ -2104,7 +2104,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 23,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_medium_stint_spaulders": {
@@ -2118,7 +2118,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 6
+        "leather_heavy": 6
       },
       "output": {
         "kind": "armor",
@@ -2127,7 +2127,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 18,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       }
     },
     "lw_medium_stint_vest": {
@@ -2141,7 +2141,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 9
+        "leather_cragscale": 9
       },
       "output": {
         "kind": "armor",
@@ -2150,7 +2150,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 22,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_heavy_int_mail_boots": {
@@ -2279,7 +2279,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 5
+        "leather_cragscale": 5
       },
       "output": {
         "kind": "armor",
@@ -2288,7 +2288,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 26,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_heavy_stint_mail_helm": {
@@ -2302,7 +2302,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 7
+        "leather_cragscale": 7
       },
       "output": {
         "kind": "armor",
@@ -2311,7 +2311,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 29,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_heavy_stint_mail_vest": {
@@ -2325,7 +2325,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 9
+        "leather_stormscale": 9
       },
       "output": {
         "kind": "armor",
@@ -2334,7 +2334,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 30,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "stormscale"
       }
     },
     "lw_heavy_agint_mail_gloves": {
@@ -2348,7 +2348,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 5
+        "leather_cragscale": 5
       },
       "output": {
         "kind": "armor",
@@ -2357,7 +2357,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 27,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_heavy_agint_mail_vest": {
@@ -2371,7 +2371,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_medium": 9
+        "leather_cragscale": 9
       },
       "output": {
         "kind": "armor",
@@ -2380,7 +2380,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 29,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       }
     },
     "lw_thick_str_helm": {
@@ -2394,7 +2394,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_heavy": 8
+        "leather_stormscale": 8
       },
       "output": {
         "kind": "armor",
@@ -2403,7 +2403,7 @@
         "stat_template": "str_physical",
         "item_level": 32,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       }
     },
     "lw_thick_str_vest": {
@@ -2417,7 +2417,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_heavy": 12
+        "leather_thick": 12
       },
       "output": {
         "kind": "armor",
@@ -2426,7 +2426,7 @@
         "stat_template": "str_physical",
         "item_level": 34,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       }
     },
     "lw_thick_int_helm": {
@@ -2440,7 +2440,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_heavy": 8
+        "leather_stormscale": 8
       },
       "output": {
         "kind": "armor",
@@ -2449,7 +2449,7 @@
         "stat_template": "int_caster",
         "item_level": 33,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       }
     },
     "lw_thick_int_vest": {
@@ -2463,7 +2463,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_heavy": 12
+        "leather_thick": 12
       },
       "output": {
         "kind": "armor",
@@ -2472,7 +2472,7 @@
         "stat_template": "int_caster",
         "item_level": 34,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       }
     },
     "lw_thick_agint_helm": {
@@ -2486,7 +2486,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_heavy": 8
+        "leather_stormscale": 8
       },
       "output": {
         "kind": "armor",
@@ -2495,7 +2495,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 33,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       }
     },
     "lw_thick_agint_vest": {
@@ -2509,7 +2509,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_heavy": 12
+        "leather_thick": 12
       },
       "output": {
         "kind": "armor",
@@ -2518,7 +2518,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 35,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       }
     },
     "lw_thick_int_mail_vest": {
@@ -2532,7 +2532,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_heavy": 10
+        "leather_thick": 10
       },
       "output": {
         "kind": "armor",
@@ -2541,7 +2541,7 @@
         "stat_template": "int_caster",
         "item_level": 35,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       }
     },
     "lw_rugged_str_vest": {
@@ -2555,7 +2555,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_thick": 14
+        "leather_rugged": 14
       },
       "output": {
         "kind": "armor",
@@ -2564,7 +2564,7 @@
         "stat_template": "str_physical",
         "item_level": 45,
         "rarity": "rare",
-        "material_tier": "thick"
+        "material_tier": "rugged"
       }
     },
     "lw_rugged_int_vest": {
@@ -2578,7 +2578,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_thick": 14
+        "leather_rugged": 14
       },
       "output": {
         "kind": "armor",
@@ -2587,7 +2587,7 @@
         "stat_template": "int_caster",
         "item_level": 46,
         "rarity": "rare",
-        "material_tier": "thick"
+        "material_tier": "rugged"
       }
     },
     "lw_rugged_agint_vest": {
@@ -2601,7 +2601,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_thick": 14
+        "leather_rugged": 14
       },
       "output": {
         "kind": "armor",
@@ -2610,7 +2610,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 46,
         "rarity": "rare",
-        "material_tier": "thick"
+        "material_tier": "rugged"
       }
     },
     "lw_rugged_int_mail_vest": {
@@ -2624,7 +2624,7 @@
       ],
       "source": "trainer",
       "inputs": {
-        "leather_thick": 12
+        "leather_rugged": 12
       },
       "output": {
         "kind": "armor",
@@ -2633,7 +2633,7 @@
         "stat_template": "int_caster",
         "item_level": 47,
         "rarity": "rare",
-        "material_tier": "thick"
+        "material_tier": "rugged"
       }
     },
     "lw_serpentkin_leather_vest": {
@@ -2647,7 +2647,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 10
+        "leather_heavy": 10
       },
       "output": {
         "kind": "armor",
@@ -2656,7 +2656,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 20,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       },
       "drop_zone": "Wailing Caverns"
     },
@@ -2671,7 +2671,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 7
+        "leather_heavy": 7
       },
       "output": {
         "kind": "armor",
@@ -2680,7 +2680,7 @@
         "stat_template": "str_physical",
         "item_level": 19,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       },
       "drop_zone": "Wailing Caverns"
     },
@@ -2695,7 +2695,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 7
+        "leather_heavy": 7
       },
       "output": {
         "kind": "armor",
@@ -2704,7 +2704,7 @@
         "stat_template": "int_caster",
         "item_level": 20,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       },
       "drop_zone": "Wailing Caverns"
     },
@@ -2719,7 +2719,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 6
+        "leather_heavy": 6
       },
       "output": {
         "kind": "armor",
@@ -2728,7 +2728,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 19,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "heavy"
       },
       "drop_zone": "Wailing Caverns"
     },
@@ -2743,7 +2743,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 10
+        "leather_cragscale": 10
       },
       "output": {
         "kind": "armor",
@@ -2752,7 +2752,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 29,
         "rarity": "rare",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "drop_zone": "Shadowfang Keep"
     },
@@ -2767,7 +2767,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 10
+        "leather_cragscale": 10
       },
       "output": {
         "kind": "armor",
@@ -2776,7 +2776,7 @@
         "stat_template": "int_caster",
         "item_level": 29,
         "rarity": "rare",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "drop_zone": "Shadowfang Keep"
     },
@@ -2791,7 +2791,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 6
+        "leather_cragscale": 6
       },
       "output": {
         "kind": "armor",
@@ -2800,7 +2800,7 @@
         "stat_template": "int_caster",
         "item_level": 28,
         "rarity": "rare",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "drop_zone": "Shadowfang Keep"
     },
@@ -2815,7 +2815,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 8
+        "leather_cragscale": 8
       },
       "output": {
         "kind": "armor",
@@ -2824,7 +2824,7 @@
         "stat_template": "str_physical",
         "item_level": 23,
         "rarity": "rare",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "drop_zone": "The Broodspiral"
     },
@@ -2839,7 +2839,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 9
+        "leather_cragscale": 9
       },
       "output": {
         "kind": "armor",
@@ -2848,7 +2848,7 @@
         "stat_template": "agi_physical",
         "item_level": 24,
         "rarity": "rare",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "drop_zone": "The Broodspiral"
     },
@@ -2863,7 +2863,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 6
+        "leather_cragscale": 6
       },
       "output": {
         "kind": "armor",
@@ -2872,7 +2872,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 22,
         "rarity": "rare",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "drop_zone": "The Broodspiral"
     },
@@ -2887,7 +2887,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_heavy": 10
+        "leather_thick": 10
       },
       "output": {
         "kind": "armor",
@@ -2896,7 +2896,7 @@
         "stat_template": "str_physical",
         "item_level": 36,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       },
       "drop_zone": "Razorfen Kraul"
     },
@@ -2911,7 +2911,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_heavy": 9
+        "leather_thick": 9
       },
       "output": {
         "kind": "armor",
@@ -2920,7 +2920,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 37,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       },
       "drop_zone": "Razorfen Kraul"
     },
@@ -2935,7 +2935,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_heavy": 12
+        "leather_thick": 12
       },
       "output": {
         "kind": "armor",
@@ -2944,7 +2944,7 @@
         "stat_template": "agi_physical",
         "item_level": 36,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       },
       "drop_zone": "Razorfen Kraul"
     },
@@ -2959,7 +2959,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_heavy": 12
+        "leather_stormscale": 12
       },
       "output": {
         "kind": "armor",
@@ -2968,7 +2968,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 33,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       },
       "drop_zone": "Blackfathom Deeps"
     },
@@ -2983,7 +2983,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_heavy": 7
+        "leather_stormscale": 7
       },
       "output": {
         "kind": "armor",
@@ -2992,7 +2992,7 @@
         "stat_template": "int_caster",
         "item_level": 32,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       },
       "drop_zone": "Blackfathom Deeps"
     },
@@ -3007,7 +3007,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_thick": 10
+        "leather_rugged": 10
       },
       "output": {
         "kind": "armor",
@@ -3016,7 +3016,7 @@
         "stat_template": "int_caster",
         "item_level": 43,
         "rarity": "rare",
-        "material_tier": "thick"
+        "material_tier": "rugged"
       },
       "drop_zone": "Plague Depths"
     },
@@ -3031,7 +3031,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_thick": 12
+        "leather_rugged": 12
       },
       "output": {
         "kind": "armor",
@@ -3040,7 +3040,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 44,
         "rarity": "rare",
-        "material_tier": "thick"
+        "material_tier": "rugged"
       },
       "drop_zone": "Plague Depths"
     },
@@ -3055,7 +3055,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_thick": 10
+        "leather_rugged": 10
       },
       "output": {
         "kind": "armor",
@@ -3064,7 +3064,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 43,
         "rarity": "rare",
-        "material_tier": "thick"
+        "material_tier": "rugged"
       },
       "drop_zone": "Plague Depths"
     },
@@ -3079,7 +3079,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_heavy": 12
+        "leather_stonebound": 12
       },
       "output": {
         "kind": "armor",
@@ -3088,7 +3088,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 39,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stonebound"
       },
       "drop_zone": "Grom's Rest"
     },
@@ -3103,7 +3103,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_heavy": 8
+        "leather_stonebound": 8
       },
       "output": {
         "kind": "armor",
@@ -3112,7 +3112,7 @@
         "stat_template": "agi_physical",
         "item_level": 38,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stonebound"
       },
       "drop_zone": "Grom's Rest"
     },
@@ -3199,7 +3199,7 @@
       ],
       "source": "drop",
       "inputs": {
-        "leather_medium": 7
+        "leather_cragscale": 7
       },
       "output": {
         "kind": "armor",
@@ -3208,7 +3208,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 25,
         "rarity": "rare",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "drop_zone": "Widow's Lair"
     },
@@ -3223,7 +3223,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_medium": 8
+        "leather_cragscale": 8
       },
       "output": {
         "kind": "armor",
@@ -3232,7 +3232,7 @@
         "stat_template": "int_caster",
         "item_level": 28,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "vendor_location": "Astranaar"
     },
@@ -3247,7 +3247,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_medium": 8
+        "leather_cragscale": 8
       },
       "output": {
         "kind": "armor",
@@ -3256,7 +3256,7 @@
         "stat_template": "int_caster",
         "item_level": 29,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "cragscale"
       },
       "vendor_location": "Astranaar"
     },
@@ -3271,7 +3271,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_light": 7
+        "leather_medium": 7
       },
       "output": {
         "kind": "armor",
@@ -3280,7 +3280,7 @@
         "stat_template": "agi_int_hybrid",
         "item_level": 15,
         "rarity": "uncommon",
-        "material_tier": "light"
+        "material_tier": "medium"
       },
       "vendor_location": "Ratchet"
     },
@@ -3319,7 +3319,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_heavy": 8
+        "leather_stormscale": 8
       },
       "output": {
         "kind": "armor",
@@ -3328,7 +3328,7 @@
         "stat_template": "int_caster",
         "item_level": 31,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       },
       "vendor_location": "Splintertree Post"
     },
@@ -3343,7 +3343,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_medium": 10
+        "leather_stormscale": 10
       },
       "output": {
         "kind": "armor",
@@ -3352,7 +3352,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 30,
         "rarity": "uncommon",
-        "material_tier": "medium"
+        "material_tier": "stormscale"
       },
       "vendor_location": "Camp Taurajo"
     },
@@ -3367,7 +3367,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_heavy": 14
+        "leather_stonebound": 14
       },
       "output": {
         "kind": "armor",
@@ -3376,7 +3376,7 @@
         "stat_template": "spi_healer",
         "item_level": 41,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stonebound"
       },
       "vendor_location": "Undercity"
     },
@@ -3391,7 +3391,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_heavy": 10
+        "leather_stormscale": 10
       },
       "output": {
         "kind": "armor",
@@ -3400,7 +3400,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 33,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       },
       "vendor_location": "Fenris Isle (hidden)"
     },
@@ -3415,7 +3415,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_heavy": 9
+        "leather_stormscale": 9
       },
       "output": {
         "kind": "armor",
@@ -3424,7 +3424,7 @@
         "stat_template": "str_physical",
         "item_level": 32,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "stormscale"
       },
       "vendor_location": "Fenris Isle (hidden)"
     },
@@ -3439,7 +3439,7 @@
       ],
       "source": "vendor",
       "inputs": {
-        "leather_heavy": 7
+        "leather_thick": 7
       },
       "output": {
         "kind": "armor",
@@ -3448,7 +3448,7 @@
         "stat_template": "str_int_hybrid",
         "item_level": 34,
         "rarity": "rare",
-        "material_tier": "heavy"
+        "material_tier": "thick"
       },
       "vendor_location": "Razorfen Approach (hidden)"
     }
