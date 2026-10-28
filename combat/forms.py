@@ -20,6 +20,27 @@ between fights.
 """
 from combat.abilities import ResourceType
 
+#: ARMOUR MULTIPLIERS ON THE TANK FORMS, and why they are percentages rather than bigger flat
+#: numbers. Kyle, 2026-10-28: "bear form should increase armor from leather, and venomancer
+#: increases from mail to balance no shield."
+#:
+#: A bear and a beetle tank without a shield, and their armour class is below plate - leather gear
+#: carries 838 armour at level 60 and mail 1342, against plate's 2040. With only the flat +90/+150
+#: these forms used to give, a dire bear sat at 37% physical reduction while the plate tanks sat at
+#: 52-55%, so the druid was the worst tank in the game at the one thing a bear is for. Classic
+#: solved this the same way - Bear Form multiplied the armour contribution of items rather than
+#: adding to it - which is why these are armor_pct and not a larger flat bonus: a flat number that
+#: works at 60 is enormous at 15 and irrelevant at 60 once gear moves on.
+#:
+#: Fitted so a shieldless form tank lands level with a plate tank carrying one:
+#:
+#:     warrior_protection   52.5%   (plus 37 block+dodge from its shield, which armour does not show)
+#:     venomancer_fortitude 54.4%   beetle, mail, no shield
+#:     druid_feral          55.3%   dire bear, leather, no shield
+#:     paladin_protection   55.7%
+#:
+#: Dire Bear carries nearly twice Bear's multiplier because it is the level-40 form and leather has
+#: fallen further behind plate by then; Beetle needs least because mail starts closest.
 FORMS = {
     "bear": {
         "name": "Bear Form",
@@ -30,7 +51,7 @@ FORMS = {
             "Shifts into a bear, trading your normal Mana pool for Rage. "
             "Increases Armor and Stamina."
         ),
-        "stat_mods": {"armor": 90, "stamina": 25},
+        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 70},
     },
     "dire_bear": {
         "name": "Dire Bear Form",
@@ -41,7 +62,7 @@ FORMS = {
             "An improved Bear Form - more Armor, Stamina, and Attack "
             "Power than the base form."
         ),
-        "stat_mods": {"armor": 150, "stamina": 40, "attack_power": 60},
+        "stat_mods": {"armor": 150, "stamina": 40, "attack_power": 60, "armor_pct": 115},
     },
     "cat": {
         "name": "Cat Form",
@@ -132,7 +153,7 @@ FORMS = {
             "Shifts into an armored beetle, trading your normal Mana pool "
             "for Rage. Increases Armor and Stamina."
         ),
-        "stat_mods": {"armor": 90, "stamina": 25},
+        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 22},
     },
     "weaver": {
         "name": "Weaver Form",
