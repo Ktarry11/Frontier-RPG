@@ -165,39 +165,52 @@ ASPEN_ZONE = {
 # LOOT - boss and named-rare pools. Four items each; one drops per kill.
 # ======================================================================================================
 def aspen_pools():
-    """Open-zone named rares. Spread across armour classes and weapon types on purpose - see the header."""
+    """Open-zone named rares.
+
+    BUDGET IS FIXED UP FRONT, NOT DISCOVERED AFTERWARDS. The first version of this pass shipped cloth 2 /
+    mail 3 / plate 4 / leather 5 with eight weapon types and one caster weapon in twenty-four items - the
+    same melee dump the Hillsbrad pass had to be rebalanced for, walked straight back in. Across these six
+    pools the contract is now: SIX weapons of six DIFFERENT types with two of them caster weapons, SIXTEEN
+    armour pieces at FOUR APIECE across cloth/leather/mail/plate, and one neck and one trinket. Casting
+    suffixes land between 40% and 60%. tools/qa_aspen_content.py fails the build if any of that drifts.
+
+    Thirty classes need gear and most of them are not warriors.
+    """
     return {
         "The Last Kodo": [
+            mk("Horn of the Last Herd", "main_hand", "of the Bear", 30,
+               "Hafted by somebody who did not know what it was and could tell it mattered.",
+               weapon_type="polearm"),
             mk("Hide of the Last Herd", "chest", "of the Bear", 30,
                "Still smells of red dust, four winters on.", armor_type="leather"),
             mk("Seam-Walker's Girdle", "waist", "of the Wolf", 30,
                "He crossed the line going the wrong way and never worked out how to cross back.",
                armor_type="mail"),
-            mk("Dust-Caked Hoofguards", "feet", "of the Bear", 30,
-               "Barrens clay in the seams. Nothing up here makes clay like that.", armor_type="plate"),
-            mk("Stranded Totem", "neck", "of the Owl", 30,
-               "Carved for a herd that is three hundred miles away and might as well be on the moon."),
+            mk("Dustcaught Wraps", "hands", "of the Owl", 30,
+               "Shake them out and the Barrens comes off in your palm.", armor_type="cloth"),
         ],
         "Goldcrown": [
-            mk("Goldcrown's Antler", "main_hand", "of the Owl", 31,
-               "Shed, found, and worth more than the stag ever was.", weapon_type="mace_1h"),
-            mk("Pale Bark Leggings", "legs", "of the Monkey", 31,
-               "Aspen bark takes a scar and keeps it. So do these.", armor_type="leather"),
-            mk("Stand-Watcher's Longbow", "ranged", "of the Monkey", 31,
-               "Drawn in a stand where you can see forty yards and hear four hundred.", weapon_type="bow"),
+            mk("Goldcrown's Antler Stave", "main_hand", "of the Owl", 31,
+               "Shed, found, and worth more than the stag ever was.", weapon_type="staff"),
             mk("Gilded Canopy Mantle", "shoulder", "of the Physician", 31,
                "The light comes through these trees sideways, and gold, and only in the afternoon.",
                armor_type="cloth"),
+            mk("Pale Bark Leggings", "legs", "of the Monkey", 31,
+               "Aspen bark takes a scar and keeps it. So do these.", armor_type="leather"),
+            mk("Stand-Watcher's Sabatons", "feet", "of the Bear", 31,
+               "You can see forty yards in a stand like that and hear four hundred.",
+               armor_type="plate"),
         ],
         "Bristlehide the Wintered": [
             mk("Bristlehide's Cleaver", "main_hand", "of the Bear", 33,
                "Quilboar iron, re-ground for wood instead of flesh. It does both.", weapon_type="axe_2h"),
             mk("Wintered Tusk Pauldrons", "shoulder", "of the Bear", 33,
-               "He grew the tusks in a desert and broke them on a mountain.", armor_type="plate"),
-            mk("Dencarver's Hand-Axe", "off_hand", "of the Tiger", 33,
-               "They dig in now. Nobody taught them to; the cold did.", weapon_type="axe_1h"),
+               "She grew the tusks in a desert and broke them on a mountain.", armor_type="plate"),
             mk("Frost-Bitten Bracers", "wrist", "of the Monkey", 33,
                "The hide under them never did grow back right.", armor_type="mail"),
+            mk("Thornspeaker's Kilt", "legs", "of the Sorcerer", 33,
+               "They are praying to something that has never once answered up here.",
+               armor_type="cloth"),
         ],
     }
 
@@ -213,31 +226,30 @@ def ice_pools():
                "Grown for a cold that does not exist on this continent.", armor_type="leather"),
             mk("Glacier-Born Helm", "head", "of the Bear", 34,
                "Ice this old is blue, and blue all the way through.", armor_type="plate"),
-            mk("Icemelt Focus", "off_hand", "of the Owl", 34,
-               "It weeps steadily and has not got any smaller. Nobody can say why.",
-               weapon_type="wand"),
+            mk("Meltwater Greaves", "legs", "of the Eagle", 34,
+               "Everything down here is wet and none of it used to be.", armor_type="mail"),
         ],
         "Snowmaw": [
-            mk("Snowmaw's Claw", "main_hand", "of the Tiger", 32,
+            mk("Snowmaw's Claw", "main_hand", "of the Tiger", 33,
                "She denned here when it was only a cave, and she was here first.",
                weapon_type="fist_weapon"),
-            mk("Denmother's Hide Vest", "chest", "of the Bear", 32,
+            mk("Denmother's Cloak", "back", "of the Bear", 33,
                "Warm enough for a mountain she was not born on.", armor_type="leather"),
-            mk("Meltwater Waders", "feet", "of the Eagle", 32,
+            mk("Meltwater Waders", "feet", "of the Eagle", 33,
                "The cistern is ankle-deep and it is never going to drain.", armor_type="mail"),
-            mk("Bear-Tooth Pendant", "neck", "of the Physician", 32,
+            mk("Bear-Tooth Pendant", "neck", "of the Physician", 33,
                "One tooth, drilled through, on a cord somebody else tied."),
         ],
         "The Last Drift": [
-            mk("The Last Drift's Shard", "main_hand", "of the Owl", 32,
-               "He is the oldest of them and the only one who remembers the ice before it started going.",
-               weapon_type="dagger"),
-            mk("Drift-Watcher's Cowl", "head", "of the Owl", 32,
+            mk("Icemelt Focus", "main_hand", "of the Owl", 33,
+               "It weeps steadily and has not got any smaller. Nobody can say why.",
+               weapon_type="wand"),
+            mk("Drift-Watcher's Cowl", "head", "of the Owl", 33,
                "He sits where the melt has not reached and watches it come.", armor_type="cloth"),
-            mk("Old Ice Vambraces", "wrist", "of the Eagle", 32,
+            mk("Old Ice Vambraces", "wrist", "of the Eagle", 33,
                "Rime that has set hard enough to take a blow.", armor_type="plate"),
-            mk("Yeti-Hair Cloak", "back", "of the Monkey", 32,
-               "Shed in handfuls now. It did not used to come out at all.", armor_type="leather"),
+            mk("Thawstone", "trinket", "of the Eagle", 33,
+               "Cold in the hand all day, and no colder by evening."),
         ],
     }
 
