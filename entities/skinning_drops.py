@@ -18,6 +18,7 @@ Everything else (humanoid, undead, elemental, demon, insect, aquatic, plant) can
 """
 import random
 
+from entities.material_tiers import HIGH_TIER_FLOOR, in_reach
 from entities.vendor_trash import classify
 
 SKINNABLE = {"beast"}
@@ -77,9 +78,13 @@ def _pick_material(level: int, rng) -> str:
     pool: dict[str, float] = {}
     for lo, hi, weights in BANDS:
         if lo <= level <= hi:
-            for mat, w in weights.items():
+            for mat, w in in_reach(weights, level).items():
                 pool[mat] = pool.get(mat, 0.0) + w
     if not pool:
+        # Same boundary case as cloth: see entities/material_tiers.in_reach. Rugged is the top rung
+        # a sub-60 skinner is allowed to hold.
+        if level < HIGH_TIER_FLOOR:
+            return "leather_rugged" if level >= 42 else "leather_scrap"
         return "leather_genesis" if level >= 95 else "leather_scrap"
     return rng.choices(list(pool), weights=list(pool.values()), k=1)[0]
 

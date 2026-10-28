@@ -98,13 +98,12 @@ def obtainable():
         for lo, _hi, tbl in re.findall(r"\((\d+),\s*(\d+),\s*(\{[^}]*\})\)", src):
             for mid in re.findall(r'"([a-z_]+)"', tbl):
                 first[mid] = min(first[mid], int(lo))
-    # A BAND IS NOT A PROMISE. cloth_drops filters the Frontier-original tiers out of every band at
-    # roll time while FRONTIER_CLOTH_ENABLED is False, so reading the bands alone reports four cloths
-    # as obtainable that the world will never hand anybody. Ask the module, do not re-derive it.
-    from entities import cloth_drops
-    if not cloth_drops.FRONTIER_CLOTH_ENABLED:
-        for mid in cloth_drops.HELD_BACK_CLOTH:
-            first.pop(mid, None)
+    # A BAND IS NOT A PROMISE. Both drop modules filter high tiers out of every roll below level 60
+    # (entities/material_tiers), so reading the bands alone reports tiers as obtainable that the
+    # world will not hand anybody until then. Ask the module, do not re-derive it.
+    from entities.material_tiers import HIGH_TIER, HIGH_TIER_FLOOR
+    for mid in HIGH_TIER:
+        first[mid] = max(first.get(mid, HIGH_TIER_FLOOR), HIGH_TIER_FLOOR)
     return first
 
 
