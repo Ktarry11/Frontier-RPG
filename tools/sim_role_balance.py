@@ -49,7 +49,18 @@ SPEC_ROLES = {
     # ---- tanks: block-and-shield chassis, or the armour-and-health kind
     "warrior_protection": "tank", "paladin_protection": "tank", "cultist_dreadnought": "tank",
     "primalist_mountain_king": "tank", "venomancer_fortitude": "tank",
-    "starcaller_moon_guard": "tank", "sun_cleric_seraphim": "tank", "tinker_mechanics": "tank",
+    "starcaller_moon_guard": "tank", "sun_cleric_seraphim": "tank",
+    # DRUID FERAL IS THE DRUID TANK AND THE DRUID MELEE, exactly as Classic's Feral tree was. Its
+    # 24 nodes carry both halves - Thick Hide, Dire Bear Form, Natural Reaction, Protector of the
+    # Pack and Improved Bear Form on the bear side, Shred, Rake, Ferocious Bite and King of the
+    # Jungle on the cat side - with require_form splitting them. Filing it under melee_dps alone
+    # left the tank audit with no druid in it at all, which Kyle spotted immediately.
+    "druid_feral": ("tank", "melee_dps"),
+    # TINKER MECHANICS IS NOT A TANK. Its description says it "dons a powered Mechsuit to soak
+    # damage and hit hard" and I read the soaking half and filed it as a tank. Kyle: "tinkerer is
+    # NOT a tank, it has DPS specs or healer." Mechanics is the melee one, Demolition the ranged
+    # one, Invention the healer.
+    "tinker_mechanics": "melee_dps",
     # ---- healers, including the hybrids that heal by dealing damage or by support
     "priest_holy": "healer", "priest_discipline": "healer", "paladin_holy": "healer",
     "druid_restoration": "healer", "shaman_restoration": "healer",
@@ -61,7 +72,7 @@ SPEC_ROLES = {
     "rogue_assassination": "melee_dps", "rogue_subtlety": "melee_dps",
     "shaman_enhancement": "melee_dps", "stormbringer_lightning": "melee_dps",
     "runemaster_riftblade": "melee_dps", "runemaster_engravement": "melee_dps",
-    "cultist_godblade": "melee_dps", "druid_feral": "melee_dps",
+    "cultist_godblade": "melee_dps",
     "paladin_retribution": "melee_dps", "primalist_wildwalker": "melee_dps",
     "starcaller_warden": "melee_dps", "sun_cleric_valkyrie": "melee_dps",
     "venomancer_stalking": "melee_dps",
@@ -78,12 +89,38 @@ SPEC_ROLES = {
     "venomancer_venom": "ranged_dps",
 }
 
+#: THE FORM IS PART OF THE SPEC. A feral druid measured out of Bear Form has the armour of a
+#: caster, and Cultist Dreadnought's whole chassis is Void Monstrosity (armour 160, stamina 35,
+#: -10% damage taken). Best first - Dire Bear before Bear - and only if the character can use it.
+ROLE_FORMS = {
+    "tank": ["dire_bear", "void_monstrosity", "bear", "beetle"],
+    "melee_dps": ["cat", "spider"],
+    "healer": ["tree_of_life", "vizier_form"],
+    "ranged_dps": ["moonkin", "shadowform", "weaver"],
+}
+
+#: Which talent effects matter for which role, so a dual-role tree is built the way a player
+#: building for that role would build it rather than bottom-up and undifferentiated.
+ROLE_EFFECTS = {
+    "tank": ("armor", "dodge", "block", "max_health", "damage_taken", "threat", "stamina",
+             "parry", "shield"),
+    "healer": ("healing", "heal", "mana", "spirit", "intellect"),
+    "melee_dps": ("damage", "crit", "attack_power", "strength", "agility", "haste"),
+    "ranged_dps": ("damage", "crit", "spell_power", "intellect", "haste"),
+}
+
+
 #: What a tank is hit by while being measured: the hardest thing in the game at its own level.
 TANK_ATTACKER = "elemental_caster"
 TANK_PHYSICAL = "beast_large"
 
 TICK = 0.05
 MAX_TICKS = 20000
+
+
+def roles_of(spec):
+    r = SPEC_ROLES[spec]
+    return (r,) if isinstance(r, str) else tuple(r)
 
 
 def class_of(spec):
@@ -97,8 +134,8 @@ def class_of(spec):
     raise KeyError(f"no class owns spec {spec!r}")
 
 
-def build(spec, level, gen, dress):
-    """A character of this spec with its talents actually spent and gear on."""
+def build(spec, level, gen, dress, role=None):
+    """A character of this spec with its talents spent FOR THAT ROLE, its form on, and gear."""
     from entities.character import Character
     import inspect
 
@@ -111,10 +148,21 @@ def build(spec, level, gen, dress):
     probe = tree.nodes[list(tree.nodes)[0]]
     takes_tree = "tree" in str(inspect.signature(probe.can_spend_point))
     spent = 0
-    # Deepest tier first is wrong - tiers gate on points already spent - so this walks up from the
-    # bottom, which is also how a player is forced to spend them.
+    wanted = ROLE_EFFECTS.get(role or "", ())
+
+    def relevant(node):
+        """Does this node do anything the role cares about? Druid Feral holds a bear tank and a cat
+        rogue in one tree, so spending bottom-up gives a build that is neither."""
+        if not wanted:
+            return True
+        keys = " ".join((node.effects or {})).lower() + " " + (node.name or "").lower()
+        return any(w in keys for w in wanted)
+
+    # Tiers gate on points already spent, so this walks up from the bottom - which is also how a
+    # player is forced to spend them - taking role-relevant nodes first on each tier.
     for tier in range(0, tree.get_max_tier() + 1):
-        for node in tree.get_nodes_in_tier(tier):
+        ordered = sorted(tree.get_nodes_in_tier(tier), key=lambda n: not relevant(n))
+        for node in ordered:
             while spent < budget:
                 ok = node.can_spend_point(tree) if takes_tree else node.can_spend_point()
                 if not ok or not node.spend_point():
@@ -128,6 +176,10 @@ def build(spec, level, gen, dress):
             except Exception:                                   # noqa: BLE001
                 pass
     dress(char, gen, level)
+    for form in ROLE_FORMS.get(role or "", []):
+        if hasattr(char, "can_use_form") and char.can_use_form(form):
+            char.shift_form(form)
+            break
     return char, spent
 
 
@@ -264,7 +316,8 @@ def healer_axes(char, level, gen, dress, fights):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--role", default="tank", choices=sorted(set(SPEC_ROLES.values())))
+    ap.add_argument("--role", default="tank",
+                    choices=sorted({r for s in SPEC_ROLES for r in roles_of(s)}))
     ap.add_argument("--level", type=int, default=60)
     ap.add_argument("--fights", type=int, default=8)
     args = ap.parse_args()
@@ -276,7 +329,7 @@ def main():
     from entities.loot_generator import LootGenerator
     gen = LootGenerator()
 
-    specs = sorted(s for s, r in SPEC_ROLES.items() if r == args.role)
+    specs = sorted(s for s in SPEC_ROLES if args.role in roles_of(s))
     measure = {"tank": tank_axes, "healer": healer_axes}.get(args.role)
     if measure is None:
         print(f"{args.role} is measured by tools/sim_class_balance.py - kill speed is the right "
@@ -286,7 +339,7 @@ def main():
     print(f"{len(specs)} {args.role} specs at level {args.level}, talents spent\n")
     rows = {}
     for spec in specs:
-        char, spent = build(spec, args.level, gen, scb.dress)
+        char, spent = build(spec, args.level, gen, scb.dress, role=args.role)
         rows[spec] = measure(char, args.level, gen, scb.dress, args.fights)
         rows[spec]["_points"] = spent
 
