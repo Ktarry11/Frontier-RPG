@@ -2,46 +2,295 @@
   "_comment": "Smelting recipes for Mining's Smelting sub-skill (WoW real: Smelting is NOT a separate profession/skill number - it shares Mining's own skill level, confirmed via web search 2026-09-12). 'inputs' is a dict of material_id -> quantity consumed per smelt. 'output' is the material_id produced (always quantity 1 per smelt - WoW's real convention, no bulk-smelt-for-more-bars mechanic). 'skill_required' gates who can smelt this at all (below this, the recipe doesn't appear). Smelting has NO fail chance (Kyle, 2026-09-12: 'guaranteed success always') - skill only gates ACCESS to a recipe, never whether it works once you have access, unlike gathering's orange/yellow/green/grey. Basic ore-to-bar recipes are 1:1 (Kyle: 'start 1:1 for lower tier stuff'). Bronze and Steel are real WoW composite recipes made from BARS, not raw ore (Bronze = Copper Bar + Tin Bar, Steel = Iron Bar + Coal) - confirmed via web search, not invented.",
   "recipes": {
     "bar_copper": {
-      "inputs": { "ore_copper": 1 },
+      "inputs": {
+        "ore_copper": 1
+      },
       "output": "bar_copper",
       "skill_required": 0
     },
     "bar_tin": {
-      "inputs": { "ore_tin": 1 },
+      "inputs": {
+        "ore_tin": 1
+      },
       "output": "bar_tin",
       "skill_required": 0
     },
     "bar_rough_iron": {
-      "inputs": { "ore_rough_iron": 1 },
+      "inputs": {
+        "ore_rough_iron": 1
+      },
       "output": "bar_rough_iron",
       "skill_required": 0
     },
     "bar_weakstone": {
-      "inputs": { "ore_weakstone": 1 },
+      "inputs": {
+        "ore_weakstone": 1
+      },
       "output": "bar_weakstone",
       "skill_required": 0
     },
     "bar_silver": {
-      "inputs": { "ore_silver": 1 },
+      "inputs": {
+        "ore_silver": 1
+      },
       "output": "bar_silver",
       "skill_required": 50
     },
     "bar_iron": {
-      "inputs": { "ore_iron": 1 },
+      "inputs": {
+        "ore_iron": 1
+      },
       "output": "bar_iron",
       "skill_required": 40
     },
     "bar_bronze": {
-      "inputs": { "bar_copper": 1, "bar_tin": 1 },
+      "inputs": {
+        "bar_copper": 1,
+        "bar_tin": 1
+      },
       "output": "bar_bronze",
       "skill_required": 25,
       "_note": "Real WoW recipe: Bronze Bar = 1 Copper Bar + 1 Tin Bar, not raw ore. Requires bars already smelted first, a genuine two-step chain."
     },
     "bar_steel": {
-      "inputs": { "bar_iron": 1, "ore_coal": 1 },
+      "inputs": {
+        "bar_iron": 1,
+        "ore_coal": 1
+      },
       "output": "bar_steel",
       "skill_required": 45,
       "_note": "Real WoW recipe: Steel Bar = 1 Iron Bar + 1 Coal (raw ore, not a coal bar - coal is never smelted on its own in real WoW). skill_required set below WoW's real 65+ threshold since our whole early/mid bracket is compressed to a 0-150 range rather than WoW's 1-300."
+    },
+    "bar_gold": {
+      "inputs": {
+        "ore_gold": 1
+      },
+      "output": "bar_gold",
+      "skill_required": 60
+    },
+    "bar_mithril": {
+      "inputs": {
+        "ore_mithril": 1
+      },
+      "output": "bar_mithril",
+      "skill_required": 70
+    },
+    "bar_truesilver": {
+      "inputs": {
+        "ore_truesilver": 1
+      },
+      "output": "bar_truesilver",
+      "skill_required": 80
+    },
+    "bar_thorium": {
+      "inputs": {
+        "ore_thorium": 1
+      },
+      "output": "bar_thorium",
+      "skill_required": 90
+    },
+    "bar_dark_iron": {
+      "inputs": {
+        "ore_dark_iron": 1
+      },
+      "output": "bar_dark_iron",
+      "skill_required": 100
+    },
+    "bar_fel_iron": {
+      "inputs": {
+        "ore_fel_iron": 1
+      },
+      "output": "bar_fel_iron",
+      "skill_required": 125
+    },
+    "bar_adamantite": {
+      "inputs": {
+        "ore_adamantite": 1
+      },
+      "output": "bar_adamantite",
+      "skill_required": 140
+    },
+    "bar_khorium": {
+      "inputs": {
+        "ore_khorium": 1
+      },
+      "output": "bar_khorium",
+      "skill_required": 155
+    },
+    "bar_cobalt": {
+      "inputs": {
+        "ore_cobalt": 1
+      },
+      "output": "bar_cobalt",
+      "skill_required": 170
+    },
+    "bar_saronite": {
+      "inputs": {
+        "ore_saronite": 1
+      },
+      "output": "bar_saronite",
+      "skill_required": 185
+    },
+    "bar_titanium": {
+      "inputs": {
+        "ore_titanium": 1
+      },
+      "output": "bar_titanium",
+      "skill_required": 200
+    },
+    "bar_obsidium": {
+      "inputs": {
+        "ore_obsidium": 1
+      },
+      "output": "bar_obsidium",
+      "skill_required": 215
+    },
+    "bar_elementium": {
+      "inputs": {
+        "ore_elementium": 1
+      },
+      "output": "bar_elementium",
+      "skill_required": 230
+    },
+    "bar_pyrite": {
+      "inputs": {
+        "ore_pyrite": 1
+      },
+      "output": "bar_pyrite",
+      "skill_required": 250
+    },
+    "bar_ghost_iron": {
+      "inputs": {
+        "ore_ghost_iron": 1
+      },
+      "output": "bar_ghost_iron",
+      "skill_required": 260
+    },
+    "bar_kyparite": {
+      "inputs": {
+        "ore_kyparite": 1
+      },
+      "output": "bar_kyparite",
+      "skill_required": 270
+    },
+    "bar_trillium": {
+      "inputs": {
+        "ore_trillium": 1
+      },
+      "output": "bar_trillium",
+      "skill_required": 280
+    },
+    "bar_blackrock": {
+      "inputs": {
+        "ore_blackrock": 1
+      },
+      "output": "bar_blackrock",
+      "skill_required": 290
+    },
+    "bar_felslate": {
+      "inputs": {
+        "ore_felslate": 1
+      },
+      "output": "bar_felslate",
+      "skill_required": 300
+    },
+    "bar_empyrium": {
+      "inputs": {
+        "ore_empyrium": 1
+      },
+      "output": "bar_empyrium",
+      "skill_required": 310
+    },
+    "bar_storm_silver": {
+      "inputs": {
+        "ore_storm_silver": 1
+      },
+      "output": "bar_storm_silver",
+      "skill_required": 320
+    },
+    "bar_osmenite": {
+      "inputs": {
+        "ore_osmenite": 1
+      },
+      "output": "bar_osmenite",
+      "skill_required": 330
+    },
+    "bar_phaedrite": {
+      "inputs": {
+        "ore_phaedrite": 1
+      },
+      "output": "bar_phaedrite",
+      "skill_required": 340
+    },
+    "bar_serevite": {
+      "inputs": {
+        "ore_serevite": 1
+      },
+      "output": "bar_serevite",
+      "skill_required": 350
+    },
+    "bar_draconium": {
+      "inputs": {
+        "ore_draconium": 1
+      },
+      "output": "bar_draconium",
+      "skill_required": 355
+    },
+    "bar_riftstone": {
+      "inputs": {
+        "ore_riftstone": 1
+      },
+      "output": "bar_riftstone",
+      "skill_required": 360
+    },
+    "bar_voidiron": {
+      "inputs": {
+        "ore_voidiron": 1
+      },
+      "output": "bar_voidiron",
+      "skill_required": 365
+    },
+    "bar_sunforged": {
+      "inputs": {
+        "ore_sunforged": 1
+      },
+      "output": "bar_sunforged",
+      "skill_required": 368
+    },
+    "bar_glacium": {
+      "inputs": {
+        "ore_glacium": 1
+      },
+      "output": "bar_glacium",
+      "skill_required": 370
+    },
+    "bar_emberite": {
+      "inputs": {
+        "ore_emberite": 1
+      },
+      "output": "bar_emberite",
+      "skill_required": 372
+    },
+    "bar_starmetal": {
+      "inputs": {
+        "ore_starmetal": 1
+      },
+      "output": "bar_starmetal",
+      "skill_required": 374
+    },
+    "bar_dreamsteel": {
+      "inputs": {
+        "ore_dreamsteel": 1
+      },
+      "output": "bar_dreamsteel",
+      "skill_required": 376
+    },
+    "bar_worldcore": {
+      "inputs": {
+        "ore_worldcore": 1
+      },
+      "output": "bar_worldcore",
+      "skill_required": 378
     }
   }
 }
