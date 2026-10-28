@@ -229,6 +229,17 @@ class PortalManager:
                 (130, 2): ("Camp Taurajo", 32, 53),
                 (55, 175): ("Razorfen Kraul", 120, 208),
                 (225, 220): ("The Broodspiral", 152, 220),
+                # South out of Kalimdor's twenties, onto the Barrens floor under the new range. (140, 236)
+                # is the one gap in the south edge wide enough to stand in - rows 237+ are solid.
+                (140, 236): ("The Aspen Wilderness", 105, 11),
+            },
+
+            # ===== NORTHERN THOUSAND NEEDLES =====
+            # The Pass at (104, 173) is carved into the headwall but deliberately NOT registered here: it
+            # fails safe as dead-end scenery until Southern Thousand Needles exists. Same pattern the Deep
+            # Bloom used while the Underdark cluster was half-built.
+            "The Aspen Wilderness": {
+                (105, 5): ("Southern Barrens", 140, 233),
             },
             "The Broodspiral": {
                 (152, 220): ("Southern Barrens", 225, 220),

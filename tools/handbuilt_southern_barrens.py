@@ -42,8 +42,10 @@ from world.tilemap import Tilemap
 BAKED_DIR = "assets/tiles/southern_barrens/baked"
 W, H = 260, 240
 
-PORTALS = {(130, 2): "Camp Taurajo", (55, 175): "Razorfen Kraul", (225, 220): "The Broodspiral"}
-ARRIVALS = [(130, 0), (55, 176), (225, 221)]
+PORTALS = {(130, 2): "Camp Taurajo", (55, 175): "Razorfen Kraul", (225, 220): "The Broodspiral",
+           #: South, under the new range. The only gap in the south edge wide enough to stand in.
+           (140, 236): "The Aspen Wilderness"}
+ARRIVALS = [(130, 0), (55, 176), (225, 221), (140, 233)]
 
 # ------------------------------------------------------------------ the Rift
 RIFT = [(6, 142), (28, 136), (48, 130), (68, 130), (88, 136), (108, 132), (130, 128), (152, 132),
