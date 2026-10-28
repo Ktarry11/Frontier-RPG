@@ -189,6 +189,12 @@ def tank_axes(char, level, gen, dress, fights):
     from entities.monster import Monster
     from entities.party import Party
 
+    learned = char.get_learned_abilities()
+    rotation = [a for a in learned
+                if getattr(a, "effect_type", "") in ("damage", "spell_damage", "spell_dot", "dot",
+                                                      "damage_and_heal", "ranged_damage")]
+    rotation.sort(key=lambda a: -(getattr(a, "effect_value", 0) or 0))
+
     taken = []
     for template in (TANK_ATTACKER, TANK_PHYSICAL):
         for _ in range(max(1, fights // 2)):
@@ -205,7 +211,20 @@ def tank_axes(char, level, gen, dress, fights):
                 if actor is None:
                     continue
                 if actor is char:
-                    engine.execute_defend(char)
+                    # A TANK THAT STANDS STILL IS NOT A TANK, and measuring one that way hides
+                    # half its kit. Starcaller Moon Guard's mitigation buffs trigger on
+                    # on_damage_cast - Guarded by the Moon fires at 100% when it casts Starburst
+                    # or Starsweep - and Dreadnought's Void-Enhanced Shield triggers on_cast. With
+                    # the tank only defending, none of that ever fired and both read as having no
+                    # mitigation beyond their armour. It holds threat by attacking now, same as a
+                    # real one, and the damage-taken numbers include whatever its rotation earns.
+                    acted = False
+                    for ability in rotation:
+                        if engine.execute_ability(char, ability.ability_id, enemy)[0]:
+                            acted = True
+                            break
+                    if not acted:
+                        engine.execute_defend(char)
                     continue
                 before = char.current_health
                 engine.execute_monster_action()
@@ -220,8 +239,12 @@ def tank_axes(char, level, gen, dress, fights):
                 taken.append(statistics.mean(samples))
     dpt = statistics.mean(taken) if taken else 0
     reduction = char.get_physical_reduction_percent() / 100.0
+    magic_cut = -(char.get_talent_effect("magic_damage_taken_pct")
+                  + char.get_talent_effect("spell_damage_taken_pct")) * 100
+    magic_cut += char.get_magic_reduction_percent()
     return {
         "effective HP": int(char.health / max(0.05, 1 - reduction)),
+        "magic reduced": magic_cut,
         "phys reduced": char.get_physical_reduction_percent(),
         "block+dodge": char.get_talent_effect("block") + char.get_talent_effect("dodge"),
         "threat +%": char.get_talent_effect("threat_generation_pct") * 100,

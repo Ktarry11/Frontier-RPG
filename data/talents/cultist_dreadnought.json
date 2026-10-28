@@ -163,7 +163,9 @@
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
-      "effects": {},
+      "effects": {
+        "threat_generation_pct": 0.04
+      },
       "connected_to": [
         "cultist_dreadnought_void_resilience"
       ],
@@ -309,7 +311,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "block_value_pct": 0.03
+        "block_value_pct": 0.03,
+        "block": 3.0
       },
       "connected_to": [
         "cultist_dreadnought_deep_secrets",

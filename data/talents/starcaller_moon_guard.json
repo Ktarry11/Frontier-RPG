@@ -87,7 +87,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 2.0,
+        "stamina_pct": 4.0,
         "max_mana_pct": 0.02
       },
       "connected_to": [
@@ -106,7 +106,8 @@
       "hex_y": -4,
       "effects": {
         "stamina_pct": 2.0,
-        "spell_power_from_ap_pct": 0.02
+        "spell_power_from_ap_pct": 0.02,
+        "spell_damage_taken_pct": -0.07
       },
       "connected_to": [
         "starcaller_moon_guard_moon_guard_passive"
@@ -274,7 +275,9 @@
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "threat_generation_pct": 0.2
+      },
       "connected_to": [
         "starcaller_moon_guard_astral_reconstitution",
         "starcaller_moon_guard_vengeance_of_elune"
