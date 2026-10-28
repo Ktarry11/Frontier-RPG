@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
-"""Class trainers: one trainer per class in every town (idempotent).
+"""Class trainers: ONE trainer per town, and it trains every class (idempotent).
 
-Every town gets an ambient NPC for ALL 18 classes standing on ONE shared tile; the game only shows the trainer for the
-player's own class (AmbientNPCManager.set_viewer_class), so a plaza never fills with 18 trainers. The tile is chosen near the
-town's service anchor (innkeeper / flight master / vendor): walkable, connected to the town, free of NPCs, portals, forges,
-chests and gathering nodes, with open neighbours so it never blocks a lane.
+Kyle, 2026-10-27: "class trainer should train everyone."
 
-Writes: data/npcs/ambient_npcs.json  (npc ids  ct_<town>_<class>)   and   data/training/trainers.json
+WHAT THIS REPLACED. Every town used to get seventeen NPC records - one per class - all standing on the
+SAME tile, with AmbientNPCManager.set_viewer_class hiding the sixteen that were not yours. So the plaza
+never actually looked crowded; the player always saw exactly one trainer. But it was 272 records
+describing 16 people, it meant adding a class touched every town, and the viewer-class filter existed
+solely to clean up after it.
+
+One universal trainer per town does the same job with 16 records and no filter. A trainer whose
+trains_class is "*" is shown to everybody and teaches whoever walks up.
+
+THE FLAVOUR COST, stated plainly: the old records were class-flavoured ("Warrior Trainer Grik", with a
+line about what a warrior is worth). A universal trainer cannot be, so the greeting is written to make a
+virtue of it - these are veterans who have taught all of it and are not precious about which.
+
+Writes: data/npcs/ambient_npcs.json  (npc ids  ct_<town>)   and   data/training/trainers.json
+    class_trainers maps npc_id -> "*" (universal) or a class name (older data still works).
 Run from the repo root:   python3 tools/build_class_trainers.py [--dry-run]
 """
 import json
@@ -148,19 +159,21 @@ def main():
         pool = NAMES.get(race, NAMES[RACE_FOR_ZONE_FALLBACK])
         opt = get_race(race)
         genders = [g for g in (opt.genders if opt else [])] or []
-        for i, cls in enumerate(CLASSES):
-            nid = f"ct_{slug}_{norm(cls)}"
-            name = f"{cls} Trainer {pool[(i * 3 + len(slug)) % len(pool)]}"
-            g = genders[(i + len(slug)) % len(genders)] if genders else None
-            gender = g.gender_id if g else "male"
-            nvar = len(g.variants) if g and g.variants else 1
-            rec = {"npc_id": nid, "name": name, "zone": ZONE_FIELD.get(zone_name, zone_name if " " not in zone_name else norm(zone_name)),
-                   "x": best[0], "y": best[1],
-                   "greeting": f"Train under me, and you'll learn what a {cls} is really worth. Bring gold.",
-                   "gender": gender, "race": race, "appearance_variant": (i * 5 + len(slug)) % nvar,
-                   "facing": "down", "trains_class": cls}
-            new_npcs.append(rec)
-            class_trainers[nid] = cls
+        i = len(slug)
+        nid = f"ct_{slug}"
+        name = f"Trainer {pool[(i * 3) % len(pool)]}"
+        g = genders[i % len(genders)] if genders else None
+        gender = g.gender_id if g else "male"
+        nvar = len(g.variants) if g and g.variants else 1
+        rec = {"npc_id": nid, "name": name,
+               "zone": ZONE_FIELD.get(zone_name, zone_name if " " not in zone_name else norm(zone_name)),
+               "x": best[0], "y": best[1],
+               "greeting": "I have taught every one of the disciplines at one time or another, and I am "
+                           "not precious about which you picked. Show me where you are and bring gold.",
+               "gender": gender, "race": race, "appearance_variant": (i * 5) % nvar,
+               "facing": "down", "trains_class": "*"}
+        new_npcs.append(rec)
+        class_trainers[nid] = "*"
         report.append((zone_name, anchor, best, race, len(region)))
     for r in report:
         print("%-20s anchor %-10s trainer %-10s %-9s region %d" % (r[0], r[1], r[2], r[3], r[4]))

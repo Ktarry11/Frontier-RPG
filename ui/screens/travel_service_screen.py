@@ -181,7 +181,9 @@ class TravelServiceScreen(BaseScreen):
     def _train_rows(self, player, copper):
         from world import training_manager as tm
         cls = self._trainer_class()
-        if cls != player.char_class:
+        # "*" is a universal class trainer - one per town, teaches every discipline. The per-class
+        # trainers it replaced refused anyone who was not their class; a universal one never does.
+        if cls not in ("*", player.char_class):
             return []
         offers = tm.offers(player)
         rows = []
@@ -331,9 +333,14 @@ class TravelServiceScreen(BaseScreen):
         elif self.kind == "train_class":
             cls = self._trainer_class()
             player = self.state_manager.player
-            hint = (f"I train {cls}s. Each skill is taught at the highest rank your level allows."
-                    if cls == player.char_class else
-                    f"I only train {cls}s. Find a {player.char_class} trainer.")
+            if cls == "*":
+                hint = ("I train every discipline, yours included. Each skill is taught at the highest "
+                        "rank your level allows.")
+            elif cls == player.char_class:
+                hint = f"I train {cls}s. Each skill is taught at the highest rank your level allows."
+            else:
+                hint = f"I only train {cls}s. Find a {player.char_class} trainer."
+
         elif self.kind == "train_prof":
             from world import profession_manager as pm
             prof = self._trainer_profession()

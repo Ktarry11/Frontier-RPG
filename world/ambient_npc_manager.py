@@ -94,7 +94,10 @@ class AmbientNPCManager:
         """All ambient NPCs in a zone (accepts display name or slug). Trainers of other classes are not listed."""
         npcs = self.npcs_by_zone.get(self._zone_key(zone), [])
         viewer = getattr(self, "viewer_class", None)
-        return [n for n in npcs if not n.trains_class or n.trains_class == viewer]
+        # "*" is a UNIVERSAL class trainer - one per town, teaches everybody - so it is always shown.
+        # The per-class records this filter was written for are gone; it stays for older save data.
+        return [n for n in npcs
+                if not n.trains_class or n.trains_class == "*" or n.trains_class == viewer]
 
     def get_npc_at_location(self, zone, x, y):
         """Ambient NPC at a specific tile, if any."""
