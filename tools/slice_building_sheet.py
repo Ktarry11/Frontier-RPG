@@ -67,6 +67,67 @@ _set("underdark_props", 6, 6, "assets/tiles/underdark/props", """
     ud_dig_scaffold ud_codex_tent ud_broken_column ud_fallen_arch ud_statue_armless ud_masonry_rubble
     ud_floating_stone ud_rune_stone ud_fungal_shelf ud_fungal_node ud_cocooned_shape ud_stalagmites""")
 
+#: THE ASPEN WILDERNESS props. Cells 1-10 are the zone's TREES - aspen and lodgepole - so like the
+#: Underdark's giant mushrooms they get scattered by the forest pass and their relative scale against the
+#: brush and camp gear is load-bearing. Nothing from Earth is on this sheet (Kyle, 2026-10-27: "we dont
+#: want anything from our world yet"); the burn and the seam row is the range's own violence instead.
+_set("aspen_props", 6, 6, "assets/tiles/aspen/props", """
+    asp_aspen_tall asp_aspen_bare asp_aspen_young asp_aspen_clump asp_aspen_fallen asp_aspen_stump
+    asp_pine_tall asp_pine_bent asp_pine_krummholz asp_pine_young asp_snag_standing asp_deadfall_pile
+    asp_willow_thicket asp_fireweed asp_huckleberry asp_ferns asp_grass_tussock asp_wildflowers
+    asp_boulder asp_boulder_lichen asp_boulder_split asp_talus_pile asp_beaver_dam asp_beaver_lodge
+    tau_timber_stack tau_hide_tent_small tau_totem_carved tau_drying_rack tau_hitching_post tau_cook_fire
+    asp_snag_charred asp_stump_burned asp_trunk_snapped asp_dead_scrub asp_red_drift asp_elk_skull""")
+
+#: TAUREN BUILDINGS, general purpose (Kyle: "keep them general enough to reuse as needed"). Camp Taurajo,
+#: Freewind Post and anything tauren later all draw from this one set. Traditional hide-and-pole
+#: architecture; Freewind's aspen-timber rebuild is a recolour experiment first, not a second sheet.
+_set("tauren", 6, 5, "assets/buildings", """
+    tau_tent_small tau_tent_medium tau_tent_large tau_longhouse tau_elder_lodge tau_yurt
+    tau_great_lodge tau_spirit_lodge tau_hearth_lodge tau_meeting_shelter tau_bonfire_pavilion tau_trading_post
+    tau_smithy tau_tannery tau_carver_shop tau_herb_hut tau_bowyer tau_kiln
+    tau_storehouse tau_food_cache tau_kodo_pen tau_stable tau_water_trough tau_watchtower
+    tau_gate_arch tau_palisade tau_totem_pole tau_footbridge tau_tent_burned tau_lodge_collapsed""")
+
+#: SMOKE DRAWN OVER A MAGENTA KEY COMES BACK PURPLE. A generator asked for a lodge with a smoke hole
+#: draws the plume semi-transparent, and whatever is behind it - the key - bleeds through. Keying then
+#: gives a correctly-shaped wisp in the wrong colour, which is invisible against dark ground and obvious
+#: against snow or pale grass.
+#:
+#: This cannot be a blanket despill: tauren decoration is full of legitimate violet beadwork and the
+#: Aspen set has fireweed, which really is magenta. So it is opt-in per sprite and confined to the top
+#: fraction of that sprite, where a plume lives and hanging beads do not.
+#: {sprite: fraction of height treated, measured from the top}
+DESPILL_TOP = {"tau_great_lodge": 0.22}
+
+
+def _despill_plume(cut, frac):
+    """Neutralise magenta-cast pixels in the top `frac` of a sprite, keeping luminance and alpha."""
+    out = cut.copy()
+    h = out.shape[0]
+    band = out[:max(1, int(h * frac))]
+    rgb = band[..., :3]
+    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    # Any strong colour cast on a SEMI-TRANSPARENT pixel in this band, not just magenta. Over-subtracting
+    # the key leaves a green edge exactly where it removed a magenta one, so testing only for magenta
+    # trades a purple wisp for a green one. Smoke is achromatic; the opaque roof ring below it is not
+    # touched, which is what the alpha test protects.
+    chroma = rgb.max(axis=-1) - rgb.min(axis=-1)
+    a = band[..., 3]
+    # Two cases, and it needs both. Restricting to semi-transparent pixels alone leaves the opaque magenta
+    # smudge where the plume meets the smoke hole; testing only for magenta leaves the green edge the key
+    # over-subtracted. Magenta is safe to treat at ANY alpha here because the structure underneath is brown
+    # and orange - warm colours have b well BELOW g, so the roof ring never matches.
+    magenta = (r - g > 22) & (b - g > 22) & (a > 8)
+    cast = (chroma > 22) & (a > 8) & (a < 205)
+    bad = magenta | cast
+    if bad.any():
+        lum = (0.299 * r + 0.587 * g + 0.114 * b)[bad]
+        for ch in range(3):
+            rgb[..., ch][bad] = lum
+    return out
+
+
 #: A blob this big ANCHORS a cell - it is the building body. Buildings are far larger than icons, so the icon
 #: slicer's 60px floor would let keying dirt anchor a cell on its own.
 MIN_BLOB = 1500
@@ -122,6 +183,8 @@ def slice_sheet(which, sheet_path, out_dir=None, preview=None):
         y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
         cut = rgba[y0:y1, x0:x1].copy()
         cut[..., 3] *= mask[y0:y1, x0:x1]         # drop a neighbour bleeding into this bounding box
+        if name in DESPILL_TOP:
+            cut = _despill_plume(cut, DESPILL_TOP[name])
         img = Image.fromarray(cut.astype(np.uint8), "RGBA")
         img.save(out_dir / f"{name}.png")
         written.append((name, img.size))
