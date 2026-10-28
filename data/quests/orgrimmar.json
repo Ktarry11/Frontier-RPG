@@ -828,6 +828,93 @@
       ],
       "gear_reward_gear_level": 18,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "org_new_border",
+      "title": "What We Border Now",
+      "giver_npc_id": "org_elder_2",
+      "zone": "orgrimmar",
+      "level_min": 25,
+      "level_max": 27,
+      "description": "Elder Torgun's job is knowing where the Horde's edges are. For four years the southern edge of the Barrens has been a mountain range, and the best report Orgrimmar has on it was written by a scout who went up to the treeline and came back down the same afternoon.\n\nThe Warchief does not need poetry about it. He needs to know whether anything is coming through.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_aspen_wilderness",
+          "target_x": 103,
+          "target_y": 44,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Rimcliff Harpy",
+          "count": 8,
+          "zone": "the_aspen_wilderness"
+        }
+      ],
+      "reward_exp": 1800,
+      "reward_gold": 7500,
+      "accept_text": "Get to the escarpment - the long drop where the Lift's cliff used to be. Garuk Emberhide is up there already and has been for a season, so find him if you want the short version.\n\nThe harpies on that rim are the part I care about. Barrens harpies, up a mountain, nesting on rock instead of in the crags they were born in. Thin them where you find them and count what you see.",
+      "turn_in_text": "Pushed up, not moved in. That is a different report and a worse one.\n\nIf the mountain took their ground then it took somebody else's too, and whatever that was has gone somewhere.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Chute-Run Veil",
+          "slot": "head",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Lift-house issue, and the lift is at the bottom.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 19,
+          "label": "Cloth Helm (Int/Sta/MP5)"
+        },
+        {
+          "name": "Long-Drop Coif",
+          "slot": "head",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Carried down a cliff by somebody in a hurry.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.5
+          },
+          "armor_type": "leather",
+          "armor_value": 38,
+          "label": "Leather Helm (Agi/Sta/AP)"
+        },
+        {
+          "name": "Long-Drop Axe",
+          "slot": "main_hand",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Everything up here is roped to something.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "armor": 11.4,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 38,
+          "weapon_damage_max": 52,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ]
     }
   ]
 }

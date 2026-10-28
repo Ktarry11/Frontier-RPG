@@ -62,7 +62,7 @@ ASPEN_CREATURES = {
 
     # ---- THE DISPLACED: pushed up out of the Barrens by the mountain taking their ground
     "Rimcliff Harpy": C("humanoid_ranged", 25, 27, "rimcliff_harpy"),
-    "Rimcliff Windcaller": C("humanoid_caster", 26, 28, "rimcliff_windcaller"),
+    "Rimcliff Harpy Windcaller": C("humanoid_caster", 26, 28, "rimcliff_windcaller"),
     "Quilboar Highrunner": C("humanoid_warrior", 27, 29, "quilboar_highrunner"),
     "Quilboar Frostspeaker": C("humanoid_caster", 28, 29, "quilboar_frostspeaker"),
     "Quilboar Dencarver": C("humanoid_warrior", 29, 30, "quilboar_dencarver"),
@@ -122,7 +122,7 @@ ASPEN_ZONE = {
         },
         "The Rim": {
             "name": "The Rim",
-            "creatures": {"Rimcliff Harpy": 5, "Rimcliff Windcaller": 3, "Ashcrown Raven": 3},
+            "creatures": {"Rimcliff Harpy": 5, "Rimcliff Harpy Windcaller": 3, "Ashcrown Raven": 3},
         },
         "The Gold Stands": {
             "name": "The Gold Stands",

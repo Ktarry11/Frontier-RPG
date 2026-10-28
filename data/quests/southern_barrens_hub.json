@@ -3255,6 +3255,83 @@
       ],
       "gear_reward_gear_level": 32,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "tau_road_south",
+      "title": "The Road South",
+      "giver_npc_id": "taurajo_kodo_wrangler",
+      "zone": "camp_taurajo",
+      "level_min": 25,
+      "level_max": 26,
+      "description": "Wrangler Tull drove kodo down the Great Lift twice a year for most of his life. The Lift is gone and so is the cliff it hung on, and in their place is a mountain that has been there four years and will not be explained.\n\nTaurajo has had no word from anything south of it since. Not from Freewind, not from the flats, not from the salt crews. Somebody has to walk up and look.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_aspen_wilderness",
+          "target_x": 105,
+          "target_y": 14,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 1720,
+      "reward_gold": 7200,
+      "accept_text": "Go up past where the Lift used to stand. You will know the spot - the winch house is still bolted to the rock and the cable runs out thirty feet and straight into granite.\n\nPast that there is a seam in the ground where red dust stops and leaf mould starts, sharp as a knife cut. Stand on it and tell me what is on the far side. That is all. Do not go down anything yet.",
+      "turn_in_text": "Trees. You are telling me there are trees.\n\nI drove that road for twenty years. There was nothing up there but sky and a very long drop, and now you are telling me there are trees on it.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Wrong-Side Helm",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Two kinds of dirt on it and no ground that makes both.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.1
+          },
+          "armor_type": "mail",
+          "armor_value": 58,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        },
+        {
+          "name": "Wrong-Side Fists",
+          "slot": "hands",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Two kinds of dirt on it and no ground that makes both.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2,
+            "dodge_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 58,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Wrong-Side Necklace",
+          "slot": "neck",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "required_level": 25,
+          "flavor_text": "Found with one half in leaf mould and one half in Barrens clay.",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ]
     }
   ]
 }

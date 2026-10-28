@@ -494,7 +494,30 @@ BASE = {"duff": 0.42, "needle": 0.26, "grass": 0.20, "rock": 0.12}
 PAINT = {}
 COBBLE = []
 
-NPC_POSITIONS = {}
+#: WHERE THE PEOPLE STAND. Who they ARE lives in tools/aspen_npc_roster.py; this is the only place a
+#: coordinate is decided, and tools/sync_aspen_npcs.py asserts the two name exactly the same people.
+#:
+#: Placed along the main trail rather than scattered, because this zone is a DESCENT - the player moves
+#: through it in one direction and anybody standing off the route is somebody they never meet.
+NPC_POSITIONS = {
+    # the high basin: the gate, the Lift, the Seam
+    "asp_gate_scout": (108, 12),
+    "asp_lift_keeper": (100, 16),
+    "asp_seam_watcher": (110, 21),
+    # the rim: the people whose whole trade is the drop
+    "asp_rope_master": (100, 38),
+    "asp_rim_runner": (105, 45),
+    "asp_cave_watch": (142, 52),          # near the cave mouth at (145, 48)
+    # Longstand Camp, in the Gold Stands
+    "asp_camp_elder": (92, 78),
+    "asp_logger": (96, 80),
+    "asp_camp_hunter": (85, 79),
+    "asp_camp_cook": (90, 82),
+    "asp_camp_smith": (94, 84),
+    # downslope
+    "asp_meadow_scout": (100, 118),
+    "asp_bench_warden": (104, 152),
+}
 CHESTS = [(36, 46), (176, 44), (24, 120), (168, 96), (104, 158), (90, 82)]
 #: The Pass tile, carved and marked but NOT registered - Southern Needles does not exist yet and an
 #: unregistered portal fails safe. The main trail is extended to y=176 so the tile is reachable;
