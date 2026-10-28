@@ -567,6 +567,19 @@ class CombatEngine:
         for fid, amt in self.faction_gains.items():
             self.combat_log.append(f"+{amt} reputation with {faction_mgr.get(fid).name}.")
 
+        # BANTER on the two combat moments worth a reaction: a boss going down, and somebody walking
+        # out of a fight that nearly ended them. The beat is queued here and drawn by the overworld
+        # once the player is back on their feet - a line over the victory screen would be noise.
+        from world.banter_manager import get_banter_manager
+        banter = get_banter_manager()
+        if any(getattr(e, "is_boss", False) for e in self.enemies):
+            banter.fire("boss_down", self.party, zone=self.zone)
+        else:
+            hurt = [m for m in getattr(self.party, "members", [])
+                    if getattr(m, "health", 0) and m.current_health / m.health <= 0.15]
+            if hurt:
+                banter.fire("close_call", self.party, zone=self.zone)
+
         # XP is summed across every enemy, then awarded to the whole roster.
         # Active members get full value, benched get a reduced share.
         exp_reward = sum(self._calculate_exp_reward(e) for e in self.enemies)

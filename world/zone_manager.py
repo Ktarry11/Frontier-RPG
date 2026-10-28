@@ -100,6 +100,15 @@ class ZoneManager:
         # and came back once.
         self.gathering_manager.populate(self.current_zone, self.current_zone.name)
     
+    def set_banter_party(self, party):
+        """Tell the zone manager which party is travelling, so arrivals can produce banter.
+
+        ZoneManager does not own the party - the state manager does - and reaching across for it would
+        couple the world to the UI layer. The overworld sets this each frame; until it does, arrivals
+        are silent rather than broken.
+        """
+        self._banter_party = party
+
     def reset_to_start(self, start_id=None):
         """Snap back to the real starting position - Valley of Trials,
         the same spot __init__ sets up. Real bug this fixes: OverworldScreen
@@ -392,6 +401,7 @@ class ZoneManager:
         lands there; otherwise falls back to zone center (used only when no
         portal data specifies an exact arrival point).
         """
+        leaving = self.current_zone          # the zone being left, for the banter hook below
         new_zone = self.get_zone_by_name(zone_name)
         if new_zone:
             # Cave exits register their arrival point as the exact overworld
@@ -463,6 +473,27 @@ class ZoneManager:
             from world.quest_manager import get_quest_manager
             zone_key = new_zone.name.lower().replace(" ", "_").replace("'", "")
             get_quest_manager().record_zone_entered(zone_key)
+
+            # BANTER. A town gets the town trigger and everywhere else gets the zone one; leaving a
+            # dungeon whose boss is down is its own beat. The manager decides whether anybody actually
+            # speaks - it is on a cooldown and most of these calls do nothing, which is the point.
+            # The party lives on the state manager, not here, so the caller hands it in via
+            # set_banter_party(). No party, no banter, and no exception - a blanket try/except round
+            # this would have hidden a NameError in this very block for as long as the feature
+            # existed, which is exactly what it did on the first attempt.
+            party = getattr(self, "_banter_party", None)
+            if party is not None:
+                from world.banter_manager import get_banter_manager
+                from world.zone_classification import is_dungeon
+                banter = get_banter_manager()
+                left_cleared = (is_dungeon(getattr(leaving, "name", ""))
+                                and getattr(leaving, "boss_defeated", False))
+                if left_cleared:
+                    banter.fire("dungeon_clear", party, zone=new_zone.name)
+                elif getattr(new_zone, "is_town", False):
+                    banter.fire("town_arrive", party, zone=new_zone.name)
+                else:
+                    banter.fire("zone_arrive", party, zone=new_zone.name)
 
             # Entering a cave lays out a fresh set of fixed spawns; leaving
             # clears them. Because populate() wipes the previous layout, this

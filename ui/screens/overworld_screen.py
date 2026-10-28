@@ -604,6 +604,14 @@ class OverworldScreen(BaseScreen):
 
     def update(self, dt):
         """Update state."""
+        # Banter ticks out here because it is ambience that lives in the overworld - it has no input,
+        # pauses nothing, and fades on its own.
+        from world.banter_manager import get_banter_manager
+        get_banter_manager().update(dt)
+        # ZoneManager does not own the party, so hand it the live one - arrivals fire from inside the
+        # transition and need it there before the player walks through a door.
+        self.zone_manager.set_banter_party(self.state_manager.get_party())
+
         if self.recruit_message_timer > 0:
             self.recruit_message_timer -= dt
             if self.recruit_message_timer <= 0:
@@ -704,6 +712,13 @@ class OverworldScreen(BaseScreen):
         player_pos = self.zone_manager.get_player_pos()
         self.camera.update(player_pos[0], player_pos[1], zone.width, zone.height, self.tilemap_renderer.tile_size)
     
+    def _render_banter(self, screen):
+        from world.banter_manager import get_banter_manager
+        if not hasattr(self, "_banter_panel"):
+            from ui.banter_panel import BanterPanel
+            self._banter_panel = BanterPanel(self.renderer)
+        self._banter_panel.render(screen, get_banter_manager().current)
+
     def render(self, screen):
         """Draw overworld."""
         player = self.state_manager.player
@@ -838,6 +853,9 @@ class OverworldScreen(BaseScreen):
         # inventory_screen.py's destroy-confirmation.
         if self.unstuck_confirm_pending:
             self._render_unstuck_confirmation(screen)
+
+        # Last, so nothing in the HUD draws over it.
+        self._render_banter(screen)
 
     def _do_unstuck(self):
         """Force-teleport the player to Razor Hill. Reuses
