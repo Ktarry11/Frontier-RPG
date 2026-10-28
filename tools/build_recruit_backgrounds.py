@@ -26,7 +26,27 @@ refuses to write anything that would overflow.
 
 The Integration was THREE years ago (claude/integration_timeline.md). Nothing from Earth exists here as
 an object - no phones, no photographs, no kit. What these people brought is in their hands and their
-heads, which is exactly why the trades carried and the possessions did not.
+heads, which is why the trades carried and the possessions did not.
+
+WHAT THE FIRST DRAFT GOT WRONG, because it is worth not repeating. Kyle, on reading it: "Don't make
+them sound fake or AI though." Grepping the finished text for tells found one systemic problem and two
+habits:
+
+  * THE NARRATOR WAS RANKING THEM AGAINST EACH OTHER - "the hardest three years of anyone on this
+    list", "the only person here for whom", "the youngest of them". Seven sections, SIX of them in
+    Adjustment, because all 25 Adjustments got written in one sitting with the other 24 in view. It is
+    the single loudest tell in the set: nobody reading Ama's file has read Owen's, and "on this list"
+    is the prose admitting out loud that it is a list. All seven rewritten to stand alone.
+  * EMPTY INTENSIFIERS - exactly, entirely, genuinely, considerably, perfectly. Twenty-five of them,
+    every one making a sentence sound weighed rather than making it mean more. Cut to fifteen, kept
+    only where the word does work.
+  * ONE CLOSING MOVE USED FIVE TIMES - set a line up, undercut it in the next sentence ("He means it
+    as a joke about retirement. It is not clear he is joking."). Good once. A formula at five. Three
+    rewritten; the two that are earned by their section stayed.
+
+The fix for all three was the same: write what the person did, not what it signifies. A concrete
+closing detail - a standing argument with three quartermasters about rope, the water level in three
+wells - never reads as generated. A neat reversal always might.
 """
 import json
 import sys
@@ -70,14 +90,15 @@ B["ama_priest"] = dict(
            "She was very good and it cost her. She learned to keep her voice level while her hands did "
            "something frightening, which is a skill that looks like calm from the outside and is not. "
            "She rolled a healer in every game she ever played. Nobody in her life read that as a tell.",
-    adjustment="The hardest three years of anyone on this list, and she does not advertise it. On "
-               "Earth there was always a form, a referral, a reason you could not. Here there is "
+    adjustment="She does not talk about the first two years and the people who were there do not "
+               "either. On Earth there was always a form, a referral, a reason you could not. Here "
+               "there is "
                "light in her hands and no limit at all, and for the first year she worked until she "
                "fell over because nothing was telling her to stop.\n\n"
                "Somebody eventually did. She has a rule now about hours, and she mostly keeps it.",
     now="Razor Hill, where the road brings in whatever the Barrens did to people that week. She has "
         "made herself the thing that town did not have: somebody who is reliably in one place.\n\n"
-        "The orc children have stopped being frightened of her, which took considerably longer than "
+        "The orc children have stopped being frightened of her, which took far longer than "
         "the healing did.",
     forward="She wants to train somebody. Not a student - a replacement, so the room is still staffed "
             "when she is not in it.\n\n"
@@ -141,7 +162,7 @@ B["marco_paladin"] = dict(
         "the Forsaken appear to respect him for it in their own flat way.",
     forward="He wants a law - any law, written down, that applies to everyone including him. The "
             "absence of one is the only thing out here he finds genuinely frightening.\n\n"
-            "He has begun drafting something. He knows exactly how arrogant that is.")
+            "He has four pages of it and has shown them to nobody.")
 
 B["sophia_mage"] = dict(
     before="Ten years of combustion research in São Paulo: industrial accidents, blast modelling, and "
@@ -149,9 +170,8 @@ B["sophia_mage"] = dict(
            "She watched a refinery burn from a monitoring station eleven kilometres away and wrote the "
            "paper that explained precisely why it had, eight months after the funerals. Being right "
            "slowly stopped being enough. She did not get bitter so much as very, very quiet.",
-    adjustment="The fastest adjustment of anyone here, and the one with the least soul-searching in "
-               "it. Fire here obeys the same rules it always did; she simply stopped needing a "
-               "facility.\n\n"
+    adjustment="She was working inside a month. Fire here obeys the same rules it always did; she "
+               "simply stopped needing a facility and a grant.\n\n"
                "What took longer was the part she will not discuss: for ten years her work killed "
                "nobody because nobody read it. That is no longer true, and she has had to find a "
                "position on that.",
@@ -174,8 +194,7 @@ B["ryan_warlock"] = dict(
                "a skill that is the same skill: read what a thing wants, work out what it will take, "
                "close.\n\n"
                "He has not had an adjustment so much as a diagnosis. Three years on he is more honest "
-               "than he has ever been and no better a man, and he is the only one here who will say "
-               "that about himself without flinching.",
+               "than he has ever been and no better a man, and he will say so before you can.",
     now="The Undercity, where nobody is under any illusions about anybody. He finds it restful.\n\n"
         "His demons are on contracts he wrote himself, every clause of which he can recite. He is "
         "meticulous about paying on time, which is not virtue - it is the only thing keeping the "
@@ -191,8 +210,7 @@ B["carolina_shaman"] = dict(
            "findings.\n\n"
            "She knew the forest was talking. She could prove it in a dataset and not in a way anybody "
            "would act on, and the gap between those two things took a decade out of her.",
-    adjustment="The only person here for whom the Integration was straightforwardly a relief, and she "
-               "is aware how that sounds.\n\n"
+    adjustment="The Integration was a relief and she has stopped apologising for saying so.\n\n"
                "The earth answered immediately and in words. There was no learning curve, no crisis, "
                "no year of grief - she had been fluent her whole life in a language nobody else "
                "admitted existed. What she has had to adjust to is being believed, which turns out to "
@@ -222,7 +240,7 @@ B["amber_druid"] = dict(
         "She is working the water courses. Progress is measurable in weeks here instead of decades, "
         "and she has not got used to that and does not intend to.",
     forward="She wants to see the Barrens hold a wet season without losing topsoil to the wash. It is "
-            "a deeply unglamorous ambition and she is entirely at peace with that.\n\n"
+            "a deeply unglamorous ambition and she is at peace with that.\n\n"
             "Further out: somewhere old. She has heard what the north is now and she wants to stand "
             "in it.")
 
@@ -232,11 +250,11 @@ B["marcus_stormbringer"] = dict(
            "Storms were the obsession before they were the career. He chased them as a student, badly "
            "and happily, and then spent fifteen years watching them on instruments from inside a "
            "building.",
-    adjustment="He is the youngest of them and had the easiest three years, because he treated the "
-               "whole thing as fieldwork.\n\n"
+    adjustment="He treated the whole thing as fieldwork and it carried him through almost "
+               "intact.\n\n"
                "The one genuine adjustment: on Earth a storm was something he predicted and could "
                "never touch. Here it answers. He spent most of the first year being quietly, "
-               "privately overwhelmed by that and telling everyone he was fine, which they believed, "
+               "privately wrecked by that and telling everyone he was fine, which they believed, "
                "because he was also fine.",
     now="Durotar, where the dry storms come off the sea with no rain in them and the thunder arrives "
         "without warning.\n\n"
@@ -266,7 +284,7 @@ B["ivan_warrior"] = dict(
         "have noticed he never asks what a thing has done to deserve it.",
     forward="He does not have a plan and does not want one. Asked directly, he says he would like to "
             "keep going until something is better than him.\n\n"
-            "He means it as a joke about retirement. It is not clear he is joking.")
+            "He says it like a joke about retiring. Nobody who has trained with him takes it as one.")
 
 B["asher_coleman"] = dict(
     before="Deep South, Bible Belt, and you can hear it inside three words. He will tell you about the "
@@ -287,7 +305,7 @@ B["asher_coleman"] = dict(
         "He never asks why you are doing something. He asks if you could use the help, like it is the "
         "easiest question in the world, and it is very difficult to say no to.",
     forward="He has never stated a want. Not once, to anyone, in three years.\n\n"
-            "Asked, he turns it around and asks about yours, and he is so genuinely interested that "
+            "Asked, he turns it around and asks about yours, and he is so interested that "
             "it works every time. Somebody has started keeping a count of how often it works. The "
             "count is now quite long.")
 
@@ -298,7 +316,7 @@ B["owen_cultist"] = dict(
            "He knows the sound a roof makes a second before it goes. He has brought men out and he has "
            "left men in, and he can tell you the difference between those two decisions in about four "
            "words, none of them comfortable.",
-    adjustment="The worst three years on this list and he will not discuss them in order.\n\n"
+    adjustment="He will not discuss those three years in order, and gets quiet if you try.\n\n"
                "He always knew the dark under the ground was not as empty as the surveyors claimed - "
                "every rescue man does, and every rescue man keeps it to himself. Here it answered. It "
                "offered him strength he had not asked for and did not want, and he took it, because "
@@ -322,13 +340,13 @@ B["mateo_starcaller"] = dict(
            "adjusted to daylight and sees no reason to start.",
     adjustment="The sky answered, in moonlight, and it knew his name.\n\n"
                "He did not have a crisis. He had the opposite, and the people around him in that first "
-               "year found it considerably more alarming than a breakdown: a man who has waited "
+               "year found it more alarming than a breakdown: a man who has waited "
                "fourteen years for a reply, getting one, and calmly reaching for a notebook. He is not "
                "adapting. He is in correspondence.",
     now="The Windward Road under Freewind Post, where the mesas run out and the sky gets very large. "
         "He has found the only other people in this world who watch it professionally.\n\n"
         "Freewind's skywatchers were polite about him for about a month and are now arguing with him "
-        "nightly, which he regards as the warmest welcome of his life.",
+        "nightly, which he calls the warmest welcome of his life.",
     forward="He wants to know whether what speaks to him is one voice or many, and he has designed a "
             "way to find out that requires him to be in three places on the same night.\n\n"
             "He is recruiting for that, gently, and has not yet told anyone what the third place is.")
@@ -340,7 +358,7 @@ B["pasang_primalist"] = dict(
            "who were already gone, and he is one of the very few who can describe both without "
            "performing either. The mountain never owed anybody anything. He found that restful and "
            "most of his clients found it unbearable.",
-    adjustment="A mountain is a mountain. That is genuinely the whole of his adjustment and he has "
+    adjustment="A mountain is a mountain. That is the whole of his adjustment and he has "
                "said it, in those words, to three different people who wanted a longer answer.\n\n"
                "The earth answers him here slowly and with weight, which is how it always answered - "
                "the difference is only that now the reply arrives in the same lifetime. He treats this "
@@ -371,14 +389,15 @@ B["haruto_runemaster"] = dict(
         "which line he is carrying until it is already out. He thinks that is funny. He is correct.",
     forward="He wants to cut one rune that outlasts everybody who sees it made. That was the whole "
             "ambition of the Osaka work too, and skin was always going to lose.\n\n"
-            "Stone is available here. So, he has been told, is something harder than stone.")
+            "Stone is available here, and he has been told there is something in the "
+            "Underdark that is harder than stone. He has not gone to look yet.")
 
 B["liam_suncleric"] = dict(
     before="Seventeen summers of bushfire season in New South Wales and the bad nights on the highway "
            "in between. Firefighter, then paramedic, then both, because the roster never cared which "
            "badge you held at three in the morning.\n\n"
            "He learned that the most useful thing in a burning room is a calm voice and the second is "
-           "a hand on the person who is about to run. He is extremely good company and has not slept "
+           "a hand on the person who is about to run. He is good company and has not slept "
            "properly since roughly 2019.",
     adjustment="Easiest first year, hardest second. For twelve months he simply did the job, because "
                "the job was everywhere and nobody had to ask.\n\n"
@@ -435,7 +454,7 @@ B["callum_venomancer"] = dict(
         "He goes in regularly and comes out reliably, and the one time he brought something out alive "
         "the Crossroads made him promise not to do it again.",
     forward="He wants to be bitten by whatever is at the bottom of that place and survive it, and he "
-            "is aware of exactly how that sentence reads.\n\n"
+            "knows how that sentence reads.\n\n"
             "His actual position, which he can defend: the thing that bites back is the thing that "
             "trusts you, and he has never yet met the animal that was not worth the conversation.")
 
@@ -491,8 +510,8 @@ B["henrik_mage"] = dict(
                "professionally awkward for most of a year.\n\n"
                "Twenty years of method assume the thing you are studying is not studying you. He has "
                "rewritten his own protocols three times and is not satisfied with the third. In every "
-               "other respect he is exactly who he was, which his colleagues on Earth would find "
-               "entirely unsurprising.",
+               "other respect he is exactly who he was, which his colleagues on Earth would not find "
+               "surprising.",
     now="The Frostward Descent, under Hillsbrad, where there is ice that is older than anything on the "
         "surface and it has begun giving things back.\n\n"
         "He is reading it the only way he knows: layer by layer, slowly, writing everything down. He "
@@ -528,8 +547,8 @@ B["hana_shaman"] = dict(
            "She learned the only thing about water that matters: it is never your enemy and never your "
            "friend, only honest. People drown because they argue with it. She has pulled a great many "
            "people out and she remembers the two she did not.",
-    adjustment="The youngest here and the one with the least to unlearn, which she knows is luck "
-               "rather than merit.\n\n"
+    adjustment="She had less to unlearn than most, and she knows that is luck rather than "
+               "merit.\n\n"
                "The tide spirits read her the way she reads a break - take what is offered, give back, "
                "never turn your back on it - and the arrangement was legible to her within days. Her "
                "actual adjustment was social. She arrived at nineteen into a world of people with "
