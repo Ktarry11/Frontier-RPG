@@ -66,6 +66,23 @@ EDITS = [
 ]
 
 
+#: (tree, node name, proc dict, why). Procs are a separate list because a node carries at most one.
+PROC_EDITS = [
+    ("primalist_mountain_king", "Earthmother's Protection",
+     {"trigger": "on_damage_taken", "chance": 35, "icd": 0, "heal_flat": 90},
+     "Kyle: \"primalist is a dual wield tank with self heals.\" There was not one heal in the tree "
+     "and not one heal proc - its whole identity mechanic was absent, which is why it read as "
+     "bottom on survival with nothing it was best at. 35% of hits taken for 90 is about 31 healing "
+     "a turn against the ~200 it takes."),
+    ("primalist_mountain_king", "Mountain's Endurance",
+     {"trigger": "on_weapon_swing", "chance": 30, "icd": 0, "heal_flat": 70},
+     "The dual-wield half: a two-weapon tank swings more often than a shield tank, so some of its "
+     "sustain should come off its own attacks rather than off being hit. Together with the node "
+     "above that is roughly a quarter of its incoming damage returned, which is an identity "
+     "without being the best tank in the game."),
+]
+
+
 def main():
     apply = "--apply" in sys.argv
     argparse.ArgumentParser().parse_known_args()
@@ -91,6 +108,28 @@ def main():
         print(f"      {why}")
         if apply:
             eff.update(todo)
+            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        changed += 1
+
+    for tree_id, node_name, proc, why in PROC_EDITS:
+        path = ROOT / f"data/talents/{tree_id}.json"
+        doc = json.loads(path.read_text())
+        node = next((n for n in doc["nodes"] if n.get("name") == node_name), None)
+        if node is None:
+            missing.append(f"{tree_id}: no node named {node_name!r}")
+            continue
+        if node.get("proc"):
+            # A node carries at most one proc, and overwriting somebody else's is not a tune.
+            if node["proc"] == proc:
+                already += 1
+                continue
+            missing.append(f"{tree_id}/{node_name} already has a different proc - pick another node")
+            continue
+        print(f"  {tree_id}/{node_name} (proc)")
+        print(f"      {json.dumps(proc)}")
+        print(f"      {why}")
+        if apply:
+            node["proc"] = proc
             path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
         changed += 1
 

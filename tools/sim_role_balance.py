@@ -225,6 +225,14 @@ def tank_axes(char, level, gen, dress, fights):
                             break
                     if not acted:
                         engine.execute_defend(char)
+                    # SELF-HEALING CANNOT BE SEPARATED OUT HERE, and trying to was a mistake
+                    # worth leaving a note about. Primalist Mountain King heals on_damage_taken,
+                    # which fires inside the creature's own turn - the hit and the heal resolve
+                    # together, so all that is observable is the net. A separate "self-heal/turn"
+                    # axis read 0 for it while its damage taken dropped from 207 to 121, which is
+                    # the self-healing, just counted in the other column. "net dmg/turn" below is
+                    # already net of every heal, absorb and proc the spec has, which is the honest
+                    # measure and the one a tank is judged by anyway.
                     continue
                 before = char.current_health
                 engine.execute_monster_action()
@@ -248,7 +256,7 @@ def tank_axes(char, level, gen, dress, fights):
         "phys reduced": char.get_physical_reduction_percent(),
         "block+dodge": char.get_talent_effect("block") + char.get_talent_effect("dodge"),
         "threat +%": char.get_talent_effect("threat_generation_pct") * 100,
-        "dmg taken/turn": dpt,
+        "net dmg/turn": dpt,
         "turns alive": (char.health / dpt) if dpt else 0,
     }
 
@@ -371,7 +379,7 @@ def main():
     # venomancer_fortitude - which took the MOST damage per turn of any tank, 235 against the
     # Protection Warrior's 131 - as the best tank at not taking damage, and gave the Warrior no
     # credit for the axis it actually wins. Anything measuring a cost is ranked the other way.
-    LOWER_IS_BETTER = {"dmg taken/turn"}
+    LOWER_IS_BETTER = {"net dmg/turn"}
     width = max(len(s) for s in specs) + 2
     print("  " + "spec".ljust(width) + "".join(f"{a:>18}" for a in axes))
     for spec in specs:

@@ -28,7 +28,13 @@
       },
       "connected_to": [
         "primalist_mountain_king_mountain_mover"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 35,
+        "icd": 0,
+        "heal_flat": 90
+      }
     },
     {
       "talent_id": "primalist_mountain_king_resources_of_the_earth",
@@ -268,7 +274,13 @@
       },
       "connected_to": [
         "primalist_mountain_king_resources_of_the_earth"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 30,
+        "icd": 0,
+        "heal_flat": 70
+      }
     },
     {
       "talent_id": "primalist_mountain_king_steadfast_stance",
