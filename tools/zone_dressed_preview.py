@@ -90,7 +90,14 @@ def compose(key, out, scale=4, props=True):
             im = cache[k]
             if im is None:
                 continue
-            # anchor is in TILES and names the sprite's bottom-centre
+            # THE ANCHOR IS THE SPRITE'S TOP-LEFT, NOT ITS BOTTOM-CENTRE.
+            #
+            # Tilemap.add_landmark documents anchor_x/anchor_y as "top-left", and the game blits at
+            # world_to_screen(anchor_x, anchor_y) with no offset (ui/tilemap_renderer.py). This tool
+            # used to paste at (ax - width/2, ay - height), so every prop in every preview came out half
+            # a sprite-width to the LEFT and a full sprite-height ABOVE its real position - which over
+            # Freewind's drop looked exactly like the buildings were floating off the mesas. They were
+            # not. The preview was lying, and two props got moved to chase a bug that was in here.
             ax = int(m.get("anchor_x", 0) * TILE_PX)
             ay = int(m.get("anchor_y", 0) * TILE_PX)
             wpx = int(m.get("width_tiles", 1) * TILE_PX)
@@ -98,7 +105,7 @@ def compose(key, out, scale=4, props=True):
             if wpx < 1 or hpx < 1:
                 continue
             s = im.resize((wpx, hpx), Image.LANCZOS)
-            canvas.alpha_composite(s, (ax - wpx // 2, ay - hpx))
+            canvas.alpha_composite(s, (ax, ay))
             drawn += 1
         print(f"props: {drawn} of {len(marks)} landmarks")
 
