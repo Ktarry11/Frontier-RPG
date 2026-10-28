@@ -114,6 +114,17 @@ class Character(StatusEffectMixin):
         self.health = 0
         self.mana = 0
         self.armor = 0
+        # MAGIC RESISTANCE IS DELIBERATELY ZERO UNTIL LEVEL 45 CONTENT EXISTS. It is not in
+        # data/items/stat_templates.json's secondary_stat_pool, so no gear can roll it and every
+        # class sits at 0% against spell damage for the whole game - which is why caster creatures
+        # still do roughly twice what melee creatures do even after the armour curve was fixed.
+        #
+        # Kyle, 2026-10-28: "we can slowly start adding magic resistance gear after lvl 45." So the
+        # gap is known and intended for now. When it is time, the lever is adding
+        # "magic_resistance" to that secondary pool and gating it to item levels 45 and up - the
+        # mitigation curve it feeds through (mitigation_from, below) already scales with attacker
+        # level and needs no change, and Monster already carries base_magic_resist, so the
+        # creature side is done. Nothing before 45, and phased in rather than switched on.
         self.magic_resistance = 0
 
         # Per-school resistances (real WotLK-style: Fire/Frost/Nature/
