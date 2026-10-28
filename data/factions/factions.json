@@ -184,8 +184,8 @@
         "Three years ago the world was rewritten and a great many people arrived who had never been born here. Orgrimmar took them in faster than anywhere else on the continent, and the Warchief has never explained why in public. Those close to him suspect it is because he knows exactly what it is to be somewhere you did not choose to be."
       ],
       "quest_rep": {
-        "default": 70,
-        "boss": 140,
+        "default": 85,
+        "boss": 170,
         "capstones": {},
         "zones": [
           "valley_of_trials",
@@ -194,8 +194,6 @@
           "orgrimmar",
           "northern_barrens",
           "central_barrens",
-          "southern_barrens",
-          "camp_taurajo",
           "splintertree_post",
           "ashenvale_east",
           "ashenvale_west",
@@ -357,6 +355,58 @@
       },
       "rewards": {
         "_comment": "No gates authored yet. The system supports them; the content is not written."
+      }
+    },
+    "thunder_bluff": {
+      "name": "Thunder Bluff",
+      "description": "A nation that still answers to the name of a city that is no longer standing. The tauren lost Mulgore in the Integration and have been guests in other people's towns since.",
+      "home_zone": "camp_taurajo",
+      "home_name": "Camp Taurajo, the Southern Barrens - in exile",
+      "leader": {
+        "title": "Elder",
+        "name": "Longtread",
+        "npc_id": "taurajo_elder",
+        "location": "Camp Taurajo, the Southern Barrens",
+        "acting_for": {
+          "title": "High Chieftain",
+          "name": "Cairne Bloodhoof",
+          "status": "Missing since the Integration"
+        },
+        "line": "I am not the High Chieftain. I am the one standing where he would be standing, and I will go on doing it until somebody tells me to stop or he comes back and tells me himself."
+      },
+      "_leader_note": "Longtread speaks for the tauren but holds no title, because Cairne Bloodhoof is MISSING rather than confirmed dead. Nobody has taken the office. Taking it would be a ruling on where he is.",
+      "lore": [
+        "Thunder Bluff stood on four rock spires above Mulgore and had never been taken. When the Integration rewrote the world three years ago it did not take the city either. It took the ground the city was standing on.",
+        "What is left of Mulgore is not a ruin, which the tauren could have worked with. It is a nightmare land - the plain went wrong in a way nobody has a vocabulary for, and the things walking it now kill experienced war parties without slowing down. The tauren have mounted four attempts to reach the spires. They do not discuss the fourth.",
+        "So they are guests. Forty at Camp Taurajo, a warband through the southern Barrens, and the rest scattered into other people's capitals - a leatherworker in Orgrimmar, a quartermaster at Splintertree, shamans on the Barrens oases, and more turning up in places nobody expected as word spreads that there is somewhere to turn up to. Every nation that took them in did so immediately and without conditions, and the tauren have been scrupulously, exhaustingly grateful ever since, which costs them more than anyone watching understands.",
+        "They have not renamed themselves and they have not filled the chieftain's office. Cairne Bloodhoof walked out of a council three years ago and did not come back, and nothing since has established whether he died on the plain or is still somewhere on it. Elder Longtread speaks for the tauren, carefully, in the first person plural, and has refused every suggestion that he take the title. Taking it would be a ruling on where Cairne is, and the tauren are not prepared to make one.",
+        "Standing with them is not earned by sympathy, which they have had enough of. It is earned by helping them hold the ground they still have - and by being the sort of person who might, eventually, be worth taking back onto the plain."
+      ],
+      "quest_rep": {
+        "default": 350,
+        "boss": 700,
+        "capstones": {},
+        "zones": [
+          "camp_taurajo",
+          "southern_barrens"
+        ],
+        "also": []
+      },
+      "kill_rep": {
+        "_comment": "What presses on the ground they have left: quilboar raiding the camps, and the Bael'dun dwarves digging a plain that is not theirs while the tauren watch a worse one from a distance.",
+        "creatures": {
+          "Bristleback Quilboar": 10,
+          "Bristleback Shaman": 12,
+          "Bristleback Thornweaver": 12,
+          "Bristleback Water Seeker": 10,
+          "Bael'dun Rifleman": 10,
+          "Bael'dun Sergeant": 12,
+          "Death's Head Cultist": 12,
+          "Death's Head Acolyte": 12
+        }
+      },
+      "rewards": {
+        "_comment": "No gates authored yet. When Mulgore is built as the level 60 zone, this is where its access and its rewards belong."
       }
     }
   }

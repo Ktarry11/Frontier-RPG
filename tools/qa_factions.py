@@ -114,6 +114,18 @@ def main():
         fails.append(f"{clears:.1f} dungeon clears to Exalted - want 3-15 (grind, but not a WoW grind)")
 
     print("\n== kill rep is narrow and real")
+    # ONE CREATURE, ONE FACTION. award_for_kill returns the first match, so a creature listed by two
+    # factions would silently pay whoever sits earlier in the file - exactly the trap the zone check
+    # closed. If a kill should ever credit two factions, that is a deliberate feature and this check is
+    # where it gets designed, not something that arrives by accident.
+    owners = {}
+    for fid, fac in fm.factions.items():
+        for c in fac.kill_rep:
+            owners.setdefault(c, []).append(fid)
+    shared = {c: who for c, who in owners.items() if len(who) > 1}
+    print(f"  {len(owners)} creatures pay reputation, {len(shared)} claimed twice")
+    for c, who in shared.items():
+        fails.append(f"'{c}' pays reputation to {who} - only the first would ever be credited")
     cre = json.loads(Path("data/creatures/creatures.json").read_text())["creatures"]
     wildlife = ["Sporeback Grazer", "Hoarfrost Yeti", "Glimmerjaw", "Lumen Leech", "Barrens Giraffe",
                 "Crystalback Skitterer", "Frostward Prowler", "Elder Mottled Boar", "Barrens Hyena"]

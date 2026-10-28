@@ -499,6 +499,15 @@ class QuestJournalScreen(BaseScreen):
             self.renderer.draw_text(screen, who, (20, 136), color=(205, 180, 130), font_size=18)
             if where:
                 self.renderer.draw_text(screen, where, (20, 158), color=(130, 130, 140), font_size=15)
+            # A faction can be led by somebody standing in for an absent leader. Rendered as its own line
+            # rather than buried in the lore, because "who actually runs this" and "whose chair it is" are
+            # different questions and the tauren are currently the whole reason the distinction exists.
+            act = led.get("acting_for") or {}
+            if act.get("name"):
+                for_who = " ".join(x for x in (act.get("title"), act.get("name")) if x)
+                note = act.get("status", "")
+                self.renderer.draw_text(screen, f"acting for {for_who}" + (f" - {note}" if note else ""),
+                                        (20, 178), color=(150, 130, 115), font_size=15)
 
         into, span = f.progress()
         self.renderer.draw_text(screen, tier["name"], (SCREEN_WIDTH - 420, 80), color=colour)
@@ -511,7 +520,8 @@ class QuestJournalScreen(BaseScreen):
         label = f"{f.standing}" if f.next_tier is None else f"{into} / {span}"
         self.renderer.draw_text(screen, label, (bar.right + 12, 106), color=(170, 170, 180), font_size=16)
 
-        top, bottom = 186, SCREEN_HEIGHT - 50
+        top = 206 if (f.leader or {}).get("acting_for") else 186
+        bottom = SCREEN_HEIGHT - 50
         viewport = pygame.Rect(20, top, SCREEN_WIDTH - 40, bottom - top)
         self._list_viewport = viewport
         width = SCREEN_WIDTH - 90
