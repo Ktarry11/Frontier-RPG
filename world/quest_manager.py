@@ -116,6 +116,7 @@ class QuestManager:
             requires_quests=q_def.get("requires_quests"),
             turn_in_npc_id=q_def.get("turn_in_npc_id"),
             grant_items=q_def.get("grant_items"),
+            reward_recipe=q_def.get("reward_recipe"),
         )
 
     # ---------- Giver-facing queries (what does this NPC have to offer right now) ----------
@@ -294,6 +295,22 @@ class QuestManager:
         on_turn_in = (quest.grant_items or {}).get("on_turn_in")
         if on_turn_in:
             self._grant(player, on_turn_in, quest_id)
+
+        # RECIPE REWARD. Built here rather than in _grant because _grant makes LootItems and a
+        # scroll is an Item. A full bag is not allowed to eat the reward silently - the message is
+        # stashed for the dialog the same way the faction gain below is.
+        self.recipe_reward_message = None
+        if getattr(quest, "reward_recipe", None):
+            from world.recipe_manager import make_recipe_scroll
+            scroll = make_recipe_scroll(quest.reward_recipe)
+            if scroll is None:
+                print(f"[QuestManager] WARNING: quest {quest_id} rewards unknown recipe "
+                      f"{quest.reward_recipe!r}")
+            elif player.add_to_inventory(scroll):
+                self.recipe_reward_message = f"You received {scroll.name}."
+            else:
+                self.recipe_reward_message = (
+                    f"{scroll.name} could not fit in your bags - make room and speak to them again.")
 
         if quest.reward_exp:
             scaled_exp = quest.get_scaled_exp_reward(player.level)

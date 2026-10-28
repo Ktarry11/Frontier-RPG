@@ -192,6 +192,11 @@ def main():
     cons = {r.get("consumable_id") for v in cd.values() if isinstance(v, list) for r in v}
     mats = json.loads(Path("data/gathering/materials.json").read_text())["materials"]
     cons |= set(mats) if isinstance(mats, dict) else {m.get("material_id") for m in mats}
+    # A shelf may also hold RECIPE SCROLLS, named by recipe id. 57 recipes carry source "vendor" and
+    # are stocked by the vendor they were authored for, so a check that knows only about consumables
+    # and materials calls all 57 of them ghosts. This verifier was wrong before the data was - again.
+    from world.recipe_manager import _load_all_recipes
+    cons |= set(_load_all_recipes())
     for fid, fac in fm.factions.items():
         rw = fac.rewards
         for qid, tier in rw.get("quests", {}).items():

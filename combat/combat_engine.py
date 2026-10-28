@@ -658,6 +658,24 @@ class CombatEngine:
                     self.combat_log.append(
                         f"{enemy.name} dropped {loot.name}, but your bags are full!")
 
+            # RECIPE SCROLLS. entities/recipe_drops.py decides; world/recipe_manager builds the
+            # item; the inventory screen already knows how to learn from one on click. This call
+            # site is the thing that was missing - 135 recipes carried source "drop" and nothing in
+            # the codebase ever asked for one, so they were labelled as world drops and could not
+            # be found. Rolled per enemy, same as every other drop here.
+            from entities.recipe_drops import roll_recipe
+            scroll_id = roll_recipe(enemy)
+            if scroll_id:
+                from world.recipe_manager import make_recipe_scroll
+                scroll = make_recipe_scroll(scroll_id)
+                if scroll is not None:
+                    if self.player.add_to_inventory(scroll):
+                        self.loot_gained.append(scroll)
+                        self.combat_log.append(f"{enemy.name} dropped: {scroll.name}!")
+                    else:
+                        self.combat_log.append(
+                            f"{enemy.name} dropped {scroll.name}, but your bags are full!")
+
             # Per-creature LootItem drops (quest items, materials, trash)
             # - a real drop table, separate from the gear roll above.
             # Added specifically to close the Sagewood Petal gap Kyle

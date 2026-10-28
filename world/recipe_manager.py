@@ -62,6 +62,19 @@ def _load_all_recipes() -> dict:
     return _RECIPE_SOURCES
 
 
+def all_recipes_by_source(source: str) -> dict:
+    """{recipe_id: (profession, recipe)} for every recipe whose `source` field matches.
+
+    "trainer" recipes are handed over by visiting a trainer, "drop" ones are supposed to be found on
+    a corpse, "vendor" ones bought from somebody who stocks patterns. The latter two had no reader at
+    all until entities/recipe_drops.py and the hidden-vendor pass, which is why 192 recipes were
+    labelled as world drops and none of them were obtainable. A recipe with no source field is
+    treated as trainer-taught, matching Character._migrate_known_recipes.
+    """
+    return {rid: (prof, r) for rid, (prof, r) in _load_all_recipes().items()
+            if r.get("source", "trainer") == source}
+
+
 def get_recipe_info(recipe_id: str) -> tuple[str, dict] | tuple[None, None]:
     """Returns (profession, recipe_dict) or (None, None) if not found."""
     all_recipes = _load_all_recipes()

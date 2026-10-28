@@ -102,6 +102,17 @@ class VendorScreen(BaseScreen):
             if mat:
                 items.append(mat)
                 continue
+            # RECIPE SCROLLS. A vendor's sells list may name a recipe id directly, and 57 recipes
+            # carry source "vendor" expecting exactly that. Until now this resolver only knew about
+            # consumables and materials, so every one of those ids fell through to the warning below
+            # and was silently dropped from the stock list - which is why none of them were buyable.
+            # The buy path needs nothing extra: a scroll Item has both slot and armor_value, so
+            # _is_gear already routes it to add_to_inventory.
+            from world.recipe_manager import make_recipe_scroll
+            scroll = make_recipe_scroll(item_id)
+            if scroll is not None:
+                items.append(scroll)
+                continue
             # Genuinely unknown ID — warn and skip rather than crash
             print(f"[VendorScreen] WARNING: unknown sell ID '{item_id}' on vendor '{self.vendor.vendor_id}'")
 

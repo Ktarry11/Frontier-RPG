@@ -240,7 +240,8 @@ class Quest:
                  turn_in_text="", accept_text="", level_min=1, level_max=None,
                  gear_reward_slot="chest", gear_reward_rarity="uncommon",
                  gear_reward_choices_plan=None, unique_item_defs=None,
-                 requires_quests=None, turn_in_npc_id=None, grant_items=None):
+                 requires_quests=None, turn_in_npc_id=None, grant_items=None,
+                 reward_recipe=None):
         self.quest_id = quest_id
         #: Extra prerequisites beyond the next_quest_id chain: quest ids (any zone) that must ALL be COMPLETED
         #: before this quest is offered - Linken's-Sword-style gates ("skip A in Durotar and C never opens").
@@ -251,6 +252,11 @@ class Quest:
         #: Quest-item grants: {"on_accept": [item defs], "on_turn_in": [item defs]}; an item def is
         #: {item_id, name, description, count?, starts_quest_id?}.
         self.grant_items = grant_items or {}
+        # A recipe id handed over on turn-in, as a learnable scroll. Separate from grant_items
+        # because those are LootItems (quest tokens, materials) and a scroll is an Item with a
+        # recipe_id - different class, different inventory behaviour, and the UI learns from it on
+        # click. Kyle, 2026-10-28: "or still reward some through quests".
+        self.reward_recipe = reward_recipe
         self.title = title
         self.description = description
         #: npc_id of the ambient/vendor NPC who offers and collects this
