@@ -1136,7 +1136,14 @@ class Character(StatusEffectMixin):
         # Dodge/Parry in suffixes like "of Eluding" rather than treating
         # it as its own distinct mechanic.
         defense_bonus = bonuses.get("defense_rating", 0) * 0.5
-        self.dodge = eff_agility * 0.25 + bonuses.get("dodge", 0) + bonuses.get("dodge_rating", 0) + defense_bonus
+        # BASE_DODGE: everybody can get out of the way of something. Kyle, 2026-10-28: "its
+        # impossible for no tanks to have no dodge. agility should give dodge and each class
+        # should have baseline 5% dodge." Agility already fed dodge at a quarter point each; what
+        # was missing was the floor, so a low-agility plate wearer with no dodge talent sat near
+        # zero. Added before the agility term so it is a floor every class shares rather than
+        # something only a talent or a gear suffix can buy.
+        self.dodge = (self.BASE_DODGE + eff_agility * 0.25 + bonuses.get("dodge", 0)
+                      + bonuses.get("dodge_rating", 0) + defense_bonus)
         # spirit_guard_block_from_agility (Spirit Guard, Shaman Tank: "gain
         # Block Rating equal to 33%/66%/100% of your Agility per rank") -
         # an ADDITIONAL block source layered on top of the existing
@@ -1955,6 +1962,9 @@ class Character(StatusEffectMixin):
                 "+1% Turn Speed per point",
             ]
         return []
+
+    #: Dodge every class has before agility, talents or gear. See _recalculate_derived_stats.
+    BASE_DODGE = 5.0
 
     #: Armor/resistance curve: reduction = rating / (rating + BASE + PER_LEVEL * attacker_level).
     #:

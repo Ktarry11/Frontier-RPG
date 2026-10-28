@@ -254,7 +254,16 @@ def tank_axes(char, level, gen, dress, fights):
         "effective HP": int(char.health / max(0.05, 1 - reduction)),
         "magic reduced": magic_cut,
         "phys reduced": char.get_physical_reduction_percent(),
-        "block+dodge": char.get_talent_effect("block") + char.get_talent_effect("dodge"),
+        # REAL AVOIDANCE, NOT THE TALENT CONTRIBUTION. This read get_talent_effect("block") plus
+        # get_talent_effect("dodge"), which is only the slice talents add - so it reported 0 dodge
+        # for Primalist Mountain King, which actually has 24%, and it summed a block CHANCE with a
+        # dodge chance from two different sources as though they were one number. Character.dodge
+        # already includes the 5% baseline, agility at a quarter point each, talents and gear
+        # suffixes; block and parry are likewise live percentages checked against one roll in
+        # take_damage. Read them off the character.
+        "dodge %": char.dodge,
+        "parry %": getattr(char, "parry", 0.0),
+        "block %": getattr(char, "block", 0.0),
         "threat +%": char.get_talent_effect("threat_generation_pct") * 100,
         "net dmg/turn": dpt,
         "turns alive": (char.health / dpt) if dpt else 0,
