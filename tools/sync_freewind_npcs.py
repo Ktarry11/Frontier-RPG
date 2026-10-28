@@ -83,6 +83,29 @@ def main():
                 rec["x"], rec["y"] = x, y
                 moved += 1
 
+    # PRUNE GHOSTS BEFORE WRITING.
+    #
+    # This sync adds records and moves them and never used to remove any, so every time somebody moved an
+    # id between the ambient and vendor lists - or dropped one from the roster - the old record stayed in
+    # the world. Freewind ended up with TWO fw_tanners: a vendor at the first roster's coordinates and an
+    # ambient at the current ones, both standing in the city. Anything in one of our zones that the roster
+    # no longer names is a person who should not be there.
+    #
+    # Trainers (ct_*, pt_*) are owned by build_class_trainers / build_profession_trainers, not by this
+    # roster, so they are never pruned here.
+    for (zone, M, VEND, AMB, gear) in ZONES:
+        keep_v, keep_a = set(VEND), set(AMB)
+        ghosts_v = [r for r in vendors if r.get("zone") == zone and r["vendor_id"] not in keep_v]
+        ghosts_a = [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in keep_a
+                    and not r["npc_id"].startswith(("ct_", "pt_"))]
+        for r in ghosts_v:
+            vendors.remove(r)
+        for r in ghosts_a:
+            npcs.remove(r)
+        if ghosts_v or ghosts_a:
+            print(f"{zone}: pruned {len(ghosts_v) + len(ghosts_a)} stale record(s): "
+                  f"{[r.get('vendor_id') or r.get('npc_id') for r in ghosts_v + ghosts_a]}")
+
     Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n")
     Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n")
     total = sum(len(v) + len(a) for (_, _, v, a, _) in ZONES)

@@ -1876,8 +1876,8 @@
       "vendor_id": "fw_quartermaster",
       "name": "Quartermaster Bren Hollowhorn",
       "zone": "freewind_post",
-      "x": 32,
-      "y": 90,
+      "x": 30,
+      "y": 108,
       "tile_sprite": "npc",
       "sells": [
         "healing_potion_superior",
@@ -1900,8 +1900,8 @@
       "vendor_id": "fw_cook",
       "name": "Cook Dorn Steadyhand",
       "zone": "freewind_post",
-      "x": 62,
-      "y": 100,
+      "x": 22,
+      "y": 114,
       "tile_sprite": "npc",
       "sells": [
         "bread_and_cheese",
@@ -1918,16 +1918,142 @@
       "greeting": "Up here the fire wants watching. Wind takes the heat sideways and your supper with it."
     },
     {
-      "vendor_id": "fw_tanner",
-      "name": "Tanner Yula",
+      "vendor_id": "fw_warehouse_keeper",
+      "name": "Warehouse-Keeper Dral",
       "zone": "freewind_post",
-      "x": 26,
-      "y": 102,
+      "x": 78,
+      "y": 44,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "whetstone",
+        "flux_medium",
+        "thread_coarse"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "male",
+      "appearance_variant": 15,
+      "greeting": "If it came up the ramp this season, I know where it is. If it did not, stop asking me about it."
+    },
+    {
+      "vendor_id": "fw_tally_clerk",
+      "name": "Tally-Clerk Nessa",
+      "zone": "freewind_post",
+      "x": 108,
+      "y": 52,
+      "tile_sprite": "npc",
+      "sells": [
+        "parchment",
+        "vial_empty",
+        "thread_fine"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 17,
+      "greeting": "Everything that crosses this top gets written down. It is not suspicion. It is that we lost a city once without a list of what was in it."
+    },
+    {
+      "vendor_id": "fw_market_herbs",
+      "name": "Herb-Seller Winn",
+      "zone": "freewind_post",
+      "x": 30,
+      "y": 118,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 31,
+      "greeting": "Mesa herbs, aspen herbs and whatever the caravans bring. Three climates on one table, which is not something any herbalist before me had to price."
+    },
+    {
+      "vendor_id": "fw_market_hides",
+      "name": "Hide-Trader Molk",
+      "zone": "freewind_post",
+      "x": 30,
+      "y": 126,
       "tile_sprite": "npc",
       "sells": [
         "thread_coarse",
         "thread_fine",
+        "whetstone"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": true,
+      "race": "tauren",
+      "gender": "male",
+      "appearance_variant": 32,
+      "greeting": "Mountain hides from the north, mesa hides from below. The northern ones are thicker and nobody has worked out what to do with that yet."
+    },
+    {
+      "vendor_id": "fw_market_spices",
+      "name": "Spice-Trader Ovi",
+      "zone": "freewind_post",
+      "x": 30,
+      "y": 134,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 33,
+      "greeting": "Salt from the flats, east of here. It is the one trade the Integration did not touch, and I have never been so glad to be boring."
+    },
+    {
+      "vendor_id": "fw_market_relics",
+      "name": "Relic-Keeper Dun",
+      "zone": "freewind_post",
+      "x": 20,
+      "y": 122,
+      "tile_sprite": "npc",
+      "sells": [
+        "parchment",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "male",
+      "appearance_variant": 34,
+      "greeting": "Things that came up out of the mesas and things that came down off the mountain. I can tell you which is which. I cannot always tell you what either one is."
+    },
+    {
+      "vendor_id": "fw_smith",
+      "name": "Smith Durga Ironhoof",
+      "zone": "freewind_post",
+      "x": 100,
+      "y": 116,
+      "tile_sprite": "npc",
+      "sells": [
         "whetstone",
+        "flux_medium",
+        "thread_coarse",
         "vial_empty"
       ],
       "buys_from_player": true,
@@ -1936,20 +2062,19 @@
       "sells_gear": true,
       "race": "tauren",
       "gender": "female",
-      "appearance_variant": 8,
-      "greeting": "Hide, leather and cloth, same bench. Bring me something that was recently an animal and we will get along."
+      "appearance_variant": 13,
+      "greeting": "Ore comes up the ramp in sacks and the charcoal comes up behind it. I forge the most expensive horseshoes on the continent and everybody here needs them."
     },
     {
-      "vendor_id": "fw_timberwright",
-      "name": "Timberwright Gohn",
+      "vendor_id": "fw_weaponsmith",
+      "name": "Weaponsmith Karr",
       "zone": "freewind_post",
-      "x": 46,
-      "y": 110,
+      "x": 100,
+      "y": 124,
       "tile_sprite": "npc",
       "sells": [
-        "flux_medium",
         "whetstone",
-        "thread_coarse"
+        "flux_medium"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -1957,8 +2082,29 @@
       "sells_gear": true,
       "race": "tauren",
       "gender": "male",
-      "appearance_variant": 10,
-      "greeting": "Every plank in this town came off a mountain that was not here three years ago. I have stopped finding that strange, which I am told is the strange part."
+      "appearance_variant": 35,
+      "greeting": "Three years ago I made tools. I would like to go back to making tools and I am not going to."
+    },
+    {
+      "vendor_id": "fw_reagents",
+      "name": "Reagent-Keeper Ulla",
+      "zone": "freewind_post",
+      "x": 104,
+      "y": 100,
+      "tile_sprite": "npc",
+      "sells": [
+        "mana_potion_standard",
+        "vial_empty",
+        "parchment"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 36,
+      "greeting": "Spirit-work needs its materials and the spirits up here are not the ones we knew. Different herbs. Different smoke. Same asking."
     }
   ]
 }

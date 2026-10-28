@@ -251,10 +251,10 @@ class PortalManager:
             # there, so the climb is the way in.
             "Southern Thousand Needles": {
                 (110, 4): ("The Aspen Wilderness", 104, 172),
-                (168, 88): ("Freewind Post", 76, 24),
+                (168, 88): ("Freewind Post", 96, 26),
             },
             "Freewind Post": {
-                (76, 18): ("Southern Thousand Needles", 168, 92),
+                (96, 20): ("Southern Thousand Needles", 168, 92),
             },
             "The Weeping Ice": {
                 (48, 126): ("The Aspen Wilderness", 145, 51),

@@ -51,6 +51,10 @@ TOWNS = {
     "The Sepulcher": ("sepulcher", "sepulcher_innkeeper"),
     "Undercity": ("uc", "uc_innkeeper"),
     "Silverpine South": ("spsouth", "sp_south_flight_master"),
+    # The tauren capital-in-exile. A capital gets its trainers from the same pipeline as
+    # everywhere else - it would be strange for the biggest tauren settlement in the world to
+    # be the one place you cannot learn anything.
+    "Freewind Post": ("freewind", "fw_innkeeper"),
 }
 
 CLASS_TITLE = {c: c for c in CLASSES}
