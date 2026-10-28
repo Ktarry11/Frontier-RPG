@@ -82,7 +82,16 @@ class Character(StatusEffectMixin):
         self.crit_chance_physical = 0.0
         self.crit_chance_spell = 0.0
         self.dodge = 0.0
-        self.block = 0.0
+        # BLOCK IS TWO STATS, not one. block_chance is the percentage of physical hits stopped;
+        # block_value is how much damage a stopped hit loses. They were a single `block` field
+        # computed as a VALUE - Strength times 0.3 plus the shield's block_value, scaled by
+        # block_value_pct - and then used as a CHANCE, compared against a 0-100 roll in
+        # take_damage. A Sun Cleric Seraphim read 285, so it blocked every physical hit in the
+        # game, and the value it had accumulated was then thrown away in favour of a flat 30%
+        # reduction. Kyle, 2026-10-28: "we need block % AND block rating. parry and dodge is 100%
+        # mitigation, block is a value."
+        self.block_chance = 0.0
+        self.block_value = 0.0
         self.parry = 0.0
         self.haste = 0.0
 
@@ -1151,13 +1160,21 @@ class Character(StatusEffectMixin):
         # rating stacks from every source (gear, Strength conversion,
         # talent conversions) rather than any one overriding another.
         agility_block_bonus = eff_agility * bonuses.get("spirit_guard_block_from_agility", 0.0)
-        self.block = (eff_strength * 0.3 + self.equipment.get_total_block_value()
-                      + bonuses.get("block", 0) + bonuses.get("block_rating", 0) + agility_block_bonus)
-        # block_value_pct scales the whole block value, the percentage
-        # companion to the flat `block` key. Two talents used it and it was
-        # read by nothing. A fraction, like every other _pct key outside the
-        # ten points-convention stat keys.
-        self.block *= (1.0 + bonuses.get("block_value_pct", 0))
+        # BLOCK VALUE: how much a blocked hit loses. Strength, the shield itself, and the talent
+        # conversions - block_rating and Spirit Guard's agility conversion are rating, i.e. value.
+        self.block_value = (eff_strength * 0.3 + self.equipment.get_total_block_value()
+                            + bonuses.get("block_rating", 0) + agility_block_bonus)
+        # block_value_pct scales the VALUE, which is what its name always said and what the two
+        # talents using it meant. Before the split it scaled the number being used as a chance.
+        self.block_value *= (1.0 + bonuses.get("block_value_pct", 0))
+        # BLOCK CHANCE: a percentage, and only if there is a shield to block with. The talent key
+        # `block` is a chance in every tree that uses it - Shield Specialization 2 a point, Holy
+        # Shield 10, Improved Holy Shield 4 - so it feeds here, not into the value. defense_rating
+        # raises it the same way it raises dodge and parry.
+        self.block_chance = 0.0
+        if self.equipment.get_shield_armor() > 0 or self.equipment.get_total_block_value() > 0:
+            self.block_chance = (self.BASE_BLOCK_CHANCE + bonuses.get("block", 0) + defense_bonus)
+        self.block_chance = max(0.0, min(self.BLOCK_CHANCE_CAP, self.block_chance))
         avg_stat = (eff_agility + eff_strength) / 2
         # Parry previously ignored the bonus pool entirely, so gear and
         # talents rolling Parry did nothing. Now additive like Dodge.
@@ -1966,6 +1983,13 @@ class Character(StatusEffectMixin):
     #: Dodge every class has before agility, talents or gear. See _recalculate_derived_stats.
     BASE_DODGE = 5.0
 
+    #: Block chance a shield gives before any talent. Classic gave 5% for carrying one.
+    BASE_BLOCK_CHANCE = 5.0
+
+    #: Block chance cannot exceed this. Dodge and parry avoid the hit outright, so an uncapped
+    #: block chance on top of them left three tanks with no physical hit ever landing unreduced.
+    BLOCK_CHANCE_CAP = 50.0
+
     #: Armor/resistance curve: reduction = rating / (rating + BASE + PER_LEVEL * attacker_level).
     #:
     #: THE DENOMINATOR HAS TO SCALE WITH THE ATTACKER OR ARMOUR RUNS AWAY. This was a flat 100,
@@ -2186,7 +2210,7 @@ class Character(StatusEffectMixin):
             if roll < self.parry:
                 return 0
             roll -= self.parry
-            blocked = roll < self.block
+            blocked = roll < self.block_chance
         else:
             blocked = False
 
@@ -2393,10 +2417,15 @@ class Character(StatusEffectMixin):
         actual = max(1, int(amount * (1.0 - reduction) * row_mult * level_mult * taken_mult))
 
         if blocked:
-            block_mult = 1.0 - BLOCK_DAMAGE_REDUCTION
-            block_mult -= self.get_talent_effect("block_bonus_reduction", 0.0)
-            block_mult = max(0.0, block_mult)
-            actual = max(1, int(actual * block_mult))
+            # A BLOCK SUBTRACTS ITS VALUE. Dodge and parry already stop the hit outright above, so
+            # block is the partial one: the shield eats a fixed amount and the rest lands. This
+            # used to ignore block_value entirely and apply a flat 30% instead, which meant a
+            # bigger shield and every block_value talent in the game changed nothing.
+            absorbed = self.block_value
+            bonus = self.get_talent_effect("block_bonus_reduction", 0.0)
+            if bonus:
+                absorbed += actual * bonus
+            actual = max(1, int(actual - absorbed))
 
         self.current_health -= actual
         
@@ -2551,7 +2580,7 @@ class Character(StatusEffectMixin):
                 "crit_physical": f"{self.crit_chance_physical:.1f}%",
                 "crit_spell": f"{self.crit_chance_spell:.1f}%",
                 "dodge": f"{self.dodge:.1f}%",
-                "block": f"{self.block:.1f}%",
+                "block": f"{self.block_chance:.1f}% / {self.block_value:.0f}",
                 "parry": f"{self.parry:.1f}%",
                 "haste": f"{self.haste:.1f}%",
             },

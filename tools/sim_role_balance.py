@@ -176,6 +176,21 @@ def build(spec, level, gen, dress, role=None):
             except Exception:                                   # noqa: BLE001
                 pass
     dress(char, gen, level)
+
+    # A SHIELD TANK NEEDS A SHIELD, and the generic gearing pass does not guarantee one - it asks
+    # for an off_hand and takes whatever that class rolls. Block chance only exists with a shield
+    # equipped, so without this the shield specs measured 0% block and their block talents did
+    # nothing. Which specs count is read off the trees rather than hardcoded: a tree that spends
+    # points on the `block` effect is a tree built around carrying one.
+    if role == "tank" and char.get_talent_effect("block"):
+        held = char.equipment.get_equipped("off_hand")
+        if not held or not getattr(held, "block_value", 0):
+            shield = gen.generate_weapon("off_hand", "shield", "str_physical", level, "rare")
+            if shield is not None:
+                char.inventory.append(shield)
+                if not char.equip_item(shield) and shield in char.inventory:
+                    char.inventory.remove(shield)
+
     for form in ROLE_FORMS.get(role or "", []):
         if hasattr(char, "can_use_form") and char.can_use_form(form):
             char.shift_form(form)
@@ -263,7 +278,8 @@ def tank_axes(char, level, gen, dress, fights):
         # take_damage. Read them off the character.
         "dodge %": char.dodge,
         "parry %": getattr(char, "parry", 0.0),
-        "block %": getattr(char, "block", 0.0),
+        "block %": getattr(char, "block_chance", 0.0),
+        "block value": getattr(char, "block_value", 0.0),
         "threat +%": char.get_talent_effect("threat_generation_pct") * 100,
         "net dmg/turn": dpt,
         "turns alive": (char.health / dpt) if dpt else 0,
