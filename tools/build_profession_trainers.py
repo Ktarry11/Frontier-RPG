@@ -1,11 +1,31 @@
 #!/usr/bin/env python3
 """Profession trainers + sawmills (idempotent).
 
-Every town gets a trainer NPC per profession, each on its own tile near the town's service anchor (inn / flight master /
-vendor).  The three starter towns (Valley of Trials, Echo Isles, Deathknell) only teach the gathering trio.  Sawmills sit next
-to every forge (6+ tiles away so the two interaction reaches never overlap) and in the wooded towns.
+TRAINERS COME IN THEMED PAIRS, NOT ONE PER PROFESSION.
 
-Writes: data/npcs/ambient_npcs.json (ids pt_<town>_<profession>), data/npcs/sawmills.json, data/training/trainers.json
+Kyle, 2026-10-27, looking at Razor Hill: "Let's mix trainers bro. We don't need so many trainers. We can
+have them in themes. Like herbalist and alchemy. or mining and blacksmith, woodworking and woodcutting."
+
+He is right, and the game's own profession descriptions already say which ones belong together -
+herbalism is "the ingredients for Alchemy", skinning is "the raw stock for Leatherworking", essence
+harvesting draws the essences that engineering "binds into metal". Pairing a gathering profession with
+the craft that consumes it is how a player thinks about them anyway, and it means one conversation
+instead of two.
+
+THE CONSOLIDATION ALSO FIXES A REAL BUG. Before this, four professions - skinning, leatherworking,
+essence harvesting and engineering - had 58 trainer rows between them pointing at NPC ids that did not
+exist in ambient_npcs.json. They were appended by a later pass that wrote the trainer entries and never
+created the people. Those four professions were UNLEARNABLE ANYWHERE IN THE GAME. Folding them onto
+trainers who do exist is what makes them teachable.
+
+Net: a full town goes from SEVEN trainer NPCs teaching seven professions to FIVE teaching eleven.
+
+The three starter towns (Valley of Trials, Echo Isles, Deathknell) still teach the gathering trio only -
+a level-two player should not be handed blacksmithing - so they get the three gathering halves and
+nothing else.
+
+Writes: data/npcs/ambient_npcs.json (ids pt_<town>_<pair>), data/npcs/sawmills.json,
+data/training/trainers.json (profession_trainers maps npc_id -> LIST of professions).
 Run from the repo root:   python3 tools/build_profession_trainers.py [--dry-run]
 """
 import json
@@ -20,26 +40,42 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 import build_class_trainers as bct  # noqa: E402
 
-GATHER = ["mining", "herbalism", "woodcutting"]
-ALL = GATHER + ["blacksmithing", "alchemy", "tailoring", "woodworking"]
+#: (pair key, shown title, [professions taught], greeting). The gathering half is listed first in every
+#: pair, because that is the order a player meets them in.
+PAIRS = [
+    ("forge", "Forge", ["mining", "blacksmithing"],
+     "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to "
+     "dig if you cannot do anything with it."),
+    ("herbs", "Apothecary", ["herbalism", "alchemy"],
+     "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, "
+     "and the second part is where people go wrong."),
+    ("wood", "Woodwright", ["woodcutting", "woodworking"],
+     "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet."),
+    ("hide", "Tanner", ["skinning", "leatherworking", "tailoring"],
+     "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the "
+     "lot of it."),
+    ("essence", "Tinker", ["essence_harvesting", "engineering"],
+     "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it "
+     "decides it would rather not be."),
+]
+#: Starter towns teach the gathering halves only, and nothing else in the pair.
+STARTER_PAIRS = {"forge": ["mining"], "herbs": ["herbalism"], "wood": ["woodcutting"]}
 STARTER = {"Valley of Trials", "Echo Isles", "Deathknell"}
-LABEL = {"mining": "Mining", "herbalism": "Herbalism", "woodcutting": "Woodcutting", "blacksmithing": "Blacksmithing",
-         "alchemy": "Alchemy", "tailoring": "Tailoring", "woodworking": "Woodworking"}
-GREET = {
-    "mining": "Rock, ore and a good strong back. Pay me and I'll teach you where to swing.",
-    "herbalism": "Every weed is a medicine to someone. Pay up and I'll show you which.",
-    "woodcutting": "Trees don't fall themselves. Bring coin and I'll teach you the cut.",
-    "blacksmithing": "Hammer, anvil and a steady hand. The rest I can teach, for a price.",
-    "alchemy": "Mind the fumes. Pay the fee and I'll show you what to boil, and what not to drink.",
-    "tailoring": "Needle, thread and patience. I'll teach you all three, for gold.",
-    "woodworking": "A plank is just a bow or a shield that hasn't happened yet. Pay and I'll show you how.",
-}
-# sawmill sites: (zone display name, zone field in sawmills.json, anchor mode)
-FORGE_ZONES = {"Valley of Trials": "valley_of_trials", "Durotar": "durotar", "Razor Hill": "razor_hill", "Orgrimmar": "orgrimmar",
-               "Crossroads": "crossroads", "Ratchet": "ratchet", "Astranaar": "astranaar", "Splintertree Post": "splintertree_post",
-               "Brill": "brill", "Undercity": "undercity"}
-EXTRA_SAWMILLS = {"Deathknell": "deathknell", "Echo Isles": "echo_isles", "Silverpine South": "silverpine_south",
-                  "Zoram Strand": "zoram_strand"}
+
+# sawmill sites: (zone display name, zone field in sawmills.json)
+FORGE_ZONES = {"Valley of Trials": "valley_of_trials", "Durotar": "durotar", "Razor Hill": "razor_hill",
+               "Orgrimmar": "orgrimmar", "Crossroads": "crossroads", "Ratchet": "ratchet",
+               "Astranaar": "astranaar", "Splintertree Post": "splintertree_post", "Brill": "brill",
+               "Undercity": "undercity"}
+EXTRA_SAWMILLS = {"Deathknell": "deathknell", "Echo Isles": "echo_isles",
+                  "Silverpine South": "silverpine_south", "Zoram Strand": "zoram_strand"}
+DRY = "--dry-run" in sys.argv
+
+
+def norm(s):
+    return s.lower().replace(" ", "_").replace("'", "")
+
+
 DRY = "--dry-run" in sys.argv
 
 
@@ -109,27 +145,32 @@ def main():
         start = next(((anchor[0] + dx, anchor[1] + dy) for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1), (0, 2), (2, 0))
                       if z.is_walkable(anchor[0] + dx, anchor[1] + dy)), None)
         region = bct.flood(z, start)
-        profs = GATHER if zone_name in STARTER else ALL
-        tiles = pick_tiles(z, region, anchor, occupied, len(profs), 3, 12, 2)
-        if len(tiles) < len(profs):
-            tiles += pick_tiles(z, region, anchor, occupied | set(tiles), len(profs) - len(tiles), 3, 18, 2)
+        starter = zone_name in STARTER
+        pairs = [(k, t, STARTER_PAIRS[k], g) for (k, t, _, g) in PAIRS if k in STARTER_PAIRS] if starter \
+            else list(PAIRS)
+        tiles = pick_tiles(z, region, anchor, occupied, len(pairs), 3, 12, 2)
+        if len(tiles) < len(pairs):
+            tiles += pick_tiles(z, region, anchor, occupied | set(tiles), len(pairs) - len(tiles), 3, 18, 2)
         races = Counter(n.get("race") for n in here if n.get("race"))
         race = races.most_common(1)[0][0] if races else (get_zone_default_race(zone_name) or bct.RACE_FOR_ZONE_FALLBACK)
         names = bct.NAMES.get(race, bct.NAMES[bct.RACE_FOR_ZONE_FALLBACK])
         opt = get_race(race)
         genders = list(opt.genders) if opt else []
         zone_field = bct.ZONE_FIELD.get(zone_name, zone_name if " " not in zone_name else norm(zone_name))
-        for i, (prof, tile) in enumerate(zip(profs, tiles)):
+        for i, ((pkey, title, profs_here, greet), tile) in enumerate(zip(pairs, tiles)):
             g = genders[(i + len(slug)) % len(genders)] if genders else None
             nvar = len(g.variants) if g and g.variants else 1
-            nid = f"pt_{slug}_{prof}"
-            new_npcs.append({"npc_id": nid, "name": f"{LABEL[prof]} Trainer {names[(i * 5 + len(slug) * 2) % len(names)]}",
-                             "zone": zone_field, "x": tile[0], "y": tile[1], "greeting": GREET[prof],
+            nid = f"pt_{slug}_{pkey}"
+            new_npcs.append({"npc_id": nid,
+                             "name": f"{title} {names[(i * 5 + len(slug) * 2) % len(names)]}",
+                             "zone": zone_field, "x": tile[0], "y": tile[1], "greeting": greet,
                              "gender": g.gender_id if g else "male", "race": race,
-                             "appearance_variant": (i * 3 + len(slug)) % nvar, "facing": "down", "trains_profession": prof})
-            prof_trainers[nid] = prof
+                             "appearance_variant": (i * 3 + len(slug)) % nvar, "facing": "down",
+                             # a LIST now. One NPC, several professions.
+                             "trains_profession": list(profs_here)})
+            prof_trainers[nid] = list(profs_here)
             occupied.add(tile)
-        report.append((zone_name, len(tiles), len(profs)))
+        report.append((zone_name, len(tiles), len(pairs)))
 
     # sawmills
     sites = dict(FORGE_ZONES)

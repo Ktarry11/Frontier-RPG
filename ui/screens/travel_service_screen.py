@@ -148,9 +148,22 @@ class TravelServiceScreen(BaseScreen):
         from world.profession_manager import profession_for_trainer
         return profession_for_trainer(self._npc_id())
 
+    def _trainer_professions(self):
+        """Every profession this NPC teaches. Trainers are themed pairs, so this is usually 2-3."""
+        from world.profession_manager import professions_for_trainer
+        return professions_for_trainer(self._npc_id())
+
     def _prof_rows(self, player, copper):
         from world import profession_manager as pm
-        prof = self._trainer_profession()
+        rows = []
+        # A trainer teaches a themed PAIR (gathering profession plus the craft that consumes it), so walk
+        # all of them and concatenate. The gathering half is listed first because that is the order a
+        # player meets them in.
+        for prof in self._trainer_professions():
+            rows.extend(self._prof_rows_for(player, copper, prof, pm))
+        return rows
+
+    def _prof_rows_for(self, player, copper, prof, pm):
         rows = []
         for o in pm.offers(player, prof):
             if o["kind"] == "unlearn":
@@ -325,8 +338,16 @@ class TravelServiceScreen(BaseScreen):
             from world import profession_manager as pm
             prof = self._trainer_profession()
             player = self.state_manager.player
-            name = pm.professions()[prof]["name"] if prof else "a profession"
-            hint = (f"I teach {name}. You know {len(player.known_professions)} of {pm.max_primary()} professions.")
+            got = self._trainer_professions()
+            names = [pm.professions()[k]["name"] for k in got if k in pm.professions()]
+            if not names:
+                shown = "a profession"
+            elif len(names) == 1:
+                shown = names[0]
+            else:
+                shown = ", ".join(names[:-1]) + " and " + names[-1]
+            hint = (f"I teach {shown}. You know {len(player.known_professions)} of "
+                    f"{pm.max_primary()} professions.")
         else:
             hint = (f"Riding skill: {travel.riding_skill(travel.riding_rank)['name']}" if travel.riding_rank
                     else "You need to learn riding first (level 20, any riding trainer).")

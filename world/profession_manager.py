@@ -7,7 +7,7 @@ Profession training (Oct 2026): learn a profession from its trainer, then train 
   * Unlearning forgets the profession and resets its skill to 0 (so re-learning starts over).
   * Gathering without the profession still picks things up, but never skills up; crafting needs the profession.
 
-Data: data/professions/professions.json (list + tiers), data/training/trainers.json ("profession_trainers": npc_id -> profession).
+Data: data/professions/professions.json (list + tiers), data/training/trainers.json ("profession_trainers": npc_id -> LIST of professions).
 Pure rules; the screen is ui/screens/travel_service_screen.py (kind "train_prof").
 """
 import json
@@ -35,9 +35,28 @@ def max_primary():
     return int(data().get("max_primary", 3))
 
 
-def profession_for_trainer(npc_id):
+def professions_for_trainer(npc_id):
+    """-> list of profession ids this NPC teaches (possibly empty).
+
+    Trainers come in THEMED PAIRS now (mining + blacksmithing, herbalism + alchemy, and so on), so the
+    data value is a list. Old data stored a bare string for the single profession; that is still accepted
+    so a stale trainers.json does not crash the service screen.
+    """
     from world import training_manager
-    return training_manager.trainers().get("profession_trainers", {}).get(npc_id)
+    v = training_manager.trainers().get("profession_trainers", {}).get(npc_id)
+    if v is None:
+        return []
+    return [v] if isinstance(v, str) else list(v)
+
+
+def profession_for_trainer(npc_id):
+    """Back-compat: the FIRST profession this NPC teaches, or None.
+
+    Kept because travel_manager only needs to know whether an NPC is a trainer at all. Anything that
+    shows the player what is on offer must use professions_for_trainer instead.
+    """
+    got = professions_for_trainer(npc_id)
+    return got[0] if got else None
 
 
 def tier_name(index):
