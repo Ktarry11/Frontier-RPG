@@ -74,11 +74,41 @@ CHANCE   = {"open_zone": 0.35, "cave": 0.50}
 BOSS_QTY = (2, 4)
 
 
+#: FRONTIER'S OWN CLOTH TIERS ARE HELD BACK. Kyle, 2026-10-28: "We wont go past the original wow cloth
+#: or leather or ore right away. the high end stuff will appear later."
+#:
+#: Spidersilk, Dusk Velvet, Gossamer and Thistledown are Frontier inventions slotted BETWEEN the real
+#: ladder's rungs, and they were dropping from level 25 - which is "right away" by any reading. Verified
+#: before gating them: the WoW ladder alone (Linen, Wool, Silk, Mageweave, Runecloth, plus the Cotton
+#: and Hempen that early recipes already depend on) covers every level from 1 to 42 with no gap, so
+#: removing these leaves nobody with nothing to skin.
+#:
+#: They are FILTERED, not deleted. The bands above are the real design and stay intact; flip this to
+#: True the day the high-end content lands and the whole ladder comes back with it. The four
+#: cloth-to-bolt recipes that consume them stay authored for the same reason - dormant, not wrong.
+#:
+#: LEATHER IS DELIBERATELY NOT GATED HERE. Cragscale, Stormscale and Stonebound are already load-bearing
+#: in NINE leatherworking recipes, several of which mix them with real WoW leather in one craft
+#: (lw_thick_leather_gloves wants Thick AND Cragscale). Hiding those drops would strand recipes a player
+#: can see and never finish, which is worse than the thing it fixes. That one is Kyle's call, not mine.
+FRONTIER_CLOTH_ENABLED = False
+
+HELD_BACK_CLOTH = {"cloth_spidersilk", "cloth_dusk_velvet", "cloth_gossamer", "cloth_thistledown"}
+
+
+def _available(weights):
+    """Drop weights with the held-back tiers filtered out, unless they have been switched on."""
+    if FRONTIER_CLOTH_ENABLED:
+        return weights
+    out = {m: w for m, w in weights.items() if m not in HELD_BACK_CLOTH}
+    return out or weights          # never return an empty table
+
+
 def _pick_material(level: int, rng) -> str:
     pool: dict[str, float] = {}
     for lo, hi, weights in BANDS:
         if lo <= level <= hi:
-            for mid, w in weights.items():
+            for mid, w in _available(weights).items():
                 pool[mid] = pool.get(mid, 0.0) + w
     if not pool:
         return "cloth_primordial_weave" if level >= 95 else "cloth_linen"
