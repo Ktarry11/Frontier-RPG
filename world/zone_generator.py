@@ -5825,6 +5825,21 @@ def create_all_zones():
     zones["Scarlet Crypt"] = ddkc.generate_scarlet_crypt()
     zones["Scourge Cave"] = hscourge.generate_scourge_cave()  # hand-built (tools/handbuilt_scourge_cave.py)
 
+    # ===== STRANGLETHORN =====
+    # Reached only by transport (zeppelin into Grom'gol, Ratchet boat into Booty Bay) - there is no land
+    # route in, because claude/integration_geography.md took the road south away. Three wilderness zones
+    # end to end, two towns, three caves and the Gurbashi gauntlet.
+    from tools import handbuilt_stranglethorn_north as stvn
+    from tools import handbuilt_stranglethorn_central as stvc
+    from tools import handbuilt_stranglethorn_south as stvs
+    from tools import handbuilt_gromgol as stvg
+    from tools import handbuilt_booty_bay as stvb
+    zones["Northern Stranglethorn"] = stvn.generate_zone()
+    zones["Central Stranglethorn"] = stvc.generate_zone()
+    zones["Southern Stranglethorn"] = stvs.generate_zone()
+    zones["Grom'gol"] = stvg.generate_gromgol()
+    zones["Booty Bay"] = stvb.generate_booty_bay()
+
     # Drygulch Ravine is NOT run through generate_cave() - see that
     # function's own docstring note and generate_drygulch_ravine()'s
     # docstring for why an open-air canyon needed a different generator

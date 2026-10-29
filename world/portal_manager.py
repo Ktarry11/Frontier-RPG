@@ -179,12 +179,13 @@ class PortalManager:
                 (120, 214): ("Orgrimmar", 34, 184),
             },
             # Zeppelin Tower = a 4-arm cross (tools/handbuilt_zeppelin_tower.py). S arm = the stair down to the
-            # ground, N arm = airship berth to the twin tower. E (58,32) and W (6,32) berths are reserved for
-            # future routes (Grom'gol, Thunder Bluff) - add their links here when those zones exist.
+            # ground, N arm = airship berth to the twin tower, E arm = the Stranglethorn run to Grom'gol (the
+            # berth was reserved for exactly this). W (6,32) is still reserved (Thunder Bluff).
             # Destinations below are written 2 tiles SOUTH of where you land (the transition lands 2 tiles north).
             "Zeppelin Tower": {
                 (32, 58): ("Durotar", 112, 35),
                 (32, 6): ("Undercity Zeppelin Tower", 32, 11),
+                (58, 32): ("Grom'gol", 32, 8),
             },
             "Undercity Zeppelin Tower": {
                 (32, 58): ("Eastern Tirisfal", 21, 97),
@@ -208,6 +209,10 @@ class PortalManager:
             },
             "Ratchet": {
                 (2, 30): ("Central Barrens", 285, 270),
+                # The dock. (64,30) was a "boat" interaction tile with no registered link since Ratchet was
+                # built - flavour only. It is the route south now: claude/integration_geography.md took the
+                # land road to Stranglethorn away, so the goblins' shipping IS the road.
+                (64, 30): ("Booty Bay", 62, 36),
             },
             "Camp Taurajo": {
                 (32, 2): ("Central Barrens", 150, 296),
@@ -273,6 +278,35 @@ class PortalManager:
             },
             "Razorfen Kraul": {
                 (120, 208): ("Southern Barrens", 55, 175),
+            },
+
+            # ===== STRANGLETHORN =====
+            # Reached ONLY by transport: the zeppelin into Grom'gol at the top, the Ratchet boat into Booty
+            # Bay at the bottom. There is no land route in from anywhere - the north edge of Northern
+            # Stranglethorn is the range itself. The three wilderness zones are one road end to end.
+            "Grom'gol": {
+                (32, 4): ("Zeppelin Tower", 55, 34),            # the E berth: arrival (55,32)
+                (32, 53): ("Northern Stranglethorn", 54, 96),
+            },
+            "Northern Stranglethorn": {
+                (54, 96): ("Grom'gol", 32, 53),
+                (150, 40): ("Rotvine Hollow", 32, 10),
+                (100, 177): ("Central Stranglethorn", 100, 7),  # seam: land on (100,5), not on the portal
+            },
+            "Central Stranglethorn": {
+                (100, 3): ("Northern Stranglethorn", 100, 177),
+                (100, 177): ("Southern Stranglethorn", 100, 7),
+                (40, 58): ("Veilfall Cave", 32, 10),
+                (150, 100): ("Gurbashi Arena", 40, 12),
+            },
+            "Southern Stranglethorn": {
+                (100, 3): ("Central Stranglethorn", 100, 177),
+                (36, 150): ("Booty Bay", 35, 8),
+                (170, 116): ("The Drowned Shrine", 32, 10),
+            },
+            "Booty Bay": {
+                (35, 4): ("Southern Stranglethorn", 36, 150),
+                (64, 34): ("Ratchet", 62, 32),                  # the boat: lands on the main pier head
             },
 
             # ===== ASHENVALE / SILVERPINE / FENRIS ISLE CHAIN =====

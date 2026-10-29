@@ -389,6 +389,15 @@ ZONE_BIOME = {
     # looking" note for still water bodies).
     "Echo Isles": "tropical",
 
+    # Stranglethorn - the same tf_jungle pack. These five all ship with baked ground chunks
+    # (tools/bake_stranglethorn.py), so the biome is the fallback for anything a chunk does not
+    # cover rather than the primary look, but tropical is the honest answer either way.
+    "Northern Stranglethorn": "tropical",
+    "Central Stranglethorn": "tropical",
+    "Southern Stranglethorn": "tropical",
+    "Grom'gol": "tropical",
+    "Booty Bay": "tropical",
+
     # Savanna/scrubland (The Barrens - Central/Northern/Southern, Crossroads,
     # Camp Taurajo). Ratchet (port town) and Orgrimmar (urban capital) are
     # still deliberately unmapped - see NOTES.md "unconfirmed biomes".

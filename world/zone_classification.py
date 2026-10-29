@@ -54,6 +54,10 @@ DUNGEONS = [
     # on this list - it is a cave, so it keeps the Underdark's ore and herbs. The Deep Bloom is a grown thing
     # with fixed packs and nothing in it worth gathering.
     "The Deep Bloom",
+    # Added 2026-10-29 with Stranglethorn. The arena is a five-boss gauntlet, so no gathering in it.
+    # Rotvine Hollow, Veilfall Cave and The Drowned Shrine are deliberately NOT on this list - they are
+    # caves, so they keep their ore and herbs.
+    "Gurbashi Arena",
 ]
 
 

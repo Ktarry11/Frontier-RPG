@@ -39,7 +39,7 @@ APRON_DEPTH = 6.0
 
 PORTALS = {"N": (32, 6), "S": (32, 58), "E": (58, 32), "W": (6, 32)}
 ARRIVALS = {"N": (32, 9), "S": (32, 55), "E": (55, 32), "W": (9, 32)}
-LIVE_PORTALS = ("N", "S")      # E / W berths are reserved for future routes
+LIVE_PORTALS = ("N", "S", "E")  # E = the Stranglethorn run to Grom'gol; W is still reserved
 
 SITES = {
     "Zeppelin Tower": dict(region="Durotar", slug="zeppelin_tower", skin="orc", baked=BAKED_DIR,

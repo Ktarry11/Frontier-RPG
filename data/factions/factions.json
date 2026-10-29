@@ -465,6 +465,51 @@
           "Wailing Caverns"
         ]
       }
+    },
+    "booty_bay_authority": {
+      "name": "The Booty Bay Port Authority",
+      "description": "A goblin harbour that stopped being a franchise and started behaving like a government.",
+      "home_zone": "booty_bay",
+      "home_name": "Booty Bay, southern Stranglethorn",
+      "leader": {
+        "title": "Baron",
+        "name": "Baron Revilgaz",
+        "npc_id": "bootybay_baron",
+        "location": "The lower shelf, Booty Bay",
+        "line": "The Cartel will tell you this is their port. Let them. They are four thousand miles away and I am standing on it."
+      },
+      "_lore_note": "Shown on the faction's detail panel. Written from the harbour's side of the argument, because the harbour is the one winning it.",
+      "lore": [
+        "There is no road into Stranglethorn. The range closed the land route and never opened it again, which left two ways in: an airship berth the Horde flew in over the top, and this cove.",
+        "That made Booty Bay the only deep-water harbour still joining anything to anything, and a harbour in that position stops taking instructions. The Baron did not declare anything. He simply began deciding which hulls left on which tide, and after the third season nobody was asking Ratchet.",
+        "The Steamwheedle Cartel has not formally lost the port and will say so at length. Factor Weezel still signs the manifests, still files them, and still gets a polite reply. The replies do not change what sails.",
+        "What the Authority sells is the same thing the Cartel always sold - a pier where two enemies can tie up and nothing happens - except that here it is enforced rather than negotiated. The bruisers are the law, the Baron is the court, and the tariff is not up for discussion. People complain about the landing fee until the first time they need the harbour to hold."
+      ],
+      "quest_rep": {
+        "_comment": "Honored is the ceiling on quests alone. Everything below is authored in Booty Bay and the southern jungle - the Authority does not pay for work done north of the Gurbashi, because north of the Gurbashi is Orgrimmar's problem.",
+        "default": 250,
+        "boss": 275,
+        "capstones": {},
+        "zones": [
+          "booty_bay",
+          "stranglethorn_south"
+        ],
+        "also": []
+      },
+      "kill_rep": {
+        "_comment": "What costs the harbour money. Bloodsail on the water above all - a pirate in the shallows is a hull that does not arrive - plus the naga sitting on the drowned terraces the Authority would very much like to salvage. Jungle wildlife pays nothing: it has never cost anyone a cargo.",
+        "creatures": {}
+      },
+      "rewards": {
+        "_comment": "No gates authored yet. The system supports them; the content is not written."
+      },
+      "dungeon_rep": {
+        "_comment": "A dungeon BOSS kill pays 75. Trash pays nothing, so the unit of progress is a boss. The Authority takes bets on the Gurbashi and has a direct interest in who wins.",
+        "per_boss": 75,
+        "dungeons": [
+          "Gurbashi Arena"
+        ]
+      }
     }
   }
 }
