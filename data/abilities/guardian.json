@@ -491,8 +491,7 @@
       ],
       "icon_id": "ability_melee",
       "_source": "CoA: 'Hammer of Kings is an AoE slam that slows casting'. The pull opener.",
-      "target_type": "enemy",
-      "is_aoe": true,
+      "target_type": "enemy_aoe",
       "max_targets": 4
     },
     {
@@ -744,8 +743,7 @@
       ],
       "icon_id": "ability_melee",
       "_source": "CoA: 'Broad Sweep as your energy-dump filler and cleave'.",
-      "target_type": "enemy",
-      "is_aoe": true,
+      "target_type": "enemy_aoe",
       "max_targets": 3
     },
     {
@@ -872,8 +870,7 @@
       ],
       "icon_id": "ability_melee",
       "_source": "CoA: 'Song of Battle for 3+ mobs, where damage ticks into an AoE stun finisher'.",
-      "target_type": "enemy",
-      "is_aoe": true,
+      "target_type": "enemy_aoe",
       "max_targets": 4,
       "is_stun": true
     },
@@ -976,8 +973,7 @@
       ],
       "icon_id": "ability_melee",
       "_source": "CoA: 'Open packs with Cavalry Charge to close distance'.",
-      "target_type": "enemy",
-      "is_aoe": true,
+      "target_type": "enemy_aoe",
       "max_targets": 3
     },
     {
@@ -1223,8 +1219,7 @@
       ],
       "icon_id": "ability_melee",
       "_source": "CoA's Inspiration tree is built around this: Ballads build Tempo toward a free Sound of War, and four talents (Soundwave, Into The Fray, Pied Piper, Frontliner) key off triggering one. It was missing from the first pass entirely, which left Soundwave scaling nothing.",
-      "target_type": "enemy",
-      "is_aoe": true,
+      "target_type": "enemy_aoe",
       "max_targets": 3
     },
     {
@@ -1486,8 +1481,7 @@
       ],
       "icon_id": "ability_melee",
       "_source": "CoA: 'Glorious Arena drops a ring that punishes enemies clumped on a node or choke point'.",
-      "target_type": "enemy",
-      "is_aoe": true,
+      "target_type": "enemy_aoe",
       "max_targets": 5
     },
     {

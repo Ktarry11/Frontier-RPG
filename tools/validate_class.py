@@ -304,6 +304,27 @@ def validate_abilities(slug, report, effect_types, global_ids):
         report.warn(f'{path.name}: "class" is {doc.get("class")!r}, '
                     f'registry name is {display!r}')
 
+    # is_aoe DOES NOTHING ON A PLAYER ABILITY. CombatEngine reads it only for
+    # MONSTER and PET abilities (combat_engine.py's execute_monster_action and
+    # the pet turn); Ability.__init__ does not even accept it, so it is not an
+    # attribute on a player ability at all. What decides a player AoE is
+    # target_type == "enemy_aoe", which is also the only branch that honours
+    # max_targets.
+    #
+    # Six Guardian abilities shipped with is_aoe=True and target_type="enemy":
+    # Broad Sweep, Hammer of Kings, Song of Battle, Cavalry Charge, Sound of
+    # War and Glorious Arena. Every one is explicitly cleave in CoA ("AoE
+    # slam", "energy-dump filler and cleave", "for 3+ mobs"), and each hit
+    # exactly one enemy - Broad Sweep, declared max_targets 3, hit 1 of 4.
+    # The flag made the data look correct, which is why it survived.
+    for ability in abilities:
+        if ability.get("is_aoe") and ability.get("target_type") != "enemy_aoe":
+            report.error(
+                f"{ability.get('ability_id')}: is_aoe is set but target_type is "
+                f"{ability.get('target_type')!r} - is_aoe is read ONLY for monster "
+                f"and pet abilities, so this hits exactly one enemy. Use "
+                f"target_type 'enemy_aoe' (with max_targets to cap it).")
+
     primary, secondary = CLASS_RESOURCE_MAP.get(display, (None, None))
     allowed = {r.value if hasattr(r, "value") else str(r)
                for r in (primary, secondary) if r is not None}

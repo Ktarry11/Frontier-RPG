@@ -197,7 +197,7 @@ ABILITIES = [
             "Bring your weapon down hard enough that the ground answers, and "
             "spellwork nearby comes apart mid-word.",
             ranks(44, 13, 30, start=16, count=7), cooldown=4,
-            target_type="enemy", is_aoe=True, max_targets=4,
+            target_type="enemy_aoe", max_targets=4,
             source="CoA: 'Hammer of Kings is an AoE slam that slows casting'. "
                    "The pull opener."),
     ability("hammer_of_the_law", "Hammer of the Law", "damage",
@@ -234,8 +234,8 @@ ABILITIES = [
     ability("broad_sweep", "Broad Sweep", "damage",
             "A wide, flat arc that catches everything standing too close "
             "together.",
-            ranks(30, 8, 20, start=10, count=8), target_type="enemy",
-            is_aoe=True, max_targets=3,
+            ranks(30, 8, 20, start=10, count=8),
+            target_type="enemy_aoe", max_targets=3,
             source="CoA: 'Broad Sweep as your energy-dump filler and cleave'."),
     ability("ballad_of_steel", "Ballad of Steel", "damage",
             "You keep time with your weapon, and the rhythm of it carries.",
@@ -256,7 +256,7 @@ ABILITIES = [
             "A hard, driving cadence that wears down everything in front of "
             "you and ends on a note they feel in their knees.",
             ranks(26, 8, 30, start=30, count=5), cooldown=6, duration=3,
-            target_type="enemy", is_aoe=True, max_targets=4, is_stun=True,
+            target_type="enemy_aoe", max_targets=4, is_stun=True,
             source="CoA: 'Song of Battle for 3+ mobs, where damage ticks into "
                    "an AoE stun finisher'."),
     ability("inspiring_presence", "Inspiring Presence", "buff",
@@ -281,7 +281,7 @@ ABILITIES = [
     ability("cavalry_charge", "Cavalry Charge", "damage",
             "Hit the pack at a run and scatter it.",
             ranks(34, 11, 25, start=20, count=6), cooldown=6,
-            target_type="enemy", is_aoe=True, max_targets=3,
+            target_type="enemy_aoe", max_targets=3,
             source="CoA: 'Open packs with Cavalry Charge to close distance'."),
     ability("champions_presence", "Champion's Presence", "buff",
             "You find the pace of the fight and everyone around you matches "
@@ -343,7 +343,7 @@ ABILITIES = [
     ability("sound_of_war", "Sound of War", "damage",
             "The rhythm breaks and lands on everything near you.",
             ranks(30, 9, 25, start=18, count=6), cooldown=2,
-            target_type="enemy", is_aoe=True, max_targets=3,
+            target_type="enemy_aoe", max_targets=3,
             source="CoA's Inspiration tree is built around this: Ballads "
                    "build Tempo toward a free Sound of War, and four talents "
                    "(Soundwave, Into The Fray, Pied Piper, Frontliner) key "
@@ -389,7 +389,7 @@ ABILITIES = [
             "You claim the ground you are standing on, and make staying on "
             "it expensive.",
             ranks(24, 7, 35, start=36, count=4), cooldown=10, duration=3,
-            target_type="enemy", is_aoe=True, max_targets=5,
+            target_type="enemy_aoe", max_targets=5,
             source="CoA: 'Glorious Arena drops a ring that punishes enemies "
                    "clumped on a node or choke point'."),
     ability("heroism", "Heroism", "enable_instant_cast",
