@@ -181,10 +181,64 @@ class CombatEngine:
         pool = front or living
         return random.choice(pool)
 
+    def _owned_pets(self):
+        """Every pet currently fielded by an ally, in owner order."""
+        return [pet for m in self.allies
+                for pet in (getattr(m, "all_pets", None)
+                            or ([m.active_pet] if getattr(m, "active_pet", None) else []))]
+
+    def sync_pets(self):
+        """Bring pets summoned AFTER combat started into the fight.
+
+        THE BUG THIS FIXES: self.pets and self.combatants were built once in
+        __init__ and never updated, so a pet summoned mid-combat was inert for
+        the rest of the fight. The cast succeeded, the owner gained the pet,
+        and the engine never learned about it - it was absent from combatants,
+        absent from the turn meter, and execute_pet_action's
+        `if pet not in self.pets` guard rejected it outright. The turret just
+        stood there.
+
+        That is most of a class for Tinker, which has five summon_pet
+        abilities (Sentry Turret at 1, Clockwork Assistant at 8, ZIGGI-6K at
+        10, Mechano-Bear at 14, Rusthound at 30) and is built around fielding
+        a board. It also silently broke every re-summon after a pet died
+        mid-fight, for Hunter, Warlock, Necromancer, Witch Hunter and Felsworn
+        alike - pets only ever worked if they were already out when combat
+        began.
+
+        Done here, engine-side, rather than in the summon_pet branch of
+        Ability._apply_effect, so that ANY route that produces a pet is
+        covered - a cast, a proc, a talent - without each one having to
+        remember to announce itself.
+
+        turn_meter.combatants is the same list object as self.combatants
+        (TurnMeter stores the reference it is handed), so appending once
+        registers the pet with both. A new pet starts on an empty meter and
+        gets its turn speed computed the same way everyone else's is.
+
+        Turn ORDER is meter-based, not list-based, so appending rather than
+        inserting after the owner does not change when the pet acts - only
+        where it shows up in a turn-order preview.
+        """
+        current = self._owned_pets()
+        for pet in current:
+            if pet in self.pets:
+                continue
+            self.pets.append(pet)
+            self.combatants.append(pet)
+            pet.turn_meter = 0.0
+            self.turn_meter._refresh_turn_speed(pet)
+
     def update(self, dt):
         """Update combat state."""
         if not self.is_active:
             return
+
+        # Cheap length check first - this runs every tick, and building the
+        # pet list on each one would be wasteful for the overwhelming
+        # majority of fights where nothing is summoned.
+        if len(self._owned_pets()) != len(self.pets):
+            self.sync_pets()
 
         # Only look for a new actor if nobody is currently mid-turn. Without
         # this gate, current_actor stays stale after an action resolves and
