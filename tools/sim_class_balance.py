@@ -518,7 +518,12 @@ def main():
         line = f"  {display:<14}"
         for level in levels:
             line += f"{row[level]['win']*100:>4.0f}% "
-        label = (best_spec.split("_", 1)[1] if best_spec else "no tree")
+        # Strip the CLASS slug, not everything before the first underscore -
+        # that turned sun_cleric_piety into "cleric_piety", witch_doctor_
+        # shadowhunting into "doctor_shadowhunting" and
+        # knight_of_xoroth_war into "of_xoroth_war".
+        label = (best_spec[len(slug) + 1:] if best_spec and
+                 best_spec.startswith(slug + "_") else (best_spec or "no tree"))
         print(line + f"   (gear {row[levels[-1]]['worn']}/{len(GEAR_SLOTS)}, "
                      f"{row[levels[-1]]['pts']} talent pts, best: {label})")
 
@@ -569,7 +574,7 @@ def main():
         for sp, m in sorted(means.items(), key=lambda kv: kv[1]):
             if means[best] - m >= SPEC_GAP:
                 gaps.append(f"  - {sp} wins {m*100:.0f}% against "
-                            f"{best.split('_',1)[1]}'s {means[best]*100:.0f}% "
+                            f"{best[len(slug)+1:]}'s {means[best]*100:.0f}% "
                             f"- same class, same gear, same levels")
     print("\n".join(gaps) if gaps else "  none - every spec is within reach of its class's best")
 
