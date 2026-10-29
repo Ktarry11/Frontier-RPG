@@ -91,6 +91,12 @@ DEFAULT_ROW_BY_CLASS = {
     # and Blessings (healer) are back-line - front row picked as the
     # majority default, matching every other mixed-role CoA class tonight.
     "Sun Cleric": FRONT_ROW,
+    # Guardian needs no compromise, unlike every mixed-role CoA class above:
+    # all three specs fight in melee with a shield. Vanguard tanks,
+    # Gladiator is melee DPS, and Inspiration is a support that CoA
+    # describes as "literally standing in melee with a shield and a
+    # block-rating stat".
+    "Guardian": FRONT_ROW,
 }
 
 
