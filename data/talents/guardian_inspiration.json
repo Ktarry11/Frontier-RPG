@@ -1,0 +1,445 @@
+{
+  "spec_name": "Guardian Inspiration",
+  "tree_id": "guardian_inspiration",
+  "description": "Melee support - stands in the scrum with a shield while buffing the party off its own attack power, and uniquely scales off Spirit.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_guardian__inspiration.txt: 'Closest to Augmentation Evoker ... an Augmentation Evoker that decided to also gear like a Protection Warrior.' The unusual thing about this spec, and the reason for the Spirit nodes, is CoA's stat priority: Hit > Expertise > Strength > SPIRIT > Crit > Haste > Stamina. Spirit 'uniquely powers' its Decrees, its Feats and Song of Steel.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "guardian_inspiration_powerful_voice",
+      "name": "Powerful Voice",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA stat priority: 'Critical Strike (Tempo/Powerful Voice stacking)'."
+    },
+    {
+      "talent_id": "guardian_inspiration_minstrel",
+      "name": "Minstrel",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Minstrel's stacking haste builds as you cast Ballads'."
+    },
+    {
+      "talent_id": "guardian_inspiration_field_training",
+      "name": "Field Training",
+      "description": "Increases your Strength by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "strength_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA stat priority leads with Strength for 'Ballad/Sunder/Song of Battle weapon-damage scaling'."
+    },
+    {
+      "talent_id": "guardian_inspiration_devotion",
+      "name": "Devotion",
+      "description": "Increases your Spirit by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spirit_pct": 3.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Spirit (uniquely powers Soldier's/Spellcaster's/Hero's Decrees, Feats of Strength/Honor/Glory, and Song of Steel)'. No other melee spec in the game wants Spirit; this node is the reason it does."
+    },
+    {
+      "talent_id": "guardian_inspiration_tempo",
+      "name": "Tempo",
+      "description": "Your Ballads build toward something. Each one increases your damage by 3% per rank for a short time.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "guardian_inspiration_powerful_voice"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "guardian_tempo",
+          "name": "Tempo",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "physical_damage": 0.03
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'chasing the 3-stack Tempo proc', 'builds Tempo toward a free Sound of War'."
+    },
+    {
+      "talent_id": "guardian_inspiration_inspiring_leader",
+      "name": "Inspiring Leader",
+      "description": "Increases the damage of Broad Sweep by 10% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_guardian_broad_sweep_damage": 0.1
+      },
+      "connected_to": [
+        "guardian_inspiration_minstrel"
+      ],
+      "_source": "CoA: 'Inspiring Leader also turns it into a Ballad'."
+    },
+    {
+      "talent_id": "guardian_inspiration_song_of_war",
+      "name": "Sound of War",
+      "description": "Increases the damage of Ballad of Steel by 12% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_guardian_ballad_of_steel_damage": 0.12
+      },
+      "connected_to": [
+        "guardian_inspiration_field_training"
+      ],
+      "_source": "CoA: 'builds Tempo toward a free Sound of War'."
+    },
+    {
+      "talent_id": "guardian_inspiration_feats_of_strength",
+      "name": "Feats of Strength",
+      "description": "Grants attack power equal to 3% of your Spirit per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ap_from_spirit_pct": 0.03
+      },
+      "connected_to": [
+        "guardian_inspiration_devotion"
+      ],
+      "_source": "CoA: 'Feats of Strength/Honor/Glory' are Spirit-powered. A real <target>_from_<source>_pct conversion - resolved against the shared STAT_CONVERSION maps in character.py."
+    },
+    {
+      "talent_id": "guardian_inspiration_veteran_of_the_third_war",
+      "name": "Veteran of the Third War",
+      "description": "Blows you block knit you back together.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "guardian_inspiration_tempo"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 30,
+        "icd": 0,
+        "heal_flat": 55
+      },
+      "_source": "CoA: 'Use Veteran of the Third War's on-block heal and Fearless while surrounded'. The spec's only sustain."
+    },
+    {
+      "talent_id": "guardian_inspiration_stand_your_ground",
+      "name": "Stand Your Ground!",
+      "description": "Your Standard of Valiance reduces allies' physical damage taken by a further 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage_taken_pct": -0.03
+      },
+      "connected_to": [
+        "guardian_inspiration_inspiring_leader"
+      ],
+      "_source": "CoA: 'Stand Your Ground! reduces allies' physical damage taken while they stand in it'."
+    },
+    {
+      "talent_id": "guardian_inspiration_broad_shoulders",
+      "name": "Broad Shoulders",
+      "description": "Increases your Armor by 3% and Stamina by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "armor_pct": 3.0,
+        "stamina_pct": 2.0
+      },
+      "connected_to": [
+        "guardian_inspiration_song_of_war"
+      ],
+      "_source": "CoA: 'Inspiration is literally standing in melee with a shield and a block-rating stat' - it needs real armour to survive where it fights."
+    },
+    {
+      "talent_id": "guardian_inspiration_hero_of_the_people",
+      "name": "Hero of the People",
+      "description": "Increases the healing you do by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "healing_power_pct": 4.0
+      },
+      "connected_to": [
+        "guardian_inspiration_feats_of_strength"
+      ],
+      "_source": "Scales Veteran of the Third War and the class heals; CoA is explicit that this spec's 'primary value is buffing an ally's damage output rather than direct healing', so this is deliberately small."
+    },
+    {
+      "talent_id": "guardian_inspiration_shield_of_the_standard",
+      "name": "Shield of the Standard",
+      "description": "Increases your chance to block by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "block": 3.0
+      },
+      "connected_to": [
+        "guardian_inspiration_veteran_of_the_third_war"
+      ],
+      "_source": "The 'block-rating stat' CoA says this spec gears for."
+    },
+    {
+      "talent_id": "guardian_inspiration_you_shall_not_fall",
+      "name": "You Shall Not Fall!",
+      "description": "Reduces the duration of stuns against you and your allies by 15% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "stun_duration_reduction_pct": 0.15
+      },
+      "connected_to": [
+        "guardian_inspiration_stand_your_ground"
+      ],
+      "_source": "CoA: 'You Shall Not Fall! gives them stun and grip resistance'."
+    },
+    {
+      "talent_id": "guardian_inspiration_warsong",
+      "name": "Warsong",
+      "description": "Increases your attack power by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "attack_power_pct": 3.0
+      },
+      "connected_to": [
+        "guardian_inspiration_broad_shoulders"
+      ],
+      "_source": "Song of Steel and Inspiring Presence both scale off the Guardian's own attack power, so a point here buffs the whole party."
+    },
+    {
+      "talent_id": "guardian_inspiration_glory_of_the_fallen",
+      "name": "Feats of Glory",
+      "description": "Grants healing power equal to 3% of your Spirit per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "healing_power_from_spirit_pct": 0.03
+      },
+      "connected_to": [
+        "guardian_inspiration_hero_of_the_people"
+      ],
+      "_source": "The healing member of the Spirit-powered Feats trio."
+    },
+    {
+      "talent_id": "guardian_inspiration_champion_of_the_line",
+      "name": "Champion of the Line",
+      "description": "Your party buffs last 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "ability_guardian_song_of_steel_duration": 1
+      },
+      "connected_to": [
+        "guardian_inspiration_shield_of_the_standard"
+      ],
+      "_source": "Uptime on the Augmentation half of the kit."
+    },
+    {
+      "talent_id": "guardian_inspiration_harrowing_refrain",
+      "name": "Harrowing Refrain",
+      "description": "Increases all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "guardian_inspiration_you_shall_not_fall"
+      ],
+      "_source": "CoA: 'Both keep personal DPS uptime while doing it'."
+    },
+    {
+      "talent_id": "guardian_inspiration_unbreakable_chorus",
+      "name": "Unbreakable Chorus",
+      "description": "Reduces damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "guardian_inspiration_warsong"
+      ],
+      "_source": "Survival for a support that fights in melee range."
+    },
+    {
+      "talent_id": "guardian_inspiration_song_of_the_fallen",
+      "name": "Song of the Fallen",
+      "description": "Increases the attack power your songs grant allies by 15% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "attack_power_pct": 4.0
+      },
+      "connected_to": [
+        "guardian_inspiration_champion_of_the_line"
+      ],
+      "_source": "The party-facing payoff node."
+    },
+    {
+      "talent_id": "guardian_inspiration_perfect_pitch",
+      "name": "Perfect Pitch",
+      "description": "Increases your critical strike damage by 10% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "crit_damage_physical": 0.1
+      },
+      "connected_to": [
+        "guardian_inspiration_harrowing_refrain"
+      ],
+      "_source": "Pairs with Powerful Voice and Tempo."
+    },
+    {
+      "talent_id": "guardian_inspiration_second_wind",
+      "name": "Second Wind",
+      "description": "While below 35% health, you take 8% less damage per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.08,
+        "low_health_threshold_pct": 0.35
+      },
+      "connected_to": [
+        "guardian_inspiration_unbreakable_chorus"
+      ],
+      "_source": "CoA: 'Outside Voidborne you are thin' is the Godblade problem, and this spec has the same shape - thin when the buffs are down."
+    },
+    {
+      "talent_id": "guardian_inspiration_anthem_of_the_vanguard",
+      "name": "Anthem of the Vanguard",
+      "description": "For a few turns nobody in earshot misses, falters, or falls behind.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "attack_power_pct": 10.0,
+        "haste": 10.0
+      },
+      "connected_to": [
+        "guardian_inspiration_song_of_the_fallen",
+        "guardian_inspiration_perfect_pitch",
+        "guardian_inspiration_second_wind"
+      ],
+      "_source": "Capstone. The Ebon-Might-style group window CoA's Augmentation Evoker comparison points at."
+    }
+  ]
+}

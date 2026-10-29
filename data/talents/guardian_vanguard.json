@@ -1,0 +1,461 @@
+{
+  "spec_name": "Guardian Vanguard",
+  "tree_id": "guardian_vanguard",
+  "description": "Block-centric plate tank - Energy comes back from being hit (Recuperation), mitigation stacks off blocks rather than avoidance, and Raise Shield resets off your own strikes.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_guardian__vanguard.txt. CoA calls this the Protection Warrior analog and 'the safest tank in COA'. Block, not avoidance, is the chassis - its stat priority is Defense > Stamina > Expertise > Block Rating/Value > Strength > Dodge/Parry, which is why the tree spends far more on block chance, block value and critical block than on dodge or parry.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "guardian_vanguard_seasoned_fighter",
+      "name": "Seasoned Fighter",
+      "description": "Reduces the Energy cost of your abilities by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "all_ability_cost_pct": -0.03
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Seasoned Fighter cuts ability costs'."
+    },
+    {
+      "talent_id": "guardian_vanguard_fine_plating",
+      "name": "Fine Plating",
+      "description": "Increases your Armor by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "armor_pct": 3.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Fine Plating stacks Physical damage reduction with every block'. The stacking half is not modellable in a turn engine, so it lands as flat Armor."
+    },
+    {
+      "talent_id": "guardian_vanguard_valiant_defender",
+      "name": "Valiant Defender",
+      "description": "Increases your maximum Energy by 6 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "energy_max": 6
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Valiant Defender raises your max Energy'."
+    },
+    {
+      "talent_id": "guardian_vanguard_iron_guardian",
+      "name": "Iron Guardian",
+      "description": "Increases your total health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "max_health_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Iron Guardian scales max HP'."
+    },
+    {
+      "talent_id": "guardian_vanguard_shield_training",
+      "name": "Shield Training",
+      "description": "Increases your chance to block by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "block": 2.0
+      },
+      "connected_to": [
+        "guardian_vanguard_seasoned_fighter"
+      ],
+      "_source": "CoA lists Shield Training among the block-scaling mitigation talents."
+    },
+    {
+      "talent_id": "guardian_vanguard_recuperation",
+      "name": "Recuperation",
+      "description": "Increases the Armor of your shield by 8% per rank, and hardens you against the blows it catches.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "shield_armor_pct": 8.0,
+        "physical_damage_taken_pct": -0.01
+      },
+      "connected_to": [
+        "guardian_vanguard_fine_plating"
+      ],
+      "_source": "CoA: 'Recuperation refunds Energy whenever you take or block a physical hit'. The Energy refund has no engine hook, so the node carries shield Armor instead - named and placed for the real talent."
+    },
+    {
+      "talent_id": "guardian_vanguard_defensive_stance",
+      "name": "Defender's Resolve",
+      "description": "Reduces all damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "guardian_vanguard_valiant_defender"
+      ],
+      "_source": "The flat-mitigation node every tank tree needs; CoA calls Guardian 'the best damage mitigation in the game', so it gets a real one."
+    },
+    {
+      "talent_id": "guardian_vanguard_honorable_demeanor",
+      "name": "Honorable Demeanor",
+      "description": "Increases your Stamina by 2% and Strength by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "stamina_pct": 2.0,
+        "strength_pct": 2.0
+      },
+      "connected_to": [
+        "guardian_vanguard_iron_guardian"
+      ],
+      "_source": "CoA: 'Honorable Demeanor turns blocks into stacking Strength and Stamina'."
+    },
+    {
+      "talent_id": "guardian_vanguard_iron_barrier",
+      "name": "Iron Barrier",
+      "description": "Your blocks absorb an additional 8% of the damage dealt to you, per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "block_bonus_reduction": 0.08
+      },
+      "connected_to": [
+        "guardian_vanguard_shield_training"
+      ],
+      "_source": "CoA: 'Iron Barrier gives your blocks a chance to critically block for double'. block_bonus_reduction is the engine's existing critical-block hook, read in Character.take_damage."
+    },
+    {
+      "talent_id": "guardian_vanguard_bulwark",
+      "name": "Bulwark",
+      "description": "Grants 1 hit rating and 4 Stamina per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "hit_rating": 1,
+        "stamina": 4
+      },
+      "connected_to": [
+        "guardian_vanguard_recuperation"
+      ],
+      "_source": "CoA: 'Bulwark converts Stamina into hit rating'. A real conversion is impossible here - hit_rating is a local feeding base_miss_chance_*, not a Character attribute, so it cannot be a <target>_from_<source>_pct target without restructuring that loop. Flat hit + Stamina instead."
+    },
+    {
+      "talent_id": "guardian_vanguard_resilient",
+      "name": "Resilient",
+      "description": "Increases your total health by 2% and reduces the chance you are critically hit by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "max_health_pct": 2.0,
+        "crit_taken_reduction": 1.0
+      },
+      "connected_to": [
+        "guardian_vanguard_defensive_stance"
+      ],
+      "_source": "CoA: 'Resilient bumps max HP on blocks under Raise Shield'. Doubles as the tree's crit-immunity path, which its stat priority leads with ('Defense (to crit-immunity)')."
+    },
+    {
+      "talent_id": "guardian_vanguard_kings_guard",
+      "name": "King's Guard",
+      "description": "Your Ram and Pulverize have a 15% chance per rank to reset Raise Shield.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_honorable_demeanor"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "guardian_kings_guard",
+          "name": "King's Guard",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "block": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'King's Guard (Pulverize and Ram have a chance to reset Raise Shield's cooldown)'. A cooldown reset has no proc shape, so it grants a block window instead - the same thing the reset would have bought."
+    },
+    {
+      "talent_id": "guardian_vanguard_improved_brace",
+      "name": "Improved Brace",
+      "description": "Brace lasts 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_guardian_brace_duration": 1
+      },
+      "connected_to": [
+        "guardian_vanguard_iron_barrier"
+      ],
+      "_source": "ability_<id>_<stat> keys are built by interpolation in abilities.py - a literal grep calls them dead, which is why 48 of them were once reported so."
+    },
+    {
+      "talent_id": "guardian_vanguard_vanguards_might",
+      "name": "Vanguard's Might",
+      "description": "Heavy Blow leaves your allies taking 4% less damage per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_bulwark"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "guardian_vanguards_might",
+          "name": "Vanguard's Might",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_taken_pct": -0.04
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Heavy Blow (line hit, high threat, grants Vanguard's Might's party damage-reduction aura)'."
+    },
+    {
+      "talent_id": "guardian_vanguard_paragon",
+      "name": "Paragon",
+      "description": "Increases the damage of Heavy Blow by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_guardian_heavy_blow_damage": 0.1
+      },
+      "connected_to": [
+        "guardian_vanguard_resilient"
+      ],
+      "_source": "CoA: 'Paragon banks them for a payoff', an empowered Heavy Blow."
+    },
+    {
+      "talent_id": "guardian_vanguard_refuse_to_die",
+      "name": "Refuse To Die",
+      "description": "While below 35% health, you take 8% less damage per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.08,
+        "low_health_threshold_pct": 0.35
+      },
+      "connected_to": [
+        "guardian_vanguard_kings_guard"
+      ],
+      "_source": "CoA: 'Refuse To Die (Advance resets it outright)'. The name is a last-stand name, so it carries the engine's low-health mitigation pair."
+    },
+    {
+      "talent_id": "guardian_vanguard_one_man_army",
+      "name": "One Man Army",
+      "description": "Increases the damage Pulverize deals to additional targets by 15% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "aoe_damage": 0.15
+      },
+      "connected_to": [
+        "guardian_vanguard_improved_brace"
+      ],
+      "_source": "CoA: 'Pulverize (cleaves extra targets via One Man Army)'."
+    },
+    {
+      "talent_id": "guardian_vanguard_retaliation",
+      "name": "Retaliation",
+      "description": "Blows you block are answered in kind.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_vanguards_might"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 30,
+        "icd": 0,
+        "damage_flat": 60
+      },
+      "_source": "CoA: 'Retaliation is Revenge-flavored auto-retaliation where blocks strike back', 'largely passive'."
+    },
+    {
+      "talent_id": "guardian_vanguard_footmans_call",
+      "name": "Footman's Call",
+      "description": "Increases your threat generation by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "threat_generation_pct": 0.08
+      },
+      "connected_to": [
+        "guardian_vanguard_paragon"
+      ],
+      "_source": "Guardian's threat talent, at Warrior Defiance's 8%/rank - the two Protection analogs should hold threat equally. Note the key: threat_generation_pct as a TALENT effect is a fraction and only started working in 992ed62."
+    },
+    {
+      "talent_id": "guardian_vanguard_shield_mastery",
+      "name": "Shield Mastery",
+      "description": "Increases the damage absorbed by your blocks by 10% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "block_value_pct": 0.1
+      },
+      "connected_to": [
+        "guardian_vanguard_one_man_army"
+      ],
+      "_source": "Block VALUE, the other half of the two-stat block system (chance rolls, value absorbs)."
+    },
+    {
+      "talent_id": "guardian_vanguard_unyielding",
+      "name": "Unyielding",
+      "description": "Reduces the duration of stuns used against you by 15% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "stun_duration_reduction_pct": 0.15
+      },
+      "connected_to": [
+        "guardian_vanguard_retaliation"
+      ],
+      "_source": "CoA: 'Unlike stock Prot Warrior, Vanguard has no AoE stun' - it resists them instead."
+    },
+    {
+      "talent_id": "guardian_vanguard_tower_of_strength",
+      "name": "Tower of Strength",
+      "description": "Increases your Armor by 5% and your block chance by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "armor_pct": 5.0,
+        "block": 3.0
+      },
+      "connected_to": [
+        "guardian_vanguard_footmans_call"
+      ],
+      "_source": "The pre-capstone mitigation stack."
+    },
+    {
+      "talent_id": "guardian_vanguard_last_stand_of_the_line",
+      "name": "Last Stand of the Line",
+      "description": "While you hold the line, nothing behind you falls. You take 15% less damage and your allies 10% less.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "damage_taken_pct": -0.15
+      },
+      "connected_to": [
+        "guardian_vanguard_shield_mastery",
+        "guardian_vanguard_unyielding",
+        "guardian_vanguard_tower_of_strength"
+      ],
+      "_source": "Capstone. CoA: Guardian has 'the best damage mitigation in the game' and Vanguard is 'the safest tank in COA: many shields + mitigation CDs ... Nearly unkillable, just slower kills'."
+    }
+  ]
+}

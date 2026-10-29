@@ -1,0 +1,1485 @@
+{
+  "class": "Guardian",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_guardian.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "guardian_attack",
+      "name": "Attack",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A measured strike with your weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack."
+    },
+    {
+      "ability_id": "guardian_heavy_blow",
+      "name": "Heavy Blow",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A heavy swing that carries down the line, striking the enemy behind your target and drawing their attention to you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 20,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 51
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 95
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 106
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 117
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 128
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Heavy Blow (line hit, high threat, grants Vanguard's Might's party damage-reduction aura)'. The cheap high-threat filler - Warrior's heroic_strike curve.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_ram",
+      "name": "Ram",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Drive your shield into an enemy, the blow landing harder the heavier the shield you carry.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 35,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 35,
+          "effect_value": 74
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 35,
+          "effect_value": 90
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 35,
+          "effect_value": 106
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 35,
+          "effect_value": 122
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 35,
+          "effect_value": 138
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 35,
+          "effect_value": 154
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 35,
+          "effect_value": 170
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Ram is Shield Slam'. Shield-gated single-target payoff, so it sits on a short cooldown.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_pulverize",
+      "name": "Pulverize",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hammer an enemy's guard apart, the strike spilling onto others pressed in close.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 30,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 30,
+          "effect_value": 43
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 52
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 61
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 70
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 79
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 88
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 97
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 106
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Pulverize as your Energy-dump filler ... cleaves on multi-mob pulls', Devastate analog.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_advance",
+      "name": "Advance",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Close the distance at a dead run and crash into an enemy, leaving them reeling.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 15,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 15,
+          "effect_value": 40
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 15,
+          "effect_value": 50
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 60
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 15,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Advance is Charge', 'a forced 100%-speed gap-close'. Charge stuns, so is_stun.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "guardian_brace",
+      "name": "Brace",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "block": 25.0
+      },
+      "description": "Set your feet and angle your shield, turning aside blows that would have landed clean.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Brace and Raise Shield are Shield Block and Shield Wall'. Block CHANCE, not value - block_chance is the shield-gated roll (Character.BASE_BLOCK_CHANCE).",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "guardian_raise_shield",
+      "name": "Raise Shield",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -0.4
+      },
+      "description": "Plant your shield and weather everything coming at you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "Shield Wall analog - same -40% for 2 turns on a 12 turn cooldown as warrior_shield_wall, deliberately identical so neither plate tank has a better panic button.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "guardian_bastion",
+      "name": "Bastion",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.15
+      },
+      "description": "Your presence steadies the whole line, and blows that fall on your allies land softer.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Bastion is a group damage-reduction window'. The party-facing layer that makes CoA label Guardian support.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "guardian_tower_formation",
+      "name": "Tower Formation",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "armor_pct": 20.0,
+        "block": 10.0,
+        "haste": -5.0
+      },
+      "description": "Take a braced stance, slower to move but far harder to move.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Tower Formation a personal block/armor stance via the Formations'. Formations share one slot.",
+      "target_type": "self",
+      "exclusive_group": "guardian_formation"
+    },
+    {
+      "ability_id": "guardian_line_formation",
+      "name": "Formation of the Line",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "physical_damage_taken_pct": -0.1
+      },
+      "description": "Hold formation with your allies, every shield covering the one beside it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Formation cuts damage 10%', and Formations are mutually exclusive - same exclusive_group as Tower.",
+      "target_type": "self",
+      "buff_scope": "party",
+      "exclusive_group": "guardian_formation"
+    },
+    {
+      "ability_id": "guardian_challenging_cry",
+      "name": "Challenging Cry",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "threat_generation_pct": 200
+      },
+      "description": "Roar a challenge that every enemy in earshot takes personally.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "AoE taunt. Implemented as a threat_generation_pct buff, the convention Cultist's Twilight Domain (180) and Primalist's Heart of the Mountain (150) already use - ability buff stat_mods are percent POINTS here, unlike talent effects which are fractions.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "guardian_shield_challenge",
+      "name": "Shield Challenge",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "threat_generation_pct": 150
+      },
+      "description": "Batter your shield and single out one enemy, who can think of nothing else.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "Single-target taunt, cheaper and shorter than the cry.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "guardian_hammer_of_kings",
+      "name": "Hammer of Kings",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bring your weapon down hard enough that the ground answers, and spellwork nearby comes apart mid-word.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 23,
+          "cost": 30,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 30,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 6,
+          "level_req": 51,
+          "cost": 30,
+          "effect_value": 109
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 122
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Hammer of Kings is an AoE slam that slows casting'. The pull opener.",
+      "target_type": "enemy",
+      "is_aoe": true,
+      "max_targets": 4
+    },
+    {
+      "ability_id": "guardian_hammer_of_the_law",
+      "name": "Hammer of the Law",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A straight, punishing blow that leaves the struck unable to find their voice.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 30,
+          "effect_value": 67
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 82
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 30,
+          "effect_value": 97
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 112
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Hammer of the Law is a line hit that silences, not a Shockwave stun' - explicitly NOT a stun, so no is_stun here even though the AoE opener tempts it.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_lionheart",
+      "name": "Lionheart",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You have been closer to the end than this and walked off it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 180
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 25,
+          "effect_value": 275
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 370
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 25,
+          "effect_value": 465
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 560
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Lionheart's emergency heal when you're dropped low'. One of only three heals in the whole class.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "guardian_final_verdict",
+      "name": "Final Verdict",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Finish what you started, and take back some of what it cost you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 120
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 154
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 188
+        },
+        {
+          "rank": 4,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 222
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 256
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 290
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Save Final Verdict to finish an enemy below the execute threshold for the self-heal'. Shared by Vanguard and Gladiator.",
+      "target_type": "enemy",
+      "execute_threshold_pct": 0.25
+    },
+    {
+      "ability_id": "guardian_knights_calling",
+      "name": "Knight's Calling",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The old oath still carries you further than it should.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 20
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 0,
+          "effect_value": 25
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 30
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 0,
+          "effect_value": 35
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 40
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'the class kit's Knight's Calling, a periodic health-and-Energy restore that costs a class pick'.",
+      "target_type": "self",
+      "restore_resource_type": "energy"
+    },
+    {
+      "ability_id": "guardian_broad_sweep",
+      "name": "Broad Sweep",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A wide, flat arc that catches everything standing too close together.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 38
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 46
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 54
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 62
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 70
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 20,
+          "effect_value": 78
+        },
+        {
+          "rank": 8,
+          "level_req": 52,
+          "cost": 20,
+          "effect_value": 86
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Broad Sweep as your energy-dump filler and cleave'.",
+      "target_type": "enemy",
+      "is_aoe": true,
+      "max_targets": 3
+    },
+    {
+      "ability_id": "guardian_ballad_of_steel",
+      "name": "Ballad of Steel",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You keep time with your weapon, and the rhythm of it carries.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 25,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 35,
+          "cost": 25,
+          "effect_value": 85
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 98
+        },
+        {
+          "rank": 6,
+          "level_req": 49,
+          "cost": 25,
+          "effect_value": 111
+        },
+        {
+          "rank": 7,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 124
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'cast Ballads on cooldown (instant damage + builds Tempo toward a free Sound of War)'. Physical, not magical - the class blurb calls the Guardian 'non-magical'.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_song_of_steel",
+      "name": "Song of Steel",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power_pct": 12.0
+      },
+      "description": "Your allies fight to the measure you set, and hit harder for it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Song of Steel and Inspiring Presence scaling off your attack power = Ebon Might scaling off the Evoker'. This is the Augmentation half of the spec.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "guardian_song_of_battle",
+      "name": "Song of Battle",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A hard, driving cadence that wears down everything in front of you and ends on a note they feel in their knees.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 26
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 30,
+          "effect_value": 34
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 42
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 30,
+          "effect_value": 50
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 58
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Song of Battle for 3+ mobs, where damage ticks into an AoE stun finisher'.",
+      "target_type": "enemy",
+      "is_aoe": true,
+      "max_targets": 4,
+      "is_stun": true
+    },
+    {
+      "ability_id": "guardian_inspiring_presence",
+      "name": "Inspiring Presence",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power": 40,
+        "crit_chance_physical": 3.0
+      },
+      "description": "Standing where they can see you is worth more than anything you could shout.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA names it alongside Song of Steel as the AP-scaling ally buff pair.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "guardian_standard_of_valiance",
+      "name": "Standard of Valiance",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "physical_damage_taken_pct": -0.12,
+        "stun_duration_reduction_pct": 0.3
+      },
+      "description": "Drive your standard into the ground. Nobody standing in its shadow gives up ground easily.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "guardian_cavalry_charge",
+      "name": "Cavalry Charge",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hit the pack at a run and scatter it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 25,
+          "effect_value": 45
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 56
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 25,
+          "effect_value": 67
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 78
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 25,
+          "effect_value": 89
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Open packs with Cavalry Charge to close distance'.",
+      "target_type": "enemy",
+      "is_aoe": true,
+      "max_targets": 3
+    },
+    {
+      "ability_id": "guardian_champions_presence",
+      "name": "Champion's Presence",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 15.0
+      },
+      "description": "You find the pace of the fight and everyone around you matches it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Pop Champion's Presence for a haste burst window'.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "guardian_liberation",
+      "name": "Liberation",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Whatever is holding your ally, it stops holding them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'.",
+      "target_type": "ally",
+      "dispel_type": "movement"
+    },
+    {
+      "ability_id": "guardian_harrowing_melody",
+      "name": "Harrowing Melody",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power_pct": -15.0
+      },
+      "description": "A sour, grinding refrain that gets into the enemy's head and stays there.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA lists Harrowing Melody among the cooldowns Voice of an Angel resets.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_heros_march",
+      "name": "Hero's March",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 8.0,
+        "physical_damage_taken_pct": -0.05
+      },
+      "description": "You set off and the line comes with you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA lists Hero's March with Liberation and Harrowing Melody as the Voice of an Angel reset targets.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "guardian_voice_of_an_angel",
+      "name": "Voice of an Angel",
+      "resource_type": "energy",
+      "cooldown": 20,
+      "effect_type": "reset_cooldowns",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You reach for a note you have no business hitting, and it comes.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Voice of an Angel instantly resets Liberation, Harrowing Melody, and Hero's March when you need them back'.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "guardian_soldiers_decree",
+      "name": "Soldier's Decree",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "attack_power": 30,
+        "stamina": 8
+      },
+      "description": "You tell them what the day requires, and they believe you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Spirit uniquely powers Soldier's/Spellcaster's/Hero's Decrees'. One decree at a time.",
+      "target_type": "self",
+      "buff_scope": "party",
+      "exclusive_group": "guardian_decree"
+    },
+    {
+      "ability_id": "guardian_spellcasters_decree",
+      "name": "Spellcaster's Decree",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "spell_power": 30,
+        "mp5": 6
+      },
+      "description": "A word for the ones who fight with their minds.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "The caster-facing decree of the same trio.",
+      "target_type": "self",
+      "buff_scope": "party",
+      "exclusive_group": "guardian_decree"
+    },
+    {
+      "ability_id": "guardian_heros_decree",
+      "name": "Hero's Decree",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "max_health_pct": 8.0,
+        "crit_chance_physical": 2.0,
+        "crit_chance_spell": 2.0
+      },
+      "description": "The one you save for when it has already gone wrong.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "The third and latest decree - both stats, smaller each.",
+      "target_type": "self",
+      "buff_scope": "party",
+      "exclusive_group": "guardian_decree"
+    },
+    {
+      "ability_id": "guardian_battle_rush",
+      "name": "Battle Rush",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Cover the ground between you faster than they can set themselves.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 20,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 43,
+          "cost": 20,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 20,
+          "effect_value": 96
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 20,
+          "effect_value": 109
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Open with Battle Rush (charge + stun)'.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "guardian_spear_throw",
+      "name": "Spear Throw",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A thrown spear, placed where it will keep bleeding long after it lands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 90
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 104
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Spear Throw's healing-reduction debuff lets it punch through an enemy healer's output', 'Mortal Strike's anti-heal identity transplanted onto a shield-tank frame'. ranged_damage - it is thrown.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_net_throw",
+      "name": "Net Throw",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -20.0
+      },
+      "description": "The net goes out low and they stop going anywhere.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Battle Rush (charge + stun) or Net Throw to close or lock a mob'.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_reprisal",
+      "name": "Reprisal",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Catch the blow on your shield and answer it in the same breath.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 69
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 99
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 114
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 129
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Fill remaining energy with Reprisal (spend charges after a block)'. Revenge-flavoured.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_centurion_strike",
+      "name": "Centurion Strike",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A practised, heavy strike - the kind that buys you another few seconds behind the shield.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 35,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 35,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 35,
+          "effect_value": 98
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 35,
+          "effect_value": 116
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 35,
+          "effect_value": 134
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Centurion Strike (bigger hit, weapon-dependent bonus, extends Raise Shield)'.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "guardian_glorious_arena",
+      "name": "Glorious Arena",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You claim the ground you are standing on, and make staying on it expensive.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 35,
+          "effect_value": 24
+        },
+        {
+          "rank": 2,
+          "level_req": 43,
+          "cost": 35,
+          "effect_value": 31
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 35,
+          "effect_value": 38
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 35,
+          "effect_value": 45
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Glorious Arena drops a ring that punishes enemies clumped on a node or choke point'.",
+      "target_type": "enemy",
+      "is_aoe": true,
+      "max_targets": 5
+    },
+    {
+      "ability_id": "guardian_heroism",
+      "name": "Heroism",
+      "resource_type": "energy",
+      "cooldown": 15,
+      "effect_type": "enable_instant_cast",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "It stops being work and starts being easy.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'lean on Heroism's free Pulverizes/Broad Sweeps once Glory or Favor peaks'.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "guardian_fearless",
+      "name": "Fearless",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.1
+      },
+      "description": "Being surrounded has stopped registering as a problem.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Use Veteran of the Third War's on-block heal and Fearless while surrounded'.",
+      "target_type": "self"
+    }
+  ]
+}

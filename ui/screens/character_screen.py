@@ -24,10 +24,14 @@ class CharacterCreationScreen(BaseScreen):
             "Warrior", "Rogue", "Hunter", "Mage", "Warlock",
             "Priest", "Druid", "Shaman", "Paladin",
             # CoA classes with real, authored ability kits + talent trees
-            # (see data/abilities/ and data/talents/). The other 17 CoA
-            # classes stay unselectable until their kits are authored -
-            # picking one would create a character with an empty spellbook.
+            # (see data/abilities/ and data/talents/). Any CoA class without
+            # one stays unselectable - picking it would create a character
+            # with an empty spellbook. Add a class here only once
+            # tools/validate_class.py passes it, which checks that it builds,
+            # learns abilities at 1/20/40/60, spends a full talent budget and
+            # actually acts in a real fight.
             "Stormbringer", "Tinker", "Venomancer", "Primalist", "Runemaster", "Cultist", "Starcaller", "Sun Cleric",
+            "Guardian",
         ]
         self.selected_class = 0
         self.character_name = "Hero"
