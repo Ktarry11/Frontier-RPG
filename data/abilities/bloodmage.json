@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack. It is also what a talent's extra_attack proc re-invokes, by the <class_prefix>_attack naming rule."
     },
     {
@@ -437,7 +437,7 @@
           "effect_value": 118
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA's class tree points at Lunge from three directions - Bloodleaper cuts its cooldown, Dark Intent heals you when you use it, Cruel Intent adds auto attacks to it - so the ability itself has to exist.",
       "target_type": "enemy"
     },
@@ -1376,7 +1376,7 @@
           "effect_value": 156
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'dealing 125% Weapon Damage plus 26. the enemy is bleeding, below 35% health, or you are behind them, deal 100% additional Shadow damage for each condition met.' Only the below-35% condition is expressible, as execute_threshold_pct; bleeding and positional have no hooks. CoA strips its Rage cost in form, which the engine cannot do conditionally, so it has a real cost.",
       "target_type": "enemy",
       "execute_threshold_pct": 35
@@ -1441,7 +1441,7 @@
           "heal_value": 96
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Ravenous Strike healing you off the damage it deals is a dead ringer for Death Strike', 'free and up every GCD, and it doubles as your sustain'.",
       "target_type": "enemy"
     },
@@ -1492,7 +1492,7 @@
           "effect_value": 158
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA lists it with Reave and Ravenous Strike as the third transformed-melee button: 'cycle your free Reave / Ravenous Strike / Puncturing Fangs'.",
       "target_type": "enemy"
     },
@@ -1543,7 +1543,7 @@
           "effect_value": 97
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'strike nearby enemies every 1 sec for 3 seconds, each strike causing Physical damage'. Physical, so `dot` rather than spell_dot. The form-extension half ('Extend the duration of your active Cursed Form by 3 sec') has no hook, since the curses here are buffs with no timer to extend.",
       "target_type": "enemy_aoe",
       "max_targets": 4
@@ -1589,7 +1589,7 @@
           "effect_value": 108
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA names Crimson Maw and Perilous Ascent as the spec's mobility, in the same breath as admitting it has 'No stun, interrupt, or silence in the spec kit'. There is no movement in combat here, so it ships as the gap-close's damage.",
       "target_type": "enemy"
     },
@@ -1757,7 +1757,7 @@
           "heal_value": 114
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Ravenous Bite is a Death Strike analog, a melee swing that heals a share of the damage it deals' - the tank's whole sustain plan.",
       "target_type": "enemy"
     },
@@ -1820,7 +1820,7 @@
           "effect_value": 139
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Ravenous Bite and Bloodfang Bite carry both your threat and your self-healing.' The threat filler.",
       "target_type": "enemy"
     },
@@ -1871,7 +1871,7 @@
           "effect_value": 90
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Claw Sweep spreads threat across the pack', and Uncanny Movement 'now generates additional threat' off it. The pull-holding cleave.",
       "target_type": "enemy_aoe",
       "max_targets": 4

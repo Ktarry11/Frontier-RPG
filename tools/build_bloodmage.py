@@ -177,7 +177,7 @@ ABILITIES = [
     # ------------------------------------------------------------ class kit
     ability("attack", "Attack", "damage",
             "A measured strike with your weapon.", one(1, 0, 0),
-            icon="ability_melee",
+            icon=None,
             source="Convention: every class ships a free rank-1 Attack. It "
                    "is also what a talent's extra_attack proc re-invokes, by "
                    "the <class_prefix>_attack naming rule."),
@@ -272,7 +272,7 @@ ABILITIES = [
     ability("lunge", "Lunge", "damage",
             "Cover the ground between you in one unpleasant movement.",
             ranks(46, 12, 15, start=8, count=7), cooldown=3,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA's class tree points at Lunge from three directions - "
                    "Bloodleaper cuts its cooldown, Dark Intent heals you when "
                    "you use it, Cruel Intent adds auto attacks to it - so the "
@@ -487,7 +487,7 @@ ABILITIES = [
             "Open them up along a line you have used before.",
             ranks(60, 16, 25, start=12, count=7), cooldown=2,
             target_type="enemy", execute_threshold_pct=35,
-            icon="ability_melee",
+            icon=None,
             source="CoA: 'dealing 125% Weapon Damage plus 26. the enemy is "
                    "bleeding, below 35% health, or you are behind them, deal "
                    "100% additional Shadow damage for each condition met.' "
@@ -498,21 +498,21 @@ ABILITIES = [
     ability("ravenous_strike", "Ravenous Strike", "damage_and_heal",
             "Take a bite out of the fight.",
             ranks(56, 15, 25, start=14, count=7, heal=36, heal_step=10),
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Ravenous Strike healing you off the damage it deals "
                    "is a dead ringer for Death Strike', 'free and up every "
                    "GCD, and it doubles as your sustain'."),
     ability("puncturing_fangs", "Puncturing Fangs", "damage",
             "Two holes, close together, deep.",
             ranks(68, 18, 20, start=18, count=6), cooldown=3,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA lists it with Reave and Ravenous Strike as the third "
                    "transformed-melee button: 'cycle your free Reave / "
                    "Ravenous Strike / Puncturing Fangs'."),
     ability("aortic_assault", "Aortic Assault", "dot",
             "Three seconds of hitting everything within reach.",
             ranks(42, 11, 30, start=22, count=6), cooldown=6, duration=3,
-            target_type="enemy_aoe", max_targets=4, icon="ability_melee",
+            target_type="enemy_aoe", max_targets=4, icon=None,
             source="CoA: 'strike nearby enemies every 1 sec for 3 seconds, "
                    "each strike causing Physical damage'. Physical, so `dot` "
                    "rather than spell_dot. The form-extension half ('Extend "
@@ -522,7 +522,7 @@ ABILITIES = [
     ability("crimson_maw", "Crimson Maw", "damage",
             "Arrive teeth first.",
             ranks(52, 14, 15, start=26, count=5), cooldown=4,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA names Crimson Maw and Perilous Ascent as the spec's "
                    "mobility, in the same breath as admitting it has 'No "
                    "stun, interrupt, or silence in the spec kit'. There is no "
@@ -576,20 +576,20 @@ ABILITIES = [
     ability("ravenous_bite", "Ravenous Bite", "damage_and_heal",
             "Bite down and keep what comes loose.",
             ranks(58, 15, 25, start=12, count=7, heal=42, heal_step=12),
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Ravenous Bite is a Death Strike analog, a melee "
                    "swing that heals a share of the damage it deals' - the "
                    "tank's whole sustain plan."),
     ability("bloodfang_bite", "Bloodfang Bite", "damage",
             "The workhorse bite. Nothing clever about it.",
             ranks(48, 13, 20, start=8, count=8), target_type="enemy",
-            icon="ability_melee",
+            icon=None,
             source="CoA: 'Ravenous Bite and Bloodfang Bite carry both your "
                    "threat and your self-healing.' The threat filler."),
     ability("claw_sweep", "Claw Sweep", "damage",
             "One pass across the whole front rank.",
             ranks(40, 10, 25, start=16, count=6), target_type="enemy_aoe",
-            max_targets=4, icon="ability_melee",
+            max_targets=4, icon=None,
             source="CoA: 'Claw Sweep spreads threat across the pack', and "
                    "Uncanny Movement 'now generates additional threat' off "
                    "it. The pull-holding cleave."),
