@@ -435,10 +435,7 @@
       "cooldown": 5,
       "effect_type": "buff",
       "duration": 4,
-      "stat_mods": {
-        "armor": 150,
-        "magic_resistance": 60
-      },
+      "stat_mods": {},
       "description": "Surrounds you with ice, absorbing incoming damage.",
       "ranks": [
         {
@@ -458,7 +455,9 @@
       "icon_id": null,
       "buff_scope": "combat",
       "requires_talent": true,
-      "_design_note": "Not learned from level alone - granted by the Ice Barrier talent in the Frost tree, matching real WOTLK where this is talent-exclusive to Frost, not a baseline ability. Surrounds you with ice, absorbing incoming damage."
+      "_design_note": "Not learned from level alone - granted by the Ice Barrier talent in the Frost tree, matching real WOTLK where this is talent-exclusive to Frost, not a baseline ability. Surrounds you with ice, absorbing incoming damage.",
+      "absorb_pct_max_health": 0.18,
+      "_source": "  ICE BARRIER DID NOT ABSORB ANYTHING. Its own description says 'surrounds you with ice, absorbing incoming damage' and it carried no absorb at all - just {\"armor\": 150, \"magic_resistance\": 60}, armour and resistance standing in for the mechanic. In Classic this spell is a pure absorb shield, and the engine has supported absorbs the whole time (StatusEffect.absorb soaks the RAW incoming amount before every other defensive stat, see Character.take_damage). 22 abilities across the CoA classes already use absorb_pct_max_health, a FRACTION of the recipient's max health, in a 0.06-0.40 band; 0.18 matches the cloth peers (Pyromancer's Inferno Barrier 0.16, Chronomancer's Infinite Shield 0.18, Bloodmage's Blood Veil 0.18). The armour/resistance stand-in is REMOVED rather than kept alongside, because keeping both would double-count the same defensive intent and leave Mage's barrier stronger than every peer's - a one-line revert if that trade is unwanted."
     },
     {
       "ability_id": "mage_presence_of_mind",
