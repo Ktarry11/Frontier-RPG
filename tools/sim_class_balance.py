@@ -100,8 +100,27 @@ def classes():
     return out
 
 
-def dps_spec_for(slug, srb):
-    """The damage spec this class should be judged as, or None if it has no tree.
+def dps_specs_for(slug, srb):
+    """EVERY damage spec of this class, as (spec_slug, role) pairs.
+
+    This returned a single spec - the first in sorted order - until 29 Oct
+    2026, with my own comment calling it "arbitrary, but stable". Arbitrary
+    was the problem. A class with two damage specs got measured on whichever
+    one sorted first, and for two classes that was the odd one:
+
+      * chronomancer_artificer won 50% at level 20 where chronomancer_infinite
+        won 81%. Artificer's talents amplify wand_of_time, artificers_wand,
+        discordance and shatter_echo, while Chromatic Shard out-damages the
+        wand roughly two to one per turn - so the rotation never casts the
+        abilities the tree improves and its 56 points do close to nothing.
+        "Chronomancer is the worst class in the game" was substantially a
+        spec-choice artefact on top of that.
+      * shaman_enhancement won 47%/62% against shaman_elemental's 65%/88%.
+
+    So every damage spec is measured now. The class row reports its BEST
+    build, which is what a player actually plays, and any spec well behind
+    its own class's best is reported separately - a weak SPEC and a weak
+    CLASS need different fixes and the old shape could not tell them apart.
 
     EVERY NUMBER THIS TOOL PRODUCED BEFORE 29 OCT 2026 WAS MEASURED WITH ZERO
     TALENT POINTS SPENT. main() built `Character("Sim", display, level)`,
@@ -133,15 +152,13 @@ def dps_spec_for(slug, srb):
     is judged on one real damage build rather than an average of three.
     """
     dps_roles = ("melee_dps", "ranged_dps")
-    candidates = sorted(
-        s for s in srb.SPEC_ROLES
-        if s.startswith(slug + "_")
-        and any(r in dps_roles for r in srb.roles_of(s))
-    )
-    for spec in candidates:
-        role = next(r for r in srb.roles_of(spec) if r in dps_roles)
-        return spec, role
-    return None, None
+    out = []
+    for spec in sorted(s for s in srb.SPEC_ROLES if s.startswith(slug + "_")):
+        roles = srb.roles_of(spec)
+        role = next((r for r in roles if r in dps_roles), None)
+        if role:
+            out.append((spec, role))
+    return out
 
 
 def dress(char, gen, level):
@@ -239,9 +256,47 @@ def plan(char):
         dur = getattr(a, "duration", 0) or 0
         return ev / dur if dur > 1 else ev
 
+    # DEFENSIVE COOLDOWNS, which this planner collected nowhere. A
+    # self-targeted buff that reduces incoming damage is neither a heal nor an
+    # attack, and `setup` only takes the stance-shaped buffs (an
+    # exclusive_group or a required form) - so a button like Chronomancer's
+    # Time Out!, a 30% damage reduction on a 10-turn cooldown, was never cast
+    # in any fight this tool has ever run. Every class with a defensive
+    # cooldown was measured without it, and the ones that depend on it most
+    # are the squishy ones the tool then reports as fragile.
+    #
+    # The tank sim already rations defensives for exactly this reason (see
+    # tank_axes' "DEFENSIVES HAVE TO BE RATIONED" note). This is the same idea
+    # in the class sim, keyed on the same mitigation stats.
+    #
+    # Excludes anything already in `setup`: a stance is kept up permanently
+    # and must not be spent as an emergency button.
+    MITIGATION = {"damage_taken_pct", "physical_damage_taken_pct",
+                  "magic_damage_taken_pct", "spell_damage_taken_pct",
+                  "armor_pct", "armor", "block", "dodge", "parry",
+                  "block_value_pct", "max_health_pct"}
+
+    def mitigation_weight(a):
+        mods = getattr(a, "stat_mods", {}) or {}
+        w = sum(abs(v) for k, v in mods.items() if k in MITIGATION)
+        # An absorb shield is mitigation and carries no stat_mods at all.
+        w += (getattr(a, "absorb_pct_max_health", 0) or 0) * 100
+        w += (getattr(a, "absorb", 0) or 0) / 20.0
+        return w
+
+    in_setup = {a.ability_id for a in setup}
+    defensives = [
+        a for a in learned
+        if getattr(a, "effect_type", "") == "buff"
+        and getattr(a, "target_type", None) in (None, "self")
+        and a.ability_id not in in_setup
+        and mitigation_weight(a) > 0
+    ]
+    defensives.sort(key=lambda a: -mitigation_weight(a))
+
     heals.sort(key=lambda a: -(getattr(a, "heal_value", 0) or 0))
     attacks.sort(key=lambda a: -per_turn(a))
-    return heals, attacks, setup
+    return heals, attacks, setup, defensives
 
 
 def fight(char, enemy_template, level, gen, rng):
@@ -256,7 +311,7 @@ def fight(char, enemy_template, level, gen, rng):
     enemy = Monster(f"{enemy_template} {level}", enemy_template, level)
     engine = CombatEngine(char, enemy, party=Party(char))
 
-    heals, attacks, setup = plan(char)
+    heals, attacks, setup, defensives = plan(char)
     turns = 0
     #: HEALING HAS TO BE RATIONED OR HEALERS HEAL-LOCK. With a bare "heal below 35%" rule, a class
     #: whose heal does not outpace incoming damage never climbs back over the threshold and so
@@ -265,6 +320,11 @@ def fight(char, enemy_template, level, gen, rng):
     #: back to work, and heals again when it is worth a turn. One heal every third turn at most.
     HEAL_EVERY = 3
     last_heal = -HEAL_EVERY
+    #: A defensive is a cooldown, not a rotational button. Four turns apart is
+    #: roughly how often a real one comes back up across the classes that have
+    #: them, and it stops a 2-turn buff being held up permanently.
+    DEFENSIVE_EVERY = 4
+    last_defensive = -DEFENSIVE_EVERY
     for _ in range(MAX_TICKS):
         engine.update(TICK)
         if not engine.is_active:
@@ -300,6 +360,24 @@ def fight(char, enemy_template, level, gen, rng):
                 if buff.ability_id in mine or buff.name in names:
                     break           # something from the group is up - good
                 if engine.execute_ability(char, buff.ability_id, char)[0]:
+                    acted = True
+                    break
+            if acted:
+                continue
+
+        # SPEND A DEFENSIVE WHEN IT MATTERS, once per DEFENSIVE_EVERY turns.
+        # Same rationing logic as the heals above and for the same reason: "cast
+        # one whenever it is available" turns a cooldown into a permanent buff
+        # and measures the rationing rather than the class. Tried before
+        # attacking, and only while hurt, which is when a player presses it.
+        if defensives and hurt and (turns - last_defensive) >= DEFENSIVE_EVERY:
+            mine = {getattr(fx, "effect_id", None)
+                    for fx in getattr(char, "active_effects", [])}
+            for d in defensives:
+                if d.ability_id in mine:
+                    continue
+                if engine.execute_ability(char, d.ability_id, char)[0]:
+                    last_defensive = turns
                     acted = True
                     break
             if acted:
@@ -387,46 +465,62 @@ def main():
     print("WIN RATE")
 
     results = {}
+    spec_rows = {}                      # (slug, spec) -> row, for the findings
     for slug, display in roster:
-        row = {}
-        for level in levels:
-            wins, turns, left, worn = 0, [], [], 0
-            for i in range(args.fights):
-                spec, dps_role = dps_spec_for(slug, srb)
-                if spec is None:
-                    char = Character("Sim", display, level)
-                    worn = dress(char, gen, level)
-                    spent_pts = 0
-                else:
-                    # build() creates the character, dresses it with the
-                    # callable passed in, and invests up to the level's
-                    # talent budget. See dps_spec_for for why measuring
-                    # without this was wrong.
-                    char, spent_pts = srb.build(spec, level, gen, dress, role=dps_role)
-                    equipped = char.equipment.get_all_equipped()
-                    if hasattr(equipped, "items"):
-                        equipped = list(equipped.values())
-                    worn = sum(1 for it in equipped if it)
-                points_spent = spent_pts
-                won, t, hp = fight(char, ENEMY_MIX[i % len(ENEMY_MIX)], enemy_level(level, args.above), gen, rng)
-                wins += won
-                if won:
-                    turns.append(t)
-                    left.append(hp)
-            row[level] = {
-                "win": wins / args.fights,
-                "turns": statistics.mean(turns) if turns else None,
-                "left": statistics.mean(left) if left else None,
-                "worn": worn,
-                "pts": points_spent,
-            }
+        speclist = dps_specs_for(slug, srb) or [(None, None)]
+        per_spec = {}
+        for spec, dps_role in speclist:
+            row = {}
+            for level in levels:
+                wins, turns, left, worn, points_spent = 0, [], [], 0, 0
+                for i in range(args.fights):
+                    if spec is None:
+                        char = Character("Sim", display, level)
+                        worn = dress(char, gen, level)
+                        points_spent = 0
+                    else:
+                        # build() creates the character, dresses it with the
+                        # callable passed in, and invests up to the level's
+                        # talent budget. See dps_specs_for for why measuring
+                        # without talents, or on one arbitrary spec, was wrong.
+                        char, points_spent = srb.build(spec, level, gen, dress,
+                                                       role=dps_role)
+                        equipped = char.equipment.get_all_equipped()
+                        if hasattr(equipped, "items"):
+                            equipped = list(equipped.values())
+                        worn = sum(1 for it in equipped if it)
+                    won, t, hp = fight(char, ENEMY_MIX[i % len(ENEMY_MIX)],
+                                       enemy_level(level, args.above), gen, rng)
+                    wins += won
+                    if won:
+                        turns.append(t)
+                        left.append(hp)
+                row[level] = {
+                    "win": wins / args.fights,
+                    "turns": statistics.mean(turns) if turns else None,
+                    "left": statistics.mean(left) if left else None,
+                    "worn": worn,
+                    "pts": points_spent,
+                }
+            per_spec[spec] = row
+            if spec is not None:
+                spec_rows[(slug, spec)] = row
+
+        # THE CLASS IS REPORTED ON ITS BEST BUILD, averaged across the levels
+        # sampled - what a player actually plays. A spec well behind its own
+        # class's best is a separate finding below, because a weak spec and a
+        # weak class need different fixes.
+        def mean_win(r):
+            return statistics.mean(r[l]["win"] for l in levels)
+        best_spec = max(per_spec, key=lambda sp: mean_win(per_spec[sp]))
+        row = per_spec[best_spec]
         results[slug] = (display, row)
         line = f"  {display:<14}"
         for level in levels:
-            r = row[level]
-            line += f"{r['win']*100:>4.0f}% "
+            line += f"{row[level]['win']*100:>4.0f}% "
+        label = (best_spec.split("_", 1)[1] if best_spec else "no tree")
         print(line + f"   (gear {row[levels[-1]]['worn']}/{len(GEAR_SLOTS)}, "
-                     f"{row[levels[-1]]['pts']} talent pts)")
+                     f"{row[levels[-1]]['pts']} talent pts, best: {label})")
 
     print("\n  " + " " * 14 + "".join(f"lv{l:<4}" for l in levels))
     print("\nTURNS TO KILL (won fights only)")
@@ -458,6 +552,27 @@ def main():
           f"resistance stays at zero.")
 
     # ---- outliers, measured against the spread rather than an invented target
+    print("\nSPECS BEHIND THEIR OWN CLASS'S BEST BUILD")
+    #: A spec this far below its class's best, in mean win rate across the
+    #: levels sampled, is reported. 15 points is comfortably outside the
+    #: run-to-run noise at the default fight count and is the gap at which a
+    #: spec stops being a different playstyle and starts being a worse one.
+    SPEC_GAP = 0.15
+    gaps = []
+    for slug, display in roster:
+        mine = {sp: r for (sl, sp), r in spec_rows.items() if sl == slug}
+        if len(mine) < 2:
+            continue
+        means = {sp: statistics.mean(r[l]["win"] for l in levels)
+                 for sp, r in mine.items()}
+        best = max(means, key=lambda sp: means[sp])
+        for sp, m in sorted(means.items(), key=lambda kv: kv[1]):
+            if means[best] - m >= SPEC_GAP:
+                gaps.append(f"  - {sp} wins {m*100:.0f}% against "
+                            f"{best.split('_',1)[1]}'s {means[best]*100:.0f}% "
+                            f"- same class, same gear, same levels")
+    print("\n".join(gaps) if gaps else "  none - every spec is within reach of its class's best")
+
     print("\nOUTLIERS")
     # JUDGE EACH LEVEL AGAINST ITS OWN MEDIAN, NEVER AGAINST A FIXED BAR.
     #
