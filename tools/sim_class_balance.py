@@ -103,13 +103,46 @@ RESTORATIVE = {"heal", "hot", "damage_and_heal", "damage_and_restore_mana"}
 
 
 def plan(char):
-    """(heals, attacks) in preference order. Built once; the engine decides what is usable."""
+    """(heals, attacks, setup) in preference order. Built once; the engine decides what is usable.
+
+    SETUP IS THE THIRD LIST AND IT IS NOT OPTIONAL. Some classes have an
+    ability that must be running before their rotation works at all, and this
+    planner only ever collected heals and attacks - so it fought those
+    classes with their core mechanic switched off.
+
+    Paladin is the clear case: Judgement carries consumes_seal, so without a
+    Seal up the cast is refused outright with "has no Seal active to Judge!".
+    A geared level-50 Paladin therefore landed 0 damage from its biggest
+    nuke on 15 of 15 attempts and won 0% of fights against a median of 100%,
+    which this sweep reported as a class outlier. With a Seal up, Judgement
+    deals 242. Nothing was wrong with the Paladin.
+
+    Collected here: self-targeted buffs that either belong to an
+    exclusive_group (Seals, stances, Presences, Formations, Quivers - the
+    "one of these is always running" shape) or are named by some other
+    ability's requires_form. Those are exactly the abilities a real player
+    keeps up and never the ones they spam.
+    """
     learned = char.get_learned_abilities()
     heals = [a for a in learned if getattr(a, "effect_type", "") in RESTORATIVE]
     attacks = [a for a in learned if getattr(a, "effect_type", "") in OFFENSIVE]
+
+    needed_forms = set()
+    for a in learned:
+        rf = getattr(a, "requires_form", None)
+        if rf:
+            needed_forms.update(rf if isinstance(rf, (list, tuple)) else [rf])
+    setup = [
+        a for a in learned
+        if getattr(a, "effect_type", "") == "buff"
+        and getattr(a, "target_type", None) in (None, "self")
+        and (getattr(a, "exclusive_group", None)
+             or getattr(a, "shapeshift_form_id", None) in needed_forms)
+    ]
+
     heals.sort(key=lambda a: -(getattr(a, "heal_value", 0) or 0))
     attacks.sort(key=lambda a: -(getattr(a, "effect_value", 0) or 0))
-    return heals, attacks
+    return heals, attacks, setup
 
 
 def fight(char, enemy_template, level, gen, rng):
@@ -124,7 +157,7 @@ def fight(char, enemy_template, level, gen, rng):
     enemy = Monster(f"{enemy_template} {level}", enemy_template, level)
     engine = CombatEngine(char, enemy, party=Party(char))
 
-    heals, attacks = plan(char)
+    heals, attacks, setup = plan(char)
     turns = 0
     #: HEALING HAS TO BE RATIONED OR HEALERS HEAL-LOCK. With a bare "heal below 35%" rule, a class
     #: whose heal does not outpace incoming damage never climbs back over the threshold and so
@@ -154,6 +187,25 @@ def fight(char, enemy_template, level, gen, rng):
         # Shadow Word: Pain every single turn and overwrites it. Some carry a cooldown and the engine
         # refuses, but not all of them do, and the ones that don't would have their class measured
         # as though its whole rotation were one spell cast repeatedly.
+        # Keep the setup buff running before spending the turn attacking. One
+        # cast, only when nothing from that exclusive group is already up, so
+        # it costs a turn at the start of the fight and never again - exactly
+        # how a player opens. Without this a Paladin never has a Seal and
+        # Judgement is refused every turn of every fight.
+        if setup:
+            mine = {getattr(fx, "effect_id", None)
+                    for fx in getattr(char, "active_effects", [])}
+            names = {getattr(fx, "name", None)
+                     for fx in getattr(char, "active_effects", [])}
+            for buff in setup:
+                if buff.ability_id in mine or buff.name in names:
+                    break           # something from the group is up - good
+                if engine.execute_ability(char, buff.ability_id, char)[0]:
+                    acted = True
+                    break
+            if acted:
+                continue
+
         live = {getattr(fx, "effect_id", None) for fx in getattr(enemy, "active_effects", [])}
         for ability in order:
             if ability.ability_id in live:
