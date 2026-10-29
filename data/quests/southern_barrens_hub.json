@@ -2980,6 +2980,26 @@
           "armor_type": "cloth",
           "armor_value": 13,
           "label": "Cloak (Int/Sta)"
+        },
+        {
+          "name": "Needle-Thin Punch-Dagger",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "rare",
+          "required_level": 32,
+          "flavor_text": "Narrow enough to go between plates and nothing else.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 87,
+          "attack_speed": 1.8,
+          "label": "Fist (Agi)"
         }
       ],
       "gear_reward_gear_level": 35,
@@ -3252,6 +3272,24 @@
             "stamina": 3
           },
           "label": "Necklace (Int/Sta)"
+        },
+        {
+          "name": "Antiphon for Thin Light",
+          "slot": "off_hand",
+          "item_level": 32,
+          "rarity": "rare",
+          "required_level": 29,
+          "flavor_text": "Written for a choir of two, one of them absent.",
+          "weapon_type": "tome",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "label": "Tome (Int/Spi)",
+          "attack_speed": 0.0
         }
       ],
       "gear_reward_gear_level": 32,

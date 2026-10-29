@@ -145,6 +145,25 @@
           "weapon_damage_max": 39,
           "attack_speed": 1.7,
           "label": "Dagger (Agi)"
+        },
+        {
+          "name": "Barrens Hurl-Axe",
+          "slot": "ranged",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Short haft, heavy head, no subtlety at all.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "strength": 1,
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 33,
+          "attack_speed": 1.8,
+          "label": "Thrown (Str)"
         }
       ],
       "gear_reward_gear_level": 18,
@@ -769,8 +788,6 @@
           "secondary_stats": {
             "mp5": 0.2
           },
-          "weapon_damage_min": 27,
-          "weapon_damage_max": 37,
           "attack_speed": 0.0,
           "label": "Totem (Int/Sta)"
         },
@@ -3489,8 +3506,6 @@
             "healing_power": 1.7,
             "mp5": 0.4
           },
-          "weapon_damage_min": 27,
-          "weapon_damage_max": 37,
           "attack_speed": 0.0,
           "label": "Totem"
         },

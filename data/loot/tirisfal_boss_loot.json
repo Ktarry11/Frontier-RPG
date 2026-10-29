@@ -66,6 +66,24 @@
         "intellect": 1
       },
       "secondary_stats": {}
+    },
+    {
+      "name": "Libram of the Second Watch",
+      "slot": "ranged",
+      "item_level": 14,
+      "rarity": "uncommon",
+      "required_level": 11,
+      "flavor_text": "Thumbed to softness at exactly one page.",
+      "weapon_type": "libram",
+      "primary_stats": {
+        "stamina": 1,
+        "spirit": 1
+      },
+      "secondary_stats": {
+        "healing_power": 0.5
+      },
+      "label": "Libram (Int/Spi)",
+      "attack_speed": 0.0
     }
   ],
   "Murk the Bloated": [
@@ -675,6 +693,26 @@
       },
       "armor_type": "cloth",
       "armor_value": 8
+    },
+    {
+      "name": "Gravewatch Hurl-Stone",
+      "slot": "ranged",
+      "item_level": 13,
+      "rarity": "uncommon",
+      "required_level": 10,
+      "flavor_text": "Smooth from the river, notched once so it does not slip.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "agility": 1,
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "attack_power": 1.4
+      },
+      "weapon_damage_min": 19,
+      "weapon_damage_max": 26,
+      "attack_speed": 1.8,
+      "label": "Thrown (Agi)"
     }
   ],
   "Captain Melrache": [
@@ -816,6 +854,24 @@
       },
       "armor_type": "plate",
       "armor_value": 39
+    },
+    {
+      "name": "Sealed Apprentice Workbook",
+      "slot": "off_hand",
+      "item_level": 14,
+      "rarity": "uncommon",
+      "required_level": 11,
+      "flavor_text": "The seal is a precaution and the handwriting explains why.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.5,
+        "mp5": 0.3
+      },
+      "label": "Tome (Int)",
+      "attack_speed": 0.0
     }
   ],
   "Mother Venomweb": [

@@ -1656,6 +1656,28 @@
           },
           "label": "Ring (Int/Sta/MP5)"
         }
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Stackwarden's Silent Dart",
+          "slot": "ranged",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Made to be thrown in a library and never to be heard landing.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 87,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi)"
+        }
       ]
     },
     {

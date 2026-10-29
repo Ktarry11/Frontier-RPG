@@ -62,6 +62,25 @@
       "secondary_stats": {},
       "armor_type": "leather",
       "armor_value": 96
+    },
+    {
+      "name": "Sounding-Weight",
+      "slot": "ranged",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "Lead, roped, and meant to be dropped. It throws well enough.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 59,
+      "weapon_damage_max": 80,
+      "attack_speed": 1.8,
+      "label": "Thrown (Str)"
     }
   ],
   "The Leavings": [
@@ -126,6 +145,26 @@
         "spirit": 5
       },
       "secondary_stats": {}
+    },
+    {
+      "name": "Floodwater Grapple-Fist",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Barnacled. The barnacles have been left on deliberately.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4,
+        "crit_chance_physical": 0.4
+      },
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 1.8,
+      "label": "Fist (Str)"
     }
   ],
   "Old Saltbed": [
@@ -192,6 +231,24 @@
       "secondary_stats": {},
       "armor_type": "mail",
       "armor_value": 113
+    },
+    {
+      "name": "Drowning Floor Soundings",
+      "slot": "off_hand",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "flavor_text": "Depths, in a column that runs off the bottom of the page.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "mp5": 1.0
+      },
+      "label": "Tome (Spi)",
+      "attack_speed": 0.0
     }
   ]
 }

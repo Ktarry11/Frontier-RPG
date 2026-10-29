@@ -154,10 +154,38 @@ def main():
 
     for c in sorted(reach, key=lambda c: reach[c]):
         if reach[c] < typical * STARVED_CLASS_RATIO:
-            findings.append(
-                f"[starved class] {c} reaches {reach[c]} weapons against a "
-                f"field median of {typical:.0f} ({reach[c]/typical:.0%}) from "
-                f"only {len(cwm[c])} proficiencies: {', '.join(cwm[c])}")
+            # SAY WHICH SLOTS THE CLASS CAN EVEN FILL. A melee-only chassis
+            # reaches fewer items because it has fewer slots to fill, not
+            # because it is short of weapons - Felsworn, Reaper, Cultist and
+            # Knight of Xoroth have no ranged-capable type, which matches
+            # their Death Knight and Demon Hunter analogues having no ranged
+            # slot at all. Without this the finding reads as a defect when it
+            # is a design, and the previous version of this check already had
+            # to be rewritten once for crying wolf.
+            slots = []
+            for label, hands in (("main", {"main_or_off", "two_hand"}),
+                                 ("off", {"off_hand", "main_or_off"}),
+                                 ("ranged", {"ranged"})):
+                if any(types[w].get("hand") in hands for w in cwm[c]):
+                    slots.append(label)
+            msg = (f"[starved class] {c} reaches {reach[c]} weapons against "
+                   f"a field median of {typical:.0f} ({reach[c]/typical:.0%}) "
+                   f"from only {len(cwm[c])} proficiencies: "
+                   f"{', '.join(cwm[c])}")
+            missing = [s for s in ("main", "off", "ranged") if s not in slots]
+            if missing:
+                # Only say this when it is true. It was printed
+                # unconditionally for one revision, and stayed on the
+                # Felsworn line after Kyle gave it a thrown weapon - a
+                # finding that explains itself wrongly is worse than one
+                # that does not explain itself at all.
+                msg += (f"\n        cannot fill: {', '.join(missing)}"
+                        f" - a class with no type for a slot reaches fewer"
+                        f" items by design, not by shortage")
+            else:
+                msg += (f"\n        fills all three weapon slots, so this is"
+                        f" a deliberately narrow kit rather than a gap")
+            findings.append(msg)
 
     print("\nFINDINGS")
     if findings:

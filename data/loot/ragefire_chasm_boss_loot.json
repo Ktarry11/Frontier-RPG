@@ -50,8 +50,6 @@
         "healing_power": 1.9,
         "mp5": 0.4
       },
-      "weapon_damage_min": 32,
-      "weapon_damage_max": 43,
       "attack_speed": 0.0
     },
     {
@@ -275,6 +273,26 @@
       },
       "armor_value": 40,
       "block_value": 51
+    },
+    {
+      "name": "Ragefire Cinder-Fist",
+      "slot": "main_hand",
+      "item_level": 19,
+      "rarity": "uncommon",
+      "required_level": 16,
+      "flavor_text": "Still warm. It has not been near a fire in weeks.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "defense_rating": 0.2
+      },
+      "weapon_damage_min": 30,
+      "weapon_damage_max": 40,
+      "attack_speed": 1.8,
+      "label": "Fist (Str)"
     }
   ],
   "Grulgash the Pitbreaker": [
@@ -464,6 +482,26 @@
         "arcane_spell_power": 2.3,
         "fire_spell_power": 2.3
       }
+    },
+    {
+      "name": "Scout's Weighted Knife",
+      "slot": "ranged",
+      "item_level": 20,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "The grip is wrapped for a hand smaller than most.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {
+        "hit_rating": 0.1
+      },
+      "weapon_damage_min": 34,
+      "weapon_damage_max": 47,
+      "attack_speed": 1.8,
+      "label": "Thrown (Agi)"
     }
   ]
 }

@@ -66,6 +66,24 @@
       "secondary_stats": {},
       "armor_type": "cloth",
       "armor_value": 15
+    },
+    {
+      "name": "Kraul Rootkeeper's Tally",
+      "slot": "off_hand",
+      "item_level": 31,
+      "rarity": "rare",
+      "required_level": 28,
+      "flavor_text": "Counts of a harvest nobody ate.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 4.3,
+        "crit_chance_spell": 0.2
+      },
+      "label": "Tome (Int)",
+      "attack_speed": 0.0
     }
   ],
   "Aggem Thorncurse": [
@@ -517,6 +535,25 @@
         "spirit": 4
       },
       "secondary_stats": {}
+    },
+    {
+      "name": "Kraul Burrow-Claws",
+      "slot": "main_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "Made for digging. Repurposed without modification.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 4,
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 61,
+      "weapon_damage_max": 83,
+      "attack_speed": 1.8,
+      "label": "Fist (Str)"
     }
   ],
   "Thornjaw the Gorger": [
@@ -566,6 +603,26 @@
       "secondary_stats": {
         "crit_chance_physical": 0.2
       }
+    },
+    {
+      "name": "Rootfang Spine",
+      "slot": "ranged",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "flavor_text": "Pulled from something larger and thrown at something larger still.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "agility": 3
+      },
+      "secondary_stats": {
+        "hit_rating": 0.2,
+        "crit_chance_physical": 0.2
+      },
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 1.8,
+      "label": "Thrown (Agi)"
     }
   ]
 }

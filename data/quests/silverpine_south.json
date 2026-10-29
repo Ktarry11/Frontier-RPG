@@ -86,6 +86,24 @@
           "weapon_damage_max": 18,
           "attack_speed": 3.2,
           "label": "Staff (Int/Spi/HP)"
+        },
+        {
+          "name": "Idol of the Patient Root",
+          "slot": "ranged",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "required_level": 15,
+          "flavor_text": "Carved from a root that is still, by any honest measure, growing.",
+          "weapon_type": "idol",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "mp5": 0.2
+          },
+          "label": "Idol (Spi)",
+          "attack_speed": 0.0
         }
       ],
       "gear_reward_gear_level": 15

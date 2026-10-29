@@ -270,6 +270,24 @@
           },
           "flavor_text": "Ashgrym pressed this into your hand himself, and didn't say anything else. He didn't need to.",
           "label": "Neck (Str/Sta)"
+        },
+        {
+          "name": "Tidewatcher's Almanac",
+          "slot": "off_hand",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "required_level": 10,
+          "flavor_text": "Charts for a coast that has since moved.",
+          "weapon_type": "tome",
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "mp5": 0.3
+          },
+          "label": "Tome (Spi)",
+          "attack_speed": 0.0
         }
       ],
       "reward_recipe": "bs_troll_bronze_axe"

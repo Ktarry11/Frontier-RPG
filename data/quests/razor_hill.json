@@ -22,7 +22,29 @@
       "turn_in_text": "Good. Now you actually know where you're standing, instead of just knowing you're not in the valley anymore. That's worth more than it sounds like. Go pick a fight with Durotar. It's been waiting.",
       "next_quest_id": null,
       "level_min": 3,
-      "level_max": 6
+      "level_max": 6,
+      "unique_item_defs": [
+        {
+          "name": "Notched Throwing Iron",
+          "slot": "ranged",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "required_level": 4,
+          "flavor_text": "Balanced by someone who threw it a great deal.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 1,
+            "intellect": 1
+          },
+          "secondary_stats": {
+            "attack_power": 1.1
+          },
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 22,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi)"
+        }
+      ]
     },
     {
       "quest_id": "razorhill_rocktusk_farm",
@@ -164,6 +186,24 @@
             "spirit": 1
           },
           "label": "Off-Hand (Int)"
+        },
+        {
+          "name": "Razor Hill Pitching Spike",
+          "slot": "ranged",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "required_level": 8,
+          "flavor_text": "Issued in threes. Most come back.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 17,
+          "weapon_damage_max": 23,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi)"
         }
       ]
     },

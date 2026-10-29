@@ -231,6 +231,27 @@
           "attack_speed": 2.6,
           "label": "Mace (Str/Sta/Def)"
         }
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Boar-Tusk Throwing Maul",
+          "slot": "ranged",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Mostly tusk. The handle is an afterthought and feels like one.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 59,
+          "attack_speed": 1.8,
+          "label": "Thrown (Str)"
+        }
       ]
     },
     {

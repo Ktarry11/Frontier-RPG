@@ -68,6 +68,15 @@ def make(name, slot, suffix, ilvl, flavor, armor_type=None, weapon_type=None,
         budget = (ilvl * LG.STAT_BUDGET_BASE_MULT * r
                   * LG.slots["weight_tiers"][wtier] * wt["budget_multiplier"])
         d["primary_stats"], d["secondary_stats"] = _stats(suffix, budget)
+        # RELICS AND HELD OFF-HANDS ARE STAT STICKS, no auto-attack damage -
+        # the same rule LootGenerator.generate_weapon applies. Only `shield`
+        # short-circuited above, so every hand-authored Totem and Tome in the
+        # game came out WITH weapon damage (8 totems at 20-85, a tome at
+        # 72-98) while procedurally generated ones correctly had none. Keyed
+        # on the type's own relic/non_weapon flags so Libram and Idol are
+        # covered without anyone having to remember this line.
+        if wt.get("relic") or wt.get("non_weapon"):
+            return d
         tier = wt.get("damage_tier", "one_hand")
         mult = LG.weapon_types["damage_tiers"][tier]["dps_multiplier"]
         # Early boss two-handers only get a small premium over a one-hander: at the global 1.8x the

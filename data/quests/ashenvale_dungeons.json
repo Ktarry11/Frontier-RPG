@@ -32,6 +32,24 @@
             "stamina": 3
           },
           "armor_type": "leather"
+        },
+        {
+          "name": "Chantry of the Drowned Choir",
+          "slot": "off_hand",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 20,
+          "flavor_text": "The notation goes underwater at the fourth bar and stays there.",
+          "weapon_type": "tome",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.9
+          },
+          "label": "Tome (Int/Spi)",
+          "attack_speed": 0.0
         }
       ]
     },
@@ -185,6 +203,26 @@
             "agility": 4
           },
           "armor_type": "leather"
+        },
+        {
+          "name": "Pit-Warden's Clasp",
+          "slot": "main_hand",
+          "item_level": 27,
+          "rarity": "rare",
+          "required_level": 24,
+          "flavor_text": "Worn by whoever was still standing. Resized often.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {
+            "strength": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 70,
+          "attack_speed": 1.8,
+          "label": "Fist (Str)"
         }
       ]
     },
@@ -386,6 +424,26 @@
             "intellect": 4,
             "stamina": 3
           }
+        },
+        {
+          "name": "Blight-Tipped Harpoon",
+          "slot": "ranged",
+          "item_level": 29,
+          "rarity": "rare",
+          "required_level": 26,
+          "flavor_text": "The tip is hollow and has been refilled more than once.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi)"
         }
       ]
     },

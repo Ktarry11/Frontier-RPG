@@ -932,6 +932,28 @@
           "armor_value": 35,
           "label": "Cloth Shoulders (Sta/Int/HP)"
         }
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Underdark Crystal Knuckle",
+          "slot": "main_hand",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 37,
+          "flavor_text": "A single grown facet, set in a grip of plain leather.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 1.8,
+          "label": "Fist (Str)"
+        }
       ]
     },
     {
@@ -1357,7 +1379,27 @@
           "label": "Necklace (Str/Sta/Crit)"
         }
       ],
-      "turn_in_npc_id": "kb_archivist"
+      "turn_in_npc_id": "kb_archivist",
+      "unique_item_defs": [
+        {
+          "name": "Tome of the Unlit Chancel",
+          "slot": "off_hand",
+          "item_level": 41,
+          "rarity": "rare",
+          "required_level": 38,
+          "flavor_text": "Gilt edges, and a thumbprint burned through the frontispiece.",
+          "weapon_type": "tome",
+          "primary_stats": {
+            "stamina": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.4
+          },
+          "label": "Tome (Int/Spi)",
+          "attack_speed": 0.0
+        }
+      ]
     },
     {
       "quest_id": "db_second_copy",

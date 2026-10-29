@@ -534,6 +534,24 @@
           "armor_type": "mail",
           "armor_value": 61,
           "label": "Mail Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sparring Iron",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 12,
+          "flavor_text": "Dented on the inside, which tells you how it was held.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 1.8,
+          "label": "Fist (Agi)"
         }
       ],
       "gear_reward_gear_level": 15,
@@ -1211,8 +1229,6 @@
             "healing_power": 1.1,
             "mp5": 0.2
           },
-          "weapon_damage_min": 20,
-          "weapon_damage_max": 27,
           "attack_speed": 0.0,
           "label": "Totem (Healing/MP5)"
         }

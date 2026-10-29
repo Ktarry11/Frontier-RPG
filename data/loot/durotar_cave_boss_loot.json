@@ -271,6 +271,26 @@
         "spell_power": 2.1,
         "spell_penetration": 0.9
       }
+    },
+    {
+      "name": "Hooked Fishing Javelin",
+      "slot": "ranged",
+      "item_level": 16,
+      "rarity": "uncommon",
+      "required_level": 13,
+      "flavor_text": "For fish that fight back, and, lately, for the other thing.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "agility": 1,
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "attack_power": 1.7
+      },
+      "weapon_damage_min": 22,
+      "weapon_damage_max": 30,
+      "attack_speed": 1.8,
+      "label": "Thrown (Agi)"
     }
   ],
   "Matriarch Vess'ra": [
@@ -338,6 +358,25 @@
       },
       "armor_type": "mail",
       "armor_value": 28
+    },
+    {
+      "name": "Scorpid Claw-Grips",
+      "slot": "main_hand",
+      "item_level": 12,
+      "rarity": "uncommon",
+      "required_level": 9,
+      "flavor_text": "Two pincers, reversed, and a strap to keep them shut.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 1,
+        "agility": 1,
+        "stamina": 1
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 21,
+      "weapon_damage_max": 29,
+      "attack_speed": 1.8,
+      "label": "Fist (Str)"
     }
   ],
   "Thunder Broodmother": [
@@ -389,8 +428,6 @@
       "secondary_stats": {
         "nature_spell_power": 2.9
       },
-      "weapon_damage_min": 29,
-      "weapon_damage_max": 39,
       "attack_speed": 0.0
     },
     {
@@ -473,6 +510,24 @@
       "weapon_damage_min": 46,
       "weapon_damage_max": 63,
       "attack_speed": 3.6
+    },
+    {
+      "name": "Ledger of Small Debts",
+      "slot": "off_hand",
+      "item_level": 11,
+      "rarity": "uncommon",
+      "required_level": 8,
+      "flavor_text": "Every name is crossed out. None of them are paid.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 1
+      },
+      "secondary_stats": {
+        "spell_power": 1.2,
+        "crit_chance_spell": 0.1
+      },
+      "label": "Tome (Int)",
+      "attack_speed": 0.0
     }
   ],
   "Undead Pirate Captain": [

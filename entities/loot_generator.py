@@ -786,7 +786,13 @@ class LootGenerator:
         "fire_resistance", "frost_resistance", "nature_resistance",
         "shadow_resistance", "arcane_resistance", "holy_resistance",
     }
-    RESISTANCE_LEVEL = 46
+    #: ITEM level, and the gate has to clear the REQUIRED level. Generated
+    #: gear sets required_level = item_level - 2, so a value of 46 produced
+    #: resistance items a player could equip at 44 - audit_loot caught it as
+    #: "RULE VIOLATION - magic resistance before level 45: 153 rolled items".
+    #: 48 puts the earliest usable resistance piece at required_level 46,
+    #: which is what "starts only after level 45" means.
+    RESISTANCE_LEVEL = 48
 
     #: OVERLAP ALONE IS NOT ENOUGH, and my first version of the widening
     #: above proved it. A suffix matches on overlap, so once Stamina and

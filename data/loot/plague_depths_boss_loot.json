@@ -67,6 +67,25 @@
       "weapon_damage_min": 53,
       "weapon_damage_max": 72,
       "attack_speed": 1.9
+    },
+    {
+      "name": "Depths-Forged Hurling Wedge",
+      "slot": "ranged",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Cast in a mould that cracked. The crack is part of the balance now.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 1.8,
+      "label": "Thrown (Str)"
     }
   ],
   "The Infected Noble": [
@@ -134,6 +153,24 @@
       "secondary_stats": {
         "defense_rating": 0.2
       }
+    },
+    {
+      "name": "Plague-Depths Dosing Book",
+      "slot": "off_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "The doses increase on every page and so does the handwriting's hurry.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {
+        "healing_power": 3.7
+      },
+      "label": "Tome (Int/Spi)",
+      "attack_speed": 0.0
     }
   ],
   "Plague Keeper Voss": [

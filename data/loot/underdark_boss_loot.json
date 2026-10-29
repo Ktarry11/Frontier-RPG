@@ -192,6 +192,24 @@
         "agility": 5
       },
       "secondary_stats": {}
+    },
+    {
+      "name": "Grimoire of the Quiet Hour",
+      "slot": "off_hand",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Meant to be read aloud. Nobody has.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 5.4,
+        "crit_chance_spell": 0.3
+      },
+      "label": "Tome (Int)",
+      "attack_speed": 0.0
     }
   ],
   "Capgorger": [
@@ -407,8 +425,6 @@
         "spell_power": 5.5,
         "mp5": 1.1
       },
-      "weapon_damage_min": 72,
-      "weapon_damage_max": 98,
       "attack_speed": 0.0
     },
     {
@@ -660,6 +676,40 @@
         "hit_rating": 0.5,
         "crit_chance_physical": 0.5
       }
+    },
+    {
+      "name": "Codex Interminable",
+      "slot": "off_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The page count disagrees with the pages.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 5.9,
+        "mp5": 1.2
+      },
+      "label": "Tome (Int)",
+      "attack_speed": 0.0
+    },
+    {
+      "name": "Libram of the Last Rite",
+      "slot": "ranged",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Short. It is meant to be finished.",
+      "weapon_type": "libram",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 4.2,
+        "mp5": 0.9
+      },
+      "label": "Libram (Spi)",
+      "attack_speed": 0.0
     }
   ],
   "The Prism Warden": [
@@ -793,6 +843,24 @@
         "stamina": 5
       },
       "secondary_stats": {}
+    },
+    {
+      "name": "Lexicon of the Sealed Stacks",
+      "slot": "off_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Lists every book nobody is permitted to read, including itself.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 5.0,
+        "mp5": 1.0
+      },
+      "label": "Tome (Int)",
+      "attack_speed": 0.0
     }
   ],
   "The Index": [
@@ -811,8 +879,6 @@
       "secondary_stats": {
         "mp5": 0.6
       },
-      "weapon_damage_min": 63,
-      "weapon_damage_max": 85,
       "attack_speed": 0.0
     },
     {

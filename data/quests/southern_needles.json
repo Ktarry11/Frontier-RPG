@@ -485,6 +485,26 @@
           },
           "label": "Ring (Int/Sta/MP5)"
         }
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Libram of Thin Dawn",
+          "slot": "ranged",
+          "item_level": 34,
+          "rarity": "rare",
+          "required_level": 31,
+          "flavor_text": "Written for the hour before light, by someone who waited it out.",
+          "weapon_type": "libram",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.5
+          },
+          "label": "Libram (Int/Spi)",
+          "attack_speed": 0.0
+        }
       ]
     },
     {
@@ -1066,6 +1086,28 @@
             "mp5": 0.5
           },
           "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Needle-Point Caltrop-Spike",
+          "slot": "ranged",
+          "item_level": 36,
+          "rarity": "rare",
+          "required_level": 33,
+          "flavor_text": "Thrown, dropped, or left where someone will find it.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.0
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 76,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi)"
         }
       ]
     },

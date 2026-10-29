@@ -337,6 +337,24 @@
           "weapon_damage_max": 39,
           "attack_speed": 2.6,
           "label": "Axe (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Quartermaster's Cipher-Book",
+          "slot": "off_hand",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "Half of it is a code and the other half is complaints.",
+          "weapon_type": "tome",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.9,
+            "crit_chance_spell": 0.1
+          },
+          "label": "Tome (Int)",
+          "attack_speed": 0.0
         }
       ],
       "gear_reward_gear_level": 18
@@ -964,6 +982,26 @@
           "armor_type": "mail",
           "armor_value": 44,
           "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Isle-Keeper's Cast-Spear",
+          "slot": "ranged",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 22,
+          "flavor_text": "Notched once for each thing worth notching.",
+          "weapon_type": "thrown",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.4
+          },
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 56,
+          "attack_speed": 1.8,
+          "label": "Thrown (Agi)"
         }
       ],
       "gear_reward_gear_level": 22,
@@ -1210,6 +1248,24 @@
             "healing_power": 1.2
           },
           "label": "Necklace (Int/Spi/HP)"
+        },
+        {
+          "name": "Fenris Duelling Catch",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 20,
+          "flavor_text": "Built to trap a blade. It has trapped several.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 45,
+          "weapon_damage_max": 61,
+          "attack_speed": 1.8,
+          "label": "Fist (Agi)"
         }
       ],
       "gear_reward_gear_level": 20

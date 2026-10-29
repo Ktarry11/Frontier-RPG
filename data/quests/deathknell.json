@@ -432,6 +432,26 @@
           "armor_type": "mail",
           "armor_value": 24,
           "label": "Mail Chest (Str/Sta)"
+        },
+        {
+          "name": "Knotted Rope-Knuckles",
+          "slot": "main_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "required_level": 5,
+          "flavor_text": "Wet, then dried, then wet again. Hard as a stone now.",
+          "weapon_type": "fist_weapon",
+          "primary_stats": {
+            "agility": 1
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1,
+            "crit_chance_physical": 0.1
+          },
+          "weapon_damage_min": 19,
+          "weapon_damage_max": 26,
+          "attack_speed": 1.8,
+          "label": "Fist (Agi)"
         }
       ],
       "gear_reward_gear_level": 8
@@ -518,6 +538,24 @@
           "weapon_damage_max": 24,
           "attack_speed": 3.3,
           "label": "Polearm (Str/Agi)"
+        },
+        {
+          "name": "Deathknell Hymnal",
+          "slot": "off_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "required_level": 6,
+          "flavor_text": "Forty hymns. Thirty-one are about dirt.",
+          "weapon_type": "tome",
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
+          "secondary_stats": {
+            "healing_power": 0.8
+          },
+          "label": "Tome (Int/Spi)",
+          "attack_speed": 0.0
         }
       ],
       "gear_reward_gear_level": 8
