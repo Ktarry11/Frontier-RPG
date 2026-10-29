@@ -186,7 +186,7 @@ def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
 ABILITIES = [
     ability("attack", "Attack", "damage",
             "A swing of whatever you are holding.", one(1, 0, 0),
-            icon="ability_melee",
+            icon=None,
             source="Convention: every class ships a free rank-1 Attack."),
 
     # ---- shared class kit (CoA's class tree + the spells all three

@@ -159,7 +159,7 @@ def generates(amount):
 ABILITIES = [
     ability("attack", "Attack", "damage",
             "A swing with whatever you are holding.", one(1, 0, 0),
-            icon="ability_melee",
+            icon=None,
             source="Convention: every class ships a free rank-1 Attack. The "
                    "only weapon strike a Necromancer has, hence the only "
                    "ability_melee icon in the file."),
