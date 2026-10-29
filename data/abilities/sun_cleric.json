@@ -1365,10 +1365,10 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {
-        "block_value_pct": 30
+        "block_value_pct": 0.3
       },
       "description": "Increase block value for a number of blocks or a duration.",
-      "_source": "CoA handoff doc confirmed: '2 charges, 25-sec recharge. Boosts block value for a number of blocks or duration.'",
+      "_source": "CoA handoff doc confirmed: '2 charges, 25-sec recharge. Boosts block value for a number of blocks or duration.'  UNIT FIXED: block_value_pct in an ability's stat_mods is a FRACTION - it feeds block_value *= (1.0 + x) - so 30 meant 30%. Verified: 0.2 raised a 15.9 block value to 19.1, exactly +20%.",
       "target_type": "self",
       "ranks": [
         {

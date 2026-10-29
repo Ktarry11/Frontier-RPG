@@ -381,6 +381,49 @@ def validate_abilities(slug, report, effect_types, global_ids):
                     f"{ability.get('ability_id')}: stat_mod {key!r} is read by no "
                     f"engine code - this part of the ability does nothing")
 
+    # UNIT CONVENTIONS ON ABILITY stat_mods. This is the single worst trap in
+    # the codebase and nothing checked it. Six separate bugs came from it in
+    # one session, two of them granting permanent damage immunity and one
+    # granting +800% health:
+    #
+    #   starcaller_celestial_aegis   damage_taken_pct -25   meant -2500%
+    #   starcaller_shrouded_stars    damage_taken_pct  -5   meant  -500%
+    #   venomancer_harden            damage_taken_pct -45   meant -4500%
+    #   runemaster_augurs_shield     damage_taken_pct -10   meant -1000%
+    #   runemaster_aspect_...        damage_taken_pct  -8   meant  -800%
+    #   guardian_heros_decree        max_health_pct   8.0   meant  +800%
+    #
+    # The conventions differ PER KEY with no naming rule, and the two worst
+    # offenders sit four lines apart in Character.take_damage: the bare
+    # damage_taken_pct is added UNDIVIDED while physical_/magic_ variants
+    # right below it ARE divided by 100. Several _source notes in the repo
+    # still state the rule backwards, because a previous session generalised
+    # it FROM one of these bugs and cited itself twice - which is exactly why
+    # this belongs in a tool rather than in a comment.
+    FRACTION_MODS = {
+        "damage_taken_pct", "max_health_pct", "max_mana_pct",
+        "block_value_pct", "all_ability_cost_pct",
+    }
+    POINTS_MODS = {
+        "physical_damage_taken_pct", "magic_damage_taken_pct",
+        "spell_damage_taken_pct", "healing_taken_pct",
+        "armor_pct", "stamina_pct", "threat_generation_pct",
+    }
+    for ability in abilities:
+        for key, val in (ability.get("stat_mods") or {}).items():
+            if not isinstance(val, (int, float)) or val == 0:
+                continue
+            if key in FRACTION_MODS and abs(val) > 1:
+                report.error(
+                    f"{ability.get('ability_id')}: {key}={val} is a FRACTION in an "
+                    f"ability's stat_mods, so this means {val * 100:g}%. Use "
+                    f"{val / 100:g}.")
+            elif key in POINTS_MODS and abs(val) < 1:
+                report.error(
+                    f"{ability.get('ability_id')}: {key}={val} is in PERCENT POINTS "
+                    f"in an ability's stat_mods, so this means {val:g}% and does "
+                    f"almost nothing. Use {val * 100:g}.")
+
     # execute_threshold_pct IS A PERCENT ON A 0-100 SCALE, not a fraction.
     # Ability.use computes target_pct = current/max * 100 and refuses the
     # cast above the threshold, so 0.35 demands a target below 0.35% health.

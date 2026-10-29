@@ -373,7 +373,7 @@
       "effect_type": "buff",
       "duration": 0,
       "stat_mods": {
-        "physical_damage_taken_pct": -0.1
+        "physical_damage_taken_pct": -10
       },
       "description": "Hold formation with your allies, every shield covering the one beside it.",
       "ranks": [
@@ -385,7 +385,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Formation cuts damage 10%', and Formations are mutually exclusive - same exclusive_group as Tower.",
+      "_source": "CoA: 'Formation cuts damage 10%', and Formations are mutually exclusive - same exclusive_group as Tower.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.1 meant -0.1% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
       "target_type": "self",
       "buff_scope": "party",
       "exclusive_group": "guardian_formation"
@@ -907,7 +907,7 @@
       "effect_type": "buff",
       "duration": 4,
       "stat_mods": {
-        "physical_damage_taken_pct": -0.12,
+        "physical_damage_taken_pct": -12,
         "stun_duration_reduction_pct": 0.3
       },
       "description": "Drive your standard into the ground. Nobody standing in its shadow gives up ground easily.",
@@ -920,7 +920,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.",
+      "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.12 meant -0.12% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
       "target_type": "self",
       "buff_scope": "party"
     },
@@ -1056,7 +1056,7 @@
       "duration": 3,
       "stat_mods": {
         "haste": 8.0,
-        "physical_damage_taken_pct": -0.05
+        "physical_damage_taken_pct": -5
       },
       "description": "You set off and the line comes with you.",
       "ranks": [
@@ -1068,7 +1068,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA lists Hero's March with Liberation and Harrowing Melody as the Voice of an Angel reset targets.",
+      "_source": "CoA lists Hero's March with Liberation and Harrowing Melody as the Voice of an Angel reset targets.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.05 meant -0.05% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
       "target_type": "self",
       "buff_scope": "party"
     },

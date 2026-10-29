@@ -314,7 +314,7 @@
       "effect_type": "buff",
       "duration": 1,
       "stat_mods": {
-        "magic_damage_taken_pct": -0.5,
+        "magic_damage_taken_pct": -50,
         "cc_immune": 1
       },
       "description": "You step sideways out of the spellwork and it closes over empty air.",
@@ -327,7 +327,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Enter a powerful stealth mode for 3 seconds, granting immunity to all harmful magic effects... Usable while stunned or feared.' cc_immune is the engine's real crowd-control immunity flag (StatusEffectMixin reads it before applying a stun), paired with heavy magic mitigation. The 'only usable for 10 seconds after being hit by a magical critical strike' condition has no hook, so it is a plain 12-turn cooldown instead.",
+      "_source": "CoA: 'Enter a powerful stealth mode for 3 seconds, granting immunity to all harmful magic effects... Usable while stunned or feared.' cc_immune is the engine's real crowd-control immunity flag (StatusEffectMixin reads it before applying a stun), paired with heavy magic mitigation. The 'only usable for 10 seconds after being hit by a magical critical strike' condition has no hook, so it is a plain 12-turn cooldown instead.  UNIT FIXED: magic_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.5 meant -0.5% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
       "target_type": "self"
     },
     {
@@ -387,7 +387,7 @@
       "effect_type": "debuff",
       "duration": 3,
       "stat_mods": {
-        "physical_damage_taken_pct": 0.08
+        "physical_damage_taken_pct": 8
       },
       "description": "You name them out loud. Everything after that is easier.",
       "ranks": [
@@ -399,7 +399,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Mark an enemy, increasing the attack power of all attackers against that target by 150 and your critical strike chance against them by 3%.' A debuff's stat_mods land on the ENEMY here, so the attacker-side wording is turned round into the defender-side key that means the same thing - physical_damage_taken_pct on the marked target, read from status effects in Character.take_damage.",
+      "_source": "CoA: 'Mark an enemy, increasing the attack power of all attackers against that target by 150 and your critical strike chance against them by 3%.' A debuff's stat_mods land on the ENEMY here, so the attacker-side wording is turned round into the defender-side key that means the same thing - physical_damage_taken_pct on the marked target, read from status effects in Character.take_damage.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so 0.08 meant 0.08% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
       "target_type": "enemy"
     },
     {
