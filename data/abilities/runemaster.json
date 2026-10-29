@@ -671,11 +671,9 @@
       "cooldown": 4,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "Interrupt an enemy's spellcasting, school-locking them.",
-      "_source": "Confirmed screenshot: Lvl 18, 'preventing any spell in that school from being cast for 2.50 sec.' Real hard interrupt shared across all 3 specs per the handoff doc.",
+      "_source": "Confirmed screenshot: Lvl 18, 'preventing any spell in that school from being cast for 2.50 sec.' Real hard interrupt shared across all 3 specs per the handoff doc.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -695,11 +693,9 @@
       "cooldown": 5,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Unleash a frost rune at an enemy, stunning them. Requires a Frozen target.",
-      "_source": "Confirmed screenshot: Lvl 12, 'Requires Frozen Target. Unleash a frost rune at an enemy, stunning them for 4 sec. Affected enemies are considered Frozen.' Real combo-mechanic ability - requires the target already have the Frozen tag from another spell (e.g. Frigid Blast, Hoarfrost). Frozen-tag prerequisite not yet enforced mechanically.",
+      "_source": "Confirmed screenshot: Lvl 12, 'Requires Frozen Target. Unleash a frost rune at an enemy, stunning them for 4 sec. Affected enemies are considered Frozen.' Real combo-mechanic ability - requires the target already have the Frozen tag from another spell (e.g. Frigid Blast, Hoarfrost). Frozen-tag prerequisite not yet enforced mechanically.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -1827,11 +1823,9 @@
       "cooldown": 6,
       "effect_type": "debuff",
       "duration": 2,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "A ground area that activates after a delay and silences enemies inside.",
-      "_source": "CoA handoff doc: 'Ground area, activates after a delay: silences enemies inside.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Ground area, activates after a delay: silences enemies inside.' Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {

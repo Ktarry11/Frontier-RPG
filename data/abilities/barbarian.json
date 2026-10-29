@@ -257,9 +257,7 @@
       "cooldown": 5,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "One short punch to the jaw. Whatever they were saying stops.",
       "ranks": [
         {
@@ -270,7 +268,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Jawbreaker - interrupting them and preventing any spell from that school from being cast for 4 seconds'. This engine has ONE crowd-control category, is_stun - status_effects.py says so outright ('one mechanic, is_stun, with no separate silence/root category') and StatusEffectMixin.is_stunned is what actually withholds a turn. So the interrupt is is_stun for one turn; the `silenced` stat_mod is the shipped convention's tooltip label and nothing reads it. School lockout has no hook.",
+      "_source": "CoA: 'Jawbreaker - interrupting them and preventing any spell from that school from being cast for 4 seconds'. This engine has ONE crowd-control category, is_stun - status_effects.py says so outright ('one mechanic, is_stun, with no separate silence/root category') and StatusEffectMixin.is_stunned is what actually withholds a turn. So the interrupt is is_stun for one turn; the `silenced` stat_mod is the shipped convention's tooltip label and nothing reads it. School lockout has no hook.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy",
       "is_stun": true
     },
@@ -359,9 +357,7 @@
       "cooldown": 8,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Pick up a rock. Throw the rock. They sit down.",
       "ranks": [
         {
@@ -372,7 +368,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'hurl it at an enemy's skull, disorienting them ... Damage taken will end this effect'. Disorient is modelled as the engine's stun, which is the closest honest fit; the break-on-damage half has no hook, so the duration is one turn to keep it from being strictly better than CoA's.",
+      "_source": "CoA: 'hurl it at an enemy's skull, disorienting them ... Damage taken will end this effect'. Disorient is modelled as the engine's stun, which is the closest honest fit; the break-on-damage half has no hook, so the duration is one turn to keep it from being strictly better than CoA's.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy",
       "is_stun": true
     },

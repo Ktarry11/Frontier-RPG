@@ -262,6 +262,29 @@ class Report:
 
 # ------------------------------------------------------------------ class facts
 
+
+def is_stat_conversion(key):
+    """True for a <target>_from_<source>_pct stat-conversion key.
+
+    These are resolved dynamically in Character._recalculate_derived_stats
+    against module-level STAT_CONVERSION_TARGETS and STAT_CONVERSION_SOURCES,
+    so no literal grep finds them and audit_talents' key set does not carry
+    them. They work through the STATUS channel as well as the talent one -
+    verified by applying spell_power_from_agility_pct and ap_from_intellect_pct
+    as buff stat_mods on a Templar: spell power went 5 -> 38 (half of 66
+    Agility) and attack power 105 -> 119. Without this, the dead-key check
+    reported Templar's Libram of Fervor as doing nothing when it does.
+    """
+    if not key.endswith("_pct") or "_from_" not in key:
+        return False
+    try:
+        from entities.character import STAT_CONVERSION_TARGETS, STAT_CONVERSION_SOURCES
+    except Exception:                                          # noqa: BLE001
+        return True        # cannot check - do not accuse
+    body = key[: -len("_pct")]
+    target, _, source = body.partition("_from_")
+    return target in STAT_CONVERSION_TARGETS and source in STAT_CONVERSION_SOURCES
+
 def class_display_name(slug):
     """guardian -> Guardian, knight_of_xoroth -> Knight of Xoroth.
 
@@ -317,6 +340,47 @@ def validate_abilities(slug, report, effect_types, global_ids):
     # slam", "energy-dump filler and cleave", "for 3+ mobs"), and each hit
     # exactly one enemy - Broad Sweep, declared max_targets 3, hit 1 of 4.
     # The flag made the data look correct, which is why it survived.
+    # DEAD STAT_MOD KEYS ON ABILITIES. audit_talents.py checks talent trees
+    # for keys the engine never reads; nothing checked ABILITIES, and a sweep
+    # found 46 such values across 25 keys. Some were plain misspellings of a
+    # live stat - dodge_chance for dodge, parry_chance for parry,
+    # cost_reduction_pct for all_ability_cost_pct - each silently dropping
+    # half an ability's effect.
+    #
+    # The worst were FLAG-SHAPED: 23 values of "stunned", "silenced",
+    # "rooted" and "stealthed", which look exactly like the mechanism and are
+    # not (the real one is the ability-level is_stun flag). That is the same
+    # trap as is_aoe: data that reads as correct and does nothing. Flagged as
+    # an error so neither can come back.
+    #
+    # Everything else is reported as a WARNING rather than an error, because
+    # most of the remainder are mechanics this engine genuinely lacks -
+    # pushback, movement speed, ability range, reducing a target's hit chance
+    # - rather than typos. Those are worth seeing and not worth failing a
+    # build over.
+    FLAG_KEYS = {"stunned", "silenced", "rooted", "stealthed"}
+    audit_mod = None
+    try:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import audit_talents as audit_mod                      # noqa: PLC0415
+        known = audit_mod.live_effect_keys() | audit_mod.scale_talent_keys()
+        dynamic = audit_mod._DYNAMIC_KEY
+    except Exception:                                          # noqa: BLE001
+        known, dynamic = None, None
+    for ability in abilities:
+        for key in (ability.get("stat_mods") or {}):
+            if key in FLAG_KEYS:
+                report.error(
+                    f"{ability.get('ability_id')}: stat_mod {key!r} is read by "
+                    f"NOTHING - the real mechanism is the ability-level is_stun "
+                    f"flag. A flag-shaped dead key is the is_aoe trap again.")
+            elif (known is not None and key not in known
+                    and not dynamic.match(key)
+                    and not is_stat_conversion(key)):
+                report.warn(
+                    f"{ability.get('ability_id')}: stat_mod {key!r} is read by no "
+                    f"engine code - this part of the ability does nothing")
+
     # execute_threshold_pct IS A PERCENT ON A 0-100 SCALE, not a fraction.
     # Ability.use computes target_pct = current/max * 100 and refuses the
     # cast above the threshold, so 0.35 demands a target below 0.35% health.

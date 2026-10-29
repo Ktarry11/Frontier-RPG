@@ -1021,6 +1021,15 @@ class Ability:
             return 0
         pct = self._talent(caster, f"ability_{self.ability_id}_cost_pct")
         pct += self._talent(caster, "all_ability_cost_pct")
+        # BUFF-SOURCED COST REDUCTION TOO, not just talents. This read the
+        # talent channel only, so an ABILITY that buffs "reduce ability
+        # costs" was silently dropped - Primalist's Boon of the Hawk
+        # ("Increase your spell haste, reduce ability costs, and regenerate
+        # health over time") delivered the haste and nothing else. Read as a
+        # FRACTION, the same unit the same key already uses on the talent
+        # side: one key, one meaning, whichever channel it arrives through.
+        if hasattr(caster, "get_status_stat_mod"):
+            pct += caster.get_status_stat_mod("all_ability_cost_pct")
         if self.effect_type in ("heal", "hot"):
             pct += self._talent(caster, "heal_cost_pct")
             pct += self._talent(caster, "healing_spell_cost_pct")

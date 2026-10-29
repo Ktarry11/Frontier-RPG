@@ -502,10 +502,10 @@
       "duration": 30,
       "stat_mods": {
         "haste": 25,
-        "dodge_chance": 8
+        "dodge": 8
       },
       "description": "Increase movement speed and Dodge chance. Only 1 Boon may be active at a time.",
-      "_source": "Confirmed screenshot: Lvl 20, '+25% movement speed, +8% dodge.' Part of the Boon family.",
+      "_source": "Confirmed screenshot: Lvl 20, '+25% movement speed, +8% dodge.' Part of the Boon family.  DEAD STAT KEY CORRECTED: 'dodge_chance' is read by nothing in the engine; the live key is dodge. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "self",
       "ranks": [
         {
@@ -593,10 +593,11 @@
       "effect_type": "buff",
       "duration": 15,
       "stat_mods": {
-        "nature_arcane_resist_pct": 3
+        "nature_resist_pct": 3,
+        "arcane_resist_pct": 3
       },
       "description": "Sprinkle an ally with Fae Dust, reducing Nature and Arcane damage taken.",
-      "_source": "Confirmed screenshot: Lvl 28, '-3% Nature and Arcane damage taken. Lasts 15 min.'",
+      "_source": "Confirmed screenshot: Lvl 28, '-3% Nature and Arcane damage taken. Lasts 15 min.'  DEAD STAT KEY CORRECTED: 'nature_arcane_resist_pct' is read by nothing in the engine; the live key is nature_resist_pct + arcane_resist_pct. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "party",
       "ranks": [
         {
@@ -663,10 +664,10 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "cc_resist": 40
+        "stun_duration_reduction_pct": 40
       },
       "description": "Increase your chance to resist fear, charm, and sleep effects, and periodically dispel them from nearby party members. Only 1 Boon may be active at a time.",
-      "_source": "Confirmed screenshot: Lvl 30, '+40% resist fear/charm/sleep, dispel 1 such effect from party members within 30 yds every 3 sec.' Part of the Boon family.",
+      "_source": "Confirmed screenshot: Lvl 30, '+40% resist fear/charm/sleep, dispel 1 such effect from party members within 30 yds every 3 sec.' Part of the Boon family.  DEAD STAT KEY CORRECTED: 'cc_resist' is read by nothing in the engine; the live key is stun_duration_reduction_pct. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "self",
       "ranks": [
         {
@@ -755,10 +756,10 @@
       "duration": 30,
       "stat_mods": {
         "haste": 12,
-        "cost_reduction_pct": 10
+        "all_ability_cost_pct": 0.1
       },
       "description": "Increase your spell haste, reduce ability costs, and regenerate health over time. Only 1 Boon may be active at a time.",
-      "_source": "Confirmed screenshot: Lvl 6, '+12% spell haste, -10% spell/ability cost, regenerate 1% max health every 5 sec.' Part of the Boon family.",
+      "_source": "Confirmed screenshot: Lvl 6, '+12% spell haste, -10% spell/ability cost, regenerate 1% max health every 5 sec.' Part of the Boon family.  DEAD STAT KEY CORRECTED: 'cost_reduction_pct' is read by nothing in the engine; the live key is all_ability_cost_pct. Verified by applying each as a status stat_mod and reading the stat back.  AND THE VALUE: 10 was written for the dead key as percent POINTS, but all_ability_cost_pct is a FRACTION - talented_cost computes cost * (1 - pct) and clamps at 0.90, so 10 read as -1000% and clamped to a 90% discount: Geode Barrage went from 11 to 1. Renaming the key without converting the value traded a dead effect for a wrong one, which is worse. Now 0.10, i.e. the 10% the description means.",
       "target_type": "self",
       "ranks": [
         {
@@ -778,11 +779,9 @@
       "cooldown": 4,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Throw a hammer at an enemy, dealing Physical damage and stunning them.",
-      "_source": "Confirmed screenshot: Mountain King-locked (was wrongly class-wide), Lvl 26 (was 20), '80 Physical damage and stunning them for 5 sec.'",
+      "_source": "Confirmed screenshot: Mountain King-locked (was wrongly class-wide), Lvl 26 (was 20), '80 Physical damage and stunning them for 5 sec.'  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,

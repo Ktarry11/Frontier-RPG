@@ -524,11 +524,9 @@
       "cooldown": 5,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "Inject an enemy with nullifying toxin, interrupting their cast and preventing that school from being cast.",
-      "_source": "Confirmed screenshot: Lvl 22, 'interrupting them and preventing any spell from that school from being cast for 3 sec.'",
+      "_source": "Confirmed screenshot: Lvl 22, 'interrupting them and preventing any spell from that school from being cast for 3 sec.'  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -1589,11 +1587,9 @@
       "cooldown": 4,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "rooted": 1
-      },
+      "stat_mods": {},
       "description": "Emit webs at all enemies, rooting them and dealing Nature damage.",
-      "_source": "Confirmed screenshot: Lvl 24, 'rooting them for 4 sec and inflicting 83 Nature damage.'",
+      "_source": "Confirmed screenshot: Lvl 24, 'rooting them for 4 sec and inflicting 83 Nature damage.'  Removed dead flag stat_mod(s) ['rooted']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {

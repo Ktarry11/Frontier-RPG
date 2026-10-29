@@ -302,11 +302,9 @@
       "cooldown": 5,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Discombobulate an enemy, disorienting them for 4 sec. Damage dealt will end the effect.",
-      "_source": "Real screenshot: Requires Level 8. Demolition leveling sequence.",
+      "_source": "Real screenshot: Requires Level 8. Demolition leveling sequence.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,

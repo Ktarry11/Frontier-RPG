@@ -1228,11 +1228,9 @@
       "cooldown": 8,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "A ground stomp dealing Arcane AoE damage and stunning nearby enemies.",
-      "_source": "CoA handoff doc: 'Ground stomp: Arcane AoE + stun.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Ground stomp: Arcane AoE + stun.' Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {
@@ -1504,11 +1502,9 @@
       "cooldown": 10,
       "effect_type": "debuff",
       "duration": 3,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Put an enemy to sleep and drain their mana over time. Damage ends the effect.",
-      "_source": "CoA handoff doc: 'Sleep + mana drain over time; damage ends it.' Modeled as a stun per the project's turn-based CC convention. Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Sleep + mana drain over time; damage ends it.' Modeled as a stun per the project's turn-based CC convention. Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -1528,11 +1524,9 @@
       "cooldown": 8,
       "effect_type": "buff",
       "duration": 2,
-      "stat_mods": {
-        "stealthed": 1
-      },
+      "stat_mods": {},
       "description": "Phase a target ally into improved stealth. Does not break on damage.",
-      "_source": "CoA handoff doc: 'Phases target ally into improved stealth; doesn't break on damage.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Phases target ally into improved stealth; doesn't break on damage.' Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['stealthed']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries - EXCEPT IT DOES NOT, so this was a stun that never stunned. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "ally",
       "ranks": [
         {
@@ -1820,11 +1814,9 @@
       "cooldown": 8,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "Interrupt and school-lock an enemy's current cast.",
-      "_source": "CoA handoff doc confirmed as Warden's real interrupt/AoE-silence teleport. Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc confirmed as Warden's real interrupt/AoE-silence teleport. Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {

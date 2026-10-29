@@ -1392,11 +1392,9 @@
       "cooldown": 0,
       "effect_type": "debuff",
       "duration": 30,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "Summon a ground Tentacle of N'Zoth that silences and repeatedly damages the target, re-targeting if they flee range.",
-      "_source": "CoA handoff doc: 'Ground summon: silences + repeats damage on target; re-targets if target flees range.' Real numbers not confirmed via a dedicated screenshot; pet summon stubbed as a direct debuff.",
+      "_source": "CoA handoff doc: 'Ground summon: silences + repeats damage on target; re-targets if target flees range.' Real numbers not confirmed via a dedicated screenshot; pet summon stubbed as a direct debuff.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -1634,11 +1632,9 @@
       "cooldown": 8,
       "effect_type": "debuff",
       "duration": 2,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Launch an enemy airborne with a stun and repeating Shadow damage. Target takes more spell damage while channeled.",
-      "_source": "CoA handoff doc confirmed as Corruption's hard control signature: 'Airborne stun + repeating Shadow damage; target takes more spell damage while channeled.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc confirmed as Corruption's hard control signature: 'Airborne stun + repeating Shadow damage; target takes more spell damage while channeled.' Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -1717,11 +1713,9 @@
       "cooldown": 10,
       "effect_type": "debuff",
       "duration": 2,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "Interrupt and school-lock all nearby enemy spellcasts.",
-      "_source": "CoA handoff doc confirmed as a real AoE interrupt: 'Interrupts + school-locks all nearby enemy casts.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc confirmed as a real AoE interrupt: 'Interrupts + school-locks all nearby enemy casts.' Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {
@@ -2270,11 +2264,9 @@
       "cooldown": 10,
       "effect_type": "debuff",
       "duration": 2,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "A Polymorph-style crowd control on an enemy, removing harmful magic from them. Damage may break it.",
-      "_source": "CoA handoff doc: 'Polymorph-style CC on an enemy; removes harmful magic. Damage may break it.' Real numbers not confirmed via a dedicated screenshot; modeled as a stun for turn-based combat.",
+      "_source": "CoA handoff doc: 'Polymorph-style CC on an enemy; removes harmful magic. Damage may break it.' Real numbers not confirmed via a dedicated screenshot; modeled as a stun for turn-based combat.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -2457,10 +2449,11 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "holy_fire_resist_pct": 10
+        "holy_resist_pct": 10,
+        "fire_resist_pct": 10
       },
       "description": "Reduce Holy and Fire damage taken for an ally, and periodically heal them while active.",
-      "_source": "CoA handoff doc: 'Reduces Holy+Fire damage taken for an ally; periodic heal while active.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Reduces Holy+Fire damage taken for an ally; periodic heal while active.' Real numbers not confirmed via a dedicated screenshot.  DEAD STAT KEY CORRECTED: 'holy_fire_resist_pct' is read by nothing in the engine; the live key is holy_resist_pct + fire_resist_pct. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "party",
       "ranks": [
         {

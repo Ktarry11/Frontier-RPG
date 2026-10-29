@@ -473,11 +473,9 @@
       "cooldown": 5,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "silenced": 1
-      },
+      "stat_mods": {},
       "description": "Send forth a gust of wind in a frontal cone, knocking enemies back and interrupting their current spell cast.",
-      "_source": "Confirmed screenshot: Lvl 16, 'knocking enemies back and interrupting all enemies current spell cast, preventing any spell from that school from being cast for 5 sec.' Knockback translated to N/A in turn-based (no positioning system); interrupt+silence kept as the real mechanical payoff.",
+      "_source": "Confirmed screenshot: Lvl 16, 'knocking enemies back and interrupting all enemies current spell cast, preventing any spell from that school from being cast for 5 sec.' Knockback translated to N/A in turn-based (no positioning system); interrupt+silence kept as the real mechanical payoff.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {
@@ -498,11 +496,9 @@
       "cooldown": 5,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Disturb an enemy with a vision of the coming storm, stunning them.",
-      "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch) - real-time fear translated to turn-based stun per project convention.",
+      "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch) - real-time fear translated to turn-based stun per project convention.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -796,11 +792,9 @@
       "cooldown": 4,
       "effect_type": "spell_damage",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Call down a terrible beam of lightning upon an enemy, dealing Nature damage and stunning them.",
-      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 16 (Rank 2 shown), Depletes ALL Static, '167 Nature damage and stunning them for 1 sec. Damage and cast time increased based on Static level.' Rank 1 numbers extrapolated downward from the Rank 2 figure shown.",
+      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 16 (Rank 2 shown), Depletes ALL Static, '167 Nature damage and stunning them for 1 sec. Damage and cast time increased based on Static level.' Rank 1 numbers extrapolated downward from the Rank 2 figure shown.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,

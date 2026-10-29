@@ -373,11 +373,9 @@
       "cooldown": 6,
       "effect_type": "debuff",
       "duration": 1,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Flash powerful light that deals Holy damage and stuns nearby enemies.",
-      "_source": "Confirmed screenshot: Lvl 40, '32 Holy damage and stuns enemies within 8 yds for 5 sec.'",
+      "_source": "Confirmed screenshot: Lvl 40, '32 Holy damage and stuns enemies within 8 yds for 5 sec.'  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {
@@ -460,11 +458,10 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {
-        "stunned": 1,
         "damage_taken_pct": 0.5
       },
       "description": "Bring judgement upon all nearby enemies, incapacitating them. Damage dealt ends this effect early but increases their damage taken from your next hit.",
-      "_source": "Confirmed screenshot: Lvl 6, 'incapacitating them for 30 sec (8 sec vs players). Damage dealt will end this effect. Affected enemies take 50% increased damage from your next instance of damage.' Modeled as a stun for turn-based combat.\n\nUNIT FIX 2026-10-29, found while tracing the identical bug on Primalist's Boon of the Turtle. This was 50, meaning +50 percentage points to a key that is NOT read in points: Character.take_damage does `taken_mult = 1.0 + get_talent_effect('damage_taken_pct')` then adds get_status_stat_mod('damage_taken_pct') with NO /100, unlike physical_damage_taken_pct a few lines below which IS divided. So 50 made taken_mult 51 and every enemy hit by this eight-second-cooldown AoE took FIFTY-ONE TIMES damage. Now 0.5, the 50% the screenshot states. The other stat_mods on this ability were already right and are untouched: damage_dealt_pct and healing_done_pct ARE points (combat/abilities.py divides the status-sourced value by 100).",
+      "_source": "Confirmed screenshot: Lvl 6, 'incapacitating them for 30 sec (8 sec vs players). Damage dealt will end this effect. Affected enemies take 50% increased damage from your next instance of damage.' Modeled as a stun for turn-based combat.\n\nUNIT FIX 2026-10-29, found while tracing the identical bug on Primalist's Boon of the Turtle. This was 50, meaning +50 percentage points to a key that is NOT read in points: Character.take_damage does `taken_mult = 1.0 + get_talent_effect('damage_taken_pct')` then adds get_status_stat_mod('damage_taken_pct') with NO /100, unlike physical_damage_taken_pct a few lines below which IS divided. So 50 made taken_mult 51 and every enemy hit by this eight-second-cooldown AoE took FIFTY-ONE TIMES damage. Now 0.5, the 50% the screenshot states. The other stat_mods on this ability were already right and are untouched: damage_dealt_pct and healing_done_pct ARE points (combat/abilities.py divides the status-sourced value by 100).  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
         {
@@ -622,11 +619,9 @@
       "cooldown": 0,
       "effect_type": "spell_dot",
       "duration": 4,
-      "stat_mods": {
-        "stunned": 1
-      },
+      "stat_mods": {},
       "description": "Slam an enemy repeatedly with the might of the sun, dealing Holy damage and stunning them each hit. Only usable while Dawn is active. Usable while moving.",
-      "_source": "Confirmed screenshot: Lvl 26, 'dealing 47 Holy damage and stunning them for 1 sec. Lasts 4 sec. Only usable while Dawn is active. Usable while moving.'",
+      "_source": "Confirmed screenshot: Lvl 26, 'dealing 47 Holy damage and stunning them for 1 sec. Lasts 4 sec. Only usable while Dawn is active. Usable while moving.'  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
           "rank": 1,
@@ -1230,10 +1225,10 @@
       "duration": 30,
       "stat_mods": {
         "damage_dealt_pct": 5,
-        "parry_chance": 5
+        "parry": 5
       },
       "description": "Grant the party and raid a damage buff, and increase your parry chance. Does not stack with similar effects.",
-      "_source": "CoA handoff doc: 'Party/raid damage buff (no stacking with similar); boosts your parry chance.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Party/raid damage buff (no stacking with similar); boosts your parry chance.' Real numbers not confirmed via a dedicated screenshot.  DEAD STAT KEY CORRECTED: 'parry_chance' is read by nothing in the engine; the live key is parry. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "self",
       "ranks": [
         {
