@@ -576,38 +576,72 @@
     }
   },
   "dual_wield": {
-    "Rogue": "all",
-    "Warrior": [
-      "warrior_fury"
-    ],
-    "Shaman": [
-      "shaman_enhancement"
-    ],
-    "Ranger": "all",
-    "Runemaster": [
-      "runemaster_engravement"
-    ],
-    "Reaper": [
-      "reaper_harvest"
-    ],
-    "Felsworn": [
-      "felsworn_slayer",
-      "felsworn_tyrant"
-    ],
-    "Sun Cleric": [
-      "sun_cleric_valkyrie",
-      "sun_cleric_seraphim"
-    ],
-    "Primalist": [
-      "primalist_wildwalker",
-      "primalist_grovekeeper"
-    ],
-    "Barbarian": [
-      "barbarian_brutality"
-    ],
-    "Witch Hunter": [
-      "witch_hunter_inquisition",
-      "witch_hunter_boltslinger"
-    ]
+    "Rogue": {
+      "specs": "all",
+      "min_level": 20
+    },
+    "Warrior": {
+      "specs": [
+        "warrior_fury"
+      ],
+      "min_level": 20
+    },
+    "Shaman": {
+      "specs": [
+        "shaman_enhancement"
+      ],
+      "min_level": 20
+    },
+    "Hunter": {
+      "specs": "all",
+      "min_level": 20
+    },
+    "Ranger": {
+      "specs": "all",
+      "min_level": 20
+    },
+    "Runemaster": {
+      "specs": [
+        "runemaster_engravement"
+      ],
+      "min_level": 20
+    },
+    "Reaper": {
+      "specs": [
+        "reaper_harvest"
+      ],
+      "min_level": 20
+    },
+    "Felsworn": {
+      "specs": [
+        "felsworn_slayer",
+        "felsworn_tyrant"
+      ],
+      "min_level": 20
+    },
+    "Sun Cleric": {
+      "specs": [
+        "sun_cleric_valkyrie",
+        "sun_cleric_seraphim"
+      ],
+      "min_level": 20
+    },
+    "Primalist": {
+      "specs": "all",
+      "min_level": 1
+    },
+    "Barbarian": {
+      "specs": [
+        "barbarian_brutality"
+      ],
+      "min_level": 20
+    },
+    "Witch Hunter": {
+      "specs": [
+        "witch_hunter_inquisition",
+        "witch_hunter_boltslinger"
+      ],
+      "min_level": 20
+    }
   }
 }

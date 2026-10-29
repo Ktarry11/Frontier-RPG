@@ -272,14 +272,16 @@ class LootGenerator:
             slot = self._pick_random_slot(char_class)
 
         if slot in WEAPON_SLOTS:
-            weapon_type = self._pick_weapon_type_for_class(char_class, slot)
+            weapon_type = self._pick_weapon_type_for_class(
+                char_class, slot, player_level)
             if weapon_type is None:
                 # The class has no legal item for this slot (an off-hand for a
                 # class with no shield, no tome and no dual wield). Roll the
                 # main hand instead of returning nothing, so the drop still
                 # happens and is still something the class can hold.
                 slot = "main_hand"
-                weapon_type = self._pick_weapon_type_for_class(char_class, slot)
+                weapon_type = self._pick_weapon_type_for_class(
+                    char_class, slot, player_level)
             return self.generate_weapon(slot, weapon_type, stat_template, item_level, rarity)
         else:
             return self.generate_armor_piece(slot, armor_type, stat_template, item_level, rarity)
@@ -582,17 +584,42 @@ class LootGenerator:
                 return random.choice(candidate_slots)
         return random.choice(all_slots)
 
-    def _class_may_dual_wield(self, char_class):
-        """Can ANY spec of this class dual-wield? See data's dual_wield key.
+    def _class_may_dual_wield(self, char_class, player_level=None):
+        """Can ANY spec of this class dual-wield, at this level? See the data's
+        dual_wield key.
+
+        Class-level, not spec-level, on purpose: loot is generated with no
+        character in hand (see _roll_target_class - most drops are itemized
+        for a class nobody is playing), so the spec gate cannot be applied
+        here. proficiency.can_dual_wield does the spec check at equip time.
+        A Fury-only weapon can therefore drop for a Warrior and an Arms
+        Warrior cannot equip it, exactly as WoW behaves.
+
+        The LEVEL gate is applied when the level is known, because that one
+        can be: dual wield is trained at 20, so an off-hand one-hander
+        dropping for a level-8 Hunter is dead in the bag for twelve levels.
+        Unknown level means no level filter rather than a guess.
 
         Fails CLOSED on a missing key, matching proficiency.can_dual_wield:
-        an unauthored entry here would quietly restore the free-for-all the
+        an unauthored entry would quietly restore the free-for-all the
         restriction exists to stop.
         """
-        allowed = self.weapon_types.get("dual_wield", {}).get(char_class)
-        return allowed == "all" or bool(allowed)
+        entry = self.weapon_types.get("dual_wield", {}).get(char_class)
+        if entry is None:
+            return False
+        # Tolerates the older shape ("all" / bare spec list) as well as the
+        # current {"specs": ..., "min_level": N}.
+        if isinstance(entry, dict):
+            specs, min_level = entry.get("specs", "all"), entry.get("min_level", 0)
+        else:
+            specs, min_level = entry, 0
+        if not (specs == "all" or specs):
+            return False
+        if player_level is not None and player_level < min_level:
+            return False
+        return True
 
-    def _pick_weapon_type_for_class(self, char_class, slot):
+    def _pick_weapon_type_for_class(self, char_class, slot, player_level=None):
         valid_weapons = self.weapon_types["class_weapon_map"].get(char_class, ["mace_1h"])
         # Filter by hand compatibility for the given slot
         compatible = []
@@ -615,7 +642,8 @@ class LootGenerator:
                 # can_dual_wield does the spec check at equip time. The result
                 # is that a Fury-only weapon can drop for a Warrior and an Arms
                 # Warrior cannot equip it, which is exactly how WoW behaves.
-                if hand == "main_or_off" and not self._class_may_dual_wield(char_class):
+                if hand == "main_or_off" and not self._class_may_dual_wield(
+                        char_class, player_level):
                     continue
                 compatible.append(wt)
             elif slot == "ranged" and hand == "ranged":

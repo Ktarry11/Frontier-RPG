@@ -96,6 +96,17 @@ def active_spec(character):
     return best
 
 
+def dual_wield_level(character):
+    """The level at which this character's class trains dual wield, or 0 if
+    the class never can. Lets can_equip say "requires level 20" rather than
+    "cannot dual wield" to someone who is simply not there yet."""
+    entry = _load_weapon_types().get("dual_wield", {}).get(
+        getattr(character, "char_class", None))
+    if entry is None:
+        return 0
+    return entry.get("min_level", 0) if isinstance(entry, dict) else 0
+
+
 def can_dual_wield(character):
     """True if this character may hold a one-handed weapon in the off-hand.
 
@@ -118,17 +129,33 @@ def can_dual_wield(character):
     so a spec-gated class is not permitted until it commits - which matches
     dual wield being a thing you train into rather than start with.
 
+    LEVEL-GATED, because dual wield is trained rather than innate: in Classic
+    Warrior, Rogue and Hunter all learn it at 20 (Kyle, 29 Oct: "let hunters
+    DW at 20"). Applied uniformly at 20 so a level-10 Brutality Barbarian
+    cannot dual-wield while a Warrior waits.
+
     A class absent from dual_wield cannot dual-wield at all. This one fails
     CLOSED, unlike can_wear_weapon_type: an unauthored key here would
     silently restore the free-for-all this exists to stop.
     """
     table = _load_weapon_types().get("dual_wield", {})
-    allowed = table.get(getattr(character, "char_class", None))
-    if allowed is None:
+    entry = table.get(getattr(character, "char_class", None))
+    if entry is None:
         return False
-    if allowed == "all":
+
+    # Accepts the older shape ("all" or a bare spec list) as well as the
+    # current {"specs": ..., "min_level": N}, so a half-migrated data file
+    # degrades to "no level gate" rather than raising mid-equip.
+    if isinstance(entry, dict):
+        specs, min_level = entry.get("specs", "all"), entry.get("min_level", 0)
+    else:
+        specs, min_level = entry, 0
+
+    if (getattr(character, "level", 0) or 0) < min_level:
+        return False
+    if specs == "all":
         return True
-    return active_spec(character) in set(allowed)
+    return active_spec(character) in set(specs)
 
 
 def get_class_armor_type(char_class):
@@ -206,6 +233,12 @@ def can_equip(character, item):
     # (is_one_handed_weapon keys on hand == "main_or_off").
     if getattr(item, "slot", None) == "off_hand" and is_one_handed_weapon(weapon_type):
         if not can_dual_wield(character):
+            # Distinguish "not yet" from "never". A Hunter at 19 is three
+            # quests from dual wielding and a Priest never will, and one
+            # message for both reads as a bug to the player.
+            needed = dual_wield_level(character)
+            if needed and (getattr(character, "level", 0) or 0) < needed:
+                return False, f"Dual wield requires level {needed}"
             return False, f"{character.char_class} cannot dual wield"
 
     required_level = getattr(item, "required_level", 0) or 0
