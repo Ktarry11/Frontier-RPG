@@ -1,0 +1,1278 @@
+{
+ "class": "Felsworn",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Chaotic",
+   "desc": "Dealing damage now has an 8% chance to increase your damage by 3% for 8 seconds, stacking 3 times.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Dark Teachings",
+   "desc": "Increases the effectiveness of your Intuitions by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Whispers of the Pit",
+   "desc": "Unleash fel energy upon enemies at target location, fearing them and slowing their movement speed by -80% for 8 seconds.Damage caused may interrupt the effect.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Fel Communion",
+   "desc": "Increases your maximum Energy by 30.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Warlock Training",
+   "desc": "Cripple now causes the enemy target to be unable to critically strike for 4 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Cruelty",
+   "desc": "Increases your critical strike chance by 2% and an additional 3% against Demons. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Infernal Armor",
+   "desc": "Reduces the cooldown of your Hateforged Barrier by -10 sec.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Reckoning",
+   "desc": "For 10 seconds, your Fel Fireball is free of cost, instant cast, and strikes up to 4 targets.For the duration, your falling speed is slowed and damage dealt by your Fel Fireball increases your damage dealt by 4% for 15 seconds, stacking 4 times.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Mark of Chaos",
+   "desc": "Using Chaos Rush increases the next instance of direct spell or ability damage within 5 seconds by 25%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Manaburn",
+   "desc": "Burn an enemy's mana equal to 200% of your Stamina.Deals damage equal to the mana drained.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Legion March",
+   "desc": "Increases the range of Chaos Rush by 3 yds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Doomstride",
+   "desc": "Using Chaos Rush twice in a row now refreshes a charge of Chaos Rush.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Illidari Barrier",
+   "desc": "Casting Hateforged Barrier now also creates a damage absorption shield on all nearby allies within 15 yds, absorbing AP damage for 5 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Annihilation",
+   "desc": "Gorge on fel energy, guaranteeing your next direct instance of damage to critically strike, but causing it to consume 5% of your maximum health. Lasts for 5 attacks or 12 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Illidan's Guile",
+   "desc": "Gorge on fel energy, becoming immune to all physical attacks and spells for 8 seconds, but during that time you cannot attack, move or cast spells.At the end of the duration, your next Chaos Rush within 5 seconds now dashes an additional 20 yds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Anti-Magic",
+   "desc": "When Hateforged Barrier is removed from you, you now reduce -10% of all Magic damage taken for 8 seconds.In addition, Hateforged Barrier now heals for an additional 2% of your maximum health each tick.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Felbane",
+   "desc": "Curse an enemy, causing the next spell they cast within 4 seconds to be reflected onto them.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Magic Fiend",
+   "desc": "Increases the amount of beneficial magic effects stolen by your Consume Magic by 1.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Hateforged Barrier",
+   "desc": "Manifest a barrier of pure hatred, absorbing Stamina damage, scaling with your Stamina, for 30 seconds.While the barrier holds, you regenerate 2% of your maximum health every 2 sec.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Skull of Gul'dan",
+   "desc": "Consume the essence of the skull of Gul'dan, increasing your maximum health and Energy by 25% for 10 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Pact Hunter",
+   "desc": "Increases the effectiveness of your Pacts by 50%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Cunning",
+   "desc": "Reduces the duration of movement impairing effects on you by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Felgorged",
+   "desc": "Reduces the Energy cost of Cripple and Consume Magic by -10.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Embracing Evil",
+   "desc": "Increases the duration and reduces the Energy cost of Banes by 20%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Armaments of the Legion",
+   "desc": "Reduces your chance to be hit by spells by -2% and increases the absorption value of Hateforge Barrier by 10%. (up to 2 ranks)",
+   "cost": "1 AE · rank 0/2",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "1 AE · rank 0/2",
+   "tier": 1
+  },
+  {
+   "name": "Elemental Bane",
+   "desc": "Increases your critical damage by 10% and additionally increases your critical strike chance by 15% while fighting Elementals.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Demonic Evasion",
+   "desc": "Increases your chance to dodge by 5%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Warden's End",
+   "desc": "Reduces the cooldown of Mana Burn and Illidan's Guile by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Felwracked",
+   "desc": "Every 3rd Twin Slice or Fel Fireball within 15 seconds now generates 1 additional Felfury.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Demonborn",
+   "desc": "Increases your Energy regeneration by 15%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Focused Hatred",
+   "desc": "Direct magical critical strikes now generate 5 Energy.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Felheart",
+   "desc": "Each Felfury active now increases your haste by 1%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Demonic Embrace",
+   "desc": "Casting Inner Demon with at least 6 Felfury now restores 50 Energy.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Suffering",
+   "desc": "Increases the duration of Skull of Gul'dan by 5 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Gul'dan's Gift",
+   "desc": "Increases the effectiveness of your Skull of Gul'dan by 50%, but its cooldown is increased by 30 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Felguard",
+   "desc": "Your Chaos Rush now reduces all damage taken by -3% for 5 seconds, stacking 2 times.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Felstrider",
+   "desc": "Your Chaos Rush now increases your Energy regeneration by 10% for 5 seconds, stacking 2 times.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "infernal": [
+   {
+    "name": "Fel Apprentice",
+    "desc": "Level 10 PassiveWhile Inner Demon is active, your Fel Fireball will now unleash a Felstrike on your target.FelstrikeBurn an enemy for SP Shadowflame Damage over 6 seconds, stacking 3 times.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Man'ari Teachings",
+    "desc": "Level 50 PassiveIncreases your critical damage dealt by 100%.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Fel Cannon",
+    "desc": "Increases the critical strike chance of Fel Fireball and Ruin by 15% on enemies above 75% health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Felshock",
+    "desc": "Direct critical strikes with Felfury spenders now extend the duration of Inner Demon by 1 sec and cause enemies struck to have a 3% increased chance to be hit by spells for 12 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Illidari Smiter",
+    "desc": "Critical strikes with Fel Fireball now generate 1 Felfury.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "The True Blessing",
+    "desc": "Casting Annihilation now grants you Sculptor of Doom.Sculptor of DoomYour next Ruin within 8 seconds is instant cast.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Felwrath",
+    "desc": "Consumes 2 FelfuryBlast an enemy and all enemies near them with fel magic, dealing SP Shadowflame Damage.Inner Demon: Striking at least 5 enemies with this spell causes it to deal an additional SP Shadowflame Damage over 6 seconds, stacking 3 times.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Gul'dan's Prodigy",
+    "desc": "Reduces Energy cost and cast time of Fel Fireball by -15%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Cursed Flames",
+    "desc": "Critically striking with Fel Fireball now increases the critical strike chance of your next Fel Fireball within 10 seconds by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sculptor of Doom",
+    "desc": "Landing 3 direct critical strikes now grants Sculptor of Doom.Sculptor of DoomYour next Ruin within 8 seconds is instant cast.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Unphased",
+    "desc": "Level 40 PassiveIncreases your spell penetration by 20, scaling with your level.In addition, reduces spell pushback suffered from damaging attacks by 50% while Inner Demon is active.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Hidden Power",
+    "desc": "Level 20 PassiveIncreases your spell damage by 15% of your Intellect and Spirit.In addition, Inner Demon now increases your spell damage and critical strike chance by an additional 20% of your Spirit.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Sargeras Embrace",
+    "desc": "Channel a beam of fel magic upon an enemy, slowing your target's movement speed by 60% for 5.5 seconds and dealing Shadowflame Damage at the end of the duration.For the duration, you may instant cast Fel Fireball and Ruin while channeling and they refund their cost.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Infernal Doom",
+    "desc": "Ruin now has a -25% chance not to consume Felfury.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Chaotic Intuition",
+    "desc": "Damage dealt by Felstrikes now extends the duration of Cripple on the target by 1 sec and grants you 1% increased spell critical damage for 6 seconds, stacking 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Shadow Magi",
+    "desc": "Reduces the cooldown of Annihilation by -15 sec and Sunder by -4 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bane of Chaos",
+    "desc": "Generates 1 FelfuryUnleash fel magic on an enemy, dealing 114 Chaos damage over 18 seconds.Inner Demon: The enemy takes an additional SP Chaos Damage every 6 sec.Can only have 1 Bane active on a target at a time.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Illidari Magi",
+    "desc": "Your periodic damage now has a 20% chance to generate 1 Felfury.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fury of Archimonde",
+    "desc": "After generating 10 Felfury, your next Sargeron Smite within 15 seconds gains 50% increased critical strike chance and damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Felforged",
+    "desc": "Periodic damage dealt now has a 15% chance to grant you Felforged for 8 seconds.Felforged (Proc)Your next 3 Fel Fireballs have -30% reduced casting speed for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Withering",
+    "desc": "Your Fel Fireballs used with Felforged active now deal 30% increased damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Curse of Argus",
+    "desc": "Each time Bane of Chaos deals damage its damage is increased on the target by 1% for 6 seconds, stacking 20 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Ruin",
+    "desc": "Consumes 2 FelfuryBring doom upon an enemy, dealing Shadowflame Damage to an enemy, piercing all absorption effects.Inner Demon: Deals an additional 30% of the damage dealt over 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Felfire Adept",
+    "desc": "Increases the critical strike chance of Sargeron Smite by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "",
+    "rank": "1 TE · rank 1/2",
+    "tier": 0
+   },
+   {
+    "name": "Infernal",
+    "desc": "Drop an infernal from the sky with grotesque magic, dealing fire SP Fire damage to enemies in the radius, horrifying them for 4 seconds, and spawning an Infernal to fight by your side for 15 seconds.Inner Demon: Lasts 1 additional sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Wrath of Sargeras",
+    "desc": "Increases your Magic damage dealt by 3% and your spell hit chance by 2%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Black Magic",
+    "desc": "Increases the damage of your Bane of Chaos and Ruin by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Felbreak",
+    "desc": "Interrupt a spell from being cast, preventing the target from casting spells of that school for 3 seconds and draining mana from the target based on your Spirit.Usable while moving.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fel Infusion",
+    "desc": "Increases critical strike chance of all party and raid members within 100 by 3%. Does not stack with similar effects.In addition, increases your critical strike chance by 3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Malice of Gul'dan",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Nether Spirit",
+    "desc": "Increases your spell critical strike chance by 20% of your Spirit.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Archimonde's Wrath",
+    "desc": "Increases the critical strike chance of your Felfury spenders by 1% for every 10 points of Energy you have at the time of casting.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Magician",
+    "desc": "While Inner Demon is active, casting Ruin, Sunder, or Felwrath now refunds 20 Energy.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Infernal Summoner",
+    "desc": "Direct damage dealt now has a 5% chance to reset the cooldown of Infernal.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Doomsayer",
+    "desc": "Critical strikes with Sargeron Smite now refund 1 Felfury.In addition, Sargeron Smite now deals 25% increased damage to enemies above 75% of their maximum health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fel Flamecasting",
+    "desc": "Damage dealt by Sargeron Smite now spreads your Cripple to 2 nearby enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Herald of the Legion",
+    "desc": "Damage dealt by Bane of Chaos now radiates fel energy around the enemy, dealing 50% of the damage dealt to up to 8 nearby enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Infernal Ruin",
+    "desc": "Every 3rd Ruin or Felwrath now spawns an Infernal to fight by your side for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Oppressive Ruin",
+    "desc": "Damage dealt by Ruin now absorbs the next 99 healing on the target based on rank, up to 226 at rank 7, for 8 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "slayer": [
+   {
+    "name": "Dancing Blades",
+    "desc": "Level 10 PassiveCritical strikes with melee abilities now trigger Dancing Blades, dealing off-hand Weapon Damage to up to 5 nearby enemies.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Slice & Dice",
+    "desc": "Increases your off-hand weapon damage by 25% and reduces the Energy cost of Twin Slice by -5. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Fel Haze",
+    "desc": "While active, Blood of Mannoroth now also causes you to ignore all enemy Armor.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Immolation Aura",
+    "desc": "Wreathe yourself in fire for up to 1 minute, dealing fire AP Fire Damage to nearby enemies every 3 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "A Thousand Cuts",
+    "desc": "Azzinoth's Assault now has a 30% chance to hit an additional time with your main-hand Weapon.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Azzinoth's Battery",
+    "desc": "Your Azzinoth's Assault now has a 30% chance to not consume Felfury.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "True Self",
+    "desc": "Level 20 PassiveYour Inner Demon now grants 10% increased dodge chance and critical damage dealt while active.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Chaotic",
+    "desc": "Level 40 PassiveWhile Inner Demon is active, direct melee ability critical strikes now refund 3 Energy.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Felcaked Blades",
+    "desc": "Level 50 PassiveTwin Slice and Sargeron Smite now additionally scale with your Agility.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Unbound",
+    "desc": "Level 30 PassiveIncreases your dodge by 15% of your Agility and your hit rating by 6% of your Agility.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Consumed By Fel",
+    "desc": "Increases the tick rate of Immolation Aura by -25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Reckless Assault",
+    "desc": "Increases the damage of Azzinoth's Assault, Annihilan Strike, and Twin Slice by 15% against slowed enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Annihilan Strike",
+    "desc": "Generates 2 FelfuryUnleash a devastating attack, dealing 145% Weapon Damage to your target with both weapons.This ability is guaranteed to critically strike against enemies above 75% health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Felhoof Charge",
+    "desc": "Generates 1 FelfuryCharge an enemy, dealing AP Physical damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blighted Strikes",
+    "desc": "While Inner Demon is active your melee attacks reduce the target's healing received by -20% for 8 seconds, stacking 2 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Pit Lord's Strength",
+    "desc": "Your Annihilation now affects 1 additional attack. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Whirling Vengeance",
+    "desc": "Reduces the cooldown of Fury Unleashed by 60 sec. When Fury Unleashed ends, you strike all nearby enemies for AP Shadowflame Damage and increase their damage taken from Sunder by 100% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "You Cheat, Gul'dan!",
+    "desc": "Increases your critical damage by 50% against enemies above 75% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fury of the Illidari",
+    "desc": "2 Charges, 1.5 rechargeMove quickly from enemy to enemy, attacking them every 1 sec with both weapons until 6 assaults are made, generating 1 Felfury with each strike. While active you are immune to crowd control effects.Can hit the same target multiple times. Cannot hit invisible or stealthed targets.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Legionfall",
+    "desc": "Melee ability damage now has a 15% chance to reset the cooldown of Annihilan Strike.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Chaos Soldier",
+    "desc": "Increases the critical strike chance of Azzinoth's Assault and Sargeron Smite by 5%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Azzinoth's Rage",
+    "desc": "Increases your Armor penetration by 10% and your expertise by 4. (up to 3 ranks)",
+    "cost": "1 TE · rank 3/3",
+    "requires": "",
+    "rank": "1 TE · rank 3/3",
+    "tier": 0
+   },
+   {
+    "name": "Pit Lord's Rage",
+    "desc": "Casting Chaos Rush now increases your Physical damage by 15% for 10 seconds.Casting Felhoof Charge increases your critical strike chance by 6% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Scars of the Past",
+    "desc": "Reduces the Energy cost of Chaos Rush by 5 and casting Chaos Rush now heals you for AP.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fel Instincts",
+    "desc": "Increases the damage of Azzinoth's Assault by 10% and causes it to increase your melee haste by 20% for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Spite",
+    "desc": "Increases your Agility by 8% and dodge chance by 3%. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 1/2",
+    "tier": 2
+   },
+   {
+    "name": "Oblivion",
+    "desc": "Critically striking now increases your damage dealt by 1% for 4 seconds, stacking 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Felguard",
+    "desc": "Emanate a powerful aura, granting 10% increased melee and ranged haste to party and raid members within 100 yds. Does not stack with similar effects.In addition, while Inner Demon is active, you now heal for 15% of all melee damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Twin Fury",
+    "desc": "Critically striking with Twin Slice or Annihilan Strike now generates an additional 1 Felfury.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Azzinoth's Assault",
+    "desc": "Consumes 2 FelfuryStrike an enemy for Weapon Damage plus AP with both weapons, additionally scaling with your attack power.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Fury Unleashed",
+    "desc": "Spin your glaives for 5 seconds, increasing movement speed by 30% and dealing 200% Weapon Damage every 1 sec with both weapons to all nearby enemies.You are immune to movement impairing and loss of control effects.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Reachwalker",
+    "desc": "Casting Chaos Rush now reduces the cooldown of Felhoof Charge by -2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Burning Rage",
+    "desc": "Increases the damage and reduces the cost of Sunder and Immolation Aura by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Perpetual Fury",
+    "desc": "Dealing damage with Dancing Blades reduces the cooldown of Fury Unleashed by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Glaiving",
+    "desc": "Increases the damage dealt and reduces the Energy cost of Fury Unleashed by 50%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Scars of Suffering",
+    "desc": "Casting Azzinoth's Assault now scars the enemy, increasing your allies' attack power against them by 15% Agility for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fel Blades",
+    "desc": "Damage dealt by Azzinoth's Assault now reduces the enemy's armor by -4% for 10 seconds, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Nether Champion",
+    "desc": "Triggering Dancing Blades now increases the damage of next Sargeron Smite by 8% for 20 seconds, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Demonic Machinations",
+    "desc": "Critical strikes with Sargeron Smite now cause the target to bleed for an additional 50% of the damage dealt over 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "tyrant": [
+   {
+    "name": "Burning Commander",
+    "desc": "Level 10 PassiveAllows you to wield a Two-Handed Axe, Mace, or Sword in each hand and grants you additional Armor and magic resistance based on your dodge rating.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Nether Disciple",
+    "desc": "Increases your dodge and parry chance by 3%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Doomscarring",
+    "desc": "Your melee critical strikes now deal an additional AP Physical damage and scars enemies for 12 seconds, increasing your allies' attack power against them by Agility.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Outland Slaver",
+    "desc": "Reduces the cost of your Felrend and Fel Fireball by -3 and increases their damage dealt by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 1/2",
+    "tier": 2
+   },
+   {
+    "name": "Nether Strength",
+    "desc": "Casting Felfury spenders now reduces the cooldown of Burning Hatred, Hateforged Barrier, and Demonic Will by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Vengeance Is Mine",
+    "desc": "Dodging or parrying an attack now gives you a 10% chance to make your next 10 instances of damage with Twin Slice deal 30% increased damage and generate 1 Felfury.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Expose",
+    "desc": "Direct Fire and Shadow spell damage dealt now applies Expose to enemies.Expose (Proc)Damage taken from the Felsworn increased by 10% and the critical strike chance of all allies against this target is increased by 3% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Demon Hide",
+    "desc": "While Inner Demon is active, your Armor contribution from cloth and leather items is increased by 120%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Straight to the Nether",
+    "desc": "While Inner Demon is active, Carve and Sargeron Smite now leeches 20% of the damage dealt from the initial strike as Shadowflame Damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hulking Demon",
+    "desc": "Level 20 PassiveIncreases your attack power by 30% of your Stamina and your hit rating by 6% of your Agility.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Felblade",
+    "desc": "Level 40 PassiveDamage dealt by Fel Fireball, Sargeron Smite, and Twin Slice now additionally scales with your Agility.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Hellfire Carver",
+    "desc": "Level 30 PassiveCasting Carve now makes your next Fel Fireball instant cast and causes it to strike 1 additional enemy near the primary target based on how long you channeled, up to a maximum of 10 enemies, dealing less damage with each target struck.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Fel Monstrosity",
+    "desc": "Level 50 PassiveIncreases your Stamina by 25% and size by 10%.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Vengeance",
+    "desc": "Your Twin Slice and Felrend now have a 60% chance to generate 1 additional Felfury.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Taskmaster's Army",
+    "desc": "Reduces the cooldown of Infernal Whipcrack by -30 sec and it now affects all allies and its radius is increased by 15 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Felrend",
+    "desc": "Generates 1 FelfuryErupt in a whirlwind of felfury, striking all enemies within 6 yds with both weapons, dealing Weapon Damage plus 5.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Demonic Will",
+    "desc": "Generates 1 FelfuryStrengthen your will, reducing Physical damage taken by -30% for 10 seconds.While active, direct damaging abilities heal you for 3% of your maximum health. Can only occur once every 0.5 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Mannoroth's Rage",
+    "desc": "Reduces the cooldown of Burning Hatred by -60 sec and removes its Energy cost.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Tyrannical Resolve",
+    "desc": "Taunt nearby enemies for 4 seconds and ignore -50% of all damage taken for 30 seconds, up to 100% of your maximum health.When this ends, you unleash a Felfire Blast that leeches health from nearby enemies based on how many times you took damage with the effect active.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Felspill",
+    "desc": "Generating Felfury now leeches 10% AP health from 3 nearby enemies within 6 yds, scaling with your attack power.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tyrant's Gaze",
+    "desc": "Set your fiery gaze upon an enemy and all enemies nearby, intimidating them and causing them to combust, dealing AP Shadowflame Damage to them.Damaging an enemy in this way heals you for AP and generates 1 Felfury.Only usable on enemies below 35% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Burning Hatred",
+    "desc": "Enrages you, instantly generating 6 Felfury and causing your melee damage to leech health to you equal to 50% of the damage dealt as Chaos damage for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Eye of the Tyrant",
+    "desc": "Grant 10% increased melee and ranged haste to party and raid members within 100 yds. Does not stack with similar effects.In addition, your attack power is increased by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Carve",
+    "desc": "Consumes 2 FelfuryCharge up a powerful attack over 2.5 seconds. Upon ending the channel, slash in front of you, dealing increased Weapon Damage with both weapons based on how long you channel, dealing less damage with each target struck. Inner Demon: Reduces affected enemies melee and ranged haste by -20% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bulwark of Azzinoth",
+    "desc": "Inner Demon now also reduces your damage taken by -10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Infernal Constitution",
+    "desc": "Increases your maximum health by 10% and increases your off-hand weapon damage by 30%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Pure Hatred",
+    "desc": "Your Hateforged Barrier now also scales with your dodge rating.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Infernal Whipcrack",
+    "desc": "Enrage up to 8 allies within 20 yds, reducing their damage taken by -15% and increasing their haste by 10% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Burning Legionnaire",
+    "desc": "Reduces the Energy cost of Twin Slice and Sunder by -10.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Grommash's Folly",
+    "desc": "While Inner Demon is active, your melee haste is now increased by 15% and you now heal equal to 50% of all damage dealt by critical strikes with auto attacks.In addition, critical strikes with Carve deal 5% increased damage, increasing up to 60% with each strike based on how long you channel.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Betrayer",
+    "desc": "Dodging attacks causes 40% off-hand Weapon Damage to attackers and enrages your party and raid members within 20 yds, increasing their critical strike chance by 2% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Demonic Blood",
+    "desc": "Generating Felfury now extends the duration of Inner Demon by 0.5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Demonic Fortitude",
+    "desc": "While Demonic Will or Hateforged Barrier are active, all damage taken or avoided now has a 20% chance to generate 1 Felfury.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Abyssal Conditioning",
+    "desc": "Casting Felfury spenders now increases your Energy regeneration by 5% for 10 seconds, stacking up to 4 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Illidari Training",
+    "desc": "Dodging an attack now generates 3 Energy.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fel Daze",
+    "desc": "Increases the critical strike chance of Fel Fireball by 10% and it's damage dealt now reduces the enemy's chance to hit by -3% for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Lord",
+    "desc": "While above 75% health, your damage taken is reduced by -5% and damage dealt is increased by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Illidan's Favor",
+    "desc": "Removes the Energy cost of your Felbane and Manaburn and your Manaburn now strikes 4 additional enemies near the primary target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fel Torpedo",
+    "desc": "Transforms your Chaos Rush into Fel Torpedo.Fel TorpedoGenerates 1 FelfuryTorpedo forward in the direction you're running and deal AP Shadowflame Damage to enemies in your path.Generates a large amount of threat. Scales with modifiers to Chaos Rush",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Battle Finesse",
+    "desc": "While channeling Carve, your chance to dodge is now increased by 1% based on how long you channel, up to a maximum of 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Unholy Endurance",
+    "desc": "Increases the damage and threat generated from Carve by 15%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Annihilan Rituals",
+    "desc": "Fully channeling Carve now refunds 1 Felfury.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Quick Carving",
+    "desc": "Carve now channels 1 sec faster.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   }
+  ]
+ }
+}

@@ -26,3 +26,37 @@ and resources defined but no abilities and no talent trees. These pages are
 the design brief for authoring them, and they have already corrected several
 assumptions about the 17 classes that DO exist - see
 claude/coa_reference_corrections_2026_10_28.md in the project.
+
+## talents/ — the real talent trees
+
+`talents/<class>.json`, built by `tools/build_coa_talent_reference.py` from
+`tools/scrape_coa_talents.js`. 21 classes, 801 class-tree nodes and 2,811
+spec-tree nodes: every talent's name, full description, point cost, rank
+count and tier gate.
+
+The page TEXT contains no talent data — the builder grid renders bare point
+counts like "3/3" — but each node's tooltip is already in the DOM as
+`span.btooltip`, structured `<b>name</b> · description · <i>cost</i> ·
+<i>requirement</i>`.
+
+**AE is a class-tree point, TE a spec-tree point.** CoA gives every class one
+shared class tree plus one tree per spec, and a spec page renders both, so
+the class tree repeats across that class's pages and is deduplicated here.
+
+**Tier comes from the gate**, not a tier field: "Requires 8 TE in this tree"
+is CoA's own gate and converts directly into Frontier's `tier_requirements`.
+
+### Structural difference worth knowing before using this
+
+CoA and Frontier do not shape trees the same way:
+
+| | CoA | Frontier |
+|---|---|---|
+| nodes per tree | ~40 | ~23 |
+| point gates | 3 (e.g. 0 / 8 / 23 TE) | 7 tiers (0/5/10/15/20/25/30) |
+| free passives | yes — one per 10 levels, "Level 40 Passive", costing nothing | none |
+
+So this is **not** a file to transcribe. Use it for identity, names, and what
+each talent actually does; select the ~23 that carry a spec and lay them out
+on Frontier's 7 tiers. Numbers stay Frontier's — the site's own disclaimer is
+that COA is pre-meta.

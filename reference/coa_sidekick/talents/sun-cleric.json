@@ -1,0 +1,1632 @@
+{
+ "class": "Sun Cleric",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Light The Way",
+   "desc": "Healing done by Shine or Illumination now increases the targets movement speed by 20% for 3 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Devotee",
+   "desc": "Increases the effectiveness of your Devotions by 20%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Twilight",
+   "desc": "Applying Vow of the Eclipse now blinds enemies struck, increasing their chance to miss their next attack by -10% for 6 seconds, stacking 5 times. Does not work on bosses.In addition, increases the effectiveness of the Fulfillment effect of Vow of the Eclipse by 100%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Valkyrie's Watch",
+   "desc": "Damage that would take you below 35% health and damage taken while below 35% health is reduced by 25%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Holy Conquest",
+   "desc": "Reduces the mana cost of Paragon, Chosen of the Light, and Judgement Day by -50%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Warmth",
+   "desc": "Direct healing now increases the target's health by 300 for 15 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Glare",
+   "desc": "Flash powerful light that deals SP Holy damage and stuns enemies within 8 yds for 5 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Suncharged",
+   "desc": "Your Judgement Day now applies Suncharged to the target every 1 sec, stacking 10 times.At the end of the duration, or when Judgement Day ends, the enemy takes holy SP Holy damage, increased for each stack on the target.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Gleaming Vigil",
+   "desc": "Reduces your Physical damage taken by -5%, plus an additional 5% while above 80% health.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Radiance",
+   "desc": "Every 2 sec you burst with light, healing nearby allies for AP and damaging nearby enemies for AP. Lasts 10 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Unbreakable Focus",
+   "desc": "Reduces the cooldown of Gavels and Horusath Blast by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "New Day",
+   "desc": "Start anew, reseting the cooldown of Paragon, Chosen of the Light, and Judgement Day.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Guiding Glow",
+   "desc": "Allows Dawn to affect 3 additional casts. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "1 AE · rank 2/2",
+   "tier": 1
+  },
+  {
+   "name": "Solar Invocation: Resplendence",
+   "desc": "Invoke the grace of An'she for 8 seconds, causing your llluminations to be instant cast and guaranteed to critically strike, but cost 100% more mana.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Horusath Blast",
+   "desc": "Blast an enemy with the power of the sun, dealing holy SP Holy damage and reducing their attack power by 235 for 15 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Solar Might",
+   "desc": "Increases your Strength and Intellect by 5%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Sun Shield",
+   "desc": "Reduces your chance to be hit by spells by -3%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Solar Invocation: Revelation",
+   "desc": "Invoke An'she to root an enemy for 4 seconds with holy shackles or heal an ally for 10% maximum health and increase their movement speed by 50% for 4 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Nysoni's Blessing",
+   "desc": "Dawn will now provide an additional effect based on your specialization.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Enveloped in Light",
+   "desc": "Increases your armor contribution from mail and plate items by 10% and reduces Shadow damage taken by -3%. (up to 2 ranks)",
+   "cost": "1 AE · rank 1/2",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "1 AE · rank 1/2",
+   "tier": 1
+  },
+  {
+   "name": "Circle of Valor",
+   "desc": "Place a 10 yd holy circle at target location for 15 seconds. Allies that stand inside of it will divert 30% of all damage taken to the caster, and will be healed for AP every 2 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Blessed Armor",
+   "desc": "Increases your spell power by 1 for every 125 Armor you have.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Sun Stride",
+   "desc": "Rush forward at a high speed for 2 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Solar Prayer",
+   "desc": "Recite a solar prayer, instantly healing you for 25% of your maximum health plus an additional SP, scaling with spell power.Usable while stunned.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Solar Invocation: Conquest",
+   "desc": "Invoke the spirit of An'she to instantly generate 10 Solar Power and refunds 10% of your maximum mana.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Exorcism",
+   "desc": "Sanctify now dispels 1 additional effect.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Swift Justice",
+   "desc": "Increases your haste by 3%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Censure",
+   "desc": "Dealing direct damage to an enemy affected by Chains of Light will now cause it to chain to a nearby enemy. Can only occur once per sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Sintorcher",
+   "desc": "Increases your damage and healing done by 3% and your critical strike chance against Undead by 2%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Pure Light",
+   "desc": "While above 80% health you now deal 10% increased damage and healing.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Solar Guardian",
+   "desc": "Reduces the duration of stun effects on you by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Zealous",
+   "desc": "Reduces the cooldown of Radiance by -30 sec, but reduces its duration by -4 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Hegemony",
+   "desc": "Increases the duration of Radiance by 5 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Fortuitous",
+   "desc": "Removes the cast time of Glare while above 80% health.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Angelic Light",
+   "desc": "Reduces the cooldown of Glare by -30 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Devoted to the Light",
+   "desc": "Removes the cost of your Solar Invocation spells and they now generate 5% of your missing mana when cast.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Devoted to the Sun",
+   "desc": "Reduces the cooldown of your Solar Invocation spells by -5 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Final Vows",
+   "desc": "Fulfilling your Vow of Grace now also reduces the cooldown of the triggered ability by 10%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Taking Vows",
+   "desc": "Your Vow of Light now heals for an additional 5% of damage taken or direct healing done by you.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "blessings": [
+   {
+    "name": "Sunlight",
+    "desc": "Level 10 PassiveFulfilling your Vow now unleashes Sunlight restoring healing health to up to 5 allies within 40 yds, prioritizing the lowest health allies.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Holy Form",
+    "desc": "Ascend into a holy form, increasing your healing done by 10%, increasing your Holy critical strike chance by 5%, and reducing your threat generated by -50%.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Sun Worship",
+    "desc": "Level 20 PassiveIncreases your healing power by 15% of your Intellect and your spell haste rating by 25% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Heaven’s Appraisal",
+    "desc": "Level 40 PassiveIncreases the effectiveness of your Fulfillment effects by 25%.In addition, the Fulfillment effect granted by Vow of Dawn now triples the amount of targets struck.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Touch of Light",
+    "desc": "Enemies struck by Blessing of Absolution now deal -20% reduced damage for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Stalwart",
+    "desc": "Melee critical strikes against you prevent you from being critically struck again for 4 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blessing of Purity",
+    "desc": "Protect a Blessed ally, making them immune to all damage for 4 seconds but reducing their damage and healing done by -25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sanctified",
+    "desc": "Healing a target affected by Bless refunds 25% of the mana cost of the spell.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Blessing of Retribution",
+    "desc": "Guard a Blessed ally, deflecting the next harmful spell cast on them within 1 minute.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "The Redeemer",
+    "desc": "Level 50 PassiveWhen you critically heal your target, they will be healed for 30% of the amount originally healed the next time they take damage. Lasts 15 seconds.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Improved Radiant Cascade",
+    "desc": "Increases the healing done and reduces the mana cost of Radiant Cascade by -15%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Divine Vision",
+    "desc": "Increases your Holy damage and healing done by 4%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Glaring Rays",
+    "desc": "Increases the spell haste of all party and raid members by 3% and your spell haste by an additional 3%.Does not stack with similar effects.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Heat Wave",
+    "desc": "Healing with Illumination and Shine now additionally heals the target's nearby allies for 10% of the value.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Angelic",
+    "desc": "Reduces the cast time of Illumination by 0.25 sec. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "An'she's Guidance",
+    "desc": "Increases your Holy critical strike chance by 2% and reduces spell pushback suffered from damaging attacks by 50%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Blessing of Triumph",
+    "desc": "Redeem a Blessed ally for 20 seconds, granting 25% increased haste and 10% increased damage. the ally falls below 35% maximum health they are healed for 10% of their direct damage dealt for the remaining duration.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Hope",
+    "desc": "Your critical heals now reduce the cooldown of Solar Invocation spells by -1 sec.Can occur only once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Savior",
+    "desc": "Increases your healing on targets below 20% health by 30%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blessing of Absolution",
+    "desc": "Empower a Blessed ally to unleash a burst of holy energy in front of them, dealing healing Holy damage enemies in a 10 yd frontal cone and generating additional threat.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Faith",
+    "desc": "Direct healing done now increases the target's Armor by 10% for 20 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Sunbeams",
+    "desc": "Reduces the cast time of Radiant Cascade by -15%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Empowered Holy Form",
+    "desc": "Doubles the effectiveness of your Holy Form.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Bless",
+    "desc": "Bless an ally, restoring 5% of their maximum health every 10 sec for 5 minutes.Can only affect 1 ally at a time.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Hot Spot",
+    "desc": "Casting Daybreak now causes your next 2 Shines within 10 seconds to have a -25% reduced cast time.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Daybreak",
+    "desc": "Make a prayer, healing an ally for healing.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Solar Priest",
+    "desc": "Reduces the cooldown of Solar Invigoration by 30 sec.In addition, whenever allies effectively heal with Shine they now cast Illumination. Can only occur once every 6 sec.Illumination (Rank 11)Illuminate an ally, healing them for healing.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Gleaming Light",
+    "desc": "Increases healing of Illumination and Daybreak by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mercy",
+    "desc": "Grant mercy to an ally, abolishing 2 disease effects, repeating every 3 sec for 12 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Ancient Rites",
+    "desc": "Increases your Intellect by 2% and causes you to regenerate mana equal to 1% of your maximum mana every 20 sec. (up to 3 ranks)",
+    "cost": "1 TE · rank 3/3",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 3/3",
+    "tier": 2
+   },
+   {
+    "name": "Cultivate Divinity",
+    "desc": "Effectively healing with Radiant Cascade has a 20% chance to increase the healing of your next Illumination by 20%. Effectively healing with Illumination has a 40% chance to increase the healing of your next Radiant Cascade by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Solar Invigoration",
+    "desc": "For 15 seconds, your allies take 20% increased healing and their direct damage dealt now causes them to cast Shine. Can only occur once every 2 sec.Shine (Rank 8)Shine holy light upon an ally, healing for SP.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Lead Me Not Astray",
+    "desc": "Doubles the healing done by Bless.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sun Strength",
+    "desc": "Radiant Cascade is now guaranteed to critically strike on allies affected by Bless.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Everglow",
+    "desc": "Your Radiant Cascade now bounces to 2 additional allies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Pure Heart",
+    "desc": "Removes the damage penalty provided by Blessing of Purity.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Lightward",
+    "desc": "Increases the duration of Blessing of Purity by 2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blazing Chariot",
+    "desc": "Increases the healing and damage of Radiance by 125%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Gateway to Heaven",
+    "desc": "Whenever you use Dawn you now apply Radiance to yourself for 6 sec.RadianceEvery 2 sec you burst with light, healing nearby allies for AP and damaging nearby enemies for AP. Lasts 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blightbreaker",
+    "desc": "Increases the tick rate of Mercy by -50%, but increases its mana cost by 100%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Harmonious Bells",
+    "desc": "Your Mercy now affects 4 additional allies near the primary target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "piety": [
+   {
+    "name": "Fire from the Heavens",
+    "desc": "Level 20 PassiveDamage dealt by Radiant Flame now has a 10% chance to launch a Solar Flare at your target.Solar Flare (Damage)Deals SP Holyflame Damage and reduces the target's chance to hit by 3% for 10 seconds.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Sunrise and Sunset",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Pious",
+    "desc": "Level 40 PassiveIncreases your critical damage dealt by 150% and your critical strikes grant allies Replenishment.ReplenishmentRestores 1% maximum mana every 5 sec to allies within 100 yds for 15 seconds.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Burn The Heretics",
+    "desc": "Increases your damage and healing by 10% against targets below 35% health.Additionally, when Scorch Marks are consumed you now gain 10% increased Magic damage for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "The Coming Dawn",
+    "desc": "While Dawn is active, damage dealt by Radiant Flame now reduces the cooldown of Dawnfall and Solar Concord by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Struck by the Sun",
+    "desc": "Level 30 PassiveIncreases your Holy and Fire spell damage by 30% and your spell hit rating by 6% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Duality of Light",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Wrath of God",
+    "desc": "Increases the critical strike chance of Sunflare and Dawnsear by 3% and reduces spell pushback suffered from damaging attacks by 50%. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 1/2",
+    "tier": 2
+   },
+   {
+    "name": "Photosynthetic",
+    "desc": "Increases your spell haste by 3%, plus an additional 1% during the day. (up to 3 ranks)",
+    "cost": "1 TE · rank 2/3",
+    "requires": "",
+    "rank": "1 TE · rank 2/3",
+    "tier": 0
+   },
+   {
+    "name": "Rapture",
+    "desc": "Call down a streak of sun light to smite your target, dealing fire SP Fire damage to them and nearby enemies, piercing all immunities, but dealing less damage with each enemy struck.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "A Pious Life",
+    "desc": "Increases the damage of Horusath Blast and Rapture by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Day Cycles",
+    "desc": "Level 50 PassiveWhile in Sunrise, the remaining cooldown of Horusath Blast is reduced by 10% every 1 sec.While in Sunset, the remaining cooldown of Rapture is reduced by 10% every 1 sec.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Flames of the Father",
+    "desc": "Your Fire damage dealt is increased by 10% against Burning targets.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sun Down",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sunburn",
+    "desc": "Reduces the cast time of Rapture by -0.5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Grace",
+    "desc": "Increases the spell damage bonus of Dawnsear by 20% and Sunflare by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Burning Cascade",
+    "desc": "Reduces the cast time and mana cost of Dawnsear and Sunflare by -10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Sun's Hope",
+    "desc": "Damage dealt by Solar Flares now grants you 1 Solar Power and increase the targets chance to be critically struck by spells by 3% for 8 seconds.Solar Flare (Damage)Deals SP Holyflame Damage and reduces the target's chance to hit by 3% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Solar Conduit",
+    "desc": "Reduces the cast time of Dawnsear by -20% while Dawn is active.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Purgation",
+    "desc": "Dealing damage with Radiant Flame now increases the target's Holy and Fire damage taken from you by 1% for 8 seconds, stacking 8 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Solar Concord",
+    "desc": "Resets the cooldown of Horusath Blast while in Sunrise and Rapture while in Sunset and causes their damage dealt to launch a Solar Flare. Lasts 15 seconds.Solar Flare (Damage)Deals SP Holyflame Damage and reduces the target's chance to hit by 3% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Spears of Glory",
+    "desc": "Damage dealt by Radiant Flame now has an 15% chance to grant you Spears of Glory.Spears of GloryYour next Dawnsear within 10 seconds is instant cast and deals 25% increased damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Holy Fervor",
+    "desc": "Increases the effectiveness of Sunrise and Sunset by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Adjudication",
+    "desc": "Casting Rapture now causes your next Dawnsear within 10 seconds to strike your target twice and launch a Solar Flare at the target.Solar Flare (Damage)Deals SP Holyflame Damage and reduces the target's chance to hit by 3% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sunwell",
+    "desc": "Become an embodiment of the sun for 30 seconds that periodically dispels fear, sleep, and charm effects every 3 sec from allies within 40 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sun Gate",
+    "desc": "Shift 25 yds forward at light speed, removing all root effects.This leaves behind a Sun Gate for 15 seconds that allies can interact with to blink themselves the same distance forward. Allies can only use Sun Gate every 90 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Radiant Flame",
+    "desc": "Launch radiant spheres at an enemy each dealing SP Holyflame Damage, repeating every 1 sec for 4 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dawnsear",
+    "desc": "Blast an enemy with burning light, dealing fire SP Fire damage.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Moment of Triumph",
+    "desc": "Horusath Blast or Rapture now have a 20% chance to not incur a cooldown on cast.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Learning Light",
+    "desc": "Entering Sunset or Sunrise increases your spell haste by 20%. Lasts for 10 seconds or 3 casts.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Soul of Light",
+    "desc": "Reduces the cooldown of An'she's Blessing by -60 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Scorch Marks",
+    "desc": "Casting Dawnsear and Sunflare now have a 40% chance to grant Scorch Marks for 10 seconds.Scorch MarksYour next Radiant Flame has no mana cost, ticks -50% faster, and its duration is reduced by -50%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Harsh Lessons",
+    "desc": "Casting Dawn now grants Scorch Marks.Scorch MarksYour next Radiant Flame has no mana cost, ticks -50% faster, and its duration is reduced by -50%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Burning Heat",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Solar Champion",
+    "desc": "Increases the range of your Piety spells by 20% and reduces the threat generated by them by -20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Lights of Absolution",
+    "desc": "Damage dealt by Horusath Blast now grants you Light of Absolution for 10 seconds.Lights of AbsolutionDamage dealt by Solar Flares now restores 2% missing health, Energy, Focus, Runic Power, and Rage to allies within 40 yds. Can only occur once every 0.5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Flames of Absolution",
+    "desc": "Damage dealt by Horusath Blast now launches a Solar Flare at up to 5 enemies within 5 yds of your target.Solar Flare (Damage)Deals SP Holyflame Damage and reduces the target's chance to hit by 3% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "City of Light",
+    "desc": "Damage dealt by Radiant Flame now restores 3% of your missing health and mana.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Radiant Fury",
+    "desc": "Damage dealt by Radiant Flame is now increased by 10% on enemies below 35% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "seraphim": [
+   {
+    "name": "Calm",
+    "desc": "Calm an enemy, disarming their melee and ranged weapons for 6 seconds. your target is an Undead or Demon, they are also unable to attack or move for 6 seconds. Enemies that are immune to silence effects cannot be affected by this.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Angelic Presence",
+    "desc": "Level 10 PassiveAvoiding an attack now has a 20% chance to grant you Angelic Presence.Angelic PresenceYour next Illumination within 15 seconds is instant cast and free of cost.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Sun-Touched Armor",
+    "desc": "Level 20 PassiveIncreases your Armor by 150% of your Strength and Intellect and increases your total Stamina by 15%.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Solar Discernment",
+    "desc": "Level 40 PassiveIncreases your critical strike rating and expertise rating by 12% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Protector of the Flame",
+    "desc": "Avoiding an attack now also deals 648% fire AP Fire damage to the attacker.Can only occur once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Stand Against Darkness",
+    "desc": "During the day you now deal -10% more Holy damage and take -10% reduced periodic damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dawnbreak",
+    "desc": "Radiate holy light from your shield on enemies in front of you, dealing AP Holyfire Damage, scaling with your block value.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Grace",
+    "desc": "Increases your chance to dodge by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Heat Death",
+    "desc": "Your Solar Eclipse now reduces the enemies chance to hit by -3% for 15 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blessed Bulwark",
+    "desc": "Avoiding an attack now has a 25% chance to regenerate 5% of your base mana.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Gleaming Armor",
+    "desc": "Reduces your spell damage taken by -5%, plus an additional -5% while above 80% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Solar Nova",
+    "desc": "Emit a powerful holy light in an 8 yd radius, dealing holy AP Holy damage to all nearby enemies. Reduces the cooldown of your Solar Invocation spells by 1 sec for each target struck.This ability is guaranteed to critically strike against Undead or Demons.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sun Strider",
+    "desc": "Critical strikes with Gavels or Dawnbreak now increases the healing of your next Illumination within 20 seconds by 15%, stacking up to 3 times.Consuming the stacks increases your critical block chance and movement speed by 10% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Adjudicator",
+    "desc": "Your Justicar's Wrath now deals an additional 50% of its damage dealt to the target and enemies around them, healing you for 10% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Together In Conquest",
+    "desc": "Your Solar Invocation spells now causes your Illumination to heal an additional nearby ally at 70% effectiveness for 10 seconds.In addition, Illumination now reduces the cooldown of Solar Invocation spells by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sacred Vessel",
+    "desc": "Expending Angelic Presence increases your critical strike chance and healing by 1% for 20 seconds, stacking up to 10 times.Additional applications do not refresh the duration.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Scroll of Hope",
+    "desc": "Read from a scroll of hope, reducing Magic damage taken by party and raid members within 15 yds by 30% for 10 seconds. any ally falls below 35% of their maximum health while this is active they are instantly healed once for 15% of their maximum health.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Bastion of Hope",
+    "desc": "Critical strikes now bless you, regenerating SP mana and increasing all of your primary stats by 10% for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Paying The Tithe",
+    "desc": "Increases the critical strike chance of Dawnbreak by 10% and your Seraphic Bulwark now lasts for 2 additional blocks. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "The Chosen",
+    "desc": "Your Illumination now shields you for 30% of the amount healed.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Judgement",
+    "desc": "Increases the critical damage of Gavels by 15% and they are now guaranteed to critically strike against Undead enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hammer of Kings",
+    "desc": "Become anointed by the light, summoning a blessed hammer that encircles you dealing holy SP Holyfire Damage to nearby enemies every 3 sec for 12 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Sun Disc",
+    "desc": "You now emit an aura that causes all nearby allies to receive 6% increased healing. Does not stack with similar effects.In addition, the healing done by Illumination is increased by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Holy Strength",
+    "desc": "Level 30 PassiveIncreases your spell power by 100% of your Strength.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Clarity of the Heavens",
+    "desc": "Level 50 PassiveIncreases your block value by 50% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Solar Eclipse",
+    "desc": "Dawnbreak now unleashes a burst of holy energy after a 1 seconds delay, dealing holy AP Holy damage to nearby enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Seraphic Bulwark",
+    "desc": "2 Charges, 25 sec rechargeRaise your blessed shield, increasing your block value by 100%. Lasts for 5 blocks or 10 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dawn's Arrival",
+    "desc": "Casting Dawnbreak now has a 40% chance to reset the cooldown of Gavels and causes the next one to not incur a cooldown.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Justicar's Wrath",
+    "desc": "Bring holy wrath down upon an enemy, dealing AP High Threat Holy damage and increasing the target's spell damage taken by 10% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Glorious Defender",
+    "desc": "Increases the effectiveness of Gavels by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blessed One",
+    "desc": "Increases your chance to block by 5% and reduces the duration of movement slowing effects by -20%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Hope",
+    "desc": "When the absorption shield from The Chosen is depleted, it explodes for holy SP Holy damage, split between enemies within 8 yds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dawnguard",
+    "desc": "Fulfilling a Vow now increases your block chance by 2% for 15 seconds, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shining Shield",
+    "desc": "Activating Dawn now grants Shining Shield for 8 seconds.Shining ShieldIncreases your Armor contribution from your shield by 50%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Divine Right",
+    "desc": "Increases your chance to critically strike and to parry attacks by 2% and your spell hit chance by 5%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Valiance",
+    "desc": "Increases your melee attack speed by 15% and your first auto attack on a target hits twice.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Luminary Mendicant",
+    "desc": "Increases the mana restored by Vow of Grace by 100%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sunflare Aegis",
+    "desc": "Blocking attacks now has a 30% chance to grant you Hammer of Kings for 4 sec. Hammer of Kings is already active, you increase the duration by 4 sec.Hammer of KingsBecome anointed by the light, summoning a blessed hammer that encircles you dealing holy SP Holyfire Damage to nearby enemies every 3 sec for 12 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blessing of Kings",
+    "desc": "Critical strikes now reduce the cooldown of Hammer of Kings and Solar Prayer by -1.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sun Warrior's Guidance",
+    "desc": "Increases the critical strike chance of Gavels and Dawnbreak by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "The Chosen King",
+    "desc": "Casting Hammer of Kings now also increases your critical strike chance by 10% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "valkyrie": [
+   {
+    "name": "Vow of the Valkyr",
+    "desc": "Auto attacks generate 1 Solar Power and deal 10% increased damage.Fulfillment: Melee ability damage triggers an auto attack with each weapon.Only 1 Vow can be active at a time.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Gift of the Sun",
+    "desc": "Increases your critical strike chance with Holy spells and abilities by 50% on enemies above 80% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Holy Giant",
+    "desc": "Level 50 PassiveDoubles the effectiveness of Vow of the Valkyr.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Blessed Hammer",
+    "desc": "Reduces the cooldown of Solar Invocation spells by -10 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "March of the Valkyr",
+    "desc": "Increases the all damage dealt by party and raid members by 3%. Does not stack with similar effects.In addition, your chance to parry is increased by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Impartial",
+    "desc": "Increases your Strength and maximum mana by 5% and your expertise by 5. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Valkyr's Grip",
+    "desc": "Increases your off-hand Weapon Damage dealt by 20% and reduces the duration of disarm effects by -15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Trial of Valor",
+    "desc": "Fulfilling a Vow now reduces the cooldown of Horusath Blast by -2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Champion's Arrival",
+    "desc": "Increases the duration of Champion of the Sun and Chains of Light by 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sunwalker",
+    "desc": "Dealing melee damage now generates a stack of Sunwalker.SunwalkerReduces the cast time and mana cost of your next Shine by -20% for 30 seconds, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Odyn's Vanguard",
+    "desc": "Melee attacks now have a 20% chance to reset the cooldown of Glorious Execution.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Justice",
+    "desc": "Spin and strike with both weapons dealing 40% Weapon Damage plus fire SP to up to 5 enemies within 5 yds.Your main-hand strike will deal Fire damage and your off-hand strike will deal Physical damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Radiant Halberd",
+    "desc": "Direct Physical damage dealt now reduces the cooldown of Champion of the Sun by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Light's Blessing",
+    "desc": "Casting Sunslam now reduces the cooldown of Pendant of the Sun by -10 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Divine Retribution",
+    "desc": "Accumulates 25% of your damage dealt to on the target and unleashes it after 8 seconds, damaging enemies within 10 yds as Holy damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Light of the Sun",
+    "desc": "Parrying an attack now restores 3% of your maximum health and increases your chance to parry the next attack by 30%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Valorous Champion",
+    "desc": "Level 20 PassiveIncreases your attack power by 25% and your spell hit rating by 5% of your Strength.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Valkyr's Grip",
+    "desc": "Level 10 PassiveAllows you to dual wield and to wield a Two-Handed Mace, Sword, or Polearm in each hand and your chance to hit is increased by 6%.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Radiant Power",
+    "desc": "Each stack of Sunwalker now increases the critical strike chance of Shine by 3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Knight of Dawn",
+    "desc": "Your Glorious Execution now has a 20% chance to strike 1 additional time.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Solar Empowerment",
+    "desc": "Fulfilling your Vow now unleashes a chain of light at your target, dealing holy AP Holy damage and then bouncing to up to 5 additional enemies, dealing reduced damage with each strike.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sun's Gift",
+    "desc": "Level 30 PassiveYour Horusath Blast now deals additional damage scaling with your attack power and grants allies Replenishment.ReplenishmentRestores 1% maximum mana every 5 sec to allies within 100 yds for 15 seconds.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Champion of the Sun",
+    "desc": "Become a champion of An'she, causing your melee auto attacks to deal an additional 50% of the damage dealt as Holy damage. Lasts 20 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Herald of Purity",
+    "desc": "Damage dealt by Justice now has an 8% chance to reset its own cooldown.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blessed Magic",
+    "desc": "Casting Horusath Blast now resets the cooldown of Glorious Execution.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Glorious Execution",
+    "desc": "Strike with both weapons dealing Weapon Damage plus 8 Physical damage and regenerate mana equal to 5% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Fanaticism",
+    "desc": "Increases the effectiveness of Gavels and Horusath Blast and reduces their mana cost by -20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Valkyr's Calling",
+    "desc": "Target an enemy and leap into the air, becoming immune to all physical attacks and spells for 2 seconds. At the end of the duration, you charge back down, dealing SP Holy damage to all enemies within 8 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Radiant Marks",
+    "desc": "Reduces the channel time of Sunslam by 1 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Fervor of the Sun",
+    "desc": "Fulfilling a Vow now increases the damage of your Sunslam by 10% for 1 minute, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Pendant of the Sun",
+    "desc": "Activate your pendant of the sun, refreshing the duration and all charges of Dawn.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sunsworn",
+    "desc": "Increases your Physical damage dealt by 6% and auto attacks now have a 10% chance to restore 3% of your maximum mana.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Sunslam",
+    "desc": "Slam an enemy every 1 sec with the might of the sun, dealing AP Holy damage and stunning them for 1 seconds. Lasts 3 seconds.Only usable while Dawn is active. Usable while moving.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Vindicator",
+    "desc": "Your Glorious Execution now ignores -10% of the target's armor while Vow of the Valkyr is active. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "It's Always Sunny",
+    "desc": "Activating Dawn now reduces the cooldowns of Radiance, Valkyr's Calling, and Sunslam by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Atone, Or Else",
+    "desc": "Fervor of the Sun now stacks up to 3 additional times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Judgement of the Valkyrie",
+    "desc": "Reduces the cooldown of Judgement Day by -15 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Leap of the Valkyrie",
+    "desc": "Reduces the cooldown of Sun Stride by -4 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Arbiter of Grace",
+    "desc": "While Vow of Grace is active, your Glorious Execution now regenerates an additional 15% mana equal to the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Arbiter of Light",
+    "desc": "While Vow of Light is active, your Gavel of Light now restores an additional 100% health equal to the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "By The Light",
+    "desc": "Increases the critical strike chance of Valkyr's Calling by 50%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Last Call",
+    "desc": "Increases the duration of Valkyr's Calling by 1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ]
+ }
+}

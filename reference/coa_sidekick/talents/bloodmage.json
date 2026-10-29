@@ -1,0 +1,1680 @@
+{
+ "class": "Bloodmage",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Bloodleaper",
+   "desc": "Reduces the cooldown of your Lunge by -10 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Blood Runs Cold",
+   "desc": "Your Blood Pact now also increases your healing received by 20%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Easy Prey",
+   "desc": "Increases the duration of Hemostasis by 1 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Blood Rush",
+   "desc": "Periodic damage dealt now has a 20% chance to grant you Blood Rush. Can only occur once every 5 sec.Blood RushIncreases your haste by 20% for 5 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Infected Blood",
+   "desc": "Periodic damage dealt now reduces the enemy's movement speed by -30%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Hemostasis",
+   "desc": "Trap an enemy in a blood orb, horrifying them in place for 4 seconds.Reactivating this ability within 4 seconds, instantly pops the Hemostasis, dealing shadow SP Shadow damage and reducing their healing received by 60% for 10 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Night Stalker",
+   "desc": "All damage and healing done is increased by 5% at night.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Bloodbender",
+   "desc": "Increases the effectiveness of Offerings by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Everhungry",
+   "desc": "Direct critical strikes now increase your haste by 10% for 5 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Blood Bond",
+   "desc": "Bond yourself to an ally for 30 minutes, causing direct damage taken by the ally to generate 1 Rage and 3% base health and redirect their threat generated to you.In addition, while out of combat, you and your bonded ally have 30% increased movement speed.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Dark Curse",
+   "desc": "Increases critical strike chance by 3%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Life Scent",
+   "desc": "Increases your stealth detection significantly.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Wicked Howl",
+   "desc": "Let loose a wicked howl, increasing your maximum health by 30% for 20 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Nightmare",
+   "desc": "While above 50% maximum health, abilities that cost Rage now consume 2% of your maximum health to damage or heal your target for an additional 10% of the value.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Blood Moon",
+   "desc": "Your Animated Blood now spawns an additional amalgam.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Scarlet Delirium",
+   "desc": "Requires Mortal FormFlood the minds of up to 5 nearby enemies with visions of unraveling flesh, fearing them for 40 seconds (8 sec versus players) while draining their life essence, siphoning SP health every 3 sec.Damage caused may interrupt the effect.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Fleshcraft",
+   "desc": "Mend blood and bone, healing an ally for 50% of their maximum health and applies Sated.SatedCannot be affected by Fleshcraft for 3 minutes.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Alacrity",
+   "desc": "Increases all primary stats by 4%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Veins of Vengeance",
+   "desc": "Increases your chance to resist curse effects by 15%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Mortal Wounds",
+   "desc": "Your direct harmful critical strikes with spells and abilities now cause the target to bleed for SP over 6 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Blood Pact",
+   "desc": "Invoke a blood pact, exchanging health for enhanced reflexes, increasing your chance to dodge and reducing the chance for ranged attacks to hit you by 50% for 12 seconds.While active you can dodge or parry while casting.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Blood Trails",
+   "desc": "Periodic damage and healing now causes targets to spill a pool of blood beneath them.Allies in a Cursed Form who move through the pools of blood gain Trail of Blood for 6 seconds.Trail of BloodMovement speed cannot be reduced below 80%. Movement speed increased by 20%. Damage dealt increased by 5%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Liquify",
+   "desc": "Requires Mortal FormDissipate into a pool of blood, making you immune to damage from spells and attacks, but preventing you from attacking or casting spells and slowing your movement speed by -30% for 6 seconds.Usable while stunned, feared or confused.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Shadow Howl",
+   "desc": "Let loose a dark howl that inspires your allies, granting immunity to movement impairing effects to all allies for 6 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Adrenaline",
+   "desc": "Reduces the duration of bleed, root, and movement slowing effects against you by -25%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Bloody Sacrifice",
+   "desc": "Increases your healing received by 15%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Crimson Curse",
+   "desc": "Your direct damage critical strikes increase the damage the target takes from bleed effects by 30% for 15 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Predator",
+   "desc": "Your Claw Sweep, Sanguine Mend, and Sanguine Rupture can now strike 1 additional nearby target.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Transfusion",
+   "desc": "Swap health percentages with an ally.Increases the lower health percentage of the two to 40%, below that amount.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Blood Veil",
+   "desc": "Create a magical veil around an ally, absorbing 50% of incoming damage, up to a maximum of AP for 8 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Visceral Magic",
+   "desc": "Adds 40% to the Armor contribution from items by Blood Shield.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Coagulation",
+   "desc": "Your Blood Shield now also dispels 1 bleed effect from you with each tick.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Crimson Etchings",
+   "desc": "Removes the health cost of your Blood Shield and Vital Shield.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Bloodbound Etchings",
+   "desc": "Your Blood Shield now increases your health regeneration by 50% more.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Blood Clot",
+   "desc": "Your Scarlet Delirium now deals 100% increased damage.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Mucking Around",
+   "desc": "Reduces the cast time of Scarlet Delirium by -1 sec, but increases the health cost by 100%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Dark Mending",
+   "desc": "Reduces the cast time of Sanguine Mend by -0.5 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Saturating Sutures",
+   "desc": "Your periodic damage and healing has a 15% chance to reduce the cost your next Sanguine Mend by -100% for 8 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Vampiric Pools",
+   "desc": "When Liquify ends, you now leech SP health from nearby enemies.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Bloodmoon Power",
+   "desc": "Your Liquify now cleanses all negative effects when used.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "accursed": [
+   {
+    "name": "Unchained",
+    "desc": "Level 10 PassiveYour damaging Mortal Form spells can now be cast while moving.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Forbidden Power",
+    "desc": "Level 20 PassiveIncreases your spell critical strike rating by 30% of your Agility and spell hit rating by 5% of your Agility.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Blood Shards",
+    "desc": "Level 30 PassiveShadow Damage dealt now generates 1 Blood Shard, plus 1 additional it critically strikes, for 10 minutes, up to 8.Dealing damage with Veinburst will now expend all stacks of Blood Shards, each dealing SP Arcane damage to your target.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Relentless",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "The Hunter and the Hunted",
+    "desc": "Level 50 PassiveWhen you activate a Cursed Form you now charge to your target they are within 20 yds. they're an enemy you root them for 2 seconds.Upon expiration, your Accursed Form can be reactivated to cause you to erupt in a burst of blood magic, leeching shadow AP health from nearby enemies and teleporting you backwards.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Puncturing Fangs",
+    "desc": "Your Bloodmoon Blast now generates 3 additional Rage per hit.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Ultra Instinct",
+    "desc": "Direct ability critical strikes now increase your spell and ability critical strike chance and critical damage by 3% for 10 sec.Each additional critical strike increases this by an additional 3%, but reduces its duration by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Bloodsurge",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Frenzy",
+    "desc": "Increases spell haste of all party and raid members by 3%. Does not stack with similar effects.In addition, while a Cursed Form is active, your global cooldowns are reduced by -25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Rage",
+    "desc": "Increases your spell damage by 15% of your attack power and the damage dealt by Reave by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Aortic Assault",
+    "desc": "Extend the duration of your active Cursed Form by 3 sec and strike nearby enemies every 1 sec for 3 seconds, each strike causing AP Physical damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Crimson Expedition",
+    "desc": "Increases the critical strike chance of your Bloodbolt, Blood Shards, and Aortic Assault by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fang Over Fang",
+    "desc": "Casting Bloodfang Bite now has a 20% chance to reset the cooldown of Reave.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Endure the Curse",
+    "desc": "Reduce all damage taken by -30% for 10 seconds.While active, taking damage that would reduce your health below 10% will instantly heal you for 30% of your maximum health. Can only occur once.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Night Hunter",
+    "desc": "Your Veinburst now has a 40% chance to not trigger a cooldown when cast.Your Bloodbolt now has a 40% chance to refund half of its Rage cost when cast.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Accursed Form",
+    "desc": "Transforms your Blood Curse into Accursed Form.Accursed Form (Cursed Form)Embrace your demonic curse for 30 seconds, entering an improved Cursed Form, increasing your attack power by 50% of your Agility and causing your melee attacks to reduce all healing done to the target by -20% for 10 seconds, stacking 2 times.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Battleweaver",
+    "desc": "Casting Cursed Form abilities now has a 50% chance to generate 1 Blood Shard for 10 minutes, up to 8.Dealing damage with Bloodbolt will launch 1 Blood Shard, dealing SP Arcane damage to your target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Veinburst",
+    "desc": "Requires Mortal FormBlast an enemy, dealing shadow SP Shadow damage.Deals 25% increased damage to bleeding targets.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Clotting",
+    "desc": "At the end of Aortic Assault's duration, all enemies in a 10 yd frontal cone suffer AP Physical damage.Damage dealt by this effect is increased by 25% against bleeding targets.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Darkcasting",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Final Embrace",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "One Man's Curse...",
+    "desc": "Removes the health cost of Accursed Form and entering it now instantly restores 15% of your maximum health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hemoburst",
+    "desc": "Requires Mortal FormUnleash a powerful burst of blood at an enemy, dealing SP Shadow damage. This ability is guaranteed to critically strike against bleeding targets.Extends the duration of your next Cursed Form by 5 sec for 30 seconds, stacking 2 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Dark Sigil",
+    "desc": "Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.In addition, you now heal for 15% of all critical damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Crimson Feast",
+    "desc": "Every 5 second you remain in a Cursed Form now reduces the cooldown of your Bloodsurge by -5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Scent",
+    "desc": "While in Accursed Form, you now deal 15% increased damage to targets below 35% maximum health.Dealing direct damage to enemies below 35% maximum health now leeches health equal to 10% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Terrorizer",
+    "desc": "Increases the damage of Veinburst, Bloodfang Bite, and Claw Sweep on enemies below 35% health by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Hunt",
+    "desc": "Increases your Shadow damage dealt by 10% against bleeding targets.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Gore Barrage",
+    "desc": "Reduces the cost of spells that cost health and Animated Blood by -30%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Barely Human",
+    "desc": "Increases your armor penetration and the damage of spells that cost health by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Sanguine Scripture",
+    "desc": "Upon exiting Accursed Form, you gain 70% movement speed and spell haste for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Inhumane",
+    "desc": "Dealing damage with Aortic Assault will now launch 1 Blood Shard, dealing SP Arcane damage to your target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Killer Instinct",
+    "desc": "Each point of Rage now increases the critical strike chance of Veinburst and Reave by 0.5%, up to a maximum of 50%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Reave",
+    "desc": "Lacerate an enemy, dealing 125% Weapon Damage plus 26. the enemy is bleeding, below 35% health, or you are behind them, deal 100% additional Shadow damage for each condition met.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Everlasting Hunt",
+    "desc": "Damage dealt by Blood Shards now reduces the cooldown of Veinburst and Reave by -1.5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shadow Pact",
+    "desc": "Increases the effectiveness of your Shields by 50%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Blood Pact",
+    "desc": "Increases your maximum Rage by 20 and you now regenerate 4 Rage every 5 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Cursed Blood",
+    "desc": "Damage dealt by Taldaram's Torment now has a 20% chance to internally rupture, causing it to deal its damage an additional time to all enemies near the target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Corrupted Blood",
+    "desc": "When you use Taldaram's Torment on a Humanoid or Beast it now corrupts their blood, increasing your damage dealt against them by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Intent",
+    "desc": "When you Lunge at an enemy you now heal for 5% of your maximum health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Cruel Intent",
+    "desc": "When you Lunge at an enemy you now strike them 3 times with auto attacks.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Gore Tome",
+    "desc": "For the first 5 sec after activating a Cursed Form, your Bloodfang Bite is now guaranteed to critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Leeching Tome",
+    "desc": "Your Bloodbolt now leeches 50% more health, but it now costs 5 additional Rage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "eternal": [
+   {
+    "name": "Eternal Curse",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bloodmoon Power",
+    "desc": "Level 50 PassivePeriodic damage dealt by Rotclaw now hits -50% more often and your Bloodfang Bite, Claw Sweep, and Bloodbolt additionally scales with dodge rating.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Uncanny Movement",
+    "desc": "Level 20 PassiveIncreases your Agility by 25% and your hit rating by 5% of your Agility.In addition, Claw Sweep now generates additional threat.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Feral Strength",
+    "desc": "Level 30 PassiveWhile in Eternal Curse, you now gain 50% more attack power from Agility and Strength.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Rejuvenating Shadows",
+    "desc": "Nearby party and raid members receive 6% more healing. Does not stack with similar effects.In addition, increases the health leeched by Bloodbolt by 50%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Vitality",
+    "desc": "Increases your Stamina while in Eternal Curse by an additional 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Heightened Reflexes",
+    "desc": "Increases your chance to dodge by 4% and your expertise by 5. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Enraging Wounds",
+    "desc": "Level 40 PassiveMelee critical strikes now leech Stamina health from the target, scaling with your Stamina.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Night Hunter's Howl",
+    "desc": "Howl into the souls of nearby enemies, dealing AP Shadow damage and slowing their movement speed by 60% for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bloodguard",
+    "desc": "Increases the duration of Blood Pact by 4 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "No Mercy",
+    "desc": "Allows your Thick Pelt to affect an additional hit.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Monstrous Hunger",
+    "desc": "Enrage for 10 seconds, causing the next 6 Bloodfang Bites to have a 50% reduced global cooldown and cost and to trigger Call of the Darkwing.Call of the DarkwingCalls 1 to 2 Shadow Bats to appear from the shadows and strike the target for AP Physical Damage, healing you equal to the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Eyes In The Night",
+    "desc": "Allies within 20 yds are protected by Shadow Colony, giving them a 40% chance to trigger a Call of the Darkwing when they take direct damage. Can only occur once every 5 sec. allies have less health than you when this occurs, generate a large amount of threat against the enemy that triggered it.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Rotclaw",
+    "desc": "2 Charges, 6 sec rechargeRavage all nearby enemies, dealing AP Shadow damage, generating Rage and infecting their wounds, causing them to bleed for AP Shadow damage over 4 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Festering Maw",
+    "desc": "Healing with Bite Wound now reduces the cooldown of Lunge by 1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Infection",
+    "desc": "Auto attacking a bleeding target will now infect the wound, increasing their chance to be critically struck from you by 1% for 6 seconds, stacking 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Enduring",
+    "desc": "Increases the damage of Bloodbolt by 25%, plus an additional 25% while below 35% health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Iron Claws",
+    "desc": "Allows Rotclaw's periodic effect to stack up 2 additional times for 50% longer duration and cause you to ignore 3% of the target's armor per stack.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Petrified Legions",
+    "desc": "Physical damage you deal or take now has a 10% chance to trigger a Call of the Darkwing.Call of the DarkwingCalls 1 to 2 Shadow Bats to appear from the shadows and strike the target for AP Physical Damage, healing you equal to the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Howl",
+    "desc": "Taunts nearby enemies within 10 yds, forcing them to attack you for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Eternal Presence",
+    "desc": "Increases the attack power of party and raid members by 5%. Does not stack with similar effects.In addition, you now gain attack power equal to 15% of the damage taken for 10 seconds. Can only occur once every 10 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Enraging Howls",
+    "desc": "Casting Howl spells now increases the damage dealt and reduces damage taken by nearby party members by 5% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Bloody Claws",
+    "desc": "You now generate 20% increased Rage from damage dealt and critical strikes with auto attacks now reduces the cooldown of Animated Blood, Blood Veil, and Blood Pact by 1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Blood Plague",
+    "desc": "Increases the critical strike chance and critical damage of Ravenous Strike and Claw Sweep by 10% against Diseased targets.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Appetite for Blood",
+    "desc": "Increases the damage dealt by Bloodfang Bite and Claw Sweep by 20% against Humanoids and Beasts.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Packleader",
+    "desc": "Casting Howl spell now enrages your summons, increasing their damage dealt by 10% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Eternal Hunt",
+    "desc": "Increases your maximum health and reduces the cost of your spells and abilities by 5%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Thick Pelt",
+    "desc": "Physical damage taken now reduces the Physical damage taken from the next attack within 10 seconds by AP. Can only occur once every 5 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Rabid",
+    "desc": "Reduces the cooldown of Howl spells by -25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Uncanny Speed",
+    "desc": "Increases your melee haste by 5% and your movement speed and mounted movement speed by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Screech of the Darkwing",
+    "desc": "Your effects that trigger Call of the Darkwing now trigger an additional Call of the Darkwing.Can only occur once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Shadow Strength",
+    "desc": "Casting Howl spells now deal AP Shadow damage to all nearby enemies and triggering Call of the Darkwing now reduces the cooldown of all Howl spells by 1 sec.Can only occur once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Cursed Strikes",
+    "desc": "Increases the duration of Rotclaw and Hypovolemic Shock by 50%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Eternal Resolve",
+    "desc": "Activate your eternal resolve for 30 seconds, sending you into a feral frenzy, increasing your melee attack speed, maximum health, and healing received by 50%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Grim Omen",
+    "desc": "Critical strikes with Ravenous Strike or Bloodfang Bite, or using Howl spells, now triggers Call of the Darkwing.Call of the DarkwingCalls 1 to 2 Shadow Bats to appear from the shadows and strike the target for AP Physical Damage, healing you equal to the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shadows In The Night",
+    "desc": "While above 75% health, your damage taken is reduced by -5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Moon",
+    "desc": "While below 75% health, you now heal for 3% of all damage you deal.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Mark",
+    "desc": "Increases the Physical damage taken by enemies within 5 yds of you by 3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Mark",
+    "desc": "Reduces the chance to hit for enemies within 5 yds of you by -3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Coated In Blood",
+    "desc": "Increases the effectiveness of Blood Pact by 50%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Coated In Darkness",
+    "desc": "Casting Bloodbolt or Bloodfang Bite now reduces the cooldown of your Blood Pact by -0.5 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   }
+  ],
+  "fleshweaver": [
+   {
+    "name": "Gruesome Rituals",
+    "desc": "Your damage dealt is now increased by 1% for each stack of Pooled Vitality.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Infuse",
+    "desc": "Accumulates 10% of all damage dealt to the target and unleashes it after 10 seconds, dealing Shadow damage and absorbing healing done to the target equal to the damage done for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Redistribution",
+    "desc": "Increases the maximum health restored by Fleshcraft by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Raging Hunger",
+    "desc": "Triggering Pooled Vitality now also generates 3 Rage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Aortic Aegis",
+    "desc": "Your Blood Veil now applies to the party members of the target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sovereignty",
+    "desc": "Damage dealt by Crimson Tide now grants you Sovereignty.SovereigntyReduces the cost of your next Bloodbolt within 12 seconds by -10% and causes it to strike 1 additional nearby enemy for each target damaged, stacking up to 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Essence",
+    "desc": "Casting Cursed Form abilities or Bloodbolt will now heal allies affected by Blood Rituals for healing every 1 sec for 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Flesh Foundry",
+    "desc": "Your critical strikes now reduce the cooldown of Fleshcraft and the duration of Sated on the target by -4 sec.In addition, increases your critical strike rating by 15% of your Spirit.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Organ Orbs",
+    "desc": "Each stack of Pooled Vitality now increases your Spirit by 3%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Gift of Lana'thel",
+    "desc": "Become blessed by Lana'thel, increasing your spell power by 25% of your Spirit and your hit rating by 4% of your Spirit. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Hemal Excision",
+    "desc": "Cut into an ally's vital essence, siphoning all curse effects from them. You may reactivate this ability again within 10 seconds to place these curse effects on an enemy.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Vampyr's Kiss",
+    "desc": "Curse an enemy, causing them to bleed for 174 Shadow damage over 30 seconds.All periodic damage dealt to an enemy affected by Vampyr's Kiss is replicated on them equal to 25% of the value.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dissipation",
+    "desc": "Reduces the cooldown of Fleshcraft and the duration of the Sated debuff by -60 sec. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Black Heart",
+    "desc": "Your Vampyr's Rage now regenerates 20% of your maximum Rage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Crimson Tide",
+    "desc": "Requires Mortal FormCreate a pool of blood beneath up to 10 enemies within 10 yds of you, causing them to bleed for SP Shadow damage over 15 seconds.Empowered: Radius increased by 5 yds and costs 100% less Rage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Lingering Essence",
+    "desc": "Periodic damage and healing done now has a 50% chance to reduce the cooldown of Vampyr's Kiss by -1 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Arterial Bind",
+    "desc": "Place a pool of blood on the ground beneath enemies and allies, healing allies for healing every 1 sec and silencing all enemies for 4 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Liturgy",
+    "desc": "Requires Mortal FormForm a blood bond, healing a friendly target for Spirit and applying Blood Rituals to them, bouncing to up to 10 nearby allies, healing for less for each target struck.Blood RitualsCauses Bloodmoon Blast to heal marked allies for healing 8.5% Stamina.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Adrenaline Boost",
+    "desc": "Increases the critical strike chance of abilities that require Cursed Form on enemies above 75% or below 35% health by 20%.In addition, melee critical strikes now have a 50% chance to make your next Dark Liturgy or Bloodmoon Blast instant cast.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Spice of Life",
+    "desc": "Your periodic damage and healing now has a 10% chance to grant a stack of Pooled Vitality.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Consolidation",
+    "desc": "Increases your haste by 5%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Gorge",
+    "desc": "Instantly gain 10 stacks of Pooled Vitality every 5 sec for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Dark Blood",
+    "desc": "Reduces the cost of your abilities that require Cursed Form and increases the healing done by Blood Rituals by -25%. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "",
+    "rank": "1 TE · rank 0/2",
+    "tier": 0
+   },
+   {
+    "name": "Bloodcraft",
+    "desc": "Your damage dealt by Darkfallen Lament now applies Bloodcraft to affected enemies, reducing damage dealt by -2% for 5 seconds, stacking 4 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sanguine Essence",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Heart Rupturer",
+    "desc": "Increases the damage of Claw Sweep, Sanguine Rupture, Ravenous Strike and Bloodmoon Blast by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Darkfallen Lament",
+    "desc": "Chant a sinister ritual, healing up to 12 allies affected by Blood Rituals for healing over 8 seconds and leeching healing health from enemies within 10 yds over 8 seconds.While active, you are immune to silence and interrupt effects, but cannot move.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Vitality For Later",
+    "desc": "Consuming Pooled Vitality now heals up to 10 allies within 30 yds for Spirit, scaling with Spirit and healing power.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Pooled Vitality",
+    "desc": "Level 10 PassiveSpells that cost health now grant a stack of Pooled Vitality, stacking 10 times.Mortal Form spells that cost Rage consume 10 stacks of Pooled Vitality to become empowered.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Waves of Blood",
+    "desc": "Each tick of Crimson Tide now has a 10% chance to heal a nearby ally for 25% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hemoglobe",
+    "desc": "Coalesce a powerful sanguine orb above you, healing up to 12 allies within 20 yds for healing 337.5% Stamina over 15 seconds.Generates 2 stacks of Pooled Vitality, and 150 Rage every 2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Excess Blood",
+    "desc": "Your healing done now has a 10% chance to heal the target for an additional healing over 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Universal Donor",
+    "desc": "Casting Infuse or Vampyr's Kiss now increases the healing received by all allies by 6% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Acquired Taste",
+    "desc": "Casting Infuse or Vampyr's Kiss now generates 2 additional stacks of Pooled Vitality.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fleshbending",
+    "desc": "Your critical strikes now increase the critical strike chance of all party and raid members by 5% for 10 seconds.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Invigorated Flesh",
+    "desc": "Increases chance to hit with all spells and attacks by 1% for you and party and raid members.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Red Thirst",
+    "desc": "Enrage allies within 40 yds, increasing haste by 30% for 20 seconds.After being affected by this spell, allies cannot benefit from similar effects for 5 minutes.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Purify Blood",
+    "desc": "Emanate an aura for 15 seconds, causing allied players to deal 70% shadow SP additional damage as Shadow damage when they deal direct damage.Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Cursed Blood",
+    "desc": "Increases the damage dealt and spell power scaling of Bloodbolt, Bloodmoon Blast, and Crimson Tide by 20%.In addition, damage dealt by Bloodbolt now reduces all resistances by 75 and increases the target's Magic damage taken by 2% for 10 seconds.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Heartbreak",
+    "desc": "Unleash a powerful surge of blood, dealing shadow Spirit Shadow damage to an enemy, and healing 12 allies within 20 yds of the target for healing 100% Spirit.Empowered: Increases your party and raid members attack or spell power by 95 for 20 seconds, plus an additional 95 for you, scaling with level.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Sanguine Scion",
+    "desc": "Increases the critical strike chance of Sanguine Mend and Bloodbolt by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Crimson Scion",
+    "desc": "Direct damage dealt now has a 10% chance to make your next Sanguine Mend within 10 seconds instant cast.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood-Cursed Weapons",
+    "desc": "Casting Crimson Tide now additionally increases the haste of all party and raid members by 5% for 15 seconds.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Blood-Cursed Armor",
+    "desc": "You now emanate an aura around you, increasing the Armor of party and raid members by 390.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   }
+  ],
+  "sanguine": [
+   {
+    "name": "Thirst",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Vampiric Fang",
+    "desc": "Expends Thirst StacksSteal SP health from an enemy.Damage increased by 10% for each Thirst stack. Clears Insatiable and Thirst stacks.",
+    "cost": "Free",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Cunning of Atherann",
+    "desc": "Level 20 PassiveIncreases your spell damage by 25% of your Stamina and Spirit.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Reckless Abandon",
+    "desc": "Level 40 PassiveEach stack of Thirst now increases your critical strike chance by 1%.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Crimson Terror",
+    "desc": "Your Transgression now grants spell damage equal to 50% of your Spirit for the duration.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Blood Banquet",
+    "desc": "Increases the damage of Valanar's Vengeance and Taldaram's Torment by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Twisted Magic",
+    "desc": "Your direct harmful critical strikes increase the target's Shadow damage taken from you by 2%, stacking up to 5 times, for 12 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fearmonger",
+    "desc": "Increases the tick rate and cost of Taldaram's Torment by -30%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Atherann's Anguish",
+    "desc": "Unleash a hemoplague upon the target area, accumulating 30% of the damage you deal to affected enemies for 10 seconds, and then exploding for that amount of Shadow damage.Damage caused by this ability cannot critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Agonizing Pain",
+    "desc": "Damage dealt by your Atherann's Anguish now causes enemies hit to bleed, dealing shadow SP Shadow damage over 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "The Council Assembled",
+    "desc": "Atherann's Anguish now costs -25 less Rage.Taldaram's Torment now increases the damage of your next Valanar's Vengeance or Keleseth's Calamity by 3% per tick for 10 seconds, stacking 5 times.Valanar's Vengeance and Keleseth's Calamity now reduce the cooldown of Malediction by -5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Essence Harvester",
+    "desc": "Being struck by an enemy while below 35% health instantly resets the cooldown of your Vampiric Fang and grants you Wretched.Can only occur once per minute.WretchedGenerates 10 Rage and 1 stack of Thirst every 1 sec for 10 seconds. Vampiric Fang removes this effect.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Lifedrinker",
+    "desc": "Increases the damage of your Vampiric Fang by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Vampyr Lord",
+    "desc": "Increases the damage dealt by your Animated Blood by 35%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Enthraller",
+    "desc": "Increases the critical strike chance of Valanar's Vengeance and Keleseth's Calamity by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Parasites",
+    "desc": "Your Taldaram's Torment now generates 3 additional Rage per tick and increases spell critical strike chance against the target by 3% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Craving",
+    "desc": "Requires Mortal FormYou crave blood for 12 seconds, for the duration you cannot be interrupted or silenced, and you regain 5% of your maximum health and 15% of your missing Rage every 2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Keleseth's Calamity",
+    "desc": "Requires Mortal FormBend blood in an area, dealing shadow SP Shadow damage to enemies.Each stack of Thirst reduces the cast time of this ability and increases its damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Cardiac Arrest",
+    "desc": "Your Valanar's Vengeance now deals an additional 50% of its initial damage dealt over 10 seconds, healing you for 50% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Torture",
+    "desc": "Increases the leech of Vampiric Feast by 50%.Consuming at least 9 stacks of Thirst with Vampiric Fang now extends the duration of Transgression by 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Malediction",
+    "desc": "Condemn an enemy, dealing shadow SP Shadow damage over 12 seconds and increasing the damage they take from your next 5 direct damage spells by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Constructor",
+    "desc": "Increases the duration of Animated Blood by 1 sec per stack of Thirst.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bloodsores",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Night Feast",
+    "desc": "Each point of Rage now increases the damage of Bloodbolt by 1%, but its Rage cost is increased by 10.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Thirst for Blood",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Atherann's Wickedness",
+    "desc": "Increases your Shadow damage dealt by 4% and increases your hit chance by 3%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Aneurysm",
+    "desc": "Counter the enemy's spellcast, preventing any spell from that school of magic from being cast for 4 seconds. Successfully interrupting an enemy heals you for 5% of your maximum health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Sacrificial Rite",
+    "desc": "Requires Mortal FormInvoke a dark ritual, increasing your haste by 20% for 15 seconds.While active, attackers are afflicted with Cursed Blood. Can only occur once per sec.At the end of the duration, your healing done is increased by 15% and you are healed for SP over 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Valanar's Vengeance",
+    "desc": "Requires Mortal FormLaunch a powerful blood bolt at an enemy, dealing SP Shadow damage.Each stack of Thirst reduces the cast time of this ability and increases its damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Hematoma",
+    "desc": "Your Bloodbolt now heals for an additional 20% of the damage dealt. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Dark Presence",
+    "desc": "Increases spell haste of all party and raid members by 3%. Does not stack with similar effects.In addition, increases your spell haste by 3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dominion of Blood",
+    "desc": "Your Vampiric Fang now heals you for an additional 50% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Transgression",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Darkfallen's Embrace",
+    "desc": "Increases your spell haste by 3% and increases the range of your Sanguine spells and Bloodbolt by 5 yds. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "The Cup Runneth Over",
+    "desc": "Increases the spell power scaling of Bloodmoon Blast, Taldaram's Torment and Bloodbolt by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Lord",
+    "desc": "Grants your Bloodsore a -15% chance to provide its benefits without being consumed. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "Bloodwell Eruption",
+    "desc": "Increases the radius of Sanguine Rupture by 5 yds and its critical strike chance by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Cursed Ground",
+    "desc": "Increases the cast time of Sanguine Rupture by 2 sec, but now when you strike at least 5 enemies it causes them to bleed out, dealing an additional 352 Shadow damage over 2 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blood Prince's Command",
+    "desc": "Your Bloodbolt is now guaranteed to critically strike on enemies affected by Taldaram's Torment.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Swarm of Flies",
+    "desc": "Your Bloodbolt now refreshes the duration of Taldaram's Torment.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ]
+ }
+}

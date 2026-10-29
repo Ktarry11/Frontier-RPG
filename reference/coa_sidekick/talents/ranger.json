@@ -1,0 +1,1326 @@
+{
+ "class": "Ranger",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Elven Tactics",
+   "desc": "You now have a -20% chance to not consume Advantage on cast.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Double The Pace",
+   "desc": "Increases all party and raid member's melee and ranged haste by 10%. Does not stack with similar effects.In addition, increases your critical strike chance by 2%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Endurance Training",
+   "desc": "Increases your maximum Focus by 20.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Sly",
+   "desc": "Your Woodland Adept now triggers a -10% reduced cooldown for each stack of Advantage active when cast.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Elusive Character",
+   "desc": "Increases your damage dealt by 10% for 12 seconds after leaving Elude.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Outlaw",
+   "desc": "Increases the effectiveness of your Adaptations by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Natural Disguise",
+   "desc": "Instantly dispels all movement slowing effects from allies within 30 yds and transforms them into a bush, stealthing them for 20 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Adrenaline Rush",
+   "desc": "Surge with vitality, dispeling all harmful effects from yourself and increasing your movement speed by 40% for 10 seconds.Usable while stealthed.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Forest Dweller",
+   "desc": "While in Elude, gain 20% increased movement speed and regenerate 3% maximum health every 3 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Onslaught",
+   "desc": "Your senses heighten, causing you to instantly generate 5 Advantage and allowing the use of abilities that require Elude for 15 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Survival Kit",
+   "desc": "Your Survival Potion now also heals you for 10% of your maximum health with each tick.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Blur",
+   "desc": "Increases your chance to dodge and parry by 4%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Survival Expert",
+   "desc": "Increases the dodge chance provided by Briar Veil by 25%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Guile of the Ranger",
+   "desc": "Your Instinct now additionally increases your critical strike rating by 20% of your Agility.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Crippling Shot",
+   "desc": "Fire a crippling shot at an enemy slowing movement speed by -50% and knocking them off their mounts, making them unable to mount again for 5 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Briar Veil",
+   "desc": "Thorns and leaves swirl around you, masking your movements for 10 seconds, increasing your dodge chance by 50% and causing dodging attacks to restore 2% maximum health and 5 Focus.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Knockout",
+   "desc": "Knock an enemy out, incapacitating them for 4 seconds and removing bleed and poison effects from them. Damage caused will interrupt this effect.Usable while in Elude.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Grace",
+   "desc": "Increases your Agility and movement speed by 4%. (up to 3 ranks)",
+   "cost": "1 AE · rank 3/3",
+   "requires": "",
+   "rank": "1 AE · rank 3/3",
+   "tier": 0
+  },
+  {
+   "name": "Woodland Stalker",
+   "desc": "While in Elude, your critical strike chance is now increased by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Dirty Fighter",
+   "desc": "Increases the chance for Flank to critically strike by 50% and increases your chance to resist root effects by 25%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Woodland Adept",
+   "desc": "Slip into the shadows, entering an improved stealth mode, increases your movement speed by 25% for 10 seconds, and applies Elude.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Improved Waterskins",
+   "desc": "Increases the effectiveness of your Waterskins by 25%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Survival Potion",
+   "desc": "Drink a survival potion, dispelling all poison and disease effects and removing 1 poison and disease effect every 3 sec for 9 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Rapid Strikes",
+   "desc": "Melee and ranged auto attacks now have a 25% chance to strike an additional time for 50% of the damage dealt.Can only occur once per sec.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Pinpoint Accuracy",
+   "desc": "Critical strikes with direct damaging abilities now generate 4 Focus.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Deft Hands",
+   "desc": "Increases your melee and ranged haste by 5%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Camper",
+   "desc": "Reduces the cast time of your Bushcraft abilities by -50%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Snapseed",
+   "desc": "Toss a snapseed at an enemy, dealing ranged AP Physical damage and knocking them back.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Resourceful",
+   "desc": "Reduces the cooldown of Crippling Shot and Snapseed by -20%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Cutthroat",
+   "desc": "Shoot a powerful arrow that deals Weapon Damage plus 40 and stuns the target for 1 seconds. Duration increased by 1 sec per stack of Advantage.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Snatch",
+   "desc": "Snatch an enemy's melee weapons, disarming them for 4 seconds. you are disarmed, you also return your weapon to yourself.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Guise",
+   "desc": "Instantly generates 5 stacks of Advantage and allows you see nearby stealthed enemies for 5 seconds.Usable while stealthed.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Lethal Cunning",
+   "desc": "Entering Elude generates 1 stack of Advantage and 10 Focus every 5 sec for 30 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Surefooted",
+   "desc": "Reduces the cooldown of Adrenaline Rush by -30 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Heightened Senses",
+   "desc": "Reduces the Focus cost Adrenaline Rush by -50% and increases the movement speed granted by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Whats Yours Is Mine",
+   "desc": "Removes the Focus cost of Snatch.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Grappling Arrows",
+   "desc": "Increases the range of Snatch by 15 yds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Bloody Focus",
+   "desc": "Reduces the Focus cost of Toxic Dart by -15.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "No Mercy",
+   "desc": "Increases the critical damage of Flank by 10%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "archery": [
+   {
+    "name": "Skirmisher",
+    "desc": "Level 10 PassiveIncreases the damage and tick rate of Toxic Dart by -30%, but reduces the duration of its damaging effect by -30%.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Sniper's Focus",
+    "desc": "Consuming Advantage now has a 20% chance per Archery Point spent to refund 20 Focus.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Nimble",
+    "desc": "Level 30 PassiveIncreases your ranged haste by 20% of your Agility.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Bleeding Edge",
+    "desc": "Level 40 PassiveAllows the periodic damage dealt by Serrated Shot to critically strike.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Archery Master",
+    "desc": "Critical strikes with Quick Shot now generate an additional stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Pierced",
+    "desc": "Critical strikes with Skullpiercer and Precision Shot cause the enemy to bleed for an additional 50% damage of the damage dealt over 4 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "An Arrow for Everything",
+    "desc": "Increases the effectiveness of Quivers by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Swiftshot",
+    "desc": "Damage dealt by Precision Shot now increases enemy Physical damage taken by 4% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Boots of Elvenkind",
+    "desc": "Increases your Agility by 5% and reduces the duration of movement slowing effects on you by -20%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Maximum Power",
+    "desc": "Abilities used with 5 stacks of Advantage now refresh the duration of your active Skirmish by 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Brutal Shot",
+    "desc": "Fire a volley of powerful shots that pierce through Armor, dealing 450% Ranged Weapon Damage plus 300 to all targets in a 40 yd line.While Skirmish is active this ability is guaranteed to critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Headshots Only",
+    "desc": "Periodic damage dealt with Serrated Shot and Toxic Dart now increases the damage of your next Precision Shot within 8 seconds by 10%, stacking 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Incendiary Shot",
+    "desc": "Shoot a burning arrow dealing fire SP Fire damage to an enemy and up to 5 enemies within 6 yds, and causing your next 3 direct damage Advantage spenders to deal 50% of their damage to nearby enemies.Direct damage increased by 20% for each stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Mortal Shots",
+    "desc": "Reduces the cooldown of Crippling Shot by -4 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sharpshooter",
+    "desc": "Level 50 PassiveAdds 25% to the bonuses that your stacks of Advantage provide.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "A Quick Demise",
+    "desc": "Auto shots now have a 20% chance to extend the duration of your Serrated Shot by 2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hunting with Precision",
+    "desc": "Your Hunting Shot now deals 25% increased damage for each subsequent target it ricochets to.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Deadeye",
+    "desc": "Increases the range of your ranged abilities and Auto Shot by 5 yds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Hunting Shot",
+    "desc": "Fire a shot that ricochets between 3 enemies, dealing Ranged Weapon Damage plus 6 to each enemy.Generates 1 stack of Advantage for each enemy hit.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Skirmish",
+    "desc": "Increases your critical strike chance by 15% and reduces your Focus costs by -25%.Lasts 4 sec for each stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Corrosive Poison",
+    "desc": "Your ranged abilities against Poisoned targets now ignores 25% of enemy armor.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Lethal Wounds",
+    "desc": "Increases the tick rate of your periodic damage effects by -20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Serrations",
+    "desc": "Increases your damage against bleeding or Poisoned targets by 5%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Precision Shot",
+    "desc": "Precisely shoot an enemy from a great distance, inflicting ranged AP Physical damage.Damage increased by 25% for each stack of Advantage.Usable while in Elude.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Elven Enchantments",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Pathfinder",
+    "desc": "Your Adrenaline Rush now incurs a -90% reduced cooldown when used while Elude is active.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Studded Arrows",
+    "desc": "Increases the ranged weapon damage dealt by Quick Shot by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Superb Shot",
+    "desc": "Damage dealt by Auto Shot now restores 4 Focus.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Strike Where It Hurts",
+    "desc": "Your ability critical strikes now increase the damage the target takes from bleeds by 30% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Deadshot",
+    "desc": "Generates 2 AdvantageShoot a powerful arrow at the target dealing 250% Ranged Weapon Damage plus 20.1.Only usable on enemies below 20% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hawkeye",
+    "desc": "You now fire an arrow every 3 sec at enemies within 30 yds affected by your Hunting Shot, dealing 75% Ranged Weapon Damage.Scales with Hunting Shot modifiers.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Neurotoxin Arrow",
+    "desc": "Shoot at an enemy's throat with a toxin-laced arrow, dealing ranged AP Nature damage and silencing them for 1 seconds.Duration increased by 1 sec per stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Devastating Shots",
+    "desc": "Increases your critical strike chance by 2% and your hit chance by 1%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "New-Age Archery",
+    "desc": "Increases the damage of Skullpiercer and Precision Shot by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Improved Serrated Shot",
+    "desc": "Increases the damage of Serrated Shot by 30%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Opportunist",
+    "desc": "Increases the critical strike chance of Precision Shot by 50% on enemies above 80% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Light Arrows",
+    "desc": "Increases the damage of Precision Shot by 20% when used from 40 yds or further away from your target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Masterful Archery",
+    "desc": "While in Elude, gain a stack of Masterful Archery every 2 sec.Masterful Archery (Aura)Your next Precision Shot now deals 10% increased damage for 10 seconds, stacking up to 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Silent, But Deadly",
+    "desc": "Direct Physical damage dealt now has an 8% chance to allow you to use Deadshot regardless of the targets health for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "One Shot, One Kill",
+    "desc": "Increases the damage of Deadshot by 75%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   }
+  ],
+  "brigand": [
+   {
+    "name": "Guile of the Cutthroat",
+    "desc": "Increases party and raid member's melee and ranged attack power by 5%. Does not stack with similar effects.In addition, increases your damage dealt by 3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dirty Fighter",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Banditry",
+    "desc": "Increases your critical strike chance by 2% and Focus regeneration by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Rub It In",
+    "desc": "Level 30 PassiveEach stack of Advantage spent now gives you a 20% chance to refund 1 stack of Advantage.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Ravager",
+    "desc": "Level 10 PassiveYour Wild Strike now generates 1 additional Advantage.Removes the minimum range of your ranged abilities.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Outmaneuver",
+    "desc": "Teleport to an enemy, summon a decoy beneath them, and mark them for 8 seconds. Dealing melee damage to them adds a stack to this effect, up to 20 stacks.Reactivating this ability within 8 seconds deals AP Physical damage to your target, increased by 20% for each stack on the target, and then teleports you back to your decoy.Usable while in Elude.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Assault",
+    "desc": "Assault a low health enemy, dealing 100% Weapon Damage (175% with a dagger equipped) plus an additional AP Physical damage. the target is bleeding, this deals 50% increased damage.Damage increased by 30% for each stack of Advantage.Only usable on enemies below 20% health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Highwayman",
+    "desc": "Direct critical strikes while behind your target increase your haste by 15% for 5 seconds, or for your next 2 attacks.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Close Quarters",
+    "desc": "Increases your attack power and Agility by 3%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Bounty Hunter",
+    "desc": "Damage dealt by Flank and Rusty Shiv now increases the target's damage taken from your Advantage spenders by 25% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "'Tactical' Advantage",
+    "desc": "Knockout and Bushwhack now increases your damage dealt against the target by 10% for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Assassin",
+    "desc": "Increases the effectiveness of Instinct by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Throatpunch",
+    "desc": "Punch an enemy in the throat, interrupting the enemy's spellcast, preventing any spell from that school of magic from being cast for 2 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Viper's Bite",
+    "desc": "Generates 2 AdvantageUnleash 4 quick strikes over 1 seconds to an enemy, each dealing 85% Weapon Damage. the target is bleeding, each strike deals an additional AP Physical damage. the target is poisoned, each strike deals Nature damage instead of Physical damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Trueshot Lodge Training",
+    "desc": "Increases your off-hand weapon damage by 25%.While wielding a polearm, your Physical damage dealt is increased by 3%. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "Lacerations",
+    "desc": "Level 40 PassiveAllows the periodic damage dealt by Ravage to critically strike.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Dastardly",
+    "desc": "Level 50 PassiveIncreases your critical damage dealt by 15% on enemies above 80% health or below 20% health.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Quick-Witted",
+    "desc": "Avoiding an attack now causes you to quickly stab an enemy with one of the arrows from your quiver, dealing AP Physical damage and reducing their attack speed by 20% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Knuckleduster",
+    "desc": "Periodic damage dealt now generates 5 Focus.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Quills",
+    "desc": "Launch darts at up to 5 nearby enemies, dealing AP Ranged Physical damage.Deals 50% additional damage and strikes 1 additional target for each stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Instinctual Combatant",
+    "desc": "Casting Instinct now also restores 40 extra Focus and guarantees your next 3 Skullpiercers or Assaults within 20 seconds to critically strike.In addition, Instinct now grants you an additional 10% of your Agility as melee attack power.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Dirty Blades",
+    "desc": "For 4 seconds, your melee auto attacks deal an additional 30% (doubled with a dagger equipped) of the damage dealt as Nature damage and reduces your target's healing received by -20% for 8 seconds, stacking 2 times.Duration increased by 4 sec for each stack of Advantage.Usable while in Elude.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Ambuscade",
+    "desc": "Increases the damage of Skullpiercer and Flank by 20%, plus an additional 35% you have a polearm equipped.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hookshot",
+    "desc": "Launch a hook at a target attempting to lodge it into an open wound, dealing AP Physical damage. the target is bleeding, you can reactivate this to pull yourself to them, dealing 150% Weapon Damage and generating 2 Advantage",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Barbed Quills",
+    "desc": "Damage dealt by Wild Strike and Quills will now tear into enemies, causing them to bleed for 78 Physical damage over 9 seconds, stacking 4 times.Damage dealt by Quills now spreads your periodic effects to 5 enemies within 10 yds and extends their duration by 2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Ravage",
+    "desc": "Generates 1 AdvantageRavage an enemy, causing them to bleed out dealing AP Physical damage over 12 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Beatdown",
+    "desc": "Level 20 PassiveAuto attacks now have a 5% chance to reveal a fault in the enemy's defenses, causing your next instance of Physical ability damage to ignore Armor.Chance increased by 15% while wielding a polearm.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Dice Games",
+    "desc": "Increases the critical strike chance of Wild Strike and Assault by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Underhanded",
+    "desc": "Increases the attack power scaling of Skullpiercer by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Stalker",
+    "desc": "Reduces the cooldown of Cutthroat by -15 sec, but reduces the range of Cutthroat by -10 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Jagged Cuts",
+    "desc": "Increases the damage and duration of Toxic Dart and Ravage by 25%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Stonemason's Secret",
+    "desc": "Your Skullpiercer used with 5 stacks of Advantage now extends the duration of Dirty Blades by 6 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Polearm Craft",
+    "desc": "While a polearm is equipped, your chance to trigger your Weapon Crafts and their damage dealt is increased by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Pilfering",
+    "desc": "Adds 10% to the damage dealt by Dirty Blades and causes its damage dealt to heal you equal to 50% of the value.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tip of the Spear",
+    "desc": "While you have a polearm equipped, your Wild Strike now has a 15% chance to strike 3 additional times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Marked for Death",
+    "desc": "While you have daggers equipped, direct critical strikes on enemies below 35% health now have a chance to allow the use of abilities as you were in Elude for 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Focused Fighter",
+    "desc": "Reduces the Focus cost of Flank, Blackjack, and Wild Strike by -10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Wild Man",
+    "desc": "Your Wild Strike now strikes 2 additional nearby enemies, but deals reduced damage with each enemy struck.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Assassin",
+    "desc": "Increases the duration of Knockout and Crippling Shot by 1 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Excessive But Necessary",
+    "desc": "Reduces the cooldown of Elude and Knockout by -4 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   }
+  ],
+  "farstrider": [
+   {
+    "name": "To The Skies!",
+    "desc": "Reduces the cooldown of Bushcraft Glider by -30 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dream Flowers",
+    "desc": "Level 10 PassiveYour damaging critical strikes now spawn a green Dream Flower at a random location within 15 yds of you. Dream Flower (Spawner)When an ally runs over the flower, they consume it to heal for 3% maximum health and gain 40% increased movement speed for 5 seconds.Can only occur once per sec.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Freedom",
+    "desc": "Free up to 10 nearby allies within 15 yds of you for 8 seconds, causing them to become immune to roots and snares, and allowing their critical strikes to increase their movement speed by 30% for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Survivalist",
+    "desc": "Reduces the cooldown of Survival Potion by -25%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Venom-Coated Seeds",
+    "desc": "Damage dealt by Snapseed now reduces the enemy's chance to hit by -15% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hunting Tactics",
+    "desc": "Damage dealt by Skullpiercer is increased by 30% against Poisoned targets.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Blow the Horns!",
+    "desc": "Reduces the cooldown of Horn spells by -25%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Falcon Charmer",
+    "desc": "Increases the duration of War Falcons by 3 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Thread The Needle",
+    "desc": "Critical strikes with Quick Shot or Falconstrike now reduce the cast time and cost of your next ability that consumes Advantage by -34% for 15 seconds, stacking 3 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Petalkeeper",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Highlander",
+    "desc": "Each time you spawn a green Dreamflower you are granted 1 stack of Highlander.Highlander (Stacks)At 3 stacks, your next Falconstrike within 10 seconds deals 25% increased damage and reduces the enemy's healing received by -40% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Plumes of War",
+    "desc": "Increases the critical strike chance of Falconstrike and Emerald Arrow by 15%.In addition, critical strikes with Falconstrike now increase the damage of subsequent Falconstrikes by 5% for 15 seconds, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Cunning",
+    "desc": "Increases your Focus regeneration by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Whipvine Arrow",
+    "desc": "Launch an arrow with magical vines attached to it at your target, dealing ranged AP Nature damage and rooting them for 40 seconds (8 sec vs players). Damage caused may interrupt the effect.Hits 1 additional nearby target per stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Pecking",
+    "desc": "Your War Falcons and Dragonhawks now have a 25% chance to deal additional Physical damage to 3 nearby enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Woodland Arrow",
+    "desc": "Shoot a magical arrow, dealing ranged AP Physical damage and reducing the cooldown of active Horn spells by 15 sec.Damage increased by 30% for each stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Falconstrike",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Quel'dorei Poison",
+    "desc": "Damage dealt by Woodland Arrow and Emerald Arrow now poison enemies for 3 seconds, dealing ranged AP Nature damage every 1 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Phoenix Plumes",
+    "desc": "Your Skullpiercers and Woodland Arrows used with 5 stacks of Advantage now restore 3% Focus and summon a War Falcon for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Thalassian Brand",
+    "desc": "Mark an enemy for total destruction, increasing your allies ranged attack power against the target by 300 and dealing 1120 Nature damage every 3 sec for 15 seconds.The marked target can always be seen by the Ranger whether it stealths or turns invisible",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Falcon's Call",
+    "desc": "Call down war falcons upon a targeted area, slowing up to 8 enemies within the area by -60% for 5 seconds.A Falcon is summoned for each enemy affected for 12 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Coordination",
+    "desc": "Your War Falcons and Dragonhawks now grant you a stack of Coordination when they deal damage.Coordination (Proc)Increases your critical strike chance and critical damage by 1% for 15 seconds, stacking 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Backstep",
+    "desc": "Leap backwards up to 10 yds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Forest Herald",
+    "desc": "Casting Toxic Dart and abilities that spend stacks of Advantage now have a 20% chance to spawn a green Dreamflower at a random location nearby within 15 yds of you.Dream Flower (Spawner)When an ally runs over the flower, they consume it to heal for 3% maximum health and gain 40% increased movement speed for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Windrunner's Reach",
+    "desc": "Increases the range of your ranged abilities by 5 yds.In addition, your critical strike chance against Undead, Beasts, and Dragonkin is increased by 2%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Falcon's Aid",
+    "desc": "Periodic damage dealt now has a 10% chance to summon a War Falcon to aid you in battle for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Razorquills",
+    "desc": "Increases the tick rate of Toxic Dart and Emerald Arrows by -20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dragonhawk Tamer",
+    "desc": "Using a Horn now summons a Dragonhawk to assist you in combat for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Forest Fighter",
+    "desc": "Your Skullpiercers or Emerald Arrows used with 5 stacks of Advantage now reduce the cooldown of Woodland Arrow by -5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Defense of the Ancients",
+    "desc": "You now emanate an aura around you, increasing the Armor of party and raid members by 390.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Horn of Alacrity",
+    "desc": "Generates 1 AdvantageEmanate an aura for 30 seconds that grants 5% increased haste to party and raid members. Does not stack with similar effects.While active, you generate 3 Focus every 1 sec.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Gutpiercer",
+    "desc": "Damage dealt by War Falcons and Dragonhawks now has a 15% chance to reduce the enemy's resistances by 75 and increase their Magic damage taken by -2% for 15 seconds.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Battle Screech",
+    "desc": "Empower party and raid members within 40 yds, increasing their attack or spell power by 65 for 15 seconds.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Horn of War",
+    "desc": "Generates 1 AdvantageEmanate an aura for 30 seconds that grants 5% increased critical strike chance to party and raid members. Does not stack with similar effects.While active, you generate 3 Focus every 1 sec.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Battle Prowess",
+    "desc": "Increases chance to hit with all spells and attacks by 1% for you and party and raid members.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Frenzy",
+    "desc": "Enrage all nearby allies, increasing their haste by 30% for 20 seconds.After being affected by this spell, allies cannot benefit from similar effects for 5 minutes.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Command Aura",
+    "desc": "Emanate an aura for 15 seconds, causing allied players to deal 35% ranged AP additional damage as Stormstrike Damage when they deal direct damage.Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "War Falconer",
+    "desc": "Reduces the cooldowns of Falcon's Call by -30 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Aerial Assault",
+    "desc": "Removes the Focus cost of Falcon's Call, allows it to strike 2 additional targets, and increases its range by 10 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Emerald Arrow",
+    "desc": "Set up a powerful magical arrow and then shoot it, dealing ranged AP Nature damage to the target, increased by 30% for each stack of Advantage.Creates an enchanted flare on the ground, causing nearby enemies to take ranged AP Nature damage every 2 sec, lasting 2 sec for each stack of Advantage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Falcon Diving",
+    "desc": "Killing an enemy that yields experience or honor now summons a War Falcon to aid you in combat for 12 seconds. Can only occur once every 4 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Falcon Guide",
+    "desc": "Falconstrike and Battle Screech now increase your movement speed by 30% for 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Scavenger",
+    "desc": "Increases the duration of Battle Screech and reduces the cooldown of Snapseed by 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Wingman",
+    "desc": "Reduces all damage taken by -2% for each War Falcon or Dragonhawk you have active.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Guidance",
+    "desc": "Increases your Physical and Nature damage dealt by 1% for each War Falcon or Dragonhawk you have active.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ]
+ }
+}

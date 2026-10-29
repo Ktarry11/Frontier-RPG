@@ -1,0 +1,1302 @@
+{
+ "class": "Barbarian",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Bloodbound",
+   "desc": "Reduces the cooldown of your Warband by -30 sec and Ancestral Roar by -5 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Born Killer",
+   "desc": "Killing an enemy that yields experience or honor now grants you 5% increased armor penetration and movement speed for 5 seconds, stacking 20 times.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Thick Skull",
+   "desc": "Your thick skull makes you immune to all stun effects for 10 seconds and while active taking direct damage grants you Born in Blood.Usable while stunned.Born in BloodBattle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Unstoppable Rage",
+   "desc": "Increases the duration of Unbridled Rage by 2 sec.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "War Tales",
+   "desc": "Increases your chance to resist fear and horrify effects by 25%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Strength of Goria",
+   "desc": "Casting Unbridled Rage now grants you Born in Blood.Born in BloodBattle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Savagery",
+   "desc": "While below 35% health, your auto attacks, Ancestral Strike, and Throw Weapon now grant Born in Blood. Can only occur once every 2 sec.Born in BloodBattle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Knockout Artist",
+   "desc": "Successfully interrupting a target with Jawbreaker now increases your haste by 30% for 4 seconds and refunds half its Energy cost.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Warband",
+   "desc": "Bring all nearby allies into the warband for 12 seconds, granting them Born in Blood, repeating every 3 sec.Born in BloodBattle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Bloodthirsty",
+   "desc": "Increases the effectiveness of your Outrage by 100%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Frozen Warlord",
+   "desc": "Damage dealt by Hodir's Wrath now freezes enemies in place for 0 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Mak'Gora",
+   "desc": "Critical strikes on enemies above 80% or below 20% health now challenges them to a Mak'Gora. Only 1 enemy can be challenged at a time.Mak'gora (20%)Challenge an enemy to a duel to the death for 10 seconds, reducing their healing received by 20% and absorbing the next AP healing done to them.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Skull Smash",
+   "desc": "Pick up a rock and hurl it at an enemy's skull, disorienting them for 40 seconds (8 sec vs players). Damage taken will end this effect.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "One With The Ancestors",
+   "desc": "Increases your critical strike chance by 2%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Battle Rhythm",
+   "desc": "Critical strikes with abilities now generate 5 Energy.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Savage Cadence",
+   "desc": "Direct critical strikes now extend the duration of your Unbridled Rage by 0.5 sec. This effect can occur only once per sec.Killing blows extend the duration of your Unbridled Rage by 0.5 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Outrage",
+   "desc": "Requires EnragedIncreases your haste and critical strike chance by 20%, but increases your damage taken by 30% for 10 seconds. Physical critical strikes extend this effect by 1 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Face Smasher",
+   "desc": "Your ability critical strikes now reduce the cooldown of your Battle Vigor and Thick Skull by -1 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Jawbreaker",
+   "desc": "Attempt to break an enemy's jaw, interrupting them and preventing any spell from that school from being cast for 4 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Headhunter's Spear",
+   "desc": "Hurl a light spear at an enemy dealing 140% Ranged Weapon Damage plus 21 and restores 30% of your maximum Energy.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "First Blood",
+   "desc": "Increases all damage dealt to enemies above 80% health by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Maiming Spear",
+   "desc": "Throw your ranged weapon at your enemy's legs, dealing 100% Ranged Weapon Damage plus 2 and slowing their movement speed by -50% for 10 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Ancestral Roar",
+   "desc": "Requires EnragedRoar with ancestral fervor, healing you for AP.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Hodir's Wrath",
+   "desc": "Erupt with the power of Hodir, dealing AP Frost damage to nearby enemies and restoring 100% of your maximum Energy.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Defiance",
+   "desc": "Attempt to defy death, reducing all damage taken by 30% to 80% based on your current missing health for 15 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Bellowing Voice",
+   "desc": "Increases the effectiveness of your Shouts by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Savage Strength",
+   "desc": "Increases your Agility by 5%. (up to 2 ranks)",
+   "cost": "1 AE · rank 0/2",
+   "requires": "",
+   "rank": "1 AE · rank 0/2",
+   "tier": 0
+  },
+  {
+   "name": "Athleticism",
+   "desc": "Increases your Energy regeneration by 25%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Unrelenting",
+   "desc": "Increases your Physical damage dealt and taken by 5%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Iron Gut",
+   "desc": "Reduces the duration of poison effects on you by -40%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Dauntless",
+   "desc": "Dealing damage with Whirling Advance now dispels 1 movement slowing effect from you and refunds 2 Energy.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Blood and Glory",
+   "desc": "While at or below 35% maximum health, you now gain 20% increased healing received and take -10% reduced damage.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Ogre's Endurance",
+   "desc": "Increases your healing received by 10%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Rage Whirling",
+   "desc": "Increases the critical strike chance of Whirling Advance by 50%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Forward Advance",
+   "desc": "Increases the range of your Whirling Advance by 3 yds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Smasher",
+   "desc": "Removes the Energy cost from Skull Smash.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Plugging the Hole",
+   "desc": "Your Skull Smash now removes all bleed effects on the enemy.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Bloody Onslaught",
+   "desc": "Increases the duration of Onslaught by 6 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Rapid Recovery",
+   "desc": "Your Onslaught's effect now occurs -50% faster.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Drunken Brawler",
+   "desc": "Taking direct damage now increases your chance to dodge by 1% for 3 seconds, stacking 10 times.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Powerful Grip",
+   "desc": "Reduces the duration of disarm effects by -30%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "ancestry": [
+   {
+    "name": "Fill Level",
+    "desc": "Level 10 PassiveGrants you Fill Level and the ability to manipulate a Tankard.Fill LevelYou have a magical Tankard that fills up over time, granting you 1 stack of Fill Level every 2 sec.Some of your other abilities empty your Tankard to trigger with a reduced cooldown.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Frost Giant's Fury",
+    "desc": "Casting Breath of the North now grants you 10% melee attack speed, plus an additional 20% when using a two-handed weapon, for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Fury of the North",
+    "desc": "Increases the duration of the enrage effect from your Ramhorn Rage by 6 sec and causes it to increase your movement speed by 40% for its duration.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Rally Behind Me!",
+    "desc": "Increases the duration of Warband by 3 sec.In addition, your first use of Warband will incur no cooldown. Can only occur once every 1.5.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Frozen Tankard",
+    "desc": "Throw one of your extra tankards at an enemy, dealing 107 Frost damage and stunning them for 4 seconds. Stunned enemies are considered Frozen.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Breaking Morale",
+    "desc": "Reduces the Energy cost of Break by -15.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Keg Smash",
+    "desc": "Smash an enemy for AP Physical damage, plus an additional AP Frost damage to up to 5 nearby enemies.",
+    "cost": "Free",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Ale of The God-King",
+    "desc": "Empower your Honored Ancestor's melee attacks to deal additional Frost damage scaling with your attack power. Lasts for 20 seconds.This ability consumes Fill Level stacks and triggers a reduced cooldown based on stacks consumed.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Blind Stupor",
+    "desc": "Damage dealt by Keg Smash now reduces enemies' casting speed by -30% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Ramhorn Rage",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "War Cry",
+    "desc": "Unleash a blood curdling war cry, increasing melee and ranged attack speed by 20%, and attack power by 150 of allies within 25 yds for 20 seconds.Allies cannot benefit from this spell again for 5 minutes.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Ancestral Combat",
+    "desc": "Empower yourself, granting your Physical damage dealt a 25% chance to trigger an additional main hand attack as Frost damage on your target and grant a stack of Fill Level.Lasts until triggered 20 times.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Improved Ancestral Combat",
+    "desc": "Reduces the Energy cost of your Ancestral Combat by -10 and allows it to trigger 3 additional times. (up to 3 ranks)",
+    "cost": "1 TE · rank 3/3",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 3/3",
+    "tier": 2
+   },
+   {
+    "name": "Ice Cold Bubbles",
+    "desc": "Each Fill Level stack now also increases Frost damage dealt by 2%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Unified Rage",
+    "desc": "Your Unbridled Rage now increases your chance to trigger Ancestral Combat by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Cold Brew",
+    "desc": "Critical strikes with Frost damage now generate a stack of Fill Level. Can only occur once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Cheers!",
+    "desc": "Designate an ally as your drinking partner for 30 minutes, reducing all damage they take by -5%, and causing 10% of all damage they take to be redirected to you.You can only have 1 ally designated at a time.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Ancestor's Call",
+    "desc": "Teaches you Ancestor's Call.Ancestor's Call (Troll)Call an Honored Ancestor to aid you in battle until dismissed that scales with your Agility and attack power.Whenever you use Barbaric Whirl or Whirling Advance, your Honored Ancestor mimics it.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Ancestral Fury",
+    "desc": "Emanate a powerful aura, granting 10% increased melee and ranged haste to party and raid members within 100 yds.Does not stack with similar effects.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Frostbite",
+    "desc": "Breath of The North now causes the target to bleed for an additional 30% of its damage over 6 seconds as Frost damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Trip to the Alehouse",
+    "desc": "Increases the damage of Keg Smash by 10% and its range by 3 yds. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Drinking Frenzy",
+    "desc": "Your melee attacks now have a 15% chance to grant a stack of Fill Level.In addition, your chance to hit is increased by 5%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Ancestor's Fury",
+    "desc": "Unbridled Rage now also increases your Frost damage by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Icebound Ancestry",
+    "desc": "Increases the critical strike chance of Breath of the North by 10%.In addition, your attacks now ignore Armor against Frozen targets.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "The Finest Ale",
+    "desc": "Your Ale of The God-King no longer empties your Tankard.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hodir's Revenge",
+    "desc": "Enemies damaged by your Frozen Tankard now take 50% increased damage from you for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Liquid Courage",
+    "desc": "Each Fill Level stack now reduces your damage taken by -2%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Drunken Frenzy",
+    "desc": "Unbridled Rage now increases your Honored Ancestor's Physical damage by 15% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Breath of The North",
+    "desc": "Unleashes a frost breath, dealing AP Frost damage to enemies in a 12 yd cone and slowing them by 30% for 5 seconds.Can only be used after emptying your Tankard.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Rage of the North",
+    "desc": "Increases the amount of attacks that can trigger your Ale of The God-King by 10.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Ancestral Spirit",
+    "desc": "Reduces the Energy cost of your Spirit spells and increases the duration of your Shouts by -50%. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "The Spins",
+    "desc": "Casting Keg Smash now causes your Honored Ancestor to perform an Ancestral Whirl attack upon nearby enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Might of Utgarde",
+    "desc": "Attacks from your Ancestral Combat now heal your Honored Ancestor for 5% maximum health and cause it to perform an Ancestral Whirl attack.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "To The Bone",
+    "desc": "Damage dealt by Breath of the North now reduces enemies' resistances by 75 and increases their Magic damage taken by -2% for 8 seconds.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Splash Zone",
+    "desc": "Share a drink from your Tankard with all party and raid members, granting 95 increased attack or spell power for 15 seconds.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Crystal Enhancements",
+    "desc": "You now emanate an aura around you, increasing the Armor of party and raid members by 390.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Uniting Voice",
+    "desc": "Casting Ancestral Roar now increases haste of party and raid members by 5% for 20 seconds.Does not stack with similar effects.Critical strikes extend the duration of the buff by 1 sec.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Thane's Grip",
+    "desc": "Allows you to wield a Two-Handed Axe, Mace, or Sword in each hand, but reduces your Physical Damage dealt by -8%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Thane's Guard",
+    "desc": "Gain the Shield proficiency and while wearing a shield you gain 40% increased attack speed and 100% increased Armor contribution from your shield.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Clanlord's Totem",
+    "desc": "Drop the Clanlord's Totem at the target location where it will remain for 15 seconds.The totem emanates an aura for 15 seconds, causing allied players within 100 yds to deal 35% AP additional damage as Frost damage when they deal direct damage and gain 50% increased honor.Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Tavern Brawl!",
+    "desc": "Enrage all nearby allies, increasing their haste by 30% for 20 seconds.After being affected by this spell, allies cannot benefit from similar effects for 5 minutes.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Frozen Blades",
+    "desc": "Critical strikes now grant party and raid members 5% critical strike chance for 8 seconds.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 4 points in this tree (level 15)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Ancestral Wisdom",
+    "desc": "Increases chance to hit with all spells and attacks by 1% for you and party and raid members.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 4 points in this tree (level 15)",
+    "rank": "",
+    "tier": 1
+   }
+  ],
+  "brutality": [
+   {
+    "name": "Excessive Power",
+    "desc": "Level 10 PassiveIncreases your maximum Energy by 100%.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Thirst for Battle",
+    "desc": "Your Smash now regenerate 25% of your maximum Energy.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Decapitate",
+    "desc": "Attempt to decapitate an injured enemy, dealing 165% Weapon Damage plus 15, and converting each extra point of Energy to deal additional damage (up to a maximum cost of 100 Energy).Only usable on enemies below 35% health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Headlopper",
+    "desc": "Your critical strikes with Decapitate now cause the enemy to bleed, dealing an additional 30% of the damage dealt over 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Maximum Carnage",
+    "desc": "Casting Unbridled Rage now causes you to begin swinging your weapon around you dealing AP Physical damage to up to 5 nearby enemies over 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Utter Devastation",
+    "desc": "Increases the duration of Maximum Carnage by 1 sec and it now grants Utter Devastation for 6 seconds. Utter DevastationInstantly removes all movement impairing effects, increases your movement speed by 25%, and makes you immune to slows.Can be consumed by Decapitate or Crush to guarantee them to critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sustaining Swings",
+    "desc": "Melee attacks now have an 8% chance to heal you for 10% of the damage dealt and cause your next Ancestral Strike to deal 50% increased damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Pure Power",
+    "desc": "Increases the damage of Smash by 15% and your expertise by 5. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Beheader",
+    "desc": "Scoring a kill blow with Decapitate now refunds 100% of your maximum Energy.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bloody Fighter",
+    "desc": "Increases the critical strike chance of Brutal Swing and Smash by 5%. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 1/2",
+    "tier": 2
+   },
+   {
+    "name": "Anger Issues",
+    "desc": "Scoring a critical strike against an enemy now reduces the cooldown of Carnage by -4 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Relentless",
+    "desc": "Level 20 PassiveCritical strikes with Ancestral Strike and Brutal Swing now refund 10 Energy.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Body Builder",
+    "desc": "Level 50 PassiveYou now gain 1 Strength for every 3 Agility and your size is increased by 5%.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Crusher",
+    "desc": "Melee auto attacks now have a 10% chance to reset the cooldown of Crush. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Ogre's Strength",
+    "desc": "Level 40 PassiveIncreases your attack power by 30% of your Strength.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Killing Spree",
+    "desc": "Charge at an enemy, dealing AP Physical damage.Can only be used within 6 seconds of scoring a killing blow or applying Born in Blood.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Storm of Steel",
+    "desc": "Begin striking your target every 1 sec for 80% Weapon Damage for 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Overkill",
+    "desc": "Increases the critical strike chance of Decapitate and Headhunter's Spear by 30% against targets below 20% health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Spiked Weapons",
+    "desc": "Increases the critical damage of Crush, Brutal Swing, and Decapitate by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Symbol of the Warspear",
+    "desc": "You are marked by the Warspear symbol, granting 10% increased attack power to party and raid members. Does not stack with similar effects.In addition, reduces the cooldown of Spears by -2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Whirling Assault",
+    "desc": "Increases the damage of Whirling Advance by 300% on enemies above 80% health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Steelslinger",
+    "desc": "Reduces the cooldown of Barbaric Whirl by -2 sec and increases its damage dealt by 100% on enemies below 35% health.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Rancor",
+    "desc": "Your Brutal Swing now triggers an additional auto attack on the primary target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Reckless Movements",
+    "desc": "Increases the damage of Ancestral Strike and Barbaric Whirl by 20%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Crush",
+    "desc": "Crush enemies in a frontal cone, dealing 250% Weapon Damage plus 30, knocking them down briefly and stunning them for 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Ancestral Trauma",
+    "desc": "Damage dealt by Ancestral Strike and Crush now scales with your Strength.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hail of Hammers",
+    "desc": "Reduces the cast time of Crush by -25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Efficient Killer",
+    "desc": "Reduces the Energy cost of your spells and abilities by -10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Brutal Swing",
+    "desc": "Your next attack causes you to swing violently at an enemy and up to 2 nearby enemies, dealing 120% Weapon Damage plus 10.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Battering Ram",
+    "desc": "Increases your Armor penetration by 10% while wielding a two-handed mace or axe. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Brutal Spirit",
+    "desc": "Increases the effectiveness of your Spirit spells by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Reckful",
+    "desc": "Your Smash now has a 30% chance to not trigger a cooldown. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "Steel Fury",
+    "desc": "Dealing damage with Storm of Steel increases the damage of its subsequent strikes by 4%, stacking 10 times.In addition, the duration of Storm of Steel is increased by 2.5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Mounting Fury",
+    "desc": "Increases the duration of Born in Blood by 2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Savage",
+    "desc": "Unbridled Rage now also increases your critical damage by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Horde Breaker",
+    "desc": "Your Crush is now guaranteed to critically strike enemies affected by Headbutt and it now applies Wounded to enemies for 10 seconds.Wounded (Proc)Increases Physical Damage taken by 4% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Power Swings",
+    "desc": "Reduces the cooldown of Crush by -5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Incredibly Strong",
+    "desc": "Removes the minimum range from Maiming Spear, but reduces its maximum range by -5 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Giant Tosser",
+    "desc": "Your Headhunter's Spear now generates 50% additional Energy when you strike an enemy that is at least 20 yds away.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "headhunting": [
+   {
+    "name": "Headhunter",
+    "desc": "Level 10 PassiveReduces the Energy cost of Throw Weapon, Maiming Spear, and Whirling Advance by -15.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bloody Fighter",
+    "desc": "Level 40 PassiveBorn in Blood now stacks 1 additional time.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Strong Arm",
+    "desc": "Increases the damage of Spears by 15% and your hit chance by 3%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Vital Spirit",
+    "desc": "Increases the range of your Spirit spells by 10 yds. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "",
+    "rank": "1 TE · rank 0/2",
+    "tier": 0
+   },
+   {
+    "name": "Berserker Rush",
+    "desc": "Charge an enemy dealing ranged AP Physical damage and rooting them for 2 seconds, then leap backwards.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "To The Bone",
+    "desc": "Increases the critical strike chance of Guts Spilled by 10% and it now applies Break to the target and critically striking with it will apply an additional stack.BreakBreak an enemy's defenses, reducing their armor by -4% for 20 seconds, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Impaling Spear",
+    "desc": "Hurl a spear in a 30 yd frontal line, dealing 131% Ranged Weapon Damage plus 23, dealing less damage with each enemy struck.At the spear's impact location the spear shatters, dealing ranged AP Physical damage to nearby enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Frothing Savage",
+    "desc": "Increases the critical strike chance of Spears and Berserker Axe by 8% against bleeding targets. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Deep Fury",
+    "desc": "Direct Physical damage dealt now reduces the cooldown of Unbridled Rage by -1 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Puncture Wounds",
+    "desc": "Critical strikes with Spears now causes enemies to bleed for ranged AP over 6 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "You Want Axe?",
+    "desc": "While enraged, casting Spears now refreshes 3 charges of Berserker Axe and your next 3 casts cost -50% less Energy. Lasts 12 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Spear Shards",
+    "desc": "Whenever you shatter your Impaling Spear, affected enemies bleed for 100% of the damage dealt over 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Gurubashi Technique",
+    "desc": "Casting Throw Weapon now has a 25% chance to transform your next cast of it within 8 seconds into Rapid Throw.Rapid ThrowThrow your ranged weapon 3 times in quick succession, each dealing 50% Ranged Weapon Damage plus 25 Physical damage. Grants Born in Blood. Scales with damage modifiers to Throw Weapon.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Gruesome",
+    "desc": "Increases the damage of Throw Weapon, Gutspiller, and Guts Spilled by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Sen'jin's Guidance",
+    "desc": "Transforms your Throw Weapon into Javelin Toss and increases the critical strike chance of Javelin Toss by 5%.Javelin TossTake aim and hurl a javelin at an enemy dealing 160% Ranged Weapon Damage plus 241. Scales with damage modifiers to Throw Weapon and Spears. Usable while moving.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Entrails",
+    "desc": "Damage dealt by bleed effects now increases your Agility by 1% for 8 seconds, stacking 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Spite",
+    "desc": "Quickly unleash 3 Berserker Throws at your target and then fling yourself back a great distance, dealing 125% Ranged Weapon Damage, scaling with modifiers to Berserker Axe.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Brutal Form",
+    "desc": "Increases the tick rate of Born in Blood by -25%, allows its healing to scale with your Agility, and it can now critically heal you.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Savage",
+    "desc": "Level 20 PassiveBorn in Blood now also increases your damage dealt by 5% and its duration is increased by 3 sec.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Axe Twirling",
+    "desc": "Display mastery over throwing weapons for 10 seconds, causing Throw Weapon, Gutspiller, and Berserker Axe to strike 2 additional nearby enemies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Power Tosser",
+    "desc": "Level 50 PassiveDamage dealt by Throw Weapon now scales with your Agility.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Spear Thrower",
+    "desc": "Level 30 PassiveCasting Throw Weapon now has a 30% chance to reset the cooldown of your Spears.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "No Survivors",
+    "desc": "Increases the duration of Axe Twirling, Maiming Spear, and Barbed Spear by 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Berserker Axe",
+    "desc": "Requires Enraged3 Charges, 8 sec rechargeHurl two axes at an enemy, each dealing ranged AP Physical damage and reducing enemy armor by 80 for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Legacy of the Amani",
+    "desc": "Damage dealt by your Spears now has a 25% chance to cause you to quickly throw an additional spear that strikes for 40% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Berserker",
+    "desc": "While enraged, your ranged critical strikes now grant you Berserker. Once applied it cannot be applied again.BerserkerYour ranged abilities have a 20% chance to unleash Berserker Throw, dealing 75% Ranged Weapon Damage. Lasts 15 seconds.While active, every offensive ranged ability used increases its chance to trigger by 2%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Guts Splatter",
+    "desc": "Your Gutspiller now allows your abilities to ignore 10% of the enemy's Armor. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Time To Kill!",
+    "desc": "Reduces the cooldown of Axe Twirling by -15 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Gutspiller",
+    "desc": "Launch a heavy axe at an enemy, causing them to bleed for 96 damage over 12 seconds.Every 6 sec the target has their Guts Spilled, causing them to bleed out for an additional ranged AP damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Raging Spirit",
+    "desc": "Casting Unbridled Rage now grants you 30 Energy and it now also removes the Energy cost of your Spirit spells while active.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Vengeance For Zul'jin",
+    "desc": "Casting Berserker Rush now grants you Born in Blood.Born in BloodBattle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Barbed Spear",
+    "desc": "Throw a heavy spear with precision at an enemy, dealing 160% Ranged Weapon Damage plus 37, and reducing their healing received by -30% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Payback",
+    "desc": "Increases the damage dealt by your Guts Spilled by 75%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Headhunting",
+    "desc": "Reduces the cast time of Throw Weapon by -20% and removes your spell pushback suffered from taking damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Manhunter",
+    "desc": "Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.In addition, increases your damage dealt by 10% against Humanoids.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Skullseeker",
+    "desc": "Increases your critical strike chance against enemies above 80% health by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Furious Berserker",
+    "desc": "Critical strikes with Barbed Spear now grants Born in Blood.Born in BloodBattle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hunting for Sport",
+    "desc": "While Unbridled Rage is active, your attacks now ignore 20% of the target's Armor.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ]
+ }
+}

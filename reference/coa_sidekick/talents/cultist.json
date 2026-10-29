@@ -1,0 +1,1584 @@
+{
+ "class": "Cultist",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Entropic Singularity",
+   "desc": "Create a void zone for 5 seconds at target location that slows enemies' movement speed while inside.The slow increases in intensity based on how close to the middle of the zone the enemy is.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Mass Nightmare",
+   "desc": "Spread nightmares of the black empire to up to 5 nearby enemies, horrifying them for 5 seconds and interrupting non-player spellcasting for 3 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Darkward",
+   "desc": "Increases the effectiveness of your damage absorption effects by 10%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "1 AE · rank 2/2",
+   "tier": 1
+  },
+  {
+   "name": "Eternal Grasp",
+   "desc": "Increases the duration of your Tentacles by 25%. (up to 2 ranks)",
+   "cost": "1 AE · rank 1/2",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "1 AE · rank 1/2",
+   "tier": 1
+  },
+  {
+   "name": "Embrace the Void",
+   "desc": "Become one with the void, preventing you from dying for 6 seconds, or until you take damage equal to a maximum of 100% of your total health.When the effect ends you instantly regenerate health equal to 50% of the damage taken while active.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Grasp of Zek'voz",
+   "desc": "Hinder an enemies momentum with void chains, slowing their movement speed by -30% for 10 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Doomsayer",
+   "desc": "Reduces the mana cost of your Presences by -50%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Empire's Blessing",
+   "desc": "Reduces the mana cost of Void Shield by -20%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Hallucination",
+   "desc": "Create 3 copies of yourself that run in a random direction for 3 seconds and may briefly trick enemies into ignoring you. Significantly reduces your threat and removes all movement impairing effects from you.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Gift of C'Thun",
+   "desc": "Increases your Shadow damage dealt by 4% and healing done by 4%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Dark Calling",
+   "desc": "Taking damage while below 35% health now summons 3 Manifestations of Y'shaarj for 10 sec, which will attack enemies and heal you for 2% of your base health.Can ony occur once every 2 minutes.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Abyssal Ward",
+   "desc": "Coalesce an Abyssal Ward reducing your damage taken by 50% for 10 seconds or 5 attacks. For the duration, each attack received will decrease the value by -10%.Usable while stunned.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Mind Games",
+   "desc": "Reduces the cooldown of Hallucination by -5 sec and reduces its mana cost by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Twisted Seal",
+   "desc": "Create a warped sigil that bends hostile force away from you, deflecting all spells for 5 seconds, but making you unable to attack or cast spells.Casters whose magic is deflected are silenced for 3 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Overwhelming Void",
+   "desc": "Your Mass Nightmare now triggers a 60 sec reduced cooldown when used at or above 80 Insanity.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Empire Commander",
+   "desc": "Increases all primary attributes by 4%. (up to 3 ranks)",
+   "cost": "1 AE · rank 3/3",
+   "requires": "",
+   "rank": "1 AE · rank 3/3",
+   "tier": 0
+  },
+  {
+   "name": "Void Shield",
+   "desc": "Shields an ally, absorbing SP damage for 30 seconds and applying Wracked Mind.Wracked MindCannot be affected by Void Shield. Lasts for 15 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Shadow Words",
+   "desc": "Increases the effectiveness of your Whispers by 25%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Vision of Doom",
+   "desc": "Behold a vision of doom, causing direct damage or healing done to apply Vision of Doom to nearby targets for 3 seconds. Can only occur once every 3 sec.At the end of the duration, they are damaged or healed for 100% of the damage or healing that doomed them. Lasts for 1 minute or 5 instances of damage or healing.Doomed enemies are unable to be healed and the damage or healing done by this effect can critically strike.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Shroud of Pride",
+   "desc": "Your Abyssal Ward now stacks 3 additional times.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Corrupt Mind",
+   "desc": "Generates 10 InsanityCorrupt the mind of an enemy and spread madness, fearing them in place for 40 seconds (8 sec vs players), bouncing to up to 2 nearby enemies.Damage dealt may end this effect.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Split Mind",
+   "desc": "Void Shield now applies to an additional nearby ally but its duration is reduced by -30%.Killing an opponent that yields experience or honor removes Wracked Mind from you.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Crystalline Reflection",
+   "desc": "Increases the chance for Void Shield to resist dispel effects on allies by -50% and it now also reflects 50% of the damage absorbed.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Wicked Thoughts",
+   "desc": "Increases your maximum mana, your movement speed, and mounted movement speed by 15%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Devourer",
+   "desc": "Your Devour Magic now dispels 1 additional magic effect.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Black Prayer",
+   "desc": "All direct damage dealt now has a 5% chance to unleash a Black Prayer on all enemies near the target for 9 seconds.Black PrayerDeals shadow AP Shadow Damage every 3 sec and reduces attack speed by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Void Hunger",
+   "desc": "Satiate now also regenerates an additional 1% mana per tick and no longer increases damage taken during the channel.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Lost in the Void",
+   "desc": "Increases the duration of Embrace the Void by 4 sec and it now heals you for an additional 50% of the damage taken while active and its cooldown is reduced by -60 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Improved Sermon of Dread",
+   "desc": "Increases the effectiveness of Sermon of Dread by 40%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Embodied Presences",
+   "desc": "Increases the chance to trigger your Presences by 5%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Rapid Incantations",
+   "desc": "While above 60 Insanity, you gain 5% increased haste.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Mind Leak",
+   "desc": "While above 60 Insanity, you gain -5% reduced damage taken.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Eyes of Eternity",
+   "desc": "Healing an ally with Gaze of C'Thun now additionally reveals nearby stealthed enemies for 8 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Eldritch Command",
+   "desc": "Casting Gaze of C'thun now has a 30% chance to cause your Tentacles to blast the enemy with eldritch energy, dealing shadow AP Shadow damage.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Eldritch Screams",
+   "desc": "Your Corrupt Mind now also applies Mind Rot to nearby enemies.Mind Rot (Trigger)Increases the chance for allies to hit with all spells against the afflicted enemy by 3% for 10 seconds. this effect is dispelled, your critical strike chance is increased by 30% for 5 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Stare Into The Abyss",
+   "desc": "Removes the cast time of your Corrupt Mind.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Dismay",
+   "desc": "Increases the movement speed slowed by Grasp of Zek'voz by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Disdain",
+   "desc": "Removes the cooldown of Grasp of Zek'voz, but increases its mana cost by 25%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Void-Enchanted Armor",
+   "desc": "Increases your chance to resist dispel effects by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Ungodly Blessing",
+   "desc": "Reduces the duration of curse effects on you by -40%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "corruption": [
+   {
+    "name": "Psychic Suppression",
+    "desc": "Lift an enemy into the air, stunning them and dealing shadow AP Shadow damage every 1 sec for 5 seconds. The target takes 15% more spell damage from all sources while you are channeling this spell.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Whispers of C'Thun",
+    "desc": "Level 30 PassiveYour Gaze of C'Thun now generates 10 Insanity.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Corrupting Whispers",
+    "desc": "Damage dealt has a 15% chance to grant you Corrupting Whispers.Corrupting Whispers (Aura)Increases your Magic Damage dealt by 20%, reduces your mana costs by -30%, and prevents Insanity from decaying for 8 seconds.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dark Revelation",
+    "desc": "Level 40 PassiveGrants all periodic damage and damage dealt a 6% chance to reset the cooldown of Gaze of C'Thun and generate 5 Insanity.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Blessing of C'Thun",
+    "desc": "Level 50 PassiveYour Darkwither can now critically strike and your spell hit rating is increased by 5% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Ancient Curse",
+    "desc": "Generates 20 InsanityCurse an enemy, dealing SP Shadow damage and increasing all Shadow damage they take from you by 10% for 10 seconds.Upon expiration, it deals an additional shadow SP Shadow damage to the target.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Dark Magician",
+    "desc": "Level 20 PassiveIncreases your critical damage dealt by 50% and your spell power by 30% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Cunning Nature",
+    "desc": "Increases your chance to hit by 3% and reduces threat generated by Shadow damage spells by -15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "Feeding Darkness",
+    "desc": "Increases the range of your Corruption spells by 3 yds and their chance to critically strike by 2%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Moment of Clarity",
+    "desc": "Reduces spell pushback suffered from damaging attacks by 35% and increases mana generated by Sanity Tap by 5%. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "",
+    "rank": "1 TE · rank 1/2",
+    "tier": 0
+   },
+   {
+    "name": "Absolute Horror",
+    "desc": "Reduces the cast time of Horrorbolt and Wrath of the Black Empire by 0.3 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Obliteration Beam",
+    "desc": "Generates 10 InsanityUnleash a beam of eldritch energy, dealing shadow SP Shadow damage to an enemy and all nearby enemies.While above 60 Insanity, deals 20% more damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Corruptor's Gaze",
+    "desc": "Increases the damage of your Tentacles by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Glimpse of Madness",
+    "desc": "Reduces the cooldown of Obliteration Beam by -20% and it now applies Madness to all targets struck. MadnessYour Gaze of C'thun causes 3% increased damage, stacks up to 5 times. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Visions",
+    "desc": "Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects.In addition, your Shadow damage is increased by 3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Foulness",
+    "desc": "Increases the damage bonus provided by your Corrupting Whispers by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Horrorbolt Volley",
+    "desc": "After casting 3 Horrorbolts, it transforms into Horrorbolt Volley for 15 seconds.Horrorbolt VolleyGenerates 10 InsanityInflict sheer horror on up to 5 enemies, dealing shadow SP Shadow damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Dread",
+    "desc": "Increases the damage of Darkwither by 30%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Horrific Visions",
+    "desc": "While above 40 Insanity, your chance to trigger Dark Revelation is now increased by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sunderer of Realities",
+    "desc": "Casting Wrath of the Black Empire now causes your subsequent Wraths of the Black Empire, within 15 seconds, to deal 15% more damage each and unleash Apocalyptic Skies upon the enemy.Apocalyptic SkiesSpawns a void portal that casts either Gaze of C'thun, Horrorbolt, or Obliteration Beam before disappearing.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Eldritch Devastation",
+    "desc": "Channel upon an enemy, chaining to nearby enemies, dealing shadow SP Shadow damage over 6 seconds, dealing less damage with each enemy struck.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Apocalyptic Skies",
+    "desc": "Casting Wrath of the Black Empire now spawns a void portal that casts either Gaze of C'thun, Horrorbolt, or Obliteration Beam before disappearing.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Yawning Decay",
+    "desc": "Every 3rd Horrorbolt cast causes your next successful Horrorbolt to deal an additional 50% of the initial damage to the target over 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Embrace the Void",
+    "desc": "Reaching 60 Insanity increases your damage dealt by 10% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Revelation",
+    "desc": "Grants your Horrorbolt and Wrath of the Black Empire a 20% chance to reset the cooldown of Gaze of C'thun.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Darkwither",
+    "desc": "Generates 10 InsanityWither an enemy, dealing 135 Shadow damage over 15 seconds. Each instance of damage reduces their periodic healing taken by -5%, stacking up to 4 times.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Occultism",
+    "desc": "Increases the critical strike chance of Wrath of the Black Empire by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Depths of Madness",
+    "desc": "Damage dealt by Gaze of C'Thun now has a 15% to chance to spawn a void portal that casts either Gaze of C'thun, Horrorbolt, or Obliteration Beam before disappearing.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Servant of C'Thun",
+    "desc": "Casting Gaze of C'thun now always triggers your Presence of C'Thun while it is active.Presence of C'Thun (Buff)Increases your haste by 20% for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Worrysome Idol",
+    "desc": "Increases your spell haste by 4% and causes you to regenerate mana equal to 1% of your missing mana every 10 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Terror",
+    "desc": "Increases the spell damage bonus of Horrorbolt by 10% and Wrath of the Empire by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Inner Turmoil",
+    "desc": "Increases the damage of Wrath of the Black Empire by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Abyssal Destruction",
+    "desc": "Periodic or channeled damage dealt now reduces the cooldown of your Obliteration Beam by -1 sec and grants 1 stack of Abyssal Destruction.Abyssal DestructionIncreases the damage dealt of your next Obliteration Beam by 5%, stacking 10 times, for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Misery",
+    "desc": "Casting Gaze of C'Thun now reduces the cooldown of Psychic Suppression and Grasp of Zek'voz by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Whispers",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Call of N'Zoth",
+    "desc": "Increases the duration of Darkwither by 9 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Call of C'Thun",
+    "desc": "Your Darkwither's healing reduction now stacks 3 additional times and its tick rate is increased by -25%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Unrelenting Void",
+    "desc": "Periodic or channeled damage now increases the damage the enemy takes from you by 2% for 10 seconds, stacking 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mind Rot",
+    "desc": "Periodic or channeled damage dealt now has a 25% chance to curse your target, applying Mind Rot.Mind Rot (Trigger)Increases the chance for allies to hit with all spells against the afflicted enemy by 3% for 10 seconds. this effect is dispelled, your critical strike chance is increased by 30% for 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "dreadnought": [
+   {
+    "name": "Inner Darkness",
+    "desc": "Blocking an attack now generates 3 Insanity.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Void Strikes",
+    "desc": "Damage dealt by Blade of the Empire and Entropic Slam is now increased based on your defense rating.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Boon of Y'shaarj",
+    "desc": "You now gain an additional 2 mana per point of Intellect. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Twilight Shieldtoss",
+    "desc": "Hurl a cursed shield, dealing 40 Shadow damage to up to 3 enemies, reduced by 20% with each jump.Damage increased by 1% for each stack of Insanity.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dreadnought",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Eldritch Bastion",
+    "desc": "Increases your Armor contribution from your shield by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Voidwarding",
+    "desc": "Reduces damage taken by party and raid members by -3%. Does not stack with similar effects.In addition, increases all of your resistances by 5, scaling with level.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Everpresent",
+    "desc": "Increases the chance to trigger Presences by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Adaptive Combatant",
+    "desc": "Increases your parry chance by 3% and dodge chance by 2%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Bulwark of Y'shaarj",
+    "desc": "Increases your block chance by 5%, plus an additional 10% while above 40 Insanity.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Wavering Hope",
+    "desc": "While above 60 Insanity, the cooldown of your Twilight Shieldtoss and Gaze of C'thun is reduced by -25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "General of Y'shaarj",
+    "desc": "Dealing damage with Twilight Shieldtoss now heals you for 10% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Malignant Armor",
+    "desc": "Increases your attack power by 2 for every 100 armor value you have.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Void-Enhanced Shield",
+    "desc": "Increases your block value by 20%.While above 60 Insanity, the value of this effect is doubled.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "In And Out of Insanity",
+    "desc": "Increases the effectiveness of your damage absorption effects by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bulwark of Horror",
+    "desc": "Avoiding an attack now has a 40% chance to refresh a charge of Blade of the Empire.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Blessing of Y'Shaarj",
+    "desc": "Level 50 PassiveWhile transformed into a void monstrosity your damage dealt is now also increased by 20%.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Dreadful",
+    "desc": "Increases your critical strike rating equal to your block rating.In addition, critical strikes now reduce the cooldown of Dreadfall and Dreadnought by 1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Shadowy Symbiosis",
+    "desc": "Your successful blocks now have a 20% chance to critically block for twice the normal amount.This effect is doubled while above 60 Insanity.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Void Augmentation",
+    "desc": "While Dreadnought is active, your Twilight Shieldtoss has a -3 sec reduced cooldown.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Embodiment of Y'shaarj",
+    "desc": "Increases the amount that Void Shield absorbs by 100%.Absorbing damage grants you 20% of the absorbed value as spell power for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Twilight Guardian",
+    "desc": "Damage dealt by Twilight Shieldtoss now shields you for 50% of the damage dealt for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Eldritch Force",
+    "desc": "Every 5th critical strike with abilities now transforms your next Gaze of C'Thun into Eldritch Force.Eldritch ForceGenerates 30 InsanitySend out a wave of force, dealing AP Shadow damage to enemies in front of you and reducing their movement speed by 30% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Strength of the Sha",
+    "desc": "Level 20 PassiveIncreases your spell damage by 25% of your Strength and your spell hit rating by 6% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Deep Secrets",
+    "desc": "Level 30 PassiveEach point of Insanity now reduces mana costs of your instant cast spells and abilities by 1%.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Void Reaver",
+    "desc": "Avoiding or absorbing an attack now has a 20% chance to make your next Blade of the Empire deal 20% more damage and hit an additional nearby enemy.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dreadfall",
+    "desc": "Raise your shield and charge towards an enemy, dealing 50% AP Shadow damage to enemies you pass through, generating additional threat.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Eldritch Strength",
+    "desc": "Increases the damage of Hammer of Twilight and Entropic Slam by 25% and they now generates a large amount of threat.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Void Tolerance",
+    "desc": "Reduces the cooldown of Abyssal Ward by -30 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Tentacle of Y'shaarj",
+    "desc": "Summon a Tentacle of Y'shaarj near you for 30 seconds.When summoned and whenever Gaze of C'thun is used, it slams the ground dealing Physical damage, scaling with Stamina, to all enemies in a 10 yd frontal cone.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Eldritch Entities",
+    "desc": "Critical strikes with abilities now summon a Manifestation of Y'shaarj for 10 seconds, which will attack enemies and heal you for 2% of your base health.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Twilight Incarnate",
+    "desc": "Damage dealt by Twilight Shieldtoss now generates 3 Insanity.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Crushing Dissonance",
+    "desc": "Unleash a wave of maddening resonance, interrupting the current spell cast of all enemies around you and preventing any spell in that school from being cast for 2 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Strength of the Black Empire",
+    "desc": "Level 40 PassiveDreadnought now sheds your mortal form, transforming you into a void monstrosity, reducing your damage taken by -10%",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Entropic Retaliation",
+    "desc": "Blocking an attack now increases your critical strike chance by 2% for 6 seconds, stacking up to 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bulwark of Shadow",
+    "desc": "While above 80 Insanity, your Void Shield has 30% increased value.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Y'Shaarj's Enforcer",
+    "desc": "Increases the damage dealt by your Twilight Shieldtoss by 100% but it to no longer bounces.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bouncing Thoughts",
+    "desc": "Your Twilight Shieldtoss now hits an additional enemy for every 20 Insanity you have.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   }
+  ],
+  "godblade": [
+   {
+    "name": "Obliteration",
+    "desc": "Level 10 PassiveYour Gaze of C'Thun now gains an additional 15 base damage and healing.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Voidforged Edge",
+    "desc": "Your auto attacks now deal an additional 10% of the damage dealt as Shadow damage. (up to 3 ranks)",
+    "cost": "1 TE · rank 3/3",
+    "requires": "",
+    "rank": "1 TE · rank 3/3",
+    "tier": 0
+   },
+   {
+    "name": "Residual Energy",
+    "desc": "Doubles the duration of Shadow of the Void.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hysterical Momentum",
+    "desc": "Damage dealt by Blade of the Empire increases your melee haste by 3% for 8 seconds, stacking 3 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Abyssal Edge",
+    "desc": "Increases the critical strike chance of Blade of the Empire by 2% and reduces its mana cost by -25%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Eldritch Obelisk",
+    "desc": "Create an Eldritch Obelisk beneath you for 20 seconds, increasing the damage of your Tentacles by 100% and the movement speed of allies by 40% while near it.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Voidseeker",
+    "desc": "Melee attacks now have a 10% chance to reset the cooldown of your Netherstrike, allowing the next use regardless of the target's health for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Empire's Grasp",
+    "desc": "Teleport an enemy to your position and slow their movement speed by -60% for 4 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Teachings of Mythrax",
+    "desc": "Increases the duration of Presence of N'Zoth and Presence of Y'Shaarj by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Voidborne",
+    "desc": "Tap into your inner voidborne rage, increasing your damage dealt and critical strike chance by 25%, and granting you immunity to stun effects for 15 seconds.Generates 1 Insanity every 1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Eye of N'zoth",
+    "desc": "Increases the critical strike chance and critical damage of your Tentacles by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Twilight's Call",
+    "desc": "Level 30 PassiveCritical strikes with Hammer of Twilight now refund 20 Insanity.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Nutcase",
+    "desc": "Your Shadow of the Void now also increases your critical damage dealt by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Book of N'Zoth",
+    "desc": "Your Shadow of the Void now stacks 1 additional time.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Seething Void",
+    "desc": "Reduces the cooldown of Empire's Grasp by -5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Twilight Domination",
+    "desc": "Damage dealt by your Tentacles reduces the cooldown of Eldritch Obelisk by -2 sec.In addition, increases the effectiveness of Eldritch Obelisk by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Void Strength",
+    "desc": "Level 40 PassiveIncreases your Shadow spell damage by 50% of your Strength and your spell hit chance by 5% of your Strength.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Touch of the Void",
+    "desc": "Increases your Magic damage dealt by 3% and Hammer of Twilight now increases the target's spell damage taken by 10% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shadow of the Void",
+    "desc": "Level 20 PassiveWhile above 40 Insanity, melee attacks and abilities trigger Shadow of the Void.Shadow of the VoidRestores 5% of your maximum mana and increases your Shadow Damage dealt by 10% for 8 seconds.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Blessing of N'Zoth",
+    "desc": "Level 50 PassiveIncreases your attack power by 100% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Warrior of the Old Gods",
+    "desc": "Increases the Weapon Damage dealt by Hammer of Twilight and Entropic Slam by 20%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "End Times",
+    "desc": "Increases the range of Blade of the Empire, Netherstrike, and Hammer of Twilight by 25 yds and reduces their mana costs by -50% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tentacle of N'Zoth",
+    "desc": "Target an enemy and summon a Tentacle of N'Zoth on the ground near them that will silence them and deal SP Shadow damage every 2 sec for 8 seconds. your target runs out of range, the tentacle will seek a new target.The tentacle gains health based on your Stamina. the tentacle dies, the silence effect will end.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Abyssal Cleave",
+    "desc": "Your Gaze of C'Thun now strikes 1 additional nearby enemy. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "Oblivion's Embrace",
+    "desc": "Increases the critical damage of your Hammer of Twilight by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shadow Fiend",
+    "desc": "Reduces the cooldown of your Voidborne by -90 sec and increases its duration by 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Instilling Fear",
+    "desc": "While above 60 Insanity, your Netherstrike and Gaze of C'Thun now gain 10% increased critical strike chance.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Encroaching Presence",
+    "desc": "Your melee critical strikes reduce the cooldown of Rift and Gaze of C'Thun by -3 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Netherstrike",
+    "desc": "Generates 10 InsanityStrike an enemy quickly for 125% Weapon Damage plus 48 Shadow damage, purging 1 beneficial magic effect from them.Only usable on enemies below 35% health.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Rift",
+    "desc": "Apply a dark boon to yourself for 15 seconds, causing your next Hammer of Twilight to deal an additional 80% of its damage dealt as Shadow damage.Creates a rift in front of you that absorbs the next AP healing taken by enemies that step inside and reduces their periodic healing received by 50% for 10 seconds while inside.",
+    "cost": "1 TE",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "God Blade",
+    "desc": "Your Rift now guarantees your next Hammer of Twilight to critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hand of N'Zoth",
+    "desc": "Your Hammer of Twilight, Entropic Slam, and Gaze of C'Thun now refreshes a charge of Blade of the Empire.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Shadow Strikes",
+    "desc": "Blade of the Empire now has a 30% chance to cause your next auto attack to hit twice.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Glory to N'Zoth",
+    "desc": "While Shadow of the Void is active, you now take -15% reduced damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Void Rage",
+    "desc": "Increases the Shadow damage increased through Shadow of the Void by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Who Needs Sanity?",
+    "desc": "Each stack of Insanity increases the critical damage of your Netherstrike by 1%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Netherborne",
+    "desc": "Increases the critical damage of Netherstrike by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "heretic": [
+   {
+    "name": "Herald of the Depths",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Void Power",
+    "desc": "Your healing power is increased based on your main-hand weapon damage.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Blessing of Yogg-Saron",
+    "desc": "Level 50 PassiveIncreases your attack power by an amount equal to 3 times your spell critical strike rating.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Persistent Prayers",
+    "desc": "Increases the duration and absorption amount of Void Shield and Forbidden Ritual by 25%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Blade of the Depths",
+    "desc": "While Herald of the Depths is active, your Forbidden Ritual will cooldown faster.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Reservoir",
+    "desc": "Increases the bonus healing power scaling of Eldritch Mending by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Twisted Sanity",
+    "desc": "Allies affected by your Black Blood are now healed for 30% of the damage dealt by your Tentacles.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Yogg-Saron's Embrace",
+    "desc": "Increases your attack power and your maximum mana by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "As The Prophecy Foretold",
+    "desc": "Melee critical strikes now refresh a charge of Blade of the Empire and restore 3% of your base mana.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Saronite Blessing",
+    "desc": "Melee critical strikes now apply Saronite Blessing to you.Saronite Blessing (Buff)Your melee attack speed is increased by 25% and your melee auto attacks heal the lowest health ally for an additional 100% of the damage dealt. Lasts for 15 seconds or 10 attacks.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Abyssal Covenant",
+    "desc": "Link yourself to an ally for 30 minutes, transfering 10% of all damage taken by them to you and causing 20% of all damage you deal to be converted into healing for them.Can only be applied to 1 ally at a time.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dark Prophet",
+    "desc": "Healing done by Abyssal Covenant now heals 5 of the lowest health nearby allies and healing done by Black Blood can now critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Shadow Training",
+    "desc": "Level 20 PassiveIncreases the healing done by Eldritch Mending by 50% and Gaze of C'Thun by 100%.In addition, you are now unable to miss your attacks and you cannot be parried or dodged.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Void-Touched",
+    "desc": "Level 30 PassiveDirect healing done now applies Void-Touched.Void-Touched (Stacks)Marks the ally for 30 seconds, stacking 10 times.When you cast Gaze of C'Thun, all stacks are consumed to heal all allies affected by Void-Touched for healing, increased based on how many stacks were on them.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Visions of the Empire",
+    "desc": "Increases the damage converted into healing through Abyssal Covenant by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Matter",
+    "desc": "Channeling Satiate now heals all allies within 30 yds for healing every 1 sec for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Eldritch Eye",
+    "desc": "Invoke the Old Gods for 15 seconds, removing the cast time of your next 3 Eldritch Mendings or Malevolences and causing them to critically strike.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dark Veil",
+    "desc": "Channel a shield of void energies upon an ally, causing both you and them to absorb healing 25% AP damage, stacking 5 times, every 1 sec for 5 seconds.At the end of the duration, the shield holds, you teleport to them.While channeling you are immune to stuns and silences.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Chants",
+    "desc": "Reduces the cast time of Forbidden Ritual by 1 sec and allows Black Blood to stack up to 2 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Void Barrier",
+    "desc": "Casting Herald of the Depths now increases the absorption of your next Void Shield within 10 seconds by 100%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Dark Infusion",
+    "desc": "3 Charges, 30 sec rechargeInfuse an ally with dark energy, healing them for 44 the next time they take damage. When the heal occurs, Dark Infusion is consumed and expands to the two lowest-health nearby party or raid members. Each secondary infusion heals when triggered, then expands to three nearby allies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shadow Pennant",
+    "desc": "You now heal the lowest health ally affected by Black Blood for 50% of your auto attack damage. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Blessing of Yogg-Saron",
+    "desc": "While Herald of the Depths is active, you now transform into a Faceless Monstrosity, increasing your critical healing and critical strike chance by 20%, but reducing its duration by -5 sec.In addition, while active you are now immune to fear, horrify, and polymorph effects.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Ancient Rituals",
+    "desc": "Casting Satiate now refreshes the duration of Black Blood on all allies within 30 yds.Dark Infusion bounces one additional time after its third infusion, expanding to the three lowest-health nearby party or raid members.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Malevolence",
+    "desc": "Generates 10 InsanitySmash an enemy with eldritch force, dealing SP Shadow damage and applying Black Blood to 5 nearby allies, healing them for AP, repeating every 3 sec for 15 seconds.Usable while moving.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Malevolent Power",
+    "desc": "Every 3rd melee ability you cast now causes your next Eldritch Mending to become instant cast and cost -20% less mana.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Horrific Revelations",
+    "desc": "Every 1 sec while Hand of Yogg-Saron is active, you now trigger a Horrific Revelation on the target and generate 5 Insanity.Horrific RevelationHeals a friendly target for SP, scaling with Insanity, and increases their critical strike chance by 1%, stacking 15 times, for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Hand of Yogg-Saron",
+    "desc": "Tether yourself to an ally for 15 seconds, increasing all damage they deal and reducing all damage they take by 15%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Prophetic Compulsion",
+    "desc": "While Black Blood is active on an ally, healing done to them by your Gaze of C'Thun has a 15% increased chance to critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Saronite Mind",
+    "desc": "Your Eldritch Eye now has 1 additional charge. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 1/2",
+    "tier": 2
+   },
+   {
+    "name": "Blade of Yogg-Saron",
+    "desc": "Damage dealt by Blade of the Empire now heals the lowest health ally for 35% of the damage dealt plus healing 5% AP. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Forbidden Ritual",
+    "desc": "Chant a forbidden ritual that places a shield on all nearby allies that absorbs healing damage for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dark Protection",
+    "desc": "Allies affected by Abyssal Covenant now also take 20% increased healing from you.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Lead the Covenant",
+    "desc": "50% of all healing done to allies through Abyssal Covenant is now replicated to you.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Protection From Light",
+    "desc": "Reduces all damage taken by party and raid members by -3%.In addition, your Holy damage taken is reduced by -10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Dark Rites",
+    "desc": "While Herald of the Depths is active, your movement speed cannot be reduced below 100% of normal value.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Saronite Cube",
+    "desc": "Melee ability damage now reduces the duration of Wracked Mind by -1 sec on all allies within 30 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Devour Curse",
+    "desc": "Devour dark magic on an ally, dispelling 2 curse effects from them and healing you for SP.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Corrupt Fate",
+    "desc": "Reduces the cooldown of Dark Veil by -60 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tales of Woe",
+    "desc": "Your Dark Veil now performs its effect -50% faster.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Forbidden Strength",
+    "desc": "While Herald of the Depths is active, the critical strike chance of Blade of the Empire is increased by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Forbidden Resilience",
+    "desc": "While Herald of the Depths is active, you now take -15% less damage and have a 25% increased chance to resist dispel effects.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ]
+ }
+}

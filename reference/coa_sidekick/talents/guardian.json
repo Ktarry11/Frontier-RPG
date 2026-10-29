@@ -1,0 +1,1302 @@
+{
+ "class": "Guardian",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Knightly Demeanor",
+   "desc": "Your attack power is increased by 1 for every 50 Armor you have.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Reflective Shield",
+   "desc": "Raise your shield and reflect the next harmful spell cast on you within 3 seconds. While active, being hit by a spell restores 20 Energy.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Guardbreaker",
+   "desc": "Damage dealt by Pulverize now has a 20% chance to reset the cooldown of Ram.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Gallant",
+   "desc": "Increases your Strength by 4% and expertise by 2. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Valiant Effort",
+   "desc": "Your auto attacks now have a 15% chance to allow the use of Reprisal as you had recently blocked an attack.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Glorious Arena",
+   "desc": "Create a 10 yd ring beneath you for 15 seconds. Enemies who stand inside will gain Peril every 1 sec. PerilEach stack can be consumed by Pulverize to deal an additional 10% AP Physical Damage and reduce the cooldown of Glorious Arena by 10%.Upon reaching 5 stacks, the stacks are instantly consumed to stun the enemy for 5 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Lord of the Arena",
+   "desc": "Reduces the Energy cost of Pulverize and Broad Sweep by -5.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Knight's Calling",
+   "desc": "Embrace your calling, restoring 15% of your maximum health and Energy, repeating every 5 sec for 10 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Refuse To Die",
+   "desc": "Casting Advance now resets the cooldown of Raise Shield.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Standard Bearer",
+   "desc": "Increases the radius of Standards by 10 yds and increases the effectiveness of your Honor by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Net Throw",
+   "desc": "Toss a weighted net at an enemy that roots them for 4 seconds. While active, the target cannot dodge attacks.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Counter Stance",
+   "desc": "You automatically parry the next attack against you. Lasts for 5 attacks or 15 seconds.When you expend a charge you deal 275 damage to attackers and heal for AP health.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Shield Wall",
+   "desc": "Increases your Armor contribution from your shield by 20%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Standard of Rallying",
+   "desc": "Throw down a Standard of Rallying for 5 minutes, reducing damage taken by -3% and the duration of stun effects on them by -30% on all allies within 30 yds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Make Room! I'm Here.",
+   "desc": "Increases the duration of Standard of Valiance and Broad Sweep by 50%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Unstoppable",
+   "desc": "Reduces the cooldown of Battle Rush by -5 sec and Advance by -30 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Recuperation",
+   "desc": "Taking Physical damage or blocking a physical attack now restores 2 Energy.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Brace",
+   "desc": "Fortify your defenses, reducing all damage taken by -50% and gaining immunity to stun effects for 10 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Valiant Warrior",
+   "desc": "Critical strikes with Ram now have a 50% chance to strike again for 100% of the damage dealt.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Heroic Deeds",
+   "desc": "Increases the reputation gains of your allies within 30 yds by 5% and reduces damage you take by -3%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Light Nets",
+   "desc": "Increases the range of your Net Throw by 15 yds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Press the Attack",
+   "desc": "Raise your shield and press the attack, dealing 75% Weapon Damage plus 83 to enemies in front of you and draining 10 Energy every 1 sec. Lasts 5 seconds.While active you gain 100% increased block chance and you may block, dodge, and parry while channeling.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Master of Arms",
+   "desc": "Your Turn the Blade now guarantees you to parry 1 additional attack and the duration of its parry window is increased by 1 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Thick Shields",
+   "desc": "Increases your block value by 10%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Valiance",
+   "desc": "Reprisal now regenerates an additional 20 Energy.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Steel Riposte",
+   "desc": "Reduces the cooldown of Counter Stance and Turn the Blade by -25%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Knight's Advantage",
+   "desc": "Increases your damage dealt against Humanoids by 6%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Energetic",
+   "desc": "Restores 5 of your Energy every 3 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Relentless",
+   "desc": "Your Pulverizes or Rams now ignores -15% of the target's Armor.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Grand Entrance",
+   "desc": "Leap into the air, becoming immune to crowd control effects, and then crash back down with incredible speed at your location.Upon landing, deal 400% Weapon Damage to enemies in the impact area, plus an additional AP over 6 seconds, ignoring Armor and knocking them into the air.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Sturdy",
+   "desc": "Increases your maximum health by 6%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Honorable Demeanor",
+   "desc": "Whenever you block an attack your Strength and Stamina are increased by 2% for 10 seconds, stacking 3 times.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Press the Line!",
+   "desc": "While Line Formation is active, your movement speed cannot be reduced below 115%, but its cost is increased by 30 Energy.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Shrug It Off",
+   "desc": "Instantly escape the effects of any root or slow and become immune to movement slowing effects for 3 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Bloodletter",
+   "desc": "Avoiding an attack now reduces the remaining cooldown of Glorious Arena by 10%. Can only occur once per sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Myrmidon",
+   "desc": "Removes the Energy cost of Glorious Arena and increases its damage dealt by 25%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Resolve",
+   "desc": "Increases the duration of your Raise Shield by 1 sec.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Deflector",
+   "desc": "Reduces the cooldown of your Raise Shield by -5 sec and reduces its Energy cost by -10%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Pit Fighter",
+   "desc": "Increases the movement speed slow of your Standard of Valiance by -15%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Warstopper",
+   "desc": "Reduces the Energy cost of Standard of Valiance by -20.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "gladiator": [
+   {
+    "name": "Glory",
+    "desc": "Level 10 PassiveYour Ram now grants you a stack of Glory for 30 seconds.At 3 stacks, your next Ram within 30 seconds deals 150% increased damage.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Overwhelming Presence",
+    "desc": "Increases the attack power of all party and raid members 5%. Does not stack with similar effects.In addition, increases your Agility by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shield Training",
+    "desc": "Level 20 PassiveIncreases your block rating by 10% of your Strength.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Shield Combat",
+    "desc": "Level 40 PassiveCasting Ram and Pulverize now increases your attack power based on your block rating for 6 seconds.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Favor",
+    "desc": "Level 50 PassiveCritical strikes and killing blows now grant you Favor for 1 minute, stacking 20 times.At 20 stacks, your next auto attack deals an additional 500% Weapon Damage, consuming the stacks.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Might",
+    "desc": "Increases your attack power by 5%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Built Different",
+    "desc": "Increases your Strength and Stamina by 4%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Axe Training",
+    "desc": "While an axe is equipped, your critical strike chance is increased by 2% and critical damage increased by 5%. (up to 3 ranks)",
+    "cost": "1 TE · rank 0/3",
+    "requires": "",
+    "rank": "1 TE · rank 0/3",
+    "tier": 0
+   },
+   {
+    "name": "One-Handed Mastery",
+    "desc": "Increases your damage dealt by 10% while a one-handed weapon is equipped.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Waste No Movement",
+    "desc": "Reduces the Energy cost of Broad Sweep, Spear Throw, and Centurion Strike by -5.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tactical Combat",
+    "desc": "Increases your block value by 8% and chance to block by 2%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Crashing Force",
+    "desc": "Increases the damage of your Centurion Strike and Reprisal by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "No Retreating!",
+    "desc": "While in combat, every 2 sec, increase the range and Energy cost of your next Spear Throw by 1 and its damage dealt by 3%, stacking up to 15 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Deadly Blow",
+    "desc": "Your Centurion Strike and Broad Sweep now bleed an additional 15% of the damage dealt over 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Momentum",
+    "desc": "Melee damage dealt now reduces the cooldown of your Chivlary by -2 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Myrmidon",
+    "desc": "Increases the damage of Ram and Broad Sweep by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Champion",
+    "desc": "Your Centurion Strike now extends the duration of Raise Shield on you by 3 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Polearm Training",
+    "desc": "Allows you to wield polearms and to wield them with a shield equipped.While a polearm is equipped, your melee abilities have 2 yds increased range. (up to 3 ranks)",
+    "cost": "1 TE · rank 0/3",
+    "requires": "",
+    "rank": "1 TE · rank 0/3",
+    "tier": 0
+   },
+   {
+    "name": "Spear Throw",
+    "desc": "Throw a massive spear at an enemy, dealing AP Physical damage, reducing the effectiveness of any healing by 50% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Experienced Combatant",
+    "desc": "Level 30 PassiveIncreases your attack power by 20% of your Strength.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Legionnaire",
+    "desc": "Increases the critical damage of Centurion Strike and Reprisal by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Supremacy",
+    "desc": "Casting Centurion Strike now refreshes a charge of Reprisal.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Retiarius",
+    "desc": "Increases your maximum Energy by 25.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Earthsplitter",
+    "desc": "Casting Broad Sweep now increases the amount of enemies struck by your next Broad Sweep by 1 and reduces its Energy cost by -10% for 6 seconds, stacking 3 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Sword Training",
+    "desc": "While a sword is equipped, your melee haste is increased by 10%. (up to 3 ranks)",
+    "cost": "1 TE · rank 3/3",
+    "requires": "",
+    "rank": "1 TE · rank 3/3",
+    "tier": 0
+   },
+   {
+    "name": "Final Verdict",
+    "desc": "Give the final verdict to your target, dealing AP Physical damage and healing you for 15% of your maximum health.Only usable on enemies below 20% health. Killing blows reset the cooldown of this ability.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Close Combat",
+    "desc": "Removes the shared cooldown of your Standards and reduces the cooldown of Guard by -10 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Centurion Strike",
+    "desc": "Stab an enemy, dealing 110% Weapon Damage plus an additional effect based on your weapon.Sword: Triggers 3 additional auto attacks.Axe: Guaranteed to critically strike for 25% increased damage.Mace: Ignores -50% of your target's Armor.Polearm: Stabs the target and enemies behind them an additional time.",
+    "cost": "1 TE",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Calculated Strike",
+    "desc": "Your Reprisal, Broad Sweep, and Spear Throw now deal an additional 2% Weapon Damage for each Energy point you have upon casting it.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Heroism",
+    "desc": "Whenever you reach 3 stacks of Glory or 20 stacks of Favor, your next 2 Pulverizes or Broad Sweeps within 10 seconds are free of cost.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Double Duty",
+    "desc": "Increases your hit chance by 5% and expertise by 4.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Heroic Effort",
+    "desc": "Casting Centurion Strike now grants 1 stack of Glory.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mace Training",
+    "desc": "While a mace is equipped, your armor penetration is increased by 8%. (up to 3 ranks)",
+    "cost": "1 TE · rank 0/3",
+    "requires": "",
+    "rank": "1 TE · rank 0/3",
+    "tier": 0
+   },
+   {
+    "name": "Upper Hand",
+    "desc": "Your melee auto attacks now have a 20% chance to strike 2 additional times.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Pinned Down!",
+    "desc": "Damage dealt by Spear Throw now refreshes the duration of Net Throw on your target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Clinch Brawler",
+    "desc": "Centurion Strike is now guaranteed to critically strike against enemies affected by Net Throw.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "No Escape",
+    "desc": "Reduces the cooldown of your Battle Rush by -10 sec when used against a rooted enemy.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bulwark Rush",
+    "desc": "Casting Battle Rush increases your block rating by 25% of Strength for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "inspiration": [
+   {
+    "name": "Reverberations",
+    "desc": "Casting Ram now causes your next 3 melee attacks to deal an additional AP Magic damage for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tempo",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Strength In Unison",
+    "desc": "Increases your melee haste by 1% for each ally within 20 yds, up to a maximum of 20%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "War's Muse",
+    "desc": "Increases your critical damage by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Into The Fray",
+    "desc": "Triggering a Sound of War now grants you an additional auto attack on your next swing.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "A Hero's Tale",
+    "desc": "Increases your Energy regeneration by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Leading the March",
+    "desc": "Increases your attack power and total Armor by 4%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Bannerman",
+    "desc": "While affected by your Banner of Swiftness or Banner of Conquest, the initial damage dealt by your Standard of Valiance now deals 150% more damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Show of Force",
+    "desc": "Dealing damage with Ram now dispels 1 magic effect from the target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Battle Drums",
+    "desc": "Place down 3 Battle Drums around you for 1 minute. Allies may click on the drums to increase their critical strike chance, haste, damage, and healing done by 10% and causes their damage dealt to trigger a Sound of War for their next 5 instances of damage or 30 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Echoes of War",
+    "desc": "Triggering a Sound of War now grants Echoes of War to nearby allies for 8 seconds.Echoes of WarNext direct ability or spell deals 15% of their damage as additional Magic Damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Field Commander",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Hero's March",
+    "desc": "Beat the drums of war, causing your auto attacks to trigger a Sound of War and increasing your haste by 15% for 15 seconds.In addition, allies within 10 yds of you have a 5% chance to trigger a Sound of War on any damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Banner Boy",
+    "desc": "Increases your haste by 5% and the movement speed granted by Line Formation by 8%. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "Song of Battle",
+    "desc": "Every 2 sec you emanate Sounds of War, dealing AP Physical damage to all enemies within 8 yds. Lasts 15 seconds.Upon expiration, stun all enemies within 8 yds for 4 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Powerful Voice",
+    "desc": "Increases the critical strike chance of your Ballads by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Elegant Combat",
+    "desc": "Casting a Ballad has a 20% chance to remove the cost of the next Ram and increase its critical chance by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Little Drummer",
+    "desc": "Allies within 20 yds of you now gain 20% chance to resist curses.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Battle Bard",
+    "desc": "Increases the damage of your Ballads by 15%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Harrowing Melody",
+    "desc": "Play a harrowing melody, dealing AP Magic damage and reducing all healing received by enemies within 10 yds by 30% for 10 seconds.In addition, your next Ballad within 10 seconds is free of cost and deals 50% increased damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Inspiring Leader",
+    "desc": "You pledge to inspire your allies in the midst of battle, transforming your Pulverize and your Broad Sweep into Ballads.",
+    "cost": "Free",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Voice of an Angel",
+    "desc": "Sing a beautiful song, instantly resetting the cooldown of Liberation, Harrowing Melody, and Hero's March.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "War Drums",
+    "desc": "Adds 5% to the value of Echoes of War.In addition, performing a Sound of War now has a 40% chance to echo, striking an additional time after 0.5 sec. Can only occur once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Minstrel",
+    "desc": "Casting a Ballad now increases your haste by 3%, stacking 3 times, for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Soundwave",
+    "desc": "Increases the damage dealt by Sound of War by 15%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Dragonslayer",
+    "desc": "Increases your Agility by 5%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Legion Commander",
+    "desc": "The damage increase of Harrowing Melody now affects an additional 2 Ballad casts and guarantees them to critically strike and deal 100% more damage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Liberation",
+    "desc": "Instantly breaks an ally free of any stun, fear, or polymorph effects and grants immunity to such effects for 5 seconds. Dispels 2 harmful magic effects from the ally.Usable while stunned, feared, or polymorphed.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Veteran of the Third War",
+    "desc": "You now restore 3% of your base health whenever you block an attack.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Fearless",
+    "desc": "Each nearby enemy within 10 yds now reduces your damage taken by 1%, up to a maximum of 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Cavalry Tactics",
+    "desc": "Reduces the cooldown of your Cavalry Charge by -30 sec and it now prevents root and slow effects on allies.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Inspiring Presence",
+    "desc": "Emanate an aura around you for 15 seconds, causing allied players within 100 yds to deal 35% AP additional damage as Holy damage when they deal direct damage.Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Champion's Presence",
+    "desc": "Enrage all nearby allies, increasing their haste by 30% for 20 seconds.After being affected by this spell, allies cannot benefit from similar effects for 5 minutes.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Song of Steel",
+    "desc": "Boost the morale of party and raid members, increasing their attack or spell power by 95 for 15 seconds.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Dissonance",
+    "desc": "Damage dealt by Sound of War now has a 25% chance to reduce enemies' resistances by 75 and increases their Magic damage taken by -2% for 8 seconds.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Pied Piper",
+    "desc": "Triggering a Sound of War now increases damage of your next Ram by 20% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Frontliner",
+    "desc": "Triggering a Sound of War now increases your movement speed by 40% and allies' within 20 yds movement speed by 20% for 2 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bard's Manuscript",
+    "desc": "Reduces the cooldown of Hero's March by -60 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Warbringer's Manuscript",
+    "desc": "Critical strikes now reduce the cooldown of Hero's March by -1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Spirit of Battle",
+    "desc": "Increases chance to hit with all spells and attacks by 1% for you and party and raid members.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Banner of Conquest",
+    "desc": "Attach a Banner of Conquest to your back, increasing the critical strike chance of party and raid members within 40 yds by 5%.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Stand Your Ground!",
+    "desc": "While standing in your Standard of Valiance, your allies' Physical damage taken is reduced by -10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "You Shall Not Fall!",
+    "desc": "While standing in your Standard of Valiance, allies have a -20% increased chance to resist stun and grip effects.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Knight's Song",
+    "desc": "Casting a Ballad now grants allies Knight's Song.Knight's SongEmanate an aura for 10 seconds that increases the Armor of party and raid members by 400.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Banner of Swiftness",
+    "desc": "Attach a Banner of Swiftness to your back, increasing the haste of party and raid members within 40 yds by 5%.Does not stack with similar effects.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   }
+  ],
+  "vanguard": [
+   {
+    "name": "Seasoned Fighter",
+    "desc": "Reduces the Energy cost of Pulverize, Ram, and Broad Sweep by -10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Wreck Formation",
+    "desc": "Melee critical strikes now have a 50% chance to reset the cooldown of Hammer of the Law.Casting Standard of Valiance now increases your attack power by 10% for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Footman's Calling",
+    "desc": "Level 10 PassiveYour damage taken is reduced by -10% while Tower Formation or Line Formation is active.In addition, your threat generated from Physical Damage dealt is increased significantly while Tower Formation or Line Formation is active.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Experienced Soldier",
+    "desc": "Level 40 PassiveMelee attacks now reduce the cooldown of Brace by -1 sec.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Iron Barrier",
+    "desc": "Level 30 PassiveYour successful blocks now have a 50% chance to critically block for twice the normal amount.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Bulwark",
+    "desc": "Level 20 PassiveIncreases your block value by 25% and your hit rating by 5% of your Stamina.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Lionheart",
+    "desc": "Your Shield of Denial now strikes 1 additional enemy.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "High Guard",
+    "desc": "Level 50 PassiveAfter using Raise Shield, Advance or Battle Rush, you are granted High Guard.High Guard (Buff)Your next Heavy Blow within 15 seconds triggers no cooldown.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Forceful Impact",
+    "desc": "Casting Raise Shield and Heavy Blow now extends the duration of your Brace by 1 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Paragon",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Shieldlord’s Strength",
+    "desc": "You may now use two-handed Maces and can now equip two-handed Maces with a shield.Your Heavy Blow and Hammer of the Law now deal additional damage scaling with your Stamina and your Stamina is increased by 15%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Iron Guardian",
+    "desc": "Increases your Stamina by 5%. (up to 3 ranks)",
+    "cost": "1 TE · rank 3/3",
+    "requires": "",
+    "rank": "1 TE · rank 3/3",
+    "tier": 0
+   },
+   {
+    "name": "The Green Tower",
+    "desc": "Reduces the Energy cost of your Formations and increases their effectiveness by 25%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Footman's Call",
+    "desc": "Damage dealt by Pulverize is increased by 15, plus an additional amount scaling with your block value.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bastion",
+    "desc": "Raise your shield and lead your allies within 12 yds, reducing their damage taken by -40% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Shield Unit",
+    "desc": "Each time you take damage, you gain 5% of the damage taken as attack power for 1 minute.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Retaliation",
+    "desc": "Successful blocks now deal AP Physical damage to the attacker, scaling with defense rating. Can only occur once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Heavy Expert",
+    "desc": "Increases your chance to parry and dodge by 4% and increase your Armor contribution from mail and plate items by 20%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Heavy Blow",
+    "desc": "Smash an enemy and enemies behind them in a line, dealing AP High Threat Physical damage, scaling with defense rating.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Battle Wary",
+    "desc": "Reduces the cooldown of your Advance and Battle Rush by -30%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "With Honor",
+    "desc": "Reduces the cooldown of Ram by -4 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Resilient",
+    "desc": "Blocking an attack while Raise Shield is active now increases your maximum health by AP for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Vanguard's Shield",
+    "desc": "Blocking an attack or landing an auto attack now grants a stack of Vanguard for 1 minute, stacking 10 times.Vanguard's ShieldMagic Damage taken reduced by -2%. Whenever you are hit by a spell, you lose 1 stack of this effect.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Stalwart",
+    "desc": "Increases your block value by 10% and your expertise by 4. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 2/2",
+    "tier": 2
+   },
+   {
+    "name": "Hold the Line",
+    "desc": "Command nearby allies to hold the line, making them immune to incapacitate, disorient, knockback, and grip effects for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bring Down The Hammer!",
+    "desc": "Damage dealt by Heavy Blow now deals an additional 20% of the damage dealt every 1 sec for 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Vanguard's Might",
+    "desc": "Your Heavy Blow now causes you to emanate an aura for 5 seconds that reduces all damage taken by -5% for party members.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Plate Buster",
+    "desc": "Critical strikes with Ram now reduces the remaining cooldown of your Challenging Cry and Hold the Line by -4 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hammer of the Law",
+    "desc": "Smash an enemy and enemies behind them in a line, dealing AP High Threat Physical damage and silencing them for 3.5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Valorous Strikes",
+    "desc": "Auto attacks now have a 10% chance to strike an additional time and reduce your target's chance to hit by -3% for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "King's Guard",
+    "desc": "Your Pulverize and Ram now have a 10% chance to reset the cooldown of Raise Shield.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Knight's Conviction",
+    "desc": "Increases the block value provided by Raise Shield by 25% and your block chance by 1%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Valiant Knight",
+    "desc": "Melee ability critical strikes now cause your next Pulverize within 6 seconds to be free of cost and deal 25% increased damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Valiant Defender",
+    "desc": "Increases your maximum Energy by 15 and increases the damage of Pulverize and Broad Sweep by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Unscuffable",
+    "desc": "Allies within 30 yds now take -10% less Magic damage from area of effect attacks.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Order In The Court",
+    "desc": "Damage dealt by Hammer of the Law now reduces the damage dealt by affected enemies by -10% for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Shieldbound",
+    "desc": "Your Shield Challenge no longer has a cooldown, but now costs 10 additional Energy.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Honorbound",
+    "desc": "Removes the Energy cost of Shield Challenge.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   }
+  ]
+ }
+}

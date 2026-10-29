@@ -51,10 +51,25 @@ async function pool(items, n, fn) {
         await page.goto(BASE + specPath, { waitUntil: 'domcontentloaded', timeout: 60000 });
       } catch (e) { /* fall through to the wait + read */ }
       await page.waitForTimeout(4000 + attempt * 3000);
+      // Structure is <b>name</b><br>description<br><i>cost</i>[<br><i>req</i>],
+      // so the fields come out clean. Reading innerText instead concatenates
+      // them ("Knightly DemeanorYour attack power is increased by...") with
+      // no reliable way back, since names contain spaces and descriptions
+      // start with a capital.
       tips = await page.evaluate(() =>
-        [...document.querySelectorAll('span.btooltip, div.bld-tip')]
-          .map(e => (e.innerText || '').trim())
-          .filter(t => t.length > 15));
+        [...document.querySelectorAll('span.btooltip, div.bld-tip')].map((el) => {
+          const name = (el.querySelector('b')?.innerText || '').trim();
+          const italics = [...el.querySelectorAll('i')].map(i => i.innerText.trim());
+          const desc = [...el.childNodes]
+            .filter(n => n.nodeType === 3)
+            .map(n => n.textContent.trim())
+            .filter(Boolean)
+            .join(' ');
+          const cost = italics.find(t => /\b(AE|TE|Free)\b/.test(t) && !/^Requires/.test(t)) || '';
+          const requires = italics.find(t => /^Requires/.test(t)) || '';
+          const rank = italics.find(t => /rank\s*\d/.test(t)) || '';
+          return { name, desc, cost, requires, rank };
+        }).filter(t => t.name && t.desc));
     }
     const name = specPath.slice(1).replace(/\//g, '__') + '.json';
     fs.writeFileSync(path.join(OUTDIR, name),

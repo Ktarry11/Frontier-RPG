@@ -1,0 +1,1278 @@
+{
+ "class": "Tinker",
+ "_source": "ascensionsidekick.com, scraped 2026-10-28 by tools/scrape_coa_talents.js. AE = class-tree point, TE = spec-tree point; tier is derived from the 'Requires N in this tree' gate.",
+ "class_tree": [
+  {
+   "name": "Concussive Spanner",
+   "desc": "Your Spanner Smash will now apply Concussion to the target.ConcussionYour target is unable to critically strike and their total primary attributes are reduced by -5% for 8 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Modulator",
+   "desc": "Increases the effectiveness of your Modules by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Clockwork Ingenuity",
+   "desc": "Increases the maximum health of your summons by 10%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Mechanosoldier",
+   "desc": "Increases the damage reduced by Kinetic Shield by -10% and its duration by 2 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Frozen Bomb Launcher",
+   "desc": "Damage dealt by your Sentry Turrets will now slow enemy movement speed by -15% for 10 seconds, stacking 3 times.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Goblin Depravity",
+   "desc": "Air Strike now drops Tear Gas, dealing nature AP Nature damage every 2 sec for 12 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Auto Resuscitation Device",
+   "desc": "Attach a resuscitation device to your target ally for 20 seconds.When the target would otherwise die, they are instead healed for 50% of their maximum health.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Explosive Personality",
+   "desc": "Increases your ranged attack power by 50% of your Intellect. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "Macro-Gravity Zone",
+   "desc": "Create a macro-gravity zone at target location for 8 seconds.Enemies within the zone have their movement speed slowed by -50% and gain 1 stack of Macro-Gravity every 1 sec.Macro-GravityAt 6 stacks, the affected enemy will be stunned for 6 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Refined Gunpowder",
+   "desc": "Increases your haste and your damage dealt against Mechanical creatures by 3%. (up to 2 ranks)",
+   "cost": "1 AE · rank 1/2",
+   "requires": "",
+   "rank": "1 AE · rank 1/2",
+   "tier": 0
+  },
+  {
+   "name": "Flexible Thinking",
+   "desc": "Increases Agility and Intellect by 4%. (up to 2 ranks)",
+   "cost": "1 AE · rank 2/2",
+   "requires": "",
+   "rank": "1 AE · rank 2/2",
+   "tier": 0
+  },
+  {
+   "name": "I'm The Creator Now",
+   "desc": "Damage dealt by your summons now has a 40% chance to increase your attack power and spell power by 9 for 30 seconds, stacking 3 times.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Mechanical Enhancements",
+   "desc": "Reduces your damage taken from bleed effects by -10% and the duration of bleed effects on you by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Backup Fuel",
+   "desc": "Falling below 35% health now refreshes all charges of Rocket Boots.Can occur only once every 3.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Hasty Tech",
+   "desc": "Reduces the cast time of Scrap Shot and Repair Shot by -15%.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Maniacal",
+   "desc": "Reduces the cooldown of Sticky Bomb and Deploy Blast Mine by -2 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Mechaplating",
+   "desc": "Whenever your summons critically strike, reduce your and your pet's damage taken by -2% for 15 seconds, stacking 4 times.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Ventilation",
+   "desc": "Direct magic damage taken now has a 50% chance to increase all magic resistances of allies within 8 yds of you by 15 for 6 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Med Pack",
+   "desc": "Toss a med pack to an ally, healing for SP over 6 seconds and cleanses all bleed, poison and disease effects.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Build: Repulsion Unit",
+   "desc": "Build a Repulsion Unit that periodically knocks nearby enemies back every 5 sec for 20 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Build: Destructo-Bot",
+   "desc": "Build a Destructo-Bot that you can see through and directly control.The bot is capable of exploding, dealing massive Fire damage to enemies nearby and disorienting them for 3 seconds.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Bunker Operative",
+   "desc": "Reduces the cooldown of Kinetic Shield, Discombobulate!, and Repulsion Unit by -20%.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Air Strike",
+   "desc": "Mark the target location for an Air Strike. After 7 seconds, it deals 1250 Fire damage to up to 12 enemies caught within the blast.This ability always critically strikes.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Scrapshielding",
+   "desc": "Your critical strikes now grant you a shield that absorbs SP damage.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Nanobot Reconstruction",
+   "desc": "Send Nanobots to an ally, healing them for 420 over 1 minute.Nanobot Reconstruction can only be sent to 1 target at a time and cannot be dispelled.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Build: Alarm Beacon",
+   "desc": "3 Charges, 15 sec rechargeThrow down an alarm beacon for 10 seconds, removing fear, charm and sleep effects from up to 1 ally within 20 yds every 1 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Deathball",
+   "desc": "Launch 3 Deathballs in a line, increasing in speed the further they travel.They explode when they come into contact with an enemy, dealing ranged AP Fire damage to nearby enemies, increased based on distance traveled.Bot and Build abilities reduce the cooldown of this ability by 2 sec.",
+   "cost": "1 AE",
+   "requires": "Requires 24 AE in this tree",
+   "rank": "",
+   "tier": 2
+  },
+  {
+   "name": "Kinetic Shield",
+   "desc": "Create magnetic shields of kinetic energy on an ally target for 8 seconds, reducing damage taken by -40% and making them immune to stun effects.Usable while stunned.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Rocket Boots",
+   "desc": "3 Charges, 30 sec rechargeActivate your Rocket Boots, dispelling root effects and launching you forward.",
+   "cost": "1 AE",
+   "requires": "",
+   "rank": "",
+   "tier": 0
+  },
+  {
+   "name": "Efficiency",
+   "desc": "Reduces the mana cost of all spells and abilities by -10%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Medical Degree",
+   "desc": "Increases the cooldown of Med Pack by 30 sec, but allows it to affect up to 4 additional targets around your ally.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Enhanced Procedures",
+   "desc": "Increases the duration of Med Pack by 100% and it's healing by 75%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Innate Brilliance",
+   "desc": "While Aether Augmentation is active, every 4th Scrap Shot now grants you Innate Brilliance.Innate Brilliance (Buff)Your next Scrap Shot has 5 yds increased range, deals 15% increased damage, and drains ranged AP of your target's mana. Lasts 10 seconds.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Function Over Form",
+   "desc": "Increases the effectiveness of Aether Augmentation by 50%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Cutting Edge Technology",
+   "desc": "Increases the tick rate and healing done of Nanobot Reconstruction by 20%.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  },
+  {
+   "name": "Rocket Bombardment",
+   "desc": "Casting Sticky Bomb now causes your Sentry Turret to fire a rocket cluster on its next attack, causing 126 Fire damage to enemies within 5 yds of the target.",
+   "cost": "1 AE",
+   "requires": "Requires 9 AE in this tree",
+   "rank": "",
+   "tier": 1
+  }
+ ],
+ "specs": {
+  "demolition": [
+   {
+    "name": "Napalm",
+    "desc": "Level 10 PassiveDealing direct Fire damage now applies Napalm to your target.Napalm (Damage)Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bomber Man",
+    "desc": "Level 30 PassiveWhile Bombastic is active, your Bomb Tosses will additionally reduce the cooldown of Sticky Bomb by -1 sec.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Boomshot",
+    "desc": "Every 4th Scrap Shot now causes your next Scrap Shot within 15 seconds to deal 25% increased damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Rocket Barrage",
+    "desc": "Increases the amount of stacks of Tracer Augmentation by 5, and its duration by 7 sec, and causes damage dealt by Bomb Toss on enemies with 10 stacks to launch a Rocket Barrage at their location.Rocket Barrage (Damage)Deals fire SP Fire Damage to nearby enemies after 5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Flamethrowing",
+    "desc": "When you Bomb Toss, your Sentry Turret unleashes flames on your target, dealing. Fire damage to enemies in a 30 yd line.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Machine Synergy",
+    "desc": "Casting Scrap Shot now adds a stack of Machine Synergy to your active pet and Sentry Turret.Machine SynergyIncreases damage dealt by 5% and haste by 3%, stacking 3 times, for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Target Acquired",
+    "desc": "Your Sticky Bomb Explosions and Spider Bomb now deal 30% increased damage when it strikes only 1 target.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Bomb Builder",
+    "desc": "Increases your and your summons Fire Damage dealt by 5%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Grenadier",
+    "desc": "When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bomb Toss",
+    "desc": "Lob a bomb at an enemy, dealing fire SP Fire damage and reducing their armor by 5% for 15 seconds, stacking 4 times.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Build: Oil-Spill Pylon",
+    "desc": "Build an Oil-Spill Pylon at target location for 10 seconds, spilling oil in an 8 yd radius that reduces enemies movement speed by -60% and increases their Fire damage taken by you by 15%.Sticky Bomb Explosions and Firepot Drone deal 20% increased damage to enemies inside.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tracer Augmentation",
+    "desc": "Add a Tracer Augmentation to your gun for 1 hour, causing your ranged attacks to mark enemies for 5 seconds, stacking 5 times. After the duration they explode for fire SP Fire damage, increased based on stacks.Marked enemies are prevented from entering stealth or invisibility for 20 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Build: Spider Bomb",
+    "desc": "Build a Spider Bomb that will immediately run towards your target and detonate dealing ranged AP Fire damage in an 8 yd radius.Using Scrap Shot will redirect the Spider Bombs to your new target.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Boom Hour",
+    "desc": "Increases the critical strike chance of Bomb Toss and Firepot Drone by 10%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Hyperblast Barrage",
+    "desc": "Unleash a barrage of shrapnel, dealing fire SP Fire damage to enemies in a line, applying a lesser Sticky Bomb to each target struck that deals fire AP Fire damage after 3 sec.After 3 seconds, your active Sentry Turret will also fire a Hyperblast Barrage.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Rocket Pack",
+    "desc": "Fire critical strikes now reduce the remaining cooldown of Rockadier by -3 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Gazlowe's Wisdom",
+    "desc": "You now spawn 2 Shrapnel Mines under your target when Sticky Bomb explodes.Shrapnel MineWhen you use Remote Detonation, deal SP Physical damage to up to 5 enemies within 10 yds. The mine lasts 1 minute.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "The BIG Guns!",
+    "desc": "Increases the attack power of all party and raid members 5%. Does not stack with similar effects.In addition, increases your ranged attack power by 3%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Drone Striker",
+    "desc": "Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.Napalm (Damage)Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sparked and Ready!",
+    "desc": "Level 20 PassiveFire damage dealt has a 5% chance to grant you Sparked and Ready!.Sparked and Ready!Causes your next Rocket Launcher, within 10 seconds, to be instant cast and deal 20% increased damage.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Bombastic",
+    "desc": "Level 30 PassiveCasting Build: Spider Bomb now resets the cooldown of Bomb Toss and causes your next Bomb Toss within 15 seconds to trigger no cooldown, global cooldown, or cost.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Bomb Squad",
+    "desc": "Level 40 PassiveIncreases your Fire spell power by 50% of Agility.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Surprise Launch!",
+    "desc": "When Rocket Launcher is used on enemies affected by Sticky Bomb it is now guaranteed to critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Rocket Engineering",
+    "desc": "Direct harmful ability critical strikes now apply an additional stack of Tracer Augmentation to the target while active on the enemy.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Rocket Launcher",
+    "desc": "Fire a powerful rocket at an enemy that deals fire SP Fire damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Rockadier",
+    "desc": "Empowers the next 6 Scrap Shots or Rocket Launchers within 30 seconds deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Build: Spider Bomb Factory",
+    "desc": "Build a Spider Bomb Factory in front of you for 20 seconds.For the duration, Bomb Toss and Rocket Launcher will summon 3 Spider Bombs, that will immediately run towards your target and detonate dealing ranged AP Fire damage.Using Scrap Shot will redirect the Spider Bombs to your new target.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Rocket Turrets",
+    "desc": "Allows Machine Synergy to stack 2 additional times and using Rocket Launcher now causes your Sentry Turret to also cast Rocket Launcher.Machine SynergyIncreases damage dealt by 5% and haste by 3%, stacking 3 times, for 6 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Short Fuse",
+    "desc": "Sparked and Ready now also increases the critical strike chance of Rocket Launcher by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Build: Firepot Drone",
+    "desc": "3 Charges, 10 sec rechargeBuild a Firepot Drone that flies towards your target, dropping a bomb along its path and exploding upon landing, dealing fire SP Fire damage in a 5 yd radius, leaving oil on the ground for 6 seconds that slows enemies within by 30%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "I Need More Explosions!",
+    "desc": "Increases the damage of Sticky Bomb Explosions by 15%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Explosive Inventor",
+    "desc": "Spider Bomb Factory now also summons a Heavy Spider Bomb.Heavy Spider Bombs move slowly, and deal ranged AP Fire damage when they reach their target and slow their movement speed by 70% for 2 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Explosives Expert",
+    "desc": "Direct harmful ability critical strikes from you or your summons now restores 4% of your maximum mana.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Aftermath",
+    "desc": "Casting Sticky Bomb now causes your next 2 Scrap Shots within 10 seconds to cast -50% faster and deal 25% increased damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Incendiary Bullets",
+    "desc": "Increases the damage of Scrap Shot by 15% and increases your chance to hit by 2%. (up to 2 ranks)",
+    "cost": "1 TE · rank 1/2",
+    "requires": "",
+    "rank": "1 TE · rank 1/2",
+    "tier": 0
+   },
+   {
+    "name": "Duobombers",
+    "desc": "Build: Spider Bomb now creates an additional Spider Bomb that rushes towards your target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "War Crimes",
+    "desc": "Damage dealt by Explosive Augmentation and Tracer Augmentation now has a 50% chance to apply an additional stack of Napalm to enemies.Napalm (Damage)Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Tank Buster",
+    "desc": "Your Scrap Shot now ignores 25% of the target's Armor when damaging Burning targets.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Buster Scope",
+    "desc": "Increases the critical damage of Rocket Launcher by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mega Scope",
+    "desc": "Increases the range of Rocket Launcher by 10 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "invention": [
+   {
+    "name": "Beacon Charging",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Scientific Nature",
+    "desc": "Level 20 PassiveIncreases your healing power by 20% of your Intellect and your critical strike rating by 15% of your Intellect.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Build: ZIGGI-6K",
+    "desc": "Level 10 PassiveTeaches you Build: ZIGGI-6K.Build: ZIGGI-6KBuild ZIGGI-6K, the latest in regenerative technology, to aid you in healing allies until dismissed.",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Healing Radiator",
+    "desc": "Periodic healing done by Nanobot Reconstruction now restores healing health to 5 allied players within 10 yds of the affected target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Rejuvenating Gadget",
+    "desc": "Critical strikes with Zap! now apply Rejuvenating Gas to up to 12 allies within 8 yards of your target that restores 15% of the value of the shot as health every 2 sec for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Inventor's Tool Belt",
+    "desc": "Increases your and your pet's Intellect by 10% and you are both now unable to miss your attacks.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Over-Repaired",
+    "desc": "Increases the healing done by Repair Shot by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Technician",
+    "desc": "Reduces spell pushback suffered from damaging attacks by 35% and increases your critical healing by 10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Stim Pack",
+    "desc": "Effective healing with Stim Augmentation now reduces the cooldown of Med Pack by -3 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Combat Symbiosis",
+    "desc": "Electrify an allies' body, increasing their haste by 20% and causing damage dealt by them to heal nearby allies for 15% of the value. Lasts for 15 seconds, or 20 attacks.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Mana Capacitors",
+    "desc": "Reduces the cost of Overcharge by -15% and reduces its cooldown by -10%. (up to 2 ranks)",
+    "cost": "1 TE · rank 0/2",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "1 TE · rank 0/2",
+    "tier": 2
+   },
+   {
+    "name": "Rapid Fire Healing",
+    "desc": "Casting Repair Shot or Emergency Heal now has a 15% chance to refresh a charge of Beacons.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Master Builder",
+    "desc": "Reduces the mana cost of all Build abilities by -25%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Self-Sustaining Technology",
+    "desc": "Damage or healing done by your pet or summons now heals you equal to 15% of the value. In addition, damage or healing done by you now restores health and mana to your pet equal to 15% of the value. Each of these effects can only occur once per sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Nanobot Cleanser",
+    "desc": "Send Nanobots to an ally removing 1 poison and disease effect every 3 sec for up to 15 seconds.Nanobot Cleanser can only be sent to 1 target at a time and can't be dispelled.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Improved Emergency Heal",
+    "desc": "Increases the healing and reduces the mana cost of Emergency Heal by -20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Macro Designer",
+    "desc": "Increases the duration of your Beacons by 5 sec and Med Pack by 3 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Fine Tuning",
+    "desc": "Increases critical strike chance of all party and raid members by 3%.Does not stack with similar effects.In addition, not critically healing now increases your critical strike chance by 1%, stacking 10 times, until your next effective critical heal.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Nanobot Swarm",
+    "desc": "Send Nanobots to an ally, dealing SP damage to nearby enemies every 4 sec for 1 minute. All threat generated by you is redirected to the target.Nanobot Swarm can only be sent to 1 target at time and cannot be dispelled.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Emergency Enhancer",
+    "desc": "Zap! now causes your active Build abilities to zap the lowest health nearby ally, healing them for healing.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Epiphany!",
+    "desc": "Casting Beacon abilities now reduces the cooldown of My Greatest Invention! by -20 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "My Greatest Invention!",
+    "desc": "Show off your Greatest Invention, healing party and raid members in a 30 yd radius for healing every 2 sec for 9 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Emergency Circumvented",
+    "desc": "Increases the critical strike chance of Emergency Heal by 15% and allows the periodic healing done by Med Pack to critically strike.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Resourceful Tech",
+    "desc": "Your Zap! is now guaranteed to critically strike allies affected by Nanobots.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Field Medic",
+    "desc": "Increases your and your summons critical strike chance by 5%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Stim Augmentation",
+    "desc": "Add a Stim Augmentation to your gun for 1 hour, causing your direct healing abilities to heal up to 3 nearby friendly players for an additional 20% of the amount healed.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Improved Graftbolts",
+    "desc": "Level 50 PassiveYour Graftbolts now stacks 2 additional times.",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Graftbolts",
+    "desc": "Level 40 PassiveEffective healing done now has a 25% chance to grant you GraftboltsGraftboltsRestores 15% maximum mana to your pet and increases the damage and healing done by your summons by a percentage equal to 10% of your healing spell power for 6 seconds..",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Trust the Science!",
+    "desc": "Reduces the cooldown of Zap! by -5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Build: Restorative Beacon",
+    "desc": "3 Charges, 15 sec rechargeThrow down a restorative beacon for 15 seconds which projects a field that heals raid and party members in the area for 92 every 3 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Eureka!",
+    "desc": "Direct healing critical strikes now increase the healing done by your next Repair Shot or Emergency Heal by 30% for 10 seconds.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Build: Noise Box",
+    "desc": "Build a Noise Box for 15 seconds that periodically unleashes screeching noise on nearby enemies, interrupting spellcasts and preventing spells of that school from being cast for 3 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Zap!",
+    "desc": "Fires a long range zap of electricity that heals an ally for healing.Scales with modifiers to Repair Shot.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Build: Battery Recharge Station",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Cybernetic Revivification",
+    "desc": "All nearby allies receive 6% more healing. Does not stack with similar effects.In addition, your Alarm Beacon now dispels fear, charm, and sleep effects from 1 additional ally.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "J27 Upgrade",
+    "desc": "Reduces the mana cost of your Nanobots by -10% and they now last 10 additional sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Electromagnetic Resistors",
+    "desc": "Nanobots now grant a 30% chance to resist movement impairing effects for 15 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Stim Shots",
+    "desc": "Your Stim Augmentation now heals for an additional 10% of the amount healed.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bandage Gun",
+    "desc": "Healing from Stim Augmentation now affects 2 additional allies near the primary target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ],
+  "mechanics": [
+   {
+    "name": "Combat Crafter",
+    "desc": "Level 20 PassiveWhile in your Mechsuit, damage dealt by your summons now has a 20% chance to grant you 5 Scrap and 2% of your maximum mana.",
+    "cost": "Free",
+    "requires": "Requires 6 points in this tree (level 20)",
+    "rank": "",
+    "tier": 1
+   },
+   {
+    "name": "Battle Engineer",
+    "desc": "Level 30 PassiveYour ranged damage dealt now has a 20% chance to refresh a charge of Makeshift Dynamite.",
+    "cost": "Free",
+    "requires": "Requires 11 points in this tree (level 30)",
+    "rank": "",
+    "tier": 3
+   },
+   {
+    "name": "Turbo Upgrade!",
+    "desc": "Level 40 PassiveIncreases the effectiveness of your Mechsuit by 100%.",
+    "cost": "Free",
+    "requires": "Requires 16 points in this tree (level 40)",
+    "rank": "",
+    "tier": 4
+   },
+   {
+    "name": "Build: Mechsuit",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 1 prerequisite talent maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Mechsuit: Activate Jets",
+    "desc": "Launch forward and slow your falling speed. When you hit the ground you blast nearby enemies for 275 Fire damage based on time in the air.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Haywired State!",
+    "desc": "Casting Mechsuit abilities now causes your pet to enter a haywired state for 6 seconds.Haywired State!Auto attacks now zap up to 10 nearby enemies for AP Stormstrike Damage and damaged enemies take 20% increased damage from your summons.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Regeneration Enhancement",
+    "desc": "When you enter your Mechsuit, it now refunds 20% of your base mana, repeating every 20 sec while inside.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Bombs? BOMBS!",
+    "desc": "Increases the detonation speed of Sticky Bomb by -1 sec and reduces its cooldown by -2 sec.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Junker",
+    "desc": "Casting Spanner Smash and Scrap Shot now increases your pet's attack power by 5% for 15 seconds, stacking 2 times.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mechanical Extender",
+    "desc": "Casting Scrap Shot and Mechsuit abilities now increases the chance to trigger Overload by 3% for 10 seconds, stacking 10 times.When Overload triggers, all stacks are consumed.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mechanical Synergy",
+    "desc": "Increases the damage of Sticky Bomb Explosion and Mechsuit abilities by 15%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Overload",
+    "desc": "Damage dealt by Mechsuit: Combustion and Mechsuit: Laser Beam now have a 40% chance to strike 2 additional times for 30% of the damage dealt.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Master Builder",
+    "desc": "Reduces the cast time of Build abilities by -50%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Flame Jets",
+    "desc": "While inside your Mechsuit, damage dealt by your Scrap Shot and Makeshift Dynamite now applies Living Flame to the target.Living Flame (Damage)Deals 32 Fire Damage every 2 sec and increases the damage the target takes from your Mechsuit: Combustion by 10% for 4.5 seconds, stacking 5 times.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Master Technician",
+    "desc": "Scrap Shot and Mechsuit abilities now grants your Sentry Turret a stack of Master Technician, stacking 10 times.At 10 stacks, your Sentry Turret will unleash a beam dealing fire AP Fire damage in a 25 yd line, piercing invulnerabilities.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Mechsuit: Laser Beam",
+    "desc": "Blast an enemy with a laser, dealing 100% Ranged Weapon Damage plus 18 as Fire Damage and forcing your pet to charge to the enemy for 24 Physical Damage.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Overclocked Machine",
+    "desc": "Overclock your pet for for 20 seconds, increasing its damage dealt by 20% and allowing it's attacks to trigger Hardwired Haymaker on the target enemy. Additionally, your pet will trigger Overclocked Smash every 5 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Upgrade!",
+    "desc": "Upgrade nearby Sentry Turrets to a Molten Grenade Turret for 1 minute.Molten Grenade TurretUpgrades the Sentry Turret to fire grenades, increasing its attack speed significantly and causing it to deal 133 Fire Damage in an 8 yd radius, plus an additional fire AP Fire Damage over 1.5 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Clockwork Guardians",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Fine Tuned",
+    "desc": "Increases the critical strike and hit chance of you and your summons by 4%.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Turret Upgrade Z-15",
+    "desc": "Damage dealt by Sentry Turrets now has a 30% chance to cause AP additional Nature damage and increase critical strike chance of the turret by 1%, stacking 5 times, for 8 seconds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Arclight Core",
+    "desc": "Makeshift Dynamite now marks enemies for 6 seconds. The next damaging ability used on this target by your pet consumes the mark to deal fire ranged AP Fire damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Gear Grind",
+    "desc": "(see builder tooltip)",
+    "cost": "Free",
+    "requires": "Requires 21 points in this tree (level 50)",
+    "rank": "",
+    "tier": 5
+   },
+   {
+    "name": "Build: Scrapmaw",
+    "desc": "Build a Scrapmaw to accompany the Tinker until dismissed.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mechsuit: Combustion",
+    "desc": "Launch a massive ball of fire at an enemy that also damages nearby enemies, dealing ranged AP Fire damage.Usable while moving.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Slam the Cogs!",
+    "desc": "Increases the damage dealt by you and your summons by 4%. (up to 2 ranks)",
+    "cost": "1 TE · rank 2/2",
+    "requires": "",
+    "rank": "1 TE · rank 2/2",
+    "tier": 0
+   },
+   {
+    "name": "Scrapper",
+    "desc": "Search and rummage through nearby debris, gaining 10 Scrap and 25 mana every 1 sec for 5 seconds.Not usable in combat.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Arclight Adept",
+    "desc": "Increases the critical damage of your Mechsuit abilities by 15%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Mechanical Enhancements",
+    "desc": "Increases all party and raid member's melee and ranged haste by 10%. Does not stack with similar effects.In addition, the range of your offensive ranged abilities and Auto Shot is increased by 10 yds.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Nano-Repair Tech",
+    "desc": "You and your pet now regenerate 3% of your maximum health every 8 sec.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Sprocket Loaded",
+    "desc": "Casting Makeshift Dynamite now resets the cooldown of your Mechsuit abilities.",
+    "cost": "1 TE",
+    "requires": "",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Blazewrought Titan",
+    "desc": "(see builder tooltip)",
+    "cost": "1 TE",
+    "requires": "Requires 23 TE in this tree",
+    "rank": "",
+    "tier": 6
+   },
+   {
+    "name": "Makeshift Dynamite",
+    "desc": "2 Charges, 8 sec rechargeGenerates 10 ScrapLoad dynamite into your gun and launch it at an enemy, dealing 100% Ranged Weapon Damage plus 12 as Fire damage.Usable while moving.",
+    "cost": "1 TE",
+    "requires": "Requires 2 prerequisite talents maxed",
+    "rank": "",
+    "tier": 0
+   },
+   {
+    "name": "Cogmaster",
+    "desc": "Increases your critical strike chance by 2% and gives ranged critical strikes a 50% chance to generate 3 Scrap.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Junkyard Loiter",
+    "desc": "When you deal damage with Mechsuit: Laser Beam or Mechsuit: Combustion you now launch a Lesser Sticky Bomb on each target struck.Lesser Sticky BombThrows a bomb that sticks to the enemy for 3 sec.At the end of the duration the bomb will explode, dealing fire AP Fire Damage to the target.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Turbo Guns",
+    "desc": "Reduces the cast time of your Mechsuit: Combustion by 0.25 sec and its damage is increased by 20%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Flak Guns",
+    "desc": "Your Mechsuit: Combustion now has 10% increased critical strike chance and 15% increased critical damage.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Offensive Utility",
+    "desc": "While in your Mechsuit, casting Sticky Bomb reduces the channel time of your next Gatling Gun within 5 seconds by -30%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Defensive Utility",
+    "desc": "Your Mechsuit will now increase your armor by an additional 50%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Augmentor",
+    "desc": "While Piercing Augmentation or Aether Augmentation is active, your ranged haste is increased by 10%.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Hacking the Enemy",
+    "desc": "Your Piercing Augmentation now ignores an additional 10% of your target's armor and grants you -10 increased spell penetration.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Augmechtation",
+    "desc": "Your Mechsuit now increases your damage by an additional 10% while active.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   },
+   {
+    "name": "Engine Augmentation",
+    "desc": "For 8 seconds after activating your Mechsuit, all damage dealt will now generate 3 Scrap.",
+    "cost": "1 TE",
+    "requires": "Requires 8 TE in this tree",
+    "rank": "",
+    "tier": 2
+   }
+  ]
+ }
+}
