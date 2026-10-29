@@ -1,0 +1,451 @@
+{
+  "spec_name": "Witch Hunter Boltslinger",
+  "tree_id": "witch_hunter_boltslinger",
+  "description": "Mobile crossbow skirmisher - builds into a charged Heartseeking Bolt and survives on avoidance rather than armour.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_witch-hunter__boltslinger.txt and the boltslinger spec tree in reference/coa_sidekick/talents/witch-hunter.json. CoA calls this 'an Outlaw/Survival hybrid built on real tools... a burst-window rogue crossed with a kiting hunter', and the tree follows its stat priority (Hit > Expertise > Agility > Armor Penetration > Crit > Haste) by spending real points on hit rating, Agility-to-ranged-AP and armour penetration rather than on raw attack power. Expertise has no key in this engine at all, which is the one priority entry nothing here can serve.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "witch_hunter_boltslinger_rapid_reload",
+      "name": "Rapid Reload",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your ranged haste by 8%.' ranged_haste is dead - the engine has one haste stat - so it is plain haste at the rate every shipped tree uses."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_mechanized_crossbows",
+      "name": "Mechanized Crossbows",
+      "description": "Grants ranged attack power equal to 3% of your Agility per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ranged_ap_from_agility_pct": 0.03
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your ranged attack power by 10% and the range of your ranged abilities by 5 yds.' A flat ranged_attack_power grant is dead - the stat is computed from Agility and Strength in _recalculate_derived_stats and never reads the bonus pool - so this is a real <target>_from_<source>_pct conversion off the spec's own primary stat ('Agility (RAP/crit/dodge)'). Range is not modelled."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_night_stalker",
+      "name": "Night Stalker",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA class tree: 'Increases your critical strike chance by 3%.' Pulled into this tree because the spec's stat priority says 'Critical Strike (Brimming Hatred/Lucky Shot both key off crits for rage and armor-shred)'."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_my_trusty_arbalest",
+      "name": "My Trusty Arbalest",
+      "description": "Reduces the Focus cost of your abilities by 2% and grants 1 hit rating per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "all_ability_cost_pct": -0.02,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Reduces the Rage cost of Witchbane and Shadowblast by -10% and increases your chance to hit by 2%.' There is no two-ability cost key, only per-ability and global, so it discounts the whole book at a smaller rate. Hit leads this spec's stat priority."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_heartless",
+      "name": "Heartless",
+      "description": "Increases your critical strike damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "crit_damage_physical": 0.05
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_rapid_reload"
+      ],
+      "_source": "CoA: 'Increases your Physical ranged critical damage by 15%.' No ranged-only crit damage key exists."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_enchanted_bolts",
+      "name": "Enchanted Bolts",
+      "description": "Increases your spell damage by 3% and your armor penetration by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "spell_damage": 0.03,
+        "armor_penetration_pct": 2.0
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_mechanized_crossbows"
+      ],
+      "_source": "CoA: 'Increases your Magic damage dealt by 5% and your Armor penetration by 10%.' Both halves are real: armor_penetration_pct is PERCENT POINTS (divided by 100 in _recalculate_derived_stats) and is finally consumed in take_damage's physical branch."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_crossbow_expert",
+      "name": "Crossbow Expert",
+      "description": "Increases the damage of Witchbane by 5% and Shadowblast by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_witch_hunter_witchbane_damage": 0.05,
+        "ability_witch_hunter_shadowblast_damage": 0.04
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_night_stalker"
+      ],
+      "_source": "CoA: 'Increases the damage of Shadowblast by 10% and Witchbane by 5%.' ability_<id>_damage keys are built by string interpolation in abilities.py - a literal grep calls them dead, which is why 48 of them were once reported so."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_brimming_hatred",
+      "name": "Brimming Hatred",
+      "description": "Your critical strikes restore 10 Focus, no more than once per turn.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_boltslinger_my_trusty_arbalest"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "focus",
+          "amount": 10
+        }
+      },
+      "_source": "CoA class tree: 'Your critical strikes now generate 10 Rage. Can only occur every 3 sec.' CoA's Rage is Frontier's Focus for this class (module docstring), and grant_resource is a real proc payload that goes through the same gain_resource every builder ability uses. One point, because a proc's numbers do not scale with ranks."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_one_shot",
+      "name": "One Shot",
+      "description": "Increases the critical strike chance of Heartseeking Bolt by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_witch_hunter_heartseeking_bolt_crit": 4.0
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_heartless"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Heartseeking Bolt by 20%.' ability_<id>_crit is percentage points, the same unit as crit_chance_physical."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_silver_bolts",
+      "name": "Silver Bolts",
+      "description": "Increases the damage of Heartseeking Bolt and Damnation by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_witch_hunter_heartseeking_bolt_damage": 0.05,
+        "ability_witch_hunter_damnation_damage": 0.05
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_enchanted_bolts"
+      ],
+      "_source": "CoA: 'Damage dealt by Heartseeking Bolt and Damnation is increased by 15%, doubled against Undead or Demons or enemies affected by Shadow Trap.' No creature-type or debuff-conditional damage hook, so the flat half only."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_strafing_shot",
+      "name": "Strafing Shot",
+      "description": "Increases the damage of your damage-over-time effects by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "dot_damage": 0.03
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_crossbow_expert"
+      ],
+      "_source": "CoA: 'Critical strikes with ranged abilities now spread Tormentor to a nearby enemy.' Spreading a DoT on crit has no engine shape (a proc can apply a NEW effect but not copy an existing one to another target), so the node pays out as DoT damage instead - Tormentor and Witchbane are both DoTs, which is what the spread was worth."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_bane_of_witches",
+      "name": "Bane of Witches",
+      "description": "Increases your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_brimming_hatred"
+      ],
+      "_source": "CoA: 'Casting Heartseeking Bolt now increases your Physical damage dealt by 10% for 8 seconds.' A self-buff-on-cast proc would need an apply_effect keyed to one ability; the rotation keeps Heartseeking Bolt on cooldown anyway, so this is the passive version of the same number."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_arbalest_mastery",
+      "name": "Arbalest Mastery",
+      "description": "Increases the damage of Witchbane by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_witchbane_damage": 0.06
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_one_shot"
+      ],
+      "_source": "CoA: 'Each subsequent shot of a Witchbane cast deals 15% more damage, up to a maximum of 150%.' A ramping channel is not expressible; the average is."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_resourceful_pursuit",
+      "name": "Resourceful Pursuit",
+      "description": "Reduces the Focus cost of Tormentor by 3 and Damnation by 3 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_tormentor_cost": 3,
+        "ability_witch_hunter_damnation_cost": 3
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_silver_bolts"
+      ],
+      "_source": "CoA: 'Reduces the Rage cost of Tormentor and Damnation by -20%.' ability_<id>_cost is a FLAT reduction applied before the percentage one, so 3 a rank off a 25 and a 45 cost lands near CoA's 20%."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_relentless",
+      "name": "Relentless",
+      "description": "Increases the damage your abilities deal to additional targets by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "aoe_damage": 0.06
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_strafing_shot"
+      ],
+      "_source": "CoA: 'Allows Witchbane to hit an additional nearby enemy.' Adding a target to a specific ability is not a talent shape - max_targets is authored on the ability - so the node raises AoE damage. NOTE aoe_damage is only read when target_type is 'enemy_aoe', which is why every AoE ability in this class uses that rather than the is_aoe field, which nothing reads."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_escape_artist",
+      "name": "Escape Artist",
+      "description": "Daring Escape lasts 1 turn longer and Vault's cooldown is reduced by 1 turn.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_daring_escape_duration": 1,
+        "ability_witch_hunter_vault_cooldown": 1
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_bane_of_witches"
+      ],
+      "_source": "CoA: 'Your Daring Escape now resets the cooldown of Vault and generates 10 Rage.' A cooldown RESET from one cast has no talent shape, so the reset becomes a flat cooldown reduction and the escape window gets longer."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_evasive",
+      "name": "Evasive",
+      "description": "Reduces all damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_arbalest_mastery"
+      ],
+      "_source": "CoA: 'Twilight Frenzy now grants you -20% reduced damage taken while active.' Conditioning it on one ability being up is not expressible, so it is passive and much smaller."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_crossbow_frenzy",
+      "name": "Crossbow Frenzy",
+      "description": "Increases your chance to dodge by 1% and your haste by 1 per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "dodge": 1.0,
+        "haste": 1.0
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_resourceful_pursuit"
+      ],
+      "_source": "CoA: 'While Twilight Frenzy is active, your movement speed is now increased by 40%.' Movement speed is not modelled; what it bought this spec was not being hit, so the node carries dodge."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_neverending_pursuit",
+      "name": "Neverending Pursuit",
+      "description": "Your critical strikes with Damnation restore 40 Focus.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_boltslinger_relentless"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_damnation"
+        ],
+        "grant_resource": {
+          "resource": "focus",
+          "amount": 40
+        }
+      },
+      "_source": "CoA: 'Critically striking with Damnation now refunds 40 Rage.' ability_filter narrows a proc to named abilities - a real payload key, read off the authored trees - so this is CoA's node exactly, Focus for Rage."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_contract_killing",
+      "name": "Contract Killing",
+      "description": "Increases all damage you deal by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "all_damage": 0.03
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_evasive"
+      ],
+      "_source": "CoA: 'Increases damage dealt against enemies above 75% health and below 35% health by 15%.' There is no health-banded damage key (low_health_* reads the CASTER's health, not the target's), so it is flat."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_heavy_crossbows",
+      "name": "Heavy Crossbows",
+      "description": "Increases the damage of Darkslayer by 8% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "ability_witch_hunter_darkslayer_damage": 0.08
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_neverending_pursuit"
+      ],
+      "_source": "CoA: 'Increases the damage of Darkslayer by 50%, but increases its cast time by 0.5 sec. Your Heartseeking Bolt and Darkslayer now have a 25% chance to strike an additional time.' Cast time does not exist in a turn engine, so the drawback is gone and the bonus is proportionally smaller."
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_dead_and_gone",
+      "name": "Dead and Gone",
+      "description": "Pavise lasts 1 turn longer and its cooldown is reduced by 2 turns per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_witch_hunter_pavise_duration": 1,
+        "ability_witch_hunter_pavise_cooldown": 2
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_crossbow_frenzy"
+      ],
+      "_source": "CoA: 'Your Pavise now lasts 2 additional sec and has a -30 sec reduced cooldown.'"
+    },
+    {
+      "talent_id": "witch_hunter_boltslinger_bounty_hunter",
+      "name": "Bounty Hunter",
+      "description": "You have been building to one shot this whole time, and it lands where you meant it to.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ability_witch_hunter_heartseeking_bolt_damage": 0.3,
+        "crit_damage_physical": 0.15
+      },
+      "connected_to": [
+        "witch_hunter_boltslinger_contract_killing",
+        "witch_hunter_boltslinger_heavy_crossbows",
+        "witch_hunter_boltslinger_dead_and_gone"
+      ],
+      "_source": "Capstone. CoA: 'Casting Darkslayer or Witchbane now applies a stack of Bounty Hunter to you for 8 seconds, which can be consumed by casting Heartseeking Bolt to deal an additional ranged AP Physical damage, stacking 2 times.' A build-and-consume stack counter has no engine shape, so the two stacks' worth of bonus is baked into Heartseeking Bolt directly."
+    }
+  ]
+}

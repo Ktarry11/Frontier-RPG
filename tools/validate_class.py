@@ -420,6 +420,9 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
         return
     own_ability_ids = {a.get("ability_id") for a in abilities}
     known_ability_ids = set(global_ids) | own_ability_ids
+    #: Every ability_id some node in this class grants, across all trees.
+    #: Checked against requires_talent after the loop - see below.
+    granted = set()
 
     for path in trees:
         doc = json.loads(path.read_text())
@@ -488,6 +491,7 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
                 if key == "unlock_ability":
                     targets = value if isinstance(value, list) else [value]
                     for target in targets:
+                        granted.add(target)
                         if target not in known_ability_ids:
                             report.error(f"{tag}/{nid}: unlock_ability {target!r} "
                                          f"is not a real ability_id")
@@ -520,6 +524,25 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
             report.error(f"{tag}: tree offers only {total_points} points; a level "
                          f"60 character has 51+ to spend in one tree")
         report.note(f"{tag}: {len(nodes)} nodes, {total_points} points available")
+
+    # REACHABILITY. An ability with requires_talent is learned the moment
+    # its talent has a point in it, and by nothing else - Ability.
+    # refresh_rank_for_level() sets is_learned purely from talent_unlocked
+    # for these, ignoring level and the trainer. So if no node grants it,
+    # the ability exists in the class's book and can never be cast by
+    # anyone. Nothing else in this validator notices: the ability's own
+    # schema is fine, the trees are structurally fine, and a combat test
+    # drives abilities directly rather than through the learn gate.
+    #
+    # Templar shipped exactly this way - Righteous Tempest, requires_talent
+    # with no granting node - and passed with 0 errors. One ability in the
+    # whole game, but the only reason it was one and not more is luck.
+    for ability in abilities:
+        aid = ability.get("ability_id")
+        if ability.get("requires_talent") and aid not in granted:
+            report.error(
+                f"{aid}: requires_talent is set but NO talent node grants it "
+                f"(effects.unlock_ability) - unobtainable, cannot ever be cast")
 
 
 # ----------------------------------------------------------------------- wiring

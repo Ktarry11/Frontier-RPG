@@ -1,0 +1,440 @@
+{
+  "spec_name": "Witch Hunter Inquisition",
+  "tree_id": "witch_hunter_inquisition",
+  "description": "Build-and-spend fire and shadow melee - layers stacks like a combo-point class and grinds fights out on Dusk Blade's siphon.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_witch-hunter__inquisition.txt and the inquisition spec tree in reference/coa_sidekick/talents/witch-hunter.json. CoA rates it Raid S - 'top-tier sustained single-target DPS on patchwork fights' - and calls it 'a build-and-spend fire/shadow melee... sustain is grind-it-out via Dusk Blade rather than a burst-window finisher'. The unusual thing about this spec, and the reason for Malice and the three Fire-school nodes, is its stat priority: Hit > Expertise > SPELL POWER > Agility > Crit > Haste. A melee spec that wants spell power above its own primary stat only makes sense because Fiery Judgement, Torchlight and Dawn Blade all carry SP coefficients, and Malice converts Agility into spell damage to pay for it.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "witch_hunter_inquisition_flexible_fighter",
+      "name": "Flexible Fighter",
+      "description": "Increases your Agility by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "agility_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Agility by 6%.'"
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_brooding_hatred",
+      "name": "Brooding Hatred",
+      "description": "Increases your physical damage by 2% and grants 1 hit rating per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "physical_damage": 0.02,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your off-hand Weapon Damage by 20% and increases your chance to hit by 3%.' Off-hand damage is not separately talentable - get_weapon_damage_roll applies a fixed 50% off-hand penalty - so it lands as physical damage. CoA's stat priority opens with 'Hit (both the melee special-attack hit cap and the spell hit cap)'."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_sermon_of_flame",
+      "name": "Sermon of Flame",
+      "description": "Increases your Fire spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "fire_spell_damage": 0.03
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Fire damage dealt by 5%.' fire_spell_damage is assembled at runtime as f'{school}_spell_damage' and read for every ability whose damage_school is fire - which in this spec is most of them."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_refined_combatant",
+      "name": "Refined Combatant",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your expertise by 10.' Expertise has no key in this engine at all - no attribute, no bonus-pool entry, nothing reading it - so the node carries the crit that sits next to it in the same stat priority. This is the one priority entry no spec in this class can serve."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_protector_of_darkshire",
+      "name": "Protector of Darkshire",
+      "description": "Increases the damage of Dawn Blade and Dusk Blade by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_witch_hunter_dawn_blade_damage": 0.05,
+        "ability_witch_hunter_dusk_blade_damage": 0.05
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_flexible_fighter"
+      ],
+      "_source": "CoA: 'Increases the damage of Dawn Blade and Dusk Blade by 15%.' Dusk Blade is damage_and_heal, so every point here also raises the siphon the spec lives on."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_malice",
+      "name": "Malice",
+      "description": "Grants spell damage equal to 3% of your Agility per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "spell_damage_from_agility_pct": 0.03
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_brooding_hatred"
+      ],
+      "_source": "CoA level-30 passive: 'Increases your Fire spell damage by 50% of your Agility and your attack power by 100% of your Intellect.' A real conversion, and the reason this melee spec's Fire casts scale at all - CoA's stat priority puts Spell Power above Agility because 'Fiery Judgment, Dawn Blade, Searing Blade, Burning Light and Interrogate all carry an SP coefficient equal to or larger than their AP coefficient'."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_holy_frenzy",
+      "name": "Holy Frenzy",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_sermon_of_flame"
+      ],
+      "_source": "CoA: 'Increases your melee haste by 15%.' melee_haste is dead; the engine has one haste."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_interrogator",
+      "name": "Interrogator",
+      "description": "Increases the damage of your Fire damage-over-time effects by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "fire_dot_damage": 0.04
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_refined_combatant"
+      ],
+      "_source": "CoA level-20 passive: 'Damage dealt by Dawn Blade now deals an additional 100% of the damage dealt over 10 seconds as Fire damage.' Appending a DoT to another ability's hit is applies_dot_pct on an ABILITY, not a talent key, so the node scales Fire DoTs instead. fire_dot_damage is built at runtime as f'{real}_dot_damage' in _damage_multiplier."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_dawn",
+      "name": "Dawn",
+      "description": "Increases the damage of Torchlight by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_witch_hunter_torchlight_damage": 0.08
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_protector_of_darkshire"
+      ],
+      "_source": "CoA: 'Dealing Fire damage now increases the damage dealt by Torchlight and Dusk Blade by 2% for 5 seconds, stacking 10 times.' The stack counter is not expressible; the ten-stack payoff is, flattened onto the ability the rotation spends it on."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_dusk",
+      "name": "Dusk",
+      "description": "Increases the damage of Stake by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_witch_hunter_stake_damage": 0.08
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_malice"
+      ],
+      "_source": "CoA: 'Dealing Physical damage now increases the damage dealt by Stake and Dawn Blade by 2% for 5 seconds, stacking 10 times.' The Dawn/Dusk pair is CoA's combo-point layer and the reason the spec is called build-and-spend; both nodes keep the name and the payoff target."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_searing_hilt",
+      "name": "Searing Hilt",
+      "description": "Increases your haste by 1 and your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "haste": 1.0,
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_holy_frenzy"
+      ],
+      "_source": "CoA: 'Purifier's Edge now grants you Searing Hilt for 10 seconds. Searing Hilt: increases your melee attack speed by 10% for 10 seconds.' An on-cast self-buff keyed to one ability is not a talent shape; the rotation keeps Purifier's Edge on cooldown, so it is passive."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_cinder_and_ashes",
+      "name": "Cinder and Ashes",
+      "description": "Increases your Fire spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "fire_spell_damage": 0.03
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_interrogator"
+      ],
+      "_source": "CoA: 'Increases the spell power scaling of Purifier's Edge and Fiery Judgement by 25%.' Per-ability spell-power coefficients are not talentable - the scaling is baked into the effect_type - so it raises the school both abilities deal in."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_sinner",
+      "name": "Sinner",
+      "description": "Increases the damage of Torchlight by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_torchlight_damage": 0.1
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_dawn"
+      ],
+      "_source": "CoA: 'Increases the damage of Torchlight by 100%.' Halved and spread across ranks, because Frontier's talents are per-rank and a doubling in one node has no precedent in any shipped tree."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_duskwood_renegade",
+      "name": "Duskwood Renegade",
+      "description": "Reduces the cooldown of Burrow Bolt by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_burrow_bolt_cooldown": 1
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_dusk"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Burrow Bolt by -5 sec.' One of the two gap-closers CoA says this spec needs to stay on a kiter."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_flames_of_the_sinned",
+      "name": "Flames of the Sinned",
+      "description": "Smite Evil has a 25% chance to strike again for an additional 30% damage.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_inquisition_searing_hilt"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_smite_evil"
+        ],
+        "bonus_pct": 0.3
+      },
+      "_source": "CoA: 'Your Smite Evil now has a 25% chance to strike again. While you have Flames of Sin active, the chance to trigger this effect is increased by 10%.' bonus_pct adds to the same hit that triggered it, which is what a 'strike again' really is here; the Flames of Sin conditional half has no hook."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_sin_eater",
+      "name": "Sin Eater",
+      "description": "Increases the damage of Purifier's Edge by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_purifiers_edge_damage": 0.06
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_cinder_and_ashes"
+      ],
+      "_source": "CoA: 'Increases the amount of next attacks that grant Flames of Sin through Torchlight by 5.' Flames of Sin is a stacking auto-attack rider with no engine shape, so the node pays out on the fire strike the spec spends it on."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_monster_hunting",
+      "name": "Monster Hunting",
+      "description": "Increases your haste by 1 and all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "haste": 1.0,
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_sinner"
+      ],
+      "_source": "CoA: 'Increases melee and ranged haste of party and raid members within 100 yds by 10%... In addition, increases your damage dealt against Undead and Demons by 10%.' The party aura is an ABILITY in Frontier (a talent's effects never leave its own character) and there is no creature-type hook, so this node is the personal half."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_heartstopper",
+      "name": "Heartstopper",
+      "description": "Increases the critical strike chance of Stake by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "ability_witch_hunter_stake_crit": 4.0
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_duskwood_renegade"
+      ],
+      "_source": "CoA: 'Casting Purifier's Edge or Fiery Judgement now has a 30% chance to allow the use of Stake within 8 seconds regardless of the target's health percentage.' A bypass_execute_threshold proc exists in the engine but only as an ability's own effect, not a talent payload, so the node raises Stake's crit instead - which is what CoA's own 'Evil Doers, Beware!' passive does anyway."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_burned_alive",
+      "name": "Burned Alive",
+      "description": "Increases your critical strike chance by 1% and your critical strike damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "crit_chance_physical": 1.0,
+        "crit_damage_physical": 0.05
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_flames_of_the_sinned"
+      ],
+      "_source": "CoA: 'Increases your critical strike chance by 25% on enemies below 20% health.' No target-health band, so it is flat and much smaller."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_torch_the_wicked",
+      "name": "Torch the Wicked!",
+      "description": "Increases your haste by 1 and your Fire spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "haste": 1.0,
+        "fire_spell_damage": 0.03
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_monster_hunting"
+      ],
+      "_source": "CoA: 'Dealing damage with Flames of Sin now grants 2% attack speed, stacking up to 12 times for 6 seconds. Additionally, Pyro Tonic now also resets the cooldown of Torchlight.' Neither the stack nor the reset is a talent shape; both halves of what they bought are."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_hatred_and_vitriol",
+      "name": "Hatred & Vitriol",
+      "description": "Increases your armor penetration by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "armor_penetration_pct": 3.0
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_heartstopper"
+      ],
+      "_source": "CoA: 'Damage dealt by Stake now ignores enemy armor and its critical strikes refund half of its cost.' Ignoring armour IS armor_penetration_pct, finally consumed in take_damage's physical branch - just spread across the whole kit rather than one ability."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_lightbringer",
+      "name": "Lightbringer",
+      "description": "Reduces the Focus cost of your abilities by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "all_ability_cost_pct": -0.03
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_burned_alive"
+      ],
+      "_source": "CoA: 'Damage dealt by Dusk Blade now has a 15% chance to reduce the mana cost of your next Purifier's Edge by -100%.' A one-shot free cast is not a talent shape; a real discount is."
+    },
+    {
+      "talent_id": "witch_hunter_inquisition_purity_and_wickedness",
+      "name": "Purity & Wickedness",
+      "description": "One blade brings the light up and the other takes it away, and neither of them stops.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "physical_damage": 0.1,
+        "fire_spell_damage": 0.08,
+        "shadow_spell_damage": 0.08
+      },
+      "connected_to": [
+        "witch_hunter_inquisition_torch_the_wicked",
+        "witch_hunter_inquisition_hatred_and_vitriol",
+        "witch_hunter_inquisition_lightbringer"
+      ],
+      "_source": "Capstone. CoA: 'Main-hand auto attacks now apply a stack of Purity to the target, increasing the Fire and Holy damage you deal to them by 2% per stack, stacking 6 times. Off-hand auto attacks now apply a stack of Wickedness... increasing the Shadow and Physical damage you deal to them by 2% per stack.' Two independent target-side stack counters are not expressible, so the node grants both halves of the six-stack payoff at once - which is also what CoA's S-tier raid rating assumes you have, since 'uninterrupted uptime is what it pays for'."
+    }
+  ]
+}

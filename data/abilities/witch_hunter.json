@@ -1,0 +1,2171 @@
+{
+  "class": "Witch Hunter",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_witch_hunter.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "witch_hunter_attack",
+      "name": "Attack",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A measured strike with your weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack. It is also this class's only truly unconditional action, which matters more here than elsewhere - a Witch Hunter opens every fight on 0 Focus."
+    },
+    {
+      "ability_id": "witch_hunter_shadowblast",
+      "name": "Shadowblast",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A short, flat shot you can take from anywhere, and the one that settles you into the fight.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 72
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 82
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 92
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 102
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 112
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 122
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA names Shadowblast in three of the four spec trees as the thing everything else is measured against (My Trusty Arbalest cuts its cost, Expert Shot raises its damage, Sharpshooter makes casting it restore resource, Darkrider cuts its cost again), so it is the class filler. THE FOCUS BUILDER: costs nothing, banks 25. Hunter's steady_shot curve exactly - 9 ranks, 42 rising to 124. Deliberately NOT gated on a ranged weapon, the same way none of Hunter's shots are, so the kit still functions unarmed.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "focus",
+        "amount": 25
+      }
+    },
+    {
+      "ability_id": "witch_hunter_darkslayer",
+      "name": "Darkslayer",
+      "resource_type": "focus",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A heavy, deliberate bolt. You take the extra moment to place it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 72
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 88
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 104
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 120
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 136
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 30,
+          "effect_value": 152
+        },
+        {
+          "rank": 8,
+          "level_req": 52,
+          "cost": 30,
+          "effect_value": 168
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Boltslinger's Heavy Crossbows 'increases the damage of Darkslayer by 50%, but increases its cast time by 0.5 sec' and Houndmaster's Silver Bullets and Darkhunter both scale it, so it is shared rather than spec-owned. The signature crossbow shot, so it is one of the few abilities that really does require the weapon.",
+      "target_type": "enemy",
+      "requires_ranged_weapon": [
+        "crossbow",
+        "gun",
+        "thrown"
+      ]
+    },
+    {
+      "ability_id": "witch_hunter_dawn_blade",
+      "name": "Dawn Blade",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bring the blade round in a clean, bright arc.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 25,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA scales Dawn Blade from both Black Knight (Bulwark of Darkness, Destroyer of Evil, Undying, Dawn Knight, Foresight, Blade of the Misbegotten) and Inquisition (Protector of Darkshire, Interrogator, Dusk), so it is a class strike, not a spec one. The melee half of the chassis, on the same curve as Shadowblast.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_hunter_burrow_bolt",
+      "name": "Burrow Bolt",
+      "resource_type": "focus",
+      "cooldown": 4,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A bolt with a line on it. Whatever it hits comes to you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 20,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 20,
+          "effect_value": 76
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 20,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Shoot a bolt with a rope attached to it at an enemy dealing AP Physical damage and pulling them to you'. Both Inquisition and Black Knight list it as a gap-closer. The pull itself has no engine hook - there is no position in a turn-based fight to drag anything to - so it lands as the damage half on a short cooldown.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_hunter_vault",
+      "name": "Vault",
+      "resource_type": "focus",
+      "cooldown": 3,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "dodge": 20.0
+      },
+      "description": "Push off and cover ground you had no business covering.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Dash in the direction you are moving. Distance scales with movement speed.' Movement is not a thing this engine models, so the dash lands as the brief window of not-being-where-the-attack-is that it buys. Free, because every spec's escape plan is built on having it.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_witching_shroud",
+      "name": "Witching Shroud",
+      "resource_type": "focus",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "magic_damage_taken_pct": -0.5,
+        "cc_immune": 1
+      },
+      "description": "You step sideways out of the spellwork and it closes over empty air.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Enter a powerful stealth mode for 3 seconds, granting immunity to all harmful magic effects... Usable while stunned or feared.' cc_immune is the engine's real crowd-control immunity flag (StatusEffectMixin reads it before applying a stun), paired with heavy magic mitigation. The 'only usable for 10 seconds after being hit by a magical critical strike' condition has no hook, so it is a plain 12-turn cooldown instead.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_witchblood_tonic",
+      "name": "Witchblood Tonic",
+      "resource_type": "focus",
+      "cooldown": 8,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bitter, black, and it takes the curse with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drink a shadowy tonic, removing all curse effects from you and reducing all Magic damage taken by -40% for 10 seconds.' Both spec pages that mention it name only the cleanse ('Witchblood Tonic's curse cleanse'), so the cleanse is what it is - no effect_type does a dispel AND a buff in one cast, and the -40% magic window is dropped rather than faked. target_type 'ally' is the shipped convention for every friendly cleanse in the game.",
+      "target_type": "ally",
+      "dispel_type": "curse"
+    },
+    {
+      "ability_id": "witch_hunter_vampiric_tonic",
+      "name": "Vampiric Tonic",
+      "resource_type": "focus",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "For a little while, what you take off them stays with you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drink a vampiric tonic, allowing Physical damage dealt to heal you equal to 20% of the damage dealt for 10 seconds.' A real leech_pct proc carried on the buff's own StatusEffect, which is exactly 20% of the triggering hit. Three of the four spec pages call this the class's only real healing outside their own spec.",
+      "target_type": "self",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "leech_pct": 0.2
+      }
+    },
+    {
+      "ability_id": "witch_hunter_slayers_mark",
+      "name": "Slayer's Mark",
+      "resource_type": "focus",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "physical_damage_taken_pct": 0.08
+      },
+      "description": "You name them out loud. Everything after that is easier.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Mark an enemy, increasing the attack power of all attackers against that target by 150 and your critical strike chance against them by 3%.' A debuff's stat_mods land on the ENEMY here, so the attacker-side wording is turned round into the defender-side key that means the same thing - physical_damage_taken_pct on the marked target, read from status effects in Character.take_damage.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_hunter_inquisitors_trap",
+      "name": "Inquisitor's Trap",
+      "resource_type": "focus",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -25.0
+      },
+      "description": "Laid where they will walk, and it goes off badly for everyone standing near it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'a cruel trap... silencing them and all enemies in a 5 yd radius for 6 seconds.' There is no silence in this engine, and Guardian's Hammer of the Law set the precedent of NOT dressing a silence up as a stun, so it lands as a heavy haste debuff on the pack. The 'first enemy to approach' trigger has no hook either; it is cast.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "witch_hunter_shadow_trap",
+      "name": "Shadow Trap",
+      "resource_type": "focus",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "The ground goes dark under them and they stop where they are.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'stunning them for 4 seconds and dealing AP Shadow damage over 8 seconds'. The real stun - is_stun is only read in the debuff branch, so a stun has to be a debuff and cannot also be the DoT. Both Boltslinger and Inquisition cite the class traps as the only hard control they have ('stuns and silences come from class-kit traps an enemy has to walk into'), so the stun is the half that matters.",
+      "target_type": "enemy_aoe",
+      "is_stun": true,
+      "max_targets": 5
+    },
+    {
+      "ability_id": "witch_hunter_death_trap",
+      "name": "Death Trap",
+      "resource_type": "focus",
+      "cooldown": 5,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A quiet mark, and then a debt that comes due.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 25,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 74
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'a death trap... marking them for death, causing them to take AP Shadow damage after 1 minute.' A one-minute fuse is meaningless in turns, so it is a real Shadow DoT.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_hunter_noctis_blade",
+      "name": "Noctis Blade",
+      "resource_type": "focus",
+      "cooldown": 2,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A stroke you have practised more than any other, and it gives something back.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 25,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 74
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 90
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 106
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 122
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 138
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 154
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Strike an enemy, dealing 100% Weapon Damage plus 26, scaling with your parry rating, and healing you for 50% of the damage dealt.' The spec's whole identity - 'Noctis Blade is your on-demand self-heal, an active strike on a short cooldown whose damage and self-heal both scale with your parry rating.' damage_and_heal is the real effect_type for that. Scaling off parry specifically is not something an ability can declare, so the TREE does it: Dusk Knight converts Agility into parry and Dark Penance raises it.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_hunter_pommel_smash",
+      "name": "Pommel Smash",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Short, ugly, and it lands where the armour does not reach.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 20,
+          "effect_value": 48
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 58
+        },
+        {
+          "rank": 4,
+          "level_req": 27,
+          "cost": 20,
+          "effect_value": 68
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 78
+        },
+        {
+          "rank": 6,
+          "level_req": 41,
+          "cost": 20,
+          "effect_value": 88
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 98
+        },
+        {
+          "rank": 8,
+          "level_req": 55,
+          "cost": 20,
+          "effect_value": 108
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Pommel Smash strikes feed Shadowstorm, a chance to trigger a Shadowstorm burst', and Guardbreaker makes it cleave. The spec's cheap filler, so it is cheaper than Dawn Blade and has no cooldown.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_hunter_shadow_brand",
+      "name": "Shadow Brand",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {
+        "threat_generation_pct": 180
+      },
+      "description": "A mark that burns cold and will not be ignored.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 26
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 20,
+          "effect_value": 34
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 42
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 20,
+          "effect_value": 50
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 58
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 20,
+          "effect_value": 66
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Marks the target for 12 seconds, dealing 36 High Threat Shadow Damage over 12 seconds.' The 'High Threat' wording is why it carries a threat_generation_pct buff - percent POINTS as an ability stat_mod, unlike the tree's fractions. CoA applies it automatically off direct ability damage; nothing hooks that, so it is cast.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_hunter_guard_strike",
+      "name": "Guard Strike",
+      "resource_type": "focus",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Drive the hilt into them hard enough that whatever they were saying stops.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 20,
+          "effect_value": 64
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 78
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 20,
+          "effect_value": 92
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 106
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 20,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Bash an enemy with your weapon's hilt, interrupting them and preventing any spell from that school of magic from being cast for 3 seconds', and the spec blurb calls this 'the kit's only caster answer'. There is no interrupt and no school lockout in this engine, so the whole anti-caster half is gone and what remains is a cheap mid-cooldown strike. This is the single biggest gap between CoA's Black Knight and Frontier's.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_hunter_desecrate",
+      "name": "Desecrate",
+      "resource_type": "focus",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Answer the blow you just turned aside, and the ones standing behind it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 36
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 46
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 56
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 66
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 76
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 86
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Desecrate up to 8 enemies in front of you, dealing Weapon Damage plus 18 as Shadow damage, piercing resistances. Only usable after avoiding an attack.' The avoidance gate has no hook - nothing records 'you just dodged' as a castable condition - so it is a plain cooldown. target_type enemy_aoe is what actually makes an ability hit more than one target; the is_aoe field several shipped files carry is never read.",
+      "target_type": "enemy_aoe",
+      "damage_school": "shadow",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "witch_hunter_chains_of_darkness",
+      "name": "Chains of Darkness",
+      "resource_type": "focus",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "taunt": 1,
+        "threat_generation_pct": 200
+      },
+      "description": "Reach out, take hold of all of them at once, and make yourself the only thing worth looking at.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Pull all nearby enemies to you, dealing shadow AP Shadow damage and taunting them for 3 seconds', listed in the control suite as 'pull plus taunt to yank a target off an ally'. {'taunt': 1} is the engine's real taunt flag, handled in Ability.use rather than any one effect_type branch; the shipped tank taunts across Cultist, Starcaller, Venomancer and Primalist all use exactly this shape.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "witch_hunter_stoicism",
+      "name": "Stoicism",
+      "resource_type": "focus",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.2
+      },
+      "description": "Set yourself and decide that this is survivable.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA never prints Stoicism's own tooltip, but two Black Knight talents exist only to modify it (Calm Under Pressure cuts its cooldown by 30 sec, Dark Barrier extends it by 5 sec), which makes it a real mitigation cooldown. Sized below Guardian's Raise Shield (-40%) because this spec gets Gaze of the Black Knight on top.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_march_of_the_black_king",
+      "name": "March of the Black King",
+      "resource_type": "focus",
+      "cooldown": 8,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Let the dark out and let it carry you a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 18,
+          "mana_restore_pct": 25
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 0,
+          "effect_value": 20,
+          "mana_restore_pct": 25
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 22,
+          "mana_restore_pct": 25
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 0,
+          "effect_value": 24,
+          "mana_restore_pct": 25
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 26,
+          "mana_restore_pct": 25
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Expel darkness from within you, dealing 55 Shadow damage to nearby enemies over 10 seconds. Generates 5 Rage every 2 sec', and the spec's strengths say 'March of the Black King refunds Rage. You rarely go dry.' Frontier's Focus is CoA's Rage here (see the module docstring), so this is the tank's own Focus refill. NOTE the engine reads mana_restore_pct OFF THE RANK for restore_resource, not effect_value - Guardian's Knight's Calling omits it and restores 0.",
+      "target_type": "self",
+      "restore_resource_type": "focus"
+    },
+    {
+      "ability_id": "witch_hunter_knights_seal",
+      "name": "Knight's Seal",
+      "resource_type": "focus",
+      "cooldown": 5,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Lay the old oath on them and let it do the work.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 25,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 48
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 25,
+          "effect_value": 57
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 66
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Curse an enemy, dealing shadow AP Shadow damage every 2 sec and applying Dark Oath to you, reducing all damage taken by 5% for 8 seconds.' A single cast cannot both DoT an enemy and buff the caster, so the Dark Oath half is dropped and the DoT kept.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_hunter_witching_idol",
+      "name": "Witching Idol",
+      "resource_type": "focus",
+      "cooldown": 6,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Plant it, and whatever is in your friends' heads loses its grip.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drop a Witching Idol that periodically dispels fear, sleep, and charm effects every 3 sec from party members within 20 yds.' DispelType has only magic/curse/poison/disease, and fear, sleep and charm are all Magic effects in WoW, so it cleanses Magic - two at a time, standing in for the periodic tick, which has no hook.",
+      "target_type": "ally",
+      "dispel_type": "magic",
+      "dispel_count": 2
+    },
+    {
+      "ability_id": "witch_hunter_witchblight",
+      "name": "Witchblight",
+      "resource_type": "focus",
+      "cooldown": 10,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Let it all out at once. Everything close enough pays, and you come back up.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 40,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 40,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 114
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Explode with dark energy, dealing shadow AP Shadow damage to up to 10 enemies within 8 yds and healing you for 20% of your maximum health. Each target struck is guaranteed to miss their next instance of damage.' damage_and_heal carries the damage and the self-heal; the guaranteed-miss rider has no hook.",
+      "target_type": "enemy_aoe",
+      "damage_school": "shadow",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "witch_hunter_gaze_of_the_black_knight",
+      "name": "Gaze of the Black Knight",
+      "resource_type": "focus",
+      "cooldown": 18,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.15
+      },
+      "description": "You look at them, and for a while what happens to them happens to you instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Apply a dark shield to yourself, absorbing AP damage and then gaze upon your party members, causing 25% of the damage they take to be transferred to you for 12 seconds.' The absorb is real (absorb_pct_max_health is read for cast buffs). The party-damage REDIRECTION is not expressible - no effect routes one combatant's incoming damage to another - so the mitigation lands on the Black Knight instead. CoA calls this 'rare group damage-redirection' and 'one long-cooldown panic button', and it is the spec's one real loss in translation.",
+      "target_type": "self",
+      "absorb_pct_max_health": 0.25
+    },
+    {
+      "ability_id": "witch_hunter_tormentor",
+      "name": "Tormentor",
+      "resource_type": "focus",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A bolt that sits in the wound and keeps asking questions.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 25,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 48
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 25,
+          "effect_value": 57
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 66
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 25,
+          "effect_value": 75
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Fire a deadly bolt dealing Twilight Damage plus ranged AP over 14 seconds', and the rotation opens with it - 'Open with Tormentor to lay its DoT'. Twilight is shadow-arcane (see TWILIGHT). CoA explicitly lists it among the abilities that 'want a ranged crossbow equipped'.",
+      "target_type": "enemy",
+      "damage_school": [
+        "shadow",
+        "arcane"
+      ],
+      "requires_ranged_weapon": [
+        "crossbow",
+        "gun",
+        "thrown"
+      ]
+    },
+    {
+      "ability_id": "witch_hunter_witchbane",
+      "name": "Witchbane",
+      "resource_type": "focus",
+      "cooldown": 4,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You do not stop shooting until the magazine does.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 35,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 35,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 35,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 35,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 35,
+          "effect_value": 74
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 35,
+          "effect_value": 84
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Unleash a series of devastating shots dealing ranged AP Physical damage over 3 seconds' - a channel, so a physical DoT rather than one hit. Arbalest Mastery ('each subsequent shot deals 15% more') and Rapid ('full damage over 1 second shorter') both scale it in the tree.",
+      "target_type": "enemy",
+      "damage_school": "physical",
+      "requires_ranged_weapon": [
+        "crossbow",
+        "gun",
+        "thrown"
+      ]
+    },
+    {
+      "ability_id": "witch_hunter_heartseeking_bolt",
+      "name": "Heartseeking Bolt",
+      "resource_type": "focus",
+      "cooldown": 3,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Take the extra breath. Put it exactly where it needs to go.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 40,
+          "effect_value": 110
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 40,
+          "effect_value": 130
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 150
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 40,
+          "effect_value": 170
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Charge up a powerful bolt that deals 200% Ranged Weapon Damage plus shadow SP to an enemy and reduces their healing received by 30% for 10 seconds.' The spec's payoff button - 'build Bounty Hunter stacks... then spend them on a charged Heartseeking Bolt for burst'. The anti-heal rider is a debuff and a damage cast cannot carry one, so it is dropped; healing_taken_pct exists but only as a debuff's own stat_mods.",
+      "target_type": "enemy",
+      "requires_ranged_weapon": [
+        "crossbow",
+        "gun",
+        "thrown"
+      ]
+    },
+    {
+      "ability_id": "witch_hunter_twilight_frenzy",
+      "name": "Twilight Frenzy",
+      "resource_type": "focus",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spin up and keep firing, and do not stop moving.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 35,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 35,
+          "effect_value": 49
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 35,
+          "effect_value": 60
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 35,
+          "effect_value": 71
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 35,
+          "effect_value": 82
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Spin around, unable to stop moving for 5 seconds, firing shots at nearby enemies for 50% Ranged Weapon Damage plus as Twilight Damage. Can dodge and parry while active.' The spec's cleave. Evasive and Crossbow Frenzy in the tree are what CoA layers on top of it.",
+      "target_type": "enemy_aoe",
+      "damage_school": [
+        "shadow",
+        "arcane"
+      ],
+      "max_targets": 5,
+      "requires_ranged_weapon": [
+        "crossbow",
+        "gun",
+        "thrown"
+      ]
+    },
+    {
+      "ability_id": "witch_hunter_damnation",
+      "name": "Damnation",
+      "resource_type": "focus",
+      "cooldown": 4,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spend everything you have left on one bolt.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 45,
+          "effect_value": 96
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 45,
+          "effect_value": 122
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 45,
+          "effect_value": 148
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 45,
+          "effect_value": 174
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Deplete your rage to shoot a powerful bolt... converting each point of Rage into additional damage. Only usable on enemies below 35% health.' execute_threshold_pct is PERCENT in this engine (Warrior's Execute 20, Netherstrike and Electrocute 35), matching CoA's 35 exactly. 'Deplete your rage' is not a cost shape the engine has - costs are fixed per rank - so it costs the most Focus of anything in the class instead.",
+      "target_type": "enemy",
+      "execute_threshold_pct": 35,
+      "requires_ranged_weapon": [
+        "crossbow",
+        "gun",
+        "thrown"
+      ]
+    },
+    {
+      "ability_id": "witch_hunter_daring_escape",
+      "name": "Daring Escape",
+      "resource_type": "focus",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "dodge": 30.0
+      },
+      "description": "Go backwards faster than they expected, and let the shots go where you were.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Jump backwards, causing all ranged attacks to miss you for 2 seconds.' Nothing distinguishes incoming RANGED attacks from melee ones, so the guaranteed miss becomes a large dodge window - the strongest one in the class, which is right for a spec whose summary is 'not being caught is the defense'.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_pavise",
+      "name": "Pavise",
+      "resource_type": "focus",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Drive the shield into the dirt and work from behind it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Pavise Crossbowman 'teaches you how to use Shields and teaches you Pavise. Slam your shield into the ground, forming a pavise for 10 sec. While you remain near it, hostile spells targeting you are deflected.' The shield proficiency half is already true - weapon_types.json gives Witch Hunter shields - and spell deflection has no hook, so it lands as a real absorb. Authored at level 44 rather than talent-unlocked so the spec has it without spending its capstone, and the tree's Dead and Gone extends it.",
+      "target_type": "self",
+      "absorb_pct_max_health": 0.18
+    },
+    {
+      "ability_id": "witch_hunter_slayer",
+      "name": "Slayer",
+      "resource_type": "focus",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "crit_chance_physical": 3.0,
+        "crit_chance_spell": 3.0
+      },
+      "description": "Point out the soft parts and everyone starts hitting them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases critical strike chance of all party and raid members by 3%... In addition, increases your critical strike chance by 3%.' The raid buff the spec's own blurb sells it on ('brings raid crit (Slayer)'). target_type 'party' with buff_scope 'combat' is the shipped shape for a real party buff; buff_scope only accepts 'raid' or 'combat' and silently rewrites anything else.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "witch_hunter_houndmasters_whistle",
+      "name": "Houndmaster's Whistle",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "One note, and something comes out of the dark that answers to you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summons a permanent Shadowhound companion to aid you in combat.' Modelled on Hunter's Tame Beast - the only effect_type that actually calls Character.summon_pet is summon_pet with a template that already exists in combat/pet_templates.py. 'wolf' is the shipped hound-shaped template (melee beast, Energy, base_attack 22). effect_type 'summon' summons NOTHING - four Tinker abilities shipped that way and were silently empty for months.",
+      "target_type": "self",
+      "is_instant": true,
+      "summon_pet_template": "wolf"
+    },
+    {
+      "ability_id": "witch_hunter_unleash_the_hounds",
+      "name": "Unleash the Hounds",
+      "resource_type": "focus",
+      "cooldown": 8,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Let the rest of them off the chain.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summon 1 Lesser Shadow Hound to aid you in combat for 20 seconds', with Kennel Master adding more. The engine keeps ONE active pet, so a second summon replaces the first rather than standing beside it - the 'temporary lesser hounds' half of CoA's hound stack cannot be built. 'raptor' is the other existing melee-beast template, so this is a faster, sharper hound rather than a second wolf.",
+      "target_type": "self",
+      "summon_pet_template": "raptor"
+    },
+    {
+      "ability_id": "witch_hunter_quickdraw",
+      "name": "Quickdraw",
+      "resource_type": "focus",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The shot you take before you have decided to take it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 0,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 0,
+          "effect_value": 90
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 104
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 0,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Unleash a quick shot, dealing 175% Ranged Weapon Damage plus ranged AP Physical damage and generates Rage. Only usable after critically striking with an ability.' The crit gate has no hook, so it is a 2-turn cooldown instead - and the Rage generation is real, which makes this the spec's own Focus builder alongside Shadowblast.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "focus",
+        "amount": 25
+      }
+    },
+    {
+      "ability_id": "witch_hunter_houndmasters_call",
+      "name": "Houndmaster's Call",
+      "resource_type": "focus",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Send them in. They know what to do.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 67
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 82
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 97
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 112
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 127
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Command your Shadow Hounds to leap upon an enemy target, dealing two strikes for ranged AP Shadow damage.' A pet cannot be ordered to strike from the owner's cast in this engine, so the hounds' damage resolves as the owner's Shadow strike. Expulsion of Evil in the tree resets it.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_hunter_darkflock",
+      "name": "Darkflock",
+      "resource_type": "focus",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Crows. A lot of them, and they stay a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 35,
+          "effect_value": 32
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 35,
+          "effect_value": 41
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 35,
+          "effect_value": 50
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 35,
+          "effect_value": 59
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 35,
+          "effect_value": 68
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Channel for 8 seconds, commanding a flock of crows to deal SP Shadow damage to enemies in a wide cone every 2 sec. Can channel while moving.' spell_dot because CoA scales it off spell power, not AP - the spec's stat priority lists Spell Power for exactly this ('feeds the minor Shadow portions of Darkflock/Feast of Talons').",
+      "target_type": "enemy_aoe",
+      "damage_school": "shadow",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "witch_hunter_repulse",
+      "name": "Repulse",
+      "resource_type": "focus",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A short, loud burst that puts everything in front of you on its back foot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 25,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 74
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Emit a burst of shadow from your musket that strikes enemies in front of you, dealing 57 Shadow damage and knocking all affected targets back.' The spec blurb calls it 'a frontal knockback' and its only on-demand control. There is no knockback and no position, so what survives is the cone damage.",
+      "target_type": "enemy_aoe",
+      "damage_school": "shadow",
+      "max_targets": 4
+    },
+    {
+      "ability_id": "witch_hunter_decimate",
+      "name": "Decimate",
+      "resource_type": "focus",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power_pct": 15.0,
+        "haste": 8.0
+      },
+      "description": "Work them up until they stop being careful.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Empowers your Shadow Hounds for 20 seconds, granting them 30% increased damage and haste and allowing them to ignore Armor.' A cast buff cannot reach the pet: Pet reads its owner's pet_damage/pet_health/pet_armor TALENTS when it is built, and nothing else, so a temporary buff on the owner never touches it. The talent tree carries the real hound scaling (Dark Ranger, Loksey's Journal, Decimate's own node, Lethal Pursuit) and this ability keeps the burst window on the Houndmaster instead.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_darkfeast",
+      "name": "Darkfeast",
+      "resource_type": "focus",
+      "cooldown": 8,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Take something back out of the dark. It costs later, not now.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 170
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 30,
+          "effect_value": 260
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 350
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 30,
+          "effect_value": 440
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 530
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Darkfeast is your on-demand heal.' The spec's weaknesses are blunt about it being nearly all the healing there is, so it is a real heal on a long cooldown rather than a trickle. Hunter's Revive Pet curve, scaled down.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_rearmament",
+      "name": "Rearmament",
+      "resource_type": "focus",
+      "cooldown": 20,
+      "effect_type": "reset_cooldowns",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Reload everything, including the things you have already used.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Arm yourself against evil, resetting the cooldown of all Traps and Decimate', and the spec blurb leads with it - 'your Trap spells, reset on demand by Rearmament'. reset_cooldowns is a real effect_type; it does not take a filter, so it resets the whole book rather than only the traps, which is why its own cooldown is the longest in the class.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_smite_evil",
+      "name": "Smite Evil",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A flat, bright stroke that catches more than one of them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 25,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 25,
+          "effect_value": 51
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 27,
+          "cost": 25,
+          "effect_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 41,
+          "cost": 25,
+          "effect_value": 95
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 106
+        },
+        {
+          "rank": 8,
+          "level_req": 55,
+          "cost": 25,
+          "effect_value": 117
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Strike an enemy with your blade, dealing Weapon Damage plus 25 as Holy damage to them and 5 nearby enemies.' The spec's cheap cleaving filler; Flames of the Sinned in the tree gives it a chance to strike twice.",
+      "target_type": "enemy_aoe",
+      "damage_school": "holy",
+      "max_targets": 3
+    },
+    {
+      "ability_id": "witch_hunter_dusk_blade",
+      "name": "Dusk Blade",
+      "resource_type": "focus",
+      "cooldown": 2,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Both blades, and you keep some of what comes off them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 30,
+          "effect_value": 69
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 30,
+          "effect_value": 99
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 114
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 30,
+          "effect_value": 129
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 30,
+          "effect_value": 144
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Strike an enemy with both weapons, dealing Weapon Damage plus shadow SP Shadow damage, piercing resistances. Heals for 25% of damage dealt.' The spec's sustain - 'Dusk Blade is your health siphon' and 'the payoff is... grinding a fight out with Dusk Blade's siphon'.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_hunter_purifiers_edge",
+      "name": "Purifier's Edge",
+      "resource_type": "focus",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The edges come up hot and stay that way.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 23,
+          "cost": 30,
+          "effect_value": 72
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 88
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 30,
+          "effect_value": 104
+        },
+        {
+          "rank": 5,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 120
+        },
+        {
+          "rank": 6,
+          "level_req": 51,
+          "cost": 30,
+          "effect_value": 136
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Strike an enemy with searing blades, dealing Weapon Damage plus 20 with both weapons as Fire damage. Grants Flames of Sin or increases the duration by 3 sec.' Flames of Sin is a stacking auto-attack rider with no engine shape; the tree's Searing Hilt carries the attack-speed half instead.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "witch_hunter_torchlight",
+      "name": "Torchlight",
+      "resource_type": "focus",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Throw it and let it stick.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 25,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 25,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 96
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 25,
+          "effect_value": 109
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Throw a torch at an enemy, dealing fire SP Fire damage, and causing up to 5 of the next attacks you make against them to grant you Flames of Sin.' spell_damage because CoA gives it an SP coefficient and the spec's stat priority puts Spell Power above Agility for exactly this group of casts. Sinner and Dawn in the tree are its payoff nodes.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "witch_hunter_fiery_judgement",
+      "name": "Fiery Judgement",
+      "resource_type": "focus",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Say what they are, and let it catch.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 76
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 88
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Judge an enemy, dealing fire SP Fire damage to them and nearby enemies.' The spell-power-scaled AoE half of the fire kit; Cinder and Ashes raises its SP scaling.",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire",
+      "max_targets": 4
+    },
+    {
+      "ability_id": "witch_hunter_flourish",
+      "name": "Flourish",
+      "resource_type": "focus",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A long, showy pass with both blades that happens to be the most efficient thing you could have done.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 35,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 35,
+          "effect_value": 54
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 35,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 35,
+          "effect_value": 78
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 35,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Perform an advanced flourish, dealing AP Fire damage to nearby enemies, repeating every 4 sec, and causing your Flames of Sin to cleave up to 3 additional enemies for 20 seconds.' The repeat and the Flames cleave have no hook; the AoE strike does.",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire",
+      "max_targets": 4
+    },
+    {
+      "ability_id": "witch_hunter_hunt",
+      "name": "Hunt",
+      "resource_type": "focus",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Close the gap before they have finished deciding to run.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Charge an enemy, slowing their movement speed by -70% for 2 seconds and generating 20 Rage. 2 Charges, 25 sec recharge.' Neither charges nor movement speed exist here, so it is a cheap gap-closer on a real cooldown - and the tree's The Hunt Continues carries the Focus generation CoA puts on the ability itself.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_hunter_stake",
+      "name": "Stake",
+      "resource_type": "focus",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You have been carrying this for exactly this moment.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 92
+        },
+        {
+          "rank": 2,
+          "level_req": 43,
+          "cost": 30,
+          "effect_value": 117
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 142
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 30,
+          "effect_value": 167
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Drive your concealed stake into the chest of an injured enemy, dealing AP Physical damage... Only usable on enemies at or below 35% health.' The spec's execute, at CoA's own 35.",
+      "target_type": "enemy",
+      "execute_threshold_pct": 35
+    },
+    {
+      "ability_id": "witch_hunter_darkslayers_lantern",
+      "name": "Darkslayer's Lantern",
+      "resource_type": "focus",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Open the shutter. Nothing in the light moves for a moment.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Empower a lantern with your Flames of Sin and let it shine, dealing AP Fire damage and stunning all enemies within 5 yds for 5 seconds', described in the strengths as 'an AoE stun for locking down a pack'. A stun has to be a debuff for is_stun to be read, so the Fire damage half is dropped and the stun kept - the stun is what the rotation presses it for.",
+      "target_type": "enemy_aoe",
+      "is_stun": true,
+      "max_targets": 5
+    },
+    {
+      "ability_id": "witch_hunter_pyro_tonic",
+      "name": "Pyro Tonic",
+      "resource_type": "focus",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 20.0
+      },
+      "description": "It burns on the way down and keeps burning.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drink a fiery tonic, increasing your Fire damage dealt by 20% and your critical damage by 10% for 15 seconds.' damage_dealt_pct is the engine's one generic outgoing-damage buff key and it is PERCENT POINTS (divided by 100 in _damage_multiplier), unlike the tree's fire keys. There is no fire-only buff key - the per-school damage keys are talent-only - so 20% lands on all of the Inquisitor's damage rather than just the Fire half.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_hunter_monster_hunting",
+      "name": "Monster Hunting",
+      "resource_type": "focus",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "haste": 10.0
+      },
+      "description": "You have done this before and everyone can tell.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases melee and ranged haste of party and raid members within 100 yds by 10%.' The raid buff the spec's S-tier raid rating is partly sold on ('brings raid haste (Monster Hunting)'). The '+10% damage against Undead and Demons' half has no creature-type hook.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    }
+  ]
+}

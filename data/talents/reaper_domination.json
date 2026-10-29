@@ -1,0 +1,470 @@
+{
+  "spec_name": "Reaper Domination",
+  "tree_id": "reaper_domination",
+  "description": "Attrition tank - mitigation layers that deepen the longer the fight runs, Souls spent on bodies and sustain instead of burst, and real party cooldowns from a tank.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_reaper__domination.txt: 'Closest to Vengeance Demon Hunter ... The one piece that isn't pure Vengeance is the support tilt. Ethereal Guard and Soulsight hand out raid-wide damage reduction and crit, leaning Blood-DK-style toughness-and-anchor onto the DH-shaped chassis.' CoA rates it Dungeon A / Raid B and Arena D. The tree spends almost nothing on burst, because the reference is explicit that there is none - 'No instant burst and no finisher. Everything is builder, DoT and cleave, so you swing fights by attrition and mitigation' - and instead stacks four separate mitigation keys (damage_taken_pct, magic_damage_taken_pct, physical_damage_taken_pct, armor_pct) so the layering the reference describes is real.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "reaper_domination_dreadknight",
+      "name": "Dreadknight",
+      "description": "Increases your Armor by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "armor_pct": 3.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your armor contribution from mail and plate items by 20% and reduces the chance for spells to hit you by -2%.' Armour-by-item-type is not a thing here, and spell miss on the defender has no key, so it is flat Armor. armor_pct is percentage POINTS."
+    },
+    {
+      "talent_id": "reaper_domination_dark_soldier",
+      "name": "Dark Soldier",
+      "description": "Increases your hit rating by 1 and reduces the Magic damage you take by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "hit_rating": 1,
+        "magic_damage_taken_pct": -0.01
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your hit chance by 3% and reduces your Magic damage taken by -2%.' Both halves are literal. The spec's stat priority opens Hit > Expertise, so the hit is the point. magic_damage_taken_pct as a TALENT effect is a FRACTION, the opposite of the same key in a buff."
+    },
+    {
+      "talent_id": "reaper_domination_empyrean_fortitude",
+      "name": "Empyrean Fortitude",
+      "description": "Increases your parry chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "parry": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your parry chance by 5% and parrying an attack now generates 2 Runic Power.' There is no on-parry trigger, so the resource half is lost - Soul Slip below covers avoidance-into-resource as best the engine allows."
+    },
+    {
+      "talent_id": "reaper_domination_behemoth",
+      "name": "Behemoth",
+      "description": "Increases your Stamina by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "stamina_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA's level-20 free passive: 'Increases your Stamina by 20% and your Armor penetration by 10% of your Strength.' Stamina is kept at the shipped 2%/rank; Dark Soul's armour-penetration-into-Stamina loop is dropped because it has no conversion source."
+    },
+    {
+      "talent_id": "reaper_domination_dominator",
+      "name": "Dominator",
+      "description": "Reduces the Mana cost of Soul Strike by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_reaper_soul_strike_cost_pct": 0.06
+      },
+      "connected_to": [
+        "reaper_domination_dreadknight"
+      ],
+      "_source": "CoA: 'Reduces the Runic Power cost of Soul Strike.' No number given in the reference, so it takes the same 6%/rank every other cost node in this class uses."
+    },
+    {
+      "talent_id": "reaper_domination_lifestealer",
+      "name": "Lifestealer",
+      "description": "Increases the healing Soul Strike does by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_reaper_soul_strike_healing": 0.08
+      },
+      "connected_to": [
+        "reaper_domination_dark_soldier"
+      ],
+      "_source": "CoA: 'Increases the missing health generated by Soul Strike by 3%.' Scaling with the caster's own missing health is not expressible, so it is a flat boost to the leech - which is the same thing when you are being hit."
+    },
+    {
+      "talent_id": "reaper_domination_jailers_will",
+      "name": "Jailer's Will",
+      "description": "Increases the damage of Soul Strike by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_reaper_soul_strike_damage": 0.08
+      },
+      "connected_to": [
+        "reaper_domination_empyrean_fortitude"
+      ],
+      "_source": "CoA: 'Soul Strike now deals 30% Strength increased damage, scaling with Strength.' Soul Strike resolves on the spell path (damage_and_heal), so a Strength scalar would not reach it; a flat damage bonus does."
+    },
+    {
+      "talent_id": "reaper_domination_soultaker",
+      "name": "Soultaker",
+      "description": "Reduces the cooldown of Tormented Souls by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_reaper_tormented_souls_cooldown": 1
+      },
+      "connected_to": [
+        "reaper_domination_behemoth"
+      ],
+      "_source": "CoA: 'Damage dealt with Dreadwake now reduces the cooldown of Tormented Souls by -1 sec', and Tormentor's 'Consuming Soul Infusion now reduces the cooldown of Tormented Souls'. A flat reduction stands in for both - there is no on-cast cooldown-shaving hook."
+    },
+    {
+      "talent_id": "reaper_domination_soul_slip",
+      "name": "Soul Slip",
+      "description": "Blows that land on you have a 25% chance per rank to shake a Soul loose from the attacker.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "reaper_domination_dominator"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 25,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "souls",
+          "amount": 10
+        }
+      },
+      "_source": "CoA's level-30 free passive: 'Avoiding attacks now has a 50% chance to harvest a Soul Fragment from the attacker.' There is no on-avoid trigger - the engine dispatches on_damage_taken, which fires when a hit LANDS, the opposite case - so the tooltip is worded for what actually happens rather than for what CoA says."
+    },
+    {
+      "talent_id": "reaper_domination_fatesealer",
+      "name": "Fatesealer",
+      "description": "Reduces all damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "reaper_domination_lifestealer"
+      ],
+      "_source": "CoA: 'Generating a Reaped Soul now reduces damage taken by -2% for 15 seconds, stacking 3 times.' Three stacks of 2% becomes three ranks of 2%, always on - the ramp needs a resource-gain trigger the engine lacks. This is the flat-mitigation node the reference's 'Bursting you down is not realistic' depends on."
+    },
+    {
+      "talent_id": "reaper_domination_soul_knight",
+      "name": "Soul Knight",
+      "description": "Reduces the Magic damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "magic_damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "reaper_domination_jailers_will"
+      ],
+      "_source": "CoA: 'Your successful parries and dodges increase all healing you receive by 2% and reduce all Magic damage taken by -2% for 10 seconds, stacking 5 times.' healing_taken_pct is read ONLY through get_status_stat_mod and never get_talent_effect, so the healing-received half would be a dead talent; only the magic reduction survives, unconditionally."
+    },
+    {
+      "talent_id": "reaper_domination_soul_splinters",
+      "name": "Soul Splinters",
+      "description": "Your strikes have a 25% chance per rank to erupt, rotting the target for 2 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "reaper_domination_soultaker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "reaper_soul_splinters",
+          "name": "Soul Splinters",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 50,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Erupt with ghastly force whenever you harvest a Reaped Soul, dealing AP Spellshadow Damage to nearby enemies over 6 seconds.' A proc cannot hit 'nearby enemies' without splash_damage, which no shipped tree uses, so it is a single-target Shadow dot on the thing you just hit."
+    },
+    {
+      "talent_id": "reaper_domination_soulstorm",
+      "name": "Soulstorm",
+      "description": "Your Requiem and Soulrend leave enemies attacking 20% slower for 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "reaper_domination_soul_slip"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "reaper_requiem",
+          "reaper_soulrend"
+        ],
+        "apply_effect": {
+          "effect_id": "reaper_soulstorm_slow",
+          "name": "Requiem",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": -20.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Requiem and Soulrend now have a 40% chance to refund a Reaped Soul.' Reassigned: Requiem's OWN attack-speed slow ('reducing their melee and ranged attack speed by 20% for 15 seconds') could not ride on the ability, because only buff and debuff abilities carry a proc and Requiem has to deal damage. This node gives it back, filtered to the two abilities CoA names. One point - a 100% proc's payload cannot scale."
+    },
+    {
+      "talent_id": "reaper_domination_intimidating_presence",
+      "name": "Intimidating Presence",
+      "description": "Increases your threat generation by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "threat_generation_pct": 0.06
+      },
+      "connected_to": [
+        "reaper_domination_fatesealer"
+      ],
+      "_source": "CoA: 'Bolstered Form now increases the damage nearby enemies take from you by 15% for 15 seconds.' Reading as the threat node the tank tree needs - CoA calls the spec a 'Strong dungeon tank - AoE pulls and threat'. threat_generation_pct as a TALENT effect is a FRACTION, and as an ability buff's stat_mod it is percentage POINTS; the same key, two conventions."
+    },
+    {
+      "talent_id": "reaper_domination_hard_bargain",
+      "name": "Hard Bargain",
+      "description": "Increases your haste by 1 and reduces the Mana cost of Dreadwake by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "haste": 1.0,
+        "ability_reaper_dreadwake_cost_pct": 0.06
+      },
+      "connected_to": [
+        "reaper_domination_soul_knight"
+      ],
+      "_source": "CoA: 'While Tormented Souls is active on you, your melee attack speed is increased by 30% and your Dreadwake costs -5 less Runic Power.' Nothing gates a talent on another effect being active, so both halves are unconditional and smaller. Also carries the personal haste Ethereal Guard had to drop."
+    },
+    {
+      "talent_id": "reaper_domination_essence_binder",
+      "name": "Essence Binder",
+      "description": "Increases your Strength by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "strength_pct": 2.0
+      },
+      "connected_to": [
+        "reaper_domination_soul_splinters"
+      ],
+      "_source": "CoA: 'Soul Strike now steals some of the target's health and Strength for 12 seconds, granting it to you at increased value.' A steal needs to read and modify the target's stats; the Strength you end up with is the part that is expressible. strength_pct is percentage POINTS."
+    },
+    {
+      "talent_id": "reaper_domination_spirit_realm",
+      "name": "Spirit Realm",
+      "description": "Increases the healing your Deathwind does by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "ability_reaper_deathwind_healing": 0.08
+      },
+      "connected_to": [
+        "reaper_domination_soulstorm"
+      ],
+      "_source": "CoA: 'Your Deathwind now also increases your healing taken by 10% while you stand within its radius', and Eater of Souls' 'healing done by Deathwind is increased by 10%'. No radius, so both become a straight boost to Deathwind's own healing."
+    },
+    {
+      "talent_id": "reaper_domination_well_of_souls",
+      "name": "Well of Souls",
+      "description": "Reduces the cooldown of Spectral Scythe by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "ability_reaper_spectral_scythe_cooldown": 1
+      },
+      "connected_to": [
+        "reaper_domination_intimidating_presence",
+        "reaper_domination_hard_bargain"
+      ],
+      "_source": "CoA: 'Damage dealt by Soul Strike and Murder now reduces the cooldown of Spectral Scythe by -1 sec.' A flat reduction rather than an on-hit shave."
+    },
+    {
+      "talent_id": "reaper_domination_ethereal_guard",
+      "name": "Ethereal Guard",
+      "description": "Teaches Ethereal Guard: your party and raid take 3% less damage.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "reaper_ethereal_guard"
+      },
+      "connected_to": [
+        "reaper_domination_essence_binder"
+      ],
+      "_source": "CoA: 'Ethereal Guard cuts raid-wide damage ... Rare support from a tank.' Costs a point, as it does in CoA."
+    },
+    {
+      "talent_id": "reaper_domination_spirit_culling",
+      "name": "Spirit Culling",
+      "description": "Increases the damage your Spectral Scythes and Wardens deal by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "pet_damage": 0.06
+      },
+      "connected_to": [
+        "reaper_domination_spirit_realm"
+      ],
+      "_source": "CoA: 'For the duration of Spectral Scythe, the damage of Soul Strike is increased by 20%. In addition, generating a Reaped Soul now has a 10% chance to summon a Spectral Scythe.' Neither half is expressible, so the node scales the summons themselves through pet_damage - a key built at runtime and listed in audit_talents._NAMED_LIVE."
+    },
+    {
+      "talent_id": "reaper_domination_painmail",
+      "name": "Painmail",
+      "description": "Blows that land on you have a 40% chance per rank to knit you back together.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "reaper_domination_well_of_souls"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 40,
+        "icd": 0,
+        "heal_flat": 70
+      },
+      "_source": "CoA: 'Dealing damage with Reap, Dreadwake and Soul Strike now grants a stack of Painmail ... When Painmail stacks expire naturally, you are healed for 2% of your maximum health and reduce the cooldown of Bolstered Form by -0.5 sec for each stack.' Nothing fires on a stack EXPIRING, so the heal is moved to the moment it is needed instead - taking a hit."
+    },
+    {
+      "talent_id": "reaper_domination_spirit_army",
+      "name": "Spirit Army",
+      "description": "Teaches Spectral Warden: a body that fights beside you.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "reaper_spectral_warden"
+      },
+      "connected_to": [
+        "reaper_domination_ethereal_guard"
+      ],
+      "_source": "CoA: 'Your Spectral Warden now causes you to summon 2 additional Spectral Wardens ... increases the amount absorbed by the shield granted by Spectral Warden by 100%.' One body rather than three, and no group absorb - summon_pet summons one pet and does nothing else."
+    },
+    {
+      "talent_id": "reaper_domination_eater_of_souls",
+      "name": "Eater of Souls",
+      "description": "Teaches Eater of Souls, and permanently reduces the physical damage you take by 5% and raises your health by 5%.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "reaper_eater_of_souls",
+        "physical_damage_taken_pct": -0.05,
+        "max_health_pct": 0.05
+      },
+      "connected_to": [
+        "reaper_domination_spirit_culling",
+        "reaper_domination_painmail",
+        "reaper_domination_spirit_army"
+      ],
+      "_source": "Capstone. CoA puts Eater of Souls on its top tier and the playstyle page builds the whole rotation around it: 'Hold Reaped Souls to bank the Eater of Souls proc before you dump them into Spectral Scythe.' NOTE max_health_pct is a FRACTION - health * (1 + value) - so 0.05 is +5%. Guardian shipped 2.0 on this key and granted +200% a rank, reaching 99,156 effective HP against the next tank's 2,987; physical_damage_taken_pct as a TALENT effect is a fraction too, unlike the same key in a buff."
+    }
+  ]
+}

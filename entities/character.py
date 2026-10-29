@@ -420,8 +420,15 @@ class Character(StatusEffectMixin):
             # COA_21_CLASS_RESOURCE_REFERENCE.md; stat spreads below are
             # reasonable estimates following the same design logic as the
             # original 9 - armor type informs Stamina lean, confirmed
-            # primary stat(s) get the highest allocation. No abilities exist
-            # for these yet per Kyle's direction - stats/resources only.
+            # primary stat(s) get the highest allocation.
+            #
+            # All 21 are now fully playable: abilities with ranks across
+            # levels 1-60, one talent tree per CoA spec, spellbook tabs,
+            # starting gear and a character-creation entry. The primary
+            # stat named in each comment below is the one the class's CoA
+            # page states, and the talent trees convert from it - so a
+            # comment reading "Agility" is load-bearing, not decoration.
+            # tools/audit_class_completeness.py checks all of that.
             # ================================================================
             "Necromancer": {  # Cloth, Intellect, Life Force
                 "strength": 7, "stamina": 10, "intellect": 18, "spirit": 12, "agility": 9

@@ -1,0 +1,491 @@
+{
+  "spec_name": "Reaper Soul",
+  "tree_id": "reaper_soul",
+  "description": "Shadowfrost duelist - weapon strikes feed the soul magic, the soul magic heals you back, and Limbo and Shade are two separate ways out of a fight that has turned.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_reaper__soul.txt: 'Closest to retail Vengeance Demon Hunter. The Soul Fragment into consume-for-self-heal loop is nearly identical in shape ... It's Vengeance's fragment engine wearing a rogue-flavored stealth-and-mobility duelist chassis.' CoA rates it Dungeon A / Raid C. The tree is deliberately the most magical of the three: its stat priority opens with Spell Hit and the reference's own summary is that it heals 'off your own fragment generation' with 'No dedicated heal spell anywhere', which is why the Shadow and Frost damage nodes are load bearing rather than flavour.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "reaper_soul_mark_of_death",
+      "name": "Mark of Death",
+      "description": "Increases the damage of Deathchaser by 4% and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_reaper_deathchaser_damage": 0.04,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage dealt by Deathchaser by 15% and your hit chance by 3%.' The spec's stat priority leads with Spell Hit 'until your Shadow spells stop missing a +3-level target', so the hit is not filler."
+    },
+    {
+      "talent_id": "reaper_soul_ghostly_magic",
+      "name": "Ghostly Magic",
+      "description": "Increases the damage of Reap, Dirge and Reliquary of the Lost by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_reaper_reap_damage": 0.03,
+        "ability_reaper_dirge_damage": 0.03,
+        "ability_reaper_reliquary_of_the_lost_damage": 0.03
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Reap, Dirge, and Reliquary of the Lost by 10%', 2 ranks - the three buttons the rotation actually presses."
+    },
+    {
+      "talent_id": "reaper_soul_spirit_render",
+      "name": "Spirit Render",
+      "description": "Increases your Shadow spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "shadow_spell_damage": 0.02
+      },
+      "connected_to": [],
+      "_source": "CoA's level-20 free passive: 'Increases your spell penetration by 20, scaling with your level.' There is no spell-penetration stat here, and the effect of penetration is more Shadow damage landing, so that is what it grants. shadow_spell_damage is built at runtime as f'{school}_spell_damage' - a grep for the literal finds nothing and calls it dead; it is not."
+    },
+    {
+      "talent_id": "reaper_soul_spirit_chaser",
+      "name": "Spirit Chaser",
+      "description": "Increases the critical strike chance of Reap, Deathchaser and Wraithblade by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_reaper_reap_crit": 2.0,
+        "ability_reaper_deathchaser_crit": 2.0,
+        "ability_reaper_wraithblade_crit": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the critical strike chance and critical damage of Reap, Deathchaser, and Wraithblade by 10%.' The crit-damage half is dropped; Perfect-Pitch-style crit damage would overlap Gravesite at the capstone."
+    },
+    {
+      "talent_id": "reaper_soul_soul_generator",
+      "name": "Soul Generator",
+      "description": "Your critical strikes have a 25% chance per rank to harvest a Soul.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "reaper_soul_mark_of_death"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "souls",
+          "amount": 12
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Dirge now generate 10 Runic Power. Critical strikes with Murder now generate 1 additional Reaped Soul.' Collapsed to one crit-to-Souls proc, unfiltered, since both halves do the same job."
+    },
+    {
+      "talent_id": "reaper_soul_shattered_souls",
+      "name": "Shattered Souls",
+      "description": "Increases the damage of Wraithblade by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_reaper_wraithblade_damage": 0.08
+      },
+      "connected_to": [
+        "reaper_soul_ghostly_magic"
+      ],
+      "_source": "CoA: 'Your Wraithblade now deals double damage to enemies affected by Soulrend.' A conditional double is not expressible - nothing reads the target's debuffs in the damage path - so it is a flat Wraithblade bonus."
+    },
+    {
+      "talent_id": "reaper_soul_deathwail",
+      "name": "Deathwail",
+      "description": "Reduces the Mana cost of Wraithblade by 8% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_reaper_wraithblade_cost_pct": 0.08
+      },
+      "connected_to": [
+        "reaper_soul_spirit_render"
+      ],
+      "_source": "CoA: 'Reduces the Runic Power cost of Wraithblade by -50%.' Three ranks of 8% rather than half the cost in one node."
+    },
+    {
+      "talent_id": "reaper_soul_death_dealer",
+      "name": "Death Dealer",
+      "description": "Your Ghostly Weapon and Soulrend each last 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_reaper_ghostly_weapon_duration": 1,
+        "ability_reaper_soulrend_duration": 1
+      },
+      "connected_to": [
+        "reaper_soul_spirit_chaser"
+      ],
+      "_source": "CoA: 'Increases the duration of Ghostly Weapon and Soulrend by 5 sec.'"
+    },
+    {
+      "talent_id": "reaper_soul_weakened_souls",
+      "name": "Weakened Souls",
+      "description": "Your Soulrend leaves the target taking 10% more Shadow and Frost damage.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "reaper_soul_soul_generator"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "reaper_soulrend"
+        ],
+        "apply_effect": {
+          "effect_id": "reaper_weakened_soul",
+          "name": "Weakened Soul",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "shadow_damage_taken_pct": 10.0,
+            "frost_damage_taken_pct": 10.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA's level-10 free passive: 'Your Soulrend now also applies Weakened Soul, increasing the target's Shadow and Frost damage taken from you by 10%.' Literal, filtered to Soulrend. 'From you' is lost - a debuff on the target applies to everyone's hits. One point, because a 100% proc's payload cannot scale with rank. <school>_damage_taken_pct in a debuff is POINTS."
+    },
+    {
+      "talent_id": "reaper_soul_essence_harvest",
+      "name": "Essence Harvest",
+      "description": "Increases your Frost spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "frost_spell_damage": 0.03
+      },
+      "connected_to": [
+        "reaper_soul_shattered_souls"
+      ],
+      "_source": "CoA: 'Increases the additional Frost damage dealt by Ghostly Weapon by 10%.' Ghostly Weapon's added Frost damage does not exist as a mechanic here, so this scales the Frost half of Deathchaser and Ghastly Screech instead - both really are Shadowfrost."
+    },
+    {
+      "talent_id": "reaper_soul_soulbender",
+      "name": "Soulbender",
+      "description": "Reduces the cooldown of Deathchaser by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "ability_reaper_deathchaser_cooldown": 1
+      },
+      "connected_to": [
+        "reaper_soul_deathwail"
+      ],
+      "_source": "CoA: 'Significantly increases the Runic Power generated by Deathchaser.' No talent key raises an ability's `generates` amount, so more uptime stands in for more resource: a shorter cooldown means more Deathchaser casts and therefore more Souls."
+    },
+    {
+      "talent_id": "reaper_soul_purgatory",
+      "name": "Purgatory",
+      "description": "Increases the damage of Soulrend and Reliquary of the Lost by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_reaper_soulrend_damage": 0.04,
+        "ability_reaper_reliquary_of_the_lost_damage": 0.04
+      },
+      "connected_to": [
+        "reaper_soul_death_dealer"
+      ],
+      "_source": "CoA: 'When you gain Soul Infusion, the damage of your Soulrend and Reliquary of the Lost is increased by 20% for 6 seconds, stacking 2 times.' The ramp needs a resource-gain trigger the engine does not have, so the 20% is permanent and spread over 5 ranks."
+    },
+    {
+      "talent_id": "reaper_soul_spectres_call",
+      "name": "Spectre's Call",
+      "description": "Increases the damage of Murder and Soul Strike by 3%, and the healing of Deathwind by 3%, per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_reaper_murder_damage": 0.03,
+        "ability_reaper_soul_strike_damage": 0.03,
+        "ability_reaper_deathwind_healing": 0.03
+      },
+      "connected_to": [
+        "reaper_soul_weakened_souls"
+      ],
+      "_source": "CoA: 'Increases the damage of Deathwind, Murder, and Soul Strike by 15%.' Deathwind is a heal here, so it takes the _healing key - ability_<id>_healing was dead for 18 talents until _damage_multiplier started reading it, and _damage on a heal still does nothing."
+    },
+    {
+      "talent_id": "reaper_soul_apparition",
+      "name": "Apparition",
+      "description": "Increases the damage of Spectre Stride by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_reaper_spectre_stride_damage": 0.1
+      },
+      "connected_to": [
+        "reaper_soul_essence_harvest"
+      ],
+      "_source": "CoA: 'Increases the damage of Spectre Stride by 30% and reduces the chance for enemies to see you while stealthed.' The stealth half has no hook."
+    },
+    {
+      "talent_id": "reaper_soul_anima_ambusher",
+      "name": "Anima Ambusher",
+      "description": "Your Spectre Stride has a 40% chance per rank to leave Shadow rot on the target for 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "reaper_soul_soulbender"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 40,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "reaper_anima_ambusher",
+          "name": "Anima Ambusher",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 60,
+          "damage_school": "shadow",
+          "on_target": true
+        },
+        "ability_filter": [
+          "reaper_spectre_stride"
+        ]
+      },
+      "_source": "CoA: 'Spectre Stride now deals an additional 125% of its damage dealt over 5 seconds.' A dot sized off the triggering hit is not expressible through apply_effect, so the potency is flat. Filtered to Spectre Stride."
+    },
+    {
+      "talent_id": "reaper_soul_fleeting_soul",
+      "name": "Fleeting Soul",
+      "description": "Reduces the cooldown of Soulslam by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_reaper_soulslam_cooldown": 1
+      },
+      "connected_to": [
+        "reaper_soul_purgatory"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Soulslam by -15 sec.'"
+    },
+    {
+      "talent_id": "reaper_soul_spiritual_reflexes",
+      "name": "Spiritual Reflexes",
+      "description": "Increases your dodge chance by 1% per rank, and while below 35% health you take a further 5% less damage per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "dodge": 1.0,
+        "low_health_damage_reduction_pct": 0.05
+      },
+      "connected_to": [
+        "reaper_soul_spectres_call"
+      ],
+      "_source": "CoA: 'While below 35% maximum health, your chance to dodge attacks is increased by 25% and dodging an attack unleashes Soul Harvest on the target.' Dodge cannot be made conditional - it is a plain derived stat - so the dodge is unconditional and smaller while the below-35% clause carries real mitigation through the engine's existing low-health pair. The 35% threshold is the engine default and is NOT authored here: low_health_threshold_pct is multiplied by points spent, so a 3-rank node carrying 0.35 would reach 1.05 and count the character as low on health at full HP."
+    },
+    {
+      "talent_id": "reaper_soul_soul_piercer",
+      "name": "Soul Piercer",
+      "description": "Your strikes have a 20% chance per rank to refund a Soul.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "reaper_soul_apparition",
+        "reaper_soul_anima_ambusher"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "souls",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Striking at least 1 enemy with Soulslam now refunds its Reaped Souls.' A full refund on the spec's big spender would make the Souls pool meaningless, so it is a chance-based partial refund off any strike, with a 1 turn internal cooldown."
+    },
+    {
+      "talent_id": "reaper_soul_deaths_presence",
+      "name": "Death's Presence",
+      "description": "Teaches Death's Presence: your party and raid deal 3% more damage.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "reaper_deaths_presence"
+      },
+      "connected_to": [
+        "reaper_soul_fleeting_soul"
+      ],
+      "_source": "CoA: 'Death's Presence, a static party damage buff, is the entire party toolkit.' Costing a talent point for it is how CoA has it too."
+    },
+    {
+      "talent_id": "reaper_soul_lord_of_death",
+      "name": "Lord of Death",
+      "description": "Increases the damage your abilities deal to additional targets by 10% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "aoe_damage": 0.1
+      },
+      "connected_to": [
+        "reaper_soul_spiritual_reflexes"
+      ],
+      "_source": "CoA: 'Abilities affected by Ghostly Weapon now deal 25% more damage per additional target', and Ghastly Hilt 'causes your melee abilities to strike up to 2 additional targets'. Both collapse into the engine's aoe_damage key, which is what 'Strong AoE/cleave for trash packs' needs."
+    },
+    {
+      "talent_id": "reaper_soul_the_end_is_near",
+      "name": "The End Is Near",
+      "description": "Your Wraithblade has a 35% chance per rank to strike a second time.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "reaper_soul_soul_piercer"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 35,
+        "icd": 0,
+        "ability_filter": [
+          "reaper_wraithblade"
+        ],
+        "extra_attack": 1
+      },
+      "_source": "CoA: 'Wraithblade now creates a spectral version of yourself for 12 seconds that casts Dirge and Murder on enemies.' There is no temporary-clone primitive, and a pet template would be a different thing; extra_attack is a real second swing off the same cast, which is the honest small version of a copy of you swinging too."
+    },
+    {
+      "talent_id": "reaper_soul_beyond_the_veil",
+      "name": "Beyond the Veil",
+      "description": "Increases your haste by 2 and your dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "haste": 2.0,
+        "dodge": 1.0
+      },
+      "connected_to": [
+        "reaper_soul_deaths_presence"
+      ],
+      "_source": "CoA's level-40 free passive: 'increasing movement speed by 30% and allowing you to walk on water.' Neither movement speed nor water-walking exists in combat, so the node becomes the mobility stats a turn engine can express. The weakest translation in the class and recorded as such."
+    },
+    {
+      "talent_id": "reaper_soul_endbringer",
+      "name": "Endbringer",
+      "description": "Teaches Endbringer, and increases your critical strike damage by 15%. For a while, you are the last thing that happens here.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "reaper_endbringer",
+        "crit_damage_spell": 0.15
+      },
+      "connected_to": [
+        "reaper_soul_lord_of_death",
+        "reaper_soul_the_end_is_near",
+        "reaper_soul_beyond_the_veil"
+      ],
+      "_source": "Capstone. CoA puts Endbringer and Gravesite on the same top tier ('Casting Endbringer now marks the ground beneath you as your Gravesite ... Direct critical strikes made against enemies within a Gravesite now deals AP Shadow damage'), so the node teaches the cooldown and carries Gravesite's crit payoff as spell crit damage rather than a ground effect."
+    }
+  ]
+}

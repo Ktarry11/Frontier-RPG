@@ -1,0 +1,484 @@
+{
+  "spec_name": "Templar Crusader",
+  "tree_id": "templar_crusader",
+  "description": "Oath melee DPS that holds its bank instead of dumping it. Several Oaths ride at once, Argent Blade keeps them alive and heals off its own damage, and Titanstrike finishes what is left.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_templar__crusader.txt and the crusader half of reference/coa_sidekick/talents/templar.json. CoA rates this S in raids and A in arena, 'Closest to retail Retribution Paladin', and is emphatic about the one thing that makes it different: 'Crusader runs a typed-Oath engine, and reading it as a generic combo-point pool is the most common mistake ... Holy Power is fungible and patient, whereas Crusader's Oaths are typed, each builder granting a different buff, and they decay on a shared Oath Chain. That makes it a stack-maintenance spec far more than a bank-and-dump one.' Frontier's Combo pool IS a generic combo-point pool, and there is no Oath Chain timer, so the typing cannot survive the translation. What survives is the incentive: Serendipity and the builder damage nodes pay you for holding a full bank and pressing builders, while the only thing worth emptying it for is Righteous Tempest at 80 Combo. Two further gaps worth stating. CoA gates the best finishers behind a two-handed weapon ('The finisher kit is 2H-weapon-gated'), and the Frontier Templar has no two-handed proficiency at all (weapon_types.json: sword_1h, mace_1h, shield), so nothing here is weapon-gated. And Sacred Restraint, which stops Testament of Fortitude and Testament of Strength competing, only binds the Testaments that leave a buff behind, because exclusive_group lives on the StatusEffect a cast creates.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "templar_crusader_pure_focus",
+      "name": "Pure Focus",
+      "description": "Increases your critical strike chance by 1% and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the chance to trigger Scourgebane by 5% and your chance to hit by 2%' (2 ranks). A proc's chance cannot be raised by a separate talent, so the Scourgebane half becomes crit, which is the next stat in the spec's priority."
+    },
+    {
+      "talent_id": "templar_crusader_lights_chosen",
+      "name": "Light's Chosen",
+      "description": "Grants spell power equal to 6% of your Agility and critical strike chance equal to 3% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "spell_power_from_agility_pct": 0.06,
+        "crit_chance_from_intellect_pct": 0.03
+      },
+      "connected_to": [],
+      "_source": "CoA free level-20 passive, verbatim: 'Increases your spell power by 30% of your Agility and your critical strike rating by 15% of your Intellect'. 5 ranks of 6% and 3% are exactly those numbers. Both are real <target>_from_<source>_pct conversions."
+    },
+    {
+      "talent_id": "templar_crusader_aggramars_rage",
+      "name": "Aggramar's Rage",
+      "description": "Increases your spell critical strike chance by 1% and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Holy critical strike chance by 3% and your expertise by 5' (2 ranks). Holy crit is spell crit here, and expertise does not exist as a stat or a key, so it lands as hit rating."
+    },
+    {
+      "talent_id": "templar_crusader_chivalric",
+      "name": "Chivalric",
+      "description": "Increases your spell critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your critical damage with Holy spells and abilities by 15%'. holy_crit_damage_pct is live, but the whole Crusader Holy kit is spell-school here, so the general key covers it without splitting hairs."
+    },
+    {
+      "talent_id": "templar_crusader_paladin_training",
+      "name": "Paladin Training",
+      "description": "Increases the damage of Righteous Lunge and Argent Blade by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_templar_righteous_lunge_damage": 0.06,
+        "ability_templar_argent_blade_damage": 0.06
+      },
+      "connected_to": [
+        "templar_crusader_pure_focus"
+      ],
+      "_source": "CoA: 'Increases the damage of Righteous Lunge and Argent Blade by 20%'. These are the spec's two builders, and CoA's whole case for it is that holding the bank beats spending it, so the builders are where the points go."
+    },
+    {
+      "talent_id": "templar_crusader_warrior_of_tyr",
+      "name": "Warrior of Tyr",
+      "description": "Your damage has a 10% chance per rank to restore 8 Combo.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "templar_crusader_lights_chosen"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "combo",
+          "amount": 8
+        }
+      },
+      "_source": "CoA: 'Periodic damage dealt now has a 10% chance to generate 5 Energy', and 'Energy is the fuel that Improved Scarlet Hammer and Warrior of Tyr feed back'. Periodic ticks cannot proc (they run through tick_status_effects with no caster), so it listens for casts instead."
+    },
+    {
+      "talent_id": "templar_crusader_righteousness",
+      "name": "Righteousness",
+      "description": "Increases your Holy damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "holy_spell_damage": 0.02
+      },
+      "connected_to": [
+        "templar_crusader_aggramars_rage"
+      ],
+      "_source": "CoA: 'Your Chastise now always triggers Scourgebane on your target'. A guaranteed proc on one named ability has no shape here, so the node raises the Holy damage both Chastise and Scourgebane deal."
+    },
+    {
+      "talent_id": "templar_crusader_scourgebane",
+      "name": "Scourgebane",
+      "description": "Your damage has a 20% chance to strike again for a quarter as much.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "templar_crusader_chivalric"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "bonus_pct": 0.25
+      },
+      "_source": "CoA free level-10 passive, verbatim: 'Direct damage dealt now has a 20% chance to strike an enemy with Scourgebane, dealing an additional AP Holyflame Damage'. The extra hit carries no school: a talent's synthetic StatusEffect is built without a damage_school, so Holyflame resolves untyped."
+    },
+    {
+      "talent_id": "templar_crusader_divine_strikes",
+      "name": "Divine Strikes",
+      "description": "Increases the damage of Argent Blade by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_templar_argent_blade_damage": 0.08
+      },
+      "connected_to": [
+        "templar_crusader_paladin_training"
+      ],
+      "_source": "CoA: 'Damage dealt by Scourgebane now increases the damage of Argent Blade by 5% for 6 seconds, stacking 10 times'. The stack ramp has no hook; the node is the damage it ramps to."
+    },
+    {
+      "talent_id": "templar_crusader_radiant_blade",
+      "name": "Radiant Blade",
+      "description": "Increases all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "templar_crusader_warrior_of_tyr"
+      ],
+      "_source": "CoA: 'Increases the effectiveness of Oath: Righteous Lunge by 25%' (2 ranks). That Oath 'makes your abilities damage and heal for more' across the whole kit, so a global damage node is the closest honest reading."
+    },
+    {
+      "talent_id": "templar_crusader_focused",
+      "name": "Focused",
+      "description": "Increases the damage of Blade of Faith and Righteous Tempest by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "ability_templar_blade_of_faith_damage": 0.08,
+        "ability_templar_righteous_tempest_damage": 0.08
+      },
+      "connected_to": [
+        "templar_crusader_righteousness"
+      ],
+      "_source": "CoA: 'Increases the damage of Blade of Faith and Righteous Tempest by 25%'."
+    },
+    {
+      "talent_id": "templar_crusader_retribution",
+      "name": "Retribution",
+      "description": "Your damage has a 15% chance per rank to strike again for 15% as much.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "templar_crusader_scourgebane"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "bonus_pct": 0.15
+      },
+      "_source": "CoA: 'Melee damage dealt now has a 20% chance to strike 2 additional times for 30% of the damage dealt as Holy Damage'. One bonus hit rather than two, because bonus_pct resolves once per fire."
+    },
+    {
+      "talent_id": "templar_crusader_templars_might",
+      "name": "Templar's Might",
+      "description": "Increases the damage of Chastise by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_templar_chastise_damage": 0.08
+      },
+      "connected_to": [
+        "templar_crusader_divine_strikes"
+      ],
+      "_source": "CoA: 'Your Righteous Lunge and Chastise used on enemies affected by your Condemn now deal 6% increased damage per stack'. No ability can read another's debuff stacks, so the bonus is unconditional and smaller."
+    },
+    {
+      "talent_id": "templar_crusader_tyrs_blessing",
+      "name": "Tyr's Blessing",
+      "description": "Increases the damage of Condemn by 8% and all your damage over time by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_templar_condemn_damage": 0.08,
+        "dot_damage": 0.02
+      },
+      "connected_to": [
+        "templar_crusader_radiant_blade"
+      ],
+      "_source": "CoA: 'Condemn now stacks 1 additional time'. Condemn is one DoT here rather than a stacking one, so another stack is more damage."
+    },
+    {
+      "talent_id": "templar_crusader_serendipity",
+      "name": "Serendipity",
+      "description": "Reduces the Combo cost of your abilities by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "all_ability_cost_pct": -0.03
+      },
+      "connected_to": [
+        "templar_crusader_focused"
+      ],
+      "_source": "CoA: 'Increases the all damage dealt by party and raid members by 3% ... In addition, reduces the cost of your spells and abilities by -5%'. The party half is not a talent-scoped effect; the cost half is, and it is what lets this spec hold Oaths instead of spending them."
+    },
+    {
+      "talent_id": "templar_crusader_judgement",
+      "name": "Judgement",
+      "description": "Increases the damage of Titanstrike by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_templar_titanstrike_damage": 0.08
+      },
+      "connected_to": [
+        "templar_crusader_retribution"
+      ],
+      "_source": "CoA: 'Increases the damage of Scourgebane, Scarlet Hammer, and Titanstrike by 25% on enemies below 20% health'. Titanstrike is already execute-gated at 35%, so its damage carries the node and the condition is redundant."
+    },
+    {
+      "talent_id": "templar_crusader_scarlet_training",
+      "name": "Scarlet Training",
+      "description": "Increases the damage of Scarlet Hammer by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "ability_templar_scarlet_hammer_damage": 0.1
+      },
+      "connected_to": [
+        "templar_crusader_templars_might"
+      ],
+      "_source": "CoA free level-30 passive: 'Casting Argent Blade while Warrior of Dawn is active now transforms your next Chastise into Scarlet Hammer'. The transform cannot be expressed, so Scarlet Hammer is its own ability and this node is what makes it worth pressing."
+    },
+    {
+      "talent_id": "templar_crusader_holy_edge",
+      "name": "Holy Edge",
+      "description": "Increases your area damage by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "aoe_damage": 0.08
+      },
+      "connected_to": [
+        "templar_crusader_tyrs_blessing",
+        "templar_crusader_serendipity"
+      ],
+      "_source": "CoA: 'Damage dealt by Scourgebane and Scarlet Hammer now strikes 1 additional nearby enemy' (2 ranks). Extra targets on a proc have no hook, so the node scales the cleave the spec already has."
+    },
+    {
+      "talent_id": "templar_crusader_martial_training",
+      "name": "Martial Training",
+      "description": "Increases the damage of Chastise by 8% and your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_templar_chastise_damage": 0.08,
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "templar_crusader_judgement"
+      ],
+      "_source": "CoA free level-50 passive: 'Your Chastise now deals an additional 50% Weapon Damage'. Chastise is a Holy ability here, so the weapon-damage half lands as general physical damage rather than on Chastise's own school."
+    },
+    {
+      "talent_id": "templar_crusader_righteous_tempest",
+      "name": "Righteous Tempest",
+      "description": "Grants Righteous Tempest, a three-turn whirl that spends every Oath you have banked.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "templar_righteous_tempest"
+      },
+      "connected_to": [
+        "templar_crusader_judgement",
+        "templar_crusader_serendipity"
+      ],
+      "_source": "CoA Crusader node, 'Unleash a whirling Oath Breaker, dealing Weapon Damage plus SP damage to nearby enemies ... every 1 sec for 3 seconds. Consumes your Oaths, dealing additional damage for each consumed'. The ability already existed with requires_talent set, but NOTHING granted it, so it was the one unobtainable ability in the game - see tools/validate_class.py's reachability check, added because this slipped past the validator. CoA places the node at the entry gate of the tree; tier 4 is the Frontier equivalent, because its 20-point gate is reached around level 30 and the ability's own rank 1 is level 28. Tier 4 held 3 of 4 slots, so this completes the row rather than widening the tree."
+    },
+    {
+      "talent_id": "templar_crusader_titanfall",
+      "name": "Titanfall",
+      "description": "Increases the healing done by Titanstrike by 12% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "ability_templar_titanstrike_healing": 0.12
+      },
+      "connected_to": [
+        "templar_crusader_scarlet_training"
+      ],
+      "_source": "CoA tier-6: 'Your Titanstrike now heals you for twice the damage dealt'. Doubling it outright would make the spec's incidental self-heal its main sustain, which CoA is explicit it is not: 'The healing is incidental self-heal off Argent Blade and Titanstrike, not throughput'."
+    },
+    {
+      "talent_id": "templar_crusader_argent_knight",
+      "name": "Argent Knight",
+      "description": "Increases the damage of Righteous Tempest by 10% and of Condemn by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "ability_templar_righteous_tempest_damage": 0.1,
+        "ability_templar_condemn_damage": 0.06
+      },
+      "connected_to": [
+        "templar_crusader_holy_edge"
+      ],
+      "_source": "CoA tier-6: 'Increases the damage dealt by Righteous Tempest and Condemn by 30%. Additionally, Righteous Tempest now reduces all damage taken by -20% while active.' The mitigation half would need the talent to edit an ability's buff, which no key does."
+    },
+    {
+      "talent_id": "templar_crusader_legacy_of_the_silver_hand",
+      "name": "Legacy of the Silver Hand",
+      "description": "Increases your spell critical strike chance by 1% and your spell critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_spell": 1.0,
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [
+        "templar_crusader_martial_training"
+      ],
+      "_source": "CoA tier-6: 'Casting Argent Blade or Scarlet Hammer now guarantees your next 2 instances of damage dealt by Scourgebane to critically strike. Increases the critical damage of Scourgebane by 15%.' A proc's crits cannot be guaranteed, so both halves become real crit stats. CoA calls this 'the crit/Scourgebane build' and the competing pick to Testament of Strength."
+    },
+    {
+      "talent_id": "templar_crusader_scarlet_champion",
+      "name": "Scarlet Champion",
+      "description": "Increases your spell critical strike chance by 3%, and your critical strikes increase your damage by 4% for 3 turns.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "crit_chance_spell": 3.0
+      },
+      "connected_to": [
+        "templar_crusader_titanfall",
+        "templar_crusader_argent_knight",
+        "templar_crusader_legacy_of_the_silver_hand"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "templar_scarlet_champion",
+          "name": "Scarlet Champion",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 4.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "Capstone, and a real CoA tier-6 TE node. CoA: 'Your damaging critical strikes now increase your Holy damage dealt by 2% for 20 seconds, stacking 5 times ... At 5 stacks, you are granted High General'. The five-stack ramp and the High General payoff have no hook, so the buff carries the value it would have reached. The buff uses damage_dealt_pct, not holy_spell_damage: a status effect's stat_mods never reach _damage_multiplier's talent lookups, so a school damage key on a BUFF is inert even though the same key on a talent works."
+    }
+  ]
+}

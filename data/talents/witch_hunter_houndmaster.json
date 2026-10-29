@@ -1,0 +1,437 @@
+{
+  "spec_name": "Witch Hunter Houndmaster",
+  "tree_id": "witch_hunter_houndmaster",
+  "description": "Pet-centric ranged spec - fights two bodies at once, splits incoming damage across the hounds, and builds Focus off its own auto-attacks.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_witch-hunter__houndmaster.txt and the houndmaster spec tree in reference/coa_sidekick/talents/witch-hunter.json. CoA calls it 'a Survival-Hunter chassis with a heavier pet emphasis'. THE STRUCTURAL LIMIT on this spec: CoA's hound stack is a permanent Shadowhound plus temporary lesser hounds from Unleash the Hounds, Kennel Master and Daredevil, and Frontier keeps exactly ONE active pet - a second summon replaces the first. So every 'more hounds' talent is redirected into the three pet keys the engine really reads (pet_damage, pet_health, pet_armor), which makes this one strong hound rather than a pack. The Intellect nodes are not decoration: CoA's stat priority puts Intellect fourth, above Spell Power, because Shadewalker and Dark Mind both convert it.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "witch_hunter_houndmaster_dark_ranger",
+      "name": "Dark Ranger",
+      "description": "Increases your hound's damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "pet_damage": 0.04
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the Shadow damage dealt by your Shadow Hounds by 5%.' pet_damage is one of the three keys Pet deliberately reads off its owner's talents when it is built, and a FRACTION (0.06 is the shipped value in Stormbringer Wind and Primalist Wildwalker)."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_expert_shot",
+      "name": "Expert Shot",
+      "description": "Increases the damage of Shadowblast by 5% and grants 1 hit rating per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_witch_hunter_shadowblast_damage": 0.05,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Shadowblast by 10% and your hit chance by 2%.' Hit leads this spec's stat priority too."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_houndfeeder",
+      "name": "Houndfeeder",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the critical strike chance of you and your Shadow Hound by 4%.' A pet has its own crit_chance off its template and there is no pet_crit key, so only the owner's half is real."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_hail_of_gunfire",
+      "name": "Hail of Gunfire",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your ranged haste by 10%.' Same ranged_haste gap as Boltslinger's Rapid Reload."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_kennel_master",
+      "name": "Kennel Master",
+      "description": "Increases your hound's health by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "pet_health": 0.04
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_dark_ranger"
+      ],
+      "_source": "CoA: 'Casting Unleash The Hounds now has a 25% chance to summon an additional Lesser Shadow Hound for 15 seconds.' The engine keeps ONE pet, so a second hound is impossible; what the extra body bought was more hound to go round, which pet_health delivers honestly."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_silver_bullets",
+      "name": "Silver Bullets",
+      "description": "Increases the damage of Darkslayer by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_witch_hunter_darkslayer_damage": 0.06
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_expert_shot"
+      ],
+      "_source": "CoA: 'Increases the damage of Darkslayer by 10%, increased by an additional 10% against Undead.' No creature-type hook, so the flat half only."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_darkrider",
+      "name": "Darkrider",
+      "description": "Reduces the Focus cost of your abilities by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "all_ability_cost_pct": -0.03
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_houndfeeder"
+      ],
+      "_source": "CoA: 'Reduces the Rage cost of Shadowblast, Vault, and Unleash the Hounds by -10.' Shadowblast and Vault are already free in Frontier (they are the builders), so a three-ability flat cut would mostly hit nothing - it discounts the whole book instead."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_trapper",
+      "name": "Trapper",
+      "description": "Reduces the cooldown of Shadow Trap and Death Trap by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_witch_hunter_shadow_trap_cooldown": 1,
+        "ability_witch_hunter_death_trap_cooldown": 1
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_hail_of_gunfire"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of your Trap spells by -25%', with the class tree's Three Sevens and Trap Card extending them. Trap duration is not a thing - a Frontier trap is cast, not placed - so only the cooldown half survives."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_loksey_journal",
+      "name": "Loksey's Journal",
+      "description": "Increases your hound's damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "pet_damage": 0.04
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_kennel_master"
+      ],
+      "_source": "CoA: 'Increases the damage of Shadow Rage by 20% of your ranged attack power.' Shadow Rage is a hound buff, so scaling it is scaling the hound. A pet cannot read its owner's attack power (Pet deliberately does not inherit the owner's stats or gear), so this is flat pet damage."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_rampaging_hounds",
+      "name": "Rampaging Hounds",
+      "description": "Increases the damage your abilities deal to additional targets by 6% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "aoe_damage": 0.06
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_silver_bullets"
+      ],
+      "_source": "CoA: 'Your Shadow Hounds melee attacks now cleave 1 additional nearby enemy.' A pet's targeting is not talentable, so the cleave lands on the Houndmaster's own AoE."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_defender_of_darkshire",
+      "name": "Defender of Darkshire",
+      "description": "Increases your hound's armor by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "pet_armor": 0.05
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_darkrider"
+      ],
+      "_source": "CoA: 'Critical strikes with ranged auto attacks now increase the melee haste of your Shadow Hounds by 10% for 5 seconds.' There is no pet_haste key, and the spec's whole premise is splitting damage across hounds, so the third live pet key carries this node instead."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_scent_of_magic",
+      "name": "Scent of Magic",
+      "description": "Reduces the cooldown of Houndmaster's Call by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_witch_hunter_houndmasters_call_cooldown": 1
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_trapper"
+      ],
+      "_source": "CoA: 'Critical strikes now apply Scent of Magic for 15 seconds, causing your Shadow Hound's next Shadow Leap to incur a -10 sec reduced cooldown.' Houndmaster's Call is Frontier's version of the hound leap, so the reduction lands there."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_decimate",
+      "name": "Decimate",
+      "description": "Increases your hound's damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "pet_damage": 0.04
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_loksey_journal"
+      ],
+      "_source": "CoA: 'Empowers your Shadow Hounds for 20 seconds, granting them 30% increased damage and haste and allowing them to ignore Armor.' The ABILITY of the same name keeps the Houndmaster's burst window; this node is the permanent hound damage, which is the only half a pet can receive."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_pure_agony",
+      "name": "Pure Agony",
+      "description": "Increases the critical strike damage of Quickdraw by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_quickdraw_crit_damage": 0.08
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_rampaging_hounds"
+      ],
+      "_source": "CoA: 'Increases the critical damage of Quickdraw by 50%.' ability_<id>_crit_damage is a real per-ability key, read in _crit_damage_bonus."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_reload",
+      "name": "Reload",
+      "description": "Reduces the cooldown of Quickdraw by 1 turn.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_quickdraw_cooldown": 1
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_defender_of_darkshire"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Quickdraw by -4 sec.' Quickdraw is a 2-turn cooldown, and talented_cooldown floors at 1, so one rank is all there is room for."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_anguish",
+      "name": "Anguish",
+      "description": "Increases your Shadow spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "shadow_spell_damage": 0.03
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_scent_of_magic"
+      ],
+      "_source": "CoA: 'Your Shadow damage dealt now has a 5% chance to reduce the channel time of your next Darkflock by -50%.' Channel time is not modelled; Darkflock is the spec's one spell-power cast, so the node raises the school it deals in. shadow_spell_damage is built at runtime as f'{school}_spell_damage' - another family a literal scan would call dead."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_shadewalker",
+      "name": "Shadewalker",
+      "description": "Grants attack power equal to 3% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "ap_from_intellect_pct": 0.03
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_decimate"
+      ],
+      "_source": "CoA stat priority: 'Intellect (Shadewalker converts Int into AP and Dark Mind converts Int into crit rating)'. A real conversion, resolved against the shared STAT_CONVERSION maps in character.py. No other ranged spec in the game wants Intellect; these two nodes are why this one does."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_dark_mind",
+      "name": "Dark Mind",
+      "description": "Grants critical strike chance equal to 2% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "crit_from_intellect_pct": 0.02
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_pure_agony"
+      ],
+      "_source": "CoA: 'Increases your critical strike rating by 25% of your Intellect.' The other half of the Intellect pair."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_daredevil",
+      "name": "Daredevil",
+      "description": "While below 35% health, you take 6% less damage per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.06,
+        "low_health_threshold_pct": 0.35
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_anguish"
+      ],
+      "_source": "CoA: 'When you take damage that would reduce your health to 35% or less, you summon 3 lesser Shadow Hounds and reset the cooldown of Vault', described as 'the main safety net' and 'the emergency bail-out'. Neither the extra hounds nor the reset is expressible, so the engine's own low-health mitigation pair carries it - at CoA's own 35% threshold."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_lethal_pursuit",
+      "name": "Lethal Pursuit",
+      "description": "Increases your hound's damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "pet_damage": 0.04
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_shadewalker"
+      ],
+      "_source": "CoA: 'Shadow Rage now also grants your Shadow Hounds 10% increased haste and it now stacks 3 additional times.' pet_haste does not exist; stacking does not either. The throughput does."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_veiled_in_darkness",
+      "name": "Veiled in Darkness",
+      "description": "Increases your attack power by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "attack_power_pct": 3.0
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_dark_mind"
+      ],
+      "_source": "CoA: 'A veil of dark magic encircles you at all times, granting 5% increased Attack Power to party and raid members within 100 yds', which is what the spec's raid rating is sold on. A talent cannot grant a party aura - talent effects only ever apply to their own character - so the Houndmaster keeps it. The real party-facing buffs in this class are abilities (Slayer, Monster Hunting)."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_expulsion_of_evil",
+      "name": "Expulsion of Evil",
+      "description": "Your ranged attacks have a 15% chance to reset the cooldown of Houndmaster's Call.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_houndmaster_daredevil"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "reset_cooldown": {
+          "ability_id": "witch_hunter_houndmasters_call"
+        }
+      },
+      "_source": "CoA: 'Direct ranged attacks and abilities now have a 5% chance to reset the cooldown of Houndmaster's Call.' reset_cooldown IS a real proc payload - the one cooldown reset the engine can actually do - so this node is CoA's exactly, at a higher chance because a turn is longer than a cast."
+    },
+    {
+      "talent_id": "witch_hunter_houndmaster_deal_with_the_devil",
+      "name": "Deal With the Devil",
+      "description": "Everything you and the hounds land hits harder, and everything costs more.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "crit_damage_physical": 0.2,
+        "crit_damage_spell": 0.2,
+        "pet_damage": 0.15,
+        "all_ability_cost_pct": 0.1
+      },
+      "connected_to": [
+        "witch_hunter_houndmaster_lethal_pursuit",
+        "witch_hunter_houndmaster_veiled_in_darkness",
+        "witch_hunter_houndmaster_expulsion_of_evil"
+      ],
+      "_source": "Capstone. CoA: 'Your and your Shadow Hounds critical damage dealt with Shadow damage is increased by 50%, but the cost of your spells and abilities is increased by 25%.' The real drawback is kept - all_ability_cost_pct POSITIVE is a cost increase, and it is the only node in this class that charges you for itself."
+    }
+  ]
+}

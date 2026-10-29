@@ -32,6 +32,9 @@ class CharacterCreationScreen(BaseScreen):
             # actually acts in a real fight.
             "Stormbringer", "Tinker", "Venomancer", "Primalist", "Runemaster", "Cultist", "Starcaller", "Sun Cleric",
             "Guardian",
+            "Witch Hunter",
+            "Templar",
+            "Reaper",
             "Witch Doctor",
             "Ranger",
             "Pyromancer",

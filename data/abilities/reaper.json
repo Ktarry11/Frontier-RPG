@@ -1,0 +1,1853 @@
+{
+  "class": "Reaper",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_reaper.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "reaper_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A measured swing of the scythe.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack. Also the ability the engine re-invokes for an extra_attack proc, found by the <class>_attack naming rule."
+    },
+    {
+      "ability_id": "reaper_reap",
+      "name": "Reap",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A short, economical cut that leaves a soul loose in the air for you to take.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 16,
+          "effect_value": 36
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 18,
+          "effect_value": 45
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 21,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 24,
+          "effect_value": 63
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 27,
+          "effect_value": 72
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 31,
+          "effect_value": 81
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 35,
+          "effect_value": 90
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 99
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 46,
+          "effect_value": 108
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: Reap is the builder in all three rotations - Domination's 'keep Reap flowing', Harvest's 'Reap as your basic filler', Soul's 'fill gaps with Reap, the cheap generator'. Class tree's Backswing raises the resource it returns, so it generates Souls as well as costing Mana. Warrior's heroic_strike curve.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 10
+      }
+    },
+    {
+      "ability_id": "reaper_murder",
+      "name": "Murder",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Two fast strikes to the same spot, which is usually enough.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 26,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 30,
+          "effect_value": 63
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 34,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 27,
+          "cost": 39,
+          "effect_value": 89
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 44,
+          "effect_value": 102
+        },
+        {
+          "rank": 6,
+          "level_req": 41,
+          "cost": 50,
+          "effect_value": 115
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 57,
+          "effect_value": 128
+        },
+        {
+          "rank": 8,
+          "level_req": 55,
+          "cost": 65,
+          "effect_value": 141
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Murder on cooldown while closing, or on a second target, for free extra Soul Fragments'. The class tree's Mysterious Omen extends its range, so it is class kit rather than any one spec's.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 15
+      }
+    },
+    {
+      "ability_id": "reaper_soul_strike",
+      "name": "Soul Strike",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Reach past the body for what is underneath it, and take some back with you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 84,
+          "heal_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 34,
+          "effect_value": 106,
+          "heal_value": 51
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 39,
+          "effect_value": 128,
+          "heal_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 44,
+          "effect_value": 150,
+          "heal_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 51,
+          "effect_value": 172,
+          "heal_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 58,
+          "effect_value": 194,
+          "heal_value": 95
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 66,
+          "effect_value": 216,
+          "heal_value": 106
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Domination's 'Soul Strike as your Runic Power spender and health/Strength steal (Essence Binder)', and the class tree's Harvester's Scythe 'increases the amount leeched by Soul Strike'. damage_and_heal is the engine's only life-steal effect_type; note it resolves on the SPELL damage path, which is why this is Shadow-schooled and carries a high flat base rather than reading as a weapon hit.",
+      "target_type": "enemy",
+      "heal_scope": 1,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "reaper_wraithblade",
+      "name": "Wraithblade",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A blow the scythe lands somewhere other than here, so there is nothing in the way of it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 46,
+          "effect_value": 96
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 52,
+          "effect_value": 122
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 60,
+          "effect_value": 148
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 68,
+          "effect_value": 174
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 78,
+          "effect_value": 200
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 89,
+          "effect_value": 226
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA class tree: 'Generates 3 Reaped Souls. Strike for 150% Weapon Damage plus AP Shadow damage, ignoring resistances, absorption, and invulnerability effects.' Soul calls it 'your hardest hitting opener'. The ignore-everything clause has no engine hook - there is no way to bypass resistance or an absorb shield on a single cast - so it is a plain big physical hit with the largest Souls grant in the kit.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 25
+      }
+    },
+    {
+      "ability_id": "reaper_soulrend",
+      "name": "Soulrend",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "The wound will not close while the scythe still remembers it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 24,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 27,
+          "effect_value": 38
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 31,
+          "effect_value": 46
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 36,
+          "effect_value": 54
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 41,
+          "effect_value": 62
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 46,
+          "effect_value": 70
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Soul's Weakened Souls and Haunter both modify Soulrend, Domination's Soulstorm refunds souls off it, and Harvest's Callous Soul makes it ignore armour - all three specs' trees touch it, so it is class kit.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "reaper_scythe_rush",
+      "name": "Scythe Rush",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Cover the ground between you in two strides and open with the hook of the blade.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 23,
+          "cost": 23,
+          "effect_value": 66
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 26,
+          "effect_value": 82
+        },
+        {
+          "rank": 4,
+          "level_req": 45,
+          "cost": 30,
+          "effect_value": 98
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 34,
+          "effect_value": 114
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA class tree: 'Rush towards an enemy and generate 15 Runic Power. Cannot be used on the same target more than once every 20 seconds.' The per-target lockout has no engine hook; a 5 turn cooldown stands in for it.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 15
+      }
+    },
+    {
+      "ability_id": "reaper_spectre_stride",
+      "name": "Spectre Stride",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You arrive before the sound of you does.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 28,
+          "effect_value": 64
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 32,
+          "effect_value": 84
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 36,
+          "effect_value": 104
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 41,
+          "effect_value": 124
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 47,
+          "effect_value": 144
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: the class tree's Ghastly Advance extends it and Between Shadows makes it generate a Reaped Soul; Soul's Apparition raises its damage 30%. Soul lists it under 'Spectre Stride closes'.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 10
+      }
+    },
+    {
+      "ability_id": "reaper_soul_harvest",
+      "name": "Soul Harvest",
+      "resource_type": "souls",
+      "cooldown": 1,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spend what you have taken. It goes back into you as fast as it comes out of them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 72,
+          "heal_value": 72
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 92,
+          "heal_value": 92
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 112,
+          "heal_value": 112
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 132,
+          "heal_value": 132
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 152,
+          "heal_value": 152
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 172,
+          "heal_value": 172
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Soul Harvest (Damage): Blasts your target for Shadow Damage, healing for 100% of the damage dealt.' In CoA it is a free cascade off generating Reaped Souls; here it is the Souls SPENDER, because a 0-100 pool needs somewhere to go and this is the class's signature effect. Heal equals damage, as the tooltip says.",
+      "target_type": "enemy",
+      "heal_scope": 1,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "reaper_soul_shear",
+      "name": "Soul Shear",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A clean cut through something that was never physical.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 34,
+          "effect_value": 86
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 39,
+          "effect_value": 110
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 44,
+          "effect_value": 134
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 50,
+          "effect_value": 158
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 57,
+          "effect_value": 182
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: named in the class tree's Into The Shadow Realm and Soul's Reaver, both of which cut its cooldown alongside Deathstalker and Soulstone Lure. The reference never states its damage, so it is sized as the mid-cooldown Shadow nuke those two nodes imply.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "reaper_ghastly_screech",
+      "name": "Ghastly Screech",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "A sound that gets into the throat and stays there, and then gets worse.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 38,
+          "effect_value": 36
+        },
+        {
+          "rank": 2,
+          "level_req": 42,
+          "cost": 43,
+          "effect_value": 47
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 49,
+          "effect_value": 58
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 56,
+          "effect_value": 69
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Screech with ghastly intent, silencing all nearby enemies for 4 seconds, and dealing AP Shadowfrost Damage at the end of the duration.' There is no silence primitive, so the damage-at-the-end half carries the ability as a short AoE Shadowfrost dot.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": [
+        "shadow",
+        "frost"
+      ]
+    },
+    {
+      "ability_id": "reaper_deathwind",
+      "name": "Deathwind",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Stand in it. Whatever is leaving you, some of it comes back.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 32,
+          "effect_value": 120
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 36,
+          "effect_value": 156
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 42,
+          "effect_value": 192
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 47,
+          "effect_value": 228
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Domination's 'Deathwind for sustain on a tough single target or when you've overpulled', and Harvest's Hungering Scythe extends it, so both specs want it. The real ability is a ground zone; this engine has no positional areas, so it is a self heal-over-time.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_veilwalk",
+      "name": "Veilwalk",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": 10.0,
+        "dodge": 5.0
+      },
+      "description": "Step half out of the world. Things move slower on the other side of it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: '2 Charges. 50% increased movement speed for 5 seconds, stacking 2 times. Removes all movement impairing effects.' Movement speed is not modelled in a turn engine and 'movement' is NOT a real DispelType (see DispelType.ALL), so authoring this as a dispel would have made a button that always fails and refunds. Haste and dodge are the honest turn-based reading of moving faster than the thing swinging at you.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_soul_tap",
+      "name": "Soul Tap",
+      "resource_type": "souls",
+      "cooldown": 4,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Take the edge off your own soul. It grows back, mostly.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 25,
+          "mana_restore_pct": 25
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Chip away at the very essence of your own soul, generating 50 Runic Power.' With Mana as the primary pool this is the Souls-into-Mana valve, the same shape as cultist_sanity_tap. mana_restore_pct is on the rank because that, not effect_value, is the key restore_resource actually reads.",
+      "target_type": "self",
+      "restore_resource_type": "mana"
+    },
+    {
+      "ability_id": "reaper_sinister_litany",
+      "name": "Sinister Litany",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Say the quiet part out loud and three of them answer.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 24,
+          "effect_value": 35,
+          "mana_restore_pct": 35
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Embrace your sinister thoughts, instantly generating 3 Reaped Souls.' 35% of a 100 pool stands in for 3 of a 5-stack bank.",
+      "target_type": "self",
+      "restore_resource_type": "souls"
+    },
+    {
+      "ability_id": "reaper_ghost_claw",
+      "name": "Ghost Claw",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -20.0
+      },
+      "description": "Something cold closes on the back of their leg.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 22,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Ghost Claw (Speed): Chill an enemy with a ghostly claw, slowing and stealing -50% of their movement speed for 8 seconds.' Movement speed becomes attack speed, the only slow a turn engine can express.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "reaper_tormented_souls",
+      "name": "Tormented Souls",
+      "resource_type": "souls",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.1
+      },
+      "description": "Keep one of them awake and screaming where it can take the hits meant for you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Tormented Souls: Reduces all direct damage you take by 10% and heals you for Stamina, removing 1 stack.' The stack-consuming heal has no hook; the 10% mitigation is literal. NOTE damage_taken_pct in a buff's stat_mods is read RAW by take_damage, so -0.10 is -10% - the OPPOSITE convention to the school-specific variants beside it, which are divided by 100.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_jailers_bargain",
+      "name": "Jailer's Bargain",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Ask him for something and he always says yes. That is the problem with him.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'gaining a shield that absorbs damage equal to 30% of your maximum health for 10 seconds. While this is active you are considered Undead and are immune to fear, sleep, and charm effects.' The absorb is literal; there is no creature-type swap or immunity-to-a-school-of-CC primitive.",
+      "target_type": "self",
+      "absorb_pct_max_health": 0.3
+    },
+    {
+      "ability_id": "reaper_withering_touch",
+      "name": "Withering Touch",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -140,
+        "magic_damage_taken_pct": 10.0
+      },
+      "description": "Lay a hand on their armour and it ages a hundred years under your palm.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 26,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'reducing the target's armor by -20% and increasing their Magic damage taken by 10% for 1 minute, and generates Runic Power.' Armour reduction is flat rather than proportional because a debuff's stat_mods are a flat bonus pool. magic_damage_taken_pct on a DEBUFF is percentage POINTS (take_damage divides it by 100), hence 10.0 and not 0.10.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 10
+      }
+    },
+    {
+      "ability_id": "reaper_limbo",
+      "name": "Limbo",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "magic_damage_taken_pct": -45.0,
+        "damage_taken_pct": -0.15
+      },
+      "description": "Step out of your own body for a moment. Nothing aimed at it lands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 36,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Rip out of your mortal shell for 5 seconds, making you immune to all harmful spell effects and instantly restoring 30% of your maximum health and Runic Power.' All three specs name it as the answer to magic burst. There is no immunity primitive and no way to pair a heal with a buff on one cast, so it is a heavy magic-damage reduction plus a smaller flat one; the health-and-resource restore is gone and Jailer's Bargain carries the shield half of the class's defensive kit.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_shadows_embrace",
+      "name": "Shadow's Embrace",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Whatever got into their head, you take it out again.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 24,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Domination's 'Shadow's Embrace cleanses fear, charm and sleep one effect at a time'. Fear, charm and sleep are Magic in WoW's dispel schools, and magic is a real DispelType here, so this one survives translation intact.",
+      "target_type": "ally",
+      "dispel_type": "magic"
+    },
+    {
+      "ability_id": "reaper_masochistic_rage",
+      "name": "Masochistic Rage",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 20.0
+      },
+      "description": "Open your own skin first. After that nothing they do is news.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'After a 1 sec delay, you suffer AP damage, enraging you and increasing your damage dealt by 20% for 15 seconds.' The self-damage cost has no hook, so a long cooldown pays for it instead. damage_dealt_pct in a buff is percentage POINTS.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_soulstone_lure",
+      "name": "Soulstone Lure",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Show them a way out that was never there.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 32,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Domination's 'hard CC stops at Mark of Terror's fear and Soulstone Lure's horrify'. A horrify is a stun here; is_stun is the only incapacitate the engine has.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "reaper_crows_harvest",
+      "name": "Crow's Harvest",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A full turn with the scythe out, and every one of them loses something.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 36
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 34,
+          "effect_value": 46
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 39,
+          "effect_value": 56
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 44,
+          "effect_value": 66
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 51,
+          "effect_value": 76
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 58,
+          "effect_value": 86
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 66,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Open with Crow's Harvest to leap into the pull, deal weapon damage in an arc, and harvest up to 3 Soul Fragments.' max_targets=4 rather than target_type alone, because enemy_aoe on its own hits EVERY enemy in the fight - the limited-cleave cap is what the tooltip means.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "generates": {
+        "resource": "souls",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "reaper_doomrend",
+      "name": "Doomrend",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Open them from the collarbone down and leave the wound arguing with anything that tries to close it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 34,
+          "effect_value": 78
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 39,
+          "effect_value": 99
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 44,
+          "effect_value": 120
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 141
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 57,
+          "effect_value": 162
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 65,
+          "effect_value": 183
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Doomrend to apply its anti-heal shield and, with Darkrend Scythe, start the bleed.' An ability's own `proc` is only attached for buff/debuff effect_types, so a damage ability cannot apply its own debuff: the anti-heal lives on the Blood Fueled talent instead, where a proc CAN land a healing_taken_pct debuff on the target.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 15
+      }
+    },
+    {
+      "ability_id": "reaper_slaughter",
+      "name": "Slaughter",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "They are already finished. This is bookkeeping.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 36,
+          "effect_value": 120
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 41,
+          "effect_value": 154
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 47,
+          "effect_value": 188
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 53,
+          "effect_value": 222
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 61,
+          "effect_value": 256
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 69,
+          "effect_value": 290
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Slaughter the moment a target drops below 35% HP for the execute plus a Reaped Soul.' execute_threshold_pct is 0-100, not a fraction - guardian_final_verdict shipped 0.25 and gated itself at a quarter of one percent.",
+      "target_type": "enemy",
+      "execute_threshold_pct": 35,
+      "generates": {
+        "resource": "souls",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "reaper_sever",
+      "name": "Sever",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Cut the thread the words are travelling down.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 34,
+          "effect_value": 96,
+          "heal_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 39,
+          "effect_value": 124,
+          "heal_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 44,
+          "effect_value": 152,
+          "heal_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 50,
+          "effect_value": 180,
+          "heal_value": 114
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Attempt to drain an enemies vitals, leeching AP health, interrupting casting and preventing any spell from that school from being cast for 3 seconds.' There is no interrupt or school-lockout primitive, so the leech half is the whole ability and 'Sever to interrupt a dangerous cast' is lost.",
+      "target_type": "enemy",
+      "heal_scope": 1,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "reaper_harvesting_grounds",
+      "name": "Harvesting Grounds",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": -15.0
+      },
+      "description": "Mark the ground. Leaving it turns out to be harder than they expected.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'enemies inside have their melee and ranged haste and movement speed reduced by -20%. For the duration, enemies that try to exit the harvesting ground will be pulled back to its center.' The haste slow is literal; the zone and the pull-back are not modellable.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "reaper_harvest_time",
+      "name": "Harvest Time",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 15.0,
+        "crit_chance_physical": 15.0
+      },
+      "description": "Decide the fight is over and then spend a while proving it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 34,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases your damage and critical strike chance by 15% ... for 15 seconds', 'your burst window when you can commit to a heavy trade'. Taught by the Harvest Time talent; the Soul-Infusion-preservation clause has no equivalent with a single Souls pool.",
+      "target_type": "self",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "reaper_blood_frenzy",
+      "name": "Blood Frenzy",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "It stops being a fight and becomes weather.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 48,
+          "cost": 44,
+          "effect_value": 90
+        },
+        {
+          "rank": 2,
+          "level_req": 58,
+          "cost": 50,
+          "effect_value": 120
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Deals AP Shadow Damage to your target every 0.75 sec for 7.5 seconds. At the end of the duration, the target takes an additional AP Shadow Damage.' The end-of-duration spike has no hook, so it is a plain heavy Shadow dot. Capstone-taught, like CoA's tier gate.",
+      "target_type": "enemy",
+      "damage_school": "shadow",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "reaper_dirge",
+      "name": "Dirge",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The same two notes, over and over, until something gives.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 34,
+          "effect_value": 73
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 39,
+          "effect_value": 88
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 44,
+          "effect_value": 103
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 51,
+          "effect_value": 118
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 58,
+          "effect_value": 133
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 66,
+          "effect_value": 148
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Loop Dirge (dual-weapon strike, generates 2 Soul Fragments) as your main sustained button.' Reaper is two-hand only in Frontier (weapon_types.json: sword_2h, axe_2h, mace_2h), so the dual-wield framing is dropped and it reads as a repeated two-handed strike. Its Shadowfrost school is dropped too - see the SCHOOL SPLIT note; a 'damage' ability never reads school talents.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "souls",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "reaper_deathchaser",
+      "name": "Deathchaser",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Name them once. It keeps going back on its own after that.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 28,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 32,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 36,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 41,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 47,
+          "effect_value": 74
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 54,
+          "effect_value": 84
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Open with Deathchaser (repeating Shadowfrost damage, generates Runic Power, reapplies on sub-20% targets) to soften and mark the target.' Real Shadowfrost - authored as a combined-school list, which get_resistance resolves to the LOWEST component resistance. Chasing Death's sub-20% reapplication has no hook.",
+      "target_type": "enemy",
+      "damage_school": [
+        "shadow",
+        "frost"
+      ],
+      "generates": {
+        "resource": "souls",
+        "amount": 10
+      }
+    },
+    {
+      "ability_id": "reaper_reliquary_of_the_lost",
+      "name": "Reliquary of the Lost",
+      "resource_type": "souls",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Open the box. Everything in it goes the same direction.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 35,
+          "effect_value": 130
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 35,
+          "effect_value": 166
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 35,
+          "effect_value": 202
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 35,
+          "effect_value": 238
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 35,
+          "effect_value": 274
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 35,
+          "effect_value": 310
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Whenever Soul Infusion comes up, fire Reliquary of the Lost (Purgatory has ramped its damage)'. The spec's biggest single-target spender; Soul Infusion's gate becomes the Souls cost.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "reaper_soulslam",
+      "name": "Soulslam",
+      "resource_type": "souls",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Put everything you are carrying into the ground at once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 40,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 40,
+          "effect_value": 70
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 40,
+          "effect_value": 86
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 102
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'dump Reaped Souls into Soulslam if 2+ mobs are clustered', 'That is your best AoE damage'. The other Souls spender, and the reason the pool is worth banking on a trash pull.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "reaper_ghostly_weapon",
+      "name": "Ghostly Weapon",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "damage_dealt_pct": 12.0
+      },
+      "description": "The blade goes cold enough that the air around it complains.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 24,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Imbue your weapon with ghostly power for 15 seconds, causing melee attacks to deal 25% additional damage as Frost damage.' An imbue that re-schools your autoattacks is not expressible, so it is a flat damage-dealt window; Lamenting's heal off that Frost damage is folded into the Soul tree as a leech proc.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_shade",
+      "name": "Shade",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "dodge": 25.0,
+        "damage_taken_pct": -0.2
+      },
+      "description": "Become the part of the room nobody looks at.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 28,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Become a shade, entering an improved stealth mode for 10 seconds and entering Underwalk. Removes all movement impairing effects.' No stealth in combat, so 'nothing can find you' lands as heavy avoidance plus flat mitigation - the second of the spec's two defensive outs.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_deaths_presence",
+      "name": "Death's Presence",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "damage_dealt_pct": 3.0
+      },
+      "description": "Standing near you is bad for them and good for everyone else.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases all damage dealt by party and raid members by 3%. Does not stack with similar effects.' The spec's whole party toolkit, which the reference lists as a weakness: 'A partner under pressure gets no heal, no shield and no CC-break from you.'",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "reaper_endbringer",
+      "name": "Endbringer",
+      "resource_type": "mana",
+      "cooldown": 18,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 20.0,
+        "haste": 10.0
+      },
+      "description": "For a little while you are the last thing that happens here.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Become an Endbringer for 15 seconds, increasing the damage of Dirge by 30%, the range by 20 yds, and causes it to generate 3 Reaped Souls. For the duration, Dirge will heal you for 75% of its damage dealt.' A buff cannot reach inside one named ability, so it is a general burst window; Gravesite's crit damage rides on the same talent.",
+      "target_type": "self",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "reaper_sepulchral_renewal",
+      "name": "Sepulchral Renewal",
+      "resource_type": "mana",
+      "cooldown": 20,
+      "effect_type": "reset_cooldowns",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You have been dead before. It did not take.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 48,
+          "cost": 44,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Resets the cooldown of Limbo, Soulslam, and Shade.' The reference calls this the answer to the spec's named weakness - 'Limbo and Shade are finite cooldowns. Spend both and there is a dead window.' reset_cooldowns is whole-book here rather than a named list.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "reaper_dreadwake",
+      "name": "Dreadwake",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A wave of them goes out ahead of the blade and arrives first.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 34,
+          "effect_value": 51
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 39,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 44,
+          "effect_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 51,
+          "effect_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 58,
+          "effect_value": 95
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 66,
+          "effect_value": 106
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Dreadwake (cone, Weapon plus Frost damage, generates a Reaped Soul) as your main filler once you're on a 2H weapon'. A 12 yd cone becomes a 3-target cleave.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "generates": {
+        "resource": "souls",
+        "amount": 15
+      }
+    },
+    {
+      "ability_id": "reaper_requiem",
+      "name": "Requiem",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Everything within reach of the swing hears the same thing.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 34,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 39,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 44,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 50,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 57,
+          "effect_value": 74
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 65,
+          "effect_value": 84
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Swing at enemies around you in a fury of souls, dealing AP Shadowfrost Damage, reducing their melee and ranged attack speed by 20% for 15 seconds.' One cast cannot both damage and debuff, so the attack-speed slow moves to the Soulstorm talent as a proc and this keeps the AoE damage and threat the tank rotation needs.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "generates": {
+        "resource": "souls",
+        "amount": 10
+      }
+    },
+    {
+      "ability_id": "reaper_decimate",
+      "name": "Decimate",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Every sixth cut lands somewhere the first five were only asking about.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 40,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 46,
+          "effect_value": 126
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 52,
+          "effect_value": 152
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 59,
+          "effect_value": 178
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 68,
+          "effect_value": 204
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: Decimation, Domination's level-50 passive - 'Reap, whose every 6th cast turns into a Decimate'. A cast counter has no hook, so Decimate is its own short-cooldown heavy strike rather than a Reap replacement.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "reaper_bolstered_form",
+      "name": "Bolstered Form",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "armor_pct": 25.0,
+        "parry": 10.0
+      },
+      "description": "Set yourself. The souls in the haft take the next few for you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Assume a bolstered form for 15 seconds, generating 30 Runic Power, increasing your Armor by 25%, and increasing your parry chance by 25%.' Costs nothing and GENERATES, exactly as written. Parry trimmed from 25 to 10 points because nothing else in the game hands out a quarter of an avoidance table. armor_pct in stat_mods is percentage POINTS, which is why it is 25.0.",
+      "target_type": "self",
+      "generates": {
+        "resource": "mana",
+        "amount": 60
+      }
+    },
+    {
+      "ability_id": "reaper_spectral_scythe",
+      "name": "Spectral Scythe",
+      "resource_type": "souls",
+      "cooldown": 6,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Let one of them loose on its own recognisance.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summons 1 Spectral Scythe for each Reaped Soul active which attack a nearby enemy for 20 seconds. Consumes Reaped Souls'. Souls-costed, as written. There is no spectral-blade template in combat/pet_templates.py and that file is shared, so it borrows faceless_destroyer - the closest existing shape, a melee shadow horror. One body per cast, not one per banked soul.",
+      "target_type": "self",
+      "summon_pet_template": "faceless_destroyer"
+    },
+    {
+      "ability_id": "reaper_spectral_warden",
+      "name": "Spectral Warden",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Something large and patient stands up between you and them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 44,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summon a spectral guardian to fight along side you for 20 seconds and apply an absorption shield to up to 8 allies within 20 yds.' summon_pet cannot also shield the party, so the body is the ability and the group absorb is lost; voidwalker is the engine's existing tank-shaped shadow pet. Taught by the Spirit Army talent.",
+      "target_type": "self",
+      "summon_pet_template": "voidwalker",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "reaper_ethereal_guard",
+      "name": "Ethereal Guard",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "damage_taken_pct": -0.03
+      },
+      "description": "Your presence takes the edge off whatever is coming for the rest of them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 32,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Reduces the damage taken by party and raid members by -3%. Does not stack with similar effects. In addition, increases your melee haste by 10%.' One buff cannot aim two different stat sets at two different sets of targets, so the party mitigation is kept and the personal haste moves into the Hard Bargain talent.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "reaper_eater_of_souls",
+      "name": "Eater of Souls",
+      "resource_type": "souls",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "physical_damage_taken_pct": -10.0
+      },
+      "description": "Three of them at once is enough to live on for a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Reaching 3 Reaped Souls now reduces your Physical damage taken by -10% and you regain 1% of your maximum health every 2 sec for 10 seconds.' A resource THRESHOLD trigger has no hook, so it is a Souls-costed cooldown instead - you still have to bank three souls' worth to press it. The regen half is the on-damage-taken heal proc, since the buff is only up while being hit anyway. physical_damage_taken_pct on a buff is POINTS.",
+      "target_type": "self",
+      "requires_talent": true,
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 0,
+        "heal_flat": 70
+      }
+    },
+    {
+      "ability_id": "reaper_soulsight",
+      "name": "Soulsight",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "crit_chance_physical": 3.0,
+        "crit_chance_spell": 3.0
+      },
+      "description": "You show them where the seams are.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.' The second half of what the reference calls 'Rare support from a tank'.",
+      "target_type": "self",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "reaper_mark_of_terror",
+      "name": "Mark of Terror",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Put the mark on one of them and the ones beside it notice.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 34,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Domination's 'hard CC stops at Mark of Terror's fear and Soulstone Lure's horrify'. A fear is is_stun here; capped at 3 targets so it is a peel and not a full-pull lockdown.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "is_stun": true
+    }
+  ]
+}

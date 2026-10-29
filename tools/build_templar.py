@@ -1390,6 +1390,25 @@ CRUSADER = tree(
                     "additional 50% Weapon Damage'. Chastise is a Holy "
                     "ability here, so the weapon-damage half lands as general "
                     "physical damage rather than on Chastise's own school."),
+        node(C, "righteous_tempest", "Righteous Tempest",
+             "Grants Righteous Tempest, a three-turn whirl that spends every "
+             "Oath you have banked.",
+             4, 3, 1, {"unlock_ability": "templar_righteous_tempest"},
+             node_type="active", connect=["judgement", "serendipity"],
+             source="CoA Crusader node, 'Unleash a whirling Oath Breaker, "
+                    "dealing Weapon Damage plus SP damage to nearby enemies "
+                    "... every 1 sec for 3 seconds. Consumes your Oaths, "
+                    "dealing additional damage for each consumed'. The "
+                    "ability already existed with requires_talent set, but "
+                    "NOTHING granted it, so it was the one unobtainable "
+                    "ability in the game - see tools/validate_class.py's "
+                    "reachability check, added because this slipped past the "
+                    "validator. CoA places the node at the entry gate of the "
+                    "tree; tier 4 is the Frontier equivalent, because its "
+                    "20-point gate is reached around level 30 and the "
+                    "ability's own rank 1 is level 28. Tier 4 held 3 of 4 "
+                    "slots, so this completes the row rather than widening "
+                    "the tree."),
 
         node(C, "titanfall", "Titanfall",
              "Increases the healing done by Titanstrike by 12% per rank.",

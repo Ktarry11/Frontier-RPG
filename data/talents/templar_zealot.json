@@ -1,0 +1,467 @@
+{
+  "spec_name": "Templar Zealot",
+  "tree_id": "templar_zealot",
+  "description": "Oath melee DPS with a proc engine underneath it. Builders bank Oaths, Zealotry fires off your own swings, and the damage lives in two long Holy damage-over-time effects rather than one clean nuke.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_templar__zealot.txt and the zealot half of reference/coa_sidekick/talents/templar.json. CoA calls this 'a Retribution Paladin's Holy Power loop, where builders bank Oaths and a finisher spends them', with the difference that it is 'dual-wield and DoT-forward (Condemn plus Blade of Faith) with a Zealotry proc engine off the off-hand rather than one clean nuke finisher'. Two things drove the selection. First, the Zealotry engine: this is the only spec in the game whose basic Attack is a rotational button, because Zealotry, Chakra of Power and Iron Penance all hang off ON_WEAPON_SWING, which fires only from templar_attack. Second, the stat priority leads with Attack Power because 'Calm Combatant scales Holy damage off AP' - so the AP-to-spell-power conversion is a tier-0 node, not a late one. CoA's optional Chakra of Light overlay ('turns your Oath Breakers into ally heals') is left out: nothing can convert a damage ability into a heal.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "templar_zealot_martial_paladin",
+      "name": "Martial Paladin",
+      "description": "Increases your Agility by 2% and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "agility_pct": 2.0,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Agility by 5% and your chance to hit by 3%' (2 ranks). Agility is the Templar's primary stat, and the spec's priority leads 'Attack Power ... Agility (AP + crit)'."
+    },
+    {
+      "talent_id": "templar_zealot_solemn_soldier",
+      "name": "Solemn Soldier",
+      "description": "Increases your haste by 2 and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 2.0,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your melee haste by 5% and expertise by 5' (2 ranks). There is no expertise stat in this engine and no key for one, so the expertise half lands as hit rating, which is the other 'stop missing' stat the spec's priority caps first."
+    },
+    {
+      "talent_id": "templar_zealot_bursting_impact",
+      "name": "Bursting Impact",
+      "description": "Increases your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your off-hand weapon damage by 25%'. This engine has one weapon damage figure and no main-hand/off-hand split, so an off-hand buff can only be flat physical damage."
+    },
+    {
+      "talent_id": "templar_zealot_calm_combatant",
+      "name": "Calm Combatant",
+      "description": "Grants spell power equal to 6% of your attack power per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_ap_pct": 0.06
+      },
+      "connected_to": [],
+      "_source": "CoA free level-20 passive, verbatim: 'Increases your Holy spell damage by 30% of your attack power'. 5 ranks of 6% is exactly that 30%. This node is why a leather Agility class can press Holy abilities at all - without it Chastise and Condemn scale off a spell power stat the Templar never gears."
+    },
+    {
+      "talent_id": "templar_zealot_condemnation",
+      "name": "Condemnation",
+      "description": "Increases the damage of Condemn by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_templar_condemn_damage": 0.06
+      },
+      "connected_to": [
+        "templar_zealot_martial_paladin"
+      ],
+      "_source": "CoA has two separate Zealot nodes called Condemnation, one raising the crit Condemn grants and one giving Condemn a chance to trigger Zealotry. Neither shape exists here (an ability cannot grant crit, and a per-ability proc chance has no hook), so the one node carries Condemn's damage, which is where CoA says most of the spec's damage lives."
+    },
+    {
+      "talent_id": "templar_zealot_zealotry",
+      "name": "Zealotry",
+      "description": "Your Attacks strike a second time for 40% of their damage.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "templar_zealot_solemn_soldier"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "bonus_pct": 0.4
+      },
+      "_source": "CoA free level-10 passive: 'Your off-hand auto attacks now trigger Zealotry. Zealotry (Proc): Deals 40% off-hand Weapon Damage as Holy Damage.' ON_WEAPON_SWING fires only off the class's own <prefix>_attack, which is as close to 'auto attack' as this engine gets. The bonus hit carries no school: a talent's synthetic StatusEffect is built without a damage_school, so bonus_pct damage resolves untyped rather than as Holy."
+    },
+    {
+      "talent_id": "templar_zealot_blade_sermon",
+      "name": "Blade Sermon",
+      "description": "Increases your Holy damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "holy_spell_damage": 0.02
+      },
+      "connected_to": [
+        "templar_zealot_bursting_impact"
+      ],
+      "_source": "CoA: 'Increases the Weapon Damage dealt by Zealotry by 10%' (2 ranks). Zealotry's proc damage cannot be scaled by a talent key, so the node scales the Holy half of the kit it belongs to instead."
+    },
+    {
+      "talent_id": "templar_zealot_chakra_of_power",
+      "name": "Chakra of Power",
+      "description": "Your Attacks restore 10 Combo.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "templar_zealot_calm_combatant"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "combo",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Melee attacks now restore 1 Energy, plus an additional 2 Energy when they critically strike', and 'Chakra of Power refunds Energy on melee hits so the loop rarely starves'. Combo has no passive regeneration at all, so this is the only thing in the game that generates it outside a builder. One point, not three: grant_resource's amount is fixed, not scaled by rank."
+    },
+    {
+      "talent_id": "templar_zealot_one_punch_man",
+      "name": "One-Punch Man",
+      "description": "Increases the damage of Chastise and Righteous Upheaval by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_templar_chastise_damage": 0.08,
+        "ability_templar_righteous_upheaval_damage": 0.08
+      },
+      "connected_to": [
+        "templar_zealot_condemnation"
+      ],
+      "_source": "CoA: 'Increases the the damage of Oath Breakers and Titanstrike by 20%'. Titanstrike belongs to Crusader, so this names Zealot's own two Oath Breakers."
+    },
+    {
+      "talent_id": "templar_zealot_iron_penance",
+      "name": "Iron Penance",
+      "description": "Your damage leaves the target taking 2% more physical damage per rank for 3 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "templar_zealot_zealotry"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "templar_iron_penance",
+          "name": "Iron Penance",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "physical_damage_taken_pct": 2.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Dealing damage with Zealotry now applies Iron Penance to the target, increasing their Physical damage taken by you by 1% for 3 seconds, stacking 10 times'. The ten-stack ramp has no hook here, so the per-rank value carries it instead. NOTE the units: a proc's apply_effect stat_mods are percentage POINTS, the opposite of the same key in a talent's effects."
+    },
+    {
+      "talent_id": "templar_zealot_deliverance",
+      "name": "Deliverance",
+      "description": "Increases your critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "crit_damage_physical": 0.04
+      },
+      "connected_to": [
+        "templar_zealot_blade_sermon"
+      ],
+      "_source": "CoA: 'Critically striking with Vindication or Righteous Lunge now deals 50% additional Physical damage'. A per-ability crit damage key exists, but the spec's two builders are both physical, so one crit damage node covers them without splitting the point."
+    },
+    {
+      "talent_id": "templar_zealot_heavens_finest",
+      "name": "Heaven's Finest",
+      "description": "Reduces the Combo cost of your abilities by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "all_ability_cost_pct": -0.03
+      },
+      "connected_to": [
+        "templar_zealot_chakra_of_power"
+      ],
+      "_source": "CoA: 'At 6 stacks, increases your Energy regeneration by 100% for 8 seconds'. Combo regeneration does not exist to increase, and combo_max is reported dead by the validator even though get_resource_max would read it, so the honest version of 'the loop starves less' is a cheaper loop."
+    },
+    {
+      "talent_id": "templar_zealot_upheave",
+      "name": "Upheave!",
+      "description": "Increases the critical strike damage of Righteous Upheaval by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_templar_righteous_upheaval_crit_damage": 0.1
+      },
+      "connected_to": [
+        "templar_zealot_one_punch_man"
+      ],
+      "_source": "CoA: 'Increases the critical damage of Righteous Upheaval by 20%'. ability_<id>_crit_damage is a real key, read in _crit_damage_bonus by interpolation - a literal grep calls the whole family dead."
+    },
+    {
+      "talent_id": "templar_zealot_transcending_strikes",
+      "name": "Transcending Strikes",
+      "description": "Reduces the cooldown of Divine Force by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_templar_divine_force_cooldown": 1
+      },
+      "connected_to": [
+        "templar_zealot_zealotry",
+        "templar_zealot_iron_penance"
+      ],
+      "_source": "CoA: 'Your Divine Force will now trigger a -30 sec reduced cooldown when used on enemies affected by Blade of Faith'. The conditional cannot be expressed, so the reduction is unconditional and smaller."
+    },
+    {
+      "talent_id": "templar_zealot_battle_hardened",
+      "name": "Battle Hardened",
+      "description": "Reduces the cooldown of Righteous Upheaval by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_templar_righteous_upheaval_cooldown": 1
+      },
+      "connected_to": [
+        "templar_zealot_deliverance"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Righteous Upheaval by -5 sec'."
+    },
+    {
+      "talent_id": "templar_zealot_priest_training",
+      "name": "Priest Training",
+      "description": "Your damage knits you back together.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "templar_zealot_heavens_finest"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "heal_flat": 40
+      },
+      "_source": "CoA: 'Triggering Zealotry now also heals you for 3% of your missing health'. A heal sized off missing health has no payload shape, so it is a flat heal - the spec's only sustain, which matches CoA: 'There's no self-heal to lean on'."
+    },
+    {
+      "talent_id": "templar_zealot_unbroken_creed",
+      "name": "Unbroken Creed",
+      "description": "Your damage has a 15% chance per rank to give you an extra attack.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "templar_zealot_upheave"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "extra_attack": true
+      },
+      "_source": "CoA free level-50 passive: 'When you use a damaging Oath Breaker or Divine Fury you now consume the stacks and auto attack your target an amount of times equal to your stack count'. extra_attack is a genuine second swing that rolls its own hit and crit, which also means it re-triggers Zealotry - the stacking count is what is missing, not the mechanic."
+    },
+    {
+      "talent_id": "templar_zealot_devotion_of_khazgoroth",
+      "name": "Devotion of Khaz'goroth",
+      "description": "Increases your haste by 2 and your attack power by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "haste": 2.0,
+        "attack_power_pct": 2.0
+      },
+      "connected_to": [
+        "templar_zealot_transcending_strikes",
+        "templar_zealot_battle_hardened"
+      ],
+      "_source": "CoA: 'Increases all party and raid member's melee and ranged haste by 10%'. A talent's effects only ever apply to its owner - there is no party-scoped talent effect - so the raid haste CoA credits this spec with is on the Templar alone."
+    },
+    {
+      "talent_id": "templar_zealot_holy_upheaval",
+      "name": "Holy Upheaval",
+      "description": "Increases the damage of Righteous Upheaval by 10% and your area damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_templar_righteous_upheaval_damage": 0.1,
+        "aoe_damage": 0.04
+      },
+      "connected_to": [
+        "templar_zealot_priest_training"
+      ],
+      "_source": "CoA free level-30 passive: 'Increases the effectiveness Righteous Upheaval gains per trigger of Zealotry by 100%'. Righteous Upheaval has no Zealotry counter here, so doubling its scaling becomes raising its damage."
+    },
+    {
+      "talent_id": "templar_zealot_might_of_aggramar",
+      "name": "Might of Aggramar",
+      "description": "Increases the damage of Blade of Faith by 10% and all your damage over time by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "ability_templar_blade_of_faith_damage": 0.1,
+        "dot_damage": 0.03
+      },
+      "connected_to": [
+        "templar_zealot_unbroken_creed"
+      ],
+      "_source": "CoA tier-6: 'Physical damage dealt now has a 25% chance to increase the tick rate and reduce cooldown of your next Blade of Faith by -10%, stacking 5 times'. Tick rate is fixed at one tick per turn here, so faster ticks become more damage."
+    },
+    {
+      "talent_id": "templar_zealot_one_with_the_light",
+      "name": "One With The Light",
+      "description": "Reduces the cooldown of Force of Golganneth and Mortal Abdication by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "ability_templar_force_of_golganneth_cooldown": 1,
+        "ability_templar_mortal_abdication_cooldown": 1
+      },
+      "connected_to": [
+        "templar_zealot_devotion_of_khazgoroth"
+      ],
+      "_source": "CoA tier-6: 'Casting Oath Breakers now triggers Zealotry on your target and reduces the cooldown of Librams, Force of Golganneth, and Mortal Abdication by -1 sec'. The cooldown half is the half that fits."
+    },
+    {
+      "talent_id": "templar_zealot_fury_of_aggramar",
+      "name": "Fury of Aggramar",
+      "description": "Libram of Consecration and Libram of Zeal last 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_templar_libram_of_consecration_duration": 1,
+        "ability_templar_libram_of_zeal_duration": 1
+      },
+      "connected_to": [
+        "templar_zealot_holy_upheaval"
+      ],
+      "_source": "CoA tier-6: 'Increases the damage dealt by Libram of Consecration by 100% and the effectiveness of your Librams by 25%'. Libram effectiveness has no key, but uptime does, and a rolling Libram cycle is what CoA says the spec is doing: 'Cycle your Librams for a rolling steroid'."
+    },
+    {
+      "talent_id": "templar_zealot_norgannons_wrath",
+      "name": "Norgannon's Wrath",
+      "description": "Grants Norgannon's Wrath, a leaping blast of Holy force that lands on up to five enemies.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "templar_norgannons_wrath"
+      },
+      "connected_to": [
+        "templar_zealot_might_of_aggramar",
+        "templar_zealot_one_with_the_light",
+        "templar_zealot_fury_of_aggramar"
+      ],
+      "_source": "Capstone, and a real CoA tier-6 TE node rather than a passive dressed as one. CoA rates Zealot B in dungeons and B in raids on 'Solid sustained single-target DPS ... high throughput ceiling', so the payoff is a button, not a permanent multiplier."
+    }
+  ]
+}
