@@ -544,6 +544,56 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
                 f"{aid}: requires_talent is set but NO talent node grants it "
                 f"(effects.unlock_ability) - unobtainable, cannot ever be cast")
 
+    # CROSS-TREE DEAD FILTERS. A node in one tree that filters on, casts, or
+    # resets an ability only a DIFFERENT tree can unlock is dead for anyone
+    # who actually specs the tree it sits in. Found twice by hand today:
+    # Runemaster's Swift Etching sat in Engravement filtering on Hurricane,
+    # which only Riftblade grants; and five CoA Demolition nodes key off
+    # Tinker's Rocket Launcher, which only Invention grants. Note that
+    # Character marks ANY unlock_ability target as talent-gated whether or
+    # not the ability's own row sets requires_talent, so this bites even
+    # when the data looks innocent.
+    owner = {}
+    for path in trees:
+        doc = json.loads(path.read_text())
+        for node in doc.get("nodes") or []:
+            v = (node.get("effects") or {}).get("unlock_ability")
+            for target in (v if isinstance(v, list) else [v]) if v else []:
+                owner.setdefault(target, set()).add(path.stem)
+
+    def referenced_abilities(blob):
+        """Every ability id a node's proc machinery points at, nested procs
+        included - audit_talents only reads the top-level proc, and a
+        payload nested inside an apply_effect is just as live."""
+        found = set()
+        if isinstance(blob, dict):
+            for key, val in blob.items():
+                if key in ("ability_filter", "cast_ability"):
+                    found.update(val if isinstance(val, list) else [val])
+                elif key == "reset_cooldown":
+                    spec = val if isinstance(val, dict) else {"ability": val}
+                    ids = spec.get("ability") or spec.get("abilities") or []
+                    found.update(ids if isinstance(ids, list) else [ids])
+                else:
+                    found |= referenced_abilities(val)
+        elif isinstance(blob, list):
+            for item in blob:
+                found |= referenced_abilities(item)
+        return {f for f in found if isinstance(f, str)}
+
+    for path in trees:
+        doc = json.loads(path.read_text())
+        tag = path.stem
+        for node in doc.get("nodes") or []:
+            nid = node.get("talent_id", "<missing>")
+            for target in referenced_abilities(node.get("proc")):
+                owners = owner.get(target)
+                if owners and tag not in owners:
+                    report.error(
+                        f"{tag}/{nid}: references {target!r}, which is unlocked "
+                        f"only by {', '.join(sorted(owners))} - dead for anyone "
+                        f"who specs this tree")
+
 
 # ----------------------------------------------------------------------- wiring
 

@@ -2303,10 +2303,30 @@ class Character(StatusEffectMixin):
         top of one): Dodge and Parry each independently roll to negate the
         hit entirely (return 0 damage, same shape as a miss); Block rolls
         only if neither of those procs, and reduces (not negates) the
-        incoming amount by BLOCK_DAMAGE_REDUCTION - stacked with
+        incoming amount by SUBTRACTING self.block_value - stacked with
         block_bonus_reduction, the "reduce damage taken by blocked
         attacks" pool Spirit Guard talents contribute to (see
-        get_talent_effect("block_bonus_reduction")). Parry requires a
+        get_talent_effect("block_bonus_reduction")).
+
+        That sentence used to say a block reduces the hit by a flat 30%
+        via a BLOCK_DAMAGE_REDUCTION constant. It no longer does - the
+        constant was left declared but read by nothing after the switch to
+        subtracting block_value (which is the fix that made every
+        block_value talent and every bigger shield matter at all). A
+        comment describing behaviour the code has stopped having is how
+        today's per-key unit convention got documented backwards, so it is
+        corrected rather than left as a second plausible story.
+
+        Consequence worth knowing, not a bug: block_value is FLAT and
+        scales with Strength, shield and talents, so once it exceeds a
+        post-mitigation hit the block absorbs the whole thing and `actual`
+        floors at 1. Warrior Protection at 60 carries ~210 block value
+        against ~90 post-mitigation trash hits, so it reads as physically
+        immune to them. Real Classic behaves the same way against
+        low-level mobs; whether this game's damage curve should outrun
+        block value by 60 is a tuning question, deferred.
+
+        Parry requires a
         melee weapon capable of parrying in real WoW (can't parry with a
         ranged/caster kit) - not modeled here since this engine has no
         such distinction on non-Warrior/Rogue/Paladin classes; every
@@ -2314,7 +2334,6 @@ class Character(StatusEffectMixin):
         block stats regardless of class, same as every other avoidance
         stat already being class-agnostic here.
         """
-        BLOCK_DAMAGE_REDUCTION = 0.30  # WoW-classic-style: a block absorbs ~30% of the hit, not all of it
 
         # Absorb shields (StatusEffect.absorb - see its docstring; Tinker's
         # Reactive Plating is the first real user) soak the RAW incoming

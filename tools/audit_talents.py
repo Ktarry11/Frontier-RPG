@@ -413,6 +413,41 @@ def main():
             for _s in _specs:
                 if isinstance(_s, dict):
                     mods.update(_s.get("stat_mods") or {})
+                    # NESTED PROCS WERE UNAUDITED. StatusEffect.__init__ takes
+                    # a `proc`, and apply_effect passes arbitrary keys through
+                    # to it, so a buff can carry its own proc that only fires
+                    # while the buff is up - which is how Runemaster's glyph
+                    # chain expresses "while Frost Glyph is active", the
+                    # engine having no require_effect gate. Those nested
+                    # payloads are every bit as live as a top-level one, and
+                    # this audit read only the top level, so a dead key or a
+                    # bad trigger one layer down passed silently.
+                    nested = _s.get("proc")
+                    for _np in (nested if isinstance(nested, list) else [nested]):
+                        if not isinstance(_np, dict):
+                            continue
+                        # ONLY check the trigger when there IS one. A nested
+                        # proc without a trigger is not a broken trigger - it
+                        # is the flag-style shape, e.g. Mage Fire's Hot Streak
+                        # nests {"guarantee_next_crit": true}, read in
+                        # combat/abilities.py rather than dispatched by the
+                        # proc handler. Demanding a trigger and a payload here
+                        # accused five working talents across Mage, Hunter,
+                        # Ranger and Warrior. The payload check is skipped for
+                        # nested procs entirely - the shapes are too varied to
+                        # assert on, and the valuable part is the stat_mods
+                        # dead-key sweep below, which now reaches them.
+                        if (_np.get("trigger") is not None
+                                and PROC_TRIGGERS is not None
+                                and _np.get("trigger") not in PROC_TRIGGERS):
+                            findings["proc-bad-trigger"].append(
+                                f"{tid} ({n.get('name')!r}): NESTED proc trigger "
+                                f"{_np.get('trigger')!r} is not one the engine "
+                                f"dispatches")
+                        for _nae in (_np.get("apply_effect") or []) if isinstance(
+                                _np.get("apply_effect"), list) else [_np.get("apply_effect")]:
+                            if isinstance(_nae, dict):
+                                mods.update(_nae.get("stat_mods") or {})
             for key, val in mods.items():
                 # _DYNAMIC_KEY as well as LIVE: a status stat_mod can name a
                 # key the engine builds by interpolation just as a talent
