@@ -79,6 +79,24 @@ class ResourceType(Enum):
     ARCHERY_POINTS = "archery_points"  # Ranger: banks toward a payoff
     SOLAR_POWER = "solar_power"     # Sun Cleric: builds from spells, unleashed at threshold
     VITALITY = "vitality"           # Bloodmage: HP spent as a resource alongside Rage
+    SCRAP = "scrap"                 # Tinker: salvage banked by Makeshift Dynamite and
+                                     # friends, spent to enter and sustain Mechsuit
+                                     # form. CoA is explicit that this is a real
+                                     # resource, not an ability name: five of its
+                                     # talents generate a NUMBERED quantity of it
+                                     # parallel to mana ("grant you 5 Scrap and 2% of
+                                     # your maximum mana", "gaining 10 Scrap and 25
+                                     # mana every 1 sec", "Generates 10 Scrap"), and
+                                     # the Mechanics spec page calls the spec
+                                     # "a Scrap-fueled ranged/pet hybrid" where you
+                                     # "dump Scrap into Build: Mechsuit" and "running
+                                     # Scrap to zero mid-transformation ejects you
+                                     # from the Mechsuit" - likening it to
+                                     # "Soul Shards -> Metamorphosis". Without an
+                                     # enum member, resource_type "scrap" fell
+                                     # through _RESOURCE_BY_NAME to MANA, so a
+                                     # scrap-costed ability was castable at 0 scrap
+                                     # and spent none.
 
 
 # Single source of truth for "what resource(s) does this class use".
@@ -116,10 +134,12 @@ CLASS_RESOURCE_MAP = {
     "Cultist": (ResourceType.MANA, ResourceType.INSANITY),
     "Starcaller": (ResourceType.MANA, ResourceType.ENERGY),  # confirmed via screenshots (Celestial Strike costs Energy) - was wrongly Mana-only
     "Sun Cleric": (ResourceType.MANA, ResourceType.SOLAR_POWER),  # confirmed via handoff doc: pure Mana + Solar Power sub-resource, no Rage in any spec (was wrongly noted "also uses Rage")
-    "Tinker": (ResourceType.MANA, None),  # "Rounds" are NOT a resource - they're
-    # a swappable ammo-loadout buff (Armor-Piercing/Overcharged/Medic Rounds,
-    # ~1hr duration, one active at a time via exclusive_group) implemented as
-    # ordinary self-buff abilities. See data/abilities/tinker.json.
+    "Tinker": (ResourceType.MANA, ResourceType.SCRAP),  # "Rounds" are NOT a
+    # resource - they're a swappable ammo-loadout buff (Armor-Piercing/
+    # Overcharged/Medic Rounds, ~1hr duration, one active at a time via
+    # exclusive_group) implemented as ordinary self-buff abilities. SCRAP is,
+    # though - see ResourceType.SCRAP. Makeshift Dynamite already generated it
+    # and nothing could receive or spend it.
     "Runemaster": (ResourceType.MANA, ResourceType.RUNES),
     "Primalist": (ResourceType.MANA, ResourceType.RAGE),  # dual-resource builder/
     # spender, same shape as Stormbringer's Mana->Static: Mana-cost spells
@@ -1533,6 +1553,38 @@ class Ability:
             self.turns_remaining = max(
                 0, int(round(self.turns_remaining - consumed * self.cooldown_per_stack)))
         self._last_stacks_consumed = 0
+
+        # STUN RIDER ON A DAMAGE ABILITY. is_stun is threaded into the
+        # StatusEffect built by the "debuff" branch of _apply_effect, and
+        # nowhere else - so twelve abilities flagged is_stun with a DAMAGE
+        # effect_type never stunned anything. Verified before fixing:
+        # Guardian's Advance, Barbarian's Crush, Pyromancer's Meteor,
+        # Templar's Divine Force and Stormbringer's Arm of Thorim all cast
+        # successfully and left the target's is_stunned False - including Arm
+        # of Thorim, which carries a duration, so a duration was not the
+        # missing piece either.
+        #
+        # These are knockdowns and crushes whose whole point is the stun -
+        # CoA calls Crush "a frontal-cone knockdown and stun". Fixed here, in
+        # one place, rather than by converting twelve abilities to effect_type
+        # "debuff", which would have taken their damage away.
+        #
+        # effect_type "debuff" is excluded because that branch already does
+        # it; this would double-apply. Duration floors at 1 turn, since most
+        # of the twelve carry duration 0 - a stun flagged on an ability is an
+        # intent to stun, and zero turns of stun is not one.
+        if self.is_stun and self.effect_type != "debuff" and target is not None:
+            from combat.status_effects import StatusEffect
+            for victim in (target if isinstance(target, list) else [target]):
+                if victim is None or not hasattr(victim, "_effects"):
+                    continue
+                if hasattr(victim, "is_alive") and not victim.is_alive():
+                    continue
+                victim._effects().append(StatusEffect(
+                    f"{self.ability_id}_stun", self.name, "debuff",
+                    max(1, self.duration), is_stun=True, source_name=self.name))
+                if hasattr(victim, "_on_status_effects_changed"):
+                    victim._on_status_effects_changed()
 
         # "taunt" in stat_mods (CoA tank cooldowns: Dreadfall Tank, Test of
         # Pride, Command, Injunction, Nature's Call, Vile Sting, Locust

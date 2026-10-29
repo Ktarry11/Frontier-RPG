@@ -543,13 +543,47 @@ class Monster(StatusEffectMixin):
         from combat.abilities import level_diff_multiplier
         level_mult = level_diff_multiplier(attacker_level, self.level)
 
-        actual = max(1, int(amount * (1.0 - reduction) * level_mult))
+        # DAMAGE-TAKEN DEBUFFS DID NOTHING TO MONSTERS. This method read no
+        # damage_taken_pct key of any kind, so every "the target now takes N%
+        # more damage" effect in the game was inert against the only thing
+        # players actually fight. 29 talent procs across 23 trees apply one of
+        # these to their target - Mage Arcane alone has three - plus the
+        # debuff abilities that do the same. All of them were correct in PvP
+        # and silent in PvE.
+        #
+        # Conventions copied EXACTLY from Character.take_damage, because they
+        # differ per key and a second, disagreeing copy is worse than none:
+        # the bare damage_taken_pct is read UNDIVIDED (a fraction, 0.5 = +50%)
+        # while every school-specific sibling is in percent POINTS and
+        # divided by 100. Positive increases damage taken, matching how all
+        # 29 are authored.
+        taken_mult = 1.0
+        if hasattr(self, "get_status_stat_mod"):
+            taken_mult += self.get_status_stat_mod("damage_taken_pct")
+            if damage_type == "physical":
+                taken_mult += self.get_status_stat_mod("physical_damage_taken_pct") / 100.0
+            else:
+                taken_mult += self.get_status_stat_mod("magic_damage_taken_pct") / 100.0
+                taken_mult += self.get_status_stat_mod("spell_damage_taken_pct") / 100.0
+                if isinstance(damage_type, str):
+                    taken_mult += self.get_status_stat_mod(
+                        f"{damage_type}_damage_taken_pct") / 100.0
+        taken_mult = max(0.0, taken_mult)
+
+        actual = max(1, int(amount * (1.0 - reduction) * level_mult * taken_mult))
         self.current_health = max(0, self.current_health - actual)
         return actual
 
     def heal(self, amount):
+        # healing_taken_pct, same as Character.heal - recipient-side, percent
+        # POINTS, negative being the anti-heal that almost every real use of
+        # it is. Four talent procs apply one to their target and none of them
+        # reached a monster before this.
+        mult = 1.0
+        if hasattr(self, "get_status_stat_mod"):
+            mult += self.get_status_stat_mod("healing_taken_pct") / 100.0
         self.current_health = min(self.max_health,
-                                  self.current_health + amount)
+                                  self.current_health + amount * max(0.0, mult))
 
     def restore_resources_between_turns(self):
         """Mana regen so long fights don't leave a caster permanently dry
