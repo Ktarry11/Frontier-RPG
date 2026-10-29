@@ -257,7 +257,7 @@
     {
       "talent_id": "primalist_mountain_king_king_of_the_mountain",
       "name": "King of the Mountain",
-      "description": "Grants parry, dodge and haste equal to 3% of your Strength per rank.",
+      "description": "Grants parry, dodge and haste equal to 1% of your Strength per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 4,
@@ -265,14 +265,14 @@
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "parry_from_strength_pct": 0.03,
-        "dodge_from_strength_pct": 0.03,
-        "haste_from_strength_pct": 0.03
+        "parry_from_strength_pct": 0.01,
+        "dodge_from_strength_pct": 0.01,
+        "haste_from_strength_pct": 0.01
       },
       "connected_to": [
         "primalist_mountain_king_resources_of_the_earth"
       ],
-      "_source": "Was 'Mountain's Endurance', an invented node carrying a self-heal proc on every weapon swing. Replaced with CoA's real Level 20 free passive, which the spec page calls 'your main avoidance lever': 'King of the Mountain - Increases your parry, dodge, and haste rating by 15% of your Strength.' This is a real <target>_from_<source>_pct conversion through the shared STAT_CONVERSION maps in character.py - parry, dodge and haste are all valid targets and strength a valid source - and it fixes the other half of the audit finding: CoA's stat priority leads Hit > Expertise > STRENGTH, and this tree previously had no Strength node at all, defending purely with +39% armor across three nodes."
+      "_source": "Was 'Mountain's Endurance', an invented node carrying a self-heal proc on every weapon swing. Replaced with CoA's real Level 20 free passive, which the spec page calls 'your main avoidance lever': 'King of the Mountain - Increases your parry, dodge, and haste rating by 15% of your Strength.' This is a real <target>_from_<source>_pct conversion through the shared STAT_CONVERSION maps in character.py - parry, dodge and haste are all valid targets and strength a valid source - and it fixes the other half of the audit finding: CoA's stat priority leads Hit > Expertise > STRENGTH, and this tree previously had no Strength node at all, defending purely with +39% armor across three nodes.\n\nMAGNITUDE CORRECTED: CoA's wording is '15% of your Strength', and copying that literally gave +17.5 to BOTH parry and dodge, because a level 60 Primalist in full gear carries 146 Strength here. Total avoidance reached 82.5% (44.8 dodge + 37.8 parry) and the spec stopped dying at all - it survived 908 turns against a field of 5-20. CoA's percentage assumes CoA's stat scales, not Frontier's. 1%/rank lands at ~+5.8 each, in line with the other tanks' avoidance.\n\nWORTH FLAGGING SEPARATELY: dodge and parry are FULL avoidance here and nothing applies diminishing returns to them, so any two sources that stack linearly can walk a tank toward immunity. That is a systemic gap, not a property of this talent."
     },
     {
       "talent_id": "primalist_mountain_king_steadfast_stance",

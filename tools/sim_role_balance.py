@@ -335,6 +335,39 @@ def tank_axes(char, level, gen, dress, fights):
                                                       "damage_and_heal", "ranged_damage")]
     rotation.sort(key=lambda a: -(getattr(a, "effect_value", 0) or 0))
 
+    # A TANK PRESSES ITS DEFENSIVE COOLDOWNS. This harness built the rotation
+    # from offensive abilities only, so it never cast one - and a tank's
+    # cooldowns are most of what a tank IS. Warrior's Shield Wall, Guardian's
+    # Raise Shield and Brace and Bastion, Paladin's whole kit, and the Rock
+    # Barrier and Earthen Avatar just authored for Mountain King were all
+    # invisible to every tank measurement taken today. Mountain King read 5
+    # turns alive while holding two unused cooldowns.
+    #
+    # Found by adding two abilities, verifying by hand that they cast and
+    # that Rock Barrier takes armour 164 -> 199, and then watching the sim
+    # report no change at all.
+    #
+    # Picked by what the buff DOES rather than by name: a self-buff carrying
+    # any mitigation or avoidance stat_mod. The engine refuses one already
+    # running or still on cooldown, so "cast it when available" needs no
+    # cooldown bookkeeping here - exactly how the offensive rotation works.
+    MITIGATION_KEYS = {"damage_taken_pct", "physical_damage_taken_pct",
+                       "magic_damage_taken_pct", "spell_damage_taken_pct",
+                       "armor_pct", "armor", "block", "dodge", "parry",
+                       "block_value_pct", "max_health_pct"}
+    defensives = [a for a in learned
+                  if getattr(a, "effect_type", "") == "buff"
+                  and getattr(a, "target_type", None) in (None, "self")
+                  and MITIGATION_KEYS & set(getattr(a, "stat_mods", {}) or {})]
+    # Strongest first, by how much mitigation it actually carries.
+    defensives.sort(key=lambda a: -sum(
+        abs(v) for k, v in (getattr(a, "stat_mods", {}) or {}).items()
+        if k in MITIGATION_KEYS))
+
+    #: At most one defensive cooldown every this many turns - see the
+    #: rationing note in the turn loop. Mirrors healer_axes' HEAL_EVERY.
+    DEFEND_EVERY = 4
+
     taken = []
     for template in (TANK_ATTACKER, TANK_PHYSICAL):
         for _ in range(max(1, fights // 2)):
@@ -343,6 +376,7 @@ def tank_axes(char, level, gen, dress, fights):
             engine = CombatEngine(char, enemy, party=Party(char))
             enemy.current_health = 10 ** 6          # measure survival, not the tank's damage
             turns, samples = 0, []
+            last_defensive = -DEFEND_EVERY     # first defensive is allowed immediately
             for _ in range(MAX_TICKS):
                 engine.update(TICK)
                 if not engine.is_active:
@@ -359,10 +393,37 @@ def tank_axes(char, level, gen, dress, fights):
                     # mitigation beyond their armour. It holds threat by attacking now, same as a
                     # real one, and the damage-taken numbers include whatever its rotation earns.
                     acted = False
-                    for ability in rotation:
-                        if engine.execute_ability(char, ability.ability_id, enemy)[0]:
-                            acted = True
-                            break
+                    # DEFENSIVES HAVE TO BE RATIONED, exactly like the heals in
+                    # healer_axes. "Cast one when it is available" looked safe
+                    # because the engine refuses an ability on cooldown - but
+                    # several defensives have a cooldown of ZERO (Primalist's
+                    # Boon of the Turtle: cd 0, duration 30), so the tank
+                    # re-cast one every single turn, never attacked, took
+                    # almost nothing and the fight never ended. Mountain King
+                    # and Moon Guard read 940 and 964 turns alive at 1 damage
+                    # taken per turn. That measured the loop, not the spec.
+                    #
+                    # A real tank spends a cooldown and then goes back to work.
+                    # One defensive every DEFEND_EVERY turns at most, and never
+                    # one already running on it.
+                    may_defend = (turns - last_defensive) >= DEFEND_EVERY
+                    live_buffs = {getattr(fx, "effect_id", None)
+                                  for fx in getattr(char, "active_effects", [])}
+                    live_names = {getattr(fx, "name", None)
+                                  for fx in getattr(char, "active_effects", [])}
+                    if may_defend:
+                        for ability in defensives:
+                            if ability.ability_id in live_buffs or ability.name in live_names:
+                                continue
+                            if engine.execute_ability(char, ability.ability_id, char)[0]:
+                                acted = True
+                                last_defensive = turns
+                                break
+                    if not acted:
+                        for ability in rotation:
+                            if engine.execute_ability(char, ability.ability_id, enemy)[0]:
+                                acted = True
+                                break
                     if not acted:
                         engine.execute_defend(char)
                     # SELF-HEALING CANNOT BE SEPARATED OUT HERE, and trying to was a mistake
