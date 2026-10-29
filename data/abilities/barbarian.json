@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack. The id matters - combat/abilities.py fires ON_WEAPON_SWING only for '<class>_attack', so Crusher keys off this one."
     },
     {
@@ -87,7 +87,7 @@
           "effect_value": 128
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Smash and Ancestral Strike as your Energy fillers'. The cheap no-cooldown filler every spec presses, so it carries Warrior heroic_strike's curve exactly.",
       "target_type": "enemy"
     },
@@ -138,7 +138,7 @@
           "effect_value": 80
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA class tree builds a whole cluster around it - Dauntless, Rage Whirling, Forward Advance, Whirling Assault - so it is the shared gap-closer. The real one dispels a slow on hit; there is no self-dispel hook on a damage cast, so Dauntless carries mitigation instead.",
       "target_type": "enemy_aoe",
       "max_targets": 3
@@ -196,7 +196,7 @@
           "effect_value": 88
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Barbaric Whirl on any pull of 3+ mobs'. The shared cleave. enemy_aoe rather than the is_aoe flag - is_aoe is not read by _ability_from_data, so target_type is what actually makes an ability hit a pack.",
       "target_type": "enemy_aoe",
       "max_targets": 5
@@ -319,7 +319,7 @@
           "effect_value": 109
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Headhunter's Spear ... restores 30% of your maximum Energy'. The `generates` field is how a builder pays in one currency and produces another, so the refund is real rather than flavour. ranged_damage - it is thrown, and Barbarian's weapon map includes thrown/gun/crossbow.",
       "target_type": "enemy",
       "generates": {
@@ -584,7 +584,7 @@
           "effect_value": 154
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Smash, your biggest no-cooldown Energy dump, requires an active [enrage]'. No cooldown, so no cooldown here either; the enrage requirement is dropped with the rest of the enrage state.",
       "target_type": "enemy"
     },
@@ -641,7 +641,7 @@
           "effect_value": 96
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Brutal Swing is your off-global cleave dump between specials', 'swing violently at an enemy and up to 2 nearby enemies'. off-global = is_instant, the engine's turn-based translation of a free action, same as Warrior's Cleave.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
@@ -694,7 +694,7 @@
           "effect_value": 240
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Decapitate to execute once the target is below 35% HP (each point of spare Energy adds damage)'. THE GATE IS DELIBERATELY ABSENT. execute_threshold_pct exists and is PERCENT POINTS (warrior_execute 20, cultist_netherstrike 35), but its check in Ability.use reads `target.current_health / target.health` and Monster has no `health` - it uses `max_health`, while only Character has `health`. getattr(target, 'health', 0) is therefore 0 against every creature in the game, the percentage defaults to 100, and the cast is refused. Every execute-gated ability shipped today (Warrior's Execute, Cultist's Netherstrike, Primalist's Raptor Talons and Bring Me Their Bones, Stormbringer's Electrocute) is uncastable against a monster for that reason. Authoring the gate here would have bought a dead signature ability, so Decapitate is an ungated finisher instead - a longer cooldown and lower damage than a gated execute would carry, since it can be pressed at any health. The spend-spare-Energy scaling has no hook either. Worth fixing in the engine: one getattr.",
       "target_type": "enemy"
     },
@@ -739,7 +739,7 @@
           "effect_value": 132
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Crush is a frontal-cone knockdown and stun', 'Landing Crush on a full clump as the tank gathers - that is the biggest AoE payoff the spec has'.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -828,7 +828,7 @@
           "effect_value": 260
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Killing Spree to charge back in after a kill blow', 'Can only be used within 6 seconds of scoring a killing blow or applying Born in Blood'. There is no recent-kill window to gate a cast on, so it is a plain cooldown and the gate is dropped.",
       "target_type": "enemy"
     },
@@ -867,7 +867,7 @@
           "effect_value": 184
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Storm of Steel on a tough single target for sustained ramp', 'striking your target every 1 sec for 80% Weapon Damage for 3 seconds'. A repeating strike over three turns is a dot; effect_value is the TOTAL across the duration, which is how every shipped dot authors it.",
       "target_type": "enemy"
     },
@@ -930,7 +930,7 @@
           "effect_value": 97
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'filler Throw Weapon/Berserker Axe'. The spec's cheap ranged filler and the hub of its whole kit - Spear Thrower resets Spears off it, Gurubashi Technique transforms it, Sen'jin's Guidance replaces it.",
       "target_type": "enemy"
     },
@@ -981,7 +981,7 @@
           "effect_value": 127
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Barbed Spear to feed Furious Berserker's Born in Blood', 'reducing their healing received by -30%'. The anti-heal debuff cannot ride along: one cast is one effect_type here, and Monster reads only armor and attack_power out of a debuff's stat_mods anyway, so healing_taken_pct on an enemy would do nothing. Damage only, and the crit that feeds Furious Berserker is the part the rotation actually asks for.",
       "target_type": "enemy"
     },
@@ -1026,7 +1026,7 @@
           "effect_value": 180
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Launch a heavy axe at an enemy, causing them to bleed for 96 damage over 12 seconds. Every 6 sec the target has their Guts Spilled'. The nested Guts Spilled tick is folded into the one dot and Payback scales it.",
       "target_type": "enemy"
     },
@@ -1071,7 +1071,7 @@
           "effect_value": 150
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Berserker Rush's charge-root-then-leap-back', 'rooting them for 2 seconds, then leap backwards'. Root and reposition are both movement, which a turn fight has none of. The Born in Blood grant it carries in CoA is the Vengeance For Zul'jin talent, which is in the tree.",
       "target_type": "enemy"
     },
@@ -1122,7 +1122,7 @@
           "effect_value": 118
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'weave Berserker Axe while Enraged', 'Hurl two axes at an enemy ... reducing enemy armor by 80'. Enrage gate and the 3-charge recharge model both dropped; a short cooldown is the engine's version of charges. The armour shred is carried by the tree's To The Bone instead, where it can be a real debuff.",
       "target_type": "enemy"
     },
@@ -1161,7 +1161,7 @@
           "effect_value": 174
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Impaling Spear is a frontal-line bleed via Spear Shards', 'Hurl a spear in a 30 yd frontal line ... At the spear's impact location the spear shatters'. The line and the shatter collapse into one capped AoE bleed.",
       "target_type": "enemy_aoe",
       "max_targets": 4
@@ -1275,7 +1275,7 @@
           "effect_value": 222
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: \"Open at range with Javelin Toss/Throw Weapon\", and Sen'jin's Guidance 'Transforms your Throw Weapon into Javelin Toss'. A transform has no hook, so it is its own later, bigger thrown attack and the talent buffs it.",
       "target_type": "enemy"
     },
@@ -1308,7 +1308,7 @@
           "effect_value": 230
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Spite bursts and flings you a long way', 'Quickly unleash 3 Berserker Throws at your target and then fling yourself back'. Three throws resolve as one hit; the reposition is dropped.",
       "target_type": "enemy"
     },
@@ -1371,7 +1371,7 @@
           "effect_value": 108
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Keg Smash on cooldown (boosted by Trip to the Alehouse) as your core AoE/ST frost+physical hit'. Kept physical (effect_type='damage') because it is the one ability this spec presses every turn and should not depend on the Frozen Warlord conversion to function; the Frost half of the kit is Breath of the North and Frozen Tankard.",
       "target_type": "enemy_aoe",
       "max_targets": 5

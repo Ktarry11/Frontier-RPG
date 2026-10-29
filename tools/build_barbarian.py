@@ -175,7 +175,19 @@ def restore(level, cost, pct):
 
 
 def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
-            duration=0, stat_mods=None, icon="ability_melee", source=None,
+            # icon=None, NOT "ability_melee". The old default stamped an
+            # explicit icon_id of "ability_melee" onto every ability that
+            # did not override it, which put 20 of Barbarian's 46 on one
+            # shared generic sword - its basic swing, its execute, its
+            # cleave and all five thrown-spear abilities drawing the same
+            # picture, and the same picture as 190 other abilities across
+            # the game. An explicit icon_id WINS over the filename
+            # fallback, so those 20 would have kept the sword even after
+            # their real art landed in assets/icons/abilities/. None lets
+            # icon_migration_and_ui.py fall back to the ability_id, which
+            # is what the art is named after. See
+            # tools/fetch_coa_icons.py and tools/audit_icon_coverage.py.
+            duration=0, stat_mods=None, icon=None, source=None,
             **extra):
     out = {
         "ability_id": f"barbarian_{aid}",
