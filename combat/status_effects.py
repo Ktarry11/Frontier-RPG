@@ -1038,6 +1038,35 @@ class StatusEffectMixin:
                 messages.append(f"{effect.name} heals {self.name} for {heal_flat}!")
                 fired_something = True
 
+            # damage_flat: the mirror of heal_flat - a fixed amount dealt back
+            # to whoever triggered this, independent of the triggering hit's
+            # size. Retaliation shapes: Guardian's Retaliation ("Successful
+            # blocks now deal damage to the attacker"), Moon Guard's Moonflares
+            # ("Avoiding melee attacks will call down a Moonflare at the
+            # attacker"), Gladiator's Upper Hand.
+            #
+            # THIS KEY WAS AUTHORED ON SIX NODES AND READ BY NOTHING. Grepping
+            # the engine for it returned no hits outside tools/ - so every
+            # retaliation talent in the game dealt zero, including Guardian's,
+            # which shipped today. The validator accepted it because its proc
+            # payload check derives the valid set from the AUTHORED DATA, which
+            # makes it circular: it approves any payload simply because someone
+            # wrote it. That check now reads this file instead.
+            #
+            # Uses `target` - the attacker, threaded through take_damage and the
+            # avoidance helper - rather than `engine`, so it works from
+            # Character.take_damage, which owns no engine handle. No target (a
+            # caller that did not pass the attacker) means no retaliation,
+            # exactly like the other retaliation payloads.
+            damage_flat = proc.get("damage_flat")
+            if damage_flat and target is not None and hasattr(target, "take_damage"):
+                school = proc.get("school", effect.damage_school or "physical")
+                target.take_damage(int(damage_flat), school)
+                messages.append(
+                    f"{effect.name} deals {int(damage_flat)} {school} damage "
+                    f"to {target.name}!")
+                fired_something = True
+
             # ── payloads added for the unlock_mechanic pass ───────────────
             #
             # 38 talents across six classes were authored as

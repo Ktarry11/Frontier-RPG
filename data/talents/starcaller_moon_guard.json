@@ -61,7 +61,7 @@
       "hex_y": -6,
       "effects": {},
       "connected_to": [
-        "starcaller_moon_guard_starlord_mandate"
+        "starcaller_moon_guard_moonflares"
       ],
       "proc": {
         "trigger": "on_cast",
@@ -114,22 +114,27 @@
       "_source": "spell_damage_taken_pct: -0.07 REMOVED 2026-10-28 on Kyle's direction to follow the CoA reference over earlier guidance. I added it that morning on the brief that Moon Guard is a magic tank, and it was wrong three ways: the real CoA Crystal Shield is 'Level 30 Passive. Increases your Stamina by 10% and increases your spell damage by 25% of your attack power' with no mitigation clause at all; -7% x 5 ranks gave this spec -35% magic damage taken, seven times the magic reduction in the entire Starcaller class tree (Constellation Barrier -5%, Mu'sha's Resilience -15% Arcane only); and it was never in the node's own tooltip, so a player could not see it.\n\nMoon Guard is CoA's 'Closest to Protection Paladin' - a PARRY and BLOCK tank whose damage comes FROM avoidance (Moonflares fire on avoided attacks, Nebula seeds stars on blocks, parries refund Energy and strike back). Its stat priority is Defense > Stamina > Hit/Expertise > Parry > Dodge > Block. Its survivability now comes from those procs actually firing on blocks and parries, which they could not before the on_block/on_parry triggers existed. Magnitudes here match CoA: 2% x 5 = 10% Stamina, 5% x 5 = 25% of attack power as spell power."
     },
     {
-      "talent_id": "starcaller_moon_guard_starlord_mandate",
-      "name": "Starlord's Mandate",
-      "description": "Increases Celestial Strike damage and reduces its Energy cost by 2% per rank.",
+      "talent_id": "starcaller_moon_guard_moonflares",
+      "name": "Moonflares",
+      "description": "Avoiding an attack calls down a Moonflare on the attacker for 18 Arcane damage per rank. No more than once per turn.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "ability_starcaller_celestial_strike_damage": 0.02,
-        "ability_starcaller_celestial_strike_cost_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
         "starcaller_moon_guard_starburst_invigoration"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 100,
+        "icd": 1,
+        "damage_flat": 18,
+        "school": "arcane"
+      },
+      "_source": "Was 'Starlord's Mandate', an invented node. Replaced with CoA's real Moonflares: 'Avoiding melee attacks will call down a Moonflare at the attacker, dealing 66 Arcane damage. Can occur only once per second.'\n\nThis is the signature node of the whole spec and it was missing entirely. CoA's Moon Guard is a tank whose DAMAGE comes from its avoidance - 'Avoiding an attack calls down a Moonflare, an unavoidable Arcane nuke'; 'Tanking well is how you deal damage' - and its stat priority runs Defense > Stamina > Hit/Expertise > PARRY > DODGE > BLOCK. Without this, parry and dodge bought the spec nothing but the avoided hit itself.\n\nOnly implementable since the on_avoid trigger was added today: the engine's sole defensive hook was on_damage_taken, which fires when a hit LANDS - the exact opposite event. Per rank rather than CoA's single point, to fit Frontier's tier budget."
     },
     {
       "talent_id": "starcaller_moon_guard_starburst",
@@ -216,7 +221,7 @@
         "block_value_pct": 0.03
       },
       "connected_to": [
-        "starcaller_moon_guard_starlord_mandate"
+        "starcaller_moon_guard_moonflares"
       ],
       "_source": "CoA handoff doc confirmed as core mitigation: 'shield-gated block burst,' referenced repeatedly as this spec's primary defensive layer."
     },
@@ -355,9 +360,9 @@
       }
     },
     {
-      "talent_id": "starcaller_moon_guard_celestial_impact",
-      "name": "Celestial Impact",
-      "description": "Learn Celestial Impact, a ground stomp dealing Arcane AoE damage and stunning nearby enemies.",
+      "talent_id": "starcaller_moon_guard_coalesced_resilience",
+      "name": "Coalesced Resilience",
+      "description": "The moon's own weight settles over you, reducing all damage you take by 12%.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
@@ -365,12 +370,13 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "starcaller_celestial_impact"
+        "damage_taken_pct": -0.12,
+        "max_mana_pct": 0.1
       },
       "connected_to": [
         "starcaller_moon_guard_asteroid_belt"
       ],
-      "_source": "CoA handoff doc: 'Ground stomp: Arcane AoE + stun.' Moon Guard's capstone AoE control tool."
+      "_source": "Was 'Celestial Impact', an invented capstone unlocking a stun. Replaced with CoA's real Coalesced Resilience: 'Reduces your damage taken by an amount equal to 1% of your maximum mana.'\n\nThe audit named this as the spec's actual mitigation capstone, and its absence - together with the missing Moonflares - is why Moon Guard measured last on survival. Max mana is load-bearing armour for this spec in CoA: Moonlit Bulwark shields for a share of max mana, Starburst scales with it, Asteroid Belt scales with mana held. The max_mana_pct here is part of the mechanic, not padding.\n\nNOT FULLY FAITHFUL: mitigation scaling off max mana is not expressible - damage_taken_pct is a flat fraction - so it is a flat -12% plus the mana pool growth that would have fed it."
     },
     {
       "talent_id": "starcaller_moon_guard_starlight_duelist",
@@ -493,7 +499,7 @@
       "hex_y": 6,
       "effects": {},
       "connected_to": [
-        "starcaller_moon_guard_celestial_impact"
+        "starcaller_moon_guard_coalesced_resilience"
       ],
       "_source": "CoA handoff doc confirmed as a real burst payoff: 'Every 10th Scattered Star consumed launches a comet.' Called out in the rotation writeup: 'the spender IS your burst too.'",
       "proc": {

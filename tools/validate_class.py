@@ -195,19 +195,23 @@ def check_magnitudes(slug, report, conventions):
 
 
 def proc_payload_keys():
-    """Payload keys real procs use, read off the authored trees.
+    """Payload keys the PROC HANDLER reads, scanned out of status_effects.py.
 
-    Hand-listing these produced 9 false warnings against shipped Warrior and
-    Warlock trees, whose procs carry payloads the list had never heard of.
+    This used to be derived from the authored trees, which made it circular:
+    it approved any payload simply because somebody had written it. That is
+    how `damage_flat` passed - authored on six nodes, read by nothing, so
+    every retaliation talent in the game dealt zero damage, Guardian's
+    included, and the validator said 0 errors. (damage_flat is implemented
+    now; the check is fixed so the NEXT one does not slip through.)
+
+    Hand-listing them was the previous failure in the other direction - 9
+    false warnings against shipped Warrior and Warlock trees - so this reads
+    the handler itself: every proc.get("...") in combat/status_effects.py.
     """
-    keys = Counter()
-    for path in (ROOT / "data/talents").glob("*.json"):
-        for node in json.loads(path.read_text()).get("nodes", []):
-            proc = node.get("proc")
-            if proc:
-                keys.update(k for k in proc
-                            if k not in {"trigger", "chance", "icd"})
-    return set(keys)
+    text = (ROOT / "combat/status_effects.py").read_text(encoding="utf-8",
+                                                         errors="ignore")
+    keys = set(re.findall(r'proc\.get\(\s*[\'"]([a-z_]+)[\'"]', text))
+    return keys - {"trigger", "chance", "icd"}
 
 
 def proc_triggers():
