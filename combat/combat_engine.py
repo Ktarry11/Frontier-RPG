@@ -70,7 +70,12 @@ class CombatEngine:
         # whichever party members currently have an active_pet, in the
         # same order as their owners, so a pet always sits right after
         # its owner in turn-order previews and UI lists.
-        self.pets = [m.active_pet for m in self.allies if getattr(m, "active_pet", None)]
+        # all_pets, not active_pet: Tinker Mechanics and Necromancer
+        # Animation field several at once (see Character.extra_pets), and
+        # reading only the primary left every additional construct sitting
+        # out of the fight it was summoned into.
+        self.pets = [pet for m in self.allies for pet in getattr(m, "all_pets", None)
+                     or ([m.active_pet] if getattr(m, "active_pet", None) else [])]
 
         self.combatants = self.allies + self.pets + self.enemies
 

@@ -254,6 +254,22 @@ class Character(StatusEffectMixin):
         # for either class, matching real WoW - summoning/taming a new one
         # replaces this reference rather than adding to a list.
         self.active_pet = None
+        #: ADDITIONAL simultaneous pets, beyond active_pet. CoA is explicit
+        #: that two specs field several at once: Tinker Mechanics runs "your
+        #: permanent Scrapmaw, PLUS proc'd Clockwork Guardians", and
+        #: "Clockwork Guardians AND the Sentry Turret add a Guldan-style
+        #: board of extra summoned pressure"; Necromancer Animation's whole
+        #: answer to having no hard CC is "several bodies soaking and dealing
+        #: damage AT ONCE". With one slot, Tinker's five summons and
+        #: Necromancer's four could only ever replace each other.
+        #:
+        #: Kept as a SEPARATE list rather than turning active_pet into one,
+        #: so every existing reader - the combat engine, the pet screen, the
+        #: overworld party row, saves - keeps working unchanged against the
+        #: primary pet. Warlock and Hunter deliberately stay single-pet,
+        #: which is correct for both: a Warlock's four demons are
+        #: alternatives, not a board.
+        self.extra_pets = []
 
         # Shaman totem loadout: element -> ability_id, up to 4 entries (one
         # per real WoW element: earth/fire/water/air). Player-configured
@@ -809,7 +825,7 @@ class Character(StatusEffectMixin):
         stance = get_stance(stance_id)
         return True, f"{self.name} shifts into {stance['name']}."
 
-    def summon_pet(self, template_id, name=None):
+    def summon_pet(self, template_id, name=None, additional=False):
         """Summon/tame a pet, replacing any currently active one. Returns
         (success, message_or_pet) - False and an error string if this
         character doesn't meet the template's level_req, otherwise True
@@ -837,8 +853,45 @@ class Character(StatusEffectMixin):
 
         from entities.pet import Pet
         display_name = name or template["display_name"]
-        self.active_pet = Pet(name=display_name, template_id=template_id, owner=self)
+        pet = Pet(name=display_name, template_id=template_id, owner=self)
+
+        # additional=True parks this one alongside the primary instead of
+        # replacing it, up to the class's cap. Re-summoning the same template
+        # refreshes rather than stacking duplicates, so spamming a turret
+        # button cannot build an army.
+        # An additional summon with no primary yet BECOMES the primary, so a
+        # Necromancer's first raise fills the main slot and the next three go
+        # to extras - four bodies from four abilities, rather than three plus
+        # an empty primary.
+        if additional and self.max_extra_pets and self.active_pet is None:
+            self.active_pet = pet
+            return True, pet
+
+        if additional and self.max_extra_pets:
+            self.extra_pets = [p for p in self.extra_pets
+                               if p.template_id != template_id]
+            if len(self.extra_pets) >= self.max_extra_pets:
+                self.extra_pets.pop(0)          # oldest construct expires
+            self.extra_pets.append(pet)
+            return True, pet
+
+        self.active_pet = pet
         return True, self.active_pet
+
+    #: How many pets a class may field BEYOND active_pet. Only the two specs
+    #: CoA describes as fielding a board get any; everyone else stays at 0,
+    #: so nothing changes for 28 classes.
+    EXTRA_PET_CAP = {"Tinker": 2, "Necromancer": 3}
+
+    @property
+    def max_extra_pets(self):
+        return self.EXTRA_PET_CAP.get(self.char_class, 0)
+
+    @property
+    def all_pets(self):
+        """Primary pet plus any additional ones, in summon order."""
+        out = [self.active_pet] if self.active_pet else []
+        return out + list(self.extra_pets)
 
     def dismiss_pet(self):
         """Release the active pet, if any. Real WoW: Hunters can only
@@ -846,6 +899,7 @@ class Character(StatusEffectMixin):
         doesn't need to enforce itself since nothing currently calls this
         mid-turn - documented here rather than added as an unused guard."""
         self.active_pet = None
+        self.extra_pets = []
 
     def set_totem(self, totem_ability_id):
         """Slot a totem into the loadout, replacing whatever was in that

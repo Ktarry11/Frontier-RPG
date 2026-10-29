@@ -1110,10 +1110,11 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Raise a Ghoul to aid you in combat occupying 1 Life Force. Its auto attacks restore SP health to you.' MAPPED, not authored: no undead pet template exists and none may be added, so this uses 'wolf' - level_req 1, the only level-1 melee template, whose own ability is literally Bite. Character.summon_pet is class-agnostic and gates only on the template's level_req, so this works; it will display as a Wolf. The on-hit leech is the Animation tree's Vampiric Aura talent instead. ONE pet at a time - Character.summon_pet replaces active_pet - so CoA's stacked army of Ghouls cannot be expressed; the rest of the army is AoE damage.",
+      "_source": "CoA: 'Raise a Ghoul to aid you in combat occupying 1 Life Force. Its auto attacks restore SP health to you.' MAPPED, not authored: no undead pet template exists and none may be added, so this uses 'wolf' - level_req 1, the only level-1 melee template, whose own ability is literally Bite. Character.summon_pet is class-agnostic and gates only on the template's level_req, so this works; it will display as a Wolf. The on-hit leech is the Animation tree's Vampiric Aura talent instead. ONE pet at a time - Character.summon_pet replaces active_pet - so CoA's stacked army of Ghouls cannot be expressed; the rest of the army is AoE damage.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: 'Several bodies soaking and dealing damage at once covers for bringing no hard CC' - the spec's entire answer to having no CC is fielding multiple minions.",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "wolf"
+      "summon_pet_template": "wolf",
+      "additional_pet": true
     },
     {
       "ability_id": "necromancer_raise_skeletal_mage",
@@ -1133,10 +1134,11 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA Rime: 'Raise a Skeletal Mage to aid you in combat, occupying 2 Life Force. Command: Unleashes ice at your target'. MAPPED to 'imp', the only ranged spellcaster template at a low level_req (1) - base_attack 0, real base_spell_power, one nuke. It will display as an Imp. Rime's rotation opens with 'Raise a Skeletal Mage first', which is why it is the earliest caster pet.",
+      "_source": "CoA Rime: 'Raise a Skeletal Mage to aid you in combat, occupying 2 Life Force. Command: Unleashes ice at your target'. MAPPED to 'imp', the only ranged spellcaster template at a low level_req (1) - base_attack 0, real base_spell_power, one nuke. It will display as an Imp. Rime's rotation opens with 'Raise a Skeletal Mage first', which is why it is the earliest caster pet.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: several bodies at once (see raise_ghoul).",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "imp"
+      "summon_pet_template": "imp",
+      "additional_pet": true
     },
     {
       "ability_id": "necromancer_raise_banshee",
@@ -1156,10 +1158,11 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Raise a Banshee to aid you in combat, occupying 2 Life Force. It will channel on your target, dealing damage and draining their mana'. MAPPED to 'succubus' - level_req 20, a ranged caster-flavoured summon whose own abilities are Lash of Pain and Seduction, the closest existing shape to a channelling banshee. The mana drain has no hook.",
+      "_source": "CoA class tree: 'Raise a Banshee to aid you in combat, occupying 2 Life Force. It will channel on your target, dealing damage and draining their mana'. MAPPED to 'succubus' - level_req 20, a ranged caster-flavoured summon whose own abilities are Lash of Pain and Seduction, the closest existing shape to a channelling banshee. The mana drain has no hook.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: several bodies at once (see raise_ghoul).",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "succubus"
+      "summon_pet_template": "succubus",
+      "additional_pet": true
     },
     {
       "ability_id": "necromancer_raise_abomination",
@@ -1179,10 +1182,11 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Raise an Abomination to aid you in combat, occupying 3 Life Force. It is surrounded by a disease cloud'. MAPPED to 'faceless_destroyer' - level_req 30, base_armor 28, the toughest melee template in the roster, which is what a 3-Life-Force Abomination is for. The disease cloud has no hook; Animation's Flesh Symbiosis talent carries the per-Abomination armour.",
+      "_source": "CoA class tree: 'Raise an Abomination to aid you in combat, occupying 3 Life Force. It is surrounded by a disease cloud'. MAPPED to 'faceless_destroyer' - level_req 30, base_armor 28, the toughest melee template in the roster, which is what a 3-Life-Force Abomination is for. The disease cloud has no hook; Animation's Flesh Symbiosis talent carries the per-Abomination armour.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: several bodies at once (see raise_ghoul).",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "faceless_destroyer"
+      "summon_pet_template": "faceless_destroyer",
+      "additional_pet": true
     },
     {
       "ability_id": "necromancer_animate_skeletal_archers",

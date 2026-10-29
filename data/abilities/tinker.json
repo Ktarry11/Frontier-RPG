@@ -95,7 +95,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Build a Sentry Turret for 5 min that shoots bullets at enemies, dealing 4 Physical damage. Activate again to deconstruct your Sentry Turret. Can only have 1 Sentry Turret up at a time.",
-      "_source": "Real screenshot: 4 Mana, instant cast, 3 sec cooldown.",
+      "_source": "Real screenshot: 4 Mana, instant cast, 3 sec cooldown.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Mechanics: 'Clockwork Guardians AND the Sentry Turret add a Guldan-style board of extra summoned pressure', and 'the whole kit juggles mana, Scrap, and Sentry Turret uptime' - the turret runs alongside the permanent pet, it does not replace it.",
       "ranks": [
         {
           "rank": 1,
@@ -107,7 +107,8 @@
       "icon_id": null,
       "summon_pet_template": "sentry_turret",
       "target_type": "self",
-      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py."
+      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py.",
+      "additional_pet": true
     },
     {
       "ability_id": "tinker_spanner_smash",
@@ -1050,7 +1051,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Construct a Clockwork Assistant to accompany the Tinker until dismissed.",
-      "_source": "Real screenshot: Requires Level 8. Mechanics leveling sequence (real pet summon, first of 4 real Tinker pets - Clockwork Assistant/Mechano-Bear/Rusthound/Battle Turret X-13).",
+      "_source": "Real screenshot: Requires Level 8. Mechanics leveling sequence (real pet summon, first of 4 real Tinker pets - Clockwork Assistant/Mechano-Bear/Rusthound/Battle Turret X-13).  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Mechanics: 'Your permanent Scrapmaw, PLUS proc'd Clockwork Guardians, fights alongside you'. Explicitly simultaneous with the primary pet.",
       "ranks": [
         {
           "rank": 1,
@@ -1062,7 +1063,8 @@
       "icon_id": null,
       "summon_pet_template": "clockwork_assistant",
       "target_type": "self",
-      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py."
+      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py.",
+      "additional_pet": true
     },
     {
       "ability_id": "tinker_build_mechano_bear",

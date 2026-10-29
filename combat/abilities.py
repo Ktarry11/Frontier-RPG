@@ -283,7 +283,8 @@ class Ability:
                  consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
-                 max_targets=None, force_proc_group=None, summon_pet_template=None):
+                 max_targets=None, force_proc_group=None, summon_pet_template=None,
+                 additional_pet=False):
         """
         ranks: list of dicts, each with at least "rank", "level_req", "cost",
             and "effect_value" keys (from combat/rank_generator.py's
@@ -341,6 +342,9 @@ class Ability:
         # no way to actually call it from a cast (Kyle, Oct 2026: "We need
         # the pet system up and running"). None for every other ability.
         self.summon_pet_template = summon_pet_template
+        #: True for a summon that coexists with the caster's primary pet
+        #: rather than replacing it. See the summon_pet branch below.
+        self.additional_pet = bool(additional_pet)
         self.ranks = ranks  # list of rank dicts, ascending by level_req
         self.cooldown = cooldown  # Turns between uses (NOT seconds!)
         self.turns_remaining = 0  # Turns remaining on cooldown
@@ -2986,7 +2990,14 @@ class Ability:
                 return f"{caster.name} tries to summon a pet, but has nothing to summon!"
             if not hasattr(caster, "summon_pet"):
                 return f"{caster.name} cannot summon pets."
-            success, result = caster.summon_pet(self.summon_pet_template)
+            # additional_pet: park this one ALONGSIDE the primary instead
+            # of replacing it, for the two specs CoA describes as fielding a
+            # board at once - Tinker Mechanics ("your permanent Scrapmaw,
+            # plus proc'd Clockwork Guardians") and Necromancer Animation
+            # ("several bodies soaking and dealing damage at once"). The cap
+            # and the no-duplicates rule live on Character.
+            success, result = caster.summon_pet(
+                self.summon_pet_template, additional=self.additional_pet)
             if not success:
                 self._refund_failed_cast(caster, cost=cost)
                 return result
@@ -3209,6 +3220,7 @@ def _ability_from_data(entry):
         max_targets=entry.get("max_targets"),
         force_proc_group=entry.get("force_proc_group"),
         summon_pet_template=entry.get("summon_pet_template"),
+        additional_pet=entry.get("additional_pet", False),
         requires_form=_normalize_requires_form(entry.get("requires_form")),
         heal_scope=entry.get("heal_scope", "lowest_ally"),
         exclusive_group=entry.get("exclusive_group"),
