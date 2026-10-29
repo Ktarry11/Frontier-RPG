@@ -111,6 +111,47 @@ SPEC_ROLES = {
     "guardian_vanguard": "tank",
     "guardian_inspiration": "melee_dps",
     "guardian_gladiator": "melee_dps",
+    # ---- THE THIRTEEN CLASSES ADDED AFTER THIS TABLE WAS WRITTEN.
+    # 38 real talent trees had no role at all, so every balance run since
+    # has measured 59 specs out of 97 and silently left the rest out. Six
+    # of the missing ones are TANKS and three are HEALERS, which is most of
+    # what a role audit is for.
+    #
+    # ROLES TAKEN FROM reference/coa_sidekick, NOT from the tree
+    # descriptions. Reading descriptions is how I got Tinker Mechanics,
+    # Stormbringer Wind and Primalist Grovekeeper wrong, all three of which
+    # Kyle corrected - and two of the five "broken healers" in the 28 Oct
+    # audit turned out to be specs sitting a test they were never meant to
+    # take. Each SPEC_*.txt states its role outright; that is the ground
+    # truth and this table now just copies it.
+    #
+    # One CoA spec is deliberately absent: venomancer_rot. The reference
+    # has a page for it and the game has no such talent tree, so adding it
+    # would put a role on a spec nobody can play.
+    "barbarian_ancestry": "melee_dps", "barbarian_brutality": "melee_dps",
+    "barbarian_headhunting": "ranged_dps",
+    "bloodmage_accursed": "melee_dps", "bloodmage_eternal": "tank",
+    "bloodmage_fleshweaver": "ranged_dps", "bloodmage_sanguine": "ranged_dps",
+    "chronomancer_artificer": "ranged_dps", "chronomancer_infinite": "ranged_dps",
+    "chronomancer_time": "healer",
+    "felsworn_infernal": "ranged_dps", "felsworn_slayer": "melee_dps",
+    "felsworn_tyrant": "tank",
+    "knight_of_xoroth_defiance": "tank", "knight_of_xoroth_hellfire": "melee_dps",
+    "knight_of_xoroth_war": "melee_dps",
+    "necromancer_animation": "ranged_dps", "necromancer_death": "ranged_dps",
+    "necromancer_rime": "ranged_dps",
+    "pyromancer_draconic": "ranged_dps", "pyromancer_flameweaving": "healer",
+    "pyromancer_incineration": "ranged_dps",
+    "ranger_archery": "ranged_dps", "ranger_brigand": "melee_dps",
+    "ranger_farstrider": "ranged_dps",
+    "reaper_domination": "tank", "reaper_harvest": "melee_dps",
+    "reaper_soul": "melee_dps",
+    "templar_crusader": "melee_dps", "templar_oathkeeper": "tank",
+    "templar_zealot": "melee_dps",
+    "witch_doctor_brewing": "healer", "witch_doctor_shadowhunting": "ranged_dps",
+    "witch_doctor_voodoo": "ranged_dps",
+    "witch_hunter_black_knight": "tank", "witch_hunter_boltslinger": "ranged_dps",
+    "witch_hunter_houndmaster": "ranged_dps", "witch_hunter_inquisition": "melee_dps",
 }
 
 #: THE FORM IS PART OF THE SPEC. A feral druid measured out of Bear Form has the armour of a
@@ -147,14 +188,52 @@ def roles_of(spec):
     return (r,) if isinstance(r, str) else tuple(r)
 
 
+def display_names():
+    """The real class names, from the engine. Not derived, looked up."""
+    import re
+    text = (ROOT / "entities/character.py").read_text(encoding="utf-8")
+    block = text.split("class_stats = {", 1)[1].split("\n        }", 1)[0]
+    return re.findall(r'^\s*"([^"]+)":\s*\{\s*#?', block, re.M)
+
+
 def class_of(spec):
     """'sun_cleric_seraphim' -> 'Sun Cleric'. Longest matching class slug wins, so multi-word
-    class names are not split at the wrong underscore."""
+    class names are not split at the wrong underscore.
+
+    THE NAME IS LOOKED UP, NOT TITLE-CASED. This returned
+    slug.replace("_", " ").title(), which gives 'Knight Of Xoroth' with a
+    capital O where the game's own class is 'Knight of Xoroth'. Nothing
+    complained, because three separate lookups all fail SOFT on an unknown
+    class name:
+
+      Character.__init__      falls back to default stats - the mis-cased
+                              Knight read strength 39 instead of 53 and
+                              492 health instead of 412
+      class_armor_map.get()   defaults to "cloth", so a PLATE tank was
+                              measured in cloth and came out with 785
+                              armour against Protection Warrior's 2763
+      class_stat_template_map defaults to "int_caster", so its gear rolled
+                              caster stats on top of that
+
+    Knight of Xoroth is the only class in the game whose name contains a
+    lowercase connector, so it is the only one title() corrupts - which is
+    exactly why it survived: every other multi-word class (Witch Hunter,
+    Sun Cleric, Witch Doctor) title-cases correctly and the bug looked like
+    a balance result. It read as the worst tank in the game on effective
+    HP, physical reduction, damage taken and turns alive, all four of them
+    an artifact of one capital letter.
+    """
     slugs = sorted((p.stem for p in (ROOT / "data/abilities").glob("*.json")),
                    key=len, reverse=True)
+    real = {n.lower().replace(" ", "_"): n for n in display_names()}
     for slug in slugs:
         if spec.startswith(slug + "_"):
-            return slug.replace("_", " ").title()
+            if slug in real:
+                return real[slug]
+            raise KeyError(
+                f"class slug {slug!r} (from spec {spec!r}) is not a class in "
+                f"entities/character.py class_stats - fix the name rather than "
+                f"letting it fall back to default stats and cloth gear")
     raise KeyError(f"no class owns spec {spec!r}")
 
 
@@ -355,14 +434,32 @@ def tank_axes(char, level, gen, dress, fights):
                        "magic_damage_taken_pct", "spell_damage_taken_pct",
                        "armor_pct", "armor", "block", "dodge", "parry",
                        "block_value_pct", "max_health_pct"}
+    # AN ABSORB SHIELD IS MITIGATION, and this filter could not see one.
+    # Picking defensives by their stat_mods alone missed every buff whose
+    # whole job is a shield, because an absorb carries no stat_mods at all -
+    # twelve of them across the game, including BOTH of Cultist
+    # Dreadnought's (Dreadnought Shield 0.25 and Eldritch Bastion 0.35) and
+    # Templar Oathkeeper's Tome of Light at 0.40 of max health. The 28 Oct
+    # audit called Dreadnought "zero block" and "best at nothing" while it
+    # was holding two unused shields, which is the same failure as Mountain
+    # King reading 5 turns alive with two unused cooldowns - the one this
+    # branch was written to fix. Fixed one layer too shallow the first time.
+    def mitigation_weight(a):
+        mods = getattr(a, "stat_mods", {}) or {}
+        w = sum(abs(v) for k, v in mods.items() if k in MITIGATION_KEYS)
+        # absorb_pct_max_health is a FRACTION of max health (banded
+        # 0.06-0.40 across the game); x100 puts it on the same scale as the
+        # percent-point mitigation keys so the sort compares like with like.
+        w += (getattr(a, "absorb_pct_max_health", 0) or 0) * 100
+        w += (getattr(a, "absorb", 0) or 0) / 20.0
+        return w
+
     defensives = [a for a in learned
                   if getattr(a, "effect_type", "") == "buff"
                   and getattr(a, "target_type", None) in (None, "self")
-                  and MITIGATION_KEYS & set(getattr(a, "stat_mods", {}) or {})]
+                  and mitigation_weight(a) > 0]
     # Strongest first, by how much mitigation it actually carries.
-    defensives.sort(key=lambda a: -sum(
-        abs(v) for k, v in (getattr(a, "stat_mods", {}) or {}).items()
-        if k in MITIGATION_KEYS))
+    defensives.sort(key=lambda a: -mitigation_weight(a))
 
     #: At most one defensive cooldown every this many turns - see the
     #: rationing note in the turn loop. Mirrors healer_axes' HEAL_EVERY.
@@ -435,9 +532,29 @@ def tank_axes(char, level, gen, dress, fights):
                     # already net of every heal, absorb and proc the spec has, which is the honest
                     # measure and the one a tank is judged by anyway.
                     continue
+                # ABSORBED DAMAGE IS DAMAGE TAKEN, counted against the
+                # shield instead of the health bar. This loop resets
+                # current_health to full every turn so each swing is
+                # measured in isolation - but it does NOT reset status
+                # effects, so an absorb shield soaks hit after hit against
+                # a pool that never visibly drains, and `before -
+                # current_health` reads 0 every single turn.
+                #
+                # That produced reaper_domination at 0.01 damage a turn and
+                # 195,300 turns alive the moment absorb shields were added
+                # to the defensive rotation - immortality invented by the
+                # harness, from a change made two hours earlier to fix the
+                # opposite problem. A shield is a finite resource being
+                # spent, so spending 500 of it is 500 damage the tank had
+                # to pay for, and it belongs in the average.
+                def absorb_pool():
+                    return sum(getattr(fx, "absorb", 0) or 0
+                               for fx in getattr(char, "active_effects", []))
+
                 before = char.current_health
+                shield_before = absorb_pool()
                 engine.execute_monster_action()
-                hit = before - char.current_health
+                hit = (before - char.current_health) + (shield_before - absorb_pool())
                 # EVERY SWING COUNTS, INCLUDING THE ONES THAT DEALT NOTHING.
                 # This was `if hit > 0`, which dropped avoided swings from the
                 # sample entirely - so the mean below was damage per LANDED

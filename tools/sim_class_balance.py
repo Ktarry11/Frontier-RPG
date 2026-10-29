@@ -65,10 +65,39 @@ def enemy_level(level, above):
 
 
 def classes():
+    """(slug, display_name) for every class, with the display name LOOKED UP.
+
+    char_class is the display name ("Sun Cleric"), the files are slugs
+    ("sun_cleric"), and the obvious bridge - slug.replace("_", " ").title() -
+    is wrong for exactly one class. 'knight_of_xoroth' title-cases to
+    'Knight Of Xoroth' and the game's class is 'Knight of Xoroth'.
+
+    Nothing raises on the mismatch, because three lookups all fail soft:
+    Character.__init__ falls back to default stats (strength 39 instead of
+    53, health 412 instead of 492), class_armor_map defaults to "cloth" so
+    a plate class is dressed in cloth, and class_stat_template_map defaults
+    to "int_caster" so its gear rolls caster stats as well.
+
+    Every Knight of Xoroth number this sweep has ever produced carried all
+    three faults at once, including the 10%/30% win rate at levels 5-10
+    that the 28 Oct class audit reported as a balance problem and blamed on
+    the class having no free Rage opener. That diagnosis needs re-taking
+    now the class is being measured as itself.
+    """
+    import re
+    text = (ROOT / "entities/character.py").read_text(encoding="utf-8")
+    block = text.split("class_stats = {", 1)[1].split("\n        }", 1)[0]
+    real = {n.lower().replace(" ", "_"): n
+            for n in re.findall(r'^\s*"([^"]+)":\s*\{\s*#?', block, re.M)}
     names = sorted(p.stem for p in (ROOT / "data/abilities").glob("*.json")
                    if p.stem not in NOT_A_CLASS)
-    # char_class is the display name ("Sun Cleric"), the files are slugs ("sun_cleric").
-    return [(slug, slug.replace("_", " ").title()) for slug in names]
+    out = []
+    for slug in names:
+        if slug not in real:
+            raise KeyError(f"class slug {slug!r} is not in class_stats - fix the "
+                           f"name rather than letting it fall back to defaults")
+        out.append((slug, real[slug]))
+    return out
 
 
 def dress(char, gen, level):
