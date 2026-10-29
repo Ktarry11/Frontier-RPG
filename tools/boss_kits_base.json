@@ -10221,5 +10221,353 @@
     "armor": -90
    }
   }
+ ],
+ "mistvale_longjaw": [
+  {
+   "name": "Longjaw's Bite",
+   "kind": "damage",
+   "amount": 98,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Hollow-Tooth Grip",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "agility": -34
+    }
+   }
+  },
+  {
+   "name": "Settles On the Bottom",
+   "kind": "damage",
+   "amount": 86,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "buff",
+    "duration": 4,
+    "stat_mods": {
+     "armor": 90
+    }
+   }
+  },
+  {
+   "name": "Does Not Let Go",
+   "kind": "damage",
+   "amount": 124,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "katesh_last_stairkeeper": [
+  {
+   "name": "Keeper's Word",
+   "kind": "damage",
+   "amount": 102,
+   "cooldown": 0,
+   "mana_cost": 18,
+   "school": "nature"
+  },
+  {
+   "name": "Forty Turns of Stair",
+   "kind": "damage",
+   "amount": 114,
+   "cooldown": 4,
+   "mana_cost": 24,
+   "school": "nature",
+   "rider": {
+    "effect": "buff",
+    "duration": 5,
+    "stat_mods": {
+     "armor": 96,
+     "magic_damage_taken_pct": -16
+    }
+   }
+  },
+  {
+   "name": "Names the Eight Who Are Gone",
+   "kind": "damage",
+   "amount": 94,
+   "cooldown": 5,
+   "mana_cost": 22,
+   "school": "shadow",
+   "is_aoe": true,
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "spirit": -36,
+     "intellect": -32
+    }
+   }
+  },
+  {
+   "name": "Holds the Top Step",
+   "kind": "damage",
+   "amount": 126,
+   "cooldown": 6,
+   "mana_cost": 28,
+   "school": "nature"
+  }
+ ],
+ "gorbuk_shelf_king": [
+  {
+   "name": "Roadbreaker",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Shears the Plate Off You",
+   "kind": "damage",
+   "amount": 124,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "armor": -200
+    }
+   }
+  },
+  {
+   "name": "Fills the One Road Up",
+   "kind": "damage",
+   "amount": 100,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true,
+   "rider": {
+    "effect": "buff",
+    "duration": 4,
+    "stat_mods": {
+     "armor": 110,
+     "physical_damage_taken_pct": -14
+    }
+   }
+  },
+  {
+   "name": "Eleven Years Standing Here",
+   "kind": "damage",
+   "amount": 140,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "drumhide": [
+  {
+   "name": "Drumhide's Overhand",
+   "kind": "damage",
+   "amount": 116,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Breaks the Crate Open",
+   "kind": "damage",
+   "amount": 130,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "buff",
+    "duration": 5,
+    "stat_mods": {
+     "attack_power": 58
+    }
+   }
+  },
+  {
+   "name": "Scatters the Drovers",
+   "kind": "damage",
+   "amount": 102,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true,
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "attack_power": -42
+    }
+   }
+  },
+  {
+   "name": "Will Not Go Back Down the Flats",
+   "kind": "damage",
+   "amount": 146,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "the_cargo": [
+  {
+   "name": "Crate-Fed Claw",
+   "kind": "damage",
+   "amount": 126,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Off the Sand and Onto You",
+   "kind": "damage",
+   "amount": 140,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "buff",
+    "duration": 3,
+    "stat_mods": {
+     "physical_damage_taken_pct": -26
+    }
+   }
+  },
+  {
+   "name": "Opens Something and Leaves It",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "debuff",
+    "duration": 5,
+    "stat_mods": {
+     "stamina": -42
+    }
+   }
+  },
+  {
+   "name": "Nothing Else Walks This Spit",
+   "kind": "damage",
+   "amount": 158,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "ssaren_salvage_taker": [
+  {
+   "name": "Salvage-Taker's Note",
+   "kind": "damage",
+   "amount": 130,
+   "cooldown": 0,
+   "mana_cost": 22,
+   "school": "frost"
+  },
+  {
+   "name": "Floods the Second Court",
+   "kind": "damage",
+   "amount": 144,
+   "cooldown": 4,
+   "mana_cost": 30,
+   "school": "frost",
+   "is_aoe": true,
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "attack_power": -48
+    }
+   }
+  },
+  {
+   "name": "Decides Which Stone Comes Up",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 5,
+   "mana_cost": 26,
+   "school": "nature",
+   "rider": {
+    "effect": "buff",
+    "duration": 5,
+    "stat_mods": {
+     "armor": 118,
+     "attack_power": 54
+    }
+   }
+  },
+  {
+   "name": "Sits Where the Terrace Was",
+   "kind": "damage",
+   "amount": 162,
+   "cooldown": 6,
+   "mana_cost": 34,
+   "school": "frost"
+  }
+ ],
+ "captain_orlee_vantch": [
+  {
+   "name": "Shallows Cutlass",
+   "kind": "damage",
+   "amount": 136,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Knows Where the Sand Is",
+   "kind": "damage",
+   "amount": 148,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "buff",
+    "duration": 5,
+    "stat_mods": {
+     "attack_power": 56,
+     "physical_damage_taken_pct": -18
+    }
+   }
+  },
+  {
+   "name": "Grape Off the Bar",
+   "kind": "damage",
+   "amount": 122,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true,
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "hit_rating": -30,
+     "agility": -42
+    }
+   }
+  },
+  {
+   "name": "A Fourth Wreck",
+   "kind": "damage",
+   "amount": 170,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "physical",
+   "hp_below": 0.35
+  }
  ]
 }

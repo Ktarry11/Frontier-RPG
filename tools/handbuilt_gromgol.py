@@ -1,12 +1,15 @@
 """
 Hand-built Grom'gol (64x56): the Horde's base camp in Northern Stranglethorn.
 
-TOWN ARCHETYPE: AIRHEAD.  Not a town - a beachhead that arrived by air and has not finished unpacking.
+TOWN ARCHETYPE: AIRHEAD.  Not a town - a literal beachhead. It arrived by air, it is dug in on the
+west shore of the jungle, and it has not finished unpacking.
 Every other settlement in the game grew where it stands; this one was flown in, and the shape says so.
 The zeppelin tower is the first thing built and everything else is laid out under it, because it is the
 thing that supplies them.  A single palisade ring, one gate north (the berth
 stair) and one gate south (the Vine Road), a parade yard under the tower, the war hall and the forge on
-the high side, stores and pens on the low side, and the jungle pressing on the wall everywhere else.
+the high side, stores and pens on the low side, and the jungle pressing on the wall everywhere else - except the
+west side, which is not walled at all, because the west side is the beach.  The sea is the wall there,
+and there is a wrecked hull on the sand that was already there when the airship came in.
 (Razor Hill = walled hill fort, Crossroads = avenue cross, Camp Taurajo = tipi ring, Ratchet = harbour;
 this is the only one that is a supply line with a fence round it.)
 
@@ -42,9 +45,10 @@ START = (32, 8)
 ROADS = {
     "spine":  ([(32, 3), (32, 12), (31, 20), (32, 28), (33, 38), (32, 46), (32, 54)], 3.6),
     "east":   ([(33, 24), (42, 22), (50, 24), (56, 28)], 2.6),
-    "west":   ([(31, 24), (22, 22), (14, 25), (9, 30)], 2.6),
+    "west":   ([(31, 24), (22, 22), (15, 25), (11, 29)], 2.6),
     "pens":   ([(33, 38), (41, 40), (46, 42)], 2.4),
-    "stores": ([(31, 38), (21, 41), (13, 45)], 2.4),
+    "stores": ([(31, 38), (21, 41), (14, 45)], 2.4),
+    "strand": ([(15, 25), (13, 34), (14, 42)], 2.0),
 }
 PLAZA = (32, 24, 7.5, 5.8)
 
@@ -52,7 +56,6 @@ _RS = K.RoadSet(ROADS)
 road_dist = _RS.dist
 
 GAPS = [(32, 4, 6, 5), (32, 52, 6, 5)]
-POND = (11, 21, 5.0, 3.4)
 
 
 def paved(gx, gy):
@@ -61,12 +64,19 @@ def paved(gx, gy):
     return (1 - r) * min(rx, ry)
 
 
+def shore(gy):
+    """x of the waterline on the west beach. The strand widens toward the middle of the camp, which is
+    where the boats come in and where the wreck is."""
+    gy = np.asarray(gy, float)
+    return (7.5 + 2.6 * np.sin(0.052 * gy + 0.6) + 1.3 * np.sin(0.137 * gy + 1.7)
+            + 0.6 * np.sin(0.33 * gy) + 1.8 * np.exp(-((gy - 28.0) / 16.0) ** 2))
+
+
 def water_fields(gx, gy):
-    """A spring pond in the west quarter - the camp's water, and the only water in it."""
-    cx, cy, rx, ry = POND
-    r = np.sqrt(((gx - cx) / rx) ** 2 + ((gy - cy) / ry) ** 2)
-    sh = (1 - r) * min(rx, ry) + 0.5 * _wob(gx, gy)
-    return sh, sh - 2.4
+    """Same shelving as Booty Bay's cove: a wide pale shallow before the drop, because the camp sits
+    on a strand rather than on a cliff."""
+    sea = shore(gy) - gx
+    return sea, sea - 5.5
 
 
 def cliff_field(gx, gy):
@@ -85,8 +95,12 @@ def cliff_field(gx, gy):
     for (cx, cy, rx, ry) in [(52, 12, 6, 4.5), (11, 11, 5, 4)]:
         r = np.sqrt(((gx - cx) / rx) ** 2 + ((gy - cy) / ry) ** 2)
         rock = np.maximum(rock, (1 - r) * min(rx, ry))
-    return np.maximum(-inside + 1.0 * _wob(gx, gy),
-                      np.minimum(rock, -road_dist(gx, gy) - 2.0))
+    out = np.maximum(-inside + 1.0 * _wob(gx, gy),
+                     np.minimum(rock, -road_dist(gx, gy) - 2.0))
+    # The sea is the west wall. Without this the ring's own rim would win over the water in
+    # kind_from_fields (cliff > 1.5 overrides shallow) and paint a stone lip across the beach.
+    sea, _ = water_fields(gx, gy)
+    return np.minimum(out, -sea - 1.2)
 
 
 def fields(gx, gy):
@@ -101,8 +115,12 @@ def tile_kind(gx, gy):
 
 
 # ---- painter config -----------------------------------------------------------------------------------
-WATER = "lake"
-BASE = {"jungle": 0.7, "mulch": 0.45, "clay": 0.3}
+WATER = "sea"
+#: The ring round this clearing is jungle, not stone - see the WALL branch in tools/bake_stranglethorn.py.
+#: ROCK lists the two outcrops inside it that really are rock (they match cliff_field below).
+WALL = "canopy"
+ROCK = [(52, 12, 6, 4.5), (11, 11, 5, 4)]
+BASE = {"jungle": 1.0, "fern": 0.70, "mulch": 0.22, "clay": 0.15}
 PAINT = {
     "camp":  [(32, 24, 13, 10, 1.0), (32, 10, 9, 5, 0.9), (47, 40, 9, 6, 0.8), (17, 43, 8, 5, 0.8),
               (50, 24, 7, 5, 0.7), (13, 27, 7, 5, 0.7)],
@@ -126,22 +144,26 @@ NPC_POSITIONS = {
     # the trades
     "gromgol_smith": (52, 23),                # Smith Dorgun
     "gromgol_beast_handler": (41, 47),        # Beast-Handler Kozza, the pens
-    "gromgol_storesman": (16, 44),            # Storesman Pell
-    "gromgol_cartographer": (12, 28),         # Mapmaker Ashi
+    "gromgol_storesman": (24, 44),            # Storesman Pell
+    "gromgol_cartographer": (16, 20),         # Mapmaker Ashi
     "gromgol_troll_attache": (44, 26),        # Attaché Zul'jana - Darkspear, and from here
     # vendors
     "gromgol_trader": (34, 32),               # Trader Burg
     "gromgol_provisioner": (20, 41),          # Provisioner Nakka
     "gromgol_weaponsmith": (51, 27),          # Weaponsmith Trag
-    "gromgol_herbalist": (10, 30),            # Herbalist Mossa
+    "gromgol_herbalist": (12, 32),            # Herbalist Mossa, at the top of the sand
 }
 FORGE = (54, 22)
 EXTRA_NPC_XY = [FORGE]
-CHESTS = [(8, 8), (56, 8), (8, 50), (56, 50)]
+CHESTS = [(14, 10), (52, 10), (14, 48), (51, 34)]
+
+
+JP = "assets/tiles/echo_isles/props/"
 
 
 def dress(L):
     P, B, D, C = L.prop, L.bld, L.dp, L.cp
+    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=JP, **kw)
 
     # ---- the berth: the tower, the stair down, the airship riding above it ------------------------
     B("zep_tower_orc", 32, 16, 14, road_ok=True, nudge=0)
@@ -153,11 +175,19 @@ def dress(L):
     P("br_signpost", 36, 12, 5)
     C("tiki_totem", 20, 8, 7)                    # the trolls got here first; the orcs left it standing
 
-    # ---- the spring: the camp's water, and the only water in it ----------------------------------
-    D("vot_reeds", 15, 22, 3, solid=False, shore_ok=True)
-    D("vot_reeds", 8, 18, 3, solid=False, shore_ok=True)
-    C("mangrove_thicket", 6, 25, 6, shore_ok=True)
-    D("vot_spring_boulder", 14, 17, 4)
+    # ---- the beach: the wreck, the boats, and the sand the camp actually landed on ---------------
+    J("shipwreck_full", 18, 41, 11, shore_ok=True)
+    J("shipwreck_fragment", 10, 15, 7, shore_ok=True)
+    C("boat_orc", 12, 27, 6, shore_ok=True)
+    C("outrigger_canoe", 11, 22, 4, shore_ok=True)
+    C("mooring_posts", 13, 30, 3, shore_ok=True)
+    J("tide_pool", 9, 46, 3, solid=False, shore_ok=True)
+    J("coral_shell_cluster", 10, 11, 3, solid=False, shore_ok=True)
+    C("driftwood_pile", 12, 50, 3, shore_ok=True)
+    C("mangrove_thicket", 14, 53, 6, shore_ok=True)
+    C("mangrove_thicket", 13, 6, 6, shore_ok=True)
+    for (x, y) in [(15, 11), (16, 18), (15, 32), (17, 48), (14, 7), (16, 54)]:
+        J("palm_lean_a" if (x + y) % 2 else "palm_lean_b", x, y, 10)
 
     # ---- the high side: war hall, forge, weapon racks ---------------------------------------------
     B("clan_hall", 44, 33, 11)
@@ -175,42 +205,52 @@ def dress(L):
     D("vot_war_banner", 36, 26, 5)
 
     # ---- the low side: stores, provisioner, the medic's tent --------------------------------------
-    B("supply_depot", 14, 42, 8)
+    B("supply_depot", 22, 46, 8)
     B("generic_tent_a", 21, 38, 5)
     B("generic_tent_b", 25, 44, 5)
-    B("plain_orc_house_a", 17, 28, 6)
-    B("plain_orc_house_b", 11, 33, 6)
+    B("plain_orc_house_a", 19, 29, 6)
+    B("plain_orc_house_b", 21, 34, 6)
     D("vot_crate_stack", 18, 46, 3)
-    D("vot_crate_stack", 10, 38, 3)
+    D("vot_crate_stack", 18, 43, 3)
     D("vot_hide_rack", 24, 40, 3)
 
     # ---- the pens: raptors the camp has stopped pretending it has not tamed ------------------------
-    for (x, y) in [(44, 45), (46, 45), (48, 45), (50, 45), (52, 45), (54, 45), (54, 47), (54, 49),
-                   (52, 49), (50, 49), (48, 49), (46, 49), (44, 49), (44, 47)]:
+    for (x, y) in [(44, 44), (46, 44), (48, 44), (50, 44), (52, 44), (52, 46), (52, 48),
+                   (50, 48), (48, 48), (46, 48), (44, 48), (44, 46)]:
         D("vot_palisade", x, y, 3, solid=True, nudge=0)
-    P("br_raptor_nest", 49, 47, 4)
+    P("br_raptor_nest", 48, 46, 4)
     P("br_hitching_trough", 42, 44, 3)
     B("generic_shack_a", 56, 41, 6)
 
     # ---- the palisade ring itself: posts on the inside of the wall, gates marked -------------------
-    for (x, y) in [(22, 6), (42, 6), (6, 22), (6, 34), (58, 22), (58, 34), (20, 50), (44, 50)]:
+    for (x, y) in [(22, 6), (42, 6), (58, 22), (58, 34), (22, 53), (46, 53), (56, 10), (54, 46)]:
         D("vot_palisade", x, y, 4, solid=False, nudge=1)
     B("palisade_gatehouse", 26, 52, 8, road_ok=True, nudge=1)
     B("watchtower", 38, 47, 10, nudge=3)
     D("vot_war_banner", 30, 50, 5)
-    C("troll_war_banner", 38, 48, 5)
+    C("troll_war_banner", 36, 49, 5)
 
-    # ---- what the wall is holding back ------------------------------------------------------------
-    for (x, y) in [(10, 16), (53, 11), (10, 42), (52, 42), (18, 49), (45, 52), (8, 32), (56, 35)]:
-        C("jungle_banyan", x, y, 10)
-    for (x, y) in [(15, 13), (58, 29), (15, 47), (49, 52), (18, 9), (46, 8)]:
-        C("bamboo_grove", x, y, 7)
-    for (x, y) in [(13, 35), (50, 35), (26, 7), (38, 52)]:
+    # ---- WHAT THE WALL IS HOLDING BACK, and what it is not --------------------------------------
+    # A palisade keeps people out. It does nothing about the jungle, which has been coming back over
+    # the wall for three years and is winning. The INSIDE stays open, because a fort clears its own
+    # ground and that is most of what a garrison does all day - the density belongs against the wall,
+    # on the strand, and in the few places nobody has a reason to walk.
+    for (x, y) in [(50, 42), (20, 51), (44, 51), (54, 35), (24, 8), (42, 9), (48, 20), (30, 10)]:
+        C("jungle_banyan", x, y, 11)
+    for (x, y) in [(55, 28), (20, 47), (20, 10), (46, 10), (18, 53), (40, 48), (56, 16), (52, 50)]:
+        C("bamboo_grove", x, y, 8)
+    for (x, y) in [(26, 21), (41, 20), (24, 31), (44, 32), (30, 46), (18, 18), (50, 30)]:
+        J("palm_cluster" if (x + y) % 3 else "palm_lean_a", x, y, 10)
+    for (x, y) in [(13, 35), (50, 35), (26, 7), (38, 52), (21, 34), (44, 36), (29, 50), (17, 14),
+                   (51, 52), (35, 7), (33, 43), (56, 44)]:
         C("hibiscus_bush", x, y, 3, solid=False)
-    for (x, y) in [(7, 25), (57, 26), (19, 48), (47, 51)]:
+    for (x, y) in [(27, 42), (37, 45), (19, 26), (46, 25), (23, 15), (48, 44)]:
+        C("banana_plant", x, y, 6)
+    for (x, y) in [(55, 24), (22, 49), (45, 49), (50, 10)]:
         C("mossy_jungle_boulder", x, y, 4)
-    for (x, y) in [(23, 31), (41, 35), (15, 20), (53, 28)]:
-        C("banana_plant", x, y, 5)
+    # the troll stonework the camp was pitched on top of
+    J("overgrown_ruin", 31, 50, 8)
+    J("jungle_idol", 51, 17, 8)
 
 
 def build_layout():

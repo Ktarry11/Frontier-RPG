@@ -48,11 +48,11 @@ TOWN = {"gromgol": "tools.handbuilt_gromgol", "booty_bay": "tools.handbuilt_boot
 
 # stem -> (source file, vertical crop offset, (hue, sat, val) or None, extra)
 SHEET = {
-    "stv_jungle":    (EI / "echo_jungle_a.png", 0.5, None, None),
-    "stv_jungle_b":  (EI / "echo_jungle_b.png", 0.5, (118, 0.72, 0.88), None),
-    "stv_fern":      (AV / "forest_floor_light.png", 0.2, (104, 0.86, 0.80), None),
+    "stv_jungle":    (EI / "echo_jungle_a.png", 0.5, (112, 0.80, 1.12), None),
+    "stv_jungle_b":  (EI / "echo_jungle_b.png", 0.5, (128, 0.86, 1.02), None),
+    "stv_fern":      (AV / "forest_floor_light.png", 0.2, (96, 0.94, 1.08), None),
     "stv_root":      (AV / "forest_floor_roots.png", 0.5, (44, 0.52, 0.72), None),
-    "stv_mulch":     (AV / "forest_floor_roots.png", 0.15, (26, 0.44, 0.70), None),
+    "stv_mulch":     (AV / "forest_floor_roots.png", 0.15, (56, 0.46, 0.86), None),
     "stv_rot":       (AV / "corrupted_ground.png", 0.5, (72, 0.40, 0.62), None),
     "stv_ruin":      (VOT / "vot_limestone.png", 0.3, (96, 0.26, 0.74), None),
     "stv_trampled":  (EI / "vot_hardpan.png", 0.5, (38, 0.30, 0.92), None),
@@ -64,15 +64,15 @@ SHEET = {
     "stv_stream":    (VOT / "vot_gravel.png", 0.5, (88, 0.14, 0.74), None),
     "stv_mud":       (EI / "vot_mudshore.png", 0.5, None, None),
     "stv_planks":    (EI / "vot_planks.png", 0.5, None, None),
-    "stv_beach":     (EI / "echo_sand.png", 0.5, None, None),
+    "stv_beach":     (EI / "echo_sand.png", 0.5, (46, 0.34, 1.10), None),
     "stv_wet":       (EI / "echo_wetsand.png", 0.5, None, None),
-    "stv_sea_s":     (EI / "vot_water_shallow.png", 0.5, None, None),
-    "stv_sea_d":     (EI / "vot_water_deep.png", 0.5, None, None),
-    "stv_lake_s":    (EI / "vot_water_shallow.png", 0.3, (150, 0.44, 0.88), None),
+    "stv_sea_s":     (EI / "vot_water_shallow.png", 0.5, (176, 0.44, 1.42), None),
+    "stv_sea_d":     (EI / "vot_water_deep.png", 0.5, (184, 0.50, 1.58), None),
+    "stv_lake_s":    (EI / "vot_water_shallow.png", 0.3, (156, 0.50, 0.98), None),
     "stv_lake_d":    (EI / "vot_water_deep.png", 0.3, (158, 0.58, 0.64), None),
     "stv_cliff_a":   (EI / "echo_rock_a.png", 0.5, None, None),
     "stv_cliff_b":   (EI / "echo_rock_b.png", 0.5, (96, 0.12, 0.84), None),
-    "stv_canopy":    (EI / "echo_jungle_b.png", 0.35, (122, 0.84, 1.00), "canopy"),
+    "stv_canopy":    (EI / "echo_jungle_b.png", 0.35, (126, 0.92, 1.08), "canopy"),
 }
 
 MATERIALS = {
@@ -341,6 +341,14 @@ def build_scores_town(P, M):
         S["hard"] = np.maximum(np.maximum(S["hard"], 0.05), 0.2 + 1.3 * pv).astype(np.float32)
     S["rocky"] = np.maximum(S["rocky"], (0.06 + 0.8 * (1 - smoothstep(0.6, 4.5, d_co))
                                          * (0.4 + 0.6 * smoothstep(0.3, 0.6, n_mid))).astype(np.float32))
+    # UNDERGROWTH COMES BACK WHERE NOBODY WALKS. Away from the roads and the hand-painted patches the
+    # town floor is jungle, not dirt - vivid fern in the gaps between buildings and up against the
+    # wall of the clearing, thinning out to bare ground only where there is actual traffic.
+    quiet = 1 - smoothstep(-5.0, 1.2, M.road_dist(gx, gy).astype(np.float32))
+    S["fern"] = np.maximum(S["fern"], (0.10 + 1.05 * quiet
+                                       * (0.45 + 0.55 * smoothstep(0.34, 0.70, n_mid))).astype(np.float32))
+    S["jungle"] = np.maximum(S["jungle"], (0.20 + 0.85 * quiet
+                                           * (0.5 + 0.5 * smoothstep(0.30, 0.68, n_big))).astype(np.float32))
     core, verge, _ = P.road_field(list(M.ROADS.values()))
     S["road"] = (0.05 + 1.3 * core).astype(np.float32)
     S["verge"] = (0.08 + 0.95 * verge * (1 - core)).astype(np.float32)
@@ -362,11 +370,25 @@ def build_scores_town(P, M):
     cs = 1.6 + 12 * cliff_f
     S["cliff_a"] = (cs - 1.0 * depth_dark).astype(np.float32)
     S["cliff_d"] = (cs - 2.6 + 2.6 * depth_dark).astype(np.float32)
+    S["canopy"] = np.full_like(n_big, -40.0, dtype=np.float32)
+    # A TOWN'S WALL IS NOT ALWAYS ROCK. town_kit's tile grid only knows "cliff" for impassable, so a
+    # jungle clearing and a sea cliff come through the same field - and painting both as stone made
+    # Grom'gol read as a quarry. A module can set WALL = "canopy" and list its real stone in ROCK;
+    # everything else in the ring is then painted as closed canopy, which is what is actually there.
+    if getattr(M, "WALL", "rock") == "canopy":
+        stone = np.zeros_like(n_big)
+        for (cx, cy, rx, ry) in getattr(M, "ROCK", []):
+            stone = np.maximum(stone, P.blob(cx, cy, rx + 2.0, ry + 2.0, 0.7, wp))
+        stone = smoothstep(0.15, 0.55, stone)
+        S["canopy"] = (cs - 1.4 * depth_dark - 40.0 * stone).astype(np.float32)
+        S["cliff_a"] = (S["cliff_a"] - 40.0 * (1 - stone)).astype(np.float32)
+        S["cliff_d"] = (S["cliff_d"] - 40.0 * (1 - stone)).astype(np.float32)
     cl_k = smoothstep(0.0, 0.30, cliff_f)
     wk = smoothstep(0.0, 1.2, cliff)
     for k in list(S):
-        if not k.startswith("cliff_") and S[k].max() > -8:
-            S[k] = (S[k] - 14.0 * cl_k - (40.0 * wk if k.endswith(("_s", "_d")) else 0.0)).astype(np.float32)
+        if k.startswith("cliff_") or k == "canopy" or S[k].max() <= -8:
+            continue
+        S[k] = (S[k] - 14.0 * cl_k - (40.0 * wk if k.endswith(("_s", "_d")) else 0.0)).astype(np.float32)
     return S
 
 

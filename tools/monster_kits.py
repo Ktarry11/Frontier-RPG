@@ -5271,6 +5271,358 @@ STRANGLETHORN_CAVE_KITS = {
 }
 
 
+# =========================================================================================================
+# STRANGLETHORN OPEN WORLD (levels 30-42) - the three jungle zones, their natives, and three generations
+# of the same trolls who do not agree about anything.  Rosters and loot: build_stranglethorn_content.py.
+#
+# THE TROLL KITS ARE THE POINT, and they are deliberately three different fight shapes, because the three
+# groups are not three reskins of each other:
+#   ZUL'MAROSH  defensive and slow.  Everything they do is about holding a step they are standing on.
+#               They are a remnant and they fight like people with no reinforcements.
+#   THE GURBASHI are a BUSINESS.  Gate crew, drovers and drums - nets, snares and crowd noise, not war
+#               magic.  They fight to stop you going somewhere, and then they stop.
+#   THE KUNDARAZ RETURNED are the only trolls in the jungle who are losing to something.  Their kits are
+#               all push: dig, shore, cut, reclaim.  Nothing they have is defensive, because the sea does
+#               not stop if you stand still.
+#
+# NAMED RARES CARRY NO STANDALONE BUFFS OR DEBUFFS.  Monster.choose_action will not let a boss spend a
+# turn on a bare self-buff while it has an attack available, so every buff and debuff a rare has is a
+# RIDER on a damage ability.  A standalone "Thrash" on a rare is an ability that never fires once.
+#
+# A MONSTER-SIDE BUFF MAY ONLY GRANT WHAT A MONSTER READS, which is armor, attack_power and the
+# *_damage_taken_pct / healing_taken_pct family (tools/audit_monster_combat.py MONSTER_READS_STAT_MODS,
+# and entities/monster.py has no derived-stat pool behind anything else).  intellect, stamina, agility
+# and dodge_rating on a self-buff or a buff rider are flavour text - the audit caught sixteen of them in
+# the first draft of this block.  The same keys on a DEBUFF are real, because a debuff lands on a
+# Character, which does have that pool.  So "hard to pin down" is physical_damage_taken_pct, "eats the
+# spell" is spell_damage_taken_pct, and a caster buffing itself buffs attack_power or nothing.
+# Note the sign and the scale: the typed keys are percentage POINTS (-18 is 18% less damage taken),
+# while a bare `damage_taken_pct` is read undivided as a fraction, so this block never uses the bare one.
+# =========================================================================================================
+STRANGLETHORN_KITS = {
+    # ---- THE JUNGLE, NORTH: the baseline the whole pass is measured against ---------------------------
+    "vinecrest_raptor": [
+        ("Raking Claw", "damage", 60, 0, 0, "physical", {}),
+        ("Hamstring Kick", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -24}}),
+        ("Pack Lunge", "damage", 52, 4, 0, "physical", {}),
+    ],
+    "greenpelt_panther": [
+        ("Ambush Bite", "damage", 62, 0, 0, "physical", {}),
+        ("Back Into the Green", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"physical_damage_taken_pct": -18}, "self_only": True}),
+    ],
+    "rootgrubber_boar": [
+        ("Root-Tusk Gore", "damage", 58, 0, 0, "physical", {}),
+        ("Squeals and Keeps Coming", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 26}, "self_only": True}),
+    ],
+    "coilvine_python": [
+        ("Constricting Coil", "damage", 64, 0, 0, "physical", {}),
+        ("Squeeze the Air Out", "dot", 22, 5, 0, "physical", {"duration": 4}),
+    ],
+    "thornback_ape": [
+        ("Overhand Slam", "damage", 66, 0, 0, "physical", {}),
+        ("Chest-Beat", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"attack_power": -26}}),
+        ("Clears the Gap", "damage", 56, 4, 0, "physical", {"is_aoe": True}),
+    ],
+
+    # ---- MISTVALE LAGOON: brackish, and nothing in it is in a hurry -----------------------------------
+    "mistvale_crocolisk": [
+        ("Lagoon Snap", "damage", 64, 0, 0, "physical", {}),
+        ("Takes It Under", "damage", 74, 5, 0, "physical", {}),
+    ],
+    "mangrove_stiltstalker": [
+        ("Stabbing Beak", "damage", 60, 0, 0, "physical", {}),
+        ("Stands in the Roots", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"physical_damage_taken_pct": -18}, "self_only": True}),
+    ],
+
+    # ---- ZUL'MAROSH: a remnant, and they fight like people with no reinforcements ---------------------
+    "zulmarosh_stonehand": [
+        ("Stonehand's Club", "damage", 60, 0, 0, "physical", {}),
+        ("Sets the Block Back", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 48}, "self_only": True}),
+    ],
+    "zulmarosh_stairwarden": [
+        ("Warden's Spear", "damage", 64, 0, 0, "physical", {}),
+        ("One Step Only", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("Will Not Give the Turn", "buff", 0, 7, 0, "physical",
+         {"duration": 5, "stat_mods": {"armor": 56, "physical_damage_taken_pct": -10},
+          "self_only": True}),
+    ],
+    "zulmarosh_vinespeaker": [
+        ("Call the Vine Off the Stone", "damage", 66, 0, 14, "nature", {}),
+        ("Hold the Terrace", "buff", 0, 6, 18, "nature",
+         {"duration": 4, "stat_mods": {"armor": 40, "magic_damage_taken_pct": -14},
+          "self_only": True}),
+        ("Reclaiming Growth", "dot", 24, 5, 20, "nature", {"duration": 4}),
+    ],
+
+    # ---- ROTVINE FEN: a symptom, not a people. Everything here carries the water's problem ------------
+    "bloatspawn_toad": [
+        ("Swollen Lunge", "damage", 62, 0, 0, "physical", {}),
+        ("Bursts When Hit", "dot", 22, 6, 0, "nature", {"duration": 4, "is_aoe": True}),
+    ],
+    "fenrot_creeper": [
+        ("Rotting Reach", "damage", 68, 0, 0, "nature", {}),
+        ("Soft Underfoot", "debuff", 0, 5, 0, "nature", {"duration": 4, "stat_mods": {"agility": -30}}),
+        ("Pulls You Into It", "damage", 58, 4, 0, "nature", {}),
+    ],
+    "sourwater_ooze": [
+        ("Sour Slap", "damage", 70, 0, 0, "nature", {}),
+        ("What Comes Downhill", "dot", 26, 5, 0, "nature", {"duration": 4, "is_aoe": True}),
+        ("Thickens", "buff", 0, 7, 0, "nature",
+         {"duration": 5, "stat_mods": {"armor": 62, "physical_damage_taken_pct": -12},
+          "self_only": True}),
+    ],
+
+    # ---- THE JUNGLE, CENTRE: same animals, a size up --------------------------------------------------
+    "bloodvine_raptor": [
+        ("Opening Rake", "damage", 72, 0, 0, "physical", {}),
+        ("Cuts the Legs", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -30}}),
+        ("Comes In Low", "damage", 62, 4, 0, "physical", {}),
+    ],
+    "nightpelt_panther": [
+        ("Throat Bite", "damage", 76, 0, 0, "physical", {}),
+        ("Gone Again", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"physical_damage_taken_pct": -22}, "self_only": True}),
+        ("Off the Branch", "damage", 66, 5, 0, "physical", {}),
+    ],
+    "greenwater_adder": [
+        ("Adder Strike", "damage", 70, 0, 0, "physical", {}),
+        ("Green Water Venom", "dot", 28, 4, 0, "nature", {"duration": 4}),
+    ],
+    "drumhide_gorilla": [
+        ("Two-Handed Slam", "damage", 76, 0, 0, "physical", {}),
+        ("Answers the Drums", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 36}, "self_only": True}),
+        ("Clears the Clearing", "damage", 64, 5, 0, "physical", {"is_aoe": True}),
+    ],
+
+    # ---- THE SNAPJAW MARSH ----------------------------------------------------------------------------
+    "snapjaw_crocolisk": [
+        ("Snapjaw Bite", "damage", 76, 0, 0, "physical", {}),
+        ("Death Roll", "damage", 88, 5, 0, "physical", {}),
+    ],
+    "snapjaw_leechswarm": [
+        ("Clinging Swarm", "damage", 70, 0, 0, "physical", {}),
+        ("Bleeds You Slowly", "dot", 26, 4, 0, "physical", {"duration": 5}),
+        ("All Over at Once", "damage", 58, 5, 0, "physical", {"is_aoe": True}),
+    ],
+
+    # ---- THE GURBASHI: a business. Nets, snares and crowd noise, not war magic ------------------------
+    "gurbashi_gatekeeper": [
+        ("Gate Pole", "damage", 76, 0, 0, "physical", {}),
+        ("Name's Not on the Board", "debuff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": -32}}),
+        ("Shoves You Back Off the Apron", "damage", 66, 4, 0, "physical", {}),
+    ],
+    "gurbashi_beast_drover": [
+        ("Drover's Goad", "damage", 74, 0, 0, "physical", {}),
+        ("Throws the Net", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -34, "dodge_rating": -18}}),
+        ("Boxes It Up", "damage", 64, 5, 0, "physical", {}),
+    ],
+    "gurbashi_drum_caller": [
+        ("Drum-Caller's Rap", "damage", 78, 0, 14, "nature", {}),
+        ("Works the Rim Up", "buff", 0, 6, 18, "nature",
+         {"duration": 4, "stat_mods": {"attack_power": 38}, "self_only": True}),
+        ("Noise Off the Flats", "damage", 66, 5, 22, "nature", {"is_aoe": True}),
+    ],
+
+    # ---- MOSH'OGG: they kept the shelf because of the road, and they know it --------------------------
+    "moshogg_brute": [
+        ("Brute Swing", "damage", 78, 0, 0, "physical", {}),
+        ("Sits Down on the Road", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"armor": 66, "physical_damage_taken_pct": -12},
+          "self_only": True}),
+    ],
+    "moshogg_rockthrower": [
+        ("Thrown Rock", "damage", 74, 0, 0, "physical", {}),
+        ("Shelf Rubble", "damage", 62, 4, 0, "physical", {"is_aoe": True}),
+        ("Rings Your Head", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"intellect": -30}}),
+    ],
+    "moshogg_mauler": [
+        ("Mauling Grip", "damage", 82, 0, 0, "physical", {}),
+        ("Both Fists Down", "damage", 94, 5, 0, "physical", {}),
+        ("Wears You Out", "debuff", 0, 6, 0, "physical", {"duration": 4, "stat_mods": {"stamina": -32}}),
+    ],
+    "moshogg_spellgorger": [
+        ("Gorged Bolt", "damage", 80, 0, 16, "arcane", {}),
+        ("Eats the Spell", "buff", 0, 6, 20, "arcane",
+         {"duration": 4, "stat_mods": {"armor": 44, "spell_damage_taken_pct": -20},
+          "self_only": True}),
+        ("Spits It Back", "damage", 70, 5, 24, "arcane", {"is_aoe": True}),
+    ],
+
+    # ---- THE JUNGLE, SOUTH: the last of it, and the biggest ------------------------------------------
+    "capecrest_raptor": [
+        ("Cape Rake", "damage", 86, 0, 0, "physical", {}),
+        ("Opens the Hamstring", "debuff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"agility": -38}}),
+        ("Drives It Home", "damage", 76, 4, 0, "physical", {}),
+    ],
+    "blackpelt_panther": [
+        ("Black Pelt Bite", "damage", 88, 0, 0, "physical", {}),
+        ("Loses You in the Thin Cover", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"physical_damage_taken_pct": -24}, "self_only": True}),
+        ("Takes the Throat", "damage", 98, 5, 0, "physical", {}),
+    ],
+    "thicketbreaker_boar": [
+        ("Breaking Charge", "damage", 90, 0, 0, "physical", {}),
+        ("Goes Through It", "damage", 100, 5, 0, "physical", {}),
+        ("Will Not Turn", "buff", 0, 7, 0, "physical",
+         {"duration": 5, "stat_mods": {"attack_power": 42, "armor": 56}, "self_only": True}),
+    ],
+    "stonecourt_gorilla": [
+        ("Court-Stone Slam", "damage", 92, 0, 0, "physical", {}),
+        ("Throws What It Is Standing On", "damage", 80, 4, 0, "physical", {"is_aoe": True}),
+        ("Shoulders the Pillar", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 80, "attack_power": 40}, "self_only": True}),
+    ],
+
+    # ---- THE KUNDARAZ RETURNED: nothing defensive. The sea does not stop if you stand still -----------
+    "kundaraz_vinecutter": [
+        ("Cutter's Machete", "damage", 88, 0, 0, "physical", {}),
+        ("Clears to the Stone", "damage", 98, 5, 0, "physical", {}),
+        ("Does Not Stop Working", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"attack_power": 44}, "self_only": True}),
+    ],
+    "kundaraz_stoneshaper": [
+        ("Shaping Word", "damage", 90, 0, 18, "nature", {}),
+        ("Sets the Course Back", "buff", 0, 6, 22, "nature",
+         {"duration": 5, "stat_mods": {"armor": 52, "attack_power": 40}, "self_only": True}),
+        ("Shores the Terrace", "damage", 80, 5, 26, "nature", {"is_aoe": True}),
+    ],
+    "kundaraz_terrace_watch": [
+        ("Watch's Javelin", "damage", 88, 0, 0, "physical", {}),
+        ("Calls the Water Up", "damage", 78, 4, 0, "frost", {"is_aoe": True}),
+        ("Marks You for the Cutters", "debuff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": -140}}),
+    ],
+
+    # ---- THE NAGA: on the terraces, and in no hurry to leave them ------------------------------------
+    "saltscale_salvager": [
+        ("Salvager's Hook", "damage", 86, 0, 0, "physical", {}),
+        ("Drags the Block Off", "damage", 96, 5, 0, "physical", {}),
+    ],
+    "saltscale_reaver": [
+        ("Reaver's Glaive", "damage", 94, 0, 0, "physical", {}),
+        ("Sweeps the Shallows", "damage", 84, 4, 0, "physical", {"is_aoe": True}),
+        ("Coils and Holds", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 92, "attack_power": 44}, "self_only": True}),
+    ],
+    "saltscale_siren": [
+        ("Siren's Note", "damage", 92, 0, 20, "frost", {}),
+        ("Water Over the Court", "damage", 102, 5, 28, "frost", {"is_aoe": True}),
+        ("Salt in the Throat", "dot", 40, 5, 24, "nature", {"duration": 4}),
+    ],
+
+    # ---- THE BLOODSAIL: powder, iron and a shallow-water fight ---------------------------------------
+    "bloodsail_swab": [
+        ("Swab's Cutlass", "damage", 86, 0, 0, "physical", {}),
+        ("Sand in the Eyes", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"hit_rating": -24, "agility": -30}}),
+    ],
+    "bloodsail_cannoneer": [
+        ("Swivel Shot", "damage", 90, 0, 0, "physical", {}),
+        ("Grape Across the Bar", "damage", 80, 4, 0, "physical", {"is_aoe": True}),
+        ("Powder Burn", "dot", 34, 5, 0, "fire", {"duration": 4}),
+    ],
+    "bloodsail_bosun": [
+        ("Bosun's Starter", "damage", 94, 0, 0, "physical", {}),
+        ("Gets the Crew Moving", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"attack_power": 50}, "self_only": True}),
+        ("Over the Rail", "damage", 104, 5, 0, "physical", {}),
+    ],
+
+    # ---- JAGUERO SPIT: arena cargo loose on a sand bar, and the crabs that found the wrecks ----------
+    "spit_scavenger_crab": [
+        ("Scavenging Pincer", "damage", 86, 0, 0, "physical", {}),
+        ("Under the Hull Timber", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 96}, "self_only": True}),
+    ],
+    "pit_stock_raptor": [
+        ("Stock-Bred Claw", "damage", 94, 0, 0, "physical", {}),
+        ("Fights the Way It Was Trained To", "damage", 106, 5, 0, "physical", {}),
+        ("Never Boxed Again", "debuff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"agility": -40, "armor": -130}}),
+    ],
+
+    # ==================================================================================================
+    # THE SEVEN NAMED RARES. Every buff and debuff is a RIDER on a damage ability, because
+    # Monster.choose_action will not let a boss spend a turn on a bare one while it can still swing.
+    # ==================================================================================================
+    "mistvale_longjaw": [                                     # L33, Mistvale Lagoon
+        ("Longjaw's Bite", "damage", 98, 0, 0, "physical", {}),
+        ("Hollow-Tooth Grip", "damage", 112, 4, 0, "physical",
+         {"rider": {"effect": "debuff", "duration": 4, "stat_mods": {"agility": -34}}}),
+        ("Settles On the Bottom", "damage", 86, 5, 0, "physical",
+         {"rider": {"effect": "buff", "duration": 4, "stat_mods": {"armor": 90}}}),
+        ("Does Not Let Go", "damage", 124, 6, 0, "physical", {}),
+    ],
+    "katesh_last_stairkeeper": [                              # L34, Zul'Marosh Steps
+        ("Keeper's Word", "damage", 102, 0, 18, "nature", {}),
+        ("Forty Turns of Stair", "damage", 114, 4, 24, "nature",
+         {"rider": {"effect": "buff", "duration": 5,
+                    "stat_mods": {"armor": 96, "magic_damage_taken_pct": -16}}}),
+        ("Names the Eight Who Are Gone", "damage", 94, 5, 22, "shadow",
+         {"is_aoe": True,
+          "rider": {"effect": "debuff", "duration": 4, "stat_mods": {"spirit": -36, "intellect": -32}}}),
+        ("Holds the Top Step", "damage", 126, 6, 28, "nature", {}),
+    ],
+    "gorbuk_shelf_king": [                                    # L36, Mosh'Ogg Shelf
+        ("Roadbreaker", "damage", 112, 0, 0, "physical", {}),
+        ("Shears the Plate Off You", "damage", 124, 4, 0, "physical",
+         {"rider": {"effect": "debuff", "duration": 4, "stat_mods": {"armor": -200}}}),
+        ("Fills the One Road Up", "damage", 100, 5, 0, "physical",
+         {"is_aoe": True,
+          "rider": {"effect": "buff", "duration": 4,
+                    "stat_mods": {"armor": 110, "physical_damage_taken_pct": -14}}}),
+        ("Eleven Years Standing Here", "damage", 140, 6, 0, "physical", {}),
+    ],
+    "drumhide": [                                             # L37, the one the drovers never boxed
+        ("Drumhide's Overhand", "damage", 116, 0, 0, "physical", {}),
+        ("Breaks the Crate Open", "damage", 130, 4, 0, "physical",
+         {"rider": {"effect": "buff", "duration": 5, "stat_mods": {"attack_power": 58}}}),
+        ("Scatters the Drovers", "damage", 102, 5, 0, "physical",
+         {"is_aoe": True,
+          "rider": {"effect": "debuff", "duration": 4, "stat_mods": {"attack_power": -42}}}),
+        ("Will Not Go Back Down the Flats", "damage", 146, 6, 0, "physical", {}),
+    ],
+    "the_cargo": [                                            # L40, Jaguero Spit
+        ("Crate-Fed Claw", "damage", 126, 0, 0, "physical", {}),
+        ("Off the Sand and Onto You", "damage", 140, 4, 0, "physical",
+         {"rider": {"effect": "buff", "duration": 3,
+                    "stat_mods": {"physical_damage_taken_pct": -26}}}),
+        ("Opens Something and Leaves It", "damage", 112, 5, 0, "physical",
+         {"rider": {"effect": "debuff", "duration": 5, "stat_mods": {"stamina": -42}}}),
+        ("Nothing Else Walks This Spit", "damage", 158, 6, 0, "physical", {}),
+    ],
+    "ssaren_salvage_taker": [                                 # L41, The Drowned Coast
+        ("Salvage-Taker's Note", "damage", 130, 0, 22, "frost", {}),
+        ("Floods the Second Court", "damage", 144, 4, 30, "frost",
+         {"is_aoe": True,
+          "rider": {"effect": "debuff", "duration": 4, "stat_mods": {"attack_power": -48}}}),
+        ("Decides Which Stone Comes Up", "damage", 118, 5, 26, "nature",
+         {"rider": {"effect": "buff", "duration": 5,
+                    "stat_mods": {"armor": 118, "attack_power": 54}}}),
+        ("Sits Where the Terrace Was", "damage", 162, 6, 34, "frost", {}),
+    ],
+    "captain_orlee_vantch": [                                 # L42, Bloodsail Shallows
+        ("Shallows Cutlass", "damage", 136, 0, 0, "physical", {}),
+        ("Knows Where the Sand Is", "damage", 148, 4, 0, "physical",
+         {"rider": {"effect": "buff", "duration": 5,
+                    "stat_mods": {"attack_power": 56, "physical_damage_taken_pct": -18}}}),
+        ("Grape Off the Bar", "damage", 122, 5, 0, "physical",
+         {"is_aoe": True,
+          "rider": {"effect": "debuff", "duration": 4, "stat_mods": {"hit_rating": -30,
+                                                                     "agility": -42}}}),
+        ("A Fourth Wreck", "damage", 170, 7, 0, "physical", {"hp_below": 0.35}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -5280,7 +5632,8 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS,
+               STRANGLETHORN_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

@@ -8,6 +8,10 @@ and take the one ramp down past the harbourmaster's tower into the cove.  Below 
 all: the quay, the market and the inn stand on timber decking over the water, and the three piers run
 out from the promenade into the bay.  The boat to Ratchet ties up at the head of the middle one.
 
+The cove is the warm end of the map and it should read that way: white sand at the waterline, a
+blue lagoon rather than open grey sea, banyan and palm coming down the cliff on both sides, and the
+clifftop gate standing in a bleached bone arch - you walk into this town through a dead thing's jaws.
+
 WHY IT IS ITS OWN FACTION.  claude/stranglethorn_design.md: when the land road south turned to rock,
 Booty Bay stopped being one of the Steamwheedle Cartel's franchises and became the only deep-water
 harbour that still connects anything to anything.  Gazlowe signs the manifests in Ratchet.  Baron
@@ -86,8 +90,12 @@ def shore(gy):
 
 
 def water_fields(gx, gy):
+    """A LAGOON, not open sea: the cove shelves slowly, so there is a wide turquoise shelf inside the
+    arms of the headland before the water goes dark. The shelf is most of what you see from the quay,
+    and it is the difference between this reading as a tropical cove and a grey harbour."""
     sea = gx - shore(gy)
-    return sea, sea - 3.4
+    sheltered = np.exp(-((gy - 34.0) / 19.0) ** 2)
+    return sea, sea - (3.4 + 13.0 * sheltered)
 
 
 def deck_field(gx, gy):
@@ -147,7 +155,7 @@ def tile_kind(gx, gy):
 
 # ---- painter config -----------------------------------------------------------------------------------
 WATER = "sea"
-BASE = {"jungle": 0.75, "clay": 0.22, "hard": 0.35}
+BASE = {"jungle": 1.0, "fern": 0.65, "clay": 0.15, "hard": 0.22}
 PAINT = {
     "camp":  [(34, 35, 10, 6, 1.0), (26, 46, 8, 6, 0.8), (35, 8, 8, 5, 0.9), (20, 38, 9, 5, 0.8),
               (14, 13, 8, 5, 0.7)],
@@ -185,8 +193,12 @@ EXTRA_NPC_XY = [FORGE]
 CHESTS = [(8, 24), (12, 53), (41, 10), (23, 11)]
 
 
+JP = "assets/tiles/echo_isles/props/"
+
+
 def dress(L):
     P, B, D, C = L.prop, L.bld, L.dp, L.cp
+    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=JP, **kw)
     z = L.z
 
     # ---- the boat to Ratchet, at the head of the middle pier -------------------------------------
@@ -195,7 +207,8 @@ def dress(L):
     L.deco("boat_orc", 67, 36, 8)
 
     # ---- the clifftop gate and the headland walk --------------------------------------------------
-    B("palisade_gatehouse", 31, 7, 8, road_ok=True, nudge=1)
+    C("crab_claw_arch", 35, 11, 9, solid=False, road_ok=True, nudge=0)
+    B("palisade_gatehouse", 30, 7, 8, nudge=1)
     P("br_signpost", 38, 10, 5)
     C("sea_stack_spire", 58, 9, 11)
     L.deco("sea_stack_spire", 66, 21, 9)
@@ -250,18 +263,30 @@ def dress(L):
     L.deco("outrigger_canoe", 47, 48, 4)
     L.deco("rowboat_wreck", 58, 50, 4)
 
-    # ---- the cove's edges: reef, wrecks, and the jungle coming down the south wall ----------------
+    # ---- the cove's edges: reef, wrecks, and the jungle coming down both walls -------------------
     L.deco("coral_reef_outcrop", 60, 44, 4)
     L.deco("coral_reef_outcrop", 54, 52, 4)
-    C("crab_claw_arch", 40, 53, 6, shore_ok=True)
+    L.deco("coral_reef_outcrop", 62, 28, 4)
     C("mangrove_thicket", 38, 50, 6, shore_ok=True)
-    C("jungle_banyan", 9, 31, 10)
-    C("jungle_banyan", 10, 54, 10)
-    C("bamboo_grove", 8, 45, 7)
-    C("banana_plant", 19, 31, 5)
-    C("hibiscus_bush", 30, 30, 3, solid=False)
-    C("hibiscus_bush", 13, 50, 3, solid=False)
+    C("mangrove_thicket", 41, 22, 6, shore_ok=True)
+    J("tide_pool", 40, 51, 3, solid=False, shore_ok=True)
+    J("coral_shell_cluster", 39, 26, 3, solid=False, shore_ok=True)
+    # the jungle comes down the cliff on both sides and nobody cuts it, because nobody owns the cliff
+    for (x, y) in [(9, 31), (10, 54), (12, 20), (28, 52), (16, 27), (33, 48), (8, 38), (24, 16)]:
+        C("jungle_banyan", x, y, 11)
+    for (x, y) in [(8, 45), (14, 16), (19, 23), (30, 20), (12, 33), (26, 29), (36, 46), (6, 50)]:
+        C("bamboo_grove", x, y, 8)
+    for (x, y) in [(19, 31), (11, 26), (22, 51), (34, 44), (16, 53), (27, 25)]:
+        C("banana_plant", x, y, 6)
+    for (x, y) in [(30, 30), (13, 50), (21, 18), (36, 24), (24, 41), (11, 37), (32, 11), (18, 45)]:
+        C("hibiscus_bush", x, y, 3, solid=False)
+    for (x, y) in [(22, 24), (14, 42), (31, 35), (37, 18), (26, 10), (8, 20)]:
+        J("palm_cluster" if (x + y) % 3 else "palm_lean_a", x, y, 10)
+    for (x, y) in [(17, 39), (29, 42), (12, 29), (38, 42)]:
+        J("palm_lean_b", x, y, 9)
     C("tiki_totem", 35, 52, 7)                   # older than the port, and nobody moves it
+    C("sunken_totem", 42, 40, 5, shore_ok=True)
+    J("overgrown_ruin", 20, 55, 8)
 
 
 def build_layout():

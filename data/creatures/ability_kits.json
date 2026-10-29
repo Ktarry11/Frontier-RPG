@@ -30139,6 +30139,1607 @@
         }
       }
     ],
+    "vinecrest_raptor": [
+      {
+        "name": "Raking Claw",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring Kick",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24
+        }
+      },
+      {
+        "name": "Pack Lunge",
+        "kind": "damage",
+        "amount": 52,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "greenpelt_panther": [
+      {
+        "name": "Ambush Bite",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Back Into the Green",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "physical_damage_taken_pct": -18
+        },
+        "self_only": true
+      }
+    ],
+    "rootgrubber_boar": [
+      {
+        "name": "Root-Tusk Gore",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Squeals and Keeps Coming",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": 26
+        },
+        "self_only": true
+      }
+    ],
+    "coilvine_python": [
+      {
+        "name": "Constricting Coil",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Squeeze the Air Out",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "thornback_ape": [
+      {
+        "name": "Overhand Slam",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chest-Beat",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -26
+        }
+      },
+      {
+        "name": "Clears the Gap",
+        "kind": "damage",
+        "amount": 56,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "mistvale_crocolisk": [
+      {
+        "name": "Lagoon Snap",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Takes It Under",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "mangrove_stiltstalker": [
+      {
+        "name": "Stabbing Beak",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stands in the Roots",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "physical_damage_taken_pct": -18
+        },
+        "self_only": true
+      }
+    ],
+    "zulmarosh_stonehand": [
+      {
+        "name": "Stonehand's Club",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sets the Block Back",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 48
+        },
+        "self_only": true
+      }
+    ],
+    "zulmarosh_stairwarden": [
+      {
+        "name": "Warden's Spear",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "One Step Only",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -28
+        }
+      },
+      {
+        "name": "Will Not Give the Turn",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "stat_mods": {
+          "armor": 56,
+          "physical_damage_taken_pct": -10
+        },
+        "self_only": true
+      }
+    ],
+    "zulmarosh_vinespeaker": [
+      {
+        "name": "Call the Vine Off the Stone",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Hold the Terrace",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 18,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 40,
+          "magic_damage_taken_pct": -14
+        },
+        "self_only": true
+      },
+      {
+        "name": "Reclaiming Growth",
+        "kind": "dot",
+        "amount": 24,
+        "cooldown": 5,
+        "mana_cost": 20,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "bloatspawn_toad": [
+      {
+        "name": "Swollen Lunge",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bursts When Hit",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "is_aoe": true
+      }
+    ],
+    "fenrot_creeper": [
+      {
+        "name": "Rotting Reach",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Soft Underfoot",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -30
+        }
+      },
+      {
+        "name": "Pulls You Into It",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "sourwater_ooze": [
+      {
+        "name": "Sour Slap",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "What Comes Downhill",
+        "kind": "dot",
+        "amount": 26,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "is_aoe": true
+      },
+      {
+        "name": "Thickens",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 5,
+        "stat_mods": {
+          "armor": 62,
+          "physical_damage_taken_pct": -12
+        },
+        "self_only": true
+      }
+    ],
+    "bloodvine_raptor": [
+      {
+        "name": "Opening Rake",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cuts the Legs",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -30
+        }
+      },
+      {
+        "name": "Comes In Low",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "nightpelt_panther": [
+      {
+        "name": "Throat Bite",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gone Again",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "physical_damage_taken_pct": -22
+        },
+        "self_only": true
+      },
+      {
+        "name": "Off the Branch",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "greenwater_adder": [
+      {
+        "name": "Adder Strike",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Green Water Venom",
+        "kind": "dot",
+        "amount": 28,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "drumhide_gorilla": [
+      {
+        "name": "Two-Handed Slam",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Answers the Drums",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": 36
+        },
+        "self_only": true
+      },
+      {
+        "name": "Clears the Clearing",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "snapjaw_crocolisk": [
+      {
+        "name": "Snapjaw Bite",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Death Roll",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "snapjaw_leechswarm": [
+      {
+        "name": "Clinging Swarm",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bleeds You Slowly",
+        "kind": "dot",
+        "amount": 26,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      },
+      {
+        "name": "All Over at Once",
+        "kind": "damage",
+        "amount": 58,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      }
+    ],
+    "gurbashi_gatekeeper": [
+      {
+        "name": "Gate Pole",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Name's Not on the Board",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": -32
+        }
+      },
+      {
+        "name": "Shoves You Back Off the Apron",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "gurbashi_beast_drover": [
+      {
+        "name": "Drover's Goad",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Throws the Net",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -34,
+          "dodge_rating": -18
+        }
+      },
+      {
+        "name": "Boxes It Up",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "gurbashi_drum_caller": [
+      {
+        "name": "Drum-Caller's Rap",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Works the Rim Up",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 18,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": 38
+        },
+        "self_only": true
+      },
+      {
+        "name": "Noise Off the Flats",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 5,
+        "mana_cost": 22,
+        "school": "nature",
+        "is_aoe": true
+      }
+    ],
+    "moshogg_brute": [
+      {
+        "name": "Brute Swing",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sits Down on the Road",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "stat_mods": {
+          "armor": 66,
+          "physical_damage_taken_pct": -12
+        },
+        "self_only": true
+      }
+    ],
+    "moshogg_rockthrower": [
+      {
+        "name": "Thrown Rock",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shelf Rubble",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rings Your Head",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -30
+        }
+      }
+    ],
+    "moshogg_mauler": [
+      {
+        "name": "Mauling Grip",
+        "kind": "damage",
+        "amount": 82,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Both Fists Down",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wears You Out",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "stamina": -32
+        }
+      }
+    ],
+    "moshogg_spellgorger": [
+      {
+        "name": "Gorged Bolt",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 0,
+        "mana_cost": 16,
+        "school": "arcane"
+      },
+      {
+        "name": "Eats the Spell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 20,
+        "school": "arcane",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 44,
+          "spell_damage_taken_pct": -20
+        },
+        "self_only": true
+      },
+      {
+        "name": "Spits It Back",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 5,
+        "mana_cost": 24,
+        "school": "arcane",
+        "is_aoe": true
+      }
+    ],
+    "capecrest_raptor": [
+      {
+        "name": "Cape Rake",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Opens the Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -38
+        }
+      },
+      {
+        "name": "Drives It Home",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "blackpelt_panther": [
+      {
+        "name": "Black Pelt Bite",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Loses You in the Thin Cover",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "physical_damage_taken_pct": -24
+        },
+        "self_only": true
+      },
+      {
+        "name": "Takes the Throat",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "thicketbreaker_boar": [
+      {
+        "name": "Breaking Charge",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Goes Through It",
+        "kind": "damage",
+        "amount": 100,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Will Not Turn",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "stat_mods": {
+          "attack_power": 42,
+          "armor": 56
+        },
+        "self_only": true
+      }
+    ],
+    "stonecourt_gorilla": [
+      {
+        "name": "Court-Stone Slam",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Throws What It Is Standing On",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Shoulders the Pillar",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 80,
+          "attack_power": 40
+        },
+        "self_only": true
+      }
+    ],
+    "kundaraz_vinecutter": [
+      {
+        "name": "Cutter's Machete",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Clears to the Stone",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Does Not Stop Working",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "stat_mods": {
+          "attack_power": 44
+        },
+        "self_only": true
+      }
+    ],
+    "kundaraz_stoneshaper": [
+      {
+        "name": "Shaping Word",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "nature"
+      },
+      {
+        "name": "Sets the Course Back",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 22,
+        "school": "nature",
+        "duration": 5,
+        "stat_mods": {
+          "armor": 52,
+          "attack_power": 40
+        },
+        "self_only": true
+      },
+      {
+        "name": "Shores the Terrace",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "nature",
+        "is_aoe": true
+      }
+    ],
+    "kundaraz_terrace_watch": [
+      {
+        "name": "Watch's Javelin",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Calls the Water Up",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Marks You for the Cutters",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": -140
+        }
+      }
+    ],
+    "saltscale_salvager": [
+      {
+        "name": "Salvager's Hook",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drags the Block Off",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "saltscale_reaver": [
+      {
+        "name": "Reaver's Glaive",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeps the Shallows",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Coils and Holds",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 92,
+          "attack_power": 44
+        },
+        "self_only": true
+      }
+    ],
+    "saltscale_siren": [
+      {
+        "name": "Siren's Note",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 0,
+        "mana_cost": 20,
+        "school": "frost"
+      },
+      {
+        "name": "Water Over the Court",
+        "kind": "damage",
+        "amount": 102,
+        "cooldown": 5,
+        "mana_cost": 28,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Salt in the Throat",
+        "kind": "dot",
+        "amount": 40,
+        "cooldown": 5,
+        "mana_cost": 24,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "bloodsail_swab": [
+      {
+        "name": "Swab's Cutlass",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sand in the Eyes",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "hit_rating": -24,
+          "agility": -30
+        }
+      }
+    ],
+    "bloodsail_cannoneer": [
+      {
+        "name": "Swivel Shot",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grape Across the Bar",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Powder Burn",
+        "kind": "dot",
+        "amount": 34,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4
+      }
+    ],
+    "bloodsail_bosun": [
+      {
+        "name": "Bosun's Starter",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gets the Crew Moving",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5,
+        "stat_mods": {
+          "attack_power": 50
+        },
+        "self_only": true
+      },
+      {
+        "name": "Over the Rail",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "spit_scavenger_crab": [
+      {
+        "name": "Scavenging Pincer",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Under the Hull Timber",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 96
+        },
+        "self_only": true
+      }
+    ],
+    "pit_stock_raptor": [
+      {
+        "name": "Stock-Bred Claw",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fights the Way It Was Trained To",
+        "kind": "damage",
+        "amount": 106,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Never Boxed Again",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -40,
+          "armor": -130
+        }
+      }
+    ],
+    "mistvale_longjaw": [
+      {
+        "name": "Longjaw's Bite",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Hollow-Tooth Grip",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "agility": -34
+          }
+        }
+      },
+      {
+        "name": "Settles On the Bottom",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 90
+          }
+        }
+      },
+      {
+        "name": "Does Not Let Go",
+        "kind": "damage",
+        "amount": 124,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 59
+        }
+      }
+    ],
+    "katesh_last_stairkeeper": [
+      {
+        "name": "Keeper's Word",
+        "kind": "damage",
+        "amount": 102,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Forty Turns of Stair",
+        "kind": "damage",
+        "amount": 114,
+        "cooldown": 4,
+        "mana_cost": 24,
+        "school": "nature",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "armor": 96,
+            "magic_damage_taken_pct": -16
+          }
+        }
+      },
+      {
+        "name": "Names the Eight Who Are Gone",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 5,
+        "mana_cost": 22,
+        "school": "shadow",
+        "is_aoe": true,
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "spirit": -36,
+            "intellect": -32
+          }
+        }
+      },
+      {
+        "name": "Holds the Top Step",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 6,
+        "mana_cost": 28,
+        "school": "nature"
+      },
+      {
+        "name": "Wild Surge",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 61
+        }
+      }
+    ],
+    "gorbuk_shelf_king": [
+      {
+        "name": "Roadbreaker",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Shears the Plate Off You",
+        "kind": "damage",
+        "amount": 124,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": -200
+          }
+        }
+      },
+      {
+        "name": "Fills the One Road Up",
+        "kind": "damage",
+        "amount": 100,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true,
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 110,
+            "physical_damage_taken_pct": -14
+          }
+        }
+      },
+      {
+        "name": "Eleven Years Standing Here",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 67
+        }
+      }
+    ],
+    "drumhide": [
+      {
+        "name": "Drumhide's Overhand",
+        "kind": "damage",
+        "amount": 116,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Breaks the Crate Open",
+        "kind": "damage",
+        "amount": 130,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "attack_power": 58
+          }
+        }
+      },
+      {
+        "name": "Scatters the Drovers",
+        "kind": "damage",
+        "amount": 102,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true,
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": -42
+          }
+        }
+      },
+      {
+        "name": "Will Not Go Back Down the Flats",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 70
+        }
+      }
+    ],
+    "the_cargo": [
+      {
+        "name": "Crate-Fed Claw",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Off the Sand and Onto You",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "physical_damage_taken_pct": -26
+          }
+        }
+      },
+      {
+        "name": "Opens Something and Leaves It",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 5,
+          "stat_mods": {
+            "stamina": -42
+          }
+        }
+      },
+      {
+        "name": "Nothing Else Walks This Spit",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 76
+        }
+      }
+    ],
+    "ssaren_salvage_taker": [
+      {
+        "name": "Salvage-Taker's Note",
+        "kind": "damage",
+        "amount": 130,
+        "cooldown": 0,
+        "mana_cost": 22,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Floods the Second Court",
+        "kind": "damage",
+        "amount": 144,
+        "cooldown": 4,
+        "mana_cost": 30,
+        "school": "frost",
+        "is_aoe": true,
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": -48
+          }
+        }
+      },
+      {
+        "name": "Decides Which Stone Comes Up",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "nature",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "armor": 118,
+            "attack_power": 54
+          }
+        }
+      },
+      {
+        "name": "Sits Where the Terrace Was",
+        "kind": "damage",
+        "amount": 162,
+        "cooldown": 6,
+        "mana_cost": 34,
+        "school": "frost"
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 78
+        }
+      }
+    ],
+    "captain_orlee_vantch": [
+      {
+        "name": "Shallows Cutlass",
+        "kind": "damage",
+        "amount": 136,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Knows Where the Sand Is",
+        "kind": "damage",
+        "amount": 148,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "attack_power": 56,
+            "physical_damage_taken_pct": -18
+          }
+        }
+      },
+      {
+        "name": "Grape Off the Bar",
+        "kind": "damage",
+        "amount": 122,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true,
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "hit_rating": -30,
+            "agility": -42
+          }
+        }
+      },
+      {
+        "name": "A Fourth Wreck",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "hp_below": 0.35
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 82
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",

@@ -1,0 +1,471 @@
+{
+  "_notes": "Stranglethorn open-world named-rare loot (2026-10-29). ONE item drops per kill from the rare's pool of four. item_level = creature level + 3. Budget checked by audit() in tools/build_stranglethorn_content.py. Rares are never quested, and nothing here carries magic resistance (the floor for that is level 45) or any crafting material.",
+  "Mistvale Longjaw": [
+    {
+      "name": "Longjaw's Tooth-Knife",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Pulled from the front of the jaw, where the old ones go hollow.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4,
+        "crit_chance_physical": 0.4
+      },
+      "weapon_damage_min": 66,
+      "weapon_damage_max": 89,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Mangrove-Wader's Boots",
+      "slot": "feet",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Laced high. The lagoon floor is mud to the shin and then it is roots.",
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 45
+    },
+    {
+      "name": "Brackwater Hauberk",
+      "slot": "chest",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Salt and fresh water both, which is harder on mail than either one alone.",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 146
+    },
+    {
+      "name": "Still-Water Greaves",
+      "slot": "legs",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Nothing in the lagoon moves fast. That is not the same as nothing moving.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 220
+    }
+  ],
+  "Ka'tesh the Last Stairkeeper": [
+    {
+      "name": "Stairkeeper's Vinestaff",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Cut from the vine that is pulling his temple apart. He uses it anyway.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 31,
+        "spirit": 31
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 50,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Robes of the Thinning Watch",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Cut for a man with a wider back than he has now.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "spell_power": 5.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 47
+    },
+    {
+      "name": "Last Keeper's Cowl",
+      "slot": "head",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "There were nine of these made. He is wearing the only one still above water.",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 5.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 35
+    },
+    {
+      "name": "Crag-Stair Spaulders",
+      "slot": "shoulder",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The stair goes up the crag in forty turns and he knows every one of them.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 113
+    }
+  ],
+  "Gorbuk the Shelf-King": [
+    {
+      "name": "Shelf-King's Roadbreaker",
+      "slot": "main_hand",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "One road comes up the shelf. He has stood at the top of it for eleven years.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 32,
+        "stamina": 32
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 96,
+      "weapon_damage_max": 130,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Mosh'Ogg Slab Breastplate",
+      "slot": "chest",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Three plates where there should be one, lapped and bound with cable.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 0.6
+      },
+      "armor_type": "plate",
+      "armor_value": 238
+    },
+    {
+      "name": "One-Road Legplates",
+      "slot": "legs",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "He did not take the shelf. He was on it when everyone else left.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 238
+    },
+    {
+      "name": "Shelf-Climber's Grips",
+      "slot": "hands",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Ogre-made for an ogre hand, so there is room in them for two of yours.",
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 49
+    }
+  ],
+  "Drumhide": [
+    {
+      "name": "The Uncrated Tally",
+      "slot": "neck",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "A drover's cord with eleven knots on it and no twelfth.",
+      "primary_stats": {
+        "strength": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Drum-Skin Jerkin",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The arena buys hide by the hand-span. This much of it never got to the arena.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 102
+    },
+    {
+      "name": "Drover's Broken Chain",
+      "slot": "waist",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Opened outward. Whatever was in it did not pick the lock.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 81
+    },
+    {
+      "name": "Crate-Hauler's Sabatons",
+      "slot": "feet",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The Flats are bare dirt because of what gets dragged across them.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 122
+    }
+  ],
+  "The Cargo": [
+    {
+      "name": "Manifest-Line Claw",
+      "slot": "main_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The entry read: one crate, livestock, unmarked. The Authority still has the page.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 8,
+        "agility": 8
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 77,
+      "weapon_damage_max": 104,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Spit-Walker's Vest",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Sand gets into the stitching and stays there until the garment gives up.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 15.8
+      },
+      "armor_type": "leather",
+      "armor_value": 109
+    },
+    {
+      "name": "Hood of the Long Walk Back",
+      "slot": "head",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "You can see the whole spit from the root of it. That is the trouble with a spit.",
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 41
+    },
+    {
+      "name": "Driftwood-Bound Bracers",
+      "slot": "wrist",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Hull timber, cut down twice, by two people who did not know each other.",
+      "primary_stats": {
+        "agility": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 87
+    }
+  ],
+  "Ssaren the Salvage-Taker": [
+    {
+      "name": "Salvage-Taker's Rod",
+      "slot": "main_hand",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "flavor_text": "Cut stone comes up off the terraces in pieces and she decides which pieces.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 4.0,
+        "crit_chance_spell": 0.2
+      },
+      "weapon_damage_min": 67,
+      "weapon_damage_max": 91,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Shallows-Sitter's Wrap",
+      "slot": "chest",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "flavor_text": "Never dry, never quite wet. Whoever wove it knew which it would be.",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 10.8,
+        "mp5": 2.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 56
+    },
+    {
+      "name": "Terrace-Diver's Mantle",
+      "slot": "shoulder",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "flavor_text": "Four spans down is the second court. Six is the third. Nobody goes to the fourth.",
+      "primary_stats": {
+        "agility": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 84
+    },
+    {
+      "name": "Flooded Court Legplates",
+      "slot": "legs",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "flavor_text": "Standing in water to the knee all day does to plate what you would expect.",
+      "primary_stats": {
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "armor": 33.7,
+        "parry_rating": 0.7
+      },
+      "armor_type": "plate",
+      "armor_value": 269
+    }
+  ],
+  "Captain Orlee Vantch": [
+    {
+      "name": "Vantch's Shallows Cutlass",
+      "slot": "main_hand",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Short in the blade. She has never fought anybody on open deck in her life.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 0.6,
+        "crit_chance_physical": 0.6
+      },
+      "weapon_damage_min": 80,
+      "weapon_damage_max": 109,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Three-Wrecks Signet",
+      "slot": "ring",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "She put all three on the bars inside a season and the harbour counted every one.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 4.4,
+        "hit_rating": 0.2
+      }
+    },
+    {
+      "name": "Bosun's Weather Coat",
+      "slot": "back",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Waxed, patched, and warmer than anything else on that beach.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "mp5": 0.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 22
+    },
+    {
+      "name": "Bar-Pilot's Coif",
+      "slot": "head",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "She knows where the sand is. That is the entire trick and it is worth a ship.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4
+      },
+      "armor_type": "mail",
+      "armor_value": 137
+    }
+  ]
+}
