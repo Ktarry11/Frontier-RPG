@@ -213,8 +213,34 @@ def plan(char):
              or getattr(a, "shapeshift_form_id", None) in needed_forms)
     ]
 
+    def per_turn(a):
+        """Damage this ability delivers PER TURN SPENT CASTING IT.
+
+        effect_value means two different things depending on effect_type: for
+        a nuke it is one hit, and for a dot it is the TOTAL across every tick.
+        Sorting the two together by raw effect_value therefore ranks a weak
+        damage-over-time above a strong nuke - Chronomancer's Decomposition is
+        66 over 3 turns (22 a turn) and sorted ABOVE Chromatic Shard, which is
+        66 in a single turn and lands 115 with spell power behind it. The
+        rotation opened on the dot and re-applied it the moment it fell off, so
+        2 of every 5 turns went into a 22-a-turn spell while Mage spent all of
+        its turns on a 95-a-turn one. Measured at level 10 against level 12,
+        that was the difference between 20% and 95%: same health, same armour,
+        comparable per-hit damage, but ~40% longer to kill and so ~40% more
+        mob turns to survive. Chronomancer lost to every one of the four enemy
+        templates and bottomed out at 5% against beast_fast.
+
+        A dot still wins the slot whenever its per-turn figure genuinely beats
+        the alternatives, which is the honest comparison and is how a player
+        picks. The `live` guard in fight() keeps it from being re-applied while
+        it ticks, so a dot that does win costs one turn and then pays out.
+        """
+        ev = getattr(a, "effect_value", 0) or 0
+        dur = getattr(a, "duration", 0) or 0
+        return ev / dur if dur > 1 else ev
+
     heals.sort(key=lambda a: -(getattr(a, "heal_value", 0) or 0))
-    attacks.sort(key=lambda a: -(getattr(a, "effect_value", 0) or 0))
+    attacks.sort(key=lambda a: -per_turn(a))
     return heals, attacks, setup
 
 
