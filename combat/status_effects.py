@@ -1337,6 +1337,24 @@ class StatusEffectMixin:
             # engine (an out-of-combat proc, or a monster with no party
             # concept) this safely falls back to healing the carrier.
             smart_heal_amt = proc.get("smart_heal")
+            # smart_heal_pct: heal a PERCENTAGE OF THE TRIGGERING AMOUNT
+            # rather than a flat number, for the procs whose wording is
+            # proportional. Sun Cleric's Vow of Light is the case that forced
+            # this - "heals the nearest ally equal to 10% of the amount", per
+            # its own description and the confirmed screenshot in its _source
+            # - and it was authored as a flat smart_heal of 90 on an
+            # on_damage_taken trigger with chance 100 and NO internal
+            # cooldown. Against the tank sim's attacker, which hits for ~120,
+            # a flat 90 back on every single landed hit took Seraphim from
+            # 47.5 net damage a turn to 7.8, and from 23 turns alive to 159.
+            # Solo, that is an unkillable tank; 10% of the amount is 12, which
+            # is what the ability actually says.
+            #
+            # Reads `amount`, the real damage or heal number this trigger
+            # already carries for bonus_pct, so nothing new has to be plumbed.
+            smart_heal_pct = proc.get("smart_heal_pct")
+            if smart_heal_pct and not smart_heal_amt:
+                smart_heal_amt = int((amount or 0) * smart_heal_pct / 100.0)
             if smart_heal_amt and hasattr(self, "heal"):
                 candidates = [self]
                 allies = getattr(engine, "allies", None) if engine is not None else None
