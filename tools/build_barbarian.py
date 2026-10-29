@@ -260,7 +260,7 @@ ABILITIES = [
     ability("jawbreaker", "Jawbreaker", "debuff",
             "One short punch to the jaw. Whatever they were saying stops.",
             one(8, 15), cooldown=5, duration=1,
-            stat_mods={"silenced": 1}, target_type="enemy", is_stun=True,
+            stat_mods={}, target_type="enemy", is_stun=True,
             icon=None,
             source="CoA: 'Jawbreaker - interrupting them and preventing any "
                    "spell from that school from being cast for 4 seconds'. "
@@ -268,9 +268,17 @@ ABILITIES = [
                    "status_effects.py says so outright ('one mechanic, "
                    "is_stun, with no separate silence/root category') and "
                    "StatusEffectMixin.is_stunned is what actually withholds a "
-                   "turn. So the interrupt is is_stun for one turn; the "
-                   "`silenced` stat_mod is the shipped convention's tooltip "
-                   "label and nothing reads it. School lockout has no hook."),
+                   "turn. So the interrupt is is_stun for one turn, which "
+                   "this ability already carries. School lockout has no hook. "
+                   "DEAD FLAG REMOVED 2026-10-29: stat_mods carried "
+                   "{'silenced': 1}, described here as 'the shipped "
+                   "convention's tooltip label'. Nothing reads it, and a "
+                   "stat_mod shaped exactly like the mechanism it is not IS "
+                   "the is_aoe trap - which is why tools/validate_class.py "
+                   "now ERRORS on stunned/silenced/rooted/stealthed rather "
+                   "than warning. It was removed from the emitted JSON "
+                   "earlier the same day and not ported here, so re-running "
+                   "this script silently restored it."),
     ability("headhunters_spear", "Headhunter's Spear", "ranged_damage",
             "A light spear, thrown fast and low. You are moving again before "
             "it lands.",
@@ -295,13 +303,19 @@ ABILITIES = [
     ability("skull_smash", "Skull Smash", "debuff",
             "Pick up a rock. Throw the rock. They sit down.",
             one(22, 15), cooldown=8, duration=1,
-            stat_mods={"stunned": 1}, target_type="enemy", is_stun=True,
+            stat_mods={}, target_type="enemy", is_stun=True,
             icon=None,
             source="CoA: 'hurl it at an enemy's skull, disorienting them ... "
                    "Damage taken will end this effect'. Disorient is modelled "
                    "as the engine's stun, which is the closest honest fit; the "
                    "break-on-damage half has no hook, so the duration is one "
-                   "turn to keep it from being strictly better than CoA's."),
+                   "turn to keep it from being strictly better than CoA's. "
+                   "DEAD FLAG REMOVED 2026-10-29: stat_mods carried "
+                   "{'stunned': 1}, which is read by nothing - the real "
+                   "mechanism is the is_stun flag this ability already sets. "
+                   "tools/validate_class.py now errors on it. Removed from "
+                   "the emitted JSON earlier the same day and not ported "
+                   "here, so re-running this script restored it."),
     ability("ancestral_roar", "Ancestral Roar", "heal",
             "You shout something in a language you were never taught, and it "
             "helps.",
@@ -602,18 +616,26 @@ ABILITIES = [
     ability("ancestors_call", "Ancestor's Call", "summon_pet",
             "You say a name you only half remember. Something answers it.",
             one(30, 30), cooldown=0, target_type="self",
-            summon_pet_template="wolf", icon=None,
+            summon_pet_template="honored_ancestor", icon=None,
             source="CoA: 'Call an Honored Ancestor to aid you in battle until "
                    "dismissed that scales with your Agility and attack "
                    "power ... Whenever you use Barbaric Whirl or Whirling "
-                   "Advance, your Honored Ancestor mimics it.' summon_pet "
-                   "needs a template that exists in combat/pet_templates.py "
-                   "and there is no ancestor template; 'wolf' is the generic "
-                   "melee beast (level_req 1, Energy, no class flavour baked "
-                   "into its kit) and a called spirit beast is the closest "
-                   "honest reading of a tribal Barbarian's summon. The mimic "
-                   "mechanic has no hook, so The Spins and Might of Utgarde "
-                   "scale the pet directly instead."),
+                   "Advance, your Honored Ancestor mimics it.' NOW A REAL "
+                   "HONORED ANCESTOR. This pointed at 'wolf' and summoned a "
+                   "pet named Wolf - the old note called a called spirit "
+                   "beast 'the closest honest reading', which it was while no "
+                   "ancestor template existed. One does now: a spirit warrior "
+                   "with high crit to match the Ancestry tree's own One With "
+                   "The Ancestors. TWO HALVES STILL UNHOOKED. Scaling off the "
+                   "owner's Agility and attack power is impossible by design "
+                   "- Pet._apply_template_stats reads exactly three owner "
+                   "TALENT keys (pet_damage, pet_health, pet_armor) and "
+                   "nothing else, deliberately, so an owner STAT has no "
+                   "route; The Spins and Might of Utgarde scale the pet "
+                   "through those talent keys instead. The mimic mechanic "
+                   "would need a pet to react to its owner's casts, which "
+                   "nothing in the pet system does; Spirit Whirl keeps the "
+                   "flavour as an ability the Ancestor casts itself."),
     ability("cheers", "Cheers!", "buff",
             "You put a drink in their hand and take the next hit meant for "
             "them.",

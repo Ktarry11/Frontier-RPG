@@ -619,25 +619,40 @@ ABILITIES = [
     ability("spectral_scythe", "Spectral Scythe", "summon_pet",
             "Let one of them loose on its own recognisance.",
             one(34, 35), cooldown=6, resource="souls", target_type="self",
-            summon_pet_template="faceless_destroyer", icon=None,
+            summon_pet_template="spectral_scythe", icon=None,
             source="CoA: 'Summons 1 Spectral Scythe for each Reaped Soul "
                    "active which attack a nearby enemy for 20 seconds. "
-                   "Consumes Reaped Souls'. Souls-costed, as written. There "
-                   "is no spectral-blade template in combat/pet_templates.py "
-                   "and that file is shared, so it borrows faceless_destroyer "
-                   "- the closest existing shape, a melee shadow horror. "
-                   "One body per cast, not one per banked soul."),
+                   "Striking enemies with Soul Strike causes the Spectral "
+                   "Scythe to attack that enemy and 5 nearby enemies. "
+                   "Consumes Reaped Souls and Soul Infusion'. Souls-costed, "
+                   "as written. NOW A REAL SPECTRAL SCYTHE: this used to "
+                   "borrow faceless_destroyer, the Cultist's pet, on the "
+                   "reasoning that there was no spectral-blade template and "
+                   "pet_templates.py was shared. There is one now - a "
+                   "floating animated weapon rather than a body, lowest "
+                   "health and highest crit chance of any pet in the game. "
+                   "Still one body per cast, not one per banked soul "
+                   "(Character.EXTRA_PET_CAP has no Reaper entry), and the "
+                   "5-target Soul Strike cleave is still not expressible on "
+                   "a pet."),
     ability("spectral_warden", "Spectral Warden", "summon_pet",
             "Something large and patient stands up between you and them.",
             one(44, 44), cooldown=15, target_type="self",
-            summon_pet_template="voidwalker", requires_talent=True,
+            summon_pet_template="spectral_warden", requires_talent=True,
             icon=None,
             source="CoA: 'Summon a spectral guardian to fight along side you "
                    "for 20 seconds and apply an absorption shield to up to 8 "
-                   "allies within 20 yds.' summon_pet cannot also shield the "
-                   "party, so the body is the ability and the group absorb is "
-                   "lost; voidwalker is the engine's existing tank-shaped "
-                   "shadow pet. Taught by the Spirit Army talent."),
+                   "allies within 20 yds, absorbing Stamina damage.' NOW A "
+                   "REAL SPECTRAL WARDEN: this used to borrow voidwalker and "
+                   "summoned a pet named Voidwalker - the engine's existing "
+                   "tank-shaped shadow pet, which was the right shape and a "
+                   "Warlock demon. The template now exists, built as the "
+                   "durable counterpart to this class's own Spectral Scythe "
+                   "(more health and armour, deliberately less damage). "
+                   "summon_pet still cannot also shield the party and the "
+                   "group absorb is still lost - the template's _source "
+                   "records why a pet-cast absorb buff would be dead data "
+                   "rather than a fix. Taught by the Spirit Army talent."),
     ability("ethereal_guard", "Ethereal Guard", "buff",
             "Your presence takes the edge off whatever is coming for the "
             "rest of them.",

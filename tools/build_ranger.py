@@ -585,14 +585,23 @@ ABILITIES = [
     ability("summon_war_falcon", "Call War Falcon", "summon_pet",
             "It has been waiting somewhere above you this whole time.",
             one(16, 25), cooldown=6, target_type="self",
-            summon_pet_template="raptor", is_instant=True,
-            source="CoA: 'Falconstrike/Falcon's Call/Falcon Diving to summon "
-                   "War Falcons and Dragonhawks'. effect_type summon_pet with "
-                   "a template that exists in combat/pet_templates.py - only "
-                   "'wolf' and 'raptor' do, and there is no bird. Raptor is "
-                   "the closer of the two for a diving attacker (fast, "
-                   "bleed-flavoured, speed 1.3); the gap is that the pet's "
-                   "display name will read Raptor, not War Falcon."),
+            summon_pet_template="war_falcon", is_instant=True,
+            source="CoA: 'Call down war falcons upon a targeted area ... A "
+                   "Falcon is summoned for each enemy affected for 12 "
+                   "seconds' (Falcon's Call), with Falcon's Aid and Falcon "
+                   "Diving summoning more off procs and killing blows. NOW A "
+                   "REAL WAR FALCON: this pointed at 'raptor' and summoned "
+                   "the Primalist's tameable beast - the old note here said "
+                   "outright that 'the pet's display name will read Raptor, "
+                   "not War Falcon', which is exactly the defect. The "
+                   "template now exists: lowest health of any pet in the "
+                   "game, joint-fastest turn speed, second-highest crit "
+                   "chance, and deliberately less damage than the Raptor it "
+                   "replaced - a harass bird on a full-damage class. CoA's "
+                   "many-brief-disposable falcons are still not expressible "
+                   "(no Ranger entry in Character.EXTRA_PET_CAP, and pets "
+                   "here are permanent with no duration field), so this is "
+                   "one falcon built like one of that flock."),
     ability("horn_of_war", "Horn of War", "buff",
             "Two notes. Everyone knows what they mean.",
             one(22, 20), cooldown=8, duration=4,
@@ -652,13 +661,30 @@ ABILITIES = [
                    "affected by this spell, allies cannot benefit from "
                    "similar effects for 5 minutes'. The exhaustion debuff is "
                    "not modellable, so the long cooldown carries it."),
-    ability("freedom", "Freedom", "dispel",
+    ability("freedom", "Freedom", "buff",
             "Whatever has hold of them lets go.",
-            one(30, 20), cooldown=8, target_type="party",
-            dispel_type="movement",
-            source="CoA: 'Freedom cleanses roots and snares off the group'. "
-                   "dispel_type movement is the existing hook (Guardian's "
-                   "Liberation uses it)."),
+            one(30, 20), cooldown=8, duration=2, target_type="party",
+            buff_scope="combat", stat_mods={"cc_immune": 1},
+            source="CoA: 'Freedom cleanses roots and snares off the group'.  "
+                   "REBUILT: was effect_type 'dispel' with dispel_type "
+                   "'movement', which is NOT a DispelType member "
+                   "(NONE/MAGIC/CURSE/POISON/DISEASE), and "
+                   "remove_debuff_by_dispel_type treats an unmatched school "
+                   "as a guaranteed no-match - so this ability removed "
+                   "nothing, ever. There is no movement to impair in a turn "
+                   "engine; its one incapacitate mechanic is is_stun. Now a "
+                   "buff granting cc_immune, the live key Cultist's Voidborne "
+                   "and Dark Veil already use, and apply_status_effect now "
+                   "CLEARS existing is_stun debuffs when cc_immune lands - so "
+                   "this both breaks the ally free and keeps them free for "
+                   "the duration, which is what the description promises.  "
+                   "PORTED INTO THIS SCRIPT 2026-10-29: the rebuild above was "
+                   "made in the emitted JSON and never ported here, so "
+                   "re-running this script reverted it back to the dead "
+                   "dispel. Unlike the unit errors beside it this one is NOT "
+                   "caught by tools/validate_class.py - ranger passes at 0 "
+                   "errors either way, because a dispel_type the engine never "
+                   "matches is structurally valid and merely inert."),
     ability("thalassian_brand", "Thalassian Brand", "dot",
             "You mark them, and everyone else knows who to shoot.",
             ranks(60, 18, 30, start=36, count=4), cooldown=8, duration=4,

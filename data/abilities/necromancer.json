@@ -1110,10 +1110,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Raise a Ghoul to aid you in combat occupying 1 Life Force. Its auto attacks restore SP health to you.' MAPPED, not authored: no undead pet template exists and none may be added, so this uses 'wolf' - level_req 1, the only level-1 melee template, whose own ability is literally Bite. Character.summon_pet is class-agnostic and gates only on the template's level_req, so this works; it will display as a Wolf. The on-hit leech is the Animation tree's Vampiric Aura talent instead. ONE pet at a time - Character.summon_pet replaces active_pet - so CoA's stacked army of Ghouls cannot be expressed; the rest of the army is AoE damage.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: 'Several bodies soaking and dealing damage at once covers for bringing no hard CC' - the spec's entire answer to having no CC is fielding multiple minions.",
+      "_source": "CoA: 'Raise a Ghoul to aid you in combat occupying 1 Life Force. Its auto attacks restore SP health to you. Command: Expels leeching plague that strikes up to 5 nearby enemies, dealing Intellect Plague damage, and healing you for Intellect for each Ghoul.' NOW A REAL GHOUL. This was 'wolf' and summoned a pet named Wolf - the old note here recorded that as a deliberate mapping because 'no undead pet template exists and none may be added'. Both halves of that have since changed: multi-pet support landed (Character.EXTRA_PET_CAP gives Necromancer 3 pets beyond active_pet, hence additional_pet below), which stood Wolf, Imp, Succubus and Faceless Destroyer on the field together, and combat/pet_templates.py now carries a real 'ghoul' - melee, level_req 8 to match this ability, with its CoA leech implemented as a damage_and_heal that genuinely smart-heals the owner's lowest-health party member. The 5-target Command plague is still not expressible (pet AoE is dead in both directions - see that file's SUMMON_THEME_SOURCE), and the Animation tree's Vampiric Aura talent still carries its own on-hit leech separately.",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "wolf",
+      "summon_pet_template": "ghoul",
       "additional_pet": true
     },
     {
@@ -1134,10 +1134,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA Rime: 'Raise a Skeletal Mage to aid you in combat, occupying 2 Life Force. Command: Unleashes ice at your target'. MAPPED to 'imp', the only ranged spellcaster template at a low level_req (1) - base_attack 0, real base_spell_power, one nuke. It will display as an Imp. Rime's rotation opens with 'Raise a Skeletal Mage first', which is why it is the earliest caster pet.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: several bodies at once (see raise_ghoul).",
+      "_source": "CoA Rime: 'Raise a Skeletal Mage to aid you in combat, occupying 2 Life Force. Command: Unleashes ice at your target and enemies within 6 yds, dealing frost SP Frost damage'. NOW A REAL SKELETAL MAGE. This was 'imp' and summoned a pet named Imp with Firebolt - the right SHAPE (base_attack 0, real base_spell_power, one nuke) and the wrong name, wrong school and wrong class's numbers. combat/pet_templates.py now carries 'skeletal_mage', a Frost caster at level_req 14 to match this ability. Rime's rotation opens with 'Raise a Skeletal Mage first', which is why it is the earliest caster pet. The Command's 6-yard splash is not expressible.",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "imp",
+      "summon_pet_template": "skeletal_mage",
       "additional_pet": true
     },
     {
@@ -1158,10 +1158,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Raise a Banshee to aid you in combat, occupying 2 Life Force. It will channel on your target, dealing damage and draining their mana'. MAPPED to 'succubus' - level_req 20, a ranged caster-flavoured summon whose own abilities are Lash of Pain and Seduction, the closest existing shape to a channelling banshee. The mana drain has no hook.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: several bodies at once (see raise_ghoul).",
+      "_source": "CoA class tree: 'Raise a Banshee to aid you in combat, occupying 2 Life Force. It will channel on your target, dealing damage and draining their mana over time. Command: Drains 20% of your target's mana ... and deals Frost damage equal to the mana drained'. NOW A REAL BANSHEE. This was 'succubus' and summoned a pet named Succubus casting Lash of Pain and Seduction - a Warlock demon on a Necromancer. combat/pet_templates.py now carries 'banshee' at level_req 20 to match this ability: Shadow wail plus a Frost Mana Siphon (damage_and_restore_mana). The TARGET-SIDE drain still has no hook - nothing in this engine reduces an enemy's resource pool - so the siphon refills the Banshee, not the Necromancer; that limit is written out in the template's own _source.",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "succubus",
+      "summon_pet_template": "banshee",
       "additional_pet": true
     },
     {
@@ -1182,10 +1182,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Raise an Abomination to aid you in combat, occupying 3 Life Force. It is surrounded by a disease cloud'. MAPPED to 'faceless_destroyer' - level_req 30, base_armor 28, the toughest melee template in the roster, which is what a 3-Life-Force Abomination is for. The disease cloud has no hook; Animation's Flesh Symbiosis talent carries the per-Abomination armour.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Animation: several bodies at once (see raise_ghoul).",
+      "_source": "CoA class tree: 'Raise an Abomination to aid you in combat, occupying 3 Life Force. It is surrounded by a disease cloud, dealing SP Nature damage to enemies when they deal damage and reducing their attack speed by 20% for 15 seconds'. NOW A REAL ABOMINATION. This was 'faceless_destroyer' and summoned the Cultist's pet - picked at the time for being the toughest melee template in the roster, which is the right instinct for a 3-Life-Force raise and the wrong creature. combat/pet_templates.py now carries 'abomination' at level_req 30 to match this ability: the slowest, most armoured of the four raises, with a real Nature Disease Cloud. The cloud's AREA and the -20% attack speed are still not expressible on a pet (a pet never casts a debuff, and pet AoE is dead); Animation's Flesh Symbiosis talent still carries the per-Abomination armour.",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "faceless_destroyer",
+      "summon_pet_template": "abomination",
       "additional_pet": true
     },
     {

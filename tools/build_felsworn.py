@@ -425,15 +425,19 @@ ABILITIES = [
             "Something lands where you pointed. The pack stops looking at "
             "you.",
             one(28, 40), cooldown=15, target_type="self",
-            summon_pet_template="voidwalker", icon=None,
+            summon_pet_template="infernal", icon=None,
             source="CoA: 'Drop an infernal from the sky with grotesque magic, "
                    "dealing fire SP Fire damage to enemies in the radius, "
                    "horrifying them for 4 seconds, and spawning an Infernal "
-                   "to fight by your side for 15 seconds.' Only the pet "
-                   "survives: effect_type summon_pet does one thing, and "
-                   "combat/pet_templates.py has no infernal, so the closest "
-                   "real demon template carries it - voidwalker, the tanky "
-                   "melee one. The impact damage and the fear are lost."),
+                   "to fight by your side for 15 seconds.' NOW A REAL "
+                   "INFERNAL: this used to borrow voidwalker and summoned a "
+                   "pet named Voidwalker, a Warlock demon, on the reasoning "
+                   "that combat/pet_templates.py had no infernal. It has one "
+                   "now - a slow, heavy fire bruiser whose signature "
+                   "Immolation is real spell_damage/fire, matching CoA's own "
+                   "'SP Fire damage'. Still only the pet survives: "
+                   "effect_type summon_pet does one thing, so the impact "
+                   "damage and the fear are lost."),
     ability("manafeed", "Manafeed", "damage_and_heal",
             "What they were going to spend, you spend instead.",
             ranks(44, 13, 25, start=20, count=5), cooldown=3,
@@ -483,14 +487,29 @@ ABILITIES = [
     ability("demonic_will", "Demonic Will", "buff",
             "You decide that this is survivable and that settles it.",
             one(18, 0), cooldown=8, duration=3,
-            stat_mods={"physical_damage_taken_pct": -0.3},
+            stat_mods={"physical_damage_taken_pct": -30},
             target_type="self", generates=builds(20), icon=None,
             source="CoA: 'Generates 1 Felfury. Strengthen your will, reducing "
                    "Physical damage taken by -30% for 10 seconds. While "
                    "active, direct damaging abilities heal you for 3% of your "
                    "maximum health.' The heal-on-damage rider has no "
                    "ability-side hook; it lives on the Straight to the Nether "
-                   "talent instead. physical_damage_taken_pct is a FRACTION."),
+                   "talent instead.  UNIT FIXED 2026-10-29, and the note that "
+                   "used to sit here said the opposite: it claimed "
+                   "physical_damage_taken_pct is a FRACTION, authored -0.3, "
+                   "and therefore delivered -0.3% instead of -30%. In an "
+                   "ABILITY's stat_mods this key is PERCENT POINTS - "
+                   "Character.take_damage divides "
+                   "get_status_stat_mod('physical_damage_taken_pct') by 100, "
+                   "while the bare damage_taken_pct key four lines away in "
+                   "the same method is added undivided and IS a fraction. "
+                   "The convention is per-key with no naming rule. Measured: "
+                   "0.04 took 736 from a 1000 hit, 4.0 took 766. The fix was "
+                   "made in the emitted JSON earlier the same day and not "
+                   "ported here, so re-running this script silently restored "
+                   "the broken value - which is how it was found. "
+                   "tools/validate_class.py now errors on both directions and "
+                   "names the corrected number."),
     ability("burning_hatred", "Burning Hatred", "buff",
             "Nothing complicated. You are angry and it is useful.",
             one(24, 0), cooldown=12, duration=3,
