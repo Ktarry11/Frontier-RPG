@@ -172,7 +172,7 @@ def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
 ABILITIES = [
     ability("attack", "Attack", "damage",
             "A swing of your staff. It is not what you are for.",
-            one(1, 0, 0), icon="ability_melee",
+            one(1, 0, 0), icon=None,
             source="Convention: every class ships a free rank-1 Attack."),
 
     # ---- the Fire chassis every spec presses

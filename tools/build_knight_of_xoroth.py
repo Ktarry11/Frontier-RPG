@@ -134,7 +134,7 @@ def one(level, cost, value=100):
 
 
 def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
-            duration=0, stat_mods=None, icon="ability_melee", source=None,
+            duration=0, stat_mods=None, icon=None, source=None,
             resource="rage", **extra):
     out = {
         "ability_id": f"{PREFIX}_{aid}",

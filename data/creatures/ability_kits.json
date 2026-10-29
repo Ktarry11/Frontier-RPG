@@ -25764,7 +25764,8 @@
         "duration": 4,
         "stat_mods": {
           "attack_power": 24
-        }
+        },
+        "self_only": true
       }
     ],
     "myconid_tender": [
@@ -25795,7 +25796,8 @@
         "stat_mods": {
           "armor": 40,
           "attack_power": 22
-        }
+        },
+        "self_only": true
       }
     ],
     "mycelial_husk": [
@@ -26987,7 +26989,8 @@
         "duration": 5,
         "stat_mods": {
           "attack_power": 30
-        }
+        },
+        "self_only": true
       }
     ],
     "spore_scribe": [
@@ -27051,7 +27054,8 @@
         "duration": 5,
         "stat_mods": {
           "armor": 56
-        }
+        },
+        "self_only": true
       }
     ],
     "pulpwright": [
@@ -29712,7 +29716,7 @@
         "amount": 24,
         "cooldown": 0,
         "mana_cost": 28,
-        "school": "lightning"
+        "school": "nature"
       },
       {
         "name": "Chain Lightning",
@@ -29720,7 +29724,7 @@
         "amount": 32,
         "cooldown": 3,
         "mana_cost": 35,
-        "school": "lightning"
+        "school": "nature"
       },
       {
         "name": "Hex",
@@ -30227,7 +30231,7 @@
         "amount": 40,
         "cooldown": 0,
         "mana_cost": 45,
-        "school": "lightning",
+        "school": "nature",
         "boss_rework": 1
       },
       {
@@ -30236,7 +30240,7 @@
         "amount": 58,
         "cooldown": 3,
         "mana_cost": 65,
-        "school": "lightning"
+        "school": "nature"
       },
       {
         "name": "Lightning Storm",
@@ -30244,7 +30248,7 @@
         "amount": 26,
         "cooldown": 3,
         "mana_cost": 50,
-        "school": "lightning",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 3,

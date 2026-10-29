@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack."
     },
     {
@@ -87,7 +87,7 @@
           "effect_value": 130
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'weave a cheap filler strike in Infernal Strike, which generates 2 Demonfire'. The universal filler, on Warrior's heroic_strike curve.",
       "target_type": "enemy",
       "generates": {
@@ -154,7 +154,7 @@
           "effect_value": 95
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'using Sever to top up rage'. Cheapest strike in the kit, so it is the one you press when the pool is empty.",
       "target_type": "enemy",
       "generates": {
@@ -215,7 +215,7 @@
           "effect_value": 94
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Meatsaw (hits nearby enemies)'. target_type enemy_aoe + max_targets is what the engine actually reads for a limited cleave; the is_aoe flag is never read at load time.",
       "target_type": "enemy_aoe",
       "max_targets": 3
@@ -273,7 +273,7 @@
           "effect_value": 208
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'dump stacked Demonfire into Skulltaker for its scaling finisher: more damage per stack'. The class's single-target Deathfire spender, shared by all three specs. 40 Deathfire is CoA's 4-stack spend.",
       "target_type": "enemy"
     },
@@ -433,7 +433,7 @@
           "effect_value": 107
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Your AoE comes from Flames of Xoroth'. Present in all three specs (War transforms it into Warbringer, Defiance into Hellfire Bellows).",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -486,7 +486,7 @@
           "effect_value": 93
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Flesh Hook (pulls the enemy to you)', 'Flesh Hook is your only reach tool'. ranged_damage - it is thrown. The engine has no forced-reposition mechanic, so the pull itself is flavour.",
       "target_type": "enemy"
     },
@@ -537,7 +537,7 @@
           "effect_value": 109
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Swing a chain at an enemy dealing Physical damage and silencing them for 2 seconds, generating a large amount of threat.' The engine has no silence category (see StatusEffect.is_stun, the only incapacitate), so the damage and its threat are what lands.",
       "target_type": "enemy"
     },
@@ -582,7 +582,7 @@
           "effect_value": 102
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Lock an enemy down with magical chains, stunning them and dragging them with you for 5 seconds.' The stun is real; the drag is not modellable.",
       "target_type": "enemy",
       "is_stun": true
@@ -771,7 +771,7 @@
           "effect_value": 118
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Unleashes your active Pestilence to trigger a powerful effect.' Which Pestilence is up changes what it does in CoA; the engine has no such branch, so it is one AoE burst regardless.",
       "target_type": "enemy_aoe",
       "max_targets": 5
@@ -878,7 +878,7 @@
           "effect_value": 124
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Transforms your Infernal Strike into Shieldgore. Generates 2 Demonfire. Gore the target with your spiked shield, causing High Threat Fire Damage, scaling with your block value.' Block-value scaling has no hook on the damage path, so the damage is flat; the Deathfire generation and the threat from a big hit are what the spec's whole loop actually runs on.",
       "target_type": "enemy",
       "damage_school": "fire",
@@ -978,7 +978,7 @@
           "effect_value": 132
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Explode with hellish fire, dealing Fire damage to nearby enemies, beckoning Hellfire Imps to aid you in battle, and generating 30 Rage. Deals increased damage ... for each Demonfire consumed.' Spends Deathfire and pays Rage, which is the one place the class's two pools trade in that direction. The imp summon cannot ride along on a damage ability.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
@@ -1134,7 +1134,7 @@
           "effect_value": 110
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Transforms your Flames of Xoroth into Hellfire Bellows. Bellow fire on all enemies in a 6 yd cone in front of and behind you.' Frontier has no facing, so the cone is a capped cleave.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -1217,7 +1217,7 @@
           "effect_value": 112
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: '2 Charges, 8 sec recharge. Generates 1 Demonfire. Quickly gore an enemy.' Charges have no engine equivalent, so it is a 2-turn cooldown. CoA gates Gore behind two maxed War talents, so it is talent-unlocked here too.",
       "target_type": "enemy",
       "generates": {
@@ -1267,7 +1267,7 @@
           "effect_value": 116
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Transforms your Flames of Xoroth into Warbringer. Slam the ground, dealing Weapon Damage to nearby enemies, reducing the effectiveness of any healing by -50% for 10 seconds.' A damage ability cannot also apply a debuff, so the anti-heal is lost here; healing_taken_pct exists but only on a debuff ability, and War's own page calls the cleave the point.",
       "target_type": "enemy_aoe",
       "max_targets": 4
@@ -1307,7 +1307,7 @@
           "effect_value": 180
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Walking in and popping Brimstone Bludgeon is the opener: heavy weapon damage to the pack that also unleashes Pestilence of Death'. The spec's keystone and its tier-6 pick, so it is unlocked by the capstone node. The Pestilence unleash is a separate button here.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -1403,7 +1403,7 @@
           "effect_value": 132
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA names Searing Blade in War's Domination ('Melee critical strikes now reduce the cooldown of Searing Blade'), which is all the reference says about it, so it is authored as the spec's mid-cooldown Fire strike.",
       "target_type": "enemy",
       "damage_school": "fire"
