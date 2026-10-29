@@ -218,7 +218,7 @@
           "rank": 1,
           "level_req": 12,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -242,7 +242,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 0,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -266,12 +266,13 @@
           "rank": 1,
           "level_req": 8,
           "cost": 15,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Jawbreaker - interrupting them and preventing any spell from that school from being cast for 4 seconds'. School lockout has no hook; silenced is the engine's existing interrupt flag.",
-      "target_type": "enemy"
+      "_source": "CoA: 'Jawbreaker - interrupting them and preventing any spell from that school from being cast for 4 seconds'. This engine has ONE crowd-control category, is_stun - status_effects.py says so outright ('one mechanic, is_stun, with no separate silence/root category') and StatusEffectMixin.is_stunned is what actually withholds a turn. So the interrupt is is_stun for one turn; the `silenced` stat_mod is the shipped convention's tooltip label and nothing reads it. School lockout has no hook.",
+      "target_type": "enemy",
+      "is_stun": true
     },
     {
       "ability_id": "barbarian_headhunters_spear",
@@ -336,7 +337,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {
-        "haste": -20
+        "attack_power": -35
       },
       "description": "Thrown at the legs. They can still come for you, just slowly.",
       "ranks": [
@@ -344,11 +345,11 @@
           "rank": 1,
           "level_req": 18,
           "cost": 15,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Throw your ranged weapon at your enemy's legs ... slowing their movement speed by -50%'. There is no movement in a turn fight, so the slow lands as the thing a slow actually costs you: tempo.",
+      "_source": "CoA: 'Throw your ranged weapon at your enemy's legs ... slowing their movement speed by -50%'. There is no movement in a turn fight, and a haste debuff would have been worse than nothing: a Monster reads ONLY `armor` and `attack_power` out of a status effect's stat_mods (entities/monster.py), so haste on an enemy is inert. A hobbled enemy hitting softer is what actually lands.",
       "target_type": "enemy"
     },
     {
@@ -367,7 +368,7 @@
           "rank": 1,
           "level_req": 22,
           "cost": 15,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -481,7 +482,7 @@
           "rank": 1,
           "level_req": 28,
           "cost": 0,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -654,7 +655,7 @@
       "ability_id": "barbarian_decapitate",
       "name": "Decapitate",
       "resource_type": "energy",
-      "cooldown": 2,
+      "cooldown": 3,
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
@@ -663,44 +664,43 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 25,
-          "effect_value": 130
+          "cost": 30,
+          "effect_value": 100
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 25,
-          "effect_value": 166
+          "cost": 30,
+          "effect_value": 128
         },
         {
           "rank": 3,
           "level_req": 36,
-          "cost": 25,
-          "effect_value": 202
+          "cost": 30,
+          "effect_value": 156
         },
         {
           "rank": 4,
           "level_req": 42,
-          "cost": 25,
-          "effect_value": 238
+          "cost": 30,
+          "effect_value": 184
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 25,
-          "effect_value": 274
+          "cost": 30,
+          "effect_value": 212
         },
         {
           "rank": 6,
           "level_req": 54,
-          "cost": 25,
-          "effect_value": 310
+          "cost": 30,
+          "effect_value": 240
         }
       ],
       "icon_id": "ability_melee",
-      "_source": "CoA: 'Decapitate to execute once the target is below 35% HP (each point of spare Energy adds damage)'. execute_threshold_pct is PERCENT POINTS - warrior_execute is 20, cultist_netherstrike 35 - so 35, not 0.35. The spend-spare-Energy scaling has no hook; the flat damage is sized as though it had been spent.",
-      "target_type": "enemy",
-      "execute_threshold_pct": 35
+      "_source": "CoA: 'Decapitate to execute once the target is below 35% HP (each point of spare Energy adds damage)'. THE GATE IS DELIBERATELY ABSENT. execute_threshold_pct exists and is PERCENT POINTS (warrior_execute 20, cultist_netherstrike 35), but its check in Ability.use reads `target.current_health / target.health` and Monster has no `health` - it uses `max_health`, while only Character has `health`. getattr(target, 'health', 0) is therefore 0 against every creature in the game, the percentage defaults to 100, and the cast is refused. Every execute-gated ability shipped today (Warrior's Execute, Cultist's Netherstrike, Primalist's Raptor Talons and Bring Me Their Bones, Stormbringer's Electrocute) is uncastable against a monster for that reason. Authoring the gate here would have bought a dead signature ability, so Decapitate is an ungated finisher instead - a longer cooldown and lower damage than a gated execute would carry, since it can be pressed at any health. The spend-spare-Energy scaling has no hook either. Worth fixing in the engine: one getattr.",
+      "target_type": "enemy"
     },
     {
       "ability_id": "barbarian_crush",
@@ -763,29 +763,12 @@
           "rank": 1,
           "level_req": 30,
           "cost": 0,
-          "effect_value": 35
-        },
-        {
-          "rank": 2,
-          "level_req": 39,
-          "cost": 0,
-          "effect_value": 43
-        },
-        {
-          "rank": 3,
-          "level_req": 48,
-          "cost": 0,
-          "effect_value": 51
-        },
-        {
-          "rank": 4,
-          "level_req": 57,
-          "cost": 0,
-          "effect_value": 59
+          "effect_value": 100,
+          "mana_restore_pct": 45
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Onslaught is an Energy battery that floods the bar for execute phases'. effect_value on a restore_resource ability is a PERCENTAGE of the pool (it is read as mana_restore_pct), so 35-59% of 100 Energy. It is also an enrage in CoA; nothing here can carry that.",
+      "_source": "CoA: 'Onslaught is an Energy battery that floods the bar for execute phases'. 45% of the pool, carried on the rank key that effect_type='restore_resource' actually reads - see restore(). It is also an enrage in CoA; nothing here can carry that.",
       "target_type": "self",
       "restore_resource_type": "energy"
     },
@@ -806,7 +789,7 @@
           "rank": 1,
           "level_req": 34,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1253,7 +1236,7 @@
           "rank": 1,
           "level_req": 32,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1414,7 +1397,7 @@
           "rank": 1,
           "level_req": 16,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1444,7 +1427,7 @@
           "rank": 1,
           "level_req": 18,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1515,7 +1498,7 @@
           "rank": 1,
           "level_req": 24,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1622,7 +1605,7 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1647,7 +1630,7 @@
           "rank": 1,
           "level_req": 36,
           "cost": 15,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1671,7 +1654,7 @@
           "rank": 1,
           "level_req": 38,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1696,7 +1679,7 @@
           "rank": 1,
           "level_req": 40,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1712,7 +1695,7 @@
       "effect_type": "buff",
       "duration": 4,
       "stat_mods": {
-        "summon_damage_pct": 20,
+        "spell_power": 50,
         "frost_resistance": 20
       },
       "description": "A drink brewed for someone who never had to ask twice.",
@@ -1721,11 +1704,11 @@
           "rank": 1,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "_source": "CoA: \"Empower your Honored Ancestor's melee attacks to deal additional Frost damage scaling with your attack power\", 'Ale of the God-King the instant your Tankard is full'. summon_damage_pct is the engine's existing pet-damage buff key. The Tankard gate is gone with the Tankard.",
+      "_source": "CoA: \"Empower your Honored Ancestor's melee attacks to deal additional Frost damage scaling with your attack power\", 'Ale of the God-King the instant your Tankard is full'. NOTHING a cast can carry reaches a pet: summon_damage_pct is authored on one shipped ability and read nowhere, and pet_damage/pet_health/pet_armor are read ONLY off the owner's TALENT effects, once, at Pet construction (entities/pet.py). So the Barbarian drinks it himself and his own Frost gets heavier - spell_power is what Breath of the North, Frozen Tankard and Hodir's Wrath read. The pet-facing half lives in the Ancestry tree as The Spins and Might of Utgarde, where pet_damage and pet_health are real. The Tankard gate is gone with the Tankard.",
       "target_type": "self",
       "buff_scope": "combat"
     },
@@ -1745,7 +1728,7 @@
           "rank": 1,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1770,7 +1753,7 @@
           "rank": 1,
           "level_req": 46,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,

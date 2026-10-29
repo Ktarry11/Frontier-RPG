@@ -817,7 +817,7 @@ BRUTALITY = tree(
                     "chance."),
         node(B, "efficient_killer", "Efficient Killer",
              "Reduces the Energy cost of your abilities by 2% per rank.",
-             1, 2, 3, {"all_ability_cost_pct": -0.02},
+             1, 2, 3, {"all_ability_cost_pct": 0.02},
              connect=["savage_strength"],
              source="CoA: 'Reduces the Energy cost of your spells and "
                     "abilities by -10%'."),
@@ -1488,7 +1488,7 @@ ANCESTRY = tree(
                     "pet_damage is read in entities/pet.py."),
         node(A, "breaking_morale", "Breaking Morale",
              "Reduces the Energy cost of your abilities by 2% per rank.",
-             3, 3, 3, {"all_ability_cost_pct": -0.02},
+             3, 3, 3, {"all_ability_cost_pct": 0.02},
              connect=["hodirs_revenge"],
              source="CoA: 'Reduces the Energy cost of Break by -15'. Break is "
                     "the To The Bone debuff from the Headhunting tree, which "

@@ -379,12 +379,12 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "all_ability_cost_pct": -0.03
+        "all_ability_cost_pct": 0.03
       },
       "connected_to": [
         "bloodmage_accursed_battleweaver"
       ],
-      "_source": "CoA: 'Your Veinburst now has a 40% chance to not trigger a cooldown ... Your Bloodbolt now has a 40% chance to refund half of its Rage cost.' A refund chance has no hook; a flat discount is the same thing averaged out."
+      "_source": "CoA: 'Your Veinburst now has a 40% chance to not trigger a cooldown ... Your Bloodbolt now has a 40% chance to refund half of its Rage cost.' A refund chance has no hook; a flat discount is the same thing averaged out. POSITIVE is the discount - talented_cost does cost * (1 - pct), and Guardian, Barbarian and Felsworn all ship this key negative, i.e. as a surcharge their tooltips do not mention."
     },
     {
       "talent_id": "bloodmage_accursed_blood_scent",

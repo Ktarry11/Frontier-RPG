@@ -508,7 +508,7 @@ VANGUARD = tree(
                     "by 25% and your block chance by 1%. (up to 2 ranks)'"),
         node(V, "seasoned_fighter", "Seasoned Fighter",
              "Reduces the Energy cost of your abilities by 3% per rank.",
-             1, 1, 3, {"all_ability_cost_pct": -0.03},
+             1, 1, 3, {"all_ability_cost_pct": 0.03},
              connect=["heavy_expert"],
              source="CoA: 'Reduces the Energy cost of Pulverize, Ram, and "
                     "Broad Sweep by -10%.' Engine-wide rather than per "
@@ -629,7 +629,7 @@ VANGUARD = tree(
         node(V, "the_green_tower", "The Green Tower",
              "Increases your Armor by 3% per rank and cheapens your "
              "Formations.",
-             4, 2, 5, {"armor_pct": 3.0, "all_ability_cost_pct": -0.01},
+             4, 2, 5, {"armor_pct": 3.0, "all_ability_cost_pct": 0.01},
              connect=["vanguards_might"],
              source="CoA: 'Reduces the Energy cost of your Formations and "
                     "increases their effectiveness by 25%.'"),
@@ -931,7 +931,7 @@ GLADIATOR = tree(
                     "block by 2%. (up to 2 ranks)'"),
         node(G, "waste_no_movement", "Waste No Movement",
              "Reduces the Energy cost of your abilities by 2% per rank.",
-             1, 2, 3, {"all_ability_cost_pct": -0.02},
+             1, 2, 3, {"all_ability_cost_pct": 0.02},
              connect=["sword_training"],
              source="CoA: 'Reduces the Energy cost of Broad Sweep, Spear "
                     "Throw, and Centurion Strike by -5.'"),

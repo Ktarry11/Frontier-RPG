@@ -842,7 +842,7 @@ BOLTSLINGER = tree(
         node(B, "my_trusty_arbalest", "My Trusty Arbalest",
              "Reduces the Focus cost of your abilities by 2% and grants 1 hit "
              "rating per rank.",
-             0, 3, 5, {"all_ability_cost_pct": -0.02, "hit_rating": 1},
+             0, 3, 5, {"all_ability_cost_pct": 0.02, "hit_rating": 1},
              source="CoA: 'Reduces the Rage cost of Witchbane and Shadowblast "
                     "by -10% and increases your chance to hit by 2%.' There is "
                     "no two-ability cost key, only per-ability and global, so "
@@ -1100,7 +1100,7 @@ HOUNDMASTER = tree(
                     "hook, so the flat half only."),
         node(H, "darkrider", "Darkrider",
              "Reduces the Focus cost of your abilities by 3% per rank.",
-             1, 2, 4, {"all_ability_cost_pct": -0.03}, connect=["houndfeeder"],
+             1, 2, 4, {"all_ability_cost_pct": 0.03}, connect=["houndfeeder"],
              source="CoA: 'Reduces the Rage cost of Shadowblast, Vault, and "
                     "Unleash the Hounds by -10.' Shadowblast and Vault are "
                     "already free in Frontier (they are the builders), so a "
@@ -1771,7 +1771,7 @@ INQUISITION = tree(
                     "whole kit rather than one ability."),
         node(Q, "lightbringer", "Lightbringer",
              "Reduces the Focus cost of your abilities by 3% per rank.",
-             5, 2, 2, {"all_ability_cost_pct": -0.03},
+             5, 2, 2, {"all_ability_cost_pct": 0.03},
              connect=["burned_alive"], total_slots=3,
              source="CoA: 'Damage dealt by Dusk Blade now has a 15% chance to "
                     "reduce the mana cost of your next Purifier's Edge by "

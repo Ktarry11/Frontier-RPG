@@ -315,12 +315,12 @@
           "effect_type": "debuff",
           "duration": 3,
           "stat_mods": {
-            "physical_damage_taken_pct": 0.04
+            "physical_damage_taken_pct": 4.0
           },
           "on_target": true
         }
       },
-      "_source": "CoA: 'Damage taken from the Felsworn increased by 10% and the critical strike chance of all allies against this target is increased by 3%.' The ally-crit half cannot be scoped to a target, so only the damage-amplification half ships."
+      "_source": "PHYSICAL_DAMAGE_TAKEN_PCT IN A STATUS STAT_MOD IS IN PERCENT POINTS, NOT A FRACTION. This was 0.04, i.e. +0.04% instead of +4%, so the debuff did nothing measurable - verified by applying it and taking a 1000-damage hit: 0.04 gave 736, 4.0 gives 766. Note that the bare damage_taken_pct key beside it IS a fraction, and so is block_value_pct; the convention is per-key with no naming rule, so check how the engine reads the exact key before authoring a value. CoA: 'Damage taken from the Felsworn increased by 10% and the critical strike chance of all allies against this target is increased by 3%.' The ally-crit half cannot be scoped to a target, so only the damage-amplification half ships."
     },
     {
       "talent_id": "felsworn_tyrant_betrayer",

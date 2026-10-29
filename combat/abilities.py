@@ -260,6 +260,8 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
+                 consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
+                 cooldown_per_stack=0.0,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
                  max_targets=None, force_proc_group=None, summon_pet_template=None):
         """
@@ -451,6 +453,42 @@ class Ability:
         # "dot"/"spell_dot" branch of _apply_effect, which reads the
         # caster's current stack count before building the DoT's duration.
         self.consumes_stacks_of = consumes_stacks_of
+
+        # consumes_target_stacks_of / damage_per_stack_pct: the same idea
+        # pointed the other way - stacks sitting on the TARGET, eaten on
+        # cast, scaling this ability's damage by how many were eaten.
+        #
+        # consumes_stacks_of above reads the CASTER's own stacks and only
+        # extends a DoT's duration, which is right for Venomancer's
+        # Expulsion but cannot express Starcaller, whose whole class is
+        # built on a debuff it puts ON enemies and then spends. CoA has
+        # fourteen-plus nodes keyed to it across the class tree and all four
+        # specs - "Consumes Scattered Stars", "Increases the effectiveness
+        # of consuming Scattered Stars by 50%", "Every Scattered Star
+        # consumed reduces the cooldown", "consuming Scattered Stars now
+        # has a 15% chance to transform Celestial Strike" - and Frontier
+        # had the debuff but no way to spend it, so every one of those
+        # nodes had nothing to attach to.
+        #
+        # Unlike consumes_hot (Swiftmend), a cast with nothing to consume
+        # DOES NOT FAIL. It just gets no bonus. Starsweep and Moonflow are
+        # rotational damage and healing that happen to be better with
+        # stacks banked; refunding them on an empty target would make the
+        # specs unplayable between applications, and no CoA tooltip says
+        # the spell requires a stack to cast.
+        self.consumes_target_stacks_of = consumes_target_stacks_of
+        #: Fraction added per stack consumed - 0.2 is +20% per stack.
+        #: A FRACTION, matching applies_dot_pct and the other _pct
+        #: ability keys, not the percent-points convention talent effects
+        #: use for armor_pct and friends.
+        self.damage_per_stack_pct = damage_per_stack_pct
+        #: Turns knocked off this ability's own cooldown per stack consumed.
+        #: See the cooldown_per_stack block in use().
+        self.cooldown_per_stack = cooldown_per_stack
+        #: Per-cast scratch, same lifecycle as _last_crit: set at the top of
+        #: every _apply_effect, read by _damage_multiplier.
+        self._stack_bonus = 0.0
+        self._last_stacks_consumed = 0
         #: Pool named by a restore_resource ability, overriding the
         #: caster's primary one. See the restore_resource branch.
         self.restore_resource_type = restore_resource_type
@@ -1203,13 +1241,50 @@ class Ability:
             return self.damage_school
         return getattr(caster, "current_attunement", None) or DamageSchool.ARCANE
 
+    def _consume_target_stacks(self, caster, target):
+        """Eat consumes_target_stacks_of off the target(s); return the bonus.
+
+        Returns a fraction to add to this ability's damage/healing
+        multiplier - damage_per_stack_pct times the number of stacks
+        actually removed, summed across every enemy the cast touches
+        ("consuming Scattered Stars from enemies", for an AoE).
+
+        Returns 0.0 and removes nothing when the ability has no consume
+        configured, which is every ability but a handful, or when no target
+        is carrying the effect. A cast with nothing to consume is NOT
+        refunded - see the field's docstring in __init__.
+        """
+        if not self.consumes_target_stacks_of:
+            return 0.0
+        victims = target if isinstance(target, list) else [target]
+        consumed = 0
+        for victim in victims:
+            if victim is None or not hasattr(victim, "_effects"):
+                continue
+            for effect in list(victim._effects()):
+                if effect.effect_id != self.consumes_target_stacks_of:
+                    continue
+                consumed += max(1, getattr(effect, "stacks", 1))
+                victim._effects().remove(effect)
+                if hasattr(victim, "_on_status_effects_changed"):
+                    victim._on_status_effects_changed()
+                break
+        self._last_stacks_consumed = consumed
+        return consumed * self.damage_per_stack_pct
+
     def _damage_multiplier(self, caster, school, recipient=None):
         """Combined talent multiplier for this ability in a given school.
 
         school is "physical", "spell" or "healing" - selects which global
         key stacks alongside the per-ability one.
+
+        Includes _stack_bonus, the payout from any target-side stacks this
+        cast consumed (see _consume_target_stacks). It is computed once per
+        _apply_effect and read here, so it applies to every recipient of an
+        AoE without being charged more than once.
         """
         per_ability = self._talent(caster, f"ability_{self.ability_id}_damage")
+        per_ability += getattr(self, "_stack_bonus", 0.0)
         if school == "healing":
             # A heal's per-ability talent key reads more naturally as
             # ability_<id>_healing, and 18 talents across Cultist,
@@ -1396,6 +1471,20 @@ class Ability:
         # Apply effect
         result_msg = self._apply_effect(caster, target, cost=cost, party=party,
                                         engine=engine)
+
+        # cooldown_per_stack: the OTHER payout a target-side stack consume
+        # can buy. Starcaller's Starsweep is the real case - CoA's tooltip
+        # is "Consumes Scattered Stars ... Every Scattered Star consumed
+        # reduces the cooldown of this spell by 3 sec", so the stars buy
+        # cooldown, not damage, and an ability can use either payload (or
+        # both) off the one consume. Applied after _apply_effect, because
+        # that is what counts the stacks, and after the assignment above,
+        # which has already put the full cooldown on.
+        consumed = getattr(self, "_last_stacks_consumed", 0)
+        if consumed and self.cooldown_per_stack and in_combat and not free:
+            self.turns_remaining = max(
+                0, int(round(self.turns_remaining - consumed * self.cooldown_per_stack)))
+        self._last_stacks_consumed = 0
 
         # "taunt" in stat_mods (CoA tank cooldowns: Dreadfall Tank, Test of
         # Pride, Command, Injunction, Nature's Call, Vile Sting, Locust
@@ -1997,6 +2086,14 @@ class Ability:
         # Reset here per-call for the same reason _last_threat_events is:
         # a stale True from a previous cast must never leak into this one.
         self._last_crit = False
+        # Target-side stack consume (Starcaller's Scattered Stars). Done
+        # ONCE here, at the top, with the resulting bonus parked on self for
+        # the rest of this call - the same shape as _last_crit above and for
+        # the same reason. Doing it inside _damage_multiplier instead would
+        # re-consume for every recipient of an AoE, so a five-target
+        # Starsweep would eat the stacks five times and pay the bonus only
+        # on the first enemy.
+        self._stack_bonus = self._consume_target_stacks(caster, target)
         is_aoe = self.target_type == "enemy_aoe"
         aoe_mult = self.AOE_DAMAGE_MULTIPLIER if is_aoe else 1.0
 
@@ -2972,6 +3069,9 @@ def _ability_from_data(entry):
         dispel_type=entry.get("dispel_type"),
         dispel_count=entry.get("dispel_count", 1),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
+        consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
+        damage_per_stack_pct=entry.get("damage_per_stack_pct", 0.0),
+        cooldown_per_stack=entry.get("cooldown_per_stack", 0.0),
         duration_per_stack=entry.get("duration_per_stack", 0),
         max_targets=entry.get("max_targets"),
         force_proc_group=entry.get("force_proc_group"),

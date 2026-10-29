@@ -132,7 +132,14 @@ POINTS_PCT_KEYS = frozenset({
 #: effect's stat_mods is in percentage POINTS. This single-key exception is
 #: real: character.py's taken_mult adds get_status_stat_mod("damage_taken_pct")
 #: undivided, while the physical_/magic_ variants beside it are divided.
-STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct"})
+#: block_value_pct belongs here too, verified by applying a status effect and
+#: reading the stat back: 0.2 raised a 15.9 block value to 19.1, exactly +20%,
+#: while 20 raised it to 333.9. It feeds the same `block_value *= (1.0 + x)`
+#: multiply the talent path uses (entities/character.py), so it never gets
+#: divided by 100 no matter which path reaches it. Without this entry the
+#: audit called Knight of Xoroth's Infernal Bulwark a 100x unit error when
+#: the node was right all along.
+STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct", "block_value_pct"})
 
 #: Triggers combat/status_effects.py actually dispatches on. A proc with any
 #: other trigger never fires.
@@ -143,24 +150,50 @@ STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct"})
 #: the real combined trigger is spelled "on_damage_or_heal_cast". A proc
 #: authored with either would have passed this audit and never fired. No
 #: talent currently uses them; this stops the next one.
-PROC_TRIGGERS = frozenset({
-    "on_cast", "on_crit", "on_kill", "on_weapon_swing",
-    "on_damage_cast", "on_damage_taken", "on_heal_cast",
-    "on_damage_or_heal_cast",
-})
+#: DERIVED FROM THE ENGINE, not listed here. This was a hardcoded set and it
+#: went stale the moment combat/status_effects.py gained on_dodge, on_parry,
+#: on_avoid and on_block - it then reported 10 perfectly good avoidance procs
+#: across Cultist, Guardian and Starcaller as "a trigger the engine does not
+#: dispatch", which is the exact opposite of the truth. A hand-maintained
+#: mirror of engine state is a liability in an audit tool: it fails silently
+#: in the direction of accusing working code. ProcTrigger.ALL is the engine's
+#: own answer to this question, so ask it.
+def _proc_triggers():
+    try:
+        from combat.status_effects import ProcTrigger
+        return frozenset(ProcTrigger.ALL)
+    except Exception:
+        # Degrade loudly rather than quietly auditing against a guess.
+        print("WARNING: could not import ProcTrigger - trigger check skipped",
+              file=sys.stderr)
+        return None
+
+
+PROC_TRIGGERS = _proc_triggers()
 
 #: The payload keys that make a proc do something. A proc carrying none of
 #: these fires and has no effect.
-PROC_PAYLOADS = frozenset({
-    "grant_resource", "apply_effect", "bonus_pct", "extra_attack",
-    "cast_ability", "heal_flat", "smart_heal",
-    # Added for the unlock_mechanic pass - see combat/status_effects.py.
-    "reset_cooldown", "leech_pct", "shield_pct", "splash_heal",
-    # splash_damage: the mirror of splash_heal, spreading a fraction of the
-    # triggering hit to the other living enemies (Runemaster's Earth
-    # Engraving). Added 2026-10-27.
-    "splash_damage",
-})
+#:
+#: SCANNED OUT OF THE PROC HANDLER, for the same reason PROC_TRIGGERS is
+#: derived rather than listed. This was hand-maintained too, and it had
+#: already drifted twice - splash_damage and damage_flat each had to be added
+#: by hand after a talent using them was found doing nothing. Reading the
+#: handler's own proc.get("...") calls means a payload the engine learns is a
+#: payload this tool knows about on the same commit. Same approach
+#: tools/validate_class.py uses, so the two tools cannot disagree.
+def _proc_payloads():
+    try:
+        text = (ROOT / "combat/status_effects.py").read_text(encoding="utf-8")
+    except OSError:
+        print("WARNING: could not read status_effects.py - payload check skipped",
+              file=sys.stderr)
+        return None
+    keys = set(re.findall(r'proc\.get\(\s*[\'"]([a-z_]+)[\'"]', text))
+    # Not payloads - the proc's own plumbing.
+    return frozenset(keys - {"trigger", "chance", "icd"})
+
+
+PROC_PAYLOADS = _proc_payloads()
 
 #: Effect-key prefixes/suffixes the engine resolves dynamically, so a grep
 #: for the literal key name will never find them.
@@ -172,6 +205,15 @@ _DYNAMIC_KEY = re.compile(
     r"|all_ability_cost_pct|heal_cost_pct|healing_spell_cost_pct"
     r"|crit_damage_pct|crit_damage_spell|crit_damage_physical"
     rf"|({_SCHOOLS})_crit_damage_pct"
+    # <school>_damage_taken_pct and <school>_resist_pct are built by string
+    # interpolation in Character.take_damage - `school_key =
+    # f"{damage_type}_damage_taken_pct"` - so no literal grep finds them.
+    # Without these two the audit called Reaper's Weakened Souls dead on
+    # both of its keys; applying the debuff and taking a 1000-damage hit
+    # gives 1100 on a shadow hit and 1000 on a fire hit, i.e. the key is
+    # live AND correctly school-specific.
+    rf"|({_SCHOOLS})_damage_taken_pct"
+    rf"|({_SCHOOLS})_resist_pct"
     rf"|({_SCHOOLS})_(resistance|spell_power))$")
 
 
@@ -349,11 +391,11 @@ def main():
         # whole surface was unchecked.
         proc = n.get("proc")
         if proc:
-            if proc.get("trigger") not in PROC_TRIGGERS:
+            if PROC_TRIGGERS is not None and proc.get("trigger") not in PROC_TRIGGERS:
                 findings["proc-bad-trigger"].append(
                     f"{tid} ({n.get('name')!r}): trigger {proc.get('trigger')!r} "
                     f"is not one the engine dispatches")
-            if not any(k in proc for k in PROC_PAYLOADS):
+            if PROC_PAYLOADS is not None and not any(k in proc for k in PROC_PAYLOADS):
                 findings["proc-no-payload"].append(
                     f"{tid} ({n.get('name')!r}): proc has a trigger but no payload, "
                     f"so it fires and does nothing")
@@ -372,7 +414,15 @@ def main():
                 if isinstance(_s, dict):
                     mods.update(_s.get("stat_mods") or {})
             for key, val in mods.items():
-                if key not in LIVE:
+                # _DYNAMIC_KEY as well as LIVE: a status stat_mod can name a
+                # key the engine builds by interpolation just as a talent
+                # effect can, and this branch only checked the literal LIVE
+                # set. That called Reaper's Weakened Souls dead on both
+                # shadow_damage_taken_pct and frost_damage_taken_pct, which
+                # Character.take_damage reads via
+                # f"{damage_type}_damage_taken_pct" - verified live by
+                # applying the debuff and taking a hit.
+                if key not in LIVE and not _DYNAMIC_KEY.match(key):
                     findings["dead-effect-key"].append(
                         f"{tid} ({n.get('name')!r}): proc stat_mod {key!r} is read "
                         f"by no engine code")

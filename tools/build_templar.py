@@ -790,7 +790,7 @@ ZEALOT = tree(
                     "covers them without splitting the point."),
         node(Z, "heavens_finest", "Heaven's Finest",
              "Reduces the Combo cost of your abilities by 3% per rank.",
-             2, 3, 5, {"all_ability_cost_pct": -0.03},
+             2, 3, 5, {"all_ability_cost_pct": 0.03},
              connect=["chakra_of_power"],
              source="CoA: 'At 6 stacks, increases your Energy regeneration by "
                     "100% for 8 seconds'. Combo regeneration does not exist "
@@ -1346,7 +1346,7 @@ CRUSADER = tree(
                     "stack is more damage."),
         node(C, "serendipity", "Serendipity",
              "Reduces the Combo cost of your abilities by 3% per rank.",
-             3, 2, 3, {"all_ability_cost_pct": -0.03},
+             3, 2, 3, {"all_ability_cost_pct": 0.03},
              connect=["focused"],
              source="CoA: 'Increases the all damage dealt by party and raid "
                     "members by 3% ... In addition, reduces the cost of your "

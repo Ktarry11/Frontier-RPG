@@ -166,7 +166,7 @@
     {
       "talent_id": "guardian_inspiration_veteran_of_the_third_war",
       "name": "Veteran of the Third War",
-      "description": "Every blow you catch on your shield knits you back together.",
+      "description": "Blows you block knit you back together.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -178,10 +178,10 @@
         "guardian_inspiration_strength_in_unison"
       ],
       "proc": {
-        "trigger": "on_block",
-        "chance": 100,
+        "trigger": "on_damage_taken",
+        "chance": 35,
         "icd": 0,
-        "heal_flat": 45
+        "heal_flat": 60
       },
       "_source": "CoA: 'You now restore 3% of your base health whenever you block an attack.' The spec's only sustain."
     },

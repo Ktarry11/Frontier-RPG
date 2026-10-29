@@ -42,10 +42,10 @@
       "hex_y": -6,
       "effects": {
         "max_health_pct": 0.02,
-        "all_ability_cost_pct": -0.02
+        "all_ability_cost_pct": 0.02
       },
       "connected_to": [],
-      "_source": "CoA: 'Increases your maximum health and reduces the cost of your spells and abilities by 5%.' NOTE max_health_pct is a FRACTION - health * (1.0 + value). Shipped at 2.0 on Guardian, it gave that tank 99,156 effective HP against the next tank's 2,987, and validate_class.py now fails a value an order of magnitude off convention."
+      "_source": "CoA: 'Increases your maximum health and reduces the cost of your spells and abilities by 5%.' POSITIVE is the discount on a _cost_pct key. NOTE max_health_pct is a FRACTION - health * (1.0 + value). Shipped at 2.0 on Guardian, it gave that tank 99,156 effective HP against the next tank's 2,987, and validate_class.py now fails a value an order of magnitude off convention."
     },
     {
       "talent_id": "bloodmage_eternal_uncanny_movement",

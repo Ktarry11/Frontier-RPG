@@ -731,7 +731,7 @@ DEATH = tree(
                     "is the deepest single-ability node in the tree."),
         node(D, "festering_decay", "Festering Decay",
              "Reduces the Life Force cost of your abilities by 2% per rank.",
-             1, 3, 5, {"all_ability_cost_pct": -0.02},
+             1, 3, 5, {"all_ability_cost_pct": 0.02},
              connect=["rotting_flesh"],
              source="CoA: 'Reduces the cost of Command spells by -15% and "
                     "causes them to increase the target's spell damage taken "
@@ -1190,7 +1190,7 @@ ANIMATION = tree(
                     "source - so the conversion lands as flat spell power."),
         node(A, "graverobber", "Graverobber",
              "Reduces the Life Force cost of your abilities by 2% per rank.",
-             0, 1, 5, {"all_ability_cost_pct": -0.02},
+             0, 1, 5, {"all_ability_cost_pct": 0.02},
              source="CoA: 'Reduces the mana cost and cast time of your Raise "
                     "and Animate spells by -30%.' Nothing groups abilities "
                     "into CoA's Raise/Animate schools, so the reduction is "
