@@ -122,6 +122,21 @@ class LootGenerator:
             self.gear_suffixes = _suffix_data["suffixes"]
             self.stat_budget_costs = _suffix_data["stat_budget_costs"]
 
+        # THE LINE THAT WAS MISSING. The class-attribute comment block above
+        # _roll_target_class says "Populated in _load_data from the armour
+        # map, never written here" - and nothing ever populated it, so
+        # LOOT_CLASS_POOL did not exist at all. random.choice() on it raised
+        # AttributeError inside _resolve_victory, which means EVERY creature
+        # kill in the game crashed: the stale hardcoded list was correctly
+        # deleted and its replacement never written. Nothing caught it because
+        # the role-balance sims pin enemy health at 10**6 so combat never
+        # resolves to a victory, and the class sim dies on the first kill -
+        # which is how this surfaced.
+        #
+        # sorted() so a seeded rng gives the same drops run to run; dict order
+        # would make the sim irreproducible for no reason.
+        self.LOOT_CLASS_POOL = sorted(self.armor_types["class_armor_map"])
+
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
