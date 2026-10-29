@@ -476,7 +476,7 @@ class CombatEngine:
             self._end_turn(pet)
             return
 
-        chosen_ability = pet.choose_action(target)
+        chosen_ability = pet.choose_action(target, allies=self.living_allies())
         if chosen_ability is None:
             self.combat_log.append(f"{pet.name} has no action to take.")
             self._end_turn(pet)
@@ -506,7 +506,26 @@ class CombatEngine:
         # the full enemy list here, and target_type "enemy_aoe" so
         # _hostile_recipients spreads it. Player abilities are unaffected -
         # execute_ability never reads is_aoe and never did.
-        if getattr(chosen_ability, "is_aoe", False) and (
+        # A FRIENDLY ability needs a FRIENDLY target, and this is where two
+        # pet heals were being thrown at the enemy. `target` above is always
+        # the owner's enemy, and Ability._recipients resolves target_type
+        # "party" by reading that argument: given a list it heals the list,
+        # given anything else it "degrades to the caster rather than
+        # silently no-op" - so a pet's party heal healed the pet. Measured
+        # before this: ZIGGI-6K's Regenerative Field cast with its owner at
+        # 30% health logged "ZIGGI-6K casts Regenerative Field on ZIGGI-6K"
+        # and healed nobody, because ZIGGI-6K was already full. A
+        # healing-bot pet that cannot heal its owner is the whole spec.
+        #
+        # The player path never hit this: the combat screen passes the party
+        # list as `target` for a party-wide ability. A pet has no screen, so
+        # the engine has to resolve it, exactly as it already does for
+        # enemy_aoe two lines down. Mindbender's Whispered Mending
+        # (target_type "ally") was wrong the same way.
+        if chosen_ability.target_type in ("party", "ally", "self"):
+            success, message = chosen_ability.use(pet, self.living_allies(),
+                                                  party=self.living_allies(), engine=self)
+        elif getattr(chosen_ability, "is_aoe", False) and (
                 chosen_ability.target_type == "enemy_aoe"):
             success, message = chosen_ability.use(pet, self.living_enemies(),
                                                   party=self.living_allies(), engine=self)
