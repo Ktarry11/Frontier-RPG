@@ -1153,7 +1153,7 @@
       "effect_type": "buff",
       "duration": 0,
       "stat_mods": {
-        "max_health_pct": 8.0,
+        "max_health_pct": 0.08,
         "crit_chance_physical": 2.0,
         "crit_chance_spell": 2.0
       },
@@ -1167,7 +1167,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "The third and latest decree - both stats, smaller each.",
+      "_source": "The third and latest decree - both stats, smaller each.  max_health_pct IS A FRACTION, NOT PERCENT POINTS. This was 8.0, i.e. 800%. It was invisible until the effect_value-0 fix made this buff apply at all - 113 buffs across seven classes were multiplying their own stat_mods by zero, so a latent unit error in one of them did nothing either. Bringing dead content to life is exactly when you re-measure: Guardian Vanguard's effective HP jumped from ~3,270 to 26,571 and its survival to 577 turns against peers at 6-23. Verified: max_health_pct 0.08 takes 532 health to 574, 8.0 takes it to 4,788.",
       "target_type": "self",
       "buff_scope": "party",
       "exclusive_group": "guardian_decree"

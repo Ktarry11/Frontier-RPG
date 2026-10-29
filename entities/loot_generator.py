@@ -586,15 +586,101 @@ class LootGenerator:
     #: primary stats overlap with at least one of that suffix's stats,
     #: rather than a hand-maintained parallel list that could drift out of
     #: sync with the real suffix data.
+    #: 43 OF 77 SUFFIXES COULD NEVER BE ROLLED. This mapped each template to
+    #: its PRIMARY stat alone, and a suffix was filed only if it overlapped,
+    #: so any suffix made purely of secondary stats was filed under nothing
+    #: and class-based generation could never pick it. That was 56% of the
+    #: authored suffix table, dead:
+    #:   - all 10 resistance suffixes, which is why Kyle's "magic resistance
+    #:     gear starts only after level 45, phased in gradually" could not
+    #:     happen - a sweep of 60 geared characters from level 20 to 60 found
+    #:     exactly zero resistance rolls
+    #:   - all 19 school-specific spell power suffixes (of Fiery Wrath, of
+    #:     Frostfire, of the Void, ...), i.e. every caster's flavour slot
+    #:   - all 7 tank suffixes (of the Bulwark, Defender, Juggernaut,
+    #:     Bastion, Warder, Duelist, of Eluding)
+    #:   - "of Stamina", "of Spirit" and "of the Whale", because stamina and
+    #:     spirit were in no template's set either
+    #:
+    #: Each template now carries the secondaries that actually belong to it:
+    #: physical templates get the melee ratings and the tank defences, caster
+    #: templates get spell power in every school plus healing/mp5/spell crit,
+    #: and the hybrids get the union. A Warrior still cannot roll "of the
+    #: Prophet" - the point of this map - because intellect-side stats stay
+    #: out of the physical templates.
+    _PHYSICAL_SECONDARY = {
+        "attack_power", "crit_chance_physical", "hit_rating",
+        "defense_rating", "dodge_rating", "parry_rating",
+        "block_rating", "block_value", "armor",
+    }
+    _CASTER_SECONDARY = {
+        "spell_power", "healing_power", "mp5", "crit_chance_spell",
+        "spell_penetration", "hit_rating",
+        "fire_spell_power", "frost_spell_power", "arcane_spell_power",
+        "shadow_spell_power", "nature_spell_power", "holy_spell_power",
+    }
+    #: Stamina and Spirit belong to everyone - every class wants health, and
+    #: Spirit is the universal regen stat.
+    _SHARED_SECONDARY = {"stamina", "spirit"}
+
     _SUFFIX_TEMPLATE_STATS = {
-        "str_physical": {"strength"},
-        "agi_physical": {"agility"},
-        "int_caster": {"intellect"},
-        "str_int_hybrid": {"strength", "intellect"},
-        "agi_int_hybrid": {"agility", "intellect"},
+        "str_physical": {"strength"} | _PHYSICAL_SECONDARY | _SHARED_SECONDARY,
+        "agi_physical": {"agility"} | _PHYSICAL_SECONDARY | _SHARED_SECONDARY,
+        "int_caster": {"intellect"} | _CASTER_SECONDARY | _SHARED_SECONDARY,
+        "str_int_hybrid": ({"strength", "intellect"} | _PHYSICAL_SECONDARY
+                           | _CASTER_SECONDARY | _SHARED_SECONDARY),
+        "agi_int_hybrid": ({"agility", "intellect"} | _PHYSICAL_SECONDARY
+                           | _CASTER_SECONDARY | _SHARED_SECONDARY),
     }
 
-    def _suffixes_for_template(self, stat_template, low_level=False):
+    #: Resistance stats, which every template can roll but ONLY from
+    #: RESISTANCE_LEVEL up. Kyle: "Magic resistance gear starts only after
+    #: level 45, phased in gradually." They are deliberately NOT in the
+    #: template sets above, because the gate is by level rather than by
+    #: class - a plate tank and a cloth caster both want Fire Resistance,
+    #: and neither should see it at level 20.
+    _RESISTANCE_STATS = {
+        "fire_resistance", "frost_resistance", "nature_resistance",
+        "shadow_resistance", "arcane_resistance", "holy_resistance",
+    }
+    RESISTANCE_LEVEL = 46
+
+    #: OVERLAP ALONE IS NOT ENOUGH, and my first version of the widening
+    #: above proved it. A suffix matches on overlap, so once Stamina and
+    #: Spirit were added to every template, 22 suffixes carrying Intellect,
+    #: spell power or healing power reached str_physical through the Stamina
+    #: in them - including "of the Prophet", which the original comment here
+    #: named as the exact thing to prevent ("a Warrior's Strength-plate roll
+    #: shouldn't come back 'of the Prophet'"). A Warrior picked up spell
+    #: power in 1 of 40 geared sets.
+    #:
+    #: So a suffix must ALSO carry nothing from its template's excluded set.
+    #: Physical templates refuse caster stats and caster templates refuse the
+    #: melee/tank ones; Strength and Agility may cross between the two
+    #: physical templates, which real Classic gear does freely, and Stamina,
+    #: Spirit, hit rating and armour belong to everyone so they are excluded
+    #: nowhere.
+    _CASTER_ONLY = {
+        "intellect", "spell_power", "healing_power", "mp5",
+        "crit_chance_spell", "spell_penetration",
+        "fire_spell_power", "frost_spell_power", "arcane_spell_power",
+        "shadow_spell_power", "nature_spell_power", "holy_spell_power",
+    }
+    _PHYSICAL_ONLY = {
+        "strength", "agility", "attack_power", "crit_chance_physical",
+        "defense_rating", "dodge_rating", "parry_rating",
+        "block_rating", "block_value",
+    }
+    _SUFFIX_TEMPLATE_EXCLUDES = {
+        "str_physical": _CASTER_ONLY,
+        "agi_physical": _CASTER_ONLY,
+        "int_caster": _PHYSICAL_ONLY,
+        # A hybrid wants both sides, so it excludes neither.
+        "str_int_hybrid": frozenset(),
+        "agi_int_hybrid": frozenset(),
+    }
+
+    def _suffixes_for_template(self, stat_template, low_level=False, item_level=None):
         """Real suffixes whose primary stat set overlaps this
         stat_template's real stats - built lazily and cached per
         LootGenerator instance since gear_suffixes.json doesn't change
@@ -606,15 +692,31 @@ class LootGenerator:
         normal pool under a "{template}::low" key."""
         if not hasattr(self, "_suffix_template_cache"):
             self._suffix_template_cache = {}
-        cache_key = f"{stat_template}::low" if low_level else stat_template
+        resists_ok = item_level is not None and item_level >= self.RESISTANCE_LEVEL
+        cache_key = (f"{stat_template}::low" if low_level
+                     else f"{stat_template}::res" if resists_ok else stat_template)
         if cache_key in self._suffix_template_cache:
             return self._suffix_template_cache[cache_key]
 
-        wanted_stats = self._SUFFIX_TEMPLATE_STATS.get(stat_template, set())
+        wanted_stats = set(self._SUFFIX_TEMPLATE_STATS.get(stat_template, set()))
+        if resists_ok:
+            wanted_stats |= self._RESISTANCE_STATS
+        banned = self._SUFFIX_TEMPLATE_EXCLUDES.get(stat_template, frozenset())
         matches = [
             name for name, data in self.gear_suffixes.items()
-            if wanted_stats & set(data["stats"].keys())
+            if (wanted_stats & set(data["stats"].keys())
+                and not (banned & set(data["stats"].keys())))
         ]
+        if not resists_ok:
+            # Below RESISTANCE_LEVEL a resistance suffix must not appear at
+            # all, including the "of Fire Protection" shapes that pair a
+            # resistance with Stamina and would otherwise slip in on the
+            # Stamina overlap.
+            matches = [
+                name for name in matches
+                if not (self._RESISTANCE_STATS
+                        & set(self.gear_suffixes[name]["stats"].keys()))
+            ]
         if not matches:
             # No suffix overlaps this template's stats at all (shouldn't
             # happen with the 5 real templates above, but fails soft to
@@ -665,7 +767,8 @@ class LootGenerator:
             return {}, {}, None
 
         low_level = item_level is not None and item_level < self.LOW_LEVEL_STAT_CAP
-        candidates = self._suffixes_for_template(stat_template, low_level=low_level)
+        candidates = self._suffixes_for_template(stat_template, low_level=low_level,
+                                                 item_level=item_level)
         suffix_name = random.choice(candidates)
         suffix_stats = self.gear_suffixes[suffix_name]["stats"]
 
