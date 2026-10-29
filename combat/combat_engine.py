@@ -254,7 +254,8 @@ class CombatEngine:
         # living allies (mirrors living_allies() usage a few lines up for
         # AoE targeting), so it naturally includes the actor's whole party
         # regardless of who's currently selected as the enemy target.
-        success, message = ability.use(actor, target, party=self.living_allies())
+        success, message = ability.use(actor, target, party=self.living_allies(),
+                                       engine=self)
         
         if success:
             self.combat_log.append(message)
@@ -434,9 +435,9 @@ class CombatEngine:
         # rather than just whichever single target choose_action() picked,
         # matching the player-side enemy_aoe handling in execute_ability().
         if getattr(chosen_ability, "is_aoe", False):
-            success, message = chosen_ability.use(enemy, self.living_allies())
+            success, message = chosen_ability.use(enemy, self.living_allies(), engine=self)
         else:
-            success, message = chosen_ability.use(enemy, target)
+            success, message = chosen_ability.use(enemy, target, engine=self)
 
         if success:
             self.combat_log.append(message)
@@ -488,9 +489,11 @@ class CombatEngine:
         # ability was missing its real target list until now, not just
         # this one spec's.
         if getattr(chosen_ability, "is_aoe", False):
-            success, message = chosen_ability.use(pet, self.living_enemies(), party=self.living_allies())
+            success, message = chosen_ability.use(pet, self.living_enemies(),
+                                                  party=self.living_allies(), engine=self)
         else:
-            success, message = chosen_ability.use(pet, target, party=self.living_allies())
+            success, message = chosen_ability.use(pet, target, party=self.living_allies(),
+                                                  engine=self)
 
         if success:
             self.combat_log.append(message)

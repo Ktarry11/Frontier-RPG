@@ -206,7 +206,16 @@ class MonsterAbility:
             out.append(r.apply_status_effect(effect))
         return out
 
-    def use(self, caster, target):
+    def use(self, caster, target, party=None, engine=None):
+        """party/engine are accepted and ignored.
+
+        CombatEngine calls .use() on player Abilities and MonsterAbilities
+        through the same code paths, and player abilities now take `engine`
+        so their procs can reach the other combatants (splash_heal and
+        splash_damage both need it). Monsters carry no procs, so the
+        parameters are absorbed here rather than making every call site
+        branch on which kind of ability it is holding.
+        """
         """Execute this ability. Returns (success, message).
 
         `target` may be a single combatant (existing callers, and every

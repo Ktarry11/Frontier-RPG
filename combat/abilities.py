@@ -1289,7 +1289,8 @@ class Ability:
         """Check if ability is off cooldown."""
         return self.turns_remaining <= 0
     
-    def use(self, caster, target=None, party=None, in_combat=True, free=False):
+    def use(self, caster, target=None, party=None, in_combat=True, free=False,
+            engine=None):
         """Use the ability. Returns success and message.
 
         `party` is an optional list of the caster's living allies, supplied
@@ -1393,7 +1394,8 @@ class Ability:
             self.turns_remaining = self.talented_cooldown(caster)
         
         # Apply effect
-        result_msg = self._apply_effect(caster, target, cost=cost, party=party)
+        result_msg = self._apply_effect(caster, target, cost=cost, party=party,
+                                        engine=engine)
 
         # "taunt" in stat_mods (CoA tank cooldowns: Dreadfall Tank, Test of
         # Pride, Command, Injunction, Nature's Call, Vile Sting, Locust
@@ -1459,7 +1461,8 @@ class Ability:
             # there too.
             proc_msgs = caster.fire_proc_trigger(
                 ProcTrigger.ON_CAST,
-                {"amount": 0, "target": target, "ability_id": self.ability_id})
+                {"amount": 0, "target": target, "ability_id": self.ability_id},
+                engine=engine)
 
             events = getattr(self, "_last_threat_events", None) or []
             for recipient, evt_amount, is_damage in events:
@@ -1468,7 +1471,8 @@ class Ability:
                 trigger = ProcTrigger.ON_DAMAGE_CAST if is_damage else ProcTrigger.ON_HEAL_CAST
                 evt_target = recipient if is_damage else caster
                 proc_msgs += caster.fire_proc_trigger(
-                    trigger, {"amount": evt_amount, "target": evt_target, "ability_id": self.ability_id})
+                    trigger, {"amount": evt_amount, "target": evt_target,
+                              "ability_id": self.ability_id}, engine=engine)
 
                 # ON_WEAPON_SWING: fired ONLY when this specific cast was
                 # the caster's own basic attack ("<class_prefix>_attack",
@@ -1487,13 +1491,14 @@ class Ability:
                     proc_msgs += caster.fire_proc_trigger(
                         ProcTrigger.ON_WEAPON_SWING,
                         {"amount": evt_amount, "target": evt_target,
-                         "ability_id": self.ability_id})
+                         "ability_id": self.ability_id}, engine=engine)
 
                 if self._last_crit:
                     proc_msgs += caster.fire_proc_trigger(
                         ProcTrigger.ON_CRIT,
                         {"amount": evt_amount, "target": evt_target,
-                         "is_crit": True, "ability_id": self.ability_id})
+                         "is_crit": True, "ability_id": self.ability_id},
+                        engine=engine)
 
                 # ON_KILL: this specific damage event's recipient is a real
                 # enemy (not None - heals route evt_target=caster above,
@@ -1507,7 +1512,7 @@ class Ability:
                     proc_msgs += caster.fire_proc_trigger(
                         ProcTrigger.ON_KILL,
                         {"amount": evt_amount, "target": recipient,
-                         "ability_id": self.ability_id})
+                         "ability_id": self.ability_id}, engine=engine)
 
             # Drain any ON_DAMAGE_TAKEN proc messages the recipient(s)
             # queued during take_damage() above (Character has no direct
@@ -1966,7 +1971,7 @@ class Ability:
         return (f"{caster.name} judges {t.name} with {seal.name} for {actual} damage!"
                 f"{grant_msg} {seal.name} is consumed.")
 
-    def _apply_effect(self, caster, target, cost=None, party=None):
+    def _apply_effect(self, caster, target, cost=None, party=None, engine=None):
         """Apply ability effect to target(s).
 
         `target` may be a single enemy (existing callers) or a list of all

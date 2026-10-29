@@ -232,73 +232,111 @@
       }
     },
     {
-      "talent_id": "primalist_grovekeeper_verdant_touch",
-      "name": "Verdant Touch",
-      "description": "Increases healing done by 2% per rank.",
+      "talent_id": "primalist_grovekeeper_hammer_of_life",
+      "name": "Hammer of Life",
+      "description": "Your melee swings spill life onto nearby allies and bite nearby enemies, for 20% of the damage dealt.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 4,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -6,
-      "effects": {
-        "healing_power_pct": 2.0
-      },
+      "effects": {},
       "connected_to": [
         "primalist_grovekeeper_primal_power"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_nature_reserve",
-      "name": "Nature Reserve",
-      "description": "Increases maximum Mana by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -4,
-      "effects": {
-        "max_mana_pct": 0.02
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "splash_heal": {
+          "pct": 0.2,
+          "max_targets": 3
+        },
+        "splash_damage": {
+          "pct": 0.2,
+          "max_targets": 3,
+          "school": "nature"
+        }
       },
-      "connected_to": [
-        "primalist_grovekeeper_primordial_earth"
-      ]
+      "_source": "Was 'Verdant Touch', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Your melee attacks and abilities now heal nearby allies and damage nearby enemies equal to 20% of the damage dealt.' THE keystone node. splash_heal and splash_damage are both real engine payloads and both scale off the triggering amount, so this is faithful."
     },
     {
-      "talent_id": "primalist_grovekeeper_grove_wisdom",
-      "name": "Grove Wisdom",
-      "description": "Reduces the Rage cost of Hand of the Earthmother by 3% per rank.",
+      "talent_id": "primalist_grovekeeper_battleweaver",
+      "name": "Battleweaver",
+      "description": "Healing someone quickens your own hands, increasing your haste and damage by 2% per rank for a few turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "primalist_grovekeeper_primordial_earth"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "primalist_battleweaver",
+          "name": "Battleweaver",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 3,
+          "stat_mods": {
+            "haste": 2.0,
+            "physical_damage": 2.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "Was 'Nature Reserve', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Effective healing now increases your melee haste and damage by 2% for 5 seconds, stacking 3 times.' The heal-into-melee half of the loop, which closes the circle with Hammer of Life."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_ancient_power",
+      "name": "Ancient Power",
+      "description": "Increases your Strength by 3% and grants 2 hit rating per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.03
+        "strength_pct": 3.0,
+        "hit_rating": 2
       },
       "connected_to": [
         "primalist_grovekeeper_keeper_of_the_grove"
-      ]
+      ],
+      "_source": "Was 'Grove Wisdom', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Increases your Strength by 5% and your hit chance by 3%.' The spec's only Strength node, and Strength is CoA's #1 stat for it."
     },
     {
-      "talent_id": "primalist_grovekeeper_living_roots",
-      "name": "Living Roots",
-      "description": "Increases the potency of Soothing Touch and Sacred Grove by 4% per rank.",
+      "talent_id": "primalist_grovekeeper_natures_fury",
+      "name": "Nature's Fury",
+      "description": "Your swings have a 20% chance to tear loose a surge of mana, restoring 60.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
-      "effects": {
-        "ability_primalist_soothing_touch_potency": 0.04,
-        "ability_primalist_sacred_grove_potency": 0.04
-      },
+      "effects": {},
       "connected_to": [
         "primalist_grovekeeper_grove_training"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        }
+      },
+      "_source": "Was 'Living Roots', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Auto attacks now have a 20% chance to deal Weapon Damage and restore 5% of your maximum mana.' The auto-attack mana engine - this spec is meant to fund itself by swinging, not by drinking. Flat 60 rather than a percentage because grant_resource takes an amount."
     },
     {
       "talent_id": "primalist_grovekeeper_earthmothers_gift",
