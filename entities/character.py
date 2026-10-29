@@ -1569,6 +1569,20 @@ class Character(StatusEffectMixin):
         self._refresh_ability_ranks()
         self._grant_talent_points()
 
+        # PETS FROZE AT THEIR SUMMON LEVEL. sync_to_owner_level existed and
+        # was called from exactly one place: the overworld screen's debug
+        # "TEST: party +N levels" handler. Nothing in the real levelling path
+        # touched it, so a Warlock who summoned an Imp at 20 and played to 60
+        # still had a level-20 Imp with 346 health - stats, armour and
+        # ability ranks all frozen at the moment of summoning. Every pet
+        # class was affected, which is now eleven of them.
+        #
+        # Covers additional pets too (Tinker's turret, Necromancer's
+        # minions), since all_pets includes them.
+        for pet in self.all_pets:
+            if hasattr(pet, "sync_to_owner_level"):
+                pet.sync_to_owner_level()
+
         self.current_health = self.health
         self.current_mana = self.mana
 

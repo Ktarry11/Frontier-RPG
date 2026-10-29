@@ -488,9 +488,17 @@ class OverworldScreen(BaseScreen):
                 member.level_up()
                 gained_total += 1
             member.experience = 0
-            pet = getattr(member, "active_pet", None)
-            if pet is not None and hasattr(pet, "sync_to_owner_level"):
-                pet.sync_to_owner_level()
+            # all_pets, not active_pet: Tinker and Necromancer now field
+            # several at once (Character.extra_pets), and syncing only the
+            # primary would leave every additional construct frozen at the
+            # level it was summoned at.
+            pets = getattr(member, "all_pets", None)
+            if pets is None:
+                pet = getattr(member, "active_pet", None)
+                pets = [pet] if pet is not None else []
+            for pet in pets:
+                if pet is not None and hasattr(pet, "sync_to_owner_level"):
+                    pet.sync_to_owner_level()
         player = self.state_manager.player
         if gained_total:
             self._notify(f"TEST: party +{levels} levels (you are now level {player.level}).", (200, 170, 255))
