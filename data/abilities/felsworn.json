@@ -1,0 +1,1734 @@
+{
+  "class": "Felsworn",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_felsworn.py [--apply]",
+  "_implementation_note": "AoE abilities use target_type 'enemy_aoe' plus max_targets, NOT an is_aoe flag. is_aoe is a Monster-ability field (entities/monster.py); combat/abilities.py's _ability_from_data never reads it for a player ability, and Ability._apply_effect decides AoE off target_type == 'enemy_aoe'. The seven is_aoe flags currently in data/abilities/guardian.json therefore do nothing, and those abilities hit one target.",
+  "abilities": [
+    {
+      "ability_id": "felsworn_attack",
+      "name": "Attack",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A measured strike with your weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack."
+    },
+    {
+      "ability_id": "felsworn_twin_slice",
+      "name": "Twin Slice",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Two quick cuts, one from each hand, and the fel in you feeds on what they open.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 51
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 95
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 106
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 117
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 128
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: the class-wide melee builder - Felwracked counts 'every 3rd Twin Slice or Fel Fireball', Twin Fury and Vengeance both key off it, and Tyrant lists it among the things that 'each add 1' Felfury. Rogue's sinister_strike curve, free, generating instead of costing.",
+      "target_type": "enemy",
+      "damage_school": "physical",
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_fel_fireball",
+      "name": "Fel Fireball",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A slow green ball of fel fire. You can throw it at a dead run.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 74
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 84
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 94
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 104
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 114
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Fel Fireball is your filler, generating 1 Felfury per cast and usable while moving'. is_instant for the while-moving half; the ranged builder all three specs share.",
+      "target_type": "enemy",
+      "damage_school": [
+        "shadow",
+        "fire"
+      ],
+      "is_instant": true,
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_sargeron_smite",
+      "name": "Sargeron Smite",
+      "resource_type": "felfury",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bring the weight of Sargeras down on one target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 30,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 30,
+          "effect_value": 72
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 88
+        },
+        {
+          "rank": 4,
+          "level_req": 27,
+          "cost": 30,
+          "effect_value": 104
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 120
+        },
+        {
+          "rank": 6,
+          "level_req": 41,
+          "cost": 30,
+          "effect_value": 136
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 152
+        },
+        {
+          "rank": 8,
+          "level_req": 55,
+          "cost": 30,
+          "effect_value": 168
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: the spender every spec presses - 'Fel Fireball into Sargeron Smite on cooldown' for Infernal, Chaos Soldier and Nether Champion scale it for Slayer, and Tyrant lists it among the things Felfury is spent on.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "felsworn_sunder",
+      "name": "Sunder",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Tear a seam through everything standing in front of you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 30,
+          "effect_value": 49
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 60
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 30,
+          "effect_value": 71
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 82
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 30,
+          "effect_value": 93
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA names Sunder as a Felfury spender in all three specs (Tyrant: 'Carve, Sargeron Smite, Sunder and Inner Demon are all you have to spend it on'; Burning Rage and Shadow Magi both modify it). target_type enemy_aoe, not is_aoe - see the _implementation_note on this file's doc.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": [
+        "shadow",
+        "fire"
+      ]
+    },
+    {
+      "ability_id": "felsworn_chaos_rush",
+      "name": "Chaos Rush",
+      "resource_type": "felfury",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Close the gap in a blur of fel and hit whatever is at the end of it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 0,
+          "effect_value": 32
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 43
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 44,
+          "cost": 0,
+          "effect_value": 65
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 76
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: the class-tree dash - Legion March extends its range, Doomstride refreshes a charge, Felguard and Felstrider ride on it, Reachwalker and Scars of the Past key off it. A gap-closer that builds.",
+      "target_type": "enemy",
+      "damage_school": "physical",
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_inner_demon",
+      "name": "Inner Demon",
+      "resource_type": "felfury",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power_pct": 15.0,
+        "crit_chance_physical": 8.0,
+        "crit_chance_spell": 8.0,
+        "haste": 10.0
+      },
+      "description": "You stop holding it back. For a few turns you are the thing they were warned about.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'the Inner Demon window, the kit's periodic power state' - the Demon Form every spec builds riders onto. NOT effect_type shapeshift: combat/forms.py has no Felsworn form and FORMS is keyed by class, and shifting zeroes the current resource pool by design, which would empty the Felfury bar on entering the damage window. A plain self-buff instead. Free to cast so the window is never gated behind the resource it is meant to spend.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "felsworn_hateforged_barrier",
+      "name": "Hateforged Barrier",
+      "resource_type": "felfury",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Hatred holds together better than most armour.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Hateforged Barrier adds a Stamina-scaled absorb that also regenerates a slice of your max health each tick'. absorb_pct_max_health is the engine's real absorb hook and already scales off max health, which is itself Stamina-derived, so the Stamina scaling comes free. The regen-while-it-holds half has no hook and is dropped.",
+      "absorb_pct_max_health": 0.25,
+      "target_type": "self"
+    },
+    {
+      "ability_id": "felsworn_cripple",
+      "name": "Cripple",
+      "resource_type": "felfury",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": -20.0
+      },
+      "description": "Their legs go heavy and their words come slow.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Cripple slows movement and casting'. haste on a monster is read by TurnMeter.update via get_status_stat_mod, so this genuinely costs the target turns - the closest the engine has to a cast slow.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "felsworn_consume_magic",
+      "name": "Consume Magic",
+      "resource_type": "felfury",
+      "cooldown": 6,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Take what they were saving and keep it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree, Magic Fiend: 'Increases the amount of beneficial magic effects stolen by your Consume Magic by 1'. The steal is a dispel here; nothing in the engine moves a stolen buff onto the caster.",
+      "target_type": "enemy",
+      "dispel_type": "magic"
+    },
+    {
+      "ability_id": "felsworn_felbreak",
+      "name": "Felbreak",
+      "resource_type": "felfury",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "hit_chance_spell": -25.0
+      },
+      "description": "Cut the word out of their mouth.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Felbreak is a real interrupt on caster mobs, and that's your main group-facing contribution'. A turn engine has no cast bar to interrupt, so the honest equivalent is costing them the turn: is_stun with a 1-turn duration, which TurnMeter really does enforce. The school lockout rides along as a spell-hit debuff.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "felsworn_manaburn",
+      "name": "Manaburn",
+      "resource_type": "felfury",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Burn what they were going to cast with and let the burning do the damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 75
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 30,
+          "effect_value": 92
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 109
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 126
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA class tree: 'Burn an enemy's mana equal to 200% of your Stamina. Deals damage equal to the mana drained.' Monsters have no mana pool to drain in this engine, so only the damage half survives - the drain is flavour.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "felsworn_whispers_of_the_pit",
+      "name": "Whispers of the Pit",
+      "resource_type": "felfury",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -25.0,
+        "attack_power": -30
+      },
+      "description": "Something underneath starts talking to all of them at once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Unleash fel energy upon enemies at target location, fearing them and slowing their movement speed by -80%. Damage caused may interrupt the effect.' is_stun covers the fear (the engine's one lose-your-turn mechanic); the break-on-damage half has no hook, so this fear is not breakable.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "is_stun": true
+    },
+    {
+      "ability_id": "felsworn_annihilation",
+      "name": "Annihilation",
+      "resource_type": "felfury",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "crit_chance_physical": 40.0,
+        "crit_chance_spell": 40.0
+      },
+      "description": "You gorge until the next thing you touch cannot survive being touched.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'guaranteeing your next direct instance of damage to critically strike, but causing it to consume 5% of your maximum health'. No guaranteed-crit flag exists, so it is a large crit window instead; the health cost has no hook and is dropped rather than faked.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "felsworn_skull_of_guldan",
+      "name": "Skull of Gul'dan",
+      "resource_type": "felfury",
+      "cooldown": 14,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "max_health_pct": 0.15,
+        "stamina": 20
+      },
+      "description": "He has been dead a long time and still has something left to give.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'increasing your maximum health and Energy by 25% for 10 seconds'. max_health_pct is a FRACTION - health * (1.0 + value) - so 0.15 is +15%, not 15.0. The Energy half has no Energy pool to raise here.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "felsworn_illidans_guile",
+      "name": "Illidan's Guile",
+      "resource_type": "felfury",
+      "cooldown": 18,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "damage_taken_pct": -0.8,
+        "haste": -40.0
+      },
+      "description": "You stop existing for a moment. It is not restful.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'becoming immune to all physical attacks and spells for 8 seconds, but during that time you cannot attack, move or cast spells'. There is no immunity flag, so -80% damage taken stands in, and the cannot-act cost is paid as a heavy haste penalty rather than a turn-skip the engine cannot express.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "felsworn_azzinoths_assault",
+      "name": "Azzinoth's Assault",
+      "resource_type": "felfury",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Both blades into the same gap, widening it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 69
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 99
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 114
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 129
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 144
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Azzinoth's Assault on cooldown as your armor-shred spender (Azzinoth's Rage/Fel Blades; consumes 2 Felfury and seeds the loop)'.",
+      "target_type": "enemy",
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "felsworn_annihilan_strike",
+      "name": "Annihilan Strike",
+      "resource_type": "felfury",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "One strike with everything behind it, and it lands clean on anything still healthy enough to be confident.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 0,
+          "effect_value": 72
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 92
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 112
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 0,
+          "effect_value": 132
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 152
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 0,
+          "effect_value": 172
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Generates 2 Felfury. Unleash a devastating attack, dealing 145% Weapon Damage to your target with both weapons. Guaranteed to critically strike against enemies above 75% health.' The guaranteed crit has no flag; the base damage carries it instead.",
+      "target_type": "enemy",
+      "damage_school": "physical",
+      "generates": {
+        "resource": "felfury",
+        "amount": 25
+      }
+    },
+    {
+      "ability_id": "felsworn_glaiving",
+      "name": "Glaiving",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Off-hand work, fast and low.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 0,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 48
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 0,
+          "effect_value": 57
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 66
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 0,
+          "effect_value": 75
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'weave Glaiving and Felhoof Charge into the loop for reach and cleave' and 'Keep Glaiving in the rotation for off-hand damage and Felfury'.",
+      "target_type": "enemy",
+      "damage_school": "physical",
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_felhoof_charge",
+      "name": "Felhoof Charge",
+      "resource_type": "felfury",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You arrive before they have decided where to stand.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 0,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 0,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 0,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Generates 1 Felfury. Charge an enemy, dealing AP Physical damage', and 'Use Felhoof Charge to gap-close on casters and runners'. A charge lands them on their back, so is_stun.",
+      "target_type": "enemy",
+      "damage_school": "physical",
+      "is_stun": true,
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_immolation_aura",
+      "name": "Immolation Aura",
+      "resource_type": "felfury",
+      "cooldown": 4,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You burn, and so does anything standing close enough to matter.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 24
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 31
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 38
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 45
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 52
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Open pulls with Immolation Aura for its recurring Fire pulse on nearby enemies' - 'dealing fire AP Fire Damage to nearby enemies every 3 sec'.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "felsworn_fury_unleashed",
+      "name": "Fury Unleashed",
+      "resource_type": "felfury",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Glaives out, feet moving, and nothing in reach gets a clean turn.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 40,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 85
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 40,
+          "effect_value": 98
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Fury Unleashed is a Bladestorm analog: a spinning glaive channel that speeds you up and cleaves all nearby enemies with both weapons', 'Dump Fury Unleashed on 3+ mob pulls'. The movement-speed and CC-immunity riders have no hooks.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "felsworn_fury_of_the_illidari",
+      "name": "Fury of the Illidari",
+      "resource_type": "felfury",
+      "cooldown": 8,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Six places at once, six times, and then you are standing somewhere else entirely.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 40,
+          "effect_value": 118
+        },
+        {
+          "rank": 2,
+          "level_req": 43,
+          "cost": 40,
+          "effect_value": 152
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 186
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 40,
+          "effect_value": 220
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Move quickly from enemy to enemy, attacking them every 1 sec with both weapons until 6 assaults are made, generating 1 Felfury with each strike', 'its signature mobility-burst tool'. Six separate hops have no engine shape, so it is one heavy strike that still pays Felfury back.",
+      "target_type": "enemy",
+      "damage_school": "physical",
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_bane_of_frailty",
+      "name": "Bane of Frailty",
+      "resource_type": "felfury",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -140
+      },
+      "description": "Their armour stops being the point.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'You open with Bane of Frailty to strip a chunk of the target's armor'. Flat armor, not armor_pct: Monster resolves armour through get_status_stat_mod('armor') and reads no percentage key, so armor_pct on an enemy would do nothing.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "felsworn_blood_of_mannoroth",
+      "name": "Blood of Mannoroth",
+      "resource_type": "felfury",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power_pct": 15.0,
+        "crit_chance_physical": 8.0
+      },
+      "description": "Mannoroth's blood is still in there somewhere and it still wants a fight.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA, Fel Haze: 'While active, Blood of Mannoroth now also causes you to ignore all enemy Armor'. The armour-ignore half has no talent-side key, so the buff carries attack power and crit instead.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "felsworn_ruin",
+      "name": "Ruin",
+      "resource_type": "felfury",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Doom, delivered. Nothing they put between you and it holds.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 76
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 40,
+          "effect_value": 98
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 40,
+          "effect_value": 120
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 40,
+          "effect_value": 142
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 164
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 40,
+          "effect_value": 186
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 40,
+          "effect_value": 208
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Consumes 2 Felfury. Bring doom upon an enemy, dealing Shadowflame Damage to an enemy, piercing all absorption effects', 'your hardest-hitting nuke (it pierces all absorbs)'. Absorb-piercing has no flag; the damage is sized as the kit's single biggest hit instead.",
+      "target_type": "enemy",
+      "damage_school": [
+        "shadow",
+        "fire"
+      ]
+    },
+    {
+      "ability_id": "felsworn_felwrath",
+      "name": "Felwrath",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The blast goes wide and takes the pack with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 35,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 35,
+          "effect_value": 49
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 35,
+          "effect_value": 60
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 35,
+          "effect_value": 71
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 35,
+          "effect_value": 82
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 35,
+          "effect_value": 93
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Consumes 2 Felfury. Blast an enemy and all enemies near them with fel magic', 'Felwrath's AoE Shadowflame and Infernal's fear-on-drop flip a clumped teamfight'. The Inner Demon 5+ target bonus has no conditional hook.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": [
+        "shadow",
+        "fire"
+      ]
+    },
+    {
+      "ability_id": "felsworn_bane_of_chaos",
+      "name": "Bane of Chaos",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A slow, patient ruin set working inside them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 28
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 0,
+          "effect_value": 37
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 0,
+          "effect_value": 46
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 0,
+          "effect_value": 55
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 64
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 0,
+          "effect_value": 73
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Generates 1 Felfury. Unleash fel magic on an enemy, dealing 114 Chaos damage over 18 seconds', 'keeping a Bane of Chaos rolling on the target (only one Bane at a time)'. One-Bane-at-a-time is natural here: a second cast refreshes the same effect_id rather than stacking.",
+      "target_type": "enemy",
+      "damage_school": "shadow",
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_felstrike",
+      "name": "Felstrike",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A short, bright burn that keeps burning.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 26
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 20,
+          "effect_value": 34
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 42
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 20,
+          "effect_value": 50
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 58
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA, Fel Apprentice: 'While Inner Demon is active, your Fel Fireball will now unleash a Felstrike on your target. Felstrike: Burn an enemy for SP Shadowflame Damage over 6 seconds, stacking 3 times.' A real named ability, so it is castable here rather than existing only as a rider.",
+      "target_type": "enemy",
+      "damage_school": [
+        "shadow",
+        "fire"
+      ]
+    },
+    {
+      "ability_id": "felsworn_sargeras_embrace",
+      "name": "Sargeras Embrace",
+      "resource_type": "felfury",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "You hold the beam on them and they stop getting anywhere.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 30,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 30,
+          "effect_value": 83
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Channel a beam of fel magic upon an enemy, slowing your target's movement speed by 60% for 5.5 seconds and dealing Shadowflame Damage at the end of the duration'. Authored as a spell_dot: the engine has no channel, and a DoT is the closest thing to damage spread over a beam. The snare is lost - Cripple remains the real slow.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "felsworn_infernal",
+      "name": "Infernal",
+      "resource_type": "felfury",
+      "cooldown": 15,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Something lands where you pointed. The pack stops looking at you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drop an infernal from the sky with grotesque magic, dealing fire SP Fire damage to enemies in the radius, horrifying them for 4 seconds, and spawning an Infernal to fight by your side for 15 seconds.' Only the pet survives: effect_type summon_pet does one thing, and combat/pet_templates.py has no infernal, so the closest real demon template carries it - voidwalker, the tanky melee one. The impact damage and the fear are lost.",
+      "target_type": "self",
+      "summon_pet_template": "voidwalker"
+    },
+    {
+      "ability_id": "felsworn_manafeed",
+      "name": "Manafeed",
+      "resource_type": "felfury",
+      "cooldown": 3,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "What they were going to spend, you spend instead.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 25,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 25,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Manafeed converts a target's burned mana into health for you, closer to a Drain Life than a real defensive', 'Manafeed is your only heal'. Monsters have no mana here, so the heal is unconditional rather than dead weight against a mana-less target - a deliberate divergence, because the alternative is a spec with no self-healing at all.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "felsworn_fel_infusion",
+      "name": "Fel Infusion",
+      "resource_type": "felfury",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "crit_chance_physical": 3.0,
+        "crit_chance_spell": 3.0
+      },
+      "description": "The fel coming off you sharpens everyone standing near it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases critical strike chance of all party and raid members within 100 by 3%... In addition, increases your critical strike chance by 3%', and 'its real group contribution is the passive Fel Infusion party/raid crit buff'. Passive auras have no shape here, so it is a party-scoped cooldown.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "felsworn_felrend",
+      "name": "Felrend",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A full turn with both weapons out. Everyone close pays for standing there.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 0,
+          "effect_value": 48
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 57
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 0,
+          "effect_value": 66
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 75
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 84
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Generates 1 Felfury. Erupt in a whirlwind of felfury, striking all enemies within 6 yds with both weapons', 'Keep AoE pressure up with Felrend against packs'. The tank's threat filler.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "physical",
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_carve",
+      "name": "Carve",
+      "resource_type": "felfury",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You take your time winding up and they feel every bit of the wait.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 35,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 35,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 35,
+          "effect_value": 98
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 35,
+          "effect_value": 116
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 35,
+          "effect_value": 134
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 35,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Consumes 2 Felfury. Charge up a powerful attack over 2.5 seconds. Upon ending the channel, slash in front of you, dealing increased Weapon Damage with both weapons based on how long you channel'. No channel exists here, so the charge-up is folded into the damage and the cooldown. The longer-channel-more-dodge rider (Battle Finesse) is lost with it.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "damage_school": "physical"
+    },
+    {
+      "ability_id": "felsworn_demonic_will",
+      "name": "Demonic Will",
+      "resource_type": "felfury",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "physical_damage_taken_pct": -0.3
+      },
+      "description": "You decide that this is survivable and that settles it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Generates 1 Felfury. Strengthen your will, reducing Physical damage taken by -30% for 10 seconds. While active, direct damaging abilities heal you for 3% of your maximum health.' The heal-on-damage rider has no ability-side hook; it lives on the Straight to the Nether talent instead. physical_damage_taken_pct is a FRACTION.",
+      "target_type": "self",
+      "generates": {
+        "resource": "felfury",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "felsworn_burning_hatred",
+      "name": "Burning Hatred",
+      "resource_type": "felfury",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power_pct": 10.0
+      },
+      "description": "Nothing complicated. You are angry and it is useful.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Enrages you, instantly generating 6 Felfury and causing your melee damage to leech health to you equal to 50% of the damage dealt as Chaos damage for 15 seconds.' The 6-Felfury dump is the whole point, so this generates 40 - twice a builder. The leech lives on Felguard and Straight to the Nether, where a proc can carry it.",
+      "target_type": "self",
+      "generates": {
+        "resource": "felfury",
+        "amount": 40
+      }
+    },
+    {
+      "ability_id": "felsworn_tyrannical_resolve",
+      "name": "Tyrannical Resolve",
+      "resource_type": "felfury",
+      "cooldown": 16,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -0.5,
+        "taunt": 1,
+        "threat_generation_pct": 200
+      },
+      "description": "You tell the room who it is fighting, and then you take it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Taunt nearby enemies for 4 seconds and ignore -50% of all damage taken for 30 seconds', 'your emergency button against anything threatening to kill you'. stat_mods taunt is the engine's real taunt hook (Ability._apply_effect reads it directly); the Felfire burst on expiry has no hook. Note ability stat_mods threat_generation_pct is percent POINTS, unlike the talent key of the same name, which is a fraction.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "felsworn_tyrants_gaze",
+      "name": "Tyrant's Gaze",
+      "resource_type": "felfury",
+      "cooldown": 5,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You look at them properly for the first time and they catch fire.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 92
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 118
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 144
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 170
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 196
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Set your fiery gaze upon an enemy... causing them to combust, dealing AP Shadowflame Damage. Damaging an enemy in this way heals you for AP and generates 1 Felfury. Only usable on enemies below 35% health.' The 35% gate is a real engine field, execute_threshold_pct.",
+      "target_type": "enemy",
+      "damage_school": [
+        "shadow",
+        "fire"
+      ],
+      "execute_threshold_pct": 0.35
+    },
+    {
+      "ability_id": "felsworn_eye_of_the_tyrant",
+      "name": "Eye of the Tyrant",
+      "resource_type": "felfury",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 10.0,
+        "attack_power_pct": 5.0
+      },
+      "description": "You set the pace and the room keeps up.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Grant 10% increased melee and ranged haste to party and raid members within 100 yds... In addition, your attack power is increased by 5%', 'save Eye of the Tyrant's party haste for the pull or burn phase you want to reinforce'.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "felsworn_infernal_whipcrack",
+      "name": "Infernal Whipcrack",
+      "resource_type": "felfury",
+      "cooldown": 14,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.12,
+        "haste": 10.0
+      },
+      "description": "A crack over their heads, and the whole line finds another gear.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Enrage up to 8 allies within 20 yds, reducing their damage taken by -15% and increasing their haste by 10% for 10 seconds', 'drop Infernal Whipcrack to enrage the group'. The external-cooldown layer CoA says Vengeance Demon Hunter does not have.",
+      "target_type": "self",
+      "buff_scope": "party"
+    },
+    {
+      "ability_id": "felsworn_doomscarring",
+      "name": "Doomscarring",
+      "resource_type": "felfury",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": -110
+      },
+      "description": "The scar stays open and everyone can see where to aim.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'scars enemies for 12 seconds, increasing your allies' attack power against them by Agility'. Nothing grants a buff scoped to one target, so the scar is a flat armour break on the enemy - same end result for the party's physical damage, without an invented key.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "felsworn_fel_bargain",
+      "name": "Fel Bargain",
+      "resource_type": "felfury",
+      "cooldown": 6,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You trade something you were saving for something you need now.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 40,
+          "effect_value": 190
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 40,
+          "effect_value": 290
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 390
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 40,
+          "effect_value": 490
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 590
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Fel Bargain trades banked Energy into health in a pinch'. Banked Felfury here, since that is the only pool this class has.",
+      "target_type": "self"
+    }
+  ]
+}

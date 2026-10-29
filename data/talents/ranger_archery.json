@@ -1,0 +1,478 @@
+{
+  "spec_name": "Ranger Archery",
+  "tree_id": "ranger_archery",
+  "description": "Pure ranged damage. Quick Shot and Hunting Shot bank Archery Points, Precision Shot and Skullpiercer spend them, and Deadshot finishes. No auras, no party buffs, no healing anywhere in the tree.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_ranger__archery.txt: 'Closest to retail Marksmanship Hunter ... Despite the class name, judge it as a pure MM-Hunter DPS spec.' The thing to respect about this spec is what it does NOT have: CoA is explicit that there is 'no party-buff or support layer at all here. No auras, no haste or crit sharing, no healing whatsoever', and 'No heal anywhere in the spec: no shield, no HoT, no proc-heal. You live on positioning.' So this tree has no ally effect and no healing node of any kind, which is deliberate and is why it is the only one of the three without one. Its stat priority (Hit > Agility > Crit > Armor Penetration > Haste) is why Devastating Shots carries hit rating and Corrosive Poison carries armor penetration.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "ranger_archery_boots_of_elvenkind",
+      "name": "Boots of Elvenkind",
+      "description": "Increases your Agility by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "agility_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Agility by 5% and reduces the duration of movement slowing effects on you by -20%'. Movement slows are not a thing in a turn engine, so the node is the Agility half. agility_pct is percentage POINTS."
+    },
+    {
+      "talent_id": "ranger_archery_devastating_shots",
+      "name": "Devastating Shots",
+      "description": "Increases your critical strike chance by 1% and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your critical strike chance by 2% and your hit chance by 1%'. Matches the spec's stat priority, which opens with 'Hit Rating (until your specials stop missing a +3-level target)' and then Agility and Crit."
+    },
+    {
+      "talent_id": "ranger_archery_studded_arrows",
+      "name": "Studded Arrows",
+      "description": "Increases the damage of Quick Shot by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_ranger_quick_shot_damage": 0.05
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the ranged weapon damage dealt by Quick Shot by 10%'. ability_<id>_<stat> keys are built by interpolation in abilities.py, so a literal grep of the engine calls them dead."
+    },
+    {
+      "talent_id": "ranger_archery_improved_serrated_shot",
+      "name": "Improved Serrated Shot",
+      "description": "Increases the damage of Serrated Shot by 6% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_ranger_serrated_shot_damage": 0.06
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Serrated Shot by 30%'."
+    },
+    {
+      "talent_id": "ranger_archery_archery_master",
+      "name": "Archery Master",
+      "description": "Your critical strikes have a 20% chance per rank to bank 5 Archery Points.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_boots_of_elvenkind"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "archery_points",
+          "amount": 5
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Quick Shot now generate an additional stack of Advantage', and 'Advantage generation through Archery Master and Hunting Shot depends on crits and hits landing'. Unfiltered rather than Quick-Shot-only because a crit proc that can only fire off the free filler would be worth almost nothing once the rotation moves to spenders."
+    },
+    {
+      "talent_id": "ranger_archery_new_age_archery",
+      "name": "New-Age Archery",
+      "description": "Increases the damage of Precision Shot and Skullpiercer by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_ranger_precision_shot_damage": 0.05,
+        "ability_ranger_skullpiercer_damage": 0.05
+      },
+      "connected_to": [
+        "ranger_archery_devastating_shots"
+      ],
+      "_source": "CoA: 'Increases the damage of Skullpiercer and Precision Shot by 20%'. The two spenders the whole rotation funnels into, so this is the tree's largest single node."
+    },
+    {
+      "talent_id": "ranger_archery_lethal_wounds",
+      "name": "Lethal Wounds",
+      "description": "Increases the damage of your periodic effects by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "dot_damage": 0.04
+      },
+      "connected_to": [
+        "ranger_archery_studded_arrows"
+      ],
+      "_source": "CoA: 'Increases the tick rate of your periodic damage effects by -20%'. Tick rate is fixed at one tick per turn here, so faster ticks become more damage per tick, which is the same total. dot_damage rather than bleed_dot_damage: the flavour keys only apply when the ability_id contains 'bleed' or 'poison'."
+    },
+    {
+      "talent_id": "ranger_archery_superb_shot",
+      "name": "Superb Shot",
+      "description": "Your Attack and Quick Shot have a 34% chance per rank to bank 3 Archery Points.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_improved_serrated_shot"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "archery_points",
+          "amount": 3
+        },
+        "ability_filter": [
+          "ranger_attack",
+          "ranger_quick_shot"
+        ]
+      },
+      "_source": "CoA: 'Damage dealt by Auto Shot now restores 4 Focus', and 'Lean on Sniper's Focus and Superb Shot to keep Focus flowing rather than sitting to regen'. There is no auto-shot step in this engine, so ability_filter pins it to the two free attacks, which is what Auto Shot is here."
+    },
+    {
+      "talent_id": "ranger_archery_corrosive_poison",
+      "name": "Corrosive Poison",
+      "description": "Increases your armor penetration by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "armor_penetration_pct": 2.0
+      },
+      "connected_to": [
+        "ranger_archery_archery_master"
+      ],
+      "_source": "CoA: 'Your ranged abilities against Poisoned targets now ignores 25% of enemy armor', and the spec's stat priority lists Armor Penetration fourth. Unconditional, because no ability can test whether the target is poisoned. armor_penetration_pct is percentage POINTS."
+    },
+    {
+      "talent_id": "ranger_archery_hunting_with_precision",
+      "name": "Hunting with Precision",
+      "description": "Increases the damage of Hunting Shot by 6% and the damage you deal to additional targets by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_ranger_hunting_shot_damage": 0.06,
+        "aoe_damage": 0.04
+      },
+      "connected_to": [
+        "ranger_archery_new_age_archery"
+      ],
+      "_source": "CoA: 'Your Hunting Shot now deals 25% increased damage for each subsequent target it ricochets to'. Per-ricochet escalation is not expressible, so it splits into the ability's own damage plus the engine's real aoe_damage key."
+    },
+    {
+      "talent_id": "ranger_archery_pierced",
+      "name": "Pierced",
+      "description": "Your critical strikes have a 25% chance per rank to leave the target bleeding.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_lethal_wounds"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "ranger_pierced",
+          "name": "Pierced",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 24,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Skullpiercer and Precision Shot cause the enemy to bleed for an additional 50% damage of the damage dealt over 4 seconds'. A proc payload cannot be a fraction of the triggering hit AND a DoT at once (bonus_pct is instant damage), so the bleed carries a flat potency."
+    },
+    {
+      "talent_id": "ranger_archery_mortal_shots",
+      "name": "Mortal Shots",
+      "description": "Reduces the cooldown of Crippling Shot by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_ranger_crippling_shot_cooldown": 1
+      },
+      "connected_to": [
+        "ranger_archery_superb_shot"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Crippling Shot by -4 sec'. Crippling Shot's snare is one of only two pieces of control the spec has, per its own weakness list, so shortening it is a real pick."
+    },
+    {
+      "talent_id": "ranger_archery_opportunist",
+      "name": "Opportunist",
+      "description": "Increases the critical strike chance of Precision Shot by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_ranger_precision_shot_crit": 3.0
+      },
+      "connected_to": [
+        "ranger_archery_corrosive_poison"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Precision Shot by 50% on enemies above 80% health'. The health condition has no hook, so it is unconditional and smaller. ability_<id>_crit is added straight to crit chance, so it is percentage POINTS."
+    },
+    {
+      "talent_id": "ranger_archery_strike_where_it_hurts",
+      "name": "Strike Where It Hurts",
+      "description": "Increases your critical strike damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "crit_damage_physical": 0.05
+      },
+      "connected_to": [
+        "ranger_archery_hunting_with_precision"
+      ],
+      "_source": "CoA: 'Your ability critical strikes now increase the damage the target takes from bleeds by 30%'. A crit that amplifies a separate DoT is not expressible, so the node pays out on the crit itself."
+    },
+    {
+      "talent_id": "ranger_archery_skirmisher",
+      "name": "Skirmisher",
+      "description": "Increases the damage of Toxic Dart by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_ranger_toxic_dart_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_archery_pierced"
+      ],
+      "_source": "CoA: 'Increases the damage and tick rate of Toxic Dart by -30%, but reduces the duration of its damaging effect by -30%'. The trade cancels out in a one-tick-per-turn engine, so only the damage half survives."
+    },
+    {
+      "talent_id": "ranger_archery_maximum_power",
+      "name": "Maximum Power",
+      "description": "Skirmish lasts 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_ranger_skirmish_duration": 1
+      },
+      "connected_to": [
+        "ranger_archery_mortal_shots"
+      ],
+      "_source": "CoA: 'Abilities used with 5 stacks of Advantage now refresh the duration of your active Skirmish by 5 sec'. Conditional refresh becomes flat uptime."
+    },
+    {
+      "talent_id": "ranger_archery_hawkeye",
+      "name": "Hawkeye",
+      "description": "Your shots have a 12% chance per rank to loose a free Quick Shot at your target.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_opportunist"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 1,
+        "cast_ability": "ranger_quick_shot"
+      },
+      "_source": "CoA: 'You now fire an arrow every 3 sec at enemies within 30 yds affected by your Hunting Shot'. A timed background arrow has no scheduler here; cast_ability fires the real Quick Shot for free (Ability.use(free=True)), which also means it banks its Archery Points."
+    },
+    {
+      "talent_id": "ranger_archery_masterful_archery",
+      "name": "Masterful Archery",
+      "description": "Increases your Physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "ranger_archery_strike_where_it_hurts"
+      ],
+      "_source": "CoA: 'While in Elude, gain a stack of Masterful Archery every 2 sec ... Your next Precision Shot now deals 10% increased damage, stacking up to 5 times'. A stacking out-of-combat ramp is not expressible, so it lands flat."
+    },
+    {
+      "talent_id": "ranger_archery_a_quick_demise",
+      "name": "A Quick Demise",
+      "description": "Serrated Shot lasts 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_ranger_serrated_shot_duration": 1
+      },
+      "connected_to": [
+        "ranger_archery_skirmisher"
+      ],
+      "_source": "CoA: 'Auto shots now have a 20% chance to extend the duration of your Serrated Shot by 2 sec'."
+    },
+    {
+      "talent_id": "ranger_archery_sharpshooter",
+      "name": "Sharpshooter",
+      "description": "Grants ranged attack power equal to 3% of your Agility per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "ranged_ap_from_agility_pct": 0.03
+      },
+      "connected_to": [
+        "ranger_archery_hawkeye"
+      ],
+      "_source": "CoA: 'Adds 25% to the bonuses that your stacks of Advantage provide'. A real <target>_from_<source>_pct conversion, resolved against the shared STAT_CONVERSION_TARGETS/SOURCES maps in character.py. This is the only working way to raise a Ranger's ranged attack power from a talent: there is no ranged_attack_power_pct key, and a flat ranged_attack_power effect is dropped because _recalculate_derived_stats computes that stat from Agility and Strength with no bonus-pool term."
+    },
+    {
+      "talent_id": "ranger_archery_bleeding_edge",
+      "name": "Bleeding Edge",
+      "description": "Increases the damage of your periodic effects by a further 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "dot_damage": 0.05
+      },
+      "connected_to": [
+        "ranger_archery_masterful_archery"
+      ],
+      "_source": "CoA: 'Allows the periodic damage dealt by Serrated Shot to critically strike'. DoTs cannot crit in this engine - _apply_effect's dot branch rolls no crit - so the node pays the average of that crit chance as flat DoT damage instead."
+    },
+    {
+      "talent_id": "ranger_archery_one_shot_one_kill",
+      "name": "One Shot, One Kill",
+      "description": "Increases the damage of Deadshot by 10% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_ranger_deadshot_damage": 0.1
+      },
+      "connected_to": [
+        "ranger_archery_a_quick_demise"
+      ],
+      "_source": "CoA: 'Increases the damage of Deadshot by 75%'."
+    },
+    {
+      "talent_id": "ranger_archery_silent_but_deadly",
+      "name": "Silent, But Deadly",
+      "description": "Your Physical damage has an 8% chance to let you fire Deadshot at a target of any health for 2 turns, and your Physical damage is increased by 8%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "physical_damage": 0.08
+      },
+      "connected_to": [
+        "ranger_archery_sharpshooter",
+        "ranger_archery_bleeding_edge",
+        "ranger_archery_one_shot_one_kill"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "ranger_silent_but_deadly",
+          "name": "Silent, But Deadly",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {},
+          "on_target": false,
+          "proc": {
+            "bypass_execute_threshold": true
+          }
+        }
+      },
+      "_source": "Capstone. CoA: 'Direct Physical damage dealt now has an 8% chance to allow you to use Deadshot regardless of the targets health for 8 seconds', and 'Finish with the sub-20%-HP execute Deadshot, which Silent, But Deadly can occasionally unlock early'. The real mechanic, not an approximation: Ability.use checks every carried effect for proc['bypass_execute_threshold'] before enforcing execute_threshold_pct, and consumes the window on use."
+    }
+  ]
+}

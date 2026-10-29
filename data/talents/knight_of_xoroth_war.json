@@ -1,0 +1,458 @@
+{
+  "spec_name": "Knight of Xoroth War",
+  "tree_id": "knight_of_xoroth_war",
+  "description": "Two-hand melee damage. Gore and Meatsaw bank Deathfire, Skulltaker spends it, and Gore's lifesteal is the only thing keeping you up.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_knight-of-xoroth__war.txt and the war block of talents/knight-of-xoroth.json. CoA calls it 'Closest to a retail Fury/Blood-hybrid Death Knight' and 'a self-sufficient Str/AP melee bruiser'. Its stat priority is Hit > Expertise > Strength > Armor Penetration > Critical Strike > Haste, which is why Hit sits in tier 0 (Hellfire Striker) and Haste is the last thing the tree buys (Render). Expertise has no Character stat, so the two nodes that grant it in CoA (Consuming Blade, Greater Imp) keep only their other half. CoA's listed weaknesses are kept: there is no damage-reduction node anywhere in this tree and no node that heals anyone but the Knight.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "knight_of_xoroth_war_mutilation",
+      "name": "Mutilation",
+      "description": "Increases the damage of Gore and Sever by 6% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_knight_of_xoroth_gore_damage": 0.06,
+        "ability_knight_of_xoroth_sever_damage": 0.06
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Gore and Sever by 10%.' Literal, spread over 5 ranks instead of 3."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_hellfire_striker",
+      "name": "Hellfire Striker",
+      "description": "Increases your critical strike chance by 1% and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your critical strike and hit chance by 3%.' CoA's stat priority for this spec leads with Hit 'until your specials stop missing a +3-level target', so the hit half is first-tier on purpose."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_xorothian_strength",
+      "name": "Xorothian Strength",
+      "description": "Increases your Strength by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "strength_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA class tree: 'Increases your Strength by 5%.' Percentage POINTS, not a fraction."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_war_pig",
+      "name": "War Pig",
+      "description": "Increases your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [],
+      "_source": "CoA class tree: 'Increases your Physical damage dealt by 4%.'"
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_gore",
+      "name": "Gore",
+      "description": "Teaches Gore, a fast strike on a short cooldown that banks 10 Deathfire.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "knight_of_xoroth_gore"
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_mutilation"
+      ],
+      "_source": "CoA gates Gore behind two maxed War talents and the whole spec is built on it ('build Demonfire with Gore'), so it is the tree's first pick."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_jagged_edge",
+      "name": "Jagged Edge",
+      "description": "Dealing damage has a 34% chance per rank to return 5 Rage.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_war_hellfire_striker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 5
+        }
+      },
+      "_source": "CoA: 'Increases your Rage generated from damage dealt by 20%.' There is no Rage-per-damage multiplier to scale - Rage only arrives from the basic Attack (see CombatEngine) - so the node grants it directly on a proc instead."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_consuming_blade",
+      "name": "Consuming Blade",
+      "description": "Increases the critical strike chance of Gore by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_knight_of_xoroth_gore_crit": 3.0
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_xorothian_strength"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Gore by 25% and your expertise by 5.' There is no expertise stat on Character, so only the crit half lands. ability_<id>_crit is added straight to the roll in Ability._crit_chance, so it is percentage points."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_demonic_frenzy",
+      "name": "Demonic Frenzy",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_war_pig"
+      ],
+      "_source": "CoA: 'Casting Sever now increases your attack speed by 20% for 10 seconds. Casting Gore extends the duration.' A self-maintained attack-speed window with no engine shape, so it is flat haste."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_gored",
+      "name": "Gored",
+      "description": "Increases the damage of Warbringer by 10% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_warbringer_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_gore"
+      ],
+      "_source": "CoA: 'Damage dealt by Gore and Meatsaw now increases your target's damage taken from Skulltaker and Warbringer by 15%.' A stacking target-side debuff applied by two other abilities has no shape, so the payoff lands on Warbringer directly."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_murderous_might",
+      "name": "Murderous Might",
+      "description": "Increases the damage of Skulltaker by 10% and the healing of Suffuse by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_skulltaker_damage": 0.1,
+        "ability_knight_of_xoroth_suffuse_healing": 0.05
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_jagged_edge"
+      ],
+      "_source": "CoA: 'Increases the damage of abilities that spend Demonfire by 25%.' Skulltaker and Suffuse are this spec's two Deathfire spenders, so both are named. A heal's per-ability key is ability_<id>_healing, not _damage."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_chop_shop",
+      "name": "Chop Shop",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_consuming_blade"
+      ],
+      "_source": "CoA: 'Each stack of Demon's Blood now increases the critical strike chance of Sever and Meatsaw by 1%.' Demon's Blood stacks are not modellable, so the crit is unconditional."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_absolutism",
+      "name": "Absolutism",
+      "description": "Increases your armor penetration by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "armor_penetration_pct": 2.0
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_demonic_frenzy"
+      ],
+      "_source": "CoA: 'Damage dealt by Meatsaw now ignores -10% of the target's Armor.' A real armour-penetration stat exists and is read in the derived-stat pass, but not per ability, so it applies to everything. Note armor_penetration_pct takes percentage POINTS."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_hellsmelted",
+      "name": "Hellsmelted",
+      "description": "Your critical strikes send out searing fire, dealing 55 extra damage.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_war_gored"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 34,
+        "icd": 1,
+        "damage_flat": 55
+      },
+      "_source": "CoA: Burning Blade 'causes you to send out searing fire with each melee critical strike, dealing Fire damage in a line', and Hellsmelted 'increases the critical strike chance and damage of Burning Blade by 30%'. The on-crit fire is the real mechanic; the line shape is not available."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_knight_of_pestilence",
+      "name": "Knight of Pestilence",
+      "description": "Increases the damage of Unleash Pestilence by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_murderous_might"
+      ],
+      "_source": "CoA: 'Increases the critical damage of your Pestilences by 50%.' There is no per-ability crit-damage-of-a-buff key, so the burst the Pestilence unleashes is what gets scaled."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_hand_of_doom",
+      "name": "Hand of Doom",
+      "description": "Increases the damage of Sever by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_sever_damage": 0.08
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_chop_shop"
+      ],
+      "_source": "CoA: 'Increases the Weapon Damage dealt by Sever by 10%, increased by 10% for each Demonfire you have active.' The Deathfire-count scaling is not readable from a talent, so the base half lands."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_bringer_of_destruction",
+      "name": "Bringer of Destruction",
+      "description": "Taking a critical hit has a 15% chance per rank to bank 10 Deathfire.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_war_absolutism"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 2,
+        "grant_resource": {
+          "resource": "deathfire",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Critical damage taken now grants you 1 Demonfire and 5 Rage. Can only occur once every 3 sec.' There is no on-critically-hit trigger, so it fires off damage taken at a low chance; the icd is CoA's own lockout."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_the_butcher",
+      "name": "The Butcher",
+      "description": "Increases the damage of Meatsaw by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "ability_knight_of_xoroth_meatsaw_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_hellsmelted"
+      ],
+      "_source": "CoA: 'Damage dealt by Meatsaw now increases the damage dealt by subsequent Meatsaws by 10% ... stacking 5 times.' The ramp is not modellable, so it is a flat multiplier."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_conquerors_will",
+      "name": "Conqueror's Will",
+      "description": "Increases your critical strike chance by 1% and your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "crit_chance_physical": 1.0,
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_knight_of_pestilence"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of all party and raid members by 3%. In addition, Physical critical strikes now increase the target's Physical damage taken by 4%.' A talent's effects reach the Knight only, so the party half is lost - which is the whole of what CoA lists as this spec's group support."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_screamin_demon",
+      "name": "Screamin' Demon",
+      "description": "Reduces the cooldown of Unleash Pestilence by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_knight_of_xoroth_unleash_pestilence_cooldown": 1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_hand_of_doom"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Unleash Pestilence by -15 sec.' Ability.talented_cooldown keeps at least 1 turn of any cooldown, so three ranks against a 6-turn base cannot delete it."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_render",
+      "name": "Render",
+      "description": "Grants haste equal to 3% of your Strength per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "haste_from_strength_pct": 0.03
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_the_butcher"
+      ],
+      "_source": "CoA: 'Increases your melee haste rating by 30% of your Strength.' A real <target>_from_<source>_pct conversion - haste is a conversion target and strength a source in character.py's shared maps."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_gorged",
+      "name": "Gorged",
+      "description": "Gore has a 34% chance per rank to leech half the damage it deals back to you.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_war_conquerors_will"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_gore"
+        ],
+        "leech_pct": {
+          "pct": 0.5
+        }
+      },
+      "_source": "CoA: 'Gore now heals you for 50% of the damage dealt over 3 sec', and CoA calls Gorged 'a Death Strike and lifesteal analog' that is this spec's only sustain. leech_pct heals off the triggering hit, and ability_filter keeps it on Gore where CoA puts it. The 3-stack Brimstone Bludgeon payoff is not modellable."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_hellknight",
+      "name": "Hellknight",
+      "description": "Increases your physical damage by 3% and your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "physical_damage": 0.03,
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_screamin_demon"
+      ],
+      "_source": "CoA: 'While above 75% health, all direct Physical damage dealt will grant a stack of Hellknight: Physical Damage and critical strike chance increased by 1%, stacking 5 times.' There is no above-X%-health conditional (only the low-health pair), so the stacked payoff is granted outright at a smaller size."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_brimstone_bludgeon",
+      "name": "Brimstone Bludgeon",
+      "description": "Teaches Brimstone Bludgeon, a heavy cleave on everything near your target. Increases your physical damage by 8%.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "knight_of_xoroth_brimstone_bludgeon",
+        "physical_damage": 0.08
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_render",
+        "knight_of_xoroth_war_gorged",
+        "knight_of_xoroth_war_hellknight"
+      ],
+      "_source": "Capstone. CoA: 'Brimstone Bludgeon, which transforms Sever, is the AoE keystone', and it is a tier-6 pick in the real tree too. CoA rates this spec 'Middling sustained single-target DPS on patchwork fights - high throughput ceiling', so the capstone is a cleave button, not a single-target one."
+    }
+  ]
+}

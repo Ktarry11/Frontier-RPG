@@ -1,0 +1,539 @@
+{
+  "spec_name": "Barbarian Headhunting",
+  "tree_id": "barbarian_headhunting",
+  "description": "Thrown weapons and bleeds - you pick the range, the damage keeps ticking while both of you move, and your own critical strikes are what keep you alive.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_barbarian__headhunting.txt and the headhunting block of reference/coa_sidekick/talents/barbarian.json. CoA calls it 'the closest to retail Survival Hunter with a Feral Druid's survivability bolted on' and rates it the class's best PvP spec (Arena A, BG A) on the strength of 'Nobody has to peel for you'. Two things decided the tree's shape. First, its sustain is entirely self-generated off its own crits, so Puncture Wounds, Furious Berserker and Vengeance For Zul'jin are PROCS with real payloads rather than passive stats - that is the spec. Second, CoA's 'Spears' is an ability family and this engine has only per-ability keys, so every family-wide talent names the two or three spears the rotation actually presses instead.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "barbarian_headhunting_strong_arm",
+      "name": "Strong Arm",
+      "description": "Increases the damage of Barbed Spear and Javelin Toss by 3% and your hit rating by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_barbarian_barbed_spear_damage": 0.03,
+        "ability_barbarian_javelin_toss_damage": 0.03,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Spears by 15% and your hit chance by 3%'. 'Spears' is an ability FAMILY in CoA and this engine only has per-ability keys, so the two the rotation actually leans on are named. Hit leads the spec's own stat priority."
+    },
+    {
+      "talent_id": "barbarian_headhunting_puncture_wounds",
+      "name": "Puncture Wounds",
+      "description": "Your critical strikes with a thrown spear have a 20% chance per rank to leave the enemy bleeding.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {},
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_barbed_spear",
+          "barbarian_javelin_toss",
+          "barbarian_headhunters_spear",
+          "barbarian_impaling_spear"
+        ],
+        "apply_effect": {
+          "effect_id": "barbarian_puncture_wounds",
+          "name": "Puncture Wounds",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 34,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Spears now causes enemies to bleed for ranged AP over 6 seconds', and the rotation leads with 'maintain Puncture Wounds uptime (Spear crits)'. The spec's signature, so it sits at the top of the tree at 100% chance when maxed."
+    },
+    {
+      "talent_id": "barbarian_headhunting_gruesome",
+      "name": "Gruesome",
+      "description": "Increases the damage of Throw Weapon and Gutspiller by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_barbarian_throw_weapon_damage": 0.03,
+        "ability_barbarian_gutspiller_damage": 0.03
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Throw Weapon, Gutspiller, and Guts Spilled by 10%'. Guts Spilled is Gutspiller's own nested tick, folded into the one dot here."
+    },
+    {
+      "talent_id": "barbarian_headhunting_guts_splatter",
+      "name": "Guts Splatter",
+      "description": "Your attacks ignore 2% of the enemy's armor per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "armor_penetration_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Your Gutspiller now allows your abilities to ignore 10% of the enemy's Armor'. armor_penetration_pct is divided by 100 in _recalculate_derived_stats, so 2.0 is two percentage points and 5/5 reaches CoA's own 10%. Applied to all attacks rather than gated behind Gutspiller being up - there is no debuff-present condition on an attacker-side stat."
+    },
+    {
+      "talent_id": "barbarian_headhunting_frothing_savage",
+      "name": "Frothing Savage",
+      "description": "Increases the critical strike chance of Barbed Spear and Berserker Axe by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_barbarian_barbed_spear_crit": 2.0,
+        "ability_barbarian_berserker_axe_crit": 2.0
+      },
+      "connected_to": [
+        "barbarian_headhunting_strong_arm"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Spears and Berserker Axe by 8% against bleeding targets'. The against-bleeding condition is not expressible; in practice Puncture Wounds means it is almost always true."
+    },
+    {
+      "talent_id": "barbarian_headhunting_entrails",
+      "name": "Entrails",
+      "description": "Increases your Agility by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "agility_pct": 2.0
+      },
+      "connected_to": [
+        "barbarian_headhunting_puncture_wounds"
+      ],
+      "_source": "CoA: 'Damage dealt by bleed effects now increases your Agility by 1% for 8 seconds, stacking 10 times'. A stacking bleed-driven buff has no hook, so the Agility is permanent and smaller."
+    },
+    {
+      "talent_id": "barbarian_headhunting_to_the_bone",
+      "name": "To The Bone",
+      "description": "Your Gutspiller Breaks the enemy's defenses, reducing their armor by 30.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "barbarian_headhunting_gruesome"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_gutspiller"
+        ],
+        "apply_effect": {
+          "effect_id": "barbarian_break",
+          "name": "Break",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -30
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'it now applies Break to the target ... Break: Break an enemy's defenses, reducing their armor by -4% for 20 seconds, stacking 5 times'. Flat rather than percentage and unstacked - max_stacks on a proc payload would make one talent point worth -150 Armor against a level 60 enemy's 118. This is also where Berserker Axe's own armour shred ended up, since a damage cast cannot carry a debuff too."
+    },
+    {
+      "talent_id": "barbarian_headhunting_savage",
+      "name": "Savage",
+      "description": "Increases all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "barbarian_headhunting_guts_splatter"
+      ],
+      "_source": "CoA free passive: 'Born in Blood now also increases your damage dealt by 5% and its duration is increased by 3 sec'. Neither half can key off a proc-applied HoT being active, so it is a flat damage increase."
+    },
+    {
+      "talent_id": "barbarian_headhunting_spear_thrower",
+      "name": "Spear Thrower",
+      "description": "Your Throw Weapon has a 10% chance per rank to reset Barbed Spear and Javelin Toss.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_headhunting_frothing_savage"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_throw_weapon"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "barbarian_barbed_spear",
+            "barbarian_javelin_toss"
+          ]
+        }
+      },
+      "_source": "CoA free passive: 'Casting Throw Weapon now has a 30% chance to reset the cooldown of your Spears', and the playstyle note 'Spear Thrower and You Want Axe? let Throw Weapon reset your Spears ... so damage ramps the longer you stay on a target'."
+    },
+    {
+      "talent_id": "barbarian_headhunting_legacy_of_the_amani",
+      "name": "Legacy of the Amani",
+      "description": "Your thrown spears have an 8% chance per rank to send a second one after them.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_headhunting_entrails"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 1,
+        "ability_filter": [
+          "barbarian_barbed_spear",
+          "barbarian_javelin_toss",
+          "barbarian_headhunters_spear"
+        ],
+        "cast_ability": "barbarian_throw_weapon"
+      },
+      "_source": "CoA: 'Damage dealt by your Spears now has a 25% chance to cause you to quickly throw an additional spear that strikes for 40% of the damage dealt'. cast_ability fires a real free cast; the extra throw is Throw Weapon rather than a 40%-scaled copy, which is the closest the payload gets."
+    },
+    {
+      "talent_id": "barbarian_headhunting_furious_berserker",
+      "name": "Furious Berserker",
+      "description": "Your critical strikes with Barbed Spear have a 33% chance per rank to grant Born in Blood.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_headhunting_to_the_bone"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "barbarian_barbed_spear"
+        ],
+        "apply_effect": {
+          "effect_id": "barbarian_bib_furious",
+          "name": "Born in Blood",
+          "effect_type": "hot",
+          "duration": 3,
+          "potency": 30,
+          "on_target": false
+        },
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 12
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Barbed Spear now grants Born in Blood', and the strengths list calls this one of the two reasons 'you rarely need a healer'. See born_in_blood() for how the buff is modelled."
+    },
+    {
+      "talent_id": "barbarian_headhunting_no_survivors",
+      "name": "No Survivors",
+      "description": "Increases the duration of your bleeds by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "dot_duration_pct": 0.08
+      },
+      "connected_to": [
+        "barbarian_headhunting_savage"
+      ],
+      "_source": "CoA: 'Increases the duration of Axe Twirling, Maiming Spear, and Barbed Spear by 5 sec'. Only the bleed half has a general key; Axe Twirling's own duration is covered by Time To Kill!'s cooldown reduction instead."
+    },
+    {
+      "talent_id": "barbarian_headhunting_time_to_kill",
+      "name": "Time To Kill!",
+      "description": "Reduces the cooldown of Axe Twirling by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_barbarian_axe_twirling_cooldown": 1
+      },
+      "connected_to": [
+        "barbarian_headhunting_spear_thrower"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Axe Twirling by -15 sec'. ability_<id>_cooldown is a flat turn reduction."
+    },
+    {
+      "talent_id": "barbarian_headhunting_hunting_for_sport",
+      "name": "Hunting for Sport",
+      "description": "Increases your armor penetration by 6 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "armor_penetration": 6
+      },
+      "connected_to": [
+        "barbarian_headhunting_legacy_of_the_amani"
+      ],
+      "_source": "CoA: 'While Unbridled Rage is active, your attacks now ignore 20% of the target's Armor', and the spec's own weakness list says 'Armor ignore only happens inside windows ... your penetration comes and goes with rotation state'. There is no buff-present condition on an attacker-side stat, so it is always on and smaller."
+    },
+    {
+      "talent_id": "barbarian_headhunting_vengeance_for_zuljin",
+      "name": "Vengeance For Zul'jin",
+      "description": "Your Berserker Rush has a 34% chance per rank to grant Born in Blood.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "barbarian_headhunting_furious_berserker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 1,
+        "ability_filter": [
+          "barbarian_berserker_rush"
+        ],
+        "apply_effect": {
+          "effect_id": "barbarian_bib_vengeance",
+          "name": "Born in Blood",
+          "effect_type": "hot",
+          "duration": 3,
+          "potency": 30,
+          "on_target": false
+        },
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 12
+        }
+      },
+      "_source": "CoA: 'Casting Berserker Rush now grants you Born in Blood'. CoA's is guaranteed; a guaranteed HoT plus 12 Energy every 5 turns on top of Furious Berserker's would make the spec's sustain unconditional, which the reference specifically says it is not."
+    },
+    {
+      "talent_id": "barbarian_headhunting_raging_spirit",
+      "name": "Raging Spirit",
+      "description": "Your Unbridled Rage has a 34% chance per rank to grant 30 Energy.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "barbarian_headhunting_no_survivors"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 34,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_unbridled_rage"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 30
+        }
+      },
+      "_source": "CoA: 'Casting Unbridled Rage now grants you 30 Energy', and the dungeon note 'Unbridled Rage (via Raging Spirit) bridges an Energy gap'. ON_CAST rather than ON_DAMAGE_CAST because Unbridled Rage deals no damage, so there would be no damage event to hang on."
+    },
+    {
+      "talent_id": "barbarian_headhunting_payback",
+      "name": "Payback",
+      "description": "Increases the damage of Gutspiller by 12% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "ability_barbarian_gutspiller_damage": 0.12
+      },
+      "connected_to": [
+        "barbarian_headhunting_time_to_kill"
+      ],
+      "_source": "CoA: 'Increases the damage dealt by your Guts Spilled by 75%'. Guts Spilled is the second half of Gutspiller's own bleed here, so the key is Gutspiller's."
+    },
+    {
+      "talent_id": "barbarian_headhunting_skullseeker",
+      "name": "Skullseeker",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "barbarian_headhunting_hunting_for_sport"
+      ],
+      "_source": "CoA: 'Increases your critical strike chance against enemies above 80% health by 25%'. The above-80% condition is not expressible, so it is flat crit at the shipped per-rank scale."
+    },
+    {
+      "talent_id": "barbarian_headhunting_spear_shards",
+      "name": "Spear Shards",
+      "description": "Increases the damage of Impaling Spear by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_barbarian_impaling_spear_damage": 0.1
+      },
+      "connected_to": [
+        "barbarian_headhunting_vengeance_for_zuljin"
+      ],
+      "_source": "CoA: 'Whenever you shatter your Impaling Spear, affected enemies bleed for 100% of the damage dealt over 3 seconds'. Impaling Spear is already authored as the bleed, shatter included, so the shards scale it."
+    },
+    {
+      "talent_id": "barbarian_headhunting_brutal_form",
+      "name": "Brutal Form",
+      "description": "Grants healing power equal to 2% of your Agility per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "healing_power_from_agility_pct": 0.02
+      },
+      "connected_to": [
+        "barbarian_headhunting_payback"
+      ],
+      "_source": "CoA: 'Increases the tick rate of Born in Blood by -25%, allows its healing to scale with your Agility, and it can now critically heal you'. The Agility scaling is a real <target>_from_<source>_pct conversion and the whole point of the node; the tick rate and critical healing are not expressible. NOTE this scales the spec's cast heals (Savage Revelry, Ancestral Roar), not the proc-applied Born in Blood HoT - a HoT tick calls heal(tick_potency()) directly and never passes through healing_power."
+    },
+    {
+      "talent_id": "barbarian_headhunting_gurubashi_technique",
+      "name": "Gurubashi Technique",
+      "description": "Your Throw Weapon has a 12% chance per rank to hit for 30% more.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "barbarian_headhunting_skullseeker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_throw_weapon"
+        ],
+        "bonus_pct": 0.3
+      },
+      "_source": "CoA: 'Casting Throw Weapon now has a 25% chance to transform your next cast of it ... into Rapid Throw. Rapid Throw: Throw your ranged weapon 3 times in quick succession'. Nothing transforms a queued cast, so the payoff lands as bonus damage on the same hit - bonus_pct is the engine's instant-proc payload."
+    },
+    {
+      "talent_id": "barbarian_headhunting_senjins_guidance",
+      "name": "Sen'jin's Guidance",
+      "description": "Increases the damage of Javelin Toss by 12% and its critical strike chance by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_barbarian_javelin_toss_damage": 0.12,
+        "ability_barbarian_javelin_toss_crit": 3.0
+      },
+      "connected_to": [
+        "barbarian_headhunting_spear_shards"
+      ],
+      "_source": "CoA: 'Transforms your Throw Weapon into Javelin Toss and increases the critical strike chance of Javelin Toss by 5%'. Javelin Toss is its own ability here rather than a transform (see the ability's own note), so the node is the half that was always a number."
+    },
+    {
+      "talent_id": "barbarian_headhunting_berserker",
+      "name": "Berserker",
+      "description": "Somewhere in the middle of it you stop aiming and start simply hitting.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "physical_damage": 0.1,
+        "crit_chance_physical": 4.0
+      },
+      "connected_to": [
+        "barbarian_headhunting_brutal_form",
+        "barbarian_headhunting_gurubashi_technique",
+        "barbarian_headhunting_senjins_guidance"
+      ],
+      "_source": "Capstone. CoA: 'While enraged, your ranged critical strikes now grant you Berserker ... Your ranged abilities have a 20% chance to unleash Berserker Throw ... While active, every offensive ranged ability used increases its chance to trigger by 2%'. A ramping self-stacking proc has no shape here, so the capstone is the throughput that ramp was worth."
+    }
+  ]
+}

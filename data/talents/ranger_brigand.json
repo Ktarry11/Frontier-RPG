@@ -1,0 +1,492 @@
+{
+  "spec_name": "Ranger Brigand",
+  "tree_id": "ranger_brigand",
+  "description": "Melee assassin. Ravage and Wild Strike bank Archery Points and lay bleeds, Assault and Viper's Bite and Skullpiercer spend them, and the control suite is deeper than a pure damage kit usually gets.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_ranger__brigand.txt: 'Closest to Assassination Rogue crossed with Outlaw's utility toolkit', 'a dagger-wielding melee assassin, not a healer despite the archetype tag'. Its stat priority is Hit > Expertise > Agility > Armor Penetration > Crit > Haste, which is why Beatdown carries armour penetration above Banditry's crit. Expertise has no key in this engine, so it is the one line of that priority with nothing to spend on. CoA's own weakness list drives the shape of the back half: 'No real self-heal' (Pilfering is the only sustain node and it is small), 'Nothing breaks a stun, root, or fear' (no node offers one), and 'Built entirely around daggers in melee range with no ranged pressure' (Quills is the only ranged ability and Wild Man scales it rather than adding another).",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "ranger_brigand_banditry",
+      "name": "Banditry",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your critical strike chance by 2% and Focus regeneration by 15%'. Nothing regenerates archery_points, so only the crit half can exist."
+    },
+    {
+      "talent_id": "ranger_brigand_close_quarters",
+      "name": "Close Quarters",
+      "description": "Increases your attack power and Agility by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "attack_power_pct": 2.0,
+        "agility_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your attack power and Agility by 3%'. Both keys are percentage POINTS."
+    },
+    {
+      "talent_id": "ranger_brigand_jagged_cuts",
+      "name": "Jagged Cuts",
+      "description": "Increases the damage of Ravage and Toxic Dart by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_ranger_ravage_damage": 0.05,
+        "ability_ranger_toxic_dart_damage": 0.05
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage and duration of Toxic Dart and Ravage by 25%'. Damage only: adding duration here would stack with Lacerations lower in the tree and push a 3-turn DoT past the length of most fights."
+    },
+    {
+      "talent_id": "ranger_brigand_dice_games",
+      "name": "Dice Games",
+      "description": "Increases the critical strike chance of Wild Strike and Assault by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_ranger_wild_strike_crit": 2.0,
+        "ability_ranger_assault_crit": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the critical strike chance of Wild Strike and Assault by 5%'."
+    },
+    {
+      "talent_id": "ranger_brigand_ravager",
+      "name": "Ravager",
+      "description": "Your Wild Strike has a 34% chance per rank to bank 4 Archery Points.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_brigand_banditry"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "archery_points",
+          "amount": 4
+        },
+        "ability_filter": [
+          "ranger_wild_strike"
+        ]
+      },
+      "_source": "CoA: 'Your Wild Strike now generates 1 additional Advantage'. ability_filter is the engine's real per-ability proc gate (see fire_proc_trigger), so this genuinely only fires off Wild Strike."
+    },
+    {
+      "talent_id": "ranger_brigand_knuckleduster",
+      "name": "Knuckleduster",
+      "description": "Your attacks have a 20% chance per rank to bank 4 Archery Points.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_brigand_close_quarters"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "archery_points",
+          "amount": 4
+        }
+      },
+      "_source": "CoA: 'Periodic damage dealt now generates 5 Focus'. A DoT tick fires no proc trigger in this engine - fire_proc_trigger is called from the cast path, not the tick path - so this generates off casts instead, with an internal cooldown so it reads as periodic rather than per-button."
+    },
+    {
+      "talent_id": "ranger_brigand_underhanded",
+      "name": "Underhanded",
+      "description": "Increases the damage of Skullpiercer by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_ranger_skullpiercer_damage": 0.05
+      },
+      "connected_to": [
+        "ranger_brigand_jagged_cuts"
+      ],
+      "_source": "CoA: 'Increases the attack power scaling of Skullpiercer by 15%'. Scaling coefficients are not per-ability tunable, so it is flat damage."
+    },
+    {
+      "talent_id": "ranger_brigand_beatdown",
+      "name": "Beatdown",
+      "description": "Increases your armor penetration by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "armor_penetration_pct": 2.0
+      },
+      "connected_to": [
+        "ranger_brigand_dice_games"
+      ],
+      "_source": "CoA: 'Auto attacks now have a 5% chance to reveal a fault in the enemy's defenses, causing your next instance of Physical ability damage to ignore Armor'. A one-shot armour-ignore flag has no hook, and the spec's stat priority lists Armor Penetration above Crit, so it is real armour penetration at a lower rate."
+    },
+    {
+      "talent_id": "ranger_brigand_guile_of_the_cutthroat",
+      "name": "Guile of the Cutthroat",
+      "description": "Increases your attack power by 2% and all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "attack_power_pct": 2.0,
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "ranger_brigand_ravager"
+      ],
+      "_source": "CoA: 'Increases party and raid member's melee and ranged attack power by 5% ... In addition, increases your damage dealt by 3%', and CoA calls this 'its only support tool'. A talent cannot reach the party - Character.get_talent_effects resolves against its own character only - so this node is the self half of the real tooltip, and the party-facing work in this class lives on Farstrider's Horn abilities."
+    },
+    {
+      "talent_id": "ranger_brigand_bounty_hunter",
+      "name": "Bounty Hunter",
+      "description": "Your Flank and Rusty Shiv have a 34% chance per rank to leave the target taking 4% more Physical damage.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "ranger_brigand_knuckleduster"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 1,
+        "ability_filter": [
+          "ranger_flank",
+          "ranger_rusty_shiv"
+        ],
+        "apply_effect": {
+          "effect_id": "ranger_bounty",
+          "name": "Bounty",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "physical_damage_taken_pct": 4.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Flank and Rusty Shiv now increases the target's damage taken from your Advantage spenders by 25%'. Narrowing it to spenders only is not expressible, so it is all Physical damage at a much smaller number. physical_damage_taken_pct inside a status effect is percentage POINTS - character.py divides the school-specific damage-taken keys by 100, unlike plain damage_taken_pct, which it reads raw."
+    },
+    {
+      "talent_id": "ranger_brigand_ambuscade",
+      "name": "Ambuscade",
+      "description": "Increases the damage of Flank by 6% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "ability_ranger_flank_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_brigand_underhanded"
+      ],
+      "_source": "CoA: 'Increases the damage of Skullpiercer and Flank by 20%, plus an additional 35% if you have a polearm equipped'. Ranger has no polearm proficiency in weapon_types.json, and Skullpiercer is already covered by Underhanded, so this is the Flank half."
+    },
+    {
+      "talent_id": "ranger_brigand_focused_fighter",
+      "name": "Focused Fighter",
+      "description": "Reduces the Archery Point cost of your abilities by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "all_ability_cost_pct": 0.03
+      },
+      "connected_to": [
+        "ranger_brigand_beatdown"
+      ],
+      "_source": "CoA: 'Reduces the Focus cost of Flank, Blackjack, and Wild Strike by -10%'. POSITIVE is the reduction here: talented_cost does cost * (1.0 - pct). Guardian's Seasoned Fighter shipped this key negative, which makes its abilities 3% per rank MORE expensive than the tooltip promises."
+    },
+    {
+      "talent_id": "ranger_brigand_highwayman",
+      "name": "Highwayman",
+      "description": "Your critical strikes have a 25% chance per rank to increase your haste by 10 for 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "ranger_brigand_guile_of_the_cutthroat"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "ranger_highwayman",
+          "name": "Highwayman",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Direct critical strikes while behind your target increase your haste by 15% for 5 seconds'. Facing is not tracked, so the 'behind' condition is dropped."
+    },
+    {
+      "talent_id": "ranger_brigand_pilfering",
+      "name": "Pilfering",
+      "description": "Your attacks have a 20% chance per rank to heal you for 8% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "ranger_brigand_bounty_hunter"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "leech_pct": 0.08
+      },
+      "_source": "CoA: 'causes its damage dealt to heal you equal to 50% of the value', and the spec's weakness list says 'No real self-heal. The small Pilfering and Dirty Blades leech will not carry you through focus fire.' So this is the spec's only sustain and it is deliberately thin. leech_pct is a real proc payload read in status_effects.py."
+    },
+    {
+      "talent_id": "ranger_brigand_wild_man",
+      "name": "Wild Man",
+      "description": "Increases the damage you deal to additional targets by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "aoe_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_brigand_ambuscade"
+      ],
+      "_source": "CoA: 'Your Wild Strike now strikes 2 additional nearby enemies, but deals reduced damage with each enemy struck'. A talent cannot turn a single-target ability into a cleave (target_type is authored on the ability), so this scales Quills and the rest of the spec's real AoE instead. CoA rates Brigand's trash cleave solid and its single-target raid damage D, which this keeps true."
+    },
+    {
+      "talent_id": "ranger_brigand_stalker",
+      "name": "Stalker",
+      "description": "Reduces the cooldown of Cutthroat by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_ranger_cutthroat_cooldown": 1
+      },
+      "connected_to": [
+        "ranger_brigand_focused_fighter"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Cutthroat by -15 sec, but reduces the range of Cutthroat by -10 yds'. Range is not a cost this engine can charge, so the downside is gone and the node is smaller."
+    },
+    {
+      "talent_id": "ranger_brigand_tip_of_the_spear",
+      "name": "Tip of the Spear",
+      "description": "Your weapon swings have a 15% chance per rank to strike again.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "ranger_brigand_highwayman"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 15,
+        "icd": 1,
+        "extra_attack": true
+      },
+      "_source": "CoA: 'your Wild Strike now has a 15% chance to strike 3 additional times'. extra_attack is the engine's real Windfury mechanic: a genuine second swing through Ability.use, found by the '<class_prefix>_attack' naming convention, so it rolls its own hit and crit."
+    },
+    {
+      "talent_id": "ranger_brigand_marked_for_death",
+      "name": "Marked for Death",
+      "description": "Increases your Physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "ranger_brigand_pilfering"
+      ],
+      "_source": "CoA: 'direct critical strikes on enemies below 35% health now have a chance to allow the use of abilities as if you were in Elude'. Elude is a buff here rather than a state abilities check, so there is nothing to unlock; the node pays flat damage."
+    },
+    {
+      "talent_id": "ranger_brigand_tactical_advantage",
+      "name": "'Tactical' Advantage",
+      "description": "Increases the damage of Bushwhack by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_ranger_bushwhack_damage": 0.08
+      },
+      "connected_to": [
+        "ranger_brigand_wild_man"
+      ],
+      "_source": "CoA: 'Knockout and Bushwhack now increases your damage dealt against the target by 10% for 5 seconds'. A target-specific damage window has no hook, so the node front-loads it onto Bushwhack's own hit."
+    },
+    {
+      "talent_id": "ranger_brigand_dastardly",
+      "name": "Dastardly",
+      "description": "Increases your critical strike damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "crit_damage_physical": 0.05
+      },
+      "connected_to": [
+        "ranger_brigand_tip_of_the_spear"
+      ],
+      "_source": "CoA: 'Increases your critical damage dealt by 15% on enemies above 80% health or below 20% health'. Both ends of a health bar is most of a fight, so it is unconditional and smaller."
+    },
+    {
+      "talent_id": "ranger_brigand_lacerations",
+      "name": "Lacerations",
+      "description": "Increases the damage of your periodic effects by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "dot_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_brigand_marked_for_death"
+      ],
+      "_source": "CoA: 'Allows the periodic damage dealt by Ravage to critically strike'. Same gap as Archery's Bleeding Edge: DoTs do not crit in this engine, so the node pays the average instead."
+    },
+    {
+      "talent_id": "ranger_brigand_rub_it_in",
+      "name": "Rub It In",
+      "description": "Your attacks have a 20% chance per rank to refund 5 Archery Points.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "ranger_brigand_tactical_advantage"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "archery_points",
+          "amount": 5
+        }
+      },
+      "_source": "CoA: 'Each stack of Advantage spent now gives you a 20% chance to refund 1 stack of Advantage'. There is no 'on spend' trigger, so it keys off the cast."
+    },
+    {
+      "talent_id": "ranger_brigand_instinctual_combatant",
+      "name": "Instinctual Combatant",
+      "description": "Grants attack power equal to 10% of your Agility, and increases your critical strike chance by 4%.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ap_from_agility_pct": 0.1,
+        "crit_chance_physical": 4.0
+      },
+      "connected_to": [
+        "ranger_brigand_dastardly",
+        "ranger_brigand_lacerations",
+        "ranger_brigand_rub_it_in"
+      ],
+      "_source": "Capstone. CoA: 'Instinct now grants you an additional 10% of your Agility as melee attack power' and 'guarantees your next 3 Skullpiercers or Assaults within 20 seconds to critically strike'. The conversion is real and literal; guaranteed crits are not expressible, so they become flat crit chance. A real <target>_from_<source>_pct key."
+    }
+  ]
+}

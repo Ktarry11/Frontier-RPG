@@ -158,8 +158,36 @@ class ProcTrigger:
     ON_DAMAGE_TAKEN = "on_damage_taken"
     ON_KILL = "on_kill"
 
+    #: AVOIDANCE TRIGGERS. Until these existed the only defensive hook was
+    #: ON_DAMAGE_TAKEN, which fires when a hit LANDS - the opposite of
+    #: avoiding one - so every talent in the game written as "blocking an
+    #: attack does X" or "avoiding an attack does X" had to be rewritten as
+    #: "being hit does X". An audit against the real Conquest of Azeroth
+    #: trees found that rewrite in a dozen places across three classes, and
+    #: it quietly inverted their design:
+    #:
+    #:   Moon Guard   Nebula, Starlight Duelist and Dancing in the Moonlight
+    #:                all pay out on block or parry in CoA. Rewritten onto
+    #:                damage taken, the spec's #4-#6 stats (parry, dodge,
+    #:                block) bought it nothing at all, which is the real
+    #:                reason it measured last on survival - not a shortage
+    #:                of mitigation.
+    #:   Dreadnought  Inner Darkness generates its secondary resource FROM
+    #:                BLOCKING. Ungated, it generated unconditionally.
+    #:   Guardian     Retaliation is "blocks strike back".
+    #:
+    #: ON_AVOID fires for a dodge or a parry, which is how CoA words the
+    #: ones that do not care which ("Avoiding melee attacks will call down a
+    #: Moonflare"). ON_BLOCK is separate because a block is a partial hit,
+    #: not an avoid, and several talents key off exactly that difference.
+    ON_DODGE = "on_dodge"
+    ON_PARRY = "on_parry"
+    ON_AVOID = "on_avoid"
+    ON_BLOCK = "on_block"
+
     ALL = (ON_CAST, ON_DAMAGE_CAST, ON_WEAPON_SWING, ON_HEAL_CAST,
-           ON_DAMAGE_OR_HEAL_CAST, ON_CRIT, ON_DAMAGE_TAKEN, ON_KILL)
+           ON_DAMAGE_OR_HEAL_CAST, ON_CRIT, ON_DAMAGE_TAKEN, ON_KILL,
+           ON_DODGE, ON_PARRY, ON_AVOID, ON_BLOCK)
 
 
 class DispelType:

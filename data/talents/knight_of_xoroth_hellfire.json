@@ -1,0 +1,454 @@
+{
+  "spec_name": "Knight of Xoroth Hellfire",
+  "tree_id": "knight_of_xoroth_hellfire",
+  "description": "Melee and Fire magic together. Strength feeds your spell power, Infernal Strike and Seeking Flame bank Deathfire, and Hellmaw and Hellstorm spend it. Nothing here keeps you alive.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_knight-of-xoroth__hellfire.txt and the hellfire block of talents/knight-of-xoroth.json. CoA rates it Raid A and calls it 'Closest to Vengeance Demon Hunter, re-tuned as a pure damage spec rather than a tank', with the warning that 'Vengeance's actual survival kit ... isn't present here, and there isn't even a self-shield to stand in for it'. That is honoured literally: this tree has no mitigation node, no absorb and no heal, and the only defensives available to the spec are the shared class kit's Suffuse and Black Shield, which CoA calls 'picks that compete with damage'. Its stat priority is Spell Hit > Spell Power > Strength > Critical Strike > Haste > Intellect, so spell hit (Cinderblade) and the Strength-to-spell power conversion (Burning Power) are bought before anything else.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "knight_of_xoroth_hellfire_combusting_blade",
+      "name": "Combusting Blade",
+      "description": "Increases your Intellect by 2% and reduces the Rage cost of Infernal Strike by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "intellect_pct": 2.0,
+        "ability_knight_of_xoroth_infernal_strike_cost": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Intellect by 5% and reduces the Rage cost of Infernal Strike by -5.' Both halves literal. Intellect matters to this spec and no other Knight spec, because Burning Power turns it into attack power."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_invasion",
+      "name": "Invasion",
+      "description": "Increases your Fire damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "fire_spell_damage": 0.02
+      },
+      "connected_to": [],
+      "_source": "CoA: 'All Fire damage dealt is increased by 10% to enemies above 80% health.' There is no above-X%-health conditional, so the bonus is unconditional and smaller. <school>_spell_damage keys are assembled from the ability's real school at cast time, so they only reach spell_damage and spell_dot abilities, not weapon strikes that happen to be Fire."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_flamewrath",
+      "name": "Flamewrath",
+      "description": "Increases the critical strike chance of Seeking Flame by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_knight_of_xoroth_seeking_flame_crit": 4.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the critical strike chance of Seeking Flame by 20%.' Literal, as percentage points added to that ability's own roll."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_infernal_pursuit",
+      "name": "Infernal Pursuit",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your melee haste by 3% and reduces the duration of root effects against you by -15%.' There is no root category in this engine - is_stun is the only incapacitate - so only the haste lands."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_hellmaw",
+      "name": "Hellmaw",
+      "description": "Teaches Hellmaw, a Shadowflame strike that keeps burning. Costs 40 Deathfire.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "knight_of_xoroth_hellmaw"
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_combusting_blade"
+      ],
+      "_source": "CoA gates Hellmaw behind two maxed talents and the rotation dumps into it ('dump stacked Demonfire into Hellmaw for a big Shadowflame hit-and-burn'), so it is the tree's first pick."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_burning_power",
+      "name": "Burning Power",
+      "description": "Grants spell power equal to 3% of your Strength and attack power equal to 3% of your Intellect, per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "spell_damage_from_strength_pct": 0.03,
+        "ap_from_intellect_pct": 0.03
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_invasion"
+      ],
+      "_source": "CoA: 'Increases your attack power by 100% of your Intellect and your spell damage by 50% of your Strength.' Both are real <target>_from_<source>_pct conversions. This node is the whole reason the spec is a melee/caster hybrid rather than two half-specs, and why CoA's stat priority for it runs Spell Hit > Spell Power > Strength."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_to_ashes",
+      "name": "To Ashes",
+      "description": "Increases your spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_flamewrath"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of abilities that spend Demonfire by 5%.' Per-ability crit is available but this names a whole category, so it is general spell crit."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_hellfire_embers",
+      "name": "Hellfire Embers",
+      "description": "Increases your pets' damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "pet_damage": 0.06
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_infernal_pursuit"
+      ],
+      "_source": "CoA: 'Increases the Fire damage dealt by your Hellfire Imp by 30% against enemies above 80% maximum health.' The health gate and the school restriction are not available; the pet damage is."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_cinderblade",
+      "name": "Cinderblade",
+      "description": "Grants spell critical strike chance equal to 2% of your Intellect, and 1% spell hit, per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_spell_from_intellect_pct": 0.02,
+        "hit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_hellmaw"
+      ],
+      "_source": "CoA: 'Increases your critical strike rating by 20% of your Intellect and your spell hit chance by 6%.' Both halves literal; the crit half is a real conversion."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_shadowflame_forge",
+      "name": "Shadowflame Forge",
+      "description": "Hellmaw lasts 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_hellmaw_duration": 1
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_burning_power"
+      ],
+      "_source": "CoA: 'Increases the duration of Hellmaw by 3 sec.' Ability.talented_duration derives a DoT's per-turn damage from its BASE duration, so an extension adds ticks rather than thinning the total."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_seething_strikes",
+      "name": "Seething Strikes",
+      "description": "Increases the damage of Sever by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_sever_damage": 0.08
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_to_ashes"
+      ],
+      "_source": "CoA: 'Increases the damage of Sever by 30% against Burning targets and it now increases the targets chance to be critically struck by 3%.' There is no burning condition and no target-side crit-taken debuff, so the damage is unconditional and smaller."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_infernal_steel",
+      "name": "Infernal Steel",
+      "description": "Reduces the Deathfire cost of Hellmaw by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_hellmaw_cost_pct": 0.08
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_hellfire_embers"
+      ],
+      "_source": "CoA: 'Casting Skulltaker with 6 Demonfire stacks now causes your next Hellmaw within 15 seconds to tick -25% faster and cost -50% less Rage.' The conditional window is not modellable, so the discount is permanent and smaller. POSITIVE is the discount on a _cost_pct key."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_brimstone_flames",
+      "name": "Brimstone Flames",
+      "description": "Increases the damage of Seeking Flame by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_seeking_flame_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_cinderblade"
+      ],
+      "_source": "CoA: 'Damage dealt by Seeking Flame is increased by 20% on enemies affected by Pestilence of Apocalypse.' The aura condition is not readable, so it is flat."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_brimstone_splinters",
+      "name": "Brimstone Splinters",
+      "description": "Seeking Flame has a 20% chance per rank to bank 10 extra Deathfire.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_hellfire_shadowflame_forge"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_seeking_flame"
+        ],
+        "grant_resource": {
+          "resource": "deathfire",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Grants Seeking Flame a 30% chance to generate 1 additional Demonfire when it deals damage.' Literal, with ability_filter holding it to Seeking Flame."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_infernal_pummeling",
+      "name": "Infernal Pummeling",
+      "description": "Increases the damage of Flames of Xoroth by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_seething_strikes"
+      ],
+      "_source": "CoA: 'Melt now increases the damage your target takes from Flames of Xoroth and Skulltaker by 10%.' A target-side amp applied by a third ability has no shape, so the payoff goes straight onto Flames of Xoroth."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_inferno_blast",
+      "name": "Inferno Blast",
+      "description": "Increases your spell critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "crit_damage_spell": 0.04
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_infernal_steel"
+      ],
+      "_source": "CoA: 'Increases your critical damage against Burning targets by 20%.' No burning condition, so it is general. crit_damage_spell is a fraction added to the crit multiplier."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_rain_of_chaos",
+      "name": "Rain of Chaos",
+      "description": "Increases the damage of your damage-over-time effects by 5% and your Fire damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "dot_damage": 0.05,
+        "fire_spell_damage": 0.02
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_brimstone_flames"
+      ],
+      "_source": "CoA: 'Casting Flames of Xoroth with 6 Demonfire now calls down a Rain of Chaos: molten rain burns enemies in the area causing Fire Damage over 9 seconds.' A conditional second DoT is not available, so the node scales the burns the spec already has."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_partners_in_flames",
+      "name": "Partners in Flames",
+      "description": "Your critical strikes have a 25% chance to increase your damage by 5% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_hellfire_brimstone_splinters"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_partners_in_flames",
+          "name": "Partners in Flames",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 5
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Fire damage dealt by your Greater Imp now has a 25% chance to empower you, increasing your damage dealt by 5% for 10 seconds.' A pet's damage cannot fire the owner's proc, so the Knight's own crits trigger it. Chance is not rank-scaled here because it is already CoA's own number; the ranks buy nothing else, so this node is deliberately the flattest in the tree."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_doom",
+      "name": "Doom",
+      "description": "Increases your pets' damage and health by 6% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "pet_damage": 0.06,
+        "pet_health": 0.06
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_infernal_pummeling"
+      ],
+      "_source": "CoA: 'Transforms your Greater Imp into a Doomguard for 12 seconds. While transformed, your Doomguard deals 20% more damage.' There is no pet transformation, so it is a permanent, smaller version of the same thing."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_into_the_maw",
+      "name": "Into the Maw",
+      "description": "Increases the damage of your area attacks by 10% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "aoe_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_rain_of_chaos"
+      ],
+      "_source": "CoA: 'Hellmaw causes a Hellfire Explosion at the end of its duration, dealing additional Fire damage to all nearby enemies.' A terminal explosion is not available, so the node pays the spec's AoE instead. aoe_damage is only read for target_type enemy_aoe abilities, which is what Hellstorm, Flames of Xoroth and Unleash Pestilence are."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_hellbringer",
+      "name": "Hellbringer",
+      "description": "Increases all damage you deal by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "all_damage": 0.03
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_partners_in_flames"
+      ],
+      "_source": "CoA: 'Increases the all damage dealt by party and raid members by 3%.' A talent reaches the Knight only, so the party half is lost."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_punisher",
+      "name": "Punisher",
+      "description": "Increases your spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage": 0.03
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_doom"
+      ],
+      "_source": "CoA: 'Increases the attack power and spell power scaling of Seeking Flame by 25%.' Scaling coefficients are not talent-addressable, so the node raises spell damage, which is what that scaling was buying."
+    },
+    {
+      "talent_id": "knight_of_xoroth_hellfire_hellfire_form",
+      "name": "Hellfire Form",
+      "description": "Teaches Hellfire Form. Increases your Fire damage by 5%.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "knight_of_xoroth_hellfire_form",
+        "fire_spell_damage": 0.05
+      },
+      "connected_to": [
+        "knight_of_xoroth_hellfire_into_the_maw",
+        "knight_of_xoroth_hellfire_hellbringer",
+        "knight_of_xoroth_hellfire_punisher"
+      ],
+      "_source": "Capstone. CoA: 'Hellfire Form is also the Metamorphosis-style transformation cooldown', 'Pop Hellfire Form against tougher fights, banking Demonfire first for max duration'. It is a tier-2 pick in the real tree, promoted to the capstone here because Frontier has one capstone and this is the spec's defining button."
+    }
+  ]
+}

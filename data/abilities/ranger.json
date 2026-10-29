@@ -1,0 +1,2152 @@
+{
+  "class": "Ranger",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_ranger.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "ranger_attack",
+      "name": "Attack",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A measured strike with your weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack. Also the target of extra_attack procs, which look up '<class_prefix>_attack' by name (see StatusEffectMixin.fire_proc_trigger) - Brigand's Tip of the Spear needs this id to exist."
+    },
+    {
+      "ability_id": "ranger_quick_shot",
+      "name": "Quick Shot",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A fast, flat shot. Nothing clever, and it keeps your quiver working.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 36
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 45
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 63
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 72
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 81
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 90
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 99
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 108
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Spam Quick Shot ... at range while banking Advantage stacks'. The baseline builder for Archery and Farstrider and the class's only level-1 shot, so it is free and generates - see the module docstring on why builders cannot cost anything. Hunter steady_shot's 9-rank curve, flattened because it is the cheap filler.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "archery_points",
+        "amount": 12
+      }
+    },
+    {
+      "ability_id": "ranger_skullpiercer",
+      "name": "Skullpiercer",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Put the arrow through the gap in their helm.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 40,
+          "effect_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 40,
+          "effect_value": 110
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 40,
+          "effect_value": 130
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 150
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 40,
+          "effect_value": 170
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA names Skullpiercer as the hardest-hitting Advantage spender in all three specs ('Spend Skullpiercer at 5 Advantage as your hardest scaling nuke'). The most expensive thing in the kit at 40, which is three builders' worth.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_toxic_dart",
+      "name": "Toxic Dart",
+      "resource_type": "archery_points",
+      "cooldown": 2,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A dart dipped in something that does not stop working when it lands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 20,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 66
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 82
+        },
+        {
+          "rank": 4,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 98
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 114
+        },
+        {
+          "rank": 6,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 130
+        },
+        {
+          "rank": 7,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 146
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA lists Toxic Dart in all three specs' rotations. Left as a PHYSICAL dot rather than a nature-school one: Ability._apply_effect routes a schooled dot through the spell-power/spell-hit path, and a Ranger has no spell power, so a 'real' poison school would quietly make the class's own poison its weakest ability.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_crippling_shot",
+      "name": "Crippling Shot",
+      "resource_type": "archery_points",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -30.0
+      },
+      "description": "An arrow through the leg. They will still come, slower.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'slowing movement speed by -50% and knocking them off their mounts'. There is no movement speed in a turn engine; a haste cut is the same thing here, and haste on a debuff is read live by turn_meter.py's get_status_stat_mod('haste').",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_snapseed",
+      "name": "Snapseed",
+      "resource_type": "archery_points",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A seed pod that bursts hard enough to put someone on their back.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 15,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 15,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 15,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 30,
+          "cost": 15,
+          "effect_value": 76
+        },
+        {
+          "rank": 5,
+          "level_req": 38,
+          "cost": 15,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 46,
+          "cost": 15,
+          "effect_value": 100
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 15,
+          "effect_value": 112
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Toss a snapseed at an enemy, dealing ranged AP Physical damage and knocking them back'. The knockback has no engine hook.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_cutthroat",
+      "name": "Cutthroat",
+      "resource_type": "archery_points",
+      "cooldown": 5,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A heavy arrow placed where it takes the fight out of them for a moment.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 25,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 70
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 86
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 102
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 118
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 134
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Shoot a powerful arrow that deals Weapon Damage plus 40 and stuns the target for 1 seconds'.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "ranger_knockout",
+      "name": "Knockout",
+      "resource_type": "archery_points",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -25.0
+      },
+      "description": "They go down, and whatever was eating at them goes with them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Knock an enemy out, incapacitating them for 4 seconds and removing bleed and poison effects from them'. is_stun carries the incapacitate. Stripping the target's own DoTs would need a hostile dispel, which effect_type 'dispel' does not do (it cleanses allies).",
+      "is_stun": true,
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_briar_veil",
+      "name": "Briar Veil",
+      "resource_type": "archery_points",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "dodge": 25.0
+      },
+      "description": "Thorns and leaves come up around you and nothing quite lands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'increasing your dodge chance by 50% and causing dodging attacks to restore 2% maximum health and 5 Focus'. The dodge is real; the on-dodge refund has no proc trigger (the engine dispatches on_damage_taken, not on_avoid).",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_adrenaline_rush",
+      "name": "Adrenaline Rush",
+      "resource_type": "archery_points",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 20.0
+      },
+      "description": "Everything speeds up except you, which is the point.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Surge with vitality, dispeling all harmful effects from yourself and increasing your movement speed by 40%'. One ability cannot both buff and dispel, so this is the haste window CoA's Archery rotation presses ('Adrenaline Rush open distance').",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_elude",
+      "name": "Elude",
+      "resource_type": "archery_points",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "crit_chance_physical": 15.0
+      },
+      "description": "You stop being somewhere they are looking.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA gates a third of the class tree behind Elude ('Elude stealth-window abilities'). There is no stealth in this engine, so Elude lands as the opener window its own talents describe - CoA's Woodland Stalker is 'While in Elude, your critical strike chance is increased by 20%'.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_snatch",
+      "name": "Snatch",
+      "resource_type": "archery_points",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "attack_power": -45
+      },
+      "description": "Their weapon is in your hand now. They are taking it badly.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Snatch an enemy's melee weapons, disarming them for 4 seconds'. Disarm is not a state the engine tracks; an attack power debuff is what a disarm costs the target.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_survival_potion",
+      "name": "Survival Potion",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bitter, and it works.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 0,
+          "effect_value": 170
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 260
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 350
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 0,
+          "effect_value": 440
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 530
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 0,
+          "effect_value": 620
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: the panic button, 'dispelling all poison and disease effects'. Free because it is a potion. Costed at 0 Archery Points deliberately: a Ranger who has spent the bank and is about to die should not be unable to drink.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "ranger_instinct",
+      "name": "Instinct",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You stop thinking about the shot and simply take it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 25
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 30
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 35
+        },
+        {
+          "rank": 4,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 40
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 45
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Casting Instinct now also restores 40 extra Focus' (Brigand) and 'Increases the effectiveness of Instinct'. The one ability that refills the bank directly, which matters because nothing in the engine regenerates archery_points. mana_restore_pct is the rank key Ability.mana_restore_pct actually reads - effect_value is ignored by the restore_resource branch.",
+      "target_type": "self",
+      "restore_resource_type": "archery_points"
+    },
+    {
+      "ability_id": "ranger_precision_shot",
+      "name": "Precision Shot",
+      "resource_type": "archery_points",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You take the extra half-second and it is worth it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 98
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 116
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 134
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 152
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 170
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Precision Shot (main nuke, scales per stack)'. The Aimed Shot of the spec and the thing every Archery talent is pointed at.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_hunting_shot",
+      "name": "Hunting Shot",
+      "resource_type": "archery_points",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The arrow comes off the first one and finds the next.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 0,
+          "effect_value": 43
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 52
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 0,
+          "effect_value": 61
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 70
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 0,
+          "effect_value": 79
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Fire a shot that ricochets between 3 enemies ... Generates 1 stack of Advantage for each enemy hit'. The AoE builder, hence free and the largest generator. max_targets 3 is the real ricochet count; target_type enemy_aoe is what the engine reads for AoE (Ability._apply_effect sets is_aoe from target_type, so the is_aoe FIELD some shipped abilities carry is inert).",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "generates": {
+        "resource": "archery_points",
+        "amount": 15
+      }
+    },
+    {
+      "ability_id": "ranger_serrated_shot",
+      "name": "Serrated Shot",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A barbed head that does more coming out than going in.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 74
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 92
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 110
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 25,
+          "effect_value": 128
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 146
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'spend into Precision Shot (main nuke) or Serrated Shot (bleed)'.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_deadshot",
+      "name": "Deadshot",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "One arrow, and the fight is over.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 130
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 20,
+          "effect_value": 168
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 206
+        },
+        {
+          "rank": 4,
+          "level_req": 43,
+          "cost": 20,
+          "effect_value": 244
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 20,
+          "effect_value": 282
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 20,
+          "effect_value": 320
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'the sub-20%-HP execute Deadshot', 'Generates 2 Advantage'. execute_threshold_pct is PERCENT in this engine (Warrior Execute 20, Cultist 35, Primalist 50), not a fraction. One of the two abilities gated on a real ranged weapon, because CoA defines it purely in Ranged Weapon Damage ('250% Ranged Weapon Damage plus 20').",
+      "target_type": "enemy",
+      "execute_threshold_pct": 20,
+      "generates": {
+        "resource": "archery_points",
+        "amount": 10
+      },
+      "requires_ranged_weapon": [
+        "bow",
+        "gun",
+        "crossbow"
+      ]
+    },
+    {
+      "ability_id": "ranger_neurotoxin_arrow",
+      "name": "Neurotoxin Arrow",
+      "resource_type": "archery_points",
+      "cooldown": 5,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Toxin on the head, and the arrow goes through the throat.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 114
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 132
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Openers lean on Neurotoxin Arrow's silence', 'Neurotoxin Arrow's silence into Precision Shot ... deletes a caught target'. The silence is NOT modellable: 'silenced' is set as a debuff stat_mod by seven shipped abilities and read by no engine code. Shipped as the hard opener hit without it rather than as a tooltip that lies.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_incendiary_shot",
+      "name": "Incendiary Shot",
+      "resource_type": "archery_points",
+      "cooldown": 4,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The arrow is already burning when it leaves the string.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 54
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 78
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 90
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'On packs, swap to Incendiary Shot/Brutal Shot', 'up to 5 enemies within 6 yds'. Physical rather than Fire: the ranged_damage branch hardcodes physical in take_damage, so damage_school on a ranged_damage ability is inert - naming a school would read as a feature and do nothing.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "ranger_brutal_shot",
+      "name": "Brutal Shot",
+      "resource_type": "archery_points",
+      "cooldown": 5,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A volley down a line, and the line stops being a line.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 76
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 40,
+          "effect_value": 98
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 40,
+          "effect_value": 120
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 40,
+          "effect_value": 142
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 164
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Fire a volley of powerful shots that pierce through Armor ... to all targets in a 40 yd line'. The other ranged-weapon-gated ability, same reasoning as Deadshot ('450% Ranged Weapon Damage plus 300').",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "requires_ranged_weapon": [
+        "bow",
+        "gun",
+        "crossbow"
+      ]
+    },
+    {
+      "ability_id": "ranger_skirmish",
+      "name": "Skirmish",
+      "resource_type": "archery_points",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "crit_chance_physical": 15.0
+      },
+      "description": "The fight narrows down to the next three shots.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Skirmish's crit and Focus-cost window sharpens the whole sequence', 'Increases your critical strike chance by 15% and reduces your Focus costs by -25%'. The cost half cannot ride along: all_ability_cost_pct is read through get_talent_effect, which does not see status effects, so a buff carrying it would do nothing.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_poison_quiver",
+      "name": "Poison Quiver",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "attack_power": 30
+      },
+      "description": "Every head in the quiver goes through the same jar first.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Only one Quiver buff, Poison or Searing, can be active at a time, so a lot of the play is picking the right one'. Same exclusive_group, which is the engine's real one-at-a-time hook (Tinker's Rounds use it).",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "ranger_quiver"
+    },
+    {
+      "ability_id": "ranger_searing_quiver",
+      "name": "Searing Quiver",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "crit_chance_physical": 5.0
+      },
+      "description": "Heads left in the coals until just before you need them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Searing Quiver is the burst option against Poison's sustained pressure, so it carries crit where Poison carries flat power.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "ranger_quiver"
+    },
+    {
+      "ability_id": "ranger_ravage",
+      "name": "Ravage",
+      "resource_type": "archery_points",
+      "cooldown": 2,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You open them up and leave them to it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 0,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 11,
+          "cost": 0,
+          "effect_value": 60
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 74
+        },
+        {
+          "rank": 4,
+          "level_req": 25,
+          "cost": 0,
+          "effect_value": 88
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 102
+        },
+        {
+          "rank": 6,
+          "level_req": 39,
+          "cost": 0,
+          "effect_value": 116
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 130
+        },
+        {
+          "rank": 8,
+          "level_req": 53,
+          "cost": 0,
+          "effect_value": 144
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Ravage first to lay the bleed and bank an Advantage stack', 'Generates 1 Advantage'. Brigand's opener and one of its two free builders.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "archery_points",
+        "amount": 12
+      }
+    },
+    {
+      "ability_id": "ranger_wild_strike",
+      "name": "Wild Strike",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A short, fast cut that is already on its way back.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 0,
+          "effect_value": 48
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 58
+        },
+        {
+          "rank": 4,
+          "level_req": 27,
+          "cost": 0,
+          "effect_value": 68
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 78
+        },
+        {
+          "rank": 6,
+          "level_req": 41,
+          "cost": 0,
+          "effect_value": 88
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 98
+        },
+        {
+          "rank": 8,
+          "level_req": 55,
+          "cost": 0,
+          "effect_value": 108
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Weave Wild Strike to build further Advantage (Ravager makes it generate an extra stack)'. Melee `damage`, not ranged_damage - this is the spec that fights in dagger range, and it is what lets the class act with no bow equipped.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "archery_points",
+        "amount": 14
+      }
+    },
+    {
+      "ability_id": "ranger_rusty_shiv",
+      "name": "Rusty Shiv",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Not a good knife. Close enough.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 2,
+          "cost": 15,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 48
+        },
+        {
+          "rank": 4,
+          "level_req": 26,
+          "cost": 15,
+          "effect_value": 57
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 15,
+          "effect_value": 66
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 15,
+          "effect_value": 75
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 15,
+          "effect_value": 84
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 15,
+          "effect_value": 93
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA names Rusty Shiv with Flank as the pair Bounty Hunter reads ('Damage dealt by Flank and Rusty Shiv now increases the target's damage taken').",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_flank",
+      "name": "Flank",
+      "resource_type": "archery_points",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You come in from the side they are not watching.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 67
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 82
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 97
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 112
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 20,
+          "effect_value": 127
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 142
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Flank from behind for the Beatdown/Bounty payoff'. Position is not a concept here, so the bonus Flank gets for being behind the target is baked into its base damage rather than conditional.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_bushwhack",
+      "name": "Bushwhack",
+      "resource_type": "archery_points",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You are behind them before they finish turning round.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 60
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 74
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 88
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 102
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 116
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Bushwhack (teleport-behind plus stun) plays like Shadowstep-into-Cheap-Shot'. The teleport has no engine hook; the stun does.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "ranger_assault",
+      "name": "Assault",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "They are finished. This is just the part where they find out.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 30,
+          "effect_value": 124
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 30,
+          "effect_value": 160
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 196
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 30,
+          "effect_value": 232
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 268
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 30,
+          "effect_value": 304
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Dump with Assault once a few Advantage stacks are banked, especially below 20% health where it hits hardest', 'Only usable on enemies below 20% health'.",
+      "target_type": "enemy",
+      "execute_threshold_pct": 20
+    },
+    {
+      "ability_id": "ranger_vipers_bite",
+      "name": "Viper's Bite",
+      "resource_type": "archery_points",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Four strikes in the time most people manage one.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 35,
+          "effect_value": 84
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 35,
+          "effect_value": 108
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 35,
+          "effect_value": 132
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 35,
+          "effect_value": 156
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 35,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Fire Viper's Bite whenever the target is bleeding to cash in its bonus-damage strikes', 'Generates 2 Advantage'. The 'if the target is bleeding' bonus has no engine hook - no ability can test the target's active effects - so it is priced as an unconditional hard hit.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "archery_points",
+        "amount": 8
+      }
+    },
+    {
+      "ability_id": "ranger_throatpunch",
+      "name": "Throatpunch",
+      "resource_type": "archery_points",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -35.0
+      },
+      "description": "They were about to say something.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Throatpunch (spell-school interrupt/lockout)'. A school lockout is not expressible - 'silenced' as a debuff stat_mod is read by nothing - so this is the heaviest haste cut in the kit, which is the closest a turn engine gets to taking someone's next cast away.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_quills",
+      "name": "Quills",
+      "resource_type": "archery_points",
+      "cooldown": 4,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A handful of darts, thrown low and wide.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 49
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 60
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 71
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 82
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Launch darts at up to 5 nearby enemies'. The one ranged ability in an otherwise melee spec, which is why CoA calls Brigand's trash cleave 'solid' while its single-target raid damage is D.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "ranger_hookshot",
+      "name": "Hookshot",
+      "resource_type": "archery_points",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The hook finds the wound you already made.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 25,
+          "effect_value": 65
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 80
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 25,
+          "effect_value": 95
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 110
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Hookshot to yank a breakaway bleeding add back'. The pull is not modellable; the hit is.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_dirty_blades",
+      "name": "Dirty Blades",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": 50,
+        "crit_chance_physical": 4.0
+      },
+      "description": "Whatever is on the blades is not coming off between fights.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'your melee auto attacks deal an additional 30% of the damage dealt as Nature damage and reduces your target's healing received'. An on-swing damage rider is a proc, not a buff stat_mod, so this carries flat power and crit for the same window instead.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_outmaneuver",
+      "name": "Outmaneuver",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You were never where they were swinging.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 40,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 42,
+          "cost": 40,
+          "effect_value": 130
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 160
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 190
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Outmaneuver's teleport-in, decoy, teleport-back is a Shadowstep-with-Preparation-reset analog'. Reduced to its damage, which is the only half of a three-step teleport the engine can express.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_emerald_arrow",
+      "name": "Emerald Arrow",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You hold the draw until the arrowhead goes green, then let go.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 66
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 86
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 106
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 126
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 146
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 166
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Dump into Skullpiercer (hits hardest at full stacks) or Emerald Arrow (Nature burst that also scales per stack) as your default finisher'. Physical for the same reason as Incendiary Shot: damage_school is inert on a ranged_damage ability.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_woodland_arrow",
+      "name": "Woodland Arrow",
+      "resource_type": "archery_points",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A plain arrow with old work carved into the shaft.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 25,
+          "effect_value": 65
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 80
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 25,
+          "effect_value": 95
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 110
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 25,
+          "effect_value": 125
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'chain Woodland Arrow during the pull to shave the Horn cooldown back down ... so a buff is active on nearly every pull'. The cooldown refund cannot live on the ability (nothing lets a cast reduce another ability's cooldown), so it moved onto Blow the Horns! in the tree, which is the other half of the same CoA mechanic.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_whipvine_arrow",
+      "name": "Whipvine Arrow",
+      "resource_type": "archery_points",
+      "cooldown": 4,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The vines go out with the arrow and take hold where it lands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Swap to Whipvine Arrow as your finisher when you need to keep moving; it also roots', 'Hits 1 additional nearby target per stack of Advantage'. The root is not modellable ('rooted' as a debuff stat_mod is read by nothing), so this keeps the per-stack extra targets as a flat 3-target cleave and drops the root.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3
+    },
+    {
+      "ability_id": "ranger_falconstrike",
+      "name": "Falconstrike",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The shot goes out low and something goes with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 25,
+          "effect_value": 75
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 92
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 25,
+          "effect_value": 109
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 126
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 25,
+          "effect_value": 143
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Quick Shot ... is the hook for Forest Fighter's and the Falconstrike transformation, where every 5th Quick Shot becomes Falconstrike'. Every-fifth-cast transforms have no engine hook, so it is its own button on a short cooldown.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_queldorei_poison",
+      "name": "Quel'dorei Poison",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "An old recipe. Nobody has improved on it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 58
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 86
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 100
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 114
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Open tougher fights with Toxic Dart and Quel'dorei Poison for DoT pressure'. The ability_id deliberately carries the word 'poison': Ability._damage_multiplier only adds poison_dot_damage when that substring is in the id, so this is the one place the flavour key is live.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_falcons_call",
+      "name": "Falcon's Call",
+      "resource_type": "archery_points",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -30.0
+      },
+      "description": "You whistle once and the sky answers.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'open with Falcon's Call (AoE slow + Falcon summons)', 'slowing up to 8 enemies'. The slow is the half the engine can carry; the summons are their own ability below.",
+      "target_type": "enemy_aoe"
+    },
+    {
+      "ability_id": "ranger_summon_war_falcon",
+      "name": "Call War Falcon",
+      "resource_type": "archery_points",
+      "cooldown": 6,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "It has been waiting somewhere above you this whole time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Falconstrike/Falcon's Call/Falcon Diving to summon War Falcons and Dragonhawks'. effect_type summon_pet with a template that exists in combat/pet_templates.py - only 'wolf' and 'raptor' do, and there is no bird. Raptor is the closer of the two for a diving attacker (fast, bleed-flavoured, speed 1.3); the gap is that the pet's display name will read Raptor, not War Falcon.",
+      "target_type": "self",
+      "summon_pet_template": "raptor",
+      "is_instant": true
+    },
+    {
+      "ability_id": "ranger_horn_of_war",
+      "name": "Horn of War",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "crit_chance_physical": 5.0
+      },
+      "description": "Two notes. Everyone knows what they mean.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'On a shared cooldown you drop a Horn, Horn of War for crit or Horn of Alacrity for haste', 'Generates 1 Advantage'. Shared cooldown is the exclusive_group. target_type party is what actually reaches allies - buff_scope only chooses between a 30-minute raid buff and a turn-based combat window, and several shipped classes set buff_scope 'party' expecting it to do the targeting, which silently makes their combat cooldowns last 30 real minutes.",
+      "target_type": "party",
+      "buff_scope": "combat",
+      "exclusive_group": "ranger_horn",
+      "generates": {
+        "resource": "archery_points",
+        "amount": 8
+      }
+    },
+    {
+      "ability_id": "ranger_horn_of_alacrity",
+      "name": "Horn of Alacrity",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "haste": 12.0
+      },
+      "description": "A longer note, and the whole line picks up the pace.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "The haste Horn of the same pair. Same cost, same cooldown, same group - CoA's choice is which one the pull wants, not which one is better.",
+      "target_type": "party",
+      "buff_scope": "combat",
+      "exclusive_group": "ranger_horn",
+      "generates": {
+        "resource": "archery_points",
+        "amount": 8
+      }
+    },
+    {
+      "ability_id": "ranger_battle_screech",
+      "name": "Battle Screech",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power": 45,
+        "spell_power": 45
+      },
+      "description": "It is not a pleasant sound and it is not meant to be.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Empower party and raid members, increasing their attack or spell power'. Both stats, because the engine has no 'whichever one the ally uses' switch and halving it for casters would make the spec worse in exactly the group it is built for.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_battle_prowess",
+      "name": "Battle Prowess",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "hit_rating": 2
+      },
+      "description": "You tell them where to aim and they listen.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Battle Prowess (party hit)', 'Increases chance to hit with all spells and attacks by 1% for you and party and raid members'. hit_rating is 1 rating = 1% less miss in this engine.",
+      "target_type": "party",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "ranger_defense_of_the_ancients",
+      "name": "Defense of the Ancients",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "armor_pct": 15.0
+      },
+      "description": "Old wood holds. So does anyone standing near it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Defense of the Ancients' armor' aura. armor_pct is percentage POINTS (Character._recalculate_derived_stats divides it by 100), so 15.0 is +15%.",
+      "target_type": "party",
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "ranger_frenzy",
+      "name": "Frenzy",
+      "resource_type": "archery_points",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": 25.0
+      },
+      "description": "Short, loud, and over before anyone can think better of it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Frenzy's haste', 'Enrage all nearby allies, increasing their haste by 30% for 20 seconds. After being affected by this spell, allies cannot benefit from similar effects for 5 minutes'. The exhaustion debuff is not modellable, so the long cooldown carries it.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_freedom",
+      "name": "Freedom",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Whatever has hold of them lets go.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Freedom cleanses roots and snares off the group'. dispel_type movement is the existing hook (Guardian's Liberation uses it).",
+      "target_type": "party",
+      "dispel_type": "movement"
+    },
+    {
+      "ability_id": "ranger_thalassian_brand",
+      "name": "Thalassian Brand",
+      "resource_type": "archery_points",
+      "cooldown": 8,
+      "effect_type": "dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "You mark them, and everyone else knows who to shoot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 43,
+          "cost": 30,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 30,
+          "effect_value": 114
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Thalassian Brand to mark a priority target, which grants your allies bonus ranged attack power against it and ticks Nature damage'. The ally-side ranged AP bonus is target-conditional and has no engine hook, so the ability is the Nature tick and the capstone pays the rest.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "ranger_backstep",
+      "name": "Backstep",
+      "resource_type": "archery_points",
+      "cooldown": 3,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "dodge": 15.0
+      },
+      "description": "One long step backwards, taken early.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 10,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Backstep repositions you on a hit-and-run kill', 'Leap backwards up to 10 yds'. A leap is a dodge window here.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_command_aura",
+      "name": "Command Aura",
+      "resource_type": "archery_points",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power_pct": 10.0
+      },
+      "description": "For a moment everyone is shooting at the same thing at the same time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 54,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Command Aura's shared bonus damage', 'causing allied players to deal 35% ranged AP additional damage when they deal direct damage'. An on-hit rider on every ally is not expressible; a party attack power window is. attack_power_pct is percentage POINTS.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    }
+  ]
+}

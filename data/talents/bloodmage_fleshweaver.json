@@ -1,0 +1,449 @@
+{
+  "spec_name": "Bloodmage Fleshweaver",
+  "tree_id": "bloodmage_fleshweaver",
+  "description": "Blood-paid support - pay health to bank Rage, spend Rage on shields and instant heals, and damage the pack with the same casts that top the group up.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_bloodmage__fleshweaver.txt: 'Closest to Discipline Priest, with a dash of Blood DK bolted on ... No single retail healer runs an Atonement-style AoE loop off a Rage-from-health-cost economy like this.' Its stat priority is Spell Power > Spirit > Stamina > Haste > Crit > Intellect, with Intellect last because 'no mana is ever spent' - which is why three nodes in this tree convert Spirit and none touch Intellect. Two nodes exist purely to keep the Rage engine turning (Raging Hunger, Black Heart), because the spec's own stated weakness is a cold start at zero Rage and this class has no passive Rage regeneration at all.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "bloodmage_fleshweaver_gift_of_lanathel",
+      "name": "Gift of Lana'thel",
+      "description": "Grants spell power equal to 3% of your Spirit, and 1 hit rating, per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power_from_spirit_pct": 0.03,
+        "hit_rating": 1
+      },
+      "connected_to": [],
+      "_source": "CoA: 'increasing your spell power by 25% of your Spirit and your hit rating by 4% of your Spirit.' The spell power half is a real conversion; hit rating cannot be a conversion target, so it is flat. This node is why the spec's stat priority reads Spell Power > Spirit."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_organ_orbs",
+      "name": "Organ Orbs",
+      "description": "Increases your Spirit by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "spirit_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Each stack of Pooled Vitality now increases your Spirit by 3%.' Vitality is not a scaling source anything reads, so the Spirit is unconditional. spirit_pct is percentage POINTS."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_consolidation",
+      "name": "Consolidation",
+      "description": "Increases your haste by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your haste by 5%.' CoA's priority puts Haste above Crit for 'more frequent Hemoglobe pulses/Crimson Tide windows in a dot-transmute healing style'."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_raging_hunger",
+      "name": "Raging Hunger",
+      "description": "Your damaging casts have a 20% chance per rank to return 4 Rage.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {},
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 4
+        }
+      },
+      "_source": "CoA: 'Triggering Pooled Vitality now also generates 3 Rage.' The spec's named weakness is its cold start - 'an ambush at 0 Rage leaves you no shield and no panic button' - and this is the node that answers it. grant_resource goes through the same gain_resource() every builder ability uses, so the 100 cap holds."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_teachings_of_lanathel",
+      "name": "Teachings of Lana'thel",
+      "description": "Grants spell critical strike chance equal to 3% of your Spirit per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_spell_from_spirit_pct": 0.03
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_gift_of_lanathel"
+      ],
+      "_source": "CoA's stat priority names it: 'Teachings of Lana'thel converts Spirit straight into spell hit and spell crit rating'. Crit is a real conversion target; spell hit is not."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_excess_blood",
+      "name": "Excess Blood",
+      "description": "Increases the healing you do by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "healing_done": 0.03
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_organ_orbs"
+      ],
+      "_source": "CoA: 'Your healing done now has a 10% chance to heal the target for an additional amount over 6 seconds.' A heal that spawns a HoT has no hook; flat healing is the same throughput without the second effect."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_spice_of_life",
+      "name": "Spice of Life",
+      "description": "Increases the damage your effects deal over time by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "dot_damage": 0.04
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_consolidation"
+      ],
+      "_source": "CoA: 'Your periodic damage and healing now has a 10% chance to grant a stack of Pooled Vitality.' Periodic effects carry no caster reference to grant a resource back through, so the node pays off the periodic damage itself - which is how Crimson Tide and Vampyr's Kiss earn their place in a healing rotation."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_blood_redistribution",
+      "name": "Blood Redistribution",
+      "description": "Increases the healing done by Fleshcraft by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_bloodmage_fleshcraft_healing": 0.05
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_raging_hunger"
+      ],
+      "_source": "CoA: 'Increases the maximum health restored by Fleshcraft by 25%.' Fleshcraft is the spec's 'Pain Suppression/Guardian Spirit-tier stop-the-bleeding button', so it gets a dedicated node."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_black_heart",
+      "name": "Black Heart",
+      "description": "Your heals have a 25% chance per rank to return 6 Rage.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_fleshweaver_teachings_of_lanathel"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 25,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 6
+        }
+      },
+      "_source": "CoA: 'Your Vampyr's Rage now regenerates 20% of your maximum Rage', and 'Vampyr's Kiss refunding Rage behind them'. The second half of a Rage economy that otherwise only fills by spending health."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_sanguine_scion",
+      "name": "Sanguine Scion",
+      "description": "Increases the critical strike chance of Sanguine Mend and Bloodbolt by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_bloodmage_sanguine_mend_crit": 2.0,
+        "ability_bloodmage_bloodbolt_crit": 2.0
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_excess_blood"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Sanguine Mend and Bloodbolt by 10%.' Both named abilities exist here, so this is the one node that needed no translation."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_waves_of_blood",
+      "name": "Waves of Blood",
+      "description": "Your heals have a 33% chance per rank to spill 20% of their value onto your other allies.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_fleshweaver_spice_of_life"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "splash_heal": 0.2
+      },
+      "_source": "CoA: 'Each tick of Crimson Tide now has a 10% chance to heal a nearby ally for 25% of the damage dealt.' A DoT tick cannot heal anyone, so the splash moves onto the spec's heals, where splash_heal is the engine's existing spread-to-other-allies payload."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_universal_donor",
+      "name": "Universal Donor",
+      "description": "Increases your healing power by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "healing_power_pct": 2.0
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_blood_redistribution"
+      ],
+      "_source": "CoA: 'Casting Infuse or Vampyr's Kiss now increases the healing received by all allies by 6%.' healing_taken_pct is only ever read off a status effect, never off a talent, so a talent authored on it would look right and do nothing - this grants healing power instead, which is the same outcome from the other end."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_gruesome_rituals",
+      "name": "Gruesome Rituals",
+      "description": "Increases all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_black_heart"
+      ],
+      "_source": "CoA: 'Your damage dealt is now increased by 1% for each stack of Pooled Vitality.' Vitality is not readable as a scaling source, so the bonus is flat."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_dissipation",
+      "name": "Dissipation",
+      "description": "Reduces the cooldown of Fleshcraft by 12% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_bloodmage_fleshcraft_cooldown_pct": 0.12
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_sanguine_scion"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Fleshcraft and the duration of the Sated debuff by -60 sec.' Sated has no hook; the cooldown is what actually gates Fleshcraft here."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_crimson_scion",
+      "name": "Crimson Scion",
+      "description": "Reduces the Rage cost of your heals by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "heal_cost_pct": 0.02
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_waves_of_blood"
+      ],
+      "_source": "CoA: 'Direct damage dealt now has a 10% chance to make your next Sanguine Mend within 10 seconds instant cast.' Everything here is already instant, so the node pays the other currency a free cast saves. POSITIVE is a reduction for a _cost_pct key."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_vitality_for_later",
+      "name": "Vitality For Later",
+      "description": "Grants healing power equal to 3% of your Spirit per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "healing_power_from_spirit_pct": 0.03
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_universal_donor"
+      ],
+      "_source": "CoA: 'Consuming Pooled Vitality now heals up to 10 allies within 30 yds, scaling with Spirit and healing power.' A consumption trigger has no hook; the Spirit scaling is a real conversion and is the half worth keeping."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_sovereignty",
+      "name": "Sovereignty",
+      "description": "Increases the damage your area attacks deal to additional targets by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "aoe_damage": 0.08
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_gruesome_rituals"
+      ],
+      "_source": "CoA: 'Damage dealt by Crimson Tide now grants you Sovereignty ... causes it to strike 1 additional nearby enemy for each target damaged.' Target count is fixed per ability by max_targets, so the node makes the extra targets hurt more instead."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_heart_rupturer",
+      "name": "Heart Rupturer",
+      "description": "Increases the damage of Heartbreak and Crimson Tide by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_bloodmage_heartbreak_damage": 0.05,
+        "ability_bloodmage_crimson_tide_damage": 0.05
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_dissipation"
+      ],
+      "_source": "CoA: 'Increases the damage of Claw Sweep, Sanguine Rupture, Ravenous Strike and Bloodmoon Blast by 20%.' Three of those four belong to other specs, so the node points at the two abilities this rotation actually presses - and Heartbreak's damage is also its healing."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_invigorated_flesh",
+      "name": "Invigorated Flesh",
+      "description": "Increases your hit rating by 1 and your spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "hit_rating": 1,
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_crimson_scion"
+      ],
+      "_source": "CoA ships this as a free level-20 passive granting the whole raid 1% hit, which Frontier has no equivalent of and a talent cannot grant party-wide, so it becomes a real node for its owner."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_fleshbending",
+      "name": "Fleshbending",
+      "description": "Increases your spell critical strike chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_spell": 2.0
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_sovereignty"
+      ],
+      "_source": "CoA: 'Your critical strikes now increase the critical strike chance of all party and raid members by 5%.' The party half cannot be a talent effect."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_red_thirst",
+      "name": "Red Thirst",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_heart_rupturer"
+      ],
+      "_source": "CoA: 'Enrage allies within 40 yds, increasing haste by 30% for 20 seconds.' A raid haste cooldown is an ability, not a talent effect; the self half is what fits here."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_bloodcraft",
+      "name": "Bloodcraft",
+      "description": "Increases your spell damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage": 0.03
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_invigorated_flesh"
+      ],
+      "_source": "CoA: 'Your damage dealt by Darkfallen Lament now applies Bloodcraft to affected enemies, reducing damage dealt by -2%.' An enemy damage-dealt debuff has no key in the engine's stat vocabulary."
+    },
+    {
+      "talent_id": "bloodmage_fleshweaver_flesh_foundry",
+      "name": "Flesh Foundry",
+      "description": "You stop running out of material. Grants critical strike chance equal to 6% of your Spirit, increases your healing by 8%, and cuts Fleshcraft's cooldown by 20%.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "crit_chance_from_spirit_pct": 0.06,
+        "healing_done": 0.08,
+        "ability_bloodmage_fleshcraft_cooldown_pct": 0.2
+      },
+      "connected_to": [
+        "bloodmage_fleshweaver_fleshbending",
+        "bloodmage_fleshweaver_red_thirst",
+        "bloodmage_fleshweaver_bloodcraft"
+      ],
+      "_source": "Capstone. CoA: 'Your critical strikes now reduce the cooldown of Fleshcraft and the duration of Sated on the target by -4 sec. In addition, increases your critical strike rating by 15% of your Spirit.' A crit-driven cooldown reduction has no hook, so the reduction is unconditional and the Spirit conversion is real."
+    }
+  ]
+}

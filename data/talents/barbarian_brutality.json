@@ -1,0 +1,511 @@
+{
+  "spec_name": "Barbarian Brutality",
+  "tree_id": "barbarian_brutality",
+  "description": "Two-handed builder-spender melee - cheap fillers into Smash, cleave when the pack clumps, and Decapitate to finish anything under 35%. The self-healing is in the rotation rather than on a cooldown.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_barbarian__brutality.txt and the brutality block of reference/coa_sidekick/talents/barbarian.json. CoA calls this 'the closest to retail Fury Warrior, but with Second-Wind-style self-healing built into the rotation instead of bolted on' and rates it the class's leveling spec. Its stat priority is Hit > Expertise > Agility > Crit > Armor Penetration > Haste, which is why the tree spends on crit, crit damage and armour penetration rather than on raw attack power. Two CoA mechanics shaped what is here and what is not: the Enrage engine (three enrage abilities existing to keep Smash castable) has no state to hang on, so Smash is ungated and the enrages are ordinary buffs; and the self-sustain is deliberately kept as PROCS (Sustaining Swings' leech, Blood and Glory's low-health band) rather than a heal button, because the reference is explicit that this spec has no quick self-heal.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "barbarian_brutality_pure_power",
+      "name": "Pure Power",
+      "description": "Increases the damage of Smash by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_barbarian_smash_damage": 0.05
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Pure Power - Increases the damage of Smash by 15% and your expertise by 5'. There is no expertise key in this engine (dodge/parry are rolled by the defender, with no attacker-side offset), so only the damage half lands."
+    },
+    {
+      "talent_id": "barbarian_brutality_reckless_movements",
+      "name": "Reckless Movements",
+      "description": "Increases the damage of Ancestral Strike and Barbaric Whirl by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_barbarian_ancestral_strike_damage": 0.04,
+        "ability_barbarian_barbaric_whirl_damage": 0.04
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Ancestral Strike and Barbaric Whirl by 20%'. ability_<id>_<stat> keys are built by string interpolation in abilities.py, so a literal grep calls them dead."
+    },
+    {
+      "talent_id": "barbarian_brutality_savage_strength",
+      "name": "Savage Strength",
+      "description": "Increases your Agility by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "agility_pct": 2.0
+      },
+      "connected_to": [],
+      "_source": "CoA class tree: 'Savage Strength - Increases your Agility by 5%'. Agility is the spec's primary stat per its own stat priority."
+    },
+    {
+      "talent_id": "barbarian_brutality_excessive_power",
+      "name": "Excessive Power",
+      "description": "Increases your maximum Energy by 6 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "energy_max": 6
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Excessive Power raises your max Energy' (its real wording is +100%). energy_max is the <resource>_max family read by get_resource_max; 30 extra at 5/5 against a 100 pool is the shipped scale, not CoA's doubling."
+    },
+    {
+      "talent_id": "barbarian_brutality_bloody_fighter",
+      "name": "Bloody Fighter",
+      "description": "Increases the critical strike chance of Brutal Swing and Smash by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_barbarian_brutal_swing_crit": 2.0,
+        "ability_barbarian_smash_crit": 2.0
+      },
+      "connected_to": [
+        "barbarian_brutality_pure_power"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Brutal Swing and Smash by 5%'. ability_<id>_crit is read in _roll_crit in percentage points, the same unit as crit_chance_physical - a real per-ability crit key, so this does not have to become global crit."
+    },
+    {
+      "talent_id": "barbarian_brutality_relentless",
+      "name": "Relentless",
+      "description": "Your critical strikes with Ancestral Strike and Brutal Swing have a 30% chance per rank to refund 10 Energy.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_reckless_movements"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 30,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_ancestral_strike",
+          "barbarian_brutal_swing"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Ancestral Strike and Brutal Swing now refund 10 Energy'. _sync_talent_procs scales a multi-rank proc's CHANCE by points spent and nothing else, so the tooltip has to read 'per rank' on the chance."
+    },
+    {
+      "talent_id": "barbarian_brutality_efficient_killer",
+      "name": "Efficient Killer",
+      "description": "Reduces the Energy cost of your abilities by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "all_ability_cost_pct": -0.02
+      },
+      "connected_to": [
+        "barbarian_brutality_savage_strength"
+      ],
+      "_source": "CoA: 'Reduces the Energy cost of your spells and abilities by -10%'."
+    },
+    {
+      "talent_id": "barbarian_brutality_ogres_strength",
+      "name": "Ogre's Strength",
+      "description": "Grants attack power equal to 2% of your Strength per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ap_from_strength_pct": 0.02
+      },
+      "connected_to": [
+        "barbarian_brutality_excessive_power"
+      ],
+      "_source": "CoA free passive: 'Increases your attack power by 30% of your Strength'. A real <target>_from_<source>_pct conversion, resolved against the shared STAT_CONVERSION maps in character.py."
+    },
+    {
+      "talent_id": "barbarian_brutality_spiked_weapons",
+      "name": "Spiked Weapons",
+      "description": "Increases your critical strike damage by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "crit_damage_physical": 0.04
+      },
+      "connected_to": [
+        "barbarian_brutality_bloody_fighter"
+      ],
+      "_source": "CoA: 'Increases the critical damage of Crush, Brutal Swing, and Decapitate by 20%'. ability_<id>_crit_damage exists but only takes one id, and this names three, so it lands as the global physical crit-damage key at a smaller per-rank value."
+    },
+    {
+      "talent_id": "barbarian_brutality_anger_issues",
+      "name": "Anger Issues",
+      "description": "Your critical strikes have a 25% chance per rank to knock a turn off Barbaric Whirl and Crush.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_relentless"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "reset_cooldown": {
+          "abilities": [
+            "barbarian_barbaric_whirl",
+            "barbarian_crush"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA: 'Scoring a critical strike against an enemy now reduces the cooldown of Carnage by -4 sec', and the playstyle note 'banking crits to shorten Carnage's cooldown via Anger Issues'. reset_cooldown with a `turns` value is a real proc payload - omitting turns would reset outright, which is stronger than CoA's."
+    },
+    {
+      "talent_id": "barbarian_brutality_battering_ram",
+      "name": "Battering Ram",
+      "description": "Increases your armor penetration by 6 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "armor_penetration": 6
+      },
+      "connected_to": [
+        "barbarian_brutality_efficient_killer"
+      ],
+      "_source": "CoA: 'Increases your Armor penetration by 10% while wielding a two-handed mace or axe', and the spec's stat priority lists Armor Penetration. armor_penetration is real and subtracted from the defender's Armor in both Character.take_damage and Monster.take_damage; the weapon-type condition has no hook, so the value is flat and modest (18 at 3/3 against a level 60 humanoid's 118 Armor)."
+    },
+    {
+      "talent_id": "barbarian_brutality_horde_breaker",
+      "name": "Horde Breaker",
+      "description": "Your Crush leaves enemies Wounded, reducing their armor by 35.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_ogres_strength"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 34,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_crush"
+        ],
+        "apply_effect": {
+          "effect_id": "barbarian_wounded",
+          "name": "Wounded",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -35
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Your Crush ... now applies Wounded to enemies for 10 seconds. Wounded: Increases Physical Damage taken by 4%'. A Monster reads only `armor` and `attack_power` out of a status effect's stat_mods (entities/monster.py), so physical_damage_taken_pct on an enemy debuff would do nothing - armour shred is the version that lands. The guaranteed-crit-on-Headbutt half has no hook."
+    },
+    {
+      "talent_id": "barbarian_brutality_headlopper",
+      "name": "Headlopper",
+      "description": "Your critical strikes with Decapitate have a 50% chance per rank to leave the enemy bleeding.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_spiked_weapons"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_decapitate"
+        ],
+        "apply_effect": {
+          "effect_id": "barbarian_headlopper",
+          "name": "Headlopper",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 45,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Your critical strikes with Decapitate now cause the enemy to bleed, dealing an additional 30% of the damage dealt over 5 seconds'. A proc payload's potency is static, so the bleed is a flat tick rather than a share of the hit that caused it."
+    },
+    {
+      "talent_id": "barbarian_brutality_crusher",
+      "name": "Crusher",
+      "description": "Your melee attacks have a 10% chance per rank to reset Crush.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_anger_issues"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "reset_cooldown": {
+          "ability": "barbarian_crush"
+        }
+      },
+      "_source": "CoA: 'Melee auto attacks now have a 10% chance to reset the cooldown of Crush'. ON_WEAPON_SWING fires only for '<class>_attack' - a real basic-attack-only trigger, which is exactly what 'auto attacks' means."
+    },
+    {
+      "talent_id": "barbarian_brutality_whirling_assault",
+      "name": "Whirling Assault",
+      "description": "Increases the damage of Whirling Advance by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_barbarian_whirling_advance_damage": 0.1
+      },
+      "connected_to": [
+        "barbarian_brutality_battering_ram"
+      ],
+      "_source": "CoA: 'Increases the damage of Whirling Advance by 300% on enemies above 80% health'. There is no above-80% condition, so it is a flat increase at a fraction of CoA's size."
+    },
+    {
+      "talent_id": "barbarian_brutality_rancor",
+      "name": "Rancor",
+      "description": "Your Brutal Swing has a 25% chance per rank to trigger an additional attack.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_horde_breaker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 1,
+        "ability_filter": [
+          "barbarian_brutal_swing"
+        ],
+        "extra_attack": 1
+      },
+      "_source": "CoA: 'Your Brutal Swing now triggers an additional auto attack on the primary target'. extra_attack is the real Windfury-style payload, re-invoking the basic attack through the caster's own ability_book."
+    },
+    {
+      "talent_id": "barbarian_brutality_thirst_for_battle",
+      "name": "Thirst for Battle",
+      "description": "Your Smash has a 33% chance per rank to return 12 Energy.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_headlopper"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "barbarian_smash"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 12
+        }
+      },
+      "_source": "CoA: 'Your Smash now regenerate 25% of your maximum Energy', and 'Smash being near-free thanks to Thirst for Battle's Energy refund'. A guaranteed 25-Energy refund on a 30-cost ability would make the spec's main dump free, so it is a chance at a smaller amount."
+    },
+    {
+      "talent_id": "barbarian_brutality_sustaining_swings",
+      "name": "Sustaining Swings",
+      "description": "Your attacks have a 3% chance per rank to heal you for 10% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_brutality_crusher"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 3,
+        "icd": 0,
+        "leech_pct": {
+          "pct": 0.1
+        }
+      },
+      "_source": "CoA: 'Melee attacks now have an 8% chance to heal you for 10% of the damage dealt'. leech_pct heals off the triggering amount, which is exactly this. The 'next Ancestral Strike deals 50% more' half has no hook."
+    },
+    {
+      "talent_id": "barbarian_brutality_overkill",
+      "name": "Overkill",
+      "description": "Increases the critical strike chance of Decapitate by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_barbarian_decapitate_crit": 4.0
+      },
+      "connected_to": [
+        "barbarian_brutality_whirling_assault"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Decapitate and Headhunter's Spear by 30% against targets below 20% health'. Decapitate already requires a target below 35%, so the condition is most of the way there; the below-20% part is not expressible."
+    },
+    {
+      "talent_id": "barbarian_brutality_body_builder",
+      "name": "Body Builder",
+      "description": "Grants attack power equal to 3% of your Agility per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "ap_from_agility_pct": 0.03
+      },
+      "connected_to": [
+        "barbarian_brutality_thirst_for_battle"
+      ],
+      "_source": "CoA free passive: 'You now gain 1 Strength for every 3 Agility'. strength is not a valid conversion TARGET - STAT_CONVERSION_TARGETS in character.py accepts attack power, spell power, healing power, armor, block value, parry, dodge, haste and crit, not the core stats - so the conversion goes straight to what Strength was for here."
+    },
+    {
+      "talent_id": "barbarian_brutality_blood_and_glory",
+      "name": "Blood and Glory",
+      "description": "While below 35% health, you take 8% less damage and your healing received is 3% stronger, per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.08,
+        "low_health_threshold_pct": 0.35,
+        "low_health_healing_pct": 0.03
+      },
+      "connected_to": [
+        "barbarian_brutality_sustaining_swings"
+      ],
+      "_source": "CoA class tree: 'While at or below 35% maximum health, you now gain 20% increased healing received and take -10% reduced damage'. Both halves are real keys and the 35% threshold is CoA's own number."
+    },
+    {
+      "talent_id": "barbarian_brutality_steelslinger",
+      "name": "Steelslinger",
+      "description": "Increases the damage your abilities deal to additional targets by 8% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "aoe_damage": 0.08
+      },
+      "connected_to": [
+        "barbarian_brutality_overkill"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Barbaric Whirl by -2 sec and increases its damage dealt by 100% on enemies below 35% health'. aoe_damage is read for any enemy_aoe cast, which covers Barbaric Whirl, Brutal Swing and Crush together - the spec is 'an AoE/cleave specialist' per the reference, so the shared key is the right home."
+    },
+    {
+      "talent_id": "barbarian_brutality_maximum_carnage",
+      "name": "Maximum Carnage",
+      "description": "You stop choosing targets and simply keep the weapon moving.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "physical_damage": 0.12,
+        "aoe_damage": 0.15
+      },
+      "connected_to": [
+        "barbarian_brutality_body_builder",
+        "barbarian_brutality_blood_and_glory",
+        "barbarian_brutality_steelslinger"
+      ],
+      "_source": "Capstone. CoA: 'Casting Unbridled Rage now causes you to begin swinging your weapon around you dealing AP Physical damage to up to 5 nearby enemies over 5 seconds', and it is the thing the whole rotation is built to light up ('Open with Unbridled Rage on anything more than a single mob to trigger Maximum Carnage's whirl'). A talent cannot add a persistent whirl to another ability's cast, so the payoff is the damage that whirl was worth."
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+{
+  "spec_name": "Chronomancer Time",
+  "tree_id": "chronomancer_time",
+  "description": "Healer - Epoch and Accelerated Recovery are the loop, whichever of the four Aeons is loaded decides what Epoch does, and a stack of absorbs covers the gaps.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_chronomancer__time.txt: 'Closest to Preservation Evoker ... the four Aeons function like choosing between burst, mitigation and HoT modes on one cooldown.' That is the spec's one real idea and the tree spends three of its four ability unlocks on it, with the fourth Aeon learned from level so a fresh healer always has one. Stat priority is Spirit > Spell Power > Haste > Intellect > Crit > MP5, which is why Sands of Life converts Spirit into healing power and why mana cost shows up three times.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "chronomancer_time_time_wizard",
+      "name": "Time Wizard",
+      "description": "Increases your spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the critical strike chance of your Reverse Wound, Epoch, and Correct the Mistake by 8%.' Those are three of the spec's four heals, so it is the spec's crit node."
+    },
+    {
+      "talent_id": "chronomancer_time_sands_of_life",
+      "name": "Sands of Life",
+      "description": "Grants healing power equal to 3% of your Spirit per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_from_spirit_pct": 0.03
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your healing power by 25% of your Spirit.' A real conversion, and the reason this spec's stat priority opens on Spirit."
+    },
+    {
+      "talent_id": "chronomancer_time_keep_accelerating",
+      "name": "Keep Accelerating",
+      "description": "Increases the healing of Accelerated Recovery by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_chronomancer_accelerated_recovery_healing": 0.05
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Your Accelerated Recovery now applies to an additional nearby target.' A HoT's recipients come from its target_type, which no talent key changes, so the second target becomes a stronger first one."
+    },
+    {
+      "talent_id": "chronomancer_time_endless_sands",
+      "name": "Endless Sands",
+      "description": "Reduces the Mana cost of your healing spells by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "heal_cost_pct": 0.02
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Cast time of your next Reverse Wounds within 15 seconds is reduced by -20%, stacking up to 5 times.' No cast times; a cast-time discount on a heal is a Mana discount on a heal. Positive is the reduction here, same sign convention as all_ability_cost_pct."
+    },
+    {
+      "talent_id": "chronomancer_time_aeon_of_protection",
+      "name": "Aeon of Protection",
+      "description": "Teaches Aeon of Protection, which makes your healing heavier and you harder to hurt.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "chronomancer_aeon_of_protection"
+      },
+      "connected_to": [
+        "chronomancer_time_time_wizard"
+      ],
+      "_source": "CoA's level-15 passive. The four Aeons share one exclusive_group on the ability side, which is CoA's 'four Aeons that share a cooldown' - see the ability's own _source."
+    },
+    {
+      "talent_id": "chronomancer_time_carbon_dating",
+      "name": "Carbon Dating",
+      "description": "Increases the healing of Epoch by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_chronomancer_epoch_healing": 0.04
+      },
+      "connected_to": [
+        "chronomancer_time_sands_of_life"
+      ],
+      "_source": "CoA: 'Each stack of Sands of Time now also increases the healing of your Epoch by 10%.' Sands of Time is not a resource this class can have (see the module docstring), so the stack payoff is spent as talent points instead of built in the fight."
+    },
+    {
+      "talent_id": "chronomancer_time_through_the_aeons",
+      "name": "Through The Aeons",
+      "description": "Grants 4 mana per 5 seconds per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "mp5": 4
+      },
+      "connected_to": [
+        "chronomancer_time_keep_accelerating"
+      ],
+      "_source": "CoA: 'Activating an Aeon now increases your mana regeneration from Spirit by 100% for 8 seconds.' A window keyed to activating an Aeon has no trigger; the regen is flat and always on."
+    },
+    {
+      "talent_id": "chronomancer_time_timeless",
+      "name": "Timeless",
+      "description": "Reduces the Mana cost of your abilities by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "all_ability_cost_pct": 0.02
+      },
+      "connected_to": [
+        "chronomancer_time_endless_sands"
+      ],
+      "_source": "CoA: 'While Endless Sands is active, the mana costs of your spells and abilities is reduced by -3% per stack.' CoA is explicit that mana is this spec's real limit - 'Every strong tool sits on a cooldown and costs mana' - so the tree carries two cost nodes and an mp5 node."
+    },
+    {
+      "talent_id": "chronomancer_time_aeon_of_renewal",
+      "name": "Aeon of Renewal",
+      "description": "Teaches Aeon of Renewal, which trades pace for total healing done.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "chronomancer_aeon_of_renewal"
+      },
+      "connected_to": [
+        "chronomancer_time_aeon_of_protection"
+      ],
+      "_source": "CoA's level-30 passive, 'for sustained HoT-heavy phases'."
+    },
+    {
+      "talent_id": "chronomancer_time_shimmering_shard",
+      "name": "Shimmering Shard",
+      "description": "Increases your healing done by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "healing_done": 0.03
+      },
+      "connected_to": [
+        "chronomancer_time_carbon_dating"
+      ],
+      "_source": "CoA: 'Activating Aeon spells now grants you 4% increased damage and healing for 20 seconds, stacking 3 times.' The stacking window needs an on-Aeon trigger; the healing it grants does not."
+    },
+    {
+      "talent_id": "chronomancer_time_wonders_of_time",
+      "name": "Wonders of Time",
+      "description": "Increases your haste by 1 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [
+        "chronomancer_time_through_the_aeons"
+      ],
+      "_source": "CoA: 'Increases the spell haste of all party and raid members by 3%.' A talent effect only ever lands on the character who spent the point - there is no party-facing talent pool - so the aura is the Chronomancer's own haste."
+    },
+    {
+      "talent_id": "chronomancer_time_cadence_of_time",
+      "name": "Cadence of Time",
+      "description": "Increases the healing of Ripple by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_chronomancer_ripple_healing": 0.04
+      },
+      "connected_to": [
+        "chronomancer_time_timeless"
+      ],
+      "_source": "CoA: 'Your critical strikes with Epoch now grant Cadence of Time, increasing the healing of Ripple by 10%. Stacks 5 times.'"
+    },
+    {
+      "talent_id": "chronomancer_time_aeon_of_oblivion",
+      "name": "Aeon of Oblivion",
+      "description": "Teaches Aeon of Oblivion, the expensive one that lands when it has to.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "chronomancer_aeon_of_oblivion"
+      },
+      "connected_to": [
+        "chronomancer_time_aeon_of_renewal"
+      ],
+      "_source": "CoA's level-40 passive - the burst Aeon."
+    },
+    {
+      "talent_id": "chronomancer_time_fabric_of_time",
+      "name": "Fabric of Time",
+      "description": "Teaches Fabric of Time, a fast heal that reaches past the injury.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "chronomancer_fabric_of_time"
+      },
+      "connected_to": [
+        "chronomancer_time_shimmering_shard"
+      ],
+      "_source": "CoA: 'Fabric of Time lets your next Aeon fire free of cost or cooldown.' The free-Aeon half has no hook; the heal is real."
+    },
+    {
+      "talent_id": "chronomancer_time_mark_of_order",
+      "name": "Mark of Order",
+      "description": "Increases the healing of Reverse Wound by 4% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_chronomancer_reverse_wound_healing": 0.04
+      },
+      "connected_to": [
+        "chronomancer_time_wonders_of_time"
+      ],
+      "_source": "CoA: 'Healing done by Fortify Timeline now applies Mark of Order. Increases the healing of your next Reverse Wound on the target by 10%.' A heal cannot mark its recipient for a later heal, so the bonus is unconditional."
+    },
+    {
+      "talent_id": "chronomancer_time_timeline_tether",
+      "name": "Timeline Tether",
+      "description": "Your casts pull Fortify Timeline forward by 1 turn.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_time_cadence_of_time"
+      ],
+      "proc": {
+        "trigger": "on_damage_or_heal_cast",
+        "chance": 100,
+        "icd": 1,
+        "reset_cooldown": {
+          "ability": "chronomancer_fortify_timeline",
+          "turns": 1
+        }
+      },
+      "_source": "CoA: 'Your periodic damage and healing reduces the cooldown of your Fortify Timeline by -1 sec.' The real mechanic - on_damage_or_heal_cast is a trigger the engine dispatches, and reset_cooldown takes a turn count."
+    },
+    {
+      "talent_id": "chronomancer_time_orderly_protector",
+      "name": "Orderly Protector",
+      "description": "Your heals have a 30% chance to leave a quarter of the healing behind as a shield.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_time_aeon_of_oblivion"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 30,
+        "icd": 1,
+        "shield_pct": {
+          "pct": 0.25,
+          "duration": 2,
+          "name": "Orderly Protector"
+        }
+      },
+      "_source": "CoA: 'Healing done by your Epoch now increases the healing of Fabric of Time by 10%, stacking 10 times. Each stack gives you a 2% chance when you cast Fabric of Time to reset its own cooldown.' That chain is not expressible, so this node carries the absorb Aeon of Protection could not: 'causes it to apply a damage absorption shield equal to 30% of the amount healed', via the shield_pct proc payload."
+    },
+    {
+      "talent_id": "chronomancer_time_overcorrection",
+      "name": "Overcorrection",
+      "description": "Your heals spill a fifth of their value onto up to 3 other allies.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_time_fabric_of_time"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 2,
+        "splash_heal": {
+          "pct": 0.2,
+          "max_targets": 3
+        }
+      },
+      "_source": "CoA: 'Overhealing done by Correct the Mistake now applies a heal over time effect to the ally equal to 30% of the healing done.' Overhealing is not tracked, so the spill goes to the allies who can use it."
+    },
+    {
+      "talent_id": "chronomancer_time_time_skip",
+      "name": "Time Skip",
+      "description": "Reduces the cooldown of Roll Back by 1 turn and the duration of stuns against you by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_chronomancer_roll_back_cooldown": 1,
+        "stun_duration_reduction_pct": 0.1
+      },
+      "connected_to": [
+        "chronomancer_time_mark_of_order"
+      ],
+      "_source": "CoA: 'Your Roll Back now removes 1 additional harmful effect.' dispel_count is fixed on the ability, so a more frequent cleanse replaces a bigger one. The stun resistance is CoA's listed weakness answered directly: 'a chain-stun or silence landing while your cooldowns are down kills you'."
+    },
+    {
+      "talent_id": "chronomancer_time_shield_of_the_ages",
+      "name": "Shield of the Ages",
+      "description": "When you are hit, you have a 35% chance to take 6% less damage and receive 8% more healing for 2 turns, per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_time_orderly_protector"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 35,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "chronomancer_shield_of_the_ages",
+          "name": "Shield of the Ages",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_taken_pct": -0.06,
+            "healing_taken_pct": 8
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'When hit by a damaging critical strike, your damage taken is reduced by -3%, and healing received is increased by 5% for 3 seconds, stacking 3 times.' on_crit fires on the CASTER's crits, not on being crit, so the trigger is on_damage_taken with a chance standing in for 'only on crits'. Note the two units: damage_taken_pct is read RAW off a status effect and so is a fraction, while healing_taken_pct is divided by 100 and so is points - in the same dict."
+    },
+    {
+      "talent_id": "chronomancer_time_converge_the_infinite",
+      "name": "Converge the Infinite",
+      "description": "Increases the healing of Correct the Mistake by 10% and your spell critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "ability_chronomancer_correct_the_mistake_healing": 0.1,
+        "crit_chance_spell": 1.0
+      },
+      "connected_to": [
+        "chronomancer_time_overcorrection"
+      ],
+      "_source": "CoA: 'Your next Correct the Mistake has a 1 sec increased cast time, but heals for 30% more and is guaranteed to critically strike.'"
+    },
+    {
+      "talent_id": "chronomancer_time_epic_recovery",
+      "name": "Epic Recovery",
+      "description": "Increases the healing of Epoch by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_chronomancer_epoch_healing": 0.06
+      },
+      "connected_to": [
+        "chronomancer_time_time_skip"
+      ],
+      "_source": "CoA: 'When you cast Epoch you now also cast a Rank 1 Epoch on up to 5 allies affected by Accelerated Recovery.' A heal cannot cast a second heal at a different rank, so the spec's core heal just gets bigger."
+    },
+    {
+      "talent_id": "chronomancer_time_the_vast_infinite",
+      "name": "The Vast Infinite",
+      "description": "You take 8% less damage, heal 8% harder, and every blow that lands on you returns as healing to whoever needs it most.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "damage_taken_pct": -0.08,
+        "healing_done": 0.08
+      },
+      "connected_to": [
+        "chronomancer_time_shield_of_the_ages",
+        "chronomancer_time_converge_the_infinite",
+        "chronomancer_time_epic_recovery"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 1,
+        "leech_pct": {
+          "pct": 0.3,
+          "smart": true
+        }
+      },
+      "_source": "Capstone. CoA: 'All party and raid members become one, equally sharing 25% of all damage dealt to them ... At the end of the duration, all affected allies are healed equal to the total damage shared.' Damage cannot be redirected between combatants, but leech_pct with smart:true converts a share of the damage the Chronomancer takes into healing on the worst-off ally, which is the store-the-damage-release-the-heal shape CoA calls the spec's signature. It is a passive rather than the 10-second cooldown window."
+    }
+  ]
+}

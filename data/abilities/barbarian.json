@@ -1,0 +1,1782 @@
+{
+  "class": "Barbarian",
+  "_source_note": "Barbarian is one of the twelve CoA classes that shipped with base stats, armour type, weapon proficiency and a resource but no abilities and no talents, which left it unselectable. Written as a sibling of tools/build_guardian.py and following its structure, helpers and _source discipline.",
+  "abilities": [
+    {
+      "ability_id": "barbarian_attack",
+      "name": "Attack",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A measured swing with your weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack. The id matters - combat/abilities.py fires ON_WEAPON_SWING only for '<class>_attack', so Crusher keys off this one."
+    },
+    {
+      "ability_id": "barbarian_ancestral_strike",
+      "name": "Ancestral Strike",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A straight, heavy swing with the whole shoulder behind it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 20,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 51
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 73
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 84
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 95
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 106
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 117
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 128
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Smash and Ancestral Strike as your Energy fillers'. The cheap no-cooldown filler every spec presses, so it carries Warrior heroic_strike's curve exactly.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_whirling_advance",
+      "name": "Whirling Advance",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Cross the ground at a run with the weapon already moving, and cut whatever is standing in the way.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 15,
+          "effect_value": 40
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 15,
+          "effect_value": 50
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 15,
+          "effect_value": 60
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 15,
+          "effect_value": 70
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 15,
+          "effect_value": 80
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA class tree builds a whole cluster around it - Dauntless, Rage Whirling, Forward Advance, Whirling Assault - so it is the shared gap-closer. The real one dispels a slow on hit; there is no self-dispel hook on a damage cast, so Dauntless carries mitigation instead.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3
+    },
+    {
+      "ability_id": "barbarian_barbaric_whirl",
+      "name": "Barbaric Whirl",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spin with both arms out and let the weapon find everything close enough to matter.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 30,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 30,
+          "effect_value": 43
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 52
+        },
+        {
+          "rank": 4,
+          "level_req": 35,
+          "cost": 30,
+          "effect_value": 61
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 70
+        },
+        {
+          "rank": 6,
+          "level_req": 49,
+          "cost": 30,
+          "effect_value": 79
+        },
+        {
+          "rank": 7,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 88
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Barbaric Whirl on any pull of 3+ mobs'. The shared cleave. enemy_aoe rather than the is_aoe flag - is_aoe is not read by _ability_from_data, so target_type is what actually makes an ability hit a pack.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "barbarian_unbridled_rage",
+      "name": "Unbridled Rage",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 15,
+        "haste": 10
+      },
+      "description": "Stop holding anything back. It hurts later and works now.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Unbridled Rage is your main burst window (+Physical damage, and it triggers Maximum Carnage's whirl)'. The class's signature enrage. This engine has no enrage STATE, so the three CoA abilities that only exist to keep Smash castable are plain buffs and Smash is ungated.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_defiance",
+      "name": "Defiance",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.3
+      },
+      "description": "Decide, briefly and without much evidence, that this is not how it ends.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Defiance (damage taken cut 30-80% the lower your health)'. A buff's stat_mods are read raw by take_damage's taken_mult, so damage_taken_pct is a FRACTION here. The health-scaled 30-to-80% band has no hook on a cast buff, so it lands at the floor, 30%; the scaling half is covered by Blood and Glory's low_health_damage_reduction_pct in the Brutality tree.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_jawbreaker",
+      "name": "Jawbreaker",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "silenced": 1
+      },
+      "description": "One short punch to the jaw. Whatever they were saying stops.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Jawbreaker - interrupting them and preventing any spell from that school from being cast for 4 seconds'. School lockout has no hook; silenced is the engine's existing interrupt flag.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_headhunters_spear",
+      "name": "Headhunter's Spear",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A light spear, thrown fast and low. You are moving again before it lands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 96
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 109
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Headhunter's Spear ... restores 30% of your maximum Energy'. The `generates` field is how a builder pays in one currency and produces another, so the refund is real rather than flavour. ranged_damage - it is thrown, and Barbarian's weapon map includes thrown/gun/crossbow.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "energy",
+        "amount": 25
+      }
+    },
+    {
+      "ability_id": "barbarian_maiming_spear",
+      "name": "Maiming Spear",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -20
+      },
+      "description": "Thrown at the legs. They can still come for you, just slowly.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Throw your ranged weapon at your enemy's legs ... slowing their movement speed by -50%'. There is no movement in a turn fight, so the slow lands as the thing a slow actually costs you: tempo.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_skull_smash",
+      "name": "Skull Smash",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "stunned": 1
+      },
+      "description": "Pick up a rock. Throw the rock. They sit down.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'hurl it at an enemy's skull, disorienting them ... Damage taken will end this effect'. Disorient is modelled as the engine's stun, which is the closest honest fit; the break-on-damage half has no hook, so the duration is one turn to keep it from being strictly better than CoA's.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "barbarian_ancestral_roar",
+      "name": "Ancestral Roar",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You shout something in a language you were never taught, and it helps.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 170
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 260
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 350
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 440
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 530
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Ancestral Roar - Requires Enraged. Roar with ancestral fervor, healing you for AP'. Enrage gate dropped (no enrage state); the AP scaling is covered by the engine's own healing_power contribution rather than a literal AP coefficient.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "barbarian_warband",
+      "name": "Warband",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You pull the others in close. Nobody in the knot of you bleeds out quietly.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 220
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 30,
+          "effect_value": 290
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 360
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 30,
+          "effect_value": 430
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 500
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Bring all nearby allies into the warband for 12 seconds, granting them Born in Blood, repeating every 3 sec' - and the spec pages are blunt that this 'is a regen buff, not triage. It cannot heal a dungeon.' A party HoT needs target_type='party'; buff_scope only chooses between turn-based and wall-clock duration and would have left this self-only.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "barbarian_thick_skull",
+      "name": "Thick Skull",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "cc_immune": 1
+      },
+      "description": "Your skull has been described, more than once, as a structural feature.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'immune to all stun effects for 10 seconds ... Usable while stunned'. The usable-while-stunned half has no hook. The on-damage Born in Blood grant is carried by the Brutality tree's Savagery node instead.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_hodirs_wrath",
+      "name": "Hodir's Wrath",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The cold that comes out of you is older than you are.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 43,
+          "cost": 30,
+          "effect_value": 65
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 80
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 30,
+          "effect_value": 95
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Erupt with the power of Hodir, dealing AP Frost damage to nearby enemies and restoring 100% of your maximum Energy'. A full refund would make it free, so the generate is 40. spell_damage with damage_school='frost' because effect_type='damage' is hardcoded physical - see the module docstring on where a non-caster's Frost scaling comes from.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": "frost",
+      "generates": {
+        "resource": "energy",
+        "amount": 40
+      }
+    },
+    {
+      "ability_id": "barbarian_smash",
+      "name": "Smash",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Everything you have, into one place, with no plan for the follow-up.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 30,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 74
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 90
+        },
+        {
+          "rank": 4,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 106
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 122
+        },
+        {
+          "rank": 6,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 138
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 30,
+          "effect_value": 154
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Smash, your biggest no-cooldown Energy dump, requires an active [enrage]'. No cooldown, so no cooldown here either; the enrage requirement is dropped with the rest of the enrage state.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_brutal_swing",
+      "name": "Brutal Swing",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A wide, careless arc. Whoever stood too close to your target shares in it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 36
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 20,
+          "effect_value": 46
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 56
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 20,
+          "effect_value": 66
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 76
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 20,
+          "effect_value": 86
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 20,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Brutal Swing is your off-global cleave dump between specials', 'swing violently at an enemy and up to 2 nearby enemies'. off-global = is_instant, the engine's turn-based translation of a free action, same as Warrior's Cleave.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "is_instant": true
+    },
+    {
+      "ability_id": "barbarian_decapitate",
+      "name": "Decapitate",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Finish it. There is no second swing in this one.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 130
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 166
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 202
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 238
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 274
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 310
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Decapitate to execute once the target is below 35% HP (each point of spare Energy adds damage)'. execute_threshold_pct is PERCENT POINTS - warrior_execute is 20, cultist_netherstrike 35 - so 35, not 0.35. The spend-spare-Energy scaling has no hook; the flat damage is sized as though it had been spent.",
+      "target_type": "enemy",
+      "execute_threshold_pct": 35
+    },
+    {
+      "ability_id": "barbarian_crush",
+      "name": "Crush",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bring it down on the front rank. They go down with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 30,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 30,
+          "effect_value": 114
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Crush is a frontal-cone knockdown and stun', 'Landing Crush on a full clump as the tank gathers - that is the biggest AoE payoff the spec has'.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "is_stun": true
+    },
+    {
+      "ability_id": "barbarian_onslaught",
+      "name": "Onslaught",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A second wind you did not earn and will not question.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 0,
+          "effect_value": 43
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 51
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 0,
+          "effect_value": 59
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Onslaught is an Energy battery that floods the bar for execute phases'. effect_value on a restore_resource ability is a PERCENTAGE of the pool (it is read as mana_restore_pct), so 35-59% of 100 Energy. It is also an enrage in CoA; nothing here can carry that.",
+      "target_type": "self",
+      "restore_resource_type": "energy"
+    },
+    {
+      "ability_id": "barbarian_battle_vigor",
+      "name": "Battle Vigor",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "max_health_pct": 0.15,
+        "attack_power": 30
+      },
+      "description": "You get bigger when it is going badly. Nobody has explained it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Battle Vigor is a +max-health defensive that still counts as an enrage, so it keeps Smash live'. max_health_pct is a FRACTION in the shared bonus pool - health * (1.0 + value) - not percent points.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_killing_spree",
+      "name": "Killing Spree",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "One is down. You are already looking at the next one.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 140
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 25,
+          "effect_value": 180
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 25,
+          "effect_value": 220
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 260
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Killing Spree to charge back in after a kill blow', 'Can only be used within 6 seconds of scoring a killing blow or applying Born in Blood'. There is no recent-kill window to gate a cast on, so it is a plain cooldown and the gate is dropped.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_storm_of_steel",
+      "name": "Storm of Steel",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You stop swinging in single blows and simply do not stop.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 35,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 48,
+          "cost": 35,
+          "effect_value": 128
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 35,
+          "effect_value": 156
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 35,
+          "effect_value": 184
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Storm of Steel on a tough single target for sustained ramp', 'striking your target every 1 sec for 80% Weapon Damage for 3 seconds'. A repeating strike over three turns is a dot; effect_value is the TOTAL across the duration, which is how every shipped dot authors it.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_throw_weapon",
+      "name": "Throw Weapon",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Whatever is in your hand, at whoever is too far to punch.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 15,
+          "effect_value": 43
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 15,
+          "effect_value": 52
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 15,
+          "effect_value": 61
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 15,
+          "effect_value": 70
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 15,
+          "effect_value": 79
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 15,
+          "effect_value": 88
+        },
+        {
+          "rank": 8,
+          "level_req": 52,
+          "cost": 15,
+          "effect_value": 97
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'filler Throw Weapon/Berserker Axe'. The spec's cheap ranged filler and the hub of its whole kit - Spear Thrower resets Spears off it, Gurubashi Technique transforms it, Sen'jin's Guidance replaces it.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_barbed_spear",
+      "name": "Barbed Spear",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Barbed, so it argues on the way out as well as the way in.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 25,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 67
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 82
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 97
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 112
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 127
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Barbed Spear to feed Furious Berserker's Born in Blood', 'reducing their healing received by -30%'. The anti-heal debuff cannot ride along: one cast is one effect_type here, and Monster reads only armor and attack_power out of a debuff's stat_mods anyway, so healing_taken_pct on an enemy would do nothing. Damage only, and the crit that feeds Furious Berserker is the part the rotation actually asks for.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_gutspiller",
+      "name": "Gutspiller",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A heavy axe, thrown into the middle of them. It stays there.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 84
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 25,
+          "effect_value": 108
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 132
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 25,
+          "effect_value": 156
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Launch a heavy axe at an enemy, causing them to bleed for 96 damage over 12 seconds. Every 6 sec the target has their Guts Spilled'. The nested Guts Spilled tick is folded into the one dot and Payback scales it.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_berserker_rush",
+      "name": "Berserker Rush",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "In at a dead run, and out again before they have straightened up.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 20,
+          "effect_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 110
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 20,
+          "effect_value": 130
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Berserker Rush's charge-root-then-leap-back', 'rooting them for 2 seconds, then leap backwards'. Root and reposition are both movement, which a turn fight has none of. The Born in Blood grant it carries in CoA is the Vengeance For Zul'jin talent, which is in the tree.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_berserker_axe",
+      "name": "Berserker Axe",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Two axes, one after the other, through whatever they were using for cover.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 90
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 104
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 20,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'weave Berserker Axe while Enraged', 'Hurl two axes at an enemy ... reducing enemy armor by 80'. Enrage gate and the 3-charge recharge model both dropped; a short cooldown is the engine's version of charges. The armour shred is carried by the tree's To The Bone instead, where it can be a real debuff.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_impaling_spear",
+      "name": "Impaling Spear",
+      "resource_type": "energy",
+      "cooldown": 5,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Thrown hard enough to go through the first one and keep the argument going.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 30,
+          "effect_value": 122
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 148
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 174
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Impaling Spear is a frontal-line bleed via Spear Shards', 'Hurl a spear in a 30 yd frontal line ... At the spear's impact location the spear shatters'. The line and the shatter collapse into one capped AoE bleed.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4
+    },
+    {
+      "ability_id": "barbarian_savage_revelry",
+      "name": "Savage Revelry",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You laugh at something that is not funny and feel better for it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 0,
+          "effect_value": 190
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 290
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 0,
+          "effect_value": 390
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 490
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 590
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: \"Savage Revelry's health-and-Energy restore is your only quick button\". Both halves are real here - the heal through effect_type, the Energy through `generates`.",
+      "target_type": "self",
+      "generates": {
+        "resource": "energy",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "barbarian_axe_twirling",
+      "name": "Axe Twirling",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 20,
+        "crit_chance_physical": 8
+      },
+      "description": "You start showing off. It is, annoyingly, also the correct play.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Axe Twirling is your burst button, an Enrage that makes Throw Weapon, Gutspiller and Berserker Axe strike additional nearby enemies'. A buff cannot retarget another ability's cleave, so the window is a damage window; the cleave half is already in the kit as Brutal Swing and Barbaric Whirl.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_javelin_toss",
+      "name": "Javelin Toss",
+      "resource_type": "energy",
+      "cooldown": 3,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Taken slowly, aimed properly, thrown once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 30,
+          "effect_value": 120
+        },
+        {
+          "rank": 2,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 154
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 188
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 222
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: \"Open at range with Javelin Toss/Throw Weapon\", and Sen'jin's Guidance 'Transforms your Throw Weapon into Javelin Toss'. A transform has no hook, so it is its own later, bigger thrown attack and the talent buffs it.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_spite",
+      "name": "Spite",
+      "resource_type": "energy",
+      "cooldown": 8,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Three in a row, then you are somewhere else entirely.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 35,
+          "effect_value": 150
+        },
+        {
+          "rank": 2,
+          "level_req": 51,
+          "cost": 35,
+          "effect_value": 190
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 35,
+          "effect_value": 230
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Spite bursts and flings you a long way', 'Quickly unleash 3 Berserker Throws at your target and then fling yourself back'. Three throws resolve as one hit; the reposition is dropped.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "barbarian_keg_smash",
+      "name": "Keg Smash",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Swing the tankard like it was built for this. It mostly was.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 48
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 58
+        },
+        {
+          "rank": 4,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 68
+        },
+        {
+          "rank": 5,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 78
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 88
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 98
+        },
+        {
+          "rank": 8,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 108
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Keg Smash on cooldown (boosted by Trip to the Alehouse) as your core AoE/ST frost+physical hit'. Kept physical (effect_type='damage') because it is the one ability this spec presses every turn and should not depend on the Frozen Warlord conversion to function; the Frost half of the kit is Breath of the North and Frozen Tankard.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "barbarian_ancestral_combat",
+      "name": "Ancestral Combat",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "haste": 12,
+        "frost_resistance": 15
+      },
+      "description": "You stop fighting alone without anyone arriving.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: \"Keep Ancestral Combat's self-buff rolling: it gives a chance for bonus Frost main-hand swings\". The bonus swing is a real 25% bonus_pct proc on the buff itself - extra damage on the same hit, which is what an extra main-hand attack buys. The Fill Level it also generates has no pool to go into.",
+      "target_type": "self",
+      "buff_scope": "combat",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "bonus_pct": 0.2
+      }
+    },
+    {
+      "ability_id": "barbarian_ancestral_fury",
+      "name": "Ancestral Fury",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "haste": 10
+      },
+      "description": "The pace you set is the pace everyone ends up keeping.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Ancestral Fury and Frozen Blades stay up passively. Position so the whole group sits in your haste and crit auras.' An always-on aura, so it keeps the default wall-clock buff_scope rather than expiring with the fight.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "barbarian_breath_of_the_north",
+      "name": "Breath of the North",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You breathe out and the air in front of you stops being survivable.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 25,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 25,
+          "effect_value": 85
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 98
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Breath of the North whenever the Tankard is empty', 'dealing AP Frost damage to enemies in a 12 yd cone'. The empty-Tankard gate needs a second resource this class does not have, so it is a plain cooldown.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "barbarian_frozen_blades",
+      "name": "Frozen Blades",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "crit_chance_physical": 5,
+        "frost_resistance": 10
+      },
+      "description": "Everyone's edges come away colder than they went in.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Critical strikes now grant party and raid members 5% critical strike chance'. The crit-triggered half is flattened into a standing aura, which is how the spec page describes playing it anyway ('stay up passively').",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "barbarian_frozen_tankard",
+      "name": "Frozen Tankard",
+      "resource_type": "energy",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You throw a full one. It is a waste and it works.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 77
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 20,
+          "effect_value": 94
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 111
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Frozen Tankard is a thrown Frost stun that flags Frozen', 'Open dangerous pulls with Frozen Tankard to stun'. The Frozen flag that Icebound Ancestry reads off it has no hook, so that node carries flat crit instead.",
+      "target_type": "enemy",
+      "damage_school": "frost",
+      "is_stun": true
+    },
+    {
+      "ability_id": "barbarian_ramhorn_rage",
+      "name": "Ramhorn Rage",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Something with horns is angry on your behalf, and everyone standing near you benefits.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 240
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 30,
+          "effect_value": 320
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 400
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 30,
+          "effect_value": 480
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 560
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Ramhorn Rage at the start of a hard pull ... Its max-HP regen (extended by your own autoattacks) is the closest thing you have to a group heal'. Max-HP-proportional ticks and autoattack extension both have no hook, so it is a flat party HoT.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "barbarian_ancestors_call",
+      "name": "Ancestor's Call",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You say a name you only half remember. Something answers it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Call an Honored Ancestor to aid you in battle until dismissed that scales with your Agility and attack power ... Whenever you use Barbaric Whirl or Whirling Advance, your Honored Ancestor mimics it.' summon_pet needs a template that exists in combat/pet_templates.py and there is no ancestor template; 'wolf' is the generic melee beast (level_req 1, Energy, no class flavour baked into its kit) and a called spirit beast is the closest honest reading of a tribal Barbarian's summon. The mimic mechanic has no hook, so The Spins and Might of Utgarde scale the pet directly instead.",
+      "target_type": "self",
+      "summon_pet_template": "wolf"
+    },
+    {
+      "ability_id": "barbarian_cheers",
+      "name": "Cheers!",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "damage_taken_pct": -0.08,
+        "stamina": 6
+      },
+      "description": "You put a drink in their hand and take the next hit meant for them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: \"Cheers! on the squishiest party member, or the healer. It redirects part of their incoming damage onto yourself and cuts what they take.\" The redirect has no hook - nothing reroutes damage between combatants - so only the reduction is real, and it is small because of it.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "barbarian_war_cry",
+      "name": "War Cry",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power": 60,
+        "haste": 15
+      },
+      "description": "A noise that makes the people beside you faster and the people in front of you slower.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'War Cry / Splash Zone at pull start for the party's attack-speed and attack/spell power burst', 'increasing melee and ranged attack speed by 20%, and attack power by 150 of allies'.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_splash_zone",
+      "name": "Splash Zone",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "attack_power": 45,
+        "spell_power": 45
+      },
+      "description": "You share the tankard around. Generously, and without asking.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Share a drink from your Tankard with all party and raid members, granting 95 increased attack or spell power'. CoA's either/or is both here - there is no 'whichever stat you use' selector, and giving both is closer to the intent than guessing.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_ale_of_the_god_king",
+      "name": "Ale of the God-King",
+      "resource_type": "energy",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "summon_damage_pct": 20,
+        "frost_resistance": 20
+      },
+      "description": "A drink brewed for someone who never had to ask twice.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: \"Empower your Honored Ancestor's melee attacks to deal additional Frost damage scaling with your attack power\", 'Ale of the God-King the instant your Tankard is full'. summon_damage_pct is the engine's existing pet-damage buff key. The Tankard gate is gone with the Tankard.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_tavern_brawl",
+      "name": "Tavern Brawl!",
+      "resource_type": "energy",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 30
+      },
+      "description": "Someone throws the first punch and it stops being your problem to start one.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: \"Tavern Brawl! as the group haste cooldown for burn phases\", 'Enrage all nearby allies, increasing their haste by 30%'. The 5-minute exhaustion lockout has no hook; the 15-turn cooldown stands in for it.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "barbarian_clanlords_totem",
+      "name": "Clanlord's Totem",
+      "resource_type": "energy",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "damage_dealt_pct": 12,
+        "frost_resistance": 25
+      },
+      "description": "You drive it into the ground and the ground agrees with you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: \"Clanlord's Totem dropped at the fight to buff allies standing near it\", 'causing allied players ... to deal 35% AP additional damage as Frost'. There is no placed-object system and no 'your allies' damage becomes Frost' hook, so it is a party damage window. Not effect_type='totem_loadout' - that is the Shaman's totem-slot swap, a different mechanic entirely.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    }
+  ]
+}

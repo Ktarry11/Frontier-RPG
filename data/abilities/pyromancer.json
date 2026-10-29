@@ -1,0 +1,1879 @@
+{
+  "class": "Pyromancer",
+  "_source_note": "SOURCE. reference/coa_sidekick/CLASS_pyromancer.txt, the three SPEC_pyromancer__*.txt pages and reference/coa_sidekick/talents/pyromancer.json, captured from ascensionsidekick.com. Every ability and talent name below is a real CoA name off those pages; nothing is invented to fill a slot. Identity per that reference:",
+  "abilities": [
+    {
+      "ability_id": "pyromancer_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A swing of your staff. It is not what you are for.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack."
+    },
+    {
+      "ability_id": "pyromancer_flare_bolt",
+      "name": "Flare Bolt",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Invoke flames upon an enemy, burning them where they stand.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 30,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 39,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 48,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 57,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 66,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 75,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 84,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 93,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 102,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Flare Bolt is your default nuke', named as the main filler in all three specs' rotations. Deliberately mage_fireball's exact curve (44 to 132 damage, 30 to 102 mana) - the two Fire casters should scale together. CoA's 'Generates 20 Heat' has nowhere to go: Pyromancer is (MANA, None) in CLASS_RESOURCE_MAP.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_blaze",
+      "name": "Blaze",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Set an enemy alight. The fire keeps working after you stop.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 28,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 11,
+          "cost": 35,
+          "effect_value": 63
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 42,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 25,
+          "cost": 49,
+          "effect_value": 89
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 56,
+          "effect_value": 102
+        },
+        {
+          "rank": 6,
+          "level_req": 39,
+          "cost": 63,
+          "effect_value": 115
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 70,
+          "effect_value": 128
+        },
+        {
+          "rank": 8,
+          "level_req": 53,
+          "cost": 77,
+          "effect_value": 141
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: the long Fire DoT every spec keeps rolling - Incineration 'Open with Ignite and Blaze', Draconic 'weave Lava Shard for its Blaze application'. Eight CoA talents across the three trees extend, hasten or amplify it, which is why it unlocks early and ranks far.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_lava_shard",
+      "name": "Lava Shard",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hurl a shard of molten rock. It leaves the wound burning.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 36,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 46,
+          "effect_value": 73
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 56,
+          "effect_value": 88
+        },
+        {
+          "rank": 4,
+          "level_req": 27,
+          "cost": 66,
+          "effect_value": 103
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 76,
+          "effect_value": 118
+        },
+        {
+          "rank": 6,
+          "level_req": 41,
+          "cost": 86,
+          "effect_value": 133
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 96,
+          "effect_value": 148
+        },
+        {
+          "rank": 8,
+          "level_req": 55,
+          "cost": 106,
+          "effect_value": 163
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Weave Lava Shard on cooldown for the hard hit', and Infernus makes it apply Burn. applies_dot_pct is the real engine hook for a nuke that also leaves a DoT (Shock already uses it), so the Burn application is modelled rather than written into the tooltip and dropped.",
+      "target_type": "enemy",
+      "damage_school": "fire",
+      "applies_dot_pct": 0.15
+    },
+    {
+      "ability_id": "pyromancer_dragons_wrath",
+      "name": "Dragon's Wrath",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A short, close-range gout of flame. Standing this near a Pyromancer is the mistake.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 51,
+          "effect_value": 69
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 62,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 73,
+          "effect_value": 99
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 84,
+          "effect_value": 114
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 95,
+          "effect_value": 129
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Draconic's 'Positioning matters because Dragon's Wrath adds bonus Fire damage'. Seven Draconic talents name it, so it has to be a real ability; the positional bonus itself has no hook in a turn engine, so it is instead a cheap instant with a short cooldown.",
+      "target_type": "enemy",
+      "damage_school": "fire",
+      "is_instant": true
+    },
+    {
+      "ability_id": "pyromancer_ember_touch",
+      "name": "Ember Touch",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Warm an ally with everliving flames.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 38,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 53,
+          "effect_value": 76
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 68,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 32,
+          "cost": 83,
+          "effect_value": 124
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 98,
+          "effect_value": 148
+        },
+        {
+          "rank": 6,
+          "level_req": 48,
+          "cost": 113,
+          "effect_value": 172
+        },
+        {
+          "rank": 7,
+          "level_req": 56,
+          "cost": 128,
+          "effect_value": 196
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Consumes 1 Ember. Warm an ally with everliving flames, healing them... additionally scaling with your Spirit.' Called out by all three specs as the one instant heal that 'keeps flowing through a kick', so is_instant. The Ember cost becomes nothing - no second pool exists.",
+      "target_type": "ally",
+      "is_instant": true
+    },
+    {
+      "ability_id": "pyromancer_meteor",
+      "name": "Meteor",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Call down a meteor. Whatever survives the impact spends a while wondering what happened.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 58,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 72,
+          "effect_value": 77
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 86,
+          "effect_value": 94
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 100,
+          "effect_value": 111
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 114,
+          "effect_value": 128
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 128,
+          "effect_value": 145
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Call down a meteor in an 8 yd area, dealing Fire damage to 8 enemies and disorienting them for 4 seconds.' Incineration calls the disorient 'the spec's only real crowd control'. is_stun is this engine's single incapacitate category; 'direct damage breaks it' has no hook.",
+      "target_type": "enemy_aoe",
+      "max_targets": 8,
+      "damage_school": "fire",
+      "is_stun": true
+    },
+    {
+      "ability_id": "pyromancer_flame_step",
+      "name": "Flame Step",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "cc_immune": 1,
+        "haste": 15
+      },
+      "description": "Step through the fire and come out somewhere else, with nothing still holding you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Flame Step is instant, dashes 20 yards and frees you from stuns and bonds, but it is one 20-second cooldown and your only escape.' The 20 yards means nothing in a turn engine, so this is authored as the other half: a one-turn cc_immune window (the real key status_effects.py checks before applying an incapacitate) plus the haste of moving first.",
+      "target_type": "self",
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_cindergrip",
+      "name": "Cindergrip",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -30,
+        "dodge": -10
+      },
+      "description": "Chains of fire close around an enemy's legs.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 35,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 52,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Cindergrip roots a runner'. There is no root, so a heavy haste and dodge debuff stands in - the same substitution mage_frost_nova already ships.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "pyromancer_gaze_of_ysera",
+      "name": "Gaze of Ysera",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -20
+      },
+      "description": "Set Ysera's gaze on an enemy and they stop being a problem for a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'putting them to sleep for 40 seconds (8 sec vs players). Direct damage dealt may interrupt this effect.' Flameweaving: 'Gaze of Ysera sleeps an extra mob'. The damage-breaks clause has no hook.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "pyromancer_dragon_leap",
+      "name": "Dragon Leap",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Leap and come down hard enough that the ground gives.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 50,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 63,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 76,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 89,
+          "effect_value": 90
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 102,
+          "effect_value": 104
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 115,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Leap to a target location and come crashing down, dealing Fire damage to up to 10 nearby enemies.' Draconic: 'Dragon Leap... keep you from playing like a turret.'",
+      "target_type": "enemy_aoe",
+      "max_targets": 10,
+      "damage_school": "fire",
+      "is_instant": true
+    },
+    {
+      "ability_id": "pyromancer_firestorm",
+      "name": "Firestorm",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A tornado of fire that walks through a pack and knocks it apart.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 62,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 78,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 94,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 110,
+          "effect_value": 85
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 126,
+          "effect_value": 98
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Create a fiery tornado at a location for 10 seconds. Enemies who enter its radius suffer Fire damage and are knocked back slightly.' A persistent zone is a ground effect the engine has no concept of, so it is an AoE DoT on the pack instead.",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_circle_of_fire",
+      "name": "Circle of Fire",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Ring a clump of enemies in fire. They stop thinking about you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 70,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 88,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 106,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 124,
+          "effect_value": 76
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Creates a circle of fire at the target location for 10 seconds, dealing Fire damage and incapacitating all enemies inside for 6 seconds.' Flameweaving: 'Circle of Fire... lock down a clump'.",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire",
+      "is_stun": true
+    },
+    {
+      "ability_id": "pyromancer_cataclysm",
+      "name": "Cataclysm",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launch, and land. Both halves hurt.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 96,
+          "effect_value": 86
+        },
+        {
+          "rank": 2,
+          "level_req": 43,
+          "cost": 120,
+          "effect_value": 108
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 144,
+          "effect_value": 130
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 168,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Launch into the air, dealing Fire damage, knocking back enemies within 6 yds and dazing them for 6 sec. Upon landing, deal Fire damage, knock back enemies within 6 yds and daze them.' Two hits in one cast is not expressible, so it is one larger hit with the daze.",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire",
+      "is_stun": true
+    },
+    {
+      "ability_id": "pyromancer_volcanic_shell",
+      "name": "Volcanic Shell",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A crust of magma closes over you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Conjure a shield of magma and fire around you, absorbing damage. Lasts 10 seconds.' A real absorb - absorb_pct_max_health is the engine's shield field (see Cultist's Void Shield). SINGLE RANK on purpose: the absorb is a flat field on the ability, not per-rank, so extra ranks would raise the mana cost and absorb nothing more.",
+      "target_type": "self",
+      "absorb_pct_max_health": 0.22,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_inferno_barrier",
+      "name": "Inferno Barrier",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Wrap an ally in molten lava. What gets through it is not much.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Shield an ally with molten lava, absorbing damage. While active, attackers take Fire damage each time they deal damage to them.' The retaliation half needs an on-damage-taken proc the ability path cannot carry, so only the absorb is modelled. Single rank for the same reason as Volcanic Shell.",
+      "target_type": "ally",
+      "absorb_pct_max_health": 0.16,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_essence_of_malygos",
+      "name": "Essence of Malygos",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Draw on the Spell-Weaver and the well refills.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 14
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 17
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 20
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 23
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Imbue an ALLY with the essence of Malygos, restoring 4% of their maximum mana every 1 sec for 6 seconds. Used on yourself this effect is doubled.' Authored target_type SELF deliberately: restore_resource in combat/abilities.py reads only caster.gain_resource and ignores its target entirely, so an ally-targeted version silently refills the caster instead - which is exactly what druid_innervate does today. Self is the honest reading of the same code.",
+      "target_type": "self",
+      "restore_resource_type": "mana",
+      "is_instant": true
+    },
+    {
+      "ability_id": "pyromancer_grace_of_alexstrasza",
+      "name": "Grace of Alexstrasza",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "cc_immune": 1
+      },
+      "description": "Burn the grip off everyone around you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 60,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class kit: 'Burns off all movement impairing effects from all allies in a 20 yd radius around you and grants them stun, slow and root immunity for 4 seconds.' Draconic names it as one of the spec's only defensives. cc_immune covers the whole clause - status_effects.py's own comment says this engine has exactly one incapacitate category, so stun, slow and root immunity are one key.",
+      "target_type": "party",
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_ignis_ultimatus",
+      "name": "Ignis Ultimatus",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Gather everything you have and let it out in a line. It burns what is in front of you and mends what is behind.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 180,
+          "effect_value": 180
+        },
+        {
+          "rank": 2,
+          "level_req": 51,
+          "cost": 225,
+          "effect_value": 230
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 270,
+          "effect_value": 280
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Channel for 2 seconds... unleashing it in a 50 yd line, dealing Fire damage to enemies while also healing allies. Ignores invulnerabilities, immunities, and resistances.' Incineration calls it 'the niche Ignis Ultimatus damage-plus-heal channel'. The resistance bypass has no hook; the channel collapses to one cast, the same simplification mage_blizzard uses.",
+      "target_type": "enemy_aoe",
+      "heal_scope": "party",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_eruption",
+      "name": "Eruption",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "spell_power": 50,
+        "healing_power": 35
+      },
+      "description": "The ground under you will not settle, and neither will you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 70,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 54,
+          "cost": 90,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Eruption (a damage-and-healing buff that also feeds Heat)' - Draconic's burst window, and the target of three of its talents.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_ignite",
+      "name": "Ignite",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 5,
+      "stat_mods": {},
+      "description": "Burn an enemy from the inside. You can keep walking while it works.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 5,
+          "cost": 30,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 12,
+          "cost": 38,
+          "effect_value": 58
+        },
+        {
+          "rank": 3,
+          "level_req": 19,
+          "cost": 46,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 26,
+          "cost": 54,
+          "effect_value": 82
+        },
+        {
+          "rank": 5,
+          "level_req": 33,
+          "cost": 62,
+          "effect_value": 94
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 70,
+          "effect_value": 106
+        },
+        {
+          "rank": 7,
+          "level_req": 47,
+          "cost": 78,
+          "effect_value": 118
+        },
+        {
+          "rank": 8,
+          "level_req": 54,
+          "cost": 86,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Incineration: 'Burn an enemy, inflicting Fire damage over 21 seconds. Castable while moving.' is_instant for the moving clause. The 'dispelling it damages the dispeller' rider has no hook.",
+      "target_type": "enemy",
+      "damage_school": "fire",
+      "is_instant": true
+    },
+    {
+      "ability_id": "pyromancer_explode",
+      "name": "Explode",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Everything you have put into an enemy comes back out at once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 48,
+          "effect_value": 66
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 61,
+          "effect_value": 84
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 74,
+          "effect_value": 102
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 87,
+          "effect_value": 120
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 100,
+          "effect_value": 138
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 113,
+          "effect_value": 156
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 126,
+          "effect_value": 174
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Incineration: the Ember spender the rotation dumps into, scaled by its Combustion talent 'for each of your Pyromancer periodic effects on the target'. The per-DoT scaling has no hook, so Combustion raises its damage flatly instead.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_pillar_of_flame",
+      "name": "Pillar of Flame",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Open the ground under an enemy and let what is down there up.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 70,
+          "effect_value": 72
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 88,
+          "effect_value": 92
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 106,
+          "effect_value": 112
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 124,
+          "effect_value": 132
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 142,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Incineration: 'Create a pillar of lava beneath an enemy... Deals additional Fire damage to enemies near the primary target.' A spec talent in CoA ('Requires 8 TE'), so talent-gated here rather than learned from level - granted by the Pillar of Flame node.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "damage_school": "fire",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "pyromancer_slag_barrage",
+      "name": "Slag Barrage",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A spray of molten slag across everything in front of you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 78,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 98,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 118,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 138,
+          "effect_value": 114
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Incineration playstyle: 'dump the pile of periodic effects into spenders for the burst: Pillar of Flame, Explode, Slag Barrage, and Pyroclasm'.",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_pyroclasm",
+      "name": "Pyroclasm",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Tear every fire you have lit out of an enemy in one go.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 120,
+          "effect_value": 190
+        },
+        {
+          "rank": 2,
+          "level_req": 50,
+          "cost": 150,
+          "effect_value": 242
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 180,
+          "effect_value": 294
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Incineration tier 6: 'Create a pyroclasm instantly consuming your Burning effects on a target to deal the two times total periodic damage plus an additional 2100 to 2220 over 10 seconds, piercing absorption effects and resistances.' Consuming live DoTs for a damage total has no hook, so this is a single very large hit on a cooldown - the payoff without the bookkeeping.",
+      "target_type": "enemy",
+      "damage_school": "fire",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "pyromancer_fired_up",
+      "name": "Fired Up!",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "enable_instant_cast",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "It stops being work.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Incineration: 'Your Ember spenders are now instant and have a 30% chance to refund their cost and increases your chance to critically strike by 20% for 15 seconds.' enable_instant_cast is the engine's real next-spell-free mechanic (mage_presence_of_mind); the refund and crit halves are not modelled.",
+      "target_type": "self",
+      "is_instant": true,
+      "requires_talent": true
+    },
+    {
+      "ability_id": "pyromancer_kindle",
+      "name": "Kindle",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A steady, careful flame held against a wound.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 34,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 48,
+          "effect_value": 70
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 62,
+          "effect_value": 92
+        },
+        {
+          "rank": 4,
+          "level_req": 30,
+          "cost": 76,
+          "effect_value": 114
+        },
+        {
+          "rank": 5,
+          "level_req": 38,
+          "cost": 90,
+          "effect_value": 136
+        },
+        {
+          "rank": 6,
+          "level_req": 46,
+          "cost": 104,
+          "effect_value": 158
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 118,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: 'Sustain the tank with Kindle/Cinderheart as your mana-efficient heals'. The cheap cast-time heal.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "pyromancer_cinderheart",
+      "name": "Cinderheart",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Everything you can give, at once, and it costs you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 62,
+          "effect_value": 86
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 82,
+          "effect_value": 116
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 102,
+          "effect_value": 146
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 122,
+          "effect_value": 176
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 142,
+          "effect_value": 206
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 162,
+          "effect_value": 236
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: the bigger of the two cast-time heals, and the target of Sageweaving, Ember Charm, Touched by Fire and Soothing Flames.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "pyromancer_cleansing_flames",
+      "name": "Cleansing Flames",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spread the flames down the line. They burn one way and mend the other.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 76,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 96,
+          "effect_value": 92
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 116,
+          "effect_value": 114
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 136,
+          "effect_value": 136
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 156,
+          "effect_value": 158
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: 'Spread cleansing flames on 5 allies and enemies in front of you, damaging or healing for SP over 3 seconds', and the spec's headline - 'One cast heals your side and hits theirs'. The frontal cone becomes enemy_aoe plus heal_scope party, the two halves the engine can express.",
+      "target_type": "enemy_aoe",
+      "heal_scope": "party",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_phoenix_egg",
+      "name": "Phoenix Egg",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "The egg sits there and radiates. Standing near it helps.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 80,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 100,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 120,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 140,
+          "effect_value": 85
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 160,
+          "effect_value": 98
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: 'Summon a Phoenix for 1 minute at the target location that heals nearby party members every 5 sec.' NOT a summon_pet: combat/pet_templates.py has no fire or phoenix template and the templates file is off limits here, so the Phoenix is authored as the party HoT its zone actually is. The reference calls it 'the exception, with no cooldown beyond the one-active-Phoenix cap', hence the shortest cooldown of the three zones.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "pyromancer_kaels_command",
+      "name": "Kael's Command",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "hot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Tell the Phoenix to settle. It burns quieter and wider.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 100,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 48,
+          "cost": 125,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 150,
+          "effect_value": 96
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: 'Command your Phoenix to go dormant for 10 seconds. While dormant, it radiates healing to nearby allies every 2 sec.' A spec talent in CoA, so talent-gated here. Same pet-template gap as Phoenix Egg.",
+      "target_type": "party",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "pyromancer_roaring_pyre",
+      "name": "Roaring Pyre",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "A bonfire that gives back more than it takes to stand beside.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 120,
+          "effect_value": 72
+        },
+        {
+          "rank": 2,
+          "level_req": 50,
+          "cost": 150,
+          "effect_value": 92
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 180,
+          "effect_value": 112
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving tier 6: 'Conjure a Roaring Pyre at the target location for 20 seconds. Allies within 30 yds are healed... every 2 sec and their Spirit is increased by 10%.' A hot carries no stat_mods, so the Spirit buff is dropped and the healing kept.",
+      "target_type": "party",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "pyromancer_phoenix_dive",
+      "name": "Phoenix Dive",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "The Phoenix cuts across the field and everything in its line comes away wearing fire.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 70,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: 'Command your Phoenix to swoop to the target ally and shield allies in their path with fire, absorbing damage for 30 seconds.' Party-scoped absorb; absorb_pct_max_health is sized per recipient by the engine, so each ally gets a shield scaled to their own health.",
+      "target_type": "party",
+      "absorb_pct_max_health": 0.12,
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_burn_impurities",
+      "name": "Burn Impurities",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Burn it out of them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: 'Burn away 1 harmful magic effect and 1 disease effect from an ally.' dispel_count 2 with both schools is the literal tooltip - paladin_cleanse already ships the multi-school list form.",
+      "target_type": "ally",
+      "dispel_type": [
+        "magic",
+        "disease"
+      ],
+      "dispel_count": 2,
+      "is_instant": true
+    },
+    {
+      "ability_id": "pyromancer_sunstrider_array",
+      "name": "Sunstrider Array",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 15,
+        "mp5": 40,
+        "crit_chance_spell": 5
+      },
+      "description": "Kael'thas worked this out first. You are only borrowing it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Flameweaving: 'For 15 seconds, you generate 1 Ember every 3 sec and your Cinderheart generates double the amount of Heat with each cast.' Both halves are Heat and Ember generation, which this class has no pool for, so the window is authored as what it buys instead: throughput and mana back while it is up.",
+      "target_type": "self",
+      "is_instant": true,
+      "requires_talent": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_destroyers_maw",
+      "name": "Destroyer's Maw",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A maw of black fire closes on an enemy. There is no arguing with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 68,
+          "effect_value": 92
+        },
+        {
+          "rank": 2,
+          "level_req": 23,
+          "cost": 86,
+          "effect_value": 117
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 104,
+          "effect_value": 142
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 122,
+          "effect_value": 167
+        },
+        {
+          "rank": 5,
+          "level_req": 44,
+          "cost": 140,
+          "effect_value": 192
+        },
+        {
+          "rank": 6,
+          "level_req": 51,
+          "cost": 158,
+          "effect_value": 217
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 176,
+          "effect_value": 242
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'Unleash a vicious draconic maw on an enemy, dealing Fire damage that cannot be resisted', and 'on a single target, keep Destroyer's Maw and Firefall on cooldown to fish for Legacy of Deathwing resets'. The unresistable clause has no hook - there is no ignore-resistance flag on an ability.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_firefall",
+      "name": "Firefall",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire comes down in streaks across a whole pack.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 72,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 90,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 108,
+          "effect_value": 98
+        },
+        {
+          "rank": 4,
+          "level_req": 43,
+          "cost": 126,
+          "effect_value": 116
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 144,
+          "effect_value": 134
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 162,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'Call down streaks of fire upon an enemy and up to 8 enemies within 15 yds of them.' 'Firefall for cleave on 2-3 packs'.",
+      "target_type": "enemy_aoe",
+      "max_targets": 8,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_flames_of_neltharion",
+      "name": "Flames of Neltharion",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Neltharion's fire does not care how many of them there are.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 74,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 93,
+          "effect_value": 75
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 112,
+          "effect_value": 92
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 131,
+          "effect_value": 109
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 150,
+          "effect_value": 126
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'The two spenders are Flames of Neltharion for AoE, which splashes several nearby enemies, and Echo of Nozdormu for single target.'",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "pyromancer_echo_of_nozdormu",
+      "name": "Echo of Nozdormu",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Time folds over an enemy and hits them with every colour at once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 110,
+          "effect_value": 150
+        },
+        {
+          "rank": 2,
+          "level_req": 42,
+          "cost": 138,
+          "effect_value": 192
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 166,
+          "effect_value": 234
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 194,
+          "effect_value": 276
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'Obliterate an enemy, dealing Chromatic Damage and reducing all spell and ability cooldowns by 5%.' Chromatic is authored as the two-school list ['fire','arcane'] - get_resistance resolves a combined school to the LOWEST component resistance, which is the closest the engine gets to 'all schools at once' without naming five. The cooldown reduction has no hook (the engine has reset_cooldowns, all-or-nothing, not a percentage shave), so Black Magic carries that idea instead.",
+      "target_type": "enemy",
+      "damage_school": [
+        "fire",
+        "arcane"
+      ],
+      "requires_talent": true
+    },
+    {
+      "ability_id": "pyromancer_death_from_above",
+      "name": "Death From Above",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Pin them in place, then come down the line on fire.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 110,
+          "effect_value": 64
+        },
+        {
+          "rank": 2,
+          "level_req": 51,
+          "cost": 138,
+          "effect_value": 82
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 166,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic tier 6: 'Root enemies in a 40 yd line for 3 seconds and then soar forward in a blaze of glory, dealing Fire damage every 1 sec to enemies beneath you for 10 seconds.' The root is dropped (no root mechanic); the repeating damage is the spell_dot.",
+      "target_type": "enemy_aoe",
+      "damage_school": "fire",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "pyromancer_breath_of_neltharion",
+      "name": "Breath of Neltharion",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power_pct": -30,
+        "haste": -15
+      },
+      "description": "Breathe on their weapons until the weapons stop mattering.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 45,
+          "cost": 75,
+          "effect_value": 120
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 90,
+          "effect_value": 140
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'Breath superheated flames in a cone in front of you that melts the weapons of affected enemies, disarming their melee and ranged weapons for 6 seconds.' There is no disarm, and a debuff ability deals no damage in this engine, so the cone keeps the disarm half as a heavy attack-power cut and loses its damage. CoA's strengths page calls out both ('cones for real damage and disarms'), so this is a real halving.",
+      "target_type": "enemy_aoe"
+    },
+    {
+      "ability_id": "pyromancer_draconic_invocation",
+      "name": "Draconic Invocation",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Call on all five of them at once. They answer briefly.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 12
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 15
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 18
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 21
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 100,
+          "mana_restore_pct": 24
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'Invoke all of the Dragon Aspects, instantly generating 5 Embers', and 'Use Draconic Invocation to instantly bank 5 Embers, then dump them into Echo of Nozdormu'. With no Ember pool, the honest translation of 'bank the fuel for your spenders on demand' is a mana return - which is also what the spec's own weakness list asks for ('Mana is a pressure, but the kit has returns').",
+      "target_type": "self",
+      "restore_resource_type": "mana",
+      "is_instant": true
+    },
+    {
+      "ability_id": "pyromancer_aspects_blessing",
+      "name": "Aspect's Blessing",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "crit_chance_spell": 25
+      },
+      "description": "For a moment you cannot miss and you cannot glance.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'Your next Echo of Nozdormu or Flames of Neltharion is guaranteed to critically strike.' A guaranteed crit on one specific spell has no hook, so it is a large crit-chance window - the same substitution mage_combustion already ships for its stacking version.",
+      "target_type": "self",
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "pyromancer_draconic_aspect",
+      "name": "Draconic Aspect",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "armor": 180,
+        "fire_resistance": 30,
+        "spell_power": 25
+      },
+      "description": "Scales close over your skin. You can stand where a caster should not.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 50,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 64,
+          "effect_value": 114
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 78,
+          "effect_value": 128
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 92,
+          "effect_value": 142
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Draconic is a 'Battle-caster built to survive melee range: dragon-scale defensives, Int-to-armor and a Phoenix pet', and the rotation opens 'Pre-pull: Draconic Aspect and Inner Flame up'. buff_scope defaults to raid, so it sits there like Arcane Intellect rather than ticking down in combat.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "pyromancer_inner_flame",
+      "name": "Inner Flame",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "crit_chance_spell": 3,
+        "intellect": 8
+      },
+      "description": "Everyone near you finds the weak spot more often.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 41,
+          "cost": 77,
+          "effect_value": 130
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 94,
+          "effect_value": 160
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Draconic: 'Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.' A spec talent in CoA, so talent-gated here.",
+      "target_type": "party",
+      "requires_talent": true
+    }
+  ]
+}

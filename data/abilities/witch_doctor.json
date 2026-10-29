@@ -1,0 +1,1859 @@
+{
+  "class": "Witch Doctor",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_witch_doctor.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "witch_doctor_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A swing with whatever you are holding.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack."
+    },
+    {
+      "ability_id": "witch_doctor_malefic_wrath",
+      "name": "Malefic Wrath",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A fistful of ill will, thrown hard.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 28,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 36,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 43,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 51,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 59,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 66,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 74,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 82,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 90,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'when you cast Malefic Wrath and Loa's Brew the ward will also cast it on your target'. The class's baseline Shadow nuke, on shaman_lightning_bolt's exact 9-rank curve.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_doctor_loas_brew",
+      "name": "Loa's Brew",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A mouthful of something bitter that puts an ally back together.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 40,
+          "effect_value": 56
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 51,
+          "effect_value": 70
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 62,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 73,
+          "effect_value": 98
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 84,
+          "effect_value": 112
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 95,
+          "effect_value": 126
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 106,
+          "effect_value": 140
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 117,
+          "effect_value": 154
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 128,
+          "effect_value": 168
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree names Loa's Brew alongside Malefic Wrath as what Mimic Ward echoes, and it is not a talent node in any of the three spec trees, so it is a class ability. Voodoo's page says that spec has 'no ally heal' - true of its TREE, which spends nothing on healing.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "witch_doctor_shrinking_jinx",
+      "name": "Shrinking Jinx",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": -45
+      },
+      "description": "The target's arms stop reaching as far as they used to.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 22,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 23,
+          "cost": 34,
+          "effect_value": 120
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 45,
+          "effect_value": 140
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 57,
+          "effect_value": 160
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'When your Shrinking Jinx is dispelled it now applies Misery to the dispeller'. The jinx itself shrinks what the target can swing.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_doctor_hex_of_malice",
+      "name": "Hex of Malice",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "A curse that settles in and keeps working.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 30,
+          "effect_value": 95
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 43,
+          "effect_value": 133
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 56,
+          "effect_value": 171
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 70,
+          "effect_value": 209
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 83,
+          "effect_value": 247
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 96,
+          "effect_value": 285
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Curse an enemy, dealing shadow damage and an additional 96 Shadow damage over 24 seconds.' The DoT all three specs keep rolling - warlock_corruption's curve.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_doctor_healing_ward",
+      "name": "Healing Ward",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "A ward planted in the dirt that keeps everyone standing near it on their feet.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 50,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 72,
+          "effect_value": 84
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 94,
+          "effect_value": 108
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 116,
+          "effect_value": 132
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 138,
+          "effect_value": 156
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 160,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drop a Healing Ward near you for 1 minute, healing 8 nearby allies within 30 yds for Spirit every 3 sec'. Both DPS specs' pages call this the class pool's only ally heal. A placed, pulsing ward becomes an instant party HoT, the same simplification every shipped Shaman totem uses.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_lethargy_jinx",
+      "name": "Lethargy Jinx",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": -25,
+        "healing_taken_pct": -20
+      },
+      "description": "Everything the target does arrives late, and nothing that is done for them helps much.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 38,
+          "effect_value": 120
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 52,
+          "effect_value": 140
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 65,
+          "effect_value": 160
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Jinx of Decay - Your Lethargy Jinx now also reduces the target's periodic healing received by -30%'. healing_taken_pct is the engine's real anti-heal key, read recipient-side in Character.heal.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_doctor_hexbreak",
+      "name": "Hexbreak",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You talk the curse off them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 32,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Dispel duty is single-curse removal through Hexbreak'. 'Blessing of Hir'eek - Your Hexbreak now removes an additional curse effect' is the class tree's dispel_count upgrade, which is a talent, not this.",
+      "target_type": "ally",
+      "dispel_type": "curse"
+    },
+    {
+      "ability_id": "witch_doctor_mirage",
+      "name": "Mirage",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "threat_generation_pct": -60,
+        "dodge": 10
+      },
+      "description": "You step out of your own outline and leave it standing there.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Become invisible for 20 seconds, gaining 5 Spirits, leaving a copy of yourself behind, and reducing threat each second.' Both DPS pages call the class's escapes 'threat drops, they do not move you', so this is threat and avoidance rather than a blink.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_shadowflare",
+      "name": "Shadowflare",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Dark fire goes up out of the ground under a whole pack of them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 55,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 85,
+          "effect_value": 87
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 116,
+          "effect_value": 116
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 146,
+          "effect_value": 145
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 176,
+          "effect_value": 174
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'spread Hex of Malice with Shadowflare', 'Dealing damage with Shadowflare now applies Hex of Malice if it strikes at least 3 enemies'. The shared AoE. NOTE: the engine's AoE flag is target_type='enemy_aoe' plus max_targets - a player Ability never reads is_aoe, which _ability_from_data does not pass to the constructor.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_doctor_voljins_vigil",
+      "name": "Vol'jin's Vigil",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.25
+      },
+      "description": "You hold still and breathe the way he taught, and the hits stop mattering so much.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Embrace the way of Vol'jin, reducing your damage taken by -25% and healing you for 2% of your maximum health every 1 sec for 10 seconds.' Both halves are real: the mitigation as a stat_mod, the trickle as an on_damage_taken heal proc on the resulting buff.",
+      "target_type": "self",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 0,
+        "heal_flat": 45
+      }
+    },
+    {
+      "ability_id": "witch_doctor_amphibimorph",
+      "name": "Amphibimorph",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -30
+      },
+      "description": "The target is a frog. It has opinions about this but no way to express them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Transform enemies at target location into a frog, making them unable to attack or cast spells, and slowing their movement speed'. is_stun is the engine's real skip-their-turn flag (TurnMeter refuses to fill for a stunned combatant).",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "witch_doctor_allcure_elixir",
+      "name": "Allcure Elixir",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Clears out whatever they swallowed, breathed, or were bitten by.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Allcure Elixir clears poison, disease and curse effects off one ally'. Curse is already Hexbreak's job, so this covers the other two rather than making Hexbreak redundant. 'For Da Loa!' upgrades it to the group-wide Mass Allcure Elixir, which is a class-tree pick, not this.",
+      "target_type": "ally",
+      "dispel_type": [
+        "poison",
+        "disease"
+      ]
+    },
+    {
+      "ability_id": "witch_doctor_slither",
+      "name": "Slither",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "dodge": 25,
+        "haste": 15
+      },
+      "description": "You come apart into something long and low, and whatever was holding you is holding nothing.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Transform into a serpent, removing all movement impairing effects and increasing movement speed by 80% ... chance to be hit by ranged attacks and spells is reduced'. No movement-impairment category exists on the player side, so the avoidance half carries the node.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_stasis_ward",
+      "name": "Stasis Ward",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {
+        "haste": -20
+      },
+      "description": "A ward that stops everything close to it where it stands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Touch of Mueh'zala - Increases the duration of Stasis Ward's stun effect by 1 sec', so the ward stuns. The class's only AoE stun.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "is_stun": true
+    },
+    {
+      "ability_id": "witch_doctor_swift_idol",
+      "name": "Swift Idol",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 12,
+        "dodge": 5
+      },
+      "description": "An idol goes in the ground and nobody around it drags their feet.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drop a Swift Idol near you for 10 seconds. Allies within 30 yds gain 25% increased movement speed and their chance to resist movement impairing effects is increased'. Movement speed has no combat meaning in a turn engine, so it lands as Haste, which is what moving faster buys.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_mimic_ward",
+      "name": "Mimic Ward",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "shadow_spell_power": 25,
+        "spell_power": 15
+      },
+      "description": "Something shaped roughly like you stands at your shoulder and repeats you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 45,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 45,
+          "cost": 68,
+          "effect_value": 125
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 90,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summon a mimic ward for 12 seconds. For the duration when you cast Malefic Wrath and Loa's Brew the ward will also cast it on your target.' There is no repeat-my-last-cast mechanic in the engine, so the window lands as the spell power the echo would have been worth. The cast-echo is the one part of this kit with no honest equivalent.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_cursed_effigy",
+      "name": "Cursed Effigy",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "physical_damage_taken_pct": -8,
+        "magic_damage_taken_pct": -8
+      },
+      "description": "A bundle of sticks and hair with your enemies' luck tied into it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drop a Cursed Effigy near you for 15 seconds. Enemies within 15 yds are unable to critically strike.' GAP: a monster's crit_chance is a plain template attribute (entities/monster.py) that no status effect touches, so crit suppression has no hook at all. Implemented from the other side - the party takes less damage, which is what losing enemy crits is worth.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_power_wuju",
+      "name": "Power Wuju",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "spell_power": 30,
+        "attack_power": 30,
+        "spirit": 8
+      },
+      "description": "You hand out the good stuff.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 45,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 47,
+          "cost": 68,
+          "effect_value": 125
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 90,
+          "effect_value": 150
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Loa Empowerment - Reduces the cost of your Wujus by -50% and increases the effectiveness of Power Wuju by 20%'. A Wuju is a thrown buff, so it buffs both halves of a party.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_death_draught",
+      "name": "Death Draught",
+      "resource_type": "mana",
+      "cooldown": 14,
+      "effect_type": "buff",
+      "duration": 1,
+      "stat_mods": {
+        "damage_taken_pct": -0.5,
+        "threat_generation_pct": -100
+      },
+      "description": "You drink it, you stop, and for a moment nothing in the room thinks you are worth the trouble.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Drink a potent voodoo draught that slows your body to a deathlike stillness ... causing you to feign death which may trick enemies into ignoring you.' No feign-death mechanic exists, so one turn of heavy mitigation and a total threat drop stands in for it. Free to cast, like the real one.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_veil_of_darkness",
+      "name": "Veil of Darkness",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 4,
+      "stat_mods": {
+        "damage_taken_pct": 0.12
+      },
+      "description": "A shadow settles over them and everything you send lands harder.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 49,
+          "cost": 70,
+          "effect_value": 120
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 90,
+          "effect_value": 140
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Envelop a target in a shadowy voodoo veil, increasing the damage you deal to them by 15% for 15 seconds.' damage_taken_pct on the target is read raw as a fraction in Character.take_damage. It amplifies everyone's damage, not only yours - the engine has no per-attacker-only amplification.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_doctor_big_bad_voodoo",
+      "name": "Big Bad Voodoo",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.3,
+        "damage_dealt_pct": -25
+      },
+      "description": "The drums start, and for a little while nothing in your line can be killed. Nothing in your line can kill much either.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 60,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'One Armed Waltz - Big Bad Voodoo now only reduces damage dealt by 25% and reduces damage taken by an additional -5%', which says the baseline trades your damage for survival. Both sides are real keys: damage_taken_pct raw, damage_dealt_pct in percentage points through Ability._damage_multiplier.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_bad_juju",
+      "name": "Bad Juju",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A bolt of something that was never meant to be aimed at people.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 36,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 49,
+          "effect_value": 83
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 62,
+          "effect_value": 103
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 76,
+          "effect_value": 124
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 89,
+          "effect_value": 145
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 102,
+          "effect_value": 165
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 115,
+          "effect_value": 186
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Bad Juju on cooldown (main nuke ...)'. 'Hurl a bolt of dark magic at an enemy, dealing Spirit Shadow damage, scaling with your Spirit.' The spec's centrepiece.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_doctor_hexfire",
+      "name": "Hexfire",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Fire that burns colder than it should and finds the seams in whatever you have already cursed.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 48,
+          "effect_value": 76
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 69,
+          "effect_value": 106
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 90,
+          "effect_value": 137
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 111,
+          "effect_value": 167
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 132,
+          "effect_value": 198
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 154,
+          "effect_value": 228
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Blast an enemy with hexfire, dealing Fire damage, scaling with your Spirit'; 'Detonate Puppeteer's Threads with Hexfire for burst'. The thread-snap has no engine hook, so Hexfire is a straight Fire payoff nuke.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "witch_doctor_shadow_puppets",
+      "name": "Shadow Puppets",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Small flat things peel off your shadow and go to work.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 44,
+          "effect_value": 84
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 68,
+          "effect_value": 126
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 92,
+          "effect_value": 168
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 117,
+          "effect_value": 210
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 141,
+          "effect_value": 252
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summon a Shadow Puppet that collects a Spirit and rushes towards your target, dealing shadow damage, repeating every 1 sec for 3 seconds.' A summon whose whole job is three ticks of damage on one target, so it is a spell_dot rather than a pet - see the module docstring on why no summon_pet template fits.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_doctor_malignant_jinx",
+      "name": "Malignant Jinx",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_dealt_pct": -30
+      },
+      "description": "The next word they try to say turns on them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Curse an enemy for 8 seconds, causing their next spell cast to silence them for 5 sec'; 'Malignant Jinx counters a dangerous cast with a silence'. GAP: there is no silence or school-lockout category, and is_stun would make this a stun, which it is not. A hard cut to what they deal is the nearest honest thing.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_doctor_war_golem",
+      "name": "War Golem",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "magic_damage_taken_pct": -10
+      },
+      "description": "You build something out of mud and malice and stand behind it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 50,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 65,
+          "effect_value": 115
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 80,
+          "effect_value": 130
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 95,
+          "effect_value": 145
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summon a War Golem for 10 seconds, absorbing damage dealt to you based on your Intellect, and redirecting harmful spells cast on nearby allies to itself.' The absorb is real (absorb_pct_max_health, the same field Cultist's Eldritch Bastion uses). The ally-spell redirect has no engine hook, so the magic mitigation stands in for it.",
+      "absorb_pct_max_health": 0.22,
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_puppeteers_grasp",
+      "name": "Puppeteer's Grasp",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "enable_instant_cast",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You go thin and sideways, and casting stops needing you to stand still.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Transform into a malignant spirit for 30 seconds, allowing you to cast Malefic Wrath and Bad Juju while moving, and periodically granting you a Spirit every 2 sec.' Nothing in the engine costs movement, so cast-while-moving becomes the real thing it buys: the next cast is free of its turn.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_voice_of_bwonsamdi",
+      "name": "Voice of Bwonsamdi",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "shadow_spell_power": 40,
+        "crit_chance_spell": 8,
+        "damage_dealt_pct": 15
+      },
+      "description": "You let him speak through you. He is not gentle about it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 55,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Let the spirit of Bwonsamdi possess you for 15 seconds. Dealing periodic damage unleashes a trapped voodoo spirit at enemies'; 'Voice of Bwonsamdi is your big damage cooldown'.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_potion_toss",
+      "name": "Potion Toss",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You fill one from the pot and throw it without looking.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 32,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 46,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 60,
+          "effect_value": 79
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 74,
+          "effect_value": 97
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 88,
+          "effect_value": 114
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 102,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'the instant, short-cooldown Potion Toss'; 'Fill a potion from your Cauldron, and toss it at a friendly target'. Splash On 'Em shaves its cooldown, which is why it ships at 3 turns and not 1.",
+      "target_type": "ally",
+      "is_instant": true
+    },
+    {
+      "ability_id": "witch_doctor_spirit_in_a_bottle",
+      "name": "Spirit in a Bottle",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You uncork it at them. Something leaves, and on its way out it patches up whoever is worst off behind you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 45,
+          "effect_value": 40,
+          "heal_value": 64
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 65,
+          "effect_value": 56,
+          "heal_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 85,
+          "effect_value": 72,
+          "heal_value": 115
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 104,
+          "effect_value": 88,
+          "heal_value": 141
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 124,
+          "effect_value": 104,
+          "heal_value": 166
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 144,
+          "effect_value": 120,
+          "heal_value": 192
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Spirit in a Bottle heals an ally while chipping and debuffing nearby enemies off the same cast, functionally the same trick as Living Flame'. damage_and_heal is cast at an ENEMY and heals off the damage, which is exactly this shape.",
+      "target_type": "enemy",
+      "heal_scope": "lowest_ally"
+    },
+    {
+      "ability_id": "witch_doctor_splash_potion",
+      "name": "Splash Potion",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You throw the whole bottle into the middle of them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 65,
+          "effect_value": 64
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 101,
+          "effect_value": 96
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 136,
+          "effect_value": 128
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 172,
+          "effect_value": 160
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 208,
+          "effect_value": 192
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Fill a splash potion from your Cauldron, and toss it at a location, healing up to 8 allies'; 'Use Splash Potion for stacked-group healing'.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_mojo_beam",
+      "name": "Mojo Beam",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "A steady line of mojo from you to them, held open as long as you can hold it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 55,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 85,
+          "effect_value": 150
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 116,
+          "effect_value": 200
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 146,
+          "effect_value": 250
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 176,
+          "effect_value": 300
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Bring mojo to an ally, healing for SP every 1 sec for 4 seconds. While channeling, you can instantly cast Potion Toss, Splash Potion and Spirit in a Bottle'. GAP: there is no channel state, so the weave window is gone and this is a four-turn single-target HoT - which is what the channel's healing actually was.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "witch_doctor_ingredient_jungle_shrooms",
+      "name": "Ingredient: Jungle Shrooms",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Shrooms go in the pot. Everyone gets a little better for a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 55,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 95,
+          "effect_value": 117
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 136,
+          "effect_value": 163
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 176,
+          "effect_value": 210
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Brew Jungle Shrooms into your Cauldron. Cauldron: Heal up to 8 allies within 30 yds for healing every 8 sec'; 'a rolling Jungle Shrooms heal-over-time'. The three Ingredients share one exclusive_group because CoA says 'Only 1 of each Ingredient can be active at a time' and the Mojo swap talents swap them in pairs.",
+      "target_type": "party",
+      "exclusive_group": "witch_doctor_ingredient"
+    },
+    {
+      "ability_id": "witch_doctor_ingredient_frog_bones",
+      "name": "Ingredient: Frog Bones",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "damage_taken_pct": -0.06
+      },
+      "description": "Bones in the pot. Whatever is coming lands softer.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 55,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 72,
+          "effect_value": 115
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 88,
+          "effect_value": 130
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 104,
+          "effect_value": 145
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Cauldron: Grants allies within 40 yds 3% reduced damage taken. Potion: Grants target ally an absorption shield, absorbing Spirit damage.' Both halves are real here - the mitigation and the shield.",
+      "absorb_pct_max_health": 0.12,
+      "target_type": "party",
+      "exclusive_group": "witch_doctor_ingredient"
+    },
+    {
+      "ability_id": "witch_doctor_ingredient_bloodthistle",
+      "name": "Ingredient: Bloodthistle",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "healing_taken_pct": 8
+      },
+      "description": "Thistle in the pot. What your allies deal starts coming back to them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 55,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 72,
+          "effect_value": 115
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 88,
+          "effect_value": 130
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 104,
+          "effect_value": 145
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Cauldron: Allies within 40 yds receive 8% increased healing. Potion: Causes target ally to leech 5% of all damage they deal.' Both halves are real: healing_taken_pct recipient-side, and leech_pct, the engine's own damage-done-also-heals proc payload.",
+      "target_type": "party",
+      "exclusive_group": "witch_doctor_ingredient",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "leech_pct": 0.05
+      }
+    },
+    {
+      "ability_id": "witch_doctor_voodoo_cauldron",
+      "name": "Voodoo Cauldron",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "healing_taken_pct": 20,
+        "mp5": 4
+      },
+      "description": "The pot goes down where the tank is standing. Everything poured into that circle goes further.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 47,
+          "cost": 84,
+          "effect_value": 120
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 108,
+          "effect_value": 140
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Place down a Voodoo Cauldron for 15 seconds, increasing allies' healing received by 20% while near the cauldron'; 'drop Voodoo Cauldron ... on the tank's stack point'. The heals-received zone is a real key; the pulse is Jungle Shrooms' job and not duplicated here.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_base_beast_blood",
+      "name": "Base: Beast Blood",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "physical_damage_taken_pct": -15
+      },
+      "description": "Blood in the base. The hits still land, they just stop arriving all at once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Infuse your Cauldron with Beast Blood for 10 seconds, causing 15% of the direct Physical damage taken by allies within 40 yds to instead be dealt over time. Only 1 Base can be active at a time.' GAP: there is no convert-a-hit-into-a-DoT mechanic, so the 15% is simply removed rather than deferred. The two Bases share an exclusive_group, as CoA requires.",
+      "target_type": "party",
+      "exclusive_group": "witch_doctor_base"
+    },
+    {
+      "ability_id": "witch_doctor_base_crystal_water",
+      "name": "Base: Crystal Water",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "magic_damage_taken_pct": -10
+      },
+      "description": "Clean water in the base. Everything you heal leaves a skin behind it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Infuse your Cauldron with Crystal Water for 10 seconds, causing allies within 40 yds to be shielded for 20% of their healing taken'. Shield-off-healing has no hook, so the shield is sized off the recipient's own health instead - same field, honest magnitude.",
+      "absorb_pct_max_health": 0.1,
+      "target_type": "party",
+      "exclusive_group": "witch_doctor_base"
+    },
+    {
+      "ability_id": "witch_doctor_tiki_splash",
+      "name": "Tiki Splash",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You break the big one over the whole group.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 100,
+          "effect_value": 150
+        },
+        {
+          "rank": 2,
+          "level_req": 58,
+          "cost": 320,
+          "effect_value": 450
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA lists Tiki Splash among Brewing's 23-TE tier-6 picks with no tooltip text ('see builder tooltip'), so the name is real and the mechanic is read off its slot: the spec's emergency group heal, which the rotation otherwise lacks ('Hold Master Mixologist as the group heal-burst and wipe-prevention amplify window').",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "witch_doctor_master_mixologist",
+      "name": "Master Mixologist",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "healing_power_pct": 40,
+        "haste": 10
+      },
+      "description": "Everything in the pot is suddenly twice what it was.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'For 10 seconds, the effectiveness of all Cauldron effects and Ingredients is increased by 100% and you can cast Spirit in a Bottle while moving.' healing_power_pct takes percentage POINTS (one of the ten keys Character._recalculate_derived_stats divides by 100), so 40 is +40%, not +4000%.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_reclamation",
+      "name": "Reclamation",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage_and_restore_mana",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A quick arrow, and something comes back down the line with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 30,
+          "effect_value": 40,
+          "mana_restore_pct": 4
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 41,
+          "effect_value": 53,
+          "mana_restore_pct": 4
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 52,
+          "effect_value": 67,
+          "mana_restore_pct": 4
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 63,
+          "effect_value": 80,
+          "mana_restore_pct": 4
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 74,
+          "effect_value": 93,
+          "mana_restore_pct": 4
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 85,
+          "effect_value": 107,
+          "mana_restore_pct": 4
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 96,
+          "effect_value": 120,
+          "mana_restore_pct": 4
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Shoot a quick voodoo arrow at an enemy dealing 100% Ranged Weapon Damage plus 15 as Nature damage and collecting a Spirit. Spirit: Regenerates 7 health and mana ... Usable while moving.' Spirits are not a resource in CLASS_RESOURCE_MAP, so the Spirit collection is a real Mana return - 4% of 1085 at level 60 against a 30-ish cost, which is the net-positive filler CoA describes.",
+      "target_type": "enemy",
+      "damage_school": "nature",
+      "is_instant": true
+    },
+    {
+      "ability_id": "witch_doctor_malefic_arrow",
+      "name": "Malefic Arrow",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The arrow is ordinary. What is wrapped around it is not.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 34,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 49,
+          "effect_value": 98
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 64,
+          "effect_value": 126
+        },
+        {
+          "rank": 4,
+          "level_req": 39,
+          "cost": 79,
+          "effect_value": 154
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 94,
+          "effect_value": 182
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 109,
+          "effect_value": 210
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Transforms your Malefic Wrath into Malefic Arrow. Launch a voodoo arrow at an enemy, dealing 85% Ranged Weapon Damage plus nature SP as Nature damage, healing you equal to 40% of the damage dealt.' The self-heal is the class tree's Devotion to Bwonsamdi, so it lives in the tree as a leech proc rather than being baked in twice.",
+      "target_type": "enemy",
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "witch_doctor_spirit_glaive",
+      "name": "Spirit Glaive",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Two glaives that are not quite there go through the line and come back.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 50,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 78,
+          "effect_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 105,
+          "effect_value": 120
+        },
+        {
+          "rank": 4,
+          "level_req": 47,
+          "cost": 133,
+          "effect_value": 150
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 160,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Toss spectral glaives that strikes enemies it passes through, dealing shadow damage, and reducing their Shadow Resistance by 61 for 5 seconds. Usable while moving.' The resistance shred would need a debuff on top of a damage cast, which no single effect_type does, so the pass-through cleave carries the ability.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_doctor_spirit_shock",
+      "name": "Spirit Shock",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -45,
+        "damage_dealt_pct": -20
+      },
+      "description": "You get a hand around the part of them that was about to speak.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Shock an enemy's spirit, silencing them for 4 seconds and interrupting non-player spellcasting'. GAP: no silence or interrupt category exists. A heavy Haste cut is the engine's real delay-their-turn lever (TurnMeter reads Haste off status effects), which is the closest thing to taking a cast away from them.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "witch_doctor_call_of_sseratus",
+      "name": "Call of Sseratus",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Four wards come up out of the ground around you and start biting.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 55,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 95,
+          "effect_value": 117
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 136,
+          "effect_value": 163
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 176,
+          "effect_value": 210
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Summon 4 Serpent Wards near you for 15 seconds'; 'Drop your Serpent Wards before or on the pull so they add sustained damage through the fight.' Placed pulsing wards become an AoE spell_dot, exactly as shaman_magma_totem does, and not a summon_pet - see the module docstring.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "nature"
+    },
+    {
+      "ability_id": "witch_doctor_spirit_eclipse",
+      "name": "Spirit Eclipse",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Everything you have been saving goes out at once and bursts on arrival.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 70,
+          "effect_value": 90
+        },
+        {
+          "rank": 2,
+          "level_req": 40,
+          "cost": 121,
+          "effect_value": 150
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 173,
+          "effect_value": 210
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 224,
+          "effect_value": 270
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Unleash your Spirits on an enemy, dealing shadow damage for each active Spirit. Each Spirit explodes on impact, dealing damage to other nearby enemies.' Without a Spirit stack to scale off, it is a fixed hard-hitting cleave on a cooldown rather than a variable dump.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "witch_doctor_shadowstalker",
+      "name": "Shadowstalker",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "dodge": 30,
+        "haste": 15,
+        "threat_generation_pct": -80
+      },
+      "description": "You step into the dark between two trees and nothing follows you in.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Disappear into darkness, entering an improved stealth mode, clearing all harmful effects, and increasing movement speed by 50%'. GAP: a buff cannot also dispel, so the clear-all-harmful-effects half is gone - which matters, because CoA calls it 'the entire answer to CC' for this spec. The disengage half is real.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_shadow_avatar",
+      "name": "Shadow Avatar",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 12,
+        "haste": 10
+      },
+      "description": "You stop being quite a person for a few seconds.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Lesser Shadow Avatar - Increases magic damage dealt by 10% and reduces the cooldown of Spirit Glaive by 20% every 1 sec'; 'then Shadow Avatar ... and Fool's Play'. damage_dealt_pct is school-agnostic in this engine (see Ability._damage_multiplier), so 'magic damage dealt' lands as all damage dealt.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "witch_doctor_frenzied_spirits",
+      "name": "Frenzied Spirits",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "crit_chance_physical": 10,
+        "crit_chance_spell": 10
+      },
+      "description": "You spend the lot. For a few seconds you cannot miss and you cannot be worn down.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Consumes your Spirits to increase your ranged critical strike rating by 10, critical damage by 5%, and causing you to heal for 2% of all damage dealt for each Spirit consumed.' The crit and the leech are both real; crit_damage_physical is NOT - it is read only through get_talent_effect, so it does nothing in a buff's stat_mods and is left to the tree instead.",
+      "target_type": "self",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "leech_pct": 0.02
+      }
+    }
+  ]
+}

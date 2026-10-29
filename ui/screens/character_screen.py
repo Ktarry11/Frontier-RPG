@@ -32,6 +32,15 @@ class CharacterCreationScreen(BaseScreen):
             # actually acts in a real fight.
             "Stormbringer", "Tinker", "Venomancer", "Primalist", "Runemaster", "Cultist", "Starcaller", "Sun Cleric",
             "Guardian",
+            "Witch Doctor",
+            "Ranger",
+            "Pyromancer",
+            "Necromancer",
+            "Knight of Xoroth",
+            "Felsworn",
+            "Chronomancer",
+            "Bloodmage",
+            "Barbarian",
         ]
         self.selected_class = 0
         self.character_name = "Hero"

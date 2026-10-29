@@ -2168,6 +2168,35 @@ class Character(StatusEffectMixin):
         for tooltips/character-sheet display."""
         return self.mitigation_from(self.get_resistance(school), self.level) * 100.0
 
+    def _fire_avoidance_procs(self, triggers, attacker=None):
+        """Fire ON_DODGE / ON_PARRY / ON_AVOID / ON_BLOCK and queue the text.
+
+        Separate from take_damage's own ON_DAMAGE_TAKEN block because a dodge
+        and a parry RETURN 0 immediately - they never reach it - so the
+        messages have to be queued here or they are lost. Queued onto
+        _pending_proc_messages exactly like the damage-taken path, which
+        CombatEngine._apply_effect drains after every take_damage call;
+        Character owns no combat log of its own.
+
+        `attacker` is passed through as the proc's "target" so a retaliation
+        on avoidance has something to hit back - Moon Guard's Moonflares
+        ("Avoiding melee attacks will call down a Moonflare at the attacker")
+        and Guardian's Retaliation ("blocks strike back") both need it, and a
+        caller that has no attacker simply gets no retaliation, same as the
+        damage-taken path.
+        """
+        if not hasattr(self, "fire_proc_trigger"):
+            return
+        for trigger in triggers:
+            msgs = self.fire_proc_trigger(trigger, {"amount": 0, "target": attacker})
+            if not msgs:
+                continue
+            pending = getattr(self, "_pending_proc_messages", None)
+            if pending is None:
+                pending = []
+                self._pending_proc_messages = pending
+            pending.extend(msgs)
+
     def take_damage(self, amount, damage_type="physical", attacker_level=None, attacker=None):
         """Take damage with resistance.
 
@@ -2238,9 +2267,11 @@ class Character(StatusEffectMixin):
             import random
             roll = random.uniform(0, 100)
             if roll < self.dodge:
+                self._fire_avoidance_procs(("on_dodge", "on_avoid"), attacker)
                 return 0
             roll -= self.dodge
             if roll < self.parry:
+                self._fire_avoidance_procs(("on_parry", "on_avoid"), attacker)
                 return 0
             roll -= self.parry
             blocked = roll < self.block_chance
@@ -2459,6 +2490,12 @@ class Character(StatusEffectMixin):
             if bonus:
                 absorbed += actual * bonus
             actual = max(1, int(actual - absorbed))
+            # A block is a partial hit, so ON_BLOCK fires here AND
+            # ON_DAMAGE_TAKEN fires below, off the reduced amount. A talent
+            # that pays out on blocking ("Blocking an attack now generates 3
+            # Insanity") wants the former; one that pays out on being hurt
+            # wants the latter; several specs have both.
+            self._fire_avoidance_procs(("on_block",), attacker)
 
         self.current_health -= actual
         

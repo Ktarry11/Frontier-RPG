@@ -1,0 +1,1618 @@
+{
+  "class": "Knight of Xoroth",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_knight_of_xoroth.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "knight_of_xoroth_attack",
+      "name": "Attack",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A measured strike with your weapon.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack."
+    },
+    {
+      "ability_id": "knight_of_xoroth_infernal_strike",
+      "name": "Infernal Strike",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Drive your weapon in and let the hellfire in it bite. The burn feeds the fire you carry.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 20,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 53
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 75
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 86
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 20,
+          "effect_value": 97
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 108
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 119
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'weave a cheap filler strike in Infernal Strike, which generates 2 Demonfire'. The universal filler, on Warrior's heroic_strike curve.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "deathfire",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "knight_of_xoroth_sever",
+      "name": "Sever",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A short, economical cut. You take what the swing gives you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 6,
+          "cost": 10,
+          "effect_value": 32
+        },
+        {
+          "rank": 2,
+          "level_req": 13,
+          "cost": 10,
+          "effect_value": 41
+        },
+        {
+          "rank": 3,
+          "level_req": 20,
+          "cost": 10,
+          "effect_value": 50
+        },
+        {
+          "rank": 4,
+          "level_req": 27,
+          "cost": 10,
+          "effect_value": 59
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 10,
+          "effect_value": 68
+        },
+        {
+          "rank": 6,
+          "level_req": 41,
+          "cost": 10,
+          "effect_value": 77
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 10,
+          "effect_value": 86
+        },
+        {
+          "rank": 8,
+          "level_req": 55,
+          "cost": 10,
+          "effect_value": 95
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'using Sever to top up rage'. Cheapest strike in the kit, so it is the one you press when the pool is empty.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "deathfire",
+        "amount": 10
+      }
+    },
+    {
+      "ability_id": "knight_of_xoroth_meatsaw",
+      "name": "Meatsaw",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A grinding, two-handed sweep that catches whoever is pressed in beside your target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 25,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 74
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 84
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 94
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Meatsaw (hits nearby enemies)'. target_type enemy_aoe + max_targets is what the engine actually reads for a limited cleave; the is_aoe flag is never read at load time.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3
+    },
+    {
+      "ability_id": "knight_of_xoroth_skulltaker",
+      "name": "Skulltaker",
+      "resource_type": "deathfire",
+      "cooldown": 1,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Spend the fire banked in you on one downward blow. The more you have stored, the less of them is left.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 76
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 40,
+          "effect_value": 98
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 40,
+          "effect_value": 120
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 40,
+          "effect_value": 142
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 164
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 40,
+          "effect_value": 186
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 40,
+          "effect_value": 208
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'dump stacked Demonfire into Skulltaker for its scaling finisher: more damage per stack'. The class's single-target Deathfire spender, shared by all three specs. 40 Deathfire is CoA's 4-stack spend.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "knight_of_xoroth_suffuse",
+      "name": "Suffuse",
+      "resource_type": "deathfire",
+      "cooldown": 2,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Let the mortal half of you surface for a moment. What it closes stays closed.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 30,
+          "effect_value": 150
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 30,
+          "effect_value": 220
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 30,
+          "effect_value": 290
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 30,
+          "effect_value": 360
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 430
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 30,
+          "effect_value": 500
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 30,
+          "effect_value": 570
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'You spend Demonfire on Suffuse, an instant self-heal that scales off Stamina and defensive stats, so you top yourself off constantly as a side effect of pressing your rotation.' Frontier heals scale off healing_power, not Stamina or defense rating, so the Stamina scaling is lost; the Deathfire-funded self-sustain loop, which is the actual identity, is intact.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "knight_of_xoroth_melt",
+      "name": "Melt",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "The wound will not close while it is still burning.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 20,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 62
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 76
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 20,
+          "effect_value": 90
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 20,
+          "effect_value": 104
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 20,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA names Melt beside Infernal Strike and Meatsaw in 'A Gift from Hell' (the Rage-cost cut) and in 'Infernal Pummeling', which makes it the target's damage amp. The burn half is what the engine can express, so it is a Fire DoT.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "knight_of_xoroth_flames_of_xoroth",
+      "name": "Flames of Xoroth",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Hellfire comes off your weapon in a sheet and takes everything in front of you with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 68
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 81
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 94
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 107
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Your AoE comes from Flames of Xoroth'. Present in all three specs (War transforms it into Warbringer, Defiance into Hellfire Bellows).",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "knight_of_xoroth_flesh_hook",
+      "name": "Flesh Hook",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The hook goes out, bites, and brings them back to you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 15,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 49
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 15,
+          "effect_value": 60
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 15,
+          "effect_value": 71
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 15,
+          "effect_value": 82
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 15,
+          "effect_value": 93
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Flesh Hook (pulls the enemy to you)', 'Flesh Hook is your only reach tool'. ranged_damage - it is thrown. The engine has no forced-reposition mechanic, so the pull itself is flavour.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "knight_of_xoroth_chainwhip",
+      "name": "Chainwhip",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The chain comes round low and hard, and whatever they were saying stops.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 15,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 15,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 15,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 15,
+          "effect_value": 96
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 15,
+          "effect_value": 109
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Swing a chain at an enemy dealing Physical damage and silencing them for 2 seconds, generating a large amount of threat.' The engine has no silence category (see StatusEffect.is_stun, the only incapacitate), so the damage and its threat are what lands.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "knight_of_xoroth_chains_of_malice",
+      "name": "Chains of Malice",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Chains out of nothing, wrapped tight. They are not going anywhere and they are not doing anything.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 60
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 20,
+          "effect_value": 74
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 88
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 102
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Lock an enemy down with magical chains, stunning them and dragging them with you for 5 seconds.' The stun is real; the drag is not modellable.",
+      "target_type": "enemy",
+      "is_stun": true
+    },
+    {
+      "ability_id": "knight_of_xoroth_dread",
+      "name": "Dread",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "threat_generation_pct": 180
+      },
+      "description": "You stop being a thing they can ignore.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 10,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "The class tree's Dread, which is the one node whose tooltip the scrape could not capture ('(see builder tooltip)'), so the MECHANIC here is Frontier's choice rather than CoA's: the kit otherwise has no taunt, and Defiance is a main tank. Implemented as a threat_generation_pct buff, the convention Guardian's Challenging Cry (200) and Cultist's Twilight Domain (180) already use - ability buff stat_mods are percent POINTS here, unlike talent effects, which are fractions.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "knight_of_xoroth_black_shield",
+      "name": "Black Shield",
+      "resource_type": "rage",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Something between you and the next blow. It does not have to be yours.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Consume all of your Demon's Blood stacks to create a demonic shield that absorbs 860 damage, increased by 20% per Demon's Blood stack'. Demon's Blood has no engine hook, so the absorb is a flat share of max health instead of a stack-scaled number.",
+      "target_type": "self",
+      "absorb_pct_max_health": 0.18,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "knight_of_xoroth_demon_heart",
+      "name": "Demon Heart",
+      "resource_type": "rage",
+      "cooldown": 10,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Reach inward for the part of you that was put there, and let it answer.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 45
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 50
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 55
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Embrace your inner demon, instantly generating 6 stacks of Demonfire and 50 Rage.' Both halves are real: restore_resource refills Rage (off the rank's mana_restore_pct, which is where the engine reads the amount) and `generates` pays the Deathfire.",
+      "target_type": "self",
+      "restore_resource_type": "rage",
+      "generates": {
+        "resource": "deathfire",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "knight_of_xoroth_burning_rage",
+      "name": "Burning Rage",
+      "resource_type": "rage",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "cc_immune": 1,
+        "haste": 10.0
+      },
+      "description": "Past a certain point nothing anyone does to you registers as a reason to stop.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Enrage, generating 15 Rage every 1 sec and making you immune to incapacitate, banish, and polymorph effects for 6 seconds. Usable while incapacitated.' cc_immune is a real stat_mod the engine checks before applying an incapacitate. The Rage-per-second half belongs to Demon Heart instead - one ability cannot both buff and restore.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "knight_of_xoroth_juggernaut",
+      "name": "Juggernaut",
+      "resource_type": "rage",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.25
+      },
+      "description": "You stop giving ground, and stop noticing the reasons to.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Consume all of your Demon's Blood to become a juggernaut, reducing all damage taken by 30% for 10 seconds.' The tick-healing half and the Demon's Blood cost are not modellable; -25% for 3 turns on a 12-turn cooldown sits just under Warrior's Shield Wall (-40%, 2 turns) deliberately, since every spec gets this one.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "knight_of_xoroth_unleash_pestilence",
+      "name": "Unleash Pestilence",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Whatever you have been radiating, let it all go at once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 54
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 30,
+          "effect_value": 70
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 86
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 30,
+          "effect_value": 102
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 118
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Unleashes your active Pestilence to trigger a powerful effect.' Which Pestilence is up changes what it does in CoA; the engine has no such branch, so it is one AoE burst regardless.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "knight_of_xoroth_pestilence_of_death",
+      "name": "Pestilence of Death",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "crit_chance_physical": 8.0,
+        "crit_chance_spell": 8.0
+      },
+      "description": "You carry an air about you that the dying recognise.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Emanate a pestilence, increasing your critical damage by 10%.' No buff-sourced crit-DAMAGE key exists (crit_damage_physical is read off talents only), so it grants crit CHANCE instead. One Pestilence at a time, so the two share an exclusive_group.",
+      "target_type": "self",
+      "exclusive_group": "knight_of_xoroth_pestilence"
+    },
+    {
+      "ability_id": "knight_of_xoroth_pestilence_of_apocalypse",
+      "name": "Pestilence of Apocalypse",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "damage_dealt_pct": 8
+      },
+      "description": "The air around you turns thin and hot, and everything in it burns easier.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'causing targets within 8 yds to take 10% increased Fire damage from you'. The engine has no per-enemy aura; damage_dealt_pct on the Knight is the same arithmetic from the other side.",
+      "target_type": "self",
+      "exclusive_group": "knight_of_xoroth_pestilence"
+    },
+    {
+      "ability_id": "knight_of_xoroth_shieldgore",
+      "name": "Shieldgore",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Put the spikes of your shield through them. It is the loudest thing you can do.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 20,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 85
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 98
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 20,
+          "effect_value": 111
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 124
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Transforms your Infernal Strike into Shieldgore. Generates 2 Demonfire. Gore the target with your spiked shield, causing High Threat Fire Damage, scaling with your block value.' Block-value scaling has no hook on the damage path, so the damage is flat; the Deathfire generation and the threat from a big hit are what the spec's whole loop actually runs on.",
+      "target_type": "enemy",
+      "damage_school": "fire",
+      "generates": {
+        "resource": "deathfire",
+        "amount": 20
+      },
+      "requires_talent": true
+    },
+    {
+      "ability_id": "knight_of_xoroth_call_hellfire_imp",
+      "name": "Call: Hellfire Imp",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "One of them is always listening. It comes when called and it soaks what it is pointed at.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Beckon 1 Hellfire Imp to aid you in battle for 12 seconds and generate 20 Rage. Threat generated by Hellfire Imps is transferred to you.' CoA calls it 'a free rage battery that also summons a body', so the Rage is the generates payload. The imp template in combat/pet_templates.py is the Warlock's; the engine has no per-class pet registry, so it is reused rather than a template being invented.",
+      "target_type": "self",
+      "summon_pet_template": "imp",
+      "generates": {
+        "resource": "rage",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "knight_of_xoroth_call_hellfire_abyssal",
+      "name": "Call: Hellfire Abyssal",
+      "resource_type": "rage",
+      "cooldown": 15,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Something much larger lands where you pointed, and stays.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Call down a Hellfire Abyssal from the sky ... The abyssal remains to aid you in battle for 15 seconds and emits an aura that reduces the damage taken by party and raid members within 40 yds by 5%.' No abyssal template exists; voidwalker is the tankiest demon in pet_templates.py, so it stands in. The party aura is carried by the capstone NODE that unlocks this, which is the only place the engine can express it.",
+      "target_type": "self",
+      "summon_pet_template": "voidwalker",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "knight_of_xoroth_implosion",
+      "name": "Implosion",
+      "resource_type": "deathfire",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Let the stored fire out all at once, in every direction, and take the recoil as fuel.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 40,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 114
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 40,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Explode with hellish fire, dealing Fire damage to nearby enemies, beckoning Hellfire Imps to aid you in battle, and generating 30 Rage. Deals increased damage ... for each Demonfire consumed.' Spends Deathfire and pays Rage, which is the one place the class's two pools trade in that direction. The imp summon cannot ride along on a damage ability.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": "fire",
+      "generates": {
+        "resource": "rage",
+        "amount": 30
+      }
+    },
+    {
+      "ability_id": "knight_of_xoroth_sacrificial_circle",
+      "name": "Sacrificial Circle",
+      "resource_type": "rage",
+      "cooldown": 8,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You made them. You can spend them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 260
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 20,
+          "effect_value": 350
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 440
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 530
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Sacrifice your Hellfire Imps within 15 yds, healing you 15% of your maximum health, plus an additional amount equal to 25% of each of your Hellfire Imp's maximum health.' The engine cannot consume your own pets as a cost, so it is a flat emergency heal on a long cooldown. The Soul Furnace absorb that CoA leaves behind is the Defiance node of that name.",
+      "target_type": "self"
+    },
+    {
+      "ability_id": "knight_of_xoroth_curse_of_xoroth",
+      "name": "Curse of Xoroth",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A word spoken over them that keeps working after you have stopped paying attention.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 25,
+          "effect_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 110
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 25,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Curse an enemy for 15 seconds, dealing Shadowflame Damage over 15 seconds. Your next Shieldgore within 12 seconds grants you Black Shield.' There is no shadowflame school; the engine supports a COMBINED school list (Sun Cleric's Radiant Flame is ['holy', 'fire']), so Fire plus Shadow is literal. The Black Shield priming is not modellable.",
+      "target_type": "enemy",
+      "damage_school": [
+        "fire",
+        "shadow"
+      ]
+    },
+    {
+      "ability_id": "knight_of_xoroth_chains_of_xoroth",
+      "name": "Chains of Xoroth",
+      "resource_type": "rage",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -20.0
+      },
+      "description": "Chains across the ground. Crossing it costs more than they have.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Create demonic chains at target location that slow enemies inside by -80% for 5 seconds. At the end of the duration, it pulls all affected enemies to it.' The slow is real; the terminal pull is not. Same haste-negative snare shape Guardian's Net Throw uses.",
+      "target_type": "enemy_aoe"
+    },
+    {
+      "ability_id": "knight_of_xoroth_hellfire_bellows",
+      "name": "Hellfire Bellows",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You breathe out and the fire goes both ways.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 65
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 80
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 95
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 25,
+          "effect_value": 110
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Transforms your Flames of Xoroth into Hellfire Bellows. Bellow fire on all enemies in a 6 yd cone in front of and behind you.' Frontier has no facing, so the cone is a capped cleave.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "knight_of_xoroth_legions_presence",
+      "name": "Legion's Presence",
+      "resource_type": "rage",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 10
+      },
+      "description": "For a while the people fighting beside you are fighting for something older than you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Emanate an aura to allies within 25 yds for 15 seconds, increasing their damage dealt by 10%.' target_type party is what makes a buff land on allies; buff_scope only chooses between a 30-minute raid buff and a turn-based combat one.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "knight_of_xoroth_gore",
+      "name": "Gore",
+      "resource_type": "rage",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Quick, low, and already pulling back out.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 15,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 15,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 15,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 15,
+          "effect_value": 76
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 15,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 15,
+          "effect_value": 100
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 15,
+          "effect_value": 112
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: '2 Charges, 8 sec recharge. Generates 1 Demonfire. Quickly gore an enemy.' Charges have no engine equivalent, so it is a 2-turn cooldown. CoA gates Gore behind two maxed War talents, so it is talent-unlocked here too.",
+      "target_type": "enemy",
+      "generates": {
+        "resource": "deathfire",
+        "amount": 10
+      },
+      "requires_talent": true
+    },
+    {
+      "ability_id": "knight_of_xoroth_warbringer",
+      "name": "Warbringer",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Bring the weapon down on the ground instead of on them. It reaches further that way.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 25,
+          "effect_value": 68
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 84
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 25,
+          "effect_value": 100
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 116
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Transforms your Flames of Xoroth into Warbringer. Slam the ground, dealing Weapon Damage to nearby enemies, reducing the effectiveness of any healing by -50% for 10 seconds.' A damage ability cannot also apply a debuff, so the anti-heal is lost here; healing_taken_pct exists but only on a debuff ability, and War's own page calls the cleave the point.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4
+    },
+    {
+      "ability_id": "knight_of_xoroth_brimstone_bludgeon",
+      "name": "Brimstone Bludgeon",
+      "resource_type": "rage",
+      "cooldown": 5,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "One swing for everything standing close enough to regret it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 30,
+          "effect_value": 124
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 30,
+          "effect_value": 152
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA: 'Walking in and popping Brimstone Bludgeon is the opener: heavy weapon damage to the pack that also unleashes Pestilence of Death'. The spec's keystone and its tier-6 pick, so it is unlocked by the capstone node. The Pestilence unleash is a separate button here.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "requires_talent": true
+    },
+    {
+      "ability_id": "knight_of_xoroth_decimation",
+      "name": "Decimation",
+      "resource_type": "rage",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "crit_chance_physical": 40.0
+      },
+      "description": "You already know where this one lands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Your next Skulltaker or Warbringer is guaranteed to critically strike for 25% increased damage.' Nothing can guarantee a crit or restrict a buff to the next cast of two named abilities, so it is a large crit window instead - the same shape as Warrior's Recklessness (crit_chance_physical 100).",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "knight_of_xoroth_burning_blade",
+      "name": "Burning Blade",
+      "resource_type": "rage",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "armor_penetration_pct": 30,
+        "attack_power": 40
+      },
+      "description": "The blade catches and stays caught.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Ignite your weapon, causing you to send out searing fire with each melee critical strike, dealing Fire damage in a line and increasing your Armor penetration by 30% while active.' The armour penetration is literal; the on-crit fire line is the War tree's Hellsmelted node.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "knight_of_xoroth_searing_blade",
+      "name": "Searing Blade",
+      "resource_type": "rage",
+      "cooldown": 3,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A strike that arrives already hot.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 20,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 20,
+          "effect_value": 114
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA names Searing Blade in War's Domination ('Melee critical strikes now reduce the cooldown of Searing Blade'), which is all the reference says about it, so it is authored as the spec's mid-cooldown Fire strike.",
+      "target_type": "enemy",
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "knight_of_xoroth_seeking_flame",
+      "name": "Seeking Flame",
+      "resource_type": "rage",
+      "cooldown": 1,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The fire goes and finds them. It is slower to leave than to arrive.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 15,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 15,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 15,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 15,
+          "effect_value": 76
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 15,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 15,
+          "effect_value": 100
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 15,
+          "effect_value": 112
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Generates 1 Demonfire. Sear an enemy, dealing Fire damage', and 'Seeking Flame's slow keeps targets in reach'. The engine has no slow on a damage ability, so the slow is lost and the Deathfire generation is the mechanical half.",
+      "target_type": "enemy",
+      "damage_school": "fire",
+      "generates": {
+        "resource": "deathfire",
+        "amount": 10
+      }
+    },
+    {
+      "ability_id": "knight_of_xoroth_hellmaw",
+      "name": "Hellmaw",
+      "resource_type": "deathfire",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You open something in them that keeps chewing.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 40,
+          "effect_value": 90
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 116
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 40,
+          "effect_value": 142
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 168
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 40,
+          "effect_value": 194
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 40,
+          "effect_value": 220
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Burn an enemy with a fiery strike, dealing Shadowflame Damage, plus an additional amount over 12 seconds. Deals 20% increased damage per Demonfire consumed.' Hellmaw is a Hellfire tree pick in CoA, so it is talent-unlocked. Shadowflame is the combined ['fire', 'shadow'] school.",
+      "target_type": "enemy",
+      "damage_school": [
+        "fire",
+        "shadow"
+      ],
+      "requires_talent": true
+    },
+    {
+      "ability_id": "knight_of_xoroth_hellfire_form",
+      "name": "Hellfire Form",
+      "resource_type": "deathfire",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 20,
+        "crit_chance_spell": 15.0
+      },
+      "description": "You stop pretending the thing inside you is a passenger.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Enter your Hellfire Form, increasing your Fire damage dealt by 20% and Fire critical strike chance by 15% for 15 seconds', 'the Metamorphosis-style transformation cooldown'. Not effect_type shapeshift: combat/forms.py is a shared file and has no Hellfire Form, so it is a buff. damage_dealt_pct is school-agnostic in this engine, so the Fire restriction is lost.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "knight_of_xoroth_hellstorm",
+      "name": "Hellstorm",
+      "resource_type": "deathfire",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The sky over them stops behaving and starts falling.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 50,
+          "effect_value": 80
+        },
+        {
+          "rank": 2,
+          "level_req": 44,
+          "cost": 50,
+          "effect_value": 104
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 50,
+          "effect_value": 128
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 50,
+          "effect_value": 152
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Create a hellstorm, dealing Fire damage to up to 8 nearby enemies. Embers then flare every 1 sec ... Duration is increased by 100% for each stack of Demonfire consumed.' The ember ticks would need a damage ability that also lays a DoT, which the engine does not have, so it is one large capped AoE hit.",
+      "target_type": "enemy_aoe",
+      "max_targets": 6,
+      "damage_school": "fire"
+    },
+    {
+      "ability_id": "knight_of_xoroth_summon_greater_imp",
+      "name": "Summon: Greater Imp",
+      "resource_type": "rage",
+      "cooldown": 10,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A bigger one, and a worse temper.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Teaches you Summon: Greater Imp ... Greater Imp has various combat abilities that provide excellent single target damage and control.' No greater-imp template exists; felhunter is the demon in pet_templates.py with a real single-target kit, so it stands in. CoA makes this a free level-10 passive of the Hellfire tree; Frontier has no free passives, so it is an ordinary summon the whole class can train.",
+      "target_type": "self",
+      "summon_pet_template": "felhunter"
+    }
+  ]
+}

@@ -1,0 +1,1496 @@
+{
+  "class": "Necromancer",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_necromancer.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "necromancer_attack",
+      "name": "Attack",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A swing with whatever you are holding.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack. The only weapon strike a Necromancer has, hence the only ability_melee icon in the file."
+    },
+    {
+      "ability_id": "necromancer_crypt_swarm",
+      "name": "Crypt Swarm",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A swarm of carrion insects pours off you and settles on the target. It does not hurry.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 43
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 52
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 61
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 70
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 79
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 88
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 97
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 106
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Pull with Crypt Swarm, a channel that builds RP while ticking Plague damage'. The engine of all three rotations, so it is the level-1 free builder and the biggest Life Force source in the kit. Deliberately weaker per cast than Lichfrost - you are paid in fuel.",
+      "target_type": "enemy",
+      "damage_school": "shadow",
+      "generates": {
+        "resource": "life_force",
+        "amount": 20
+      }
+    },
+    {
+      "ability_id": "necromancer_lichfrost",
+      "name": "Lichfrost",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A lance of grave-cold that leaves the target slow and stiff.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 0,
+          "effect_value": 55
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 0,
+          "effect_value": 66
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 77
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 0,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 99
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 110
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 0,
+          "effect_value": 121
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Open at range with Lichfrost (builder, generates Runic Power, slows)'. Shared by all three specs - the class tree spends points on it (Lich Essence, Living Dead, Winds of Northrend). mage_frostbolt's curve. The slow is not modelled: a haste debuff on an enemy is read by nothing in Monster, which only folds armor and attack_power off its status effects.",
+      "target_type": "enemy",
+      "damage_school": "frost",
+      "generates": {
+        "resource": "life_force",
+        "amount": 12
+      }
+    },
+    {
+      "ability_id": "necromancer_flesh_to_worms",
+      "name": "Flesh to Worms",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "The target's flesh starts moving on its own.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 0,
+          "effect_value": 88
+        },
+        {
+          "rank": 2,
+          "level_req": 11,
+          "cost": 0,
+          "effect_value": 116
+        },
+        {
+          "rank": 3,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 144
+        },
+        {
+          "rank": 4,
+          "level_req": 25,
+          "cost": 0,
+          "effect_value": 172
+        },
+        {
+          "rank": 5,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 200
+        },
+        {
+          "rank": 6,
+          "level_req": 39,
+          "cost": 0,
+          "effect_value": 228
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 0,
+          "effect_value": 256
+        },
+        {
+          "rank": 8,
+          "level_req": 53,
+          "cost": 0,
+          "effect_value": 284
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Disease an enemy, dealing shadow SP Plague damage and generating Runic Power every 3 sec for 18 seconds'. warlock_corruption's DoT curve. Plague is not a school here, and CoA's own wording is 'shadow SP Plague damage', so every disease in this file is Shadow.",
+      "target_type": "enemy",
+      "damage_school": "shadow",
+      "generates": {
+        "resource": "life_force",
+        "amount": 15
+      }
+    },
+    {
+      "ability_id": "necromancer_glacial_tap",
+      "name": "Glacial Tap",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You take what the dead are no longer using.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 30
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Tap into necrotic energies, instantly regenerating 30 Runic Power'. Life Force has no engine regen at all (see module docstring), so this is the only way to refill the pool without casting a builder. mana_restore_pct is the existing rank field for 'percent of max resource restored' - 30 of a 100 pool is 30.",
+      "target_type": "self",
+      "restore_resource_type": "life_force",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_command_hook",
+      "name": "Command: Hook",
+      "resource_type": "life_force",
+      "cooldown": 4,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "A hook comes out of the dark and the target stops going anywhere.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Command your Abominations to hook an enemy to their location, slowing their movement speed to a halt for 2 seconds'. A halt is a root; the engine has no root, so it lands as a one-turn stun.",
+      "target_type": "enemy",
+      "is_stun": true,
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_corpse_explosion",
+      "name": "Corpse Explosion",
+      "resource_type": "life_force",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You find a body nobody was watching and burst it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 25,
+          "effect_value": 46
+        },
+        {
+          "rank": 2,
+          "level_req": 23,
+          "cost": 25,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 25,
+          "effect_value": 85
+        },
+        {
+          "rank": 5,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 98
+        },
+        {
+          "rank": 6,
+          "level_req": 51,
+          "cost": 25,
+          "effect_value": 111
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 124
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree spends a point on it (Corpse Commander: 'Reduces the Runic Power cost of Corpse Explosion by -20'), so it is baseline kit. enemy_aoe, not is_aoe: target_type is the only field the engine's AoE branch reads, and max_targets caps the cleave at 4.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_deaths_due",
+      "name": "Death's Due",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You remind the target what it is owed.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Force a target to accept the reality of death, removing any invulnerability or immunity effects from them'. An enemy purge - the same shape as shaman_purge and stormbringer_razorwind. The 5-second curse and its below-20% payoff have no hook and are dropped.",
+      "target_type": "enemy",
+      "dispel_type": "magic"
+    },
+    {
+      "ability_id": "necromancer_bone_tithe",
+      "name": "Bone Tithe",
+      "resource_type": "life_force",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "armor": 120,
+        "magic_resistance": 55
+      },
+      "description": "You take back some of what you lent your servants.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 20,
+          "effect_value": 110
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 150
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 20,
+          "effect_value": 190
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 20,
+          "effect_value": 230
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Siphon life from your undead minions, sacrificing 40% of their health to grant yourself an absorb shield ... Usable while stunned'. There is no absorb-shield mechanic, so it is an armour and magic resistance window, the same substitution mage_ice_barrier and priest_power_word_shield already ship with. Nothing models 'usable while stunned'.",
+      "target_type": "self",
+      "buff_scope": "combat",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_fetid_ward",
+      "name": "Fetid Ward",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 5,
+      "stat_mods": {
+        "healing_power": 45,
+        "magic_resistance": 40
+      },
+      "description": "A sweet, thick smell settles over you and everything you have raised.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'While active, 30% of your damage dealt heals you and your minions ... and healing received is increased by 10%'. Damage-to-healing conversion has no ability-level hook, so the healing-received half is what the buff carries. Animation's Vampiric Aura talent is where the leech actually lives.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "necromancer_anti_magic_shell",
+      "name": "Anti-Magic Shell",
+      "resource_type": "life_force",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "magic_damage_taken_pct": -25
+      },
+      "description": "Spellwork slides off you and off everything standing near you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Anti-Magic Shell raises every summon with a magic-absorb bubble'. NOTE the convention trap: magic_damage_taken_pct from a BUFF is percent POINTS (divided by 100 in Character.take_damage) while the TALENT form of the same key is a fraction. -25 is -25%.",
+      "target_type": "self",
+      "buff_scope": "combat",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_phylactery",
+      "name": "Phylactery",
+      "resource_type": "life_force",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.35
+      },
+      "description": "You put something of yourself somewhere safer than here.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Upon taking damage which would bring you below 10% health, become a Shade ... Reaching your Phylactery in this state revives you with 40% of your maximum health'. There is no cheat-death mechanic and no world position to walk back to, so it is a heavy mitigation window instead - the thing the Shade would have bought. Both Death and Rime list a pre-placed Phylactery as one of the only things that works through a stunlock.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "necromancer_ghoulify",
+      "name": "Ghoulify",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "The target spends a while being something else.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Death's weakness list names \"Ghoulify's fear\" among the tools that need you free to act. Fear is a loss of control, so is_stun.",
+      "target_type": "enemy",
+      "is_stun": true,
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_mass_grave",
+      "name": "Mass Grave",
+      "resource_type": "life_force",
+      "cooldown": 9,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Five of them go down at once and come up wrong.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Transform up to 5 nearby enemies into a ghoul, fearing them for 40 seconds (8). Only affects Humanoids.' The Humanoid restriction has no hook and is dropped; max_targets 5 keeps the real cap.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "is_stun": true
+    },
+    {
+      "ability_id": "necromancer_unholy_frenzy",
+      "name": "Unholy Frenzy",
+      "resource_type": "life_force",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 20.0,
+        "damage_dealt_pct": 15
+      },
+      "description": "Everything speeds up and none of it is good for anyone else.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "The class's big offensive cooldown - five CoA talents across the three trees exist only to modify it (Study of Death, Fleshcrafting, Unstoppable Frenzy, Dominion of Frost, Giant Bones). damage_dealt_pct is the key a BUFF uses to raise outgoing damage (percent points, read in Ability._damage_multiplier); the talent-side keys spell_damage/all_damage are read through get_talent_effect only and do nothing from a buff.",
+      "target_type": "self",
+      "buff_scope": "combat",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_foul_invocation",
+      "name": "Foul Invocation",
+      "resource_type": "life_force",
+      "cooldown": 14,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "max_health_pct": 0.3,
+        "magic_resistance": 60
+      },
+      "description": "You stop pretending to be alive for a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 35,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Transform into an undead monstrosity for 20 seconds, increasing your maximum health by 30%. While transformed you are immune to Fear, Sleep, Charm, and Disease effects.' max_health_pct is a FRACTION even from a buff - ability stat_mods and talent effects share one bonus pool in _recalculate_derived_stats, so 0.3 is +30% and 30.0 would be +3000%. The immunities have no hook; the magic resistance stands in.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "necromancer_call_of_the_scourge",
+      "name": "Call of The Scourge",
+      "resource_type": "life_force",
+      "cooldown": 20,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "They are not finished. You have decided.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 40
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: all three spec pages list 'brings combat rez', and Animation names it: 'Call of The Scourge, an in-combat battle res'. effect_value is the percent of max health revived at, matching tinker_defibrillate.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "necromancer_plague_of_undeath",
+      "name": "Plague of Undeath",
+      "resource_type": "life_force",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Something old and patient takes hold, and prayers stop helping.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 20,
+          "effect_value": 72
+        },
+        {
+          "rank": 2,
+          "level_req": 15,
+          "cost": 20,
+          "effect_value": 94
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 20,
+          "effect_value": 116
+        },
+        {
+          "rank": 4,
+          "level_req": 29,
+          "cost": 20,
+          "effect_value": 138
+        },
+        {
+          "rank": 5,
+          "level_req": 36,
+          "cost": 20,
+          "effect_value": 160
+        },
+        {
+          "rank": 6,
+          "level_req": 43,
+          "cost": 20,
+          "effect_value": 182
+        },
+        {
+          "rank": 7,
+          "level_req": 50,
+          "cost": 20,
+          "effect_value": 204
+        },
+        {
+          "rank": 8,
+          "level_req": 57,
+          "cost": 20,
+          "effect_value": 226
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Open by applying Plague of Undeath (Plague DoT + reduced enemy Holy healing)'. The Holy-healing debuff is the closest thing the spec has to support and has no engine hook - there is no healing-received modifier a monster reads.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_lichplague",
+      "name": "Lichplague",
+      "resource_type": "life_force",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "The last disease you apply, and the one that notices the others.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 96
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 126
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 156
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 186
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 216
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 246
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Lichplague on top so it scales up per disease already on the target' - 'Damage increased by 4% for each Necromancer disease on the enemy'. Nothing counts the DoTs on a target, so it is simply the largest disease and the latest one learned.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_virulency",
+      "name": "Virulency",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "You reach into the rot already there and seed it everywhere else.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 30,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 30,
+          "effect_value": 78
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 30,
+          "effect_value": 114
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 30,
+          "effect_value": 132
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Reinvigorate your diseases, refreshing all diseases on the target enemy and copying them ... You may use this ability again within 10 sec to Infest another target'. Copying a live DoT package has no hook, so the spread is expressed directly: one cast puts the disease on up to four enemies itself.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_harvest_plague",
+      "name": "Harvest Plague",
+      "resource_type": "life_force",
+      "cooldown": 4,
+      "effect_type": "damage_and_heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You drink what the disease has been making.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 25,
+          "effect_value": 130
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 160
+        },
+        {
+          "rank": 4,
+          "level_req": 43,
+          "cost": 25,
+          "effect_value": 190
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 220
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 25,
+          "effect_value": 250
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: \"Harvest Plague's siphon, Plague Doctor and Plague Drinker only ever feed your own health bar\" - one of only two real sustain buttons in the Death kit.",
+      "target_type": "enemy",
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_apothecarys_cauldron",
+      "name": "Apothecary's Cauldron",
+      "resource_type": "life_force",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "haste": 10.0
+      },
+      "description": "You brew something and make everyone drink it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Apothecary's Cauldron gives the party a spell-haste raid buff and boosts your own Magic damage. That, plus Plague of Undeath's Holy-healing debuff, is the closest thing to \"support\" you bring.' A talent cannot reach an ally (get_talent_effect reads the caster only), so the party half is this ability and the self half is the Death talent of the same name.",
+      "target_type": "self",
+      "buff_scope": "party",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_ice_barrage",
+      "name": "Ice Barrage",
+      "resource_type": "life_force",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Shard after shard, and when it stops the target is inside the ice.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 66
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 86
+        },
+        {
+          "rank": 3,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 106
+        },
+        {
+          "rank": 4,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 126
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 146
+        },
+        {
+          "rank": 6,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 166
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 186
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Unleash a relentless volley of glacial shards ... At the end of the duration, you entomb your target in ice, freezing them for 4 seconds.' The entomb is the is_stun; the channel is a DoT.",
+      "target_type": "enemy",
+      "damage_school": "frost",
+      "is_stun": true
+    },
+    {
+      "ability_id": "necromancer_glacial_impact",
+      "name": "Glacial Impact",
+      "resource_type": "life_force",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The sky drops something heavy on them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 30,
+          "effect_value": 80
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 30,
+          "effect_value": 104
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 128
+        },
+        {
+          "rank": 4,
+          "level_req": 43,
+          "cost": 30,
+          "effect_value": 152
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 30,
+          "effect_value": 176
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 30,
+          "effect_value": 200
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Use Glacial Impact on any Frozen target for its guaranteed crit (Glacier Lord)'. The Frozen requirement has no engine state to check - there is no Frozen flag - so it is castable always and the Frozen-only payoffs (Glacier Lord, Frigidness) are unconditional crit talents instead. The spec's biggest single hit.",
+      "target_type": "enemy",
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "necromancer_command_bonefreeze",
+      "name": "Command: Bonefreeze",
+      "resource_type": "life_force",
+      "cooldown": 7,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "The ground goes white and nothing standing on it moves.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Command your Skeletal Mages to freeze enemies at target location for 40 seconds (8 sec vs players). Damage taken may end the effect.' The group peel Rime opens packs with.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "is_stun": true,
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_heartchill",
+      "name": "Heartchill",
+      "resource_type": "life_force",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 1,
+      "stat_mods": {},
+      "description": "Their heart skips and the words go with it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 15,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Heartchill to interrupt a caster' - 'interrupting their current spell cast'. There is no cast bar to interrupt in a turn engine, so a one-turn stun is the honest equivalent: the enemy loses the action it was about to take.",
+      "target_type": "enemy",
+      "is_stun": true,
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_lich_form",
+      "name": "Lich Form",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "frost_spell_power": 50,
+        "magic_resistance": 30
+      },
+      "description": "You stop being warm. It was never doing much for you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 20,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Lich Form is the Undead-transform become-the-Lich cooldown ... increasing your Frost damage dealt by 10%. While active you generate 3 Runic Power every 5 sec.' frost_spell_power is read by Character.get_effective_spell_power, so this really does only scale Frost. The passive Runic Power tick has no hook - no engine path grants a resource per turn from a buff. Duration 0 and an exclusive_group make it a stance.",
+      "target_type": "self",
+      "exclusive_group": "necromancer_form"
+    },
+    {
+      "ability_id": "necromancer_chilling_presence",
+      "name": "Chilling Presence",
+      "resource_type": "life_force",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "crit_chance_spell": 3.0,
+        "crit_chance_physical": 3.0
+      },
+      "description": "Standing near you is uncomfortable in a way that helps.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: '\"Support\" here means Chilling Presence for the party crit aura' - 'Increases critical strike chance of all party and raid members by 3%'. Party-scoped for the same reason Apothecary's Cauldron is.",
+      "target_type": "self",
+      "buff_scope": "party",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_animate_frost_wyrm",
+      "name": "Animate: Frost Wyrm",
+      "resource_type": "life_force",
+      "cooldown": 10,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Something long and dead circles overhead and keeps breathing.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 35,
+          "effect_value": 58
+        },
+        {
+          "rank": 2,
+          "level_req": 46,
+          "cost": 35,
+          "effect_value": 75
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 35,
+          "effect_value": 92
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 35,
+          "effect_value": 109
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Animate a Frost Wyrm that flies behind the Necromancer that blasts nearby enemies every 2 sec for 30 seconds'. NOT a summon_pet: effect_type 'summon' does nothing, the engine only handles 'summon_pet' with a summon_pet_template that already exists in combat/pet_templates.py, and there is no frost-wyrm template (nor may one be added). A pet whose only job is to tick AoE damage on a timer IS a persistent AoE DoT, so that is what it is - the honest version, rather than the four Tinker abilities that shipped as 'summon' and summoned nothing for months.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": "frost"
+    },
+    {
+      "ability_id": "necromancer_raise_ghoul",
+      "name": "Raise: Ghoul",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "It gets up faster than you expect every time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Raise a Ghoul to aid you in combat occupying 1 Life Force. Its auto attacks restore SP health to you.' MAPPED, not authored: no undead pet template exists and none may be added, so this uses 'wolf' - level_req 1, the only level-1 melee template, whose own ability is literally Bite. Character.summon_pet is class-agnostic and gates only on the template's level_req, so this works; it will display as a Wolf. The on-hit leech is the Animation tree's Vampiric Aura talent instead. ONE pet at a time - Character.summon_pet replaces active_pet - so CoA's stacked army of Ghouls cannot be expressed; the rest of the army is AoE damage.",
+      "target_type": "self",
+      "is_instant": true,
+      "summon_pet_template": "wolf"
+    },
+    {
+      "ability_id": "necromancer_raise_skeletal_mage",
+      "name": "Raise: Skeletal Mage",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A thin one, still holding its staff.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA Rime: 'Raise a Skeletal Mage to aid you in combat, occupying 2 Life Force. Command: Unleashes ice at your target'. MAPPED to 'imp', the only ranged spellcaster template at a low level_req (1) - base_attack 0, real base_spell_power, one nuke. It will display as an Imp. Rime's rotation opens with 'Raise a Skeletal Mage first', which is why it is the earliest caster pet.",
+      "target_type": "self",
+      "is_instant": true,
+      "summon_pet_template": "imp"
+    },
+    {
+      "ability_id": "necromancer_raise_banshee",
+      "name": "Raise: Banshee",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "She was loud in life too.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Raise a Banshee to aid you in combat, occupying 2 Life Force. It will channel on your target, dealing damage and draining their mana'. MAPPED to 'succubus' - level_req 20, a ranged caster-flavoured summon whose own abilities are Lash of Pain and Seduction, the closest existing shape to a channelling banshee. The mana drain has no hook.",
+      "target_type": "self",
+      "is_instant": true,
+      "summon_pet_template": "succubus"
+    },
+    {
+      "ability_id": "necromancer_raise_abomination",
+      "name": "Raise: Abomination",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "summon_pet",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Several people, eventually.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Raise an Abomination to aid you in combat, occupying 3 Life Force. It is surrounded by a disease cloud'. MAPPED to 'faceless_destroyer' - level_req 30, base_armor 28, the toughest melee template in the roster, which is what a 3-Life-Force Abomination is for. The disease cloud has no hook; Animation's Flesh Symbiosis talent carries the per-Abomination armour.",
+      "target_type": "self",
+      "is_instant": true,
+      "summon_pet_template": "faceless_destroyer"
+    },
+    {
+      "ability_id": "necromancer_animate_skeletal_archers",
+      "name": "Animate: Skeletal Archers",
+      "resource_type": "life_force",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Three of them, and none of them need to breathe before they loose.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 40
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 52
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 25,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 30,
+          "cost": 25,
+          "effect_value": 76
+        },
+        {
+          "rank": 5,
+          "level_req": 36,
+          "cost": 25,
+          "effect_value": 88
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 100
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 25,
+          "effect_value": 112
+        },
+        {
+          "rank": 8,
+          "level_req": 54,
+          "cost": 25,
+          "effect_value": 124
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Dump generated RP into Animate: Skeletal Archers for instant ranged bodies' - 'Animate 3 Skeletal Archers to aid you in combat for 15 seconds'. Three bodies at once cannot be pets: active_pet holds exactly one, and there is no archer template. A 15-second volley of ranged undead is AoE damage, so that is what it is.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_animate_plaguefather",
+      "name": "Animate: Plaguefather",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "He walks into the middle of them and starts leaking.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 30,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 57
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 30,
+          "effect_value": 70
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 83
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 30,
+          "effect_value": 96
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 30,
+          "effect_value": 109
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Plaguefather smears Zombie Plague' - 'Damage dealt by this minion will emit Zombie Plague, dealing SP Plague damage to nearby enemies, and reducing their attack power'. Same template problem as the Archers; a walking AoE plague source is an AoE DoT.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_animate_bone_wraith",
+      "name": "Animate: Bone Wraith",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "It comes apart on purpose and the pieces keep swinging.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 36
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 30,
+          "effect_value": 47
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 30,
+          "effect_value": 58
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 30,
+          "effect_value": 69
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 80
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'it will periodically unleash a Bonestorm, striking up to 5 nearby enemies for SP Physical damage every 1 sec for 5 seconds'. effect_type 'dot' with no damage_school, so it lands as physical - the one physical-damage ability in the whole kit, which is exactly what CoA says Bonestorm is.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5
+    },
+    {
+      "ability_id": "necromancer_animate_tomb_king",
+      "name": "Animate: Tomb King",
+      "resource_type": "life_force",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "damage_dealt_pct": 12,
+        "attack_power": 40
+      },
+      "description": "He does not fight. He expects.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Keep Tomb King up so every minion attack hits harder' - 'all of your Undead minion's attacks deal an additional 10% of the damage dealt as Plague damage'. A Pet reads only three talent keys off its owner (pet_damage/pet_health/pet_armor, see entities/pet.py) and nothing at all off the owner's buffs, so a buff cannot reach a minion. This raises the Necromancer's own damage instead and the tree's pet_damage nodes carry the minion half.",
+      "target_type": "self",
+      "buff_scope": "combat",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_march_of_the_dead",
+      "name": "March of the Dead",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "They set off towards the enemy and do not arrive intact.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 35,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 43,
+          "cost": 35,
+          "effect_value": 90
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 35,
+          "effect_value": 110
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 35,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'March of the Dead is your AoE plague nuke' - 'When they reach an enemy they explode, dealing SP Plague damage to nearby enemies and slowing their movement speed by 70%'. The slow has no hook.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": "shadow"
+    },
+    {
+      "ability_id": "necromancer_sacrifice_undead",
+      "name": "Sacrifice Undead",
+      "resource_type": "life_force",
+      "cooldown": 6,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You thank it, and then you use it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 15,
+          "effect_value": 200
+        },
+        {
+          "rank": 2,
+          "level_req": 27,
+          "cost": 15,
+          "effect_value": 260
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 15,
+          "effect_value": 320
+        },
+        {
+          "rank": 4,
+          "level_req": 41,
+          "cost": 15,
+          "effect_value": 380
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 15,
+          "effect_value": 440
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 15,
+          "effect_value": 500
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Sacrifice Undead converts a destroyed pet into a max-HP heal' - one of the three things that keep Animation alive. The pet is not actually consumed: there is no ability-level hook to destroy active_pet, so this is a plain self-heal and the cost is Life Force rather than a minion.",
+      "target_type": "self",
+      "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_corpse_wagon",
+      "name": "Corpse Wagon",
+      "resource_type": "life_force",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "damage_dealt_pct": 5
+      },
+      "description": "It creaks past and everyone fights a little harder for reasons they would rather not examine.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Corpse Wagon adds a party/raid damage aura for the group' - 'Increases all damage dealt by party and raid members by 3%'. damage_dealt_pct is percent points from a buff. Party-scoped; the Animation talent of the same name carries only the self half.",
+      "target_type": "self",
+      "buff_scope": "party",
+      "is_instant": true
+    }
+  ]
+}

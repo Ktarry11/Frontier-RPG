@@ -1,0 +1,1787 @@
+{
+  "class": "Chronomancer",
+  "_source_note": "    PYTHONPATH=. python3 tools/build_chronomancer.py [--apply]",
+  "abilities": [
+    {
+      "ability_id": "chronomancer_attack",
+      "name": "Attack",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A swing of whatever you are holding.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "Convention: every class ships a free rank-1 Attack."
+    },
+    {
+      "ability_id": "chronomancer_unmake",
+      "name": "Unmake",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Take a piece of the target out of the present and do not give it back.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 25,
+          "effect_value": 42
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 33,
+          "effect_value": 53
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 40,
+          "effect_value": 64
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 48,
+          "effect_value": 75
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 55,
+          "effect_value": 86
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 63,
+          "effect_value": 97
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 70,
+          "effect_value": 108
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 78,
+          "effect_value": 119
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 85,
+          "effect_value": 130
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Unearthed Pools reduces the cast time of Unmake'; Infinite's rotation uses it as a filler and Artificer transforms it into Artificer's Wand. Mage's Frostbolt curve - the class's cheap, always-available nuke.",
+      "target_type": "enemy",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_wand_of_time",
+      "name": "Wand of Time",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A short, precise strike with your wand, landing a fraction before you make it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 1,
+          "cost": 15,
+          "effect_value": 26
+        },
+        {
+          "rank": 2,
+          "level_req": 6,
+          "cost": 20,
+          "effect_value": 33
+        },
+        {
+          "rank": 3,
+          "level_req": 12,
+          "cost": 24,
+          "effect_value": 40
+        },
+        {
+          "rank": 4,
+          "level_req": 18,
+          "cost": 29,
+          "effect_value": 47
+        },
+        {
+          "rank": 5,
+          "level_req": 24,
+          "cost": 34,
+          "effect_value": 54
+        },
+        {
+          "rank": 6,
+          "level_req": 32,
+          "cost": 38,
+          "effect_value": 61
+        },
+        {
+          "rank": 7,
+          "level_req": 40,
+          "cost": 43,
+          "effect_value": 68
+        },
+        {
+          "rank": 8,
+          "level_req": 48,
+          "cost": 48,
+          "effect_value": 75
+        },
+        {
+          "rank": 9,
+          "level_req": 56,
+          "cost": 52,
+          "effect_value": 82
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Wand of Time is a class ability that Infinite transforms into Timerend and Artificer uses as its fragment generator. ranged_damage, not spell_damage - it is a wand swing, and Artificer's Wand Expert ('increases your ranged attack power by 100% of your Spirit') only has something to scale if the engine's ranged_attack_power is what drives it.",
+      "target_type": "enemy"
+    },
+    {
+      "ability_id": "chronomancer_reverse_wound",
+      "name": "Reverse Wound",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Walk the injury backwards to a moment before it happened.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 4,
+          "cost": 40,
+          "effect_value": 52
+        },
+        {
+          "rank": 2,
+          "level_req": 14,
+          "cost": 64,
+          "effect_value": 79
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 88,
+          "effect_value": 106
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 112,
+          "effect_value": 133
+        },
+        {
+          "rank": 5,
+          "level_req": 44,
+          "cost": 136,
+          "effect_value": 160
+        },
+        {
+          "rank": 6,
+          "level_req": 54,
+          "cost": 159,
+          "effect_value": 187
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA says in all three spec pages that Reverse Wound is 'your only real self-heal'. Priest's Heal curve.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "chronomancer_decomposition",
+      "name": "Decomposition",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Let time do to the target in seconds what it would have taken years to do.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 26,
+          "effect_value": 66
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 39,
+          "effect_value": 94
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 51,
+          "effect_value": 122
+        },
+        {
+          "rank": 4,
+          "level_req": 38,
+          "cost": 64,
+          "effect_value": 150
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 77,
+          "effect_value": 178
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 89,
+          "effect_value": 206
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Eternal increases the duration of your Accelerated Recovery and Decomposition'. Infinite seeds it for proc uptime, Artificer turns it into a Distortion spell.",
+      "target_type": "enemy",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_accelerated_recovery",
+      "name": "Accelerated Recovery",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "hot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Their body heals at the pace it would have taken a month to manage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 35,
+          "effect_value": 50
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 54,
+          "effect_value": 74
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 74,
+          "effect_value": 98
+        },
+        {
+          "rank": 4,
+          "level_req": 37,
+          "cost": 93,
+          "effect_value": 122
+        },
+        {
+          "rank": 5,
+          "level_req": 46,
+          "cost": 112,
+          "effect_value": 146
+        },
+        {
+          "rank": 6,
+          "level_req": 55,
+          "cost": 132,
+          "effect_value": 170
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree ability, and half of Time's core loop.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "chronomancer_chronostasis",
+      "name": "Chronostasis",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -25.0
+      },
+      "description": "The target keeps moving. It simply takes them longer than it should.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Temporal Dissonance - Chronostasis now slows your target's movement speed by an additional -10%'. Haste is the engine's real slow (turn_meter.py reads it off status effects for turn order), so a slow is a haste debuff.",
+      "target_type": "enemy",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_roll_back",
+      "name": "Roll Back",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Return your ally to the version of themselves from a few seconds ago.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Roll Back to cleanse harmful effects'. A broad cleanse, so the full dispel_type tuple rather than one school.",
+      "target_type": "ally",
+      "dispel_type": [
+        "magic",
+        "poison",
+        "disease"
+      ]
+    },
+    {
+      "ability_id": "chronomancer_discordance",
+      "name": "Discordance",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Two moments arrive in the wrong order and everything standing between them pays for it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 45,
+          "effect_value": 48
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 61,
+          "effect_value": 63
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 77,
+          "effect_value": 78
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 94,
+          "effect_value": 93
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 110,
+          "effect_value": 108
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 126,
+          "effect_value": 123
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: Discordance is the shared cleave - Infinite's Timelost Power widens it, Artificer's Clocked In and Caverns of Time bank fragments off it.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_waves_of_time",
+      "name": "Waves of Time",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A cone of time fractals that arrives twice.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 50,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 68,
+          "effect_value": 58
+        },
+        {
+          "rank": 3,
+          "level_req": 38,
+          "cost": 87,
+          "effect_value": 72
+        },
+        {
+          "rank": 4,
+          "level_req": 48,
+          "cost": 105,
+          "effect_value": 86
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 123,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Blast enemies in a frontal cone with time fractals, knocking them back slightly. The knockback repeats 1 additional time after 2 sec.' There is no knockback or displacement in a turn engine, so this is the damage half only.",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_time_out",
+      "name": "Time Out!",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "damage_taken_pct": -0.3,
+        "mp5": 20
+      },
+      "description": "Step out of the fight for a moment. The fight does not get a say.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree, and Time's personal emergency layer: 'Time Out! and your absorb stack are the emergency layer'. The channelled mana regen is the mp5 half.",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_clasp_of_infinity",
+      "name": "Clasp of Infinity",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "haste": -40.0
+      },
+      "description": "A binding that bounces from one enemy to the next and holds all of them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Conjure a magical binding upon an enemy that bounces to nearby enemies, rooting them in place for 4 seconds.' The engine has one crowd-control flag, is_stun, and no root - a bouncing root that still lets the target act is a heavy slow here, not a stun.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_babify",
+      "name": "Babify",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "They are suddenly very small and very cross about it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Instantly transform all enemies into a baby, preventing them from acting ... damage dealt will interrupt this effect.' is_stun is the engine's incapacitate; the break-on-damage half has no hook, so it runs the full two turns.",
+      "target_type": "enemy",
+      "is_stun": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_fortify_timeline",
+      "name": "Fortify Timeline",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shore up the timeline you are all standing in.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 75,
+          "effect_value": 60
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 104,
+          "effect_value": 80
+        },
+        {
+          "rank": 3,
+          "level_req": 42,
+          "cost": 132,
+          "effect_value": 100
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 161,
+          "effect_value": 120
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 190,
+          "effect_value": 140
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'Fortify the current timeline, instantly healing all allies and extending the duration of Accelerated Recovery on them by 5 sec.' The extension half needs a cast to reach into an existing status effect's clock, which nothing supports, so this is the instant group heal only.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "chronomancer_timeguard",
+      "name": "Timeguard",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_taken_pct": -0.3
+      },
+      "description": "A guard set on an ally a little ahead of them, where the next bad thing will arrive.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'causing the next 3 instances of direct damage that would reduce the target below 35% health to deal 40% less damage'. No health-gated charge system exists, so it is a flat cut plus a real absorb for three turns.",
+      "absorb_pct_max_health": 0.1,
+      "target_type": "ally",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_hasten",
+      "name": "Hasten",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 15.0
+      },
+      "description": "Your ally gets to where they were going before they decide to go there.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree, referenced by The Bieko Effect, Maker of Realities and Unmaker of Realities; Artificer calls it 'Hasten to hand one ally haste and movement speed'.",
+      "target_type": "ally",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_temporal_focus",
+      "name": "Temporal Focus",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "cc_immune": 1
+      },
+      "description": "You lock yourself into one perfect moment. Nothing reaches in to move you out of it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'removing and becoming immune to banish, silence, and interrupt effects for 10 seconds'. cc_immune is the engine's real immunity flag (checked in StatusEffectMixin.apply_status_effect).",
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_temporal_anomaly",
+      "name": "Temporal Anomaly",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Reality bends around you and gives back what it took.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 60,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: 'causing 50% of the damage taken to be absorbed and converted into healing at the end of the duration'. An absorb shield is the absorb half; there is no deferred release, so the shield simply holds.",
+      "absorb_pct_max_health": 0.3,
+      "target_type": "self",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_infinite_shield",
+      "name": "Infinite Shield",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "Ten small refusals, handed to an ally one at a time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 55,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree: '10 charges ... Each time they take damage, they will be healed and lose 1 charge.' Charges do not exist; a four-turn absorb is the same trade.",
+      "absorb_pct_max_health": 0.18,
+      "target_type": "ally",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_gravity_bomb",
+      "name": "Gravity Bomb",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Put a weight on them that nothing nearby can stand far enough away from.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 55,
+          "effect_value": 70
+        },
+        {
+          "rank": 2,
+          "level_req": 48,
+          "cost": 77,
+          "effect_value": 94
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 98,
+          "effect_value": 118
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 120,
+          "effect_value": 142
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA class tree tier 2: 'After 6 seconds they explode for Chromatic Damage in a 10 yds radius. Directly before the explosion occurs, all enemies within 15 yds are teleported to the initial target.' The delay and the teleport-in have no hooks; a two-turn AoE DoT is the detonation.",
+      "target_type": "enemy_aoe",
+      "max_targets": 5,
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_chromatic_shard",
+      "name": "Chromatic Shard",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A shard of raw disorder. There is nothing in it to resist.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 46,
+          "effect_value": 66
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 62,
+          "effect_value": 86
+        },
+        {
+          "rank": 3,
+          "level_req": 22,
+          "cost": 78,
+          "effect_value": 106
+        },
+        {
+          "rank": 4,
+          "level_req": 28,
+          "cost": 94,
+          "effect_value": 126
+        },
+        {
+          "rank": 5,
+          "level_req": 34,
+          "cost": 110,
+          "effect_value": 146
+        },
+        {
+          "rank": 6,
+          "level_req": 40,
+          "cost": 126,
+          "effect_value": 166
+        },
+        {
+          "rank": 7,
+          "level_req": 46,
+          "cost": 142,
+          "effect_value": 186
+        },
+        {
+          "rank": 8,
+          "level_req": 52,
+          "cost": 158,
+          "effect_value": 206
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Your core spender is Chromatic Shard, a chaos bolt that pierces immunities and resistances.' No ability flag bypasses resistance - Monster.take_damage reduces by school resistance unconditionally - but the ATTACKER's spell_penetration is subtracted there, which is why the Time Means Nothing talent grants it instead of a vulnerability debuff. No cooldown: CoA has it getting FASTER as Anomaly Spikes land ('reduces the cast time of this ability by 10%, stacking 10 times') and the rotation says to 'dump Chromatic Shard' through the burst window, so Mana is what rations it, not a timer. It is the class's second spammable nuke - the shared kit otherwise has only Unmake, and a cloth caster with one filler loses fights a Mage with Fireball and Frostbolt wins.",
+      "target_type": "enemy",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_melt_reality",
+      "name": "Melt Reality",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 4,
+      "stat_mods": {},
+      "description": "The target's reality softens and starts to run.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 45,
+          "effect_value": 112
+        },
+        {
+          "rank": 2,
+          "level_req": 19,
+          "cost": 63,
+          "effect_value": 152
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 82,
+          "effect_value": 192
+        },
+        {
+          "rank": 4,
+          "level_req": 33,
+          "cost": 100,
+          "effect_value": 232
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 119,
+          "effect_value": 272
+        },
+        {
+          "rank": 6,
+          "level_req": 47,
+          "cost": 137,
+          "effect_value": 312
+        },
+        {
+          "rank": 7,
+          "level_req": 54,
+          "cost": 156,
+          "effect_value": 352
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Melt the target's reality, dealing Chromatic Damage every 3 sec for 30 seconds. While active, periodic damage dealt to the target is replicated for 20% of the value to all enemies near them.' The replication lives on the Shifting Chaos and Infinite Keeper talents, which use the engine's splash_damage proc payload.",
+      "target_type": "enemy",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_timerend",
+      "name": "Timerend",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Tear the fabric and leave the tear open.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 22,
+          "effect_value": 44
+        },
+        {
+          "rank": 2,
+          "level_req": 21,
+          "cost": 31,
+          "effect_value": 59
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 39,
+          "effect_value": 74
+        },
+        {
+          "rank": 4,
+          "level_req": 35,
+          "cost": 48,
+          "effect_value": 89
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 56,
+          "effect_value": 104
+        },
+        {
+          "rank": 6,
+          "level_req": 49,
+          "cost": 65,
+          "effect_value": 119
+        },
+        {
+          "rank": 7,
+          "level_req": 56,
+          "cost": 74,
+          "effect_value": 134
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Transforms your Wand of Time into Timerend. Rend the fabric of time, dealing Chromatic Damage over 6 seconds.' Authored as its own spell rather than a transform - nothing in the engine replaces one ability with another.",
+      "target_type": "enemy",
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_anomaly_spike",
+      "name": "Anomaly Spike",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Something comes loose and goes looking for the nearest target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 20,
+          "effect_value": 34
+        },
+        {
+          "rank": 2,
+          "level_req": 24,
+          "cost": 27,
+          "effect_value": 44
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 34,
+          "effect_value": 54
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 40,
+          "effect_value": 64
+        },
+        {
+          "rank": 5,
+          "level_req": 48,
+          "cost": 47,
+          "effect_value": 74
+        },
+        {
+          "rank": 6,
+          "level_req": 56,
+          "cost": 54,
+          "effect_value": 84
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Periodic damage dealt now has a chance to launch an Anomaly Spike at your target.' A real second spell, fired free by the Anomaly Spikes talent's cast_ability proc, which is why it exists as an ability at all.",
+      "target_type": "enemy",
+      "damage_school": "arcane",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_destabilize_time",
+      "name": "Destabilize Time",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": -20.0,
+        "attack_power": -40
+      },
+      "description": "Their sense of when to act stops agreeing with everyone else's.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Reduces enemy casting speed by -10% for 20 seconds, increasing by -10% every time they cast.' The escalation needs an on-enemy-cast hook; a flat slow plus an attack-power cut is the static version. Monsters read haste and attack_power off status effects and nothing else, so those are the two levers that work on them.",
+      "target_type": "enemy",
+      "buff_scope": "combat",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_slipstream",
+      "name": "Slipstream",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "You put one of them somewhere else for a while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Target an enemy and slip them into a pocket dimension for 5 seconds, banishing them and making them immune to damage.' The damage immunity is not expressible, so this is a two-turn incapacitate - which is the part the rotation actually uses it for ('Use Slipstream to remove a dangerous add from the fight').",
+      "target_type": "enemy",
+      "is_stun": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_infinite_horizon",
+      "name": "Infinite Horizon",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "damage_dealt_pct": 5
+      },
+      "description": "You widen everyone's view of what is about to happen.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 70,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases the all damage dealt by party and raid members by 3%', and 'Infinite Horizon giving the group a flat damage buff is its one support note'. damage_dealt_pct is the engine's buff-granted damage key (read in Ability._damage_multiplier) and takes percentage POINTS, unlike the talent keys.",
+      "target_type": "party",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_incarnation_of_chaos",
+      "name": "Incarnation of Chaos",
+      "resource_type": "mana",
+      "cooldown": 15,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 15,
+        "haste": 10.0
+      },
+      "description": "You stop being a person who uses chaos.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 42,
+          "cost": 60,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Transform into an Incarnate of Chaos, instantly resetting the cooldown of Chromatic Shard and causing your next cast to not incur a cooldown. In addition, your damage dealt is increased by 15% for 15 seconds.' Only the damage window is on the ability - the resets live on the Infinite Power and Aeon Rend talents, which have a real reset_cooldown proc payload to use.",
+      "target_type": "self",
+      "buff_scope": "combat",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_epoch",
+      "name": "Epoch",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You find the version of them that was not hurt yet and bring it forward.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 45,
+          "effect_value": 64
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 69,
+          "effect_value": 94
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 94,
+          "effect_value": 124
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 118,
+          "effect_value": 154
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 142,
+          "effect_value": 184
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 166,
+          "effect_value": 214
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 191,
+          "effect_value": 244
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Core loop is Epoch (a heal that builds Sands of Time stacks) and Accelerated Recovery (a HoT).' Sands of Time cannot be a resource (see module docstring), so the stack payoff is the Carbon Dating and Epic Recovery talents raising Epoch's own healing.",
+      "target_type": "ally"
+    },
+    {
+      "ability_id": "chronomancer_correct_the_mistake",
+      "name": "Correct the Mistake",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Whatever just happened to your party, you tell it differently.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 100,
+          "effect_value": 76
+        },
+        {
+          "rank": 2,
+          "level_req": 31,
+          "cost": 139,
+          "effect_value": 102
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 179,
+          "effect_value": 128
+        },
+        {
+          "rank": 4,
+          "level_req": 49,
+          "cost": 218,
+          "effect_value": 154
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 257,
+          "effect_value": 180
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Retell the fate of party members within 30 yds, healing them.' One of Time's two party-wide tools.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "chronomancer_ripple",
+      "name": "Ripple",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You hold the moment open and let it spread.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 120,
+          "effect_value": 96
+        },
+        {
+          "rank": 2,
+          "level_req": 39,
+          "cost": 166,
+          "effect_value": 128
+        },
+        {
+          "rank": 3,
+          "level_req": 48,
+          "cost": 212,
+          "effect_value": 160
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 258,
+          "effect_value": 192
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Channel for up to 5 seconds ... allies within 40 yds are healed based on the duration of the channel. While channeling, you are immune to stun effects.' There is no channel, so it resolves in one turn at full value and the stun immunity is dropped - Temporal Focus is where the class keeps that.",
+      "target_type": "party"
+    },
+    {
+      "ability_id": "chronomancer_aeon_of_resilience",
+      "name": "Aeon of Resilience",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "haste": 12.0,
+        "mp5": 12
+      },
+      "description": "You take the cheap, quick version of the trick, over and over.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA's level-10 free passive: 'Reduces Epoch's cast time by -25% and its mana cost by -10%, and healing done by it now reduces the target's damage taken.' Frontier has no free passives, so the first Aeon is learned from level and the other three are talents. All four share exclusive_group, which is the engine's real one-at-a-time mechanic and exactly CoA's 'four Aeons that share a cooldown'. duration 60 with buff_scope raid is the loadout pattern Tinker's Rounds already use for a stance that should survive between fights.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "chronomancer_aeon"
+    },
+    {
+      "ability_id": "chronomancer_aeon_of_protection",
+      "name": "Aeon of Protection",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "healing_done_pct": 12,
+        "damage_taken_pct": -0.1
+      },
+      "description": "Slower, heavier, and it leaves something behind to take the next hit.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases Epoch's cast time by 15%, healing done by 15%, and causes it to apply a damage absorption shield equal to 30% of the amount healed.' A cast buff cannot make ANOTHER spell apply a shield, so the absorb half is the Orderly Protector talent's shield_pct proc and this is the healing and mitigation half.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "chronomancer_aeon",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_aeon_of_renewal",
+      "name": "Aeon of Renewal",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "healing_done_pct": 18,
+        "haste": -6.0
+      },
+      "description": "Less now, more over the next while.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Reduces Epoch's healing by -30%, but causes it to heal for an additional 50% of the amount healed over 3 seconds.' Trading burst for total output is the shape; the engine cannot split one heal into a direct part and a trailing HoT, so it is more healing at a slower pace.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "chronomancer_aeon",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_aeon_of_oblivion",
+      "name": "Aeon of Oblivion",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "crit_chance_spell": 12,
+        "healing_done_pct": 10
+      },
+      "description": "Expensive, loud, and it lands when it has to.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 35,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Increases Epoch's mana cost by 30%, critical strike chance by 10%, and healing done by 15%. In addition, healing with Epoch now increases the target's damage dealt by 3%.' The recipient buff needs a heal to apply a buff to its target, which nothing supports.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "chronomancer_aeon",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_fabric_of_time",
+      "name": "Fabric of Time",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "heal",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You reach past the injury to the weave behind it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 34,
+          "cost": 70,
+          "effect_value": 86
+        },
+        {
+          "rank": 2,
+          "level_req": 42,
+          "cost": 98,
+          "effect_value": 116
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 126,
+          "effect_value": 146
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 154,
+          "effect_value": 176
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Alter the fabric of time, healing an ally. Your next Aeon used within 8 seconds will trigger with no cooldown or cost.' The free-Aeon rider is not expressible from a heal; the Orderly Protector talent carries the rest of this node's identity.",
+      "target_type": "ally",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_buy_time",
+      "name": "Buy Time",
+      "resource_type": "mana",
+      "cooldown": 14,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Everything in that patch of ground stops, including the parts you would rather keep.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 46,
+          "cost": 65,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Put all enemies and allies in an 8 yd radius into a stasis, banishing them for 6 seconds, making them invulnerable to all effects but unable to move.' The friendly-fire half (it freezes allies too) and the invulnerability are not expressible, so this is an AoE incapacitate on enemies - the use CoA's own rotation gives it ('freeze the extra mobs with Buy Time so they're locked out while you kill the first').",
+      "target_type": "enemy_aoe",
+      "max_targets": 4,
+      "is_stun": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_continuum_restoration",
+      "name": "Continuum Restoration",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You restore the local continuum, and nothing anyone did to it stays done.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 38,
+          "cost": 45,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Restore the continuum at target location for all allies and enemies, removing all beneficial magic effects from enemies and harmful magic effects from allies. This dispel is potent enough to remove magic effects that are normally undispellable.' A dispel reads one target, so the enemy-purge half is gone; the two-count is the 'potent' half.",
+      "target_type": "ally",
+      "dispel_type": "magic",
+      "dispel_count": 2
+    },
+    {
+      "ability_id": "chronomancer_displacement",
+      "name": "Displacement",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You pull them to where you are standing, and whatever was holding them is left behind.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Displaces a party or raid member and pulls them to you, dispelling root and snare effects from them.' There are no root or snare dispel categories (DispelType is magic/curse/poison/disease), and no repositioning, so this is the cleanse.",
+      "target_type": "ally",
+      "dispel_type": "magic"
+    },
+    {
+      "ability_id": "chronomancer_artificers_wand",
+      "name": "Artificer's Wand",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Two quick strikes with the wand, close enough together to count as one.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 38
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 27,
+          "effect_value": 49
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 33,
+          "effect_value": 60
+        },
+        {
+          "rank": 4,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 71
+        },
+        {
+          "rank": 5,
+          "level_req": 36,
+          "cost": 47,
+          "effect_value": 82
+        },
+        {
+          "rank": 6,
+          "level_req": 42,
+          "cost": 53,
+          "effect_value": 93
+        },
+        {
+          "rank": 7,
+          "level_req": 48,
+          "cost": 60,
+          "effect_value": 104
+        },
+        {
+          "rank": 8,
+          "level_req": 54,
+          "cost": 67,
+          "effect_value": 115
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Transforms your Unmake into Artificer's Wand ... unleash 2 wand attacks dealing Ranged Weapon damage. Generates 1 Echo Fragment.' ranged_damage deliberately: it scales off ranged_attack_power and the Ranged weapon roll, so Wand Expert's Spirit conversion is a real conversion rather than flavour. The trade is that arcane_spell_damage does NOT touch the wand line, which is why this tree's wand nodes use all_damage, crit_chance_physical and per-ability keys instead.",
+      "target_type": "enemy",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_crystal_cannon",
+      "name": "Crystal Cannon",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "ranged_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The wand fires on its own, twice, and does not ask.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 15,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 37,
+          "cost": 20,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 25,
+          "effect_value": 48
+        },
+        {
+          "rank": 4,
+          "level_req": 51,
+          "cost": 31,
+          "effect_value": 57
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 36,
+          "effect_value": 66
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Casting Discordance now unleashes the Crystal Cannon, launching 2 quick lesser Wand attacks at the enemy over 1 seconds, scaling with Spirit.' Fired free by the Crystal Cannon talent's cast_ability proc.",
+      "target_type": "enemy",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_shatter_echo",
+      "name": "Shatter Echo",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You let go of everything you have been holding back at once.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 75,
+          "effect_value": 90
+        },
+        {
+          "rank": 2,
+          "level_req": 29,
+          "cost": 102,
+          "effect_value": 118
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 129,
+          "effect_value": 146
+        },
+        {
+          "rank": 4,
+          "level_req": 43,
+          "cost": 156,
+          "effect_value": 174
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 182,
+          "effect_value": 202
+        },
+        {
+          "rank": 6,
+          "level_req": 57,
+          "cost": 209,
+          "effect_value": 230
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Distortion Spell. Launch a distorted echo from your wand at an enemy ... Damage increased by 40% for each Echo Fragment consumed.' Fragments are not a resource, so the spend is a cooldown and the Hyperwand and Pulse Driver talents are the fragment scaling.",
+      "target_type": "enemy",
+      "damage_school": "arcane",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_singularity_core",
+      "name": "Singularity Core",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "damage_dealt_pct": 10,
+        "crit_chance_physical": 6
+      },
+      "description": "A point of compressed time sitting just off your wand hand.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 28,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Continuum Spell. Empower your Wand attacks to deal an additional 50% Ranged Weapon Damage ... Can only have 1 Continuum spell active at a time.' The one-at-a-time rule is exclusive_group, the same mechanic the Aeons use. The per-fragment duration extension is not expressible.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "chronomancer_continuum",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_flux_emitter",
+      "name": "Flux Emitter",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 60,
+      "stat_mods": {
+        "damage_dealt_pct": 6,
+        "haste": 8.0
+      },
+      "description": "The wand's output spreads itself thinner and wider.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 36,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Continuum Spell. Empower Wand attacks to affect up to 2 additional nearby enemies ... Affected attacks deal less damage per additional enemy hit.' A buff cannot change another ability's target count, so the cleave lives on Splitting Time's aoe_damage and this is the throughput half - weaker per hit than Singularity Core, matching the trade CoA describes.",
+      "target_type": "self",
+      "buff_scope": "raid",
+      "exclusive_group": "chronomancer_continuum",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_paradox_cannon",
+      "name": "Paradox Cannon",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "You spend a minute you have not had yet.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 44,
+          "cost": 0,
+          "effect_value": 0,
+          "mana_restore_pct": 25
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Continuum Spell. Generate 1 Echo Fragment every 3 sec for 5 seconds, plus an additional 5 sec per Echo Fragment consumed.' A pure generator with nothing to generate - Echo Fragments are not a resource - so it banks the thing the rotation actually runs out of, and 'bank ahead with Paradox Cannon between pulls' still reads true. Deliberately NOT in the Continuum exclusive_group: restore_resource applies no status effect, so it has nothing to be exclusive with.",
+      "target_type": "self",
+      "restore_resource_type": "mana",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "chronomancer_aether_compression",
+      "name": "Aether Compression",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "enable_instant_cast",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Everything compresses, and the next thing you do takes no time at all.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Continuum Spell. Artificer's Wand and Reverse Wound can be cast while moving for 5 seconds.' Nothing moves in this engine, so the closest honest version of 'your cast stops costing you anything' is the instant-cast enabler. Also outside the Continuum exclusive_group, because enable_instant_cast does not apply a status effect that a group could exclude.",
+      "target_type": "self",
+      "is_instant": true
+    },
+    {
+      "ability_id": "chronomancer_arc_collision",
+      "name": "Arc Collision",
+      "resource_type": "mana",
+      "cooldown": 6,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "A small timestorm, with three of them standing in it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 48,
+          "cost": 48,
+          "effect_value": 62
+        },
+        {
+          "rank": 2,
+          "level_req": 51,
+          "cost": 68,
+          "effect_value": 84
+        },
+        {
+          "rank": 3,
+          "level_req": 54,
+          "cost": 87,
+          "effect_value": 106
+        },
+        {
+          "rank": 4,
+          "level_req": 57,
+          "cost": 107,
+          "effect_value": 128
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Distortion Spell. Create a timestorm around an enemy that causes them and up to 2 nearby enemies to take Arcane damage, repeating over 4 seconds.' CoA is blunt that it is 'a capped, undertuned timestorm rather than a pack nuke - don't build around it', so it is capped at 3 and carries no talent support.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "damage_school": "arcane"
+    },
+    {
+      "ability_id": "chronomancer_unstable_chronoglass",
+      "name": "Unstable Chronoglass",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {
+        "hit_chance_spell": -60
+      },
+      "description": "A pane of warped time, standing where the next spell was going to go.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 32,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Place an Unstable Chronoglass at target location that will redirect the next 3 offensive enemy spell casts onto itself.' Redirection needs a placed object that can be targeted, and the pet system's templates all carry their own display_name, so summoning one would put 'Sentry Turret' on screen. Implemented instead as the outcome - the enemy's spells stop landing - the same way mage_counterspell stands in for a real interrupt.",
+      "target_type": "enemy",
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_collapse",
+      "name": "Collapse",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "debuff",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "The moment they are standing in gives way under them.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "CoA: 'Collapse sets up a delayed stun'. The delay has no hook; the stun is real.",
+      "target_type": "enemy",
+      "is_stun": true,
+      "buff_scope": "combat"
+    }
+  ]
+}

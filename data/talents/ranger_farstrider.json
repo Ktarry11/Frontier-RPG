@@ -1,0 +1,466 @@
+{
+  "spec_name": "Ranger Farstrider",
+  "tree_id": "ranger_farstrider",
+  "description": "Ranged damage and party support. Horns and screeches buff the group on a shared cooldown, War Falcons fight alongside you, and Emerald and Woodland Arrows spend the bank while the party keeps the buff.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_ranger__farstrider.txt: 'Closest to Augmentation Evoker ... its identity is built around empowering allies' output ... It still does meaningful personal ranged damage on its own Advantage builder/finisher loop, with only minor incidental healing rather than a real HPS rotation.' That split is why the ally work is all ABILITIES (the two Horns on a shared exclusive_group, Battle Screech, Battle Prowess, Defense of the Ancients, Frenzy, Command Aura, Freedom) and the tree is the Ranger's own half: talent effects resolve against the owning character only. Stat priority is Hit > Agility > Crit > Haste > Armor Penetration, which is why this is the one Ranger tree with a haste node and no armour penetration node.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "ranger_farstrider_cunning",
+      "name": "Cunning",
+      "description": "Reduces the Archery Point cost of your abilities by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "all_ability_cost_pct": 0.02
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Focus regeneration by 15%'. Nothing in the engine regenerates archery_points, so the honest translation of a regeneration node is a cheaper kit: it buys the same number of extra casts per bank. POSITIVE is the reduction (talented_cost does cost * (1 - pct))."
+    },
+    {
+      "talent_id": "ranger_farstrider_windrunners_reach",
+      "name": "Windrunner's Reach",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the range of your ranged abilities by 5 yds. In addition, your critical strike chance against Undead, Beasts, and Dragonkin is increased by 2%'. Neither range nor creature type is a thing the ability system can read, so the crit is unconditional."
+    },
+    {
+      "talent_id": "ranger_farstrider_falcon_charmer",
+      "name": "Falcon Charmer",
+      "description": "Increases your War Falcon's health and armor by 4% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "pet_health": 0.04,
+        "pet_armor": 0.04
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases the duration of War Falcons by 3 sec'. Summoned pets here are persistent rather than timed, so 'lasts longer' becomes 'survives longer'. pet_health and pet_armor are live because this spec actually summons one (Call War Falcon, effect_type summon_pet)."
+    },
+    {
+      "talent_id": "ranger_farstrider_survivalist",
+      "name": "Survivalist",
+      "description": "Increases the healing done by Survival Potion by 6% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_ranger_survival_potion_healing": 0.06
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Reduces the cooldown of Survival Potion by -25%', and 'Drink Survival Potion yourself when eating poison or disease damage'. A flat cooldown key would take 5 turns off an 8-turn cooldown at full rank, so the node scales the heal instead. ability_<id>_healing is the key the heal path reads; ability_<id>_damage is ignored for heals, which is how 18 talents across four classes silently did nothing."
+    },
+    {
+      "talent_id": "ranger_farstrider_blow_the_horns",
+      "name": "Blow the Horns!",
+      "description": "Reduces the cooldown of your Horns by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_ranger_horn_of_war_cooldown": 1,
+        "ability_ranger_horn_of_alacrity_cooldown": 1
+      },
+      "connected_to": [
+        "ranger_farstrider_cunning"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Horn spells by -25%', and 'Woodland Arrow and the passive Blow the Horns! chip that cooldown back down, so a skilled Ranger keeps a Horn up far more than the raw cooldown suggests'. Woodland Arrow's half of that cannot exist - no cast can shorten another ability's cooldown - so the whole mechanic is concentrated here."
+    },
+    {
+      "talent_id": "ranger_farstrider_dream_flowers",
+      "name": "Dream Flowers",
+      "description": "Your critical strikes have a 25% chance per rank to heal you for 40.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_farstrider_windrunners_reach"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "heal_flat": 40
+      },
+      "_source": "CoA: 'Your damaging critical strikes now spawn a green Dream Flower ... When an ally runs over the flower, they consume it to heal for 3% maximum health'. There are no ground objects and no running over them, so the heal lands on the Ranger directly. CoA's own weakness note holds either way: 'Dream Flowers and Phoenix Plumes only fire off crits and finisher hits.'"
+    },
+    {
+      "talent_id": "ranger_farstrider_hunting_tactics",
+      "name": "Hunting Tactics",
+      "description": "Increases the damage of Skullpiercer by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_ranger_skullpiercer_damage": 0.05
+      },
+      "connected_to": [
+        "ranger_farstrider_falcon_charmer"
+      ],
+      "_source": "CoA: 'Damage dealt by Skullpiercer is increased by 30% against Poisoned targets'. No ability can test the target's effects, so it is unconditional and smaller."
+    },
+    {
+      "talent_id": "ranger_farstrider_razorquills",
+      "name": "Razorquills",
+      "description": "Increases the damage of your periodic effects by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "dot_damage": 0.04
+      },
+      "connected_to": [
+        "ranger_farstrider_survivalist"
+      ],
+      "_source": "CoA: 'Increases the tick rate of Toxic Dart and Emerald Arrows by -20%'. One tick per turn is fixed, so faster ticks become harder ones."
+    },
+    {
+      "talent_id": "ranger_farstrider_venom_coated_seeds",
+      "name": "Venom-Coated Seeds",
+      "description": "Increases the damage of Snapseed and Quel'dorei Poison by 6% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_ranger_snapseed_damage": 0.06,
+        "ability_ranger_queldorei_poison_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_farstrider_blow_the_horns"
+      ],
+      "_source": "CoA: 'Damage dealt by Snapseed now reduces the enemy's chance to hit by -15%'. hit_chance_taken on a monster debuff is read by nothing, so the node is damage on both of the spec's poison-flavoured abilities instead."
+    },
+    {
+      "talent_id": "ranger_farstrider_thread_the_needle",
+      "name": "Thread the Needle",
+      "description": "Your critical strikes have a 25% chance per rank to increase your haste by 10 for 2 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "ranger_farstrider_dream_flowers"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "ranger_thread_the_needle",
+          "name": "Thread the Needle",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Quick Shot or Falconstrike now reduce the cast time and cost of your next ability that consumes Advantage by -34%'. Cast time is haste here; the cost half cannot ride along, because all_ability_cost_pct is read through get_talent_effect and never sees a status effect's stat_mods."
+    },
+    {
+      "talent_id": "ranger_farstrider_forest_herald",
+      "name": "Forest Herald",
+      "description": "Your attacks have a 15% chance per rank to heal you for 30.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "ranger_farstrider_hunting_tactics"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "heal_flat": 30
+      },
+      "_source": "CoA: 'Casting Toxic Dart and abilities that spend stacks of Advantage now have a 20% chance to spawn a green Dreamflower'. Same ground-object gap as Dream Flowers, and the second half of what CoA means by 'No external healer needed.'"
+    },
+    {
+      "talent_id": "ranger_farstrider_guidance",
+      "name": "Guidance",
+      "description": "Increases your Physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "ranger_farstrider_razorquills"
+      ],
+      "_source": "CoA: 'Increases your Physical and Nature damage dealt by 1% for each War Falcon or Dragonhawk you have active'. Nothing can count active pets at damage time, so it is flat."
+    },
+    {
+      "talent_id": "ranger_farstrider_wingman",
+      "name": "Wingman",
+      "description": "Reduces all damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "ranger_farstrider_venom_coated_seeds"
+      ],
+      "_source": "CoA: 'Reduces all damage taken by -2% for each War Falcon or Dragonhawk you have active'. Pet-count scaling has no hook, so the per-falcon rate becomes a per-rank rate. damage_taken_pct is a FRACTION, not percentage points - this is the key convention the shipped Guardian got wrong on max_health_pct and reached 99,156 effective HP."
+    },
+    {
+      "talent_id": "ranger_farstrider_gutpiercer",
+      "name": "Gutpiercer",
+      "description": "Your attacks have a 20% chance per rank to leave the target taking 3% more Magic damage.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "ranger_farstrider_thread_the_needle"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "ranger_gutpiercer",
+          "name": "Gutpiercer",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "magic_damage_taken_pct": 3.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by War Falcons and Dragonhawks now has a 15% chance to reduce the enemy's resistances by 75 and increase their Magic damage taken'. A pet's hits fire no proc on the owner, so it keys off the Ranger's own casts. The magic debuff is the spec's real support contribution to a caster group. School-specific damage-taken keys inside a status effect are percentage POINTS."
+    },
+    {
+      "talent_id": "ranger_farstrider_plumes_of_war",
+      "name": "Plumes of War",
+      "description": "Increases the critical strike chance of Falconstrike and Emerald Arrow by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_ranger_falconstrike_crit": 3.0,
+        "ability_ranger_emerald_arrow_crit": 3.0
+      },
+      "connected_to": [
+        "ranger_farstrider_forest_herald"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Falconstrike and Emerald Arrow by 15%. In addition, critical strikes with Falconstrike now increase the damage of subsequent Falconstrikes by 5%, stacking 5 times'. The stacking half has no hook."
+    },
+    {
+      "talent_id": "ranger_farstrider_scavenger",
+      "name": "Scavenger",
+      "description": "Battle Screech lasts 1 turn longer per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_ranger_battle_screech_duration": 1
+      },
+      "connected_to": [
+        "ranger_farstrider_guidance"
+      ],
+      "_source": "CoA: 'Increases the duration of Battle Screech and reduces the cooldown of Snapseed by 5 sec'."
+    },
+    {
+      "talent_id": "ranger_farstrider_falcons_aid",
+      "name": "Falcon's Aid",
+      "description": "Increases your War Falcon's damage by 6% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "pet_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_farstrider_wingman"
+      ],
+      "_source": "CoA: 'Periodic damage dealt now has a 10% chance to summon a War Falcon to aid you in battle for 6 seconds'. Pets here are summoned and persistent rather than proc-spawned and timed, so more falcons becomes a better falcon. pet_damage is live for this spec because it has a real companion."
+    },
+    {
+      "talent_id": "ranger_farstrider_forest_fighter",
+      "name": "Forest Fighter",
+      "description": "Increases the damage of Woodland Arrow and Emerald Arrow by 6% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_ranger_woodland_arrow_damage": 0.06,
+        "ability_ranger_emerald_arrow_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_farstrider_gutpiercer"
+      ],
+      "_source": "CoA: 'Your Skullpiercers or Emerald Arrows used with 5 stacks of Advantage now reduce the cooldown of Woodland Arrow by -5 sec'. Conditional cooldown reduction from another cast has no hook, so the node makes the pair hit harder instead."
+    },
+    {
+      "talent_id": "ranger_farstrider_to_the_skies",
+      "name": "To the Skies!",
+      "description": "Reduces the cooldown of Backstep by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_ranger_backstep_cooldown": 1
+      },
+      "connected_to": [
+        "ranger_farstrider_plumes_of_war"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Bushcraft Glider by -30 sec'. Bushcraft Glider is overworld movement, which this kit has no equivalent of, so the node moves onto Backstep, the spec's other repositioning tool. CoA lists the two together: 'Backstep, Bushcraft Glider and Falcon Guide's speed proc make you hard to pin down.'"
+    },
+    {
+      "talent_id": "ranger_farstrider_frenzy",
+      "name": "Frenzy",
+      "description": "Increases your haste by 2 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "haste": 2.0
+      },
+      "connected_to": [
+        "ranger_farstrider_falcons_aid"
+      ],
+      "_source": "CoA: 'Frenzy's haste' is one of the free spec passives and also a party cooldown. The party half is the Frenzy ability; this node is the Ranger's own share, since a talent cannot reach allies."
+    },
+    {
+      "talent_id": "ranger_farstrider_defense_of_the_ancients",
+      "name": "Defense of the Ancients",
+      "description": "Increases your Armor by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "armor_pct": 4.0
+      },
+      "connected_to": [
+        "ranger_farstrider_forest_fighter"
+      ],
+      "_source": "CoA: 'Defense of the Ancients' armor' aura, same split as Frenzy: the party aura is the ability, this is the Ranger's own armour. armor_pct is percentage POINTS."
+    },
+    {
+      "talent_id": "ranger_farstrider_pecking",
+      "name": "Pecking",
+      "description": "Increases the damage you deal to additional targets by 6% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "aoe_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_farstrider_to_the_skies"
+      ],
+      "_source": "CoA: 'Your War Falcons and Dragonhawks now have a 25% chance to deal additional Physical damage to 3 nearby enemies'. Pet AoE is not something a talent can add to a pet template, so the node scales the Ranger's own cleave (Whipvine Arrow, Quills, Incendiary Shot)."
+    },
+    {
+      "talent_id": "ranger_farstrider_coordination",
+      "name": "Coordination",
+      "description": "Increases your critical strike chance by 4%, your critical strike damage by 10%, and your War Falcon's damage by 6%.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "crit_chance_physical": 4.0,
+        "crit_damage_physical": 0.1,
+        "pet_damage": 0.06
+      },
+      "connected_to": [
+        "ranger_farstrider_frenzy",
+        "ranger_farstrider_defense_of_the_ancients",
+        "ranger_farstrider_pecking"
+      ],
+      "_source": "Capstone. CoA: 'Your War Falcons and Dragonhawks now grant you a stack of Coordination when they deal damage ... Increases your critical strike chance and critical damage by 1% for 15 seconds, stacking 10 times.' A pet's hits fire no proc on the owner, so the 10-stack ramp lands as its maximum value held permanently, and the falcon gets a share of it. Chosen over Thalassian Brand as the capstone because Brand is already a real ability in the kit and CoA rates this spec's own throughput 'moderate' - a passive ceiling fits better than another button."
+    }
+  ]
+}

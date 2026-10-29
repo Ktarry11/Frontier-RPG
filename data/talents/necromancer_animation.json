@@ -1,0 +1,473 @@
+{
+  "spec_name": "Necromancer Animation",
+  "tree_id": "necromancer_animation",
+  "description": "An army instead of a rotation - keep minions standing, flood the field with short-lived undead, and live off what they do.",
+  "_source_note": "Built from reference/coa_sidekick/SPEC_necromancer__animation.txt and the 42 'animation' nodes in reference/coa_sidekick/talents/necromancer.json. CoA: 'You play less like a spellcaster and more like a one-person raid group', and it is the recommended levelling spec because 'An undead army tanks and kills for you while you stay at range'. The engine allows exactly ONE active pet (Character.summon_pet replaces active_pet) and no new pet templates, so CoA's stacked army is split in two here: the one real minion, which this tree makes as strong as the three live pet keys allow (Summoning Adept, Ghoul Mastery, Anti-Magic Shell, Army of the Dead, Master Animator), and the temporary Animates, which are area-damage abilities rather than bodies. Stat priority is Spell Hit > Spell Power > Haste > Intellect > Crit.",
+  "tier_requirements": {
+    "0": 0,
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 25,
+    "6": 30
+  },
+  "nodes": [
+    {
+      "talent_id": "necromancer_animation_sepulchral_might",
+      "name": "Sepulchral Might",
+      "description": "Increases your Stamina by 2% and your spell power by 5 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "stamina_pct": 2.0,
+        "spell_power": 5
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Increases your Stamina by 5%. Increases your spell damage by an amount equal to 15% of the total of your Raised minion's Stamina.' A stat conversion needs both sides on the same character - the shared STAT_CONVERSION maps in character.py have no minion source - so the conversion lands as flat spell power."
+    },
+    {
+      "talent_id": "necromancer_animation_graverobber",
+      "name": "Graverobber",
+      "description": "Reduces the Life Force cost of your abilities by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "all_ability_cost_pct": -0.02
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Reduces the mana cost and cast time of your Raise and Animate spells by -30%.' Nothing groups abilities into CoA's Raise/Animate schools, so the reduction is general and much smaller per rank."
+    },
+    {
+      "talent_id": "necromancer_animation_scourge_disciple",
+      "name": "Scourge Disciple",
+      "description": "Increases your haste by 1 per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 1.0
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Each active Skeletal Archer now increases your haste by 5%.' Archers are AoE damage here rather than countable bodies, so the haste is unconditional. Haste is third in this spec's stat priority."
+    },
+    {
+      "talent_id": "necromancer_animation_runic_animation",
+      "name": "Runic Animation",
+      "description": "Reduces the cooldown of Animate: Skeletal Archers by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_necromancer_animate_skeletal_archers_cooldown_pct": 0.05
+      },
+      "connected_to": [],
+      "_source": "CoA: 'Reduces the cooldown of Animate: Skeletal Archers and Command: Hook by -20%.' Archers is the cast this spec presses on cooldown ('rotate RP into Animate: Skeletal Archers ... on cooldown to keep bodies on the pack'), so it gets the node."
+    },
+    {
+      "talent_id": "necromancer_animation_bone_king",
+      "name": "Bone King",
+      "description": "Your area spells have a 20% chance per rank to cast a free Lichfrost.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "necromancer_animation_sepulchral_might"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "ability_filter": [
+          "necromancer_corpse_explosion",
+          "necromancer_march_of_the_dead",
+          "necromancer_animate_skeletal_archers"
+        ],
+        "cast_ability": "necromancer_lichfrost"
+      },
+      "_source": "CoA: 'Bone King procs free instant Lichfrost or Blight' - 'Casting Command spells now has a 15% chance to make your next Lichfrost within 5 seconds instant cast.' cast_ability fires the real ability for free, which is closer to CoA's intent than a cast-time reduction would be in a turn engine."
+    },
+    {
+      "talent_id": "necromancer_animation_forbidden_technique",
+      "name": "Forbidden Technique",
+      "description": "Reduces the cooldown of Animate: Plaguefather by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_necromancer_animate_plaguefather_cooldown_pct": 0.06
+      },
+      "connected_to": [
+        "necromancer_animation_graverobber"
+      ],
+      "_source": "CoA: 'Forbidden Technique shortens Animate cooldowns' - 'Casting Command spells now reduces the cooldown of your Animates by -1 sec.' A cooldown key names one ability, so it names the Animate the rotation leans on hardest after the Archers."
+    },
+    {
+      "talent_id": "necromancer_animation_summoning_adept",
+      "name": "Summoning Adept",
+      "description": "Increases your minion's health by 4% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "pet_health": 0.04
+      },
+      "connected_to": [
+        "necromancer_animation_scourge_disciple"
+      ],
+      "_source": "CoA's Summoning Adept/Expert/Prodigy line all read 'Increases your maximum Life Force by 1' - a bigger minion budget. life_force_max is the key for that and tools/audit_talents.py does not list it as live (see module docstring), and only one pet can be active at a time regardless, so a wider budget becomes a tougher minion."
+    },
+    {
+      "talent_id": "necromancer_animation_skeletal_artillery",
+      "name": "Skeletal Artillery",
+      "description": "Increases the damage of Animate: Skeletal Archers by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_necromancer_animate_skeletal_archers_damage": 0.05
+      },
+      "connected_to": [
+        "necromancer_animation_runic_animation"
+      ],
+      "_source": "CoA: 'Your Animate: Skeletal Archers now summons 1 additional Skeletal Archer.' More archers firing into the same pack is more damage from the same cast."
+    },
+    {
+      "talent_id": "necromancer_animation_ghoul_mastery",
+      "name": "Ghoul Mastery",
+      "description": "Increases your minion's damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "pet_damage": 0.05
+      },
+      "connected_to": [
+        "necromancer_animation_bone_king"
+      ],
+      "_source": "CoA: 'Damage dealt by your Ghouls now has a 15% chance to transform them into a Frenzied Ghoul, increasing haste by 40% for 10 seconds.' A Pet has no proc system and reads only pet_damage/pet_health/pet_armor off its owner, so a haste frenzy becomes flat damage."
+    },
+    {
+      "talent_id": "necromancer_animation_anti_magic_shell",
+      "name": "Anti-Magic Shell",
+      "description": "Increases your minion's armor by 6% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "pet_armor": 0.06
+      },
+      "connected_to": [
+        "necromancer_animation_forbidden_technique"
+      ],
+      "_source": "CoA: 'When you summon a Raised minion, it now raises with a shield absorbing Magic damage equal to 40% of their maximum health.' No absorb shields and no pet magic resistance key; pet_armor is the third and last of the owner talent keys a Pet reads, also a FRACTION."
+    },
+    {
+      "talent_id": "necromancer_animation_vampiric_aura",
+      "name": "Vampiric Aura",
+      "description": "Your damage spells have a 33% chance per rank to heal you for 10% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "necromancer_animation_summoning_adept"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "leech_pct": {
+          "pct": 0.1
+        }
+      },
+      "_source": "CoA class tree: 'While you are below 50% health, your Undead minions now heal you for 10% of their damage dealt.' A pet's damage is not a proc trigger on its owner and there is no health condition on leech_pct, so it fires off the Necromancer's own casts. This is the spec's real sustain - CoA: 'There is no heal button here and it does not need one.'"
+    },
+    {
+      "talent_id": "necromancer_animation_mindless_fury",
+      "name": "Mindless Fury",
+      "description": "Your casts have a 20% chance per rank to increase your haste by 8 for 3 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "necromancer_animation_skeletal_artillery"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "necromancer_mindless_fury",
+          "name": "Mindless Fury",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": 8.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Casting Animate or Command spells now increases your haste by 1% for 10 seconds, stacking 5 times.' Stacks are not expressible on a synthetic talent proc effect, so the five-stack ceiling arrives as one larger buff at a chance."
+    },
+    {
+      "talent_id": "necromancer_animation_flesh_symbiosis",
+      "name": "Flesh Symbiosis",
+      "description": "Increases your Armor by 3% and your magic resistance by 20 per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "armor_pct": 3.0,
+        "magic_resistance": 20
+      },
+      "connected_to": [
+        "necromancer_animation_ghoul_mastery"
+      ],
+      "_source": "CoA: 'Each Abomination or Decaying Colossus active now increases your total Armor and magic resistance by 30% and causes you to periodically regenerate 2% maximum health every 5 sec.' Nothing counts active Abominations and there is no periodic self-regen hook, so the armour and resistance are unconditional and far smaller. NOTE armor_pct is PERCENT POINTS (divided by 100), unlike the pet_* fractions two tiers up."
+    },
+    {
+      "talent_id": "necromancer_animation_plague_horde",
+      "name": "Plague Horde",
+      "description": "Your damage spells have a 20% chance per rank to smear Zombie Plague on the target.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "necromancer_animation_anti_magic_shell"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "necromancer_zombie_plague",
+          "name": "Zombie Plague",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 40,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by your Undead minions now has a 10% chance to cast Plague Horde on themselves ... and emit Zombie Plague, dealing SP Plague damage to their target.' A pet's hit cannot trigger an owner proc, so the Necromancer emits it. Plague is Shadow here, per CoA's own 'shadow SP Plague damage' wording."
+    },
+    {
+      "talent_id": "necromancer_animation_crypt_keeper",
+      "name": "Crypt Keeper",
+      "description": "Increases the damage your area effects deal by 8% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "aoe_damage": 0.08
+      },
+      "connected_to": [
+        "necromancer_animation_vampiric_aura"
+      ],
+      "_source": "CoA: 'Your Crypt Swarm now bounces to 2 additional nearby enemies, at 30% reduced value per enemy struck.' Crypt Swarm is single-target here, so the bounce lands on the Animate line, which is where this spec's area damage actually is."
+    },
+    {
+      "talent_id": "necromancer_animation_unrelenting",
+      "name": "Unrelenting",
+      "description": "Increases the damage of Crypt Swarm by 6% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_necromancer_crypt_swarm_damage": 0.06
+      },
+      "connected_to": [
+        "necromancer_animation_mindless_fury"
+      ],
+      "_source": "CoA: 'Reduces the channel time of your Crypt Swarm by -25%.' A quarter off a channel is a quarter more damage per turn spent on it, and Crypt Swarm is where this spec's Life Force comes from."
+    },
+    {
+      "talent_id": "necromancer_animation_army_of_the_dead",
+      "name": "Army of the Dead",
+      "description": "Increases your minion's health by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "pet_health": 0.05
+      },
+      "connected_to": [
+        "necromancer_animation_flesh_symbiosis"
+      ],
+      "_source": "CoA: 'While only 1 Abomination is active, the critical strike chance of your Ghouls is increased by 10% and haste by 10%.' Pet crit and pet haste are not keys a Pet reads; pet_health is, and CoA's own weakness list says 'AoE cleave or CC that kills the pets takes your damage and your self-healing with them'."
+    },
+    {
+      "talent_id": "necromancer_animation_underking",
+      "name": "Underking",
+      "description": "Reduces the cooldown of Animate: Tomb King by 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_necromancer_animate_tomb_king_cooldown": 2
+      },
+      "connected_to": [
+        "necromancer_animation_plague_horde"
+      ],
+      "_source": "CoA: 'Casting Command spells now grants you a stack of Underking ... At 10 stacks, the cooldown of Animate: Tomb King, Animate: Bone Wraith or Animate: Plaguefather is reduced by -15 sec at random.' No stack counter and no random pick, so it is a flat reduction on the one the rotation wants up permanently ('Keep Tomb King up')."
+    },
+    {
+      "talent_id": "necromancer_animation_long_march",
+      "name": "Long March",
+      "description": "Reduces the cooldown of March of the Dead by 8% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_necromancer_march_of_the_dead_cooldown_pct": 0.08
+      },
+      "connected_to": [
+        "necromancer_animation_crypt_keeper"
+      ],
+      "_source": "CoA: 'Removes the cooldown from March of the Dead, but gives it a 1 sec cast time.' talented_cooldown floors every cooldown at 1 turn, so removing it outright is impossible by design - eight abilities once went spammable that way. A reduction instead, with no cast time to trade for it."
+    },
+    {
+      "talent_id": "necromancer_animation_chomp",
+      "name": "Chomp",
+      "description": "Your critical strikes have a 25% chance per rank to tear 90 extra damage out of the target.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "necromancer_animation_army_of_the_dead"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 25,
+        "icd": 1,
+        "damage_flat": 90
+      },
+      "_source": "CoA: 'Critical strikes dealt by your Abominations and Decaying Collosi now Chomp your target, dealing SP damage to them.' A pet's crit is not an owner proc trigger, so the Necromancer's own crits do the biting."
+    },
+    {
+      "talent_id": "necromancer_animation_corpse_wagon",
+      "name": "Corpse Wagon",
+      "description": "Increases all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "connected_to": [
+        "necromancer_animation_underking"
+      ],
+      "_source": "CoA: 'Increases all damage dealt by party and raid members by 3% ... In addition, increases the damage of Corpse Explosion by 25%.' The party aura is the ability of the same name; a talent only reads off its own character, so this is the self share."
+    },
+    {
+      "talent_id": "necromancer_animation_plague_protection",
+      "name": "Plague Protection",
+      "description": "Reduces all damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "connected_to": [
+        "necromancer_animation_long_march"
+      ],
+      "_source": "CoA: 'Increases the effectiveness of your Wards by 25%.' Wards here are Fetid Ward and Anti-Magic Shell, both defensive, and there is no ability-effectiveness key, so the node is flat mitigation. NOTE damage_taken_pct is a FRACTION as a talent and also as a buff - one of the few keys where the two conventions agree."
+    },
+    {
+      "talent_id": "necromancer_animation_master_animator",
+      "name": "Master Animator",
+      "description": "Whatever you raise comes up bigger, meaner and harder to put back down.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "pet_damage": 0.15,
+        "pet_health": 0.15,
+        "pet_armor": 0.15
+      },
+      "connected_to": [
+        "necromancer_animation_chomp",
+        "necromancer_animation_corpse_wagon",
+        "necromancer_animation_plague_protection"
+      ],
+      "_source": "Capstone. CoA's own tier-6 Master Animator is 'Increases your maximum Life Force by 1' - one more minion. The key for that pool is not available to a talent here (see module docstring) and only one pet can be active at a time anyway, so the capstone spends itself on the minion you do have, across all three keys a Pet reads. CoA rates this spec Arena A / BG A on exactly this: 'Permanent Raise: Ghoul pets stack with temporary Animate pets ... Several bodies soaking and dealing damage at once covers for bringing no hard CC.'"
+    }
+  ]
+}

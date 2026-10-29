@@ -210,10 +210,18 @@ def proc_payload_keys():
     return set(keys)
 
 
-PROC_TRIGGERS = {
-    "on_damage_taken", "on_cast", "on_damage_cast", "on_weapon_swing",
-    "on_crit", "on_kill", "on_heal_cast", "on_damage_or_heal_cast",
-}
+def proc_triggers():
+    """Derived from ProcTrigger.ALL, never hand-listed.
+
+    A hardcoded copy went stale the moment the engine gained the avoidance
+    triggers (on_dodge/on_parry/on_avoid/on_block) and would have failed
+    every talent that used them.
+    """
+    from combat.status_effects import ProcTrigger
+    return set(ProcTrigger.ALL)
+
+
+PROC_TRIGGERS = proc_triggers()
 NODE_TYPES = {"passive", "active"}
 
 
