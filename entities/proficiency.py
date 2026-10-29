@@ -54,6 +54,83 @@ def _load_class_weapon_map():
         return {}
 
 
+def _load_weapon_types():
+    import json
+    from pathlib import Path
+    path = Path(__file__).parent.parent / "data" / "items" / "weapon_types.json"
+    try:
+        with open(path, "r") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def is_one_handed_weapon(weapon_type):
+    """True for a weapon that can sit in either hand (hand == main_or_off).
+
+    Shields and tomes are hand == "off_hand" and are NOT one-handed weapons
+    for dual-wield purposes - holding a shield has never been dual-wielding.
+    """
+    if weapon_type in (None, ""):
+        return False
+    types = _load_weapon_types().get("weapon_types", {})
+    return types.get(weapon_type, {}).get("hand") == "main_or_off"
+
+
+def active_spec(character):
+    """The spec slug the character has invested most heavily in, or None.
+
+    WoW's own convention: your spec is whichever tree holds the most points.
+    Derived rather than stored, because Character has no spec field - it has
+    talent_trees keyed by spec slug, each with total_points_spent().
+    """
+    trees = getattr(character, "talent_trees", None) or {}
+    best, best_points = None, 0
+    for slug, tree in trees.items():
+        try:
+            points = tree.total_points_spent()
+        except Exception:                                      # noqa: BLE001
+            continue
+        if points > best_points:
+            best, best_points = slug, points
+    return best
+
+
+def can_dual_wield(character):
+    """True if this character may hold a one-handed weapon in the off-hand.
+
+    Dual-wielding had NO restriction of any kind before 29 Oct 2026. Nothing
+    in the game modelled it: can_equip checked the weapon TYPE but never the
+    SLOT, so any class with dagger proficiency - eighteen of them - could put
+    a dagger in its off-hand, and LootGenerator would roll `main_or_off`
+    weapon types into the off_hand slot for anyone, so a Priest could be
+    handed an off-hand sword by a normal drop.
+
+    Kyle, 29 Oct: "we ALSO need to restrict dual wielding to the right
+    classes." The allow-list lives in data/items/weapon_types.json's
+    dual_wield key - vanilla's Rogue, Fury Warrior and Enhancement Shaman,
+    plus the CoA classes and specs built for it.
+
+    Spec-gated where the design is spec-gated, because that is how both WoW
+    and CoA describe it: Fury dual-wields and Arms does not, Runemaster's
+    Engravement "explicitly unlocks dual-wielding", Reaper's Harvest "gains
+    the ability to". A character with no talent points spent has no spec yet,
+    so a spec-gated class is not permitted until it commits - which matches
+    dual wield being a thing you train into rather than start with.
+
+    A class absent from dual_wield cannot dual-wield at all. This one fails
+    CLOSED, unlike can_wear_weapon_type: an unauthored key here would
+    silently restore the free-for-all this exists to stop.
+    """
+    table = _load_weapon_types().get("dual_wield", {})
+    allowed = table.get(getattr(character, "char_class", None))
+    if allowed is None:
+        return False
+    if allowed == "all":
+        return True
+    return active_spec(character) in set(allowed)
+
+
 def get_class_armor_type(char_class):
     """The heaviest armor type a class is proficient in (e.g. Paladin -> plate)."""
     return _load_class_armor_map().get(char_class, "cloth")
@@ -121,6 +198,15 @@ def can_equip(character, item):
         except Exception:
             pass
         return False, f"{character.char_class} cannot equip {display}"
+
+    # DUAL WIELD. Checked here because this is the only equip gate that sees
+    # both the character and the item; Equipment has no owner and derives the
+    # slot from item.slot, so it cannot ask who is equipping. A shield or a
+    # tome in the off-hand is not dual-wielding - only a one-handed WEAPON is
+    # (is_one_handed_weapon keys on hand == "main_or_off").
+    if getattr(item, "slot", None) == "off_hand" and is_one_handed_weapon(weapon_type):
+        if not can_dual_wield(character):
+            return False, f"{character.char_class} cannot dual wield"
 
     required_level = getattr(item, "required_level", 0) or 0
     if character.level < required_level:

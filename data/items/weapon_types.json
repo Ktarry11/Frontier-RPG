@@ -389,8 +389,7 @@
       "axe_1h",
       "axe_2h",
       "dagger",
-      "fist_weapon",
-      "polearm"
+      "fist_weapon"
     ],
     "Witch Hunter": [
       "sword_1h",
@@ -532,11 +531,11 @@
     ],
     "Starcaller": [
       "sword_1h",
+      "sword_2h",
       "mace_1h",
       "mace_2h",
       "dagger",
       "fist_weapon",
-      "polearm",
       "staff",
       "wand",
       "shield",
@@ -575,5 +574,40 @@
       "display_name": "Staff",
       "dps_multiplier": 0.55
     }
+  },
+  "dual_wield": {
+    "Rogue": "all",
+    "Warrior": [
+      "warrior_fury"
+    ],
+    "Shaman": [
+      "shaman_enhancement"
+    ],
+    "Ranger": "all",
+    "Runemaster": [
+      "runemaster_engravement"
+    ],
+    "Reaper": [
+      "reaper_harvest"
+    ],
+    "Felsworn": [
+      "felsworn_slayer",
+      "felsworn_tyrant"
+    ],
+    "Sun Cleric": [
+      "sun_cleric_valkyrie",
+      "sun_cleric_seraphim"
+    ],
+    "Primalist": [
+      "primalist_wildwalker",
+      "primalist_grovekeeper"
+    ],
+    "Barbarian": [
+      "barbarian_brutality"
+    ],
+    "Witch Hunter": [
+      "witch_hunter_inquisition",
+      "witch_hunter_boltslinger"
+    ]
   }
 }

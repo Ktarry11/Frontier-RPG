@@ -273,6 +273,13 @@ class LootGenerator:
 
         if slot in WEAPON_SLOTS:
             weapon_type = self._pick_weapon_type_for_class(char_class, slot)
+            if weapon_type is None:
+                # The class has no legal item for this slot (an off-hand for a
+                # class with no shield, no tome and no dual wield). Roll the
+                # main hand instead of returning nothing, so the drop still
+                # happens and is still something the class can hold.
+                slot = "main_hand"
+                weapon_type = self._pick_weapon_type_for_class(char_class, slot)
             return self.generate_weapon(slot, weapon_type, stat_template, item_level, rarity)
         else:
             return self.generate_armor_piece(slot, armor_type, stat_template, item_level, rarity)
@@ -575,6 +582,16 @@ class LootGenerator:
                 return random.choice(candidate_slots)
         return random.choice(all_slots)
 
+    def _class_may_dual_wield(self, char_class):
+        """Can ANY spec of this class dual-wield? See data's dual_wield key.
+
+        Fails CLOSED on a missing key, matching proficiency.can_dual_wield:
+        an unauthored entry here would quietly restore the free-for-all the
+        restriction exists to stop.
+        """
+        allowed = self.weapon_types.get("dual_wield", {}).get(char_class)
+        return allowed == "all" or bool(allowed)
+
     def _pick_weapon_type_for_class(self, char_class, slot):
         valid_weapons = self.weapon_types["class_weapon_map"].get(char_class, ["mace_1h"])
         # Filter by hand compatibility for the given slot
@@ -584,9 +601,35 @@ class LootGenerator:
             if slot == "main_hand" and hand in ("main_or_off", "two_hand"):
                 compatible.append(wt)
             elif slot == "off_hand" and hand in ("main_or_off", "off_hand"):
+                # A one-handed WEAPON in the off-hand is dual-wielding, so only
+                # offer it to a class that may dual-wield at all. Before this,
+                # off_hand accepted every main_or_off type for every class, so
+                # a normal drop could hand a Priest an off-hand sword - a slot
+                # it can fill but should never be able to. Shields and tomes
+                # are hand == "off_hand" and are unaffected.
+                #
+                # Class-level, not spec-level, deliberately: loot is generated
+                # without a character in hand (see _roll_target_class - most
+                # drops are itemized for a class nobody is playing), so the
+                # spec gate cannot be applied here. entities/proficiency.py's
+                # can_dual_wield does the spec check at equip time. The result
+                # is that a Fury-only weapon can drop for a Warrior and an Arms
+                # Warrior cannot equip it, which is exactly how WoW behaves.
+                if hand == "main_or_off" and not self._class_may_dual_wield(char_class):
+                    continue
                 compatible.append(wt)
             elif slot == "ranged" and hand == "ranged":
                 compatible.append(wt)
+
+        if not compatible and slot == "off_hand":
+            # NOTHING, rather than a main-hand weapon shoved into the off-hand.
+            # The main-hand fallback below is right for the ranged slot it was
+            # written for and wrong here: once dual-wield was restricted,
+            # Hunter had no legal off-hand item at all - no shield, no tome,
+            # and no dual wield - so the fallback handed it off-hand polearms
+            # and staves, which is worse than the hole it was patching.
+            # Returning None lets the caller roll a different slot.
+            return None
 
         if not compatible:
             # No hand-compatible weapon exists for this class+slot combo (e.g. a
